@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7733148777cde2a487e5c93d7750eb7a24ff531c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88999397"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Nawiązywanie połączenia za pomocą tożsamości zarządzanej z usługą Azure Database for MySQL
@@ -205,6 +205,6 @@ Connected!
 MySQL version: 5.7.27
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Zapoznaj się z ogólnymi pojęciami dotyczącymi [uwierzytelniania Azure Active Directory przy użyciu Azure Database for MySQL](concepts-azure-ad-authentication.md)

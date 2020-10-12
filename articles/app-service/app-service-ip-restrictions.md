@@ -8,10 +8,10 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962965"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Ograniczenia dostępu Azure App Service
@@ -48,7 +48,7 @@ Podczas tworzenia reguły należy wybrać opcję Zezwalaj/Odmów, a także typ r
 
 ![Dodawanie reguły ograniczeń dostępu do adresu IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
-Aby ustawić regułę opartą na adresie IP, wybierz typ protokołu IPv4 lub IPv6. Należy określić notację adresu IP w notacji CIDR dla adresów IPv4 i IPv6. Aby określić dokładny adres, można użyć czegoś takiego jak 1.2.3.4/32, gdzie pierwsze cztery oktety reprezentują adres IP i/32 jest maską. Notacja CIDR protokołu IPv4 dla wszystkich adresów ma wartość 0.0.0.0/0. Aby dowiedzieć się więcej na temat notacji CIDR, można odczytać [bezklasowy Routing między domenami](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Aby ustawić regułę opartą na adresie IP, wybierz typ protokołu IPv4 lub IPv6. Należy określić notację adresu IP w notacji CIDR dla adresów IPv4 i IPv6. Aby określić dokładny adres, można użyć czegoś takiego jak 1.2.3.4/32, gdzie pierwsze cztery oktety reprezentują adres IP i/32 jest maską. Notacja CIDR protokołu IPv4 dla wszystkich adresów ma wartość 0.0.0.0/0. Aby dowiedzieć się więcej na temat notacji CIDR, można odczytać [Inter-Domain routingu bezklasowego](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="service-endpoints"></a>Punkty końcowe usługi
 
@@ -133,7 +133,7 @@ Składnia JSON dla poprzedniego przykładu:
 
 Ograniczenia dostępu są również dostępne dla aplikacji funkcji o takich samych funkcjach jak plany App Service. Włączenie ograniczeń dostępu spowoduje wyłączenie edytora kodu portalu dla wszelkich niedozwolonych adresów IP.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [Ograniczenia dostępu dla Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Application Gateway integrację z punktami końcowymi usługi](networking/app-gateway-with-service-endpoints.md)

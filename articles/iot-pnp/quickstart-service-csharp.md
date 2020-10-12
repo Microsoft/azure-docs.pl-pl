@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759173"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945380"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (C#)
 
@@ -34,7 +34,7 @@ Aby ukończyć ten przewodnik Szybki Start w systemie Windows, na komputerze dew
 
 Jeśli zakończysz [Przewodnik Szybki Start: Podłącz przykładową aplikację urządzenia IoT Plug and Play działającą w systemie Windows do IoT Hub (C#)](quickstart-connect-device-csharp.md), masz już Sklonowane repozytorium.
 
-Sklonuj przykłady z repozytorium Microsoft Azure IoT SDK dla programu .NET GitHub. Otwórz wiersz polecenia w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT przykłady dla repozytorium programu .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub:
+Sklonuj przykłady z przykładów usługi Azure IoT dla repozytorium w serwisie GitHub w języku C#. Otwórz wiersz polecenia w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT przykłady dla repozytorium programu .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -55,7 +55,6 @@ W tym przewodniku szybki start użyto przykładowego urządzenia z termostatem, 
     | IOTHUB_DEVICE_DPS_ID_SCOPE | Wartość zanotowana po zakończeniu [konfigurowania środowiska](set-up-environment.md) |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | My-PnP-Device |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | Wartość zanotowana po zakończeniu [konfigurowania środowiska](set-up-environment.md) |
-
 
 1. Teraz można skompilować przykład w programie Visual Studio i uruchomić go w trybie debugowania.
 
@@ -81,9 +80,9 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w język
 
 1. Teraz można skompilować przykład w programie Visual Studio i uruchomić go w trybie debugowania.
 
-### <a name="get-digital-twin"></a>Uzyskaj wieloosiową cyfrę
+### <a name="get-device-twin"></a>Pobierz sznurki urządzenia
 
-Poniższy fragment kodu przedstawia sposób, w jaki aplikacja usługi pobiera dwuosiową cyfrę:
+Poniższy fragment kodu przedstawia sposób pobierania sznurka urządzenia przez aplikację usługi:
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -92,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> Ten przykład używa przestrzeni nazw **Microsoft. Azure. Devices. Client;** z **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat pobierania identyfikatora modelu, zobacz [przewodnik dewelopera](concepts-developer-guide-service.md).
+> Ten przykład używa przestrzeni nazw **Microsoft. Azure. Devices. Client** z poziomu **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
 
 Ten kod generuje następujące dane wyjściowe:
 
@@ -101,7 +100,7 @@ Ten kod generuje następujące dane wyjściowe:
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-Poniższy fragment kodu przedstawia sposób używania *poprawki* do aktualizowania właściwości za pomocą dwuosiowej:
+Poniższy fragment kodu przedstawia sposób używania *poprawki* do aktualizowania właściwości za pomocą sznurka urządzenia:
 
 ```C#
 // Update the twin

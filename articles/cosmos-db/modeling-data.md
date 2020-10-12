@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136043"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelowanie danych w Azure Cosmos DB
@@ -299,7 +299,7 @@ W powyższym przykładzie podaliśmy niepowiązaną kolekcję do dokumentu wydaw
 W relacyjnej bazie danych *wiele: wiele* relacji jest często modelowanych przy użyciu tabel sprzężenia, które po prostu łączą rekordy z innych tabel.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Sprzęganie tabel" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Model relacyjnej bazy danych" border="false":::
 
 Może być skłonny do replikowania tych samych rzeczy przy użyciu dokumentów i tworzenia modelu danych, który wygląda podobnie do poniższego.
 
@@ -442,4 +442,4 @@ Aby dowiedzieć się więcej na temat Azure Cosmos DB, zapoznaj się ze stroną 
 
 Aby dowiedzieć się, jak fragmentu dane w wielu partycjach, zobacz [Partycjonowanie danych w Azure Cosmos DB](sql-api-partition-data.md).
 
-Aby dowiedzieć się, jak modelować i dzielić dane na Azure Cosmos DB przy użyciu rzeczywistego przykładu, zobacz [modelowanie i partycjonowanie danych — rzeczywisty przykład](how-to-model-partition-example.md).
+Aby dowiedzieć się, jak modelować i dzielić dane na Azure Cosmos DB przy użyciu rzeczywistego przykładu, zapoznaj się z artykułem [ modelowanie i partycjonowanie danych — Real-World przykład](how-to-model-partition-example.md).

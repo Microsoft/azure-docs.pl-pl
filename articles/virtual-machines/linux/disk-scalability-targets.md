@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.openlocfilehash: e986348c063626bd6a0b5a834854bad09d73c952
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88814199"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Cele dotyczące skalowalności i wydajności dysków maszyn wirtualnych w systemie Linux

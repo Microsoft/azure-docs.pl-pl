@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855393"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Azure Portal
@@ -115,7 +115,7 @@ Aby dodać moduł z Azure Stream Analytics, wykonaj następujące kroki:
 
 Po dodaniu modułu do wdrożenia można wybrać jego nazwę, aby otworzyć stronę **modułu aktualizacji IoT Edge** . Na tej stronie można edytować ustawienia modułu, zmienne środowiskowe, opcje tworzenia i sznurki modułowe. Jeśli dodano moduł z portalu Marketplace, może on mieć już wypełnione niektóre parametry.
 
-W przypadku tworzenia wdrożenia warstwowego można skonfigurować moduł, który istnieje w innych wdrożeniach przeznaczonych dla tych samych urządzeń. Aby zaktualizować splot modułu bez zastępowania innych wersji, Otwórz kartę **Ustawienia sznurka modułu** . Utwórz nową **Właściwość sznurka modułu** o unikatowej nazwie dla podsekcji w ramach żądanych właściwości sznurka `properties.desired.settings` modułu. Jeśli zdefiniujesz właściwości w tylko `properties.desired` polu, spowoduje to zastąpienie żądanych właściwości modułu zdefiniowanego we wdrożeniach o niższym priorytecie.
+W przypadku tworzenia wdrożenia warstwowego można skonfigurować moduł, który istnieje w innych wdrożeniach przeznaczonych dla tych samych urządzeń. Aby zaktualizować splot modułu bez zastępowania innych wersji, Otwórz kartę **Ustawienia dla sznurka modułu** . Utwórz nową **Właściwość sznurka modułu** o unikatowej nazwie podsekcji w odpowiednich właściwościach sznurka modułu, na przykład `properties.desired.settings` . Jeśli zdefiniujesz właściwości w tylko `properties.desired` polu, spowoduje to zastąpienie żądanych właściwości modułu zdefiniowanego we wdrożeniach o niższym priorytecie.
 
 ![Ustaw właściwość sznurka modułu dla wdrożenia warstwowego](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -183,7 +183,7 @@ Po zmodyfikowaniu wdrożenia zmiany są natychmiast replikowane na wszystkie urz
 
 1. W centrum IoT wybierz pozycję **IoT Edge** w menu po lewej stronie.
 1. Wybierz kartę **wdrożenia IoT Edge** a następnie wybierz wdrożenie, które chcesz skonfigurować.
-1. Wybierz kartę **warunek docelowy** . Zmień **warunek docelowy** , aby wskazać docelowe urządzenia. Możesz również dostosować **priorytet**.  Wybierz pozycję **Zapisz**.
+1. Wybierz kartę **warunek docelowy** . Zmień **warunek docelowy** , aby określić docelowe urządzenia. Możesz również dostosować **priorytet**.  Wybierz pozycję **Zapisz**.
 
     W przypadku zaktualizowania warunku docelowego następujące aktualizacje są wykonywane:
 

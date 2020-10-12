@@ -12,10 +12,10 @@ manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136052"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
@@ -60,7 +60,7 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 - Zainstalowanie programu **Azure PowerShell**. Postępuj zgodnie z instrukcjami w temacie [Install Azure PowerShell in Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Program PowerShell służy do uruchamiania skryptu w celu utworzenia własnego środowiska Integration Runtime, które może być współużytkowane z innymi fabrykami danych. 
 
 > [!NOTE]  
-> Aby zapoznać się z listą regionów świadczenia usługi Azure, w których Data Factory są obecnie dostępne, wybierz regiony, które interesują Cię z [produktami dostępnymi według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> Aby zapoznać się z listą regionów świadczenia usługi Azure, w których Data Factory są obecnie dostępne, wybierz regiony, które interesują Cię z  [produktami dostępnymi według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ### <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
@@ -97,7 +97,7 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 1. Tworzenie grupy zasobów i fabryki danych.
 
     > [!NOTE]  
-    > Ten krok jest opcjonalny. Jeśli masz już fabrykę danych, Pomiń ten krok. 
+    > Ta czynność jest opcjonalna. Jeśli masz już fabrykę danych, Pomiń ten krok. 
 
     Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w lokalizacji WestEurope: 
 
@@ -116,7 +116,7 @@ Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu Azure Pow
 ### <a name="create-a-self-hosted-integration-runtime"></a>Tworzenie własnego środowiska Integration Runtime
 
 > [!NOTE]  
-> Ten krok jest opcjonalny. Jeśli masz już własne środowisko Integration Runtime, które chcesz udostępnić innym fabrykom danych, Pomiń ten krok.
+> Ta czynność jest opcjonalna. Jeśli masz już własne środowisko Integration Runtime, które chcesz udostępnić innym fabrykom danych, Pomiń ten krok.
 
 Uruchom następujące polecenie, aby utworzyć własne środowisko Integration Runtime:
 
@@ -155,7 +155,7 @@ Odpowiedź zawiera klucz uwierzytelniania dla własnego środowiska Integration 
 #### <a name="create-another-data-factory"></a>Tworzenie innej fabryki danych
 
 > [!NOTE]  
-> Ten krok jest opcjonalny. Jeśli masz już fabrykę danych, którą chcesz udostępnić, Pomiń ten krok. Jednak w celu dodania lub usunięcia przypisań ról do innej fabryki danych wymagane są `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Ta czynność jest opcjonalna. Jeśli masz już fabrykę danych, którą chcesz udostępnić, Pomiń ten krok. Jednak w celu dodania lub usunięcia przypisań ról do innej fabryki danych wymagane są `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

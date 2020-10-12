@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 9b773eee27cd72562999e468f90dd87907cf9677
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776191"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Tworzenie potoków predykcyjnych przy użyciu Azure Machine Learning Studio (klasyczny) i Azure Data Factory
@@ -182,7 +182,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
     }
     ```
 
-    Wejściowy plik CSV musi mieć wiersz nagłówka kolumny. Jeśli używasz **działania kopiowania** do tworzenia/przenoszenia woluminu CSV do magazynu obiektów blob, należy ustawić właściwość ujścia **blobWriterAddHeader** na **wartość true**. Przykład:
+    Wejściowy plik CSV musi mieć wiersz nagłówka kolumny. Jeśli używasz **działania kopiowania** do tworzenia/przenoszenia woluminu CSV do magazynu obiektów blob, należy ustawić właściwość ujścia **blobWriterAddHeader** na **wartość true**. Na przykład:
 
     ```JSON
     sink:

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88007917"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Najlepsze rozwiązania dotyczące usługi Azure Cache for Redis 
@@ -61,7 +61,7 @@ Istnieje kilka rzeczy związanych z użyciem pamięci w wystąpieniu serwera Red
 ## <a name="when-is-it-safe-to-retry"></a>Kiedy można bezpiecznie ponowić próbę?
 Niestety, nie ma żadnej prostej odpowiedzi.  Każda aplikacja musi zdecydować, jakie operacje mogą być ponawiane, a które nie.  Każda operacja ma inne wymagania i zależności między kluczami.  Oto kilka rzeczy, które można wziąć pod uwagę:
 
- * Można pobrać błędy po stronie klienta, nawet jeśli Redis pomyślnie uruchomił polecenie, które prosi o jego uruchomienie.  Przykład:
+ * Można pobrać błędy po stronie klienta, nawet jeśli Redis pomyślnie uruchomił polecenie, które prosi o jego uruchomienie.  Na przykład:
      - Limity czasu to koncepcje po stronie klienta.  Jeśli operacja osiągnęła serwer, na serwerze zostanie uruchomione polecenie, nawet jeśli klient nawiąże oczekiwanie.  
      - Gdy w połączeniu z gniazdem wystąpi błąd, nie można sprawdzić, czy operacja rzeczywiście została uruchomiona na serwerze.  Na przykład błąd połączenia może wystąpić po przetworzeniu żądania przez serwer, ale przed odebraniem odpowiedzi przez klienta.
  *  Jak reaguje moja aplikacja, jeśli przypadkowo uruchamiasz tę samą operację dwukrotnie?  Na przykład, co w przypadku zwiększenia liczby całkowitej dwa razy zamiast raz?  Czy moja aplikacja zapisuje się w tym samym kluczu z wielu miejsc?  Co zrobić, jeśli moja logika ponawiania zastępuje wartość ustawioną przez inną część mojej aplikacji?
@@ -74,14 +74,14 @@ Jeśli chcesz przetestować działanie kodu w warunkach błędów, rozważ użyc
  * **Zalecamy używanie serii maszyn wirtualnych Dv2** dla klienta, ponieważ mają one lepszy sprzęt i dają najlepsze wyniki.
  * Upewnij się, że używana maszyna wirtualna klienta ma **co najmniej tyle obliczeń i przepustowości* jako przetestowanej pamięci podręcznej. 
  * Jeśli korzystasz z systemu Windows, **Włącz opcję wirtualnego skalowania** na komputerze klienckim.  [Zobacz tutaj, aby uzyskać szczegółowe informacje](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Przykładowy skrypt programu PowerShell:
-     >PowerShell-ExecutionPolicy bez ograniczeń Enable-NetAdapterRSS-Name (Get-ServiceAdapter). Nazwij 
+     >PowerShell-ExecutionPolicy unstricted Enable-NetAdapterRSS-Name (Get-ServiceAdapter). Nazwij 
      
  * **Rozważ użycie wystąpień usługi Redis w warstwie Premium**.  Te rozmiary pamięci podręcznej będą mieć większe opóźnienia sieci i przepływność, ponieważ działają na lepszym sprzęcie dla obu procesorów i sieci.
  
      > [!NOTE]
      > Nasze obserwowane wyniki wydajności są [publikowane w tym miejscu](cache-planning-faq.md#azure-cache-for-redis-performance) dla odwołania.   Należy również pamiętać, że protokół SSL/TLS dodaje pewne obciążenie, dzięki czemu możesz uzyskać różne opóźnienia i/lub przepływność, jeśli używasz szyfrowania transportowego.
  
-### <a name="redis-benchmark-examples"></a>Redis — przykłady testów porównawczych
+### <a name="redis-benchmark-examples"></a>Przykłady Redis-Benchmark
 **Konfiguracja przed testami**: Przygotuj wystąpienie pamięci podręcznej z danymi wymaganymi dla poleceń testowania opóźnienia i przepływności wymienionych poniżej.
 > Redis-test-h yourcache.redis.cache.windows.net-a yourAccesskey-t SET-n 10-d 1024 
 

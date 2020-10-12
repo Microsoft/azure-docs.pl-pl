@@ -4,10 +4,10 @@ description: Użyj oceny doradcy, aby maksymalnie wykorzystać platformę Azure
 ms.topic: article
 ms.date: 09/09/2020
 ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335623"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Optymalizowanie obciążeń platformy Azure przy użyciu oceny klasyfikatora
@@ -17,11 +17,11 @@ ms.locfileid: "91335623"
 Azure Advisor zapewnia zalecenia dotyczące najlepszych rozwiązań dla obciążeń. Te zalecenia są personalizowane i umożliwiają podejmowanie działań w celu ułatwienia:
 * Zwiększ stan obciążeń i zoptymalizuj wdrożenia platformy Azure
 * Zaaktywnie Zapobiegaj najważniejszym problemom, wykonując następujące najlepsze rozwiązania
-* Oceń obciążenia platformy Azure względem pięciu filarów [Microsoft Azure architektury dobrze zaprojektowanej](https://docs.microsoft.com/azure/architecture/framework/)
+* Oceń obciążenia platformy Azure względem pięciu filarów [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
 
 Jako podstawowa funkcja usługi Advisor **Ocena usługi Advisor** jest opracowana w celu ułatwienia skutecznego i efektywnego osiągnięcia tych celów. 
 
-Aby maksymalnie wykorzystać możliwości platformy Azure, należy zrozumieć, w jaki sposób odbywa się Optymalizacja obciążenia, które usługi/zasoby są używane, a które nie. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat określania priorytetów akcji, na podstawie zaleceń, aby zmaksymalizować wynik. Ważne jest również śledzenie i raportowanie postępu wykonywanego w ramach tej przejazdu optymalizacji. **Ocena usługi Advisor**pozwala łatwo wykonać wszystkie te czynności za pomocą naszego nowego środowiska grywalizacji. Jako spersonalizowany konsultant chmury Azure Advisor stale ocenia dane telemetryczne użycia i konfigurację zasobów w celu sprawdzenia najlepszych praktyk branżowych. Następnie usługa Advisor agreguje swoje ustalenia do pojedynczego wyniku, dzięki czemu możesz natychmiast powiedzieć, jeśli podejmujesz kroki niezbędne do tworzenia niezawodnych, bezpiecznych i ekonomicznych rozwiązań. Ocena klasyfikatora składa się z ogólnej oceny, która może być podzielona na pięć ocen kategorii, po jednej dla każdej kategorii Azure Advisor, która reprezentuje pięć filarów dobrze zaprojektowanej struktury. Postęp można śledzić w czasie, wyświetlając ogólny wynik oceny i kategorii za pomocą codziennych, tygodniowych i miesięcznych trendów, a następnie można ustawić testy porównawcze, aby ułatwić osiągnięcie celów. 
+Aby maksymalnie wykorzystać możliwości platformy Azure, należy zrozumieć, w jaki sposób odbywa się Optymalizacja obciążenia, które usługi/zasoby są używane, a które nie. Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat określania priorytetów akcji, na podstawie zaleceń, aby zmaksymalizować wynik. Ważne jest również śledzenie i raportowanie postępu wykonywanego w ramach tej przejazdu optymalizacji. **Ocena usługi Advisor**pozwala łatwo wykonać wszystkie te czynności za pomocą naszego nowego środowiska grywalizacji. Jako spersonalizowany konsultant chmury Azure Advisor stale ocenia dane telemetryczne użycia i konfigurację zasobów w celu sprawdzenia najlepszych praktyk branżowych. Następnie usługa Advisor agreguje swoje ustalenia do pojedynczego wyniku, dzięki czemu możesz natychmiast powiedzieć, jeśli podejmujesz kroki niezbędne do tworzenia niezawodnych, bezpiecznych i ekonomicznych rozwiązań. Ocena klasyfikatora składa się z ogólnej oceny, którą można podzielić na pięć ocen kategorii, jednej dla każdej kategorii Azure Advisor, która reprezentuje pięć filarów Well-Architected Framework. Postęp można śledzić w czasie, wyświetlając ogólny wynik oceny i kategorii za pomocą codziennych, tygodniowych i miesięcznych trendów, a następnie można ustawić testy porównawcze, aby ułatwić osiągnięcie celów. 
 
  ![Środowisko oceny usługi Advisor](./media/advisor-score-1.png)
 

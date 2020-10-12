@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777109"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Omówienie testu porównawczego zabezpieczeń platformy Azure (wersja 2)
@@ -22,7 +22,7 @@ Produkt Azure Security test (ASB) zawiera najlepsze rozwiązania i zalecenia uł
 Ten test porównawczy jest częścią zestawu całościowej wskazówki dotyczącego zabezpieczeń, który obejmuje również:
 
 - **Struktura wdrażania w chmurze** — wskazówki dotyczące zabezpieczeń, w tym [strategia](/azure/cloud-adoption-framework/strategy/define-security-strategy), [role i obowiązki](/azure/cloud-adoption-framework/organize/cloud-security), [najlepsze rozwiązania dotyczące zabezpieczeń i 10 systemu Azure](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)oraz [implementację referencyjną](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-- **Architektura platformy Azure** — wskazówki dotyczące [zabezpieczania obciążeń](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) na platformie Azure.
+- **Azure Well-Architected Framework** — wskazówki dotyczące [zabezpieczania obciążeń](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) na platformie Azure.
 - **Najlepsze rozwiązania w zakresie zabezpieczeń firmy Microsoft** — [zalecenia](/security/compass/microsoft-security-compass-introduction) dotyczące przykładów na platformie Azure.
 
  Test porównawczy zabezpieczeń platformy Azure koncentruje się na obszarach formantów skoncentrowanych na chmurze. Te kontrolki są spójne z dobrze znanymi standardami zabezpieczeń, takimi jak te opisane w formantach Center for Internet Security (CIS), wersja 7,1 i National Institute of Standards and Technology (NIST) SP800-53.

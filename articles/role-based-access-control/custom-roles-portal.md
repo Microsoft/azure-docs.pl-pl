@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
 ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511725"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure za pomocą witryny Azure Portal
@@ -35,7 +35,7 @@ Platforma Azure ma tysiące uprawnień, które można dołączyć do roli niesta
 
 | Metoda | Opis |
 | --- | --- |
-| Obejrzyj istniejące role | Możesz sprawdzić istniejące role, aby zobaczyć, jakie uprawnienia są używane. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](built-in-roles.md). |
+| Obejrzyj istniejące role | Możesz sprawdzić istniejące role, aby zobaczyć, jakie uprawnienia są używane. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](built-in-roles.md). |
 | Wyszukaj uprawnienia według słowa kluczowego | Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można wyszukać uprawnienia według słowa kluczowego. Można na przykład wyszukać *maszynę wirtualną* lub uprawnienia do *rozliczeń* . Ta funkcja wyszukiwania została opisana w dalszej części [sekcji Krok 4. uprawnienia](#step-4-permissions). |
 | Pobierz wszystkie uprawnienia | Podczas tworzenia roli niestandardowej przy użyciu Azure Portal można pobrać wszystkie uprawnienia jako plik CSV, a następnie przeszukać ten plik. W okienku **Dodaj uprawnienia** kliknij przycisk **Pobierz wszystkie uprawnienia** , aby pobrać wszystkie uprawnienia. Aby uzyskać więcej informacji na temat okienka Dodawanie uprawnień, zobacz [krok 4. uprawnienia](#step-4-permissions). |
 | Wyświetl uprawnienia w witrynie docs | Dostępne uprawnienia można wyświetlić w [Azure Resource Manager operacji dostawcy zasobów](resource-provider-operations.md). |

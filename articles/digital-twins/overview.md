@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 082e05bddd4fe12b279368e44b2d986bd4fa91a7
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89003851"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945332"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -84,7 +84,7 @@ Kompletne rozwiązanie przy użyciu usługi Azure Digital bliźniaczych reprezen
 * Co najmniej jedna aplikacja kliencka, która tworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji przez skonfigurowanie modeli, utworzenie topologii i wyodrębnienie szczegółowych informacji z grafu sznurów.
 * Co najmniej jeden zewnętrzny zasób obliczeniowy do przetwarzania zdarzeń generowanych przez usługę Azure Digital bliźniaczych reprezentacji lub połączone źródła danych, takie jak urządzenia. Typowym sposobem zapewnienia zasobów obliczeniowych jest za pośrednictwem [Azure Functions](../azure-functions/functions-overview.md).
 * Centrum IoT w celu zapewnienia możliwości zarządzania urządzeniami i strumieni danych IoT.
-* Usługi podrzędne obsługujące zadania, takie jak integracja przepływu pracy (na przykład [Logic Apps](../logic-apps/logic-apps-overview.md), zimny magazyn, integracja z seriami czasowymi lub analiza. 
+* Usługi podrzędne obsługujące zadania, takie jak integracja przepływu pracy (na przykład [Logic Apps](../logic-apps/logic-apps-overview.md), chłodna pamięć, integracja z seriami czasowymi lub analiza).
 
 Na poniższym diagramie przedstawiono, gdzie usługa Azure Digital bliźniaczych reprezentacji znajduje się w kontekście większego rozwiązania Azure IoT.
 

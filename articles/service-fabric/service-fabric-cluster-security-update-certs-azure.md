@@ -4,10 +4,10 @@ description: Opisuje, jak dodać nowe certyfikaty, certyfikat przerzucania i usu
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869766"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Add or remove certificates for a Service Fabric cluster in Azure (Dodawanie lub usuwanie certyfikatów dla klastra usługi Service Fabric na platformie Azure)
@@ -197,7 +197,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-Wdróż szablon w grupie zasobów. Użyj tej samej grupy zasobów, do której jest obecnie wdrożony klaster. Uruchom polecenie New-AzResourceGroupDeployment. Nie trzeba określać trybu, ponieważ wartością domyślną jest **przyrostowy**.
+Wdróż szablon w grupie zasobów. Użyj tej samej grupy zasobów, do której jest obecnie wdrożony klaster. Uruchom New-AzResourceGroupDeployment polecenie. Nie trzeba określać trybu, ponieważ wartością domyślną jest **przyrostowy**.
 
 > [!NOTE]
 > Jeśli ustawisz tryb na zakończony, możesz przypadkowo usunąć zasoby, które nie znajdują się w szablonie. Dlatego nie należy używać go w tym scenariuszu.
@@ -263,7 +263,7 @@ Można dodać dwa rodzaje certyfikatów klienta — administrator lub tylko do o
 Można określić dowolną liczbę certyfikatów klienta. Każde dodanie/usunięcie powoduje aktualizację konfiguracji klastra Service Fabric.
 
 
-### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Dodawanie certyfikatów klienta — administrator lub tylko do odczytu za pośrednictwem portalu
+### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Dodawanie certyfikatów klienta — administrator lub Read-Only za pośrednictwem portalu
 
 1. Przejdź do sekcji Zabezpieczenia i wybierz przycisk "+ Uwierzytelnianie" znajdujący się u góry sekcji Zabezpieczenia.
 2. W sekcji "Dodawanie uwierzytelniania" Wybierz pozycję "typ uwierzytelniania" — "klient tylko do odczytu" lub "klient administracyjny".
@@ -271,7 +271,7 @@ Można określić dowolną liczbę certyfikatów klienta. Każde dodanie/usunię
 
 ![Dodaj certyfikat klienta][Add_Client_Cert]
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Usuwanie certyfikatów klienta — administrator lub tylko do odczytu przy użyciu portalu
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Usuwanie certyfikatów klienta — administrator lub Read-Only przy użyciu portalu
 
 Aby usunąć certyfikat pomocniczy z używania na potrzeby zabezpieczeń klastra, przejdź do sekcji Zabezpieczenia i wybierz opcję "Usuń" z menu kontekstowego dla określonego certyfikatu.
 

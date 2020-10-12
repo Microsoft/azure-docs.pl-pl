@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 27ea88ad4d349d6a7aedd4e1e3bc8dc804683292
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 952d0acb00a25fe7d84738825cbad017e5b18029
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326086"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892697"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
@@ -60,7 +60,7 @@ Użytkownicy mogą wyświetlać zawartość witryny z przeglądarki przy użyciu
 Jeśli serwer zwróci błąd 404 i nie został określony dokument błędu po włączeniu witryny sieci Web, do użytkownika zostanie zwrócona domyślna strona 404.
 
 > [!NOTE]
-> Mechanizm [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) nie jest obsługiwany w przypadku statycznej witryny sieci Web.
+> [Obsługa udostępniania zasobów między źródłami (CORS) dla usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) nie jest obsługiwana w przypadku statycznej witryny sieci Web.
 
 ### <a name="regional-codes"></a>Kody regionalne
 

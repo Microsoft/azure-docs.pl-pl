@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888716"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945400"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -45,7 +45,7 @@ Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowo-śr
 Chmura Wiosnowa platformy Azure ma następujące znane ograniczenia:
     
 * `spring.application.name` zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
-* `server.port` wartość domyślna to port 1025. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie ona zastąpiona do 1025.
+* `server.port` wartość domyślna to port 1025. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie zastąpiona. Należy również przestrzegać tego ustawienia i nie określać portu serwera w kodzie.
 * Szablony Azure Portal i Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazywać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Jakie warstwy cenowe są dostępne? 
@@ -148,7 +148,7 @@ Poprawki zabezpieczeń stosowane w chmurze Azure wiosennej są przeprowadzone do
 Krytyczne poprawki zabezpieczeń (ocena w >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
 ::: zone-end
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>wdrażania
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Wiosenna Cloud obsługuje wdrożenie Blue-Green?
 Tak. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska przejściowego](spring-cloud-howto-staging-environment.md).

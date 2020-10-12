@@ -10,10 +10,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595805"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Tworzenie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure PowerShell

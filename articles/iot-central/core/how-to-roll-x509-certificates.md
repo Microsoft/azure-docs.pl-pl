@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 76e2b9542d20b5788a2875dec89d447ce38276a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122065"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Jak wycofać certyfikaty urządzeń X. 509 w aplikacji IoT Central
@@ -30,7 +30,7 @@ Własne certyfikaty X. 509 można utworzyć przy użyciu narzędzia, takiego jak
 
 Aby zaktualizować rejestrację grupy w odpowiedzi na naruszenie zabezpieczeń, należy zastosować następujące podejście, które natychmiast aktualizuje bieżący certyfikat:
 
-1. W lewym okienku przejdź do obszarze **Administracja** , a następnie kliknij pozycję **połączenie z urządzeniem**.
+1. W lewym okienku przejdź do obszarze **Administracja**  , a następnie kliknij pozycję **połączenie z urządzeniem**.
 
 2. Kliknij pozycję **grupy rejestracji**, a następnie kliknij nazwę grupy na liście.
 
@@ -52,7 +52,7 @@ Aby zaktualizować rejestrację grupy w odpowiedzi na naruszenie zabezpieczeń, 
 
 W przypadku wycofywania certyfikatów do obsługi wygaśnięć certyfikatów należy natychmiast zaktualizować bieżący certyfikat przy użyciu następujących metod:
 
-1. W lewym okienku przejdź do obszarze **Administracja** , a następnie kliknij pozycję **połączenie z urządzeniem**. 
+1. W lewym okienku przejdź do obszarze **Administracja**  , a następnie kliknij pozycję **połączenie z urządzeniem**. 
 
 2. Kliknij pozycję **grupy rejestracji**, a następnie kliknij nazwę grupy na liście.
 
@@ -82,7 +82,7 @@ Jeśli używasz wycofywania certyfikatów w odpowiedzi na naruszenie zabezpiecze
 
     ![Zarządzanie rejestracjami indywidualnymi](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. W przypadku aktualizacji certyfikatu kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij pozycję **Zapisz**.
+4. W przypadku aktualizacji certyfikatu kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
 
     Wykonaj następujące kroki dla certyfikatów podstawowy i pomocniczy, jeśli oba zabezpieczenia zostały naruszone
 
@@ -102,7 +102,7 @@ Później, gdy certyfikat pomocniczy zbliża się również do wygaśnięcia i m
 
     ![Zarządzanie rejestracjami indywidualnymi](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. W przypadku dodatkowej aktualizacji certyfikatu kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij pozycję **Zapisz**.
+4. W przypadku dodatkowej aktualizacji certyfikatu kliknij ikonę folderu, aby wybrać nowy certyfikat do przekazania dla wpisu rejestracji. Kliknij przycisk **Zapisz**.
 
 
 5. Później, po wygaśnięciu certyfikatu podstawowego, wróć i zaktualizuj ten certyfikat podstawowy.

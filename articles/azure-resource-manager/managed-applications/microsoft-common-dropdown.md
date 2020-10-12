@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474346"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Microsoft. Common. DropDown — element interfejsu użytkownika
@@ -26,19 +26,19 @@ Gdy tylko jeden element jest dozwolony do zaznaczania, formant jest wyświetlany
 
 Po uwzględnieniu opisów kontrolka jest wyświetlana jako:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór z opisami":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
 
 W przypadku włączenia wyboru wielu elementów kontrolka dodaje opcję **Zaznacz wszystko** i zawiera pola wyboru umożliwiające wybranie więcej niż jednego elementu:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. DropDown — wybór wiele":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
 
 Opisy można dołączać z włączoną opcją wyboru wiele.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. DropDown — wybór wieloznaczny z opisami":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
 
 Po włączeniu filtrowania kontrolka zawiera pole tekstowe służące do dodawania wartości filtrowania.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown — wybór wieloznaczny z opisami":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown — pojedynczy wybór":::
 
 ## <a name="schema"></a>Schemat
 
@@ -88,7 +88,7 @@ Po włączeniu filtrowania kontrolka zawiera pole tekstowe służące do dodawan
 - `filter`Właściwość umożliwia użytkownikom wyszukiwanie w obrębie długiej listy opcji.
 - Etykieta `constraints.allowedValues` jest wyświetlany tekst dla elementu, a jego wartość jest wartością wyjściową elementu, gdy jest zaznaczone.
 - Jeśli jest określony, wartość domyślna musi być etykietą obecną w `constraints.allowedValues` . Jeśli nie zostanie określony, pierwszy element w `constraints.allowedValues` jest zaznaczony. Wartość domyślna to **null**.
-- `constraints.allowedValues`musi zawierać co najmniej jeden element.
+- `constraints.allowedValues` musi zawierać co najmniej jeden element.
 - Aby emulować wartość, która nie jest wymagana, Dodaj element z etykietą i wartością `""` (pusty ciąg) do `constraints.allowedValues` .
 - `defaultDescription`Właściwość jest używana dla elementów, które nie mają opisu.
 - `placeholder`Właściwość jest tekstem pomocy, który znika, gdy użytkownik rozpoczyna edycję. Jeśli `placeholder` i `defaultValue` są zdefiniowane, `defaultValue` ma pierwszeństwo i jest pokazywany.

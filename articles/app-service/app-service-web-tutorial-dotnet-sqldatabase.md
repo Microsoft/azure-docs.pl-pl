@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 ms.openlocfilehash: 90becfb79973ba45851b0e30384b0f05a7b887e3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962251"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Samouczek: wdrażanie aplikacji ASP.NET na platformie Azure za pomocą Azure SQL Database
@@ -19,7 +19,7 @@ ms.locfileid: "88962251"
 
 ![Opublikowana aplikacja ASP.NET w aplikacji usługi App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -141,7 +141,7 @@ Przed utworzeniem bazy danych potrzebny jest [logiczny serwer SQL](../azure-sql/
 
    * Nie zmieniaj wygenerowanej domyślnej wartości pola **Nazwa bazy danych**.
    * W polu **Nazwa parametrów połączenia** wpisz *MyDbConnection*. Ta nazwa musi być zgodna z parametrami połączenia przywoływanymi w pliku *Models/MyDatabaseContext.cs*.
-   * Kliknij przycisk **OK**.
+   * Wybierz przycisk **OK**.
 
     ![Konfiguruj bazę danych](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
@@ -353,7 +353,7 @@ W celu zmiany poziomu śledzenia w taki sposób, aby w danych wyjściowych znajd
 
 Kliknij ponownie prawym przyciskiem myszy aplikację platformy Azure i wybierz polecenie **Wyświetl ustawienia**.
 
-Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję **Pełne**. Kliknij pozycję **Zapisz**.
+Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję **Pełne**. Kliknij przycisk **Zapisz**.
 
 ![Zmienianie poziomu śledzenia na Pełne](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 

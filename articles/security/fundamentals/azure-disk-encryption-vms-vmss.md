@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543677"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych
@@ -25,7 +25,7 @@ Poniższe artykuły zawierają wskazówki dotyczące szyfrowania maszyn wirtualn
 ### <a name="current-version-of-azure-disk-encryption"></a>Bieżąca wersja Azure Disk Encryption
 
 - [Omówienie usługi Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/disk-encryption-overview.md)
-- [Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux](../../virtual-machines/linux/disk-encryption-linux.md)
+- [Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu programu Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)

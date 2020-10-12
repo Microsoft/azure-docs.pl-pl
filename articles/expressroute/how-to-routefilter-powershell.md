@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566198"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft: PowerShell
@@ -28,7 +28,7 @@ Usługi Microsoft 365, takie jak Exchange Online, SharePoint Online i Skype dla 
 
 W przypadku skonfigurowania komunikacji równorzędnej firmy Microsoft w obwodzie usługi ExpressRoute i dołączeniu filtru tras wszystkie prefiksy wybrane dla tych usług są anonsowane za pomocą ustanowionych przez siebie sesji protokołu BGP. Wartość atrybutu Community protokołu BGP jest dołączana do każdego prefiksu w celu zidentyfikowania usługi oferowanej za pośrednictwem prefiksu. Aby zapoznać się z listą wartości społeczności BGP i usług, do których są mapowane, zobacz [społeczności protokołu BGP](expressroute-routing.md#bgp).
 
-Jeśli wymagana jest łączność ze wszystkimi usługami, wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Znacznie zwiększa to rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Można:
+Jeśli wymagana jest łączność ze wszystkimi usługami, wiele prefiksów jest anonsowanych za pośrednictwem protokołu BGP. Znacznie zwiększa to rozmiar tabel tras przechowywanych przez routery w sieci. Jeśli planujesz korzystanie tylko z podzestawu usług oferowanych za pomocą komunikacji równorzędnej firmy Microsoft, możesz zmniejszyć rozmiar tabel tras na dwa sposoby. Dostępne możliwości:
 
 - Odfiltruj niechciane prefiksy, stosując filtry tras dla społeczności protokołu BGP. Jest to standardowa metoda sieciowa i jest używana często w wielu sieciach.
 
@@ -62,7 +62,7 @@ Aby można było pomyślnie połączyć się z usługami za pomocą komunikacji 
 
 -  Należy dołączyć filtr trasy do obwodu ExpressRoute.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji upewnij się, że spełniasz następujące kryteria:
 

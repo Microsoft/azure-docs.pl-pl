@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b21a5e9e2839fba24b3dcc861fc7c42bdb4547
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300041"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945213"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym przy użyciu integracji usługi Azure AD Kemp LoadMaster
 
@@ -113,7 +113,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -145,7 +145,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Określ parametry usługi wirtualnej.
 
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-1.png)
+    ![Zrzut ekranu przedstawiający stronę "Określ parametry dla usługi wirtualnej" z przykładowymi wartościami w polach.](./media/kemp-tutorial/kemp-1.png)
 
     a. Adres wirtualny
     
@@ -161,7 +161,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Określ parametry rzeczywistego serwera.
     
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-2.png)
+    ![Zrzut ekranu przedstawiający stronę "Określ parametry dla rzeczywistego serwera" z przykładowymi wartościami w polach.](./media/kemp-tutorial/kemp-2.png)
 
     a. Wybierz opcję Zezwalaj na adresy zdalne
     
@@ -203,7 +203,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję Właściwości protokołu SSL (która działa w warstwie 7).
     
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-3.png)
+    ![Zrzut ekranu pokazujący sekcję "S S L właściwości" z wybraną opcją "S S-Enabled — włączonym przyspieszeniem" i wybranym przykładem certyfikatu.](./media/kemp-tutorial/kemp-3.png)
     
     a. Kliknij włączony przyspieszenie SSL.
     
@@ -222,7 +222,7 @@ Przejdź do Kemp LoadMaster usługi Azure AD Integration Web Console
 
 1. Kliknij pozycję Certyfikaty pośrednie w obszarze Certyfikaty i urząd.
 
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-6.png)
+    ![Zrzut ekranu przedstawiający sekcję "aktualnie zainstalowane certyfikaty pośrednie" z wybranym przykładem certyfikatu.](./media/kemp-tutorial/kemp-6.png)
 
     a. Kliknij pozycję Wybierz plik w obszarze Dodaj nowy certyfikat pośredni.
     
@@ -238,7 +238,7 @@ Przejdź do Kemp LoadMaster usługi Azure AD Integration Web Console
  
 Przejdź do pozycji Zarządzanie logowaniem jednokrotnym w obszarze usługi wirtualne.
 
-   ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-7.png)
+   ![Zrzut ekranu przedstawiający stronę "Zarządzanie S".](./media/kemp-tutorial/kemp-7.png)
    
    a. Kliknij przycisk Dodaj w obszarze Dodaj nową konfigurację po stronie klienta po podania nazwy.
 
@@ -268,7 +268,7 @@ W konsoli sieci Web integracji usługi Kemp LoadMaster Azure AD
 
 1. Kliknij przycisk Modyfikuj i przejdź do opcji ESP.
     
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-8.png)
+    ![Zrzut ekranu przedstawiający stronę "Wyświetl/Modyfikuj usługi" z rozwiniętymi sekcjami "Opcje ESP" i "prawdziwe serwery".](./media/kemp-tutorial/kemp-8.png)
 
     a. Kliknij pozycję Włącz ESP.
     
@@ -286,7 +286,7 @@ Przejdź do adresu URL aplikacji
 
 Powinna zostać wyświetlona strona logowania dzierżawców zamiast wcześniej nieuwierzytelnionego dostępu. 
 
-![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-9.png)
+![Zrzut ekranu przedstawiający stronę "Logowanie" w dzierżawie.](./media/kemp-tutorial/kemp-9.png)
 
 ## <a name="configuring-kerberos-based-authentication"></a>Konfigurowanie uwierzytelniania opartego na protokole Kerberos 
  
@@ -294,7 +294,7 @@ Powinna zostać wyświetlona strona logowania dzierżawców zamiast wcześniej n
 
 1. Utwórz konto użytkownika (w tym przykładzie AppDelegation).
     
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-10.png)
+    ![Zrzut ekranu przedstawiający okno "KCD User Properties" z wybraną kartą "Account" (konto).](./media/kemp-tutorial/kemp-10.png)
 
 
     a. Wybierz kartę Edytor atrybutów.
@@ -311,7 +311,7 @@ Powinna zostać wyświetlona strona logowania dzierżawców zamiast wcześniej n
 
 1. Wybierz kartę Delegowanie.
 
-    ![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-11.png)
+    ![Zrzut ekranu przedstawiający okno "właściwości użytkownika KCD" z wybraną kartą "delegowanie".](./media/kemp-tutorial/kemp-11.png)
 
     a. Wybierz pozycję Ufaj temu użytkownikowi w przypadku delegowania tylko do określonych usług.
 
@@ -332,7 +332,7 @@ Powinna zostać wyświetlona strona logowania dzierżawców zamiast wcześniej n
 
 Przejdź do Kemp LoadMaster usługi Azure AD Integration Konsola sieci Web > usług wirtualnych > zarządzanie logowaniem jednokrotnym.
 
-![Serwer webKemp LoadMaster Azure AD Integration](./media/kemp-tutorial/kemp-12.png)
+![Zrzut ekranu przedstawiający stronę "Zarządzanie domeną zarządzania i domeny".](./media/kemp-tutorial/kemp-12.png)
 
 a. Przejdź do konfiguracji logowania jednokrotnego po stronie serwera.
 
@@ -380,7 +380,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka integracja z usługą Azure AD Kemp LoadMaster w panelu dostępu należy automatycznie zalogować się do integracji z usługą Azure AD Kemp LoadMaster, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

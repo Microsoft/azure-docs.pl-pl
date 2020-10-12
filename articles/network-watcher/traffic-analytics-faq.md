@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87479850"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Analiza ruchu często zadawane pytania
@@ -56,7 +56,7 @@ Aby sprawdzić role przypisane do użytkownika w ramach subskrypcji:
 
 2. Wybierz wymaganą subskrypcję za pomocą polecenia **SELECT-AzSubscription**. 
 
-3. Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, użyj polecenie **Get-AzRoleAssignment-SignInName [User email]-IncludeClassicAdministrators**. 
+3. Aby wyświetlić listę wszystkich ról przypisanych do określonego użytkownika, użyj polecenie  **Get-AzRoleAssignment-SignInName [User email]-IncludeClassicAdministrators**. 
 
 Jeśli nie widzisz żadnych danych wyjściowych, skontaktuj się z administratorem subskrypcji, aby uzyskać dostęp do uruchamiania poleceń. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontrolą dostępu opartą na rolach przy użyciu Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -355,7 +355,7 @@ Strona mapy geograficznej zawiera dwie główne sekcje:
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Nawigacja przy użyciu klawiatury na dowolnym etapie
     
-- `Esc`zwija rozwinięty wybór.
+- `Esc` zwija rozwinięty wybór.
 - `Up-arrow`Klucz wykonuje tę samą akcję co `Esc` . `Down arrow`Klucz wykonuje tę samą akcję co `Enter` .
 - Użyj `Shift+Plus` , aby powiększyć i `Shift+Minus` pomniejszyć.
 

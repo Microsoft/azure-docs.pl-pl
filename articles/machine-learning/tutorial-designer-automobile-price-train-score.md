@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
 ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404922"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant
@@ -221,7 +221,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     > [!IMPORTANT]
     > Upewnij się, że lewe porty wyjściowe **danych dzielą** łączą się z **modelem uczenia**. Lewy port zawiera zestaw szkoleniowy. Prawidłowy port zawiera zestaw testów.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację modułu uczenie modelu. Moduł regresja liniowa łączy się z lewym portem modułu uczenia modelowego, a moduł podziału danych łączy się z odpowiednim portem modelu uczenia.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Zaznacz kolumnę":::
 
 1. Wybierz moduł **Train Model** (Trenowanie modelu).
 
@@ -236,7 +236,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
 
     Potok powinien wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku po dodaniu modułu uczenie modelu.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Zaznacz kolumnę":::
 
 ### <a name="add-the-score-model-module"></a>Dodawanie modułu modelu oceny
 
@@ -256,7 +256,7 @@ Użyj modułu **oceny modelu** , aby oszacować, jak dobrze Model przedstawia te
 
     Końcowy potok powinien wyglądać następująco:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Zrzut ekranu przedstawiający poprawną konfigurację potoku.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Zaznacz kolumnę":::
 
 ## <a name="submit-the-pipeline"></a>Prześlij potok
 
@@ -285,7 +285,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Zrzut ekranu przedstawiający wizualizację danych wyjściowych z wyróżnioną kolumną etykieta z wynikami":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Zaznacz kolumnę":::
 
 ### <a name="evaluate-models"></a>Oceń modele
 

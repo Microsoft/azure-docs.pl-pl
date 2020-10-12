@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89594190"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integruj wymianę oświadczeń interfejsu API REST w zasadach niestandardowych Azure AD B2C
@@ -131,7 +131,7 @@ Oświadczenia wyjściowe powinny wyglądać następująco:
 </OutputClaims>
 ```
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Należy chronić punkt końcowy interfejsu API REST, aby tylko uwierzytelnieni klienci mogli z nią komunikować. Interfejs API REST musi używać punktu końcowego HTTPS. Ustaw metadane Uwierzytelnianiatype na jedną z następujących metod uwierzytelniania:
 

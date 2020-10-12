@@ -14,10 +14,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562773"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Zmień warstwę cenową przestrzeni nazw centrów powiadomień platformy Azure
@@ -58,7 +58,7 @@ Poniższa procedura pokazuje, jak zmienić warstwę cenową dla przestrzeni nazw
 7. Zmień warstwę cenową, a następnie kliknij przycisk **Wybierz** .
 8. Stan akcji zmiany warstwy można zobaczyć w **alertach**.
 9. Przejdź do strony **Przegląd** . Upewnij się, że nowa warstwa jest wyświetlana w polu **warstwa cenowa** w sekcji **podstawowe** informacje.
-10. Ten krok jest opcjonalny. Wybierz dowolne centrum w przestrzeni nazw. Upewnij się, że w sekcji **podstawowe** informacje są wyświetlane te same warstwy cenowe. Powinna zostać wyświetlona ta sama warstwa cenowa dla wszystkich centrów w przestrzeni nazw.
+10. Ta czynność jest opcjonalna. Wybierz dowolne centrum w przestrzeni nazw. Upewnij się, że w sekcji **podstawowe** informacje są wyświetlane te same warstwy cenowe. Powinna zostać wyświetlona ta sama warstwa cenowa dla wszystkich centrów w przestrzeni nazw.
 
 ### <a name="change-tier-on-the-hub-page"></a>Zmień warstwę na stronie centrum
 

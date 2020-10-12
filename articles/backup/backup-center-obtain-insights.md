@@ -4,10 +4,10 @@ description: Dowiedz się, jak analizować trendy historyczne i uzyskiwać dokł
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 5964f285089feea721a0b452efed884e905b89cc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996051"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Uzyskiwanie szczegółowych informacji przy użyciu centrum kopii zapasowych
@@ -28,7 +28,7 @@ Aby analizować trendy historyczne i uzyskiwać dokładniejsze informacje o kopi
 
 - Zapoznaj się z [matrycą pomocy technicznej](backup-center-support-matrix.md) , aby uzyskać szczegółową listę obsługiwanych i nieobsługiwanych scenariuszy.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Konfigurowanie magazynów w celu wysyłania danych do obszaru roboczego Log Analytics
 
