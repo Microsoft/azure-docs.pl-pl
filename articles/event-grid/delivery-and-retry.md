@@ -4,10 +4,10 @@ description: Opisuje, w jaki sposób Azure Event Grid dostarcza zdarzenia i jak 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324097"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid dostarczania komunikatów i ponów próbę
@@ -98,7 +98,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="event-grid-schema"></a>Schemat usługi Event Grid
 
-#### <a name="event"></a>Zdarzenie 
+#### <a name="event"></a>Wydarzenie 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -157,7 +157,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="cloudevents-10-schema"></a>Schemat CloudEvents 1,0
 
-#### <a name="event"></a>Zdarzenie
+#### <a name="event"></a>Wydarzenie
 
 ```json
 {
@@ -198,7 +198,7 @@ W tej sekcji przedstawiono przykłady zdarzeń i zdarzeń utraconych w różnych
 
 ### <a name="custom-schema"></a>Schemat niestandardowy
 
-#### <a name="event"></a>Zdarzenie
+#### <a name="event"></a>Wydarzenie
 
 ```json
 {

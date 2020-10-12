@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: eb3605249578b15d67bdd9764490d61812b21c18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808446"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Przenoszenie wewnętrznej Load Balancer platformy Azure do innego regionu przy użyciu Azure Portal
@@ -275,7 +275,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
         ```
       Aby uzyskać więcej informacji na temat różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-    * **Reguły równoważenia obciążenia** — w konfiguracji można dodawać lub usuwać reguły równoważenia obciążenia, dodając lub usuwając wpisy dotemplate.jssekcji **loadBalancingRules** **w** pliku:
+    * **Reguły równoważenia obciążenia** — w konfiguracji można dodawać lub usuwać reguły równoważenia obciążenia, dodając lub usuwając wpisy dotemplate.jssekcji **loadBalancingRules** ** w** pliku:
 
         ```json
         "loadBalancingRules": [
@@ -327,7 +327,7 @@ Poniższe kroki pokazują, jak przygotować wewnętrzny moduł równoważenia ob
         ```
        Aby uzyskać więcej informacji na Azure Load Balancer sond kondycji, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
 
-    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów dotemplate.jssekcji **inboundNatRules** **w** pliku:
+    * **Reguły NAT dla ruchu przychodzącego** — można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów dotemplate.jssekcji **inboundNatRules** ** w** pliku:
 
         ```json
         "inboundNatRules": [

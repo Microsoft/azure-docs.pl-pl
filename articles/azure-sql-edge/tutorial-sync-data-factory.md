@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904158"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Samouczek: Synchronizowanie danych z programu SQL Edge z usługą Azure Blob Storage za pomocą Azure Data Factory
@@ -198,7 +198,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
     |Nazwa|Typ|Wartość|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
-    |TableName|String|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
+    |TableName|Ciąg|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
 
 33. Aby sprawdzić poprawność ustawień potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **raport weryfikacji potoku** , wybierz opcję **>>** .
 

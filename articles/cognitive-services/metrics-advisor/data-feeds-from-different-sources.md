@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
 ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324471"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Dodawanie strumieniowych źródeł danych z różnych źródeł danych do klasyfikatora metryk
@@ -25,7 +25,7 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 
 | Typy uwierzytelniania | Opis |
 | ---------------------|-------------|
-|**Podstawowa** | Musisz mieć możliwość udostępnienia podstawowych parametrów dostępu do źródeł danych. Na przykład parametry połączenia lub klucz. Administratorzy strumieniowego źródła danych mogą wyświetlać te poświadczenia. |
+|**Podstawowe** | Musisz mieć możliwość udostępnienia podstawowych parametrów dostępu do źródeł danych. Na przykład parametry połączenia lub klucz. Administratorzy strumieniowego źródła danych mogą wyświetlać te poświadczenia. |
 | **AzureManagedIdentity** | [Zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) dla zasobów platformy Azure to funkcja Azure Active Directory. Zapewnia usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure AD. Tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie w usłudze Azure AD.|
 | **AzureSQLConnectionString**| Przechowuj parametry połączenia AzureSQL jako **jednostkę poświadczeń** w usłudze Advisor metryk i używaj jej bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki Credential mogą wyświetlać te poświadczenia, ale umożliwiają autoryzowanym podglądom tworzenie strumieniowych źródeł danych bez konieczności poznania szczegółowych informacji dotyczących poświadczeń. |
 | **DataLakeGen2SharedKey**| Przechowuj klucz konta usługi Data Lake jako **jednostkę poświadczeń** w usłudze Metrics Advisor i używaj go bezpośrednio za każdym razem podczas dołączania danych metryk. Tylko Administratorzy jednostki Credential mogą wyświetlać te poświadczenia, ale umożliwiają autoryzowanym użytkownikom tworzenie strumieniowych źródeł danych bez znajomości szczegółowych informacji o poświadczeniu.|
@@ -40,10 +40,10 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 |[**Azure Application Insights**](#appinsights)|  Podstawowy |
 |[**Azure Blob Storage (JSON)**](#blob) | Podstawowy<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Podstawowy |
-|[**Eksplorator danych platformy Azure (Kusto)**](#kusto) | Podstawowy<br>ManagedIdentity|
+|[**Azure Data Explorer (Kusto)**](#kusto) | Podstawowy<br>ManagedIdentity|
 |[**Usługa Azure Data Lake Storage 2. generacji**](#adl) | Podstawowy<br>DataLakeGen2SharedKey<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br> |
 |[**Azure SQL Database/SQL Server**](#sql) | Podstawowy<br>ManagedIdentity<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br>AzureSQLConnectionString
-|[**Azure Table Storage**](#table) | Podstawowy | 
+|[**Table Storage platformy Azure**](#table) | Podstawowy | 
 |[**ElasticSearch**](#es) | Podstawowy |
 |[**Żądanie http**](#http) | Podstawowy | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Podstawowy |
@@ -82,7 +82,7 @@ Utwórz **jednostkę poświadczeń** i użyj jej do uwierzytelniania w źródła
 
 * **Kontener**: Doradca metryki oczekuje, że dane szeregów czasowych są przechowywane jako pliki obiektów BLOB (jeden obiekt BLOB na sygnaturę czasową) w ramach jednego kontenera. Jest to pole nazwa kontenera.
 
-* **Szablon obiektu BLOB**: jest to szablon nazw plików obiektów BLOB. Na przykład: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Obsługiwane są następujące parametry:
+* **Szablon obiektu BLOB**: jest to szablon nazw plików obiektów BLOB. Przykład: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Obsługiwane są następujące parametry:
   * `%Y` jest rokiem sformatowanym jako `yyyy`
   * `%m` jest miesiącem sformatowanym jako `MM`
   * `%d` jest dniem sformatowanym jako `dd`
@@ -131,7 +131,7 @@ Dozwolony jest tylko jeden znacznik czasu na plik JSON.
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Eksplorator danych platformy Azure (Kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
 * **Parametry połączenia**: zobacz [Wyświetlanie i kopiowanie parametrów połączenia](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) , aby uzyskać informacje na temat pobierania parametrów połączenia z usługi Azure Eksplorator danych (Kusto).
 
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage platformy Azure</span>
 
 * **Parametry połączenia**: należy zapoznać się z tematem [Wyświetlanie i kopiowanie parametrów połączenia](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) , aby uzyskać informacje na temat pobierania parametrów połączenia z usługi Azure Table Storage.
 
@@ -232,7 +232,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Żądanie HTTP</span>
 
-* **Adres URL żądania**: adres URL http, który może zwracać kod JSON. Symbole zastępcze% Y,% m,% d,% h,% M są obsługiwane:% Y = rok w formacie RRRR,% m = miesiąc w formacie MM,% d = dzień w formacie DD,% h = godzina w formacie gg,% M = minuta w formacie mm. Na przykład: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Adres URL żądania**: adres URL http, który może zwracać kod JSON. Symbole zastępcze% Y,% m,% d,% h,% M są obsługiwane:% Y = rok w formacie RRRR,% m = miesiąc w formacie MM,% d = dzień w formacie DD,% h = godzina w formacie gg,% M = minuta w formacie mm. Przykład: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Metoda żądania HTTP**: Użyj metody get lub post.
 * **Nagłówek żądania**: może dodać podstawowe uwierzytelnianie. 
 * **Ładunek żądania**: obsługiwany jest tylko ładunek JSON. Symbol zastępczy @StartTime jest obsługiwany w ładunku. Odpowiedź powinna mieć następujący format JSON: [{"timestamp": "2018 r-01-01T00:00:00Z", "rynek": "en-us", "Count": 11 "przychód": 1,23}, {"timestamp": "2018 r-01-01T00:00:00Z", "rynek": "zh-CN", "Count": 22, "przychód": da liczbę 4,56}]. (np. w przypadku pozyskiwania danych z 2020-06-21T00:00:00Z, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

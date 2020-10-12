@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898807"
 ---
 # <a name="clip-values"></a>Obcinanie wartości
@@ -116,7 +116,7 @@ Teraz Wypróbuj ten sam potok, używając 60 jako progu górnego percentylu i 30
   
 |Oryginalne dane|Zamień na brak|Zamień na próg|  
 |-------------------|--------------------------|----------------------------|  
-|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|Prawda<br /><br /> Prawda<br /><br /> 3, FAŁSZ<br /><br /> 4, FAŁSZ<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, FAŁSZ<br /><br /> 8, FAŁSZ<br /><br /> 9, FAŁSZ<br /><br /> TRUE|4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA| 
+|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|Prawda<br /><br /> Prawda<br /><br /> 3, FAŁSZ<br /><br /> 4, FAŁSZ<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, FAŁSZ<br /><br /> 8, FAŁSZ<br /><br /> 9, FAŁSZ<br /><br /> Prawda|4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 4, PRAWDA<br /><br /> 5, FAŁSZ<br /><br /> 6, FAŁSZ<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA<br /><br /> 7, PRAWDA| 
  
 ## <a name="next-steps"></a>Następne kroki
 

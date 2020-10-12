@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 5569e7e3a33c4f1bbbd3214e742b0cb889c65e31
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040779"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analiza opinii w usłudze Twitter w czasie rzeczywistym za pomocą usługi Azure Stream Analytics
@@ -33,7 +33,7 @@ Aby identyfikować tematy trendów w czasie rzeczywistym w serwisie Twitter, fir
 
 W tym przewodniku jak korzystać z aplikacji klienckiej, która nawiązuje połączenie z usługą Twitter, i wyszukuje tweety, które mają określone hasztagów (które można ustawić). Aby uruchomić aplikację i analizować tweety przy użyciu usługi Azure Streaming Analytics, musisz mieć następujące elementy:
 
-* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 * Konto w usłudze [Twitter](https://twitter.com) .
 
@@ -60,7 +60,7 @@ W tej sekcji utworzysz przestrzeń nazw centrum zdarzeń i dodasz centrum zdarze
 
 6. Nazwij nowe centrum zdarzeń *socialtwitter-EH*. Możesz użyć innej nazwy. Jeśli to zrobisz, zanotuj je, ponieważ potrzebujesz tej nazwy później. Nie trzeba ustawiać żadnych innych opcji centrum zdarzeń.
  
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 ### <a name="grant-access-to-the-event-hub"></a>Udzielanie dostępu do centrum zdarzeń
 
@@ -75,7 +75,7 @@ Aby proces mógł wysyłać dane do centrum zdarzeń, centrum zdarzeń musi mie�
 
 3.  Na stronie zasady dostępu wybierz pozycję **+ Dodaj**. Następnie wprowadź *socialtwitter — dostęp* do **nazwy zasad** i zaznacz pole wyboru **Zarządzaj** .
  
-4.  Wybierz pozycję **Utwórz**.
+4.  Wybierz przycisk **Utwórz**.
 
 5.  Po wdrożeniu zasad wybierz zasady z listy zasad dostępu współdzielonego.
 
@@ -148,7 +148,7 @@ Teraz, gdy zdarzenia tweetu są przesyłane strumieniowo w czasie rzeczywistym z
 
     Dobrym pomysłem jest umieszczenie zadania i centrum zdarzeń w tym samym regionie w celu uzyskania najlepszej wydajności, aby nie zapłaciła za transfer danych między regionami.
 
-3. Wybierz pozycję **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
+3. Wybierz przycisk **Utwórz**. Następnie przejdź do zadania po zakończeniu wdrożenia.
 
 ## <a name="specify-the-job-input"></a>Określ dane wejściowe zadania
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938501"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Zarządzanie serwerem elastycznym Azure Database for PostgreSQL przy użyciu Azure Portal
@@ -52,7 +52,7 @@ Hasło roli administratora można zmienić przy użyciu Azure Portal.
 2. Wprowadź nowe hasło i Potwierdź hasło. W polu tekstowym zostanie wyświetlony monit o podanie wymagań dotyczących złożoności haseł.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Zresetuj hasło dla serwera elastycznego":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="skalowanie serwera elastycznego magazynu":::
 
 3. Wybierz pozycję **Zapisz** , aby zapisać nowe hasło.
 
@@ -63,7 +63,7 @@ Serwer można usunąć, jeśli nie jest już potrzebny.
 1. Wybierz serwer w Azure Portal. W oknie **Przegląd** wybierz pozycję **Usuń**.
 2. Wpisz nazwę serwera w polu wejściowym, aby potwierdzić, że chcesz usunąć serwer.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="Usuń elastyczny serwer":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="skalowanie serwera elastycznego magazynu":::
 
    > [!IMPORTANT]
    > Usuwanie serwera jest nieodwracalne.

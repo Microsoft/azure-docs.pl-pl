@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3eb41b868aba7e7350f54594fa43f01eeeabebc4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940675"
 ---
-# <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Zainstaluj narzędzia klienckie do wdrażania usług danych z obsługą usługi Azure Arc i zarządzania nimi
+# <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Instalowanie narzędzi klienta na potrzeby wdrażania usług danych z obsługą usługi Azure Arc i zarządzania nimi
 
 > [!IMPORTANT]
 > Jeśli aktualizujesz do nowej wersji comiesięcznej, pamiętaj, aby zaktualizować ją do najnowszej wersji Azure Data Studio, narzędzia Azure Data CLI (azdata) i interfejsu wiersza polecenia platformy Azure Data i rozszerzenia usługi Azure ARC dla Azure Data Studio.

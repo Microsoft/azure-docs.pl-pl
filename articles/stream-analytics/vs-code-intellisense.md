@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
 ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903729"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Funkcja IntelliSense w Azure Stream Analytics narzędziach dla Visual Studio Code
@@ -34,7 +34,7 @@ Funkcję IntelliSense można wyzwolić w dowolnym oknie edytora, wpisując znak 
 
 Narzędzia Stream Analytics dla VS Code IntelliSense oferują różne typy uzupełniania, w tym sugestie serwera języka, fragmenty kodu i proste uzupełnianie tekstu oparte na programie Word.
 
-|Ukończenie     |  Typ       |
+|Ukończenie     |  Type       |
 | ----- | ------- |
 | Słowa kluczowe | `keyword`
 | Funkcje | `build-in function`, `user defined function`  |

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940399"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limity na serwerze elastycznym Azure Database for PostgreSQL
@@ -75,7 +75,7 @@ Połączenie PostgreSQL, nawet bezczynne, może zajmować około 10 MB pamięci.
 
 ### <a name="high-availability"></a>Wysoka dostępność
 
-- Strefa — nadmiarowa HA nie jest obecnie obsługiwana w przypadku serwerów z możliwością przełożenia.
+- Zone-Redundant HA nie jest obecnie obsługiwana w przypadku serwerów z możliwością naszeregowania.
 - Adres IP serwera bazy danych zmienia się, gdy serwer przejdzie w tryb failover w trybie rezerwy HA. Upewnij się, że używasz rekordu DNS zamiast adresu IP serwera.
 
 ### <a name="availability-zones"></a>Strefy dostępności

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319983"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania
@@ -279,7 +279,7 @@ W tym przykładzie zmienisz filtrowanie tak, aby były synchronizowane tylko uż
 5. W oknie podręcznym odpowiedź **tak** , aby utworzyć kopię reguły.
 6. Na stronie **Opis** Zmień **pierwszeństwo** na nieużywaną wartość, na przykład 50.
 7. Kliknij pozycję **Filtr zakresu** w obszarze nawigacji po lewej stronie, a następnie kliknij pozycję **Dodaj klauzulę**. W polu **atrybut**wybierz opcję **poczta**. W **operatorze**wybierz pozycję **ENDSWITH**. W **wartość**, wpisz ** \@ contoso.com**, a następnie kliknij przycisk **Dodaj klauzulę**. W polu **atrybut**wybierz element **userPrincipalName**. W **operatorze**wybierz pozycję **ENDSWITH**. W polu **wartość**wpisz ** \@ contoso.com**.
-8. Kliknij pozycję **Zapisz**.
+8. Kliknij przycisk **Zapisz**.
 9. Aby ukończyć konfigurację, należy przeprowadzić **pełną synchronizację**. Kontynuuj odczytywanie sekcji [stosowanie i weryfikowanie zmian](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Zastosuj i Weryfikuj zmiany

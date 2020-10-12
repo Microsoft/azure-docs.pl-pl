@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324046"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Tworzenie i testowanie nowego symulowanego urządzenia
@@ -465,7 +465,7 @@ Aby skonfigurować notkę:
 
 1. Kliknij kolejno pozycje **plik > Importuj**. Następnie kliknij pozycję **Wybierz pliki**.
 
-1. Przejdź do folderu **Device-symulacja dotnet-Master/docs/** doc. Wybierz **Akcelerator rozwiązania do symulacji urządzeń Azure IoT. postman_collection** i **Akcelerator rozwiązania do symulacji urządzeń azure IoT. postman_environment** i kliknij przycisk **Otwórz**.
+1. Przejdź do folderu **Device-symulacja dotnet-Master/docs/** doc. Wybierz **rozwiązanie do symulacji urządzeń Azure iot Accelerator.postman_collection** i **rozwiązanie do symulacji urządzeń Azure IoT Accelerator.postman_environment** a następnie kliknij przycisk **Otwórz**.
 
 1. Rozwiń **Akcelerator rozwiązania do symulacji urządzenia Azure IoT** na żądania, które można wysłać.
 

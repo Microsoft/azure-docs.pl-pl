@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
 ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321428"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
@@ -48,7 +48,7 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 > [!IMPORTANT]
 > Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
@@ -75,9 +75,9 @@ Najlepszym rozwiązaniem jest utworzenie ról niestandardowych w razie konieczno
 
 ### <a name="row-level-security"></a>Zabezpieczenia na poziomie wiersza
 
-Zabezpieczenia na poziomie wiersza umożliwiają klientom kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie właściwości użytkownika wykonującego zapytanie (na przykład przynależności do grupy lub kontekstu wykonania). Zabezpieczenia na poziomie wiersza mogą również służyć do implementowania niestandardowych koncepcji zabezpieczeń opartych na etykietach. Aby uzyskać więcej informacji, zobacz [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security).
+Row-Level zabezpieczenia umożliwiają klientom kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie właściwości użytkownika wykonującego zapytanie (na przykład przynależności do grupy lub kontekstu wykonania). Zabezpieczenia Row-Level mogą być również używane do implementowania niestandardowych koncepcji zabezpieczeń opartych na etykietach. Aby uzyskać więcej informacji, zobacz [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security).
 
-![Diagram pokazujący, że zabezpieczenia na poziomie wiersza są poszczególnymi wierszami bazy danych SQL w celu uzyskania dostępu przez użytkowników za pośrednictwem aplikacji klienckiej.](./media/security-overview/azure-database-rls.png)
+![Diagram przedstawiający, że Row-Level zabezpieczenia — poszczególne wiersze bazy danych SQL są dostępne dla użytkowników za pośrednictwem aplikacji klienckiej.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Ochrona przed zagrożeniami
 

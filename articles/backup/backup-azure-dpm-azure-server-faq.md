@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324947"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server i DPM — często zadawane pytania
@@ -57,7 +57,7 @@ Nie potrzebujesz oddzielnej licencji na oprogramowanie VMware/funkcja Hyper-V.
 - Jeśli jesteś klientem programu System Center, użyj programu System Center Data Protection Manager (DPM) do ochrony maszyn wirtualnych VMware.
 - Jeśli nie jesteś klientem programu System Center, możesz użyć Azure Backup Server (płatność zgodnie z rzeczywistym użyciem), aby chronić maszyny wirtualne VMware.
 
-## <a name="sharepoint"></a>SharePoint
+## <a name="sharepoint"></a>Sharepoint
 
 ### <a name="can-i-recover-a-sharepoint-item-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson-with-protection-on-disk"></a>Czy można odzyskać element programu SharePoint do oryginalnej lokalizacji, jeśli program SharePoint jest skonfigurowany przy użyciu funkcji SQL AlwaysOn (z ochroną na dysku)?
 

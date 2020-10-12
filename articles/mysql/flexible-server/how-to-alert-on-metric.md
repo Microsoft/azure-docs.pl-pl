@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940519"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Użyj Azure Portal, aby skonfigurować alerty dotyczące metryk dla serwera Azure Database for MySQL-elastyczny 
@@ -28,7 +28,7 @@ Można skonfigurować alert, aby wykonał następujące akcje po jego wyzwoleniu
 * Wywołanie elementu webhook
 
 Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
-* [Witryna Azure Portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure Portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Interfejs wiersza polecenia platformy Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Interfejs API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
@@ -44,7 +44,7 @@ Można skonfigurować i uzyskać informacje o regułach alertów przy użyciu:
     - Jeśli używasz progu **statycznego** , Kontynuuj definiowanie **wartości progowej** (np. 85 procent). Wykres metryk może pomóc w ustaleniu, co może być rozsądnym progiem.
     - Jeśli używasz progu **dynamicznego** , Kontynuuj definiowanie **czułości progowej**. Na wykresie metryki zostaną wyświetlone obliczone progi na podstawie ostatnich danych. [Dowiedz się więcej o opcjach typu i czułości wartości progów dynamicznych](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Zawęź warunek, dostosowując **stopień szczegółowości agregacji (okres)** , w którym punkty danych są grupowane przy użyciu funkcji typu agregacji (np. "30 minut") i **częstotliwość** (np. co 15 minut).
-10. Kliknij przycisk **Gotowe**.
+10. Kliknij pozycję **Gotowe**.
 11. Dodaj grupę akcji. Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. W sekcji **grupy akcji** wybierz **pozycję Wybierz grupę akcji** , aby wybrać istniejącą grupę akcji, która ma zostać dołączona do reguły alertu.
 12. Możesz również utworzyć nową grupę akcji, aby otrzymywać powiadomienia dotyczące alertu. Aby uzyskać więcej informacji [, zobacz Tworzenie grupy akcji i zarządzanie nią](../../azure-monitor/platform/action-groups.md) .
 13. Aby utworzyć nową grupę akcji, wybierz pozycję **+ Utwórz grupę akcji**. Wypełnij formularz "Tworzenie grupy akcji" z **subskrypcją**, **grupą zasobów**, **nazwą grupy akcji** i **nazwą wyświetlaną**.

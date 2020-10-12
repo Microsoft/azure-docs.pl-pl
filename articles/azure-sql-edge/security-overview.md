@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938646"
 ---
 # <a name="securing-azure-sql-edge"></a>Zabezpieczanie usługi Azure SQL Edge
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji na temat protokołów sieciowych i punktów koń
 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja 
 
-### <a name="authentication"></a>Authentication  
+### <a name="authentication"></a>Uwierzytelnianie  
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Usługa Azure SQL Edge obecnie obsługuje tylko `SQL Authentication` mechanizm.
 
 - *Uwierzytelnianie SQL*:

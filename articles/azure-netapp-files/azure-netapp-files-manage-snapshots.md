@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
 ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325693"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
@@ -97,7 +97,7 @@ Zasady migawek umożliwiają określenie częstotliwości tworzenia migawek w cy
 
     ![Zasady migawek miesięcznie](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Kliknij pozycję **Zapisz**.  
+4.  Kliknij przycisk **Zapisz**.  
 
 Jeśli konieczne jest utworzenie dodatkowych zasad migawek, Powtórz krok 3.
 Utworzone zasady są wyświetlane na stronie zasady migawek.
@@ -161,7 +161,7 @@ Obecnie można przywrócić migawkę tylko do nowego woluminu.
 
     ![Przywróć do nowego woluminu](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij pozycję **Utwórz**.   
+4. Kliknij przycisk **Przegląd + Utwórz**.  Kliknij przycisk **Utwórz**.   
     Nowy wolumin używa tego samego protokołu, który jest wykorzystywany przez migawkę.   
     Nowy wolumin, do którego zostanie przywrócona migawka, pojawia się w bloku woluminy.
 

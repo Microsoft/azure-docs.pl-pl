@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551555"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autoryzowanie dostępu do aplikacji internetowych przy użyciu warstwy OpenID Connect i usługi Azure Active Directory
@@ -117,8 +117,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | jednorazow |wymagane |Wartość uwzględniona w żądaniu wygenerowanym przez aplikację, która jest uwzględniona w wyniku `id_token` zgłoszenia jako roszczeń. Następnie aplikacja może zweryfikować tę wartość, aby zmniejszyć ataki metodą powtórzeń tokenu. Wartość jest zazwyczaj losowym, unikatowym ciągiem lub identyfikatorem GUID, który może służyć do identyfikowania pochodzenia żądania. |
 | redirect_uri | zalecane |Redirect_uri aplikacji, w której odpowiedzi uwierzytelniania mogą być wysyłane i odbierane przez aplikację. Musi dokładnie pasować do jednego z redirect_uris zarejestrowanego w portalu, z wyjątkiem tego, że musi on być zakodowany w adresie URL. Jeśli go nie ma, agent użytkownika zostanie wysłany z powrotem do jednego z identyfikatorów URI przekierowania zarejestrowanych dla aplikacji. Maksymalna długość to 255 bajtów |
 | response_mode |optional |Określa metodę, która ma być używana do wysyłania wyników authorization_code z powrotem do aplikacji. Obsługiwane wartości to `form_post` *wpis w formacie http* i `fragment` *fragment adresu URL*. W przypadku aplikacji sieci Web zalecamy użycie programu `response_mode=form_post` w celu zapewnienia najbezpieczniejszego transferu tokenów do aplikacji. Wartość domyślna dla każdego przepływu, w tym id_token, to `fragment` .|
-| state |zalecane |Wartość zawarta w żądaniu, która jest zwracana w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
-| pytać |optional |Wskazuje typ interakcji użytkownika, która jest wymagana. Obecnie jedynymi prawidłowymi wartościami są "login'", "none" i "zgody". `prompt=login`wymusza, aby użytkownik wprowadził swoje poświadczenia dla tego żądania, negację logowania jednokrotnego. `prompt=none`jest przeciwieństwem-gwarantuje, że użytkownik nie jest wyświetlany z żadnym interaktywnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, punkt końcowy zwraca błąd. `prompt=consent`wyzwala okno dialogowe zgody na uwierzytelnianie OAuth po zalogowaniu się użytkownika, zwracając użytkownika o przyznanie uprawnień do aplikacji. |
+| stan |zalecane |Wartość zawarta w żądaniu, która jest zwracana w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
+| pytać |optional |Wskazuje typ interakcji użytkownika, która jest wymagana. Obecnie jedynymi prawidłowymi wartościami są "login'", "none" i "zgody". `prompt=login` wymusza, aby użytkownik wprowadził swoje poświadczenia dla tego żądania, negację logowania jednokrotnego. `prompt=none` jest przeciwieństwem-gwarantuje, że użytkownik nie jest wyświetlany z żadnym interaktywnym monitem. Jeśli żądanie nie może zostać zakończone dyskretnie przy użyciu logowania jednokrotnego, punkt końcowy zwraca błąd. `prompt=consent` wyzwala okno dialogowe zgody na uwierzytelnianie OAuth po zalogowaniu się użytkownika, zwracając użytkownika o przyznanie uprawnień do aplikacji. |
 | login_hint |optional |Może służyć do wstępnego wypełniania pola Nazwa użytkownika/adres e-mail strony logowania dla użytkownika, jeśli znana jest jego nazwa użytkownika przed czasem. Często aplikacje używają tego parametru podczas ponownego uwierzytelniania, ponieważ już wyodrębnili nazwę użytkownika z poprzedniego logowania przy użyciu tego `preferred_username` żądania. |
 
 W tym momencie użytkownik zostanie poproszony o wprowadzenie poświadczeń i zakończenie uwierzytelniania.
@@ -138,7 +138,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parametr | Opis |
 | --- | --- |
 | id_token |`id_token`Żądana aplikacja. Możesz użyć, `id_token` Aby zweryfikować tożsamość użytkownika i rozpocząć sesję z użytkownikiem. |
-| state |Wartość zawarta w żądaniu, która jest również zwracana w odpowiedzi tokenu. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
+| stan |Wartość zawarta w żądaniu, która jest również zwracana w odpowiedzi tokenu. Losowo wygenerowana unikatowa wartość jest zwykle używana w celu [zapobiegania atakom na fałszerstwo żądań między witrynami](https://tools.ietf.org/html/rfc6749#section-10.12). Ten stan jest również używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
 
 ### <a name="error-response"></a>Odpowiedź na błąd
 
@@ -154,7 +154,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametr | Opis |
 | --- | --- |
-| Błąd |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i mogą być używane do reagowania na błędy. |
+| error |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i mogą być używane do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może ułatwić deweloperom zidentyfikowanie głównej przyczyny błędu uwierzytelniania. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Kody błędów dla błędów punktu końcowego autoryzacji
@@ -248,7 +248,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | --- | --- |
 | id_token |`id_token`Żądana aplikacja. Możesz użyć, `id_token` Aby zweryfikować tożsamość użytkownika i rozpocząć sesję z użytkownikiem. |
 | kod |Authorization_code żądana przez aplikację. Aplikacja może użyć kodu autoryzacji, aby zażądać tokenu dostępu dla zasobu docelowego. Authorization_codes są krótkotrwałe i zazwyczaj wygasa po około 10 minutach. |
-| state |Jeśli w żądaniu zostanie uwzględniony parametr stanu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy wartości stanu w żądaniu i odpowiedzi są identyczne. |
+| stan |Jeśli w żądaniu zostanie uwzględniony parametr stanu, ta sama wartość powinna pojawić się w odpowiedzi. Aplikacja powinna sprawdzić, czy wartości stanu w żądaniu i odpowiedzi są identyczne. |
 
 ### <a name="error-response"></a>Odpowiedź na błąd
 
@@ -264,7 +264,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametr | Opis |
 | --- | --- |
-| Błąd |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i mogą być używane do reagowania na błędy. |
+| error |Ciąg kodu błędu, który może służyć do klasyfikowania typów błędów, które występują i mogą być używane do reagowania na błędy. |
 | error_description |Konkretny komunikat o błędzie, który może ułatwić deweloperom zidentyfikowanie głównej przyczyny błędu uwierzytelniania. |
 
 Aby uzyskać opis możliwych kodów błędów i ich zalecaną akcję klienta, zobacz [kody błędów dla błędów punktu końcowego autoryzacji](#error-codes-for-authorization-endpoint-errors).

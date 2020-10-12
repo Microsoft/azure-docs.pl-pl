@@ -11,10 +11,10 @@ ms.date: 01/14/2020
 ms.author: metan
 ms.custom: devx-track-js
 ms.openlocfilehash: f7f55d1d349fc7d02c2ac53f7a50f9d649688cbd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326766"
 ---
 # <a name="how-to-launch-the-immersive-reader-with-html-content"></a>Jak uruchomić czytnik immersyjny z zawartością HTML

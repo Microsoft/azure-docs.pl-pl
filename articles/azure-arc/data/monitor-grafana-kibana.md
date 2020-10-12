@@ -10,15 +10,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939626"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Wyświetlanie dzienników i metryk przy użyciu Kibana i Grafana
 
-Dostępne są pulpity nawigacyjne usług Kibana i Grafana, dzięki którym można uzyskiwać wgląd i przejrzystość do przestrzeni nazw Kubernetes używanych przez usługi danych z włączoną funkcją Azure Arc.
+Dostępne są pulpity nawigacyjne narzędzi Kibana i Grafana, które zapewniają szczegółowe informacje i przejrzystość w przestrzeniach nazw Kubernetes używanych przez usługi danych z obsługą usługi Azure Arc.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -64,7 +64,7 @@ Poniżej znajduje się przykład, jak to zrobić dla maszyny wirtualnej platform
 
 Poniższe kroki przedstawiają sposób tworzenia reguły sieciowej grupy zabezpieczeń dla punktów końcowych Kibana i Grafana:
 
-### <a name="find-the-name-of-the-nsg"></a>Znajdź nazwę sieciowej grupy zabezpieczeń
+### <a name="find-the-name-of-the-nsg"></a>Znajdowanie nazwy sieciowej grupy zabezpieczeń
 
 ```console
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
@@ -95,7 +95,7 @@ https://<external-ip-from-above>:30777/grafana
 https://<external-ip-from-above>:30777/kibana
 ```
 
-Odpowiednie pulpity nawigacyjne są następujące:
+Odpowiednie pulpity nawigacyjne to:
 
 * "Metryki wystąpienia zarządzanego usługi Azure SQL"
 * "Metryki węzła hosta"
@@ -110,7 +110,7 @@ https://<external-ip-from-above>:30777/grafana
 https://<external-ip-from-above>:30777/kibana
 ```
 
-Odpowiednie pulpity nawigacyjne są następujące:
+Odpowiednie pulpity nawigacyjne to:
 
 * "Metryki Postgres"
 * "Metryki tabeli Postgres"

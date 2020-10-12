@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 21d84bea808ba5832b81d415001a3fc25a7e1630
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323961"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrowanie danych SIM w rozwiązaniu do zdalnego monitorowania
@@ -21,7 +21,7 @@ Urządzenia IoT często łączą się z chmurą przy użyciu karty SIM, która u
 
 Zdalne monitorowanie zapewnia integrację z usługą Telefónica IoT, dzięki czemu klienci korzystający z jej platformy łączności IoT synchronizują dane łączności z urządzeniami SIMs z ich rozwiązaniami. To rozwiązanie można rozszerzyć, aby obsługiwać innych dostawców łączności IoT za pośrednictwem [repozytorium](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)GitHub.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 * Integrowanie danych Telefónica IoT SIM z rozwiązaniem do zdalnego monitorowania
 * Wyświetlanie danych telemetrycznych w czasie rzeczywistym

@@ -11,15 +11,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939206"
 ---
-# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Ustawianie ustawień aparatu bazy danych dla usługi Azure ARC z włączonym skalowaniem PostgreSQL
+# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Konfigurowanie ustawień aparatu bazy danych dla bazy danych PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
-W tym dokumencie opisano procedurę ustawiania ustawień aparatu bazy danych dla grupy serwerów PostgreSQL w ramach skalowania do wartości niestandardowych (niedomyślnych). Aby uzyskać szczegółowe informacje na temat tego, jakie parametry aparatu bazy danych można ustawić i jakie są ich wartości domyślne, zapoznaj się z dokumentacją PostgreSQL [tutaj](https://www.postgresql.org/docs/current/runtime-config.html).
+W tym dokumencie opisano procedurę konfigurowania niestandardowych (niedomyślnych) wartości ustawień aparatu bazy danych dla grupy serwerów PostgreSQL w warstwie Hiperskala. Aby uzyskać szczegółowe informacje na temat tego, jakie parametry aparatu bazy danych można ustawić i jakie są ich wartości domyślne, zapoznaj się z dokumentacją PostgreSQL [tutaj](https://www.postgresql.org/docs/current/runtime-config.html).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -53,7 +53,7 @@ azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}
 azdata arc postgres server show -n <server group name>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server show -n postgres01
@@ -86,7 +86,7 @@ Uruchom:
 azdata arc postgres server show -n <server group name>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server show -n postgres01
@@ -115,13 +115,13 @@ Ogólny format polecenia to:
 kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 kubectl describe postgresql-12 postgres01
 ```
 
-Jeśli dla ustawień aparatu określono wartości niestandardowe, zostaną one zwrócone. Przykład:
+Jeśli dla ustawień aparatu określono wartości niestandardowe, zostaną one zwrócone. Na przykład:
 
 ```console
 Engine:
@@ -150,7 +150,7 @@ Poniższe polecenia ustawiają parametry węzła koordynatora i węzły procesu 
 azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
@@ -162,7 +162,7 @@ azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
 azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
@@ -172,7 +172,7 @@ azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connec
 
 Aby zresetować parametr do wartości domyślnej, ustaw ją bez wskazywania wartości. 
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server edit -n postgres01 -e shared_buffers=
@@ -184,7 +184,7 @@ azdata arc postgres server edit -n postgres01 -e shared_buffers=
 azdata arc postgres server edit -n <server group name> -e '' -re
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server edit -n postgres01 -e '' -re
@@ -198,7 +198,7 @@ azdata arc postgres server edit -n postgres01 -e '' -re
 azdata arc postgres server edit -n <server group name> -e '<parameter name>="<parameter value>"'
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
@@ -208,7 +208,7 @@ azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plp
 
 Zmienna środowiskowa powinna być opakowana wewnątrz "" ", aby nie została rozwiązany przed jej ustawieniem.
 
-Przykład: 
+Na przykład: 
 
 ```console
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'

@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
 ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328857"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportowania
@@ -19,7 +19,7 @@ W tym artykule opisano sposób konfigurowania połączenia między produktem IT 
 
 Bezpieczny eksport to zaktualizowana wersja [Łącznik zarządzania usługami IT (ITSMC)](./itsmc-overview.md). Obie wersje umożliwiają tworzenie elementów roboczych w narzędziu narzędzia ITSM, gdy Azure Monitor wysyła alerty. Funkcje obejmują alerty dotyczące metryk, dzienników i dzienników aktywności.
 
-ITSMC używa poświadczeń nazwy użytkownika i hasła. Bezpieczny eksport ma silniejsze uwierzytelnianie, ponieważ używa Azure Active Directory (Azure AD). Azure AD to usługa zarządzania tożsamościami i dostępem opartymi na chmurze firmy Microsoft. Ułatwia ona użytkownikom logowanie się i dostęp do zasobów wewnętrznych lub zewnętrznych. Korzystanie z usługi Azure AD z usługą narzędzia ITSM pomaga identyfikować alerty platformy Azure (za pośrednictwem identyfikatora aplikacji usługi Azure AD), które zostały wysłane do systemu zewnętrznego.
+ITSMC używa poświadczeń nazwy użytkownika i hasła. Bezpieczny eksport ma silniejsze uwierzytelnianie, ponieważ używa Azure Active Directory (Azure AD). Usługa Azure AD to usługa w chmurze firmy Microsoft do zarządzania tożsamościami i dostępem. Ułatwia ona użytkownikom logowanie się i dostęp do zasobów wewnętrznych lub zewnętrznych. Korzystanie z usługi Azure AD z usługą narzędzia ITSM pomaga identyfikować alerty platformy Azure (za pośrednictwem identyfikatora aplikacji usługi Azure AD), które zostały wysłane do systemu zewnętrznego.
 
 > [!NOTE]
 > Możliwość połączenia platformy Azure z narzędziami narzędzia ITSM przy użyciu funkcji bezpiecznego eksportu jest w wersji zapoznawczej.

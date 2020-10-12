@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938035"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatyzowanie kompilacji, testów i wdrożeń zadania Azure Stream Analytics przy użyciu narzędzi CI/CD
@@ -46,7 +46,7 @@ Polecenie *Build* sprawdza składnię słowa kluczowego i wyprowadza szablon Azu
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd build -project "/Users/username/projects/samplejob/samplejob.asaproj"
@@ -96,7 +96,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd localrun -project "/Users/roger/projects/samplejob/samplejob.asaproj"
@@ -130,7 +130,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/asaproj.json"
 ```
 
-#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Program Visual Studio](#tab/visual-studio)
 
 ```powershell
 azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob/samplejob.asaproj"
@@ -237,7 +237,7 @@ Po zakończeniu wszystkich testów w folderze wyjściowym zostanie wygenerowane 
 }
 ```
 
-## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
+## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
 Możesz użyć szablonu Azure Resource Manager i plików parametrów wygenerowanych z kompilacji, aby [wdrożyć zadanie na platformie Azure](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template).
 

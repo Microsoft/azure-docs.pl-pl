@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938047"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Dostosowywanie wykrywania anomalii przy użyciu opinii
@@ -37,19 +37,19 @@ Gdy tryb adnotacji z opinią został aktywowany, kliknij punkt, aby otworzyć pa
 
 Rozważ pozostawienie komentarza w polu tekstowym **komentarza** w tym samym czasie, a następnie kliknij przycisk **Zapisz** , aby zapisać swoją opinię.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Menu opinii.":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Tryb adnotacji z opinią.":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>Prześlij opinię na temat wielu punktów ciągłych
 
 Możesz przesłać opinię dla wielu punktów ciągłych jednocześnie, klikając przycisk w dół i przeciągając myszą na punkty, do których chcesz dodać adnotację. Zobaczysz to samo menu opinii jak powyżej. Ta sama opinia zostanie zastosowana do wszystkich wybranych punktów po kliknięciu przycisku **Zapisz**.
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Wybierz wiele punktów":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Tryb adnotacji z opinią.":::
 
 ## <a name="how-to-view-my-feedback"></a>Jak wyświetlić opinię
 
 Aby sprawdzić, czy wykrycie anomalii punktu zostało zmienione, umieść kursor nad punktem. Na etykietce narzędzia zostanie wyświetlona **informacja zwrotna: prawda** , jeśli wykrycie zostało zmienione. Jeśli zostanie wyświetlona **wartość false**, na tym etapie zostanie wykonane Obliczanie opinii, ale wynik wykrywania anomalii nie został zmieniony.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="Punkt, na który ma wpływ opinia":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Tryb adnotacji z opinią.":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>Kiedy należy dodać adnotację do anomalii jako "normalne"
 
