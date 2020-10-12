@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: matjazl
 ms.openlocfilehash: 7528f9d4e3b3043af1e4790c063eb6ddc6d9a828
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87849050"
 ---
 # <a name="get-access-token-for-azure-api-for-fhir-using-azure-cli"></a>Uzyskaj token dostępu dla interfejsu API platformy Azure dla usługi FHIR przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -31,7 +31,7 @@ az login
 
 ## <a name="obtain-a-token"></a>Uzyskaj token
 
-Interfejs API platformy Azure dla usługi FHIR `resource` używa `Audience` identyfikatora URI lub z identyfikatorem URI serwera FHIR `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com` . Możesz uzyskać token i zapisać go w zmiennej (o nazwie `$token` ) przy użyciu następującego polecenia:
+Interfejs API platformy Azure dla usługi FHIR `resource`  używa `Audience` identyfikatora URI lub z identyfikatorem URI serwera FHIR `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com` . Możesz uzyskać token i zapisać go w zmiennej (o nazwie `$token` ) przy użyciu następującego polecenia:
 
 ```azurecli-interactive
 token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com --query accessToken --output tsv)

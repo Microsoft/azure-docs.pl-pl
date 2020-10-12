@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852110"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Wywoływanie elementu webhook przy użyciu klasycznego alertu metryki w Azure Monitor
@@ -79,7 +79,7 @@ Operacja POST zawiera następujący ładunek i schemat JSON dla wszystkich alert
 | sygnatura czasowa |T | |Godzina, o której alert został wyzwolony. |
 | identyfikator |T | |Każda reguła alertu ma unikatowy identyfikator. |
 | name |T | |Nazwa alertu. |
-| description (opis) |T | |Opis alertu. |
+| description |T | |Opis alertu. |
 | warunektype |T |Metryka, zdarzenie |Obsługiwane są dwa typy alertów: Metryka i zdarzenie. Alerty metryk są oparte na warunku metryki. Alerty zdarzeń są oparte na zdarzeniu w dzienniku aktywności. Użyj tej wartości, aby sprawdzić, czy alert jest oparty na metryce czy zdarzeniu. |
 | rozgrzewa |T | |Określone pola do sprawdzenia na podstawie wartości **conditiontype** . |
 | metricName |W przypadku alertów dotyczących metryk | |Nazwa metryki, która definiuje elementy monitorowane przez regułę. |

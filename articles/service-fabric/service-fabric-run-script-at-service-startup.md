@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75464273"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Uruchamianie skryptu uruchamiania usługi za pomocą użytkownika lokalnego lub konta systemowego
@@ -131,7 +131,7 @@ Często zaleca się uruchomienie skryptu uruchamiania przy użyciu lokalnego kon
 ```
 
 > [!NOTE]
-> W przypadku klastrów systemu Linux w celu uruchomienia usługi lub punktu wejścia Instalatora jako **katalogu głównego**można określić wartość **AccountType** jako **System lokalny**.
+> W przypadku klastrów systemu Linux w celu uruchomienia usługi lub punktu wejścia Instalatora jako **katalogu głównego**można określić wartość  **AccountType** jako **System lokalny**.
 
 ## <a name="run-a-script-from-the-setup-entry-point"></a>Uruchamianie skryptu z punktu wejścia Instalatora
 Teraz Dodaj skrypt uruchamiania do projektu, aby uruchomić go z uprawnieniami administratora. 

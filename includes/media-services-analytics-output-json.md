@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183645"
 ---
 Zadanie tworzy plik wyjściowy JSON zawierający metadane dotyczące wykrytych i śledzonych twarzy. Metadane obejmują współrzędne wskazujące lokalizację powierzchni, a także numer IDENTYFIKACYJNy twarzy wskazujący na śledzenie tej osoby. Numery IDENTYFIKACYJNe kroju są podatne na zresetowanie w warunkach, gdy czołowa powierzchnia zostanie utracona lub nakłada się w ramkę, co oznacza, że niektóre osoby mogą uzyskać przypisane wiele identyfikatorów.
@@ -19,7 +19,7 @@ Wyjściowy kod JSON zawiera następujące elementy:
 
 | Element | Opis |
 | --- | --- |
-| version |Odnosi się to do wersji interfejsu API wideo. |
+| Wersja |Odnosi się to do wersji interfejsu API wideo. |
 | Dział |"Ticks" na sekundę filmu wideo. |
 | przesunięcie |Jest to przesunięcie czasu dla sygnatur czasowych. W wersji 1,0 interfejsów API wideo zawsze będzie równa 0. W przyszłych scenariuszach dział IT może zmienić tę wartość. |
 | width, wysoki |Szerokość i wysoki wyjściowej ramki wideo (w pikselach).|
@@ -30,9 +30,9 @@ Wyjściowy kod JSON zawiera następujące elementy:
 
 |Element|Opis|
 |---|---|
-| rozpoczynanie |Godzina rozpoczęcia pierwszego zdarzenia w "Takty". |
+| start |Godzina rozpoczęcia pierwszego zdarzenia w "Takty". |
 | czas trwania |Długość fragmentu w "Takty". |
-| indeks | (Dotyczy tylko Azure Media Redactor) definiuje indeks ramki bieżącego zdarzenia. |
+| index | (Dotyczy tylko Azure Media Redactor) definiuje indeks ramki bieżącego zdarzenia. |
 | interval |Interwał każdego wpisu zdarzenia w obrębie fragmentu w "Takty". |
 | zdarzenia |Każde zdarzenie zawiera wykryte i śledzone powierzchnie w tym czasie. Jest to tablica zdarzeń. Zewnętrzna tablica reprezentuje jeden interwał czasu. Wewnętrzna tablica składa się z 0 lub większej liczby zdarzeń, które wystąpiły w danym momencie. Pusty nawias [] oznacza, że nie wykryto żadnych twarzy. |
 | identyfikator |Identyfikator śledzonej wartości. Ta liczba może przypadkowo ulec zmianie, jeśli nie zostanie wykryta. Dana osoba powinna mieć ten sam identyfikator w całym wideo, ale nie może być gwarantowany ze względu na ograniczenia algorytmu wykrywania (zamknięcia itp.). |

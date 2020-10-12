@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183676"
 ---
 Poniżej znajduje się lista obsługiwanych systemów operacyjnych dla klientów lub hostów podłączonych do urządzenia. Te wersje systemu operacyjnego zostały przetestowane wewnętrznie.
 
-| **System operacyjny/platforma** | **Wersje** |
+| **System operacyjny/platforma** | **Versions** (Wersje) |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 <br> 2019|
 | Windows |8, 10 |

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183667"
 ---
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67183667"
 W tym samouczku zaimplementowano urządzenie **chłodzenia** , które wysyła następujące dane telemetryczne do [akceleratora rozwiązania](../articles/iot-accelerators/about-iot-accelerators.md)do monitorowania zdalnego:
 
 * Temperatura
-* Wykorzystania
+* Ciśnienie
 * Wilgotność
 
 Dla uproszczenia kod generuje przykładowe wartości telemetrii dla **chłodzenia**. Można zwiększyć przykład, łącząc prawdziwe czujniki z urządzeniem i wysyłając prawdziwe dane telemetryczne.

@@ -16,13 +16,13 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88565846"
 ---
-# <a name="permissions-in-azure-sentinel"></a>Uprawnienia na platformie Azure — wskaźnik
+# <a name="permissions-in-azure-sentinel"></a>Uprawnienia w usłudze Azure Sentinel
 
 W przypadku korzystania z funkcji [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) na platformie Azure wskaźnik na platformie Azure obejmuje [wbudowane role](../role-based-access-control/built-in-roles.md),   które można przypisać do użytkowników, grup i usług w systemie.
 
@@ -30,7 +30,7 @@ Za pomocą funkcji RBAC można tworzyć i przypisywać role w zespole operacji z
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Role do pracy na platformie Azure — wskaźnik
 
-### <a name="azure-sentinel-specific-roles"></a>Role specyficzne dla platformy Azure
+### <a name="azure-sentinel-specific-roles"></a>Role specyficzne dla usługi Azure Sentinel
 
 Istnieją trzy dedykowane wbudowane role wskaźnikowe platformy Azure.
 
@@ -78,9 +78,9 @@ Na przykład użytkownik, któremu przypisano rolę **czytnika** punktów kontro
 
 ## <a name="roles-and-allowed-actions"></a>Role i dozwolone akcje
 
-Poniższa tabela zawiera Podsumowanie ról i dozwolonych akcji na platformie Azure — wskaźnik. 
+W poniższej tabeli podsumowano role i dozwolone działania w usłudze Azure Sentinel. 
 
-| Rola | Utwórz i uruchom elementy PlayBook| Twórz i edytuj skoroszyty, reguły analityczne i inne zasoby wskaźnikowe platformy Azure | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
+| Rola | Tworzenie i uruchamianie podręczników| Tworzenie i edytowanie skoroszytów, reguł analizy i innych zasobów usługi Azure Sentinel | Zarządzanie zdarzeniami (odrzucanie, przypisywanie itp.) | Wyświetl dane, zdarzenia, skoroszyty i inne zasoby dotyczące platformy Azure |
 |---|---|---|---|---|
 | Czytelnik usługi Azure Sentinel | -- | -- | -- | &#10003; |
 | Obiekt odpowiadający usługi Azure Sentinel | -- | -- | &#10003; | &#10003; |

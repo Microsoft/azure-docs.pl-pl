@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86518083"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Skonfiguruj okresowe Podsumowanie dla zaleceń
@@ -54,7 +54,7 @@ Poniżej przedstawiono procedurę tworzenia **podsumowania rekomendacji:**
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
-* [Wprowadzenie do Azure Advisor](advisor-overview.md)
+* [Wprowadzenie do usługi Azure Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
 * [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)

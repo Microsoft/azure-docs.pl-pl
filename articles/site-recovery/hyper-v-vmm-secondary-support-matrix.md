@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131166"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matryca obsługi odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
@@ -51,7 +51,7 @@ Można replikować tylko maszyny z systemem Linux z następującym magazynem:
 
 ## <a name="network-configuration---hostguest-vm"></a>Konfiguracja sieci-Host/maszyna wirtualna gościa
 
-**Konfiguracja** | **Obsługiwane**  
+**Konfiguracja** | **Obsługiwał**  
 --- | --- 
 Hostowanie — Tworzenie zespołu kart interfejsu sieciowego | Tak 
 Host-sieć VLAN | Tak 
@@ -68,7 +68,7 @@ Maszyna wirtualna gościa — wiele kart sieciowych | Yes
 
 ### <a name="host-storage"></a>Magazyn hosta
 
-**Magazyn (Host)** | **Obsługiwane**
+**Magazyn (Host)** | **Obsługiwał**
 --- | --- 
 NFS | Nie dotyczy
 SMB 3.0 |  Tak
@@ -77,7 +77,7 @@ Wiele ścieżek (MPIO) | Tak
 
 ### <a name="guest-or-physical-server-storage"></a>Magazyn Gości lub serwer fizyczny
 
-**Konfiguracja** | **Obsługiwane**
+**Konfiguracja** | **Obsługiwał**
 --- | --- | 
 VMDK |  Nie dotyczy
 DYSK VHD/VHDX | Tak (do 16 dysków)
@@ -97,7 +97,7 @@ Wiele ścieżek (MPIO) | Tak
 
 ## <a name="vaults"></a>Magazyny
 
-**Akcja** | **Obsługiwane**
+**Akcja** | **Obsługiwał**
 --- | --- 
 Przenoszenie magazynów między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) |  Nie
 Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) | Nie

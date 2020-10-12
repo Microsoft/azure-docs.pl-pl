@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084057"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta. Izolowane rozmiary na żywo i działają na określonej generacji sprzętu i zostaną wycofane, gdy generacja sprzętu zostanie wycofana.
@@ -41,10 +41,10 @@ Ponieważ rozmiary maszyn wirtualnych są zależne od rozmiarów sprzętowych, p
 | Standard_DS15_v2<sup>1</sup> | 15 maja 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 maja 2020 |
 
-<sup>1</sup> Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
+<sup>1</sup>  Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: czy rozmiar, który ma zostać wycofany, czy tylko "izolacja" jest?
 Odp **.: Jeśli**rozmiar maszyny wirtualnej nie ma indeksu dolnego "i", tylko funkcja "izolacja" zostanie wycofana. Jeśli izolacja nie jest konieczna, nie ma żadnej akcji, a maszyna wirtualna będzie nadal działać zgodnie z oczekiwaniami. Przykładami mogą być Standard_DS15_v2, Standard_D15_v2, Standard_M128ms itd. Jeśli rozmiar maszyny wirtualnej obejmuje indeks dolny, rozmiar zostanie wycofany.
 
@@ -62,7 +62,7 @@ Odp **.: nie**. Gwarancje zapewniane przez Service Fabric [warstwy trwałości](
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Jakie są punkty kontrolne na potrzeby wycofania D15_v2 lub odDS15_v2nia izolacji? 
 Odp **.:** 
-| Data | Akcja | 
+| Date | Akcja | 
 | --- | --- |
 | 18 listopada 2019 r. | Dostępność D/DS15i_v2 (PAYG, 1 – rok RI) |
 | 14 maja 2020  | Ostatni dzień zakupu D/DS15i_v2 1 roku RI | 

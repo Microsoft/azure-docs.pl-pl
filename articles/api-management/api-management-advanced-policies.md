@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851685"
 ---
 # <a name="api-management-advanced-policies"></a>Zaawansowane zasady usługi API Management
 
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a>Zasady zaawansowane
+## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Zasady zaawansowane
 
 -   [Przepływ sterowania](api-management-advanced-policies.md#choose) — warunkowo stosuje instrukcje zasad na podstawie wyników oceny [wyrażeń](api-management-policy-expressions.md)logicznych.
 -   [Żądanie przesyłania dalej](#ForwardRequest) przesyła żądanie do usługi zaplecza.
@@ -41,11 +41,11 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 -   [Trace](#Trace) — dodaje niestandardowe ślady do danych wyjściowych [inspektora interfejsu API](./api-management-howto-api-inspector.md) , Application Insights telemetrii i dzienników zasobów.
 -   [Zaczekaj](#Wait) — oczekiwanie na załączone [żądanie wysłania](api-management-advanced-policies.md#SendRequest), [Pobierz wartość z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)lub zasady [przepływu sterowania](api-management-advanced-policies.md#choose) do ukończenia przed kontynuowaniem.
 
-## <a name="control-flow"></a><a name="choose"></a>Przepływ sterowania
+## <a name="control-flow"></a><a name="choose"></a> Przepływ sterowania
 
 `choose`Zasady stosują się do załączonych instrukcji zasad na podstawie wyniku oceny wyrażeń logicznych, podobnie jak konstrukcja if-then-else lub Switch w języku programowania.
 
-### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a>Instrukcja zasad
+### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a> Instrukcja zasad
 
 ```xml
 <choose>
@@ -65,7 +65,7 @@ Zasady przepływu sterowania muszą zawierać co najmniej jeden `<when/>` elemen
 
 ### <a name="examples"></a>Przykłady
 
-#### <a name="example"></a><a name="ChooseExample"></a>Przyklad
+#### <a name="example"></a><a name="ChooseExample"></a> Przyklad
 
 Poniższy przykład ilustruje zasady [zestawu zmiennych](api-management-advanced-policies.md#set-variable) i dwie zasady przepływu sterowania.
 
@@ -138,7 +138,7 @@ Ten przykład pokazuje, jak wykonywać filtrowanie zawartości przez usunięcie 
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | warunek = "wyrażenie logiczne &#124; stałej logicznej" | Wyrażenie logiczne lub stała do oceny, gdy `when` zostanie oceniona zawierająca ją instrukcja Policy. | Tak      |
 
-### <a name="usage"></a><a name="ChooseUsage"></a>Wykorzystywani
+### <a name="usage"></a><a name="ChooseUsage"></a> Wykorzystywani
 
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
@@ -146,7 +146,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="forward-request"></a><a name="ForwardRequest"></a>Prześlij żądanie dalej
+## <a name="forward-request"></a><a name="ForwardRequest"></a> Prześlij żądanie dalej
 
 `forward-request`Zasady przesyłają żądanie przychodzące do usługi wewnętrznej bazy danych określonej w [kontekście](api-management-policy-expressions.md#ContextVariables)żądania. Adres URL usługi wewnętrznej bazy danych jest określony w [ustawieniach](./import-and-publish.md) interfejsu API i można go zmienić przy użyciu zasad dla [Ustawienia usługi zaplecza](api-management-transformation-policies.md) .
 
@@ -250,7 +250,7 @@ Te zasady poziomu operacji nie przesyłają dalej żądań do usługi wewnętrzn
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślny |
+| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślne |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Timeout = "Integer"                             | Czas (w sekundach) oczekiwania na zwrócenie nagłówków odpowiedzi HTTP przez usługę zaplecza przed podjęciem błędu limitu czasu. Wartość minimalna to 0 s. Wartości większe niż 240 sekund mogą nie być honorowane, ponieważ źródłowa infrastruktura sieciowa może porzucić bezczynne połączenia po tym czasie. | Nie       | Brak    |
 | Postępuj zgodnie z przekierowaniami = "false &#124; true"          | Określa, czy przekierowania z usługi wewnętrznej bazy danych następuje przez bramę, czy zwracane do obiektu wywołującego.                                                                                                                                                                                                    | Nie       | fałsz   |
@@ -264,11 +264,11 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 -   **Sekcje zasad:** zaplecze
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a>Ogranicz współbieżność
+## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a> Ogranicz współbieżność
 
 `limit-concurrency`Zasady te uniemożliwiają wykonywanie zawartych zasad przez więcej niż określoną liczbę żądań w dowolnym momencie. Po przekroczeniu tej liczby nowe żądania będą natychmiast kończyć się niepowodzeniem z 429 zbyt dużą liczbą żądań w kodzie stanu.
 
-### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a>Instrukcja zasad
+### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a> Instrukcja zasad
 
 ```xml
 <limit-concurrency key="expression" max-count="number">
@@ -302,10 +302,10 @@ W poniższym przykładzie pokazano, jak ograniczyć liczbę żądań przesyłany
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                        | Wymagane | Domyślny |
+| Atrybut | Opis                                                                                        | Wymagane | Domyślne |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Mogą być współużytkowane przez wiele zasad. | Tak      | Brak     |
-| Max-Count | Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wejść do zasad.           | Tak      | Brak     |
+| key       | Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Mogą być współużytkowane przez wiele zasad. | Tak      | Nie dotyczy     |
+| Max-Count | Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wejść do zasad.           | Tak      | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -315,7 +315,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Logowanie do centrum zdarzeń
+## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a> Logowanie do centrum zdarzeń
 
 `log-to-eventhub`Zasady wysyłają komunikaty w określonym formacie do centrum zdarzeń zdefiniowanego przez jednostkę rejestratora. Zgodnie z jego nazwą, zasady są używane do zapisywania informacji o wybranym żądaniu lub kontekście odpowiedzi dla analizy w trybie online lub offline.
 
@@ -369,7 +369,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="mock-response"></a><a name="mock-response"></a>Makieta odpowiedzi
+## <a name="mock-response"></a><a name="mock-response"></a> Makieta odpowiedzi
 
 `mock-response`, Jak nazwa oznacza, jest używany do makietowania interfejsów API i operacji. Przerywa normalne wykonywanie potoku i zwraca zamakietę odpowiedzi do obiektu wywołującego. Zasady zawsze podejmują próbę zwrócenia odpowiedzi o najwyższej wierności. Preferuje przykłady zawartości odpowiedzi, jeśli są dostępne. Generuje przykładowe odpowiedzi ze schematów, gdy schematy są udostępniane i przykłady nie są. Jeśli nie zostaną znalezione żadne przykłady ani schematy, odpowiedzi bez żadnej zawartości są zwracane.
 
@@ -400,7 +400,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut    | Opis                                                                                           | Wymagane | Domyślny |
+| Atrybut    | Opis                                                                                           | Wymagane | Domyślne |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | stan — kod  | Określa kod stanu odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu.                 | Nie       | 200     |
 | Typ zawartości | Określa `Content-Type` wartość nagłówka odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu. | Nie       | Brak    |
@@ -413,7 +413,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="retry"></a><a name="Retry"></a>Spróbuj ponownie wykonać
+## <a name="retry"></a><a name="Retry"></a> Spróbuj ponownie wykonać
 
 Zasady te wykonują `retry` zasady podrzędne raz, a następnie ponawiają próbę wykonania, dopóki nie zostanie ponowiona `condition` `false` lub nie zostanie ponowiona `count` .
 
@@ -459,13 +459,13 @@ W poniższym przykładzie przekazanie żądania jest ponawiane do dziesięciu ra
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślny |
+| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślne |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać zatrzymane ( `false` ) lub ciąg ( `true` ).      | Tak      | Brak     |
-| count            | Liczba dodatnia określająca maksymalną liczbę ponownych prób.                                                                                | Tak      | Brak     |
-| interval         | Dodatnia liczba sekund określająca interwał oczekiwania między ponownymi próbami.                                                                 | Tak      | Brak     |
-| Max — interwał     | Dodatnia liczba sekund określająca maksymalny interwał oczekiwania między ponownymi próbami. Służy do implementowania algorytmu ponowień wykładniczych. | Nie       | Brak     |
-| powstanie            | Dodatnia liczba sekund określająca przyrost interwału oczekiwania. Służy do implementowania algorytmów ponawiania liniowego i wykładniczego.             | Nie       | Brak     |
+| rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać zatrzymane ( `false` ) lub ciąg ( `true` ).      | Tak      | Nie dotyczy     |
+| count            | Liczba dodatnia określająca maksymalną liczbę ponownych prób.                                                                                | Tak      | Nie dotyczy     |
+| interval         | Dodatnia liczba sekund określająca interwał oczekiwania między ponownymi próbami.                                                                 | Tak      | Nie dotyczy     |
+| Max — interwał     | Dodatnia liczba sekund określająca maksymalny interwał oczekiwania między ponownymi próbami. Służy do implementowania algorytmu ponowień wykładniczych. | Nie       | Nie dotyczy     |
+| delta            | Dodatnia liczba sekund określająca przyrost interwału oczekiwania. Służy do implementowania algorytmów ponawiania liniowego i wykładniczego.             | Nie       | Nie dotyczy     |
 | pierwszy — szybko ponów próbę | Jeśli jest ustawiona na `true` , pierwsza próba ponowienia zostanie wykonana natychmiast.                                                                                  | Nie       | `false` |
 
 > [!NOTE]
@@ -481,7 +481,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="return-response"></a><a name="ReturnResponse"></a>Odpowiedź zwrócona
+## <a name="return-response"></a><a name="ReturnResponse"></a> Odpowiedź zwrócona
 
 `return-response`Zasady przerywają wykonywanie potoku i zwracają domyślną lub niestandardową odpowiedź do obiektu wywołującego. Odpowiedź domyślna to `200 OK` bez treści. Niestandardową odpowiedź można określić za pomocą zmiennej kontekstowej lub instrukcji zasad. Gdy są podane oba, odpowiedzi zawarte w zmiennej kontekstowej są modyfikowane przez instrukcje zasad przed zwróceniem do obiektu wywołującego.
 
@@ -531,7 +531,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="send-one-way-request"></a><a name="SendOneWayRequest"></a>Wyślij jednokierunkowe żądanie
+## <a name="send-one-way-request"></a><a name="SendOneWayRequest"></a> Wyślij jednokierunkowe żądanie
 
 `send-one-way-request`Zasady wysyłają podane żądanie do określonego adresu URL bez oczekiwania na odpowiedź.
 
@@ -591,10 +591,10 @@ Te przykładowe zasady przedstawiają przykład użycia `send-one-way-request` z
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny  |
+| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String" | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowy      |
-| name          | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Brak      |
+| name          | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
 | Istnieje — akcja | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane. | Nie       | override |
 
 ### <a name="usage"></a>Użycie
@@ -605,7 +605,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="send-request"></a><a name="SendRequest"></a>Wyślij żądanie
+## <a name="send-request"></a><a name="SendRequest"></a> Wyślij żądanie
 
 `send-request`Zasady wysyłają podane żądanie do określonego adresu URL, co nie przekracza wartości limitu czasu.
 
@@ -675,13 +675,13 @@ Ten przykład pokazuje jeden ze sposobów na zweryfikowanie tokenu odwołania z 
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny  |
+| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String"                   | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowy      |
-| odpowiedź-Zmienna-name = "String" | Nazwa zmiennej kontekstowej, która będzie odbierać obiekt odpowiedzi. Jeśli zmienna nie istnieje, zostanie utworzona po pomyślnym wykonaniu zasad i stanie się dostępna za pośrednictwem [`context.Variable`](api-management-policy-expressions.md#ContextVariables) kolekcji.                                                                                                                                                                                                                                                                                                                          | Tak      | Brak      |
+| odpowiedź-Zmienna-name = "String" | Nazwa zmiennej kontekstowej, która będzie odbierać obiekt odpowiedzi. Jeśli zmienna nie istnieje, zostanie utworzona po pomyślnym wykonaniu zasad i stanie się dostępna za pośrednictwem [`context.Variable`](api-management-policy-expressions.md#ContextVariables) kolekcji.                                                                                                                                                                                                                                                                                                                          | Tak      | Nie dotyczy      |
 | Timeout = "Integer"               | Interwał limitu czasu (w sekundach), po którym wywołanie adresu URL nie powiedzie się.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nie       | 60       |
 | Ignoruj-błąd                    | Jeśli wartość jest równa true, a żądanie powoduje błąd:<br /><br /> -Jeśli określono odpowiedź-Variable-Name, będzie zawierać wartość null.<br />-Jeśli odpowiedź-Zmienna-name nie została określona, Context. Żądanie nie zostanie zaktualizowane.                                                                                                                                                                                                                                                                                                                                                                                   | Nie       | fałsz    |
-| name                            | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Brak      |
+| name                            | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
 | Istnieje — akcja                   | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane. | Nie       | override |
 
 ### <a name="usage"></a>Użycie
@@ -692,7 +692,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a>Ustaw serwer proxy HTTP
+## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a> Ustaw serwer proxy HTTP
 
 `proxy`Zasady umożliwiają kierowanie żądań przesyłanych do frontonu za pośrednictwem serwera proxy HTTP. Między bramą i serwerem proxy obsługiwane są tylko protokół HTTP (nie HTTPS). Tylko uwierzytelnianie podstawowe i NTLM.
 
@@ -720,11 +720,11 @@ Zwróć uwagę na użycie [Właściwości](api-management-howto-properties.md) j
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut         | Opis                                            | Wymagane | Domyślny |
+| Atrybut         | Opis                                            | Wymagane | Domyślne |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| URL = "String"      | Adres URL serwera proxy w postaci http://host:port .             | Tak      | Brak     |
-| username = "String" | Nazwa użytkownika, która ma być używana na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Brak     |
-| Password = "String" | Hasło, które ma być używane na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Brak     |
+| URL = "String"      | Adres URL serwera proxy w postaci http://host:port .             | Tak      | Nie dotyczy     |
+| username = "String" | Nazwa użytkownika, która ma być używana na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
+| Password = "String" | Hasło, które ma być używane na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -734,7 +734,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="set-request-method"></a><a name="SetRequestMethod"></a>Ustaw metodę żądania
+## <a name="set-request-method"></a><a name="SetRequestMethod"></a> Ustaw metodę żądania
 
 `set-method`Zasady umożliwiają zmianę metody żądania HTTP dla żądania.
 
@@ -789,7 +789,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="set-status-code"></a><a name="SetStatus"></a>Ustaw kod stanu
+## <a name="set-status-code"></a><a name="SetStatus"></a> Ustaw kod stanu
 
 `set-status`Zasada ustawia kod stanu HTTP na określoną wartość.
 
@@ -826,10 +826,10 @@ Ten przykład pokazuje, jak zwrócić odpowiedź 401, jeśli token autoryzacji j
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut       | Opis                                                | Wymagane | Domyślny |
+| Atrybut       | Opis                                                | Wymagane | Domyślne |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| Code = "Integer"  | Kod stanu HTTP do zwrócenia.                            | Tak      | Brak     |
-| Przyczyna = "ciąg" | Opis przyczyny zwrócenia kodu stanu. | Tak      | Brak     |
+| Code = "Integer"  | Kod stanu HTTP do zwrócenia.                            | Tak      | Nie dotyczy     |
+| Przyczyna = "ciąg" | Opis przyczyny zwrócenia kodu stanu. | Tak      | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -838,17 +838,17 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 -   **Sekcje zasad:** wychodzące, zaplecze, w przypadku błędu
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="set-variable"></a><a name="set-variable"></a>Ustaw zmienną
+## <a name="set-variable"></a><a name="set-variable"></a> Ustaw zmienną
 
 `set-variable`Zasady deklarują zmienną [kontekstową](api-management-policy-expressions.md#ContextVariables) i przypisuje jej wartość określoną za pośrednictwem [wyrażenia](api-management-policy-expressions.md) lub literału ciągu. Jeśli wyrażenie zawiera literał, zostanie on przekonwertowany na ciąg, a typ wartości będzie `System.String` .
 
-### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a>Instrukcja zasad
+### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a> Instrukcja zasad
 
 ```xml
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-### <a name="example"></a><a name="set-variableExample"></a>Przyklad
+### <a name="example"></a><a name="set-variableExample"></a> Przyklad
 
 Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące. Ten zestaw zasad zmiennych tworzy `isMobile` zmienną [kontekstu](api-management-policy-expressions.md#ContextVariables) logicznego, która ma wartość true, jeśli `User-Agent` nagłówek żądania zawiera tekst `iPad` lub `iPhone` .
 
@@ -876,7 +876,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 -   **Sekcje zasad:** przychodzące, wychodzące, zaplecze, w przypadku błędu
 -   **Zakresy zasad:** wszystkie zakresy
 
-### <a name="allowed-types"></a><a name="set-variableAllowedTypes"></a>Dozwolone typy
+### <a name="allowed-types"></a><a name="set-variableAllowedTypes"></a> Dozwolone typy
 
 Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następujących typów podstawowych.
 
@@ -912,7 +912,7 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 -   System. Char?
 -   System. DateTime?
 
-## <a name="trace"></a><a name="Trace"></a>Szuka
+## <a name="trace"></a><a name="Trace"></a> Szuka
 
 `trace`Zasady dodaje niestandardowy ślad do danych wyjściowych inspektora interfejsu API, Application Insights telemetrii i/lub dzienników zasobów.
 
@@ -931,7 +931,7 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ```
 
-### <a name="example"></a><a name="traceExample"></a>Przyklad
+### <a name="example"></a><a name="traceExample"></a> Przyklad
 
 ```xml
 <trace source="PetStore API" severity="verbose">
@@ -950,12 +950,12 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                               | Wymagane | Domyślny |
+| Atrybut | Opis                                                                                                               | Wymagane | Domyślne |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Brak     |
+| source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Nie dotyczy     |
 | ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose` , `information` , `error` (od najniższego do najwyższego). | Nie       | Pełny |
-| name      | Nazwa właściwości.                                                                                                     | Tak      | Brak     |
-| value     | Wartość właściwości.                                                                                                    | Tak      | Brak     |
+| name      | Nazwa właściwości.                                                                                                     | Tak      | Nie dotyczy     |
+| value     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -965,7 +965,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-## <a name="wait"></a><a name="Wait"></a>Trwa
+## <a name="wait"></a><a name="Wait"></a> Trwa
 
 `wait`Zasady domyślnie wykonują bezpośrednie zasady podrzędne i czekają na zakończenie wszystkich lub jednej z jej bezpośrednich zasad podrzędnych przed zakończeniem. Zasady oczekiwania mogą mieć charakter żądania natychmiastowego [wysłania żądań](api-management-advanced-policies.md#SendRequest), [pobrania wartości z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)i zasad [przepływu sterowania](api-management-advanced-policies.md#choose) .
 
@@ -1023,9 +1023,9 @@ W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasa
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślny |
+| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślne |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all`-Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
+| for       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
 
 ### <a name="usage"></a>Użycie
 

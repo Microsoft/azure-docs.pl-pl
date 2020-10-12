@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556356"
 ---
 # <a name="msix-app-attach-glossary"></a>Dołączanie słownika aplikacji MSIX
@@ -71,7 +71,7 @@ W systemie Windows Virtual Desktop publikowanie pakietu MSIX łączy go z aplika
 
 W przypadku pulpitu wirtualnego systemu Windows opublikowany pakiet MSIX musi zostać przypisany do usługi domena usługi Active Directory Service (AD DS) Azure Active Directory lub do grupy użytkowników (Azure AD).
 
-## <a name="staging"></a>Podział na etapy
+## <a name="staging"></a>Przygotowanie
 
 Proces przemieszczania obejmuje dwie rzeczy:
 
@@ -106,7 +106,7 @@ Deprzygotowywanie powiadamia system operacyjny, że pakiet lub aplikacja MSIX, k
 
 . Model CIM to nowe rozszerzenie pliku skojarzone z systemem plików obrazów złożonych (CimFS). Instalowanie i Odinstalowywanie plików CIM jest szybsze, ponieważ pliki VHD. Model CIM zużywa również mniej czasu procesora i pamięci niż dysk VHD.
 
-Poniższa tabela przedstawia porównanie wydajności między dyskami VHD i CimFS. Te liczby były wynikiem przebiegu testu z plikami 800 MB w każdym formacie uruchomionym na maszynie DSv4.
+Poniższa tabela przedstawia porównanie wydajności między dyskami VHD i CimFS. Te liczby były wynikiem przebiegu testu z plikami 500 300 MB w każdym formacie uruchomionym na maszynie DSv4.
 
 |  Specyfikacje                          | VHD                    | CimFS   |
 |---------------------------------|--------------------------|-----------|

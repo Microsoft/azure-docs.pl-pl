@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132317"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Konfigurowanie odzyskiwania po awarii dla Active Directory i systemu DNS
@@ -25,7 +25,7 @@ W tym artykule wyjaśniono, jak utworzyć rozwiązanie odzyskiwania po awarii dl
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Jeśli przeprowadzasz replikację do platformy Azure, [Przygotuj zasoby platformy Azure](tutorial-prepare-azure.md), w tym subskrypcję, Virtual Network platformy Azure, konto magazynu i magazyn Recovery Services.
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](./vmware-physical-azure-support-matrix.md) wszystkich składników.
+- Zapoznaj się z wymaganiami dotyczącymi [obsługi](./vmware-physical-azure-support-matrix.md) wszystkich składników.
 
 ## <a name="replicate-the-domain-controller"></a>Replikowanie kontrolera domeny
 
@@ -79,7 +79,7 @@ Większość aplikacji wymaga obecności kontrolera domeny lub serwera DNS. W zw
 1. Utwórz sieć izolowaną. Każda sieć wirtualna utworzona na platformie Azure jest domyślnie odizolowana od innych sieci. Zalecamy używanie tego samego zakresu adresów IP dla tej sieci, która jest używana w sieci produkcyjnej. Nie włączaj łączności między lokacjami w tej sieci.
 1. Podaj adres IP DNS w sieci izolowanej. Użyj adresu IP, który ma zostać pobrany przez maszynę wirtualną DNS. Jeśli wykonujesz replikację do platformy Azure, podaj adres IP maszyny wirtualnej używanej w trybie failover. Aby wprowadzić adres IP, na zreplikowanej maszynie wirtualnej w ustawieniach **obliczenia i sieci** wybierz **docelowe ustawienia adresu IP** .
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure test Network":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Sieć platformy Azure":::
 
    > [!TIP]
    > Site Recovery próbuje utworzyć testowe maszyny wirtualne w podsieci o tej samej nazwie i przy użyciu tego samego adresu IP, który jest podany w ustawieniach **obliczeniowych i sieciowych** maszyny wirtualnej. Jeśli podsieć o tej samej nazwie nie jest dostępna w sieci wirtualnej platformy Azure podanej na potrzeby testowego przejścia w tryb failover, testowa maszyna wirtualna jest tworzona w pierwszej podsieci w kolejności alfabetycznej.
@@ -118,21 +118,21 @@ Jeśli zabezpieczenia wirtualizacji są wyzwalane po testowym przejściu w tryb 
 
 - Wartość **GenerationId** zmieni się:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Zmiana identyfikatora generacji":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Sieć platformy Azure":::
 
 - Wartość **InvocationID** zmieni się:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Zmiana identyfikatora wywołania":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Sieć platformy Azure":::
 
-- `SYSVOL`folder i `NETLOGON` udziały nie są dostępne.
+- `SYSVOL` folder i `NETLOGON` udziały nie są dostępne.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Udział folderu SYSVOL":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Sieć platformy Azure":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Folder SYSVOL NtFrs":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Sieć platformy Azure":::
 
 - Bazy danych DFSR są usuwane.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Bazy danych DFSR są usuwane":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Sieć platformy Azure":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Rozwiązywanie problemów z kontrolerem domeny podczas testu pracy w trybie failover
 

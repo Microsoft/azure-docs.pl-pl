@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75452153"
 ---
 # <a name="introduction-to-application-groups"></a>Wprowadzenie do grup aplikacji
@@ -177,7 +177,7 @@ Zapytanie ApplicationLoad zwraca podstawowe informacje o pojemności aplikacji, 
 * Wydajność aplikacji: Maksymalna dozwolona wartość obciążenia aplikacji.
 
 ## <a name="removing-application-capacity"></a>Usuwanie pojemności aplikacji
-Po ustawieniu parametrów pojemności aplikacji dla aplikacji można je usunąć za pomocą aktualizacji interfejsów API aplikacji lub poleceń cmdlet programu PowerShell. Przykład:
+Po ustawieniu parametrów pojemności aplikacji dla aplikacji można je usunąć za pomocą aktualizacji interfejsów API aplikacji lub poleceń cmdlet programu PowerShell. Na przykład:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

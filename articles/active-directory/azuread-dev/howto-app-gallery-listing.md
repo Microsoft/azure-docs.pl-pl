@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706306"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure Active Directory
@@ -101,7 +101,7 @@ Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy 
 
 - **Saml 2,0** lub **WS-karmione**: Jeśli aplikacja obsługuje protokół SAML 2,0, można zintegrować ją bezpośrednio z DZIERŻAWą usługi Azure AD, postępując zgodnie z [instrukcjami, aby dodać aplikację niestandardową](../manage-apps/view-applications-portal.md).
 
-  ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-karmione w galerii](./media/howto-app-gallery-listing/saml.png)
+  ![Wyświetlanie listy aplikacji SAML 2,0 lub WS-Fed w galerii](./media/howto-app-gallery-listing/saml.png)
 
   * Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione**, wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
 
@@ -146,7 +146,7 @@ Oto przepływ aplikacji żądanych przez klienta.
 
 ## <a name="timelines"></a>Osie czasu
 
-Oś czasu procesu tworzenia listy aplikacji SAML 2,0 lub WS-karmione w galerii wynosi od 7 do 10 dni roboczych.
+Oś czasu procesu tworzenia listy aplikacji SAML 2,0 lub WS-Fed w galerii wynosi od 7 do 10 dni roboczych.
 
   ![Oś czasu do wyświetlania aplikacji SAML w galerii](./media/howto-app-gallery-listing/timeline.png)
 

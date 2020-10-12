@@ -7,10 +7,10 @@ ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291113"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
@@ -68,12 +68,12 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
 |---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszystko|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystko|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
-|docs.microsoft.com|443|Dokumentacja|Wszystko|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszystkie|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystkie|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystkie|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszystkie|
+|docs.microsoft.com|443|Dokumentacja|Wszystkie|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystkie|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]

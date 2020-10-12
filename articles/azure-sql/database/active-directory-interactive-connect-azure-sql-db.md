@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 147b73b6772675d5143e41ddfff030614e393b95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84045480"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu usługi Azure Multi-Factor Authentication
@@ -68,7 +68,7 @@ Aby zarejestrować i ustawić wymagane uprawnienia dla aplikacji:
 
     ![Wyświetlany identyfikator aplikacji](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**.
+2. Wybierz pozycję **Uprawnienia interfejsu API** > **Dodaj uprawnienie**.
 
     ![Ustawienia uprawnień dla zarejestrowanej aplikacji](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 

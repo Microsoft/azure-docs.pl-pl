@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482571"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generuj mapę cieplną wilgoci
@@ -87,7 +87,7 @@ Wykonaj następujące kroki:
 2. Po **pomyślnym**wyświetleniu stanu zadania wybierz pozycję **mapy** w menu.
 3. Wyszukaj mapę według dnia, w której został utworzony, w formacie <gleba moisture_MyFarm_YYYY-MM-DD>.
 4. Wybierz mapę w kolumnie **Nazwa** , okno podręczne wyświetla podgląd wybranej mapy.
-5. Wybierz przycisk **Download** (Pobierz). Mapa zostanie pobrana i zapisana do folderu lokalnego komputera.
+5. Kliknij pozycję **Pobierz**. Mapa zostanie pobrana i zapisana do folderu lokalnego komputera.
 
     ![Farmy projektów](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
