@@ -12,10 +12,10 @@ ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 79219d7a7b59818d54acc6a2b0b4c8093ead3a6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385233"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logowanie przy użyciu aplikacji systemu Android w Azure Active Directory B2C
@@ -65,7 +65,7 @@ Przykładem jest modyfikacja przykładu dostarczonego przez [AppAuth](https://op
 > AppAuth obsługuje interfejsy API systemu Android 16 (Jellybean) i nowsze. Zalecamy korzystanie z interfejsu API 23 lub nowszego.
 >
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Komunikację można skonfigurować przy użyciu Azure AD B2C, określając identyfikator URI odnajdowania lub określając zarówno punkt końcowy autoryzacji, jak i identyfikatory URI punktu końcowego tokenu. W obu przypadkach potrzebne są następujące informacje:
 

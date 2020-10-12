@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
 ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90032388"
 ---
 # <a name="determine-your-publishing-option"></a>Określanie opcji publikowania

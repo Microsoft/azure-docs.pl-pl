@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192806"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące burzy w usłudze HDInsight i Azure Data Lake Storage Gen1
@@ -89,7 +89,7 @@ W topologiach intensywnie korzystających z operacji we/wy dobrym pomysłem jest
 
 W obszarze burza elementu Spout znajduje się na spójnej kolekcji, dopóki nie zostanie jednoznacznie potwierdzona przez pioruna. Jeśli krotka została odczytana przez obiekt piorun, ale nie została jeszcze potwierdzona, elementu Spout może nie zostać utrwalony w Data Lake Storage Gen1 zaplecza. Po potwierdzeniu krotki elementu Spout może zagwarantować trwałość przez pioruna, a następnie usunąć dane źródłowe z dowolnego źródła, z którego się odczyta.  
 
-Aby uzyskać najlepszą wydajność na Data Lake Storage Gen1, należy uzyskać bufor pioruna 4 MB danych krotki. Następnie Zapisz do Data Lake Storage Gen1 zaplecza jako jeden zapis o rozmiarze 4 MB. Po pomyślnym zapisaniu danych w sklepie (przez wywołanie hflush ()) piorun może potwierdzić dane z powrotem do elementu Spout. Oto co to jest przykładowy kod podany tutaj. Jest również akceptowalny do przechowywania większej liczby krotek przed wywołaniem hflush () i potwierdzeniem krotek. Jednak zwiększa to liczbę spójnych krotek, które elementu Spout muszą przechowywać, i w związku z tym zwiększa ilość pamięci wymaganej na JVM.
+Aby uzyskać najlepszą wydajność na Data Lake Storage Gen1, należy uzyskać bufor pioruna 4 MB danych krotki. Następnie Zapisz do Data Lake Storage Gen1 zaplecza jako zapis 1 4 MB. Po pomyślnym zapisaniu danych w sklepie (przez wywołanie hflush ()) piorun może potwierdzić dane z powrotem do elementu Spout. Oto co to jest przykładowy kod podany tutaj. Jest również akceptowalny do przechowywania większej liczby krotek przed wywołaniem hflush () i potwierdzeniem krotek. Jednak zwiększa to liczbę spójnych krotek, które elementu Spout muszą przechowywać, i w związku z tym zwiększa ilość pamięci wymaganej na JVM.
 
 > [!NOTE]
 > Aplikacje mogą wymagać częściej potwierdzania krotek (w rozmiarach danych mniejszych niż 4 MB) w celu uzyskania innych przyczyn niezwiązanych z wydajnością. Jednak może to mieć wpływ na przepływność we/wy do zaplecza magazynu. Starannie zważyć ten kompromis z wydajnością we/wy pioruna.
@@ -98,7 +98,7 @@ Jeśli stawka przychodząca krotek nie jest wysoka, więc wypełnianie buforu 4 
 * Zmniejszenie liczby piorunów, aby wypełnić więcej buforów.
 * Posiadanie zasad opartych na czasie lub liczbie, gdzie hflush () jest wyzwalane każde opróżnianie x lub co t milisekundy, a zebrane kolekcje są potwierdzane z powrotem.
 
-Przepływność w tym przypadku jest niższa, ale z niską częstotliwością zdarzeń, maksymalna przepływność nie jest jeszcze największym celem. Te środki zaradcze pozwalają skrócić całkowity czas potrzebny na przekazanie krotki do sklepu. Może to mieć znaczenie, jeśli chcesz, aby potok w czasie rzeczywistym był nawet z niską częstotliwością zdarzeń. Należy również pamiętać, że jeśli liczba przychodzących krotek ma niską wartość, należy dostosować parametr Topology. Message. timeout_secs, dzięki czemu krotki nie przekroczą limitu czasu, gdy są one buforowane lub przetwarzane.
+Przepływność w tym przypadku jest niższa, ale z niską częstotliwością zdarzeń, maksymalna przepływność nie jest jeszcze największym celem. Te środki zaradcze pozwalają skrócić całkowity czas potrzebny na przekazanie krotki do sklepu. Może to mieć znaczenie, jeśli chcesz, aby potok w czasie rzeczywistym był nawet z niską częstotliwością zdarzeń. Należy również pamiętać, że jeśli liczba przychodzących krotek ma niską wartość, należy dostosować parametr topology.message.timeout_secs, dzięki czemu krotki nie przekroczą limitu czasu, podczas gdy są one buforowane lub przetwarzane.
 
 ## <a name="monitor-your-topology-in-storm"></a>Monitorowanie topologii w burzach  
 Gdy topologia jest uruchomiona, można monitorować ją w interfejsie użytkownika burzy. Oto główne parametry do przeszukiwania:

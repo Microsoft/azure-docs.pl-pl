@@ -5,16 +5,16 @@ ms.topic: how-to
 ms.date: 04/24/2017
 ms.custom: seodec18, has-adal-ref, devx-track-csharp
 ms.openlocfilehash: 0672a7dc1a5c26eff88806ca37b28d70b49f2288
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88926528"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Zarządzanie kontami i przydziałami usługi Batch za pomocą biblioteki klienta zarządzania usługą Batch dla platformy .NET
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 

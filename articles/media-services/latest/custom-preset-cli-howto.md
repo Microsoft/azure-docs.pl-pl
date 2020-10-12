@@ -13,10 +13,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295789"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Jak kodować przy użyciu niestandardowej transformacji — interfejs wiersza polecenia platformy Azure
@@ -142,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji. Pełny przykład pokazujący, jak przesłać zadanie w ramach przekształcenia, zobacz [Szybki Start: przesyłanie strumieniowe plików wideo — interfejs wiersza polecenia platformy Azure](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams)

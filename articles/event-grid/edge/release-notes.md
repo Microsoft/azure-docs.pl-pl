@@ -4,10 +4,10 @@ description: Azure Event Grid na temat IoT Edge informacji o wersji
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: a7582750f5230f02c784b14f50dfc6efa7af8698
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171418"
 ---
 # <a name="release-notes-azure-event-grid-on-iot-edge"></a>Informacje o wersji: Azure Event Grid na IoT Edge
@@ -28,7 +28,7 @@ Początkowa wersja Azure Event Grid w IoT Edge. Uwzględnione funkcje:
 * Utrwalony stan metadanych
 * Integracja modułu BLOB Storage
 
-Tabliczk`1.0.0-preview1`
+Tabliczk `1.0.0-preview1`
 
 ## <a name="100-preview2"></a>1.0.0 — preview2
 
@@ -42,4 +42,4 @@ Zapoznawcza 2 Azure Event Grid na IoT Edge dodany:
 * Publikuj w Service Bus tematy jako miejsce docelowe
 * Publikowanie w kolejkach magazynu jako miejsce docelowe
 
-Tagi: `1.0.0-preview2` , `1.0` ,`latest`
+Tagi: `1.0.0-preview2` , `1.0` , `latest`

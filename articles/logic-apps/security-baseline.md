@@ -8,10 +8,10 @@ ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296094"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Podstawa zabezpieczeń platformy Azure dla Logic Apps
@@ -646,7 +646,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Logic Apps i ma 
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
 
-**Wskazówki**: można zezwolić tylko określonym użytkownikom lub grupom na uruchamianie określonych zadań, takich jak zarządzanie, edytowanie i wyświetlanie aplikacji logiki. Aby kontrolować ich uprawnienia, użyj Access Control opartej na rolach (RBAC) platformy Azure, aby można było przypisywać niestandardowe lub wbudowane role do członków w ramach subskrypcji platformy Azure:
+**Wskazówki**: można zezwolić tylko określonym użytkownikom lub grupom na uruchamianie określonych zadań, takich jak zarządzanie, edytowanie i wyświetlanie aplikacji logiki. Aby kontrolować ich uprawnienia, Użyj usługi Azure Role-Based Access Control (RBAC), aby móc przypisywać niestandardowe lub wbudowane role do członków w ramach subskrypcji platformy Azure:
 
 - Współautor aplikacji logiki: umożliwia zarządzanie aplikacjami logiki, ale nie pozwala na zmianę dostępu do nich.
 - Operator aplikacji logiki: umożliwia odczytywanie, Włączanie i wyłączanie aplikacji logiki, ale nie można ich edytować ani aktualizować.
@@ -1190,13 +1190,13 @@ Testowanie przywracania kopii zapasowych kluczy zarządzanych przez klienta. Nal
 
 Ochrona kopii zapasowych kluczy zarządzanych przez klienta. Należy pamiętać, że dotyczy to Logic Apps działających tylko w środowiskach usługi Integration Environment (ISE).
 
-Włącz ochronę przed usuwaniem i przeczyszczaniem w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
+Włącz ochronę Soft-Delete i przeczyszczania w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
 - [Dowiedz się więcej na temat ciągłości działania i odzyskiwania po awarii dla Azure Logic Apps](business-continuity-disaster-recovery-guidance.md)
 
 - [Skonfiguruj klucze zarządzane przez klienta, aby szyfrować dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [Jak włączyć ochronę przed usuwaniem i Przeczyszczaniem w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Jak włączyć ochronę Soft-Delete i przeczyszczania w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: tak
 

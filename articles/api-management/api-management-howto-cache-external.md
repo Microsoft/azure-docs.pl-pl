@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904959"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Używanie zewnętrznej pamięci podręcznej zgodnej z Redis na platformie Azure API Management
@@ -74,7 +74,7 @@ Wykonaj poniższe kroki, aby dodać zewnętrzną pamięć podręczną Azure Cach
 3. Kliknij przycisk **+ Dodaj**.
 4. Wybierz swoją pamięć podręczną w polu rozwijanym **Wystąpienie pamięci podręcznej**.
 5. Wybierz opcję **domyślny** lub określ żądany region w polu **Użyj z** listy rozwijanej.
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Dodawanie pamięci podręcznej Azure Cache for Redis hostowanej poza bieżącą subskrypcją platformy Azure lub poza samą platformą Azure
 
@@ -84,7 +84,7 @@ Wykonaj poniższe kroki, aby dodać zewnętrzną pamięć podręczną Azure Cach
 4. Wybierz pozycję **Niestandardowe** w polu rozwijanym **Wystąpienie pamięci podręcznej**.
 5. Wybierz opcję **domyślny** lub określ żądany region w polu **Użyj z** listy rozwijanej.
 6. W polu **Parametry połączenia** podaj parametry połączenia swojej pamięci podręcznej Azure Cache for Redis.
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Dodawanie pamięci podręcznej Redis do bramy samoobsługowej
 
@@ -94,7 +94,7 @@ Wykonaj poniższe kroki, aby dodać zewnętrzną pamięć podręczną Azure Cach
 4. Wybierz pozycję **Niestandardowe** w polu rozwijanym **Wystąpienie pamięci podręcznej**.
 5. Określ żądaną lokalizację własnej bramy lub **wartość domyślną** w polu **Użyj z** listy rozwijanej.
 6. W polu **Parametry połączenia** podaj parametry połączenia swojej pamięci podręcznej Redis.
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 ## <a name="use-the-external-cache"></a>Używanie zewnętrznej pamięci podręcznej
 

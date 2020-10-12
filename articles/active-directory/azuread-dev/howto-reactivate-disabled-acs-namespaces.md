@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383721"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Jak ponownie uaktywnić wyłączone Access Control Service przestrzenie nazw

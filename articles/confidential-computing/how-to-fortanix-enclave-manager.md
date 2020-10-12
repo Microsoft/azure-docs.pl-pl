@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462432"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Instrukcje: uruchamianie aplikacji za pomocą Menedżera Fortanix enklawy 
@@ -28,7 +28,7 @@ Fortanix to dostawca oprogramowania innej firmy z produktami i usługami opartym
 
 
 
-W tym samouczku pokazano, jak przekonwertować obraz aplikacji na obraz chroniony przed obliczeniami. To środowisko używa oprogramowania [Fortanix](https://www.fortanix.com/) , obsługiwanego przez maszyny wirtualne z obsługą technologii DCsv2 platformy Azure SGX. To rozwiązanie organizuje krytyczne zasady zabezpieczeń, takie jak weryfikacja tożsamości i kontrola dostępu do danych.
+W tym samouczku pokazano, jak przekonwertować obraz aplikacji na obraz chroniony przed obliczeniami. To środowisko używa oprogramowania [Fortanix](https://www.fortanix.com/) obsługiwanego przez maszyny wirtualne z obsługą technologii Intel SGX platformy DCsv2-Series Azure. To rozwiązanie organizuje krytyczne zasady zabezpieczeń, takie jak weryfikacja tożsamości i kontrola dostępu do danych.
 
  W celu uzyskania pomocy technicznej dotyczącej usługi Fortanix Dołącz do [społeczności Fortanixa](https://fortanix.com/community/) i użyj #enclavemanager kanału.
 
@@ -117,10 +117,10 @@ Utworzenie agenta węzła Fortanix spowoduje wdrożenie maszyny wirtualnej, inte
      ![Wyszukaj w witrynie Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
 1. Wybierz pozycję **Pobierz teraz**, wprowadź informacje w razie potrzeby, a następnie wybierz pozycję **Kontynuuj**. Nastąpi przekierowanie do Azure Portal. 
 1. Wybierz pozycję **Utwórz** , aby przejść na stronę wdrożenia agenta Fortanixego dla komputerów poufnych.
-1. Na tej stronie będziesz wprowadzać informacje w celu wdrożenia maszyny wirtualnej. Ta maszyna wirtualna jest maszyną wirtualną z obsługą serii DCsv2 Intel SGX z platformy Azure z zainstalowanym oprogramowaniem agenta Node Fortanix. Agent węzła zezwoli na bezpieczne działanie konwertowanego obrazu w węzłach Intel SGX na platformie Azure.  Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz wdrożyć maszynę wirtualną i skojarzone z nią zasoby. 
+1. Na tej stronie będziesz wprowadzać informacje w celu wdrożenia maszyny wirtualnej. Ta maszyna wirtualna jest DCsv2-Series maszynę wirtualną z obsługą technologii Intel SGX z platformy Azure z zainstalowanym oprogramowaniem agenta Node Fortanix. Agent węzła zezwoli na bezpieczne działanie konwertowanego obrazu w węzłach Intel SGX na platformie Azure.  Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz wdrożyć maszynę wirtualną i skojarzone z nią zasoby. 
  
     > [!NOTE]
-    > Istnieją ograniczenia podczas wdrażania maszyn wirtualnych z serii DCsv2 na platformie Azure. Może być konieczne przekroczenie limitu przydziału dla dodatkowych rdzeni. Aby uzyskać więcej informacji, Przeczytaj o [rozwiązaniach do przetwarzania danych poufnych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
+    > Podczas wdrażania DCsv2-Series maszyn wirtualnych na platformie Azure obowiązują ograniczenia. Może być konieczne przekroczenie limitu przydziału dla dodatkowych rdzeni. Aby uzyskać więcej informacji, Przeczytaj o [rozwiązaniach do przetwarzania danych poufnych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
 
 1. Wybierz dostępny region.
 1. Wprowadź nazwę maszyny wirtualnej w polu **nazwa węzła** . 

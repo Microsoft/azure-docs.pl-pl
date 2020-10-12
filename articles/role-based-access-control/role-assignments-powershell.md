@@ -15,15 +15,15 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146655"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]W tym artykule opisano sposób przypisywania ról przy użyciu Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] W tym artykule opisano sposób przypisywania ról przy użyciu Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "86146655"
 
 Aby dodać lub usunąć przypisania ról, musisz mieć:
 
-- `Microsoft.Authorization/roleAssignments/write`i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
 - Program [PowerShell w Azure Cloud Shell](/azure/cloud-shell/overview) lub [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
@@ -47,7 +47,7 @@ Get-AzADUser -StartsWith <string_in_quotes>
 (Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-### <a name="group"></a>Grupa
+### <a name="group"></a>Group (Grupa)
 
 Aby uzyskać identyfikator obiektu dla grupy usługi Azure AD, możesz użyć polecenie [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 

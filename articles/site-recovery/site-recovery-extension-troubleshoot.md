@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184622"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Rozwiązywanie problemów z rozszerzeniem maszyny wirtualnej platformy Azure
@@ -84,12 +84,12 @@ Większość błędów związanych z agentami lub rozszerzeniami dla maszyn wirt
    > [!NOTE]
    > *Zdecydowanie zalecamy* , aby zaktualizować agenta tylko za pomocą repozytorium dystrybucji. Nie zalecamy pobierania kodu agenta bezpośrednio z usługi GitHub i aktualizowania go. Jeśli najnowszy Agent dystrybucji nie jest dostępny, skontaktuj się z pomocą techniczną, aby uzyskać instrukcje dotyczące sposobu jej instalacji. Aby sprawdzić najnowszego agenta, przejdź do strony [agenta systemu Linux platformy Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) w repozytorium GitHub.
 
-1. Upewnij się, że na maszynie wirtualnej jest uruchomiony agent platformy Azure, uruchamiając następujące polecenie:`ps -e`
+1. Upewnij się, że na maszynie wirtualnej jest uruchomiony agent platformy Azure, uruchamiając następujące polecenie: `ps -e`
 
    Jeśli proces nie jest uruchomiony, uruchom go ponownie przy użyciu następujących poleceń:
 
-   - Dla Ubuntu:`service walinuxagent start`
-   - W przypadku innych dystrybucji:`service waagent start`
+   - Dla Ubuntu: `service walinuxagent start`
+   - W przypadku innych dystrybucji: `service waagent start`
 
 1. [Skonfiguruj agenta automatycznego ponownego uruchamiania](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 1. Włącz ochronę maszyny wirtualnej.

@@ -14,10 +14,10 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: db51ec682f43366f5637c461e3fe4037dec8e364
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085218"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>SAP HANA migracji dużych wystąpień platformy Azure do platformy Azure Virtual Machines
@@ -115,7 +115,7 @@ Czy nowa usługa SAP HANA VM wyląduje w nowej lub istniejącej sieci wirtualnej
 ### <a name="vm-sizing-recommendation"></a>Zalecenie dotyczące zmiany wielkości maszyny wirtualnej
 Ta migracja jest również okazja do odpowiedniego rozmiaru aparatu obliczeniowego platformy HANA.  Jeden z nich może korzystać z [widoków systemu](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) Hana w połączeniu z platformą Hana Studio, aby zrozumieć użycie zasobów systemowych, co pozwala na prawidłowe ustalanie wielkości wydatków.
 
-### <a name="storage"></a>Storage 
+### <a name="storage"></a>Magazyn 
 Wydajność magazynu to jeden z czynników wpływających na środowisko użytkownika aplikacji SAP.  Na podstawie danej jednostki SKU maszyny wirtualnej jest publikowany minimalny układ magazynu [SAP HANA konfigurację magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md). Zalecamy przejrzenie tych minimalnych wartości i porównanie z istniejącymi statystykami systemu HLI w celu zapewnienia odpowiedniej pojemności i wydajności operacji we/wy dla nowej maszyny wirtualnej platformy HANA.
 
 Jeśli skonfigurujesz PPG dla nowej maszyny wirtualnej HANA i skojarzonych z nią serwerów, Prześlij bilet pomocy technicznej w celu sprawdzenia i sprawdzenia wspólnej lokalizacji magazynu i maszyny wirtualnej. Ponieważ może zajść konieczność zmiany rozwiązania do tworzenia kopii zapasowych, należy również oglądany koszt magazynu, aby uniknąć niespodziewanych wydatków operacyjnych.

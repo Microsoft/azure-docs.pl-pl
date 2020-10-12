@@ -7,10 +7,10 @@ ms.tgt_pltfrm: na
 ms.date: 09/09/2020
 ms.author: bwren
 ms.openlocfilehash: e08c649b9a1d7e8b909a413ee435fce30a8d7e48
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90032784"
 ---
 # <a name="azure-monitor-logs-overview"></a>Omówienie dzienników Azure Monitor

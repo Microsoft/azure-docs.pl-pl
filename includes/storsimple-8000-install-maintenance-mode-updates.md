@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183427"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Zainstaluj aktualizacje trybu konserwacji za pośrednictwem program Windows PowerShell dla usługi StorSimple
@@ -43,7 +43,7 @@ Po zastosowaniu aktualizacji trybu konserwacji do urządzenia StorSimple wszystk
 
     `Get-HcsFirmwareVersion`
    
-    Oczekiwane wersje oprogramowania układowego dysku to:`XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    Oczekiwane wersje oprogramowania układowego dysku to:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
 6. Wyjdź z trybu konserwacji. Dla każdego kontrolera urządzenia wpisz następujące polecenie:
 

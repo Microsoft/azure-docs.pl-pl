@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
 ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294598"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
@@ -58,7 +58,7 @@ Na poniższym diagramie przedstawiono, jak te pliki wyglądają w systemie plik�
 | handler.exe
 ```
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Aplikacja jest konfigurowana za pomocą *host.js* i *local.settings.jsna* plikach.
 

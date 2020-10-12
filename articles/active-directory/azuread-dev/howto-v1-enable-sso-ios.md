@@ -16,10 +16,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 08b018082c753b9524cb12a72d637fe5458d9114
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383703"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Instrukcje: Włączanie logowania jednokrotnego dla aplikacji w systemie iOS przy użyciu biblioteki ADAL
@@ -175,11 +175,11 @@ Aby platforma tożsamości mogła mieć pewność, że może udostępniać token
 
 Identyfikatory URI przekierowania pozwalają identyfikować różne aplikacje do usługi tożsamości firmy Microsoft, jeśli używają tego samego identyfikatora aplikacji. Każda aplikacja może mieć wiele identyfikatorów URI przekierowania zarejestrowanych w portalu dołączania. Każda aplikacja w Twoim pakiecie będzie miała inny identyfikator URI przekierowania. Przykład wyglądu poniżej:
 
-Identyfikator URI przekierowania APP1:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+Identyfikator URI przekierowania APP1: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-Identyfikator URI przekierowania APP2:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+Identyfikator URI przekierowania APP2: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-Identyfikator URI przekierowania APP3:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+Identyfikator URI przekierowania APP3: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
@@ -239,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Po udostępnieniu łańcucha kluczy w aplikacjach każda aplikacja może usuwać użytkowników lub gorszyć usuwanie wszystkich tokenów w aplikacji. Jest to szczególnie katastrofalne, jeśli masz aplikacje, które opierają się na tokenach do wykonywania zadań w tle. Udostępnianie łańcucha kluczy oznacza, że należy zachować ostrożność w każdej operacji usuwania za pośrednictwem zestawów SDK tożsamości.
 
-Gotowe. Zestaw SDK będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista użytkowników będzie również współużytkowana przez wystąpienia aplikacji.
+To wszystko. Zestaw SDK będzie teraz udostępniać poświadczenia dla wszystkich aplikacji. Lista użytkowników będzie również współużytkowana przez wystąpienia aplikacji.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Włączanie logowania jednokrotnego dla brokera z pomocą usługi logowania jednokrotnego
 

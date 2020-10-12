@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: cavoeg
 ms.openlocfilehash: cdb73670996341e9219230bb277e087009266f32
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846024"
 ---
 # <a name="azure-active-directory-identity-configuration-for-azure-api-for-fhir"></a>Azure Active Directory konfigurację tożsamości dla interfejsu API platformy Azure dla FHIR
@@ -97,10 +97,10 @@ W przypadku korzystania z serwera FHIR można użyć `v1.0` lub `v2.0` punktów 
 
 Odpowiednie sekcje dokumentacji usługi Azure AD:
 
-* `v1.0`punktu końcowego
+* `v1.0` punktu końcowego
     * [Przepływ kodu autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code).
     * [Przepływ poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow).
-* `v2.0`punktu końcowego
+* `v2.0` punktu końcowego
     * [Przepływ kodu autoryzacji](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
     * [Przepływ poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
 

@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
 ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206635"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio powiązanie dla Azure Functions
@@ -334,7 +334,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Nazwij**|**Nazwij**| Nazwa zmiennej używana w kodzie funkcji dla wiadomości tekstowej SMS Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Ta wartość musi być ustawiona na nazwę ustawienia aplikacji, która zawiera identyfikator SID konta Twilio ( `TwilioAccountSid` ). Jeśli nie zostanie ustawiona, domyślna nazwa ustawienia aplikacji to "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Ta wartość musi być ustawiona na nazwę ustawienia aplikacji, która zawiera token uwierzytelniania Twilio ( `TwilioAccountAuthToken` ). Jeśli nie zostanie ustawiona, domyślna nazwa ustawienia aplikacji to "AzureWebJobsTwilioAuthToken". |
-|**na**| Nie dotyczy — Określ w kodzie | **Do**| Ta wartość jest ustawiona na numer telefonu, na który jest wysyłany tekst SMS.|
+|**do**| Nie dotyczy — Określ w kodzie | **Działanie**| Ta wartość jest ustawiona na numer telefonu, na który jest wysyłany tekst SMS.|
 |**wniosek**|**wniosek** | **Wniosek**| Ta wartość jest ustawiona na numer telefonu, z którego jest wysyłany tekst SMS.|
 |**jednostce**|**jednostce** | **Treść**| Ta wartość może służyć do napełnienia kodu wiadomości tekstowej SMS, jeśli nie musisz ustawiać jej dynamicznie w kodzie funkcji. |  
 

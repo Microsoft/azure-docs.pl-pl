@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171554"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Samouczek: Przekazywanie zdarzeń do IoTHub
@@ -133,7 +133,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 Zaktualizuj trasę centrum brzegowego, aby przesłać dalej zdarzenia subskrypcji zdarzeń, które zostaną przekazane do IoTHub w następujący sposób:
 
-1. Zaloguj się w witrynie [Azure Portal](https://ms.portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://ms.portal.azure.com).
 1. Przejdź do **IoT Hub**.
 1. Wybierz **IoT Edge** z menu
 1. Wybierz z listy urządzeń identyfikator urządzenia docelowego.

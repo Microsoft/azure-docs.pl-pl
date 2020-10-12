@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 06/24/2019
 ms.author: diberry
 ms.openlocfilehash: f69502907e2dd3c5b3c64634b1b11e10af5397f5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67438435"
 ---
 ## <a name="more-information-about-bots"></a>Więcej informacji na temat botów

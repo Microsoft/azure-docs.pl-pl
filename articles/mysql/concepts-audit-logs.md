@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 8b12e1bd7bd67c3d22bdb62255b481d81976b969
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362129"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Inspekcja dzienników w Azure Database for MySQL
@@ -31,9 +31,9 @@ Inne parametry, które można dostosować, obejmują:
 - `audit_log_exclude_users`: Użytkownicy programu MySQL mają być wykluczeni z rejestrowania. Maksymalna długość parametru to 512 znaków.
 
 > [!NOTE]
-> `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
+> `audit_log_include_users` ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
 
-| **Wydarzenie** | **Opis** |
+| **Wydarzen** | **Opis** |
 |---|---|
 | `CONNECTION` | -Inicjacja połączenia (powodzenie lub niepowodzenie) <br> -Uwierzytelnianie użytkownika przy użyciu innego użytkownika/hasła podczas sesji <br> -Zakończenie połączenia |
 | `DML_SELECT`| Wybieranie zapytań |
@@ -60,10 +60,10 @@ W poniższych sekcjach opisano dane wyjściowe dzienników inspekcji MySQL na po
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
@@ -91,10 +91,10 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
@@ -104,7 +104,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR` , `RESULT` (dostępne tylko dla MySQL 5,6) |
 | `event_time` | Godzina rozpoczęcia zapytania w sygnaturze czasowej UTC |
-| `error_code_d` | Kod błędu, jeśli zapytanie nie powiodło się. `0`oznacza brak błędu |
+| `error_code_d` | Kod błędu, jeśli zapytanie nie powiodło się. `0` oznacza brak błędu |
 | `thread_id_d` | Identyfikator wątku, który wykonał zapytanie |
 | `host_s` | Pusty |
 | `ip_s` | Adres IP klienta nawiązującego połączenie z bazą danych MySQL |
@@ -122,10 +122,10 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
@@ -133,7 +133,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nazwa serwera |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT` , `UPDATE` lub`DELETE` |
+| `event_subclass_s` | `READ`, `INSERT` , `UPDATE` lub `DELETE` |
 | `connection_id_d` | Unikatowy identyfikator połączenia wygenerowany przez MySQL |
 | `db_s` | Nazwa bazy danych, do której uzyskano dostęp |
 | `table_s` | Nazwa tabeli, do której można uzyskać dostęp |

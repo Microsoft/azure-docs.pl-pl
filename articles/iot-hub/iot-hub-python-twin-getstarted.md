@@ -10,10 +10,10 @@ ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87875476"
 ---
 # <a name="get-started-with-device-twins-python"></a>Rozpoczynanie pracy z usługą Device bliźniaczych reprezentacji (Python)
@@ -34,7 +34,7 @@ Na końcu tego samouczka będziesz mieć dwie aplikacje konsolowe języka Python
 
 * Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -116,7 +116,7 @@ W tej sekcji utworzysz aplikację konsolową w języku Python, która dodaje met
 
     Obiekt **IoTHubRegistryManager** uwidacznia wszystkie metody wymagane do współużytkowania z usługą bliźniaczych reprezentacji urządzeń. Kod najpierw inicjuje obiekt **IoTHubRegistryManager** , a następnie aktualizuje sznurki urządzenia dla **DEVICE_ID**i na koniec uruchamia dwa zapytania. Najpierw wybiera tylko urządzenie bliźniaczych reprezentacji urządzeń znajdujące się w zakładzie **Redmond43** , a drugi zawęża zapytanie w celu wybrania tylko tych urządzeń, które są również połączone przez sieć komórkową.
 
-6. Dodaj następujący kod na końcu **AddTagsAndQuery.py** , aby zaimplementować funkcję **iothub_service_sample_run** :
+6. Dodaj następujący kod na końcu  **AddTagsAndQuery.py** , aby zaimplementować funkcję **iothub_service_sample_run** :
 
     ```python
     if __name__ == '__main__':
@@ -199,7 +199,7 @@ W tej sekcji utworzysz aplikację konsolową w języku Python, która łączy si
 
     Obiekt **IoTHubModuleClient** uwidacznia wszystkie metody wymagane do współpracy z urządzeniem bliźniaczych reprezentacji z urządzenia. Poprzedni kod po zainicjowaniu obiektu **IoTHubModuleClient** pobiera sznurki urządzenia dla urządzenia i aktualizuje swoją raportowaną Właściwość informacjami o łączności.
 
-6. Dodaj następujący kod na końcu **ReportConnectivity.py** , aby zaimplementować funkcję **iothub_client_sample_run** :
+6. Dodaj następujący kod na końcu  **ReportConnectivity.py** , aby zaimplementować funkcję **iothub_client_sample_run** :
 
     ```python
     if __name__ == '__main__':

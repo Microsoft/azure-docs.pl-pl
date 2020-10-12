@@ -9,13 +9,13 @@ ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194318"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Ciągłość działalności biznesowej i odzyskiwanie po awarii (BCDR): regiony sparowane platformy Azure
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Ciągłość działania i odzyskiwanie po awarii — BCDR: Regiony sparowane platformy Azure
 
 ## <a name="what-are-paired-regions"></a>Jakie są sparowane regiony?
 
@@ -49,10 +49,10 @@ Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odpor
 
 | Lokalizacja geograficzna | Para regionalna A | Para regionalna B  |
 |:--- |:--- |:--- |
-| Azja i Pacyfik |Azja Wschodnia (Hongkong SAR) | Azja Południowo-Wschodnia (Singapur) |
+| Asia-Pacific |Azja Wschodnia (Hongkong SAR) | Azja Południowo-Wschodnia (Singapur) |
 | Australia |Australia Wschodnia |Australia Południowo-Wschodnia |
 | Australia |Australia Środkowa |Australia Środkowa 2 |
-| Brazylia |Brazylia Południowa |Południowo-środkowe stany USA |
+| Brazylia |Brazil South |South Central US |
 | Kanada |Kanada Środkowa |Kanada Wschodnia |
 | Chiny |Chiny Północne |Chiny Wschodnie|
 | Chiny |Chiny Północne 2 |Chiny Wschodnie 2|
@@ -63,16 +63,16 @@ Nie. Klienci mogą korzystać z usług platformy Azure, aby zaprojektować odpor
 | Indie |Indie Zachodnie |Indie Południowe |
 | Japonia |Japonia Wschodnia |Japonia Zachodnia |
 | Korea |Korea Środkowa |Korea Południowa |
-| Ameryka Północna |Wschodnie stany USA |Zachodnie stany USA |
-| Ameryka Północna |Wschodnie stany USA 2 |Środkowe stany USA |
-| Ameryka Północna |Północno-środkowe stany USA |Południowo-środkowe stany USA |
+| Ameryka Północna |East US |Zachodnie stany USA |
+| Ameryka Północna |Wschodnie stany USA 2 |Central US |
+| Ameryka Północna |Północno-środkowe stany USA |South Central US |
 | Ameryka Północna |Zachodnie stany USA 2 |Zachodnio-środkowe stany USA |
 | Norwegia | Norwegia Wschodnia | Norwegia Zachodnia |
 | Republika Południowej Afryki | Północna Republika Południowej Afryki |Zachodnia Republika Południowej Afryki |
 | Szwajcaria | Szwajcaria Północna |Szwajcaria Zachodnia |
 | Zjednoczone Królestwo |Zachodnie Zjednoczone Królestwo |Południowe Zjednoczone Królestwo |
 | Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | Środkowy Zjednoczone Emiraty Arabskie
-| Departament Obrony Stanów Zjednoczonych |US DoD (region wschodni) |US DoD (region środkowy) |
+| US Department of Defense |US DoD (region wschodni) |US DoD (region środkowy) |
 | US Government |US Gov Arizona |US Gov Teksas |
 | US Government |US Gov Iowa |US Gov Wirginia |
 | US Government |US Gov Wirginia |US Gov Teksas |
@@ -104,7 +104,7 @@ Jak określono na rysunku 2.
 
 5. **Izolacja fizyczna** — Jeśli to możliwe, platforma Azure 300 preferuje rozdzielenie między centrami danych w parze regionalnym, chociaż nie jest to praktyczne ani możliwe w przypadku wszystkich lokalizacje geograficzne. Fizyczne rozdzielenie centrów danych zmniejsza prawdopodobieństwo wystąpienia klęsk żywiołowych, awarii cywilnej, przerwy w zasilaniu lub sieci fizycznej jednocześnie mających wpływ na oba regiony jednocześnie. Izolacja podlega ograniczeniom w lokalizacji geograficznej (rozmiar geografii, dostępność infrastruktury mocy/sieci, regulacje itp.).  
 
-6. **Replikacja udostępniona przez platformę** — niektóre usługi, takie jak magazyn Geograficznie nadmiarowy, zapewniają automatyczną replikację do sparowanego regionu.
+6. **Replikacja udostępniona przez platformę** — niektóre usługi, takie jak Geo-Redundant Storage, zapewniają automatyczną replikację do sparowanego regionu.
 
 7. **Kolejność odzyskiwania regionów** — w przypadku rozległej awarii odzyskiwanie jednego regionu jest ustalane z uwzględnieniem każdej pary. Aplikacje wdrożone w ramach sparowanych regionów mają gwarancję, że jeden z regionów zostanie odzyskany priorytetowo. Jeśli aplikacja jest wdrożona w różnych regionach, które nie są sparowane, odzyskiwanie może zostać opóźnione — w najgorszym przypadku wybrane regiony mogą być ostatnimi do odzyskania.
 

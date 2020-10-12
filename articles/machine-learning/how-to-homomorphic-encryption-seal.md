@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: b241220168a5cd81ce23be729944df387e87e567
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844546"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing (wersja zapoznawcza)
@@ -28,7 +28,7 @@ W tym przewodniku używasz usługi Azure Machine Learning, aby:
 > * Wdróż zaszyfrowaną usługę sieci Web inferencing
 > * Przygotowywanie danych testowych
 > * Przekształć zaszyfrowane przewidywania
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 ACI to doskonałe rozwiązanie do testowania i analizowania przepływu pracy wdrażania modelu. W przypadku skalowalnych wdrożeń produkcyjnych rozważ skorzystanie z usługi Azure Kubernetes Service. Aby uzyskać więcej informacji, zobacz [jak i gdzie wdrażać modele](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
 
@@ -60,7 +60,7 @@ W notesie Jupyter
     > [!NOTE]
     > `encrypted-inference`Pakiet jest obecnie w wersji zapoznawczej.
 
-    [`encrypted-inference`](https://pypi.org/project/encrypted-inference)jest biblioteką zawierającą powiązania dla zaszyfrowanych inferencing opartych na [programie Microsoft Seal](https://github.com/Microsoft/SEAL).
+    [`encrypted-inference`](https://pypi.org/project/encrypted-inference) jest biblioteką zawierającą powiązania dla zaszyfrowanych inferencing opartych na [programie Microsoft Seal](https://github.com/Microsoft/SEAL).
 
     ```python
     !pip install encrypted-inference==0.9
@@ -319,7 +319,7 @@ Aby wykonać zaszyfrowane przewidywania:
     print ( ' Actual Label : ', y_test[sample_index])
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń usługę sieci Web utworzoną w tym przykładzie:
 

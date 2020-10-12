@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462551"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Często zadawane pytania dotyczące akceleratorów rozwiązań IoT
@@ -46,9 +46,9 @@ W ciągu ostatnich dwóch lat architektura chmury została znacznie rozwijająca
 
 Zobacz [, aby dodać istniejącą subskrypcję do katalogu usługi Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Chcę zmienić administratora usługi lub współadministratora po zalogowaniu się przy użyciu konta organizacyjnego
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Chcę zmienić administratora usługi lub Co-Administrator po zalogowaniu się przy użyciu konta organizacyjnego
 
-Zobacz artykuł pomocy technicznej [Zmiana administratora usługi i współadministratora po zalogowaniu się przy użyciu konta organizacyjnego](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+Zobacz artykuł pomocy technicznej [Zmiana administratora usługi i Co-Administrator po zalogowaniu się przy użyciu konta organizacyjnego](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Dlaczego widzę ten błąd? "Twoje konto nie ma odpowiednich uprawnień do utworzenia rozwiązania. Skontaktuj się z administratorem konta lub spróbuj użyć innego konta.
 

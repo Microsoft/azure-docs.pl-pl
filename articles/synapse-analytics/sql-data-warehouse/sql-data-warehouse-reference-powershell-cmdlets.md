@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.openlocfilehash: aaf290fac71fec0ff4106e3f8a1895dd65b94e09
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89072897"
 ---
 # <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>Interfejsy API REST programu PowerShell & dla puli SQL usługi Azure Synapse Analytics

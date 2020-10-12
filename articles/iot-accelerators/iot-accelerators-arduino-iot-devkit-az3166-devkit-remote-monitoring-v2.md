@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
 ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337674"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Łączenie urządzenia IoT DevKit z akceleratorem rozwiązania do zdalnego monitorowania
@@ -77,7 +77,7 @@ Aby sprawdzić, czy Przykładowa aplikacja zaprzekazywana do urządzenia DevKit 
 
 ### <a name="view-the-telemetry-sent-to-remote-monitoring-solution"></a>Wyświetl dane telemetryczne wysyłane do rozwiązania do zdalnego monitorowania
 
-Po uruchomieniu przykładowej aplikacji urządzenie DevKit wysyła dane telemetryczne z danych czujników za pośrednictwem sieci Wi-Fi do akceleratora rozwiązania. Aby wyświetlić dane telemetryczne:
+Po uruchomieniu przykładowej aplikacji urządzenie DevKit wysyła dane telemetryczne z danych czujników za pośrednictwem Wi-Fi do akceleratora rozwiązania. Aby wyświetlić dane telemetryczne:
 
 1. Przejdź do pulpitu nawigacyjnego rozwiązania, a następnie kliknij przycisk **Device Explorer**.
 
@@ -109,7 +109,7 @@ Aby zmienić kolor jednego z diod LED DevKit, użyj metody **LedColor** :
 
     ![Czerwona dioda DevKit IoT](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do samouczków, nie usuwaj wdrożenia akceleratora rozwiązania do monitorowania zdalnego.
 

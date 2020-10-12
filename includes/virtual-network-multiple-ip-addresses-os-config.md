@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: virtual-network
 author: jimdial
 ms.service: virtual-network
@@ -9,10 +9,10 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 93caf39216ef0479ec2799267a9ba8181f37f802
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194225"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Adresy IP do systemu operacyjnego maszyny wirtualnej
@@ -138,7 +138,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Pamiętaj, aby zamienić:
     - wartość **10.0.0.5** na prywatny adres IP, który ma skojarzony ze sobą publiczny adres IP;
     - wartość **10.0.0.1** na bramę domyślną;
-    - **eth2** na nazwę pomocniczej karty sieciowej</details>
+    - **eth2** na nazwę pomocniczej karty sieciowej </details>
 
 ### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
 <details>
@@ -182,7 +182,7 @@ Ubuntu 18,04 i nowsze zostały zmienione na `netplan` dla zarządzania siecią s
     ```
 
 > [!NOTE]
-> `netplan try`Program zastosuje zmiany tymczasowo i przewróci zmiany ponownie po 120 sekundach. W przypadku utraty łączności należy zaczekać 120 sekund, a następnie ponownie nawiązać połączenie. W tym momencie zmiany zostaną wycofane.
+> `netplan try` Program zastosuje zmiany tymczasowo i przewróci zmiany ponownie po 120 sekundach. W przypadku utraty łączności należy zaczekać 120 sekund, a następnie ponownie nawiązać połączenie. W tym momencie zmiany zostaną wycofane.
 
 7. Przy założeniu, że nie występują żadne problemy z programem `netplan try` , Zastosuj zmiany w konfiguracji:
 
@@ -236,7 +236,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Pamiętaj, aby zamienić:
     - wartość **10.0.0.5** na prywatny adres IP, który ma skojarzony ze sobą publiczny adres IP;
     - wartość **10.0.0.1** na bramę domyślną;
-    - **eth2** na nazwę pomocniczej karty sieciowej</details>
+    - **eth2** na nazwę pomocniczej karty sieciowej </details>
 
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS i inne)
 <details>
@@ -322,4 +322,4 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 - Pamiętaj, aby zamienić:
     - wartość **10.0.0.5** na prywatny adres IP, który ma skojarzony ze sobą publiczny adres IP;
     - wartość **10.0.0.1** na bramę domyślną;
-    - **eth2** na nazwę pomocniczej karty sieciowej</details>
+    - **eth2** na nazwę pomocniczej karty sieciowej </details>

@@ -8,18 +8,18 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171775"
 ---
 # <a name="advanced-filtering"></a>Filtrowanie zaawansowane
 Event Grid umożliwia określanie filtrów dla każdej właściwości w ładunku JSON. Te filtry są modelowane jako zbiór `AND` warunków, z każdym warunkiem zewnętrznym, które mają opcjonalne `OR` warunki wewnętrzne. Dla każdego `AND` warunku należy określić następujące wartości:
 
-* `OperatorType`-Typ porównania.
-* `Key`-Ścieżka JSON do właściwości, dla której ma zostać zastosowany filtr.
-* `Value`— Wartość odniesienia, względem której jest uruchamiany filtr (lub) `Values` — zestaw wartości referencyjnych, względem których jest uruchamiany filtr.
+* `OperatorType` -Typ porównania.
+* `Key` -Ścieżka JSON do właściwości, dla której ma zostać zastosowany filtr.
+* `Value` — Wartość odniesienia, względem której jest uruchamiany filtr (lub) `Values` — zestaw wartości referencyjnych, względem których jest uruchamiany filtr.
 
 ## <a name="json-syntax"></a>Składnia JSON
 
@@ -55,7 +55,7 @@ Dla operatorów, które obsługują wiele wartości (takich jak `NumberIn` , `Nu
 > [!CAUTION]
 > Operatory NOT `NumberNotIn` i `StringNotIn` zachowywać się jako warunki i dla każdej wartości w `Values` polu.
 >
-> Nie spowoduje to, że filtr akceptuje wszystkie filtry i obniża przeznaczenie filtrowania.
+> Nie spowoduje to, że filtr Accept-All filtruje i obniża przeznaczenie filtrowania.
 
 ## <a name="floating-point-rounding-behavior"></a>Zachowanie zaokrąglania liczb zmiennoprzecinkowych
 
@@ -75,7 +75,7 @@ Event Grid nie ma żadnych specjalnych znaczenia dla `$` znaku w kluczu, w przec
 
 Dla zdarzeń w schemacie Event Grid:
 
-* ID
+* ID (Identyfikator)
 * Temat
 * Temat
 * Typ zdarzenia

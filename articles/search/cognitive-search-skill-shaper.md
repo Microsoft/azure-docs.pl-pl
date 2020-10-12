@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85560824"
 ---
 # <a name="shaper-cognitive-skill"></a>Umiejętności poznawcze z zakresu kształtowania
@@ -246,7 +246,7 @@ W takim przypadku **kształt** tworzy typ złożony. Ta struktura istnieje w pam
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

@@ -9,10 +9,10 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
 ms.openlocfilehash: 1383b6afac9ad2332169328ef71981e23e86bdcc
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297454"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Weryfikowanie lokalnego kodera przesyłania strumieniowego na żywo
@@ -69,7 +69,7 @@ Wykonaj te same czynności co w przypadku [weryfikacji zdarzenia](#pass-through-
 
 Na koniec Wyślij zapisane ustawienia i parametry Archiwum na żywo, aby Azure Media Services amshelp@microsoft.com powiadomienia, że wszystkie testy samoweryfikacji zostały zakończone pomyślnie. Podaj również informacje kontaktowe dla każdej z nich. Możesz skontaktować się z zespołem Azure Media Services, podając wszelkie pytania dotyczące tego procesu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Przetestowane kodery lokalne](recommended-on-premises-live-encoders.md)
 

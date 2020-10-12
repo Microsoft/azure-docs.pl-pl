@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171452"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Samouczek: publikowanie, subskrybowanie zdarzeń lokalnie
@@ -37,7 +37,7 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
 
 ### <a name="select-your-iot-edge-device"></a>Wybierz urządzenie IoT Edge
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Przejdź do IoT Hub.
 1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami** . 
 1. Kliknij identyfikator urządzenia docelowego z listy urządzeń
@@ -54,7 +54,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
    * **Nazwa**: eventgridmodule
-   * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opcje tworzenia kontenera**:
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
@@ -95,7 +95,7 @@ W tej sekcji przedstawiono sposób wdrażania innego modułu IoT, który będzie
 1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
    * **Nazwa**: subskrybent
-   * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opcje tworzenia kontenera**: brak
 1. Kliknij pozycję **Zapisz**
 1. Kliknij przycisk **dalej** , aby przejść do sekcji trasy

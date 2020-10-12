@@ -14,17 +14,17 @@ ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90031929"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Samouczek: Konfigurowanie aparatu reguł
 
 W tym samouczku pokazano, jak utworzyć konfigurację aparatu reguł i pierwszą regułę zarówno w Azure Portal, jak i w interfejsie wiersza polecenia. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Skonfiguruj aparat reguł przy użyciu portalu.
 > - Konfigurowanie aparatu reguł przy użyciu interfejsu wiersza polecenia platformy Azure

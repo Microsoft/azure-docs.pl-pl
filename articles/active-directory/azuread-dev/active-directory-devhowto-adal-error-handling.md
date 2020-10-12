@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
 ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383738"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Błąd obsługi najlepszych rozwiązań dla klientów biblioteki uwierzytelniania Azure Active Directory (ADAL)
@@ -545,7 +545,7 @@ Aby poznać konkretne błędy biblioteki ADAL, najlepszym odwołaniem do błędu
 
 Błędy systemu iOS mogą wystąpić podczas logowania, gdy użytkownicy korzystają z widoków sieci Web i charakteru uwierzytelniania. Może to być spowodowane warunkami, takimi jak błędy protokołu TLS, limity czasu lub błędy sieci:
 
-- W przypadku udostępniania uprawnień logowania nie są trwałe, a pamięć podręczna jest pusta. Można rozwiązać, dodając następujący wiersz kodu do łańcucha kluczy:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- W przypadku udostępniania uprawnień logowania nie są trwałe, a pamięć podręczna jest pusta. Można rozwiązać, dodając następujący wiersz kodu do łańcucha kluczy: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - W przypadku zestawu NsUrlDomain błędów akcja zmienia się w zależności od logiki aplikacji. Zobacz [dokumentację referencyjną NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) dla określonych wystąpień, które mogą być obsługiwane.
 - Zapoznaj się z tematem [typowe problemy dotyczące biblioteki ADAL obj](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) .
 

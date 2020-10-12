@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 98a0ddd828c3d72fdead0ccc2fb1daabf7548de1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67712416"
 ---
 `Eula`Ustawienie wskazuje, że licencja dla kontenera została zaakceptowana. Należy określić wartość dla tego ustawienia konfiguracji, a wartość musi być ustawiona na `accept` .

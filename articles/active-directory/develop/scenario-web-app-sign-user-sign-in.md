@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87845089"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplikacja internetowa, która loguje użytkowników: Logowanie i wylogowywanie
@@ -108,7 +108,7 @@ def index():
 
 ---
 
-### <a name="signin-action-of-the-controller"></a>`SignIn`Akcja kontrolera
+### <a name="signin-action-of-the-controller"></a>`SignIn` Akcja kontrolera
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -221,7 +221,7 @@ Aby dowiedzieć się więcej, zobacz sekcję [Wysyłanie żądania wylogowania](
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Podczas rejestracji aplikacji rejestrujesz identyfikator URI po wylogowaniu. W naszym samouczku zarejestrowano `https://localhost:44321/signout-oidc` się w polu **adres URL wylogowania** w sekcji **Ustawienia zaawansowane** na stronie **uwierzytelnianie** . Aby uzyskać szczegółowe informacje, zobacz [Rejestrowanie aplikacji webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Podczas rejestracji aplikacji rejestrujesz identyfikator URI po wylogowaniu. W naszym samouczku zarejestrowano `https://localhost:44321/signout-oidc` się w polu **adres URL wylogowania** w sekcji **Ustawienia zaawansowane** na stronie **uwierzytelnianie** . Aby uzyskać szczegółowe informacje, zobacz [ Rejestrowanie aplikacji webApp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -325,7 +325,7 @@ W przewodniku szybki start w języku Python przycisk Wyloguj znajduje się w pli
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`SignOut`Akcja kontrolera
+### <a name="signout-action-of-the-controller"></a>`SignOut` Akcja kontrolera
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

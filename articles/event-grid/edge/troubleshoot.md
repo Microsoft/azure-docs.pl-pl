@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171350"
 ---
 # <a name="common-issues"></a>Typowe problemy
@@ -100,10 +100,10 @@ Typowymi przyczynami tego są:
 
 * Zaloguj się do maszyny wirtualnej, na której wdrożono moduł Event Grid i Wyświetl jego dzienniki.
 
-* Włącz rejestrowanie dostarczania na podstawie ustawienia **brokera: logDeliverySuccess = true** i ponownego wdrażania modułu Event Grid i ponawiania próby żądania. Włączenie rejestrowania na dostarczenie może mieć wpływ na przepływność i opóźnienie, dlatego po zakończeniu debugowania należy włączyć tę opcję z powrotem do **brokera: logDeliverySuccess = false** i ponowne wdrożenie modułu Event Grid.
+* Włącz rejestrowanie dostarczania na podstawie ustawienia **brokera: logDeliverySuccess = true** i ponownego wdrażania modułu Event Grid i ponawiania próby żądania. Włączenie rejestrowania na dostarczenie może mieć wpływ na przepływność i opóźnienie, dlatego po zakończeniu debugowania należy włączyć tę opcję z powrotem do **brokera: logDeliverySuccess = false**  i ponowne wdrożenie modułu Event Grid.
 
 * Włącz metryki, ustawiając **metryki: reportertype = konsola** i Wdróż ponownie moduł Event Grid. Wszelkie operacje po tej operacji spowodują, że metryki są rejestrowane na konsoli modułu Event Grid, które mogą być używane do dalszej analizy. Nasze zalecenie polega na włączeniu metryk tylko dla debugowania, a po jej zakończeniu, aby ją wyłączyć przez ustawienie **metryk: reportertype = none** i ponowne wdrożenie modułu Event Grid.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zgłoś wszelkie problemy, sugestie dotyczące używania Event Grid w IoT Edge [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .

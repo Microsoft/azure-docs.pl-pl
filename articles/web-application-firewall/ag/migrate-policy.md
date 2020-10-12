@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143856"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrowanie zasad zapory aplikacji sieci Web przy użyciu Azure PowerShell
@@ -27,7 +27,7 @@ Wykonaj następujące kroki, aby uruchomić skrypt migracji:
 1. Otwórz następujące okno usługi Cloud Shell lub otwórz je w portalu.
 2. Skopiuj skrypt do okna usługi Cloud Shell i uruchom go.
 3. Skrypt pyta o identyfikator subskrypcji, nazwę grupy zasobów, nazwę Application Gateway, z którym jest skojarzona konfiguracja WAF, oraz nazwę nowych zasad WAF, które mają zostać utworzone. Po wprowadzeniu tych danych wejściowych skrypt zostanie uruchomiony i utworzy nowe zasady WAF
-4. Skojarz nowe zasady WAF z bramą aplikacji. Przejdź do zasad WAF w portalu i wybierz kartę **skojarzone bramy aplikacji** . Wybierz opcję **Skojarz Application Gateway** a następnie wybierz Application Gateway, do których mają zostać skojarzone zasady WAF.
+4. Skojarz nowe zasady WAF z bramą aplikacji. Przejdź do zasad WAF w portalu i wybierz kartę **skojarzone bramy aplikacji** . Wybierz opcję **skojarz Application Gateway** a następnie wybierz Application Gateway, do których mają zostać SKOJARZONE zasady WAF.
 
 > [!NOTE]
 > Skrypt nie kończy migracji, jeśli istnieją następujące warunki:

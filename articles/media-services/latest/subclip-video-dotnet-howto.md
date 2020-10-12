@@ -15,10 +15,10 @@ ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1725fab30ddb4d40e0bf5345683588c878658052
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296570"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Podcinanie wideo przy kodowaniu przy użyciu Media Services-.NET

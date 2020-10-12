@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
 ms.openlocfilehash: 9ecb4e0b8a74a163632967781c84d1a110ab3a9a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297216"
 ---
 # <a name="streaming-policies"></a>Zasady przesyłania strumieniowego

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
 ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526014"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>Maszyna wirtualna nie odpowiada podczas stosowania zasady grupy zasad lokalnych użytkowników i grup
@@ -31,7 +31,7 @@ W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu w
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Zrzut ekranu przedstawiający zastosowanie zasad zasady grupy lokalnych użytkowników i grup (Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Zrzut ekranu przedstawiający stosowanie zasad zasady grupy lokalnych użytkowników i grup (Windows Server 2012).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Zrzut ekranu przedstawiający zastosowanie zasad zasady grupy lokalnych użytkowników i grup (Windows Server 2012 R2).":::
 
 ## <a name="cause"></a>Przyczyna
 
@@ -66,23 +66,7 @@ Oto problemy z zasadami:
 1. Na stronie Naprawa maszyny wirtualnej Otwórz Edytor rejestru.
 1. Znajdź klucz **HKEY_LOCAL_MACHINE** i wybierz pozycję **plik**  >  **Załaduj gałąź** z menu.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Zrzut ekranu przedstawia wyróżnione HKEY_LOCAL_MACHINE i menu zawierające gałąź ładowania.":::
-
-    - Aby załadować klucze rejestru z systemu w trybie offline, można użyć funkcji ładowania Hive. W takim przypadku system jest uszkodzonym dyskiem podłączonym do maszyny wirtualnej naprawy.
-    - Ustawienia całego systemu są przechowywane w `HKEY_LOCAL_MACHINE` i mogą być skrócone jako "HKLM".
-1. Na podłączonym dysku przejdź do `\windows\system32\config\SOFTWARE` pliku i otwórz go.
-
-    1. Gdy zostanie wyświetlony monit o podanie nazwy, wprowadź BROKENSOFTWARE.
-    1. Aby sprawdzić, czy BROKENSOFTWARE został załadowany, rozwiń **HKEY_LOCAL_MACHINE** i poszukaj dodanego klucza BROKENSOFTWARE.
-1. Przejdź do BROKENSOFTWARE i sprawdź, czy klucz CleanupProfile istnieje w załadowanym elemencie Hive.
-
-    1. Jeśli klucz istnieje, zasady CleanupProfile są ustawione. Jego wartość reprezentuje zasady przechowywania mierzone w dniach. Kontynuuj usuwanie klucza.
-    1. Jeśli klucz nie istnieje, zasady CleanupProfile nie są ustawione. [Prześlij bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), w tym plik Memory. dmp znajdujący się w katalogu systemu Windows dołączonego dysku systemu operacyjnego.
-
-1. Usuń klucz CleanupProfiles za pomocą tego polecenia:
-
-    ```
-    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Zrzut ekranu przedstawiający zastosowanie zasad zasady grupy lokalnych użytkowników i grup (Windows Server 2012 R2)." /v CleanupProfiles /f
     ```
 1.  Zwolnij gałąź BROKENSOFTWARE za pomocą tego polecenia:
 

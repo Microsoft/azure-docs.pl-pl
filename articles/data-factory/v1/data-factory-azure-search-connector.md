@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194915"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Wypychanie danych do indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu Azure Data Factory
@@ -78,7 +78,7 @@ W przypadku działania kopiowania, gdy ujścia ma typ **AzureSearchIndexSink**, 
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Określa, czy należy scalić lub zamienić, gdy dokument już istnieje w indeksie. Zobacz [Właściwość WriteBehavior](#writebehavior-property).| Scal (domyślnie)<br/>Upload| Nie |
+| WriteBehavior | Określa, czy należy scalić lub zamienić, gdy dokument już istnieje w indeksie. Zobacz [Właściwość WriteBehavior](#writebehavior-property).| Scal (domyślnie)<br/>Przekazywanie| Nie |
 | WriteBatchSize | Przekazuje dane do indeksu wyszukiwania, gdy rozmiar buforu osiągnie writeBatchSize. Aby uzyskać szczegółowe informacje, zobacz [Właściwość WriteBatchSize](#writebatchsize-property) . | od 1 do 1 000. Wartość domyślna to 1000. | Nie |
 
 ### <a name="writebehavior-property"></a>Właściwość WriteBehavior
@@ -99,12 +99,12 @@ W poniższej tabeli określono, czy typ danych Wyszukiwanie poznawcze platformy 
 
 | Typ danych Wyszukiwanie poznawcze platformy Azure | Obsługiwane w usłudze Azure Wyszukiwanie poznawcze sink |
 | ---------------------- | ------------------------------ |
-| String | Tak |
-| Int32 | Tak |
-| Int64 | Tak |
-| Double | Tak |
-| Boolean | Tak |
-| DataTimeOffset | Tak |
+| Ciąg | T |
+| Int32 | T |
+| Int64 | T |
+| Double | T |
+| Boolean (wartość logiczna) | T |
+| DataTimeOffset | T |
 | Tablica ciągów | N |
 | GeographyPoint względem | N |
 

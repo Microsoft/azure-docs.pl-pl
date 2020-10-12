@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć pierwszą funkcję platformy Azure w sy
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970735"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Tworzenie aplikacji funkcji w systemie Linux w planie Azure App Service
@@ -44,7 +44,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     |**Wersja**| Numer wersji | Wybierz wersję zainstalowanego środowiska uruchomieniowego.  |
     |**Region**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) znajdujący się w sąsiedztwie lub w najbliższej usłudze dostęp do funkcji. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Strona Podstawy":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Tworzenie aplikacji funkcji w witrynie Azure Portal":::
 
 1. Wybierz pozycję **Dalej: hosting**. Na stronie **hosting** wprowadź następujące ustawienia.
 
@@ -54,7 +54,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     |**System operacyjny**| **Linux** | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | **[Planowanie](../azure-functions/functions-scale.md)** | **Zużycie (bezserwerowe)** | Plan hostingu określający sposób przydzielania zasobów do aplikacji funkcji. W domyślnym planie **Zużycie** zasoby są dodawane dynamicznie zgodnie z wymaganiami funkcji. W tym przypadku hostingu [bezserwerowego](https://azure.microsoft.com/overview/serverless-computing/) płacisz tylko za czas wykonywania funkcji. W przypadku uruchomienia w ramach planu usługi App Service musisz zarządzać [skalowaniem aplikacji funkcji](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Strona hostingu":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Tworzenie aplikacji funkcji w witrynie Azure Portal":::
 
 1. Wybierz kolejno pozycje **Dalej: monitorowanie**. Na stronie **monitorowanie** wprowadź następujące ustawienia.
 
@@ -62,7 +62,7 @@ Do obsługi wykonywania funkcji w systemie Linux potrzebna jest aplikacja funkcj
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Tak** (domyślnie) | Tworzy zasób Application Insights o tej samej *nazwie aplikacji* w najbliższym obsługiwanym regionie. Rozszerzając to ustawienie lub wybierając pozycję **Utwórz nowe**, możesz zmienić nazwę Application Insights lub wybrać inny region w obszarze [geograficznym platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , w którym chcesz przechowywać dane. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Strona monitorowania":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Tworzenie aplikacji funkcji w witrynie Azure Portal":::
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć wybrane opcje konfiguracji aplikacji.
 
@@ -119,7 +119,7 @@ W tej sekcji pokazano, jak utworzyć funkcję w nowej aplikacji funkcji w portal
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

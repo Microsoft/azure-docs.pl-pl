@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, oprogramowanie układowe, aktualizacja, odzyskiwanie
 ms.openlocfilehash: ecfa4a18592d3bc70e3b7cdd66ff6464a54e560d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030688"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Aktualizowanie oprogramowania układowego usługi Azure urządzenia Kinect DK
