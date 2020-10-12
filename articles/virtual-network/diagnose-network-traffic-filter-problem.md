@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704985"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnozowanie problemu z filtrem ruchu sieciowego maszyny wirtualnej
@@ -170,7 +170,7 @@ W przypadku korzystania z witryny Azure [Portal](#diagnose-using-azure-portal), 
 
 | Właściwość                | Wartość                                                                              |
 |---------                |---------                                                                           |
-| Element źródłowy                  | Dowolne                                                                                |
+| Źródło                  | Dowolne                                                                                |
 | Zakresy portów źródłowych      | Dowolne                                                                                |
 | Element docelowy             | Adres IP maszyny wirtualnej, zakres adresów IP lub wszystkie adresy w podsieci. |
 | Zakresy portów docelowych | 80                                                                                 |
@@ -185,7 +185,7 @@ Gdy platforma Azure przetwarza ruch przychodzący, przetwarza reguły w sieciowe
 
 Jeśli nadal występują problemy z komunikacją, zapoznaj się z [zagadnieniami](#considerations) i dodatkową diagnostyką.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas rozwiązywania problemów z łącznością należy wziąć pod uwagę następujące kwestie:
 

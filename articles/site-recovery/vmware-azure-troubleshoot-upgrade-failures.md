@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
 ms.openlocfilehash: 5a6e4b415a9fe8ea80a84e415879df9d2f359478
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84434376"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Rozwiązywanie problemów z błędami uaktualniania dostawcy Microsoft Azure Site Recovery
@@ -48,7 +48,7 @@ Aby uaktualnienie zakończyło się pomyślnie, nie można zmienić nazwy folder
 
 Aby rozwiązać ten problem.
 
-1. Uruchom Edytor rejestru (regedit.exe) i Otwórz gałąź HKEY_LOCAL_MACHINE \SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
+1. Uruchom Edytor rejestru (regedit.exe) i Otwórz gałąź HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
 1. Sprawdź `Build_Version` wartość klucza. Jeśli jest ustawiona na najnowszą wersję, Zmniejsz numer wersji. Na przykład jeśli Najnowsza wersja to 9,22. \* i `Build_Version` klucz ustawiony na tę wartość, a następnie Zmniejsz go do 9,21. \*
 1. Pobierz najnowszą Microsoft Azure Site Recovery ujednoliconą konfigurację:
    1. W sekcji "linki do obecnie obsługiwanych pakietów zbiorczych aktualizacji" [aktualizacji usługi w Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups) artykule wybierz dostawcę, do którego chcesz przeprowadzić uaktualnienie.
@@ -73,8 +73,8 @@ Podczas uaktualniania Microsoft Azure Site Recovery dostawcy (DRA) Instalacja g�
 
 Może to być spowodowane wartością null parametru w kluczu rejestru. Aby rozwiązać ten problem —
 
-1. Uruchom Edytor rejestru (regedit.exe) i Otwórz gałąź HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
+1. Uruchom Edytor rejestru (regedit.exe) i Otwórz gałąź HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\4.
 1. Sprawdź wartość klucza "InstallDirectory".Jeśli ma wartość null, Dodaj bieżącą wartość katalogu instalacyjnego.
-1. Podobnie Otwórz gałąź HKEY_LOCAL_MACHINE \SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 w Edytorze rejestru.
+1. Podobnie Otwórz gałąź HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5 w Edytorze rejestru.
 1. Sprawdź wartość klucza "InstallDirectory" i Dodaj bieżącą wartość katalogu instalacyjnego.
 1. Uruchom ponowne uruchomienie ujednoliconego Instalatora Instalatora.

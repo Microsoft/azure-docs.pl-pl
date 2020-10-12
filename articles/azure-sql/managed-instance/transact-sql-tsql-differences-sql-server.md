@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617880"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 - [UTWÓRZ INSPEKCJĘ SERWERA](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Kontroli](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
+- [Inspekcja](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certyfikaty
 
@@ -165,7 +165,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj ją do SQL Database w ramach tej samej domeny usługi Azure AD. 
     - Wyeksportuj bazę danych z SQL Database i zaimportuj do wystąpienia zarządzanego SQL w ramach tej samej domeny usługi Azure AD.
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj do SQL Server (wersja 2012 lub nowsza).
-      - W tej konfiguracji wszyscy użytkownicy usługi Azure AD są utworzeni jako SQL Server podmioty zabezpieczeń bazy danych (Użytkownicy) bez logowania. Typy użytkowników są wyświetlane jako `SQL` i widoczne jako `SQL_USER` w tabeli sys. database_principals). Ich uprawnienia i role pozostają w metadanych bazy danych SQL Server i mogą być używane do personifikacji. Nie można ich jednak używać do uzyskiwania dostępu do SQL Server i logowania się do nich przy użyciu swoich poświadczeń.
+      - W tej konfiguracji wszyscy użytkownicy usługi Azure AD są utworzeni jako SQL Server podmioty zabezpieczeń bazy danych (Użytkownicy) bez logowania. Typy użytkowników są wyświetlane jako `SQL` i są widoczne jako `SQL_USER` w sys.database_principals). Ich uprawnienia i role pozostają w metadanych bazy danych SQL Server i mogą być używane do personifikacji. Nie można ich jednak używać do uzyskiwania dostępu do SQL Server i logowania się do nich przy użyciu swoich poświadczeń.
 
 - Tylko główna nazwa logowania na poziomie serwera, która jest tworzona przez proces aprowizacji wystąpienia zarządzanego przez usługę SQL, członkowie ról serwera, takie jak `securityadmin` lub `sysadmin` , lub inne logowania z uprawnieniami do zmiany nazwy logowania na poziomie serwera mogą tworzyć nazwy główne serwera usługi Azure AD (nazwy logowania) w bazie danych Master dla wystąpienia zarządzanego SQL.
 - Jeśli nazwa logowania jest podmiotem SQL, tylko nazwy logowania należące do `sysadmin` roli mogą używać polecenia CREATE do tworzenia logowań dla konta usługi Azure AD.
@@ -174,11 +174,11 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - Mogą nakładać się nazwy główne (logowania) serwera usługi Azure AD z kontem administratora usługi Azure AD. Nazwy główne (Logins) serwera usługi Azure AD mają pierwszeństwo przed administratorem usługi Azure AD po rozwiązaniu podmiotu zabezpieczeń i zastosowaniu uprawnień do wystąpienia zarządzanego SQL.
 - Podczas uwierzytelniania następująca sekwencja jest stosowana w celu rozwiązania uwierzytelniania podmiotu zabezpieczeń:
 
-    1. Jeśli konto usługi Azure AD istnieje jako bezpośrednio zamapowane do podmiotu zabezpieczeń serwera usługi Azure AD (login), który znajduje się w pliku sys. server_principals jako typ "E", Udziel dostępu i Zastosuj uprawnienia podmiotu zabezpieczeń serwera usługi Azure AD.
-    2. Jeśli konto usługi Azure AD jest członkiem grupy usługi Azure AD mapowanej do podmiotu zabezpieczeń serwera usługi Azure AD (logowanie), która znajduje się w pliku sys. server_principals jako typ "X", Udziel dostępu i Zastosuj uprawnienia do logowania do grupy usługi Azure AD.
+    1. Jeśli konto usługi Azure AD istnieje jako bezpośrednio zamapowane do podmiotu zabezpieczeń serwera usługi Azure AD (logowanie), które jest obecne w sys.server_principals jako "E", Udziel dostępu i Zastosuj uprawnienia podmiotu zabezpieczeń serwera usługi Azure AD.
+    2. Jeśli konto usługi Azure AD jest członkiem grupy usługi Azure AD mapowanej do podmiotu zabezpieczeń serwera usługi Azure AD (logowanie), która jest obecna w sys.server_principals jako typ "X", Udziel dostępu i Zastosuj uprawnienia do logowania do grupy usługi Azure AD.
     3. Jeśli konto usługi Azure AD jest specjalnym skonfigurowanym przez portal administratorem usługi Azure AD dla wystąpienia zarządzanego SQL, które nie istnieje w widokach systemu wystąpienia zarządzanego SQL, Zastosuj specjalne uprawnienia do programu Azure AD administrator dla wystąpienia zarządzanego SQL (starsza wersja).
-    4. Jeśli konto usługi Azure AD istnieje jako bezpośrednio zamapowane do użytkownika usługi Azure AD w bazie danych, która jest obecna w pliku sys. database_principals jako typ "E", Udziel dostępu i Zastosuj uprawnienia użytkownika usługi Azure AD Database.
-    5. Jeśli konto usługi Azure AD jest członkiem grupy usługi Azure AD, która jest zamapowana do użytkownika usługi Azure AD w bazie danych, która jest obecna w tabeli sys. database_principals jako typ "X", Udziel dostępu i Zastosuj uprawnienia do logowania do grupy usługi Azure AD.
+    4. Jeśli konto usługi Azure AD istnieje jako bezpośrednio zamapowane do użytkownika usługi Azure AD w bazie danych, która jest obecna w sys.database_principals jako "E", Udziel dostępu i Zastosuj uprawnienia użytkownika usługi Azure AD Database.
+    5. Jeśli konto usługi Azure AD jest członkiem grupy usługi Azure AD, która jest zamapowana do użytkownika usługi Azure AD w bazie danych, która jest obecna w sys.database_principals jako typ "X", Udziel dostępu i Zastosuj uprawnienia do logowania do grupy usługi Azure AD.
     6. W przypadku zamapowania identyfikatora logowania usługi Azure AD na konto użytkownika usługi Azure AD lub konto grupy usługi Azure AD, które jest rozpoznawane przez użytkownika, który uwierzytelnia się, zostaną zastosowane wszystkie uprawnienia z tej nazwy logowania usługi Azure AD.
 
 ### <a name="service-key-and-service-master-key"></a>Klucz usługi i klucz główny usługi
@@ -433,7 +433,7 @@ Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej
   - `FROM DISK`/`TAPE`/Backup urządzenie nie jest obsługiwane.
   - Zestawy kopii zapasowych nie są obsługiwane.
 - `WITH` Opcje nie są obsługiwane. Próby przywracania, takie `WITH` jak `DIFFERENTIAL` ,, `STATS` `REPLACE` itp., zakończą się niepowodzeniem.
-- `ASYNC RESTORE`: Przywracanie jest kontynuowane nawet w przypadku przerwania połączenia z klientem. Jeśli połączenie zostało porzucone, można sprawdzić `sys.dm_operation_status` stan operacji przywracania oraz utworzyć i usunąć bazę danych. Zobacz sekcję [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- `ASYNC RESTORE`: Przywracanie jest kontynuowane nawet w przypadku przerwania połączenia z klientem. Jeśli połączenie zostało porzucone, można sprawdzić `sys.dm_operation_status` stan operacji przywracania oraz utworzyć i usunąć bazę danych. Zobacz [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Następujące opcje bazy danych są ustawiane lub zastępowane i nie można ich zmienić później: 
 

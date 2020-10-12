@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808152"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Rozwiązywanie problemów z nieprawidłową bramą w usłudze Application Gateway
@@ -85,7 +85,7 @@ Poniższa tabela zawiera listę wartości skojarzonych z domyślną sondą kondy
 | Właściwość sondy | Wartość | Opis |
 | --- | --- | --- |
 | Adres URL sondy |`http://127.0.0.1/` |Ścieżka adresu URL |
-| Interval |30 |Interwał sondy w sekundach |
+| Interwał |30 |Interwał sondy w sekundach |
 | Limit czasu |30 |Limit czasu sondy w sekundach |
 | Próg złej kondycji |3 |Liczba ponownych prób sondowania. Serwer zaplecza jest oznaczony jako wyłączony po kolejnej liczbie błędów sondy osiągnie próg złej kondycji. |
 
@@ -112,7 +112,7 @@ Dodawane są następujące dodatkowe właściwości:
 | Protokół |Protokół używany do wysyłania sondy. Sonda używa protokołu zdefiniowanego w ustawieniach protokołu HTTP zaplecza |
 | Host |Nazwa hosta do wysłania sondy. Dotyczy tylko sytuacji, gdy w bramie aplikacji skonfigurowano wiele witryn. Różni się to od nazwy hosta maszyny wirtualnej. |
 | Ścieżka |Ścieżka względna sondy. Prawidłowa ścieżka zaczyna się od znaku "/". Sonda jest wysyłana do \<protocol\> :// \<host\> :\<port\>\<path\> |
-| Interval |Interwał sondy (w sekundach). Jest to przedział czasu między dwoma kolejnymi sondami. |
+| Interwał |Interwał sondy (w sekundach). Jest to przedział czasu między dwoma kolejnymi sondami. |
 | Limit czasu |Limit czasu sondy w sekundach. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. |
 | Próg złej kondycji |Liczba ponownych prób sondowania. Serwer zaplecza jest oznaczony jako wyłączony po kolejnej liczbie błędów sondy osiągnie próg złej kondycji. |
 

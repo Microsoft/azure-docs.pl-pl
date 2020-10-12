@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320918"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z Azure SQL Database do magazynu obiektów blob platformy Azure przy użyciu Azure Portal
@@ -171,7 +171,7 @@ END
         Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 6. Wybierz opcję **V2** w obszarze **Wersja**.
 7. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database, wystąpienie zarządzane usługi Azure SQL i tak dalej) i usługi obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Kliknij pozycję **Utwórz**.      
+8. Kliknij przycisk **Utwórz**.      
 9. Po zakończeniu tworzenia zostanie wyświetlona strona **Fabryka danych**, jak pokazano na poniższej ilustracji.
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
@@ -201,7 +201,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
     3. Wybierz **nazwę bazy danych** z listy rozwijanej.
     4. Wprowadź hasło do **nazwy użytkownika**  &  **Password**.
     5. Aby przetestować połączenie z bazą danych SQL, kliknij przycisk **Test connection**.
-    6. Kliknij przycisk **Zakończ**.
+    6. Kliknij przycisk **Finish** (Zakończ).
     7. Upewnij się, że wybrano **AzureSqlDatabaseLinkedService** dla **połączonej usługi**.
 
         ![Okno Nowa połączona usługa](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
@@ -275,8 +275,8 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
-        | LastModifiedtime | Data i godzina | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | TableName | Ciąg | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję >>.   

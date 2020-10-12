@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119899"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Uzyskiwanie i buforowanie tokenów przy użyciu biblioteki uwierzytelniania firmy Microsoft (MSAL)
@@ -42,8 +42,8 @@ Gdy aplikacja musi zażądać tokenu dostępu z określonymi uprawnieniami dla i
 
 Niektóre przykładowe wartości zakresu dla różnych zasobów:
 
-- Interfejs API Microsoft Graph:`https://graph.microsoft.com/User.Read`
-- Niestandardowy interfejs API sieci Web:`api://11111111-1111-1111-1111-111111111111/api.read`
+- Interfejs API Microsoft Graph: `https://graph.microsoft.com/User.Read`
+- Niestandardowy interfejs API sieci Web: `api://11111111-1111-1111-1111-111111111111/api.read`
 
 Format wartości zakresu różni się w zależności od zasobu (interfejsu API), który odbiera token dostępu i `aud` akceptowane przez niego wartości.
 

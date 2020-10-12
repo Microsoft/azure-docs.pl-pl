@@ -7,13 +7,13 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710205"
 ---
-# <a name="retain-ip-addresses-during-failover"></a>Zachowaj adresy IP podczas pracy w trybie failover
+# <a name="retain-ip-addresses-during-failover"></a>Zachowaj adresy IP podczas trybu failover
 
 [Azure Site Recovery](site-recovery-overview.md) umożliwia odzyskiwanie po awarii dla maszyn wirtualnych platformy Azure przez replikowanie maszyn wirtualnych do innego regionu platformy Azure, przechodzenie w tryb failover, jeśli wystąpi awaria, i powrót po awarii do regionu podstawowego, gdy elementy zostaną przywrócone do normalnego.
 

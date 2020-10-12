@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: aa4e49d0e79704b6fc9f19eb1b736b2358cf3a14
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450741"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Skonfiguruj Windows Update ustawienia Azure Automation Update Management
@@ -18,7 +18,7 @@ Azure Automation Update Management polega na tym, że [klient programu Windows U
 
 - Edytor lokalnych zasad grupy
 - Zasady grupy
-- PowerShell
+- Program PowerShell
 - Bezpośrednie edytowanie rejestru
 
 Update Management przestrzega wielu ustawień określonych w celu kontrolowania Windows Update klienta. W przypadku korzystania z ustawień w celu włączenia aktualizacji innych niż Windows program Update Management również będzie zarządzać tymi aktualizacjami. Jeśli chcesz włączyć pobieranie aktualizacji przed wystąpieniem wdrożenia aktualizacji, wdrożenie aktualizacji może być szybsze, wydajniejsze i mniejsze niż okno obsługi.

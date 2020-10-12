@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
 ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642422"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia serwera proxy aplikacji usługi Azure AD
@@ -120,7 +120,7 @@ Poniżej znajdują się obszary, dla których należy zdefiniować wymagania biz
 
 * Administratorzy mogą definiować i monitorować cykl życia przypisań użytkowników do aplikacji publikowanych za pomocą serwera proxy aplikacji.
 
-**Bezpieczeństwo**
+**Zabezpieczenia**
 
 * Tylko użytkownicy przypisani do aplikacji za pośrednictwem członkostwa w grupie lub indywidualnie mogą uzyskiwać dostęp do tych aplikacji.
 
@@ -241,7 +241,7 @@ Sprawdź, czy aplikacja jest dostępna za pośrednictwem serwera proxy aplikacji
 
 Po włączeniu wstępnego uwierzytelniania usługa Azure AD będzie najpierw sprawdzać użytkowników w celu uwierzytelnienia. Jeśli skonfigurowano Logowanie jednokrotne, aplikacja zaplecza sprawdzi również, czy użytkownik uzyska dostęp do aplikacji. Zmiana trybu wstępnego uwierzytelniania z przekazywania do usługi Azure AD powoduje również skonfigurowanie zewnętrznego adresu URL przy użyciu protokołu HTTPS, więc każda aplikacja początkowo skonfigurowana dla protokołu HTTP będzie teraz zabezpieczona przy użyciu protokołu HTTPS.
 
-### <a name="enable-single-sign-on"></a>Włącz logowanie jednokrotne
+### <a name="enable-single-sign-on"></a>Włącz pojedynczy Sign-On
 
 Logowanie jednokrotne zapewnia najlepszą możliwą obsługę i bezpieczeństwo, ponieważ użytkownicy muszą logować się tylko raz podczas uzyskiwania dostępu do usługi Azure AD. Po wstępnym uwierzytelnieniu użytkownika Logowanie jednokrotne jest wykonywane przez łącznik serwera proxy aplikacji uwierzytelniany w aplikacji lokalnej w imieniu użytkownika. Aplikacja zaplecza przetwarza identyfikator logowania, tak jakby był on użytkownikiem.
 

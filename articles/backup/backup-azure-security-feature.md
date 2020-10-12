@@ -5,10 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181684"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup
@@ -88,7 +88,7 @@ W ramach dodawania dodatkowej warstwy uwierzytelniania dla operacji krytycznych 
 
 Aby odebrać ten numer PIN:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Przejdź do **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
 3. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Spowoduje to otwarcie okienka zawierającego numer PIN, który ma zostać wprowadzony w interfejsie użytkownika agenta usługi Azure Recovery Services.
     Ten kod PIN jest prawidłowy tylko przez pięć minut i jest generowany automatycznie po upływie tego okresu.
@@ -112,9 +112,9 @@ Funkcje zabezpieczeń wymienione w tym artykule zapewniają mechanizmy obrony pr
 
 | Operacja | Szczegóły błędu | Rozwiązanie |
 | --- | --- | --- |
-| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po pewnym czasie. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |**Może**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, próbując zmniejszyć zakres przechowywania poniżej wartości minimalnych określonych powyżej, a użytkownik jest w nieobsługiwanej wersji (obsługiwane wersje są określone w pierwszej notatce tego artykułu). <br/>**Zalecana akcja:**<br/> W takim przypadku należy ustawić okres przechowywania powyżej minimalnego podanego okresu przechowywania (siedem dni dziennie, czterech tygodni przez tydzień, trzy tygodnie przez rok i rok), aby kontynuować aktualizacje związane z zasadami. Opcjonalnie, preferowanym podejściem będzie zaktualizowanie agenta kopii zapasowej, Azure Backup Server i/lub UR do programu DPM w celu wykorzystania wszystkich aktualizacji zabezpieczeń. |
-| Zmień hasło |Wprowadzony numer PIN zabezpieczeń jest niepoprawny. (IDENTYFIKATOR: 100130) Podaj poprawny zabezpieczający numer PIN, aby ukończyć tę operację. |**Może**<br/> Ten błąd jest dostarczany po wprowadzeniu nieprawidłowego lub wygasłego numeru PIN zabezpieczeń podczas wykonywania operacji krytycznej (np. zmiany hasła). <br/>**Zalecana akcja:**<br/> Aby ukończyć tę operację, musisz wprowadzić prawidłowy zabezpieczający numer PIN. Aby uzyskać numer PIN, zaloguj się do Azure Portal i przejdź do Recovery Services magazynu > ustawienia > właściwości > Generuj zabezpieczający numer PIN. Użyj tego numeru PIN, aby zmienić hasło. |
-| Zmień hasło |Operacja nie powiodła się. IDENTYFIKATOR: 120002 |**Może**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, próba zmiany hasła i wykorzystasz z nieobsługiwanej wersji (prawidłowe wersje określone w pierwszej notatce tego artykułu).<br/>**Zalecana akcja:**<br/> Aby zmienić hasło, należy najpierw zaktualizować agenta kopii zapasowej do minimalnej wersji: 2.0.9052, Azure Backup Server do aktualizacji minimalnej 1 i/lub DPM do minimum DPM 2012 R2 UR12 lub DPM 2016 UR2 (Pobierz linki poniżej), a następnie wprowadzić prawidłowy zabezpieczający numer PIN. Aby uzyskać numer PIN, zaloguj się do Azure Portal i przejdź do Recovery Services magazynu > ustawienia > właściwości > Generuj zabezpieczający numer PIN. Użyj tego numeru PIN, aby zmienić hasło. |
+| Zmiana zasad |Nie można zmodyfikować zasad tworzenia kopii zapasowych. Błąd: bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x29834]. Spróbuj ponownie wykonać operację po pewnym czasie. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |**Przyczyna:**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, próbując zmniejszyć zakres przechowywania poniżej wartości minimalnych określonych powyżej, a użytkownik jest w nieobsługiwanej wersji (obsługiwane wersje są określone w pierwszej notatce tego artykułu). <br/>**Zalecana akcja:**<br/> W takim przypadku należy ustawić okres przechowywania powyżej minimalnego podanego okresu przechowywania (siedem dni dziennie, czterech tygodni przez tydzień, trzy tygodnie przez rok i rok), aby kontynuować aktualizacje związane z zasadami. Opcjonalnie, preferowanym podejściem będzie zaktualizowanie agenta kopii zapasowej, Azure Backup Server i/lub UR do programu DPM w celu wykorzystania wszystkich aktualizacji zabezpieczeń. |
+| Zmień hasło |Wprowadzony numer PIN zabezpieczeń jest niepoprawny. (IDENTYFIKATOR: 100130) Podaj poprawny zabezpieczający numer PIN, aby ukończyć tę operację. |**Przyczyna:**<br/> Ten błąd jest dostarczany po wprowadzeniu nieprawidłowego lub wygasłego numeru PIN zabezpieczeń podczas wykonywania operacji krytycznej (np. zmiany hasła). <br/>**Zalecana akcja:**<br/> Aby ukończyć tę operację, musisz wprowadzić prawidłowy zabezpieczający numer PIN. Aby uzyskać numer PIN, zaloguj się do Azure Portal i przejdź do Recovery Services magazynu > ustawienia > właściwości > Generuj zabezpieczający numer PIN. Użyj tego numeru PIN, aby zmienić hasło. |
+| Zmień hasło |Operacja nie powiodła się. IDENTYFIKATOR: 120002 |**Przyczyna:**<br/>Ten błąd pojawia się, gdy ustawienia zabezpieczeń są włączone, próba zmiany hasła i wykorzystasz z nieobsługiwanej wersji (prawidłowe wersje określone w pierwszej notatce tego artykułu).<br/>**Zalecana akcja:**<br/> Aby zmienić hasło, należy najpierw zaktualizować agenta kopii zapasowej do minimalnej wersji: 2.0.9052, Azure Backup Server do aktualizacji minimalnej 1 i/lub DPM do minimum DPM 2012 R2 UR12 lub DPM 2016 UR2 (Pobierz linki poniżej), a następnie wprowadzić prawidłowy zabezpieczający numer PIN. Aby uzyskać numer PIN, zaloguj się do Azure Portal i przejdź do Recovery Services magazynu > ustawienia > właściwości > Generuj zabezpieczający numer PIN. Użyj tego numeru PIN, aby zmienić hasło. |
 
 ## <a name="next-steps"></a>Następne kroki
 

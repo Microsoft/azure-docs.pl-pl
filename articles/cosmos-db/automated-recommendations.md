@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450837"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Zautomatyzowane zalecenia dotyczące Azure Cosmos DB
@@ -28,7 +28,7 @@ Zalecenia dotyczące Azure Cosmos DB można wyświetlić w następujący sposób
 
 - Zalecenia można także znaleźć w [Azure Advisor](../advisor/advisor-overview.md) pogrupowane według różnych zasobników, takich jak koszt, zabezpieczenia, niezawodność, wydajność i doskonałości operacyjną. Można wybrać określone subskrypcje i filtrować według typu zasobu, który jest **Azure Cosmos DB kontami**.  Po wybraniu określonego zalecenia zostaną wyświetlone akcje, które można wykonać w celu skorzystania z obciążeń.
 
-   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Advisor":::
+   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Wyświetl zalecenia z okienka Azure Cosmos DB":::
 
 Nie wszystkie zalecenia pokazane w okienku Azure Cosmos DB są dostępne na Azure Advisor i na odwrót. Dzieje się tak, ponieważ w zależności od typu zalecenia, które mieści się w okienku Azure Advisor, Azure Cosmos DB okienku lub obu tych elementów.
 

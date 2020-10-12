@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
 ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321411"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
@@ -34,7 +34,7 @@ Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Databas
 - **Minimalna rdzeni wirtualnych** i **Maksymalna rdzeni wirtualnych** to konfigurowalne parametry, które definiują zakres wydajności obliczeniowej dostępny dla bazy danych. Limity pamięci i operacji we/wy są proporcjonalne do określonego zakresu rdzeń wirtualny.  
 - **Opóźnienie AutoPause** to konfigurowalny parametr, który określa okres czasu, przez który baza danych musi być nieaktywna, zanim zostanie automatycznie wstrzymana. Baza danych zostanie automatycznie wznowiona po wystąpieniu następnego logowania lub innego działania.  Alternatywnie można wyłączyć autowstrzymywanie.
 
-### <a name="cost"></a>Cost (Koszt)
+### <a name="cost"></a>Koszty
 
 - Koszt bazy danych bezserwerowej to podsumowanie kosztów i kosztów magazynu obliczeniowego.
 - Gdy użycie obliczeniowe ma wartość z przedziału minimalnego i maksymalnego skonfigurowanego limitu, koszt obliczeń jest oparty na rdzeń wirtualny i używanej pamięci.
@@ -128,7 +128,7 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Cechy|Wyzwalacz autowznawiania|
+|Cecha|Wyzwalacz autowznawiania|
 |---|---|
 |Uwierzytelnianie i autoryzacja|Zaloguj się|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
@@ -252,7 +252,7 @@ Bezserwerowa baza danych może zostać przeniesiona do warstwy obliczeń aprowiz
 
 Modyfikacja wartości maksymalnej lub minimalnej rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) w programie PowerShell przy użyciu `MaxVcore` `MinVcore` argumentów, i `AutoPauseDelayInMinutes` .
 
-### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+### <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
 Modyfikacja maksymalnego lub minimalnego rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) w interfejsie CLI platformy Azure przy `capacity` użyciu `min-capacity` argumentów, i `auto-pause-delay` .
 

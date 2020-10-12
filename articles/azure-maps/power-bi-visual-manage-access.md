@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 2f7372d522c02eb86f1cc6470cefa9cb299605a7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261850"
 ---
 # <a name="manage-the-azure-maps-visual-within-your-organization"></a>Zarządzanie wizualizacją Azure Maps w organizacji
@@ -22,7 +22,7 @@ Power BI zapewnia projektantom i administratorom dzierżawy możliwość zarząd
 
 ### <a name="designer-options"></a>Opcje projektanta
 
-W Power BI Desktop projektanci mogą wyłączyć wizualizację Azure Maps na karcie Zabezpieczenia. Wybierz opcje **pliku** &gt; **i ustawienia** , a następnie wybierz **Opcje** &gt; **Podgląd funkcji**. Po wyłączeniu Azure Maps nie zostanie domyślnie załadowana.  
+W Power BI Desktop projektanci mogą wyłączyć wizualizację Azure Maps na karcie Zabezpieczenia. Wybierz **File** &gt; **Opcje pliku i ustawienia** , a następnie wybierz **Opcje** &gt; **Podgląd funkcji**. Po wyłączeniu Azure Maps nie zostanie domyślnie załadowana.  
   
 ![Panel opcje Power BI wyświetla opcje funkcji Podgląd Azure Maps wizualizacji](media/power-bi-visual/preview-options-panel.png)
 

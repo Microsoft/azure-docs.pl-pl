@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319558"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
@@ -178,11 +178,11 @@ Podczas wyświetlania grupy zasobów opcja Move jest wyłączona.
 
 Aby włączyć opcję Przenieś, wybierz zasoby, które chcesz przenieść. Aby zaznaczyć wszystkie zasoby, zaznacz pole wyboru znajdujące się u góry listy. Lub zaznacz opcję zasoby pojedynczo. Po wybraniu zasobów opcja Move jest włączona.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Wybieranie zasobów":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Opcja przenoszenia wyłączona":::
 
 Wybierz przycisk **Przenieś** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="Opcje przenoszenia":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="Opcja przenoszenia wyłączona":::
 
 Ten przycisk udostępnia trzy opcje:
 
@@ -194,11 +194,11 @@ Wybierz, czy przenosisz zasoby do nowej grupy zasobów, czy do nowej subskrypcji
 
 Wybierz docelową grupę zasobów. Potwierdź, że musisz zaktualizować skrypty dla tych zasobów, a następnie wybierz **przycisk OK**. W przypadku wybrania opcji przejścia do nowej subskrypcji należy również wybrać subskrypcję docelową.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Wybierz lokalizację docelową":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Opcja przenoszenia wyłączona":::
 
 Po zweryfikowaniu, że zasoby można przenieść, zobaczysz powiadomienie, że operacja przenoszenia jest uruchomiona.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="zawiadomienie":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="Opcja przenoszenia wyłączona":::
 
 Po zakończeniu otrzymasz powiadomienie o wyniku.
 

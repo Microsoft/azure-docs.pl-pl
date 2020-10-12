@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566079"
 ---
 # <a name="troubleshooting-network-performance"></a>Rozwiązywanie problemów z wydajnością sieci
@@ -80,7 +80,7 @@ Istnieją trzy podstawowe kroki umożliwiające korzystanie z tego zestawu narz�
 
 3. Uruchom test wydajnościowy
 
-    Najpierw na hoście zdalnym należy zainstalować i uruchomić program iPerf w trybie serwera. Upewnij się również, że host zdalny nasłuchuje na 3389 (RDP dla systemu Windows) lub 22 (SSH dla Linux) i zezwalając na ruch na porcie 5201 dla iPerf. Jeśli host zdalny jest systemem Windows, zainstaluj AzureCT i uruchom polecenie Install-LinkPerformance, aby skonfigurować iPerf i reguły zapory, które są konieczne do ponownego uruchomienia iPerf w trybie serwera. 
+    Najpierw na hoście zdalnym należy zainstalować i uruchomić program iPerf w trybie serwera. Upewnij się również, że host zdalny nasłuchuje na 3389 (RDP dla systemu Windows) lub 22 (SSH dla Linux) i zezwalając na ruch na porcie 5201 dla iPerf. Jeśli host zdalny jest systemem Windows, zainstaluj AzureCT i uruchom polecenie Install-LinkPerformance, aby skonfigurować iPerf i reguły zapory, które będą musiały zostać pomyślnie uruchomione iPerf w trybie serwera. 
     
     Gdy maszyna zdalna jest gotowa, Otwórz program PowerShell na maszynie lokalnej i uruchom test:
     ```powershell
@@ -129,7 +129,7 @@ Jeśli dwa sieci wirtualnych (sieci wirtualnych A i B w diagramie) są podłącz
  
 ### <a name="test-plan"></a>Plan testu
 1. Uruchom test Get-LinkPerformance między VM1 i VM2. Ten test zawiera szczegółowe informacje o tym, czy problem jest lokalny, czy nie. Jeśli ten test generuje akceptowalne wyniki opóźnienia i przepustowości, można oznaczyć lokalną sieć sieci wirtualnej jako dobra.
-2. Zakładając, że lokalny ruch sieci wirtualnej jest dobry, Uruchom test Get-LinkPerformance między VM1 i VM3. Ten test wykonuje połączenie za pomocą sieci firmy Microsoft z MSEE i z powrotem na platformę Azure. Jeśli ten test generuje akceptowalne opóźnienia i przepustowość, można oznaczyć sieć platformy Azure jako dobra.
+2. Przy założeniu, że lokalny ruch sieci wirtualnej jest dobry, Uruchom test Get-LinkPerformance między VM1 i VM3. Ten test wykonuje połączenie za pomocą sieci firmy Microsoft z MSEE i z powrotem na platformę Azure. Jeśli ten test generuje akceptowalne opóźnienia i przepustowość, można oznaczyć sieć platformy Azure jako dobra.
 3. Jeśli usługa Azure została wykluczona, można wykonać podobną sekwencję testów w sieci firmowej. Jeśli również testuje dobrze, czas na skontaktowanie się z dostawcą usług lub usługodawcą internetowym w celu zdiagnozowania połączenia z siecią WAN. Przykład: Uruchom ten test między dwoma oddziałami lub między biurem a serwerem centrum danych. W zależności od używanego testowania Znajdź punkty końcowe (serwery, komputery itp.), które mogą korzystać z tej ścieżki.
 
 >[!IMPORTANT]
@@ -146,7 +146,7 @@ W przypadku sieci WAN udostępnianie wyników testów z dostawcą usług lub us�
 
 Po rozwiązaniu problemu z platformą Azure, gdy jest to możliwe, należy zapoznać się z [dokumentacją sieci platformy Azure][Network Docs] , a następnie w razie potrzeby [otworzyć bilet pomocy technicznej][Ticket Link].
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 ### <a name="latencybandwidth-expectations"></a>Oczekiwania na opóźnienia/przepustowość
 >[!TIP]
 > Opóźnienie geograficzne (mile lub kilometry) między punktami końcowymi, które są testowane, to największy składnik opóźnienia. Chociaż występuje opóźnienie sprzętu (składniki fizyczne i wirtualne, liczba przeskoków itp.), Geografia została sprawdzona jako największy składnik ogólnego opóźnienia podczas pracy z połączeniami WAN. Należy również pamiętać, że odległość jest odległość między uruchomieniem włókna a odległością od osi liniowej lub mapy drogowej. Ta odległość jest trudno uzyskać z dokładnością niezwykle. W związku z tym ogólnie używamy kalkulatora odległości miast w Internecie i wiesz, że ta metoda jest miarowo niedokładnej miary, ale jest wystarczająca do ustawienia ogólnego oczekiwania.
@@ -160,7 +160,7 @@ Konfiguracja testu:
  - Obwód ExpressRoute 10Gbps Premium w lokalizacji zidentyfikowanej z włączonym prywatną usługą komunikacji równorzędnej.
  - Sieć wirtualna platformy Azure z bramą UltraPerformance w określonym regionie.
  - Maszyna wirtualna w DS5v2 z systemem Windows Server 2016 w sieci wirtualnej. Maszyna wirtualna nie została przyłączona do domeny, została utworzona na podstawie domyślnego obrazu platformy Azure (Brak optymalizacji lub dostosowania) z zainstalowanym programem AzureCT.
- - Wszystkie testy dotyczyły polecenia AzureCT Get-LinkPerformance z 5-minutowym testem obciążenia dla każdego z sześciu przebiegów testowych. Na przykład:
+ - Wszystkie testy dotyczyły AzureCT Get-LinkPerformance polecenie z 5-minutowym testem obciążenia dla każdego z sześciu przebiegów testowych. Na przykład:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300

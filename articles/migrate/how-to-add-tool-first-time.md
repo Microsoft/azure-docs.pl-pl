@@ -4,10 +4,10 @@ description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzę
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86102535"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Dodawanie narzędzia oceny/migracji po raz pierwszy
@@ -19,10 +19,10 @@ Azure Migrate udostępnia centralne centrum do śledzenia odnajdywania, oceny i 
 
 Jeśli projekt Azure Migrate nie został jeszcze utworzony, sprawdź, czy masz odpowiednie uprawnienia.
 
-1. W Azure Portal Otwórz subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)**.
+1. W witrynie Azure Portal otwórz daną subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)** .
 2. W obszarze Sprawdź dostęp Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia. Należy mieć uprawnienia współautora lub właściciela.
-    - Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji.
-    - Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać rolę.
+    - Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji.
+    - Jeśli nie jesteś właścicielem subskrypcji, poproś właściciela o przypisanie roli.
 
 ## <a name="create-a-project-and-add-a-tool"></a>Tworzenie projektu i Dodawanie narzędzia
 
@@ -45,7 +45,7 @@ Skonfiguruj nowy projekt Azure Migrate w ramach subskrypcji platformy Azure i Do
 2. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
 3. W obszarze **szczegóły projektu**Określ nazwę projektu i lokalizację geograficzną, w której chcesz utworzyć projekt.  Przejrzyj obsługiwane lokalizacje geograficzne dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
 
-    ![Tworzenie projektu Azure Migrate](./media/how-to-add-tool-first-time/migrate-project.png)
+    ![Tworzenie projektu usługi Azure Migrate](./media/how-to-add-tool-first-time/migrate-project.png)
 
     - Geografia projektu jest używana wyłącznie do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych. Można wybrać dowolny region docelowy dla rzeczywistej migracji.
     - Jeśli musisz wdrożyć projekt w określonym regionie w lokalizacji geograficznej, użyj następującego interfejsu API, aby utworzyć projekt. Określ Identyfikator subskrypcji, nazwę grupy zasobów i nazwę projektu wraz z lokalizacją. Przejrzyj lokalizacje geograficzne/regiony dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).

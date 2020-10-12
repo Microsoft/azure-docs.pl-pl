@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119933"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrowanie aplikacji do MSAL dla systemów iOS i macOS
@@ -53,7 +53,7 @@ Publiczny interfejs API MSAL odzwierciedla kilka najważniejszych różnic międ
 
 ### <a name="msalpublicclientapplication-instead-of-adauthenticationcontext"></a>MSALPublicClientApplication zamiast ADAuthenticationContext
 
-`ADAuthenticationContext`to pierwszy obiekt tworzony przez aplikację ADAL. Reprezentuje utworzenie wystąpienia biblioteki ADAL. Aplikacje tworzą nowe wystąpienie `ADAuthenticationContext` dla każdej Azure Active Directory chmury i dzierżawcy (Urząd). Ta sama `ADAuthenticationContext` może służyć do uzyskiwania tokenów dla wielu publicznych aplikacji klienckich.
+`ADAuthenticationContext` to pierwszy obiekt tworzony przez aplikację ADAL. Reprezentuje utworzenie wystąpienia biblioteki ADAL. Aplikacje tworzą nowe wystąpienie `ADAuthenticationContext` dla każdej Azure Active Directory chmury i dzierżawcy (Urząd). Ta sama `ADAuthenticationContext` może służyć do uzyskiwania tokenów dla wielu publicznych aplikacji klienckich.
 
 W programie MSAL główną interakcją jest użycie `MSALPublicClientApplication` obiektu, który jest modelem po stronie [klienta publicznego OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-2.1). Jedno wystąpienie programu `MSALPublicClientApplication` może służyć do korzystania z wielu chmur usługi AAD i dzierżawców bez konieczności tworzenia nowego wystąpienia dla każdego urzędu. W przypadku większości aplikacji `MSALPublicClientApplication` wystarczy jedno wystąpienie.
 
@@ -75,7 +75,7 @@ Istnieją dwa sposoby udostępniania zakresów w MSAL:
 
 Jest to wbudowany zakres dla każdej aplikacji. Odnosi się do statycznej listy uprawnień skonfigurowanych podczas rejestrowania aplikacji. Jego zachowanie jest podobne do tego `resource` . Może to być przydatne podczas przeprowadzania migracji, aby zapewnić zachowanie podobnego zestawu zakresów i środowiska użytkownika.
 
-Aby użyć `/.default` zakresu, Dołącz `/.default` do identyfikatora zasobu. Na przykład: `https://graph.microsoft.com/.default`. Jeśli zasób kończy się ukośnikiem ( `/` ), nadal powinien być dołączany `/.default` , łącznie z wiodącym ukośnikiem, co spowoduje powstanie zakresu, który ma podwójny ukośnik ( `//` ).
+Aby użyć `/.default` zakresu, Dołącz `/.default` do identyfikatora zasobu. Przykład: `https://graph.microsoft.com/.default`. Jeśli zasób kończy się ukośnikiem ( `/` ), nadal powinien być dołączany `/.default` , łącznie z wiodącym ukośnikiem, co spowoduje powstanie zakresu, który ma podwójny ukośnik ( `//` ).
 
 Więcej informacji na temat korzystania z zakresu "/.default" można znaleźć [tutaj](./v2-permissions-and-consent.md#the-default-scope)
 
@@ -83,7 +83,7 @@ Więcej informacji na temat korzystania z zakresu "/.default" można znaleźć [
 
 Biblioteka ADAL obsługuje tylko UIWebView/WKWebView dla systemu iOS oraz WebView dla macOS. MSAL dla systemu iOS obsługuje więcej opcji wyświetlania zawartości sieci Web podczas żądania kodu autoryzacji i nie jest już obsługiwana, `UIWebView` co może poprawić środowisko użytkownika i bezpieczeństwo.
 
-Domyślnie MSAL w systemie iOS używa [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), który jest składnikiem sieci Web firmy Apple zalecaną do uwierzytelniania na urządzeniach z systemem iOS 12 lub nowszym. Zapewnia możliwość logowania jednokrotnego (SSO) za pomocą udostępniania plików cookie między aplikacjami a przeglądarką Safari.
+Domyślnie MSAL w systemie iOS używa [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), który jest składnikiem sieci Web firmy Apple zalecaną do uwierzytelniania na urządzeniach z systemem iOS 12 lub nowszym. Zapewnia ona pojedyncze Sign-On (SSO) za pomocą udostępniania plików cookie między aplikacjami a przeglądarką Safari.
 
 Możesz użyć innego składnika sieci Web w zależności od wymagań aplikacji i środowiska użytkownika końcowego. Więcej opcji można znaleźć w temacie [obsługiwane typy widoków sieci Web](customize-webviews.md) .
 
@@ -322,7 +322,7 @@ Domyślnie MSAL pamięci podręcznej tokeny aplikacji w pęku kluczy systemu iOS
 Aby włączyć buforowanie tokenów:
 1. Upewnij się, że aplikacja jest prawidłowo podpisana
 2. Przejdź do pozycji Ustawienia projektu Xcode > **karcie możliwości**  >  **Włącz udostępnianie łańcucha kluczy**
-3. Kliknij **+** i wprowadź następujący wpis **grupy pęku kluczy** : 3. a dla systemu iOS wprowadź `com.microsoft.adalcache` 3. b dla macOS ENTER`com.microsoft.identity.universalstorage`
+3. Kliknij **+** i wprowadź następujący wpis **grupy pęku kluczy** : 3. a dla systemu iOS wprowadź `com.microsoft.adalcache` 3. b dla macOS ENTER `com.microsoft.identity.universalstorage`
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>Tworzenie MSALPublicClientApplication i przełączanie do jego wywołań acquireToken i acquireTokeSilent
 

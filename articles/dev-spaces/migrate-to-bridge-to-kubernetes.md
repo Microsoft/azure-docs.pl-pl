@@ -1,18 +1,18 @@
 ---
-title: Migrowanie do programu Bridge do Kubernetes
+title: Migrowanie do rozszerzenia Bridge to Kubernetes
 services: azure-dev-spaces
 ms.date: 09/21/2020
 ms.topic: conceptual
 description: Opisuje procesy, które Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
 ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997170"
 ---
-# <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do programu Bridge do Kubernetes
+# <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
 Mostek do Kubernetes zapewnia jaśniejszą wagę alternatywy dla wielu scenariuszy programistycznych, które współpracują z Azure Dev Spaces. Mostek do Kubernetes to środowisko tylko po stronie klienta przy użyciu rozszerzeń w programie [Visual Studio][vs]   i [Visual Studio Code][vsc].  
 
@@ -34,12 +34,12 @@ Mostek do Kubernetes umożliwia deweloperom pracę bezpośrednio na swoich kompu
 
 Azure Dev Spaces i mostek do Kubernetes mają podobne funkcje, ale również różnią się w kilku obszarach:
 
-| Wymaganie  | Azure Dev Spaces  | Mostek do Kubernetes  |
+| Wymaganie  | Azure Dev Spaces  | Mostek na platformę Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Azure Kubernetes Service | W 15 regionach świadczenia usługi Azure | Dowolny region usługi AKS    |
 | **Zabezpieczenia** |
 | Wymagany jest dostęp do zabezpieczeń w klastrze  | Współautor klastra AKS  | Kubernetes RBAC — aktualizacja wdrożenia   |
-| Wymagany na komputerze deweloperskim dostęp do zabezpieczeń  | Brak  | Administrator lokalny/sudo   |
+| Wymagany na komputerze deweloperskim dostęp do zabezpieczeń  | Nie dotyczy  | Administrator lokalny/sudo   |
 | **Wykorzystania** |
 | Niezależna od Kubernetes i artefaktów platformy Docker  | Nie  | Tak   |
 | Automatyczne wycofywanie zmian, po debugowaniu  | Nie  | Tak   |
@@ -120,7 +120,7 @@ Jeśli chcesz eksperymentować z usługą Kubernetes przed wyłączeniem Azure D
 Dowiedz się więcej o tym, jak działa mostek Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Jak działa mostek Kubernetes][how-it-works-bridge-to-kubernetes]
+> [Jak działa Mostek na platformę Kubernetes][how-it-works-bridge-to-kubernetes]
 
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli

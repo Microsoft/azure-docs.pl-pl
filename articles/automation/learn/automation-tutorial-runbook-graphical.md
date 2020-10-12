@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987650"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
@@ -124,7 +124,7 @@ Utworzony element Runbook jest nadal w trybie wersji roboczej. Aby można było 
 
     Należy pamiętać, że w okienku strumienie mogą być wyświetlane inne strumienie zadania elementu Runbook, takie jak pełne strumienie i błędy, jeśli element Runbook zapisze w nich.
 
-9. Zamknij okienko strumieni i okienko zadania, aby powrócić do strony MyFirstRunbook-Graphic.
+9. Zamknij okienko strumieni i okienko zadania, aby wrócić do strony MyFirstRunbook-Graphical.
 
 10. Aby wyświetlić wszystkie zadania dla elementu Runbook, wybierz pozycję **zadania** w obszarze **zasoby**. Na stronie zadania są wyświetlane wszystkie zadania utworzone przez element Runbook. Powinno zostać wyświetlone tylko jedno zadanie, ponieważ zostało uruchomione tylko raz.
 
@@ -156,7 +156,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 >[!NOTE]
 >Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount` . Należy zauważyć, że te aliasy nie są dostępne dla graficznych elementów Runbook. Graficzny element Runbook może korzystać tylko z `Connect-AzAccount` siebie.
 
-1. Przejdź do elementu Runbook i wybierz pozycję **Edytuj** na stronie MyFirstRunbook-graficzna.
+1. Przejdź do elementu Runbook i wybierz pozycję **Edytuj** na stronie MyFirstRunbook-Graphical.
 
 2. Ten wpis nie jest potrzebny `Write Hello World to output` . Po prostu kliknij wielokropek i wybierz pozycję **Usuń**.
 
@@ -218,7 +218,7 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
 23. Umieść wskaźnik myszy `Login to Azure` , dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Specify Subscription Id` . Element Runbook powinien wyglądać podobnie do poniższego.
 
-    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Zrzut ekranu elementu Runbook po przeciągnięciu strzałki do elementu "Określ Identyfikator subskrypcji".":::
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Zrzut ekranu elementu Runbook po przeciągnięciu strzałki do elementu &quot;Określ Identyfikator subskrypcji&quot;.":::
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Krok 7. Dodawanie działania w celu uruchomienia maszyny wirtualnej
 
@@ -242,13 +242,13 @@ Teraz musisz dodać działanie, `Start-AzVM` Aby uruchomić maszynę wirtualną.
 
 9. Kliknij przycisk **Rozpocznij** , aby rozpocząć test. Po zakończeniu upewnij się, że maszyna wirtualna została uruchomiona. Element Runbook powinien wyglądać podobnie do poniższego.
 
-    ![Element Runbook Start-AzVM danych wyjściowych](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+    ![Dane wyjściowe elementu Runbook Start-AzVM](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
 
 ## <a name="step-8---add-additional-input-parameters"></a>Krok 8. Dodawanie dodatkowych parametrów wejściowych
 
 Element Runbook aktualnie uruchamia maszynę wirtualną w grupie zasobów określonej dla tego `Start-AzVM` polecenia cmdlet. Element Runbook będzie bardziej użyteczny, jeśli podczas uruchamiania elementu Runbook określisz nazwę i grupę zasobów. Dodajmy do elementu Runbook parametry wejściowe w celu zapewnienia tej funkcjonalności.
 
-1. Otwórz edytor graficzny, klikając pozycję **Edytuj** na stronie MyFirstRunbook-graficzna.
+1. Otwórz edytor graficzny, klikając pozycję **Edytuj** na stronie MyFirstRunbook-Graphical.
 
 2. Wybierz pozycję **dane wejściowe i wyjściowe** , a następnie **Dodaj dane wejściowe** , aby otworzyć okienko parametru wejściowego elementu Runbook.
 

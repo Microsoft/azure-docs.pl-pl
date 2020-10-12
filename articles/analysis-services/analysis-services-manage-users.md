@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400795"
 ---
 # <a name="authentication-and-user-permissions"></a>Uwierzytelnianie i uprawnienia użytkownika
@@ -22,7 +22,7 @@ Azure Analysis Services obsługuje funkcję [współpracy B2B usługi Azure AD](
 
 ![Architektura uwierzytelniania Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analysis Services [bibliotek klienckich](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) w celu nawiązania połączenia z serwerem. 
 
@@ -81,4 +81,4 @@ Role na tym poziomie dotyczą użytkowników lub kont wymagających wykonywania 
 [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Zarządzanie rolami i użytkownikami bazy danych](analysis-services-database-users.md)  
 [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)  
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)  
+[Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../role-based-access-control/overview.md)  

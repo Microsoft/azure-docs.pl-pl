@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 3b047489f9cfa3623c11e324cf58114b707c10b7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567875"
 ---
 # <a name="azure-network-architecture"></a>Architektura sieci platformy Azure
@@ -61,7 +61,7 @@ Powyższe składniki sieciowe zostały zaprojektowane w celu zapewnienia maksyma
 ## <a name="datacenter-network-resiliency"></a>Odporność sieci centrum danych
 Przyjrzyjmy się zasadzie odporności na projektowanie przy użyciu sieci centrum danych.
 
-Sieć centrów danych jest zmodyfikowaną wersją [sieci zamykaną](https://en.wikipedia.org/wiki/Clos_network), co zapewnia wysoką przepustowość wielopunktową dla ruchu w skali chmury. Sieć jest zbudowana przy użyciu dużej liczby urządzeń z asortymentami, aby zmniejszyć wpływ awarii sprzętu. Te urządzenia są strategicznie zlokalizowane w różnych lokalizacjach fizycznych z odrębną domeną napięcia i chłodzenia, aby ograniczyć wpływ zdarzenia środowiska.  Na płaszczyźnie kontroli wszystkie urządzenia sieciowe działają jako tryb routingu warstwy 3 modelu OSI, co eliminuje historyczny problem z pętlą ruchu. Wszystkie ścieżki między różnymi warstwami są aktywne w celu zapewnienia wysokiej nadmiarowości i przepustowości przy użyciu routingu równego wielościeżkowego (ECMP).
+Sieć centrów danych jest zmodyfikowaną wersją [sieci zamykaną](https://en.wikipedia.org/wiki/Clos_network), co zapewnia wysoką przepustowość wielopunktową dla ruchu w skali chmury. Sieć jest zbudowana przy użyciu dużej liczby urządzeń z asortymentami, aby zmniejszyć wpływ awarii sprzętu. Te urządzenia są strategicznie zlokalizowane w różnych lokalizacjach fizycznych z odrębną domeną napięcia i chłodzenia, aby ograniczyć wpływ zdarzenia środowiska.  Na płaszczyźnie kontroli wszystkie urządzenia sieciowe działają jako tryb routingu warstwy 3 modelu OSI, co eliminuje historyczny problem z pętlą ruchu. Wszystkie ścieżki między różnymi warstwami są aktywne w celu zapewnienia wysokiej nadmiarowości i przepustowości przy użyciu routingu Equal-Cost wielościeżkowego (ECMP).
 
 Na poniższym diagramie przedstawiono, że sieć centrów danych jest zbudowana przez różne warstwy urządzeń sieciowych. Paski na diagramie reprezentują grupy urządzeń sieciowych zapewniające nadmiarowość i wysoką przepustowość.
 

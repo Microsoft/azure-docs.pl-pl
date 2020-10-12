@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284561"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption dla często zadawanych pytań dotyczących maszyn wirtualnych z systemem Windows
@@ -124,7 +124,7 @@ Azure Disk Encryption wybiera metodę szyfrowania w funkcji BitLocker na podstaw
 | Windows Server 2012, Windows 8, 8,1, 10 | < 1511 |Bit AES 256 *              |
 | 2008R2 systemu Windows Server            |        |Bit AES 256 z rozpraszaniem |
 
-\*Bit AES 256 z rozpraszaniem nie jest obsługiwany w systemie Windows 2012 i nowszych.
+\* Bit AES 256 z rozpraszaniem nie jest obsługiwany w systemie Windows 2012 i nowszych.
 
 Aby określić wersję systemu operacyjnego Windows, uruchom narzędzie "winver" na maszynie wirtualnej.
 

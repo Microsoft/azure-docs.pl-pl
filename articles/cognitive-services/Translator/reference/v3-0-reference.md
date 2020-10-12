@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
 ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121021"
 ---
 # <a name="translator-v30"></a>Translator — wersja 3.0
@@ -48,7 +48,7 @@ Aby wymusić obsługę żądania przez określoną lokalizację geograficzną pl
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Azja i Pacyfik|    api-apc.cognitive.microsofttranslator.com|
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Zasubskrybuj usługę translator lub [Cognitive Services wiele usług](https://azure.microsoft.com/pricing/details/cognitive-services/) na platformie Azure Cognitive Services i Użyj klucza subskrypcji (dostępnego w Azure Portal) do uwierzytelniania. 
 
@@ -156,7 +156,7 @@ Niestandardowy punkt końcowy można znaleźć po utworzeniu [zasobu usługi Tra
 |Nagłówki|Opis|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Wartość to klucz tajny platformy Azure dla Twojej subskrypcji w usłudze translator.|
-|OCP-APIM-Subscription-region| Wartość to region zasobu translatora. Ta wartość jest opcjonalna, jeśli zasób jest`global`|
+|OCP-APIM-Subscription-region| Wartość to region zasobu translatora. Ta wartość jest opcjonalna, jeśli zasób jest `global`|
 
 Oto przykładowe żądanie wywołania translatora przy użyciu niestandardowego punktu końcowego
 
@@ -169,7 +169,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
      -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-## <a name="errors"></a>błędy
+## <a name="errors"></a>Errors
 
 Standardowa odpowiedź na błąd to obiekt JSON z parą nazwa/wartość o nazwie `error` . Wartość jest również obiektem JSON z właściwościami:
 

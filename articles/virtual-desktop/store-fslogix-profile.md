@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568697"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows
@@ -38,7 +38,7 @@ W poniższych tabelach porównano oferty magazynów usługi Azure Storage dla sy
 
 |Funkcje|Azure Files|Azure NetApp Files|Bezpośrednie miejsca do magazynowania|
 |--------|-----------|------------------|---------------------|
-|Access|Chmura, lokalne i hybrydowe (usługa Azure File Sync)|Chmura, lokalna (za pośrednictwem ExpressRoute)|Chmura, lokalna|
+|Dostęp|Chmura, lokalne i hybrydowe (usługa Azure File Sync)|Chmura, lokalna (za pośrednictwem ExpressRoute)|Chmura, lokalna|
 |Backup|Integracja z migawką usługi Azure Backup|Migawki Azure NetApp Files|Integracja z migawką usługi Azure Backup|
 |Zabezpieczenia i zgodność|[Wszystkie certyfikaty obsługiwane przez platformę Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|Zakończono ISO|[Wszystkie certyfikaty obsługiwane przez platformę Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Integracja z usługą Azure Active Directory|[Natywne Active Directory i Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services i natywne Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Tylko natywny Active Directory lub Azure Active Directory Domain Services|

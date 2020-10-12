@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037617"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Wprowadzenie do korzystania z Azure Stream Analytics: wykrywanie oszustw w czasie rzeczywistym
@@ -81,7 +81,7 @@ W tej procedurze należy najpierw utworzyć przestrzeń nazw centrum zdarzeń, a
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
-9. Kliknij pozycję **Utwórz**.
+9. Kliknij przycisk **Utwórz**.
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Udzielanie dostępu do centrum zdarzeń i pobieranie parametrów połączenia
 
@@ -98,7 +98,7 @@ Aby proces mógł wysyłać dane do centrum zdarzeń, centrum zdarzeń musi mie�
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4. Kliknij pozycję **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 
 5. Po wdrożeniu zasad kliknij je na liście zasad dostępu współdzielonego.
 
@@ -186,7 +186,7 @@ Teraz, gdy masz strumień zdarzeń wywołań, możesz skonfigurować zadanie Str
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. Kliknij pozycję **Utwórz**.
+3. Kliknij przycisk **Utwórz**.
 
     Zadanie zostanie utworzone, a w portalu zostaną wyświetlone szczegóły zadania. Nic nie działa jeszcze, ale musisz skonfigurować zadanie, aby można było je uruchomić.
 
@@ -211,7 +211,7 @@ Teraz, gdy masz strumień zdarzeń wywołań, możesz skonfigurować zadanie Str
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. Kliknij pozycję **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Tworzenie zapytań w celu przekształcania danych w czasie rzeczywistym
 
@@ -371,7 +371,7 @@ Jeśli masz istniejące konto magazynu obiektów blob, możesz go użyć. W tym 
 
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
-   |Alias danych wyjściowych  |  Wejścia callstream — FraudulentCalls   |  Wprowadź nazwę identyfikującą dane wyjściowe zadania.   |
+   |Alias danych wyjściowych  |  CallStream-FraudulentCalls   |  Wprowadź nazwę identyfikującą dane wyjściowe zadania.   |
    |Subskrypcja   |  \<Your subscription\> |  Wybierz subskrypcję platformy Azure, która ma utworzone konto magazynu. Konto magazynu może być w tej samej lub innej subskrypcji. W tym przykładzie przyjęto założenie, że konto magazynu zostało utworzone w tej samej subskrypcji. |
    |Konto magazynu  |  asaehstorage |  Wprowadź nazwę utworzonego konta magazynu. |
    |Kontener  | ASA — fraudulentcalls — Demonstracja | Wybierz pozycję Utwórz nową i wprowadź nazwę kontenera. |
@@ -379,7 +379,7 @@ Jeśli masz istniejące konto magazynu obiektów blob, możesz go użyć. W tym 
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Kliknij pozycję **Zapisz**. 
+5. Kliknij przycisk **Zapisz**. 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics

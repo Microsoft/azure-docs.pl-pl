@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
 ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738145"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń na podstawie szablonu Azure Resource Manager
@@ -153,7 +153,7 @@ Poniżej przedstawiono dwa przykłady kompletnych szablonów służących do kon
 }
 ```
 
-## <a name="deploying-your-azure-resource-manager-template"></a>Wdrażanie szablonu Azure Resource Manager
+## <a name="deploying-your-azure-resource-manager-template"></a>Wdrażanie szablonu usługi Azure Resource Manager
 
 W tym samouczku przyjęto założenie, że masz istniejącą grupę zasobów i sieciowej grupy zabezpieczeń można włączyć logowanie do przepływu.
 Każdy z powyższych przykładowych szablonów można zapisać lokalnie jako `azuredeploy.json` . Zaktualizuj wartości właściwości, tak aby wskazywały na prawidłowe zasoby w subskrypcji.

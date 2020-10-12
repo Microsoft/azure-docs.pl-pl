@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84908193"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>Maszyna wirtualna platformy Azure nie odpowiada podczas stosowania zasad zabezpieczeń do systemu
@@ -33,7 +33,7 @@ W przypadku korzystania z [diagnostyki rozruchu](boot-diagnostics.md) w celu wy�
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Zrzut ekranu uruchamiania systemu Windows Server 2012 R2 jest zablokowany.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Zrzut ekranu startowego systemu operacyjnego jest zablokowany.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Zrzut ekranu uruchamiania systemu Windows Server 2012 R2 jest zablokowany.":::
 
 ## <a name="cause"></a>Przyczyna
 
@@ -68,54 +68,7 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następu
 
         W poleceniu Zamień na \<BOOT PARTITON> literę partycji na dysku dołączonym, który zawiera folder rozruchowy.
 
-        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Na diagramie przedstawiono dane wyjściowe listy magazyn BCD na maszynie wirtualnej generacji 1, która zawiera listę w obszarze ładujący rozruchu systemu Windows numer identyfikacyjny.":::
-
-     2. W przypadku maszyny wirtualnej 2. generacji wprowadź następujące polecenie i zanotuj wymieniony identyfikator:
-
-        ```console
-        bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum
-        ```
-
-        - W poleceniu Zastąp \<LETTER OF THE EFI SYSTEM PARTITION> literą partycji systemowej EFI.
-        - Pomocne może być uruchomienie konsoli zarządzania dyskami w celu zidentyfikowania odpowiedniej partycji systemowej oznaczonej jako "partycja systemowa EFI".
-        - Identyfikator może być unikatowym identyfikatorem GUID lub może być domyślnym "Bootmgr".
-3. Uruchom następujące polecenia, aby włączyć konsolę szeregową:
-
-    ```console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
-    ```
-
-    ```console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-    ```
-
-    - W poleceniu Zamień na \<VOLUME LETTER WHERE THE BCD FOLDER IS> literę folderu BCD.
-    - W poleceniu Zastąp \<BOOT LOADER IDENTIFIER> wartość identyfikatorem znalezionym w poprzednim kroku.
-4. Sprawdź, czy ilość wolnego miejsca na dysku systemu operacyjnego jest większa niż rozmiar pamięci (RAM) na maszynie wirtualnej.
-
-    1. Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, należy zmienić lokalizację, w której zostanie utworzony plik zrzutu pamięci. Zamiast tworzyć plik na dysku systemu operacyjnego, można odwołać się do dowolnego innego dysku danych dołączonego do maszyny wirtualnej z wystarczającą ilością wolnego miejsca. Aby zmienić lokalizację, Zastąp "% główny_katalog_systemowy%" literą dysku (na przykład "F:") dysku danych w poleceniach wymienionych poniżej.
-    2. Wprowadź poniższe polecenia (zalecana konfiguracja zrzutu):
-
-        Załaduj przerwany dysk systemu operacyjnego:
-
-        ```console
-        REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
-        ```
-
-        Włącz w ControlSet001:
-
-        ```console
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
-        ```
-
-        Włącz w ControlSet002:
-
-        ```console
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Zrzut ekranu uruchamiania systemu Windows Server 2012 R2 jest zablokowany." /v NMICrashDump /t REG_DWORD /d 1 /f
         ```
 
         Zwolnij przerwany dysk systemu operacyjnego:

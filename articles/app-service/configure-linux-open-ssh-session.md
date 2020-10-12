@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961609"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Otwórz sesję SSH do kontenera systemu Linux w Azure App Service
@@ -23,7 +23,7 @@ ms.locfileid: "88961609"
 
 Możesz również połączyć się z kontenerem bezpośrednio z lokalnej maszyny deweloperskiej przy użyciu protokołów SSH i SFTP.
 
-## <a name="open-ssh-session-in-browser"></a>Otwórz sesję SSH w przeglądarce
+## <a name="open-ssh-session-in-browser"></a>Otwieranie sesji SSH w przeglądarce
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
 
@@ -111,7 +111,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 45738     1 root     Z        0   0%   0   0% [init]
 </pre>
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Pytania i wątpliwości można zamieszczać na [forum platformy Azure](/answers/topics/azure-webapps.html).
 

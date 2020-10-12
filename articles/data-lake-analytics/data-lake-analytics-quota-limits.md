@@ -10,10 +10,10 @@ ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to
 ms.date: 03/15/2018
 ms.openlocfilehash: 0025e35f516543c8fe703daa647ca29ed3fb87e6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127591"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Dostosowywanie przydziałów i limitów w usłudze Azure Data Lake Analytics
@@ -22,7 +22,7 @@ Dowiedz się, jak dostosować i zwiększyć limit przydziału oraz limity na kon
 
 ## <a name="azure-subscriptions-limits"></a>Limity subskrypcji platformy Azure
 
-**Maksymalna liczba kont ADLA na subskrypcję na region:** 5
+**Maksymalna liczba kont ADLA na subskrypcję na region:**  5
 
 Jeśli spróbujesz utworzyć szóste konto ADLA, zostanie wyświetlony komunikat o błędzie "Osiągnięto maksymalną dozwoloną liczbę kont Data Lake Analytics (5) w regionie pod nazwą subskrypcji".
 

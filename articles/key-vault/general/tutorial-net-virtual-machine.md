@@ -10,10 +10,10 @@ ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: e1abc26296b1e3bd16bebf95d3489a4e95595e1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336721"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w programie .NET
@@ -71,7 +71,7 @@ Utwórz maszynę wirtualną z systemem Windows lub Linux przy użyciu jednej z n
 |--|--|
 | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/windows/quick-create-cli.md) | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/linux/quick-create-cli.md) |  
 | [Program PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [Program PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
-| [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
+| [Azure Portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>Przypisywanie tożsamości do maszyny wirtualnej
 Utwórz tożsamość przypisaną do systemu dla maszyny wirtualnej za pomocą polecenia [AZ VM Identity Assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :

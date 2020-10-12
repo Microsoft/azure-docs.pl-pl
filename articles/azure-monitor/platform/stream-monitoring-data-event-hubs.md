@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
 ms.openlocfilehash: f6272e3d976c7c3b04d5b1332e2d7b3410c3045c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318882"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń lub zewnętrznego partnera
@@ -34,7 +34,7 @@ Przed skonfigurowaniem przesyłania strumieniowego dla dowolnego źródła danyc
 
 | Warstwa | Dane | Metoda |
 |:---|:---|:---|
-| [Dzierżawa platformy Azure](data-sources.md#azure-tenant) | Azure Active Directory dzienników inspekcji | Skonfiguruj ustawienia diagnostyczne dzierżawy w dzierżawie usługi AAD. Aby uzyskać szczegółowe informacje, zobacz [Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
+| [Dzierżawa platformy Azure](data-sources.md#azure-tenant) | Azure Active Directory dzienników inspekcji | Skonfiguruj ustawienia diagnostyczne dzierżawy w dzierżawie usługi AAD. Aby uzyskać szczegółowe informacje, zobacz  [Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) . |
 | [Subskrypcja platformy Azure](data-sources.md#azure-subscription) | Dziennik aktywności platformy Azure | Utwórz profil dziennika, aby wyeksportować zdarzenia dziennika aktywności do Event Hubs.  Aby uzyskać szczegółowe informacje [, zobacz Przesyłanie strumieniowe dzienników platformy Azure do usługi azure Event Hubs](./resource-logs.md#send-to-azure-event-hubs) . |
 | [Zasoby platformy Azure](data-sources.md#azure-resources) | Metryki platformy<br> Dzienniki zasobów |Oba typy danych są wysyłane do centrum zdarzeń przy użyciu ustawienia diagnostycznego zasobu. Aby uzyskać szczegółowe informacje [, zobacz Przesyłanie strumieniowe dzienników zasobów platformy Azure do centrum zdarzeń](./resource-logs.md#send-to-azure-event-hubs) . |
 | [System operacyjny (gościa)](data-sources.md#operating-system-guest) | Maszyny wirtualne platformy Azure | Zainstaluj [rozszerzenie Diagnostyka Azure](diagnostics-extension-overview.md) na maszynach wirtualnych z systemem Windows i Linux na platformie Azure. Zobacz [przesyłanie strumieniowe danych Diagnostyka Azure w ścieżce aktywnej przy użyciu Event Hubs](diagnostics-extension-stream-event-hubs.md) , aby uzyskać szczegółowe informacje na temat maszyn wirtualnych z systemem Windows i [użyć rozszerzenia diagnostyki systemu Linux do monitorowania metryk i dzienników](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) w celu uzyskania szczegółowych informacji na temat maszyn wirtualnych |
@@ -51,7 +51,7 @@ Kierowanie danych monitorowania do centrum zdarzeń za pomocą Azure Monitor poz
 | Narzędzie | Hostowane na platformie Azure | Opis |
 |:---|:---| :---|
 |  IBM QRadar | Nie | Microsoft Azure DSM i Microsoft Azure centrum zdarzeń jest dostępny do pobrania z [witryny sieci Web pomocy technicznej firmy IBM](https://www.ibm.com/support). Możesz dowiedzieć się więcej o integracji z platformą Azure w [konfiguracji DSM QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | Nie | [Dodatek Azure monitor dla Splunk](https://splunkbase.splunk.com/app/3534/) jest projektem open source dostępnym w Splunkbase. Dokumentacja jest dostępna w [Azure monitor dodatku dla Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Jeśli nie można zainstalować dodatku w wystąpieniu usługi Splunk, jeśli na przykład używasz serwera proxy lub działającego w chmurze Splunk, możesz przesłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk za pomocą [funkcji platformy Azure dla Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
+| Splunk | Nie | [Azure Monitor Add-On dla Splunk](https://splunkbase.splunk.com/app/3534/) jest projektem open source dostępnym w Splunkbase. Dokumentacja jest dostępna w [Azure monitor dodatku dla Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Jeśli nie można zainstalować dodatku w wystąpieniu usługi Splunk, jeśli na przykład używasz serwera proxy lub działającego w chmurze Splunk, możesz przesłać te zdarzenia do modułu zbierającego zdarzenia HTTP Splunk za pomocą [funkcji platformy Azure dla Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), która jest wyzwalana przez nowe komunikaty w centrum zdarzeń. |
 | SumoLogic | Nie | Instrukcje dotyczące konfigurowania SumoLogic do korzystania z danych z centrum zdarzeń są dostępne w [dziennikach zbierania dla aplikacji inspekcji platformy Azure z centrum zdarzeń](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
 | ArcSight | Nie | Łącznik inteligentny ArcSight usługi Azure Event Hub jest dostępny jako część [kolekcji inteligentnych łączników ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Serwer Syslog | Nie | Jeśli chcesz przesyłać strumieniowo Azure Monitor dane bezpośrednio do serwera dziennika systemowego, możesz użyć [rozwiązania na podstawie funkcji platformy Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).

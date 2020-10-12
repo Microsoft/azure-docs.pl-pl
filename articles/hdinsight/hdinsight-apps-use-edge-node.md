@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086487"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight
@@ -86,7 +86,7 @@ W tej sekcji użyjesz szablonu Menedżer zasobów, aby dodać węzeł brzegowy d
     |Lokalizacja|Wybierz lokalizację istniejącego klastra usługi HDInsight.|
     |Nazwa klastra|Wprowadź nazwę istniejącego klastra usługi HDInsight.|
 
-1. Zaznacz pole wyboru Akceptuję **warunki i postanowienia podane powyżej**, a następnie wybierz pozycję **Kup** , aby utworzyć węzeł brzegowy.
+1. Zaznacz pole wyboru Akceptuję **warunki i postanowienia podane powyżej**, a następnie wybierz pozycję  **Kup** , aby utworzyć węzeł brzegowy.
 
 > [!IMPORTANT]  
 > Upewnij się, że wybrano grupę zasobów platformy Azure dla istniejącego klastra usługi HDInsight.  W przeciwnym razie zostanie wyświetlony komunikat o błędzie "nie można wykonać wymaganej operacji na zasobie zagnieżdżonym. Nie znaleziono zasobu nadrzędnego " &lt; clustername>". "
@@ -117,7 +117,7 @@ W tej sekcji użyjesz szablonu Menedżer zasobów, aby utworzyć klaster usługi
 
     Niektóre właściwości zostały stałe w szablonie: typ klastra, liczba węzłów procesu roboczego klastra, rozmiar węzła krawędzi i nazwa węzła krawędzi.
 
-1. Zaznacz **Akceptuję warunki i**postanowienia wymienione powyżej, a następnie wybierz pozycję **Kup** , aby utworzyć klaster z węzłem krawędzi.
+1. Zaznacz **Akceptuję warunki i**postanowienia wymienione powyżej, a następnie wybierz pozycję  **Kup** , aby utworzyć klaster z węzłem krawędzi.
 
 ## <a name="add-multiple-edge-nodes"></a>Dodawanie wielu węzłów brzegowych
 
@@ -164,7 +164,7 @@ Węzeł brzegowy można usunąć z Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule wyjaśniono, jak dodać węzeł brzegowy i jak uzyskać dostęp do węzła brzegowego. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule wyjaśniono, jak dodać węzeł brzegowy i jak uzyskać dostęp do węzła brzegowego. Więcej informacji można znaleźć w następujących artykułach:
 
 * [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): dowiedz się, jak instalować aplikacje usługi HDInsight w klastrach.
 * [Instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md): Dowiedz się, jak wdrożyć nieopublikowaną aplikację usługi HDInsight w usłudze HDInsight.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 6caaba06dcc2fdeaeb672b5381b240cb3f676ca9
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
-ms.translationtype: HT
+ms.openlocfilehash: 9df287e9070b84036be311c778f07d583251fd28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563082"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91286356"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: konfigurowanie usługi Slack pod kątem automatycznej aprowizacji użytkowników
 
@@ -73,11 +73,11 @@ Ta sekcja zawiera instrukcje łączenia usługi Azure AD z interfejsem API aprow
 
 3. Wybierz kartę **Aprowizacja**.
 
-    ![Karta Aprowizacja](common/provisioning.png)
+    ![Zrzut ekranu przedstawiający opcje zarządzania z opcją aprowizacji o nazwie out.](common/provisioning.png)
 
 4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
-    ![Karta Aprowizacja](common/provisioning-automatic.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną trybu aprowizacji z opcją automatyczną o nazwie out.](common/provisioning-automatic.png)
 
 5. W sekcji **Poświadczenia administratora** kliknij pozycję **Autoryzuj**. To spowoduje otwarcie okna dialogowego autoryzacji usługi Slack w nowym oknie przeglądarki.
 

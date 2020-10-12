@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
 ms.openlocfilehash: d4a08035b03c104555c39311bfb812218cca44b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482551"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure
@@ -76,11 +76,11 @@ Geograficzna kopia zapasowa jest tworzona raz dziennie dla [sparowanego centrum 
 
 ## <a name="backup-and-restore-costs"></a>Koszty tworzenia kopii zapasowej i przywracania
 
-Na rachunku za platformę Azure zostanie wystawiony element line for Storage i element line dla magazynu odzyskiwania po awarii. Opłata za magazyn to łączny koszt przechowywania danych w regionie podstawowym wraz ze zmianami przyrostowymi przechwytywanymi przez migawki. Aby uzyskać bardziej szczegółowy opis sposobu, w jaki są rozliczane migawki, zapoznaj się z tematem [jak naliczanie opłat za migawki](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Opłata za nadmiarowy geograficznie obejmuje koszt przechowywania kopii zapasowych.  
+Na rachunku za platformę Azure zostanie wystawiony element line for Storage i element line dla magazynu odzyskiwania po awarii. Opłata za magazyn to łączny koszt przechowywania danych w regionie podstawowym wraz ze zmianami przyrostowymi przechwytywanymi przez migawki. Aby uzyskać bardziej szczegółowy opis sposobu, w jaki są rozliczane migawki, zapoznaj się z tematem  [jak naliczanie opłat za migawki](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Opłata za nadmiarowy geograficznie obejmuje koszt przechowywania kopii zapasowych.  
 
 Łączny koszt podstawowego magazynu danych i siedem dni zmian migawek jest zaokrąglany do najbliższej TB. Na przykład jeśli magazyn danych to 1,5 TB, a migawki przechwytuje 100 GB, opłaty są naliczane za 2 TB danych w ramach stawek za usługę Azure Premium Storage.
 
-W przypadku korzystania z magazynu geograficznie nadmiarowego otrzymujesz oddzielną opłatą za magazyn. Magazyn Geograficznie nadmiarowy jest rozliczany zgodnie ze standardową szybkością magazynowania geograficznego do odczytu (RA-GRS).
+W przypadku korzystania z magazynu geograficznie nadmiarowego otrzymujesz oddzielną opłatą za magazyn. Magazyn Geograficznie nadmiarowy jest rozliczany zgodnie ze Read-Access standardową stawką za magazyn GRS geograficzną nadmiarowy.
 
 Aby uzyskać więcej informacji o cenach usługi Azure Synapse, zobacz [Cennik usługi Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). Nie jest naliczana opłata za dane wychodzące podczas przywracania między regionami.
 

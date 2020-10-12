@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285319"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Skalowanie w górę i w dół grupy serwerów z Azure Database for PostgreSQLm skalowaniem przy użyciu interfejsu wiersza polecenia (azdata lub polecenia kubectl)
@@ -183,7 +183,7 @@ Aby skalować w dół grupę serwerów, należy wykonać to samo polecenie, ale 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Skalowanie grupy serwerów Azure Database for PostgreSQL w poziomie](scale-out-postgresql-hyperscale-server-group.md)
+- [Skalowanie w poziomie grupy serwerów usługi Azure Database for PostgreSQL — hiperskala](scale-out-postgresql-hyperscale-server-group.md)
 - [Konfiguracja magazynu i pojęcia dotyczące magazynu Kubernetes](storage-configuration.md)
 - [Rozszerzanie trwałych oświadczeń woluminu](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Model zasobów Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

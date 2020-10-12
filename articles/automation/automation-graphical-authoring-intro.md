@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987325"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Tworzenie graficznych elementów Runbook w Azure Automation
@@ -95,7 +95,7 @@ Po włączeniu opcji ponów dla działania można ustawić opóźnienie i warune
 
 Warunek ponawiania jest wyrażeniem programu PowerShell, które jest oceniane po każdym uruchomieniu działania. Jeśli wyrażenie jest rozpoznawane jako true, działanie zostanie uruchomione ponownie. Jeśli wyrażenie ma wartość false, działanie nie zostanie uruchomione ponownie, a element Runbook przejdzie do następnego działania.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Zrzut ekranu przedstawiający ponowienie próby, dopóki ten warunek jest prawdziwy pola i Przykłady wyrażeń programu PowerShell, których można użyć w warunku ponawiania.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Zrzut ekranu przedstawiający ustawienia funkcji Włącz ponowną próbę.":::
 
 Warunek ponawiania może używać zmiennej o nazwie `RetryData` , która zapewnia dostęp do informacji o ponownych próbach działania. Ta zmienna ma właściwości w poniższej tabeli:
 
@@ -256,9 +256,9 @@ Każdy parametr wejściowy jest definiowany przez właściwości w poniższej ta
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Nazwa | Wymagany. Nazwa parametru. Nazwa musi być unikatowa w elemencie Runbook. Musi rozpoczynać się od litery i może zawierać tylko litery, cyfry i znaki podkreślenia. Nazwa nie może zawierać spacji. |
+| Nazwa | Wymagane. Nazwa parametru. Nazwa musi być unikatowa w elemencie Runbook. Musi rozpoczynać się od litery i może zawierać tylko litery, cyfry i znaki podkreślenia. Nazwa nie może zawierać spacji. |
 | Opis |Opcjonalny. Opis celu dla parametru wejściowego. |
-| Typ | Opcjonalny. Oczekiwano typu danych dla wartości parametru. Azure Portal zapewnia odpowiednią kontrolę dla typu danych dla każdego parametru podczas monitowania o dane wejściowe. Obsługiwane typy parametrów to String, Int32, Int64, decimal, Boolean, DateTime i Object. Jeśli typ danych nie jest zaznaczony, domyślnie jest to ciąg.|
+| Type | Opcjonalny. Oczekiwano typu danych dla wartości parametru. Azure Portal zapewnia odpowiednią kontrolę dla typu danych dla każdego parametru podczas monitowania o dane wejściowe. Obsługiwane typy parametrów to String, Int32, Int64, decimal, Boolean, DateTime i Object. Jeśli typ danych nie jest zaznaczony, domyślnie jest to ciąg.|
 | Obowiązkowy | Opcjonalny. Ustawienie określające, czy należy podać wartość dla parametru. W przypadku wybrania `yes` tej opcji należy podać wartość, gdy element Runbook zostanie uruchomiony. W przypadku wybrania `no` tej opcji wartość nie jest wymagana, gdy element Runbook jest uruchomiony, i można użyć wartości domyślnej. Nie można uruchomić elementu Runbook, jeśli nie podasz wartości dla każdego obowiązkowego parametru, który nie ma zdefiniowanej wartości domyślnej. |
 | Wartość domyślna | Opcjonalny. Wartość użyta dla parametru, jeśli nie jest ona przenoszona podczas uruchamiania elementu Runbook. Aby ustawić wartość domyślną, wybierz opcję `Custom` . Wybierz `None` , jeśli nie chcesz podawać żadnej wartości domyślnej. |
 
