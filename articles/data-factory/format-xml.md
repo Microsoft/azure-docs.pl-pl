@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334297"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Format XML w Azure Data Factory
@@ -109,7 +109,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez Źródło XM
 | Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | Nie | Usuń: `true` lub `false` <br> Przenieś `['<from>', '<to>']` | purgeFiles <br>moveFiles |
 | Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | Nie | Timestamp | modifiedAfter <br>modifiedBefore |
 | Tryb walidacji | Określa, czy ma być sprawdzana Walidacja schematu XML. | Nie | `None` (domyślnie bez sprawdzania poprawności)<br>`xsd` (Weryfikuj przy użyciu XSD)<br>`dtd` (Sprawdź poprawność przy użyciu DTD). | Walidacja |
-| Przestrzenie nazw | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. | Nie | `true` (ustawienie domyślne) lub `false` | przestrzeni |
+| Namespaces | Określa, czy należy włączyć przestrzeń nazw podczas analizowania plików XML. | Nie | `true` (ustawienie domyślne) lub `false` | przestrzeni |
 | Pary prefiksów przestrzeni nazw | Identyfikator URI przestrzeni nazw do mapowania prefiksów, który jest używany do nazwy pól podczas analizowania pliku XML.<br/>Jeśli plik XML ma przestrzeń nazw i przestrzeń nazw jest włączona, domyślnie nazwa pola jest taka sama jak w dokumencie XML.<br>Jeśli istnieje element zdefiniowany dla identyfikatora URI przestrzeni nazw w tej mapie, nazwa pola to `prefix:fieldName` . | Nie | Tablica ze wzorcem`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 

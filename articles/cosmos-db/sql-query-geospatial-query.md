@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764982"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Wykonywanie zapytania o dane geograficzne za pomocą Azure Cosmos DB
@@ -49,7 +49,7 @@ Funkcje przestrzenne mogą być używane do wykonywania zapytań dotyczących od
 
 Jeśli w zasadach indeksowania dołączysz indeksowanie przestrzenne, "zapytania o odległości" będą efektywnie obsługiwane przez indeks. Aby uzyskać więcej informacji na temat indeksowania przestrzennego, zobacz [indeksowanie geoprzestrzenne](sql-query-geospatial-index.md). Jeśli nie masz indeksu przestrzennego dla określonych ścieżek, zapytanie przeprowadzi skanowanie kontenera.
 
-`ST_WITHIN`może służyć do sprawdzenia, czy punkt leży w obrębie wielokąta. Często wielokąty są używane do reprezentowania granic, takich jak kody pocztowe, granice stanu lub naturalne format. W przypadku dołączenia indeksowania przestrzennego do zasad indeksowania, zapytania "w ramach" będą efektywnie obsługiwane przez indeks.
+`ST_WITHIN` może służyć do sprawdzenia, czy punkt leży w obrębie wielokąta. Często wielokąty są używane do reprezentowania granic, takich jak kody pocztowe, granice stanu lub naturalne format. W przypadku dołączenia indeksowania przestrzennego do zasad indeksowania, zapytania "w ramach" będą efektywnie obsługiwane przez indeks.
 
 Argumenty wielokąta w elemencie `ST_WITHIN` mogą zawierać tylko jeden pierścień, czyli, wielokąty nie mogą zawierać otworów.
 
@@ -99,7 +99,7 @@ Azure Cosmos DB obsługuje również wykonywanie zapytań odwrotnych, oznacza to
     }]
 ```
 
-`ST_ISVALID`i `ST_ISVALIDDETAILED` można go użyć do sprawdzenia, czy obiekt przestrzenny jest prawidłowy. Na przykład następujące zapytanie sprawdza poprawność punktu z wartością szerokości geograficznej, która jest poza zakresem (-132,8). `ST_ISVALID`zwraca tylko wartość logiczną, a `ST_ISVALIDDETAILED` zwraca wartość logiczną i ciąg zawierający powód, dla którego jest uznawany za nieprawidłowy.
+`ST_ISVALID` i `ST_ISVALIDDETAILED` można go użyć do sprawdzenia, czy obiekt przestrzenny jest prawidłowy. Na przykład następujące zapytanie sprawdza poprawność punktu z wartością szerokości geograficznej, która jest poza zakresem (-132,8). `ST_ISVALID` zwraca tylko wartość logiczną, a `ST_ISVALIDDETAILED` zwraca wartość logiczną i ciąg zawierający powód, dla którego jest uznawany za nieprawidłowy.
 
 **Zapytanie**
 

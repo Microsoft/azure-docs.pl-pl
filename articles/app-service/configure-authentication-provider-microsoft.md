@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83772840"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do konta Microsoft
@@ -43,7 +43,7 @@ W tym temacie opisano sposób konfigurowania Azure App Service lub Azure Functio
 1. Przejdź do aplikacji w [Azure Portal].
 1. Wybierz pozycję **Ustawienia**  >  **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
 1. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Zaawansowane** w obszarze **tryb zarządzania**. Wklej do wcześniej uzyskanego identyfikatora aplikacji (klienta) i wpisu tajnego klienta. Użyj **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** w polu **adres URL wystawcy** .
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
    App Service zapewnia uwierzytelnianie, ale nie ogranicza uprawnień dostępu do zawartości i interfejsów API witryny. Musisz autoryzować użytkowników w kodzie aplikacji.
 

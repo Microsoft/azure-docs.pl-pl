@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185606"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
@@ -44,7 +44,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **c:\Temp \\ \* . txt**. Można również używać zmiennych środowiskowych, takich jak `%winDir%\System32\\\*.*` .       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i folder.        |    
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |    
@@ -65,7 +65,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
-    |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania plików.        |
     |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **/etc/*. conf**.       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i katalog.        |
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |
@@ -134,7 +134,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie kluczy rejestru na ko
     |---------|---------|
     |Enabled (Włączony)     | Ma wartość true, jeśli jest stosowane ustawienie i w przeciwnym razie ma wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa klucza rejestru do śledzenia.        |
-    |Grupa     | Nazwa grupy do logicznego grupowania kluczy rejestru.        |
+    |Group (Grupa)     | Nazwa grupy do logicznego grupowania kluczy rejestru.        |
     |Klucz rejestru systemu Windows   | Nazwa klucza z ścieżką, na przykład `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` .      |
 
 ## <a name="search-logs-for-change-records"></a>Wyszukaj w dziennikach zmiany rekordów
@@ -143,8 +143,8 @@ Możesz wykonywać różne wyszukiwania względem dzienników Azure Monitor pod 
 
 |Zapytanie  |Opis  |
 |---------|---------|
-|`ConfigurationData`<br>&#124;`where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Pokazuje najnowsze rekordy spisu dla usług firmy Microsoft, które zostały ustawione na wartość automatycznie, ale zostały zgłoszone jako zatrzymane. Wyniki są ograniczone do najnowszego rekordu dla określonej nazwy oprogramowania i komputera.    |
-|`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Pokazuje zmiany rekordów dla usuniętego oprogramowania.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Pokazuje najnowsze rekordy spisu dla usług firmy Microsoft, które zostały ustawione na wartość automatycznie, ale zostały zgłoszone jako zatrzymane. Wyniki są ograniczone do najnowszego rekordu dla określonej nazwy oprogramowania i komputera.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Pokazuje zmiany rekordów dla usuniętego oprogramowania.|
 
 ## <a name="create-alerts-on-changes"></a>Tworzenie alertów dotyczących zmian
 

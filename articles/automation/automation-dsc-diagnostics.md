@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015157"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integracja z dziennikami Azure Monitor
@@ -100,7 +100,7 @@ Jednym z naszych najpopularniejszych żądań klientów jest możliwość wysył
 Aby utworzyć regułę alertu, Zacznij od utworzenia w dzienniku wyszukiwania rekordów raportów o konfiguracji stanu, które powinny wywoływać alert. Kliknij przycisk **Nowa reguła alertu** , aby utworzyć i skonfigurować regułę alertu.
 
 1. Na stronie Przegląd obszaru roboczego Log Analytics kliknij pozycję **dzienniki**.
-1. Utwórz kwerendę przeszukiwania dzienników dla alertu, wpisując następujące polecenie wyszukiwania w polu zapytania:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
+1. Utwórz kwerendę przeszukiwania dzienników dla alertu, wpisując następujące polecenie wyszukiwania w polu zapytania:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    Jeśli skonfigurowano dzienniki z więcej niż jednego konta usługi Automation lub subskrypcji w obszarze roboczym, można grupować alerty według subskrypcji i konta usługi Automation. Utwórz nazwę konta usługi Automation na podstawie `Resource` pola wyszukiwania `DscNodeStatusData` rekordów.
 1. Aby otworzyć ekran **Utwórz regułę** , kliknij pozycję **Nowa reguła alertu** u góry strony. 
@@ -112,7 +112,7 @@ Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [Tw
 Jedną z zalet korzystania z dzienników Azure Monitor jest możliwość wyszukiwania testów zakończonych niepowodzeniem między węzłami. Aby znaleźć wszystkie wystąpienia zasobów DSC, które zakończyły się niepowodzeniem:
 
 1. Na stronie Przegląd obszaru roboczego Log Analytics kliknij pozycję **dzienniki**.
-1. Utwórz zapytanie przeszukiwania dzienników dla alertu, wpisując następujące polecenie wyszukiwania w polu zapytania:`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
+1. Utwórz zapytanie przeszukiwania dzienników dla alertu, wpisując następujące polecenie wyszukiwania w polu zapytania:  `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Wyświetlanie historycznego stanu węzła DSC
 

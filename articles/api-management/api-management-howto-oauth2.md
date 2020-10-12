@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902262"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Jak autoryzować konta dewelopera przy użyciu protokołu OAuth 2,0 na platformie Azure API Management
@@ -68,18 +68,18 @@ W tym przewodniku pokazano, jak skonfigurować wystąpienie usługi API Manageme
 
     ![Nowy serwer OAuth 2,0](./media/api-management-howto-oauth2/oauth-03.png)
 
-    W przypadku serwera Azure Active Directory OAuth 2,0 **adres URL punktu końcowego tokenu** będzie miał następujący format, gdzie `<TenantID>` ma format `yourapp.onmicrosoft.com` .
+    W przypadku serwera Azure Active Directory OAuth 2,0 **adres URL punktu końcowego tokenu** będzie miał następujący format, gdzie `<TenantID>`  ma format `yourapp.onmicrosoft.com` .
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    Domyślnym ustawieniem dla **metod uwierzytelniania klienta** jest **podstawowa**, a **metoda wysyłania tokenu dostępu** jest **nagłówkiem autoryzacji**. Te wartości są konfigurowane w tej sekcji formularza wraz z **zakresem domyślnym**.
+    Domyślnym ustawieniem dla **metod uwierzytelniania klienta** jest **podstawowa**, a  **metoda wysyłania tokenu dostępu** jest **nagłówkiem autoryzacji**. Te wartości są konfigurowane w tej sekcji formularza wraz z **zakresem domyślnym**.
 
 6. Sekcja **poświadczenia klienta** zawiera **Identyfikator klienta** i **klucz tajny klienta**, które są uzyskiwane podczas procesu tworzenia i konfiguracji serwera OAuth 2,0. Po określeniu **identyfikatora klienta** i **klucza tajnego klienta** zostanie wygenerowany **redirect_uri** dla **kodu autoryzacji** . Ten identyfikator URI służy do konfigurowania adresu URL odpowiedzi w konfiguracji serwera OAuth 2,0.
 
     W nowym portalu dla deweloperów sufiks URI ma postać:
 
-    - `/signin-oauth/code/callback/{authServerName}`w przypadku przepływu przyznawania kodu autoryzacji
-    - `/signin-oauth/implicit/callback`dla niejawnego przepływu dotacji
+    - `/signin-oauth/code/callback/{authServerName}` w przypadku przepływu przyznawania kodu autoryzacji
+    - `/signin-oauth/implicit/callback` dla niejawnego przepływu dotacji
 
     ![Nowy serwer OAuth 2,0](./media/api-management-howto-oauth2/oauth-04.png)
 

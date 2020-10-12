@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84463760"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Symulowanie wykrywania ryzyka w usłudze Identity Protection
@@ -70,7 +70,7 @@ Wykonanie poniższej procedury wymaga skorzystania z konta użytkownika, które 
 
 Logowanie zostanie wyświetlone na pulpicie nawigacyjnym ochrony tożsamości w ciągu 10-15 minut.
 
-## <a name="atypical-travel"></a>Nietypowe podróże
+## <a name="atypical-travel"></a>Nietypowa podróż
 
 Symulowanie nietypowego stanu podróży jest trudne, ponieważ algorytm używa uczenia maszynowego do oddzielenia fałszywych wartości false, takich jak nietypowe podróże ze znanych urządzeń lub logowania z sieci VPN używanych przez innych użytkowników w katalogu. Ponadto algorytm wymaga od 14 dni i 10 logowań użytkownika przed rozpoczęciem generowania wykrycia ryzyka. Ze względu na złożone modele uczenia maszynowego i powyższe reguły istnieje prawdopodobieństwo, że następujące kroki nie spowodują wykrycia ryzyka. W celu zasymulowania tego wykrywania można wykonać replikację tych kroków dla wielu kont usługi Azure AD.
 
@@ -88,7 +88,7 @@ Logowanie zostanie wyświetlone na pulpicie nawigacyjnym ochrony tożsamości w 
 
 Ta sekcja zawiera instrukcje dotyczące testowania użytkownika i zasad dotyczących ryzyka związanego z logowaniem utworzonych w artykule, [jak: Konfigurowanie i Włączanie zasad ryzyka](howto-identity-protection-configure-risk-policies.md).
 
-### <a name="user-risk-policy"></a>Zasady ryzyka dla użytkowników
+### <a name="user-risk-policy"></a>Zasady ryzyka związanego z użytkownikiem
 
 Aby przetestować zasady zabezpieczeń dotyczące ryzyka użytkownika, wykonaj następujące czynności:
 

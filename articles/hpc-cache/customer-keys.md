@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
 ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092528"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Korzystanie z kluczy szyfrowania zarządzanych przez klienta dla pamięci podręcznej platformy Azure HPC
@@ -150,4 +150,4 @@ W tych artykułach wyjaśniono więcej informacji na temat używania Azure Key V
 
 Po utworzeniu pamięci podręcznej platformy Azure HPC i autoryzowanego szyfrowania opartego na Key Vault, kontynuuj konfigurowanie pamięci podręcznej, zapewniając dostęp do źródeł danych.
 
-* [Dodaj cele magazynu](hpc-cache-add-storage.md)
+* [Dodawanie lokalizacji docelowych magazynu](hpc-cache-add-storage.md)

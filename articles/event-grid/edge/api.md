@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171758"
 ---
 # <a name="rest-api"></a>Interfejs API REST
@@ -22,8 +22,8 @@ W tym artykule opisano interfejsy API REST Azure Event Grid na IoT Edge
 ### <a name="base-url"></a>Podstawowy adres URL
 Event Grid on IoT Edge ma następujące interfejsy API udostępniane za pośrednictwem protokołu HTTP (port 5888) i HTTPS (port 4438).
 
-* Podstawowy adres URL dla HTTP:http://eventgridmodule:5888
-* Podstawowy adres URL dla protokołu HTTPS:https://eventgridmodule:4438
+* Podstawowy adres URL dla HTTP: http://eventgridmodule:5888
+* Podstawowy adres URL dla protokołu HTTPS: https://eventgridmodule:4438
 
 ### <a name="request-query-string"></a>Ciąg zapytania żądania
 Wszystkie żądania interfejsu API wymagają następującego parametru ciągu zapytania:
@@ -72,7 +72,7 @@ Wszystkie interfejsy API zwracają błąd z następującym ładunkiem:
 
 ### <a name="put-topic-create--update"></a>Umieść temat (Utwórz/zaktualizuj)
 
-**Żądanie**:``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Żądanie**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Ładunek**:
 
@@ -105,7 +105,7 @@ Wszystkie interfejsy API zwracają błąd z następującym ładunkiem:
 
 ### <a name="get-topic"></a>Pobierz temat
 
-**Żądanie**:``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Żądanie**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Odpowiedź**: http 200
 
@@ -125,7 +125,7 @@ Wszystkie interfejsy API zwracają błąd z następującym ładunkiem:
 
 ### <a name="get-all-topics"></a>Pobierz wszystkie tematy
 
-**Żądanie**:``` GET /topics?api-version=2019-01-01-preview ```
+**Żądanie**: ``` GET /topics?api-version=2019-01-01-preview ```
 
 **Odpowiedź**: http 200
 
@@ -157,7 +157,7 @@ Wszystkie interfejsy API zwracają błąd z następującym ładunkiem:
 
 ### <a name="delete-topic"></a>Usuń temat
 
-**Żądanie**:``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Żądanie**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Odpowiedź**: http 200, pusty ładunek
 
@@ -166,7 +166,7 @@ Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON d
 
 ### <a name="put-event-subscription-create--update"></a>Umieść subskrypcję zdarzeń (Utwórz/zaktualizuj)
 
-**Żądanie**:``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Żądanie**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Ładunek**:
 ```json
@@ -371,7 +371,7 @@ Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON d
 
 ### <a name="get-event-subscription"></a>Pobierz subskrypcję zdarzeń
 
-**Żądanie**:``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Żądanie**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Odpowiedź**: http 200
 
@@ -476,7 +476,7 @@ Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON d
 
 ### <a name="get-event-subscriptions"></a>Pobierz subskrypcje zdarzeń
 
-**Żądanie**:``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Żądanie**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **Odpowiedź**: http 200
 
@@ -494,7 +494,7 @@ Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON d
 
 ### <a name="delete-event-subscription"></a>Usuń subskrypcję zdarzeń
 
-**Żądanie**:``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Żądanie**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Odpowiedź**: http 200, brak ładunku
 
@@ -503,7 +503,7 @@ Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON d
 
 ### <a name="send-batch-of-events-in-event-grid-schema"></a>Wyślij partię zdarzeń (w Event Grid schemacie)
 
-**Żądanie**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Żądanie**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -525,18 +525,18 @@ Przykłady w tej sekcji są używane `EndpointType=Webhook;` . Przykłady JSON d
 
 
 **Opisy pól ładunku**
-- ```Id```jest obowiązkowy. Może to być dowolna wartość ciągu, która jest wypełniana przez obiekt wywołujący. Event Grid nie wykonuje żadnych zduplikowanych wykryć ani nie wymusza żadnej semantyki tego pola.
-- ```Topic```jest opcjonalne, ale jeśli określony musi pasować do topic_name z adresu URL żądania
-- ```Subject```jest obowiązkowy, może być dowolną wartością ciągu
-- ```EventType```jest obowiązkowy, może być dowolną wartością ciągu
-- ```EventTime```jest obowiązkowy, nie jest sprawdzany, ale powinien być prawidłowym obiektem DateTime.
-- ```DataVersion```jest obowiązkowy
-- ```MetadataVersion```jest opcjonalne, jeśli określony, musi być ciągiem z wartością```"1"```
-- ```Data```jest opcjonalne i może być dowolnym tokenem JSON (Number, String, Boolean, Array, Object)
+- ```Id``` jest obowiązkowy. Może to być dowolna wartość ciągu, która jest wypełniana przez obiekt wywołujący. Event Grid nie wykonuje żadnych zduplikowanych wykryć ani nie wymusza żadnej semantyki tego pola.
+- ```Topic``` jest opcjonalne, ale jeśli określony musi pasować do topic_name z adresu URL żądania
+- ```Subject``` jest obowiązkowy, może być dowolną wartością ciągu
+- ```EventType``` jest obowiązkowy, może być dowolną wartością ciągu
+- ```EventTime``` jest obowiązkowy, nie jest sprawdzany, ale powinien być prawidłowym obiektem DateTime.
+- ```DataVersion``` jest obowiązkowy
+- ```MetadataVersion``` jest opcjonalne, jeśli określony, musi być ciągiem z wartością ```"1"```
+- ```Data``` jest opcjonalne i może być dowolnym tokenem JSON (Number, String, Boolean, Array, Object)
 
 ### <a name="send-batch-of-events-in-custom-schema"></a>Wyślij partię zdarzeń (w schemacie niestandardowym)
 
-**Żądanie**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Żądanie**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -754,7 +754,7 @@ Aby opublikować w temacie Service Bus, ustaw polecenie `endpointType` na `servi
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>Skonfiguruj kolejki magazynu jako lokalizację docelową
 
-Aby opublikować w kolejce magazynu, ustaw polecenie `endpointType` na `storageQueue` i podaj:
+Aby opublikować w kolejce magazynu, ustaw polecenie  `endpointType` na `storageQueue` i podaj:
 
 * QueueName: Nazwa kolejki magazynu, w której jest publikowany.
 * connectionString: parametry połączenia dla konta magazynu, w którym znajduje się kolejka magazynu.

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 72a877ab8cfda126016376017c0a7eb42b1186d6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108949"
 ---
 Aby uruchomić kontener, najpierw Znajdź jego identyfikator obrazu:
@@ -29,7 +29,7 @@ Wykonaj następujące `docker run` polecenie. Zastąp Poniższe symbole zastępc
 | **{API_KEY}** | Klucz dla zasobu analiza tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | Punkt końcowy do uzyskiwania dostępu do interfejs API analizy tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | **{IMAGE_ID}** | Identyfikator obrazu dla kontenera. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | Katalog wejściowy dla kontenera. | Systemy`C:\healthcareMount` <br> Linux/MacOS:`/home/username/input` |
+| **{INPUT_DIR}** | Katalog wejściowy dla kontenera. | Systemy `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \

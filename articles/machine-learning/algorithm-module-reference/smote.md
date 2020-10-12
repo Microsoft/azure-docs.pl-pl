@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898284"
 ---
 # <a name="smote"></a>SMOTE
@@ -62,7 +62,7 @@ Aby zwiększyć liczbę przypadków, można ustawić wartość **procentu SMOTE*
   
 4.  Moduł SMOTE automatycznie identyfikuje klasę mniejszości w kolumnie etykieta, a następnie pobiera wszystkie przykłady dla klasy mniejszości. Wszystkie kolumny nie mogą mieć wartości NaN.
   
-5.  W opcji **procent SMOTE** wprowadź liczbę całkowitą, która wskazuje docelowy procent przypadków mniejszościowych w wyjściowym zestawie danych. Przykład:  
+5.  W opcji **procent SMOTE** wprowadź liczbę całkowitą, która wskazuje docelowy procent przypadków mniejszościowych w wyjściowym zestawie danych. Na przykład:  
   
     - Wprowadzisz **wartość 0**. Moduł SMOTE zwraca dokładnie ten sam zestaw danych, który został dostarczony jako dane wejściowe. Nie dodaje żadnych nowych przypadków mniejszościowych. W tym zestawie danych proporcja klasy nie uległa zmianie.  
   

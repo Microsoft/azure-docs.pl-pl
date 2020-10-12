@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytan
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89299290"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay często zadawane pytania
@@ -97,7 +97,7 @@ Aby przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do innej s
 
 Aby użyć Azure Portal do migracji przestrzeni nazw Azure Relay z jednej subskrypcji do innej subskrypcji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 
 Aby przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do innej subskrypcji za pomocą programu PowerShell, użyj następującej sekwencji poleceń. Aby można było wykonać tę operację, przestrzeń nazw musi być już aktywna, a użytkownik uruchamiający polecenia programu PowerShell musi być użytkownikiem administratora zarówno w ramach subskrypcji źródłowej, jak i docelowej.
 

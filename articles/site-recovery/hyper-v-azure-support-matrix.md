@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
 ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386711"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
@@ -30,7 +30,7 @@ Funkcja Hyper-V bez Virtual Machine Manager | Odzyskiwanie po awarii można prze
 
 ## <a name="on-premises-servers"></a>Serwery lokalne
 
-**Serwer** | **Wymagania** | **Szczegóły**
+**Server** (Serwer) | **Wymagania** | **Szczegóły**
 --- | --- | ---
 Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami <br/><br/> **Uwaga:** Instalacja Server Core tych systemów operacyjnych również jest obsługiwana. | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md)
 Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Uwaga:** Instalacja Server Core tych systemów operacyjnych również jest obsługiwana.  | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.
@@ -66,7 +66,7 @@ Sieć hosta: IPv4 | Tak | Tak
 Sieć hosta: IPv6 | Nie | Nie
 Sieć VMNETWORK gościa: Tworzenie zespołu kart interfejsu sieciowego | Nie | Nie
 Sieć VMNETWORK gościa: IPv4 | Tak | Tak
-Sieć VMNETWORK gościa: IPv6 | Nie | Yes
+Sieć VMNETWORK gościa: IPv6 | Nie | Tak
 Sieć VMNETWORK gościa: statyczny adres IP (system Windows) | Tak | Tak
 Sieć VMNETWORK gościa: statyczny adres IP (Linux) | Nie | Nie
 Sieć VMNETWORK gościa: wiele kart sieciowych | Tak | Tak
@@ -94,7 +94,7 @@ Accelerated Networking | Nie | Nie
 
 ## <a name="hyper-v-host-storage"></a>Magazyn hosta funkcji Hyper-V
 
-**Magazyn** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
+**Storage** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | --- 
 NFS | Nie dotyczy | Nie dotyczy
 SMB 3.0 | Tak | Tak
@@ -103,7 +103,7 @@ Wiele ścieżek (MPIO). Przetestowano przy użyciu:<br></br> Microsoft DSM, EMC 
 
 ## <a name="hyper-v-vm-guest-storage"></a>Magazyn maszyny wirtualnej funkcji Hyper-V
 
-**Magazyn** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
+**Storage** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | ---
 VMDK | Nie dotyczy | Nie dotyczy
 DYSK VHD/VHDX | Tak | Tak
@@ -181,7 +181,7 @@ Przenoszenie magazynu między grupami zasobów<br/><br/> W ramach i między subs
 Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami zasobów<br/><br/> W ramach i między subskrypcjami | Nie | Nie
 
 > [!NOTE]
-> Podczas replikowania maszyn wirtualnych funkcji Hyper-v z lokalnego do platformy Azure można replikować tylko do jednej dzierżawy usługi AD z jednego określonego środowiska — lokacji funkcji Hyper-lub funkcji Hyper-V z programem VMM, zgodnie z wymaganiami.
+> W przypadku replikowania Hyper-VMs ze środowiska lokalnego na platformę Azure można replikować tylko do jednej dzierżawy usługi AD z jednego określonego orodowiska — lokacji funkcji Hyper-V lub funkcji Hyper-V z programem VMM.
 
 
 ## <a name="provider-and-agent"></a>Dostawca i agent

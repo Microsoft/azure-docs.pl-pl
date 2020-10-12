@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: 60be7c234a0166331c35eb6528eae11bfbbf518f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074316"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Remote Desktop disconnects frequently in Azure VM (Pulpit zdalny często rozłącza się na maszynie wirtualnej platformy Azure)
@@ -53,7 +53,7 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial lub [naprawić masz
 
     `REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'fQueryUserConfigFromLocalMachine' /t REG_DWORD /d 1 /f`
 
-5. Włącz kontrolkę Keep-Alive protokołu RDP:
+5. Włącz kontrolkę Keep-Alive RDP:
 
     `REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'KeepAliveTimeout' /t REG_DWORD /d 1 /f`
 
@@ -120,7 +120,7 @@ Aby rozwiązać ten problem, należy użyć kontrolki serial lub [naprawić masz
 
     `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'fQueryUserConfigFromLocalMachine' /t REG_DWORD /d 1 /f`
 
-11. Włącz kontrolkę Keep-Alive protokołu RDP:
+11. Włącz kontrolkę Keep-Alive RDP:
 
     `REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'KeepAliveTimeout' /t REG_DWORD /d 1 /f`
 

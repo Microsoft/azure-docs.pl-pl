@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984138"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Utwórz konto magazynu z włączoną funkcją szyfrowania infrastruktury umożliwiającą podwójne szyfrowanie danych
@@ -29,9 +29,9 @@ Aby podwójnie zaszyfrować dane, należy najpierw utworzyć konto magazynu skon
 
 Aby utworzyć konto magazynu z włączonym szyfrowaniem infrastruktury, musisz najpierw zarejestrować się, aby korzystać z tej funkcji na platformie Azure przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Brak
+Nie dotyczy
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -79,7 +79,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Brak
+Nie dotyczy
 
 ---
 
@@ -89,7 +89,7 @@ Należy skonfigurować konto magazynu do korzystania z szyfrowania infrastruktur
 
 Nie można włączyć lub wyłączyć szyfrowania infrastruktury po utworzeniu konta.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby użyć programu PowerShell do utworzenia konta magazynu z włączonym szyfrowaniem infrastruktury, wykonaj następujące czynności:
 
@@ -173,14 +173,14 @@ Poniższy przykład JSON tworzy konto magazynu ogólnego przeznaczenia w wersji 
 
 ## <a name="verify-that-infrastructure-encryption-is-enabled"></a>Sprawdź, czy szyfrowanie infrastruktury jest włączone
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby sprawdzić, czy szyfrowanie infrastruktury zostało włączone dla konta magazynu z Azure Portal, wykonaj następujące czynności:
 
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Zrzut ekranu przedstawiający sposób sprawdzenia, czy szyfrowanie infrastruktury jest włączone dla konta":::
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania szyfrowania infrastruktury podczas tworzenia konta":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
@@ -208,7 +208,7 @@ az storage account show /
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Brak
+Nie dotyczy
 
 ---
 

@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób wyświetlania i analizowania wydajno
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90988123"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
@@ -35,7 +35,7 @@ Aby wyświetlić stan kondycji wszystkich wdrożonych klastrów Kubernetes, wybi
 Można zakres wyników przedstawionych w siatce, aby pokazać klastry, które są:
 
 * Klastry **Azure** -AKS i AKS-Engine hostowane w usłudze Azure Kubernetes Service
-* **Azure Stack (wersja zapoznawcza)** — klastry aparatu AKS hostowane na Azure Stack
+* **Azure Stack (wersja zapoznawcza)** — AKS-Engine klastrów hostowanych w Azure Stack
 * **Platformy inne niż Azure (wersja zapoznawcza)** — klastry Kubernetes hostowane lokalnie
 * **Wszystkie** — Wyświetl wszystkie klastry Kubernetes hostowane na platformie Azure, Azure Stack i środowiskach lokalnych, które są dołączane do Azure monitor dla kontenerów
 
@@ -71,17 +71,17 @@ W poniższej tabeli przedstawiono podział obliczeń kontrolujących Stany kondy
 |**Użytkownik pod**| | |
 | |Dobra kondycja |100% |
 | |Ostrzeżenie |90 – 99% |
-| |Krytyczny |<90% |
+| |Krytyczne |<90% |
 | |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**System pod**| | |
 | |Dobra kondycja |100% |
-| |Ostrzeżenie |Brak |
-| |Krytyczny |<100% |
+| |Ostrzeżenie |Nie dotyczy |
+| |Krytyczne |<100% |
 | |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 |**Węzeł** | | |
 | |Dobra kondycja |>85% |
 | |Ostrzeżenie |60 – 84% |
-| |Krytyczny |<60% |
+| |Krytyczne |<60% |
 | |Nieznane |Jeśli nie zgłoszono w ciągu ostatnich 30 minut |
 
 Z listy klastrów możesz przejść do szczegółów na stronie **klaster** , wybierając nazwę klastra. Następnie przejdź do strony wydajność **węzłów** , wybierając pakiet zbiorczy węzłów w kolumnie **węzły** dla danego klastra. Możesz też przejść do szczegółów na stronie wydajność **kontrolerów** , wybierając zestawienie z kolumną **zasobników użytkownika** lub **system** .

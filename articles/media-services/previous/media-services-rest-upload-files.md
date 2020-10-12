@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281069"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Przekazywanie plików na konto usługi Media Services przy użyciu stylu REST
@@ -176,7 +176,7 @@ Zagadnienia do rozważenia:
 
 ### <a name="overview"></a>Omówienie
 
-Teraz, gdy masz adres URL przekazywania, musisz napisać kod przy użyciu interfejsów API usługi Azure Blob bezpośrednio, aby przekazać plik do kontenera SAS. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Teraz, gdy masz adres URL przekazywania, musisz napisać kod przy użyciu interfejsów API usługi Azure Blob bezpośrednio, aby przekazać plik do kontenera SAS. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Korzystanie z interfejsu API REST usługi Azure Storage](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Umieść obiekt BLOB](/rest/api/storageservices/put-blob)

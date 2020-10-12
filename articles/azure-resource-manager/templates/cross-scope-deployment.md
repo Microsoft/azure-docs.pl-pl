@@ -4,10 +4,10 @@ description: Pokazuje, w jaki sposób ma być przeznaczony więcej niż jeden za
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 6161401ac039551a814b595715f56df1ac62dd6c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374558"
 ---
 # <a name="deploy-azure-resources-across-scopes"></a>Wdrażanie zasobów platformy Azure między zakresami
@@ -143,7 +143,7 @@ W poniższej tabeli przedstawiono, czy funkcje są rozpoznawane jako nadrzędne,
 | ------------- | ----- | ---------- |
 | zagnieżdża        | zewnętrzny (domyślnie) | Nadrzędna grupa zasobów |
 | zagnieżdża        | fabryk | Podgrupa zasobów |
-| połączone        | Brak   | Podgrupa zasobów |
+| połączone        | Nie dotyczy   | Podgrupa zasobów |
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) pokazuje:
 

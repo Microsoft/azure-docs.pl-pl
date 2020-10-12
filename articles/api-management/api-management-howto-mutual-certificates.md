@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 8e02a47cd6ae6e4883b5113b07d4049cd723232d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250196"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Jak zabezpieczać usługi zaplecza przy użyciu uwierzytelniania za pomocą certyfikatów klienta w usłudze Azure API Management
@@ -46,7 +46,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przekazać nowy certyfikat kli
 3. Kliknij przycisk **+ Dodaj**.
     ![Dodawanie certyfikatów klienta](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Przeglądaj w poszukiwaniu certyfikatu, podaj jego identyfikator i hasło.
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij przycisk **Utwórz**.
 
 > [!NOTE]
 > Certyfikat musi być w formacie **PFX** . Certyfikaty z podpisem własnym są dozwolone.
@@ -75,7 +75,7 @@ Jeśli certyfikat jest używany przez interfejs API, zostanie wyświetlony ekran
 3. Zmień **poświadczenia bramy** na **certyfikat klienta** i wybierz certyfikat z listy rozwijanej.
     ![Włączanie certyfikatów klienta](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 > [!WARNING]
 > Ta zmiana obowiązuje natychmiast, a wywołania operacji tego interfejsu API będą używać certyfikatu do uwierzytelniania na serwerze zaplecza.

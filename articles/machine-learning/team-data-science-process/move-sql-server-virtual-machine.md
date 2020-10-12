@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012182"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Przenoszenie danych do programu SQL Server na maszynie wirtualnej platformy Azure
@@ -28,8 +28,8 @@ Poniższa tabela zawiera podsumowanie opcji przeniesienia danych do SQL Server n
 
 | <b>ZEWNĘTRZ</b> | <b>MIEJSCE docelowe: SQL Server na maszynie wirtualnej platformy Azure</b> |
 | --- | --- |
-| <b>Plik prosty</b> |1. <a href="#insert-tables-bcp">Narzędzie do kopiowania zbiorczego wiersza polecenia (bcp)</a><br> 2. <a href="#insert-tables-bulkquery">zbiorczo Wstaw zapytanie SQL</a><br> 3. <a href="#sql-builtin-utilities">graficzne wbudowane narzędzia w SQL Server</a> |
-| <b>SQL Server lokalne</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Wdróż bazę danych SQL Server w kreatorze Microsoft Azure VM</a><br> 2. <a href="#export-flat-file">wyeksportuj do pliku prostego</a><br> 3. <a href="#sql-migration">Kreator migracji SQL Database</a> <br> 4. <a href="#sql-backup">Tworzenie kopii zapasowej i przywracanie bazy danych</a><br> |
+| <b>Plik prosty</b> |1. <a href="#insert-tables-bcp">Narzędzie do kopiowania zbiorczego wiersza polecenia (bcp) </a><br> 2. <a href="#insert-tables-bulkquery">zbiorczo Wstaw zapytanie SQL </a><br> 3. <a href="#sql-builtin-utilities">graficzne wbudowane narzędzia w SQL Server</a> |
+| <b>SQL Server lokalne</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Wdróż bazę danych SQL Server w kreatorze Microsoft Azure VM</a><br> 2. <a href="#export-flat-file">wyeksportuj do pliku prostego </a><br> 3. <a href="#sql-migration">Kreator migracji SQL Database </a> <br> 4. <a href="#sql-backup">Tworzenie kopii zapasowej i przywracanie bazy danych </a><br> |
 
 W tym dokumencie przyjęto założenie, że polecenia SQL są wykonywane z programu SQL Server Management Studio lub Eksplorator bazy danych programu Visual Studio.
 
@@ -46,7 +46,7 @@ W tym samouczku założono, że masz:
 * Zainicjowano **SQL Server na maszynie wirtualnej platformy Azure**. Aby uzyskać instrukcje, zobacz [Konfigurowanie maszyny wirtualnej platformy Azure SQL Server jako serwera notesu IPython na potrzeby zaawansowanej analizy](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Zainstalowano i skonfigurowano **Azure PowerShell** lokalnie. Aby uzyskać instrukcje, zobacz [How to Install and configure Azure PowerShell](/powershell/azure/).
 
-## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a>Przeniesienie danych z prostego źródła pliku do SQL Server na maszynie wirtualnej platformy Azure
+## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Przeniesienie danych z prostego źródła pliku do SQL Server na maszynie wirtualnej platformy Azure
 Jeśli dane znajdują się w pliku prostym (ułożone w formacie wiersza/kolumny), można je przenieść do SQL Server maszyny wirtualnej na platformie Azure za pomocą następujących metod:
 
 1. [Narzędzie do kopiowania zbiorczego wiersza polecenia (BCP)](#insert-tables-bcp)

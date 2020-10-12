@@ -14,10 +14,10 @@ ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983708"
 ---
 # <a name="virtual-network-service-tags"></a>Tagi usługi sieci wirtualnej

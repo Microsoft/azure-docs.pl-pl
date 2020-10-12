@@ -10,10 +10,10 @@ ms.date: 09/05/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 4480ad425d9a3953fd5779f99d27b5b6b037e61e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87029420"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Kontrolki zabezpieczeń dla usługi Azure Virtual Machine Scale Sets
@@ -51,7 +51,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi |
 |---|---|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Zobacz [Azure Disk Encryption Virtual Machine Scale Sets](disk-encryption-overview.md). |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Usługa Azure Virtual Machines obsługuje szyfrowanie [ExpressRoute](../expressroute/index.yml) i wirtualne. Zobacz [szyfrowanie w trakcie przesyłania na maszynach wirtualnych](../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms). |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Usługa Azure Virtual Machines obsługuje szyfrowanie [ExpressRoute](../expressroute/index.yml) i wirtualne. Zobacz [szyfrowanie w trakcie przesyłania na maszynach wirtualnych](../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms). |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Klucze zarządzane przez klienta to obsługiwany scenariusz szyfrowania platformy Azure; Zobacz [Azure Disk Encryption dla Virtual Machine Scale Sets](disk-encryption-overview.md)|
 | Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |
 | Wywołania interfejsu API są szyfrowane| Tak | Za pośrednictwem protokołów HTTPS i TLS. |

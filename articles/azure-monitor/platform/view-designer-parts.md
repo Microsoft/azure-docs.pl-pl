@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539401"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Przewodnik referencyjny do wyświetlania części wizualizacji projektanta w Azure Monitor
@@ -31,7 +31,7 @@ Dostępne typy kafelków projektanta widoków są opisane w poniższej tabeli:
 | [Dwie liczby i lista](#two-numbers-and-list-part) |W nagłówku są wyświetlane dwie liczby, które pokazują liczbę rekordów z oddzielnych zapytań dzienników. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
 | [Pierścień i lista](#donut-and-list-part) |Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości w zapytaniu dziennika. Pierścień wyświetla graficznie wyniki trzech pierwszych rekordów. |
 | [Dwie osie czasu i lista](#two-timelines-and-list-part) |W nagłówku są wyświetlane wyniki dwóch zapytań dzienników w miarę upływu czasu jako wykresy kolumnowe, z objaśnieniem wyświetlającym jedną liczbę, która podsumowuje kolumnę wartości w zapytaniu dziennika. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
-| [Informacyjny](#information-part) |W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jest wyświetlany jeden lub więcej elementów o statycznym tytule i tekście. |
+| [Zawartych](#information-part) |W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jest wyświetlany jeden lub więcej elementów o statycznym tytule i tekście. |
 | [Wykres liniowy, objaśnienie i lista](#line-chart-callout-and-list-part) |W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zapytania dziennika w czasie i z objaśnieniem o wartości podsumowującej. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
 | [Wykres liniowy i lista](#line-chart-and-list-part) |W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie zapytania dziennika w czasie. Na liście wyświetlane są dziesięć najważniejszych wyników zapytania, z wykresem wskazującym wartość względną kolumny liczbowej lub zmiany w czasie. |
 | [Stos części wykresów liniowych](#stack-of-line-charts-part) |Wyświetla trzy oddzielne wykresy liniowe z wieloma seriami z kwerendy dziennika w czasie. |
@@ -83,7 +83,7 @@ W nagłówku zostanie wyświetlona jedna liczba, która pokazuje liczbę rekord�
 | **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Lista** |**Progi>** |
+| **Lista** |** Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dwie liczby i część listy
@@ -114,7 +114,7 @@ Nagłówek ma dwie liczby, które wyświetlają liczbę rekordów z oddzielnych 
 | **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Lista** |**Progi>** |
+| **Lista** |** Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Pierścień i część listy
@@ -129,19 +129,19 @@ Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Nagłówek** | |
+| **Nagłówki** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
 | **Pierścień** | |
 | Zapytanie |Zapytanie, które ma zostać uruchomione dla pierścienia. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Pierścień** |**Centrum>** |
+| **Pierścień** |** Centrum>** |
 | Tekst |Tekst wyświetlany w obszarze wartości w pierścieniu. |
 | Operacja |Operacja do wykonania na właściwości Value, która podsumowuje ją jako pojedynczą wartość.<ul><li>Sum: dodaje wartości wszystkich rekordów.</li><li>Wartość procentowa: stosunek rekordów zwracanych przez wartości w **wartościach wynikowych używanych w środku operacji** do łącznej liczby rekordów w zapytaniu.</li></ul> |
 | Wartości wynikowe używane w środku operacji |Opcjonalnie wybierz znak plus (+), aby dodać jedną lub więcej wartości. Wyniki zapytania są ograniczone do rekordów o określonych wartościach właściwości. Jeśli nie zostaną dodane żadne wartości, wszystkie rekordy zostaną uwzględnione w zapytaniu. |
-| **Opcje dodatkowe** |**Kolory>** |
+| **Opcje dodatkowe** |** Kolory>** |
 | Kolor 1<br>Kolor 2<br>Kolor 3 |Wybierz kolor dla każdej wartości, która jest wyświetlana na pierścieniu. |
-| **Opcje dodatkowe** |**Zaawansowane mapowanie kolorów>** |
+| **Opcje dodatkowe** |** Zaawansowane mapowanie kolorów>** |
 | Wartość pola |Wpisz nazwę pola, aby wyświetlić je jako inny kolor, jeśli jest ono zawarte w pierścieniu. |
 | Kolor |Wybierz kolor unikatowego pola. |
 | **Lista** | |
@@ -155,7 +155,7 @@ Nagłówek Wyświetla pojedynczą liczbę, która podsumowuje kolumnę wartości
 | **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Lista** |**Progi>** |
+| **Lista** |** Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Dwie osie czasu i część listy
@@ -187,7 +187,7 @@ W nagłówku są wyświetlane wyniki dwóch zapytań dzienników w miarę upływ
 | **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Lista** |**Progi>** |
+| **Lista** |** Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="information-part"></a>Część informacji
@@ -201,10 +201,10 @@ W nagłówku jest wyświetlany statyczny tekst i opcjonalny link. Na liście jes
 | Tytuł grupy |Tekst wyświetlany w górnej części kafelka. |
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Kolor |Kolor tła nagłówka. |
-| **Nagłówek** | |
+| **Nagłówki** | |
 | Obraz |Plik obrazu, który jest wyświetlany w nagłówku. |
 | Etykieta |Tekst wyświetlany w nagłówku. |
-| **Nagłówek** |**> łącze** |
+| **Nagłówki** |**> łącze** |
 | Etykieta |Tekst łącza. |
 | Url |Adres URL łącza. |
 | **Elementy informacji** | |
@@ -223,13 +223,13 @@ W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zap
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Nagłówek** | |
+| **Nagłówki** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytanie, które ma zostać uruchomione dla wykresu liniowego. Pierwsza właściwość jest wartością tekstową, a druga właściwość jest wartością numeryczną. To zapytanie zwykle używa słowa kluczowego *Measure* do podsumowywania wyników. Jeśli zapytanie używa słowa kluczowego *Interval* , oś x wykresu używa tego przedziału czasowego. Jeśli zapytanie nie zawiera słowa kluczowego *Interval* , na osi x stosowane są interwały godzinowe. |
 | Nawigacja przez klikanie | Akcja wykonywana po kliknięciu nagłówka.  Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#click-through-navigation). |
-| **Wykres liniowy** |**Objaśnienie>** |
+| **Wykres liniowy** |** Objaśnienie>** |
 | Tytuł objaśnienia |Tekst wyświetlany powyżej wartości objaśnienia. |
 | Nazwa serii |Wartość właściwości dla serii, która ma być używana dla wartości objaśnienia. Jeśli nie podano żadnej serii, są używane wszystkie rekordy z zapytania. |
 | Operacja |Operacja do wykonania na właściwości Value, która podsumowuje ją jako pojedynczą wartość dla objaśnienia.<ul><li>Średnia: średnia wartości ze wszystkich rekordów.</li><li>Liczba: liczba wszystkich rekordów zwracanych przez zapytanie.</li><li>Ostatnia próbka: wartość z ostatniego interwału, który znajduje się na wykresie.</li><li>Max: wartość maksymalna z interwałów uwzględnionych na wykresie.</li><li>Min: wartość minimalna z interwałów uwzględnionych na wykresie.</li><li>Sum: suma wartości ze wszystkich rekordów.</li></ul> |
@@ -248,7 +248,7 @@ W nagłówku jest wyświetlany wykres liniowy z wieloma seriami na podstawie zap
 | **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Lista** |**Progi>** |
+| **Lista** |** Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Wykres liniowy i składnik listy
@@ -263,7 +263,7 @@ W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
 | Ikona użycia |Wybierz ten link, aby wyświetlić ikonę. |
-| **Nagłówek** | |
+| **Nagłówki** | |
 | Tytuł |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części nagłówka. |
 | **Wykres liniowy** | |
@@ -284,7 +284,7 @@ W nagłówku zostanie wyświetlony wykres liniowy z wieloma seriami na podstawie
 | **Lista** |**> tytuły kolumn** |
 | Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny. |
 | Wartość |Tekst wyświetlany w górnej części drugiej kolumny. |
-| **Lista** |**Progi>** |
+| **Lista** |** Progi>** |
 | Włącz progi |Wybierz ten link, aby włączyć progi. Aby uzyskać więcej informacji, zobacz [typowe ustawienia](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Stos części wykresów liniowych
@@ -298,7 +298,7 @@ Na stosie wykresu liniowego są wyświetlane trzy oddzielne wykresy liniowe z wi
 | Tytuł grupy |Tekst wyświetlany w górnej części kafelka. |
 | Nowa grupa |Wybierz ten link, aby utworzyć nową grupę w widoku, rozpoczynając od bieżącego widoku. |
 | Ikona |Plik obrazu, który jest wyświetlany obok wyniku w nagłówku. |
-| **Wykres 1 wykres <br> 2 wykres <br> 3** |**Nagłówek>** |
+| **Wykres 1 wykres <br> 2 wykres <br> 3** |** Nagłówek>** |
 | Tytuł |Tekst wyświetlany w górnej części wykresu. |
 | Podtytuł |Tekst wyświetlany pod tytułem w górnej części wykresu. |
 | **Wykres 1 wykres <br> 2 wykres <br> 3** |**Wykres liniowy** |

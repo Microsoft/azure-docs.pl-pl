@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319431"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Korzystanie z replik tylko do odczytu w celu odciążenia obciążeń zapytań tylko do odczytu
@@ -89,14 +89,14 @@ Najczęściej używane widoki to:
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zawiera metryki wykorzystania zasobów w ciągu ostatniej godziny, w tym użycie procesora CPU, danych we/wy i zapisu w dzienniku względem ograniczeń celu usługi.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Zawiera zagregowane statystyki oczekiwania dla wystąpienia aparatu bazy danych. |
-|[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Zawiera informacje o stanie kondycji repliki i statystyce synchronizacji. Rozmiar kolejki ponownego wykonywania i częstotliwość ponownego wykonywania służą jako wskaźniki opóźnienia danych w replice tylko do odczytu. |
-|[sys. dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Zapewnia liczniki wydajności aparatu bazy danych.|
+|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Zawiera informacje o stanie kondycji repliki i statystyce synchronizacji. Rozmiar kolejki ponownego wykonywania i częstotliwość ponownego wykonywania służą jako wskaźniki opóźnienia danych w replice tylko do odczytu. |
+|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Zapewnia liczniki wydajności aparatu bazy danych.|
 |[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Zapewnia dane statystyczne wykonywania poszczególnych zapytań, takie jak Liczba wykonań, użyty czas procesora CPU itd.|
-|[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Udostępnia buforowane plany zapytań. |
-|[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Zawiera tekst zapytania dla buforowanego planu zapytania.|
-|[sys. dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zapewnia postęp zapytania w czasie rzeczywistym w czasie wykonywania zapytań.|
-|[sys. dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zawiera informacje o ostatnim znanym rzeczywistym planie wykonywania, w tym statystyki środowiska uruchomieniowego dla zapytania.|
-|[sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Zapewnia liczbę operacji we/wy na sekundę, przepływność i statystykę opóźnienia dla wszystkich plików bazy danych. |
+|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Udostępnia buforowane plany zapytań. |
+|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Zawiera tekst zapytania dla buforowanego planu zapytania.|
+|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zapewnia postęp zapytania w czasie rzeczywistym w czasie wykonywania zapytań.|
+|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zawiera informacje o ostatnim znanym rzeczywistym planie wykonywania, w tym statystyki środowiska uruchomieniowego dla zapytania.|
+|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Zapewnia liczbę operacji we/wy na sekundę, przepływność i statystykę opóźnienia dla wszystkich plików bazy danych. |
 
 > [!NOTE]
 > `sys.resource_stats`I `sys.elastic_pool_resource_stats` widoków DMV w logicznej głównej bazie danych programu zwracają dane użycia zasobów repliki podstawowej.
@@ -123,7 +123,7 @@ Jeśli długotrwałe zapytanie w replice tylko do odczytu powoduje, że ten rodz
 > Jeśli wystąpi błąd 3961 lub Błąd 1219 podczas uruchamiania zapytań w odniesieniu do repliki tylko do odczytu, ponów próbę wykonania zapytania.
 
 > [!TIP]
-> W warstwach usług premium i Krytyczne dla działania firmy, gdy jest połączony z repliką tylko do odczytu `redo_queue_size` , `redo_rate` kolumny i w tabeli [sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV mogą służyć do monitorowania procesu synchronizacji danych, służącego jako wskaźniki opóźnienia danych w replice tylko do odczytu.
+> W warstwach usług premium i Krytyczne dla działania firmy w przypadku połączenia z repliką tylko do odczytu `redo_queue_size` kolumny i `redo_rate` w [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV mogą służyć do monitorowania procesu synchronizacji danych, służącego jako wskaźniki opóźnienia danych w replice tylko do odczytu.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Włączanie i wyłączanie skalowania w poziomie odczytu
@@ -139,7 +139,7 @@ Można wyłączyć i ponownie włączyć skalowanie w poziomie dla pojedynczych 
 
 Ustawienie skalowanie odczyt w poziomie można zarządzać w bloku **Konfiguruj** bazę danych.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł Azure Resource Manager będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach Azure Resource Manager są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).

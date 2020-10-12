@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642133"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Jak skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
@@ -39,7 +39,7 @@ Skonfiguruj konkretny typ logowania jednokrotnego. Metody logowania są klasyfik
 
 -   **Logowanie oparte na haśle**: logowanie oparte na hasłach może być używane dla każdej aplikacji, która używa pól username i Password do logowania. Kroki konfiguracji znajdują się w sekcji Konfigurowanie logowania jednokrotnego [dla aplikacji w galerii usługi Azure AD](configure-password-single-sign-on-non-gallery-applications.md).
 
--   **Zintegrowane uwierzytelnianie systemu Windows**: w przypadku aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows (IWA) Logowanie jednokrotne jest włączane przy użyciu ograniczonego delegowania protokołu Kerberos (KCD). Ta metoda zapewnia uprawnienia łączników serwera proxy aplikacji w Active Directory, aby personifikować użytkowników i wysyłać i odbierać tokeny w ich imieniu. Szczegółowe informacje na temat konfigurowania KCD można znaleźć w temacie Logowanie jednokrotne [z dokumentacją KCD](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Zintegrowane uwierzytelnianie systemu Windows**: w przypadku aplikacji korzystających ze zintegrowanego uwierzytelniania systemu Windows (IWA) Logowanie jednokrotne jest włączane przy użyciu ograniczonego delegowania protokołu Kerberos (KCD). Ta metoda zapewnia uprawnienia łączników serwera proxy aplikacji w Active Directory, aby personifikować użytkowników i wysyłać i odbierać tokeny w ich imieniu. Szczegółowe informacje na temat konfigurowania KCD można znaleźć w [jednym Sign-On z dokumentacją KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
 -   **Logowanie oparte na nagłówkach**: logowanie oparte na nagłówkach jest włączane za pośrednictwem partnerstwa i wymaga dodatkowej konfiguracji. Aby uzyskać szczegółowe informacje na temat partnerstwa i instrukcje krok po kroku dotyczące konfigurowania logowania jednokrotnego do aplikacji korzystającej z nagłówków do uwierzytelniania, zobacz [dokumentację usługi PingAccess for Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
 
@@ -47,7 +47,7 @@ Skonfiguruj konkretny typ logowania jednokrotnego. Metody logowania są klasyfik
 
 Każdą z tych opcji można znaleźć, przechodząc do aplikacji w "aplikacje dla przedsiębiorstw" i otwierając stronę **logowania** jednokrotnego w menu po lewej stronie. Należy pamiętać, że jeśli aplikacja została utworzona w starym portalu, mogą nie być wyświetlane wszystkie te opcje.
 
-Na tej stronie zostanie również wyświetlona jedna dodatkowa opcja logowania: połączono logowanie. Ta opcja jest również obsługiwana przez serwer proxy aplikacji. Jednak ta opcja nie powoduje dodania logowania jednokrotnego do aplikacji. Wspomniana aplikacja może już mieć zaimplementowane Logowanie jednokrotne przy użyciu innej usługi, takiej jak Active Directory Federation Services. 
+Na tej stronie zostanie również wyświetlona jedna dodatkowa opcja Sign-On: Logowanie połączone. Ta opcja jest również obsługiwana przez serwer proxy aplikacji. Jednak ta opcja nie powoduje dodania logowania jednokrotnego do aplikacji. Wspomniana aplikacja może już mieć zaimplementowane Logowanie jednokrotne przy użyciu innej usługi, takiej jak Active Directory Federation Services. 
 
 Ta opcja umożliwia administratorowi utworzenie linku do aplikacji, która jest po raz pierwszy włączona podczas uzyskiwania dostępu do aplikacji. Na przykład jeśli istnieje aplikacja, która jest skonfigurowana do uwierzytelniania użytkowników za pomocą Active Directory Federation Services 2,0, administrator może użyć opcji "połączone logowanie", aby utworzyć link do niego w aplikacjach.
 

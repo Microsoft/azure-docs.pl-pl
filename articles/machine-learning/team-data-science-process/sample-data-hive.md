@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026053"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Przykładowe dane w tabelach usługi Azure HDInsight Hive
@@ -31,9 +31,9 @@ Jeśli zestaw danych, który planujesz analizować jest duży, zazwyczaj dobrym 
 To zadanie próbkowania jest krokiem w [procesie nauki o danych zespołowych (przetwarzania TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Jak przesłać zapytania Hive
-Zapytania Hive mogą być przesyłane z konsoli wiersza polecenia usługi Hadoop w węźle głównym klastra usługi Hadoop.  Zaloguj się do węzła głównego klastra Hadoop, Otwórz konsolę wiersza polecenia usługi Hadoop i prześlij do niej zapytania programu Hive. Instrukcje dotyczące przesyłania zapytań programu Hive w konsoli wiersza polecenia usługi Hadoop znajdują się w temacie [How to przesyłania zapytań Hive](move-hive-tables.md#submit).
+Zapytania Hive mogą być przesyłane z konsoli Command-Line Hadoop w węźle głównym klastra usługi Hadoop.  Zaloguj się do węzła głównego klastra Hadoop, Otwórz konsolę usługi Hadoop Command-Line i prześlij do niej zapytania programu Hive. Aby uzyskać instrukcje dotyczące przesyłania zapytań Hive w konsoli Command-Line Hadoop, zobacz [Jak przesłać zapytania Hive](move-hive-tables.md#submit).
 
-## <a name="uniform-random-sampling"></a><a name="uniform"></a>Jednolite Próbkowanie losowe
+## <a name="uniform-random-sampling"></a><a name="uniform"></a> Jednolite Próbkowanie losowe
 Jednorodne Próbkowanie losowe oznacza, że każdy wiersz w zestawie danych ma równe szanse na próbkowanie. Można ją zaimplementować przez dodanie dodatkowego pola Rand () do zestawu danych w wewnętrznej kwerendzie "Select", a w zewnętrznym elemencie "Select" zapytania, który ma ten warunek dla tego losowego pola.
 
 Oto przykładowe zapytanie:
@@ -53,7 +53,7 @@ where samplekey<='${hiveconf:sampleRate}'
 
 W tym miejscu `<sample rate, 0-1>` określa proporcje rekordów, które użytkownicy chcą próbkować.
 
-## <a name="random-sampling-by-groups"></a><a name="group"></a>Losowe próbkowanie według grup
+## <a name="random-sampling-by-groups"></a><a name="group"></a> Losowe próbkowanie według grup
 Podczas próbkowania kategorii dane można uwzględnić lub wykluczyć wszystkie wystąpienia dla pewnej wartości zmiennej kategorii. Ten rodzaj próbkowania jest nazywany "próbkowanie przez grupę". Na przykład jeśli masz zmienną kategorii "*State*", która ma wartości, takich jak NY, ma, CA, NJ i PA, chcesz, aby rekordy z każdego stanu były razem, niezależnie od tego, czy są one próbkowane.
 
 Oto przykładowe zapytanie zawierające próbki według grupy:

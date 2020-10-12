@@ -7,17 +7,17 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87055806"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Wyzwalacz usługi Azure queue storage i powiązania dla Azure Functions — Omówienie
 
 Azure Functions mogą działać jako nowe wiadomości usługi Azure queue storage są tworzone i mogą zapisywać komunikaty w kolejce w ramach funkcji.
 
-| Akcja | Typ |
+| Akcja | Type |
 |---------|---------|
 | Uruchamianie funkcji jako kolejki zmian danych | [Wyzwalacz](./functions-bindings-storage-queue-trigger.md) |
 | Komunikaty magazynu kolejki zapisu |[Powiązanie danych wyjściowych](./functions-bindings-storage-queue-output.md) |

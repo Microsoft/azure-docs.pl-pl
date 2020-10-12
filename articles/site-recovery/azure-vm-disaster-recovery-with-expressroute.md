@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654382"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrowanie ExpressRoute z odzyskiwaniem po awarii dla maszyn wirtualnych platformy Azure
@@ -32,7 +32,7 @@ Usługa ExpressRoute umożliwia rozszerzonie sieci lokalnych do chmury Microsoft
 - **Przejście w tryb failover między regionami platformy Azure**: gdy wystąpi awaria, maszyny wirtualne platformy Azure są przełączane do pracy awaryjnej z regionu podstawowego do pomocniczego. Po przejściu w tryb failover do regionu pomocniczego należy wykonać kilka czynności w celu uzyskania dostępu do maszyn wirtualnych platformy Azure w regionie pomocniczym przy użyciu ExpressRoute.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem upewnij się, że rozumiesz następujące pojęcia:
 
@@ -104,7 +104,7 @@ Zazwyczaj wdrożenia korporacyjne mają podział obciążeń na wiele sieci wirt
 
 #### <a name="spoke-to-hub"></a>Szprycha do piasty
 
-**Kierunek** | **Ustawienie** | **Stan**
+**Kierunek** | **Ustawienie** | **State**
 --- | --- | ---
 Szprycha do piasty | Zezwalaj na adres sieci wirtualnej | Enabled (Włączony)
 Szprycha do piasty | Zezwalaj na ruch przesłany dalej | Enabled (Włączony)
@@ -115,7 +115,7 @@ Szprycha do piasty | Użyj usuwania bram | Enabled (Włączony)
 
 #### <a name="hub-to-spoke"></a>Piasta do szprychy
 
-**Kierunek** | **Ustawienie** | **Stan**
+**Kierunek** | **Ustawienie** | **State**
 --- | --- | ---
 Piasta do szprychy | Zezwalaj na adres sieci wirtualnej | Enabled (Włączony)
 Piasta do szprychy | Zezwalaj na ruch przesłany dalej | Enabled (Włączony)

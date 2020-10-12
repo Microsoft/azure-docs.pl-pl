@@ -10,10 +10,10 @@ ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186354"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Edytowanie tekstowych elementów Runbook w Azure Automation
@@ -62,7 +62,7 @@ Ten artykuł zawiera szczegółowe instrukcje dotyczące wykonywania różnych f
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Edytowanie elementu Runbook Azure Automation przy użyciu programu Windows PowerShell
 
-Aby edytować element Runbook za pomocą programu Windows PowerShell, Użyj wybranego edytora i Zapisz element Runbook w pliku **. ps1** . Aby pobrać zawartość elementu Runbook, można użyć polecenia cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) . Możesz użyć polecenia cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) , aby zamienić istniejący element Runbook o zmienionej wersji.
+Aby edytować element Runbook za pomocą programu Windows PowerShell, Użyj wybranego edytora i Zapisz element Runbook w pliku **. ps1** . Aby pobrać zawartość elementu Runbook, można użyć polecenia cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) . Możesz użyć polecenia cmdlet  [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) , aby zamienić istniejący element Runbook o zmienionej wersji.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Pobieranie zawartości elementu Runbook za pomocą programu Windows PowerShell
 
