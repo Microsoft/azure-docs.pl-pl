@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 0da8a4fc1b59976c50cd96f2155715a4cb178cc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87072777"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Przenoszenie danych do usługi Azure Blob Storage
@@ -42,7 +42,7 @@ Szczegółowe informacje znajdują się w dystrybucji CLFSLoad avere, która jes
 Ogólny przegląd procesu:
 
 1. Przygotuj system Linux (maszyna wirtualna lub fizyczna) przy użyciu języka Python w wersji 3,6 lub nowszej. Środowisko Python 3,7 jest zalecane w celu zapewnienia lepszej wydajności.
-1. Zainstaluj oprogramowanie avere-CLFSLoad w systemie Linux.
+1. Zainstaluj oprogramowanie Avere-CLFSLoad w systemie Linux.
 1. Wykonaj transfer z wiersza polecenia systemu Linux.
 
 Narzędzie avere CLFSLoad potrzebuje następujących informacji:

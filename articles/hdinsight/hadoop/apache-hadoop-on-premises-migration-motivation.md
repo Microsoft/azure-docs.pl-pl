@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87072790"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — motywacji i korzyści
@@ -155,7 +155,7 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 |Liczba administratorów|2||
 |Liczba deweloperów|10||
 |Liczba użytkowników końcowych|100||
-|Nowych|Hadoop, Spark||
+|Umiejętności|Hadoop, Spark||
 |Liczba dostępnych zasobów na potrzeby prac związanych z migracją|2||
 |**Temat**: **ograniczenia**|||
 |Bieżące ograniczenia|Opóźnienie jest wysokie||
@@ -170,13 +170,13 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 |Preferowana Sieć wirtualna?|Tak||
 |Wymagana HA/DR?|Tak||
 |Integracja z innymi usługami w chmurze?|ADF, CosmosDB||
-|**Temat**: **przenoszenie danych**  |||
+|**Temat**:   **przenoszenie danych**  |||
 |Początkowe preferencje ładowania|Pomocą distcp, pole danych, ADF, WANDisco||
 |Różnica transferu danych|Pomocą distcp, AzCopy||
 |Ciągły przyrostowy transfer danych|Pomocą distcp, Sqoop||
-|**Temat**: **monitorowanie alertów &** |||
+|**Temat**:   **monitorowanie alertów &** |||
 |Korzystanie z usługi Azure Monitoring & alertów vs Integruj monitorowanie innych firm|Korzystanie z alertów usługi Azure Monitoring &||
-|**Temat**: **Preferencje zabezpieczeń** |||
+|**Temat**:   **Preferencje zabezpieczeń** |||
 |Prywatny i chroniony Potok danych?|Tak||
 |Klaster przyłączony do domeny (ESP)?|     Tak||
 |AD Sync lokalnych do chmury?|     Tak||
@@ -185,11 +185,11 @@ Ta sekcja zawiera kwestionariusze szablonów ułatwiające zebranie ważnych inf
 |Tylko użytkownicy w chmurze?|                 Tak||
 |Potrzebujesz usługi MFA?|                       Nie|| 
 |Wymagania dotyczące autoryzacji danych?|  Tak||
-|Access Control oparte na rolach?|        Tak||
+|Role-Based Access Control?|        Tak||
 |Inspekcja jest wymagana?|                  Tak||
 |Szyfrowanie danych w spoczynku?|          Tak||
 |Szyfrowanie danych jest w trakcie przesyłania?|       Tak||
-|**Temat**: **Preferencje architektury** |||
+|**Temat**:   **Preferencje architektury** |||
 |Pojedynczy klaster a typy klastrów określonych|Określone typy klastrów||
 |Rozłożone magazyny a Magazyn zdalny?|Magazyn zdalny||
 |Mniejszy rozmiar klastra jako dane są przechowywane zdalnie?|Mniejszy rozmiar klastra||

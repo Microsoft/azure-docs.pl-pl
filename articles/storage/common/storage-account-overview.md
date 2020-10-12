@@ -10,17 +10,17 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280151"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
 Konto usługi Azure Storage zawiera wszystkie obiekty danych usługi Azure Storage: obiektów blob, plików, kolejek, tabel i dysków. Konto magazynu zapewnia unikatową przestrzeń nazw dla danych usługi Azure Storage, która jest dostępna z dowolnego miejsca na świecie za pośrednictwem protokołu HTTP lub HTTPS. Dane na koncie usługi Azure Storage są trwałe i wysoce dostępne, bezpieczne i skalowalne.
 
-Aby dowiedzieć się, jak utworzyć konto usługi Azure Storage, zobacz [Tworzenie konta magazynu](storage-account-create.md).
+Aby dowiedzieć się, jak utworzyć konto magazynu usługi Azure Storage, zobacz [Tworzenie konta magazynu](storage-account-create.md).
 
 ## <a name="types-of-storage-accounts"></a>Typy kont magazynu
 
@@ -165,7 +165,7 @@ Firma Microsoft udostępnia narzędzia i biblioteki do importowania danych z lok
 
 Po uaktualnieniu do konta ogólnego przeznaczenia w wersji 2 z poziomu konta ogólnego przeznaczenia w wersji 1 lub magazynu obiektów BLOB dane zostaną automatycznie zmigrowane. Firma Microsoft zaleca tej ścieżki do uaktualnienia konta. Jeśli jednak zdecydujesz się przenieść dane z konta ogólnego przeznaczenia w wersji 1 do konta usługi BLOB Storage, Przeprowadź migrację danych ręcznie przy użyciu narzędzi i bibliotek opisanych poniżej.
 
-### <a name="azcopy"></a>AzCopy
+### <a name="azcopy"></a>Narzędzie AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można użyć AzCopy do kopiowania danych do konta usługi BLOB Storage z istniejącego konta magazynu ogólnego zastosowania lub do przekazywania danych z lokalnych urządzeń magazynujących. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 

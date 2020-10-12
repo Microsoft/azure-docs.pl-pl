@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: aec567c642f8eb3cb421ef5a119fe58f3a5fe05a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262060"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
@@ -26,21 +26,21 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 ## <a name="arguments"></a>Argumenty
   
-*numberYear* Wartość całkowita roku w formacie`YYYY`
+*numberYear* Wartość całkowita roku w formacie `YYYY`
 
 *numberMonth*  
-   Wartość całkowita miesiąca w formacie`MM`
+   Wartość całkowita miesiąca w formacie `MM`
 
 *numberDay*  
-   Wartość całkowita dla dnia w formacie`DD`
+   Wartość całkowita dla dnia w formacie `DD`
 
-*numberHour* (opcjonalnie) wartość całkowita dla godziny w formacie`hh`
+*numberHour* (opcjonalnie) wartość całkowita dla godziny w formacie `hh`
 
-*numberMinute* (opcjonalna) wartość liczby całkowitej dla minuty w formacie`mm`
+*numberMinute* (opcjonalna) wartość liczby całkowitej dla minuty w formacie `mm`
 
-*numberSecond* (opcjonalnie) wartość całkowita dla sekundy w formacie`ss`
+*numberSecond* (opcjonalnie) wartość całkowita dla sekundy w formacie `ss`
 
-*numberOfFractionsOfSecond* (opcjonalnie) wartość całkowita ułamka części sekundy w formacie`.fffffff`
+*numberOfFractionsOfSecond* (opcjonalnie) wartość całkowita ułamka części sekundy w formacie `.fffffff`
 
 ## <a name="return-types"></a>Typy zwracane
 

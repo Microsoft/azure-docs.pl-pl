@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/11/2019
 ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936507"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach internetowych za pomocą usługi Application Insights
@@ -95,7 +95,7 @@ Szczegóły żądania nie obejmują danych wysyłanych do aplikacji w wywołaniu
 ## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Przechwytywanie wyjątków i powiązanych danych diagnostycznych
 Na początku nie zobaczysz w portalu wszystkich wyjątków, które powodują błędy w aplikacji. Zobaczysz dowolne wyjątki przeglądarki (Jeśli używasz [zestawu JavaScript SDK](./javascript.md) na stronach sieci Web). Jednak większość wyjątków serwera są przechwytywane przez usługi IIS i trzeba napisać bit kodu, aby je zobaczyć.
 
-Dostępne możliwości:
+Można:
 
 * **Rejestruj wyjątki jawnie** przez wstawianie kodu w obsłudze wyjątków w celu zgłoszenia wyjątków.
 * **Automatycznie Przechwytuj wyjątki** przez skonfigurowanie platformy ASP.NET. Niezbędne Dodatki są różne dla różnych typów platform.
@@ -200,7 +200,7 @@ Ale jeśli masz aktywne przekierowania, Dodaj następujące wiersze do funkcji A
 ## <a name="mvc"></a>MVC
 Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które zostały automatycznie zgłoszone w metodach kontrolerów MVC 5. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
 
 * Zgłoszone wyjątki przez konstruktorów kontrolerów.
 * Zgłoszone wyjątki przez programy obsługi komunikatów.
@@ -292,7 +292,7 @@ Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig.cs:
 ## <a name="web-api"></a>Interfejs API sieci Web
 Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które są automatycznie generowane w metodach kontrolera dla WebAPI 2 +. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
 
 * Zgłoszone wyjątki przez konstruktorów kontrolerów.
 * Zgłoszone wyjątki przez programy obsługi komunikatów.

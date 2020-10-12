@@ -8,10 +8,10 @@ ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 87663c18ddaa5da6740a0f54aa5f2812cbb06af8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227387"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
@@ -31,8 +31,8 @@ DateTimePart (<DateTimePart> , <DateTime>)
 
 | DateTimePart | skróty        |
 | ------------ | -------------------- |
-| Rok         | "Year", "RRRR", "YY" |
-| Miesiąc        | "Month", "mm", "m"   |
+| Year (Rok)         | "Year", "RRRR", "YY" |
+| Month (Miesiąc)        | "Month", "mm", "m"   |
 | Dzień          | "Day", "DD", "d"     |
 | Godzina         | "Hour", "HH"         |
 | Minuta       | "minute", "mi", "n"  |

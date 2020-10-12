@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006300"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Wdróż wirtualną macierz StorSimple — Skonfiguruj jako serwer plików za pośrednictwem Azure Portal
@@ -124,7 +124,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby zakończyć wymaganą konfigurację urządzenia.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Aby skonfigurować urządzenie jako serwer plików
-1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie przejdź do pozycji **zarządzanie > urządzeń**. W bloku **urządzenia** wybierz właśnie utworzone urządzenie. To urządzenie będzie widoczne jako **gotowe do skonfigurowania**.
+1. Przejdź do usługi StorSimple Menedżer urządzeń, a następnie przejdź do pozycji  **zarządzanie > urządzeń**. W bloku **urządzenia** wybierz właśnie utworzone urządzenie. To urządzenie będzie widoczne jako **gotowe do skonfigurowania**.
    
    ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Kliknij urządzenie i zostanie wyświetlony komunikat transparent wskazujący, że urządzenie jest gotowe do instalacji.

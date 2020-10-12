@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934756"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Korzystanie z modelu za pomocą interfejsu API przewidywania
@@ -43,7 +43,7 @@ Po opublikowaniu modelu możesz pobrać wymagane informacje, wybierając pozycj�
 
 ![Karta wydajność jest pokazywana z czerwonym prostokątem otaczającym przycisk prognozowanego adresu URL.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![Karta wydajność jest pokazywana z czerwonym prostokątem otaczającym wartość adresu URL prognozowania przy użyciu pliku obrazu oraz wartości predykcyjnego klucza.](./media/use-prediction-api/prediction-api-info.png)
+![Karta wydajność jest pokazywana z czerwonym prostokątem otaczającym wartość adresu URL przewidywania przy użyciu pliku obrazu i wartości Prediction-Key.](./media/use-prediction-api/prediction-api-info.png)
 
 
 W tym przewodniku użyjesz lokalnego obrazu, więc Skopiuj adres URL w obszarze **Jeśli masz plik obrazu** do lokalizacji tymczasowej. Skopiuj również odpowiednią wartość __klucza przewidywania__ .

@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987733"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Zarządzanie zasobami Azure Cosmos DB przy użyciu Eksplorator usługi Azure Storage
@@ -38,19 +38,19 @@ Aby zainstalować najnowszą Eksplorator usługi Azure Storage BITS, zobacz [Eks
 
 1. Wybierz pozycję **Dodaj konto platformy Azure**, a następnie wybierz pozycję **Zaloguj się**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Zrzut ekranu przedstawiający okno łączenie z usługą Azure Storage z wybranym przyciskiem radiowym Dodaj konto platformy Azure i menu rozwijanego środowisko platformy Azure.":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. W oknie dialogowym **Logowanie do platformy Azure** wybierz pozycję **Zaloguj**, a następnie wprowadź swoje poświadczenia platformy Azure.
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Zrzut ekranu przedstawiający okno logowania pokazujący, gdzie wprowadzić poświadczenia dla subskrypcji platformy Azure.":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. Wybierz subskrypcję z listy, a następnie wybierz przycisk **Zastosuj**.
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Zrzut ekranu przedstawiający okienko Zarządzanie kontem z listą subskrypcji i przycisk Zastosuj.":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
     W okienku Eksploratora są aktualizowane i wyświetlane konta w wybranej subskrypcji.
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Zrzut ekranu okienka Eksploratora, który został zaktualizowany, aby pokazać konta w wybranej subskrypcji.":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
     Twoje **konto Cosmos DB** jest połączone z subskrypcją platformy Azure.
 
@@ -60,7 +60,7 @@ Możesz użyć parametrów połączenia, aby nawiązać połączenie z Azure Cos
 
 1. Znajdź **lokalne i dołączone** w lewym drzewie, kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta**, a następnie wybierz pozycję **Połącz z Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Zrzut ekranu przedstawiający menu rozwijane po kliknięciu prawym przyciskiem myszy z wyróżnioną pozycją Połącz z usługą Azure Cosmos D B.":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 2. W oknie **łączenie z Cosmos DB** :
    1. Wybierz interfejs API z menu rozwijanego.
@@ -68,7 +68,7 @@ Możesz użyć parametrów połączenia, aby nawiązać połączenie z Azure Cos
    1. Wprowadź **etykietę konta**, a następnie wybierz pozycję **dalej** , aby sprawdzić podsumowanie.
    1. Wybierz pozycję **Połącz** , aby połączyć konto Azure Cosmos DB.
 
-      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Zrzut ekranu przedstawiający okno łączenie z Cosmos D B z menu rozwijanego interfejs API, pole parametry połączenia i pole Etykieta konta.":::
+      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Użyj lokalnego emulatora, aby nawiązać połączenie z usługą Azure Cosmos DB
 
@@ -78,14 +78,14 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Azure Cosmos DB z emu
 
 1. Znajdź **lokalne i dołączone** w lewym drzewie, kliknij prawym przyciskiem myszy pozycję **Cosmos DB konta**, a następnie wybierz pozycję **Połącz z emulatorem Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Zrzut ekranu przedstawiający menu, które jest wyświetlane po kliknięciu prawym przyciskiem myszy, z wyróżnioną pozycją Połącz z usługą Azure Cosmos D B.":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. W oknie **łączenie z Cosmos DB** :
    1. Wklej parametry połączenia w polu **Parametry połączenia** . Aby uzyskać informacje na temat pobierania podstawowych parametrów połączenia, zobacz [pobieranie parametrów połączenia](manage-with-powershell.md#list-keys).
    1. Wprowadź **etykietę konta**, a następnie wybierz pozycję **dalej** , aby sprawdzić podsumowanie.
    1. Wybierz pozycję **Połącz** , aby połączyć konto Azure Cosmos DB.
 
-      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Zrzut ekranu przedstawiający okno łączenie z Cosmos D B z polem parametry połączenia i polem etykieta konta.":::
+      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ## <a name="azure-cosmos-db-resource-management"></a>Zarządzanie zasobami usługi Azure Cosmos DB
 
@@ -105,13 +105,13 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 * Kliknij prawym przyciskiem myszy konto Azure Cosmos DB lub bazę danych, a następnie wybierz polecenie **Otwórz w portalu** , aby zarządzać zasobem w przeglądarce na Azure Portal.
 
-  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Zrzut ekranu przedstawiający menu, które jest wyświetlane po kliknięciu prawym przyciskiem myszy, z wyróżnioną pozycją Otwórz w portalu.":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 * Kliknij prawym przyciskiem myszy konto Azure Cosmos DB, bazę danych lub kolekcję, a następnie wybierz polecenie **Dodaj do paska Szybki dostęp** , aby dodać je do menu szybkiego dostępu.
 
 * Wybierz pozycję **Wyszukaj w tym miejscu** , aby włączyć wyszukiwanie za pomocą słowa kluczowego pod wybraną ścieżką.
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Zrzut ekranu przedstawiający pole wyszukiwania wyróżnione.":::
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="database-and-collection-management"></a>Zarządzanie bazą danych i kolekcją
 
@@ -119,7 +119,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 1. Kliknij prawym przyciskiem myszy konto Azure Cosmos DB, a następnie wybierz polecenie **Utwórz bazę danych**.
 
-   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Zrzut ekranu przedstawiający menu, które jest wyświetlane po kliknięciu prawym przyciskiem myszy z wyróżnioną pozycją Utwórz bazę danych.":::
+   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. Wprowadź nazwę bazy danych, a następnie naciśnij klawisz **Enter** , aby zakończyć.
 
@@ -127,28 +127,28 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz polecenie **Usuń bazę danych**. 
 
-   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Zrzut ekranu przedstawiający menu, które jest wyświetlane po kliknięciu prawym przyciskiem myszy z wyróżnioną pozycją Usuń bazę danych.":::
+   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. W oknie podręcznym wybierz pozycję **tak** . Węzeł bazy danych zostanie usunięty, a konto usługi Azure Cosmos DB zostanie odświeżone automatycznie.
 
-   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Zrzut ekranu okna potwierdzenia z wyróżnionym przyciskiem tak.":::
+   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="create-a-collection"></a>Tworzenie kolekcji
 
 1. Kliknij prawym przyciskiem myszy bazę danych, a następnie wybierz pozycję **Utwórz kolekcję**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Zrzut ekranu przedstawiający menu, które jest wyświetlane po kliknięciu prawym przyciskiem myszy z wyróżnioną pozycją Utwórz kolekcję.":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. W oknie Tworzenie kolekcji wprowadź żądane informacje, takie jak **identyfikator kolekcji** i **pojemność magazynu**itd. Wybierz przycisk **OK**, aby zakończyć.
 
-   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Zrzut ekranu przedstawiający okno tworzenia kolekcji, w którym znajduje się kolekcja i D przyciski i pojemność magazynu.":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 1. Wybierz pozycję **nieograniczone** , aby określić klucz partycji, a następnie wybierz przycisk **OK** , aby zakończyć.
 
    > [!NOTE]
    > Jeśli podczas tworzenia kolekcji jest używany klucz partycji, po zakończeniu tworzenia nie można zmienić wartości klucza partycji w kolekcji.
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Zrzut ekranu przedstawiający okno Tworzenie kolekcji z nieograniczoną ilością wybraną dla pojemności magazynu i wyróżnioną ramką klucza partycji.":::
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="delete-a-collection"></a>Usuwanie kolekcji
 
@@ -156,7 +156,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
     Węzeł kolekcji zostanie usunięty, a baza danych zostanie odświeżona automatycznie.
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Zrzut ekranu przedstawiający menu, które jest wyświetlane po kliknięciu prawym przyciskiem myszy z wyróżnioną pozycją Usuń kolekcję.":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="document-management"></a>Zarządzanie dokumentami
 
@@ -165,7 +165,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 - Otwórz okno **dokumenty** w lewym okienku, wybierz pozycję **Nowy dokument**, Edytuj zawartość w okienku po prawej stronie, a następnie wybierz pozycję **Zapisz**.
 - Możesz również zaktualizować istniejący dokument, a następnie wybrać pozycję **Zapisz**. Aby odrzucić zmiany, wybierz pozycję **Odrzuć**.
 
-  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Zrzut ekranu przedstawiający dokumenty wyróżnione w okienku po lewej stronie. W okienku po prawej stronie zostanie wyróżniony nowy dokument, Zapisz i Odrzuć.":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="delete-a-document"></a>Usuwanie dokumentu
 
@@ -175,7 +175,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 * Aby edytować filtr dokumentu, wprowadź [zapytanie SQL](how-to-sql-query.md), a następnie wybierz pozycję **Zastosuj**.
 
-  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Zrzut ekranu przedstawiający okienko po prawej stronie, w którym są wyświetlane przyciski Filtruj i Zastosuj, numer IDENTYFIKACYJNy i pole zapytania.":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="graph-management"></a>Zarządzanie programem Graph
 
@@ -184,7 +184,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 * Aby utworzyć nowy wierzchołek, Otwórz program **Graph** w okienku po lewej stronie, wybierz pozycję **nowy wierzchołek**, Edytuj zawartość, a następnie wybierz **przycisk OK**.
 * Aby zmodyfikować istniejący wierzchołek, wybierz ikonę pióra w okienku po prawej stronie.
 
-   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Zrzut ekranu przedstawiający wykres wybrany w okienku po lewej stronie i pokazywanie nowego wierzchołka oraz ikony pióra wyróżnionej w okienku po prawej stronie.":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="delete-a-graph"></a>Usuwanie wykresu
 
@@ -194,7 +194,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 
 * Aby edytować filtr wykresu, wprowadź [zapytanie Gremlin](gremlin-support.md), a następnie wybierz pozycję **Zastosuj filtr**.
 
-   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Zrzut ekranu przedstawiający wykres wybrany w okienku po lewej stronie i pokazujący Zastosuj filtr i pole zapytania wyróżnione w okienku po prawej stronie.":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="table-management"></a>Zarządzanie tabelami
 
@@ -206,7 +206,7 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
    1. Wybierz przycisk **Dodaj właściwość** , aby dodać właściwość.
    1. Wybierz pozycję **Wstaw**.
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Zrzut ekranu przedstawiający jednostki wyróżnione w okienku po lewej stronie i pokazywanie opcji Dodaj, Edytuj, Dodaj właściwość i Wstaw wyróżnione w okienku po prawej stronie.":::
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 * Aby zmodyfikować tabelę, wybierz pozycję **Edytuj**, zmodyfikuj zawartość, a następnie wybierz pozycję **Aktualizuj**.
 
@@ -217,26 +217,26 @@ Możesz kliknąć prawym przyciskiem myszy subskrypcję w okienku Eksploratora, 
 * Aby zaimportować, wybierz przycisk **Importuj** , a następnie wybierz istniejącą tabelę.
 * Aby wyeksportować, wybierz przycisk **Eksportuj** , a następnie wybierz miejsce docelowe.
 
-   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Zrzut ekranu przedstawiający przyciski Importuj i Eksportuj wyróżnione w okienku po prawej stronie.":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="delete-entities"></a>Usuwanie jednostek
 
 * Wybierz jednostki, a następnie wybierz przycisk **Usuń** .
 
-  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Zrzut ekranu przedstawiający przycisk Usuń wyróżniony w okienku po prawej stronie i okno podręczne potwierdzenia z wyróżnioną pozycją tak.":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="query-a-table"></a>Tworzenie zapytań względem tabeli
 
 - Wybierz przycisk **zapytania** , wprowadź warunek zapytania, a następnie wybierz przycisk **wykonaj zapytanie** . Aby zamknąć okienko zapytania, wybierz przycisk **Zamknij zapytanie** .
 
-  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Zrzut ekranu przedstawiający okienko po prawej stronie z wyróżnionym przyciskiem wykonaj zapytanie i przyciskiem Zamknij zapytanie.":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Zarządzanie procedurami składowanymi, wyzwalaczami i funkcjami definiowanymi przez użytkownika (UDF)
 
 * Aby utworzyć procedurę przechowywaną:
   1. W lewym drzewie kliknij prawym przyciskiem myszy **procedury składowane**, a następnie wybierz polecenie **Utwórz procedurę składowaną**.
   
-     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Zrzut ekranu przedstawiający okienko po lewej stronie z menu wyświetlanym po kliknięciu prawym przyciskiem myszy z wyróżnioną procedurą składowaną Create.":::
+     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
   
   1. Wprowadź nazwę z lewej strony, w okienku po prawej stronie Wprowadź skrypty procedury składowanej, a następnie wybierz pozycję **Utwórz**.
   
@@ -296,7 +296,7 @@ Jeśli nie możesz pobrać subskrypcji po zalogowaniu, wypróbuj następujące s
   * .extaccounts
 * Naciśnij klawisz F12, aby otworzyć konsolę dewelopera. Po zalogowaniu się w konsoli programu Obejrzyj wszystkie komunikaty o błędach.
 
-   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Zrzut ekranu przedstawiający konsolę narzędzia deweloperskie z wyróżnioną konsolą.":::
+   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Nie można wyświetlić strony uwierzytelniania
 
@@ -331,19 +331,19 @@ Nie można wyświetlić listy węzłów Azure Cosmos DB w lewym drzewie podczas 
 
 Po wybraniu węzła **programowanie** w węźle **lokalnym i podłączonym** w lewym drzewie nie ma odpowiedzi. Zachowanie jest oczekiwane.
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="Zrzut ekranu przedstawiający wybrany węzeł deweloperski.":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>Dołącz konto Azure Cosmos DB w przypadku błędu **lokalnego i dołączonego** węzła
 
 Jeśli po dołączeniu konta Azure Cosmos DB w węźle **lokalnym i podłączonym** zostanie wyświetlony następujący błąd, upewnij się, że używasz prawidłowych parametrów połączenia.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Zrzut ekranu przedstawiający okno podręczne pobierania błędu zasobów podrzędnych, wskazujące getaddrinfo ENOTFOUND.":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Błąd rozwijania węzła usługi Azure Cosmos DB
 
 Podczas próby rozszerzenia węzłów w lewym drzewie może zostać wyświetlony następujący błąd.
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Zrzut ekranu przedstawiający okno podręczne pobierania błędu zasobów podrzędnych, wskazujący, że nie można nawiązać połączenia z tym kontem Cosmos D B.":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Zrzut ekranu przedstawiający ikonę wtyczki w okienku po lewej stronie.":::
 
 Wypróbuj następujące sugestie:
 

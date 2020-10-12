@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/11/2017
 ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213344"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Jak skalować usługę Azure Cache for Redis
@@ -25,7 +25,7 @@ Można monitorować następujące metryki, aby pomóc w ustaleniu, czy konieczne
 * Ładowanie serwera Redis
 * Użycie pamięci
 * Przepustowość sieci
-* Użycie procesora CPU
+* Użycie procesora
 
 Jeśli okaże się, że pamięć podręczna nie spełnia już wymagań aplikacji, można skalować ją do większej lub mniejszej warstwy cenowej pamięci podręcznej, która jest odpowiednia dla danej aplikacji. Aby uzyskać więcej informacji na temat określania warstwy cenowej pamięci podręcznej, która ma być używana, zobacz [Wybieranie odpowiedniej warstwy](cache-overview.md#choosing-the-right-tier).
 

@@ -7,10 +7,10 @@ ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002286"
 ---
 # <a name="security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń
@@ -34,7 +34,7 @@ Poniżej przedstawiono wymagania dotyczące zabezpieczeń, które są odpowiedzi
 |Zabezpieczenia aplikacji|Tak|
 |System operacyjny hosta sesji|Tak|
 |Konfiguracja wdrożenia|Tak|
-|Funkcje kontrolne sieci|Yes|
+|Funkcje kontrolne sieci|Tak|
 |Płaszczyzna kontroli wirtualizacji|Nie|
 |Hosty fizyczne|Nie|
 |Sieć fizyczna|Nie|

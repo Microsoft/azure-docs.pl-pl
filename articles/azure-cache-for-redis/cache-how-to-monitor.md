@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004848"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Jak monitorować usługę Azure cache for Redis
@@ -68,7 +68,7 @@ Aby skonfigurować konto magazynu dla metryk pamięci podręcznej:
 4. Zaznacz pozycję **Zarchiwizuj na koncie magazynu**. W przypadku wysyłania danych diagnostycznych do konta magazynu będą naliczone zwykłe stawki za dane związane z magazynowaniem i transakcjami.
 4. Wybierz pozycję **Konfiguruj** , aby wybrać konto magazynu, w którym mają być przechowywane metryki pamięci podręcznej.
 5. W obszarze pole **Metryka**nagłówka tabeli obok elementów wiersza, które mają być przechowywane, takich jak **AllMetrics**. Określ zasady **przechowywania (dni)** . Maksymalne dozwolone okresy przechowywania to **365 dni**. Jeśli jednak chcesz zachować dane metryk w nieskończoność, ustaw wartość **przechowywanie (w dniach)** na **0**.
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 
 
 ![Diagnostyka Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -103,7 +103,7 @@ Każda Metryka zawiera dwie wersje. Jedna Metryka mierzy wydajność dla całej 
 | Zapis w pamięci podręcznej |Ilość danych zapisywana w pamięci podręcznej w megabajtach na sekundę (MB/s) podczas określonego interwału raportowania. Ta wartość pochodzi z kart interfejsu sieciowego, które obsługują maszynę wirtualną obsługującą pamięć podręczną, i nie Redis określonych. Ta wartość odpowiada przepustowości sieci danych wysyłanych do pamięci podręcznej z klienta programu. |
 | Połączeni klienci |Liczba połączeń klienta z pamięcią podręczną w określonym interwale raportowania. Ta liczba jest mapowana na wartość `connected_clients` z REDIS info. Po osiągnięciu [limitu połączenia](cache-configure.md#default-redis-server-configuration) kolejne próby połączenia z pamięcią podręczną zakończą się niepowodzeniem. Nawet jeśli nie ma aktywnych aplikacji klienckich, nadal może istnieć kilka wystąpień połączonych klientów z powodu wewnętrznych procesów i połączeń. |
 | Procesor CPU |Użycie procesora CPU w pamięci podręcznej platformy Azure dla serwera Redis jako wartość procentowa w określonym interwale raportowania. Ta wartość jest mapowana na `\Processor(_Total)\% Processor Time` licznik wydajności systemu operacyjnego. |
-| błędy | Określone błędy i problemy z wydajnością, które mogą występować w pamięci podręcznej w określonym interwale raportowania. Ta Metryka ma osiem wymiarów reprezentujących różne typy błędów, ale w przyszłości może być dodanych. Reprezentowane typy błędów są następujące: <br/><ul><li>Tryb failover — gdy pamięć podręczna zostanie przełączona w tryb **pracy awaryjnej** (podrzędna prom do podstawowego)</li><li>**Datastrata** — w przypadku utraty danych w pamięci podręcznej</li><li>**UnresponsiveClients** — gdy klienci nie odczytują danych z serwera wystarczająco szybko</li><li>**Kopia zapasowa AOF** — w przypadku problemów związanych z TRWAŁOŚCIą kopia zapasowa AOF</li><li>**RDB** — w przypadku wystąpienia problemu związanego z TRWAŁOŚCIą RDB</li><li>**Importuj** — w przypadku problemu związanego z IMPORTem RDB</li><li>**Eksport** — w przypadku problemu związanego z EKSPORTem RDB</li></ul> |
+| Errors | Określone błędy i problemy z wydajnością, które mogą występować w pamięci podręcznej w określonym interwale raportowania. Ta Metryka ma osiem wymiarów reprezentujących różne typy błędów, ale w przyszłości może być dodanych. Reprezentowane typy błędów są następujące: <br/><ul><li>Tryb failover — gdy pamięć podręczna zostanie przełączona w tryb **pracy awaryjnej** (podrzędna prom do podstawowego)</li><li>**Datastrata** — w przypadku utraty danych w pamięci podręcznej</li><li>**UnresponsiveClients** — gdy klienci nie odczytują danych z serwera wystarczająco szybko</li><li>**Kopia zapasowa AOF** — w przypadku problemów związanych z TRWAŁOŚCIą kopia zapasowa AOF</li><li>**RDB** — w przypadku wystąpienia problemu związanego z TRWAŁOŚCIą RDB</li><li>**Importuj** — w przypadku problemu związanego z IMPORTem RDB</li><li>**Eksport** — w przypadku problemu związanego z EKSPORTem RDB</li></ul> |
 | Wykluczone klucze |Liczba elementów wykluczonych z pamięci podręcznej w określonym interwale raportowania ze względu na `maxmemory` limit. Ta liczba jest mapowana na wartość `evicted_keys` z REDIS info. |
 | Wygasłe klucze |Liczba elementów, które wygasły z pamięci podręcznej w określonym interwale raportowania. Ta wartość jest mapowana na `expired_keys` podstawie polecenia REDIS info.|
 | Pobrania |Liczba operacji pobierania z pamięci podręcznej w określonym interwale raportowania. Ta wartość jest sumą następujących wartości z polecenia Redis info All:,,,, `cmdstat_get` , `cmdstat_hget` `cmdstat_hgetall` `cmdstat_hmget` `cmdstat_mget` `cmdstat_getbit` i `cmdstat_getrange` , i jest równoważna z sumą trafień w pamięci podręcznej i chybień w okresie raportowania. |

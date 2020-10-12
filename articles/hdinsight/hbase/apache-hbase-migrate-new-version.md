@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89503996"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrowanie klastra Apache HBase do nowej wersji
@@ -32,8 +32,8 @@ Poniżej znajduje się przykładowa wersja macierzy zgodności. Wartość Y ozna
 
 | Typ zgodności | Wersja główna| Wersja pomocnicza | Patch |
 | --- | --- | --- | --- |
-| Zgodność sieci klient-serwer | N | T | T |
-| Zgodność serwera z serwerem | N | T | T |
+| Zgodność sieci Client-Server | N | T | T |
+| Zgodność Server-Server | N | T | T |
 | Zgodność formatu pliku | N | T | T |
 | Zgodność z interfejsem API klienta | N | T | T |
 | Zgodność binarna klienta | N | N | T |

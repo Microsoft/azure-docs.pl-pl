@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
 ms.openlocfilehash: d752b747a0156bcef587f81ee421c55a6de81e17
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079476"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Bezpieczne Przekształcanie danych przy użyciu funkcji mapowania przepływu danych
@@ -59,7 +59,7 @@ W tym kroku utworzysz fabrykę danych i otworzysz interfejs użytkownika Data Fa
 1. W obszarze **Wersja** wybierz pozycję **V2**.
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i Azure SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** .
 1. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -77,7 +77,7 @@ W tym kroku utworzysz Azure IR i włączysz Data Factory zarządzanym Virtual Ne
 
    ![Zrzut ekranu pokazujący Włączanie nowego Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Tworzenie potoku za pomocą działania przepływu danych
 
@@ -155,7 +155,7 @@ Jeśli nie używasz hiperlinku podczas testowania poprzedniego połączenia, pos
 
 1. Wybierz kafelek **Azure Data Lake Storage Gen2** z listy, a następnie wybierz pozycję **Kontynuuj**.
 1. Wprowadź nazwę utworzonego konta magazynu.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Po kilku sekundach powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 1. Wybierz utworzony prywatny punkt końcowy. Można wyświetlić hiperłącze, które umożliwi zatwierdzenie prywatnego punktu końcowego na poziomie konta magazynu.
 
@@ -233,7 +233,7 @@ Jeśli nie używasz hiperlinku podczas testowania poprzedniego połączenia, pos
 
 1. Na stronie **Wybierz format** wybierz pozycję **DelimitedText** , a następnie wybierz pozycję **Kontynuuj**.
 
-1. Nazwij swój zestaw danych ujścia **MoviesSink**. W polu połączona usługa wybierz tę samą **ADLSGen2** połączonej usługi, która została utworzona dla transformacji źródłowej. Wprowadź folder wyjściowy, w którym mają zostać zapisane dane. W tym samouczku zapisujemy dane **wyjściowe** folderu w **przykładzie kontenera — dane**. Folder nie musi istnieć wcześniej i może być tworzony dynamicznie. Zaznacz pole wyboru **pierwszy wiersz jako nagłówek** , a następnie wybierz pozycję **Brak** dla opcji **Importuj schemat**. Wybierz przycisk **OK**.
+1. Nazwij swój zestaw danych ujścia **MoviesSink**. W polu połączona usługa wybierz tę samą **ADLSGen2** połączonej usługi, która została utworzona dla transformacji źródłowej. Wprowadź folder wyjściowy, w którym mają zostać zapisane dane. W tym samouczku zapisujemy dane **wyjściowe** folderu w **przykładzie kontenera — dane**. Folder nie musi istnieć wcześniej i może być tworzony dynamicznie. Zaznacz pole wyboru **pierwszy wiersz jako nagłówek** , a następnie wybierz pozycję **Brak** dla opcji **Importuj schemat**. Kliknij przycisk **OK**.
 
     ![Zrzut ekranu pokazujący ścieżkę ujścia.](media/tutorial-data-flow-private/sink-file-path.png)
 

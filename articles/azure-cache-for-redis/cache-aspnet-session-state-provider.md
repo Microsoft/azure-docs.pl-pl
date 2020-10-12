@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213296"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Dostawca stanu sesji ASP.NET dla usługi Azure Cache for Redis
@@ -125,7 +125,7 @@ Po wykonaniu tych kroków aplikacja jest skonfigurowana do korzystania z usługi
 * Dostawca stanu sesji programu SQL Server — ten dostawca przechowuje stan sesji w programie SQL Server. Użyj tego dostawcy, jeśli chcesz przechowywać stan sesji w magazynie trwałym. Możesz skalować aplikację sieci Web, ale korzystanie z programu SQL Server dla sesji ma wpływ na wydajność aplikacji sieci Web. Tego dostawcy można także użyć z [konfiguracją OLTP w pamięci](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) , aby zwiększyć wydajność.
 * Dostawca stanu sesji rozproszonej w pamięci, taki jak usługa Azure cache dla dostawcy stanu sesji Redis — ten dostawca zapewnia najlepsze rozwiązanie obu rozwiązań. Aplikacja sieci Web może mieć prosty, szybki i skalowalny dostawca stanu sesji. Ponieważ ten dostawca przechowuje stan sesji w pamięci podręcznej, należy wziąć pod uwagę wszystkie cechy skojarzone podczas rozmowy z pamięcią podręczną rozproszonej pamięci, na przykład przejściowe awarie sieci. Aby zapoznać się z najlepszymi rozwiązaniami dotyczącymi używania pamięci podręcznej, zobacz [wskazówki dotyczące buforowania](../best-practices-caching.md) ze wzorców firmy Microsoft & wskazówki [dotyczące projektowania i wdrażania aplikacji w chmurze Azure](https://github.com/mspnp/azure-guidance)
 
-Aby uzyskać więcej informacji o stanie sesji i innych najlepszych rozwiązaniach, zobacz [najlepsze rozwiązania dotyczące programowania w sieci Web (Tworzenie aplikacji w chmurze w rzeczywistych warunkach na platformie Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Aby uzyskać więcej informacji o stanie sesji i innych najlepszych rozwiązaniach, zobacz [najlepsze rozwiązania dotyczące programowania w sieci Web (kompilowanie Real-World aplikacji w chmurze przy użyciu platformy Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="third-party-session-state-providers"></a>Dostawcy stanu sesji innych firm
 

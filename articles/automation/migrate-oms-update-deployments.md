@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987598"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migruj Azure Monitor dzienniki aktualizacji do Azure Portal
@@ -43,7 +43,7 @@ Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-m
 
 Wszystkie wdrożenia aktualizacji utworzone w portalu pakietu OMS mają [zapisane wyszukiwanie](../azure-monitor/platform/computer-groups.md) znane również jako grupa komputerów o takiej samej nazwie jak wdrożenie aktualizacji, które już istnieje. Zapisane wyszukiwanie zawiera listę maszyn, które zostały zaplanowane we wdrożeniu aktualizacji.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Zrzut ekranu strony aktualizacji wdrożenia z wyróżnionymi polami nazwa i serwery.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Zrzut ekranu strony zarządzania aktualizacjami.":::
 
 Aby użyć istniejącego zapisanego wyszukiwania, wykonaj następujące kroki:
 

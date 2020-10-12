@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
 ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318810"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Praca z danymi za pomocą eksploratora usługi Azure Cosmos 
@@ -35,7 +35,7 @@ Azure Cosmos DB Explorer to autonomiczny interfejs oparty na sieci Web, który u
 
 4. Otwórz blok **Eksplorator danych** , wybierz pozycję **Otwórz pełny ekran**. W wyskakującym oknie dialogowym można wyświetlić dwa adresy URL dostępu — **Odczyt i zapis** i **Odczyt**. Te adresy URL umożliwiają tymczasowe udostępnianie konta Azure Cosmos DB innym użytkownikom. Dostęp do konta wygasa przez 24 godziny, po którym można ponownie nawiązać połączenie przy użyciu nowego adresu URL dostępu lub parametrów połączenia. 
 
-   **Odczyt i zapis** — w przypadku udostępniania adresu URL do odczytu i zapisu innym użytkownikom użytkownicy mogą wyświetlać i modyfikować bazy danych, kolekcje, zapytania i inne zasoby skojarzone z tym konkretnym kontem.
+   Do **odczytu i zapisu** — gdy udostępniasz adres URL Read-Write innym użytkownikom, mogą oni wyświetlać i modyfikować bazy danych, kolekcje, zapytania i inne zasoby skojarzone z danym kontem.
 
    **Odczyt** — w przypadku udostępniania adresu URL tylko do odczytu innym użytkownikom mogą wyświetlać bazy danych, kolekcje, zapytania i inne zasoby skojarzone z tym konkretnym kontem. Na przykład jeśli chcesz udostępnić wyniki zapytania członkom zespołu, którzy nie mają dostępu do Azure Portal lub konta Azure Cosmos DB, możesz podać te adresy URL.
 

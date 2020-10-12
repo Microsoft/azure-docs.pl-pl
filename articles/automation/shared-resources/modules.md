@@ -9,10 +9,10 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 2bf3dda6e3d99b5ed67298343f5238d304df7e2b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187374"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Zarządzanie modułami w usłudze Azure Automation
@@ -65,7 +65,7 @@ Automatyzacja nie powoduje automatycznego importowania głównego elementu AZ mo
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |
-| xDSCDomainjoin | 1.1 |
+| xDSCDomainjoin | 1,1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
@@ -88,7 +88,7 @@ Azure Automation obsługuje moduł wewnętrzny `Orchestrator.AssetManagement.Cmd
 |Get-AutomationVariable|`Get-AutomationVariable [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]`|
 |Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
-|Oczekiwanie — AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
+|Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
 Należy pamiętać, że wewnętrzne polecenia cmdlet różnią się nazwami poleceń cmdlet AZ i AzureRM. Wewnętrzne nazwy poleceń cmdlet nie zawierają słów takich jak `Azure` lub `Az` w rzeczownik, ale używają wyrazu `Automation` . Zalecamy korzystanie z poleceń cmdlet AZ lub AzureRM podczas wykonywania elementu Runbook w piaskownicy platformy Azure lub w hybrydowym procesie roboczym elementu Runbook systemu Windows. Wymagają one mniej parametrów i są uruchamiane w kontekście zadania, które jest już uruchomione.
 
@@ -144,7 +144,7 @@ Można zaimportować moduły AZ w Azure Portal. Pamiętaj, aby zaimportować tyl
 
     ![Zrzut ekranu przedstawiający importowanie modułów do konta usługi Automation](../media/modules/import-module.png)
 
-Ten import można również wykonać za pomocą [Galeria programu PowerShell](https://www.powershellgallery.com), wyszukując moduł do zaimportowania. Po znalezieniu modułu zaznacz go, a następnie wybierz kartę **Azure Automation** . Wybierz pozycję **wdróż, aby Azure Automation**.
+Ten import można również wykonać za pomocą [Galeria programu PowerShell](https://www.powershellgallery.com), wyszukując moduł do zaimportowania. Po znalezieniu modułu zaznacz go, a następnie wybierz kartę **Azure Automation** . Wybierz pozycję **Wdróż do Azure Automation**.
 
 ![Zrzut ekranu przedstawiający importowanie modułów bezpośrednio z Galeria programu PowerShell](../media/modules/import-gallery.png)
 
@@ -242,7 +242,7 @@ Poniższy przykład elementu Runbook używa zasobu połączenia contoso o nazwie
   }
   ```
 
-Można włączyć podobne zachowanie dla poleceń cmdlet, zezwalając im na akceptowanie obiektu połączenia bezpośrednio jako parametru, a nie tylko pól połączeń dla parametrów. Zazwyczaj potrzebny jest zestaw parametrów dla każdego, aby użytkownik, który nie korzysta z automatyzacji, mógł wywołać polecenia cmdlet bez konstruowania obiektu Hashtable do działania jako obiekt połączenia. Zestaw parametrów `UserAccount` służy do przekazywania właściwości pola połączenia. `ConnectionObject`umożliwia bezpośrednie przekazywanie połączenia.
+Można włączyć podobne zachowanie dla poleceń cmdlet, zezwalając im na akceptowanie obiektu połączenia bezpośrednio jako parametru, a nie tylko pól połączeń dla parametrów. Zazwyczaj potrzebny jest zestaw parametrów dla każdego, aby użytkownik, który nie korzysta z automatyzacji, mógł wywołać polecenia cmdlet bez konstruowania obiektu Hashtable do działania jako obiekt połączenia. Zestaw parametrów `UserAccount` służy do przekazywania właściwości pola połączenia. `ConnectionObject` umożliwia bezpośrednie przekazywanie połączenia.
 
 ### <a name="output-type"></a>Typ danych wyjściowych
 

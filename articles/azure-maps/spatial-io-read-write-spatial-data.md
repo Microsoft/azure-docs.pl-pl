@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333328"
 ---
 # <a name="read-and-write-spatial-data"></a>Odczytywanie i zapisywanie danych przestrzennych
@@ -29,7 +29,7 @@ W poniższej tabeli przedstawiono formaty plików przestrzennych, które są obs
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | Przestrzenny CSV       | ✓  |  ✓  |
-| Dobrze znany tekst   | ✓  |  ✓  |
+| Well-Known tekst   | ✓  |  ✓  |
 
 W następnych sekcjach opisano różne narzędzia do odczytywania i zapisywania danych przestrzennych przy użyciu przestrzennego modułu we/wy.
 
@@ -41,7 +41,7 @@ Podczas odczytywania skompresowanego pliku, jako zip lub KMZ, zostanie on rozpak
 
 Wynikiem funkcji Read jest `SpatialDataSet` obiekt. Ten obiekt rozszerza klasę funkcji GEOJSON. Można je łatwo przesłać do `DataSource` funkcji AS, aby renderować jej funkcje na mapie. `SpatialDataSet`Nie tylko zawiera informacje o funkcji, ale może również obejmować nakładki KML, metryki przetwarzania i inne szczegóły, jak opisano w poniższej tabeli.
 
-| Nazwa właściwości | Typ | Opis | 
+| Nazwa właściwości | Type | Opis | 
 |---------------|------|-------------|
 | `bbox` | `BoundingBox` | Pole ograniczenia dotyczące wszystkich danych w zestawie danych. |
 | `features` | `Feature[]` | Funkcje GEOJSON w zestawie danych. |
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>Czytelny i zapisany tekst dobrze znany (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>Odczyt i zapis Well-Known tekst (WKT)
 
 [Dobrze znany tekst](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) to Open GEOSPATIAL Consortium (OGC) standard służący do reprezentowania geometrie przestrzennego jako tekst. Wiele systemów geoprzestrzennych obsługuje WKT, takie jak Azure SQL i Azure PostgreSQL, przy użyciu wtyczki PostGIS. Podobnie jak w przypadku większości standardów OGC, współrzędne są sformatowane jako "Szerokość geograficzna", aby dostosować ją do Konwencji "x y". Na przykład punkt o długości co najwyżej 110 i Latitude 45 można napisać jako `POINT(-110 45)` przy użyciu formatu WKT.
 
 Dobrze znany tekst może zostać odczytany przy użyciu `atlas.io.ogc.WKT.read` funkcji i zapisany przy użyciu `atlas.io.ogc.WKT.write` funkcji.
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Przykłady odczytywania i pisania dobrze znanego tekstu (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Przykłady odczytywania i pisania Well-Known tekst (WKT)
 
 Poniższy kod przedstawia sposób odczytywania dobrze znanego ciągu tekstowego `POINT(-122.34009 47.60995)` i renderowania go na mapie za pomocą warstwy bąbelkowej.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Czytaj dobrze znany tekst' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>dobrze znany tekst</a> dla pióra, Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Odczytaj Well-Known tekst' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Odczytaj Well-Known tekst</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Poniższy kod ilustruje odczytywanie i pisanie dobrze znanego tekstu.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Odczytaj i Zapisz dobrze znany tekst' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>dobrze znany tekst pióra Odczytaj i pisz</a> , Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Odczytuj i zapisuj Well-Known tekst' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Odczytaj i zapisz Well-Known tekst</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Odczyt i zapis GML

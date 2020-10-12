@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8360eae71ddd41d3105dbd037f273139262727ad
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419567"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurowanie i Zezwalanie użytkownikom na uwierzytelnianie SMS przy użyciu Azure Active Directory (wersja zapoznawcza)
@@ -110,7 +110,7 @@ Po pomyślnym zainicjowaniu obsługi zostanie wyświetlony znacznik wyboru dla o
 
 Aby przetestować konto użytkownika, które jest teraz włączone na potrzeby logowania opartego na programie SMS, wykonaj następujące czynności:
 
-1. Otwórz nowe, InPrivate lub incognito okno przeglądarki sieci Web, aby[https://www.office.com][office]
+1. Otwórz nowe, InPrivate lub incognito okno przeglądarki sieci Web, aby [https://www.office.com][office]
 1. W prawym górnym rogu wybierz pozycję **Zaloguj**.
 1. W wierszu logowania wprowadź numer telefonu skojarzony z użytkownikiem w poprzedniej sekcji, a następnie wybierz przycisk **dalej**.
 

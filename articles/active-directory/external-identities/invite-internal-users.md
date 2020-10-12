@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909326"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Zapraszanie użytkowników wewnętrznych do współpracy B2B
@@ -51,7 +51,7 @@ Możesz użyć programu PowerShell lub interfejsu API zaproszenia do wysłania z
 Domyślnie zaproszenie wyśle użytkownikowi wiadomość e-mail z informacją o tym, że zostały zaproszone, ale możesz pominąć tę wiadomość e-mail i wysłać własne.
 
 > [!NOTE]
-> Aby wysłać własną wiadomość e-mail lub inną komunikację, możesz użyć polecenie New-AzureADMSInvitation with-SendInvitationMessage: $false, aby zapraszać użytkowników w trybie dyskretnym, a następnie wysyłać własne wiadomości e-mail do konwertowanego użytkownika. Zobacz [interfejs API współpracy i dostosowywanie usługi Azure AD B2B](customize-invitation-api.md).
+> Aby wysłać własną wiadomość e-mail lub inną komunikację, możesz użyć New-AzureADMSInvitation z-SendInvitationMessage: $false, aby zapraszać użytkowników w trybie dyskretnym, a następnie wysyłać własne wiadomości e-mail do konwertowanego użytkownika. Zobacz [interfejs API współpracy i dostosowywanie usługi Azure AD B2B](customize-invitation-api.md).
 
 ## <a name="use-powershell-to-send-a-b2b-invitation"></a>Wysyłanie zaproszenia B2B przy użyciu programu PowerShell
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898545"
 ---
 # <a name="decision-forest-regression-module"></a>Moduł regresji lasu decyzyjnego
@@ -38,7 +38,7 @@ Drzewa decyzyjne mają następujące zalety:
 
 Ten model regresji składa się z kompletów drzew decyzyjnych. Każde drzewo w lesie z decyzją regresji wyprowadza rozkład gaussowskie jako prognozowanie. Agregacja jest wykonywana w ramach zestawu drzew, aby znaleźć rozkład gaussowskie najbliżej połączonej dystrybucji dla wszystkich drzew w modelu.
 
-Aby uzyskać więcej informacji na temat teoretycznej struktury tego algorytmu i jego implementacji, zobacz ten artykuł: [lasy decyzyjne: ujednolicona struktura klasyfikacji, regresji, oszacowania gęstości, uczenie kolektora i uczenie Międzynadzorowane](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Aby uzyskać więcej informacji o architekturze teoretycznej dla tego algorytmu i jego implementacji, zobacz ten artykuł: [lasy decyzyjne: ujednolicona struktura klasyfikacji, regresji, oszacowania gęstości, uczenie kolektora i uczenie Semi-Supervised](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurowanie modelu regresji lasu decyzyjnego
 

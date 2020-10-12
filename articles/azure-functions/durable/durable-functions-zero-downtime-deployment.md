@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093072"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Wdrożenie bez przestojów dla Durable Functions
@@ -54,7 +54,7 @@ Aby skonfigurować ten scenariusz, należy wykonać poniższą procedurę.
 
 1. Dla każdego miejsca Utwórz nowe ustawienie aplikacji, na przykład `DurableManagementStorage` . Ustaw jej wartość na parametry połączenia różnych kont magazynu. Te konta magazynu są używane przez rozszerzenie Durable Functions do [niezawodnego wykonywania](./durable-functions-orchestrations.md). Użyj oddzielnego konta magazynu dla każdego miejsca. Nie oznaczaj tego ustawienia jako ustawienia miejsca wdrożenia.
 
-1. Whost.jsaplikacji funkcji w [sekcji durableTask pliku](durable-functions-bindings.md#hostjson-settings)Określ `azureStorageConnectionStringName` jako nazwę ustawienia aplikacji utworzonego w kroku 3.
+1. Whost.jsaplikacji funkcji w [ sekcji durableTask pliku](durable-functions-bindings.md#hostjson-settings)Określ `azureStorageConnectionStringName` jako nazwę ustawienia aplikacji utworzonego w kroku 3.
 
 Na poniższym diagramie przedstawiono opisaną konfigurację miejsc wdrożenia i kont magazynu. W tym potencjalnym scenariuszu preinstalacji wersja 2 aplikacji funkcji jest uruchomiona w miejscu produkcyjnym, natomiast wersja 1 pozostaje w miejscu przejściowym.
 
@@ -162,7 +162,7 @@ Router monitoruje stan aranżacji w wersji 1.0.1 i usuwa aplikacje po zakończen
 
 ### <a name="tracking-store-settings"></a>Śledzenie ustawień magazynu
 
-Każda aplikacja funkcji powinna używać oddzielnych kolejek planowania, prawdopodobnie w oddzielnym koncie magazynu. Jeśli chcesz wysyłać zapytania o wszystkie wystąpienia aranżacji we wszystkich wersjach aplikacji, możesz udostępniać tabele wystąpień i historii w aplikacjach funkcji. Tabele można udostępniać przez skonfigurowanie `trackingStoreConnectionStringName` `trackingStoreNamePrefix` ustawień i whost.jsw pliku [ustawień](durable-functions-bindings.md#host-json) , aby wszystkie te same wartości były używane.
+Każda aplikacja funkcji powinna używać oddzielnych kolejek planowania, prawdopodobnie w oddzielnym koncie magazynu. Jeśli chcesz wysyłać zapytania o wszystkie wystąpienia aranżacji we wszystkich wersjach aplikacji, możesz udostępniać tabele wystąpień i historii w aplikacjach funkcji. Tabele można udostępniać przez skonfigurowanie `trackingStoreConnectionStringName` `trackingStoreNamePrefix` ustawień i whost.jsw pliku [ ustawień](durable-functions-bindings.md#host-json) , aby wszystkie te same wartości były używane.
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie wystąpieniami w Durable Functions na platformie Azure](durable-functions-instance-management.md).
 

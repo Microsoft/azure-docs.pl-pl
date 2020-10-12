@@ -4,10 +4,10 @@ description: Korzystając z usługi Analiza filmów wideo na żywo, możesz IoT 
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84261079"
 ---
 # <a name="playback-of-recordings"></a>Odtwarzanie nagrań 
@@ -48,10 +48,10 @@ W przypadku korzystania z programu CVR urządzenia odtwarzania nie mogą zażąd
 
 Wartość precyzji może być jedną z: Year, month, Day lub Full (jak pokazano poniżej). 
 
-|Dokładność|rok|miesiąc|dzień|szczegółowe|
+|Precyzja|rok|miesiąc|dzień|szczegółowe|
 |---|---|---|---|---|
 |Zapytanie|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
-|Odpowiedź|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Pełna wierność odpowiedzi. Jeśli wszystkie przerwy w sobie nie były dostępne, rozpoczęcie powinno wynosić startTime, a koniec endTime.|
+|Reakcja|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Pełna wierność odpowiedzi. Jeśli wszystkie przerwy w sobie nie były dostępne, rozpoczęcie powinno wynosić startTime, a koniec endTime.|
 |Ogranicza|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format rrrr, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą zawierać dowolną liczbę lat.<br/>Wartości &#x2022;są włącznie.|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format RRRR-MM, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą się składać z maksymalnie 12 miesięcy od siebie.<br/>Wartości &#x2022;są włącznie.|&#x2022;startTime <= endTime<br/>&#x2022;obu powinny mieć format RRRR-MM-DD, w przeciwnym razie zwracany jest błąd.<br/>Wartości &#x2022;mogą się składać z maksymalnie 31 dni.<br/>Wartości są włącznie.|&#x2022;startTime < endTime<br/>Wartości &#x2022;mogą się składać z maksymalnie 25 godzin.<br/>Wartości &#x2022;są włącznie.|
 
 #### <a name="additional-request-format-considerations"></a>Dodatkowe zagadnienia dotyczące formatu żądań
@@ -209,8 +209,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 Jak wspomniano powyżej, te filtry umożliwiają wybranie fragmentów nagrania (na przykład od 9:00 do 11AM w ciągu nowych lat) na potrzeby odtwarzania. W przypadku przesyłania strumieniowego za pośrednictwem HLS adres URL przesyłania strumieniowego będzie wyglądać następująco `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8` . Aby można było wybrać część nagrania, należy dodać parametr startTime i endTime, taki jak: `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8` . W rezultacie filtry zakresu czasu są modyfikatorami adresów URL służącymi do opisania części osi czasu rejestrowania, która jest uwzględniona w manifeście przesyłania strumieniowego:
 
-* `starttime`jest sygnaturą typu DateTime ISO 8601 opisującą żądany czas rozpoczęcia osi czasu wideo w zwracanym manifeście.
-* `endtime`jest sygnaturą typu DateTime ISO 8601 opisującą żądany czas zakończenia dla osi czasu wideo zwróconej w manifeście.
+* `starttime` jest sygnaturą typu DateTime ISO 8601 opisującą żądany czas rozpoczęcia osi czasu wideo w zwracanym manifeście.
+* `endtime` jest sygnaturą typu DateTime ISO 8601 opisującą żądany czas zakończenia dla osi czasu wideo zwróconej w manifeście.
 
 Maksymalna długość tego manifestu nie może przekroczyć 24 godzin.
 
@@ -294,7 +294,7 @@ Dzięki takiemu rejestrowaniu:
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
 * Jeśli zażądasz manifestu, gdzie startTime i endTime znajdowały się wewnątrz "otworu" w środku — powiedzmy od 8:00 do od 10:00 UTC, a następnie usługa będzie działać tak samo, jakby filtr zasobów miał wynik pusty.
 
-    [Jest to żądanie, które pobiera pustą odpowiedź]`GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
+    [Jest to żądanie, które pobiera pustą odpowiedź] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
 * Jeśli zażądasz manifestu, w którym tylko jeden z wartości startTime lub endTime znajduje się w "dziurie", zwrócony manifest będzie zawierać tylko część tego przedziału. Wartość startTime lub endTime można przyciągnąć do najbliższej prawidłowej granicy. Na przykład jeśli zostanie wyświetlony monit o przesłanie strumienia 3-HR z od 10:00 do 1PM, odpowiedź będzie zawierać 1-HR wartość multimedialną dla 12 12:00 do 1PM
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
@@ -303,7 +303,7 @@ Dzięki takiemu rejestrowaniu:
 
 ## <a name="recording-and-playback-latencies"></a>Czasy rejestrowania i odtwarzania
 
-W przypadku korzystania z usługi Analiza filmów wideo na żywo w IoT Edge, aby zarejestrować się w elemencie zawartości, należy określić właściwość segmentLength, która informuje moduł, aby zagregł minimalny czas trwania wideo (w sekundach) przed jego zarejestrowaniem w chmurze. Na przykład jeśli segmentLength jest ustawiony na 300, moduł będzie zbierać zawartość wideo 5 minut przed przekazaniem jednego 5-minutowego fragmentu, a następnie przejdź do trybu akumulacji w ciągu następnych 5 minut i przekaż ponownie. Zwiększenie segmentLengthu może obniżyć koszty transakcji usługi Azure Storage, ponieważ liczba operacji odczytu i zapisu nie będzie częściej niż raz na segmentLength sekund.
+W przypadku korzystania z usługi Analiza filmów wideo na żywo w IoT Edge, aby zarejestrować się w elemencie zawartości, należy określić właściwość segmentLength, która informuje moduł, aby zagregł minimalny czas trwania wideo (w sekundach) przed jego zarejestrowaniem w chmurze. Na przykład jeśli segmentLength jest ustawiony na 300, moduł będzie zbierać zawartość wideo 5 minut przed przekazaniem 1 5 minut "fragment", a następnie przejdź do trybu akumulacji w ciągu następnych 5 minut i przekaż ponownie. Zwiększenie segmentLengthu może obniżyć koszty transakcji usługi Azure Storage, ponieważ liczba operacji odczytu i zapisu nie będzie częściej niż raz na segmentLength sekund.
 
 W związku z tym przesyłanie strumieniowe wideo z Media Services zostanie opóźnione o co najmniej tyle czasu. 
 

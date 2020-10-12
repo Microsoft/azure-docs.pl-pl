@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.openlocfilehash: 83950c2d3c5439886ff787b69d9da4d0c214de31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092545"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Aktualizowanie modeli Azure Machine Learning Studio (klasycznych) za pomocą działania aktualizacji zasobów
@@ -63,7 +63,7 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Ma
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nazwa działania w potoku     | Tak      |
 | description                   | Tekst opisujący działanie działania.  | Nie       |
-| typ                          | W przypadku działania dotyczącego aktualizacji zasobów Azure Machine Learning Studio (klasycznej) typem działania jest **AzureMLUpdateResource**. | Tak      |
+| typ                          | W przypadku działania dotyczącego aktualizacji zasobów Azure Machine Learning Studio (klasycznej) typem działania jest  **AzureMLUpdateResource**. | Tak      |
 | linkedServiceName             | Połączona usługa Azure Machine Learning Studio (klasyczna), która zawiera właściwość właściwości updateresourceendpoint. | Tak      |
 | trainedModelName              | Nazwa modułu przeszkolonego modelu w eksperymentie usługi sieci Web do zaktualizowania | Tak      |
 | trainedModelLinkedServiceName | Nazwa połączonej usługi Azure Storage przechowująca plik ilearner, który jest przekazywany przez operację aktualizacji | Tak      |

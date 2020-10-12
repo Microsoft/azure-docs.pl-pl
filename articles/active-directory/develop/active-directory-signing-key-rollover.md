@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88948134"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Przerzucanie klucza podpisywania na platformie tożsamości firmy Microsoft
@@ -37,7 +37,7 @@ Sposób, w jaki aplikacja obsługuje Przerzucanie kluczy, zależy od zmiennych, 
 * [Natywne aplikacje klienckie uzyskujące dostęp do zasobów](#nativeclient)
 * [Aplikacje sieci Web/interfejsy API uzyskujący dostęp do zasobów](#webclient)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby i skompilowane przy użyciu usługi Azure App Services](#appservices)
-* [Aplikacje sieci Web/interfejsy API chroniące zasoby za pomocą oprogramowania .NET OWIN OpenID Connect Connect, WS-karmione lub WindowsAzureActiveDirectoryBearerAuthentication](#owin)
+* [Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu oprogramowania .NET OWIN OpenID Connect Connect, WS-Fed lub WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu oprogramowania .NET Core OpenID Connect Connect lub JwtBearerAuthentication](#owincore)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu modułu Node.js Passport-Azure-AD](#passport)
 * [Aplikacje sieci Web/interfejsy API chroniące zasoby i tworzone za pomocą programu Visual Studio 2015 lub nowszego](#vs2015)
@@ -65,8 +65,8 @@ Aplikacje sieci Web i interfejsy API sieci Web, które używają przepływu tylk
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby i skompilowane przy użyciu usługi Azure App Services
 Funkcja uwierzytelniania/autoryzacji App Services platformy Azure ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
 
-### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby za pomocą oprogramowania .NET OWIN OpenID Connect Connect, WS-karmione lub WindowsAzureActiveDirectoryBearerAuthentication
-Jeśli aplikacja korzysta z oprogramowania .NET OWIN OpenID Connect Connect, WS-pokarmowego lub WindowsAzureActiveDirectoryBearerAuthentication, ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
+### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplikacje sieci Web/interfejsy API chroniące zasoby przy użyciu oprogramowania .NET OWIN OpenID Connect Connect, WS-Fed lub WindowsAzureActiveDirectoryBearerAuthentication
+Jeśli aplikacja korzysta z oprogramowania .NET OWIN OpenID Connect Connect, WS-Fed lub WindowsAzureActiveDirectoryBearerAuthentication, ma już niezbędną logikę do automatycznego obsługi przerzucania kluczy.
 
 Możesz potwierdzić, że aplikacja korzysta z dowolnego z poniższych fragmentów kodu w Startup.cs lub Startup.Auth.cs aplikacji
 
@@ -284,7 +284,7 @@ Wykonaj poniższe kroki, aby sprawdzić, czy logika przerzucania kluczy działa.
           </keys>
    ```
 2. W **\<add thumbprint="">** ustawieniu Zmień wartość odcisku palca, zastępując dowolny znak innym. Zapisz plik **Web.config** .
-3. Skompiluj aplikację, a następnie uruchom ją. Jeśli możesz zakończyć proces logowania, aplikacja pomyślnie zaktualizuje klucz, pobierając wymagane informacje z dokumentu metadanych Federacji katalogu. Jeśli masz problemy z logowaniem się, upewnij się, że zmiany w aplikacji są poprawne, odczytując [Dodawanie logowania do aplikacji sieci Web za pomocą artykułu Microsoft Identity platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) lub pobierając i sprawdzając następujący przykład kodu: [wielodostępna aplikacja w chmurze dla Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Skompiluj aplikację, a następnie uruchom ją. Jeśli możesz zakończyć proces logowania, aplikacja pomyślnie zaktualizuje klucz, pobierając wymagane informacje z dokumentu metadanych Federacji katalogu. Jeśli masz problemy z logowaniem się, upewnij się, że zmiany w aplikacji są poprawne, odczytując [dodawanie Sign-On do aplikacji sieci Web przy użyciu artykułu platformy tożsamości firmy Microsoft](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) lub pobierając i sprawdzając następujący przykład kodu: [wielodostępna aplikacja w chmurze dla Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Aplikacje sieci Web chroniące zasoby i utworzone za pomocą programu Visual Studio 2008 lub 2010 oraz Windows Identity Foundation (WIF) v 1.0 dla programu .NET 3,5
 Jeśli aplikacja została utworzona w systemie WIF v 1.0, nie ma żadnego mechanizmu, aby automatycznie odświeżyć konfigurację aplikacji w celu użycia nowego klucza.

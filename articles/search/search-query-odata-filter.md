@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934858"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Składnia $filter OData na platformie Azure Wyszukiwanie poznawcze
@@ -32,7 +32,7 @@ Usługa Azure Wyszukiwanie poznawcze używa [wyrażeń filtru OData](query-odata
 
 ## <a name="syntax"></a>Składnia
 
-Filtr w języku OData jest wyrażeniem logicznym, które z kolei może być jednym z kilku typów wyrażeń, jak pokazano w poniższym EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Filtr w języku OData jest wyrażeniem logicznym, które z kolei może być jednym z kilku typów wyrażeń, jak pokazano w poniższym EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -75,7 +75,7 @@ Typy wyrażeń logicznych obejmują:
 
 Jeśli piszesz wyrażenie filtru bez nawiasów wokół jego wyrażeń podrzędnych, usługa Azure Wyszukiwanie poznawcze obliczy go zgodnie z zestawem reguł pierwszeństwa operatora. Reguły te są oparte na tym, które operatory są używane do łączenia wyrażeń podrzędnych. Poniższa tabela zawiera listę grup operatorów w kolejności od najwyższego do najniższego pierwszeństwa:
 
-| Grupowanie | Operatorzy: |
+| Group (Grupa) | Operatorzy: |
 | --- | --- |
 | Operatory logiczne | `not` |
 | Operatory porównania | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

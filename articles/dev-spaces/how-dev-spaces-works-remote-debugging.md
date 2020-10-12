@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Zawiera opis procesów zdalnego debugowania w usłudze Azure Kubernetes Service przy użyciu Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
 ms.openlocfilehash: fd984ff6a8ebe336f76643406c0957769dbfd3da
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213390"
 ---
 # <a name="how-remote-debugging-your-code-with-azure-dev-spaces-works"></a>Jak zdalne debugowanie kodu za pomocą Azure Dev Spaces działa

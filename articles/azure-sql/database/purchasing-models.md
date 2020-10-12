@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319456"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database i wystąpienie zarządzane SQL
@@ -127,7 +127,7 @@ Można dodać dodatkowe jednostek eDTU do istniejącej puli bez przestoju bazy d
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Określanie liczby DTU wymaganych przez obciążenie
 
-Jeśli chcesz przeprowadzić migrację istniejącego lokalnego lub SQL Server obciążenia maszyny wirtualnej do SQL Database, użyj [kalkulatora jednostek DTU](https://dtucalculator.azurewebsites.net/) , aby przybliżyć wymaganą liczbę DTU. W przypadku istniejącego obciążenia SQL Database należy użyć [szczegółowych informacji o wydajności zapytań](query-performance-insight-use.md) , aby zrozumieć użycie zasobów bazy danych (DTU) i uzyskać dokładniejszy wgląd w optymalizację obciążeń. Dynamiczny widok zarządzania [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) (DMV) umożliwia wyświetlenie zużycia zasobów w ciągu ostatniej godziny. Widok wykazu [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) przedstawia użycie zasobów w ciągu ostatnich 14 dni, ale przy niższej wierności średniej z pięciu minut.
+Jeśli chcesz przeprowadzić migrację istniejącego lokalnego lub SQL Server obciążenia maszyny wirtualnej do SQL Database, użyj [kalkulatora jednostek DTU](https://dtucalculator.azurewebsites.net/) , aby przybliżyć wymaganą liczbę DTU. W przypadku istniejącego obciążenia SQL Database należy użyć [szczegółowych informacji o wydajności zapytań](query-performance-insight-use.md) , aby zrozumieć użycie zasobów bazy danych (DTU) i uzyskać dokładniejszy wgląd w optymalizację obciążeń. [Sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamicznym widoku zarządzania (DMV) umożliwia wyświetlenie zużycia zasobów w ciągu ostatniej godziny. Widok wykazu [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) przedstawia użycie zasobów w ciągu ostatnich 14 dni, ale przy niższej wierności średniej z pięciu minut.
 
 ### <a name="determine-dtu-utilization"></a>Określanie użycia jednostek DTU
 
@@ -135,7 +135,7 @@ Aby określić średnią wartość procentową wykorzystania jednostek DTU/eDTU 
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Wartości wejściowe dla tej formuły można uzyskać z [tabeli sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)i [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) widoków DMV. Innymi słowy, aby określić procent użycia jednostek DTU/eDTU w kierunku liczby jednostek DTU/eDTU dla bazy danych lub puli elastycznej, należy wybrać największą wartość procentową z następujących elementów: `avg_cpu_percent` , `avg_data_io_percent` i `avg_log_write_percent` w danym momencie.
+Wartości wejściowe dla tej formuły można uzyskać z [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)i [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) widoków DMV. Innymi słowy, aby określić procent użycia jednostek DTU/eDTU w kierunku liczby jednostek DTU/eDTU dla bazy danych lub puli elastycznej, należy wybrać największą wartość procentową z następujących elementów: `avg_cpu_percent` , `avg_data_io_percent` i `avg_log_write_percent` w danym momencie.
 
 > [!NOTE]
 > Limit liczby jednostek DTU bazy danych jest określany przez procesor, odczyty, zapisy i pamięć dla bazy danych. Jednak ponieważ aparat SQL Database zwykle używa całej dostępnej pamięci dla pamięci podręcznej danych w celu zwiększenia wydajności, `avg_memory_usage_percent` wartość zwykle będzie bliska 100%, niezależnie od bieżącego obciążenia bazy danych. W związku z tym nawet jeśli pamięć ma pośredni wpływ na limit jednostek DTU, nie jest używana w formule użycia jednostek DTU.

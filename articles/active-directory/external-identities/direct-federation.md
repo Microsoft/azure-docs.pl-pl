@@ -1,6 +1,6 @@
 ---
 title: Bezpośrednia Federacja z dostawcą tożsamości dla B2B — Azure AD
-description: Bezpośrednio sfederować z dostawcą tożsamości typu SAML lub WS-Direct, aby Goście mogli logować się do aplikacji usługi Azure AD
+description: Bezpośrednio sfederować z dostawcą tożsamości SAML lub WS-Fed, aby Goście mogli logować się do aplikacji usługi Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909557"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
@@ -24,7 +24,7 @@ ms.locfileid: "87909557"
 > [!NOTE]
 >  Federacja bezpośrednia jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-W tym artykule opisano sposób konfigurowania Federacji bezpośredniej z inną organizacją do współpracy B2B. Można skonfigurować bezpośrednią Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-IP.
+W tym artykule opisano sposób konfigurowania Federacji bezpośredniej z inną organizacją do współpracy B2B. Można skonfigurować bezpośrednią Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-Fed.
 Po skonfigurowaniu bezpośredniej Federacji z dostawcy tożsamości partnera nowi użytkownicy-Goście z tej domeny mogą używać własnego konta organizacji zarządzanego przez dostawcy tożsamości do logowania się do dzierżawy usługi Azure AD i rozpoczynania współpracy z Twoimi użytkownikami. Użytkownik-Gość nie musi tworzyć oddzielnego konta usługi Azure AD.
 > [!NOTE]
 > Bezpośredni federacyjny użytkownicy-gość muszą się zalogować przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy Federacji bezpośredniej nie mogą obecnie zalogować się przy użyciu wspólnych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie `https://myapps.microsoft.com` , `https://portal.azure.com` , lub `https://teams.microsoft.com` spowoduje wystąpienie błędu.
@@ -83,11 +83,11 @@ Nie. w tym scenariuszu należy użyć funkcji [jednokrotnego kodu dostępu w wia
 Najpierw organizacja partnera musi skonfigurować swojego dostawcę tożsamości z wymaganymi oświadczeniami i relacjami zaufania jednostek uzależnionych. 
 
 > [!NOTE]
-> Aby zilustrować sposób konfigurowania dostawcy tożsamości dla Federacji bezpośredniej, będziemy używać Active Directory Federation Services (AD FS) jako przykładu. Zapoznaj się z artykułem [Konfigurowanie bezpośredniej Federacji z AD FS](direct-federation-adfs.md), która zawiera przykłady konfigurowania AD FS jako dostawcy tożsamości SAML 2,0 lub WS-in w przygotowaniu do Federacji bezpośredniej.
+> Aby zilustrować sposób konfigurowania dostawcy tożsamości dla Federacji bezpośredniej, będziemy używać Active Directory Federation Services (AD FS) jako przykładu. Zapoznaj się z artykułem [Konfigurowanie bezpośredniej Federacji z AD FS](direct-federation-adfs.md), która zawiera przykłady konfigurowania AD FS jako dostawcy tożsamości SAML 2,0 lub WS-Fed w przygotowaniu do bezpośredniego Federacji.
 
 ### <a name="saml-20-configuration"></a>Konfiguracja protokołu SAML 2,0
 
-Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby uzyskać więcej informacji na temat konfigurowania zaufania między dostawcą tożsamości SAML i usługą Azure AD, zobacz [Używanie dostawcy tożsamości saml 2,0 (dostawcy tożsamości) na potrzeby logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby uzyskać więcej informacji na temat konfigurowania zaufania między dostawcą tożsamości SAML i usługą Azure AD, zobacz  [Używanie dostawcy tożsamości saml 2,0 (dostawcy tożsamości) na potrzeby logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
 > Domena docelowa dla Federacji bezpośredniej nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub musi być domeną dozwolonego dostawcy tożsamości. Szczegółowe informacje znajdują się w sekcji [ograniczenia](#limitations) . 
@@ -101,7 +101,7 @@ Atrybuty wymagane dla odpowiedzi SAML 2,0 z dostawcy tożsamości:
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Grupy odbiorców     |`urn:federation:MicrosoftOnline`         |
-|Wystawca     |Identyfikator URI wystawcy partnera dostawcy tożsamości, na przykład`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Wystawca     |Identyfikator URI wystawcy partnera dostawcy tożsamości, na przykład `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Wymagane oświadczenia dla tokenu SAML 2,0 wystawionego przez dostawcy tożsamości:
@@ -111,25 +111,25 @@ Wymagane oświadczenia dla tokenu SAML 2,0 wystawionego przez dostawcy tożsamo�
 |Format NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-### <a name="ws-fed-configuration"></a>Konfiguracja usługi WS-karmione 
-Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu WS-pokarmowego z określonymi wymaganiami wymienionymi poniżej. Obecnie dwaj dostawcy usługi WS-karmione zostały przetestowani pod kątem zgodności z usługą Azure AD, w tym AD FS i Shibboleth. Aby uzyskać więcej informacji na temat ustanawiania zaufania jednostki uzależnionej między zgodnym dostawcą usługi WS-in a usługą Azure AD, zobacz "papier integracji usługi STS przy użyciu protokołów WS" dostępnych w dokumentach [zgodności dostawcy tożsamości usługi Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
+### <a name="ws-fed-configuration"></a>Konfiguracja WS-Fed 
+Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy używają protokołu WS-Fed z pewnymi określonymi wymaganiami wymienionymi poniżej. Obecnie dwaj dostawcy WS-Fed zostali przetestowani pod kątem zgodności z usługą Azure AD, w tym AD FS i Shibboleth. Aby uzyskać więcej informacji na temat ustanawiania zaufania jednostki uzależnionej między dostawcą zgodnym WS-Fed a usługą Azure AD, zobacz "papier integracji usługi STS przy użyciu protokołów WS" dostępnych w dokumentach [zgodności dostawcy tożsamości usługi Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
 > Domena docelowa dla Federacji bezpośredniej nie może być zweryfikowana przez system DNS w usłudze Azure AD. Domena adresu URL uwierzytelniania musi być zgodna z domeną docelową lub domeną dozwolonego dostawcy tożsamości. Szczegółowe informacje znajdują się w sekcji [ograniczenia](#limitations) . 
 
-#### <a name="required-ws-fed-attributes-and-claims"></a>Wymagane atrybuty i oświadczenia dotyczące protokołu WS-in
+#### <a name="required-ws-fed-attributes-and-claims"></a>Wymagane WS-Fed atrybuty i oświadczenia
 
-W poniższych tabelach przedstawiono wymagania dotyczące określonych atrybutów i oświadczeń, które muszą zostać skonfigurowane w ramach dostawcy tożsamości opartego na usłudze WS-in-the-karmione. Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w komunikacie protokołu WS-pokarmowym od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie.
+W poniższych tabelach przedstawiono wymagania dotyczące określonych atrybutów i oświadczeń, które muszą być skonfigurowane w ramach dostawcy tożsamości WS-Fed innej firmy. Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w komunikacie WS-Fed od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie.
 
-Wymagane atrybuty w wiadomości protokołu WS-pokarmowego z dostawcy tożsamości:
+Wymagane atrybuty w komunikacie WS-Fed z dostawcy tożsamości:
  
 |Atrybut  |Wartość  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Grupy odbiorców     |`urn:federation:MicrosoftOnline`         |
-|Wystawca     |Identyfikator URI wystawcy partnera dostawcy tożsamości, na przykład`http://www.example.com/exk10l6w90DHM0yi...`         |
+|Wystawca     |Identyfikator URI wystawcy partnera dostawcy tożsamości, na przykład `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-Wymagane oświadczenia dla tokenu protokołu WS-pokarmowego wydanego przez dostawcy tożsamości:
+Wymagane oświadczenia dla WS-Fed tokenu wystawionego przez dostawcy tożsamości:
 
 |Atrybut  |Wartość  |
 |---------|---------|
@@ -148,11 +148,11 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
 2. Wybierz **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**.
 3. Wybierz pozycję, a następnie wybierz pozycję **nowe dostawcy tożsamości SAML/WS-karmione**.
 
-    ![Zrzut ekranu przedstawiający przycisk dodawania nowych dostawcy tożsamości języka SAML lub protokołu WS-karmionego](media/direct-federation/new-saml-wsfed-idp.png)
+    ![Zrzut ekranu przedstawiający przycisk dodawania nowego elementu SAML lub WS-Fed dostawcy tożsamości](media/direct-federation/new-saml-wsfed-idp.png)
 
 4. Na **nowej stronie dostawcy tożsamości SAML/WS-karmione** w obszarze **Protokół dostawcy tożsamości**wybierz pozycję **SAML** lub **WS-karmione**.
 
-    ![Zrzut ekranu przedstawiający przycisk analizy na stronie dostawcy tożsamości SAML lub WS-karmione](media/direct-federation/new-saml-wsfed-idp-parse.png)
+    ![Zrzut ekranu przedstawiający przycisk analizy na stronie dostawcy tożsamości SAML lub WS-Fed](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
 5. Wprowadź nazwę domeny organizacji partnera, która będzie nazwą domeny docelowej dla Federacji bezpośredniej
 6. Aby wypełnić szczegóły metadanych, można przekazać plik metadanych. Jeśli zdecydujesz się na ręczne wprowadzanie metadanych, wprowadź następujące informacje:
