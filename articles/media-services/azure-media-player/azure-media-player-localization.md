@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087292"
 ---
 # <a name="azure-media-player-localization"></a>Lokalizacja Azure Media Player #
@@ -28,15 +28,15 @@ Azure Media Player obecnie obsługuje następujące języki z odpowiednimi kodam
 
 | Język            | Kod | Język                | Kod   | Język                | Kod         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
-| Angielski {domyślnie}   | pl   | Chorwacki                | godz.     | Rumuński                | ro           |
+| Angielski {domyślnie}   | en   | Chorwacki                | godz.     | Rumuński                | ro           |
 | Arabski              | ty   | Węgierski               | Węgry     | Słowacki                  | SK           |
 | Bułgarski           | BG   | Indonezyjski              | identyfikator     | Języka                 | SL           |
 | Kataloński             | urzędu certyfikacji   | Islandzki               | is     | Serbski – cyrylica      | Wirtualizacja SR-Cyrl-CS   |
 | Czeski               | Rejestr   | Włoski                 | it     | Serbski – łaciński         | sr-latn-rs   |
-| Duński              | da   | Japoński                | ja     | Rosyjski                 | ru           |
+| Duński              | da   | japoński                | ja     | Rosyjski                 | ru           |
 | Niemiecki              | de   | Kazachski                  | kk     | Szwedzki                 | sv           |
 | Grecki               | Colon   | Koreański                  | Ko     | Tajlandzki                    | th           |
-| Hiszpański             | Tak   | Litewski              | lt     | Tagalski                 | Przełącznik           |
+| Hiszpański             | es   | Litewski              | lt     | Tagalski                 | Przełącznik           |
 | Estoński            | staw   | Łotewski                 | LV     | Turecki                 | zdawczy           |
 | Baskijski              | Europejska   | Malezji               | Arial     | Ukraiński               | Południowe Zjednoczone Królestwo           |
 | Perski               | FA   | Norweski — BokmÃ ¥ l     | sesja     | Urdu                    | publikacj           |

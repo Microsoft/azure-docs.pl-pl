@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088023"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Dokumentacja dla deweloperów Azure Functions F #
@@ -278,16 +278,16 @@ let mylog(log: ILogger, text: string) =
 
 Ścieżki do dyrektywy odnoszą się `#load` do lokalizacji `.fsx` pliku.
 
-* `#load "logger.fsx"`ładuje plik znajdujący się w folderze funkcji.
-* `#load "package\logger.fsx"`ładuje plik znajdujący się w `package` folderze w folderze funkcji.
-* `#load "..\shared\mylogger.fsx"`ładuje plik znajdujący się w `shared` folderze na tym samym poziomie co folder funkcji, czyli bezpośrednio w `wwwroot` .
+* `#load "logger.fsx"` ładuje plik znajdujący się w folderze funkcji.
+* `#load "package\logger.fsx"` ładuje plik znajdujący się w `package` folderze w folderze funkcji.
+* `#load "..\shared\mylogger.fsx"` ładuje plik znajdujący się w `shared` folderze na tym samym poziomie co folder funkcji, czyli bezpośrednio w `wwwroot` .
 
 `#load`Dyrektywa działa tylko z `.fsx` plikami (F # Script), a nie z `.fs` plikami.
 
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji można znaleźć w następujących zasobach:
 
-* [Przewodnik po języku F #](/dotnet/articles/fsharp/index)
+* [Przewodnik języka F#](/dotnet/articles/fsharp/index)
 * [Najlepsze rozwiązania dotyczące Azure Functions](functions-best-practices.md)
 * [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)
 * [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md)

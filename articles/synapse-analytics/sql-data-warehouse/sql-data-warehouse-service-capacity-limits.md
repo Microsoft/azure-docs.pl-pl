@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204986"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limity pojemności usługi Azure Synapse Analytics (dawniej SQL DW)
@@ -27,9 +27,9 @@ Maksymalne wartości dozwolone dla różnych składników usługi Azure Synapse.
 | Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
 | [Jednostki magazynu danych (jednostek dwu)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Maksymalna jednostek dwu dla pojedynczej jednostki puli SQL (magazyn danych) | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [Jednostki magazynu danych (jednostek dwu)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Domyślna wartość DTU na serwer |54 000<br></br>Domyślnie każdy serwer SQL (na przykład myserver.database.windows.net) ma limit przydziału jednostek DTU wynoszący 54 000, który umożliwia DW5000c. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Możesz zwiększyć limit przydziału, [tworząc bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) i wybierając pozycję *przydział* jako typ żądania.  Aby obliczyć zapotrzebowanie na jednostki DTU, pomnóż 7,5 przez łączną potrzebną jednostek dwu lub pomnożenie 9,5 przez łączną cDWU potrzebną. Przykład:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW5000c x 9,5 = 47 500 DTU.<br></br>Bieżące użycie jednostek DTU można wyświetlić z poziomu opcji programu SQL Server w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. |
+| [Jednostki magazynu danych (jednostek dwu)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Domyślna wartość DTU na serwer |54 000<br></br>Domyślnie każdy serwer SQL (na przykład myserver.database.windows.net) ma limit przydziału jednostek DTU wynoszący 54 000, który umożliwia DW5000c. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Możesz zwiększyć limit przydziału, [tworząc bilet pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md) i wybierając pozycję *przydział* jako typ żądania.  Aby obliczyć zapotrzebowanie na jednostki DTU, pomnóż 7,5 przez łączną potrzebną jednostek dwu lub pomnożenie 9,5 przez łączną cDWU potrzebną. Na przykład:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW5000c x 9,5 = 47 500 DTU.<br></br>Bieżące użycie jednostek DTU można wyświetlić z poziomu opcji programu SQL Server w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. |
 | Połączenie z bazą danych |Maksymalna liczba otwartych sesji współbieżnych |1024<br/><br/>Liczba równoczesnych otwartych sesji różni się w zależności od wybranej jednostek dwu. DWU600c i nowsze obsługują maksymalnie 1024 otwartych sesji. DWU500c i poniżej, obsługują maksymalny limit współbieżnych sesji otwierania wynoszący 512. Uwaga Istnieją limity liczby zapytań, które mogą być wykonywane współbieżnie. Po przekroczeniu limitu współbieżności żądanie przechodzi do kolejki wewnętrznej, w której czeka na przetworzenie. |
-| Połączenie z bazą danych |Maksymalna ilość pamięci dla przygotowanych instrukcji |20 MB |
+| Połączenie z bazą danych |Maksymalna ilość pamięci dla przygotowanych instrukcji |20 MB |
 | [Zarządzanie obciążeniem](resource-classes-for-workload-management.md) |Maksymalna liczba współbieżnych zapytań |128<br/><br/>  Zostanie wykonane maksymalnie 128 współbieżnych zapytań, a pozostałe zapytania zostaną dodane do kolejki.<br/><br/>Liczba współbieżnych zapytań może się zmniejszyć, gdy użytkownicy są przypisani do wyższych klas zasobów lub gdy ustawienie [jednostki magazynu danych](memory-concurrency-limits.md) jest mniejsze. Niektóre zapytania, takie jak zapytania DMV, są zawsze dozwolone do uruchomienia i nie wpływają na współbieżny limit zapytań. Aby uzyskać więcej informacji na temat współbieżnego wykonywania zapytań, zobacz artykuł [maksymalne wartości współbieżności](memory-concurrency-limits.md) . |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Maksymalna ilość GB |399 GB na DW100c. W DWU1000c baza danych tempdb ma rozmiar 3,99 TB. |
 ||||
@@ -39,13 +39,13 @@ Maksymalne wartości dozwolone dla różnych składników usługi Azure Synapse.
 | Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
 | baza danych |Maksymalny rozmiar | Gen1:240 TB skompresowane na dysku. Ta przestrzeń jest niezależna od bazy danych tempdb lub miejsca w dzienniku, dlatego to miejsce jest przeznaczone do trwałych tabel.  Szacuje się, że kompresja magazynu kolumn jest w pięciokrotną.  Ta kompresja pozwala na zwiększenie rozmiaru bazy danych do około 1 PB, gdy wszystkie tabele są klastrowane z magazynu kolumn (domyślny typ tabeli). <br/><br/> Gen2: nieograniczony magazyn dla tabel magazynu kolumn.  Część magazynu wierszy bazy danych jest nadal ograniczona do 240 TB skompresowanej na dysku. |
-| Tabela |Maksymalny rozmiar |Nieograniczony rozmiar dla tabel magazynu kolumn. <br>60 TB dla tabel magazynu wierszy skompresowanych na dysku. |
-| Tabela |Tabele na bazę danych | 100 000 |
-| Tabela |Kolumny na tabelę |1024 kolumn |
-| Tabela |Bajtów na kolumnę |Zależne od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny. Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB w przypadku MAKSYMALNYch typów danych. |
-| Tabela |Bajty na wiersz, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana w taki sam sposób, jak w przypadku SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia wypchnięcie **kolumn o zmiennej długości** poza wierszem. Gdy wiersze o zmiennej długości są wypychane poza wierszem, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [dane przepełnienia wierszy przekraczające 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabela |Partycje na tabelę |15 000<br/><br/>W celu zapewnienia wysokiej wydajności zalecamy zminimalizowanie liczby potrzebnych partycji przy zachowaniu wymagań firmy. Wraz ze wzrostem liczby partycji, obciążenie dla operacji języka definicji danych (DDL) i języka manipulowania danymi (DML) zwiększa się i powoduje wolniejszą wydajność. |
-| Tabela |Liczba znaków na wartość graniczną partycji. |4000 |
+| tabela |Maksymalny rozmiar |Nieograniczony rozmiar dla tabel magazynu kolumn. <br>60 TB dla tabel magazynu wierszy skompresowanych na dysku. |
+| tabela |Tabele na bazę danych | 100 000 |
+| tabela |Kolumny na tabelę |1024 kolumn |
+| tabela |Bajtów na kolumnę |Zależne od [typu danych](sql-data-warehouse-tables-data-types.md)kolumny. Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB w przypadku MAKSYMALNYch typów danych. |
+| tabela |Bajty na wiersz, zdefiniowany rozmiar |8060 bajtów<br/><br/>Liczba bajtów na wiersz jest obliczana w taki sam sposób, jak w przypadku SQL Server z kompresją strony. Podobnie jak SQL Server, magazyn przepełnienia wierszy jest obsługiwany, co umożliwia wypchnięcie **kolumn o zmiennej długości** poza wierszem. Gdy wiersze o zmiennej długości są wypychane poza wierszem, tylko 24-bajtowy katalog główny jest przechowywany w rekordzie głównym. Aby uzyskać więcej informacji, zobacz [dane przepełnienia wierszy przekraczające 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| tabela |Partycje na tabelę |15 000<br/><br/>W celu zapewnienia wysokiej wydajności zalecamy zminimalizowanie liczby potrzebnych partycji przy zachowaniu wymagań firmy. Wraz ze wzrostem liczby partycji, obciążenie dla operacji języka definicji danych (DDL) i języka manipulowania danymi (DML) zwiększa się i powoduje wolniejszą wydajność. |
+| tabela |Liczba znaków na wartość graniczną partycji. |4000 |
 | Indeks |Indeksy nieklastrowane na tabelę. |50<br/><br/>Dotyczy tylko tabel magazynu wierszy. |
 | Indeks |Indeksy klastrowane na tabelę. |1<br><br/>Dotyczy zarówno magazynu wierszy, jak i tabel magazynu kolumn. |
 | Indeks |Rozmiar klucza indeksu. |900 bajtów.<br/><br/>Dotyczy tylko indeksów magazynu wierszy.<br/><br/>Można utworzyć indeksy kolumn varchar o maksymalnym rozmiarze większym niż 900 bajtów, jeśli podczas tworzenia indeksu istniejące dane w kolumnach nie przekraczają 900 bajtów. Jednak późniejsze operacje wstawiania lub aktualizowania w kolumnach, które powodują, że całkowity rozmiar przekracza 900 bajtów będzie kończyć się niepowodzeniem. |
@@ -79,22 +79,22 @@ Maksymalne wartości dozwolone dla różnych składników usługi Azure Synapse.
 | SELECT |Bajtów na grupę według kolumn. |8060<br/><br/>Kolumny w klauzuli GROUP BY mogą mieć maksymalnie 8060 bajtów. |
 | SELECT |Liczba bajtów na kolejność według kolumn |8060 bajtów<br/><br/>Kolumny w klauzuli ORDER BY mogą mieć maksymalnie 8060 bajtów. |
 | Identyfikatory na instrukcję |Liczba przywoływanych identyfikatorów |65 535<br/><br/> Liczba identyfikatorów, które mogą być zawarte w pojedynczym wyrażeniu zapytania, jest ograniczona. Przekroczenie tej liczby spowoduje SQL Server błędu 8632. Aby uzyskać więcej informacji, zobacz [błąd wewnętrzny: osiągnięto limit usług Expression Services](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Literały ciągu | Liczba literałów ciągu w instrukcji | 20 000 <br/><br/>Liczba stałych ciągów w pojedynczym wyrażeniu zapytania jest ograniczona. Przekroczenie tej liczby spowoduje SQL Server błędu 8632.|
+| Literały ciągu | Liczba literałów ciągu w instrukcji | 20 000 <br/><br/>Liczba stałych ciągów w pojedynczym wyrażeniu zapytania jest ograniczona. Przekroczenie tej liczby spowoduje SQL Server błędu 8632.|
 ||||
 
 ## <a name="metadata"></a>Metadane
 
 | Widok systemu | Maksymalna liczba wierszy |
 |:--- |:--- |
-| sys. dm_pdw_component_health_alerts |10 000 |
-| sys. dm_pdw_dms_cores |100 |
+| sys.dm_pdw_component_health_alerts |10 000 |
+| sys.dm_pdw_dms_cores |100 |
 | sys.dm_pdw_dms_workers |Łączna liczba procesów roboczych usługi DMS dla najnowszych żądań SQL 1000. |
-| sys. dm_pdw_errors |10 000 |
+| sys.dm_pdw_errors |10 000 |
 | sys.dm_pdw_exec_requests |10 000 |
-| sys. dm_pdw_exec_sessions |10 000 |
-| sys.dm_pdw_request_steps |Łączna liczba kroków dla ostatnich 1000 żądań SQL, które są przechowywane w pliku sys. dm_pdw_exec_requests. |
-| sys. dm_pdw_os_event_logs |10 000 |
-| sys.dm_pdw_sql_requests |Najnowsze 1000 żądań SQL, które są przechowywane w pliku sys. dm_pdw_exec_requests. |
+| sys.dm_pdw_exec_sessions |10 000 |
+| sys.dm_pdw_request_steps |Łączna liczba kroków dla najnowszych żądań SQL 1000 przechowywanych w sys.dm_pdw_exec_requests. |
+| sys.dm_pdw_os_event_logs |10 000 |
+| sys.dm_pdw_sql_requests |Najnowsze 1000 żądań SQL, które są przechowywane w sys.dm_pdw_exec_requests. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki

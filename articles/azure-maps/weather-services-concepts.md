@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972048"
 ---
 # <a name="weather-services-in-azure-maps"></a>Usługi pogodowe w Azure Maps
@@ -108,22 +108,22 @@ Poniższa tabela zawiera wskazówki dotyczące interpretacji obrazów radarowych
 
 | Szesnastkowy kod koloru | Przykład koloru | Warunek pogodowy |
 |----------------|--------------|-------------------|
-| #93c701        | ![Kolor dla światła deszczu.](./media/weather-services-concepts/color-93c701.png) | Deszcz — jasne |
-| #ffd701        | ![Kolor dla deszczu.](./media/weather-services-concepts/color-ffd701.png) | Deszcz — umiarkowany |
-| #f05514        | ![Kolor dla deszczu.](./media/weather-services-concepts/color-f05514.png) | Deszcz — ciężki |
-| #dc250e        | ![Kolor dla poważnego oddeszczu.](./media/weather-services-concepts/color-dc250e.png) | Odporne na deszcze |
-| #9ec8f2        | ![Kolor dla oświetlenia śniegu.](./media/weather-services-concepts/color-9ec8f2.png) | Jasnozielony |
-| #2a8fdb        | ![Kolor dla śniegu.](./media/weather-services-concepts/color-2a8fdb.png) | Śnieg — umiarkowany |
-| #144bed        | ![Kolor dla śniegu.](./media/weather-services-concepts/color-144bed.png) | Śnieg — ciężki |
-| #020096        | ![Kolor dla poważnego śniegu.](./media/weather-services-concepts/color-020096.png) | Poważny śnieg |
-| #e6a5c8        | ![Kolor na potrzeby lodu — jasne.](./media/weather-services-concepts/color-e6a5c8.png) | Lody — jasne |
-| #d24fa0        | ![Kolor dla lodu-umiarkowany.](./media/weather-services-concepts/color-d24fa0.png) | Lody — umiarkowane |
-| #b71691        | ![Kolor dla surowego lodu.](./media/weather-services-concepts/color-b71691.png) | Surowe lody |
-| #7a1570        | ![Kolor w przypadku dużego obciążenia.](./media/weather-services-concepts/color-7a1570.png) | Lód ciężki |
-| #c196e6        | ![Kolor dla światła mieszanego.](./media/weather-services-concepts/color-c196e6.png) | Mieszane — jasne |
-| #ae6ee6        | ![Kolor dla mieszanki średniej.](./media/weather-services-concepts/color-ae6ee6.png) | Mieszanie — umiarkowane |
-| #8a32d7        | ![Kolor dla dużych kombinacji.](./media/weather-services-concepts/color-8a32d7.png) | Mieszane |
-| #6500ba        | ![Kolor na potrzeby mieszania silnego.](./media/weather-services-concepts/color-6500ba.png) | Silne mieszanie |
+| #93c701        | ![Kolor dla światła deszczu.](./media/weather-services-concepts/color-93c701.png) | Rain-Light |
+| #ffd701        | ![Kolor dla deszczu.](./media/weather-services-concepts/color-ffd701.png) | Rain-Moderate |
+| #f05514        | ![Kolor dla deszczu.](./media/weather-services-concepts/color-f05514.png) | Rain-Heavy |
+| #dc250e        | ![Kolor dla poważnego oddeszczu.](./media/weather-services-concepts/color-dc250e.png) | Rain-Severe |
+| #9ec8f2        | ![Kolor dla oświetlenia śniegu.](./media/weather-services-concepts/color-9ec8f2.png) | Snow-Light |
+| #2a8fdb        | ![Kolor dla śniegu.](./media/weather-services-concepts/color-2a8fdb.png) | Snow-Moderate |
+| #144bed        | ![Kolor dla śniegu.](./media/weather-services-concepts/color-144bed.png) | Snow-Heavy |
+| #020096        | ![Kolor dla poważnego śniegu.](./media/weather-services-concepts/color-020096.png) | Snow-Severe |
+| #e6a5c8        | ![Kolor na potrzeby lodu — jasne.](./media/weather-services-concepts/color-e6a5c8.png) | Ice-Light |
+| #d24fa0        | ![Kolor dla lodu-umiarkowany.](./media/weather-services-concepts/color-d24fa0.png) | Ice-Moderate |
+| #b71691        | ![Kolor dla surowego lodu.](./media/weather-services-concepts/color-b71691.png) | Ice-Severe |
+| #7a1570        | ![Kolor w przypadku dużego obciążenia.](./media/weather-services-concepts/color-7a1570.png) | Ice-Heavy |
+| #c196e6        | ![Kolor dla światła mieszanego.](./media/weather-services-concepts/color-c196e6.png) | Mix-Light |
+| #ae6ee6        | ![Kolor dla mieszanki średniej.](./media/weather-services-concepts/color-ae6ee6.png) | Mix-Moderate |
+| #8a32d7        | ![Kolor dla dużych kombinacji.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
+| #6500ba        | ![Kolor na potrzeby mieszania silnego.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
 Poniżej przedstawiono szczegółową paletę kolorów dla kafelków radarowych z kodami kolorów szesnastkowych i wartościami dBZ. dBZ przedstawia intensywność wytrącania w radaru pogody. 
 
@@ -199,7 +199,7 @@ Poniższa tabela zawiera wskazówki dotyczące interpretacji obrazów satelitarn
 
 | Szesnastkowy kod koloru | Przykład koloru | Temperatura chmury |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![Kafelek koloru dla #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura — niska | 
+| #b5b5b5        | ![Kafelek koloru dla #b5b5b5.](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
 | #d24fa0        | ![Kafelek koloru dla #d24fa0.](./media/weather-services-concepts/color-d24fa0.png) |  |
 | #8a32d7        | ![Kafelek koloru dla #8a32d7.](./media/weather-services-concepts/color-8a32d7.png) |  |
 | #144bed        | ![Kafelek koloru dla #144bed.](./media/weather-services-concepts/color-144bed.png) |  |
@@ -210,7 +210,7 @@ Poniższa tabela zawiera wskazówki dotyczące interpretacji obrazów satelitarn
 | #f05514        | ![Kafelek koloru dla #f05514.](./media/weather-services-concepts/color-f05514.png) |  |
 | #dc250e        | ![Kafelek koloru dla #dc250e.](./media/weather-services-concepts/color-dc250e.png) |  |
 | #ba0808        | ![Kafelek koloru dla #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
-| #1f1f1f        | ![Kafelek koloru dla #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperatura — wysoka |
+| #1f1f1f        | ![Kafelek koloru dla #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
 
 Poniżej przedstawiono szczegółową paletę kolorów dla kafelków satelitarnych w podczerwieni.
@@ -494,7 +494,7 @@ Poniżej znajduje się tabela z dostępnymi identyfikatorami indeksu, ich nazwam
   Pył & Dander              |18| [Niski-Extreme 1](#low-extreme-1)
   Gotowość pola            |32| [Słabe — doskonałe 1](#poor-excellent-1)
   Poławiania                    |13| [Słabe — doskonałe 1](#poor-excellent-1)
-  Opóźnienia lotu              |-3|  [Bardzo mało prawdopodobne — bardzo prawdopodobne 2](#very-unlikely-very-likely-2)
+  Opóźnienia lotu              |–3|  [Bardzo Unlikely-Very prawdopodobnie 2](#very-unlikely-very-likely-2)
   Flu                        |26|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
   Pływający wskaźnik podróży        |31| [Doskonały-słaby](#excellent-poor)
   Gospodarka paliwowa               |37| [Słabe — doskonałe 1](#poor-excellent-1)
@@ -523,7 +523,7 @@ Poniżej znajduje się tabela z dostępnymi identyfikatorami indeksu, ich nazwam
   Sinus kłopotliwej             |30|  [Korzystne — przy skrajnym ryzyku](#beneficial-at-extreme-risk)
   Skateboarding              | 7| [Słabe — doskonałe 1](#poor-excellent-1)
   Pogoda                | 15| [Słabe — doskonałe 1](#poor-excellent-1)
-  Dni śniegu                  | 19| [Bardzo mało prawdopodobne — bardzo prawdopodobne](#very-unlikely-very-likely)
+  Dni śniegu                  | 19| [Bardzo Unlikely-Very prawdopodobnie](#very-unlikely-very-likely)
   Wilgotność gleby              | 34| [Słabe — doskonałe 1](#poor-excellent-1)
   Stargazing                 | 12| [Słabe — doskonałe 1](#poor-excellent-1)
 
@@ -531,7 +531,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
 
   ID (Identyfikator)   | Nazwa grupy | Indeksy w tej grupie |
   -------- | ------------------|------
-  1       |Wszystko | Wszystko
+  1       |Wszystkie | Wszystkie
   2       |Aches i bólu | Arthritis bólu (21) </br> Migraine kłopotliwej (27) </br> Sinus kłopotliwej (30)
   3       |Układ oddechowy | Asthma (23) </br> Typowy zimny (25) </br> Prognoza Flu (26)
   4       |Ogrodniczy | Gotowość pola (32) </br> Mowing trawnika (28) </br> Wilgotność gleby (34)</br>
@@ -543,13 +543,13 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   10      |Służba zdrowia | Arthritis bólu (21) </br> Asthma (23) </br> Typowy zimny (25) </br> Pył & Dander (18) </br> Flu (26) </br> Dobra serce (16) </br> Migraine kłopotliwej (27)
   11      |Zewnętrzne | Barbecue z zewnątrz (24) </br> Sekwencje & puli (10) </br> Dwucykliczny (4) </br> Uzgadnianie z zewnątrz (8) </br>  Gotowość pola (32) </br> Rybołówstwo (13) </br> Pogoda (5) </br> Górach (3) </br> Łowiectwo (20) </br> Jogging (2) </br> Kite pływający (9) </br> Działanie Mosquito (17)</br> Mowing trawnika (28) </br> Aktywność na zewnątrz (29) </br> Uruchomione (1) </br> Żegluga (11) </br> Skateboarding (7) </br> Pogoda (15) </br>  Wilgotność gleby (34)</br> Stargazing (12) </br> Tenis (6)
   12      |Związana | Dwucykliczny (4) </br> Pogoda (5) </br> Górach (3) </br>  Jogging (2) </br> Uruchomione (1) </br> Skateboarding (7) </br> Pogoda (15) </br>Tenis (6)
-  13      |Strona główna | Efektywność energii na stronie głównej (36) </br> Gospodarka paliwem (37) </br> Działanie wewnętrzne (-2)
+  13      |Domowy | Efektywność energii na stronie głównej (36) </br> Gospodarka paliwem (37) </br> Działanie wewnętrzne (-2)
 
 ## <a name="daily-index-range-sets"></a>Dzienne zestawy zakresów indeksów
 
 [Interfejs API uzyskiwania dziennych indeksów](https://aka.ms/AzureMapsWeatherDailyIndices) zwraca wartość przedziału i skojarzoną z nią nazwę kategorii dla każdego identyfikatora indeksu. Zestawy zakresów nie są takie same dla wszystkich indeksów. W poniższych tabelach przedstawiono różne zestawy zakresów używane przez obsługiwane indeksy wymienione w identyfikatorach [indeksu i identyfikatorach grup indeksów](#index-ids-and-index-groups-ids). Aby dowiedzieć się, które indeksy używają zestawów zakresu, przejdź do sekcji [identyfikatory indeksów i identyfikatory grup indeksów](#index-ids-and-index-groups-ids) tego dokumentu.
 
-### <a name="poor-excellent-1"></a>Słabe — doskonałe 1
+### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
   | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
@@ -559,7 +559,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   Bardzo dobrze         |  7  |               8,99
   Doskonałe         |  9  |               10
 
-### <a name="poor-excellent-2"></a>Słabe — doskonałe 2
+### <a name="poor-excellent-2"></a>Poor-Excellent 2
 
  | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
@@ -569,7 +569,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   Bardzo dobrze      |7,51           |  8,99
   Doskonałe      |9              |  10
 
-### <a name="excellent-poor"></a>Doskonały-słaby
+### <a name="excellent-poor"></a>Excellent-Poor
 
  | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
@@ -579,27 +579,27 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   Dostatecznie             |   5,01          |  7,00
   Kiepsko             |   7,01          |  10,00
 
-### <a name="low-extreme-1"></a>Niski-Extreme 1
+### <a name="low-extreme-1"></a>Low-Extreme 1
 
    | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
   Niski                |  0         |        1,99
-  Umiarkowany           |  2         |        3,99
+  Umiarkowane           |  2         |        3,99
   Wysoki               |  4         |        5,99
   Bardzo wysoka          |  6         |        7,99
   Ekstremalne            |  8         |        10
 
-### <a name="low-extreme-2"></a>Niska-Extreme 2
+### <a name="low-extreme-2"></a>Low-Extreme 2
 
    | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
   Niski                |  0            |      2,99
-  Umiarkowany           |  3            |      4,99
+  Umiarkowane           |  3            |      4,99
   Wysoki               |  5            |      6,99
   Bardzo wysoka          |  7            |      8,99
   Ekstremalne            |  9            |      10
 
-### <a name="very-unlikely-very-likely"></a>Bardzo mało prawdopodobne — bardzo prawdopodobne
+### <a name="very-unlikely-very-likely"></a>Bardzo Unlikely-Very prawdopodobnie
 
  | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
@@ -609,7 +609,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   Możliwe             | 6     |           7,99
   Prawdopodobnie        | 8     |           10
 
-### <a name="very-unlikely-very-likely-2"></a>Bardzo mało prawdopodobne — bardzo prawdopodobne 2
+### <a name="very-unlikely-very-likely-2"></a>Bardzo Unlikely-Very prawdopodobnie 2
 
  | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
@@ -619,7 +619,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   Możliwe             |  5,01     |         7,00
   Prawdopodobnie        |  7,01     |         10,00
 
-### <a name="unlikely-emergency"></a>Mało prawdopodobne — nagłe
+### <a name="unlikely-emergency"></a>Unlikely-Emergency
 
 | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------
@@ -629,7 +629,7 @@ Poniżej znajduje się lista dostępnych grup indeksów (indexGroupId):
   Ostrzeżenie          |  7     |          8,99
   Kontakt        |  9     |          10
 
-### <a name="beneficial-at-extreme-risk"></a>Korzystne — przy skrajnym ryzyku
+### <a name="beneficial-at-extreme-risk"></a>Beneficial-At bardzo wysokie ryzyko
 
 | Nazwa kategorii | Początek zakresu | Zakres końcowy |
   ----------------|--------------|------------

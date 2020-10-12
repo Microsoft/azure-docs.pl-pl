@@ -3,11 +3,11 @@ title: Kolejka magazynu jako procedura obsługi zdarzeń dla zdarzeń Azure Even
 description: Opisuje, w jaki sposób można używać kolejek usługi Azure Storage jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fdbc292f066a3eb06f17fd144d26d484d2a25f21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91270189"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Kolejka magazynu jako procedura obsługi zdarzeń dla zdarzeń Azure Event Grid
@@ -136,9 +136,6 @@ Zapoznaj się z poniższym samouczkiem, aby zapoznać się z przykładem użycia
     }
 }
 ```
-
-> [!NOTE]
-> Dostarczanie zdarzeń do kolejki usługi Azure Storage w **innej dzierżawie** nie jest obsługiwane. 
 
 ## <a name="next-steps"></a>Następne kroki
 Listę obsługiwanych programów obsługi zdarzeń zawiera artykuł [obsługi zdarzeń](event-handlers.md) . 

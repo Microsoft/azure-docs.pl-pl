@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81259934"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Dopasuj warunki w aparacie reguł standardowych dla Azure CDN
@@ -58,7 +58,7 @@ Identyfikuje żądania na podstawie informacji o pliku cookie w żądaniu przych
 
 Nazwa pliku cookie | Operator | Wartość cookie | Przekształcanie wielkości liter
 ------------|----------|--------------|---------------
-String | [Standardowa lista operatorów](#standard-operator-list) | String, int | Nie Przekształć, na wielkie, małe litery
+Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Nie Przekształć, na wielkie, małe litery
 
 #### <a name="key-information"></a>Informacje o kluczu
 
@@ -77,7 +77,7 @@ Identyfikuje żądania na podstawie argumentów zdefiniowanych dla metody POST R
 
 Nazwa argumentu | Operator | Wartość argumentu | Przekształcanie wielkości liter
 --------------|----------|----------------|---------------
-String | [Standardowa lista operatorów](#standard-operator-list) | String, int | Nie Przekształć, na wielkie, małe litery
+Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Nie Przekształć, na wielkie, małe litery
 
 ### <a name="query-string"></a>Ciąg zapytania
 
@@ -97,11 +97,11 @@ Identyfikuje żądania na podstawie lokalizacji lub adresu IP osoby żądającej
 
 Operator | Obsługiwane wartości
 ---------|-----------------
-Dowolne | Nie dotyczy
-Dopasowanie geograficzne | Kod kraju
+Dowolne | Brak
+Dopasowanie geograficzne | Numer kierunkowy kraju
 Dopasowanie adresu IP | Adres IP (rozdzielone spacjami)
-Nie wszystkie | Nie dotyczy
-Brak dopasowania geograficznego | Kod kraju
+Nie wszystkie | Brak
+Brak dopasowania geograficznego | Numer kierunkowy kraju
 Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
 
 #### <a name="key-information"></a>Informacje o kluczu
@@ -110,7 +110,7 @@ Niezgodność adresów IP | Adres IP (rozdzielone spacjami)
 - Aby określić wiele adresów IP i bloków adresów IP, należy użyć pojedynczej spacji między wartościami:
   - **Przykład IPv4**: *1.2.3.4 10.20.30.40* dopasowuje wszystkie żądania, które dotarły do adresu 1.2.3.4 lub 10.20.30.40.
   - **Przykład IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* dopasowuje wszystkie żądania, które nadeszły z adresu 1:2:3:4:5:6:7:8 lub 10:20:30:40:50:60:70:80.
-- Składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Przykład:
+- Składnia bloku adresów IP to podstawowy adres IP, po którym następuje ukośnik i rozmiar prefiksu. Na przykład:
   - **Przykład IPv4**: *5.5.5.64/26* dopasowuje wszystkie żądania odbierane z adresów 5.5.5.64 przez 5.5.5.127.
   - **Przykład IPv6**: *1:2:3:/48* dopasowuje wszystkie żądania odbierane z adresów 1:2:3:0:0:0:0:0 do 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
@@ -132,7 +132,7 @@ Identyfikuje żądania, które używają określonego nagłówka w żądaniu.
 
 Nazwa nagłówka | Operator | Wartość nagłówka | Przekształcanie wielkości liter
 ------------|----------|--------------|---------------
-String | [Standardowa lista operatorów](#standard-operator-list) | String, int | Nie Przekształć, na wielkie, małe litery
+Ciąg | [Standardowa lista operatorów](#standard-operator-list) | String, int | Nie Przekształć, na wielkie, małe litery
 
 ### <a name="request-method"></a>Metoda żądania
 

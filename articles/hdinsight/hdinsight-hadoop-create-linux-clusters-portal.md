@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87874031"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal
@@ -59,7 +59,7 @@ Na karcie **podstawowe** podaj następujące informacje:
 |Nazwa użytkownika protokołu SSH (Secure Shell)|Podaj nazwę użytkownika, wartość domyślna to **sshuser**|
 |Użyj hasła logowania do klastra dla protokołu SSH|Jeśli chcesz użyć tego samego hasła SSH jako hasła administratora określonego wcześniej, zaznacz pole wyboru **Użyj hasła logowania klastra dla SSH** . Jeśli nie, podaj **hasło** lub **klucz publiczny** , aby uwierzytelnić użytkownika ssh. Zaleca się użycie klucza publicznego. Wybierz **pozycję Wybierz** u dołu, aby zapisać konfigurację poświadczeń.  Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
-Wybierz pozycję **Dalej: >>magazynu** , aby przejść do następnej karty.
+Wybierz pozycję **Dalej: >>magazynu ** , aby przejść do następnej karty.
 
 ## <a name="storage"></a>Magazyn
 
@@ -145,7 +145,7 @@ Niektóre ikony w oknie są wyjaśnione w następujący sposób:
 |Omówienie|Zawiera wszystkie podstawowe informacje o klastrze. Przykładami są nazwa, Grupa zasobów, do której należy, lokalizacja, system operacyjny i adres URL pulpitu nawigacyjnego klastra.|
 |Pulpity nawigacyjne klastra|Kieruje użytkownika do portalu Ambari skojarzonego z klastrem.|
 |SSH + logowanie do klastra|Zapewnia informacje konieczne do uzyskania dostępu do klastra przy użyciu protokołu SSH.|
-|Usuń|Usuwa klaster usługi HDInsight.|
+|Usuwanie|Usuwa klaster usługi HDInsight.|
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 

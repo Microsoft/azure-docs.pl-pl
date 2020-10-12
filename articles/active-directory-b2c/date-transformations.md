@@ -11,10 +11,10 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202555"
 ---
 # <a name="date-claims-transformations"></a>Przekształceń oświadczeń dat
@@ -31,8 +31,8 @@ Sprawdza, czy jedno wystąpienie daty i czasu (typu danych String) jest późnie
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | leftOperand | ciąg | Typ pierwszego wystąpienia, który powinien być późniejszy od drugiego żądania. |
 | Oświadczenie inputclaim | rightOperand | ciąg | Typ drugiego zgłoszenia, który powinien być wcześniejszy niż pierwszy z nich. |
-| InputParameter | AssertIfEqualTo | wartość logiczna | Określa, czy potwierdzenie powinno być przekazywane, jeśli lewy operand jest równy operandowi z prawej strony. |
-| InputParameter | AssertIfRightOperandIsNotPresent | wartość logiczna | Określa, czy potwierdzenie ma być przekazywane, jeśli brakuje prawego operandu. |
+| InputParameter | AssertIfEqualTo | boolean | Określa, czy potwierdzenie powinno być przekazywane, jeśli lewy operand jest równy operandowi z prawej strony. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolean | Określa, czy potwierdzenie ma być przekazywane, jeśli brakuje prawego operandu. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Określa liczbę milisekund, które mają być dozwolone między dwiema datami czasu, aby uwzględnić czasy równe (na przykład w przypadku pochylenia zegara). |
 
 Przekształcenie oświadczeń **AssertDateTimeIsGreaterThan** jest zawsze wykonywane z poziomu [weryfikacji profilu technicznego](validation-technical-profile.md) , który jest wywoływany przez [własny profil techniczny](self-asserted-technical-profile.md). **DateTimeGreaterThan** z własnym profilem technicznym metadane są kontrolowane komunikat o błędzie, który zostanie wyświetlony przez profil techniczny. Komunikaty o błędach można [lokalizować](localization-string-ids.md#claims-transformations-error-messages).
@@ -174,7 +174,7 @@ Ustal, czy jedna wartość daty i godziny jest późniejsza, wcześniejsza lub r
 | Oświadczenie inputclaim | secondDateTime | Data i godzina | Druga data/godzina do porównania, czy jest wcześniejsza lub późniejsza niż pierwsza wartość daty i godziny. Wartość zerowa jest traktowana jako bieżąca datetTime. |
 | InputParameter | operator | ciąg | Jedna z następujących wartości: taka sama, późniejsza niż lub wcześniejsza niż. |
 | InputParameter | timeSpanInSeconds | int | Dodaj przedział czasu do pierwszej wartości daty i godziny. |
-| Oświadczenie outputclaim | result | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
+| Oświadczenie outputclaim | result | boolean | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
 Użyj tej transformacji oświadczeń, aby określić, czy dwa oświadczenia są równe, nowsze czy starsze. Na przykład użytkownik może przechowywać ostatnio zaakceptowane warunki użytkowania usług (TOS) przez użytkownika. Po 3 miesiącach możesz polecić użytkownikowi ponowne uzyskanie dostępu do tych organizacji.
 Aby uruchomić transformację roszczeń, najpierw musisz uzyskać bieżącą wartość dateTime, a także godzinę, w której użytkownik ostatnio akceptuje te organizacje.

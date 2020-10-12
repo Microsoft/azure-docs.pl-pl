@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 3ded5f6186d8ccdae0f42ecb9942c70e09f2dd9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310887"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Żądanie danych tranzytu publicznego przy użyciu usługi Azure Maps Mobility
@@ -38,7 +38,7 @@ W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.c
 
 Aby zażądać szczegółowych informacji o agencjach tranzytowych i obsługiwanych typach tranzytowych dla określonego obszaru metropolitalnych, będziesz potrzebować tego `metroId` obszaru. [Interfejs API uzyskiwania obszaru Metro](https://aka.ms/AzureMapsMobilityMetro) umożliwia zażądanie obszarów Metro, w których dostępna jest usługa Azure Maps Mobility. Odpowiedź zawiera szczegóły, takie jak `metroId` , `metroName` i reprezentacja geometrii obszaru Metro w formacie GEOJSON.
 
-Utwórzmy żądanie pobrania obszaru Metro dla identyfikatora obszaru Metro Seattle-Tacoma. Aby zażądać identyfikatora dla obszaru Metro, wykonaj następujące czynności:
+Utwórzmy żądanie pobrania obszaru Metro dla Seattle-Tacomaowego identyfikatora obszaru. Aby zażądać identyfikatora dla obszaru Metro, wykonaj następujące czynności:
 
 1. Otwórz aplikację Poster i Utwórz kolekcję do przechowywania żądań. W górnej części aplikacji Poster wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Kolekcja**.  Nadaj kolekcji nazwę i wybierz przycisk **Utwórz** .
 

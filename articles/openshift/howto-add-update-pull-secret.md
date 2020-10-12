@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: Ściąganie kluczy tajnych, ARO, OpenShift, Red Hat
 ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294751"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Dodawanie lub aktualizowanie klucza tajnego Red Hat na platformie Azure Red Hat OpenShift 4
@@ -20,7 +20,7 @@ W tym przewodniku opisano Dodawanie lub aktualizowanie wpisu tajnego Red Hat dla
 
 Jeśli tworzysz klaster po raz pierwszy, możesz dodać klucz tajny ściągania podczas tworzenia klastra. Aby uzyskać więcej informacji na temat tworzenia klastra ARO przy użyciu klucza tajnego Red Hat, zobacz [Tworzenie klastra usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym przewodniku przyjęto założenie, że masz istniejący klaster usługi Azure Red Hat OpenShift 4. Upewnij się, że masz uprawnienia dostępu administratora do klastra.
 

@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84047545"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)
@@ -22,7 +22,7 @@ ms.locfileid: "84047545"
 Można łatwo skalować w poziomie bazy danych w Azure SQL Database przy użyciu narzędzi **Elastic Database** . Te narzędzia i funkcje umożliwiają korzystanie z zasobów bazy danych **Azure SQL Database** do tworzenia rozwiązań dla obciążeń transakcyjnych, a zwłaszcza aplikacji oprogramowania jako usługi (SaaS). Elastic Database funkcje składają się z:
 
 * [Elastic Database Biblioteka kliencka](elastic-database-client-library.md): Biblioteka kliencka to funkcja, która umożliwia tworzenie i konserwowanie baz danych podzielonej na fragmenty.  Zobacz Rozpoczynanie [pracy z narzędziami Elastic Database](elastic-scale-get-started.md).
-* [Narzędzie Elastic Database Split-Merge](elastic-scale-overview-split-and-merge.md): przenosi dane między bazami danych podzielonej na fragmenty. To narzędzie jest przydatne do przeniesienia danych z wielodostępnej bazy danych do bazy danych z jedną dzierżawą (lub odwrotnie). Zobacz [samouczek narzędzia do dzielenia i scalania Elastic Database](elastic-scale-configure-deploy-split-and-merge.md).
+* [Narzędzie Elastic Database Split-Merge](elastic-scale-overview-split-and-merge.md): przenosi dane między bazami danych podzielonej na fragmenty. To narzędzie jest przydatne do przeniesienia danych z wielodostępnej bazy danych do bazy danych z jedną dzierżawą (lub odwrotnie). Zobacz [samouczek narzędzi elastycznych Split-Merge Database](elastic-scale-configure-deploy-split-and-merge.md).
 * [Zadania Elastic Database](elastic-jobs-overview.md): Używanie zadań do zarządzania dużą liczbą baz danych w programie Azure SQL Database. Łatwe wykonywanie operacji administracyjnych, takich jak zmiany schematu, zarządzanie poświadczeniami, aktualizacje danych referencyjnych, zbieranie danych o wydajności lub zbieranie informacji telemetrycznych dzierżawy (klienta) za pomocą zadań.
 * [Zapytanie Elastic Database](elastic-query-overview.md) (wersja zapoznawcza): umożliwia uruchomienie zapytania Transact-SQL obejmującego wiele baz danych. Dzięki temu można nawiązać połączenie z narzędziami do raportowania, takimi jak Excel, Power BI, Tableau itp.
 * [Transakcje elastyczne](elastic-transactions-overview.md): Ta funkcja umożliwia uruchamianie transakcji obejmujących kilka baz danych. Transakcje Elastic Database są dostępne dla aplikacji .NET korzystających z programu ADO .NET i integrują się z znanym środowiskiem programistycznym korzystającym z [klas System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
@@ -67,7 +67,7 @@ Większość aplikacji baz danych w skali chmury używa kombinacji tych dwóch s
 
 ## <a name="sharding"></a>Dzielenie na fragmenty
 
-*Fragmentowanie* to technika dystrybucji dużej ilości danych o identycznej strukturze do wielu niezależnych baz danych. Jest to szczególnie popularne w przypadku deweloperów w chmurze tworzących oferty oprogramowania jako usługi (SAAS) dla klientów końcowych lub firm. Ci klienci końcowi są często nazywani "dzierżawcami". Fragmentowania może być wymagana z dowolnej liczby przyczyn:  
+*Fragmentowania* to technika, która służy do dystrybuowania dużych ilości identycznie uporządkowanych danych między różnymi niezależnymi bazami danych. Jest to szczególnie popularne w przypadku deweloperów w chmurze tworzących oferty oprogramowania jako usługi (SAAS) dla klientów końcowych lub firm. Ci klienci końcowi są często nazywani "dzierżawcami". Fragmentowania może być wymagana z dowolnej liczby przyczyn:  
 
 * Całkowita ilość danych jest zbyt duża, aby zmieścić je w ograniczeniach pojedynczej bazy danych.
 * Przepływność transakcji całkowitego obciążenia przekracza możliwości pojedynczej bazy danych.

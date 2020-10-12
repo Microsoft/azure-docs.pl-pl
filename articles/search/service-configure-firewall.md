@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932801"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Konfigurowanie zapory IP dla usługi Azure Wyszukiwanie poznawcze
@@ -39,7 +39,7 @@ Aby uprościć programowanie, Azure Portal ułatwia identyfikowanie i Dodawanie 
 
 Portal automatycznie wykrywa adres IP klienta. Może to być adres IP klienta komputera lub bramy sieci. Pamiętaj o usunięciu tego adresu IP przed rozpoczęciem pracy w środowisku produkcyjnym.
 
-Aby dodać bieżący adres IP do listy adresów IP, zaznacz pole wyboru **Dodaj swój klient**. Następnie wybierz pozycję **Zapisz**.
+Aby dodać bieżący adres IP do listy adresów IP, zaznacz pole wyboru **Dodaj swój klient**. Następnie wybierz przycisk **Zapisz**.
 
 ![Zrzut ekranu przedstawiający sposób konfigurowania ustawień zapory IP w celu zezwolenia na bieżący adres IP](./media/service-configure-firewall/enable-current-ip.png)
 

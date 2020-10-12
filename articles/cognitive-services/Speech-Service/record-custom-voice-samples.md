@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81261588"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Rejestruj przykłady głosu, aby utworzyć niestandardowy głos
@@ -108,7 +108,7 @@ Na szczęście można całkowicie uniknąć tych problemów. Istnieje wiele źr�
 |-|-|
 |[CMU Arctic korpus](http://festvox.org/cmu_arctic/)|Informacje o 1100 zdaniach wybranych przed prawami autorskimi są przeznaczone do użycia w projektach syntezy mowy. Doskonały punkt wyjścia.|
 |Nie działa już<br>w obszarze prawa autorskie|Zwykle działa opublikowany przed 1923. W przypadku języka angielskiego [Projekt Gutenberg](https://www.gutenberg.org/) zawiera dziesiątki tysięcy takich utworów. Możesz chcieć skupić się na nowszych działaniach, ponieważ język będzie bliżej nowoczesnego języka angielskiego.|
-|Działa&nbsp;dla instytucji rządowych|Program Works utworzony przez Stany Zjednoczone władze rządowe nie ma prawa autorskiego w Stany Zjednoczone, chociaż rząd może zatwierdzić prawa autorskie w innych krajach/regionach.|
+|Działa dla instytucji rządowych &nbsp;|Program Works utworzony przez Stany Zjednoczone władze rządowe nie ma prawa autorskiego w Stany Zjednoczone, chociaż rząd może zatwierdzić prawa autorskie w innych krajach/regionach.|
 |Domena publiczna|Działa, w przypadku których prawa autorskie zostały jawnie odkazane lub które zostały dedykowane dla domeny publicznej. Odstąpienie praw autorskich w niektórych jurysdykcjach może nie być możliwe.|
 |Legalnie licencjonowane działania|Program współpracuje z licencją, taką jak Creative Commons Attribution lub licencję bezpłatna dokumentacja (GFDL). Program Wikipedia używa GFDL. Niektóre licencje mogą jednak nałożyć ograniczenia dotyczące wydajności licencjonowanej zawartości, która może mieć wpływ na tworzenie niestandardowego modelu głosu, dlatego należy uważnie przeczytać licencję.|
 

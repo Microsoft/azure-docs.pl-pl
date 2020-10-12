@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202224"
 ---
 # <a name="general-claims-transformations"></a>Ogólne przekształcenia oświadczeń
@@ -49,9 +49,9 @@ Ta transformacja oświadczeń służy do kopiowania wartości z ciągu lub oświ
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-    - **oświadczenie inputclaim**:bob@contoso.com
+    - **oświadczenie inputclaim**: bob@contoso.com
 - Oświadczenia wyjściowe:
-    - **oświadczenie outputclaim**:bob@contoso.com
+    - **oświadczenie outputclaim**: bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
@@ -60,7 +60,7 @@ Sprawdza, czy **oświadczenie inputclaim** istnieje, czy nie, i odpowiednio usta
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | Oświadczenie inputclaim |Dowolne | Dane wejściowe, których istnienie musi być zweryfikowane. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
 Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie istnieje lub zawiera dowolną wartość. Wartość zwracana jest wartością logiczną, która wskazuje, czy istnieje. Poniższy przykład sprawdza, czy adres e-mail istnieje.
 
@@ -78,7 +78,7 @@ Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie istnieje
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **oświadczenie inputclaim**:someone@contoso.com
+  - **oświadczenie inputclaim**: someone@contoso.com
 - Oświadczenia wyjściowe:
   - **oświadczenie outputclaim**: true
 
@@ -90,7 +90,7 @@ Mieszaj podany zwykły tekst przy użyciu soli i wpisu tajnego. Algorytmem wyzna
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | formacie | ciąg | Dane wejściowe do zaszyfrowania |
 | Oświadczenie inputclaim | Solo | ciąg | Parametr soli. Można utworzyć wartość losową przy użyciu `CreateRandomString` transformacji oświadczeń. |
-| InputParameter | randomizerSecret | ciąg | Wskazuje istniejący **klucz zasad**Azure AD B2C. Aby utworzyć nowy klucz zasad: w dzierżawie Azure AD B2C w obszarze **Zarządzaj**wybierz pozycję **platforma obsługi tożsamości**. Wybierz pozycję **klucze zasad** , aby wyświetlić klucze, które są dostępne w dzierżawie. Wybierz pozycję **Dodaj**. W obszarze **Opcje**wybierz pozycję **Ręczne**. Podaj nazwę (prefiks *B2C_1A_* może zostać dodany automatycznie). W polu tekstowym **wpis tajny** wprowadź dowolne tajne, na przykład 1234567890. W obszarze **użycie klucza**wybierz pozycję **podpis**. Wybierz pozycję **Utwórz**. |
+| InputParameter | randomizerSecret | ciąg | Wskazuje istniejący **klucz zasad**Azure AD B2C. Aby utworzyć nowy klucz zasad: w dzierżawie Azure AD B2C w obszarze **Zarządzaj**wybierz pozycję **platforma obsługi tożsamości**. Wybierz pozycję **klucze zasad** , aby wyświetlić klucze, które są dostępne w dzierżawie. Wybierz pozycję **Dodaj**. W obszarze **Opcje**wybierz pozycję **Ręczne**. Podaj nazwę (prefiks *B2C_1A_* może zostać dodany automatycznie). W polu tekstowym **wpis tajny** wprowadź dowolne tajne, na przykład 1234567890. W obszarze **użycie klucza**wybierz pozycję **podpis**. Wybierz przycisk **Utwórz**. |
 | Oświadczenie outputclaim | hash | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. Zostało skonfigurowane w `plaintext` oświadczenie inputclaim. |
 
 ```xml
@@ -111,7 +111,7 @@ Mieszaj podany zwykły tekst przy użyciu soli i wpisu tajnego. Algorytmem wyzna
 ### <a name="example"></a>Przykład
 
 - Oświadczenia wejściowe:
-  - **zwykły tekst**:MyPass@word1
+  - **zwykły tekst**: MyPass@word1
   - **sól**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Oświadczenia wyjściowe:

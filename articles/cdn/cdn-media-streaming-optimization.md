@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192615"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optymalizacja przesyłania strumieniowego multimediów przy użyciu Azure CDN 
@@ -103,7 +103,7 @@ W poniższej tabeli przedstawiono zestaw kryteriów, które należy spełnić w 
 Obsługiwane typy przesyłania strumieniowego | Rozszerzenia plików  
 --- | ---  
 Apple HLS | M3U8, M3U, m3ub, Key, TS, AAC
-Adobe HDS | f4m, F4X, drmmeta, Bootstrap, F4F,<br>Struktura adresu URL SEG-Frag <br> (zgodne wyrażenie regularne: ^ (/. *) SEQ (\d +)-Frag (\d +)
+Adobe HDS | f4m, F4X, drmmeta, Bootstrap, F4F,<br>Struktura adresu URL Seg-Frag <br> (zgodne wyrażenie regularne: ^ (/. *) SEQ (\d +)-Frag (\d +)
 OBRAMOWAN | MPD, kreska, DivX, ISMV, M4S, M4V, MP4, MP4V, <br> sidx, webm, mp4a, m4a, isma
 Płynne przesyłanie strumieniowe | /manifest/, /QualityLevels/Fragments/
   

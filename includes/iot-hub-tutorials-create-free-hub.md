@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
@@ -9,17 +9,17 @@ ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68229299"
 ---
 Aby utworzyć usługę IoT Hub przy użyciu witryny Azure Portal:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **Utwórz zasób** > **Internet rzeczy** > **IoT Hub**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Internet rzeczy**  >  **IoT Hub**.
 
     ![Wybierz, aby zainstalować usługę IoT Hub](media/iot-hub-tutorials-create-free-hub/selectiothub.png)
 

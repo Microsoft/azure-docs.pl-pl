@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135153"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej
@@ -66,7 +66,7 @@ Można replikować tylko maszyny z systemem Linux z następującym magazynem:
 
 ## <a name="network-configuration---hostguest-vm"></a>Konfiguracja sieci-Host/maszyna wirtualna gościa
 
-**Konfiguracja** | **Obsługiwane**  
+**Konfiguracja** | **Obsługiwał**  
 --- | --- 
 Hostowanie — Tworzenie zespołu kart interfejsu sieciowego | Tak 
 Host-sieć VLAN | Tak 
@@ -83,7 +83,7 @@ Maszyna wirtualna gościa — wiele kart sieciowych | Yes
 
 ### <a name="host-storage"></a>Magazyn hosta
 
-**Magazyn (Host)** | **Obsługiwane** 
+**Magazyn (Host)** | **Obsługiwał** 
 --- | --- 
 NFS | Tak 
 SMB 3.0 | Nie dotyczy 
@@ -92,7 +92,7 @@ Wiele ścieżek (MPIO) | Tak
 
 ### <a name="guest-or-physical-server-storage"></a>Magazyn Gości lub serwer fizyczny
 
-**Konfiguracja** | **Obsługiwane** 
+**Konfiguracja** | **Obsługiwał** 
 --- | --- 
 VMDK | Tak 
 DYSK VHD/VHDX | Nie dotyczy 
@@ -112,7 +112,7 @@ Wiele ścieżek (MPIO) | Nie dotyczy
 
 ## <a name="vaults"></a>Magazyny
 
-**Akcja** | **Obsługiwane** 
+**Akcja** | **Obsługiwał** 
 --- | --- 
 Przenoszenie magazynów między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) | Nie 
 Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami zasobów (w ramach subskrypcji lub między subskrypcjami) | Nie 
@@ -121,7 +121,7 @@ Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure między grupami
 
 Usługa mobilności koordynuje replikację między lokalnymi serwerami VMware lub serwerami fizycznymi oraz lokacją dodatkową. Podczas konfigurowania replikacji należy upewnić się, że masz najnowszą wersję usługi mobilności oraz inne składniki.
 
-| **Aktualizacja** | **Szczegóły** |
+| **Aktualizowanie** | **Szczegóły** |
 | --- | --- |
 |Aktualizacje Scout | Aktualizacje Scout są zbiorcze. <br/><br/> [Uzyskaj informacje o](vmware-physical-secondary-disaster-recovery.md#updates) najnowszych aktualizacjach programu Scout i Pobierz je |
 |Aktualizacje składników | Aktualizacje Scout obejmują aktualizacje wszystkich składników, w tym serwer RX, serwer konfiguracji, proces i główne serwery docelowe, serwery vContinuum i serwery źródłowe, które mają być chronione.<br/><br/> [Dowiedz się więcej](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|

@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: allensu
 ms.custom: ''
 ms.openlocfilehash: b55e418393d6d446ae0d3557f2d1f4cf98d89293
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192506"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Konfigurowanie trybu failover dla wielu punktów końcowych Azure CDN przy użyciu usługi Azure Traffic Manager
@@ -68,7 +68,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
     b. Dla drugiego wpisu CNAME Mapuj domenę niestandardową bez poddomeny cdnverify do punktu końcowego usługi CDN. Ten wpis mapuje domenę niestandardową na Traffic Manager. 
 
-      Przykład: 
+      Na przykład: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -87,7 +87,7 @@ Po skonfigurowaniu profilów sieci CDN i Traffic Manager wykonaj następujące k
 
 3.  Wróć do witryny sieci Web dostawcy domeny niestandardowej i zaktualizuj pierwsze mapowanie DNS utworzone w programie, tak aby domena niestandardowa została zamapowana na drugi punkt końcowy usługi CDN.
                              
-    Przykład: 
+    Na przykład: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

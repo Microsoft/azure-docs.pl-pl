@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77474191"
 ---
 Błędy wywoływane w Azure Functions mogą pochodzić z jednego z następujących źródeł:
@@ -20,7 +20,7 @@ Błędy wywoływane w Azure Functions mogą pochodzić z jednego z następujący
 
 Po zastosowaniu stałych praktyk obsługi błędów ważne jest, aby uniknąć utraty danych lub brakujących komunikatów. Zalecane praktyki obsługi błędów obejmują następujące akcje:
 
-- [Włączanie usługi Application Insights](../articles/azure-functions/functions-monitoring.md)
+- [Włącz usługę Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Użyj strukturalnej obsługi błędów](#use-structured-error-handling)
 - [Projektuj dla idempotentności](../articles/azure-functions/functions-idempotent.md)
 - [Zaimplementuj zasady ponawiania](../articles/azure-functions/functions-reliable-event-processing.md) (w razie potrzeby)
@@ -34,7 +34,7 @@ Błędy przechwytywania i publikowania mają kluczowe znaczenie dla monitorowani
 Następujące wyzwalacze obsługują wbudowaną ponowną próbę:
 
 * [Azure Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Usługa Azure queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (Kolejka/temat)](../articles/azure-functions/functions-bindings-service-bus.md)
 
 Domyślnie te wyzwalacze ponawiają żądania do pięciu razy. Po piątej ponowieniu próby zarówno usługa Azure queue storage, jak i Azure Service Bus wyzwalają zapisanie komunikatu w [kolejce trującej](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages).

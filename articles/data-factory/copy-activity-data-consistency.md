@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
 ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522911"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Weryfikacja spójności danych w działaniu kopiowania (wersja zapoznawcza)
@@ -128,7 +128,7 @@ Timestamp | Sygnatura czasowa, gdy moduł ADF pomija niespójne pliki.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwa pliku do pominięcia.
-Komunikat | Więcej informacji o tym, dlaczego pliki są pomijane.
+Wiadomość | Więcej informacji o tym, dlaczego pliki są pomijane.
 
 Przykładowy plik dziennika jest następujący: 
 ```
@@ -142,7 +142,7 @@ W pliku dziennika powyżej można zobaczyć, że sample1.csv został pominięty,
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Omówienie działania kopiowania](copy-activity-overview.md)
 - [Odporność na uszkodzenia działania kopiowania](copy-activity-fault-tolerance.md)
 
 

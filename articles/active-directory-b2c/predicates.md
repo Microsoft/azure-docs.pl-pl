@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203813"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predykaty i PredicateValidations
@@ -44,7 +44,7 @@ Element **predykatu** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany dla predykatu. Inne elementy mogą używać tego identyfikatora w zasadach. |
+| Id | Tak | Identyfikator, który jest używany dla predykatu. Inne elementy mogą używać tego identyfikatora w zasadach. |
 | Metoda | Tak | Typ metody do użycia na potrzeby walidacji. Możliwe wartości: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)lub [IsDateRange](#isdaterange).  |
 | HelpText | Nie | Komunikat o błędzie dla użytkowników, jeśli sprawdzenie zakończy się niepowodzeniem. Ten ciąg może być lokalizowany przy użyciu [dostosowania języka](localization.md) |
 
@@ -65,7 +65,7 @@ Element **Parameter** zawiera następujące atrybuty:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| Identyfikator | 1:1 | Identyfikator parametru. |
+| Id | 1:1 | Identyfikator parametru. |
 
 ### <a name="predicate-methods"></a>Metody predykatu
 
@@ -76,7 +76,7 @@ Metoda IsLengthRange sprawdza, czy długość wartości żądania ciągu mieści
 | Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
 | Maksimum | Tak | Maksymalna liczba znaków, które można wprowadzić. |
-| Minimalne | Tak | Minimalna liczba znaków, które muszą zostać wprowadzone. |
+| Minimum | Tak | Minimalna liczba znaków, które muszą zostać wprowadzone. |
 
 
 Poniższy przykład przedstawia metodę IsLengthRange z parametrami, `Minimum` `Maximum` które określają zakres długości ciągu:
@@ -114,7 +114,7 @@ Metoda IncludesCharacters sprawdza, czy wartość żądania ciągu zawiera zesta
 
 | Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
-| CharacterSet | Tak | Zestaw znaków, które można wprowadzić. Na przykład małe litery `a-z` , wielkie litery `A-Z` , cyfry `0-9` lub Lista symboli, takich jak `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
+| CharacterSet | Tak | Zestaw znaków, które można wprowadzić. Na przykład małe litery  `a-z` , wielkie litery `A-Z` , cyfry `0-9` lub Lista symboli, takich jak `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 Poniższy przykład przedstawia `IncludesCharacters` metodę z parametrem `CharacterSet` , który określa zestaw znaków:
 
@@ -133,7 +133,7 @@ Metoda IsDateRange sprawdza, czy wartość żądania daty należy do zakresu od 
 | Parametr | Wymagane | Opis |
 | ------- | ----------- | ----------- |
 | Maksimum | Tak | Największa możliwa data, którą można wprowadzić. Format daty jest zgodny z `yyyy-mm-dd` Konwencją lub `Today` . |
-| Minimalne | Tak | Najmniejsza możliwa data, którą można wprowadzić. Format daty jest zgodny z `yyyy-mm-dd` Konwencją lub `Today` .|
+| Minimum | Tak | Najmniejsza możliwa data, którą można wprowadzić. Format daty jest zgodny z `yyyy-mm-dd` Konwencją lub `Today` .|
 
 Poniższy przykład przedstawia `IsDateRange` metodę z parametrami, `Minimum` `Maximum` które określają zakres dat z formatem `yyyy-mm-dd` i `Today` .
 
@@ -180,7 +180,7 @@ Element **PredicateValidation** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany na potrzeby walidacji predykatu. Element **ClaimType** może używać tego identyfikatora w zasadach. |
+| Id | Tak | Identyfikator, który jest używany na potrzeby walidacji predykatu. Element **ClaimType** może używać tego identyfikatora w zasadach. |
 
 Element **PredicateValidation** zawiera następujący element:
 
@@ -198,7 +198,7 @@ Element grupy **predykatów** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany dla grupy predykatu.  |
+| Id | Tak | Identyfikator, który jest używany dla grupy predykatu.  |
 
 Element grupy **predykatów** zawiera następujące elementy:
 
@@ -223,7 +223,7 @@ Element **PredicateReference** zawiera następujące atrybuty:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany na potrzeby walidacji predykatu.  |
+| Id | Tak | Identyfikator, który jest używany na potrzeby walidacji predykatu.  |
 
 
 ## <a name="configure-password-complexity"></a>Konfigurowanie złożoności hasła

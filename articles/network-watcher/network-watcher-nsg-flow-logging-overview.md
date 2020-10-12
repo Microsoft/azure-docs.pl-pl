@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89070585"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
@@ -309,7 +309,7 @@ W przypadku Stanów kontynuacja _C_ i End _E_ , liczba bajtów i pakietów to li
 
 Użyj poniższego linku poniżej, aby zapoznać się z przewodnikami dotyczącymi włączania dzienników przepływów.
 
-- [Witryna Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 - [Program PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
@@ -317,7 +317,7 @@ Użyj poniższego linku poniżej, aby zapoznać się z przewodnikami dotyczącym
 
 ## <a name="updating-parameters"></a>Aktualizowanie parametrów
 
-**Witryna Azure Portal**
+**Azure Portal**
 
 Na Azure Portal przejdź do sekcji Dzienniki przepływu sieciowej grupy zabezpieczeń w programie Network Watcher. Następnie kliknij nazwę sieciowej grupy zabezpieczeń. Spowoduje to wyświetlenie okienka ustawień dziennika przepływu. Zmień żądane parametry i naciśnij przycisk **Zapisz** , aby wdrożyć zmiany.
 
@@ -391,7 +391,7 @@ Czasami dzienniki nie są wyświetlane, ponieważ maszyny wirtualne nie są akty
 
 Obsługa automatyzacji za pomocą szablonów ARM nie jest obecnie dostępna dla dzienników przepływów sieciowych grup zabezpieczeń. Przeczytaj [anons funkcji](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) , aby uzyskać więcej informacji.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Co robią dzienniki przepływu sieciowej grupy zabezpieczeń?**
 

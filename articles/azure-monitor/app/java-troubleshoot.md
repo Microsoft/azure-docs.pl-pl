@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372522"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Rozwiązywanie problemów oraz pytania i odpowiedzi dotyczące usługi Application Insights dla języka Java
@@ -126,7 +126,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Agent środowiska Java
 
-Aby włączyć rejestrowanie agenta JVM, zaktualizuj [plikAI-Agent.xml](java-agent.md):
+Aby włączyć rejestrowanie agenta JVM, zaktualizuj [ plikAI-Agent.xml](java-agent.md):
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
@@ -188,7 +188,7 @@ Application Insights używa `org.apache.http` . Jest to przeniesiono w Applicati
 * [Napisz kod umożliwiający śledzenie użycia aplikacji][track]
 * [Przechwyć dzienniki diagnostyczne][javalogs]
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Zadawanie problemu w usłudze GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 

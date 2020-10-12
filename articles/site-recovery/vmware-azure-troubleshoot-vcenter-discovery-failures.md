@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135350"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Rozwiązywanie problemów z błędami odnajdywania vCenter Server
@@ -20,7 +20,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów występujących w wyniku awarii 
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Wartości inne niż liczbowe we właściwości maxSnapShots
 
-W wersjach wcześniejszych niż 9,20 program vCenter rozłącza się, gdy pobiera nieliczbową wartość `snapshot.maxSnapShots` właściwości właściwości na maszynie wirtualnej.
+W wersjach wcześniejszych niż 9,20 program vCenter rozłącza się, gdy pobiera nieliczbową wartość  `snapshot.maxSnapShots` właściwości właściwości na maszynie wirtualnej.
 
 Ten problem jest identyfikowany przez błąd o IDENTYFIKATORze 95126.
 

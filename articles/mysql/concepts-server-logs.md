@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81271985"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Wolne dzienniki zapytań w Azure Database for MySQL
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Dzienniki wolnych zapytań w usłudze Azure Database for MySQL
 W Azure Database for MySQL dziennik wolnych zapytań jest dostępny dla użytkowników. Dostęp do dziennika transakcji nie jest obsługiwany. Dziennik wolnych zapytań może służyć do identyfikowania wąskich gardeł wydajności w celu rozwiązywania problemów.
 
 Aby uzyskać więcej informacji na temat dziennika wolnych zapytań programu MySQL, zobacz [sekcję dziennik wolnych zapytań](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)dotyczących usługi MySQL Reference.
@@ -59,18 +59,18 @@ W poniższej tabeli opisano zawartość poszczególnych dzienników. W zależno�
 |---|---|
 | `TenantId` | Identyfikator dzierżawy |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| `Type` | Typ dziennika. Stałego`AzureDiagnostics` |
+| `TimeGenerated` UTC | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
+| `Type` | Typ dziennika. Stałego `AzureDiagnostics` |
 | `SubscriptionId` | Identyfikator GUID subskrypcji, do której należy serwer |
 | `ResourceGroup` | Nazwa grupy zasobów, do której należy serwer |
-| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego`MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Identyfikator URI zasobu |
 | `Resource` | Nazwa serwera |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nazwa serwera |
-| `start_time_t`UTC | Godzina rozpoczęcia zapytania |
+| `start_time_t` UTC | Godzina rozpoczęcia zapytania |
 | `query_time_s` | Łączny czas (w sekundach) wykonywania zapytania |
 | `lock_time_s` | Łączny czas w sekundach, przez który zapytanie zostało zablokowane |
 | `user_host_s` | Nazwa użytkownika |

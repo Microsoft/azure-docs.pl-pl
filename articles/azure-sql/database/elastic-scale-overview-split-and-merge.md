@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84047524"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Przenoszenie danych między skalowanymi bazami danych w chmurze
@@ -53,7 +53,7 @@ Narzędzie do dzielenia i scalania działa jako usługa sieci Web platformy Azur
 
 - **Scal, aby zmniejszyć**
 
-  Pojemność wymaga zmniejszenia ze względu na sezonowy charakter firmy. Narzędzie umożliwia skalowanie w dół do mniejszej liczby jednostek skalowania, gdy firma jest niska. Funkcja "merge" w usłudze Split-Merge w ramach skalowania elastycznego obejmuje to wymaganie.
+  Pojemność wymaga zmniejszenia ze względu na sezonowy charakter firmy. Narzędzie umożliwia skalowanie w dół do mniejszej liczby jednostek skalowania, gdy firma jest niska. Funkcja "merge" w usłudze elastycznego skalowania Split-Merge obejmuje to wymaganie.
 
 - **Zarządzaj hotspotami, przenosząc podfragmentów**
 
@@ -117,7 +117,7 @@ Narzędzie do dzielenia i scalania działa jako usługa sieci Web platformy Azur
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
-    Tabele "region" i "kraj" są zdefiniowane jako tabele referencyjne i zostaną skopiowane za pomocą operacji Split/Merge/Move. z kolei "Customer" i "Orders" są zdefiniowane jako tabele podzielonej na fragmenty. `C_CUSTKEY`i `O_CUSTKEY` stanowią klucz fragmentowania.
+    Tabele "region" i "kraj" są zdefiniowane jako tabele referencyjne i zostaną skopiowane za pomocą operacji Split/Merge/Move. z kolei "Customer" i "Orders" są zdefiniowane jako tabele podzielonej na fragmenty. `C_CUSTKEY` i `O_CUSTKEY` stanowią klucz fragmentowania.
 
 - **Integralność referencyjna**
 
@@ -187,7 +187,7 @@ Usługa Split-Merge działa jako usługa w chmurze w ramach subskrypcji Microsof
 
 Usługa Split-Merge oferuje tabelę **stanem żądania** w bazie danych magazynu metadanych na potrzeby monitorowania ukończonych i bieżących żądań. W tabeli przedstawiono wiersz dla każdego żądania Split-Merge, które zostało przesłane do tego wystąpienia usługi Split-Merge. Podaje następujące informacje dotyczące każdego żądania:
 
-- **Sygnatura czasowa**
+- **Timestamp**
 
   Godzina i Data rozpoczęcia żądania.
 
@@ -250,7 +250,7 @@ Możesz łatwo uzyskać dostęp do danych diagnostycznych z programu Visual Stud
 
 WADLogsTable wyróżniony na powyższym rysunku zawiera szczegółowe zdarzenia z dziennika aplikacji usługi Split-Merge. Należy pamiętać, że domyślna konfiguracja pobranego pakietu jest ukierunkowana na wdrożenie produkcyjne. W związku z tym Interwał pobierania dzienników i liczników z wystąpień usługi jest duży (5 minut). W celu testowania i opracowywania Obniż interwał przez dostosowanie ustawień diagnostycznych sieci Web lub roli procesu roboczego do Twoich potrzeb. Kliknij prawym przyciskiem myszy rolę w Eksplorator serwera programu Visual Studio (patrz powyżej), a następnie dostosuj okres transferu w oknie dialogowym dla ustawień konfiguracji diagnostyki:
 
-![Konfigurowanie][3]
+![Konfiguracja][3]
 
 ## <a name="performance"></a>Wydajność
 
