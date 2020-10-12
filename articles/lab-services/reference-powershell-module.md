@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące modułu programu PowerSh
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6f5809dcf981a1ecf30cda06af03d2b8a06d3694
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078826"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Moduł programu PowerShell Az.LabServices (wersja zapoznawcza)
@@ -23,7 +23,7 @@ Oto przykład użycia polecenia programu PowerShell, aby zatrzymać wszystkie ur
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 1. Zainstaluj [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) , jeśli nie istnieje na Twojej maszynie. 
 2. Pobierz [AZ. LabServices. PSM1](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Modules/Library/Az.LabServices.psm1) do komputera.
 3. Zaimportuj moduł:

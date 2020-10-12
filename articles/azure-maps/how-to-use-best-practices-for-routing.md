@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086406"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
@@ -21,7 +21,7 @@ Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route 
 
 > [!div class="checklist"]
 > * Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
-> * Żądaj historycznych i przewidywanych czasów podróży na podstawie danych o ruchu w czasie rzeczywistym i historycznych
+> * Tworzenie żądań dotyczących historycznych i przewidywanych czasów podróży na podstawie historycznych oraz aktualnych danych o ruchu
 > * Żądaj szczegółowych informacji o trasie, takich jak czas i odległość, dla całej trasy i każdego etapu trasy
 > * Zażądaj trasy dla pojazdu komercyjnego, takiego jak ciężarówka
 > * Żądaj informacji o ruchu na trasie, takich jak dżemy i informacje o cle
@@ -205,7 +205,7 @@ Ta opcja umożliwia kolorowanie sekcji podczas renderowania mapy, jak na poniżs
 
 ![Kolorowe sekcje renderowane na mapie](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Obliczanie i optymalizowanie trasy z obsługą multitransportu
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Obliczanie i optymalizowanie trasy z wieloma przystankami
 
 Azure Maps obecnie oferuje dwie formy optymalizacji tras:
 
@@ -282,7 +282,7 @@ Zestaw SDK sieci Web Azure Maps udostępnia [moduł usługi](https://docs.micros
 Aby dowiedzieć się więcej, zobacz:
 
 > [!div class="nextstepaction"]
-> [Usługa tras Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Usługa wyznaczania tras usługi Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [Jak używać modułu usługi](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

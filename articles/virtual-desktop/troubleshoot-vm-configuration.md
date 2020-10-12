@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005224"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
@@ -114,7 +114,7 @@ Postępuj zgodnie z tymi instrukcjami, aby upewnić się, że składniki są zai
 
 Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy na maszynach wirtualnych hosta sesji (ręcznie lub za pośrednictwem szablonu Azure Resource Manager i programu PowerShell DSC), udostępnia token rejestracji. W poniższej sekcji omówiono Rozwiązywanie problemów związanych z agentem pulpitu wirtualnego systemu Windows i tokenem.
 
-### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-AzWvdSessionHost pokazuje stan jako niedostępny
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-AzWvdSessionHost wyświetla stan jako niedostępny
 
 > [!div class="mx-imgBorder"]
 > ![Polecenie cmdlet Get-AzWvdSessionHost wyświetla stan jako niedostępny.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)

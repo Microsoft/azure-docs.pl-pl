@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/24/2020
 ms.author: aahi
 ms.openlocfilehash: d6820e890607ff16230ecf48e8318e6d1119a3a2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707510"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Jak używać rozpoznawania jednostek nazwanych w analiza tekstu
@@ -34,7 +34,7 @@ Funkcja rozpoznawania jednostek nazwanych (NER) to możliwość identyfikowania 
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Cechy                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 2 |
+| Cecha                                                         | NER v 3.0 | NER v 3.1 — wersja zapoznawcza. 2 |
 |-----------------------------------------------------------------|--------|----------|
 | Metody dla żądań pojedynczych i wsadowych                          | X      | X        |
 | Rozbudowane rozpoznawanie jednostek w kilku kategoriach           | X      | X        |

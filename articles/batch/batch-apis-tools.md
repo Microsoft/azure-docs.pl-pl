@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
 ms.openlocfilehash: 502eb08631223215933b75dca882c12c02d17bd9
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146406"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Omówienie narzędzi i interfejsów API usługi Batch
@@ -41,7 +41,7 @@ Natomiast [interfejs API zarządzania usługą Batch do usuwania puli](/rest/api
 
 Aplikacje i usługi mogą wykonywać bezpośrednie wywołania interfejsu API REST lub użyć co najmniej jednej z następujących bibliotek klienckich do uruchamiania obciążeń usługi Azure Batch i zarządzania nimi.
 
-| Interfejs API | Odwołanie API | Pobierz | Samouczek | Przykłady kodu | Więcej informacji |
+| Interfejs API | Dokumentacja interfejsu API | Pobierz | Samouczek | Przykłady kodu | Więcej informacji |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[Interfejs API REST platformy Azure — dokumentacja](/rest/api/batchservice/) |Nie dotyczy |- |- | [Obsługiwane wersje](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[Zestaw Azure SDK dla platformy .NET — dokumentacja](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Samouczek](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Informacje o wersji](https://aka.ms/batch-net-dataplane-changelog) |
@@ -53,7 +53,7 @@ Aplikacje i usługi mogą wykonywać bezpośrednie wywołania interfejsu API RES
 
 Interfejsy API usługi Azure Resource Manager dla usługi Batch zapewniają dostęp programowy do kont usługi Batch. Za pomocą tych interfejsów API możesz programowo zarządzać kontami usługi Batch, limitami przydziału, pakietami aplikacji i innymi zasobami za pośrednictwem dostawcy Microsoft.Batch.  
 
-| Interfejs API | Odwołanie API | Pobierz | Samouczek | Przykłady kodu |
+| Interfejs API | Dokumentacja interfejsu API | Pobierz | Samouczek | Przykłady kodu |
 | --- | --- | --- | --- | --- |
 | **Batch Management REST (Interfejs REST zarządzania usługą Batch)** |[Interfejs API REST platformy Azure — dokumentacja](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Management .NET** |[Zestaw Azure SDK dla platformy .NET — dokumentacja](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Samouczek](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
@@ -77,7 +77,7 @@ Te dodatkowe narzędzia mogą być przydatne do kompilowania i debugowania aplik
 - [Azure Batch stocznie](https://github.com/Azure/batch-shipyard): stoczniowe narzędzie do obsługi inicjowania, wykonywania i monitorowania przetwarzania wsadowego opartego na kontenerach i obciążeń HPC na Azure Batch.
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/): Chociaż nie jest to dokładnie narzędzie Azure Batch, Eksplorator usługi Storage jest innym przydatnym narzędziem, które trzeba uzyskać podczas tworzenia i debugowania rozwiązań wsadowych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - Aby dowiedzieć się więcej o zdarzeniach rejestrowania z aplikacji usługi Batch, zobacz [metryki usługi Batch, alerty i dzienniki na potrzeby oceny i monitorowania diagnostyki](batch-diagnostics.md).
 - Informacje referencyjne dotyczące zdarzeń zgłaszanych przez usługę Batch można znaleźć w temacie [Batch Analytics](batch-analytics.md).

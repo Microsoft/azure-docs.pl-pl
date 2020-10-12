@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: mbullwin
 ms.openlocfilehash: 33da3cd8a72bb4d93011c348db65c5b4d9e687ed
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461467"
 ---
 # <a name="interactive-workbooks"></a>Interakcyjne skoroszyty
@@ -45,13 +45,13 @@ Na przykład użytkownik może mieć siatkę wyświetlającą listę żądań i 
     | order by AllRequests desc
     ```
 
-5. `Run query`Aby wyświetlić wyniki
+5. `Run query` Aby wyświetlić wyniki
 6. Wybierz ikonę _Ustawienia zaawansowane_ w stopce zapytania (ikona wygląda jak koła zębate). Spowoduje to otwarcie okienka ustawienia zaawansowane.
 7. Sprawdź ustawienie: `When an item is selected, export a parameter` .
 8. W obszarze zaznaczone ustawienie wybierz pozycję *Dodaj parametr* i wypełnij je poniższymi informacjami.
-    1. Pole do wyeksportowania:`Request`
-    2. Nazwa parametru:`SelectedRequest`
-    3. Wartość domyślna:`All requests`
+    1. Pole do wyeksportowania: `Request`
+    2. Nazwa parametru: `SelectedRequest`
+    3. Wartość domyślna: `All requests`
 9. Wybieranie pozycji Zapisz
 
     ![Zrzut ekranu przedstawiający zaawansowany edytor z ustawieniami eksportu pól jako parametrów.](./media/workbooks-interactive/export-parameters-add.png)
@@ -64,7 +64,7 @@ Na przykład użytkownik może mieć siatkę wyświetlającą listę żądań i 
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-13. `Run query`, aby wyświetlić wyniki.
+13. `Run query` , aby wyświetlić wyniki.
 14. Zmień _wizualizację_ na `Area chart` .
 15. Wybierz wiersz, który ma zostać wybrany w pierwszej siatce. Zwróć uwagę na to, jak wykres warstwowy poniżej filtruje wybrane żądanie.
 
@@ -99,7 +99,7 @@ Skoroszyty umożliwiają autorom Dodawanie interaktywności za pośrednictwem sp
     | order by Count desc
     ```
 
-5. `Run query`Aby wyświetlić wyniki
+5. `Run query` Aby wyświetlić wyniki
 6. Wybierz pozycję _Ustawienia kolumny_ , aby otworzyć okienko ustawienia.
 7. W sekcji _kolumny_ Ustaw:
     1. Renderowanie w postaci _przykładowej_ kolumny: `Link` , Wyświetl, aby otworzyć: `Cell Details` , etykieta linku:`Sample`
@@ -118,8 +118,8 @@ Skoroszyty umożliwiają autorom Dodawanie interaktywności za pośrednictwem sp
 | Akcja łącza | Akcja po kliknięciu |
 |:------------- |:-------------|
 | `Generic Details` | Pokazuje wartości wierszy na karcie kontekstowej siatki właściwości |
-| `Cell Details` | Pokazuje wartość komórki na karcie kontekstowej siatki właściwości. przydatne, gdy komórka zawiera typ dynamiczny z informacjami (na przykład JSON z właściwościami żądania, takimi jak lokalizacja, wystąpienie roli itp.). |
-| `Cell Details` | Pokazuje wartość komórki na karcie kontekstowej siatki właściwości. przydatne, gdy komórka zawiera typ dynamiczny z informacjami (na przykład JSON z właściwościami żądania, takimi jak lokalizacja, wystąpienie roli itp.). |
+| `Cell Details` | Pokazuje wartość komórki na karcie kontekstowej siatki właściwości. Przydatne, gdy komórka zawiera typ dynamiczny z informacjami (na przykład JSON z właściwościami żądania, takimi jak lokalizacja, wystąpienie roli itp.). |
+| `Cell Details` | Pokazuje wartość komórki na karcie kontekstowej siatki właściwości. Przydatne, gdy komórka zawiera typ dynamiczny z informacjami (na przykład JSON z właściwościami żądania, takimi jak lokalizacja, wystąpienie roli itp.). |
 | `Custom Event Details` | Otwiera Application Insights szczegóły wyszukiwania z niestandardowym IDENTYFIKATORem zdarzenia ( `itemId` ) w komórce |
 | `* Details` | Podobnie jak w przypadku szczegółów zdarzenia niestandardowego, z wyjątkiem zależności, wyjątków, wyświetlania stron, żądań i śladów. |
 | `Custom Event User Flows` | Otwiera środowisko Przepływy użytkownika Application Insights przestawiane na nazwę zdarzenia niestandardowego w komórce |
@@ -137,30 +137,30 @@ Skoroszyt umożliwia użytkownikom wyświetlanie lub ukrywanie określonych kont
 1. Wykonaj kroki opisane w sekcji [Konfigurowanie interakcji z wierszem siatki kliknij pozycję](#setting-up-interactivity-on-grid-row-click) sekcja, aby skonfigurować dwa formanty interaktywne.
 2. Dodaj nowy parametr u góry:
     1. Nazwa: `ShowDetails`
-    2. Typ parametru:`Drop down`
-    3. Wymagane:`checked`
-    4. Pobierz dane z:`JSON`
-    5. Dane wejściowe JSON:`["Yes", "No"]`
+    2. Typ parametru: `Drop down`
+    3. Wymagane: `checked`
+    4. Pobierz dane z: `JSON`
+    5. Dane wejściowe JSON: `["Yes", "No"]`
     6. Zapisz, aby zatwierdzić zmiany.
 
     ![Po wybraniu przycisku Dodaj parametr zostanie wyświetlone okienko Edytowanie parametru.](./media/workbooks-interactive/edit-parameter.png)
 
-3. Ustaw wartość parametru na`Yes`
+3. Ustaw wartość parametru na `Yes`
 
     ![Nad przyciskiem gotowe do edycji znajduje się lista rozwijana, która umożliwia ustawienie wartości parametru](./media/workbooks-interactive/set-parameter.png)
 
 4. W kontrolce zapytania z wykresem warstwowym wybierz ikonę _Ustawienia zaawansowane_ (ikona koła zębatego)
-5. Sprawdź ustawienie`Make this item conditionally visible`
-    1. Ten element jest widoczny, jeśli `ShowDetails` wartość `equals` parametru`Yes`
+5. Sprawdź ustawienie `Make this item conditionally visible`
+    1. Ten element jest widoczny, jeśli `ShowDetails` wartość `equals` parametru `Yes`
 6. Wybierz pozycję _gotowe do edycji_ , aby zatwierdzić zmiany.
 7. Wybierz pozycję _gotowe edytowanie_ na pasku narzędzi skoroszytu, aby przejść do trybu odczytu.
 8. Zmień wartość parametru `ShowDetails` na `No` . Zauważ, że wykres poniżej zniknie.
 
-Na poniższym obrazie pokazano widoczny przypadek, w którym `ShowDetails` jest`Yes`
+Na poniższym obrazie pokazano widoczny przypadek, w którym `ShowDetails` jest `Yes`
 
 ![Zrzut ekranu przedstawiający widoczność warunkową, w której wykres jest widoczny](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
 
-Na poniższej ilustracji przedstawiono ukryty przypadek, w którym `ShowDetails` jest`No`
+Na poniższej ilustracji przedstawiono ukryty przypadek, w którym `ShowDetails` jest `No`
 
 ![Zrzut ekranu przedstawiający widoczność warunkową, w której wykres jest ukryty](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
 

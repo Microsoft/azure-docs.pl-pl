@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085913"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
@@ -129,7 +129,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
     Niestandardowe zasady dostępu warunkowego umożliwiają szczegółowe warunki użytkowania, w dół do określonej aplikacji w chmurze lub grupy użytkowników. Aby uzyskać więcej informacji, zobacz [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md).
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
    W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
 
@@ -225,7 +225,7 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 
    ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-tou.png)
 
-1. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+1. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
 
    Gdy zapiszesz zmiany, użytkownicy nie będą musieli ponownie akceptować tych zmian.
 
@@ -255,10 +255,10 @@ Poniżej znajduje się lista obsługiwanych platform i oprogramowania.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Inne |
 > | --- | --- | --- | --- | --- |
-> | **Aplikacja natywna** | Yes | Yes | Yes |  |
-> | **Microsoft Edge** | Yes | Yes | Yes |  |
-> | **Internet Explorer** | Yes | Yes | Yes |  |
-> | **Chrome (z rozszerzeniem)** | Yes | Yes | Yes |  |
+> | **Aplikacja natywna** | Tak | Tak | Tak |  |
+> | **Microsoft Edge** | Tak | Tak | Tak |  |
+> | **Internet Explorer** | Tak | Tak | Tak |  |
+> | **Chrome (z rozszerzeniem)** | Tak | Tak | Tak |  |
 
 Warunki użytkowania poszczególnych urządzeń mają następujące ograniczenia:
 

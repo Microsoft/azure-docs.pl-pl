@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474329"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
@@ -35,7 +35,7 @@ Application Gateway umożliwia routing oparty na hoście przy użyciu odbiornika
 
 Używając symbolu wieloznacznego w nazwie hosta, można dopasować wiele nazw hostów w pojedynczym odbiorniku. Na przykład `*.contoso.com` może być zgodne z `ecom.contoso.com` , `b2b.contoso.com` `customer1.b2b.contoso.com` i tak dalej. Korzystając z tablicy nazw hostów, można skonfigurować więcej niż jedną nazwę hosta dla odbiornika, aby kierować żądania do puli zaplecza. Może na przykład znajdować się odbiornik, `contoso.com, fabrikam.com` który akceptuje żądania dla nazwy hosta.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Odbiornik symboli wieloznacznych":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Application Gateway wiele lokacji":::
 
 >[!NOTE]
 > Ta funkcja jest w wersji zapoznawczej i jest dostępna tylko dla Standard_v2 i WAF_v2 SKU Application Gateway. Aby dowiedzieć się więcej na temat wersji zapoznawczych, zobacz [warunki użytkowania tutaj](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -50,16 +50,16 @@ W [interfejsie wiersza polecenia platformy Azure](tutorial-multiple-sites-cli.md
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Dozwolone znaki w polu nazwy hostów:
 
-* `(A-Z,a-z,0-9)`-znaki alfanumeryczne
-* `-`-myślnik lub minus
-* `.`-Period jako ogranicznik
-*   `*`-może być zgodne z wieloma znakami w dozwolonym zakresie
-*   `?`-może pasować do pojedynczego znaku w dozwolonym zakresie
+* `(A-Z,a-z,0-9)` -znaki alfanumeryczne
+* `-` -myślnik lub minus
+* `.` -Period jako ogranicznik
+*   `*` -może być zgodne z wieloma znakami w dozwolonym zakresie
+*   `?` -może pasować do pojedynczego znaku w dozwolonym zakresie
 
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Warunki używania symboli wieloznacznych i wielu nazw hostów w odbiorniku:
 
 *   W pojedynczym odbiorniku można wymieniać maksymalnie 5 nazw hostów
-*   Gwiazdkę `*` można podać tylko raz w składniku nazwy stylu domeny lub nazwy hosta. Na przykład Component1 *. component2*. component3. `(*.contoso-*.com)`jest prawidłowy.
+*   Gwiazdkę `*` można podać tylko raz w składniku nazwy stylu domeny lub nazwy hosta. Na przykład Component1 *. component2*. component3. `(*.contoso-*.com)` jest prawidłowy.
 *   Nazwa hosta może zawierać maksymalnie dwie gwiazdki `*` . Na przykład `*.contoso.*` jest prawidłowy i `*.contoso.*.*.com` nieprawidłowy.
 *   Nazwa hosta może zawierać maksymalnie 4 symbole wieloznaczne. Na przykład, `????.contoso.com` , `w??.contoso*.edu.*` są prawidłowe, ale `????.contoso.*` jest nieprawidłowy.
 *   Użycie gwiazdki `*` i znaku zapytania `?` razem w składniku nazwy hosta ( `*?` lub `?*` lub `**` ) jest nieprawidłowe. Na przykład `*?.contoso.com` i `**.contoso.com` są nieprawidłowe.

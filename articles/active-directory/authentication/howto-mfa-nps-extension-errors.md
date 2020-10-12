@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716728"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolve error messages from the NPS extension for Azure Multi-Factor Authentication (Rozstrzyganie komunikatów o błędach z rozszerzenia serwera NPS dotyczących usługi Azure Multi-Factor Authentication)
@@ -33,7 +33,7 @@ Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Facto
 | **HTTPS_COMMUNICATION_ERROR** | Serwer NPS nie może odbierać odpowiedzi z usługi Azure MFA. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i z https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | Na serwerze, na którym działa rozszerzenie serwera zasad sieciowych, sprawdź, czy można nawiązać połączenie  `https://adnotifications.windowsazure.com` i `https://login.microsoftonline.com/` . Jeśli te lokacje nie są ładowane, Rozwiąż problemy z łącznością na tym serwerze. |
 | **Rozszerzenie serwera NPS dla usługi Azure MFA:** <br> Rozszerzenie serwera NPS dla usługi Azure MFA wykonuje tylko uwierzytelnianie pomocnicze dla żądań RADIUS w stanie AccessAccept. Żądanie zostało odebrane dla użytkownika o nazwie "odpowiedź" o stanie odpowiedzi AccessReject, ignorując żądanie. | Ten błąd zwykle odzwierciedla błąd uwierzytelniania w usłudze AD lub że serwer NPS nie może odebrać odpowiedzi z usługi Azure AD. Sprawdź, czy zapory są otwarte dwukierunkowo dla ruchu do i z `https://adnotifications.windowsazure.com` i z `https://login.microsoftonline.com` portów 80 i 443. Ważne jest również, aby sprawdzić, czy na karcie TELEFONowania uprawnień dostępu do sieci jest ustawiona opcja "Kontroluj dostęp za pomocą zasad sieciowych NPS". Ten błąd może również być wyzwalany, jeśli użytkownik nie ma przypisanej licencji. |
-| **REGISTRY_CONFIG_ERROR** | Brak klucza w rejestrze dla aplikacji, co może być spowodowane tym, że [skrypt programu PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) nie został uruchomiony po instalacji. Komunikat o błędzie powinien zawierać brakujący klucz. Upewnij się, że masz klucz w obszarze HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureMfa. |
+| **REGISTRY_CONFIG_ERROR** | Brak klucza w rejestrze dla aplikacji, co może być spowodowane tym, że [skrypt programu PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) nie został uruchomiony po instalacji. Komunikat o błędzie powinien zawierać brakujący klucz. Upewnij się, że masz klucz w obszarze HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> W żądaniu usługi RADIUS brakuje obowiązkowego atrybutu userName\Identifier usługi RADIUS. Sprawdź, czy serwer NPS otrzymuje żądania RADIUS | Ten błąd zwykle odzwierciedla problem z instalacją. Rozszerzenie serwera NPS musi być zainstalowane na serwerach NPS, które mogą odbierać żądania RADIUS. Serwery NPS zainstalowane jako zależności dla usług takich jak RDG i RRAS nie odbierają żądań RADIUS. Rozszerzenie serwera NPS nie działa w przypadku instalacji w takich instalacjach i błędów, ponieważ nie może odczytać szczegółów z żądania uwierzytelnienia. |
 | **REQUEST_MISSING_CODE** | Upewnij się, że protokół szyfrowania hasła między serwerami NPS i NAS obsługuje pomocniczą metodę uwierzytelniania. **Protokół PAP** obsługuje wszystkie metody uwierzytelniania usługi Azure MFA w chmurze: połączenie telefoniczne, jednokierunkową wiadomość tekstową, powiadomienie aplikacji mobilnej i kod weryfikacyjny aplikacji mobilnej. **CHAPv2** i **Protokół EAP** obsługują połączenia telefoniczne i powiadomienia aplikacji mobilnej. |
 | **USERNAME_CANONICALIZATION_ERROR** | Sprawdź, czy użytkownik jest obecny w lokalnym wystąpieniu Active Directory i czy usługa NPS ma uprawnienia dostępu do katalogu. Jeśli używasz relacji zaufania między lasami, [skontaktuj się z pomocą techniczną](#contact-microsoft-support) w celu uzyskania dalszej pomocy. |
@@ -107,7 +107,7 @@ Jeśli potrzebujesz dodatkowej pomocy, skontaktuj się z specjalistą pomocy tec
 
 Aby zebrać dzienniki debugowania dla diagnostyki obsługi, wykonaj następujące czynności na serwerze NPS:
 
-1. Otwórz Edytor rejestru i przejdź do HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureMfa Ustaw **VERBOSE_LOG** na **true**
+1. Otwórz Edytor rejestru i przejdź do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa Ustaw **VERBOSE_LOG** na **wartość true**
 2. Otwórz wiersz polecenia administratora i uruchom następujące polecenia:
 
    ```
@@ -131,5 +131,5 @@ Aby zebrać dzienniki debugowania dla diagnostyki obsługi, wykonaj następując
    Start .
    ```
 
-5. Otwórz Edytor rejestru i przejdź do HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureMfa Ustaw **VERBOSE_LOG** na **wartość false (FAŁSZ** )
+5. Otwórz Edytor rejestru i przejdź do HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa Ustaw **VERBOSE_LOG** na **wartość false**
 6. Zapisz zawartość folderu C:\NPS i dołącz spakowany plik do zgłoszenia do pomocy technicznej.

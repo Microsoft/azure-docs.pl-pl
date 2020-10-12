@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319915"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
@@ -99,7 +99,7 @@ Aby przełączyć się do punktu końcowego v2, wykonaj następujące czynności
  
  `Set-ADSyncAADConnectorImportApiVersion 2` 
 
- ![PowerShell](media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
+ ![Program PowerShell](media/how-to-connect-sync-endpoint-api-v2/endpoint1.png)
  
 Punkt końcowy w wersji 2 jest teraz włączony dla serwera. Poświęć trochę czasu, aby upewnić się, że nie ma żadnych nieoczekiwanych wyników po włączeniu punktu końcowego v2 przed przejściem do następnej fazy, w której zostanie zwiększony limit rozmiaru grupy. 
 >[!NOTE]

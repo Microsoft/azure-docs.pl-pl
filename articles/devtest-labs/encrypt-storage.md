@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować szyfrowanie usługi Azure Storage 
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87433594"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Szyfruj magazyn platformy Azure używany przez laboratorium w Azure DevTest Labs
@@ -28,10 +28,10 @@ Każde laboratorium utworzone w Azure DevTest Labs jest tworzone przy użyciu sk
     :::image type="content" source="./media/encrypt-storage/overview-resource-group-link.png" alt-text="Wybierz grupę zasobów na stronie Przegląd":::
 1. Wybierz konto usługi Azure Storage dla laboratorium. Konwencja nazewnictwa dla konta magazynu laboratorium to: `a<labNameWithoutInvalidCharacters><4-digit number>` . Na przykład, jeśli nazwa laboratorium to `contosolab` , nazwa konta magazynu może być taka sama `acontosolab7576` . 
 
-    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Wybierz konto magazynu w grupie zasobów laboratorium":::
+    :::image type="content" source="./media/encrypt-storage/select-storage-account.png" alt-text="Wybierz grupę zasobów na stronie Przegląd":::
 3. Na stronie **konto magazynu** wybierz pozycję **Eksplorator usługi Storage (wersja zapoznawcza)** w menu po lewej stronie, a następnie wybierz pozycję **kontenery obiektów BLOB** , aby znaleźć odpowiednią zawartość powiązaną z laboratorium. 
 
-   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Eksplorator usługi Storage (wersja zapoznawcza)" lightbox="./media/encrypt-storage/storage-explorer.png":::
+   :::image type="content" source="./media/encrypt-storage/storage-explorer.png" alt-text="Wybierz grupę zasobów na stronie Przegląd" lightbox="./media/encrypt-storage/storage-explorer.png":::
 
 ## <a name="encrypt-the-lab-storage-account"></a>Szyfrowanie konta magazynu laboratorium
 Usługa Azure Storage automatycznie szyfruje dane, gdy są utrwalane w chmurze. Szyfrowanie usługi Azure Storage chroni dane i pomaga sprostać zobowiązaniom dotyczącym zabezpieczeń i zgodności w organizacji. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md).

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927287"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych serwerów fizycznych
 
 Usługa [Azure Site Recovery](site-recovery-overview.md) przyczynia się do realizacji strategii odzyskiwania po awarii przez zarządzanie replikacją, przełączaniem do trybu failover i powrotem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure oraz koordynowanie tych procesów.
 
-W tym samouczku przedstawiono sposób konfigurowania odzyskiwania po awarii lokalnych fizycznych serwerów z systemami Windows i Linux na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku przedstawiono sposób konfigurowania odzyskiwania po awarii lokalnych fizycznych serwerów z systemami Windows i Linux na platformie Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj platformę Azure i lokalne wymagania wstępne
@@ -32,7 +32,7 @@ W tym samouczku przedstawiono sposób konfigurowania odzyskiwania po awarii loka
 W celu ukończenia tego samouczka:
 
 - Upewnij się, że rozumiesz [architekturę i składniki](physical-azure-architecture.md) w tym scenariuszu.
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](vmware-physical-secondary-support-matrix.md) wszystkich składników.
+- Zapoznaj się z wymaganiami dotyczącymi [obsługi](vmware-physical-secondary-support-matrix.md) wszystkich składników.
 - Upewnij się, że serwery, które chcesz replikować, są zgodne z [wymaganiami maszyny wirtualnej platformy Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Przygotuj platformę Azure. Potrzebna jest subskrypcja platformy Azure, Sieć wirtualna platformy Azure i konto magazynu.
 - Przygotuj konto do automatycznej instalacji usługi mobilności na każdym serwerze, który chcesz replikować.
@@ -84,8 +84,8 @@ Skonfiguruj [konto usługi Azure Storage](../storage/common/storage-account-crea
 Na każdym serwerze, który ma zostać zreplikowany, musi być zainstalowana usługa mobilności. Site Recovery automatycznie instaluje tę usługę po włączeniu replikacji dla serwera. Aby automatycznie zainstalować program, należy przygotować konto, które będzie używane przez Site Recovery do uzyskiwania dostępu do serwera.
 
 - Możesz użyć domeny lub konta lokalnego
-- W przypadku maszyn wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. W tym celu w rejestrze w obszarze **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**Dodaj wpis DWORD **LocalAccountTokenFilterPolicy**o wartości 1.
-- Aby dodać wpis rejestru w celu wyłączenia ustawienia z interfejsu wiersza polecenia, wpisz:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- W przypadku maszyn wirtualnych z systemem Windows, jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym. W tym celu w rejestrze w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**Dodaj wpis DWORD **LocalAccountTokenFilterPolicy**o wartości 1.
+- Aby dodać wpis rejestru w celu wyłączenia ustawienia z interfejsu wiersza polecenia, wpisz:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - W przypadku systemu Linux konto powinno być kontem głównym na źródłowym serwerze z systemem Linux.
 
 

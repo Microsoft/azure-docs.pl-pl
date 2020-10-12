@@ -4,10 +4,10 @@ description: Ten artykuł zawiera właściwości i schemat zdarzeń usługi Azur
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113653"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>IoT Hub platformy Azure jako źródło Event Grid
@@ -21,11 +21,11 @@ Usługa Azure IoT Hub emituje następujące typy zdarzeń:
 
 | Typ zdarzenia | Opis |
 | ---------- | ----------- |
-| Microsoft. Devices. DeviceCreated | Opublikowano, gdy urządzenie jest zarejestrowane w usłudze IoT Hub. |
-| Microsoft. Devices. DeviceDeleted | Opublikowano, gdy urządzenie zostanie usunięte z Centrum IoT Hub. | 
-| Microsoft. Devices. DeviceConnected | Opublikowano, gdy urządzenie jest połączone z usługą IoT Hub. |
-| Microsoft. Devices. DeviceDisconnected | Opublikowano po odłączeniu urządzenia od centrum IoT Hub. | 
-| Microsoft. Devices. DeviceTelemetry | Opublikowano, gdy komunikat telemetrii zostanie wysłany do centrum IoT Hub. |
+| Microsoft.Devices.DeviceCreated | Opublikowano, gdy urządzenie jest zarejestrowane w usłudze IoT Hub. |
+| Microsoft.Devices.DeviceDeleted | Opublikowano, gdy urządzenie zostanie usunięte z Centrum IoT Hub. | 
+| Microsoft.Devices.DeviceConnected | Opublikowano, gdy urządzenie jest połączone z usługą IoT Hub. |
+| Microsoft.Devices.DeviceDisconnected | Opublikowano po odłączeniu urządzenia od centrum IoT Hub. | 
+| Microsoft.Devices.DeviceTelemetry | Opublikowano, gdy komunikat telemetrii zostanie wysłany do centrum IoT Hub. |
 
 Wszystkie zdarzenia urządzeń z wyjątkiem zdarzeń telemetrii urządzenia są ogólnie dostępne we wszystkich regionach obsługiwanych przez Event Grid. Wydarzenie telemetryczne urządzenia jest w publicznej wersji zapoznawczej i jest dostępne we wszystkich regionach z wyjątkiem Wschodnie stany USA, zachodnie stany USA, Europa Zachodnia, [Azure Government](../azure-government/documentation-government-welcome.md), [Chiny z Chin](/azure/china/china-welcome)i [Azure (Niemcy](https://azure.microsoft.com/global-infrastructure/germany/)).
 
@@ -140,12 +140,12 @@ Schemat dla zdarzeń DeviceCreated i DeviceDeleted ma tę samą strukturę. To p
 
 Wszystkie zdarzenia zawierają te same dane najwyższego poziomu: 
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | dane | object | IoT Hub dane zdarzenia.  |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
@@ -153,7 +153,7 @@ Wszystkie zdarzenia zawierają te same dane najwyższego poziomu:
 
 Dla wszystkich zdarzeń IoT Hub obiekt danych zawiera następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | hubName | ciąg | Nazwa IoT Hub, w którym urządzenie zostało utworzone lub usunięte. |
 | deviceId | ciąg | Unikatowy identyfikator urządzenia. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
@@ -162,7 +162,7 @@ Zawartość obiektu danych różni się w zależności od wydawcy zdarzeń.
 
 W przypadku **urządzeń podłączonych** i **odłączonych** IoT Hub zdarzeń obiekt danych zawiera następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | moduleId | ciąg | Unikatowy identyfikator modułu. To pole jest wyprowadzane tylko dla urządzeń modułowych. Ten ciąg z rozróżnianiem wielkości liter może mieć długość do 128 znaków i obsługuje znaki alfanumeryczne ASCII 7-bitowe oraz następujące znaki specjalne: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 | deviceConnectionStateEventInfo | object | Informacje o zdarzeniu stanu połączenia urządzenia
@@ -170,7 +170,7 @@ W przypadku **urządzeń podłączonych** i **odłączonych** IoT Hub zdarzeń o
 
 W przypadku IoT Hub zdarzeń **telemetrii urządzenia** obiekt danych zawiera komunikat z urządzenia do chmury w [formacie komunikatu usługi IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) i ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | body | ciąg | Zawartość komunikatu z urządzenia. |
 | properties | ciąg | Właściwości aplikacji są ciągami zdefiniowanymi przez użytkownika, które można dodać do wiadomości. Te pola są opcjonalne. |
@@ -178,7 +178,7 @@ W przypadku IoT Hub zdarzeń **telemetrii urządzenia** obiekt danych zawiera ko
 
 W przypadku urządzeń, które zostały **utworzone** i zostały **usunięte** IoT Hub zdarzenia, obiekt danych zawiera następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | splot | object | Informacje o bliźniaczych urządzeniach, które są reprezentacją metadanych urządzeń aplikacji w chmurze. | 
 | Identyfikator | ciąg | Unikatowy identyfikator sznurka urządzenia. | 
@@ -193,7 +193,7 @@ W przypadku urządzeń, które zostały **utworzone** i zostały **usunięte** I
 | x509Thumbprint | ciąg | Odcisk palca to unikatowa wartość certyfikatu x509, często używana do znajdowania określonego certyfikatu w magazynie certyfikatów. Odcisk palca jest generowany dynamicznie przy użyciu algorytmu SHA1 i nie istnieje fizycznie w certyfikacie. | 
 | primaryThumbprint | ciąg | Podstawowy odcisk palca certyfikatu x509. |
 | secondaryThumbprint | ciąg | Pomocniczy odcisk palca certyfikatu x509. | 
-| version | liczba całkowita | Liczba całkowita, która jest zwiększana o jeden po każdej aktualizacji sznurka urządzenia. |
+| Wersja | liczba całkowita | Liczba całkowita, która jest zwiększana o jeden po każdej aktualizacji sznurka urządzenia. |
 | inny | object | Część właściwości, które mogą być zapisywane tylko przez zaplecze aplikacji i odczytywane przez urządzenie. | 
 | przedstawiony | object | Część właściwości, które mogą być zapisywane tylko przez urządzenie i odczytywana przez zaplecze aplikacji. |
 | lastUpdated | ciąg | Sygnatura czasowa ISO8601 ostatniej aktualizacji właściwości sznurka urządzenia. | 

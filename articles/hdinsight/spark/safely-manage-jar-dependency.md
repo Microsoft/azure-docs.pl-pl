@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064154"
 ---
-# <a name="safely-manage-jar-dependencies"></a>Bezpieczne zarządzanie zależnościami jar
+# <a name="safely-manage-jar-dependencies"></a>Bezpieczne zarządzanie zależnościami plików jar
 
 Składniki zainstalowane w klastrach usługi HDInsight mają zależności od bibliotek innych firm. Zwykle do konkretnej wersji wspólnych modułów, takich jak Guava, odwołują się te wbudowane składniki. Gdy przesyłana jest aplikacja z zależnościami, może to spowodować konflikt między różnymi wersjami tego samego modułu. Jeśli wersja składnika, do której odwołuje się pierwsza ścieżka klasy, składniki wbudowane mogą generować wyjątki z powodu niezgodności wersji. Jeśli jednak składniki wbudowane wymagają najpierw dodania ich do ścieżki klas, aplikacja może zgłosić błędy takie jak `NoSuchMethod` .
 
@@ -27,7 +27,7 @@ Cieniowanie zapewnia sposób dołączania i zmieniania nazw zależności. Odszuk
 ## <a name="how-to-shade-a-package"></a>Jak cieniować pakiet?
 
 ### <a name="use-uber-jar"></a>Korzystanie z Uber-jar
-Uber-JAR to pojedynczy plik JAR, który zawiera zarówno aplikację jar, jak i jej zależności. Zależności w Uber-jar są domyślnie niecieniowane. W niektórych przypadkach może to spowodować konflikt wersji, jeśli inne składniki lub aplikacje odwołują się do innej wersji tych bibliotek. Aby tego uniknąć, można skompilować plik Uber-jar z pewnymi (lub wszystkie) zależności zacieniowanych.
+Uber-JAR to pojedynczy plik JAR, który zawiera zarówno aplikację jar, jak i jej zależności. Zależności w Uber-jar są domyślnie niecieniowane. W niektórych przypadkach może to spowodować konflikt wersji, jeśli inne składniki lub aplikacje odwołują się do innej wersji tych bibliotek. Aby tego uniknąć, można skompilować plik Uber-Jar z pewnymi (lub wszystkie) zależności zacienionych.
 
 ### <a name="shade-package-using-maven"></a>Wycieniowanie pakietu przy użyciu Maven
 Maven mogą tworzyć aplikacje, które są zapisywane zarówno w języku Java, jak i Scala. Maven-cieniowanie — wtyczka może pomóc w łatwym tworzeniu cieniowanych Uber-jar.

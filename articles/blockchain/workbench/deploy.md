@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077025"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Wdrażanie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
@@ -27,7 +27,7 @@ Aby uzyskać więcej informacji na temat składników łańcucha bloków Workben
 * Plan App Service (standardowa)
 * Application Insights
 * Event Grid
-* Azure Key Vault
+* W usłudze Azure Key Vault
 * Service Bus
 * SQL Database (standardowa S0)
 * Konto usługi Azure Storage (standardowa LRS)
@@ -65,7 +65,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
     | Nazwa użytkownika maszyny wirtualnej | Nazwa użytkownika jest używana jako administrator dla wszystkich maszyn wirtualnych. |
     | Typ uwierzytelniania | Wybierz, jeśli chcesz użyć hasła lub klucza w celu nawiązania połączenia z maszynami wirtualnymi. |
     | Hasło | Hasło służy do łączenia się z maszynami wirtualnymi. |
-    | SSH | Użyj klucza publicznego RSA w formacie jednowierszowym rozpoczynającym się od **protokołu SSH-RSA** lub użyj wielowierszowego formatu PEM. Klucze SSH można generować przy użyciu `ssh-keygen` systemu Linux i OS X lub przy użyciu usługi PuTTYGen w systemie Windows. Więcej informacji na temat kluczy SSH znajduje się w temacie [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md). |
+    | Protokół SSH | Użyj klucza publicznego RSA w formacie jednowierszowym rozpoczynającym się od **protokołu SSH-RSA** lub użyj wielowierszowego formatu PEM. Klucze SSH można generować przy użyciu `ssh-keygen` systemu Linux i OS X lub przy użyciu usługi PuTTYGen w systemie Windows. Więcej informacji na temat kluczy SSH znajduje się w temacie [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Baza danych i hasło łańcucha bloków | Określ hasło, które ma być używane na potrzeby dostępu do bazy danych utworzonej w ramach wdrożenia. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi należeć do zakresu od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (), cudzysłów ( \` ), podwójny cudzysłów ("), apostrof (), kreska () i semicolumn (;) |
     | Region wdrożenia | Określ, gdzie mają zostać wdrożone zasoby łańcucha bloków Workbench. Aby zapewnić najlepszą dostępność, powinno to być zgodne z ustawieniem lokalizacja **regionu** . Nie wszystkie regiony są dostępne w trakcie okresu zapoznawczego. Funkcje mogą być niedostępne w niektórych regionach. Usługa Azure łańcucha bloków Data Manager jest dostępna w następujących regionach świadczenia usługi Azure: Wschodnie stany USA i Europa Zachodnia.|
     | Subskrypcja | Określ subskrypcję platformy Azure, której chcesz użyć dla danego wdrożenia. |
@@ -103,7 +103,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
 
      | Ustawienie | Opis  |
      |---------|--------------|
-     | Punkt końcowy RPC Ethereum | Podaj punkt końcowy RPC istniejącej sieci łańcucha bloków. Punkt końcowy rozpoczyna się od https://lub http://i ma numer portu. Na przykład: `http<s>://<network-url>:<port>` |
+     | Punkt końcowy RPC Ethereum | Podaj punkt końcowy RPC istniejącej sieci łańcucha bloków. Punkt końcowy rozpoczyna się od https://lub http://i ma numer portu. Na przykład `http<s>://<network-url>:<port>` |
      | Ustawienia usługi Azure Active Directory | Wybierz pozycję **Dodaj później**.</br>Uwaga: w przypadku wybrania opcji [wstępnego skonfigurowania usługi Azure AD](#azure-ad-configuration) lub ponownego wdrożenia wybierz opcję *dodania teraz*. |
      | Wybór maszyny wirtualnej | Wybierz preferowaną wydajność magazynu i rozmiar maszyny wirtualnej dla sieci łańcucha bloków. Wybierz mniejszy rozmiar maszyny wirtualnej, na przykład *standardowa DS1 v2* , jeśli masz subskrypcję z niskimi limitami usług, takimi jak platforma Azure w warstwie Bezpłatna. |
 
@@ -182,7 +182,7 @@ Wdrożenie łańcucha bloków Workbench wymaga rejestracji aplikacji usługi Azu
 1. Wybierz swoje konto w prawym górnym rogu i przejdź do odpowiedniej dzierżawy usługi Azure AD. Dzierżawa powinna być dzierżawą subskrypcji administratora subskrypcji, w której wdrożono usługę Azure łańcucha bloków Workbench i masz wystarczające uprawnienia do rejestrowania aplikacji.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
-    ![Rejestracja aplikacji](media/deploy/app-registration.png)
+    ![Rejestrowanie aplikacji](media/deploy/app-registration.png)
 
 1. Podaj **nazwę** wyświetlaną i wybierz **konta w tym katalogu organizacji**.
 
@@ -283,7 +283,7 @@ Po wdrożeniu usługi Azure łańcucha bloków Workbench należy skonfigurować 
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację kliencką usługi Azure AD, która została zarejestrowana w sekcji wymagania wstępne.
 1. Wybierz pozycję **Uwierzytelnianie**.
-1. Określ główny adres URL sieci Web wdrożenia usługi Azure łańcucha bloków Workbench, który został pobrany w sekcji [adresu URL sieci Web łańcucha bloków Workbench](#blockchain-workbench-web-url) . Adres URL odpowiedzi jest poprzedzony prefiksem `https://` . Na przykład: `https://myblockchain2-7v75.azurewebsites.net`
+1. Określ główny adres URL sieci Web wdrożenia usługi Azure łańcucha bloków Workbench, który został pobrany w sekcji [adresu URL sieci Web łańcucha bloków Workbench](#blockchain-workbench-web-url) . Adres URL odpowiedzi jest poprzedzony prefiksem `https://` . Na przykład `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Adresy URL odpowiedzi uwierzytelniania](media/deploy/configure-reply-url.png)
 

@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080475"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
@@ -227,8 +227,8 @@ Klucze publiczne SSH można podawać w postaci zwykłego tekstu podczas tworzeni
 Nazwa elementu linuxConfiguration | Wymagany | Typ | Opis
 --- | --- | --- | ---
 SSH | Nie | Kolekcja | Określa konfigurację klucza SSH dla systemu operacyjnego Linux
-path | Tak | String (ciąg) | Określa ścieżkę pliku systemu Linux, w której należy zlokalizować klucze SSH lub certyfikat
-Dane dotyczące danych | Tak | String (ciąg) | Określa klucz publiczny SSH szyfrowany algorytmem Base64
+path | Tak | Ciąg | Określa ścieżkę pliku systemu Linux, w której należy zlokalizować klucze SSH lub certyfikat
+Dane dotyczące danych | Tak | Ciąg | Określa klucz publiczny SSH szyfrowany algorytmem Base64
 
 Aby zapoznać się z przykładem, zobacz [szablon 101-VM-Sshkey GitHub — szybki start](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -465,7 +465,7 @@ Istnieją dwa podstawowe sposoby zmiany hasła dla maszyn wirtualnych w zestawac
     Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Czy można przypisać sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń) do zestawu skalowania, aby odnosił się do wszystkich kart sieciowych maszyn wirtualnych w zestawie?
 

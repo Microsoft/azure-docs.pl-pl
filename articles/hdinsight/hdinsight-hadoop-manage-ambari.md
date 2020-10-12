@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281394"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Zarządzanie klastrami HDInsight przy użyciu internetowego interfejsu użytkownika systemu Apache Ambari
@@ -58,7 +58,7 @@ Gdy zostanie otwarta strona, zanotuj pasek u góry. Ten pasek zawiera następuj�
 |Usługi|Informacje i ustawienia konfiguracji usług w klastrze.|
 |Hosts|Ustawienia informacji i konfiguracji dla węzłów w klastrze.|
 |Alerty|Dziennik informacji, ostrzeżeń i alertów krytycznych.|
-|Administrator|Stos/usługi oprogramowania zainstalowane w klastrze, informacje o koncie usługi i zabezpieczenia protokołu Kerberos.|
+|Administracja|Stos/usługi oprogramowania zainstalowane w klastrze, informacje o koncie usługi i zabezpieczenia protokołu Kerberos.|
 |Przycisk administratora|Ambari Management, ustawienia użytkownika i wyloguj się.|
 
 ## <a name="monitoring"></a>Monitorowanie
@@ -68,9 +68,9 @@ Gdy zostanie otwarta strona, zanotuj pasek u góry. Ten pasek zawiera następuj�
 Poniższa lista zawiera typowe Stany alertów używane przez Ambari:
 
 * **OK**
-* **Ostrzeżenie**
+* **Wyświetlania**
 * **NAJISTOTNIEJSZ**
-* **ZNANA**
+* **UNKNOWN**
 
 Alerty inne niż **OK** powodują wyświetlenie liczby alertów w pozycji **# alerty** w górnej części strony. Wybranie tej pozycji spowoduje wyświetlenie alertów i ich stanu.
 

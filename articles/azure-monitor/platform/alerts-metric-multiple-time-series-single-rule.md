@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/04/2020
 ms.subservice: alerts
 ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704484"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitoruj wiele szeregów czasowych w jednej regule alertu metryki
@@ -21,7 +21,7 @@ Pojedyncza reguła alertu metryki może służyć do monitorowania jednej lub wi
 
 Seria czasowa metryk jest serią pomiarów (lub "wartości metryk") przechwytywanych w danym okresie czasu. 
 
-Przykład:
+Na przykład:
 
 - Użycie procesora CPU przez maszynę wirtualną
 - Przychodzące bajty (ruch przychodzący) do konta magazynu
@@ -87,7 +87,7 @@ Aby uzyskać więcej informacji na temat reguł alertów dotyczących wielu zaso
 
 Reguła alertu o pojedynczej metryce może również monitorować maksymalnie pięć warunków dla każdej reguły alertu. 
 
-Przykład:
+Na przykład:
 
 - Zasób docelowy: *myVM1*
 - Condition1

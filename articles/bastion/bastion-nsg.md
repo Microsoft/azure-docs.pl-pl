@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
 ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987708"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
@@ -42,7 +42,7 @@ Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet**
    * **Ruch przychodzący z płaszczyzny kontroli usługi Azure bastionu:** W przypadku łączności z płaszczyzną kontroli Włącz port 443 przychodzące z tagu usługi **bramy** . Dzięki temu płaszczyzna kontroli, czyli Menedżer bramy, może komunikować się z usługą Azure bastionu.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Zrzut ekranu przedstawia reguły zabezpieczeń ruchu przychodzącego dla łączności z usługą Azure bastionu.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Sieciowa grupa zabezpieczeń":::
 
 * **Ruch wychodzący:**
 
@@ -50,7 +50,7 @@ Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet**
    * **Ruch przychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure bastionu musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników zliczania). Z tego powodu usługa Azure bastionu potrzebuje ruchu wychodzącego do 443 do **AzureCloud** Service Tag.
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Zrzut ekranu przedstawia reguły zabezpieczeń ruchu wychodzącego dla łączności z usługą Azure bastionu.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Sieciowa grupa zabezpieczeń":::
 
 ### <a name="target-vm-subnet"></a>Docelowa podsieć maszyny wirtualnej
 Jest to podsieć zawierająca docelową maszynę wirtualną, do której ma zostać zainstalowana protokół RDP/SSH.

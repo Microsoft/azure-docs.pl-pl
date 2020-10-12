@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
 ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926454"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Macierz obsługi SQL Server tworzenia kopii zapasowych na maszynach wirtualnych platformy Azure
@@ -65,7 +65,7 @@ W zależności od preferencji tworzenia kopii zapasowych i typów kopii zapasowy
 Pełne | Podstawowe
 Różnicy | Podstawowe
 Log |  Podstawowe
-Tylko kopiowanie pełne |  Podstawowe
+Copy-Only pełna |  Podstawowe
 
 #### <a name="backup-preference-secondary-only"></a>Preferencja kopii zapasowej: tylko pomocnicza
 
@@ -74,7 +74,7 @@ Tylko kopiowanie pełne |  Podstawowe
 Pełne | Podstawowe
 Różnicy | Podstawowe
 Log |  Pomocniczy
-Tylko kopiowanie pełne |  Pomocniczy
+Copy-Only pełna |  Pomocniczy
 
 #### <a name="backup-preference-secondary"></a>Preferencja kopii zapasowej: pomocnicza
 
@@ -83,7 +83,7 @@ Tylko kopiowanie pełne |  Pomocniczy
 Pełne | Podstawowe
 Różnicy | Podstawowe
 Log |  Pomocniczy
-Tylko kopiowanie pełne |  Pomocniczy
+Copy-Only pełna |  Pomocniczy
 
 #### <a name="no-backup-preference"></a>Brak preferencji dotyczących kopii zapasowych
 
@@ -92,7 +92,7 @@ Tylko kopiowanie pełne |  Pomocniczy
 Pełne | Podstawowe
 Różnicy | Podstawowe
 Log |  Pomocniczy
-Tylko kopiowanie pełne |  Pomocniczy
+Copy-Only pełna |  Pomocniczy
 
 ## <a name="next-steps"></a>Następne kroki
 

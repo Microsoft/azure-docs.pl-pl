@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081070"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu API REST usługi Apache Ambari
@@ -214,11 +214,11 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 Wartość zwracana jest podobna do jednego z następujących przykładów:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`— Ta wartość wskazuje, że klaster używa konta usługi Azure Storage do przechowywania domyślnego. `ACCOUNTNAME`Wartość to nazwa konta magazynu. `CONTAINER`Część jest nazwą kontenera obiektów BLOB na koncie magazynu. Kontener jest katalogiem głównym magazynu zgodnego z systemem plików HDFS dla klastra.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` — Ta wartość wskazuje, że klaster używa konta usługi Azure Storage do przechowywania domyślnego. `ACCOUNTNAME`Wartość to nazwa konta magazynu. `CONTAINER`Część jest nazwą kontenera obiektów BLOB na koncie magazynu. Kontener jest katalogiem głównym magazynu zgodnego z systemem plików HDFS dla klastra.
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net`— Ta wartość wskazuje, że klaster używa Azure Data Lake Storage Gen2 dla magazynu domyślnego. `ACCOUNTNAME`Wartości i `CONTAINER` mają takie same znaczenie jak w przypadku usługi Azure Storage wymienionej wcześniej.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` — Ta wartość wskazuje, że klaster używa Azure Data Lake Storage Gen2 dla magazynu domyślnego. `ACCOUNTNAME`Wartości i `CONTAINER` mają takie same znaczenie jak w przypadku usługi Azure Storage wymienionej wcześniej.
 
-* `adl://home`— Ta wartość wskazuje, że klaster używa Azure Data Lake Storage Gen1 dla magazynu domyślnego.
+* `adl://home` — Ta wartość wskazuje, że klaster używa Azure Data Lake Storage Gen1 dla magazynu domyślnego.
 
     Aby znaleźć nazwę konta Data Lake Storage, użyj następujących przykładów:
 

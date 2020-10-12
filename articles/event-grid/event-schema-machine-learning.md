@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń Obszar ro
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458046"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning jako źródło Event Grid
@@ -186,7 +186,7 @@ Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
@@ -201,7 +201,7 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ModelName | ciąg | Nazwa zarejestrowanego modelu. |
 | ModelVersion | ciąg | Wersja zarejestrowanego modelu. |
@@ -210,7 +210,7 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ServiceName | ciąg | Nazwa wdrożonej usługi. |
 | Servicecomputetype | ciąg | Typ obliczeń (np. ACI, AKS) wdrożonej usługi. |
@@ -220,7 +220,7 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | experimentId | ciąg | Identyfikator eksperymentu, do którego należy uruchomienie. |
 | eksperymentname | ciąg | Nazwa eksperymentu, do którego należy uruchomienie. |
@@ -231,7 +231,7 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | DataDriftId | ciąg | Identyfikator monitora dryfowania danych, który wyzwolił zdarzenie. |
 | Datadryfname | ciąg | Nazwa monitora dryfowania danych, który wyzwolił zdarzenie. |
@@ -244,7 +244,7 @@ Obiekt danych ma następujące właściwości dla każdego typu zdarzenia:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | experimentId | ciąg | Identyfikator eksperymentu, do którego należy uruchomienie. |
 | eksperymentname | ciąg | Nazwa eksperymentu, do którego należy uruchomienie. |

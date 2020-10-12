@@ -4,10 +4,10 @@ description: Dowiedz się, jak szyfrować dyski systemu operacyjnego (OS) przy u
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489858"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Szyfruj dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w Azure DevTest Labs
@@ -39,14 +39,14 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
     1. Na stronie **zestaw szyfrowania dysków** wybierz pozycję **Kontrola dostępu (IAM)** w menu po lewej stronie. 
     1. Wybierz pozycję **+ Dodaj** na pasku narzędzi i wybierz pozycję **Dodaj przypisanie roli**.  
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Dodaj Zarządzanie rolami — menu":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Klucze zarządzane":::
     1. Na stronie **Dodawanie przypisania roli** wybierz rolę **czytnika** lub rolę, która zapewnia większy dostęp. 
     1. Wpisz nazwę laboratorium, dla którego zostanie użyty zestaw szyfrowania dysku, a następnie wybierz nazwę laboratorium (tożsamość przypisana przez system dla laboratorium) z listy rozwijanej. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Wybieranie tożsamości zarządzanej przez system dla laboratorium":::        
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Klucze zarządzane":::        
     1. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Zapisz przypisanie roli":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Klucze zarządzane":::
 3. Dodaj **tożsamość przypisaną do systemu** laboratorium do roli **współautor maszyny wirtualnej** za pomocą strony kontroli dostępu do **subskrypcji**  ->  **(IAM)** . Kroki są podobne do tych w poprzednich krokach. 
 
     
@@ -54,7 +54,7 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
     1. Wybierz pozycję **Kontrola dostępu (IAM)** . 
     1. Wybierz pozycję **+ Dodaj** na pasku narzędzi, a następnie wybierz pozycję **Dodaj przypisanie roli**. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Subskrypcja — > kontroli dostępu (IAM)":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Klucze zarządzane":::
     1. Na stronie **Dodaj przypisanie roli** wybierz opcję **współautor maszyny wirtualnej** dla roli.
     1. Wpisz nazwę laboratorium i wybierz **nazwę laboratorium** (tożsamość przypisana do systemu dla laboratorium) z listy rozwijanej. 
     1. Wybierz pozycję **Zapisz** na pasku narzędzi. 
@@ -64,12 +64,12 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
 1. Na stronie głównej laboratorium w Azure Portal wybierz pozycję **Konfiguracja i zasady** w menu po lewej stronie. 
 1. Na stronie **Konfiguracja i zasady** wybierz pozycję **dyski (wersja zapoznawcza)** w sekcji **szyfrowanie** . Domyślnie **typ szyfrowania** jest ustawiony na **szyfrowanie przy użyciu klucza zarządzanego platformy**.
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Karta dyski na stronie konfiguracji i zasad":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Klucze zarządzane":::
 1. W obszarze **typ szyfrowania**wybierz pozycję **szyfrowanie w systemie z użyciem klucza zarządzanego przez klienta** z listy rozwijanej. 
 1. W obszarze **zestaw szyfrowania dysków**wybierz utworzony wcześniej zestaw dysków. Jest to ten sam zestaw szyfrowania dysków, do którego może uzyskać dostęp tożsamość laboratorium przypisana przez system.
 1. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Włącz szyfrowanie z kluczem zarządzanym przez klienta":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Klucze zarządzane":::
 1. W polu komunikat z następującym tekstem: *to ustawienie będzie stosowane do nowo utworzonych maszyn w laboratorium. Stary dysk systemu operacyjnego pozostanie zaszyfrowany przy użyciu starego zestawu szyfrowania dysków*, a następnie wybierz **przycisk OK**. 
 
     Po skonfigurowaniu dyski systemu operacyjnego laboratorium zostaną zaszyfrowane za pomocą klucza zarządzanego przez klienta za pomocą zestawu szyfrowanie dysków. 
@@ -79,15 +79,15 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
 1. Przejdź do maszyny wirtualnej laboratorium utworzonej po włączeniu szyfrowania dysku z kluczem zarządzanym przez klienta w laboratorium.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Maszyna wirtualna z włączonym szyfrowaniem dysków":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Klucze zarządzane":::
 1. Kliknij grupę zasobów maszyny wirtualnej, a następnie kliknij dysk systemu operacyjnego.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Grupa zasobów maszyny wirtualnej":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Klucze zarządzane":::
 1. Przejdź do pozycji szyfrowanie i sprawdź, czy szyfrowanie jest ustawione na klucz zarządzany przez klienta z wybranym zestawem szyfrowania dysków.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Weryfikuj szyfrowanie":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Klucze zarządzane":::
   
 ## <a name="next-steps"></a>Następne kroki
 

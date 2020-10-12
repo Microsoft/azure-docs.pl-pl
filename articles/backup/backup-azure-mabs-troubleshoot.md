@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403011"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
@@ -77,7 +77,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Backup | Tworzenie punktu odzyskiwania w trybie online nie powiodło się | **Komunikat o błędzie**: Agent Azure Backup systemu Windows nie mógł utworzyć migawki wybranego woluminu. <br> **Obejście**: Spróbuj zwiększyć ilość miejsca w woluminie repliki i punktu odzyskiwania.<br> <br> **Komunikat o błędzie**: Agent Azure Backup systemu Windows nie może nawiązać połączenia z usługą usługą obengine <br> **Obejście**: Sprawdź, czy na liście uruchomionych usług na komputerze znajduje się usługą obengine. Jeśli usługa usługą obengine nie jest uruchomiona, użyj polecenia "net start usługą obengine", aby uruchomić usługę usługą obengine. <br> <br> **Komunikat o błędzie**: nie ustawiono hasła szyfrowania dla tego serwera. Skonfiguruj hasło szyfrowania. <br> **Obejście**: spróbuj skonfigurować hasło szyfrowania. Jeśli to się nie powiedzie, wykonaj następujące czynności: <br> <ol><li>Upewnij się, że istnieje lokalizacja tymczasowa. Jest to lokalizacja wymieniona w rejestrze **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config**, o nazwie **ScratchLocation** .</li><li> Jeśli lokalizacja tymczasowa istnieje, spróbuj ponownie zarejestrować się przy użyciu starego hasła. *Za każdym razem, gdy konfigurujesz hasło szyfrowania, Zapisz je w bezpiecznej lokalizacji.*</li><ol>|
+| Backup | Tworzenie punktu odzyskiwania w trybie online nie powiodło się | **Komunikat o błędzie**: Agent Azure Backup systemu Windows nie mógł utworzyć migawki wybranego woluminu. <br> **Obejście**: Spróbuj zwiększyć ilość miejsca w woluminie repliki i punktu odzyskiwania.<br> <br> **Komunikat o błędzie**: Agent Azure Backup systemu Windows nie może nawiązać połączenia z usługą usługą obengine <br> **Obejście**: Sprawdź, czy na liście uruchomionych usług na komputerze znajduje się usługą obengine. Jeśli usługa usługą obengine nie jest uruchomiona, użyj polecenia "net start usługą obengine", aby uruchomić usługę usługą obengine. <br> <br> **Komunikat o błędzie**: nie ustawiono hasła szyfrowania dla tego serwera. Skonfiguruj hasło szyfrowania. <br> **Obejście**: spróbuj skonfigurować hasło szyfrowania. Jeśli to się nie powiedzie, wykonaj następujące czynności: <br> <ol><li>Upewnij się, że istnieje lokalizacja tymczasowa. Jest to lokalizacja wymieniona w rejestrze **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, o nazwie **ScratchLocation** .</li><li> Jeśli lokalizacja tymczasowa istnieje, spróbuj ponownie zarejestrować się przy użyciu starego hasła. *Za każdym razem, gdy konfigurujesz hasło szyfrowania, Zapisz je w bezpiecznej lokalizacji.*</li><ol>|
 
 ## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>Oryginalne i zewnętrzne serwery DPM muszą być zarejestrowane w tym samym magazynie
 

@@ -7,10 +7,10 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961622"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Wskazówki dotyczące wdrażania aplikacji sieci Web za pomocą szablonów Azure Resource Manager
@@ -131,7 +131,7 @@ W szablonie Podaj nazwę certyfikatu `keyVaultSecretName` .
 
 Aby zapoznać się z przykładowym szablonem, zobacz [Wdrażanie certyfikatu aplikacji sieci Web z poziomu wpisu tajnego Key Vault i używanie go do tworzenia powiązania SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby zapoznać się z samouczkiem dotyczącym wdrażania aplikacji sieci Web za pomocą szablonu, zobacz [udostępnianie i wdrażanie mikrousług na platformie Azure](deploy-complex-application-predictably.md).
 * Aby dowiedzieć się więcej o składni i właściwościach JSON dla typów zasobów w szablonach, zobacz [Azure Resource Manager dokumentacja szablonu](/azure/templates/).

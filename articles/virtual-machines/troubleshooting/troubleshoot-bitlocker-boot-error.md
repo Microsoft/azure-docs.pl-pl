@@ -14,10 +14,10 @@ ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
 ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404905"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Błędy rozruchu funkcji BitLocker na maszynie wirtualnej platformy Azure
@@ -287,7 +287,7 @@ Ten błąd występuje, ponieważ ścieżki zestawów ADAL są nieprawidłowe. Je
 
 Możesz również wyszukać `Az.Accounts` folder, aby znaleźć poprawną ścieżkę.
 
-**Błąd: polecenie Get-AzKeyVaultSecret lub Get-AzKeyVaultSecret nie jest rozpoznawane jako nazwa polecenia cmdlet**
+**Błąd: nie rozpoznano Get-AzKeyVaultSecret lub Get-AzKeyVaultSecret jako nazwy polecenia cmdlet**
 
 Jeśli używasz starego modułu AZ PowerShell, musisz zmienić te dwa polecenia na `Get-AzureKeyVaultSecret` i `Get-AzureKeyVaultSecret` .
 

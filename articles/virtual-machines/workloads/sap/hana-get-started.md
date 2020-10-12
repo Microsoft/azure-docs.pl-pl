@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509964"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalacja SAP HANA na maszynach wirtualnych platformy Azure
@@ -61,7 +61,7 @@ W tej fazie należy wykonać kroki wdrażania maszyn wirtualnych w celu zainstal
 3. Zastosowanie najnowszych poprawek do systemu operacyjnego po wdrożeniu i zarejestrowaniu maszyny wirtualnej. Zarejestrowana w ramach własnej subskrypcji. Lub w przypadku wybrania obrazu, który obejmuje obsługę systemu operacyjnego, maszyna wirtualna powinna mieć dostęp do poprawek. 
 4. Zastosuj dostosowania niezbędne do SAP HANA. Te dostosowania są wymienione w następujących uwagach dotyczących obsługi SAP:
 
-    - [Uwaga dotycząca pomocy technicznej SAP #2694118-Red Hat Enterprise Linux dodatku HA na platformie Azure](https://launchpad.support.sap.com/#/notes/2694118)
+    - [Uwaga dotycząca pomocy technicznej SAP #2694118-Red Hat Enterprise Linux HA Add-On na platformie Azure](https://launchpad.support.sap.com/#/notes/2694118)
     - [Uwaga dotycząca pomocy technicznej SAP #1984787 — SUSE LINUX Enterprise Server 12: uwagi dotyczące instalacji](https://launchpad.support.sap.com/#/notes/1984787) 
     - [Uwaga dotycząca pomocy technicznej SAP #2578899-SUSE Linux Enterprise Server 15: Uwaga dotycząca instalacji](https://launchpad.support.sap.com/#/notes/2578899)
     - [Uwaga dotycząca pomocy technicznej SAP #2002167-Red Hat Enterprise Linux 7. x: Instalacja i uaktualnienie](https://launchpad.support.sap.com/#/notes/0002002167)
@@ -72,7 +72,7 @@ W tej fazie należy wykonać kroki wdrażania maszyn wirtualnych w celu zainstal
     -  [Uwaga dotycząca pomocy technicznej SAP #2382421 — Optymalizacja konfiguracji sieci na poziomie platformy HANA i systemu operacyjnego](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Wybierz typ magazynu platformy Azure dla SAP HANA. W tym kroku należy podjąć decyzję o układzie magazynu na potrzeby instalacji SAP HANA. Zamierzasz korzystać z dołączonych dysków platformy Azure lub natywnych udziałów systemu plików NFS platformy Azure. Typy magazynów platformy Azure, które lub obsługiwane i kombinacje różnych typów magazynu platformy Azure, które mogą być używane, są udokumentowane w [SAP HANA konfiguracjach magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md). Wykonaj konfiguracje udokumentowane jako punkt wyjścia. W przypadku systemów nieprodukcyjnych może istnieć możliwość skonfigurowania mniejszej przepływności lub liczby operacji we/wy na sekundę. W celach produkcyjnych może zajść potrzeba skonfigurowania nieco większej przepływności i liczby operacji we/wy na sekundę.
-2. Upewnij się, że skonfigurowano [usługę Azure akcelerator zapisu](../../how-to-enable-write-accelerator.md) dla woluminów, które zawierają dzienniki transakcji DBMS, lub wykonaj dzienniki ponownie w przypadku używania maszyn wirtualnych serii M lub Mv2. Należy pamiętać o ograniczeniach dla akcelerator zapisu zgodnie z opisem.
+2. Upewnij się, że skonfigurowano [usługę Azure akcelerator zapisu](../../how-to-enable-write-accelerator.md) dla woluminów, które zawierają dzienniki transakcji DBMS, lub wykonaj dzienniki ponownie w przypadku używania maszyn wirtualnych z serii M lub Mv2-Series. Należy pamiętać o ograniczeniach dla akcelerator zapisu zgodnie z opisem.
 2. Sprawdź, czy na wdrożonych maszynach wirtualnych jest włączona funkcja [przyspieszonej sieci platformy Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) .
 
 > [!NOTE]

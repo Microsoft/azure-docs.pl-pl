@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
 ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006217"
 ---
 # <a name="building-an-accessible-application"></a>Tworzenie dostępnej aplikacji
@@ -103,15 +103,15 @@ Mapa zawiera wbudowane skróty klawiaturowe, które ułatwiają korzystanie z ma
 | Klawisz ze strzałką w prawo | Przesuń mapę w prawo 100 pikseli |
 | Klawisz Strzałka w dół | Przesuń mapę w dół o 100 pikseli |
 | Klawisz Strzałka w górę | Przesuń mapę w górę o 100 pikseli |
-| `Shift`+ Strzałka w górę | Zwiększ wysokość mapy o 10 stopni |
-| `Shift`+ Strzałka w dół | Zmniejsz wysokość mapy o 10 stopni |
-| `Shift`+ Strzałka w prawo | Obróć mapę o 15 stopni w prawo |
-| `Shift`+ Strzałka w lewo | Obróć mapę o 15 stopni w lewo |
+| `Shift` + Strzałka w górę | Zwiększ wysokość mapy o 10 stopni |
+| `Shift` + Strzałka w dół | Zmniejsz wysokość mapy o 10 stopni |
+| `Shift` + Strzałka w prawo | Obróć mapę o 15 stopni w prawo |
+| `Shift` + Strzałka w lewo | Obróć mapę o 15 stopni w lewo |
 | Znak plus ( `+` ) lub <sup>*</sup> znak równości ( `=` ) | Powiększanie |
 | Znak minus, łącznik ( `-` ) lub <sup>*</sup> podkreślenie ( `_` ) | Pomniejszanie | 
-| `Shift`+ Przeciągnij myszą na mapie, aby rysować obszar | Powiększ do obszaru |
+| `Shift` + Przeciągnij myszą na mapie, aby rysować obszar | Powiększ do obszaru |
 
-<sup>*</sup>Te kluczowe skróty zazwyczaj współdzielą ten sam klucz na klawiaturze. Te skróty zostały dodane w celu usprawnienia środowiska użytkownika. Nie ma znaczenia, czy użytkownik używa klawisza Shift lub nie do tych skrótów.
+<sup>*</sup> Te kluczowe skróty zazwyczaj współdzielą ten sam klucz na klawiaturze. Te skróty zostały dodane w celu usprawnienia środowiska użytkownika. Nie ma znaczenia, czy użytkownik używa klawisza Shift lub nie do tych skrótów.
 
 ## <a name="screen-reader-support"></a>Obsługa czytnika ekranu
 

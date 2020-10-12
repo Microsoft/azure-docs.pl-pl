@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146627"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
@@ -74,8 +74,8 @@ W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożeni
 
 | Obszar| Opis |
 | - | - |
-| Access| Portal moje aplikacje jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
-|Access | Portal moje aplikacje jest dostępny z urządzeń firmowych spoza sieci firmowej. |
+| Dostęp| Portal moje aplikacje jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
+|Dostęp | Portal moje aplikacje jest dostępny z urządzeń firmowych spoza sieci firmowej. |
 | Inspekcja| Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni. |
 | Nadzór| Cykl życia przypisań użytkowników do aplikacji i grup połączonych z usługą Azure AD jest zdefiniowany i monitorowany. |
 | Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pośrednictwem przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |
@@ -122,11 +122,11 @@ W poniższej tabeli wymieniono kilka ważnych konfiguracji aplikacji oraz typowe
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Zezwalaj użytkownikom na korzystanie z rejestracji jednokrotnej w niektórych typach aplikacji| Federacyjne Logowanie jednokrotne, uwierzytelnianie OAuth, logowanie jednokrotne, serwer proxy aplikacji |
-| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Yes |
-| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Yes |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Tak |
+| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Tak |
 | Zezwalaj użytkownikom na korzystanie z samoobsługowego zarządzania grupami dla niektórych typów grup| Grupy zabezpieczeń, Microsoft 365 grupy |
-| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Yes |
-| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Yes |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Tak |
+| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Tak |
 
 ### <a name="plan-consent-strategy"></a>Planowanie strategii wyrażania zgody
 

@@ -4,10 +4,10 @@ description: Zawiera omówienie opcji migrowania maszyn wirtualnych VMware na pl
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950225"
 ---
 # <a name="select-a-vmware-migration-option"></a>Wybierz opcję migracji VMware
@@ -39,7 +39,7 @@ Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszc
 
 **Zadanie** | **Szczegóły** |**Bez agenta** | **Na podstawie agenta**
 --- | --- | --- | ---
-**Wdróż urządzenie Azure Migrate** | Lekkie urządzenie działające na maszynie wirtualnej VMware.<br/><br/> Urządzenie służy do odnajdywania i oceniania maszyn oraz do migrowania maszyn przy użyciu migracji bez agentów. | Wymagany.<br/><br/> Jeśli urządzenie zostało już skonfigurowane do oceny, można użyć tego samego urządzenia do migracji bez wykorzystania agentów. | Niewymagane.<br/><br/> Jeśli skonfigurowano urządzenie do oceny, można je pozostawić na miejscu lub usunąć, jeśli skończysz ocenianie.
+**Wdróż urządzenie Azure Migrate** | Lekkie urządzenie działające na maszynie wirtualnej VMware.<br/><br/> Urządzenie służy do odnajdywania i oceniania maszyn oraz do migrowania maszyn przy użyciu migracji bez agentów. | Wymagane.<br/><br/> Jeśli urządzenie zostało już skonfigurowane do oceny, można użyć tego samego urządzenia do migracji bez wykorzystania agentów. | Niewymagane.<br/><br/> Jeśli skonfigurowano urządzenie do oceny, można je pozostawić na miejscu lub usunąć, jeśli skończysz ocenianie.
 **Korzystanie z narzędzia do oceny serwera** | Oceń maszyny za pomocą narzędzia do oceny serwera Azure Migrate:. | Przed przeprowadzeniem migracji maszyn można ocenić je, ale nie musisz. | Ocena jest opcjonalna | Ocena jest opcjonalna.
 **Korzystanie z narzędzia do migracji serwera** | Dodaj narzędzie do migracji Azure Migrate Server w projekcie Azure Migrate. | Wymagane | Wymagane
 **Przygotuj oprogramowanie VMware do migracji** | Skonfiguruj ustawienia na serwerach i maszynach wirtualnych VMware. | Wymagane | Wymagane
@@ -51,7 +51,7 @@ Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszc
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Migrowanie maszyn wirtualnych VMware](tutorial-migrate-vmware.md) z migracją bez agenta.
 
