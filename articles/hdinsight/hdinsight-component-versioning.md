@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
 ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394333"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
@@ -44,7 +44,7 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 | Apache Mahout          | -             | 0.9.0 +                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.4.4         | 2.3.2.                      |
-| Apache Livy            | 0.5           | 0,4.                        |
+| Apache Livy            | 0,5           | 0,4.                        |
 | Apache Kafka           | 2.1.1         | 1,1                         |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
@@ -89,7 +89,7 @@ Ta tabela zawiera listę wersji usługi HDInsight dostępnych w Azure Portal i i
 | HDInsight 3,6 Spark             | 2.2               | Wycofano 30 czerwca 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Wycofano 30 czerwca 2020          |                             |
 | HDInsight 3,6 Kafka             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
-| HDInsight 3,6 Kafka             | 1,0               | Wycofano 30 czerwca 2020.         |                             |
+| HDInsight 3,6 Kafka             | 1.0               | Wycofano 30 czerwca 2020.         |                             |
 | HDInsight 3,6 HBase             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |
 | Zapytanie interaktywne usługi HDInsight 3,6 | 2.1               | 31 grudnia 2020                      | 30 czerwca 2021               |
 | Usługa HDInsight 3,6             | 1,1               | 31 grudnia 2020                      | 30 czerwca 2021               |

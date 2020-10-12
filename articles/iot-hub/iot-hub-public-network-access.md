@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85937564"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Zarządzanie dostępem do sieci publicznej dla Centrum IoT Hub
@@ -30,7 +30,7 @@ Aby ograniczyć dostęp tylko do [prywatnego punktu końcowego dla Centrum IoT w
 
 Aby włączyć dostęp do sieci publicznej, wybierz opcję **włączone**, a następnie **Zapisz**.
 
-## <a name="ip-filter"></a>Filtr IP 
+## <a name="ip-filter"></a>Filtr adresów IP 
 
 Jeśli dostęp do sieci publicznej jest wyłączony, wszystkie reguły [filtrowania adresów IP](iot-hub-ip-filtering.md) są ignorowane. Wynika to z faktu, że wszystkie adresy IP z publicznej sieci Internet są zablokowane. Aby użyć filtru IP, użyj opcji **wybrane zakresy adresów IP** .
 

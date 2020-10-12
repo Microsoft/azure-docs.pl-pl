@@ -12,10 +12,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 558e6cea4d5e0c9bd0f6222f9070d2b867a5bf44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85384944"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logowanie przy użyciu aplikacji systemu iOS
@@ -62,7 +62,7 @@ Ten przykład został utworzony przez następujące instrukcje Readme dotyczące
 > AppAuth obsługuje system iOS 7 lub nowszy.  Jednak w celu zapewnienia obsługi logowań społecznościowych w usłudze Google wymagane jest SFSafariViewController, które wymagają systemu iOS 9 lub nowszego.
 >
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Komunikację z Azure AD B2C można skonfigurować, określając punkt końcowy autoryzacji i identyfikatory URI punktu końcowego tokenu.  Aby wygenerować te identyfikatory URI, potrzebne są następujące informacje:
 * Identyfikator dzierżawy (na przykład contoso.onmicrosoft.com)

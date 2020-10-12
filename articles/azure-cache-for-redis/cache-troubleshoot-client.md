@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008971"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie klienta
@@ -41,7 +41,7 @@ Duże wykorzystanie pamięci na kliencie można ograniczyć na kilka sposobów:
 
 Rozerwania ruchu połączonego z słabymi `ThreadPool` ustawieniami mogą spowodować opóźnienia w przetwarzaniu danych, które zostały już wysłane przez serwer Redis, ale nie zostały jeszcze wykorzystane po stronie klienta.
 
-Monitoruj jak `ThreadPool` dane statystyczne zmieniają się w miarę upływu czasu przy użyciu [przykładu `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Możesz użyć `TimeoutException` komunikatów z stackexchange. Redis, jak pokazano poniżej, aby dokładniej zbadać:
+Monitoruj jak `ThreadPool` dane statystyczne zmieniają się w miarę upływu czasu przy użyciu [przykładu `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Możesz użyć  `TimeoutException` komunikatów z stackexchange. Redis, jak pokazano poniżej, aby dokładniej zbadać:
 
 ```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,

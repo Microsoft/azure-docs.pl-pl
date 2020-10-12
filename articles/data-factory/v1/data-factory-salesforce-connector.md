@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79281134"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Przenoszenie danych z usługi Salesforce przy użyciu Azure Data Factory
@@ -97,7 +97,7 @@ W działaniu kopiowania, gdy źródłem jest typ **RelationalSource** (w tym Sal
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Zapytanie dotyczące języka SQL-92 lub zapytania o [obiekt SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Na przykład: `select * from MyTable__c`. |Nie (Jeśli określono wartość **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Zapytanie dotyczące języka SQL-92 lub zapytania o [obiekt SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Przykład: `select * from MyTable__c`. |Nie (Jeśli określono wartość **TableName** **zestawu danych** ) |
 
 > [!IMPORTANT]
 > Część "__c" nazwy interfejsu API jest wymagana dla dowolnego obiektu niestandardowego.
@@ -106,9 +106,9 @@ W działaniu kopiowania, gdy źródłem jest typ **RelationalSource** (w tym Sal
 
 ## <a name="query-tips"></a>Porady dotyczące zapytań
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Pobieranie danych przy użyciu klauzuli WHERE w kolumnie DateTime
-W przypadku określenia zapytania SOQL lub SQL należy zwrócić uwagę na różnice w formacie daty/godziny. Przykład:
+W przypadku określenia zapytania SOQL lub SQL należy zwrócić uwagę na różnice w formacie daty/godziny. Na przykład:
 
-* **Przykład SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Przykład SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Przykład SQL**:
     * **Używanie Kreatora kopiowania do określenia zapytania:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **Używanie edycji JSON w celu określenia zapytania (znak ucieczki):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
@@ -117,7 +117,7 @@ W przypadku określenia zapytania SOQL lub SQL należy zwrócić uwagę na róż
 Dane można pobrać z raportów usługi Salesforce, określając zapytanie jako `{call "<report name>"}` , na przykład. `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Pobieranie usuniętych rekordów z Kosza usługi Salesforce
-Aby wykonać zapytanie dotyczące usuniętych nietrwałych rekordów z Kosza usługi Salesforce, można określić w zapytaniu **wartość "IsDeleted = 1"** . Na przykład
+Aby wykonać zapytanie dotyczące usuniętych nietrwałych rekordów z Kosza usługi Salesforce, można określić w zapytaniu **wartość "IsDeleted = 1"** . Przykład:
 
 * Aby wykonać zapytanie dotyczące tylko usuniętych rekordów, określ wartość "select * from MyTable__c, **gdzie IsDeleted = 1**"
 * Aby zbadać wszystkie rekordy, w tym istniejące i usunięte, określ wartość "select * from MyTable__c, w **której IsDeleted = 0 lub IsDeleted = 1**"
@@ -285,25 +285,25 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) , aby u
 
 | Typ usługi Salesforce | . Typ oparty na sieci |
 | --- | --- |
-| Numer Autokorekty |String |
+| Numer Autokorekty |Ciąg |
 | Pole wyboru |Boolean |
-| Waluta |Wartość dziesiętna |
+| Waluta |Liczba dziesiętna |
 | Data |DateTime |
 | Data/godzina |DateTime |
-| Poczta e-mail |String |
-| Identyfikator |String |
-| Relacja odnośnika |String |
-| Lista wyboru z wybórem |String |
-| Liczba |Wartość dziesiętna |
-| Procent |Wartość dziesiętna |
-| Telefon |String |
-| Lista wyboru |String |
-| Tekst |String |
-| Obszar tekstu |String |
-| Obszar tekstowy (Long) |String |
-| Obszar tekstowy (rozbudowany) |String |
-| Tekst (zaszyfrowany) |String |
-| Adres URL |String |
+| Poczta e-mail |Ciąg |
+| Id |Ciąg |
+| Relacja odnośnika |Ciąg |
+| Lista wyboru z wybórem |Ciąg |
+| Liczba |Liczba dziesiętna |
+| Procent |Liczba dziesiętna |
+| Telefon |Ciąg |
+| Lista wyboru |Ciąg |
+| Tekst |Ciąg |
+| Obszar tekstu |Ciąg |
+| Obszar tekstowy (Long) |Ciąg |
+| Obszar tekstowy (rozbudowany) |Ciąg |
+| Tekst (zaszyfrowany) |Ciąg |
+| Adres URL |Ciąg |
 
 > [!NOTE]
 > Aby zmapować kolumny ze źródłowego zestawu danych do kolumn z obiektu ujścia danych, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

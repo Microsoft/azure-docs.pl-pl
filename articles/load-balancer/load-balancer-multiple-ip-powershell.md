@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: e8fedad40c18818932bf37dfe93c1b236357c30b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001609"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu programu PowerShell

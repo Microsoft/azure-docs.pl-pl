@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 726fc9cc0e4eb5a8f9bed5cca8dd4d3df588ac7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79371560"
 ---
 Usługa Azure Storage oferuje kilka typów kont magazynu. Każdy typ obsługuje różne funkcje i ma własny model cen. Te różnice należy wziąć pod uwagę przed utworzeniem konta magazynu w celu określenia typu konta najlepszego dla aplikacji. Oto typy kont magazynu:
@@ -31,7 +31,7 @@ W poniższej tabeli opisano typy kont magazynu i ich możliwości:
 | Ogólnego przeznaczenia w wersji 1   | Obiekt BLOB, plik, kolejka, tabela i dysk       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Nie dotyczy                            | LRS, GRS, RA-GRS                  | Menedżer zasobów, klasyczny    | Zaszyfrowane              |
 | BlockBlobStorage   | Obiekt BLOB (Blokuj obiekty blob i Dołącz tylko obiekty blob) | Premium                       | Nie dotyczy                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Zaszyfrowane              |
 | FileStorage   | Tylko plik | Premium                       | Nie dotyczy                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Zaszyfrowane              |
-| BlobStorage         | Obiekt BLOB (Blokuj obiekty blob i Dołącz tylko obiekty blob) | Standardowa (Standard)                      | Gorąca, chłodna, archiwalna<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Zaszyfrowane              |
+| BlobStorage         | Obiekt BLOB (Blokuj obiekty blob i Dołącz tylko obiekty blob) | Standardowa                      | Gorąca, chłodna, archiwalna<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Zaszyfrowane              |
 
 <div id="deployment-model"><sup>1</sup> Zalecane jest korzystanie z modelu wdrażania Azure Resource Manager. Konta magazynu korzystające z klasycznego modelu wdrażania można nadal tworzyć w niektórych lokalizacjach, a istniejące konta klasyczne są nadal obsługiwane. Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager a wdrożenie klasyczne: Omówienie modeli wdrażania i stanu zasobów</a>.</div><br/>
 

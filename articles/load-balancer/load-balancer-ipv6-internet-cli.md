@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001577"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Tworzenie publicznego modułu równoważenia obciążenia przy użyciu protokołu IPv6 za pomocą interfejsu wiersza polecenia platformy Azure
@@ -157,7 +157,7 @@ W tym przykładzie opisano tworzenie następujących elementów:
 * Reguła NAT służąca do translacji całego ruchu przychodzącego na porcie 3391 do portu 3389 dla protokołu RDP (Remote Desktop Protocol).\*
 * Reguła modułu równoważenia obciążenia do równoważenia całego ruchu przychodzącego na porcie 80 do portu 80 adresów w puli zaplecza.
 
-\*Reguły NAT są skojarzone z określonym wystąpieniem maszyny wirtualnej za modułem równoważenia obciążenia. Ruch sieciowy przychodzący na porcie 3389 jest wysyłany do określonej maszyny wirtualnej i portu skojarzonej z regułą NAT. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Nie można przypisać obu protokołów do tego samego portu.
+\* Reguły NAT są skojarzone z określonym wystąpieniem maszyny wirtualnej za modułem równoważenia obciążenia. Ruch sieciowy przychodzący na porcie 3389 jest wysyłany do określonej maszyny wirtualnej i portu skojarzonej z regułą NAT. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Nie można przypisać obu protokołów do tego samego portu.
 
 1. Skonfiguruj zmienne programu PowerShell:
 

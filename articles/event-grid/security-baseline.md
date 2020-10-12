@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394384"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Podstawa zabezpieczeń platformy Azure dla Event Grid
@@ -70,7 +70,7 @@ wizyjn.
 
 Można skonfigurować prywatne punkty końcowe, aby ograniczyć dostęp tylko z wybranych sieci wirtualnych.
 
-Włącz usługę DDoS Protection w tych sieciach wirtualnych, aby chronić przed atakami rozproszonymi typu "odmowa usługi" (DDoS). Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP. Aby uzyskać więcej informacji, zobacz następujące artykuły: 
+Włącz usługę DDoS Protection w tych sieciach wirtualnych, aby chronić przed atakami rozproszonymi typu "odmowa usługi" (DDoS). Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP. Aby uzyskać więcej informacji zobacz następujące artykuły: 
 
 - [Jak skonfigurować prywatne punkty końcowe dla tematów Azure Event Grid lub domen](configure-private-endpoints.md)
 

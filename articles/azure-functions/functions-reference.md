@@ -5,10 +5,10 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921736"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions — przewodnik dla deweloperów
@@ -65,7 +65,7 @@ Aplikacje funkcji można tworzyć i publikować przy użyciu różnych narzędzi
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a>Jak edytować funkcje w Azure Portal
+## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a> Jak edytować funkcje w Azure Portal
 Edytor funkcji wbudowanych w Azure Portal pozwala aktualizować kod i *function.jsna* pliku bezpośrednio w wierszu. Jest to zalecane tylko w przypadku małych zmian lub prób koncepcji — najlepszym rozwiązaniem jest użycie lokalnego narzędzia programistycznego, takiego jak VS Code.
 
 ## <a name="parallel-execution"></a>Wykonywanie równoległe
@@ -96,7 +96,7 @@ Masz problemy z błędami pochodzącymi z powiązań? Zapoznaj się z dokumentac
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Azure Functions wyzwalacze i powiązania](functions-triggers-bindings.md)
 * [Kodowanie i testowanie usługi Azure Functions lokalnie](./functions-develop-local.md)

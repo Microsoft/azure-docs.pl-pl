@@ -6,13 +6,13 @@ ms.topic: reference
 ms.date: 07/22/2020
 ms.subservice: metrics
 ms.openlocfilehash: ca6acb97e52123a0663d988b3f217d305bce2c4b
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87131688"
 ---
-# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metryki platformy Azure Monitor eksportowane za pośrednictwem ustawień diagnostycznych
+# <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metryki platformy w usłudze Azure Monitor, które można eksportować za pośrednictwem ustawień diagnostycznych
 
 Azure Monitor domyślnie udostępnia [metryki platformy](data-platform-metrics.md) bez konfiguracji. Zapewnia kilka sposobów współpracy z metrykami platformy, w tym wykresów w portalu, uzyskiwania dostępu do nich za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Zobacz [metryki — obsługa](metrics-supported.md) pełnej listy metryk platformy dostępnych obecnie w ramach skonsolidowanego potoku metryki Azure monitor. Aby wykonać zapytanie o i uzyskać dostęp do tych metryk, użyj [wersji interfejsu api 2018-01-01](/rest/api/monitor/metricdefinitions). Inne metryki mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
 
@@ -218,10 +218,10 @@ Poniżej znajduje się lista metryk, których zachowanie zostało zmienione.
 | Microsoft. Insights/składniki | Liczniki wydajności/exceptionsPerSecond |  Częstotliwość wyjątków  | 
 | Microsoft. Insights/składniki | pageViews/liczba |  Wyświetlenia stron  | 
 | Microsoft. Insights/składniki | wyjątki/liczba |  Wyjątki  | 
-| Microsoft. Kusto/klastry | StreamingIngestResults |  Wynik pozyskiwania strumieniowego  | 
-| Microsoft. Kusto/klastry | StreamingIngestDuration |  Czas trwania pozyskiwania strumieniowego  | 
-| Microsoft. Kusto/klastry | StreamingIngestDataRate |  Szybkość danych pozyskiwania przesyłania strumieniowego  | 
-| Microsoft. Kusto/klastry | SteamingIngestRequestRate |  Szybkość żądania pozyskiwania strumieniowego  | 
+| Microsoft. Kusto/klastry | StreamingIngestResults |  Wynik pozyskiwania za pomocą przesyłania strumieniowego  | 
+| Microsoft. Kusto/klastry | StreamingIngestDuration |  Pozyskiwanie za pomocą przesyłania strumieniowego — czas trwania  | 
+| Microsoft. Kusto/klastry | StreamingIngestDataRate |  Pozyskiwanie za pomocą przesyłania strumieniowego — szybkość danych  | 
+| Microsoft. Kusto/klastry | SteamingIngestRequestRate |  Pozyskiwanie za pomocą przesyłania strumieniowego — liczba żądań  | 
 | Microsoft. Kusto/klastry | QueryDuration |  Czas trwania zapytania  | 
 | Microsoft. Kusto/klastry | Utrzymywani |  Utrzymywanie aktywności  | 
 | Microsoft. Kusto/klastry | IngestionVolumeInMB |  Wolumin pozyskiwania (w MB)  | 
@@ -372,7 +372,7 @@ Poniżej znajduje się lista metryk, których zachowanie zostało zmienione.
 | Microsoft. SQL/managedInstances | avg_cpu_percent |  Średni procent procesora CPU  | 
 | Microsoft. SQL/serwery | dtu_used |  Używane jednostki DTU  | 
 | Microsoft. SQL/serwery | dtu_consumption_percent |  Procent użycia jednostek DTU  | 
-| Microsoft. SQL/serwery/bazy danych | xtp_storage_percent |  Procent magazynu OLTP w pamięci  | 
+| Microsoft. SQL/serwery/bazy danych | xtp_storage_percent |  Procent magazynu OLTP In-Memory  | 
 | Microsoft. SQL/serwery/bazy danych | workers_percent |  Procent pracowników  | 
 | Microsoft. SQL/serwery/bazy danych | sessions_percent |  Procent sesji  | 
 | Microsoft. SQL/serwery/bazy danych | physical_data_read_percent |  Procent użycia operacji we/wy na danych  | 
@@ -388,7 +388,7 @@ Poniżej znajduje się lista metryk, których zachowanie zostało zmienione.
 | Microsoft. SQL/serwery/bazy danych | connection_failed |  Połączenia zakończone niepowodzeniem  | 
 | Microsoft. SQL/serwery/bazy danych | cache_hit_percent |  Procent trafień w pamięci podręcznej  | 
 | Microsoft. SQL/serwery/bazy danych | blocked_by_firewall |  Zablokowane przez zaporę  | 
-| Microsoft. SQL/serwery/elasticPools | xtp_storage_percent |  Procent magazynu OLTP w pamięci  | 
+| Microsoft. SQL/serwery/elasticPools | xtp_storage_percent |  Procent magazynu OLTP In-Memory  | 
 | Microsoft. SQL/serwery/elasticPools | workers_percent |  Procent pracowników  | 
 | Microsoft. SQL/serwery/elasticPools | sessions_percent |  Procent sesji  | 
 | Microsoft. SQL/serwery/elasticPools | physical_data_read_percent |  Procent użycia operacji we/wy na danych  | 
@@ -520,7 +520,7 @@ Poniżej znajduje się lista metryk, których zachowanie zostało zmienione.
 | Microsoft. SQL/serwery/bazy danych | connection_failed | Połączenia zakończone niepowodzeniem | 
 | Microsoft. SQL/serwery/bazy danych | blocked_by_firewall | Zablokowane przez zaporę | 
 | Microsoft. SQL/serwery/bazy danych | stanu | Zakleszczenia | 
-| Microsoft. SQL/serwery/bazy danych | xtp_storage_percent | Procent magazynu OLTP w pamięci | 
+| Microsoft. SQL/serwery/bazy danych | xtp_storage_percent | Procent magazynu OLTP In-Memory | 
 | Microsoft. SQL/serwery/bazy danych | workers_percent | Procent pracowników | 
 | Microsoft. SQL/serwery/bazy danych | sessions_percent | Procent sesji | 
 | Microsoft. SQL/serwery/bazy danych | dtu_used | Używane jednostki DTU | 
@@ -545,7 +545,7 @@ Poniżej znajduje się lista metryk, których zachowanie zostało zmienione.
 | Microsoft. SQL/serwery/elasticPools | workers_percent | Procent pracowników | 
 | Microsoft. SQL/serwery/elasticPools | sessions_percent | Procent sesji | 
 | Microsoft. SQL/serwery/elasticPools | eDTU_used | użyta wartość eDTU | 
-| Microsoft. SQL/serwery/elasticPools | xtp_storage_percent | Procent magazynu OLTP w pamięci | 
+| Microsoft. SQL/serwery/elasticPools | xtp_storage_percent | Procent magazynu OLTP In-Memory | 
 | Microsoft. SQL/serwery | dtu_consumption_percent | Procent użycia jednostek DTU | 
 | Microsoft. SQL/serwery | dtu_used | Używane jednostki DTU | 
 | Microsoft. SQL/managedInstances | avg_cpu_percent | Średni procent procesora CPU | 

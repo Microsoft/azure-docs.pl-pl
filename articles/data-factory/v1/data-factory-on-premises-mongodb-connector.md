@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79281342"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Przenoszenie danych z MongoDB za pomocą Azure Data Factory
@@ -293,7 +293,7 @@ Podczas przesuwania danych do MongoDB następujące mapowania są używane z typ
 | Typ MongoDB | Typ programu .NET Framework |
 | --- | --- |
 | Binarne |Byte [] |
-| Boolean (wartość logiczna) |Wartość logiczna |
+| Boolean (wartość logiczna) |Boolean (wartość logiczna) |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
@@ -321,14 +321,14 @@ Tabele wirtualne odwołują się do danych w rzeczywistej tabeli, umożliwiając
 ### <a name="example"></a>Przykład
 Na przykład "przykład" poniżej jest tabelą MongoDB, która zawiera jedną kolumnę z tablicą obiektów w każdej komórce — faktury i jedną kolumnę z tablicą typów skalarnych — klasyfikacje.
 
-| _id | Nazwa klienta | Faktury | Poziom usług | Klasyfikacje |
+| _id | Nazwa klienta | Faktury | Poziom usługi | Klasyfikacje |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123", Item: "wyskakujący", Cena: "456", Rabat: "0,2"}, {invoice_id: "124", Item: "piekarnik", Cena: "1235", Rabat: "0,2"}] |Srebrny |[5, 6] |
 | 2222 |XYZ |[{invoice_id: "135", element: "lodówki", Cena: "12543", Rabat: "0,0"}] |Złoty |[1, 2] |
 
 Sterownik generuje wiele tabel wirtualnych do reprezentowania tej pojedynczej tabeli. Pierwsza tabela wirtualna jest tabelą podstawową o nazwie "Przykładowe", pokazana poniżej. Tabela podstawowa zawiera wszystkie dane oryginalnej tabeli, ale dane z tablic zostały pominięte i rozwinięte w tabelach wirtualnych.
 
-| _id | Nazwa klienta | Poziom usług |
+| _id | Nazwa klienta | Poziom usługi |
 | --- | --- | --- |
 | 1111 |ABC |Srebrny |
 | 2222 |XYZ |Złoty |
@@ -345,7 +345,7 @@ Tabela "ExampleTable_Invoices":
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |wyskakujący |456 |0,2 |
 | 1111 |1 |124 |laboratoryjn |1235 |0,2 |
-| 2222 |0 |135 |lodówki |12543 |0,0 |
+| 2222 |0 |135 |lodówki |12543 |0.0 |
 
 Tabela "ExampleTable_Ratings":
 

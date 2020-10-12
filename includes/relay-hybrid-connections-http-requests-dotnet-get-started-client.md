@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79200341"
 ---
 ### <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
@@ -25,7 +25,7 @@ W programie Visual Studio utwórz nowy projekt **Aplikacja konsoli (.NET Framewo
 
 1. Kliknij prawym przyciskiem myszy nowo utworzony projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet**.
 2. Wybierz opcję **Uwzględnij wersję wstępną**. 
-3. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj pozycję **Microsoft.Azure.Relay**. W wynikach wyszukiwania wybierz pozycję **Microsoft Azure Relay**.
+3. Wybierz pozycję **Przeglądaj**, a następnie wyszukaj pozycję **Microsoft.Azure.Relay**. W wynikach wyszukiwania wybierz pozycję  **Microsoft Azure Relay**.
 4. Wybierz wersję **2.0.0-preview1-20180523**. 
 5. Wybierz pozycję **Zainstaluj**, aby ukończyć instalację. Zamknij okno dialogowe.
 

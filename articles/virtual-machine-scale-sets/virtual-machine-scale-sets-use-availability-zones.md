@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611916"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Utwórz zestaw skalowania maszyn wirtualnych, który używa Strefy dostępności
@@ -62,10 +62,10 @@ Podczas tworzenia zestawu skalowania w ramach jednej strefy można kontrolować,
 
 Aby można było używać Strefy dostępności, zestaw skalowania musi być utworzony w [obsługiwanym regionie platformy Azure](../availability-zones/az-region.md). Można utworzyć zestaw skalowania, który używa Strefy dostępności z jedną z następujących metod:
 
-- [Witryna Azure Portal](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - Interfejs wiersza polecenia platformy Azure
 - [Azure PowerShell](#use-azure-powershell)
-- [Szablony Azure Resource Manager](#use-azure-resource-manager-templates)
+- [Szablony usługi Azure Resource Manager](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
@@ -75,7 +75,7 @@ Proces tworzenia zestawu skalowania, który używa strefy dostępności, jest ta
 
 Zestaw skalowania i zasoby pomocnicze, takie jak moduł równoważenia obciążenia platformy Azure i publiczny adres IP, są tworzone w pojedynczej określonej strefie.
 
-## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
 Proces tworzenia zestawu skalowania, który używa strefy dostępności, jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-cli.md). Aby użyć Strefy dostępności, musisz utworzyć zestaw skalowania w obsługiwanym regionie platformy Azure.
 

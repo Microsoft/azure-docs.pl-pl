@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84629018"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Trenowanie modelu dla usługi Custom Speech
@@ -44,7 +44,7 @@ Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj
 4. Następnie Nadaj swojemu szkoleniowi **nazwę** i **Opis**.
 5. Z menu rozwijanego **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Najnowszym modelem jest zazwyczaj najlepszy wybór.
 6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub wiele zestawów danych, które mają być używane do szkoleń.
-7. Po zakończeniu szkolenia możesz wybrać przeprowadzenie testowania dokładności dla nowo nauczonego modelu. Ten krok jest opcjonalny.
+7. Po zakończeniu szkolenia możesz wybrać przeprowadzenie testowania dokładności dla nowo nauczonego modelu. Ta czynność jest opcjonalna.
 8. Wybierz pozycję **Utwórz** , aby skompilować niestandardowy model.
 
 W tabeli szkoleń zostanie wyświetlony nowy wpis, który odnosi się do nowo utworzonego modelu. W tabeli jest również wyświetlany stan: przetwarzanie, zakończone powodzeniem, zakończone niepowodzeniem.
@@ -67,4 +67,4 @@ Jeśli zdecydowano się na przetestowanie dokładności, ważne jest, aby wybra�
 - [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 - [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 - [Oceń dane](how-to-custom-speech-evaluate-data.md)
-- [Trenowanie modelu](how-to-custom-speech-train-model.md)
+- [Szkolenie modelu](how-to-custom-speech-train-model.md)

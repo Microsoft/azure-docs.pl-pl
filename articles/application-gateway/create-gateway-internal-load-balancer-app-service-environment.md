@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/09/2020
 ms.author: genli
 ms.openlocfilehash: 8861e850e168169762d95c44a54b6a88a036f396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84628531"
 ---
 # <a name="back-end-server-certificate-is-not-allow-listed-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Certyfikat serwera zaplecza nie jest dozwolony na liście dla bramy aplikacji przy użyciu wewnętrznego Load Balancer z App Service Environment

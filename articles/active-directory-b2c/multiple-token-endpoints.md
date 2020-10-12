@@ -12,10 +12,10 @@ ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385743"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrowanie internetowego interfejsu API opartego na OWIN do usługi b2clogin.com
@@ -107,7 +107,7 @@ W tej sekcji należy zaktualizować kod, aby określić, że oba punkty końcowe
     };
     ```
 
-`TokenValidationParameters`jest dostarczany przez MSAL.NET i jest zużywany przez oprogramowanie pośredniczące OWIN w następnej sekcji kodu w *Startup.auth.cs*. W przypadku wybrania wielu prawidłowych wystawców potok aplikacji OWIN ma świadomość, że oba punkty końcowe tokenu są prawidłowymi wystawcami.
+`TokenValidationParameters` jest dostarczany przez MSAL.NET i jest zużywany przez oprogramowanie pośredniczące OWIN w następnej sekcji kodu w *Startup.auth.cs*. W przypadku wybrania wielu prawidłowych wystawców potok aplikacji OWIN ma świadomość, że oba punkty końcowe tokenu są prawidłowymi wystawcami.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions

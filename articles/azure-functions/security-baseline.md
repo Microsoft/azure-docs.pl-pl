@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394095"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
@@ -1031,7 +1031,7 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 **Wskazówki**: Użyj funkcji tworzenia kopii zapasowych i przywracania, aby zaplanować regularne kopie zapasowe aplikacji. Aplikacje funkcji działające w planie Premium mają takie same możliwości hostingu jak aplikacje sieci Web w Azure App Service, które obejmują funkcję "wykonywanie kopii zapasowych i przywracanie".
 
-Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i Azure DevOps, aby bezpiecznie przechowywać kod i zarządzać nim. Azure DevOps Services wykorzystuje wiele funkcji usługi Azure Storage, aby zapewnić dostępność danych w przypadku awarii sprzętu, przerwania działania usługi lub awarii regionu. Ponadto zespół usługi Azure DevOps stosuje procedury umożliwiające ochronę danych przed przypadkowym lub złośliwym usunięciem.
+Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i Azure DevOps, aby bezpiecznie przechowywać kod i zarządzać nim. Usługa Azure DevOps Services wykorzystuje wiele funkcji usługi Azure Storage w celu zapewnienia dostępności danych w przypadku awarii sprzętowej, przerw w działaniu usługi lub awarii regionu. Ponadto zespół usługi Azure DevOps postępuje zgodnie z procedurami w celu ochrony danych przed przypadkowym lub złośliwym usunięciem.
 
 - [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service/manage-backup.md)
 
@@ -1049,7 +1049,7 @@ Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i A
 
 **Wskazówki**: Użyj funkcji tworzenia kopii zapasowych i przywracania, aby zaplanować regularne kopie zapasowe aplikacji. Aplikacje funkcji działające w planie Premium mają takie same możliwości hostingu jak aplikacje sieci Web w Azure App Service, które obejmują funkcję "wykonywanie kopii zapasowych i przywracanie". Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
-Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i Azure DevOps, aby bezpiecznie przechowywać kod i zarządzać nim. Azure DevOps Services wykorzystuje wiele funkcji usługi Azure Storage, aby zapewnić dostępność danych w przypadku awarii sprzętu, przerwania działania usługi lub awarii regionu. Ponadto zespół usługi Azure DevOps stosuje procedury umożliwiające ochronę danych przed przypadkowym lub złośliwym usunięciem.
+Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i Azure DevOps, aby bezpiecznie przechowywać kod i zarządzać nim. Usługa Azure DevOps Services wykorzystuje wiele funkcji usługi Azure Storage w celu zapewnienia dostępności danych w przypadku awarii sprzętowej, przerw w działaniu usługi lub awarii regionu. Ponadto zespół usługi Azure DevOps postępuje zgodnie z procedurami w celu ochrony danych przed przypadkowym lub złośliwym usunięciem.
 
 - [Tworzenie kopii zapasowej aplikacji na platformie Azure](../app-service/manage-backup.md)
 
@@ -1083,11 +1083,11 @@ Korzystaj również z rozwiązań kontroli źródła, takich jak Azure Repos i A
 
 **Wskazówki**: kopie zapasowe z funkcji tworzenia kopii zapasowych i przywracania używają konta usługi Azure Storage w ramach subskrypcji. Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać klucze zarządzane przez klienta do szyfrowania danych magazynu.
 
-Jeśli używasz kluczy zarządzanych przez klienta, upewnij się, że funkcja usuwania nietrwałego w Key Vault jest włączona, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
+Jeśli używasz kluczy zarządzanych przez klienta, upewnij się, Soft-Delete w Key Vault jest włączona ochrona kluczy przed przypadkowym lub złośliwym usunięciem.
 
 - [Szyfrowanie danych magazynowanych w usłudze Azure Storage](../storage/common/storage-service-encryption.md)
 
-- [Jak włączyć usuwanie nietrwałe w Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: tak
 

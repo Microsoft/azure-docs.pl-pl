@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 259b27528779c9934da6d69ca46f2794e2257d24
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723031"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: dołączanie maszyny wirtualnej z systemem Windows Server do domeny zarządzanej Azure Active Directory Domain Services
@@ -68,7 +68,7 @@ Jeśli masz już maszynę wirtualną do przyłączenia do domeny, przejdź do se
     |----------------------|-------------------|
     | Grupa zasobów       | Wybierz lub Utwórz grupę zasobów, na przykład grupa *zasobów* |
     | Nazwa maszyny wirtualnej | Wprowadź nazwę maszyny wirtualnej, na przykład *myVM* |
-    | Region (Region)               | Wybierz region, w którym chcesz utworzyć maszynę wirtualną, na przykład *Wschodnie stany USA* |
+    | Region               | Wybierz region, w którym chcesz utworzyć maszynę wirtualną, na przykład *Wschodnie stany USA* |
     | Nazwa użytkownika             | Wprowadź nazwę użytkownika dla konta administratora lokalnego, które ma zostać utworzone na maszynie wirtualnej, na przykład *azureuser* |
     | Hasło             | Wprowadź wartość, a następnie potwierdź hasło do konta administratora lokalnego na maszynie wirtualnej. Nie określaj poświadczeń konta użytkownika domeny. |
 
@@ -178,7 +178,7 @@ Po utworzeniu maszyny wirtualnej i połączeniu RDP opartym na sieci Web przy u�
 
 Po ponownym uruchomieniu maszyny wirtualnej z systemem Windows Server wszystkie zasady zastosowane w domenie zarządzanej są wypychane do maszyny wirtualnej. Teraz możesz także zalogować się do maszyny wirtualnej z systemem Windows Server przy użyciu odpowiednich poświadczeń domeny.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W następnym samouczku użyjesz tej maszyny wirtualnej systemu Windows Server, aby zainstalować narzędzia do zarządzania, które umożliwiają administrowanie domeną zarządzaną. Jeśli nie chcesz kontynuować korzystania z tej serii samouczków, przejrzyj następujące kroki czyszczenia, aby [usunąć maszynę wirtualną](#delete-the-vm). W przeciwnym razie [Przejdź do następnego samouczka](#next-steps).
 

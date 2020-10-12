@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
 ms.openlocfilehash: 2b547dbc8671481275952f4c3eae5683e9e3a06c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207532"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer często zadawane pytania
@@ -25,7 +25,7 @@ Dla obu tych typów platforma Azure oferuje podstawową jednostkę SKU i standar
 Zapoznaj się z artykułem " [uaktualnienie z warstwy Podstawowa do Standard](upgrade-basic-standard.md) ", aby uzyskać zautomatyzowany skrypt i wskazówki dotyczące uaktualniania jednostki SKU Load Balancer.
 
  ## <a name="what-are-the-different-load-balancing-options-in-azure"></a>Jakie są różne opcje równoważenia obciążenia na platformie Azure?
-Zobacz [Przewodnik po technologii modułu równoważenia obciążenia](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) dla dostępnych usług równoważenia obciążenia i zalecane zastosowania dla każdej z nich.
+Zobacz [Przewodnik po technologii modułu równoważenia obciążenia](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)  dla dostępnych usług równoważenia obciążenia i zalecane zastosowania dla każdej z nich.
 
 ## <a name="where-can-i-find-load-balancer-arm-templates"></a>Gdzie mogę znaleźć szablony Load Balancer ARM?
 Zobacz [listę Azure Load Balancer szablonów szybkiego startu](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates) dla szablonów usługi ARM typowych wdrożeń.

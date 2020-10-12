@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79220304"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Wyszukiwanie wideo za pomocą interfejsu API wyszukiwania wideo Bing
@@ -120,10 +120,10 @@ Szczegóły użycia elementu [videoId](https://docs.microsoft.com/rest/api/cogni
 
 Domyślnie interfejs API wyszukiwania wideo zwraca wszystkie filmy wideo odpowiednie dla zapytania. Jeśli chcesz znaleźć tylko bezpłatne filmy wideo lub filmy wideo krótsze niż pięć minut, użyj następujących parametrów w zapytaniu filtru:
 
-- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;Cennik dotyczący filtru cen według cen (na przykład bezpłatne lub płatne wideo)
-- [rozdzielczość](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)&mdash;filtru wideo według rozdzielczości (na przykład wideo z rozdzielczością 720 lub wyższą)
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;Filtruj wideo według długości wideo (na przykład wideo o długości mniejszej niż pięć minut)
-- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;filmy wideo z filtrem Aktualności według wieku (na przykład wideo wykryte przez usługę Bing w ciągu ostatniego tygodnia)
+- [Cennik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; Filtrowanie filmów wideo według cen (na przykład bezpłatnych materiałów wideo lub opłat za korzystanie z nich)
+- [rozwiązanie](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; Filtrowanie filmów wideo według rozdzielczości (na przykład wideo z rozdzielczością 720 lub wyższą)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrowanie filmów wideo według długości wideo (na przykład wideo o długości mniejszej niż pięć minut)
+- [świeżość](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtrowanie filmów wideo według wieku (na przykład wideo odnalezione przez usługę Bing w ciągu ostatniego tygodnia)
 
 Aby uzyskać filmy wideo z określonej domeny, należy uwzględnić operatora [site:](https://msdn.microsoft.com/library/ff795613.aspx) zapytania w ciągu zapytania.
 

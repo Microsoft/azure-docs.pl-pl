@@ -8,10 +8,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: aed015b67aa36e7678b31d7f2f047cb1e77c6a3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485317"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Powrót po awarii maszyn wirtualnych VMware do lokacji lokalnej

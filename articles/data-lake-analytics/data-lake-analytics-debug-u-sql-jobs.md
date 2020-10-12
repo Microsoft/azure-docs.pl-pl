@@ -8,10 +8,10 @@ ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87131875"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Debuguj kod języka C# zdefiniowany przez użytkownika dla niezakończonych zadań U-SQL
@@ -78,7 +78,7 @@ Jeśli kod użytkownika nie jest uwzględniony w pliku związanym z kodem lub ni
 
 2. Pobierz ścieżkę folderu projektu dla projektu **FailedVertexDebugHost** . 
 
-3. Kliknij prawym przyciskiem myszy **dodany projekt kodu źródłowego zestawu > właściwości**, wybierz kartę **kompilacja** na lewo i wklej skopiowaną ścieżkę kończącą się na \bin\debug jako **wyjście > Ścieżka wyjściowa**. Końcowa ścieżka wyjściowa jest taka sama `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` .
+3. Right-Click **Dodawanie projektu kodu źródłowego zestawu > właściwości**, wybierz kartę **kompilacja** na lewo i wklej skopiowaną ścieżkę kończącą się na \bin\debug jako **wyjściowa Ścieżka wyjściowa >**. Końcowa ścieżka wyjściowa jest taka sama `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` .
 
     ![Ścieżka pliku PDB zestawu Azure Data Lake Analytics U-SQL](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

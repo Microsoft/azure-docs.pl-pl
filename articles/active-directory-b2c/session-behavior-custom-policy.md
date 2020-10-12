@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385267"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji przy użyciu zasad niestandardowych w Azure Active Directory B2C
@@ -59,7 +59,7 @@ Po przekierowaniu użytkownika do punktu końcowego wylogowania Azure AD B2C (dl
 
 Aby zapewnić obsługę logowania jednokrotnego, profile techniczne wystawców tokenów dla tokenu JWT i SAML muszą określać:
 
-- Nazwa protokołu, taka jak`<Protocol Name="OpenIdConnect" />`
+- Nazwa protokołu, taka jak `<Protocol Name="OpenIdConnect" />`
 - Odwołanie do profilu technicznego sesji, na przykład `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />` .
 
 Poniższy przykład ilustruje wystawców tokenów JWT i SAML z logowaniem jednokrotnym:

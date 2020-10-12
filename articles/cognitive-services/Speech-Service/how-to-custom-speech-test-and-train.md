@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84628054"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
@@ -46,7 +46,7 @@ Ta tabela zawiera listę akceptowanych typów danych, gdy należy użyć poszcze
 
 | Typ danych | Używany do testowania | Zalecana ilość | Używany do szkolenia | Zalecana ilość |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Brak |
+| [Dźwięk](#audio-data-for-testing) | Tak<br>Używane na potrzeby inspekcji wizualnej | 5 plików audio | Nie | Nie dotyczy |
 | [Zapisy audio + oznakowane przez człowieka](#audio--human-labeled-transcript-data-for-testingtraining) | Tak<br>Służy do obliczania dokładności | 0,5 – 5 godzin audio | Tak | 1 – 1000 godzin audio |
 | [Powiązany tekst](#related-text-data-for-training) | Nie | Nie dotyczy | Tak | 1-200 MB powiązanego tekstu |
 
@@ -80,7 +80,7 @@ Użyj tej tabeli, aby upewnić się, że pliki audio są poprawnie sformatowane 
 | Częstotliwość próbkowania              | 8 000 Hz lub 16 000 Hz |
 | Kanały                 | 1 (mono)              |
 | Maksymalna długość na dźwięk | 2 godziny               |
-| Przykładowy format            | PCM, 16-bitowe           |
+| Format próbki            | PCM, 16-bitowe           |
 | Format archiwum           | zip                  |
 | Maksymalny rozmiar archiwum     | 2 GB                  |
 
@@ -108,7 +108,7 @@ Pliki audio mogą mieć cisz na początku i na końcu nagrywania. Jeśli to moż
 | Częstotliwość próbkowania              | 8 000 Hz lub 16 000 Hz               |
 | Kanały                 | 1 (mono)                            |
 | Maksymalna długość na dźwięk | 2 godziny (testowanie)/60 s (szkolenie) |
-| Przykładowy format            | PCM, 16-bitowe                         |
+| Format próbki            | PCM, 16-bitowe                         |
 | Format archiwum           | zip                                |
 | Maksymalny rozmiar pliku zip         | 2 GB                                |
 
@@ -119,7 +119,7 @@ Pliki audio mogą mieć cisz na początku i na końcu nagrywania. Jeśli to moż
 
 Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana jest znaczna ilość danych w celu usprawnienia rozpoznawania. Ogólnie rzecz biorąc, zaleca się dostarczenie transkrypcji słów-by-Word dla około 10 do 1 000 godzin. Transkrypcje dla wszystkich plików WAV powinny znajdować się w jednym pliku tekstowym (zwykły tekst). Każdy wiersz pliku z transkrypcją powinien zawierać nazwę jednego z plików dźwiękowych, a następnie odpowiednią transkrypcję. Nazwę pliku i transkrypcję należy rozdzielać przy użyciu tabulatora (\t).
 
-  Przykład:
+  Na przykład:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -203,5 +203,5 @@ Skorzystaj z poniższej tabeli, aby upewnić się, że pokrewny plik danych dla 
 
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 * [Oceń dane](how-to-custom-speech-evaluate-data.md)
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Szkolenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

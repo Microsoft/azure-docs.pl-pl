@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
 ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606291"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Przekształcanie klucza zastępczego w mapowaniu przepływu danych 
@@ -21,7 +21,7 @@ ms.locfileid: "81606291"
 
 Użyj przekształcenia klucza dwuskładnikowego, aby dodać przyrostową wartość klucza do każdego wiersza danych. Jest to przydatne podczas projektowania tabel wymiarów w modelu danych analitycznych schematu gwiazdy. W schemacie gwiazdy każdy element członkowski w tabelach wymiarów wymaga unikatowego klucza, który jest kluczem niebiznesowym.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ![Przekształcanie klucza zastępczego](media/data-flow/surrogate.png "Przekształcanie klucza zastępczego")
 
@@ -41,7 +41,7 @@ Aby obsłużyć wartość klucza z poprzednią maksymalną, istnieją dwie techn
 
 #### <a name="database-sources"></a>Źródła bazy danych
 
-Użyj opcji zapytania SQL, aby wybrać wartość MAX () ze źródła. Na przykład`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Użyj opcji zapytania SQL, aby wybrać wartość MAX () ze źródła. Na przykład `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Zapytanie klucza zastępczego](media/data-flow/sk002.png "Zapytanie przekształcenia klucza zastępczego")
 

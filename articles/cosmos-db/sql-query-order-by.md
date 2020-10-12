@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84484339"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Klauzula ORDER BY w Azure Cosmos DB
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Określa, że wartości w określonej kolumnie powinny być sortowane w kolejności rosnącej lub malejącej. `ASC`sortuje od najniższej wartości do najwyższej wartości. `DESC`sortuje od najwyższego do najniższej wartości. `ASC`jest domyślną kolejnością sortowania. Wartości null są traktowane jako najniższe możliwe wartości.  
+   Określa, że wartości w określonej kolumnie powinny być sortowane w kolejności rosnącej lub malejącej. `ASC` sortuje od najniższej wartości do najwyższej wartości. `DESC` sortuje od najwyższego do najniższej wartości. `ASC` jest domyślną kolejnością sortowania. Wartości null są traktowane jako najniższe możliwe wartości.  
   
 ## <a name="remarks"></a>Uwagi  
   

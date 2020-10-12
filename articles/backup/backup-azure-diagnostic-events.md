@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak używać starych i nowych zdarzeń diag
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182602"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Użyj ustawień diagnostycznych dla Recovery Services magazynów

@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182041"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
@@ -249,10 +249,10 @@ Jeśli potrzebujesz pełnego rejestrowania dla programu waagent, wykonaj następ
 2. Zmień wartość **dzienników. verbose** z *n* na *y*.
 3. Zapisz zmiany, a następnie uruchom ponownie program waagent, wykonując kroki opisane wcześniej w tej sekcji.
 
-### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Nie ustawiono opcji konfiguracji agenta maszyny wirtualnej (dla maszyn wirtualnych z systemem Linux)
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Nie ustawiono opcji konfiguracji VM-Agent (dla maszyn wirtualnych z systemem Linux)
 
 Plik konfiguracji (/etc/waagent.conf) kontroluje akcje waagent. Rozszerzenia opcji pliku konfiguracji **. wartość Enable** powinna być równa **y** i **aprowizacji.** aby tworzenie kopii zapasowej działało, Agent musi być **ustawiony na wartość** Auto.
-Aby uzyskać pełną listę opcji pliku konfiguracji agenta maszyny wirtualnej, zobacz <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Aby uzyskać pełną listę opcji pliku konfiguracji VM-Agent, zobacz <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>Rozwiązanie do sterowania aplikacjami blokuje IaaSBcdrExtension.exe
 

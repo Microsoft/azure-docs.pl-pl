@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182330"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Przewodnik po rozpoczęciu integracji Azure Active Directory z aplikacjami
@@ -71,7 +71,7 @@ W poniższych artykułach omówiono różne sposoby integracji aplikacji z usłu
 * [Lista samouczków dotyczących integrowania aplikacji SaaS](../active-directory-saas-tutorial-list.md)
 
 ### <a name="authentication-types"></a>Typy uwierzytelniania
-Każda aplikacja może mieć inne wymagania dotyczące uwierzytelniania. Za pomocą usługi Azure AD certyfikaty podpisywania mogą być używane z aplikacjami, które używają protokołów SAML 2,0, WS-Federation lub OpenID Connect Connect, a także logowania jednokrotnego hasła. Aby uzyskać więcej informacji o typach uwierzytelniania aplikacji do użycia z usługą Azure AD, zobacz [Zarządzanie certyfikatami dla federacyjnego logowania jednokrotnego w Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) i [hasła Logowanie jednokrotne](what-is-single-sign-on.md).
+Każda aplikacja może mieć inne wymagania dotyczące uwierzytelniania. Za pomocą usługi Azure AD certyfikaty podpisywania mogą być używane z aplikacjami, które używają protokołów SAML 2,0, WS-Federation lub OpenID Connect Connect, a także logowania jednokrotnego hasła. Aby uzyskać więcej informacji o typach uwierzytelniania aplikacji do użycia z usługą Azure AD, zobacz [Zarządzanie certyfikatami dla federacyjnych pojedynczych Sign-On w Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) i [hasła logowania jednokrotnego](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Włączanie logowania jednokrotnego przy użyciu serwera proxy aplikacja usługi Azure AD
 Za pomocą serwera proxy aplikacji Microsoft Azure AD można zapewnić bezpieczny dostęp do aplikacji znajdujących się w sieci prywatnej, z dowolnego miejsca i na dowolnym urządzeniu. Po zainstalowaniu łącznika serwera proxy aplikacji w środowisku można go łatwo skonfigurować przy użyciu usługi Azure AD.
@@ -79,7 +79,7 @@ Za pomocą serwera proxy aplikacji Microsoft Azure AD można zapewnić bezpieczn
 ### <a name="integrating-custom-applications"></a>Integrowanie aplikacji niestandardowych
 Jeśli piszesz nową aplikację i chcesz, aby pomóc deweloperom w korzystaniu z zalet usługi Azure AD, zobacz temat Tworzenie aplikacji dla [deweloperów](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Jeśli chcesz dodać aplikację niestandardową do galerii aplikacji platformy Azure, zobacz ["Przenoszenie własnej aplikacji" przy użyciu konfiguracji samoobsługowego protokołu SAML usługi Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+Jeśli chcesz dodać aplikację niestandardową do galerii aplikacji platformy Azure, zobacz ["Przenoszenie własnej aplikacji" przy użyciu konfiguracji SAML usługi Azure AD Self-Service](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
 ## <a name="managing-access-to-applications"></a>Zarządzanie dostępem do aplikacji
 W poniższych artykułach opisano sposoby zarządzania dostępem do aplikacji, które zostały zintegrowane z usługą Azure AD przy użyciu łączników usługi Azure AD i usługi Azure AD.

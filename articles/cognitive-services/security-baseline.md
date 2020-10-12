@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393897"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Podstawa zabezpieczeń platformy Azure dla Cognitive Services
@@ -948,7 +948,7 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 Za pomocą funkcji zarządzania cyklem życia można także tworzyć kopie zapasowe danych w warstwie archiwum. Ponadto Włącz usuwanie nietrwałe dla kopii zapasowych przechowywanych na koncie magazynu.
 
-* [Informacje o nadmiarowości usługi Azure Storage i umowach dotyczących poziomu usług](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Informacje o nadmiarowości usługi Azure Storage i umowach Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 * [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 
@@ -992,13 +992,13 @@ Za pomocą funkcji zarządzania cyklem życia można także tworzyć kopie zapas
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: usługa Azure DevOps umożliwia bezpieczne przechowywanie szablonów Azure Resource Manager i zarządzanie nimi. Aby chronić zasoby zarządzane w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.  Użyj kontroli dostępu opartej na rolach, aby chronić klucze zarządzane przez klienta. Włącz ochronę przed usuwaniem i przeczyszczaniem w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. 
+**Wskazówki**: usługa Azure DevOps umożliwia bezpieczne przechowywanie szablonów Azure Resource Manager i zarządzanie nimi. Aby chronić zasoby zarządzane w usłudze Azure DevOps, można udzielić lub odmówić uprawnień określonym użytkownikom, wbudowanym grupom zabezpieczeń lub grupom zdefiniowanym w Azure Active Directory (Azure AD) w przypadku integracji z usługą Azure DevOps lub Active Directory w przypadku integracji z programem TFS.  Użyj kontroli dostępu opartej na rolach, aby chronić klucze zarządzane przez klienta. Włącz ochronę Soft-Delete i przeczyszczania w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. 
 
 * [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 * [Informacje o uprawnieniach i grupach na platformie Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-* [Jak włączyć ochronę przed usuwaniem i Przeczyszczaniem w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Jak włączyć ochronę Soft-Delete i przeczyszczania w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: tak
 

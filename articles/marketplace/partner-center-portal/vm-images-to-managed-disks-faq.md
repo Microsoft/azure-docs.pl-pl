@@ -8,10 +8,10 @@ ms.date: 11/22/2019
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.openlocfilehash: 814a4012ace95e84e75bcb4071c549822b2b0633
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182432"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Przenosimy obrazy maszyn wirtualnych (VM) w witrynie Azure Marketplace do magazynu dyskowego zarządzanego

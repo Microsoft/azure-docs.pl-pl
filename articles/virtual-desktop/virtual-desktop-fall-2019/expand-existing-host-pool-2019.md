@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009175"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Rozszerzanie istniejącej puli hostów na nowe hosty sesji na pulpicie wirtualnym systemu Windows (klasyczny)
@@ -64,7 +64,7 @@ Oto jak ponownie wdrożyć szablon Azure Resource Manager, aby rozszerzyć pulę
      >[!NOTE]
      >Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że należy wybrać inną grupę zasobów, mimo że wprowadzona nazwa jest poprawna, wybierz inną grupę zasobów, a następnie wybierz oryginalną grupę zasobów.
 
-8. Wprowadź następujący adres URL dla *_artifactsLocation*:`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
+8. Wprowadź następujący adres URL dla *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
 9. Wprowadź nową łączną liczbę wystąpień hosta sesji na hoście *usług pulpitu zdalnego*. Na przykład, jeśli rozszerzasz pulę hostów z pięciu sesji na osiem, wprowadź **8**.
 10. Wprowadź to samo hasło domeny, które zostało użyte dla istniejącej nazwy UPN domeny. Nie zmieniaj nazwy użytkownika, ponieważ spowoduje to wystąpienie błędu podczas uruchamiania szablonu.
 11. Wprowadź to samo hasło administratora dzierżawy, które zostało użyte dla identyfikatora użytkownika lub aplikacji, który został wprowadzony dla *nazwy UPN lub identyfikatora aplikacji administratora dzierżawy*. Ponownie nie zmieniaj nazwy użytkownika.

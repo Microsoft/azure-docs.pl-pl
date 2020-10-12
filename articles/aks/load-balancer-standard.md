@@ -8,10 +8,10 @@ ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182126"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
@@ -27,7 +27,7 @@ Używany jest **wewnętrzny (lub prywatny)** moduł równoważenia obciążenia,
 
 Ten dokument obejmuje integrację z publicznym modułem równoważenia obciążenia. Aby zapoznać się z wewnętrzną integracją Load Balancer, zobacz [dokumentację wewnętrznego modułu równoważenia obciążenia AKS](internal-lb.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Azure Load Balancer jest dostępny w dwóch jednostkach SKU — *podstawowa* i *standardowa*. Domyślnie *standardowa* jednostka SKU jest używana podczas tworzenia klastra AKS. Użyj *standardowej* jednostki SKU, aby mieć dostęp do dodatkowych funkcji, takich jak większa Pula zaplecza, [**wiele pul węzłów**](use-multiple-node-pools.md)i [**strefy dostępności**](availability-zones.md). Jest to zalecana Load Balancer jednostka SKU dla AKS.
 

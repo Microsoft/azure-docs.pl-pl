@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: c20b0741f12ee2cab40d8f5b53c51ad537801bf2
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393177"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
@@ -20,7 +20,7 @@ ms.locfileid: "89393177"
 Ten artykuł pomaga utworzyć konfigurację routingu/komunikację równorzędną dla obwodu usługi ExpressRoute w Menedżer zasobów modelu wdrażania przy użyciu interfejsu wiersza polecenia i zarządzać nią. Możesz również sprawdzić stan, aktualizowanie i usuwanie komunikacji równorzędnej dla obwodu usługi ExpressRoute. Jeśli chcesz użyć innej metody do pracy z obwodem, wybierz artykuł z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 > * [Publiczna Komunikacja równorzędna](about-public-peering.md)

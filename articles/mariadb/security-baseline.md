@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393840"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Podstawa zabezpieczeń platformy Azure dla Azure Database for MariaDB
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: Ochrona zasobów przy użyciu sieciowych grup zabezpieczeń lub zapory platformy Azure na Virtual Network
 
-**Wskazówki**: Konfigurowanie prywatnego linku dla Azure Database for MariaDB z prywatnymi punktami końcowymi. Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem prywatnego punktu końcowego. Link prywatny platformy Azure zasadniczo zapewnia usługi platformy Azure w ramach prywatnego Virtual Network (VNet). Ruch między siecią wirtualną i wystąpieniem MariaDB podróżuje z siecią szkieletową firmy Microsoft.
+**Wskazówki**: Konfigurowanie prywatnego linku dla Azure Database for MariaDB z prywatnymi punktami końcowymi. Usługa Private Link umożliwia łączenie z różnymi usługami PaaS na platformie Azure za pośrednictwem prywatnego punktu końcowego. Usługa Azure Private Link zasadniczo łączy usługi platformy Azure z Twoją prywatną siecią wirtualną. Ruch między siecią wirtualną i wystąpieniem MariaDB podróżuje z siecią szkieletową firmy Microsoft.
 
 Alternatywnie możesz użyć punktów końcowych usługi Virtual Network do ochrony i ograniczania dostępu sieciowego do implementacji Azure Database for MariaDB. Reguły sieci wirtualnej to jedna funkcja zabezpieczeń zapory, która kontroluje, czy Azure Database for MariaDB akceptuje wiadomości wysyłane z określonych podsieci w sieciach wirtualnych.
 
@@ -956,7 +956,7 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
 
-**Wskazówki**: Azure Database for MariaDB pobiera pełne, różnicowe i transakcyjne kopie zapasowe dziennika.  Azure Database for MariaDB automatycznie tworzy kopie zapasowe serwera i przechowuje je w ramach użytkownika skonfigurowanego lokalnie nadmiarowy lub geograficznie nadmiarowy. Kopie zapasowe mogą być używane do przywracania serwera do punktu w czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości działania, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.  Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego.
+**Wskazówki**: Azure Database for MariaDB pobiera pełne, różnicowe i transakcyjne kopie zapasowe dziennika.  Azure Database for MariaDB automatycznie tworzy kopie zapasowe serwera i przechowuje je w ramach użytkownika skonfigurowanego lokalnie nadmiarowy lub geograficznie nadmiarowy. Kopie zapasowe mogą być używane do przywracania serwera do punktu w czasie. Tworzenie kopii zapasowych i przywracanie jest istotną częścią strategii ciągłości działania, ponieważ chronią dane przed przypadkowym uszkodzeniem lub usunięciem.  Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
 Informacje o kopiach zapasowych dla MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 
@@ -998,7 +998,7 @@ Informacje na temat tworzenia kopii zapasowych i przywracania w Azure Database f
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: Azure Database for MariaDB pobiera pełne, różnicowe i transakcyjne kopie zapasowe dziennika. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane przy użyciu szyfrowania AES 256-bitowego.
+**Wskazówki**: Azure Database for MariaDB pobiera pełne, różnicowe i transakcyjne kopie zapasowe dziennika. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można skonfigurować ją do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
 Informacje na temat tworzenia kopii zapasowych i przywracania w Azure Database for MariaDB:  https://docs.microsoft.com/azure/mariadb/concepts-backup
 

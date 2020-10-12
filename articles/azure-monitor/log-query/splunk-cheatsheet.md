@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207487"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk Azure Monitor zapytanie dziennika
@@ -25,11 +25,11 @@ W poniższej tabeli porównano koncepcje i struktury danych między Splunk i dzi
  | --- | --- | --- | ---
  | Jednostka wdrożenia  | cluster |  cluster |  Azure Monitor zezwala na dowolne zapytania między klastrami. Splunk nie. |
  | Pamięć podręczna danych |  zasobników  |  Zasady pamięci podręcznej i przechowywania |  Kontroluje okres i poziom buforowania danych. To ustawienie ma bezpośredni wpływ na wydajność zapytań i koszt wdrożenia. |
- | Logiczna partycja danych  |  indeks  |  database  |  Umożliwia logiczne rozdzielenie danych. Obie implementacje zezwalają na złożenie i łączenie między tymi partycjami. |
- | Metadane zdarzeń strukturalnych | Nie dotyczy | table |  Splunk nie ma koncepcji uwidocznionej w języku wyszukiwania metadanych zdarzeń. Dzienniki Azure Monitor mają koncepcję tabeli, która zawiera kolumny. Każde wystąpienie zdarzenia jest zamapowane na wiersz. |
- | Rekord danych | event | wiersza |  Tylko zmiana terminologii. |
+ | Logiczna partycja danych  |  index  |  database  |  Umożliwia logiczne rozdzielenie danych. Obie implementacje zezwalają na złożenie i łączenie między tymi partycjami. |
+ | Metadane zdarzeń strukturalnych | Nie dotyczy | tabela |  Splunk nie ma koncepcji uwidocznionej w języku wyszukiwania metadanych zdarzeń. Dzienniki Azure Monitor mają koncepcję tabeli, która zawiera kolumny. Każde wystąpienie zdarzenia jest zamapowane na wiersz. |
+ | Rekord danych | event | wiersz |  Tylko zmiana terminologii. |
  | Atrybut rekordu danych | pole |  kolumna |  W Azure Monitor jest to wstępnie zdefiniowane jako część struktury tabeli. W Splunk każde zdarzenie ma swój własny zestaw pól. |
- | Typy | typu |  typu |  Azure Monitor typy danych są bardziej jawne, ponieważ są ustawione w kolumnach. Obie funkcje umożliwiają dynamiczne działanie z typami danych i w przybliżeniu równoważnym zestawem elementów DataType, w tym obsługi JSON. |
+ | Types | typu |  typu |  Azure Monitor typy danych są bardziej jawne, ponieważ są ustawione w kolumnach. Obie funkcje umożliwiają dynamiczne działanie z typami danych i w przybliżeniu równoważnym zestawem elementów DataType, w tym obsługi JSON. |
  | Zapytanie i wyszukiwanie  | search | query |  Pojęcia są zasadniczo takie same między Azure Monitor i Splunk. |
  | Czas pozyskiwania zdarzeń | Czas systemowy | ingestion_time() |  W Splunk każde zdarzenie pobiera sygnaturę czasową systemową, która jest indeksowana przez zdarzenie. W Azure Monitor można zdefiniować zasady o nazwie ingestion_time, które ujawniają kolumnę systemową, do której można odwoływać się za pomocą funkcji ingestion_time (). |
 
@@ -65,21 +65,21 @@ Poniższe sekcje zawierają przykłady użycia różnych operatorów między Spl
 > [!NOTE]
 > Na potrzeby poniższego przykładu _reguła_ pola Splunk jest mapowana na tabelę w Azure monitor i domyślna sygnatura czasowa Splunk jest mapowana do kolumny Logs Analytics _ingestion_time ()_ .
 
-### <a name="search"></a>Wyszukiwanie
+### <a name="search"></a>Wyszukaj
 W Splunk można pominąć `search` słowo kluczowe i określić ciąg nieujęty w cudzysłów. W Azure Monitor należy uruchomić każde zapytanie z `find` , ciąg bez cudzysłowu jest nazwą kolumny, a wartość wyszukiwania musi być ciągiem ujętym w cudzysłów. 
 
 | | Operator | Przykład |
 |:---|:---|:---|
-| **Splunk** | **wyszukiwania** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| **Azure Monitor** | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| **Splunk** | **search** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
+| **Azure Monitor** | **wyświetlić** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 
 
-### <a name="filter"></a>Filtr
+### <a name="filter"></a>Filtrowanie
 Zapytania dziennika Azure Monitor rozpoczynają się od tabelarycznego zestawu wyników, w którym filtr. W Splunk filtrowanie jest operacją domyślną w bieżącym indeksie. Możesz również użyć `where` operatora w Splunk, ale nie jest to zalecane.
 
 | | Operator | Przykład |
 |:---|:---|:---|
-| **Splunk** | **wyszukiwania** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
+| **Splunk** | **search** | <code>Event.Rule="330009.2" Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" _indextime>-24h</code> |
 | **Azure Monitor** | **miejscu** | <code>Office_Hub_OHubBGTaskError<br>&#124; where Session_Id == "c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time() > ago(24h)</code> |
 
 ### <a name="getting-n-eventsrows-for-inspection"></a>Pobieranie n zdarzeń/wierszy do inspekcji 
@@ -96,7 +96,7 @@ W przypadku dolnych wyników w Splunk używany `tail` . W Azure Monitor można o
 | | Operator | Przykład |
 |:---|:---|:---|
 | **Splunk** | **MTP** |  <code>Event.Rule="330009.2"<br>&#124; sort Event.Sequence<br>&#124; head 20</code> |
-| **Azure Monitor** | **top (pierwsze)** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
+| **Azure Monitor** | **Do góry** | <code>Office_Hub_OHubBGTaskError<br>&#124; top 20 by Event_Sequence</code> |
 
 ### <a name="extending-the-result-set-with-new-fieldscolumns"></a>Rozszerzanie zestawu wyników przy użyciu nowych pól/kolumn
 Splunk ma również `eval` funkcję, która nie jest porównywalna z `eval` operatorem. `eval`Operator w Splunk i `extend` operator w Azure monitor obsługują tylko funkcje skalarne i operatory arytmetyczne.
@@ -107,7 +107,7 @@ Splunk ma również `eval` funkcję, która nie jest porównywalna z `eval` oper
 | **Azure Monitor** | **sunąć** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 
 ### <a name="rename"></a>Zmień nazwę 
-Azure Monitor używa `project-rename` operatora, aby zmienić nazwę pola. `project-rename`zezwala, aby zapytanie korzystało ze wszystkich indeksów wstępnie skompilowanych dla pola. Splunk ma `rename` operator do wykonania tego samego.
+Azure Monitor używa `project-rename` operatora, aby zmienić nazwę pola. `project-rename` zezwala, aby zapytanie korzystało ze wszystkich indeksów wstępnie skompilowanych dla pola. Splunk ma `rename` operator do wykonania tego samego.
 
 | | Operator | Przykład |
 |:---|:---|:---|
@@ -119,7 +119,7 @@ Splunk prawdopodobnie nie ma operatora podobnego do `project-away` . Za pomocą 
 
 | | Operator | Przykład |
 |:---|:---|:---|
-| **Splunk** | **tabele** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| **Splunk** | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | **Azure Monitor** | **projektu**<br>**projekt — poza** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>Agregacja

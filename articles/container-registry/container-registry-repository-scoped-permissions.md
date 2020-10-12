@@ -4,10 +4,10 @@ description: Utwórz token z uprawnieniami objętymi zakresem określonych repoz
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509410"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
@@ -157,9 +157,9 @@ Poniższy przykład tworzy token i tworzy mapę zakresu z następującymi uprawn
 1. W obszarze **Mapa zakresu**wybierz pozycję **Utwórz nowy**.
 1. Skonfiguruj mapę zakresu:
     1. Wprowadź nazwę i opis mapy zakresu. 
-    1. W obszarze **repozytoria**wprowadź i `samples/hello-world` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.  
+    1. W obszarze **repozytoria**wprowadź i `samples/hello-world` w obszarze **uprawnienia**wybierz pozycję  `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Tworzenie mapy zakresu w portalu":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Utwórz token w portalu":::
 
     1. Po dodaniu repozytoriów i uprawnień wybierz pozycję **Dodaj** , aby dodać mapę zakresu.
 1. Zaakceptuj domyślny **status** tokenu **włączone** , a następnie wybierz pozycję **Utwórz**.
@@ -176,7 +176,7 @@ Aby użyć tokenu utworzonego w portalu, należy wygenerować hasło. Można wyg
 1. Na ekranie hasła opcjonalnie Ustaw datę wygaśnięcia hasła i wybierz pozycję **Generuj**. Zalecane jest ustawienie daty wygaśnięcia.
 1. Po wygenerowaniu hasła skopiuj je i Zapisz w bezpiecznej lokalizacji. Nie można pobrać wygenerowanego hasła po zamknięciu ekranu, ale można wygenerować nowy.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Tworzenie hasła tokenu w portalu":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Utwórz token w portalu":::
 
 ## <a name="authenticate-with-token"></a>Uwierzytelnianie za pomocą tokenu
 
@@ -186,11 +186,11 @@ Metoda uwierzytelniania zależy od skonfigurowanej akcji lub akcji skojarzonych 
 
 |Akcja  |Jak uwierzytelniać  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete`w interfejsie wiersza polecenia platformy Azure<br/><br/>Przykład: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
-  |`content/read`     |  `docker login`<br/><br/>`az acr login`w interfejsie wiersza polecenia platformy Azure<br/><br/>Przykład: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
-  |`content/write`     |  `docker login`<br/><br/>`az acr login`w interfejsie wiersza polecenia platformy Azure     |
-  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests`w interfejsie wiersza polecenia platformy Azure   |
-  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update`w interfejsie wiersza polecenia platformy Azure |
+  |`content/delete`    | `az acr repository delete` w interfejsie wiersza polecenia platformy Azure<br/><br/>Przykład: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure<br/><br/>Przykład: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
+  |`content/write`     |  `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure     |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` w interfejsie wiersza polecenia platformy Azure   |
+  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` w interfejsie wiersza polecenia platformy Azure |
 
 ## <a name="examples-use-token"></a>Przykłady: Użyj tokenu
 
@@ -261,7 +261,7 @@ W witrynie Azure Portal:
 1. Przejdź do rejestru kontenerów.
 1. W obszarze **uprawnienia repozytorium**wybierz pozycję **mapy zakresu (wersja zapoznawcza)**, a następnie wybierz mapę zakresu do zaktualizowania.
 1. W obszarze **repozytoria**wprowadź i `samples/alpine` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
-1. W obszarze **repozytoria**wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia**Usuń zaznaczenie `content/write` . Następnie wybierz pozycję **Zapisz**.
+1. W obszarze **repozytoria**wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia**Usuń zaznaczenie `content/write` . Następnie wybierz przycisk **Zapisz**.
 
 Po zaktualizowaniu mapy zakresu następujące wypychanie zakończy się pomyślnie:
 
@@ -341,7 +341,7 @@ Przykładowe dane wyjściowe:
 
 ### <a name="list-scope-maps"></a>Mapowanie listy zakresów
 
-Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Przykład:
+Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Na przykład:
 
 ```azurecli
 az acr scope-map list \
@@ -361,14 +361,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>Pokaż szczegóły tokenu
 
-Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Przykład:
+Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Na przykład:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Przykład:
+Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Na przykład:
 
 ```azurecli
 az acr token list --registry myregistry --output table
@@ -390,7 +390,7 @@ Aby użyć Azure Portal do wygenerowania hasła tokenu, zapoznaj się z instrukc
 
 ### <a name="update-token-with-new-scope-map"></a>Aktualizowanie tokenu przy użyciu nowej mapy zakresu
 
-Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Przykład:
+Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Na przykład:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \

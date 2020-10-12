@@ -8,10 +8,10 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904248"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
@@ -57,7 +57,7 @@ Wszystkie konfigurowalne właściwości, które są używane do konfigurowania p
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Cechy                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git, który jest używany jako zaplecze serwera konfiguracji, rozpoczyna się od *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -72,7 +72,7 @@ Wszystkie konfigurowalne właściwości używane do konfigurowania prywatnego re
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość                   | Wymagany | Cechy                                                      |
+| Właściwość                   | Wymagany | Cecha                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label`            | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -91,7 +91,7 @@ Poniżej wymieniono wszystkie konfigurowalne właściwości używane do konfigur
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Cechy                                                      |
+| Właściwość        | Wymagany | Cecha                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -109,7 +109,7 @@ Poniżej znajdują się wszystkie konfigurowalne właściwości używane do konf
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość                           | Wymagany         | Cechy                                                      |
+| Właściwość                           | Wymagany         | Cecha                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Nie             | Mapa składająca się z ustawień repozytorium git o podaną nazwę. |
 | `repos."uri"`                      | Tak na `repos` | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |

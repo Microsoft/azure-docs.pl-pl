@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8ca4b1ce6e0470476e9f16ed338b8707d3faf90f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79129574"
 ---
 ## <a name="resources-for-development-with-net"></a>Zasoby na potrzeby programowania przy użyciu platformy .NET
@@ -36,4 +36,4 @@ Poniższe linki zapewniają przydatne zasoby dla deweloperów korzystających z 
 ### <a name="net-tools"></a>Narzędzia platformy .NET
 
 - [.NET](https://dotnet.microsoft.com/download/)
-- [Visual Studio](https://visualstudio.microsoft.com/)
+- [Program Visual Studio](https://visualstudio.microsoft.com/)

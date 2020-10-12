@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: 3517938ae0e08af62a6fcf0d3d0a43a5eaee48dd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496121"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Jak skonfigurować potok ciągłej integracji/ciągłego wdrażania dla Azure Data Lake Analytics  
@@ -355,7 +355,7 @@ Dodawanie przypadków testowych dla funkcji z wartościami przechowywanymi w tab
 
 ## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Wdrażanie bazy danych U-SQL za Azure Pipelines
 
-`PackageDeploymentTool.exe`zapewnia programowanie i interfejsy wiersza polecenia ułatwiające wdrażanie pakietów wdrażania bazy danych U-SQL, **usqldbpack**. Zestaw SDK jest zawarty w [pakiecie NuGet zestawu SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), który znajduje się na stronie **kompilacja/środowisko uruchomieniowe/PackageDeploymentTool.exe**. Korzystając z programu `PackageDeploymentTool.exe` , można wdrażać bazy danych U-SQL zarówno na Azure Data Lake Analytics, jak i na kontach lokalnych.
+`PackageDeploymentTool.exe` zapewnia programowanie i interfejsy wiersza polecenia ułatwiające wdrażanie pakietów wdrażania bazy danych U-SQL, **usqldbpack**. Zestaw SDK jest zawarty w [pakiecie NuGet zestawu SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), który znajduje się na stronie **kompilacja/środowisko uruchomieniowe/PackageDeploymentTool.exe**. Korzystając z programu `PackageDeploymentTool.exe` , można wdrażać bazy danych U-SQL zarówno na Azure Data Lake Analytics, jak i na kontach lokalnych.
 
 > [!NOTE]
 >
@@ -425,7 +425,7 @@ Wykonaj następujące kroki, aby skonfigurować zadanie wdrażania bazy danych w
     copy USQLSDK\build\runtime\*.* $DBDeploymentTool
     ```
 
-2. Dodaj **zadanie wiersza polecenia** w potoku kompilacja lub wydanie i wypełnij skrypt, wywołując polecenie `PackageDeploymentTool.exe` . `PackageDeploymentTool.exe`znajduje się w obszarze **$DBDeploymentTool** zdefiniowanego folderu. Przykładowy skrypt jest następujący: 
+2. Dodaj **zadanie wiersza polecenia** w potoku kompilacja lub wydanie i wypełnij skrypt, wywołując polecenie `PackageDeploymentTool.exe` . `PackageDeploymentTool.exe` znajduje się w obszarze **$DBDeploymentTool** zdefiniowanego folderu. Przykładowy skrypt jest następujący: 
 
     * Wdrażanie bazy danych U-SQL lokalnie:
 
@@ -455,22 +455,22 @@ Wykonaj następujące kroki, aby skonfigurować zadanie wdrażania bazy danych w
 
 #### <a name="common-parameters"></a>Parametry wspólne
 
-| Parametr | Opis | Wartość domyślna | Wymagane |
+| Parametr | Description | Wartość domyślna | Wymagane |
 |---------|-----------|-------------|--------|
 |Pakiet|Ścieżka pakietu wdrożeniowego bazy danych U-SQL, który ma zostać wdrożony.|wartość null|true|
-|Baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
+|baza danych|Nazwa bazy danych, która ma zostać wdrożona lub utworzona.|master|fałsz|
 |Pliki|Ścieżka pliku do rejestrowania. Domyślnie dla standardowego (konsoli).|wartość null|fałsz|
 |LogLevel|Poziom dziennika: verbose, Normal, Warning lub Error.|LogLevel. Normal|fałsz|
 
 #### <a name="parameter-for-local-deployment"></a>Parametr wdrożenia lokalnego
 
-|Parametr|Opis|Wartość domyślna|Wymagane|
+|Parametr|Description|Wartość domyślna|Wymagane|
 |---------|-----------|-------------|--------|
 |DataRoot|Ścieżka do lokalnego folderu danych głównych.|wartość null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametry wdrożenia Azure Data Lake Analytics
 
-|Parametr|Opis|Wartość domyślna|Wymagane|
+|Parametr|Description|Wartość domyślna|Wymagane|
 |---------|-----------|-------------|--------|
 |Konto|Określa, które konto Azure Data Lake Analytics ma zostać wdrożone na podstawie nazwy konta.|wartość null|true|
 |ResourceGroup|Nazwa grupy zasobów platformy Azure dla konta Azure Data Lake Analytics.|wartość null|true|

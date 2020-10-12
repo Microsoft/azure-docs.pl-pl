@@ -7,15 +7,15 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 13d804ec39c3d7753d4ee04962a88d4451fb04d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81727257"
 ---
 # <a name="error-codes"></a>Kody błędów #
 
-Gdy odtwarzanie nie można uruchomić lub zostało zatrzymane, zostanie wyzwolone zdarzenie błędu, a `error()` funkcja zwróci kod i opcjonalny komunikat, aby pomóc deweloperowi aplikacji uzyskać więcej szczegółów. `error().message`nie jest wyświetlany komunikat dla użytkownika.  Komunikat wyświetlany dla użytkownika jest oparty na `error().code` bitach 27-20, zobacz poniższą tabelę.
+Gdy odtwarzanie nie można uruchomić lub zostało zatrzymane, zostanie wyzwolone zdarzenie błędu, a `error()` funkcja zwróci kod i opcjonalny komunikat, aby pomóc deweloperowi aplikacji uzyskać więcej szczegółów. `error().message` nie jest wyświetlany komunikat dla użytkownika.  Komunikat wyświetlany dla użytkownika jest oparty na `error().code` bitach 27-20, zobacz poniższą tabelę.
 
 ```javascript
 

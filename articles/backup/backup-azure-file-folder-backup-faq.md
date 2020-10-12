@@ -4,10 +4,10 @@ description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zap
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182517"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Często zadawane pytania — agent Microsoft Azure Recovery Services (MARS)
@@ -22,7 +22,7 @@ Najnowszy Agent MARS używany podczas tworzenia kopii zapasowych komputerów z s
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Gdzie można pobrać plik poświadczeń magazynu?
 
-W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej**zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Wybierz pozycję **Pobierz**.
+W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej**zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Kliknij pozycję **Pobierz**.
 
 ![Pobierz poświadczenia](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -140,7 +140,7 @@ Rozmiar folderu pamięci podręcznej określa ilość danych, których kopia zap
     Net start obengine
     ```
 
-7. Uruchom kopię zapasową na żądanie. Po pomyślnym zakończeniu tworzenia kopii zapasowej za pomocą nowej lokalizacji można usunąć oryginalny folder pamięci podręcznej.
+7. Uruchamianie tworzenia kopii zapasowej na żądanie. Po pomyślnym zakończeniu tworzenia kopii zapasowej za pomocą nowej lokalizacji można usunąć oryginalny folder pamięci podręcznej.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Gdzie ma znajdować się folder pamięci podręcznej?
 

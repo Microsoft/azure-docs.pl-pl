@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730107"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planowanie zadań na wielu urządzeniach
@@ -33,7 +33,7 @@ Należy rozważyć użycie zadań, gdy zachodzi potrzeba zaplanowania i śledzen
 Zadania są inicjowane przez zaplecze rozwiązania i obsługiwane przez IoT Hub. Zadanie można zainicjować za pomocą identyfikatora URI `PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30` dotyczącego usługi () i wykonać zapytanie o postęp wykonywania zadania za pomocą identyfikatora URI mającego dostęp do usługi `GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30` (). Aby odświeżyć stan uruchomionych zadań po zainicjowaniu zadania, uruchom zapytanie o zadanie.
 
 > [!NOTE]
-> Po zainicjowaniu zadania nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne drukowalne US-ASCII, z wyjątkiem któregokolwiek z następujących zestawów:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> Po zainicjowaniu zadania nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne drukowalne US-ASCII, z wyjątkiem któregokolwiek z następujących zestawów: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Zadania do wykonywania metod bezpośrednich
 
@@ -181,7 +181,7 @@ Na poniższej liście przedstawiono właściwości i odpowiadające jej opisy, k
 | Właściwość | Opis |
 | --- | --- |
 | **Zadanie** |Dostarczona przez aplikację identyfikator zadania. |
-| **startTime** |Godzina rozpoczęcia w aplikacji (ISO-8601) dla tego zadania. |
+| **Rozpoczęcia** |Godzina rozpoczęcia w aplikacji (ISO-8601) dla tego zadania. |
 | **endTime** |Data podanej IoT Hub (ISO-8601) dla momentu ukończenia zadania. Prawidłowe tylko wtedy, gdy zadanie osiągnie stan "ukończone". |
 | **Wprowadź** |Typy zadań: |
 | | **scheduleUpdateTwin**: zadanie służące do aktualizowania zestawu żądanych właściwości lub tagów. |

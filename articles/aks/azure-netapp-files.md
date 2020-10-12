@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465647"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integracja Azure NetApp Files z usługą Azure Kubernetes Service
@@ -36,7 +36,7 @@ W przypadku korzystania z Azure NetApp Files są stosowane następujące ogranic
 ## <a name="configure-azure-netapp-files"></a>Konfigurowanie Azure NetApp Files
 
 > [!IMPORTANT]
-> Przed zarejestrowaniem dostawcy zasobów *Microsoft. NetApp* należy wykonać [formularz Azure NetApp Files waitlist][anf-waitlist] w ramach subskrypcji. Nie można zarejestrować zasobu do momentu otrzymania oficjalnej wiadomości e-mail z potwierdzeniem z zespołu Azure NetApp Files.
+> Przed zarejestrowaniem dostawcy zasobów  *Microsoft. NetApp* należy wykonać [formularz Azure NetApp Files waitlist][anf-waitlist] w ramach subskrypcji. Nie można zarejestrować zasobu do momentu otrzymania oficjalnej wiadomości e-mail z potwierdzeniem z zespołu Azure NetApp Files.
 
 Zarejestruj dostawcę zasobów *Microsoft. NetApp* :
 
@@ -146,7 +146,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień na `path` *creationToken* i `server` z *adresem IP* z poprzedniego polecenia. Przykład:
+Utwórz element `pv-nfs.yaml` definiujący PersistentVolume. Zamień na `path` *creationToken* i `server` z *adresem IP* z poprzedniego polecenia. Na przykład:
 
 ```yaml
 ---
@@ -178,7 +178,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Tworzenie PersistentVolumeClaim
 
-Utwórz element `pvc-nfs.yaml` definiujący PersistentVolume. Przykład:
+Utwórz element `pvc-nfs.yaml` definiujący PersistentVolume. Na przykład:
 
 ```yaml
 apiVersion: v1
@@ -208,7 +208,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Zainstaluj przy użyciu pod
 
-Utwórz element `nginx-nfs.yaml` a, który używa PersistentVolumeClaim. Przykład:
+Utwórz element `nginx-nfs.yaml` a, który używa PersistentVolumeClaim. Na przykład:
 
 ```yaml
 kind: Pod

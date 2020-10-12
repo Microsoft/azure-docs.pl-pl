@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: roygara
 ms.service: storage
@@ -9,13 +9,13 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84466862"
 ---
-| Zasób | Środowisko docelowe | Limit sztywny |
+| Zasób | Cel | Limit sztywny |
 |----------|--------------|------------|
 | Usługi synchronizacji magazynu na region | Usługi synchronizacji magazynu 100 | Tak |
 | Grupy synchronizacji na usługę synchronizacji magazynu | 200 grup synchronizacji | Tak |

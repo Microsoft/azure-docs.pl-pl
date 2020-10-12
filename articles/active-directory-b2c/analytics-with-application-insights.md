@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385981"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Śledzenie zachowania użytkowników w Azure Active Directory B2C przy użyciu Application Insights
@@ -46,11 +46,11 @@ Jeśli używasz Application Insights z Azure AD B2C, wystarczy utworzyć zasób 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Upewnij się, że używasz katalogu, który zawiera subskrypcję platformy Azure, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający twoją subskrypcję. Ta dzierżawa nie jest dzierżawą Azure AD B2C.
 3. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Application Insights**.
-4. Kliknij pozycję **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 5. Wprowadź **nazwę** zasobu.
 6. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web ASP.NET**.
 7. W obszarze **Grupa zasobów**wybierz istniejącą grupę lub wprowadź nazwę nowej grupy.
-8. Kliknij pozycję **Utwórz**.
+8. Kliknij przycisk **Utwórz**.
 4. Po utworzeniu zasobu Application Insights Otwórz go, rozwiń węzeł **Essentials**i skopiuj klucz Instrumentacji.
 
 ![Przegląd Application Insights i klucz Instrumentacji](./media/analytics-with-application-insights/app-insights.png)
@@ -106,10 +106,10 @@ Profile techniczne mogą być uznawane za funkcje w środowisku tożsamości Azu
 
 | Profil techniczny | Zadanie |
 | ----------------- | -----|
-| AppInsights — wspólne | Wspólny zestaw parametrów do uwzględnienia we wszystkich profilach technicznych usługi Azure Insights. |
-| AppInsights — SignInRequest | Rejestruje `SignInRequest` zdarzenie z zestawem oświadczeń po odebraniu żądania logowania. |
-| AppInsights — UserSignUp | Rejestruje `UserSignUp` zdarzenie, gdy użytkownik wyzwala opcję rejestracji w trakcie rejestracji/logowania. |
-| AppInsights — SignInComplete | Rejestruje `SignInComplete` zdarzenie po pomyślnym zakończeniu uwierzytelniania, gdy token został wysłany do aplikacji jednostki uzależnionej. |
+| AppInsights-Common | Wspólny zestaw parametrów do uwzględnienia we wszystkich profilach technicznych usługi Azure Insights. |
+| AppInsights-SignInRequest | Rejestruje `SignInRequest` zdarzenie z zestawem oświadczeń po odebraniu żądania logowania. |
+| AppInsights-UserSignUp | Rejestruje `UserSignUp` zdarzenie, gdy użytkownik wyzwala opcję rejestracji w trakcie rejestracji/logowania. |
+| AppInsights-SignInComplete | Rejestruje `SignInComplete` zdarzenie po pomyślnym zakończeniu uwierzytelniania, gdy token został wysłany do aplikacji jednostki uzależnionej. |
 
 Dodaj profile do pliku *TrustFrameworkExtensions.xml* z pakietu początkowego. Dodaj te elementy do elementu **ClaimsProviders** :
 
@@ -223,11 +223,11 @@ Zapisz i Przekaż plik *TrustFrameworkExtensions.xml* . Następnie należy wywo�
 2. Wybierz **Usage**pozycję  >  **zdarzenia**użycia.
 3. Ustawiaj w **ciągu** **ostatniej godziny** i **przez** maksymalnie **3 minuty**.  Może być konieczne wybranie opcji **Odśwież** , aby wyświetlić wyniki.
 
-![Application Insights użycia — zdarzenia Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
+![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
 ## <a name="optional-collect-more-data"></a>Obowiązkowe Zbieraj więcej danych
 
-Dodawanie typów i zdarzeń roszczeń do podróży użytkownika w celu dopasowania do Twoich potrzeb. Można użyć [resolverów oświadczeń](claim-resolver-overview.md) lub dowolnego typu oświadczenia ciągu, dodać oświadczenia poprzez dodanie elementu **oświadczenia wejściowego** do zdarzenia Application Insights lub do profilu technicznego AppInsights-Common.
+Dodawanie typów i zdarzeń roszczeń do podróży użytkownika w celu dopasowania do Twoich potrzeb. Można użyć [resolverów oświadczeń](claim-resolver-overview.md) lub dowolnego typu oświadczenia ciągu, dodać oświadczenia poprzez dodanie elementu **oświadczenia wejściowego** do zdarzenia Application Insights lub do AppInsights-Common profilu technicznego.
 
 - **ClaimTypeReferenceId** jest odwołaniem do typu zgłoszenia.
 - **PartnerClaimType** to nazwa właściwości, która pojawia się w usłudze Azure Insights. Użyj składni `{property:NAME}` , gdzie `NAME` jest dodawana właściwość do zdarzenia.

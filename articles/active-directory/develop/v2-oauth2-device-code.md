@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272454"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity platform i autoryzacja autoryzacji urządzeń z uwierzytelnianiem OAuth 2,0
@@ -63,12 +63,12 @@ Pomyślna odpowiedź będzie obiektem JSON zawierającym wymagane informacje umo
 
 | Parametr | Format | Opis |
 | ---              | --- | --- |
-|`device_code`     | String | Długi ciąg używany do weryfikowania sesji między klientem a serwerem autoryzacji. Klient używa tego parametru, aby zażądać tokenu dostępu z serwera autoryzacji. |
-|`user_code`       | String | Krótki ciąg pokazywany użytkownikowi, który służy do identyfikowania sesji na urządzeniu pomocniczym.|
+|`device_code`     | Ciąg | Długi ciąg używany do weryfikowania sesji między klientem a serwerem autoryzacji. Klient używa tego parametru, aby zażądać tokenu dostępu z serwera autoryzacji. |
+|`user_code`       | Ciąg | Krótki ciąg pokazywany użytkownikowi, który służy do identyfikowania sesji na urządzeniu pomocniczym.|
 |`verification_uri`| URI | Identyfikator URI, do którego użytkownik powinien przejść, aby `user_code` móc się zalogować. |
 |`expires_in`      | int | Liczba sekund przed `device_code` `user_code` wygaśnięciem i. |
 |`interval`        | int | Liczba sekund, przez jaką klient powinien czekać między żądaniami sondowania. |
-| `message`        | String | Czytelny dla człowieka ciąg zawierający instrukcje dla użytkownika. Może to być lokalizowane przez dołączenie **parametru zapytania** w żądaniu formularza `?mkt=xx-XX` , wypełniając odpowiedni kod kultury języka. |
+| `message`        | Ciąg | Czytelny dla człowieka ciąg zawierający instrukcje dla użytkownika. Może to być lokalizowane przez dołączenie **parametru zapytania** w żądaniu formularza `?mkt=xx-XX` , wypełniając odpowiedni kod kultury języka. |
 
 > [!NOTE]
 > `verification_uri_complete`Pole odpowiedzi nie jest w tej chwili uwzględniane ani obsługiwane.  Wspominamy, że jeśli odczytasz [Standard](https://tools.ietf.org/html/rfc8628) , zobaczysz, że `verification_uri_complete` jest on wymieniony jako opcjonalny element standardowego przepływu kodu urządzenia.
@@ -125,7 +125,7 @@ Pomyślna odpowiedź dotycząca tokenu będzie wyglądać następująco:
 
 | Parametr | Format | Opis |
 | --------- | ------ | ----------- |
-| `token_type` | String| Zawsze "Bearer". |
+| `token_type` | Ciąg| Zawsze "Bearer". |
 | `scope` | Ciągi rozdzielone spacją | Jeśli został zwrócony token dostępu, spowoduje to wyświetlenie listy zakresów, dla których token dostępu jest prawidłowy. |
 | `expires_in`| int | Liczba sekund, po upływie których uwzględniony token dostępu jest prawidłowy dla elementu. |
 | `access_token`| Ciąg nieprzezroczysty | Wystawiony dla żądanych [zakresów](v2-permissions-and-consent.md) .  |

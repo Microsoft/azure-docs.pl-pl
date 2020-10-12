@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687331"
 ---
 # <a name="workbook-text-parameters"></a>Parametry tekstu skoroszytu
@@ -27,10 +27,10 @@ Typowym zastosowaniem pól tekstowych jest jako zmienne wewnętrzne używane prz
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`SlowRequestThreshold`
-    2. Typ parametru:`Text`
-    3. Wymagane:`checked`
-    4. Pobierz wartość domyślną z zapytania:`unchecked`
+    1. Nazwa parametru: `SlowRequestThreshold`
+    2. Typ parametru: `Text`
+    3. Wymagane: `checked`
+    4. Pobierz wartość domyślną z zapytania: `unchecked`
 5. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
 
     ![Obraz przedstawiający tworzenie parametru tekstowego](./media/workbooks-text/text-create.png)
@@ -67,10 +67,10 @@ W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu.
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`SlowRequestThreshold`
-    2. Typ parametru:`Text`
-    3. Wymagane:`checked`
-    4. Pobierz wartość domyślną z zapytania:`checked`
+    1. Nazwa parametru: `SlowRequestThreshold`
+    2. Typ parametru: `Text`
+    3. Wymagane: `checked`
+    4. Pobierz wartość domyślną z zapytania: `checked`
 5. W polu KQL Dodaj następujący fragment kodu:
     ```kusto
     requests
