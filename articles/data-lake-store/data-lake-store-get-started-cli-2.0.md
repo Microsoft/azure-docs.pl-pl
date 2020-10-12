@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85985793"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -36,7 +36,7 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 
 * **Interfejs wiersza polecenia platformy Azure** — zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) , aby uzyskać instrukcje.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 W tym artykule jest stosowane prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym logujesz się jako użytkownik końcowy. Poziom dostępu do konta Data Lake Storage Gen1 i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak również inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są **uwierzytelnianiem użytkowników końcowych** lub **uwierzytelnianiem**między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
 
@@ -59,7 +59,7 @@ W tym artykule jest stosowane prostsze podejście uwierzytelniania z Data Lake S
 
 ## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Utwórz konto Azure Data Lake Storage Gen1
 
-1. Utwórz nową grupę zasobów. W poniższym poleceniu podaj wartości parametrów, których chcesz użyć. Jeśli nazwa lokalizacji zawiera spacje, umieść ją w cudzysłowie. Na przykład „Wschodnie stany USA 2”. 
+1. Tworzenie nowej grupy zasobów W poniższym poleceniu podaj wartości parametrów, których chcesz użyć. Jeśli nazwa lokalizacji zawiera spacje, umieść ją w cudzysłowie. Na przykład „Wschodnie stany USA 2”. 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup

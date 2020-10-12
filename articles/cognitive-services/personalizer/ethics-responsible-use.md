@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132725"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Wytyczne dotyczące odpowiedzialnej implementacji personalizacji
@@ -149,7 +149,7 @@ Poniżej przedstawiono obszary projektowania dla odpowiedzialnych implementacji 
 * *Wykonywanie częstych ocen w trybie offline*. Pomoże to monitorować trendy i upewnić się, że efektywność jest znana.
 * *Ustanów proces wykrywania i działania w przypadku złośliwego manipulowania*. Istnieją aktory korzystające z możliwości uczenia maszynowego i systemu AI do uczenia się w ich środowisku w celu przesunięcia wyników do ich celów. Jeśli korzystanie z programu Personalizujer ma wpływ na ważne wybory, upewnij się, że masz odpowiednie środki na wykrycie i złagodzenie tych klas ataków, w tym przegląd ludzki w odpowiednich okolicznościach.
 
-### <a name="security-and-privacy"></a>Zabezpieczenia i ochrona prywatności
+### <a name="security-and-privacy"></a>Zabezpieczenia i prywatność
 *Systemy AI powinny być bezpieczne i uwzględniać ochronę prywatności*. W przypadku korzystania z narzędzia Personalizacja:
 
 * *Poinformuj użytkowników o zbieranych danych i sposobie ich użycia i uzyskaj ich zgodę wcześniej*zgodnie z obowiązującymi przepisami lokalnymi i branżowymi.
@@ -186,7 +186,7 @@ Rozważ zatraktowanie zadań dotyczących odpowiedzialnych zastosowań, podobnie
 
 ## <a name="questions-and-feedback"></a>Pytania i opinie
 
-Firma Microsoft ciągle wprowadza nakład pracy w narzędzia i dokumenty ułatwiające wykonywanie tych obowiązków. Nasz zespół zaprasza Cię do [przekazywania opinii do firmy Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) , jeśli uważasz, że dodatkowe narzędzia, funkcje produktu i dokumenty ułatwią zaimplementowanie tych wytycznych dla narzędzia personalizacji.
+Firma Microsoft ciągle wprowadza nakład pracy w narzędzia i dokumenty ułatwiające wykonywanie tych obowiązków. Nasz zespół zaprasza Cię do [przekazywania opinii do firmy Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D)  , jeśli uważasz, że dodatkowe narzędzia, funkcje produktu i dokumenty ułatwią zaimplementowanie tych wytycznych dla narzędzia personalizacji.
 
 ## <a name="recommended-reading"></a>Zalecany odczyt
 

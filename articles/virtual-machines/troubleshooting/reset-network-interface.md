@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005960"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Jak zresetować interfejs sieciowy dla maszyny wirtualnej z systemem Windows na platformie Azure 
@@ -40,7 +40,7 @@ W tym artykule opisano sposób resetowania interfejsu sieciowego dla maszyny wir
     
 4.  Wybierz pozycję **konfiguracje adresów IP**.
 5.  Wybierz adres IP. 
-6.  Jeśli **przypisanie prywatnego adresu IP** nie jest **statyczne**, zmień je na **static**.
+6.  Jeśli **przypisanie prywatnego adresu IP**  nie jest  **statyczne**, zmień je na **static**.
 7.  Zmień **adres IP** na inny adres IP, który jest dostępny w podsieci.
 8. Maszyna wirtualna zostanie ponownie uruchomiona w celu zainicjowania nowej karty sieciowej w systemie.
 9.  Spróbuj nawiązać połączenie RDP z maszyną. Jeśli chcesz, możesz zmienić prywatny adres IP z powrotem na oryginalny. W przeciwnym razie możesz ją zachować. 
@@ -82,7 +82,7 @@ Aby zresetować interfejs sieciowy, wykonaj następujące kroki:
 2.  Wybierz **Virtual Machines (klasyczny)**.
 3.  Wybierz zaatakowaną maszynę wirtualną.
 4.  Wybierz pozycję **adresy IP**.
-5.  Jeśli **przypisanie prywatnego adresu IP** nie jest **statyczne**, zmień je na **static**.
+5.  Jeśli **przypisanie prywatnego adresu IP**  nie jest  **statyczne**, zmień je na **static**.
 6.  Zmień **adres IP** na inny adres IP, który jest dostępny w podsieci.
 7.  Wybierz pozycję **Zapisz**.
 8.  Maszyna wirtualna zostanie ponownie uruchomiona w celu zainicjowania nowej karty sieciowej w systemie.

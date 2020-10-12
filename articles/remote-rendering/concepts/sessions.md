@@ -7,10 +7,10 @@ ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613810"
 ---
 # <a name="remote-rendering-sessions"></a>Sesje usługi Remote Rendering

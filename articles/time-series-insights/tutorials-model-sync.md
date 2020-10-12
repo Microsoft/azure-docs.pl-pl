@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
 ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346386"
 ---
-# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Synchronizacja modeli między usługą Azure Digital bliźniaczych reprezentacji a Time Series Insights Gen2
+# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Synchronizacja modeli między usługą Azure Digital Twins i Time Series Insights Gen2
 
 W tym artykule opisano najlepsze rozwiązania i narzędzia służące do tłumaczenia modelu zasobów w usłudze Azure Digital bliźniaczych reprezentacji (ADT) na model zasobów w Azure Time Series Insights (TSI).  Ten artykuł jest drugą częścią serii samouczków z dwiema częściami wyjaśniającą integrację usługi Azure Digital bliźniaczych reprezentacji z programem Azure Time Series Insights. Integracja usługi Azure Digital bliźniaczych reprezentacji z programem Time Series Insights umożliwia archiwizowanie i śledzenie historii telemetrii i obliczonych właściwości cyfrowych bliźniaczych reprezentacji. Ta seria samouczków jest przeznaczona dla deweloperów pracujących nad integracją Time Series Insights z usługą Azure Digital bliźniaczych reprezentacji. W części 1 opisano  [ustanawianie potoku danych, który zawiera rzeczywiste dane szeregów czasowych z usługi Azure Digital bliźniaczych reprezentacji do Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) , a druga część serii samouczków zawiera opis synchronizacji modelu zasobów między usługą Azure Digital bliźniaczych reprezentacji i Time Series Insights. W tym samouczku wyjaśniono najlepsze rozwiązania dotyczące wyboru i ustanowienia konwencji nazewnictwa dla identyfikatora szeregów czasowych (TS ID) oraz ręcznego ustanawiania hierarchii w modelu szeregów czasowych (TSM).
 

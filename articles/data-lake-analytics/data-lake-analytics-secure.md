@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.openlocfilehash: 9006a22c588a7f1456585d40da0b4345145c6d05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132487"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Konfigurowanie dostępu użytkownika do informacji o zadaniu w Azure Data Lake Analytics 
@@ -19,7 +19,7 @@ W Azure Data Lake Analytics można użyć wielu kont użytkowników lub jednoste
 
 Aby te same użytkownicy widzieli szczegółowe informacje o zadaniach, użytkownicy muszą mieć możliwość odczytywania zawartości folderów zadań. Foldery zadań znajdują się w `/system/` katalogu. 
 
-Jeśli nie skonfigurowano wymaganych uprawnień, użytkownik może zobaczyć błąd:`Graph data not available - You don't have permissions to access the graph data.` 
+Jeśli nie skonfigurowano wymaganych uprawnień, użytkownik może zobaczyć błąd: `Graph data not available - You don't have permissions to access the graph data.` 
 
 ## <a name="configure-user-access-to-job-information"></a>Konfigurowanie dostępu użytkownika do informacji o zadaniu
 

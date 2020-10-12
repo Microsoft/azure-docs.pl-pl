@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87133886"
 ---
 Cognitive Services oferuje dwie usługi przetwarzania języka naturalnego, [Language Understanding](../luis/what-is-luis.md) i [QNA Maker](../qnamaker/overview/overview.md), z których każdy ma inny cel. Informacje o tym, kiedy należy używać każdej usługi i od siebie nawzajem.
@@ -33,7 +33,7 @@ Jeśli rozmowa bot odbiera tekst `How do I get to the Human Resources building o
 |Usługa|Aplikacja kliencka określa|
 |--|--|
 |LUIS|**Określa zamiar użytkownika** tekst — usługa nie zwraca odpowiedzi na pytanie. Na przykład ten tekst jest klasyfikowany jako pasujący do `FindLocation` zamiaru.<br>|
-|QnA Maker|**Zwraca odpowiedź na pytanie** z niestandardowej bazy wiedzy. Na przykład ten tekst jest określany jako pytanie z odpowiedzią na tekst statyczny `Get on the #9 bus and get off at Franklin street` .|
+|QnA Maker|**Zwraca odpowiedź na pytanie** z niestandardowej bazy wiedzy. Na przykład ten tekst jest określany jako pytanie z odpowiedzią na tekst statyczny  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]

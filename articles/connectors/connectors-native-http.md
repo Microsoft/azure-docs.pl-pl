@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
 ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292459"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps
@@ -104,11 +104,11 @@ Ta wbudowana akcja powoduje wywołanie HTTP do określonego adresu URL dla punkt
 
 Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza HTTP lub akcji, która zwraca te informacje:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 |----------|------|-------------|
 | `headers` | Obiekt JSON | Nagłówki żądania |
 | `body` | Obiekt JSON | Obiekt z zawartością treści z żądania |
-| `status code` | Integer | Kod stanu z żądania |
+| `status code` | Liczba całkowita | Kod stanu z żądania |
 |||
 
 | Kod stanu | Opis |

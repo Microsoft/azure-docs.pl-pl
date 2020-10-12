@@ -9,10 +9,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: b0d4250a6659996187923905955a9825a44cea42
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132623"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Obsługa języka zawartości bazy wiedzy dla QnA Maker
@@ -50,7 +50,7 @@ Gdy możliwości platformy Azure Wyszukiwanie poznawcze są dostępne dla obsłu
 |Niemiecki|
 |Węgierski|
 |Włoski|
-|Japoński|
+|japoński|
 |koreański|
 |Polski|
 |Portugalski|

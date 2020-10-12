@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85984855"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 korzystania z interfejsu API REST
@@ -37,14 +37,14 @@ Zaleca się, aby użytkownik mógł zalogować się do aplikacji przy użyciu us
 
 Wynik posiadania logowania użytkownika końcowego polega na tym, że aplikacja uzyskuje token dostępu i token odświeżania. Token dostępu jest dołączany do każdego żądania wykonanego do Data Lake Storage Gen1 lub Data Lake Analytics i jest domyślnie ważny przez jedną godzinę. Tokenu odświeżania można użyć, aby uzyskać nowy token dostępu i jest on ważny przez maksymalnie dwa tygodnie domyślnie, jeśli jest używany regularnie. Możesz użyć dwóch różnych metod logowania użytkownika końcowego.
 
-W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. Wykonaj poniższe czynności:
+W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszystkie operacje są wykonywane w kontekście zalogowanego użytkownika. Wykonaj następujące czynności:
 
 1. Za pomocą aplikacji przekieruj użytkownika pod następujący adres URL:
 
     `https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>`
 
    > [!NOTE]
-   > \<REDIRECT-URI>należy zakodować do użycia w adresie URL. Tak więc, for https://localhost , USE `https%3A%2F%2Flocalhost` )
+   > \<REDIRECT-URI> należy zakodować do użycia w adresie URL. Tak więc, for https://localhost , USE `https%3A%2F%2Flocalhost` )
 
     Na potrzeby tego samouczka możesz zastąpić symbole zastępcze w powyższym adresie URL i wkleić go w pasku adresu przeglądarki sieci web. Nastąpi przekierowanie w celu uwierzytelniania przy użyciu identyfikatora logowania do platformy Azure. Gdy pomyślnie się zalogujesz, odpowiedź zostanie wyświetlona na pasku adresu przeglądarki. Odpowiedź będzie miała następujący format:
 

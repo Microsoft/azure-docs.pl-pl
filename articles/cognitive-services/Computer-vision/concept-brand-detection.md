@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
 ms.openlocfilehash: 50e4fe1e2573c8566bbdf5697bb81b025a00935c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80131736"
 ---
 # <a name="detect-popular-brands-in-images"></a>Wykrywanie popularnych marek w obrazach

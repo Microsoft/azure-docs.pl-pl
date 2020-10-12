@@ -8,10 +8,10 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292713"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
@@ -59,11 +59,11 @@ Przykładowy projekt zawiera również interaktywny składnik autoryzacji. Za ka
 
 Najpierw użyjemy rozwiązania *AdtSampleApp* z przykładowego projektu, aby skompilować cyfrowy bliźniaczych reprezentacji, kompleksowy scenariusz (**sekcja A**).
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Fragment z sekcji wyróżnianie grafiki scenariusza pełnego tworzenia, A następnie wystąpienie usługi Azure Digital bliźniaczych reprezentacji":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 W oknie programu Visual Studio, w którym jest otwarty projekt _**AdtE2ESample**_ , Uruchom projekt przy użyciu tego przycisku na pasku narzędzi:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Przycisk Start programu Visual Studio (projekt SampleClientApp)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Otworzy się okno konsoli, przeprowadzisz uwierzytelnianie i poczekasz na polecenie. W tej konsoli Uruchom następne polecenie, aby utworzyć wystąpienie przykładowego rozwiązania Azure Digital bliźniaczych reprezentacji.
 
@@ -78,7 +78,7 @@ Dane wyjściowe tego polecenia to seria komunikatów potwierdzających, poniewa�
 
 Są one połączone przez relacje z poniższym [**wykresem bliźniaczym**](concepts-twins-graph.md). Wykres dwuosiowy reprezentuje środowisko jako całość, w tym sposób, w jaki jednostki współdziałają ze sobą i odnoszą się do siebie.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Wykres pokazujący, że floor1 zawiera room21, a room21 zawiera thermostat67" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)" border="false":::
 
 Możesz sprawdzić bliźniaczych reprezentacji, które zostały utworzone, uruchamiając następujące polecenie, które wysyła zapytanie do połączonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji dla wszystkich takich cyfrowych bliźniaczych reprezentacji:
 
@@ -114,29 +114,29 @@ Przed opublikowaniem aplikacji dobrym pomysłem jest upewnienie się, że Twoje 
 
 W okienku *Eksplorator rozwiązań* rozwiń pozycję *SampleFunctionsApp > zależności*. Wybierz pozycję *pakiety* , a następnie wybierz pozycję *Zarządzaj pakietami NuGet.*...
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Zarządzanie pakietami NuGet dla projektu SampleFunctionsApp" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)" border="false":::
 
 Spowoduje to otwarcie Menedżera pakietów NuGet. Wybierz kartę *aktualizacje* , a jeśli istnieją pakiety do zaktualizowania, zaznacz pole wyboru *wszystkie pakiety*. Następnie kliknij przycisk *Aktualizuj*.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: wybieranie, aby zaktualizować wszystkie pakiety w Menedżerze pakietów NuGet":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 ### <a name="publish-the-app"></a>Publikowanie aplikacji
 
 Wróć do okna programu Visual Studio, w którym otwarty jest projekt _**AdtE2ESample**_ , w okienku *Eksplorator rozwiązań* kliknij prawym przyciskiem myszy plik projektu _**SampleFunctionsApp**_ i wybierz polecenie **Publikuj**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publikowanie projektu":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Na poniższej stronie *Publikuj* pozostaw domyślny wybór dla **platformy Azure** i kliknij przycisk *dalej*. 
 
 Dla konkretnego obiektu docelowego wybierz pozycję **Azure aplikacja funkcji (Windows)** i naciśnij przycisk *dalej*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: konkretny element docelowy":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Na stronie *wystąpienie funkcji* wybierz swoją subskrypcję. Powinno to spowodować Wypełnienie pola *grupami zasobów* w ramach subskrypcji.
 
 Wybierz grupę zasobów wystąpienia i naciśnij przycisk *+ Utwórz nową funkcję platformy Azure.*..
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: wystąpienie funkcji (przed aplikacją funkcji)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 W *aplikacja funkcji (Windows) — Utwórz nowe* okno, wypełnij pola w następujący sposób:
 * **Nazwa** to nazwa planu zużycia, który będzie używany przez platformę Azure do hostowania aplikacji Azure Functions. Będzie to również nazwa aplikacji funkcji, która zawiera rzeczywistą funkcję. Możesz wybrać własną unikatową wartość lub pozostawić domyślną sugestię.
@@ -146,20 +146,20 @@ W *aplikacja funkcji (Windows) — Utwórz nowe* okno, wypełnij pola w następu
 * Wybierz **lokalizację** pasującą do lokalizacji grupy zasobów
 * Utwórz nowy zasób **usługi Azure Storage** przy użyciu nowego linku. *..* . Ustaw lokalizację zgodną z grupą zasobów, użyj innych wartości domyślnych i naciśnij przycisk OK.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: aplikacja funkcji (Windows) — Tworzenie nowego":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Następnie wybierz przycisk **Utwórz**.
 
 Powinno to spowodować powrót do strony *wystąpienia funkcji* , gdzie Nowa aplikacja funkcji jest teraz widoczna poniżej grupy zasobów. *Koniec*trafień.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: wystąpienie funkcji (po aplikacji funkcji)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 W okienku *Publikowanie* , które zostanie otwarte z powrotem w głównym oknie programu Visual Studio, sprawdź, czy wszystkie informacje są poprawne, a następnie wybierz pozycję **Publikuj**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: publikowanie":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 > [!NOTE]
-> Jeśli zobaczysz podręczny ekran podobny do tego: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publikowanie funkcji platformy Azure w programie Visual Studio: publikowanie poświadczeń" border="false":::
+> Jeśli zobaczysz podręczny ekran podobny do tego: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)" border="false":::
 > Wybierz pozycję **próba pobrania poświadczeń z platformy Azure** i **Zapisz**.
 >
 > Jeśli zostanie wyświetlone ostrzeżenie, aby *uaktualnić wersję funkcji na platformie Azure* lub że *wersja środowiska uruchomieniowego funkcji jest niezgodna z wersją działającą na platformie Azure*:
@@ -198,7 +198,7 @@ W tym kroku nastąpi podłączenie symulowanego termostatu zarejestrowanego w [I
 
 Dzieje się tak w tej części scenariusza kompleksowe (**strzałka B**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Fragment z pełnego, wyróżnionej graficznie grafiki scenariusza, a następnie elementy przed bliźniaczych reprezentacji Azure Digital: urządzenie, IoT Hub i pierwsza funkcja platformy Azure":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Oto akcje, które należy wykonać w celu skonfigurowania tego połączenia urządzenia:
 1. Utwórz Centrum IoT Hub, które będzie zarządzać urządzeniem symulowanym
@@ -229,18 +229,18 @@ W tym celu utworzysz **subskrypcję zdarzeń** na IoT Hub przy użyciu funkcji p
 
 W [Azure Portal](https://portal.azure.com/)przejdź do nowo utworzonego Centrum IoT Hub, wyszukując jego nazwę na górnym pasku wyszukiwania. Wybierz pozycję *zdarzenia* z menu centrum i wybierz pozycję *+ subskrypcja zdarzeń*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Azure Portal: IoT Hub subskrypcji zdarzeń":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Spowoduje to wyświetlenie strony *Tworzenie subskrypcji zdarzeń* .
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure Portal: Utwórz subskrypcję zdarzeń":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Wypełnij pola w następujący sposób (pola wypełnione domyślnie nie są wymienione):
 * *szczegóły*  >  subskrypcji zdarzeń **Nazwa**: nadaj nazwę subskrypcji zdarzenia.
 * *Szczegóły tematu*  >  **Nazwa tematu systemu**: Podaj nazwę dla tematu systemowego. 
 * *typy zdarzeń*  >  **Filtruj do typów zdarzeń**: wybierz pozycję *Telemetria urządzenia* z opcji menu.
 * *szczegóły*  >  punktu końcowego **Typ punktu końcowego**: wybierz pozycję *Funkcja platformy Azure* z opcji menu.
-* *szczegóły*  >  punktu końcowego **Punkt końcowy**: naciśnij link *Wybierz punkt końcowy* . Spowoduje to otwarcie okna *Wybieranie funkcji platformy Azure* : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure Portal subskrypcji zdarzeń: wybierz funkcję platformy Azure" border="false":::
+* *szczegóły*  >  punktu końcowego **Punkt końcowy**: naciśnij link *Wybierz punkt końcowy* . Spowoduje to otwarcie okna *Wybieranie funkcji platformy Azure* : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)" border="false":::
     - Wypełnij swoją **subskrypcję**, **grupę zasobów**, **funkcję App** and **Function** (*ProcessHubToDTEvents*). Niektóre z tych elementów mogą być wypełniane automatycznie po wybraniu subskrypcji.
     - Kliknij przycisk **Potwierdź wybór**.
 
@@ -292,11 +292,11 @@ Zapisz plik.
 
 Teraz, aby wyświetlić wyniki symulacji danych, które zostały skonfigurowane, Uruchom projekt **DeviceSimulator** za pomocą tego przycisku na pasku narzędzi:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Przycisk Start programu Visual Studio (projekt DeviceSimulator)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Zostanie otwarte okno konsoli zawierające symulowane komunikaty telemetryczne dotyczące temperatury. Są one wysyłane do IoT Hub, gdzie są następnie odbierane i przetwarzane przez funkcję platformy Azure.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Dane wyjściowe konsoli symulatora urządzeń pokazujące wysyłaną telemetrię temperatury":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Nie musisz wykonywać żadnych innych czynności w tej konsoli, ale pozostaw to działanie w trakcie wykonywania następnych kroków.
 
@@ -314,7 +314,7 @@ ObserveProperties thermostat67 Temperature
 
 Zaktualizowane temperatury na żywo *z wystąpienia usługi Azure Digital bliźniaczych reprezentacji* są wyświetlane w konsoli co 10 sekund.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Dane wyjściowe konsoli pokazujące dziennik komunikatów o temperaturze z cyfrowych przędzy thermostat67":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Po sprawdzeniu, że działanie zostało zakończone pomyślnie, można zatrzymać uruchamianie obu projektów. Pozostaw otwarte okna programu Visual Studio, ponieważ będziesz nadal korzystać z nich w pozostałej części tego samouczka.
 
@@ -324,7 +324,7 @@ Do tej pory w tym samouczku pokazano, jak można aktualizować usługę Azure Di
 
 W tym celu należy użyć funkcji *ProcessDTRoutedData* platformy Azure, aby zaktualizować *dwuosiową* , gdy zostanie zaktualizowane połączenie z podłączoną *termostatem* . Dzieje się tak w tej części scenariusza kompleksowe (**strzałka C**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Fragment z pełnego, wyróżnionej graficznie grafiki scenariusza ze strzałką C, elementy po stronie Azure Digital bliźniaczych reprezentacji: Event Grid i druga funkcja platformy Azure":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Poniżej przedstawiono akcje, które należy wykonać w celu skonfigurowania tego przepływu danych:
 1. Utwórz punkt końcowy usługi Azure Digital bliźniaczych reprezentacji, który łączy wystąpienie z Event Grid
@@ -368,7 +368,7 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 Poszukaj `provisioningState` pola w danych wyjściowych i sprawdź, czy wartość to "powodzenie". Może również powiedzieć "Inicjowanie obsługi", co oznacza, że punkt końcowy jest nadal tworzony. W takim przypadku poczekaj kilka sekund i ponownie uruchom polecenie, aby sprawdzić, czy zakończyło się pomyślnie.
 
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Wynik zapytania punktu końcowego, który pokazuje punkt końcowy z provisioningStateem zakończonym powodzeniem":::
+:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Zapisz nazwy, które zostały nadaną w temacie usługi Event Grid, oraz punkt końcowy bliźniaczych reprezentacji Digital Azure. Będziesz ich używać później.
 
@@ -395,7 +395,7 @@ W tym celu utworzysz **subskrypcję Event gridową** z tematu usługi Event Grid
 
 W [Azure Portal](https://portal.azure.com/)przejdź do tematu usługi Event Grid, wyszukując jego nazwę na górnym pasku wyszukiwania. Wybierz pozycję *+ Subskrypcja zdarzeń*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure Portal: Event Grid subskrypcji zdarzeń":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Kroki tworzenia tej subskrypcji zdarzeń są podobne do zasubskrybowania pierwszej funkcji platformy Azure w celu IoT Hub wcześniejszej części tego samouczka. Tym razem nie musisz określać danych *telemetrycznych urządzenia* jako typu zdarzenia do nasłuchiwania i nawiązać połączenie z inną funkcją platformy Azure.
 
@@ -414,7 +414,7 @@ Teraz można uruchomić symulator urządzenia, aby uruchomić nowy przepływ zda
 
 Podobnie jak w przypadku uruchomienia symulatora urządzenia wcześniej zostanie otwarte okno konsoli, w którym będą wyświetlane symulowane komunikaty telemetryczne dotyczące temperatury. Te zdarzenia przechodzą przez skonfigurowany wcześniej przepływ, aby zaktualizować *thermostat67ą* sznurek, a następnie przechodząc przez nowo skonfigurowany przepływ, aby zaktualizować dwuosiowy *room21* .
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Dane wyjściowe konsoli symulatora urządzeń pokazujące wysyłaną telemetrię temperatury":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Nie musisz wykonywać żadnych innych czynności w tej konsoli, ale pozostaw to działanie w trakcie wykonywania następnych kroków.
 
@@ -428,7 +428,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 Zaktualizowane temperatury na żywo *z wystąpienia usługi Azure Digital bliźniaczych reprezentacji* są wyświetlane w konsoli co 10 sekund. Należy zauważyć, że temperatura *room21* jest aktualizowana w celu dopasowania do aktualizacji *thermostat67*.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Dane wyjściowe konsoli pokazujące dziennik komunikatów temperatury, z termostatu i pokoju":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
 Po sprawdzeniu, że działanie zostało zakończone pomyślnie, można zatrzymać uruchamianie obu projektów. Możesz również zamknąć okna programu Visual Studio, ponieważ samouczek jest teraz gotowy.
 

@@ -4,10 +4,10 @@ description: Usługa Azure Service Fabric akceptuje format Docker Compose, aby u
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84691292"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Obsługa wdrażania Docker Compose w usłudze Azure Service Fabric (wersja zapoznawcza)
@@ -35,7 +35,7 @@ Utwórz Service Fabric Tworzenie wdrożenia z pliku Docker-Compose. yml, urucham
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`i `RegistryPassword` zapoznaj się z nazwą użytkownika i hasłem rejestru kontenerów. Po zakończeniu wdrażania możesz sprawdzić jego stan przy użyciu następującego polecenia:
+`RegistryUserName` i `RegistryPassword` zapoznaj się z nazwą użytkownika i hasłem rejestru kontenerów. Po zakończeniu wdrażania możesz sprawdzić jego stan przy użyciu następującego polecenia:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp

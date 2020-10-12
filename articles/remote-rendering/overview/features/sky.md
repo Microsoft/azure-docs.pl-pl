@@ -7,10 +7,10 @@ ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613751"
 ---
 # <a name="sky-reflections"></a>Odbicia nieba
@@ -143,7 +143,7 @@ Zdalne renderowanie na platformie Azure udostępnia kilka wbudowanych map środo
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Światła](../../overview/features/lights.md)
+* [Lampki](../../overview/features/lights.md)
 * [Materiały](../../concepts/materials.md)
 * [Tekstury](../../concepts/textures.md)
 * [Narzędzie wiersza polecenia TexConv](../../resources/tools/tex-conv.md)

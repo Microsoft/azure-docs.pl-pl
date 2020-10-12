@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006028"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Seria StorSimple 8000: rozwiązanie hybrydowego magazynu w chmurze
@@ -39,7 +39,7 @@ Oprócz zarządzania magazynem funkcje ochrony danych StorSimple umożliwiają t
 ## <a name="why-use-storsimple"></a>Dlaczego warto używać StorSimple?
 W poniższej tabeli opisano niektóre z najważniejszych korzyści zapewnianych przez Microsoft Azure StorSimple.
 
-| Cechy | Korzyść |
+| Cecha | Korzyść |
 | --- | --- |
 | Integracja przezroczysta |Używa protokołu iSCSI do niewidocznego łączenia obiektów magazynu danych. Dzięki temu dane przechowywane w chmurze, w centrum danych lub na serwerach zdalnych, są przechowywane w jednej lokalizacji. |
 | Zmniejszone koszty magazynowania |Przydziela wystarczającą ilość miejsca w magazynie lokalnym lub w chmurze w celu spełnienia bieżących wymagań i rozszerza magazyn w chmurze tylko w razie potrzeby. Znacznie zmniejsza wymagania dotyczące magazynu i wydatków, eliminując nadmiarowe wersje tych samych danych (deduplikacji) i przy użyciu kompresji. |
@@ -212,10 +212,10 @@ Podsumowanie obsługiwanych obciążeń StorSimple znajduje się poniżej.
 | --- | --- | --- | --- | --- |
 | Współpraca |Udostępnianie plików |Tak | |Wszystkie wersje |
 | Współpraca |Rozproszone udostępnianie plików |Tak | |Wszystkie wersje |
-| Współpraca |SharePoint |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
+| Współpraca |Sharepoint |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
 | Archiwizacji |Proste archiwizowanie plików |Tak | |Wszystkie wersje |
 | Wirtualizacja |Maszyny wirtualne |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
-| Baza danych |SQL |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
+| baza danych |SQL |Tak* |Obsługiwane tylko dla woluminów przypiętych lokalnie |Aktualizacja 2 lub nowsza |
 | Monitorowanie wideo |Monitorowanie wideo |Tak* |Obsługiwane, gdy urządzenie StorSimple jest dedykowane tylko dla tego obciążenia |Aktualizacja 2 lub nowsza |
 | Backup |Podstawowa kopia zapasowa |Tak* |Obsługiwane, gdy urządzenie StorSimple jest dedykowane tylko dla tego obciążenia |Aktualizacja Update 3 lub nowsza |
 | Backup |Pomocnicza kopia zapasowa |Tak* |Obsługiwane, gdy urządzenie StorSimple jest dedykowane tylko dla tego obciążenia |Aktualizacja Update 3 lub nowsza |

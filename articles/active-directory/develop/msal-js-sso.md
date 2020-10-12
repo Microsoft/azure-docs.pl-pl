@@ -14,15 +14,15 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84690782"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Logowanie jednokrotne za pomocą biblioteki MSAL.js
 
-Logowanie jednokrotne (SSO) umożliwia użytkownikom wprowadzanie poświadczeń raz w celu zalogowania się i ustanowienie sesji, która może być używana w wielu aplikacjach bez konieczności ponownego uwierzytelniania. Zapewnia to bezproblemowe środowisko użytkownika i zmniejsza powtarzające się instrukcje dotyczące poświadczeń.
+Pojedyncze Sign-On (Logowanie jednokrotne) umożliwia użytkownikom wprowadzanie poświadczeń raz w celu zalogowania się i ustanowienie sesji, która może zostać ponownie użyta w wielu aplikacjach, bez konieczności ponownego uwierzytelniania. Zapewnia to bezproblemowe środowisko użytkownika i zmniejsza powtarzające się instrukcje dotyczące poświadczeń.
 
 Usługa Azure AD udostępnia funkcje logowania jednokrotnego do aplikacji, ustawiając plik cookie sesji, gdy użytkownik uwierzytelnia się po raz pierwszy. Biblioteka MSAL.js umożliwia aplikacjom korzystanie z tego programu na kilka sposobów.
 
@@ -87,7 +87,7 @@ Kroki konfigurowania opcjonalnych oświadczeń w manifeście aplikacji można zn
 
 **Korzystanie z wskazówki logowania**
 
-Jeśli nie masz skonfigurowanego lub nie chcesz ominąć monitu wyboru konta w ramach wywołań uwierzytelniania interakcyjnego, możesz to zrobić, podając `login_hint` parametry żądania i opcjonalnie `domain_hint` tak jak `extraQueryParameters` w metodzie MSAL.js Interactive ( `loginPopup` , `loginRedirect` `acquireTokenPopup` i `acquireTokenRedirect` ). Przykład:
+Jeśli nie masz skonfigurowanego lub nie chcesz ominąć monitu wyboru konta w ramach wywołań uwierzytelniania interakcyjnego, możesz to zrobić, podając `login_hint` parametry żądania i opcjonalnie `domain_hint` tak jak `extraQueryParameters` w metodzie MSAL.js Interactive ( `loginPopup` , `loginRedirect` `acquireTokenPopup` i `acquireTokenRedirect` ). Na przykład:
 
 ```javascript
 var request = {
