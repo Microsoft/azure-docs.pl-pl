@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
 ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298909"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX
@@ -22,7 +22,7 @@ W tym przewodniku szybki start dowiesz się, jak nauczyć model, przekonwertowa�
 
 Ten przewodnik Szybki Start jest oparty na **scikit — uczenie** i używa [zestawu danych dla obudowy Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Jeśli używasz usługi Azure SQL Edge i nie wdrożono modułu usługi Azure SQL Edge, postępuj zgodnie z instrukcjami [wdrażania programu SQL Edge przy użyciu Azure Portal](deploy-portal.md).
 

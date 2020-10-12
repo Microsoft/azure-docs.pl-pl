@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 852bce26e348c817b609d5ff837641741afe4461
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940394"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Dzienniki na serwerze elastycznym Azure Database for PostgreSQL
@@ -44,7 +44,7 @@ W poniższej tabeli opisano pola dla typu **PostgreSQLLogs** . W zależności od
 | TenantId | Identyfikator dzierżawy |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Sygnatura czasowa, gdy dziennik został zarejestrowany w formacie UTC |
-| Typ | Typ dziennika. Stałego `AzureDiagnostics` |
+| Type | Typ dziennika. Stałego `AzureDiagnostics` |
 | SubscriptionId | Identyfikator GUID subskrypcji, do której należy serwer |
 | ResourceGroup | Nazwa grupy zasobów, do której należy serwer |
 | ResourceProvider | Nazwa dostawcy zasobów. Stałego `MICROSOFT.DBFORPOSTGRESQL` |
@@ -55,7 +55,7 @@ W poniższej tabeli opisano pola dla typu **PostgreSQLLogs** . W zależności od
 | OperationName | `LogEvent` |
 | Zmienna | Poziom rejestrowania, przykład: LOG, błąd, Uwaga |
 | Wiadomość | Podstawowy komunikat dziennika | 
-| Domena | Wersja serwera, przykład: Postgres-10 |
+| Obszar | Wersja serwera, przykład: Postgres-10 |
 | Szczegóły | Dodatkowy komunikat dziennika (jeśli dotyczy) |
 | nazwa_kolumny | Nazwa kolumny (jeśli dotyczy) |
 | SchemaName | Nazwa schematu (jeśli dotyczy) |

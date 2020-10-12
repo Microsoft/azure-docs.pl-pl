@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
 ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326906"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Rozwiązanie do monitorowania kontenerów w Azure Monitor
@@ -45,11 +45,11 @@ Przed rozpoczęciem zapoznaj się z poniższymi szczegółami, aby upewnić się
 
 W poniższej tabeli przedstawiono wsparcie w zakresie organizowania i monitorowania systemu operacyjnego platformy Docker, a następnie obsługę spisu kontenerów, wydajności i dzienników przy użyciu Azure Monitor.   
 
-|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Image (Obraz)<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Wydarzenie | Wydarzenie<br>Log | Kontener<br>Log |
+|Aranżacja platformy Docker | ACS | Linux | Windows | Kontener<br>Stan zapasów | Obraz<br>Stan zapasów | Węzeł<br>Stan zapasów | Kontener<br>Wydajność | Kontener<br>Wydarzenie | Wydarzenie<br>Log | Kontener<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
-| Platforma Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Usługa<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat<br>Przesunięcia | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>autonomicznej | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -360,7 +360,7 @@ Można utworzyć omsagent DaemonSets z lub bez wpisów tajnych.
         KEY:    88 bytes
         ```
 
-    5. Tworzenie demona omsagent — zestaw przez uruchomienie```sudo kubectl create -f omsagent-ds-secrets.yaml```
+    5. Tworzenie demona omsagent — zestaw przez uruchomienie ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Sprawdź, czy Agent Log Analytics elementu daemonset jest uruchomiony, podobny do następującego:
 
@@ -404,7 +404,7 @@ W przypadku systemu Windows Kubernetes używasz skryptu do wygenerowania pliku t
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Tworzenie demona omsagent — zestaw przez uruchomienie```kubectl create -f omsagentsecret.yaml```
+    3. Tworzenie demona omsagent — zestaw przez uruchomienie ```kubectl create -f omsagentsecret.yaml```
     4. Aby sprawdzić, uruchom następujące polecenie:
 
         ```
@@ -431,7 +431,7 @@ W przypadku systemu Windows Kubernetes używasz skryptu do wygenerowania pliku t
         KEY:    88 bytes
         ```
 
-    5. Tworzenie demona omsagent — zestaw przez uruchomienie```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Tworzenie demona omsagent — zestaw przez uruchomienie ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Sprawdź, czy Agent Log Analytics elementu daemonset jest uruchomiony, podobny do następującego:
 
@@ -447,7 +447,7 @@ W przypadku systemu Windows Kubernetes używasz skryptu do wygenerowania pliku t
 
 Aby użyć Helm do wdrożenia agenta Log Analytics w środowisku Kubernetes systemu Linux, wykonaj następujące czynności.
 
-1. Tworzenie demona omsagent — zestaw przez uruchomienie```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Tworzenie demona omsagent — zestaw przez uruchomienie ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Wyniki będą wyglądać podobnie do następujących:
 
     ```
@@ -602,7 +602,7 @@ Log Analytics oznacza kontener jako **zakończony niepowodzeniem** , jeśli zako
    ![Kontenery zakończone niepowodzeniem](./media/containers/containers-state-failed-select.png)  
 1. Uruchom zapytanie, a następnie rozwiń wiersz w wynikach, aby wyświetlić identyfikator obrazu.  
    ![Kontenery zakończone niepowodzeniem](./media/containers/containers-state-failed.png)  
-1. Wpisz następujące w zapytaniu dziennika. `ContainerImageInventory | where ImageID == <ImageID>`Aby wyświetlić szczegółowe informacje o obrazie, takie jak rozmiar obrazu i Liczba obrazów zatrzymanych i zakończonych niepowodzeniem.  
+1. Wpisz następujące w zapytaniu dziennika. `ContainerImageInventory | where ImageID == <ImageID>` Aby wyświetlić szczegółowe informacje o obrazie, takie jak rozmiar obrazu i Liczba obrazów zatrzymanych i zakończonych niepowodzeniem.  
    ![Kontenery zakończone niepowodzeniem](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>Dzienniki zapytań dla danych kontenera
@@ -620,7 +620,7 @@ W przypadku rozwiązywania problemów z określonym błędem może być pomocne 
 
 ### <a name="to-query-logs-for-container-data"></a>Aby zbadać dzienniki dla danych kontenera
 
-* Wybierz nieznany obraz, który został niedawno zakończony niepowodzeniem i Znajdź w nim dzienniki błędów. Zacznij od znalezienia nazwy kontenera, na którym działa ten obraz z wyszukiwaniem **ContainerInventory** . Na przykład wyszukaj ciąg`ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Wybierz nieznany obraz, który został niedawno zakończony niepowodzeniem i Znajdź w nim dzienniki błędów. Zacznij od znalezienia nazwy kontenera, na którym działa ten obraz z wyszukiwaniem **ContainerInventory** . Na przykład wyszukaj ciąg `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Wyszukaj kontenery Ubuntu](./media/containers/search-ubuntu.png)
 
   Rozwiń dowolny wiersz w wynikach, aby wyświetlić szczegóły dla tego kontenera.

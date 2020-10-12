@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f6f87ed4ba74c3f7750e56d4bb8473cf4b1a4341
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575388"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945536"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Samouczek: łączenie IoT Plug and Play aplikacji z wieloma urządzeniami składnika działającą w systemie Windows do IoT Hub (C#)
 
@@ -33,7 +33,7 @@ Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogr
 
 Jeśli zakończysz [Przewodnik Szybki Start: Podłącz przykładową aplikację urządzenia IoT Plug and Play działającą w systemie Windows do IoT Hub (C#)](quickstart-connect-device-csharp.md), masz już Sklonowane repozytorium.
 
-Sklonuj przykłady z repozytorium Microsoft Azure IoT SDK dla programu .NET GitHub. Otwórz wiersz polecenia w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT przykłady dla repozytorium programu .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub:
+Sklonuj przykłady z przykładów usługi Azure IoT dla repozytorium w serwisie GitHub w języku C#. Otwórz wiersz polecenia w wybranym folderze. Uruchom następujące polecenie, aby sklonować [Microsoft Azure IoT przykłady dla repozytorium programu .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git

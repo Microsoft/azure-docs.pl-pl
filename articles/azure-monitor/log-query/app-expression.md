@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
 ms.openlocfilehash: 7cb8073d048118e704dafb0c70fe7cdb6774344a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324543"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>wyrażenie App () w kwerendzie Azure Monitor
@@ -33,7 +33,7 @@ ms.locfileid: "87324543"
 |:---|:---|:---|
 | Nazwa zasobu | Czytelna dla człowieka nazwa aplikacji (znana również jako "Nazwa składnika") | Aplikacja ("fabrikamapp") |
 | Kwalifikowana nazwa | Pełna nazwa aplikacji w postaci: "subscriptionname/resourceName/ComponentName" | Aplikacja ("AI-Prototype/Fabrikam/fabrikamapp") |
-| ID | Identyfikator GUID aplikacji | Aplikacja ("988ba129-363e-4415-8fe7-8cbab5447518") |
+| ID (Identyfikator) | Identyfikator GUID aplikacji | Aplikacja ("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Identyfikator zasobu platformy Azure | Identyfikator zasobu platformy Azure |Aplikacja ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 

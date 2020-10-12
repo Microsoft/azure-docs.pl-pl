@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831230"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Omówienie typowych komunikatów o błędach występujących podczas zarządzania maszynami wirtualnymi na platformie Azure
@@ -79,7 +79,7 @@ W tej sekcji wymieniono typowe komunikaty o błędach, które można napotkać p
 |  DiskBlobAlreadyInUseByAnotherDisk  |  Obiekt BLOB {0} jest już używany przez inny dysk należący do maszyny wirtualnej " {1} ". Można przeanalizować metadane obiektu BLOB dla informacji referencyjnych dysku.  |
 |  DiskBlobNotFound  |  Nie można znaleźć obiektu BLOB dysku VHD z identyfikatorem URI {0} dla dysku " {1} ".  |
 |  DiskBlobNotFound  |  Nie można odnaleźć obiektu BLOB VHD z identyfikatorem URI {0} .  |
-|  DiskEncryptionKeySecretMissingTags  |  {0}wpis tajny nie ma {1} tagów. Zaktualizuj wersję wpisu tajnego, Dodaj wymagane znaczniki i ponów próbę.  |
+|  DiskEncryptionKeySecretMissingTags  |  {0} wpis tajny nie ma {1} tagów. Zaktualizuj wersję wpisu tajnego, Dodaj wymagane znaczniki i ponów próbę.  |
 |  DiskEncryptionKeySecretUnwrapFailed  |  Odwinięcie wartości klucza tajnego {0} przy użyciu klucza {1} nie powiodło się.  |
 |  DiskImageNotReady  |  Obraz dysku {0} jest w {1} stanie. Spróbuj ponownie, gdy obraz będzie gotowy.  |
 |  DiskPreparationError  |  Wystąpił co najmniej jeden błąd podczas przygotowywania dysków maszyny wirtualnej. Aby uzyskać szczegółowe informacje, zobacz widok wystąpienia dysku.  |
@@ -91,7 +91,7 @@ W tej sekcji wymieniono typowe komunikaty o błędach, które można napotkać p
 |  IncorrectImageBlobType  |  Obiekty blob na dyskach mogą być typu stronicowego obiektu BLOB. Obiekt BLOB {0} dla dysku " {1} " jest typu blokowego obiektu BLOB.  |
 |  IncorrectImageBlobType  |  Obiekty blob na dyskach mogą być typu stronicowego obiektu BLOB. Obiekt BLOB {0} jest typu " {1} ".  |
 |  InternalOperationError  |  Nie można rozpoznać konta magazynu {0} . Upewnij się, że został on utworzony za pomocą dostawcy zasobów magazynu w tej samej lokalizacji co zasób obliczeniowy.  |
-|  InternalOperationError  |  {0}zadania szukania celu nie powiodły się.  |
+|  InternalOperationError  |  {0} zadania szukania celu nie powiodły się.  |
 |  InternalOperationError  |  Wystąpił błąd podczas sprawdzania poprawności profilu sieciowego maszyny wirtualnej " {0} ".  |
 |  InvalidAccountType  |  Wartość AccountType {0} jest nieprawidłowa.  |
 |  Nieprawidłowy parametr  |  Wartość parametru {0} jest nieprawidłowa.  |
@@ -110,7 +110,7 @@ W tej sekcji wymieniono typowe komunikaty o błędach, które można napotkać p
 |  Nieprawidłowy parametr  |  Określona liczba domen błędów {0} musi należeć do zakresu od {1} do {2} .  |
 |  Nieprawidłowy parametr  |  Typ licencji {0} jest nieprawidłowy. Prawidłowe typy licencji to: Windows_Client lub Windows_Server, z uwzględnieniem wielkości liter.  |
 |  Nieprawidłowy parametr  |  Nazwa hosta systemu Linux nie może być dłuższa niż {0} znaków ani zawierać następujących znaków: {1} .  |
-|  Nieprawidłowy parametr  |  Ścieżka docelowa kluczy publicznych SSH jest obecnie ograniczona do wartości domyślnej {0} ze względu na znany problem w agencie aprowizacji systemu Linux.  |
+|  Nieprawidłowy parametr  |  Ścieżka docelowa kluczy publicznych SSH jest obecnie ograniczona do wartości domyślnej {0}  ze względu na znany problem w agencie aprowizacji systemu Linux.  |
 |  Nieprawidłowy parametr  |  Dysk w jednostce LUN {0} już istnieje.  |
 |  Nieprawidłowy parametr  |  Subskrypcja {0} żądania musi być zgodna z subskrypcją {1} zawartą w identyfikatorze dysku zarządzanego.  |
 |  Nieprawidłowy parametr  |  Dane niestandardowe w OSProfile muszą być zakodowane w formacie base64 i mieć maksymalną długość {0} znaków.  |
@@ -171,13 +171,13 @@ W tej sekcji wymieniono typowe komunikaty o błędach, które można napotkać p
 |  OperationNotAllowed  |  Nie można zmienić rozmiaru maszyny wirtualnej, ponieważ żądany rozmiar {0} nie jest dostępny w klastrze, w którym zestaw dostępności jest aktualnie przydzielony. Dostępne są następujące rozmiary: {1} . Więcej informacji na temat strategii zmiany rozmiarów maszyny wirtualnej można znaleźć pod adresem https://aka.ms/azure-resizevm .  |
 |  OperationNotAllowed  |  Nie można zmienić rozmiaru maszyny wirtualnej, ponieważ żądany rozmiar {0} nie jest dostępny w klastrze, w którym maszyna wirtualna jest aktualnie przypisana. Aby zmienić rozmiar maszyny wirtualnej w celu {1} cofnięcia alokacji (jest to operacja zatrzymania w Azure Portal), a następnie spróbuj ponownie wykonać operację zmiany rozmiaru. Więcej informacji na temat strategii zmiany rozmiarów maszyny wirtualnej można znaleźć pod adresem https://aka.ms/azure-resizevm .  |
 |  OSProvisioningClientError  |  Inicjowanie obsługi systemu operacyjnego nie powiodło się dla maszyny wirtualnej " {0} ", ponieważ obecnie jest inicjowana obsługa systemu operacyjnego gościa.  |
-|  OSProvisioningClientError  |  Inicjowanie obsługi administracyjnej systemu operacyjnego dla maszyny wirtualnej " {0} " nie powiodło się. Szczegóły błędu: Upewnij {1} się, że obraz został prawidłowo przygotowany (uogólniony). <ul><li>Instrukcje dla systemu Windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  Generowanie klucza hosta SSH nie powiodło się. Szczegóły błędu: {0} . Aby rozwiązać ten problem, sprawdź, czy Agent systemu Linux jest prawidłowo skonfigurowany. <ul><li>Instrukcje można znaleźć pod adresem:https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
+|  OSProvisioningClientError  |  Inicjowanie obsługi administracyjnej systemu operacyjnego dla maszyny wirtualnej " {0} " nie powiodło się. Szczegóły błędu: Upewnij {1} się, że obraz został prawidłowo przygotowany (uogólniony). <ul><li>Instrukcje dla systemu Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  Generowanie klucza hosta SSH nie powiodło się. Szczegóły błędu: {0} . Aby rozwiązać ten problem, sprawdź, czy Agent systemu Linux jest prawidłowo skonfigurowany. <ul><li>Instrukcje można znaleźć pod adresem: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  Nazwa użytkownika określona dla maszyny wirtualnej jest nieprawidłowa dla tej dystrybucji systemu Linux. Szczegóły błędu: {0} .  |
 |  OSProvisioningInternalError  |  Inicjowanie obsługi systemu operacyjnego nie powiodło się dla maszyny wirtualnej " {0} " z powodu błędu wewnętrznego.  |
 |  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Obsługa administracyjna może nadal zakończyć się pomyślnie. Sprawdź stan aprowizacji później.  |
 |  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Obsługa administracyjna może nadal zakończyć się pomyślnie. Sprawdź stan aprowizacji później. Upewnij się również, że obraz został prawidłowo przygotowany (uogólniony).   <ul><li>Instrukcje dla [systemu Windows]( ../windows/upload-generalized-managed.md).</li><li> Instrukcje dotyczące systemu [Linux](../linux/capture-image.md)</li></ul>  |
-|  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Jednak wykryto agenta gościa maszyny wirtualnej. Sugeruje to, że system operacyjny gościa nie został poprawnie przygotowany do użycia jako obraz maszyny wirtualnej (z opcją with Option = FromImage). Aby rozwiązać ten problem, użyj wirtualnego dysku twardego w postaci z opcją with nooption = Attach lub przygotuj go prawidłowo do użycia jako obraz:   <ul><li>Instrukcje dla systemu Windows:https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrukcje dotyczące systemu Linux:https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  Inicjowanie obsługi systemu operacyjnego dla maszyny wirtualnej " {0} " nie zostało ukończone w wyznaczonym czasie. Jednak wykryto agenta gościa maszyny wirtualnej. Sugeruje to, że system operacyjny gościa nie został poprawnie przygotowany do użycia jako obraz maszyny wirtualnej (z opcją with Option = FromImage). Aby rozwiązać ten problem, użyj wirtualnego dysku twardego w postaci z opcją with nooption = Attach lub przygotuj go prawidłowo do użycia jako obraz:   <ul><li>Instrukcje dla systemu Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrukcje dotyczące systemu Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Wymagany rozmiar maszyny wirtualnej nie jest obecnie dostępny w wybranej lokalizacji.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Nie można teraz zaktualizować zasobu z powodu trwającej aktualizacji platformy. Spróbuj ponownie później.  |
 |  StorageAccountLimitation  |  Konto magazynu " {0} " nie obsługuje stronicowych obiektów blob, które są wymagane do tworzenia dysków.  |

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442645"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database bibliotekę kliencką z Entity Framework
@@ -271,7 +271,7 @@ Jedna z nich mogła korzystać z wersji konstruktora dziedziczonej z klasy bazow
 Podejścia opisane w niniejszym dokumencie wiążą się z kilkoma ograniczeniami:
 
 * Aplikacje EF korzystające z **LocalDB** najpierw muszą migrować do regularnej bazy danych SQL Server przed użyciem biblioteki klienta Elastic Database. Skalowanie aplikacji za pomocą fragmentowania z elastycznym skalowaniem nie jest możliwe z **LocalDB**. Należy pamiętać, że programowanie może nadal korzystać z **LocalDB**.
-* Wszelkie zmiany w aplikacji, które wymagają zmian schematu bazy danych, muszą przekroczyć migracje EF na wszystkich fragmentów. Przykładowy kod dla tego dokumentu nie pokazuje, jak to zrobić. Rozważ użycie polecenia Update-Database z parametrem ConnectionString w celu wykonania iteracji we wszystkich fragmentów; lub Wyodrębnij skrypt T-SQL dla oczekującej migracji przy użyciu opcji-Script i skryptu T-SQL, a fragmentów.  
+* Wszelkie zmiany w aplikacji, które wymagają zmian schematu bazy danych, muszą przekroczyć migracje EF na wszystkich fragmentów. Przykładowy kod dla tego dokumentu nie pokazuje, jak to zrobić. Rozważ użycie Update-Database z parametrem ConnectionString do iteracji we wszystkich fragmentów; lub Wyodrębnij skrypt T-SQL dla oczekującej migracji przy użyciu Update-Database z opcją-Script i Zastosuj skrypt T-SQL do fragmentów.  
 * Zgodnie z żądaniem przyjmuje się, że wszystkie jego przetwarzanie bazy danych jest zawarte w obrębie jednego fragmentuu, identyfikowanego przez klucz fragmentowania dostarczony przez żądanie. Jednak to założenie nie zawsze ma wartość true. Na przykład, gdy nie jest możliwe udostępnienie klucza fragmentowania. Aby rozwiązać ten konieczność, Biblioteka klienta udostępnia klasę **MultiShardQuery** , która implementuje abstrakcję połączenia w celu wykonywania zapytań na kilku fragmentówach. Uczenie się korzystania z **MultiShardQuery** w połączeniu z EF wykracza poza zakres tego dokumentu
 
 ## <a name="conclusion"></a>Podsumowanie

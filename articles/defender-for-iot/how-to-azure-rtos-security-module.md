@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 9106e00fe2146978f97b480e3afd3b7ed58c9130
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937776"
 ---
 # <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Konfigurowanie i dostosowywanie modułu zabezpieczeń dla usługi Azure RTO (wersja zapoznawcza)
@@ -30,14 +30,14 @@ Użyj poniższego pliku, aby skonfigurować zachowanie urządzenia.
 
 ### <a name="general"></a>Ogólne
 
-| Nazwa | Typ | Domyślny | Szczegóły |
+| Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
-| ASC_SECURITY_MODULE_ID | String | --- | Unikatowy identyfikator urządzenia  |
+| ASC_SECURITY_MODULE_ID | Ciąg | --- | Unikatowy identyfikator urządzenia  |
 | ASC_SECURITY_MODULE_PENDING_TIME  | Liczba | 300 | Czas oczekiwania modułu zabezpieczeń (w sekundach). Jeśli czas przekroczy zmianę stanu na wstrzymanie. |
 
 #### <a name="collection"></a>Kolekcja
 
-| Nazwa | Typ | Domyślny | Szczegóły |
+| Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
 | ASC_HIGH_PRIORITY_INTERVAL | Liczba | 10 | Interwał grupy modułów zbierających o wysokim priorytecie (w sekundach). |
 | ASC_MEDIUM_PRIORITY_INTERVAL | Liczba | 30 | Zakres modułów zbierających średni priorytet grupy (w sekundach). |
@@ -47,12 +47,12 @@ Użyj poniższego pliku, aby skonfigurować zachowanie urządzenia.
 
 Aby dostosować konfigurację działania sieci modułu zbierającego, użyj następujących elementów:
 
-| Nazwa | Typ | Domyślny | Szczegóły |
+| Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | Boolean | fałsz | Filtrowanie `TCP` aktywności sieciowej |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | Boolean | fałsz | Filtruj `UDP` zdarzenia aktywności sieciowej |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_ICMP_DISABLED | Boolean | fałsz | Filtruj `ICMP` zdarzenia aktywności sieciowej |
-| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Boolean | true | Przechwyć tylko pakiety przychodzące emisji pojedynczej, gdy ustawione na FAŁSZ przechwytywanie również emitują i multiemisję |
+| ASC_COLLECTOR_NETWORK_ACTIVITY_CAPTURE_UNICAST_ONLY | Boolean (wartość logiczna) | true | Przechwyć tylko pakiety przychodzące emisji pojedynczej, gdy ustawione na FAŁSZ przechwytywanie również emitują i multiemisję |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV4_OBJECTS_IN_CACHE | Liczba | 64 | Maksymalna liczba zdarzeń sieciowych IPv4 do przechowywania w pamięci |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | Liczba | 64  | Maksymalna liczba zdarzeń sieciowych IPv6 do przechowywania w pamięci |
 
@@ -61,11 +61,11 @@ Aby dostosować konfigurację działania sieci modułu zbierającego, użyj nast
 Flagi kompilacji umożliwiają przesłonięcie wstępnie zdefiniowanych konfiguracji.
 
 ### <a name="collectors"></a>Moduły zbierające
-| Nazwa | Typ | Domyślny | Szczegóły |
+| Nazwa | Typ | Domyślne | Szczegóły |
 | - | - | - | - |
-| collector_heartbeat_enabled | Boolean | ON | Włączanie modułu zbierającego pulsu |
-| collector_network_activity_enabled | Boolean | ON | Włączanie modułu zbierającego działania sieciowe |
-| collector_system_information_enabled | Boolean | ON | Włączanie modułu zbierającego informacje o systemie |
+| collector_heartbeat_enabled | Boolean (wartość logiczna) | ON | Włączanie modułu zbierającego pulsu |
+| collector_network_activity_enabled | Boolean (wartość logiczna) | ON | Włączanie modułu zbierającego działania sieciowe |
+| collector_system_information_enabled | Boolean (wartość logiczna) | ON | Włączanie modułu zbierającego informacje o systemie |
 
 ## <a name="supported-security-alerts-and-recommendations"></a>Obsługiwane alerty i zalecenia dotyczące zabezpieczeń
 

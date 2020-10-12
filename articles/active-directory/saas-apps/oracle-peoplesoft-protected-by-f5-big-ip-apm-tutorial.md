@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620141"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z programem Oracle PeopleSoft — chroniona przez F5
@@ -73,8 +73,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj funkcję Oracle PeopleSoft — chronioną przez F5 Big-IP APM logowanie](#configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso)** jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego Oracle PeopleSoft — chronionego przez F5,](#create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user)** który ma odpowiedni odpowiednik B. Simon w programie Oracle PeopleSoft — chroniony przez F5 Big-IP APM, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Skonfiguruj oprogramowanie Oracle PeopleSoft-Protected przez F5 Big-IP APM logowanie](#configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso)** jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz program oracle PeopleSoft-Protected przez F5, który jest użytkownikiem testowym usługi APM Big-IP](#create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user)** , aby mieć odpowiedni odpowiednik B. Simon w programie Oracle PeopleSoft — chroniony przez F5, usługa APM, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<FQDN>.peoplesoft.f5.com/`
 
     > [!NOTE]
-    >Te wartości nie są prawdziwe. Zaktualizuj te wartości z rzeczywistym adresem URL logowania, identyfikatorem, adresem URL odpowiedzi i adresem URL wylogowania. Skontaktuj się z [zespołem obsługi klienta programu Oracle PeopleSoft — chronionym przez F5 Big-IP APM](https://support.f5.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    >Te wartości nie są prawdziwe. Zaktualizuj te wartości z rzeczywistym adresem URL Sign-On, identyfikatorem, adresem URL odpowiedzi i adresem URL wylogowania. Skontaktuj się z [zespołem obsługi klienta programu Oracle PeopleSoft — chronionym przez F5 Big-IP APM](https://support.f5.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Oracle PeopleSoft — ochrona za pomocą F5 BIG-IP APM oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -126,7 +126,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -140,7 +140,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz, że rola ma być przypisana do użytkowników, możesz wybrać ją z listy rozwijanej **Wybierz rolę** . Jeśli nie skonfigurowano roli dla tej aplikacji, zostanie wyświetlona wybrana rola "domyślny dostęp".
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Konfigurowanie programu Oracle PeopleSoft — chronionego przez F5 BIG-IP APM Logowanie jednokrotne
+## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Konfigurowanie programu Oracle PeopleSoft-Protected przez F5 BIG-IP APM Logowanie jednokrotne
 
 ### <a name="f5-saml-sp-configuration"></a>F5 — Konfiguracja protokołu SAML SP
 
@@ -259,25 +259,25 @@ W funkcji **getWWWAuthConfig ()** Zastąp wartość przypisaną do **&DefaultUse
 
 ## <a name="setting-up-f5-big-ip-apm-to-populate-ps_sso_uid-http-header-with-the-peoplesoft-user-id"></a>Konfigurowanie programu F5 Big-IP APM do wypełniania nagłówka HTTP "PS_SSO_UID" przy użyciu identyfikatora użytkownika PeopleSoft
 
-### <a name="configuring-per-request-policy"></a>Konfigurowanie zasad dla poszczególnych żądań
-1. Przejdź do **dostępu > profilu/zasad > zasad dla żądań**, kliknij przycisk **Utwórz**, uzupełnij poniższe informacje i kliknij przycisk **Zakończono**.
+### <a name="configuring-per-request-policy"></a>Konfigurowanie zasad Per-Request
+1. Przejdź do **dostępu > profilu/zasad > Per-Request zasad**, kliknij przycisk **Utwórz**, uzupełnij poniższe informacje, a następnie kliknij przycisk **Zakończ**.
 
     * Nazwa: `<Name>`
     * Typ profilu: wszystkie
     * Języki: `<Language>`
 
-    ![Konfigurowanie zasad dla poszczególnych żądań ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
+    ![Konfigurowanie zasad Per-Request ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
 
-1. Kliknij pozycję **Edytuj** zasady dla żądania `<Name>` ![ Edytuj zasady dla każdego żądania PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
+1. Kliknij kolejno pozycje **edytuj** Per-Request zasady `<Name>` ![ Edytowanie zasad Per-Request PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
 
     `Header Name: <Header Name>`   
     `Header Value: <Header Value>`
 
-### <a name="assign-per-request-policy-to-the-virtual-server"></a>Przypisywanie zasad na żądanie do serwera wirtualnego
+### <a name="assign-per-request-policy-to-the-virtual-server"></a>Przypisywanie zasad Per-Request do serwera wirtualnego
 
-Przejdź do **ruchu lokalnego > serwery wirtualne > listy serwerów wirtualnych > PeopleSoftApp** Określ `<Name>` jako zasady dla każdego żądania
+Przejdź do **ruchu lokalnego > serwery wirtualne > listy serwerów wirtualnych > PeopleSoftApp** Określ `<Name>` jako zasady Per-Request
 
-![PeopleSoftSSO zgodnie z zasadami dla żądania ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
+![PeopleSoftSSO jako zasady Per-Request ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
 
 ## <a name="setting-up-f5-big-ip-apm-to-support-single-logout-from-peoplesoft-application"></a>Konfigurowanie usługi F5 Big-IP APM do obsługi logowania jednokrotnego z aplikacji PeopleSoft
 
@@ -311,9 +311,9 @@ Aby dodać obsługę logowania jednokrotnego dla wszystkich użytkowników Peopl
         ![Zakończono _iRule_PeopleSoftApp](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/common-irule.png)
 
 
-### <a name="create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user"></a>Tworzenie użytkownika testowego programu Oracle PeopleSoft — chronionego przez F5
+### <a name="create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user"></a>Tworzenie bazy danych Oracle PeopleSoft-Protected przez użytkownika testowego APM BIG-IP
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w bazie danych Oracle PeopleSoft — ochrona za pomocą protokołu F5 BIG-IP APM. Pracuj z [zespołem pomocy technicznej Big-IP firmy Oracle](https://support.f5.com) , aby dodać użytkowników w ramach platformy APM "PeopleSoft" chronionej przez F5. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w bazie danych Oracle PeopleSoft-Protected przez F5. Współpracuj z [programem oracle PeopleSoft-Protected przez zespół pomocy technicznej Big-IP APM](https://support.f5.com) , aby dodać użytkowników w usłudze Oracle PeopleSoft-Protected za pomocą platformy F5 Big-IP APM. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -321,15 +321,15 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 #### <a name="sp-initiated"></a>Zainicjowano SP:
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do adresu URL programu Oracle PeopleSoft-Protected przy użyciu protokołu F5 BIG-IP APM, gdzie można zainicjować przepływ logowania.  
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal. Spowoduje to przekierowanie do programu Oracle PeopleSoft-Protected przez F5 BIG-IP APM logowania na adres URL, w którym można zainicjować przepływ logowania.  
 
-* Przejdź do strony Oracle PeopleSoft — chronionej przez F5 BIG-IP APM, a następnie zainicjuj w tym miejscu przepływ logowania.
+* Przejdź do strony Oracle PeopleSoft-Protected przez F5 BIG-IP APM logowanie bezpośrednio i zainicjuj w tym miejscu przepływ logowania.
 
 #### <a name="idp-initiated"></a>DOSTAWCY tożsamości zainicjowane:
 
-* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do usługi APM Big-IP Oracle PeopleSoft, dla której skonfigurowano Logowanie jednokrotne. 
+* Kliknij pozycję **Testuj tę aplikację** w Azure Portal i należy automatycznie zalogować się do PeopleSoft-Protected Oracle za pomocą usługi APM Big-IP, dla której skonfigurowano Logowanie jednokrotne 
 
-Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka programu Oracle PeopleSoft — chronionego za pomocą F5 BIG-IP APM w panelu dostępu, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania i w przypadku skonfigurowania w trybie dostawcy tożsamości, należy automatycznie zalogować się do programu Oracle PeopleSoft-Protected przy użyciu protokołu F5 BIG Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Możesz również użyć panelu dostępu programu Microsoft, aby przetestować aplikację w dowolnym trybie. Po kliknięciu kafelka Oracle PeopleSoft-Protected przez F5 BIG-IP APM w panelu dostępu, jeśli zostanie on skonfigurowany w trybie SP, nastąpi przekierowanie do strony logowania do aplikacji w celu zainicjowania przepływu logowania, a jeśli zostanie on skonfigurowany w trybie dostawcy tożsamości, należy automatycznie zalogować się do PeopleSoft-Protected Oracle przy użyciu usługi F5 BIG-IP, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -10,10 +10,10 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
 ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829394"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Jakie są osoby odpowiedzialne za uczenie maszynowe? (wersja zapoznawcza)
@@ -94,7 +94,7 @@ Niektóre informacje o modelu, które można chcieć udokumentować w ramach ark
 
 Zapoznaj się z poniższym przykładem, aby dowiedzieć się, jak zaimplementować [Arkusz danych dla modeli przy](https://github.com/microsoft/MLOps/blob/master/pytorch_with_datasheet/model_with_datasheet.ipynb)użyciu zestawu SDK Azure Machine Learning.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - Aby uzyskać więcej informacji, zobacz [odpowiedzialny zestaw narzędzi do innowacji](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) , aby poznać najlepsze rozwiązania.
 - Dowiedz się więcej o zestawie wskazówek [dotyczących informacji dotyczących](https://www.partnershiponai.org/about-ml/) systemu uczenia maszynowego.

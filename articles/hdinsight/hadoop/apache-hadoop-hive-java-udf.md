@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
 ms.openlocfilehash: 15a86fd191eefc5882150fb276228d18efd6ff5d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323795"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Używanie formatu UDF języka Java z Apache Hive w usłudze HDInsight
@@ -273,4 +273,4 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 
 Aby poznać inne sposoby pracy z usługą Hive, zobacz [używanie Apache Hive z usługą HDInsight](hdinsight-use-hive.md).
 
-Aby uzyskać więcej informacji o funkcjach zdefiniowanych przez użytkownika w programie Hive, zobacz sekcję [Apache Hive operatory i funkcje zdefiniowane przez użytkownika](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) w witrynie typu wiki usługi Hive w witrynie Apache.org.
+Aby uzyskać więcej informacji na temat usługi Hive User-Defined, zobacz sekcję [Apache Hive operatory i funkcje User-Defined](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) w witrynie typu wiki usługi Hive w witrynie Apache.org.

@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326158"
 ---
 # <a name="expressroute-monitor"></a>Monitor ExpressRoute
@@ -23,7 +23,7 @@ Korzystając z możliwości usługi Azure ExpressRoute monitor w [Network Perfor
 
 ![Monitor ExpressRoute](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>Konfigurowanie 
+## <a name="configuration"></a>Konfiguracja 
 Aby otworzyć konfigurację Network Performance Monitor, Otwórz [rozwiązanie Network Performance Monitor](network-performance-monitor.md) i wybierz pozycję **Konfiguruj**.
 
 ### <a name="configure-network-security-group-rules"></a>Skonfiguruj reguły sieciowej grupy zabezpieczeń 

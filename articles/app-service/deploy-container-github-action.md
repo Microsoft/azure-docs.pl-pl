@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728492"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893360"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Wdrażanie niestandardowego kontenera do App Service przy użyciu akcji GitHub
 
@@ -138,10 +138,6 @@ Zdefiniuj wpisy tajne do użycia z akcją logowania platformy Docker.
 
 Poniższy przykład przedstawia część przepływu pracy, który kompiluje Node.JS obrazu platformy Docker. Zaloguj się do prywatnego rejestru kontenerów przy użyciu [logowania Docker](https://github.com/azure/docker-login) . W tym przykładzie używa Azure Container Registry, ale ta sama akcja działa w przypadku innych rejestrów. 
 
-# <a name="publish-profile"></a>[Publikuj profil](#tab/publish-profile)
-
-Ten przykład pokazuje, jak utworzyć obraz Node.JS Docker przy użyciu profilu publikowania na potrzeby uwierzytelniania.
-
 
 ```yaml
 name: Linux Container Node Workflow
@@ -191,41 +187,6 @@ jobs:
         docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
-# <a name="service-principal"></a>[Nazwa główna usługi](#tab/service-principal)
-
-Ten przykład pokazuje, jak utworzyć obraz Node.JS Docker przy użyciu nazwy głównej usługi do uwierzytelnienia. 
-
-```yaml
-on: [push]
-
-name: Linux_Container_Node_Workflow
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}   
-    - uses: azure/docker-login@v1
-      with:
-        login-server: mycontainer.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}  
-    - run: |
-        docker build . -t mycontainer.azurecr.io/myapp:${{ github.sha }}
-        docker push mycontainer.azurecr.io/myapp:${{ github.sha }}      
-    - name: Azure logout
-      run: |
-        az logout
-```
-
----
 
 ## <a name="deploy-to-an-app-service-container"></a>Wdrażanie do kontenera App Service
 
@@ -237,7 +198,7 @@ Aby wdrożyć obraz do niestandardowego kontenera w App Service, użyj `azure/we
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |
 | **rastrow** | W pełni kwalifikowana nazwa obrazu kontenera. Na przykład "myregistry.azurecr.io/nginx:latest" lub "Python: 3.7.2-Alpine/". W przypadku scenariusza z wieloma kontenerami można podać wiele nazw obrazów kontenerów (rozdzielonych w wielu wierszach) |
 | **Nazwa gniazda** | Obowiązkowe Wprowadź istniejące miejsce poza miejscem produkcyjnym |
-| **plik konfiguracji** | Obowiązkowe Ścieżka pliku z systemem Docker — redagowanie |
+| **plik konfiguracji** | Obowiązkowe Ścieżka pliku Docker-Compose |
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/publish-profile)
 

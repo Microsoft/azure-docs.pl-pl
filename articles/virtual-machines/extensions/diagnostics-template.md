@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 31f690277675650323763a7bc6872ad736f5776c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837010"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Używanie monitorowania i diagnostyki z MASZYNami wirtualnymi z systemem Windows i szablonami Azure Resource Manager
@@ -168,7 +168,7 @@ Przykład: *WADMetricsPT1HP10DV2S20151108* zawiera dane metryk zagregowane w ci�
 Każda tabela WADMetrics zawiera następujące kolumny:
 
 * **PartitionKey**: klucz partycji jest zbudowany na podstawie wartości *ResourceID* w celu jednoznacznego zidentyfikowania zasobu maszyny wirtualnej. Na przykład: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Format `<Descending time tick>:<Performance Counter Name>` . Malejące obliczenie cykl czasu to maksymalne cykle czasu minus czas rozpoczęcia okresu agregacji. Na przykład jeśli okres próbny rozpoczęty 10-lis-2015 i 00:00Hrs UTC, obliczenia byłyby następujące: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . W przypadku licznika wydajności liczba bajtów dostępnej pamięci zostanie wyświetlona wartość klucza wiersza:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: Format `<Descending time tick>:<Performance Counter Name>` . Malejące obliczenie cykl czasu to maksymalne cykle czasu minus czas rozpoczęcia okresu agregacji. Na przykład jeśli okres próbny rozpoczęty 10-lis-2015 i 00:00Hrs UTC, obliczenia byłyby następujące: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . W przypadku licznika wydajności liczba bajtów dostępnej pamięci zostanie wyświetlona wartość klucza wiersza: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: jest nazwą licznika wydajności. Pasuje do *counterSpecifier* zdefiniowanego w konfiguracji XML.
 * **Maksimum**: maksymalna wartość licznika wydajności w okresie agregacji.
 * **Minimum**: wartość minimalna licznika wydajności w okresie agregacji.

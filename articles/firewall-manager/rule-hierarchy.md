@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893721"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Definiowanie hierarchii reguł przy użyciu zasad zapory platformy Azure
@@ -48,7 +48,7 @@ Utwórz zasady dla każdego zespołu aplikacji:
 - Zasady zapory bazy danych. Zasady zapory bazy danych dziedziczą podstawowe zasady zapory.
 - Zasady zapory inżynieryjnej. Zasady zapory inżynieryjnej również dziedziczą podstawowe zasady zapory.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hierarchia zasad" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Zespoły i wymagania" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Tworzenie ról niestandardowych w celu uzyskania dostępu do grup kolekcji reguł 
 
@@ -128,15 +128,15 @@ Plik JSON powinien wyglądać podobnie do poniższego przykładu:
 
 ### <a name="list-custom-roles"></a>Wyświetlanie ról niestandardowych
 
-Aby wyświetlić listę wszystkich ról niestandardowych, można użyć polecenia Get-AzRoleDefinition:
+Aby wyświetlić listę wszystkich ról niestandardowych, można użyć Get-AzRoleDefinition polecenie:
 
    `Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom`
 
 Role niestandardowe można także wyświetlić w Azure Portal. Przejdź do subskrypcji, wybierz pozycję **Kontrola dostępu (IAM)**, **role**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Zespoły i wymagania":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Uprawnienie do odczytu SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Zespoły i wymagania":::
 
 Aby uzyskać więcej informacji, zobacz [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

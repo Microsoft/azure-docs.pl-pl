@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87337147"
 ---
 # <a name="azure-iot-central-architecture"></a>Architektura usługi Azure IoT Central
@@ -23,7 +23,7 @@ Ten artykuł zawiera omówienie architektury IoT Central Microsoft Azure.
 
 ![Architektura najwyższego poziomu](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Urządzenia wymieniają dane z aplikacją IoT Central platformy Azure. Urządzenie może:
 

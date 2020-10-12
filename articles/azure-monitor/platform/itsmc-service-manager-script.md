@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
 ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325308"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Tworzenie aplikacji sieci Web Service Manager przy użyciu skryptu automatycznego
@@ -21,7 +21,7 @@ Uruchom skrypt, podając następujące wymagane szczegóły:
 
 - Szczegóły subskrypcji platformy Azure
 - Nazwa grupy zasobów
-- Location
+- Lokalizacja
 - Szczegóły serwera Service Manager (nazwa serwera, domena, nazwa użytkownika i hasło)
 - Prefiks nazwy witryny dla aplikacji sieci Web
 - ServiceBus przestrzeń nazw.

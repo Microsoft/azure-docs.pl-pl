@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: a47f720344a16d0f77559d6aabfb2b0245e62976
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426337"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrowanie z programu Orchestrator do usługi Azure Automation (wersja beta)
@@ -73,7 +73,7 @@ ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <s
 * Rozdzielana przecinkami lista modułów integracji zawierających działania w elementach Runbook.
 * OutputFolder — ścieżka do folderu w celu utworzenia przekonwertowanych graficznych elementów Runbook.
 
-Następujące przykładowe polecenie konwertuje elementy Runbook w pliku eksportu o nazwie **Webrunbooks. ois_export**.  Te elementy Runbook używają Active Directory i Data Protection Manager pakietów integracyjnych.
+Następujące przykładowe polecenie konwertuje elementy Runbook w pliku eksportu o nazwie **MyRunbooks.ois_export**.  Te elementy Runbook używają Active Directory i Data Protection Manager pakietów integracyjnych.
 
 ```powershell
 ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"

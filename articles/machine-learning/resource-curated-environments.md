@@ -1,5 +1,5 @@
 ---
-title: Nadzorowane środowiska
+title: Wyselekcjonowane środowiska
 titleSuffix: Azure Machine Learning
 description: Zbieranie środowisk nadzorowanych dostępnych w Azure Machine Learning
 services: machine-learning
@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: reference
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662088"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning środowiska nadzorowane
@@ -24,7 +24,7 @@ W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz 
 > [!NOTE]
 > Ta lista jest aktualizowana z dniem 2020 września. Użyj zestawu SDK języka Python, aby uzyskać najbardziej zaktualizowaną listę. Aby uzyskać więcej informacji, zobacz [artykuł](./how-to-use-environments.md#use-a-curated-environment)dotyczący środowisk.
 
-## <a name="azureml-automl"></a>Azure — AutoML
+## <a name="azureml-automl"></a>AzureML-AutoML
 
 **Kanały pakietów:**
 
@@ -262,7 +262,7 @@ W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz 
 * jupyterlab
 * lz4
 * mpi4py
-* notesu
+* notebook
 * pyarrow
 
 ## <a name="azureml-dask-gpu"></a>Azure-Dask-GPU
@@ -290,7 +290,7 @@ W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz 
 * jupyterlab
 * lz4
 * mpi4py
-* notesu
+* notebook
 * pyarrow
 
 ## <a name="azureml-hyperdrive-forecastdnn"></a>Uczenie maszynowe — ForecastDNN
@@ -311,7 +311,7 @@ W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz 
 * azureml-train-automl-runtime
 * Azure-contrib-automl-DNN — prognozowanie
 
-## <a name="azureml-minimal"></a>Azure — minimalne
+## <a name="azureml-minimal"></a>AzureML-Minimal
 
 **Kanały pakietów:**
 
@@ -937,7 +937,7 @@ W tym artykule wymieniono środowiska nadzorowane w Azure Machine Learning oraz 
 * tensorflow — GPU
 * horovod
 
-## <a name="azureml-tutorial"></a>Uczenie maszynowe — samouczek
+## <a name="azureml-tutorial"></a>AzureML-Tutorial
 
 **Kanały pakietów:**
 

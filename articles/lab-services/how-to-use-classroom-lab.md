@@ -3,12 +3,12 @@ title: Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services | Micr
 description: Dowiedz się, jak zarejestrować się w laboratorium zajęć, wyświetlić wszystkie laboratoria, do których można uzyskać dostęp, uruchomić/zatrzymać maszynę wirtualną w laboratorium i połączyć się z maszyną wirtualną.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cd06bfc2dff27f1ef1bc84f01b001b8dbd282cf4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334059"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946114"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services
 W tym artykule opisano sposób rejestracji w laboratorium zajęć, wyświetlania wszystkich laboratoriów, do których można uzyskać dostęp, uruchamiania/zatrzymywania maszyny wirtualnej w laboratorium oraz nawiązywania połączenia z maszyną wirtualną. 

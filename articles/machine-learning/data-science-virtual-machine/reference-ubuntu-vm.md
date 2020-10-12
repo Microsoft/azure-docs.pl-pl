@@ -10,10 +10,10 @@ ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
 ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440341"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Reference: Ubuntu (Linux) Data Science Virtual Machine
@@ -253,7 +253,7 @@ Możesz również kompilować modele w języku R lub Python na maszynie wirtualn
 
 ## <a name="machine-learning-tools"></a>Narzędzia uczenia maszynowego
 
-Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Należą do nich następujące elementy:
+Maszyna wirtualna zawiera narzędzia i algorytmy uczenia maszynowego, które zostały wstępnie skompilowane i wstępnie zainstalowane lokalnie. Należą do nich:
 
 * **Vowpal Wabbit**: Krótki algorytm uczenia w trybie online.
 * **xgboost**: narzędzie, które zapewnia zoptymalizowane, podwyższające algorytmy drzewa.

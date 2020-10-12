@@ -8,10 +8,10 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327076"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights metryki oparte na dzienniku
@@ -224,7 +224,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Nieudane żądania (żądania/niepowodzenie)
 
-Liczba śledzonych żądań serwera, które zostały oznaczone jako *zakończone niepowodzeniem*. Domyślnie zestaw SDK Application Insights automatycznie oznacza każde żądanie serwera, które zwróciło kod odpowiedzi HTTP 5xx lub 4xx jako żądanie zakończone niepowodzeniem. Tę logikę można dostosować, modyfikując właściwość *Success* elementu telemetrii żądania w [niestandardowym inicjatorze telemetrii](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Liczba śledzonych żądań serwera, które zostały oznaczone jako *zakończone niepowodzeniem*. Domyślnie zestaw SDK Application Insights automatycznie oznacza każde żądanie serwera, które zwróciło kod odpowiedzi HTTP 5xx lub 4xx jako żądanie zakończone niepowodzeniem. Tę logikę można dostosować, modyfikując właściwość  *Success* elementu telemetrii żądania w [niestandardowym inicjatorze telemetrii](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Jednostka miary|Obsługiwane agregacje|Wymiary wstępnie zagregowane|Uwagi|
 |---|---|---|---|
@@ -361,7 +361,7 @@ Użycie procesora CPU przez *wszystkie* procesy uruchomione w monitorowanym wyst
 |Procent|Średnia, minimum, maksimum|Wystąpienie roli w chmurze
 
 >[!NOTE]
-> Metryka czasu procesora nie jest dostępna dla aplikacji hostowanych w usłudze Azure App Services. Metryka [procesora CPU procesu](#process-cpu-performancecountersprocesscpupercentage) służy do śledzenia użycia procesora CPU przez aplikacje sieci Web hostowane w App Services.
+> Metryka czasu procesora nie jest dostępna dla aplikacji hostowanych w usłudze Azure App Services. Metryka  [procesora CPU procesu](#process-cpu-performancecountersprocesscpupercentage) służy do śledzenia użycia procesora CPU przez aplikacje sieci Web hostowane w App Services.
 
 ```Kusto
 performanceCounters

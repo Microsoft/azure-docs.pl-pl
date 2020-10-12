@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 18814d23c634dc58148c26b67c2f669e22a136ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b84cbe57c40b12ae01952963b324b8bcfdcfd2e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554298"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945485"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Nuclino
 
@@ -121,7 +121,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -155,15 +155,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Kliknij **ikonę**.
 
-    ![Konfiguracja Nuclino](./media/nuclino-tutorial/configure1.png)
+    ![Zrzut ekranu pokazujący ikonę "menu" wybraną obok pozycji "Azure A D s S O".](./media/nuclino-tutorial/configure1.png)
 
 5. Kliknij pozycję **Logowanie jednokrotne usługi Azure AD** i wybierz pozycję **Ustawienia zespołu** z listy rozwijanej.
 
-    ![Konfiguracja Nuclino](./media/nuclino-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawiający listę rozwijaną "Azure A D s S" z wybraną pozycją "ustawienia zespołu".](./media/nuclino-tutorial/configure2.png)
 
 6. Wybierz pozycję **uwierzytelnianie** w okienku nawigacji po lewej stronie.
 
-    ![Konfiguracja Nuclino](./media/nuclino-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawiający wybraną wartość "Authentication".](./media/nuclino-tutorial/configure3.png)
 
 7. W sekcji **uwierzytelnianie** wykonaj następujące czynności:
 
@@ -196,7 +196,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Nuclino w panelu dostępu należy automatycznie zalogować się do Nuclino, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

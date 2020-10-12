@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324645"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Przygotuj zasoby techniczne modułu IoT Edge
@@ -64,7 +64,7 @@ Skopiuj ten tekst HTML lub użyj odpowiednich funkcji tekstu sformatowanego w ok
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 Moduł musi zawierać domyślne ustawienia konfiguracji, aby wdrożenie na urządzeniu IoT Edge było możliwie jak najszybciej. Te informacje można znaleźć na stronie **konfiguracja techniczna** planu w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace). Kontener może również zawierać zestaw SDK modułu IoT Edge, aby umożliwić komunikację z centrum brzegowym i IoT Hub.
 
@@ -101,7 +101,7 @@ W celu spełnienia tych oczekiwań klientów i ich opublikowania w portalu Marke
 > [!NOTE]
 > Opcjonalnie przechowywanie wersji może obejmować Tagi "wersja krocząca", takie jak 2,0 i 1,0. Obsługuje to jednocześnie obsługę wielu głównych wersji.
 
-### <a name="telemetry"></a>Telemetry
+### <a name="telemetry"></a>Telemetria
 
 Moduły korzystające z zestawu SDK modułu IoT muszą ustawić unikatowy identyfikator modułu na PublisherId. OfferId. identyfikatora skuId na potrzeby telemetrii. Unikatowy identyfikator ułatwia witrynie Azure Marketplace zidentyfikowanie liczby wystąpień modułów, które są uruchomione.
 

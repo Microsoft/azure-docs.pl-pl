@@ -4,10 +4,10 @@ description: Dowiedz się, jak usunąć dostęp do zasobów, które zostały del
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167235"
 ---
 # <a name="remove-access-to-a-delegation"></a>Usuwanie dostępu do delegacji
@@ -45,7 +45,7 @@ Tę rolę można również wybrać w **autoryzacji** podczas [tworzenia oferty u
 
 Użytkownik mający to uprawnienie może usunąć delegowanie w jeden z następujących sposobów.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 1. Przejdź do [strony moi klienci](view-manage-customers.md).
 2. Wybierz pozycję **delegacje**.

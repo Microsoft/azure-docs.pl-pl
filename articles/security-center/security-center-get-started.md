@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447173"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946019"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Szybki Start: Konfigurowanie Azure Security Center
 
@@ -33,7 +33,7 @@ Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja 
 Aby włączyć usługę Azure Defender w ramach subskrypcji, musisz mieć przypisaną rolę właściciela subskrypcji, współautora subskrypcji lub administratora zabezpieczeń.
 
 
-## <a name="open-security-center-for-the-first-time"></a>Otwórz Security Center po raz pierwszy
+## <a name="enable-security-center-on-your-azure-subscription"></a>Włączanie Security Center w ramach subskrypcji platformy Azure
 
 1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
@@ -54,6 +54,8 @@ W ciągu kilku minut od pierwszego uruchomienia usługi Security Center mogą zo
 
 Aby w pełni wykorzystać Security Center, należy wykonać poniższe kroki, aby włączyć usługę Azure Defender i zainstalować agenta Log Analytics.
 
+> [!TIP]
+> Aby włączyć Security Center we wszystkich subskrypcjach w grupie zarządzania, zobacz [włączanie Security Center w wielu subskrypcjach platformy Azure](onboard-management-group.md).
 
 ## <a name="enable-azure-defender"></a>Włączanie usługi Azure Defender
 

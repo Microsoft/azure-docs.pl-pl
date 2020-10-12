@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401745"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Weryfikowanie połączenia usługi ExpressRoute
@@ -36,24 +36,24 @@ Celem tego dokumentu jest ułatwienie użytkownikowi zidentyfikowania, czy wyst�
 
 ## <a name="overview"></a>Omówienie
 Na poniższym diagramie przedstawiono logiczne połączenie sieci klienta z siecią firmy Microsoft przy użyciu ExpressRoute.
-[![jedno]][1]
+[![1]][1]
 
 Na powyższym diagramie liczba wskazuje kluczowe punkty sieciowe. Te punkty sieciowe są przywoływane w tym artykule o ile ich skojarzona liczba. W zależności od modelu łączności ExpressRoute — połączenie z programem Exchange w chmurze, punkt-punkt połączenia Ethernet lub dowolne z nich (IPVPN) — punkty sieciowe 3 i 4 mogą być przełącznikami (urządzeniami warstwy 2) lub routerami (urządzeniami warstwy 3). W modelu łączności bezpośredniej nie ma punktów sieciowych 3 i 4; Zamiast tego (2) są bezpośrednio połączone z MSEE za pośrednictwem ciemnego włókna. Najważniejsze przedstawiane punkty sieci są następujące:
 
 1.  Urządzenie obliczeniowe klienta (na przykład serwer lub komputer)
 2.  CE: routery brzegowe klienta 
-3.  PEs (CE): dostawca/przełączniki brzegowe dostawcy, które są skierowane do routerów brzegowych klienta. Określany jako "PE-CE" w tym dokumencie.
-4.  PEs (MSEE): dostawcy krawędzi/przełączniki, które są MSEE. Określany jako MSEE PE w tym dokumencie.
+3.  PEs (CE): dostawca/przełączniki brzegowe dostawcy, które są skierowane do routerów brzegowych klienta. Określany jako PE-CEs w tym dokumencie.
+4.  PEs (MSEE): dostawcy krawędzi/przełączniki, które są MSEE. Określany jako PE-MSEEs w tym dokumencie.
 5.  MSEE: routery ExpressRoute firmy Microsoft Enterprise Edge (MSEE)
 6.  Brama Virtual Network (VNet)
 7.  Urządzenie obliczeniowe w sieci wirtualnej platformy Azure
 
 Jeśli używane są wspólne lokalizacje usługi Exchange w chmurze, sieci Ethernet typu punkt-punkt lub bezpośrednie modele połączeń, usługa rejestracji urządzeń (2) ustanawia komunikację równorzędną BGP z MSEE (5). 
 
-Jeśli używany jest model łączności "dowolny do dowolnego" (IPVPN), PE-MSEE (4) ustanawianie komunikacji równorzędnej BGP z MSEE (5). PE-MSEE Propaguj trasy otrzymane od firmy Microsoft z powrotem do sieci klienta za pośrednictwem sieci dostawcy usług IPVPN.
+Jeśli używany jest model łączności "dowolny do dowolnego" (IPVPN), PE-MSEEs (4) ustanowić komunikację równorzędną BGP z MSEE (5). PE-MSEEs propagować trasy otrzymane od firmy Microsoft z powrotem do sieci klienta za pośrednictwem sieci dostawcy usług IPVPN.
 
 > [!NOTE]
->Aby zapewnić wysoką dostępność, firma Microsoft ustanawia w pełni nadmiarowe połączenie równoległe między parami MSEE (5) i PE-MSEE (4). W pełni nadmiarowa równoległa ścieżka sieciowa jest również zachęcana do pary sieci klienta i PE-CE. Aby uzyskać więcej informacji na temat wysokiej dostępności, zobacz artykuł [projektowanie pod kątem wysokiej dostępności za pomocą ExpressRoute][HA]
+>Aby zapewnić wysoką dostępność, firma Microsoft ustanawia w pełni nadmiarowe połączenie równoległe między MSEE (5) i PE-MSEEs (4) pary. W pełni nadmiarowa równoległa ścieżka sieciowa jest również zachęcana między siecią klienta a parą PE-CEs. Aby uzyskać więcej informacji na temat wysokiej dostępności, zobacz artykuł [projektowanie pod kątem wysokiej dostępności za pomocą ExpressRoute][HA]
 >
 >
 
@@ -319,7 +319,7 @@ StatusCode: 400
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji i uzyskać pomoc, Skorzystaj z następujących linków:
 
-- [Pomoc techniczna firmy Microsoft][Support]
+- [pomoc techniczna firmy Microsoft][Support]
 - [Tworzenie i modyfikowanie obwodu usługi ExpressRoute][CreateCircuit]
 - [Tworzenie i modyfikowanie routingu dla obwodu usługi ExpressRoute][CreatePeering]
 

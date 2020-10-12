@@ -14,10 +14,10 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166437"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Korzystanie z MSAL.NET do logowania użytkowników przy użyciu tożsamości społecznościowych
@@ -31,11 +31,11 @@ Ten artykuł ma zastosowanie do MSAL.NET 3. x. W przypadku MSAL.NET 2. x zapozna
 
 ## <a name="authority-for-an-azure-ad-b2c-tenant-and-policy"></a>Urząd Azure AD B2C dzierżawy i zasad
 
-Format urzędu dla Azure AD B2C jest:`https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
+Format urzędu dla Azure AD B2C jest: `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname`-Nazwa dzierżawy Azure AD B2C i hosta. Na przykład *contosob2c.b2clogin.com*.
-- `tenant`— Nazwa domeny lub identyfikator katalogu dzierżawcy Azure AD B2C. Na przykład odpowiednio *contosob2c.onmicrosoft.com* lub GUID.
-- `policyName`-Nazwa przepływu użytkownika lub zasad niestandardowych, które mają zostać zastosowane. Na przykład zasady rejestracji/logowania, takie jak *b2c_1_susi*.
+- `azureADB2CHostname` -Nazwa dzierżawy Azure AD B2C i hosta. Na przykład *contosob2c.b2clogin.com*.
+- `tenant` — Nazwa domeny lub identyfikator katalogu dzierżawcy Azure AD B2C. Na przykład odpowiednio *contosob2c.onmicrosoft.com* lub GUID.
+- `policyName` -Nazwa przepływu użytkownika lub zasad niestandardowych, które mają zostać zastosowane. Na przykład zasady rejestracji/logowania, takie jak *b2c_1_susi*.
 
 Aby uzyskać więcej informacji na temat Azure AD B2C urzędów, zobacz [Ustawianie adresów URL przekierowania na b2clogin.com](../../active-directory-b2c/b2clogin.md).
 
@@ -76,9 +76,9 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 W poprzednim fragmencie kodu:
 
-- `policy`jest ciągiem zawierającym nazwę przepływu użytkownika Azure AD B2C lub zasad niestandardowych (na przykład `PolicySignUpSignIn` ).
-- `ParentActivityOrWindow`jest wymagana w przypadku systemu Android (działanie) i jest opcjonalne dla innych platform, które obsługują nadrzędny interfejs użytkownika, taki jak Windows w systemach Microsoft Windows i UIViewController w systemie iOS. Aby uzyskać więcej informacji o interfejsie użytkownika, zobacz [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) The MSAL wiki.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`to metoda, która odnajduje konto dla danej zasady. Na przykład:
+- `policy` jest ciągiem zawierającym nazwę przepływu użytkownika Azure AD B2C lub zasad niestandardowych (na przykład `PolicySignUpSignIn` ).
+- `ParentActivityOrWindow` jest wymagana w przypadku systemu Android (działanie) i jest opcjonalne dla innych platform, które obsługują nadrzędny interfejs użytkownika, taki jak Windows w systemach Microsoft Windows i UIViewController w systemie iOS. Aby uzyskać więcej informacji o interfejsie użytkownika, zobacz [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) The MSAL wiki.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` to metoda, która odnajduje konto dla danej zasady. Na przykład:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -136,7 +136,7 @@ Przy użyciu nazwy użytkownika/hasła w przepływie ROPC można naświęcić ki
 
 W dzierżawie Azure AD B2C Utwórz nowy przepływ użytkownika i wybierz pozycję **Zaloguj się za pomocą ROPC** , aby włączyć ROPC dla przepływu użytkownika. Aby uzyskać więcej informacji, zobacz [Konfigurowanie przepływu poświadczeń hasła właściciela zasobu](../../active-directory-b2c/configure-ropc.md).
 
-`IPublicClientApplication`zawiera `AcquireTokenByUsernamePassword` metodę:
+`IPublicClientApplication` zawiera `AcquireTokenByUsernamePassword` metodę:
 
 ```csharp
 AcquireTokenByUsernamePassword(
@@ -169,7 +169,7 @@ MSAL.NET obsługuje [pamięć podręczną tokenów](/dotnet/api/microsoft.identi
 
 Obecnie MSAL.NET potrzebuje dwóch oświadczeń, aby utworzyć klucz pamięci podręcznej tokenu:
 
-- `tid`(identyfikator dzierżawy usługi Azure AD)
+- `tid` (identyfikator dzierżawy usługi Azure AD)
 - `preferred_username`
 
 W scenariuszach Azure AD B2C mogą brakować obydwu oświadczeń, ponieważ nie wszyscy dostawcy tożsamości społecznościowej (Facebook, Google i innych) zwracają je w tokenach, które zwracają do Azure AD B2C.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: bef0b2d0387b82140e9874f837d9464408d78090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05fd1fc23afc72174f5454c805dd59a6eb2e9714
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546971"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla Confluence
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Kantega Logowanie jednokrotne dla domeny Confluence i adresów URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący sekcję "podstawowa S A M" konfiguracji z wyróżnionymi polami "identifier" i "reply U R L" oraz wybranym przyciskiem "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,47 +134,47 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon1.png)
+    ![Zrzut ekranu pokazujący ikonę menu "koło zębate" i wybrane "Dodatki".](./media/kantegassoforconfluence-tutorial/addon1.png)
 
 1. Na karcie **ATLASSIAN MARKETPLACE** (Platforma handlowa Atlassian) kliknij pozycję **Find new add-ons** (Znajdź nowe dodatki).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon.png)
+    ![Zrzut ekranu pokazujący kartę "ATTLASSIAN MARKETPLACE" z wybraną pozycją "Znajdź nowe dodatki".](./media/kantegassoforconfluence-tutorial/addon.png)
 
 1. Wyszukaj **Kantega Logowanie jednokrotne dla Confluence protokołu SAML Kerberos** i kliknij przycisk **Instaluj** , aby zainstalować nową wtyczkę SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon2.png)
+    ![Zrzut ekranu przedstawiający stronę "Znajdź nowe dodatki" z opcją "Kantega S S for Confluence S A M L Kerberos" w polu wyszukiwania i wybranym przyciskiem "Zainstaluj".](./media/kantegassoforconfluence-tutorial/addon2.png)
 
 1. Rozpocznie się instalacja wtyczki.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon3.png)
+    ![Zrzut ekranu przedstawiający ekran wtyczki "Installing" (Instalowanie).](./media/kantegassoforconfluence-tutorial/addon3.png)
 
 1. Po zakończeniu instalacji. Kliknij przycisk **Zamknij**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon33.png)
+    ![Zrzut ekranu przedstawiający ekran "zainstalowane i gotowe do użycia" z wybraną akcją "Zamknij".](./media/kantegassoforconfluence-tutorial/addon33.png)
 
 1. Kliknij pozycję **Zarządzaj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon34.png)
+    ![Zrzut ekranu, który pokazuje wtyczkę "Logowanie jednokrotne w usłudze Kantega with Kerberos i S L" z wybranym przyciskiem "Zarządzaj".](./media/kantegassoforconfluence-tutorial/addon34.png)
 
 1. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon35.png)
+    ![Zrzut ekranu przedstawiający stronę "Logowanie jednokrotne przy użyciu protokołu Kerberos i S-M" z wybranym przyciskiem "Konfiguruj".](./media/kantegassoforconfluence-tutorial/addon35.png)
 
 1. Ten nowy dodatek plug-in można także znaleźć na karcie **USERS & SECURITY** (Użytkownicy i zabezpieczenia).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon36.png)
+    ![Zrzut ekranu pokazujący kartę "Użytkownicy & zabezpieczenia" z wybraną akcją "Logowanie jednokrotne w Kantega".](./media/kantegassoforconfluence-tutorial/addon36.png)
 
 1. W sekcji **SAML** . Wybierz pozycję **Azure Active Directory (Azure AD)** z listy rozwijanej **Dodaj dostawcę tożsamości** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon4.png)
+    ![Zrzut ekranu pokazujący sekcję "S A M" z wybraną pozycją "Dodaj dostawcę tożsamości" i "Azure Active Directory (Azure AD)".](./media/kantegassoforconfluence-tutorial/addon4.png)
 
 1. Wybierz poziom subskrypcji jako **podstawowy**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon5.png)
+    ![Zrzut ekranu przedstawiający stronę "Przygotowywanie usługi Azure AD" z wybraną pozycją "podstawowa".](./media/kantegassoforconfluence-tutorial/addon5.png)
 
 1. W sekcji **właściwości aplikacji** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon6.png)
+    ![Zrzut ekranu pokazujący sekcję "właściwości aplikacji" z wyróżnionym polem "app and D U R L" i "Copy" (Kopiuj) i wybranym przyciskiem "dalej".](./media/kantegassoforconfluence-tutorial/addon6.png)
 
     a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
 
@@ -182,7 +182,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. W sekcji **Importowanie metadanych** wykonaj następujące czynności: 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawiający sekcję "import metadanych" z wybraną pozycją "plik metadanych na moim komputerze".](./media/kantegassoforconfluence-tutorial/addon7.png)
 
     a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
@@ -190,7 +190,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. W sekcji **Nazwa i lokalizacja logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon8.png)
+    ![Zrzut ekranu pokazujący lokalizację "Nazwa i S" z wyróżnioną polem tekstowym "Nazwa dostawcy tożsamości" i wybranym przyciskiem "dalej".](./media/kantegassoforconfluence-tutorial/addon8.png)
 
     a. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
 
@@ -198,11 +198,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Sprawdź certyfikat podpisywania i kliknij przycisk **dalej**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon9.png)
+    ![Zrzut ekranu przedstawiający sekcję "Weryfikacja podpisu" z wybranym przyciskiem "dalej".](./media/kantegassoforconfluence-tutorial/addon9.png)
 
 1. W sekcji **konta użytkowników Confluence** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon10.png)
+    ![Zrzut ekranu przedstawiający sekcję "Confluence User Accounts" z zaznaczoną opcją "Utwórz użytkowników w katalogu wewnętrznym Confluence" i "dalej".](./media/kantegassoforconfluence-tutorial/addon10.png)
 
     a. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym Confluence** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
 
@@ -210,11 +210,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą logowania j
 
 1. Kliknij przycisk **Finish** (Zakończ).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon11.png)
+    ![Zrzut ekranu przedstawiający stronę "Podsumowanie" z wybranym przyciskiem "Zakończ".](./media/kantegassoforconfluence-tutorial/addon11.png)
 
 1. W sekcji **znane domeny dla usługi Azure AD** wykonaj następujące czynności: 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforconfluence-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawiający stronę "znane domeny dla usługi Azure AD" z wyróżnionym polem tekstowym "znane domeny" i wybranym przyciskiem "Zapisz".](./media/kantegassoforconfluence-tutorial/addon12.png)
 
     a. Wybierz opcję **znane domeny** w lewym panelu strony.
 
@@ -245,7 +245,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -283,7 +283,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Conflue
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
-    ![Dodawanie pracownika](./media/kantegassoforconfluence-tutorial/user1.png)
+    ![Zrzut ekranu pokazujący ikonę "koło zębate" i wybraną wartość "Zarządzanie użytkownikami".](./media/kantegassoforconfluence-tutorial/user1.png)
 
 1. W obszarze Użytkownicy kliknij przycisk **Dodaj użytkowników** kartę. Na stronie **Dodawanie użytkownika** wykonaj następujące czynności:
 

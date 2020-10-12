@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 6f7f2adb5c3e154c3910ee1082e9afad70de9758
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836177"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Typowe polecenia programu PowerShell do tworzenia maszyn wirtualnych platformy Azure i zarządzania nimi
@@ -30,7 +30,7 @@ Te zmienne mogą być przydatne w przypadku uruchamiania więcej niż jednego po
 
 | Zadanie | Polecenie |
 | ---- | ------- |
-| Tworzenie prostej maszyny wirtualnej | [New-AzVM](/powershell/module/az.compute/new-azvm) -Name $myVM <BR></BR><BR></BR> Polecenie New-AzVM ma zestaw *uproszczonych* parametrów, gdzie wszystkie wymagane są pojedynczymi nazwami. Wartość parametru-name będzie używana jako nazwa wszystkich zasobów wymaganych do utworzenia nowej maszyny wirtualnej. Można określić więcej, ale jest to wymagane.|
+| Tworzenie prostej maszyny wirtualnej | [New-AzVM](/powershell/module/az.compute/new-azvm) -Name $myVM <BR></BR><BR></BR> New-AzVM ma zestaw *uproszczonych* parametrów, gdzie wszystkie wymagane są pojedynczymi nazwami. Wartość parametru-name będzie używana jako nazwa wszystkich zasobów wymaganych do utworzenia nowej maszyny wirtualnej. Można określić więcej, ale jest to wymagane.|
 | Tworzenie maszyny wirtualnej na podstawie obrazu niestandardowego | New-AzVm-ResourceGroupName $myResourceGroup-Name $myVM ImageName "Moja Image" — Lokalizacja $location  <BR></BR><BR></BR>Musisz już utworzyć własny [zarządzany obraz](capture-image-resource.md). Możesz użyć obrazu, aby utworzyć wiele identycznych maszyn wirtualnych. |
 
 
@@ -51,7 +51,7 @@ Te zmienne mogą być przydatne w przypadku uruchamiania więcej niż jednego po
 | Zadanie | Polecenie |
 | ---- | ------- |
 | Wyświetlanie listy maszyn wirtualnych w ramach subskrypcji |[Get-AzVM](/powershell/module/az.compute/get-azvm) |
-| Wyświetlanie listy maszyn wirtualnych w grupie zasobów |Get-AzVM-ResourceGroupName $myResourceGroup<BR></BR><BR></BR>Aby uzyskać listę grup zasobów w subskrypcji, użyj polecenie [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup). |
+| Wyświetlanie listy maszyn wirtualnych w grupie zasobów |Get-AzVM — ResourceGroupName $myResourceGroup<BR></BR><BR></BR>Aby uzyskać listę grup zasobów w subskrypcji, użyj polecenie [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup). |
 | Uzyskiwanie informacji o maszynie wirtualnej |Get-AzVM-ResourceGroupName $myResourceGroup-Name $myVM |
 
 ## <a name="manage-vms"></a>Zarządzanie maszynami wirtualnymi

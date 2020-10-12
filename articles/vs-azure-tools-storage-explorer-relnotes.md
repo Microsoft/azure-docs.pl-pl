@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828782"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage
@@ -39,7 +39,7 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
       * Przekaż, w tym przeciągnij & upuść
       * Pobierz
       * Kopiuj & wklej #1249
-      * Usuń
+      * Usuwanie
    * ADLS Gen2 obiektów BLOB
       * Przekaż, w tym przeciągnij & upuść
       * Pobierz
@@ -161,14 +161,14 @@ Aby pobrać wcześniejsze wersje Eksplorator usługi Storage, odwiedź [stronę 
 
 ### <a name="new"></a>Nowy
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-  * Motyw
+  * motyw
   * Serwer proxy
   * Wyloguj się #6 zakończenia
   * Włącz logowanie przy użyciu przepływu kodu urządzenia
   * #1526 AutoRefresh
   * Włącz AzCopy
   * AzCopy czas trwania SAS Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) z opisem ustawienia, które chcesz zobaczyć.
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
   * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
   * Pobieranie dysku
   * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -233,7 +233,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
 ### <a name="new"></a>Nowy
 
 * Eksplorator usługi Storage ma teraz interfejs użytkownika dedykowanych ustawień. Możesz uzyskać do niego dostęp przy użyciu opcji Edytuj ustawienia → lub klikając ikonę Ustawienia (koła zębatego) na pasku narzędzi po lewej stronie. Ta funkcja jest pierwszą czynnością, którą należy wykonać, aby zapewnić różne [Ustawienia użytkownika](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). Począwszy od tej wersji, obsługiwane są następujące ustawienia:
-    * Motyw
+    * motyw
     * Serwer proxy
     * Wyloguj się [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) zakończenia
     * Włącz logowanie przy użyciu przepływu kodu urządzenia
@@ -242,7 +242,7 @@ Przekazywanie, pobieranie i między regionami kopiowanie dysków jest obsługiwa
     * Czas trwania AzCopy SAS
 
     Jeśli istnieją inne ustawienia, które chcesz zobaczyć, [Otwórz problem w usłudze GitHub z opisem ustawienia, które chcesz zobaczyć](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* Eksplorator usługi Storage teraz obsługuje Managed Disks. Można:
+* Eksplorator usługi Storage teraz obsługuje Managed Disks. Dostępne możliwości:
     * Przekazywanie lokalnego wirtualnego dysku twardego do nowego dysku
     * Pobieranie dysku
     * Kopiowanie i wklejanie dysków między grupami zasobów i regionami
@@ -810,7 +810,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -866,7 +866,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -921,7 +921,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -981,7 +981,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
    * Dostosuj nazwę wyświetlaną zasobu, który jest dołączany. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
    * Dołącz do wielu lokalnych emulatorów przy użyciu różnych portów. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
    * Dodaj dołączone zasoby do paska Szybki dostęp. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
-* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Można:
+* Eksplorator usługi Storage obsługuje teraz usuwanie nietrwałe. Dostępne możliwości:
    * Skonfiguruj zasady usuwania nietrwałego, klikając prawym przyciskiem myszy węzeł kontenery obiektów BLOB dla konta magazynu.
    * Wyświetl nietrwałe usunięte obiekty blob w Edytorze obiektów blob, wybierając pozycję "aktywne i usunięte obiekty blob" na liście rozwijanej obok paska nawigacyjnego.
    * Cofnij usunięcie usuniętych nietrwałych obiektów BLOB.
@@ -1031,7 +1031,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 ### <a name="new"></a>Nowy
 * Teraz jest obsługiwane uzyskiwanie dostępu do kontenerów $web używanych przez statyczne witryny sieci Web. Dzięki temu można łatwo przekazywać pliki i foldery używane przez witrynę sieci Web oraz zarządzać nimi. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * Pasek aplikacji na macOS został zreorganizowany. Zmiany obejmują menu plik, niektóre zmiany klawiszy skrótów i kilka nowych poleceń w menu aplikacji. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Punkt końcowy urzędu certyfikacji w celu zalogowania się do instytucji rządowych usługi Azure USA został zmieniony nahttps://login.microsoftonline.us/
+* Punkt końcowy urzędu certyfikacji w celu zalogowania się do instytucji rządowych usługi Azure USA został zmieniony na https://login.microsoftonline.us/
 * Ułatwienia dostępu: gdy czytnik ekranu jest aktywny, Nawigacja klawiatury działa teraz z tabelami używanymi do wyświetlania elementów po prawej stronie. Możesz użyć klawiszy strzałek, aby nawigować po wierszach i kolumnach, wprowadzić, aby wywoływać akcje domyślne, klucz menu kontekstowego, aby otworzyć menu kontekstowe dla elementu, a następnie przesunąć lub wybrać opcję wyboru wieloselect. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>Poprawki
@@ -1414,7 +1414,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Eksplorator usługi Storage będzie teraz wstrzymywać iteracje podczas przekazywania/pobierania obiektów blob, jeśli wykryje, że połączenie sieciowe zostało utracone. Następnie można wznowić iterację po ponownym nawiązaniu połączenia sieciowego.
 * Dodano możliwość "Zamknij wszystkie", "Zamknij inne" i "Zamknij" z menu kontekstowego.
 * Eksplorator usługi Storage teraz używa natywnych okien dialogowych i natywnych menu kontekstowych.
-* Eksplorator usługi Storage jest teraz bardziej dostępny. Ulepszenia obejmują:
+* Eksplorator usługi Storage jest teraz bardziej dostępny. Wprowadzono następujące ulepszenia:
     * Ulepszona obsługa czytnika ekranu dla NVDA w systemie Windows i dla VoiceOver na komputerze Mac
     * Ulepszone aplikacje z dużym kontrastem
     * Poprawki dotyczące kart i fokus klawiatury
@@ -1470,7 +1470,7 @@ Na koniec obsługa używania AzCopy z udziałami plików będzie w przyszłości
 * Eksplorator usługi Storage będzie teraz wstrzymywać iteracje podczas przekazywania/pobierania obiektów blob, jeśli wykryje, że połączenie sieciowe zostało utracone. Następnie można wznowić iterację po ponownym nawiązaniu połączenia sieciowego.
 * Dodano możliwość "Zamknij wszystkie", "Zamknij inne" i "Zamknij" z menu kontekstowego.
 * Eksplorator usługi Storage teraz używa natywnych okien dialogowych i natywnych menu kontekstowych.
-* Eksplorator usługi Storage jest teraz bardziej dostępny. Ulepszenia obejmują:
+* Eksplorator usługi Storage jest teraz bardziej dostępny. Wprowadzono następujące ulepszenia:
     * Ulepszona obsługa czytnika ekranu dla NVDA w systemie Windows i dla VoiceOver na komputerze Mac
     * Ulepszone aplikacje z dużym kontrastem
     * Poprawki dotyczące kart i fokus klawiatury
