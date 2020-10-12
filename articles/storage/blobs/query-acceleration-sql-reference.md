@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659570"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Dokumentacja języka SQL przyspieszania zapytań
@@ -61,7 +61,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |FLOAT    |64-bitowa ("Podwójna precyzja") liczba zmiennoprzecinkowa.|
 |PARAMETRY   |Ciąg Unicode o zmiennej długości.            |
 |ZNACZNIK czasu|Punkt w czasie.                           |
-|TYPU  |Prawda lub fałsz.                             |
+|TYPU  |TRUE lub FALSE.                             |
 
 Podczas odczytywania wartości z danych w formacie CSV wszystkie wartości są odczytywane jako ciągi.  Wartości ciągu mogą być konwertowane na inne typy przy użyciu wyrażeń RZUTowania.  Wartości mogą być niejawnie rzutowane na inne typy w zależności od kontekstu. Aby uzyskać więcej informacji, zobacz [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
@@ -91,14 +91,14 @@ Obsługiwane są następujące standardowe operatory SQL:
 |[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Dzieli jedną liczbę przez inną (operator dzielenia arytmetycznego).|
 |[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Mnoży dwa wyrażenia (operator mnożenia arytmetycznego).|
 |[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Zwraca resztę z jednej liczby podzieloną przez inny.|
-|[LUB](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Wykonuje bitowe operacje logiczne i między dwiema wartościami całkowitymi.|
-|[ORAZ](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Wykonuje bitową logiczną lub operację między dwoma określonymi wartościami całkowitymi jako przetłumaczone na wyrażenia binarne w instrukcjach języka Transact-SQL.|
-|[NIEMOŻLIWE](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negacja wartości logicznej.|
+|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Wykonuje bitowe operacje logiczne i między dwiema wartościami całkowitymi.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Wykonuje bitową logiczną lub operację między dwoma określonymi wartościami całkowitymi jako przetłumaczone na wyrażenia binarne w instrukcjach języka Transact-SQL.|
+|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negacja wartości logicznej.|
 |[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konwertuje wyrażenie jednego typu danych na inne.|
 |[ZAKRESU](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Określa zakres do przetestowania.|
 |[PODCZAS](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Określa, czy określona wartość dopasowuje dowolną wartość w podzapytaniu lub liście.|
 |[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Zwraca wartość null, jeśli dwa określone wyrażenia są równe.|
-|[ŁĄCZONYCH](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Oblicza argumenty w kolejności i zwraca bieżącą wartość pierwszego wyrażenia, które początkowo nie ma wartości NULL.|
+|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Oblicza argumenty w kolejności i zwraca bieżącą wartość pierwszego wyrażenia, które początkowo nie ma wartości NULL.|
 
 Jeśli typy danych po lewej i prawej stronie operatora są inne, konwersja automatyczna będzie wykonywana zgodnie z regułami określonymi tutaj: [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
@@ -336,7 +336,7 @@ W większości przypadków rozmiar każdej partii będzie nieco większy niż ok
 >[!NOTE]
 > Split_size musi być co najmniej 10 MB (10485760).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przyspieszenie kwerendy Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
 - [Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)

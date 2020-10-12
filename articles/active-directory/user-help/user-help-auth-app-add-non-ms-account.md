@@ -12,10 +12,10 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015974"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Dodawanie kont innych niż Microsoft do aplikacji Microsoft Authenticator
@@ -186,12 +186,12 @@ Dodaj konto Amazon, włączając weryfikację dwuskładnikową, a następnie dod
 
 10. Na stronie **Dodaj metodę weryfikacji kopii zapasowej** na komputerze wpisz sześciocyfrowy kod weryfikacyjny dostarczony przez metodę weryfikacji kopii zapasowej dla konta Amazon, a następnie wybierz pozycję **Weryfikuj kod i Kontynuuj**.
 
-11. Na **prawie gotowe** strony Zdecyduj, czy komputer ma być zaufanym urządzeniem, a następnie wybierz **go. Włącz weryfikację dwuetapową**.
+11. Na **prawie gotowe** strony Zdecyduj, czy komputer ma być zaufanym urządzeniem, a następnie wybierz **go. Włącz weryfikację Two-Step**.
 
     Zostanie wyświetlona strona **Zaawansowane ustawienia zabezpieczeń** zawierająca zaktualizowane dane weryfikacji dwuskładnikowej.
 
     >[!NOTE]
-    >Aby uzyskać więcej informacji na temat weryfikacji dwuskładnikowej i konta Amazon, zobacz [Informacje o weryfikacji dwuetapowej](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) i [zalogowaniu się przy użyciu weryfikacji dwuetapowej](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
+    >Aby uzyskać więcej informacji na temat weryfikacji dwuskładnikowej i konta Amazon, zobacz [Informacje o weryfikacji Two-Step](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) i [zalogowaniu się przy użyciu weryfikacji Two-Step](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
 ## <a name="next-steps"></a>Następne kroki
 

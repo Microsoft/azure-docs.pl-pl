@@ -5,10 +5,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651566"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Wdróż konsorcjum sieci szkieletowej w usłudze Azure Kubernetes Service
@@ -385,7 +385,7 @@ Uruchom następujące polecenie, aby wysłać zapytanie do chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Zatwierdzanie elementów równorzędnych jest elementami równorzędnymi, gdzie chaincode jest zainstalowana i jest wywoływana do wykonania transakcji. Należy ustawić `<endorsingPeers>` , aby zawierała nazwy węzłów równorzędnych z bieżącej organizacji równorzędnej. Wyświetl listę elementów równorzędnych poświadczających dla danej kombinacji chaincode i kanału rozdzielonych spacjami. Na przykład: `-p "peer1" "peer3"`.
+Zatwierdzanie elementów równorzędnych jest elementami równorzędnymi, gdzie chaincode jest zainstalowana i jest wywoływana do wykonania transakcji. Należy ustawić `<endorsingPeers>` , aby zawierała nazwy węzłów równorzędnych z bieżącej organizacji równorzędnej. Wyświetl listę elementów równorzędnych poświadczających dla danej kombinacji chaincode i kanału rozdzielonych spacjami. Przykład: `-p "peer1" "peer3"`.
 
 Jeśli używasz *azhlfTool* do instalacji chaincode, Przekaż wszystkie nazwy węzłów równorzędnych jako wartość do argumentu zatwierdzania elementu równorzędnego. Chaincode jest zainstalowany w każdym węźle równorzędnym dla tej organizacji. 
 

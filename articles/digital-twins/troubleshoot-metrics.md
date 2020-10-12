@@ -8,10 +8,10 @@ ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322635"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
@@ -34,12 +34,12 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
     
 3. Możesz wysłać dane metryk do punktu końcowego Event Hubs lub konta usługi Azure Storage, wybierając z menu pozycję **Ustawienia diagnostyczne** , a następnie **Dodaj ustawienie diagnostyczne**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Zrzut ekranu przedstawiający stronę metryki usługi Azure Digital bliźniaczych reprezentacji":::
 
     Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).
 
 4. Możesz skonfigurować alerty dla danych metryk, wybierając pozycję **alerty** z menu, a następnie **+ Nowa reguła alertu**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Zrzut ekranu przedstawiający stronę metryki usługi Azure Digital bliźniaczych reprezentacji":::
 
     Aby uzyskać więcej informacji o tym procesie, zobacz [*Rozwiązywanie problemów: Konfigurowanie alertów*](troubleshoot-alerts.md).
 
@@ -98,7 +98,7 @@ Wymiary ułatwiają znalezienie dodatkowych informacji o metrykach. Niektóre me
 
 | Wymiar | Wartości |
 | --- | --- |
-| Authentication | OAuth |
+| Uwierzytelnianie | OAuth |
 | Operacja (dla żądań interfejsu API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/odczyt, <br>Microsoft. DigitalTwins/eventroutes/odczyt, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/modele/odczyt, <br>Microsoft. DigitalTwins/modele/zapis, <br>Microsoft. DigitalTwins/modele/usuwanie, <br>Microsoft. DigitalTwins/kwerenda/akcja |
 | Typ punktu końcowego | Event Grid <br>Centrum zdarzeń, <br>Service Bus |
 | Protokół | HTTPS |

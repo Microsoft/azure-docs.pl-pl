@@ -8,13 +8,13 @@ ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b60cf34e8efed2ed63b6e35cfaf7445edb701610
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82838505"
 ---
-# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Często zadawane pytania dotyczące Analysis Services łączności sieciowej
+# <a name="frequently-asked-questions-about-analysis-services-network-connectivity"></a>Często zadawane pytania dotyczące łączności sieciowej usług Analysis Services
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące łączenia się z kontami magazynu, źródłami danych, zaporami i adresami IP.
 
@@ -48,4 +48,4 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące łączeni
 
 [Instalowanie i Konfigurowanie lokalnej bramy danych](analysis-services-gateway-install.md)   
 [Łączenie z lokalnymi źródłami danych za pomocą lokalnej bramy danych](analysis-services-gateway.md)   
-[Używanie bramy dla źródeł danych w usłudze Azure Virtual Network (Sieć wirtualna)](analysis-services-vnet-gateway.md)
+[Używanie bramy dla źródeł danych w usłudze Azure Virtual Network (VNet)](analysis-services-vnet-gateway.md)

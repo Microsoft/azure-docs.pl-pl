@@ -4,10 +4,10 @@ description: Opisuje tworzenie, wdrażanie, testowanie, uaktualnianie, konserwow
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: 6a36c97c6f1be96dcb8353e886f2159929e8e794
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248314"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric application lifecycle (Cykl życia aplikacji usługi Service Fabric)
@@ -19,7 +19,7 @@ Podobnie jak w przypadku innych platform, aplikacja na platformie Azure Service 
 Role modelu usługi:
 
 * **Deweloper usługi**: opracowuje modularne i ogólne usługi, które mogą być przeznaczenie i używane w wielu aplikacjach tego samego typu lub różnych typów. Na przykład usługa kolejki może służyć do tworzenia aplikacji biletów (pomocy technicznej) lub aplikacji handlu elektronicznego (koszyk).
-* **Deweloper aplikacji**: tworzy aplikacje przez integrację kolekcji usług w celu spełnienia określonych wymagań lub scenariuszy. Na przykład witryna internetowa handlu elektronicznego może zintegrować usługę frontonu w formacie JSON, "" usługa stanowa aukcji "i" usługa stanowa kolejki "w celu utworzenia rozwiązania z licytacją.
+* **Deweloper aplikacji**: tworzy aplikacje przez integrację kolekcji usług w celu spełnienia określonych wymagań lub scenariuszy. Na przykład witryna handlu elektronicznego może zintegrować usługę "bezstanowe JSON Front-End," "usługa stanowa aukcji" i "usługa stanowa kolejki" w celu utworzenia rozwiązania z licytacją.
 * **Administrator aplikacji**: podejmuje decyzje dotyczące konfiguracji aplikacji (wypełniając parametry szablonu konfiguracji), wdrożenie (mapowanie do dostępnych zasobów) i jakość usługi. Na przykład administrator aplikacji decyduje ustawienia regionalne języka (w języku angielskim dla Stany Zjednoczone lub japońskiego dla Japonii, na przykład) aplikacji. Inna wdrożona aplikacja może mieć inne ustawienia.
 * **Operator**: wdraża aplikacje na podstawie konfiguracji aplikacji i wymagań określonych przez administratora aplikacji. Na przykład operator inicjuje i wdraża aplikację i zapewnia jej działanie na platformie Azure. Operatory monitorują informacje o kondycji i wydajności aplikacji oraz przechowują infrastrukturę fizyczną zgodnie z wymaganiami.
 
@@ -41,7 +41,7 @@ Zobacz Wprowadzenie do [Reliable Actors](service-fabric-reliable-actors-get-star
 
 Zobacz temat [wdrażanie aplikacji](service-fabric-deploy-remove-applications.md) na przykład.
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testowanie
 1. Po wdrożeniu w lokalnym klastrze projektowym lub w klastrze testowym *Deweloper usługi* uruchamia wbudowany Scenariusz testowania trybu failover przy użyciu klas [**FailoverTestScenarioParameters**](/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) i [**FailoverTestScenario**](/dotnet/api/system.fabric.testability.scenario.failovertestscenario) lub [polecenia cmdlet **Invoke-ServiceFabricFailoverTestScenario** ](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). Scenariusz testowania trybu failover uruchamia określoną usługę za pomocą ważnych przejść i trybu failover, aby upewnić się, że jest ona nadal dostępna i działa.
 2. *Deweloper usługi* następnie uruchamia wbudowany Scenariusz testowania chaos przy użyciu klas [**ChaosTestScenarioParameters**](/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) i [**ChaosTestScenario**](/dotnet/api/system.fabric.testability.scenario.chaostestscenario) lub [polecenia cmdlet **Invoke-ServiceFabricChaosTestScenario** ](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). Scenariusz testu chaos losowo wywołuje wiele błędów węzła, pakietu kodu i repliki w klastrze.
 3. *Deweloper usług* [testuje komunikację między](service-fabric-testability-scenarios-service-communication.md) usługą, tworząc scenariusze testów, które przenoszą repliki podstawowe wokół klastra.

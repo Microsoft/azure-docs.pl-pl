@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249907"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Szablony produktów w usłudze Azure API Management
@@ -37,7 +37,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="product-list"></a><a name="ProductList"></a>Lista produktów  
+##  <a name="product-list"></a><a name="ProductList"></a> Lista produktów  
  Szablon **Lista produktów** umożliwia dostosowanie treści strony Lista produktów w portalu dla deweloperów.  
   
  ![Lista produktów](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -79,7 +79,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |Stronicowanie|Jednostka [stronicowania](api-management-template-data-model-reference.md#Paging) .|Informacje o stronicowaniu dla kolekcji Products.|  
 |Filtrowanie|Obiekt [filtrowania](api-management-template-data-model-reference.md#Filtering) .|Informacje o filtrowaniu na stronie listy produktów.|  
@@ -123,7 +123,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="product"></a><a name="Product"></a>Iloczyn  
+##  <a name="product"></a><a name="Product"></a> Iloczyn  
  Szablon **produktu** pozwala na dostosowanie treści strony produktu w portalu dla deweloperów.  
   
  ![Strona produktu portalu dla deweloperów](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -204,19 +204,19 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
-|Iloczyn|[Product](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
-|IsDeveloperSubscribed|wartość logiczna|Czy bieżący użytkownik subskrybuje ten produkt.|  
-|SubscriptionState|liczba|Stan subskrypcji. Możliwe stany to:<br /><br /> -   `0 - suspended`— subskrypcja została zablokowana i subskrybent nie może wywołać żadnych interfejsów API produktu.<br />-   `1 - active`— subskrypcja jest aktywna.<br />-   `2 - expired`— subskrypcja osiągnęła swoją datę wygaśnięcia i została zdezaktywowana.<br />-   `3 - submitted`— żądanie subskrypcji zostało wykonane przez dewelopera, ale jeszcze nie zostało zatwierdzone lub odrzucone.<br />-   `4 - rejected`— żądanie subskrypcji zostało odrzucone przez administratora.<br />-   `5 - cancelled`— subskrypcja została anulowana przez dewelopera lub administratora.|  
-|Limity|tablica|Ta właściwość jest przestarzała i nie powinna być używana.|  
-|DelegatedSubscriptionEnabled|wartość logiczna|Czy [delegowanie](./api-management-howto-setup-delegation.md) jest włączone dla tej subskrypcji.|  
+|Produkt|[Product](api-management-template-data-model-reference.md#Product)|Określony produkt.|  
+|IsDeveloperSubscribed|boolean|Czy bieżący użytkownik subskrybuje ten produkt.|  
+|SubscriptionState|liczba|Stan subskrypcji. Możliwe stany to:<br /><br /> -   `0 - suspended` — subskrypcja została zablokowana i subskrybent nie może wywołać żadnych interfejsów API produktu.<br />-   `1 - active` — subskrypcja jest aktywna.<br />-   `2 - expired` — subskrypcja osiągnęła swoją datę wygaśnięcia i została zdezaktywowana.<br />-   `3 - submitted` — żądanie subskrypcji zostało wykonane przez dewelopera, ale jeszcze nie zostało zatwierdzone lub odrzucone.<br />-   `4 - rejected` — żądanie subskrypcji zostało odrzucone przez administratora.<br />-   `5 - cancelled` — subskrypcja została anulowana przez dewelopera lub administratora.|  
+|Limity|array|Ta właściwość jest przestarzała i nie powinna być używana.|  
+|DelegatedSubscriptionEnabled|boolean|Czy [delegowanie](./api-management-howto-setup-delegation.md) jest włączone dla tej subskrypcji.|  
 |DelegatedSubscriptionUrl|ciąg|Jeśli Delegowanie jest włączone, delegowany adres URL subskrypcji.|  
-|Nie zgadzam się|wartość logiczna|Jeśli produkt ma warunki, niezależnie od tego, czy bieżący użytkownik wyraził zgodę na warunki.|  
+|Nie zgadzam się|boolean|Jeśli produkt ma warunki, niezależnie od tego, czy bieżący użytkownik wyraził zgodę na warunki.|  
 |Subskrypcje|Kolekcja jednostek [podsumowania subskrypcji](api-management-template-data-model-reference.md#SubscriptionSummary) .|Subskrypcje produktu.|  
 |Programowania|Kolekcja jednostek [interfejsu API](api-management-template-data-model-reference.md#API) .|Interfejsy API w tym produkcie.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|wartość logiczna|Czy bieżący użytkownik ma uprawnienia do subskrybowania tego produktu w odniesieniu do limitu subskrypcji.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|wartość logiczna|Czy bieżący użytkownik ma uprawnienia do subskrybowania tego produktu w odniesieniu do dozwolonej liczby subskrypcji, czy nie.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|boolean|Czy bieżący użytkownik ma uprawnienia do subskrybowania tego produktu w odniesieniu do limitu subskrypcji.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Czy bieżący użytkownik ma uprawnienia do subskrybowania tego produktu w odniesieniu do dozwolonej liczby subskrypcji, czy nie.|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   

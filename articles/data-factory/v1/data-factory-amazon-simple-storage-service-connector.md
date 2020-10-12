@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711922"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Przenoszenie danych z usługi Amazon Simple Storage Service przy użyciu Azure Data Factory
@@ -34,8 +34,8 @@ Dane z usługi Amazon S3 można kopiować do dowolnego obsługiwanego magazynu d
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 Aby skopiować dane z usługi Amazon S3, upewnij się, że masz przyznane następujące uprawnienia:
 
-* `s3:GetObject`i `s3:GetObjectVersion` dla operacji obiektów Amazon S3.
-* `s3:ListBucket`dla operacji zasobnika Amazon S3. Jeśli używasz Kreatora kopiowania Data Factory, `s3:ListAllMyBuckets` jest również wymagany.
+* `s3:GetObject` i `s3:GetObjectVersion` dla operacji obiektów Amazon S3.
+* `s3:ListBucket` dla operacji zasobnika Amazon S3. Jeśli używasz Kreatora kopiowania Data Factory, `s3:ListAllMyBuckets` jest również wymagany.
 
 Aby uzyskać szczegółowe informacje na temat pełnej listy uprawnień usługi Amazon S3, zobacz [Określanie uprawnień w zasadach](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -93,10 +93,10 @@ Sekcje takie jak struktura, dostępność i zasady są podobne do wszystkich typ
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| zasobnikname |Nazwa zasobnika S3. |String |Tak |
-| key |Klucz obiektu S3. |String |Nie |
-| prefiks |Prefiks klucza obiektu S3. Zaznaczone obiekty, których klucze zaczynają się od tego prefiksu. Stosuje się tylko wtedy, gdy klucz jest pusty. |String |Nie |
-| version |Wersja obiektu S3, jeśli włączono obsługę wersji S3. |String |Nie |
+| zasobnikname |Nazwa zasobnika S3. |Ciąg |Tak |
+| key |Klucz obiektu S3. |Ciąg |Nie |
+| prefiks |Prefiks klucza obiektu S3. Zaznaczone obiekty, których klucze zaczynają się od tego prefiksu. Stosuje się tylko wtedy, gdy klucz jest pusty. |Ciąg |Nie |
+| Wersja |Wersja obiektu S3, jeśli włączono obsługę wersji S3. |Ciąg |Nie |
 | format | Obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz sekcję [Format tekstu](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz skopiować pliki między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. | |Nie |
 | kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**. Obsługiwane poziomy to: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Nie |
 

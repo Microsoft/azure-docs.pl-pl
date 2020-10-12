@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660305"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Dostosowanie pojemności usługi Wyszukiwanie poznawcze platformy Azure
@@ -36,7 +36,7 @@ Pojemność jest wyrażona w *jednostkach wyszukiwania* , które mogą być przy
 
 Na poniższym diagramie przedstawiono relację między replikami, partycjami, fragmentów i jednostkami wyszukiwania. Przedstawiono przykład sposobu, w jaki pojedynczy indeks jest częścią czterech jednostek wyszukiwania w usłudze z dwiema replikami i dwiema partycjami. Każda z czterech jednostek wyszukiwania przechowuje tylko połowę fragmentów indeksu. Jednostki wyszukiwania w lewej kolumnie przechowują pierwszą połowę fragmentów, składającą się z pierwszej partycji, natomiast te w prawej kolumnie przechowują drugą połowę fragmentów, składającą się z drugiej partycji. Ponieważ istnieją dwie repliki, każdy indeks fragmentu ma dwie kopie. Jednostki wyszukiwania w górnym wierszu przechowują jedną kopię, która składa się z pierwszej repliki, podczas gdy te w dolnym wierszu przechowują kolejną kopię obejmującą drugą replikę.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Indeksy wyszukiwania są podzielonej na fragmenty między partycjami.":::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Indeksy wyszukiwania są podzielonej na fragmenty między partycjami.&quot;:::
 
 Na powyższym diagramie znajduje się tylko jeden przykład. Istnieje wiele kombinacji partycji i replik, maksymalnie do 36 całkowitej liczby jednostek wyszukiwania.
 
@@ -44,7 +44,7 @@ W Wyszukiwanie poznawcze zarządzanie fragmentuem jest szczegółami implementac
 
 + Anomalie klasyfikacji: wyniki wyszukiwania są obliczane najpierw na poziomie fragmentu, a następnie agregowane do jednego zestawu wyników. W zależności od właściwości zawartości fragmentu, dopasowania z jednego fragmentuu mogą być większe niż dopasowania w innym. Jeśli zauważysz nieintuicyjne klasyfikacje w wynikach wyszukiwania, najprawdopodobniej wynika to z efektów fragmentowania, zwłaszcza jeśli indeksy są małe. Te anomalie klasyfikacji można uniknąć, wybierając w [całości obliczenia oceny w całym indeksie](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), ale spowoduje to spadek wydajności.
 
-+ Anomalie autouzupełniania: zapytania autouzupełniania, gdzie dopasowań są wykonywane na pierwszych kilku znakach częściowo wprowadzonego terminu, akceptują parametr rozmyty, który forgives małe odchylenia w pisowni. W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do warunków w bieżącym fragmentu. Na przykład jeśli fragmentu zawiera "Microsoft" i zostanie wprowadzony częściowy termin "micor", aparat wyszukiwania będzie pasował do "Microsoft" w tym fragmentu, ale nie w innych fragmentów, który przechowuje pozostałe części indeksu.
++ Anomalie autouzupełniania: zapytania autouzupełniania, gdzie dopasowań są wykonywane na pierwszych kilku znakach częściowo wprowadzonego terminu, akceptują parametr rozmyty, który forgives małe odchylenia w pisowni. W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do warunków w bieżącym fragmentu. Na przykład jeśli fragmentu zawiera &quot;Microsoft&quot; i zostanie wprowadzony częściowy termin &quot;micor&quot;, aparat wyszukiwania będzie pasował do &quot;Microsoft" w tym fragmentu, ale nie w innych fragmentów, który przechowuje pozostałe części indeksu.
 
 ## <a name="when-to-add-nodes"></a>Kiedy należy dodać węzły
 

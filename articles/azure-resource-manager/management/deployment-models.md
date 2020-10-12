@@ -4,10 +4,10 @@ description: W tym artykule opisano różnice między modelem wdrażania przy u�
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.openlocfilehash: d9c1a27efc1f474e25d0ed164d106e8f64ba3e96
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88511409"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Wdrożenie przy użyciu usługi Azure Resource Manager a wdrożenie klasyczne: omówienie modeli wdrażania i stanu zasobów
@@ -113,7 +113,7 @@ W poniższej tabeli opisano zmiany dotyczące interakcji dostawców zasobów obl
 | Zastrzeżony adres IP |Istnieje możliwość zastrzeżenia adresu IP na platformie Azure i skojarzenia go z usługą w chmurze w celu zapewnienia jego umocowania. |Publiczny adres IP, który można utworzyć w trybie statycznym, zapewnia te same możliwości, co zastrzeżony adres IP. |
 | Publiczny adres IP (PIP) dla maszyny wirtualnej |Publiczne adresy IP można również skojarzyć bezpośrednio z maszyną wirtualną. |Publiczny adres IP stanowi zasób udostępniany przez dostawcę Microsoft.Network. Publiczny adres IP może być statyczny (zastrzeżony) lub dynamiczny. |
 | Punkty końcowe |Wejściowe punkty końcowe wymagały skonfigurowania na maszynie wirtualnej w celu uzyskania otwartej łączności z określonymi portami. Jednym z często używanych trybów łączenia się z maszynami wirtualnymi jest ustawienie wejściowych punktów końcowych. |Można skonfigurować reguły ruchu przychodzącego translatora adresów sieciowych w usługach Load Balancer w celu uzyskania tej samej możliwości włączania punktów końcowych dla określonych portów na potrzeby połączeń z maszynami wirtualnymi. |
-| Nazwa DNS |Usługa w chmurze otrzymuje niejawną, globalnie unikatową nazwę DNS. Na przykład: `mycoffeeshop.cloudapp.net`. |Nazwy DNS są opcjonalnymi parametrami, które można określić w zasobie publicznego adresu IP. W pełni kwalifikowana nazwa domeny (FQDN) ma następujący format: `<domainlabel>.<region>.cloudapp.azure.com`. |
+| Nazwa DNS |Usługa w chmurze otrzymuje niejawną, globalnie unikatową nazwę DNS. Przykład: `mycoffeeshop.cloudapp.net`. |Nazwy DNS są opcjonalnymi parametrami, które można określić w zasobie publicznego adresu IP. W pełni kwalifikowana nazwa domeny (FQDN) ma następujący format: `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Interfejsy sieciowe |Podstawowy i pomocniczy interfejs sieciowy oraz ich właściwości zostały zdefiniowane jako konfiguracja sieci maszyny wirtualnej. |Interfejs sieciowy stanowi zasób udostępniany przez dostawcę Microsoft.Network. Cykl życia interfejsu sieciowego nie jest powiązany z maszyną wirtualną. Odwołuje się on do przypisanego adresu IP maszyny wirtualnej (wymagane), podsieci sieci wirtualnej maszyny wirtualnej (wymagane) i do sieciowej grupy zabezpieczeń (opcjonalne). |
 
 Aby dowiedzieć się więcej o łączeniu sieci wirtualnych z różnych modeli wdrażania, zobacz [Łączenie sieci wirtualnych z różnych modeli wdrażania w portalu](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).

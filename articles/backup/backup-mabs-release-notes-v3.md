@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254265"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Informacje o wersji programu Microsoft Azure Backup Server
@@ -60,8 +60,8 @@ Obejście **:** Wykonaj następujące kroki, aby uaktualnić program do wersji s
 4. [Zainstaluj](/sql/ssms/download-sql-server-management-studio-ssms) program SQL Server Management Studio (SSMS).
 5. Skonfiguruj raportowanie przy użyciu parametrów zgodnie z opisem w temacie [Konfiguracja usług SSRS w programie SQL 2017](./backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 6. [Zainstaluj](backup-azure-microsoft-azure-backup.md) program SERWERA USŁUGI MAB V3.
-7. [Przywróć](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL za pomocą programu SSMS i uruchom narzędzie synchronizacji programu DPM zgodnie z opisem w [tym miejscu](/system-center/dpm/back-up-the-dpm-server#using-dpmsync).
-8. Zaktualizuj Właściwość "bazy" w tabeli dbo. tbl_DLS_GlobalSetting przy użyciu następującego polecenia:
+7. [Przywróć](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL za pomocą narzędzia SSMS i uruchom narzędzie DPM-Sync, zgodnie z opisem w [tym miejscu](/system-center/dpm/back-up-the-dpm-server#using-dpmsync).
+8. Zaktualizuj Właściwość "bazy" w tabeli dbo.tbl_DLS_GlobalSetting przy użyciu następującego polecenia:
 
     ```sql
             UPDATE dbo.tbl_DLS_GlobalSetting

@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: bd86b2ec803b2327d3daa2d4274f13328fec8c27
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283218"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Umożliwianie kontenerom korzystania z możliwości usługi Azure Virtual Network
@@ -60,7 +60,7 @@ Wtyczka obsługuje maksymalnie 250 zasobników na maszynę wirtualną i maksymal
 Wtyczka może być używana w dowolny z następujących sposobów, aby zapewnić podstawowe dołączenie do sieci wirtualnej dla zasobników lub kontenerów platformy Docker:
 
 - **Azure Kubernetes Service**: wtyczka jest zintegrowana z usługą Azure Kubernetes Service (AKS) i można jej używać, wybierając opcję *Zaawansowane funkcje sieciowe*. Zaawansowane funkcje sieciowe umożliwiają wdrożenie klastra Kubernetes w istniejącej lub nowej sieci wirtualnej. Aby dowiedzieć się więcej na temat zaawansowanych funkcji sieciowych i procedur ich konfigurowania, zobacz [Konfiguracja sieci w usłudze AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **AKS-Engine**: AKS-Engine to narzędzie, które generuje szablon Azure Resource Manager na potrzeby wdrożenia klastra Kubernetes na platformie Azure. Aby uzyskać szczegółowe instrukcje, zobacz [wdrażanie dodatku plug-in dla klastrów AKS-Engine Kubernetes](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **AKS-Engine**: AKS-Engine jest narzędziem, które generuje szablon Azure Resource Manager do wdrożenia klastra Kubernetes na platformie Azure. Aby uzyskać szczegółowe instrukcje, zobacz [wdrażanie wtyczki dla AKS-Engine klastrów Kubernetes](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
 - **Tworzenie własnego klastra Kubernetes na platformie Azure**: Wtyczka może służyć do zapewnienia podstawowej sieci dla zasobników w klastrach Kubernetes, które wdrażasz samodzielnie, bez polegania na AKS lub narzędziach, takich jak aparat AKS. W tym przypadku wtyczka jest instalowana i włączana na każdej maszynie wirtualnej w klastrze. Aby uzyskać szczegółowe instrukcje, zobacz [Wdrażanie wtyczki dla samodzielnie wdrażanego klastra Kubernetes](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Dołączenie sieci wirtualnej dla kontenerów platformy Docker na platformie Azure**: wtyczka może być używana w przypadkach, gdy nie chcesz tworzyć klastra usługi Kubernetes na maszynach wirtualnych, natomiast chcesz tworzyć kontenery platformy Docker z dołączeniem sieci wirtualnej. Aby uzyskać szczegółowe instrukcje, zobacz [Wdrażanie wtyczki dla platformy Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 

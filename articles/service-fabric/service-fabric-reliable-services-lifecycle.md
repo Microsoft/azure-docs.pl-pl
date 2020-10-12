@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 162ad87f79109cf38d3d0013608812155c6988a7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252253"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Przegląd cyklu życia Reliable Services
@@ -37,7 +37,7 @@ Cykl życia usługi bezstanowej jest prosty. Oto kolejność zdarzeń:
 
 1. Usługa jest zbudowana.
 2. Następnie, równolegle, wykonywane są dwie rzeczy:
-    - `StatelessService.CreateServiceInstanceListeners()`jest wywoływana i wszystkie zwrócone detektory są otwarte. `ICommunicationListener.OpenAsync()`jest wywoływana dla każdego odbiornika.
+    - `StatelessService.CreateServiceInstanceListeners()` jest wywoływana i wszystkie zwrócone detektory są otwarte. `ICommunicationListener.OpenAsync()` jest wywoływana dla każdego odbiornika.
     - `StatelessService.RunAsync()`Metoda usługi jest wywoływana.
 3. Jeśli jest obecny, `StatelessService.OnOpenAsync()` wywoływana jest metoda usługi. To wywołanie jest nietypowym przesłonięciem, ale jest dostępne. W tej chwili można uruchomić zadania inicjowania usługi rozszerzonej.
 
@@ -53,7 +53,7 @@ Należy pamiętać, że nie istnieje porządkowanie między wywołaniami do twor
 Aby zamknąć usługę bezstanową, ten sam wzorzec następuje po prostu:
 
 1. Równolegle:
-    - Wszystkie otwarte odbiorniki są zamknięte. `ICommunicationListener.CloseAsync()`jest wywoływana dla każdego odbiornika.
+    - Wszystkie otwarte odbiorniki są zamknięte. `ICommunicationListener.CloseAsync()` jest wywoływana dla każdego odbiornika.
     - Token anulowania przeszedł do `RunAsync()` został anulowany. Sprawdzenie właściwości tokenu anulowania `IsCancellationRequested` zwraca wartość true, a jeśli jest wywoływana, `ThrowIfCancellationRequested` Metoda tokenu zgłasza `OperationCanceledException` .
 2. Po `CloseAsync()` zakończeniu dla każdego odbiornika i `RunAsync()` zakończeniu tej `StatelessService.OnCloseAsync()` metody usługa jest wywoływana, jeśli jest obecna.  OnCloseAsync jest wywoływana, gdy wystąpienie usługi bezstanowej zostanie bezpiecznie zamknięte. Taka sytuacja może wystąpić, gdy trwa uaktualnianie kodu usługi, wystąpienie usługi jest przenoszone z powodu równoważenia obciążenia lub wykryto błąd przejściowy. Przesłonięcie jest nietypowe `StatelessService.OnCloseAsync()` , ale może służyć do bezpiecznego zamykania zasobów, zatrzymania przetwarzania w tle, kończenia zapisywania zewnętrznego stanu lub zamykania istniejących połączeń.
 3. Po `StatelessService.OnCloseAsync()` zakończeniu obiekt usługi jest destruktorem.
@@ -62,10 +62,10 @@ Aby zamknąć usługę bezstanową, ten sam wzorzec następuje po prostu:
 Usługi stanowe mają podobny wzorzec do usług bezstanowych, z uwzględnieniem kilku zmian. W celu uruchomienia usługi stanowej kolejność zdarzeń jest następująca:
 
 1. Usługa jest zbudowana.
-2. `StatefulServiceBase.OnOpenAsync()`jest wywoływana. To wywołanie nie jest zwykle zastępowane w usłudze.
+2. `StatefulServiceBase.OnOpenAsync()` jest wywoływana. To wywołanie nie jest zwykle zastępowane w usłudze.
 3. Następujące czynności są wykonywane równolegle:
-    - `StatefulServiceBase.CreateServiceReplicaListeners()`jest wywoływana. 
-      - Jeśli usługa jest usługą podstawową, wszystkie zwrócone detektory są otwarte. `ICommunicationListener.OpenAsync()`jest wywoływana dla każdego odbiornika.
+    - `StatefulServiceBase.CreateServiceReplicaListeners()` jest wywoływana. 
+      - Jeśli usługa jest usługą podstawową, wszystkie zwrócone detektory są otwarte. `ICommunicationListener.OpenAsync()` jest wywoływana dla każdego odbiornika.
       - Jeśli usługa jest usługą dodatkową, otwierane są tylko te detektory oznaczone jako `ListenOnSecondary = true` . Posiadanie odbiorników, które są otwarte na serwerze pomocniczym, jest rzadziej.
     - Jeśli usługa jest obecnie podstawową, `StatefulServiceBase.RunAsync()` wywoływana jest metoda usługi.
 4. Po zakończeniu wszystkich wywołań odbiornika repliki `OpenAsync()` i wywołaniu jest `RunAsync()` `StatefulServiceBase.OnChangeRoleAsync()` wywoływana. To wywołanie nie jest zwykle zastępowane w usłudze.
@@ -79,7 +79,7 @@ Podobnie jak w przypadku usług bezstanowych, nie ma koordynacji między kolejno
 Podobnie jak w przypadku usług bezstanowych, zdarzenia cyklu życia podczas zamykania są takie same jak podczas uruchamiania, ale odwrócone. Gdy usługa stanowa jest zamykana, wystąpią następujące zdarzenia:
 
 1. Równolegle:
-    - Wszystkie otwarte odbiorniki są zamknięte. `ICommunicationListener.CloseAsync()`jest wywoływana dla każdego odbiornika.
+    - Wszystkie otwarte odbiorniki są zamknięte. `ICommunicationListener.CloseAsync()` jest wywoływana dla każdego odbiornika.
     - Token anulowania przeszedł do `RunAsync()` został anulowany. Sprawdzenie właściwości tokenu anulowania `IsCancellationRequested` zwraca wartość true, a jeśli jest wywoływana, `ThrowIfCancellationRequested` Metoda tokenu zgłasza `OperationCanceledException` .
 2. Po `CloseAsync()` zakończeniu każdego odbiornika i `RunAsync()` zakończeniu działania usługi `StatefulServiceBase.OnChangeRoleAsync()` jest wywoływana. To wywołanie nie jest zwykle zastępowane w usłudze.
 
@@ -96,7 +96,7 @@ Podczas gdy usługa stanowa jest uruchomiona, tylko repliki podstawowe tych usł
 W przypadku repliki podstawowej, która została obniżona, Service Fabric potrzebuje tej repliki, aby zatrzymać przetwarzanie komunikatów i zakończyć wszystkie działania w tle. W związku z tym ten krok wygląda podobnie do momentu wyłączenia usługi. Jedną z różnic polega na tym, że usługa nie jest zainstalowana lub ZAMKNIĘTA, ponieważ pozostanie jako pomocnicza. Następujące interfejsy API są wywoływane:
 
 1. Równolegle:
-    - Wszystkie otwarte odbiorniki są zamknięte. `ICommunicationListener.CloseAsync()`jest wywoływana dla każdego odbiornika.
+    - Wszystkie otwarte odbiorniki są zamknięte. `ICommunicationListener.CloseAsync()` jest wywoływana dla każdego odbiornika.
     - Token anulowania przeszedł do `RunAsync()` został anulowany. Sprawdzenie właściwości tokenu anulowania `IsCancellationRequested` zwraca wartość true, a jeśli jest wywoływana, `ThrowIfCancellationRequested` Metoda tokenu zgłasza `OperationCanceledException` .
 2. Po `CloseAsync()` zakończeniu każdego odbiornika i `RunAsync()` zakończeniu działania usługi `StatefulServiceBase.OnChangeRoleAsync()` jest wywoływana. To wywołanie nie jest zwykle zastępowane w usłudze.
 
@@ -104,7 +104,7 @@ W przypadku repliki podstawowej, która została obniżona, Service Fabric potrz
 Podobnie, Service Fabric potrzebuje repliki pomocniczej, która została podwyższona, aby rozpocząć nasłuchiwanie komunikatów w sieci i uruchamianie wszelkich zadań w tle potrzebnych do ukończenia. W związku z tym ten proces wygląda następująco po utworzeniu usługi, z tą różnicą, że sama replika już istnieje. Następujące interfejsy API są wywoływane:
 
 1. Równolegle:
-    - `StatefulServiceBase.CreateServiceReplicaListeners()`jest wywoływana i wszystkie zwrócone detektory są otwarte. `ICommunicationListener.OpenAsync()`jest wywoływana dla każdego odbiornika.
+    - `StatefulServiceBase.CreateServiceReplicaListeners()` jest wywoływana i wszystkie zwrócone detektory są otwarte. `ICommunicationListener.OpenAsync()` jest wywoływana dla każdego odbiornika.
     - `StatefulServiceBase.RunAsync()`Metoda usługi jest wywoływana.
 2. Po zakończeniu wszystkich wywołań odbiornika repliki `OpenAsync()` i wywołaniu jest `RunAsync()` `StatefulServiceBase.OnChangeRoleAsync()` wywoływana. To wywołanie nie jest zwykle zastępowane w usłudze.
 
@@ -124,7 +124,7 @@ Obsługa wyjątków, które są używane `ReliableCollections` w połączeniu z 
   - Jeśli usługa kończy działanie z programu, zwracając `RunAsync()` jakiś nieoczekiwany wyjątek, stanowi to niepowodzenie. Obiekt usługi jest wyłączony i raportowany jest błąd kondycji.
   - Chociaż nie ma limitu czasu na zwracaniu z tych metod, natychmiast utracisz możliwość zapisu w niezawodnych kolekcjach i dlatego nie można ukończyć żadnej rzeczywistej pracy. Zalecamy, aby podczas otrzymywania żądania anulowania w miarę jak najszybciej wrócić do programu. Jeśli usługa nie odpowiada na te wywołania interfejsu API w rozsądnym czasie, Service Fabric może wymusić zakończenie usługi. Zwykle dzieje się to tylko podczas uaktualniania aplikacji lub podczas usuwania usługi. Ten limit czasu wynosi domyślnie 15 minut.
   - Błędy w `OnCloseAsync()` ścieżce powodują `OnAbort()` wywoływanie, co stanowi najlepszą okazję do oczyszczenia i zwolnienia wszelkich zażądanych zasobów. Jest to zwykle wywoływane w przypadku wykrycia trwałego błędu w węźle lub gdy Service Fabric nie może niezawodnie zarządzać cyklem życia wystąpienia usługi ze względu na błędy wewnętrzne.
-  - `OnChangeRoleAsync()`jest wywoływana, gdy replika usługi stanowej zmienia rolę, na przykład na podstawową lub pomocniczą. Repliki podstawowe mają stan zapisu (można tworzyć i zapisywać w niezawodnych kolekcjach). Repliki pomocnicze uzyskują stan odczytu (mogą odczytywać tylko z istniejących niezawodnych kolekcji). Większość pracy w usłudze stanowej jest wykonywana w replice podstawowej. Repliki pomocnicze mogą wykonywać walidację, generowanie raportów, wyszukiwanie danych lub inne zadania tylko do odczytu.
+  - `OnChangeRoleAsync()` jest wywoływana, gdy replika usługi stanowej zmienia rolę, na przykład na podstawową lub pomocniczą. Repliki podstawowe mają stan zapisu (można tworzyć i zapisywać w niezawodnych kolekcjach). Repliki pomocnicze uzyskują stan odczytu (mogą odczytywać tylko z istniejących niezawodnych kolekcji). Większość pracy w usłudze stanowej jest wykonywana w replice podstawowej. Repliki pomocnicze mogą wykonywać walidację, generowanie raportów, wyszukiwanie danych lub inne zadania tylko do odczytu.
 
 ## <a name="next-steps"></a>Następne kroki
 - [Wprowadzenie do Reliable Services](service-fabric-reliable-services-introduction.md)

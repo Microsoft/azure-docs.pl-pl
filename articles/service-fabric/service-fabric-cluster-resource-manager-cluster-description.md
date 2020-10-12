@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5ec5db2b2fefeba3bffb7e30a77850b30dccf95e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005636"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
@@ -616,7 +616,7 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby uzyskać informacje o architekturze i przepływie informacji w Menedżer zasobów klastra, zobacz [Omówienie architektury Menedżer zasobów klastra](service-fabric-cluster-resource-manager-architecture.md).
 * Definiowanie metryk defragmentacji jest jednym ze sposobów konsolidacji obciążenia węzłów zamiast rozproszenia go. Aby dowiedzieć się, jak skonfigurować defragmentację, zobacz [defragmentacja metryk i ładowanie w Service Fabric](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
 * Zacznij od początku i [zapoznaj się z wprowadzeniem do Service Fabric klastra Menedżer zasobów](service-fabric-cluster-resource-manager-introduction.md).

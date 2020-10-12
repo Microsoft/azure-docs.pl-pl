@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
 ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90528180"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Sterowanie aktualizacjami przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure
 
 Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje odizolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje interfejsu wiersza polecenia platformy Azure służące do sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
 
-## <a name="create-a-maintenance-configuration"></a>Utwórz konfigurację konserwacji
+## <a name="create-a-maintenance-configuration"></a>Utworzenie konfiguracji konserwacji
 
 Użyj `az maintenance configuration create` , aby utworzyć konfigurację konserwacji. W tym przykładzie zostanie utworzona konfiguracja konserwacji o nazwie Moja *config* objęta zakresem hosta. 
 

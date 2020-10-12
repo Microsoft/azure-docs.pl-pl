@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036355"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
@@ -59,7 +59,7 @@ Uprawnienia do Azure Repos i GitHub są niezależne od uprawnień Data Factory. 
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenariusze niestandardowe i role niestandardowe
 
-Czasami może być konieczne przyznanie różnych poziomów dostępu dla różnych użytkowników usługi Data Factory. Przykład:
+Czasami może być konieczne przyznanie różnych poziomów dostępu dla różnych użytkowników usługi Data Factory. Na przykład:
 - Może być potrzebna Grupa, w której użytkownicy mają uprawnienia tylko do określonej fabryki danych.
 - Lub może być potrzebna Grupa, w której użytkownicy mogą monitorować tylko fabrykę danych (lub fabryki), ale nie mogą jej modyfikować.
 
@@ -80,7 +80,7 @@ Poniżej przedstawiono kilka przykładów demonstrujących to, co można osiągn
   Ten scenariusz wymaga dwóch przypisań ról.
 
   1. Przypisz wbudowaną rolę **współautor** na poziomie fabryki danych.
-  2. Utwórz rolę niestandardową z uprawnieniem **Microsoft. resources/Deployments/**. Przypisz tę rolę niestandardową do użytkownika na poziomie grupy zasobów.
+  2. Utwórz rolę niestandardową z uprawnieniem  **Microsoft. resources/Deployments/**. Przypisz tę rolę niestandardową do użytkownika na poziomie grupy zasobów.
 
 - Zezwalaj użytkownikowi na testowanie połączenia w połączonej usłudze lub Podgląd danych w zestawie danych
 
@@ -88,7 +88,7 @@ Poniżej przedstawiono kilka przykładów demonstrujących to, co można osiągn
 
 - Zezwól użytkownikowi na aktualizację fabryki danych przy użyciu programu PowerShell lub zestawu SDK, ale nie w Azure Portal.
 
-  Przypisz wbudowaną rolę **współautor** do zasobu fabryki danych dla użytkownika. Ta rola umożliwia użytkownikowi wyświetlanie zasobów w Azure Portal, ale użytkownik nie może uzyskać dostępu do przycisków **Publikuj** i **Opublikuj wszystkie** .
+  Przypisz wbudowaną rolę **współautor** do zasobu fabryki danych dla użytkownika. Ta rola umożliwia użytkownikowi wyświetlanie zasobów w Azure Portal, ale użytkownik nie może uzyskać dostępu do przycisków  **Publikuj** i **Opublikuj wszystkie** .
 
 ## <a name="next-steps"></a>Następne kroki
 

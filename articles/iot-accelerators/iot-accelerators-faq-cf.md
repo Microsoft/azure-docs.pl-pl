@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82792381"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Często zadawane pytania dotyczące akceleratora rozwiązania połączonej fabryki
@@ -68,7 +68,7 @@ Jeśli wdrożono rozwiązanie z programu www.azureiotsolutions.com, nie można z
 1. Nazwa użytkownika do użycia to: `docker` .
 1. Hasło, które ma być używane, zależy od wersji użytej do wdrożenia:
     * W przypadku rozwiązań wdrożonych przy użyciu skryptu build.ps1 przed 1 czerwca 2017 hasło to: `Passw0rd` .
-    * W przypadku rozwiązań wdrożonych przy użyciu skryptu build.ps1 po 1 czerwca 2017 można znaleźć hasło w `<name of your deployment>.config.user` pliku. Hasło jest przechowywane w ustawieniu **VmAdminPassword** . Hasło jest generowane losowo w czasie wdrażania, chyba że zostanie ono określone przy użyciu `build.ps1` parametru skryptu`-VmAdminPassword`
+    * W przypadku rozwiązań wdrożonych przy użyciu skryptu build.ps1 po 1 czerwca 2017 można znaleźć hasło w `<name of your deployment>.config.user` pliku. Hasło jest przechowywane w ustawieniu **VmAdminPassword** . Hasło jest generowane losowo w czasie wdrażania, chyba że zostanie ono określone przy użyciu `build.ps1` parametru skryptu `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Jak mogę zatrzymać i uruchomić wszystkie procesy platformy Docker na maszynie wirtualnej symulacji?
 
@@ -76,7 +76,7 @@ Jeśli wdrożono rozwiązanie z programu www.azureiotsolutions.com, nie można z
 1. Aby sprawdzić, które kontenery są aktywne, uruchom polecenie: `docker ps` .
 1. Aby zatrzymać wszystkie kontenery symulacji, uruchom polecenie: `./stopsimulation` .
 1. Aby rozpocząć wszystkie kontenery symulacji:
-    * Wyeksportuj zmienną powłoki o nazwie **IOTHUB_CONNECTIONSTRING**. Użyj wartości ustawienia **IotHubOwnerConnectionString** w `<name of your deployment>.config.user` pliku. Przykład:
+    * Wyeksportuj zmienną powłoki o nazwie **IOTHUB_CONNECTIONSTRING**. Użyj wartości ustawienia **IotHubOwnerConnectionString** w `<name of your deployment>.config.user` pliku. Na przykład:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -186,7 +186,7 @@ Aby wysyłać dane telemetryczne z urządzeń innych niż OPC UA do połączonej
     ]
     ```
 
-1. Format `<timestamp>` jest:`2017-12-08T19:24:51.886753Z`
+1. Format `<timestamp>` jest: `2017-12-08T19:24:51.886753Z`
 
 1. Uruchom ponownie App Service połączonej fabryki.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254748"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Jak zintegrować usługę Azure API Management z usługą Azure Application Insights
@@ -37,7 +37,7 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 2. Kliknij pozycję **+ Dodaj**.  
     ![Tworzenie usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Wypełnij formularz. Wybierz pozycję **Ogólne** jako **Typ aplikacji**.
-4. Kliknij pozycję **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Utwórz połączenie między usługą Azure Application Insights i wystąpieniem usługi Azure API Management
 
@@ -46,7 +46,7 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 3. Kliknij pozycję **+ Dodaj**.  
     ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Wybierz wcześniej utworzone wystąpienie **Application Insights** i podaj Krótki opis.
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij przycisk **Utwórz**.
 6. Właśnie utworzono Rejestrator Application Insights platformy Azure z kluczem Instrumentacji. Powinien teraz pojawić się na liście.  
     ![Rejestrator usługi App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
@@ -64,7 +64,7 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 6. Zaznacz pole **Włącz** .
 7. Wybierz dołączony rejestrator w polu rozwijanym **miejsce docelowe** .
 8. Wprowadź **100** jako **próbkowanie (%)** i zaznacz pole wyboru **zawsze Rejestruj błędy** .
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 > [!WARNING]
 > Zastąpienie wartości domyślnej **0** w **pierwszych bajtach pola Body** może znacząco zmniejszyć wydajność interfejsów API.
@@ -74,10 +74,10 @@ Aby móc korzystać z usługi Azure Application Insights, musisz najpierw utworz
 
 | Nazwa ustawienia                        | Typ wartości                        | Opis                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Włączanie                              | wartość logiczna                           | Określa, czy jest włączone rejestrowanie tego interfejsu API.                                                                                                                                                                                                                                                                                                |
-| Miejsce docelowe                         | Rejestrator Application Insights platformy Azure | Określa Rejestrator Application Insights platformy Azure do użycia                                                                                                                                                                                                                                                                                           |
+| Włącz                              | boolean                           | Określa, czy jest włączone rejestrowanie tego interfejsu API.                                                                                                                                                                                                                                                                                                |
+| Element docelowy                         | Rejestrator Application Insights platformy Azure | Określa Rejestrator Application Insights platformy Azure do użycia                                                                                                                                                                                                                                                                                           |
 | Próbkowanie (%)                        | decimal                           | Wartości od 0 do 100 (procent). <br/> Określa procent żądań, które będą rejestrowane w usłudze Azure Application Insights. 0% próbkowanie oznacza, że zarejestrowano zero żądań, a próbkowanie 100% oznacza, że wszystkie żądania zostały zarejestrowane. <br/> To ustawienie służy do zmniejszania skutków wydajności żądań rejestrowania do usługi Azure Application Insights (zobacz sekcję poniżej). |
-| Zawsze Rejestruj błędy                   | wartość logiczna                           | W przypadku wybrania tego ustawienia wszystkie błędy zostaną zarejestrowane w usłudze Azure Application Insights niezależnie od ustawienia **próbkowania** .                                                                                                                                                                                                                  |
+| Zawsze Rejestruj błędy                   | boolean                           | W przypadku wybrania tego ustawienia wszystkie błędy zostaną zarejestrowane w usłudze Azure Application Insights niezależnie od ustawienia **próbkowania** .                                                                                                                                                                                                                  |
 | Opcje podstawowe: nagłówki              | list                              | Określa nagłówki, które będą rejestrowane w usłudze Azure Application Insights na potrzeby żądań i odpowiedzi.  Wartość domyślna: żadne nagłówki nie są rejestrowane.                                                                                                                                                                                                             |
 | Opcje podstawowe: pierwsze bajty treści  | liczba całkowita                           | Określa, ile pierwszych bajtów treści jest rejestrowanych na platformie Azure Application Insights w przypadku żądań i odpowiedzi.  Wartość domyślna: treść nie jest zarejestrowana.                                                                                                                                                                                                    |
 | Opcje zaawansowane: poziom szczegółowości         |                                   | Określa poziom szczegółowości. Rejestrowane będą tylko niestandardowe dane śledzenia o wyższym poziomie ważności. Wartość domyślna: informacje.                                                                                                                                                                                                                               |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: duau
 ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397954"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Informacje o uaktualnianiu przepustowości obwodu ExpressRoute
@@ -24,7 +24,7 @@ Aby można było uaktualnić przepustowość obwodu, partner ExpressRoute Direct
 
 Jeśli pojemność jest dostępna, można uaktualnić obwód przy użyciu następujących metod:
 
-* [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md#modify)
+* [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [Program PowerShell](expressroute-howto-circuit-arm.md#modify)
 * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md#modify)
 

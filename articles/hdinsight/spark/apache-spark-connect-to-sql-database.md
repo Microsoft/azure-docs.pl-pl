@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86078820"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Korzystanie z klastra Spark w usłudze HDInsight w celu odczytywania i zapisywania danych w Azure SQL Database
@@ -23,7 +23,7 @@ Dowiedz się, jak połączyć Klaster Apache Spark w usłudze Azure HDInsight z 
 
 * Azure HDInsight Spark klaster.  Postępuj zgodnie z instrukcjami w temacie [Tworzenie klastra Apache Spark w usłudze HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* usługą Azure SQL Database. Postępuj zgodnie z instrukcjami w temacie [Tworzenie bazy danych w Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Upewnij się, że tworzysz bazę danych z przykładowym schematem **AdventureWorksLT** i danymi. Upewnij się również, że utworzono regułę zapory na poziomie serwera, aby umożliwić adres IP klienta dostępu do bazy danych SQL. Instrukcje dotyczące dodawania reguły zapory są dostępne w tym samym artykule. Po utworzeniu bazy danych SQL upewnij się, że następujące wartości są odpowiednie. Są one potrzebne do łączenia się z bazą danych z klastra Spark.
+* Azure SQL Database. Postępuj zgodnie z instrukcjami w temacie [Tworzenie bazy danych w Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Upewnij się, że tworzysz bazę danych z przykładowym schematem **AdventureWorksLT** i danymi. Upewnij się również, że utworzono regułę zapory na poziomie serwera, aby umożliwić adres IP klienta dostępu do bazy danych SQL. Instrukcje dotyczące dodawania reguły zapory są dostępne w tym samym artykule. Po utworzeniu bazy danych SQL upewnij się, że następujące wartości są odpowiednie. Są one potrzebne do łączenia się z bazą danych z klastra Spark.
 
     * Nazwa serwera.
     * Nazwa bazy danych.

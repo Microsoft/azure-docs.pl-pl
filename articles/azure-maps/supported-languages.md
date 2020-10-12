@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037698"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
@@ -25,7 +25,7 @@ Azure Maps obsługuje różne języki i widoki na podstawie kraju/regionu. W tym
 Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poniższej tabeli przedstawiono obsługiwane kody języka dla każdej usługi.  
   
 
-| ID         | Nazwa                   |  Mapy | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
+| ID (Identyfikator)         | Nazwa                   |  Maps | Wyszukaj | Routing | Pogoda | Zdarzenia dotyczące ruchu | Formant mapy JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF — za      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabski                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -62,7 +62,7 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | IS-IS      | Islandzki              |       |       |         |     ✓    |                   |                |
 | id-ID      | Indonezyjski             |   ✓   |    ✓    |    ✓    |     ✓    |         ✓         |        ✓       |
 | it-IT      | Włoski                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
-| ja-JP      | Japoński               |       |        |         |     ✓    |                   |                |
+| ja-JP      | japoński               |       |        |         |     ✓    |                   |                |
 | kN-IN      | Kannada                |       |       |         |     ✓    |                   |                |
 | kk-KZ      | Kazachski                 |       |    ✓   |         |     ✓    |                   |                |
 | ko-KR      | Koreański                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
@@ -74,7 +74,7 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | Mr      | Marathi                 |       |       |         |     ✓    |                   |                |
 | nb-NO      | Norweski (bokmål)       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Neutralne Języki w języku prawdy dla wszystkich regionów w lokalnych skryptach, jeśli są dostępne |   ✓     |        |         |       |        |      ✓          |
-| NGT — Latn   | Neutralna obudowa prawdy-łacińskiego exonyms. Skrypt łaciński zostanie użyty, jeśli jest dostępny |   ✓     |        |         |         |                |        ✓         |
+| NGT-Latn   | Neutralna obudowa prawdy-łacińskiego exonyms. Skrypt łaciński zostanie użyty, jeśli jest dostępny |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polski                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | pt-BR      | Portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
 | pt-PT      | Portugalski (Portugalia)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
@@ -147,7 +147,7 @@ Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie 
 
 W poniższej tabeli przedstawiono obsługiwane widoki.
 
-| Widok         | Opis                            |  Mapy | Wyszukaj | kontrolka mapy JS |
+| Widok         | Opis                            |  Maps | Wyszukaj | kontrolka mapy JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Zjednoczone Emiraty Arabskie (widok arabski)    |   ✓   |        |     ✓          |
 | AR           | Argentyna (widok argentyński)           |   ✓   |    ✓   |     ✓          |

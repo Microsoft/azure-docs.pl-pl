@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 4264d1c0d83f14da02b26107d336521250fcf13b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89257861"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Przycinanie wideo za pomocą usługi Media Encoder Standard
@@ -141,7 +141,7 @@ Poniższe ograniczenia dotyczą funkcji przycinania. Jeśli nie są spełnione, 
 3. Przycinanie dotyczy wideo przechwytywane w trybie poziomym (tj. nie dotyczy filmów wideo zarejestrowanych przy użyciu telefonu smartphone w trybie pionowym lub w pionie).
 4. Najlepiej sprawdza się w przypadku progresywnego wideo przechwytywanego przy użyciu pikseli kwadratowych
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Następny krok

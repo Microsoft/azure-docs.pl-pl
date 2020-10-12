@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie ochrony programu DPM/Azure Backup s
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254435"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure przy użyciu programu DPM
@@ -69,9 +69,9 @@ Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za po
     ![Protection13 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. W tym momencie wykonaj kroki odzyskiwania opisane wcześniej w tym artykule, aby odzyskać bazę danych zawartości programu SharePoint z dysku.
 
-## <a name="switching-the-front-end-web-server"></a>Przełączanie serwera frontonu sieci Web
+## <a name="switching-the-front-end-web-server"></a>Przełączanie serwera sieci Web Front-End
 
-Jeśli masz więcej niż jeden serwer frontonu sieci Web i chcesz przełączyć serwer, którego program DPM używa do ochrony farmy, postępuj zgodnie z instrukcjami w temacie [przełączanie serwera frontonu sieci Web](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
+Jeśli masz więcej niż jeden serwer frontonu sieci Web i chcesz przełączyć serwer, którego program DPM używa do ochrony farmy, postępuj zgodnie z instrukcjami w temacie [przełączanie serwera sieci web Front-End](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Następne kroki
 

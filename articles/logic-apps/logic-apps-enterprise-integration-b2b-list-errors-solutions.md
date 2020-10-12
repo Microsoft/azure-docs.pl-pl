@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 6400cfe7e524dcc16e08c2bba7dfba4a62d00b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232563"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Błędy i rozwiązania B2B dla Azure Logic Apps
@@ -31,7 +31,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów, które mogą wystąpić w scena
 
 **Opis błędu**: nie znaleziono umowy z tożsamościami: ' AS2Identity ':: ' Partner1 ' and'AS2Identity ':: ' Partner3 '
 
-**Akcja użytkownika**: nieprawidłowa AS2-from lub AS2-do dla umowy. Skoryguj AS2 komunikatu "AS2-from" lub "AS2-to" lub "Umowa", aby dopasować identyfikatory AS2 w nagłówkach wiadomości AS2 z konfiguracjami umowy.
+**Akcja użytkownika**: nieprawidłowa AS2-From lub AS2-To skonfigurowana dla umowy. Skoryguj AS2 komunikatu "AS2-from" lub "AS2-to" lub "Umowa", aby dopasować identyfikatory AS2 w nagłówkach wiadomości AS2 z konfiguracjami umowy.
 
 ## <a name="as2"></a>AS2
 
@@ -39,7 +39,7 @@ Ten artykuł pomaga w rozwiązywaniu problemów, które mogą wystąpić w scena
 
 **Opis błędu**: nieprawidłowe nagłówki AS2. Jeden z nagłówków "AS2 do" lub "AS2-from" jest pusty.
 
-**Akcja użytkownika**: Odebrano komunikat AS2, który nie zawiera nagłówka AS2-from lub AS2-to lub obu. Sprawdź AS2 wiadomości AS2 — od i AS2-do nagłówków i popraw je na podstawie konfiguracji umowy.
+**Akcja użytkownika**: Odebrano komunikat AS2, który nie zawiera AS2-From lub AS2-To ani obu nagłówków. Sprawdź AS2-From komunikatu AS2 i AS2-To nagłówki i popraw je w oparciu o konfigurację umowy.
 
 ### <a name="missing-as2-message-body-and-headers"></a>Brak treści i nagłówków wiadomości AS2    
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284170"
 ---
 # <a name="create-application-with-simple-commands"></a>Tworzenie aplikacji przy użyciu prostych poleceń
@@ -48,7 +48,7 @@ W pustej aplikacji poleceń niestandardowych w języku **Smart-The-Lite** , któ
 
 W środkowym okienku wyświetlane są różne właściwości polecenia. Należy skonfigurować następujące właściwości polecenia. Aby uzyskać wyjaśnienie wszystkich właściwości konfiguracji polecenia, przejdź do pozycji [odwołania](./custom-commands-references.md).
 
-| Konfigurowanie            | Opis                                                                                                                 |
+| Konfiguracja            | Opis                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **Przykładowe zdania** | Przykład wyrażenia długości, że użytkownik może powiedzieć, aby wyzwolić to polecenie                                                                 |
 | **Parametry**       | Informacje wymagane do wykonania polecenia                                                                                |
@@ -85,7 +85,7 @@ Następnie polecenie musi mieć regułę uzupełniania. Ta reguła instruuje uż
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nazwa**       | ConfirmationResponse                  | Nazwa opisująca przeznaczenie reguły          |
     | **Warunki** | Brak                                     | Warunki określające, kiedy można uruchomić regułę    |
-    | **Akcje**    | Wysyłaj odpowiedzi na mowę > prosty edytor > pierwszej wariacji >`Ok, turning the tv on` | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
+    | **Akcje**    | Wysyłaj odpowiedzi na mowę > prosty edytor > pierwszej wariacji > `Ok, turning the tv on` | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
     
 
 
@@ -100,7 +100,7 @@ Następnie polecenie musi mieć regułę uzupełniania. Ta reguła instruuje uż
     > [!NOTE]
     > Nie jest konieczne użycie domyślnej reguły uzupełniania, która jest dostarczana z poleceniem. W razie konieczności można usunąć istniejącą domyślną regułę uzupełniania i dodać własną regułę.
 
-### <a name="try-it-out"></a>Czas to wypróbować
+### <a name="try-it-out"></a>Wypróbowywanie działania
 
 Testowanie zachowania przy użyciu panelu rozmowy testowej
 1. Wybierz ikonę **szkolenia** znajdującą się u góry okienka po prawej stronie.
@@ -127,7 +127,7 @@ Następnie edytuj istniejące **gotowe** reguły ukończenia w następujący spo
 | ---------- | ---------------------------------------- |
 | Nazwa  | ConfirmationResponse                  |
 | Warunki | Brak                                     |
-| Akcje    | Wysyłaj odpowiedzi na mowę > prosty edytor > pierwszej wariacji >`Ok, setting temperature to 40 degrees` |
+| Akcje    | Wysyłaj odpowiedzi na mowę > prosty edytor > pierwszej wariacji > `Ok, setting temperature to 40 degrees` |
 
 Wybierz pozycję **Zapisz** , aby zapisać wszystkie zmiany w poleceniu.
 
@@ -142,7 +142,7 @@ Utwórz nowe polecenie **setAlarm** przy użyciu przykładowego zdania "**Ustaw 
 
 Wybierz pozycję **Zapisz** , aby zapisać wszystkie zmiany w poleceniu.
 
-## <a name="try-it-out"></a>Czas to wypróbować
+## <a name="try-it-out"></a>Wypróbowywanie działania
 
 Testowanie zachowania przy użyciu panelu rozmowy testowej
 1. Wybierz pozycję **Przeszkol**. Po pomyślnym zakończeniu szkolenia wybierz pozycję **Testuj** i wypróbować:

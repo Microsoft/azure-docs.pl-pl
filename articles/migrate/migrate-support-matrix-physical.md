@@ -4,10 +4,10 @@ description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomoc�
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660347"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
@@ -24,7 +24,7 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 --- | ---
 **Limity oceny** | W jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects)można odnajdywać i oceniać maksymalnie 35 000 serwerów fizycznych.
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz serwerów fizycznych projekt może obejmować maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
-**Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 1000 serwerów fizycznych.
+**Odnajdywanie** | Urządzenie Azure Migrate może odnajdywać maksymalnie 1000 serwerów fizycznych.
 **Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.

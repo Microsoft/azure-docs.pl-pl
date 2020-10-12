@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
 ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533414"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiowanie danych z programu SAP Business Warehouse za pośrednictwem usługi Open Hub przy użyciu Azure Data Factory
@@ -241,7 +241,7 @@ Podczas kopiowania danych z SAP BW otwartego centrum następujące mapowania są
 | F (float) | Double |
 | D (Data) | Ciąg |
 | T (godzina) | Ciąg |
-| P (spakowane, walutowe, dziesiętne, ilość) | Wartość dziesiętna |
+| P (spakowane, walutowe, dziesiętne, ilość) | Liczba dziesiętna |
 | N (NUMC) | Ciąg |
 | X (binarny i nieprzetworzony) | Ciąg |
 

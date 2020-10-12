@@ -1,6 +1,6 @@
 ---
 title: Dane niestandardowe i Virtual Machines platformy Azure
-description: Szczegółowe informacje o używaniu niestandardowych danych i funkcji Cloud-init na platformie Azure Virtual Machines
+description: Szczegółowe informacje na temat używania niestandardowych danych i Cloud-Init na platformie Azure Virtual Machines
 services: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/06/2020
 ms.author: mimckitt
 ms.openlocfilehash: 2924caaac5fb8c512100d9e897f7f153af9a3b3e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284918"
 ---
-# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dane niestandardowe i Usługa Cloud-init w usłudze Azure Virtual Machines
+# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dane niestandardowe i Cloud-Init na platformie Azure Virtual Machines
 
 Może być konieczne wstrzyknięcie skryptu lub innych metadanych do Microsoft Azure maszyny wirtualnej w czasie aprowizacji.  W innych chmurach pojęcie to jest często określane jako dane użytkownika.  W Microsoft Azure mamy podobną funkcję o nazwie dane niestandardowe. 
 
@@ -80,7 +80,7 @@ Aby rozwiązać problem z niestandardowym wykonywaniem danych, przejrzyj */var/l
 Aby rozwiązać problem z wykonywaniem danych niestandardowych, zapoznaj się z [dokumentacją](./linux/using-cloud-init.md#troubleshooting-cloud-init)rozwiązywania problemów.
 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Czy mogę zaktualizować dane niestandardowe po utworzeniu maszyny wirtualnej?
 W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem [interfejsu API REST](/rest/api/compute/virtualmachinescalesets/update) (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
 * Istniejące wystąpienia w VMSS nie otrzymają zaktualizowanych danych niestandardowych tylko do momentu ich odłączenia.

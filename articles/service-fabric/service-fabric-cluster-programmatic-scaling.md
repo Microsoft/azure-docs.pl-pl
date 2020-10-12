@@ -7,10 +7,10 @@ ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005823"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowe skalowanie klastra Service Fabricowego 
@@ -116,7 +116,7 @@ Podobnie jak w przypadku skalowania w poziomie, polecenia cmdlet programu PowerS
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby rozpocząć implementowanie własnej logiki automatycznego skalowania, zapoznaj się z następującymi pojęciami i przydatnymi interfejsami API:
 

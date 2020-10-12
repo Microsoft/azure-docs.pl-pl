@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/06/2020
 ms.openlocfilehash: 9104be9975568c52f6a96994a0afb782a406fe4e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076270"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Uruchamianie zadań Apache Sqoop w usłudze HDInsight z użyciem zapełniania
@@ -77,7 +77,7 @@ Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego]
 
     W tym poleceniu są używane następujące parametry:
 
-   * **-d** — ponieważ `-G` nie jest używany, żądanie jest domyślnie ustawiane jako metoda post. `-d`Określa wartości danych, które są wysyłane wraz z żądaniem.
+   * **-d** — ponieważ `-G` nie jest używany, żądanie jest domyślnie ustawiane jako metoda post. `-d` Określa wartości danych, które są wysyłane wraz z żądaniem.
 
        * **User.Name** — użytkownik, który uruchamia polecenie.
 

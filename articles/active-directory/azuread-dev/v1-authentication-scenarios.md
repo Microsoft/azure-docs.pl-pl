@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154733"
 ---
 # <a name="what-is-authentication"></a>Co to jest uwierzytelnianie?
@@ -62,7 +62,7 @@ W przykładowym scenariuszu powyżej aplikacje można sklasyfikować według tyc
 
 W zależności od sposobu skompilowania klienta można użyć jednego (lub kilku) przepływów uwierzytelniania obsługiwanych przez usługę Azure AD. Te przepływy mogą generować różne tokeny (id_tokens, tokeny odświeżenia, tokeny dostępu), a także kody autoryzacji i wymagać innych tokenów, aby działały. Ten wykres zawiera przegląd:
 
-|Ruch | KONIECZN | id_token | token dostępu | Odśwież token | kod autoryzacji | 
+|Przepływ | KONIECZN | id_token | token dostępu | Odśwież token | kod autoryzacji | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Przepływ kodu autoryzacji](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Niejawny przepływ](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -136,7 +136,7 @@ W poniższej tabeli znajduje się krótki opis każdego typu oświadczenia emito
 | Identyfikator obiektu | Zawiera niezmienny, unikatowy identyfikator podmiotu w usłudze Azure AD. |
 | Role | Zawiera przyjazne nazwy ról aplikacji usługi Azure AD, które udzielono użytkownikowi. |
 | Zakres | Wskazuje uprawnienia przyznane aplikacji klienckiej. |
-| Podmiot | Określa podmiot zabezpieczeń, dla którego token określa informacje. |
+| Temat | Określa podmiot zabezpieczeń, dla którego token określa informacje. |
 | Identyfikator dzierżawy | Zawiera niezmienny, unikatowy identyfikator dzierżawy katalogu, który wystawił token. |
 | Czas życia tokenu | Definiuje przedział czasu, przez który token jest prawidłowy. |
 | Nazwa główna użytkownika | Zawiera nazwę główną użytkownika podmiotu. |

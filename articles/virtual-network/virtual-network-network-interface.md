@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 99905e58cbcd9d0a5c5397aee125675a70e799fe
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657962"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Create, change, or delete a network interface (Tworzenie, zmienianie i usuwanie interfejsów sieciowych)
@@ -26,7 +26,7 @@ Dowiedz się, jak tworzyć, zmieniać ustawienia i usuwać interfejs sieciowy. I
 
 Jeśli musisz dodać, zmienić lub usunąć adresy IP dla interfejsu sieciowego, zobacz [Zarządzanie adresami IP](virtual-network-network-interface-addresses.md). Jeśli musisz dodać interfejsy sieciowe do lub usunąć interfejsy sieciowe z maszyn wirtualnych, zobacz [Dodawanie lub usuwanie interfejsów sieciowych](virtual-network-network-interface-vm.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,7 +72,7 @@ Portal nie udostępnia opcji przypisywania interfejsu sieciowego do grup zabezpi
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[az network nic create](/cli/azure/network/nic)|
-|PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
+|Program PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Wyświetl ustawienia interfejsu sieciowego
 
@@ -99,7 +99,7 @@ Jeśli adres IPv6 jest przypisany do interfejsu sieciowego, dane wyjściowe prog
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic list](/cli/azure/network/nic) , aby wyświetlić interfejsy sieciowe w subskrypcji; [AZ Network nic show](/cli/azure/network/nic) do wyświetlania ustawień interfejsu sieciowego|
-|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) , aby wyświetlić interfejsy sieciowe w ramach subskrypcji lub ustawienia widoku dla interfejsu sieciowego|
+|Program PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) , aby wyświetlić interfejsy sieciowe w ramach subskrypcji lub ustawienia widoku dla interfejsu sieciowego|
 
 ## <a name="change-dns-servers"></a>Zmień serwery DNS
 
@@ -120,7 +120,7 @@ Serwer DNS jest przypisywany przez serwer DHCP platformy Azure do interfejsu sie
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+|Program PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Włączanie lub wyłączanie przekazywania adresów IP
 
@@ -141,7 +141,7 @@ Ustawienie musi być włączone dla każdego interfejsu sieciowego, który jest 
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+|Program PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Zmień przypisanie podsieci
 
@@ -161,7 +161,7 @@ Można zmienić podsieć, ale nie sieć wirtualną, do której przypisany jest i
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic IP-config Update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
+|Program PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Dodaj do lub Usuń z grup zabezpieczeń aplikacji
 
@@ -175,7 +175,7 @@ Możesz dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zab
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
+|Program PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Kojarzenie lub usuwanie skojarzenia sieciowej grupy zabezpieczeń
 
@@ -207,7 +207,7 @@ Po usunięciu interfejsu sieciowego zostaną wydane wszystkie przypisane adresy 
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network nic Delete](/cli/azure/network/nic)|
-|PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
+|Program PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
 

@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: iainfou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283150"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Przyłączanie maszyny wirtualnej Ubuntu Linux do domeny zarządzanej Azure Active Directory Domain Services
@@ -43,7 +43,7 @@ Jeśli masz istniejącą Ubuntu Linux maszynę wirtualną na platformie Azure, P
 
 Jeśli musisz utworzyć maszynę wirtualną Ubuntu Linux lub chcesz utworzyć testową maszynę wirtualną do użycia z tym artykułem, możesz użyć jednej z następujących metod:
 
-* [Witryna Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -77,7 +77,7 @@ Po zakończeniu Zapisz i wyjdź z pliku *hosts* za pomocą `:wq` polecenia edyto
 
 ## <a name="install-required-packages"></a>Instalowanie wymaganych pakietów
 
-Maszyna wirtualna wymaga dodatkowych pakietów do przyłączenia maszyny wirtualnej do domeny zarządzanej. Aby zainstalować i skonfigurować te pakiety, zaktualizuj i zainstaluj narzędzia do przyłączania do domeny za pomocą`apt-get`
+Maszyna wirtualna wymaga dodatkowych pakietów do przyłączenia maszyny wirtualnej do domeny zarządzanej. Aby zainstalować i skonfigurować te pakiety, zaktualizuj i zainstaluj narzędzia do przyłączania do domeny za pomocą `apt-get`
 
 Podczas instalacji protokołu Kerberos pakiet *krb5-User* będzie monitował o nazwę obszaru we wszystkich wielkich. Na przykład jeśli nazwa domeny zarządzanej to *aaddscontoso.com*, wprowadź *AADDSCONTOSO.com* jako obszar. Instalacja zapisuje `[realm]` `[domain_realm]` sekcje i w pliku konfiguracji */etc/krb5.conf* . Upewnij się, że dla obszaru określono wszystkie wielkie litery:
 

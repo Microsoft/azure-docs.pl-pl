@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 438a816ca28b9414557e64591d9ece2dbb173370
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256875"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publikowanie Azure Media Services zawartości przy użyciu interfejsu REST
@@ -152,20 +152,20 @@ Użyj wartości **Path** zwróconej po utworzeniu lokalizatora, aby utworzyć ad
 
 Smooth Streaming: **ścieżka** + nazwa pliku manifestu + "/manifest"
 
-przykład:
+Przykład:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest`
 
 HLS: **Path** + nazwa pliku manifestu + "/manifest (format = M3U8-AAPL)"
 
-przykład:
+Przykład:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)`
 
 
 KRESKa: **ścieżka** + nazwa pliku manifestu + "/manifest (format = MPD-Time-CSF)"
 
-przykład:
+Przykład:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)`
 
@@ -175,7 +175,7 @@ Użyj wartości **Path** zwróconej po utworzeniu lokalizatora w celu SKOMPILOWA
 
 URL: **ścieżka** + plik zasobów nazwa MP4
 
-przykład:
+Przykład:
 
 `https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
@@ -203,7 +203,7 @@ public enum LocatorType
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

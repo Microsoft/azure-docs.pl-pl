@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079263"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Rozwiązywanie problemów z akcjami skryptu w usłudze Azure HDInsight
@@ -47,11 +47,11 @@ Jeśli utworzenie klastra zakończy się niepowodzeniem z powodu błędu skryptu
 
     W tym katalogu dzienniki są zorganizowane osobno dla węzła **węzła głównego**, **Node-Worker**i **dozorcy**. Zobacz poniższe przykłady:
 
-    * **Węzła głównego**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Węzła głównego**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Węzeł procesu roboczego**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Węzeł procesu roboczego**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Węzeł dozorcy**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Węzeł dozorcy**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Wszystkie **stdout** i **stderr** odpowiedniego hosta są przekazywane do konta magazynu. Istnieje jedno **wyjście- \* . txt** i **Błędy- \* . txt** dla każdej akcji skryptu. Plik **Output-*. txt** zawiera informacje o identyfikatorze URI skryptu, który został uruchomiony na hoście. Poniżej przedstawiono przykład tych informacji:
 

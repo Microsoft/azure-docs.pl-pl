@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006350"
 ---
 # <a name="table-design-patterns"></a>Wzorce projektowe tabel
@@ -743,7 +743,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Adres e-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -763,7 +763,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Adres e-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -800,7 +800,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Adres e-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -836,7 +836,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Adres e-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -858,7 +858,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Adres e-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -899,7 +899,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Adres e-mail</th>
+<th>Poczta e-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -1125,7 +1125,7 @@ W tym przykładzie asynchronicznym można zobaczyć następujące zmiany w wersj
 
 Aplikacja kliencka może wywoływać wiele metod asynchronicznych, takich jak ta, i każde wywołanie metody zostanie uruchomione w osobnym wątku.  
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Modelowanie relacji](table-storage-design-modeling.md)
 - [Projektowanie pod kątem wykonywania zapytań](table-storage-design-for-query.md)

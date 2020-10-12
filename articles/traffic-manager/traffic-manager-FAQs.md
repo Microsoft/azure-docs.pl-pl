@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
 ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400181"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager często zadawane pytania
@@ -112,7 +112,7 @@ Nie, Traffic Manager nie może zagwarantować, że region geograficzny, który z
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>Czy punkt końcowy musi być fizycznie zlokalizowany w tym samym regionie, w którym jest skonfigurowany do routingu geograficznego?
 
-Nie, Lokalizacja punktu końcowego nie nakłada żadnych ograniczeń dotyczących tego, które regiony można zamapować na nie. Na przykład punkt końcowy w regionie usługi USA — centralnie może mieć do niego kierowany wszyscy użytkownicy z Indii.
+Nie, Lokalizacja punktu końcowego nie nakłada żadnych ograniczeń dotyczących tego, które regiony można zamapować na nie. Na przykład punkt końcowy w regionie US-Central platformy Azure może mieć do niego kierowany wszyscy użytkownicy z Indii.
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Czy można przypisywać regiony geograficzne do punktów końcowych w profilu, który nie jest skonfigurowany do routingu geograficznego?
 

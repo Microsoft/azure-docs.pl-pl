@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708947"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów dotyczących połączeń w usłudze Azure Network Watcher
@@ -25,7 +25,7 @@ Funkcja rozwiązywania problemów z połączeniami Network Watcher umożliwia sp
 > [!IMPORTANT]
 > Rozwiązywanie problemów z połączeniem wymaga, aby maszyna wirtualna z maszyną wirtualną była `AzureNetworkWatcherExtension` zainstalowana jako rozszerzenie maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Rozszerzenie nie jest wymagane w docelowym punkcie końcowym.
 
-## <a name="response"></a>Odpowiedź
+## <a name="response"></a>Reakcja
 
 W poniższej tabeli przedstawiono właściwości zwracane po zakończeniu rozwiązywania problemów z połączeniami.
 
@@ -46,7 +46,7 @@ W poniższej tabeli przedstawiono właściwości zwracane po zakończeniu rozwi�
 |Przeskoki []. Luk | Kolekcja problemów, które zostały napotkane podczas sprawdzania tego przeskoku. Jeśli nie wystąpiły żadne problemy, wartość jest pusta.|
 |Przeskoki []. Problemy []. Źródł | W bieżącym przeskoku, w którym wystąpił problem. Możliwe wartości:<br/> **Ruch przychodzący** — problem dotyczy linku z poprzedniego przeskoku do bieżącego przeskoku<br/>Ruch **wychodzący** jest związany z linkiem z bieżącego przeskoku do następnego przeskoku<br/>**Lokalne** — problem dotyczy bieżącego przeskoku.|
 |Przeskoki []. Problemy []. Obrażeń | Ważność wykrytego problemu. Możliwe wartości to **Error** i **Warning**. |
-|Przeskoki []. Problemy []. Wprowadź |Typ znalezionego problemu. Możliwe wartości: <br/>**Procesor CPU**<br/>**Memory (Pamięć)**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Przeskoki []. Problemy []. Wprowadź |Typ znalezionego problemu. Możliwe wartości: <br/>**Procesor CPU**<br/>**Pamięć**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Przeskoki []. Problemy []. Context |Szczegóły dotyczące znalezionego problemu.|
 |Przeskoki []. Problemy []. Context []. Key |Zwrócono klucz pary par klucz-wartość.|
 |Przeskoki []. Problemy []. Context []. wartość |Wartość zwracanej pary kluczy.|
@@ -72,10 +72,10 @@ Poniżej znajduje się przykład problemu znalezionego w przeskoku.
 
 Rozwiązywanie problemów z połączeniami zwraca typy błędów dotyczące połączenia. Poniższa tabela zawiera listę bieżących zwracanych typów błędów.
 
-|Typ  |Opis  |
+|Type  |Opis  |
 |---------|---------|
-|Procesor CPU     | Wysokie wykorzystanie procesora CPU.       |
-|Memory (Pamięć)     | Duże użycie pamięci.       |
+|CPU     | Wysokie wykorzystanie procesora CPU.       |
+|Pamięć     | Duże użycie pamięci.       |
 |GuestFirewall     | Ruch jest zablokowany z powodu konfiguracji zapory maszyny wirtualnej.        |
 |DNSResolution     | Rozpoznawanie nazw DNS dla adresu docelowego nie powiodło się.        |
 |NetworkSecurityRule    | Ruch jest blokowany przez regułę sieciowej grupy zabezpieczeń (zwracana jest reguła)        |

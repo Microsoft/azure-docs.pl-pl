@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527007"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planowanie wdrożenia uwierzytelniania bezhaseł w Azure Active Directory
@@ -51,7 +51,7 @@ Firma Microsoft oferuje trzy opcje uwierzytelniania bezhasło, które obejmują 
 
 Metody uwierzytelniania bezhaseł firmy Microsoft umożliwiają korzystanie z różnych scenariuszy. Aby wybrać strategię uwierzytelniania bezhasło, należy wziąć pod uwagę potrzeby organizacyjne, wymagania wstępne i możliwości poszczególnych metod uwierzytelniania. Zalecamy, aby każda organizacja korzystająca z urządzeń z systemem Windows 10 korzystała z usługi Windows Hello dla firm. Następnie Dodaj do dodatkowych scenariuszy opcję logowanie za pomocą telefonu (z aplikacją Microsoft Authenticator) lub kluczami zabezpieczeń.
 
-| Scenariusz | Uwierzytelnianie na telefonie | Klucze zabezpieczeń | Windows Hello dla firm |
+| Scenariusz | Uwierzytelnianie na telefonie | Klucze zabezpieczeń | Windows Hello for Business |
 | --- | --- | --- | --- |
 | **Logowanie do komputera**: <br> Z przypisanego urządzenia z systemem Windows 10 | **Nie** | **Tak** <br> Przy użyciu biometrycznych, PIN | **Tak**<br>z rozpoznawaniem biometrycznym i lub numerem PIN |
 | **Logowanie do komputera**: <br> Z udostępnionego urządzenia z systemem Windows 10 | **Nie** | **Tak** <br> Przy użyciu biometrycznych, PIN  | **Nie** |
@@ -98,7 +98,7 @@ W poniższej tabeli przedstawiono przypadki użycia do wdrożenia w ramach tego 
 | **Dostęp** | Logowanie bez hasła jest dostępne z urządzenia firmowego lub osobistego w sieci firmowej lub poza nią. |
 | **Inspekcja** | Dane użycia są dostępne dla administratorów w celu przeprowadzania inspekcji niemal w czasie rzeczywistym. <br> Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni lub używane jest narzędzie SIEM. |
 | **Nadzór** | Cykl życia przypisań użytkowników do odpowiedniej metody uwierzytelniania i skojarzonych grup jest zdefiniowany i monitorowany. |
-| **Bezpieczeństwo** | Dostęp do odpowiedniej metody uwierzytelniania jest kontrolowany za pośrednictwem przypisań użytkowników i grup. <br> Tylko autoryzowani użytkownicy mogą korzystać z logowania bezhasłem. |
+| **Zabezpieczenia** | Dostęp do odpowiedniej metody uwierzytelniania jest kontrolowany za pośrednictwem przypisań użytkowników i grup. <br> Tylko autoryzowani użytkownicy mogą korzystać z logowania bezhasłem. |
 | **Wydajność** | Osie czasu propagacji przydziału dostępu są udokumentowane i monitorowane. <br> Czasy logowania są mierzone w celu ułatwienia użycia. |
 | **Środowisko użytkownika** | Użytkownicy są świadomi zgodności urządzeń przenośnych. <br> Użytkownicy mogą konfigurować logowanie za pomocą hasła aplikacji uwierzytelniania. |
 | **Pomoc techniczna** | Użytkownicy wiedzą, jak znaleźć pomoc techniczną dla problemów związanych z logowaniem. |
@@ -118,7 +118,7 @@ Komunikacja z użytkownikami końcowymi powinna obejmować następujące informa
 - [Rejestrowanie w aplikacji Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Logowanie za pomocą telefonu](../user-help/user-help-auth-app-sign-in.md)
 
-Firma Microsoft udostępnia [Szablony komunikacji](https://aka.ms/mfatemplates)usługi uwierzytelniania wieloskładnikowego, [Szablony komunikacji](https://www.microsoft.com/download/details.aspx?id=56768)samoobsługowego resetowania haseł (SSPR) oraz [dokumentację użytkowników końcowych](../user-help/security-info-setup-signin.md) ułatwiającą przygotowanie komunikacji. Możesz wysyłać użytkowników do [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) rejestracji bezpośrednio, wybierając linki do **informacji zabezpieczających** na tej stronie.
+Firma Microsoft udostępnia [Szablony komunikacji](https://aka.ms/mfatemplates)usługi uwierzytelniania wieloskładnikowego, [Szablony komunikacji](https://www.microsoft.com/download/details.aspx?id=56768)Self-Serviceego resetowania haseł (SSPR), a także [dokumentację użytkowników końcowych](../user-help/security-info-setup-signin.md) , która ułatwia przygotowanie komunikacji. Możesz wysyłać użytkowników do [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) rejestracji bezpośrednio, wybierając linki do **informacji zabezpieczających** na tej stronie.
 
 ### <a name="plan-to-pilot"></a>Planowanie pilotażu
 

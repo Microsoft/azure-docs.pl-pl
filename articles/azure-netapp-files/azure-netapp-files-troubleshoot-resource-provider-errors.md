@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483469"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Rozwiązywanie problemów związanych z błędami dostawcy zasobów usługi Azure NetApp Files 
@@ -126,7 +126,7 @@ Możesz zamienić znak podkreślenia na łącznik lub użyć wielkich liter zami
 Ten błąd występuje podczas próby zmiany `FileSystemId` .  Zmiana `FileSystemdId` nie jest obsługiwaną operacją. 
 
 * Przyczyna:   
-Identyfikator systemu plików jest ustawiany podczas tworzenia woluminu. `FileSystemId`nie można później zmienić.
+Identyfikator systemu plików jest ustawiany podczas tworzenia woluminu. `FileSystemId` nie można później zmienić.
 * Rozwiązanie:   
 Nie dołączaj `FileSystemId` do żądania patch i Update (Put).  Alternatywnie upewnij się, że `FileSystemId` jest taka sama w żądaniu.
 
@@ -439,7 +439,7 @@ Brak.  Zapoznaj się z powyższym rozwiązaniem.
 
 ***Nie można zmienić SubnetId.***
 
-Ten błąd występuje podczas próby zmiany `subnetId` po utworzeniu woluminu.  `SubnetId`należy ustawić podczas tworzenia woluminu i nie można go później zmienić.
+Ten błąd występuje podczas próby zmiany `subnetId` po utworzeniu woluminu.  `SubnetId` należy ustawić podczas tworzenia woluminu i nie można go później zmienić.
 
 * Przyczyna:   
 Próbujesz zmienić `subnetId` po utworzeniu woluminu, który nie jest obsługiwaną operacją. 

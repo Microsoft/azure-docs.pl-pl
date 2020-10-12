@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: 7b11d7f577f0a2ceb7284d9f78ccf83a64c72fd3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89258116"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj kodera Wirecast, aby wysłać strumień na żywo o pojedynczej szybkości transmisji bitów
@@ -113,7 +113,7 @@ W tym samouczku używane są następujące ustawienia wyjściowe. W dalszej czę
    * Profil: główny
    * Klatka kluczowa co: 60 klatek
 
-     **Audio**
+     **Dźwięk**
 
    * Docelowa szybkość transmisji bitów: 192 kbit/s
    * Częstotliwość próbkowania: 44,100 kHz
@@ -135,7 +135,7 @@ W tym samouczku używane są następujące ustawienia wyjściowe. W dalszej czę
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.
 2. Na głównym ekranie **Wirecast** upewnij się, że źródła danych wejściowych dla wideo i audio są gotowe, a następnie kliknij pozycję **strumień** w lewym górnym rogu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
@@ -178,5 +178,5 @@ Aby uzyskać wskazówki, zobacz artykuł dotyczący [rozwiązywania problemów](
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
