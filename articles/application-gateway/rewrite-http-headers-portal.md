@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807899"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Ponowne zapisywanie nagłówków żądań i odpowiedzi HTTP przy użyciu usługi Azure Application Gateway — Azure Portal
@@ -49,7 +49,7 @@ Można utworzyć wiele zestawów wielokrotnego zapisu nagłówka HTTP i zastosow
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 ## <a name="configure-header-rewrite"></a>Konfigurowanie ponownego zapisywania nagłówka
 
@@ -67,7 +67,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Wprowadź nazwę zestawu do ponownego zapisu w polu **Nazwa** .
    - Wybierz co najmniej jedną regułę podaną na liście **skojarzone reguły routingu** . Można wybrać tylko reguły, które nie zostały skojarzone z innymi zestawami ponownego zapisywania. Reguły, które zostały już skojarzone z innymi zestawami ponownego zapisywania, są wygaszone.
-   - Wybierz pozycję **Dalej**.
+   - Wybierz opcję **Dalej**.
    
      ![Dodaj nazwę i skojarzenie](media/rewrite-http-headers-portal/name-and-association.png)
 
@@ -99,9 +99,9 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Na liście **operator** wybierz pozycję **równe (=)**.
 
-   - Wprowadź wzorzec wyrażenia regularnego. W tym przykładzie użyjemy wzorca `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Wprowadź wzorzec wyrażenia regularnego. W tym przykładzie użyjemy wzorca  `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
-   - Wybierz przycisk **OK**.
+   - Kliknij przycisk **OK**.
 
      ![Konfigurowanie warunku if](media/rewrite-http-headers-portal/condition.png)
 
@@ -117,7 +117,7 @@ W tym przykładzie zmodyfikujemy adres URL przekierowania przez ponowne zapisani
 
    - Wprowadź wartość nagłówka. W tym przykładzie użyjemy `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` jako wartości nagłówka. Ta wartość spowoduje zamienienie *azurewebsites.NET* z *contoso.com* w nagłówku lokalizacji.
 
-   - Wybierz przycisk **OK**.
+   - Kliknij przycisk **OK**.
 
      ![Dodawanie akcji](media/rewrite-http-headers-portal/action.png)
 

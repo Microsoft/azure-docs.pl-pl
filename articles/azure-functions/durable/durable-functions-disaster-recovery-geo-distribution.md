@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071214"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Odzyskiwanie po awarii i dystrybucja geograficzna na platformie Azure Durable Functions
@@ -20,10 +20,10 @@ W Durable Functions wszystkie stany są domyślnie utrwalane w usłudze Azure St
 
 Aranżacje i jednostki mogą być wyzwalane za pomocą [funkcji klienta](durable-functions-types-features-overview.md#client-functions) , które są wywoływane za pośrednictwem protokołu HTTP lub jednego z innych obsługiwanych typów wyzwalaczy Azure Functions. Mogą być również wyzwalane przy użyciu [wbudowanych interfejsów API protokołu HTTP](durable-functions-http-features.md#built-in-http-apis). Dla uproszczenia ten artykuł koncentruje się na scenariuszach obejmujących wyzwalacze usługi Azure Storage i funkcji opartych na protokole HTTP oraz o opcjach zwiększania dostępności i minimalizowania przestojów podczas działania odzyskiwania po awarii. Inne typy wyzwalaczy, takie jak Service Bus lub wyzwalacze Cosmos DB, nie zostaną jawnie omówione.
 
-Poniższe scenariusze opierają się na konfiguracjach aktywnych-pasywnych, ponieważ są one objęte użyciem usługi Azure Storage. Ten wzorzec składa się z wdrażania aplikacji funkcji Backup (pasywnej) w innym regionie. Traffic Manager będzie monitorować podstawową (aktywną) aplikację funkcji dla dostępności protokołu HTTP. Jeśli podstawowy zakończy się niepowodzeniem, nastąpi przełączenie w tryb failover do aplikacji funkcji Backup. Aby uzyskać więcej informacji, zobacz temat [Metoda routingu ruchu priorytetowego](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) [Traffic Manager platformy Azure](https://azure.microsoft.com/services/traffic-manager/).
+Poniższe scenariusze opierają się na konfiguracjach Active-Passive, ponieważ są one objęte użyciem usługi Azure Storage. Ten wzorzec składa się z wdrażania aplikacji funkcji Backup (pasywnej) w innym regionie. Traffic Manager będzie monitorować podstawową (aktywną) aplikację funkcji dla dostępności protokołu HTTP. Jeśli podstawowy zakończy się niepowodzeniem, nastąpi przełączenie w tryb failover do aplikacji funkcji Backup. Aby uzyskać więcej informacji, zobacz [Traffic-Routing metody priorytetu](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) [Traffic Manager platformy Azure](https://azure.microsoft.com/services/traffic-manager/).
 
 > [!NOTE]
-> - Proponowana konfiguracja aktywna-pasywna gwarantuje, że klient będzie zawsze mógł wyzwolić nowe aranżacje za pośrednictwem protokołu HTTP. Jednak w związku z tym, że dwie aplikacje funkcji współużytkują ten sam centrum zadań w magazynie, niektóre transakcje magazynu w tle będą dystrybuowane między nimi. W związku z tym ta konfiguracja wiąże się z dodaniem kosztów ruchu wychodzącego dla aplikacji funkcji pomocniczej.
+> - Proponowana konfiguracja Active-Passive zapewnia, że klient zawsze może wyzwolić nowe aranżacje za pośrednictwem protokołu HTTP. Jednak w związku z tym, że dwie aplikacje funkcji współużytkują ten sam centrum zadań w magazynie, niektóre transakcje magazynu w tle będą dystrybuowane między nimi. W związku z tym ta konfiguracja wiąże się z dodaniem kosztów ruchu wychodzącego dla aplikacji funkcji pomocniczej.
 > - Podstawowe konto magazynu i centrum zadań są tworzone w regionie podstawowym i są współużytkowane przez obie aplikacje funkcji.
 > - Wszystkie aplikacje funkcji, które są wdrożone nadmiarowo, muszą współużytkować te same klucze dostępu do funkcji w przypadku aktywowania za pośrednictwem protokołu HTTP. Środowisko uruchomieniowe funkcji udostępnia [interfejs API zarządzania](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) , który umożliwia konsumentom programistyczne Dodawanie, usuwanie i aktualizowanie kluczy funkcji. Zarządzanie kluczami jest również możliwe przy użyciu [Azure Resource Manager interfejsów API](https://www.markheath.net/post/managing-azure-functions-keys-2).
 

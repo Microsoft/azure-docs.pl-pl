@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592682"
 ---
 # <a name="how-to-return-n-best-translations"></a>Jak zwrócić najlepsze tłumaczenia (N)
@@ -41,7 +41,7 @@ Sygnatura:
 | appId | **Wymagane** Jeśli jest używany nagłówek autoryzacji, pozostaw pole AppID puste, a następnie wpisz ciąg zawierający "Bearer" + "" + token dostępu.|
 | tekst | **Wymagane** Ciąg reprezentujący tekst do przetłumaczenia. Rozmiar tekstu nie może przekraczać 10000 znaków.|
 | wniosek | **Wymagane** Ciąg reprezentujący kod języka tekstu do przetłumaczenia. |
-| na | **Wymagane** Ciąg reprezentujący kod języka służący do tłumaczenia tekstu. |
+| na wartość | **Wymagane** Ciąg reprezentujący kod języka służący do tłumaczenia tekstu. |
 | maxTranslations | **Wymagane** Int reprezentuje maksymalną liczbę tłumaczeń do zwrócenia. |
 | opcje | **Opcjonalne** Obiekt TranslateOptions, który zawiera wartości wymienione poniżej. Są one opcjonalne i domyślne dla najczęściej używanych ustawień.
 

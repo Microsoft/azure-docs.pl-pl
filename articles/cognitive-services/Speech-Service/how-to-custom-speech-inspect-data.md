@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
 ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319132"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspekcja danych usługi Custom Speech
@@ -35,7 +35,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć test:
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Inspekcja jakości (dane audio)**. Nadaj testowi nazwę, opis i wybierz zestaw danych audio.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
-6. Kliknij pozycję **Utwórz**.
+6. Kliknij przycisk **Utwórz**.
 
 Po pomyślnym utworzeniu testu można zobaczyć, jak model przekształca określony zestaw danych audio, lub Porównaj wyniki z dwóch modeli obok siebie.
 
@@ -91,7 +91,7 @@ Po dokonaniu edycji kliknij przycisk **Zapisz** .
 
 Aby wyeksportować zestawy danych z powrotem do karty **dane** , przejdź do strony Szczegóły danych, a następnie kliknij przycisk **Eksportuj** , aby wyeksportować wszystkie pliki jako nowy zestaw danych. Można również filtrować pliki według czasu ostatniego edytowania, czasów trwania audio itp., aby częściowo wybierać żądane pliki. 
 
-![Eksportowanie danych](media/custom-speech/custom-speech-editor-export.png)
+![Eksportuj dane](media/custom-speech/custom-speech-editor-export.png)
 
 Pliki eksportowane do danych będą używane jako zestaw danych marki i nie wpłyną na żadne istniejące dane/szkolenia/jednostki testowe.
 

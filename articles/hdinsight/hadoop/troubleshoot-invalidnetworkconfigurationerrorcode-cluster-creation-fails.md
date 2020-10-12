@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
 ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82780440"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Tworzenie klastra kończy się niepowodzeniem z InvalidNetworkConfigurationErrorCode w usłudze Azure HDInsight
@@ -54,7 +54,7 @@ Opis błędu zawiera komunikat "nie można nawiązać połączenia z kontem usł
 
 ### <a name="cause"></a>Przyczyna
 
-Usługi Azure Storage i SQL nie mają stałych adresów IP, dlatego musimy zezwolić na połączenia wychodzące ze wszystkimi adresami-IP, aby zezwolić na dostęp do tych usług. Dokładne kroki rozwiązania zależą od tego, czy skonfigurowano sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), czy reguły zdefiniowane przez użytkownika (UDR). Szczegółowe informacje o tych konfiguracjach można znaleźć w sekcji Sprawdzanie [ruchu sieciowego za pomocą usługi HDInsight z grupami zabezpieczeń sieci i trasami zdefiniowanymi przez użytkownika](../control-network-traffic.md) .
+Usługi Azure Storage i SQL nie mają stałych adresów IP, dlatego musimy zezwolić na połączenia wychodzące ze wszystkimi adresami-IP, aby zezwolić na dostęp do tych usług. Dokładne kroki rozwiązania zależą od tego, czy skonfigurowano sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), czy reguły User-Defined (UDR). Szczegółowe informacje o tych konfiguracjach można znaleźć w sekcji Sprawdzanie [ruchu sieciowego za pomocą usługi HDInsight z grupami zabezpieczeń sieci i trasami zdefiniowanymi przez użytkownika](../control-network-traffic.md) .
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -95,7 +95,7 @@ Sprawdź, czy 168.63.129.16 znajduje się w niestandardowym łańcuchu DNS. Serw
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Uruchom następujące polecenie:
+1. Wykonaj następujące polecenie:
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*

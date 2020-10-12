@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132488"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Zarządzanie serwerem konfiguracji na potrzeby odzyskiwania po awarii serwera fizycznego
@@ -36,10 +36,10 @@ Tabela zawiera podsumowanie wymagań wstępnych dotyczących wdrażania lokalneg
 | Wersja programu VMware vSphere PowerCLI | Niewymagane|
 | Role systemu Windows Server | Nie należy włączać tych ról: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 | Zasady grupy| Nie włączaj tych zasad grupy: <br> -Uniemożliwianie dostępu do wiersza polecenia <br> — Uniemożliwianie dostępu do narzędzi edycji rejestru <br> — Logika zaufania dla plików załączników <br> -Włącz wykonywanie skryptu <br> [Dowiedz się więcej](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
-| IIS | -Brak istniejącej domyślnej witryny sieci Web <br> -Włącz [uwierzytelnianie anonimowe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Włącz ustawienie [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> — Żadna istniejąca witryna sieci Web/aplikacja nasłuchu na porcie 443<br>|
+| IIS | -Brak istniejącej domyślnej witryny sieci Web <br> -Włącz  [uwierzytelnianie anonimowe](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> -Włącz ustawienie [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br> — Żadna istniejąca witryna sieci Web/aplikacja nasłuchu na porcie 443<br>|
 | Typ karty sieciowej | VMXNET3 (po wdrożeniu jako maszyny wirtualnej VMware) |
 | Typ adresu IP | Static |
-| Dostęp do Internetu | Serwer musi mieć dostęp do tych adresów URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(niewymagane w przypadku serwerów przetwarzania skalowalnego w poziomie) <br> - time.nist.gov <br> - time.windows.com |
+| Dostęp do Internetu | Serwer musi mieć dostęp do tych adresów URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (niewymagane w przypadku serwerów przetwarzania skalowalnego w poziomie) <br> - time.nist.gov <br> - time.windows.com |
 | Porty | 443 (organizowanie kanału sterowania)<br>9443 (transport danych)|
 
 ## <a name="download-the-latest-installation-file"></a>Pobierz najnowszy plik instalacyjny
@@ -108,7 +108,7 @@ Uruchom plik instalacyjny w następujący sposób:
 
 ### <a name="parameters"></a>Parametry
 
-|Nazwa parametru| Typ | Opis| Wartości|
+|Nazwa parametru| Type | Opis| Wartości|
 |-|-|-|-|
 | /ServerMode|Wymagane|Określa, czy mają zostać zainstalowane oba serwery, konfiguracji i przetwarzania, czy tylko serwer przetwarzania|CS<br>PS|
 |/InstallLocation|Wymagane|Folder, w którym są instalowane składniki| Dowolny folder na komputerze|
@@ -217,7 +217,7 @@ Ustawienia serwera proxy dla komputera serwera konfiguracji można modyfikować 
 
 ## <a name="upgrade-a-configuration-server"></a>Uaktualnianie serwera konfiguracji
 
-Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktualizacji. Aktualizacje mogą być stosowane do wersji N-4. Przykład:
+Aby zaktualizować serwer konfiguracji, należy uruchomić pakiet zbiorczy aktualizacji. Aktualizacje mogą być stosowane do wersji N-4. Na przykład:
 
 - Jeśli korzystasz z 9,7, 9,8, 9,9 lub 9,10, możesz przeprowadzić uaktualnienie bezpośrednio do wersji 9,11.
 - Jeśli korzystasz z systemu 9,6 lub starszego, a chcesz uaktualnić do wersji 9,11, musisz najpierw przeprowadzić uaktualnienie do programu wersja 9,7. przed 9,11.
@@ -288,7 +288,7 @@ Uaktualnij serwer w następujący sposób:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> Aby wymusić usunięcie/usunięcie serwera konfiguracji, można użyć opcji **-Force** w elemencie Remove-AzSiteRecoveryFabric.
+> Opcja **-Force** w Remove-AzSiteRecoveryFabric może służyć do wymuszenia usunięcia/usunięcia serwera konfiguracji.
 
 ## <a name="renew-tlsssl-certificates"></a>Odnawianie certyfikatów TLS/SSL
 Serwer konfiguracji ma wbudowany serwer sieci Web, który organizuje działania usługi mobilności, serwery przetwarzania i połączone z nim główne serwery docelowe. Serwer sieci Web używa certyfikatu TLS/SSL do uwierzytelniania klientów. Certyfikat wygasa po upływie trzech lat i może zostać odnowiony w dowolnym momencie.

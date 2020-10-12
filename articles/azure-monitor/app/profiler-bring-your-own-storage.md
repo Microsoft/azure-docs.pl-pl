@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117380"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
@@ -23,7 +23,7 @@ W przypadku przenoszenia własnego magazynu te artefakty są przekazywane do kon
 > [!NOTE]
 > W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat prywatnego linku do Application Insights, [Zobacz dokumentację.](../platform/private-link-security.md)
 >
-> W przypadku włączenia kluczy zarządzanych przez klienta należy wprowadzić własny magazyn. Więcej informacji o kluczach zarządzanych przez klienta Application Insights można [znaleźć w dokumentacji.](../platform/customer-managed-keys.md)
+> W przypadku włączenia kluczy Customer-Managed należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat Customer-Managed kluczy dla Application Insights, [zapoznaj się z dokumentacją.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Jak będzie uzyskiwany dostęp do konta magazynu?
 1. Agenci działający w Virtual Machines lub App Service będą przekazywać artefakty (profile, migawki i symbole) do kontenerów obiektów BLOB na Twoim koncie. Ten proces obejmuje kontaktowanie się z usługą Application Insights Profiler lub Snapshot Debugger w celu uzyskania tokenu sygnatury dostępu współdzielonego do nowego obiektu BLOB na koncie magazynu.
@@ -37,7 +37,7 @@ W przypadku przenoszenia własnego magazynu te artefakty są przekazywane do kon
 
 ## <a name="how-to-enable-byos"></a>Jak włączyć BYOS
 
-### <a name="create-storage-account"></a>Utwórz konto magazynu
+### <a name="create-storage-account"></a>Tworzenie konta magazynu
 Utwórz nowe konto magazynu (jeśli nie masz go) w tej samej lokalizacji, w której znajduje się zasób Application Insights.
 Jeśli zasób Application Insights jest włączony `West US 2` , konto magazynu musi znajdować się w `West US 2` .
 
@@ -231,7 +231,7 @@ Aby skonfigurować BYOS do diagnostyki na poziomie kodu (Profiler/debuger), dost
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="template-schema-schema_uri-isnt-supported"></a>Schemat szablonu "{schema_uri}" nie jest obsługiwany.
-* Upewnij się, że `$schema` Właściwość szablonu jest prawidłowa. Musi być zgodna z następującym wzorcem:`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* Upewnij się, że `$schema` Właściwość szablonu jest prawidłowa. Musi być zgodna z następującym wzorcem: `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Upewnij się, że `schema_version` szablon znajduje się w prawidłowych wartościach: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` .
     Komunikat o błędzie:
     ```powershell
@@ -280,13 +280,13 @@ Ogólne Snapshot Debugger Rozwiązywanie problemów można znaleźć w [dokument
 * Jeśli mam program Profiler lub migawkę, a następnie BYOS, czy moje dane zostaną zmigrowane na konto magazynu?
     _Nie._
 
-* Czy BYOS będzie działał z szyfrowaniem w czasie spoczynku i kluczem zarządzanym przez klienta?
-    _Tak, aby była precyzyjna, BYOS jest wymagana, aby Profiler/debuger był włączony przy użyciu kluczy menedżera klienta._
+* Czy BYOS będzie działał przy użyciu szyfrowania w czasie spoczynku i Customer-Managed?
+    _Tak, aby była precyzyjna, BYOS jest wymagana, aby Profiler/debuger był włączony z kluczami Customer-Manager._
 
 * Czy BYOS będzie działała w środowisku odizolowanym od Internetu?
     _Opcję. W rzeczywistości BYOS jest wymaganiem dla izolowanych scenariuszy sieci._
 
-* BYOS będzie działała, gdy włączono zarówno klucze zarządzane przez klienta, jak i link prywatny? 
+* BYOS będzie działała po włączeniu obu, Customer-Managed kluczy i linku prywatnego? 
     _Tak, może być możliwe._
 
 * Czy po włączeniu usługi BYOS można korzystać z kont magazynu usług diagnostycznych w celu przechowywania zebranych danych? 

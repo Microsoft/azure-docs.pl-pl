@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 020e8249f57ccb1a14da798a717a00dcc3962389
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227322"
 ---
 # <a name="double-encryption"></a>Podwójne szyfrowanie
-Podwójne szyfrowanie polega na tym, że co najmniej dwie niezależne warstwy szyfrowania są włączone, aby chronić przed naruszeniem bezpieczeństwa każdej warstwy szyfrowania. Użycie dwóch warstw szyfrowania zmniejsza ryzyko związane z szyfrowaniem danych. Przykład:
+Podwójne szyfrowanie polega na tym, że co najmniej dwie niezależne warstwy szyfrowania są włączone, aby chronić przed naruszeniem bezpieczeństwa każdej warstwy szyfrowania. Użycie dwóch warstw szyfrowania zmniejsza ryzyko związane z szyfrowaniem danych. Na przykład:
 
 - Błędy konfiguracji w szyfrowaniu danych
 - Błędy implementacji w algorytmie szyfrowania

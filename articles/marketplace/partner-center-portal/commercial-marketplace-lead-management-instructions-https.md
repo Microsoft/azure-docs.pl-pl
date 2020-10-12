@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
 ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120376"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Używanie punktu końcowego HTTPS do zarządzania komercyjnymi liderami w portalu Marketplace
@@ -173,7 +173,7 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
    - **Treść**: z listy dynamiczne pobranie zawartości Dodaj odpowiednie informacje w treści wiadomości e-mail. Na przykład użyj LastName, FirstName, poczty E-mail i firmy. Po zakończeniu konfigurowania powiadomienia e-mail wygląda jak przykład na poniższym ekranie.
 
 
-       ![Przykład powiadomienia e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
+       ![Przykładowe powiadomienie pocztą e-mail](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
 1. Wybierz pozycję **Zapisz** , aby zakończyć przepływ. Adres URL POST protokołu HTTP jest tworzony i jest dostępny w oknie **po odebraniu żądania HTTP** . Skopiuj ten adres URL przy użyciu kontrolki Kopiuj znajdującej się po prawej stronie adresu URL POST protokołu HTTP. Użycie tego formantu jest ważne, aby nie pominąć żadnej części całego adresu URL. Zapisz ten adres URL, ponieważ będzie on potrzebny podczas konfigurowania zarządzania liderem w portalu wydawców.
 
@@ -219,7 +219,7 @@ Konfigurację można przetestować za pomocą programu [Poster](https://app.getp
     >[!NOTE] 
     >Jeśli nie widzisz wiadomości e-mail z testu, Sprawdź swoje spam i foldery śmieci. Na poniższym ekranie zobaczysz tylko etykiety pól dodane podczas konfigurowania powiadomienia e-mail. Jeśli jako rzeczywisty potencjalny klient został wygenerowany z oferty, zobaczysz również rzeczywiste informacje z kontaktu potencjalnego klienta w treści i w wierszu tematu.
 
-   ![Odebrano wiadomość e-mail](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
+   ![Otrzymana wiadomość e-mail](./media/commercial-marketplace-lead-management-instructions-https/email-received.png)
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do punktu końcowego HTTPS
 

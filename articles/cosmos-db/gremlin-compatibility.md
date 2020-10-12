@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092511"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB zgodność Gremlin
@@ -33,7 +33,7 @@ Aparat Azure Cosmos DB Graph jest ściśle opisany w specyfikacji kroków przech
 
 * ***Sortowanie według właściwości tablicy*** `order().by(<array property>)` nie jest obsługiwana. Sortowanie jest obsługiwane tylko według typów pierwotnych.
 
-* ***Niepierwotne typy JSON*** nie są obsługiwane. Użyj `string` `number` typów,, lub `true` / `false` . `null`wartości nie są obsługiwane. 
+* ***Niepierwotne typy JSON*** nie są obsługiwane. Użyj `string` `number` typów,, lub `true` / `false` . `null` wartości nie są obsługiwane. 
 
 * Serializator ***GraphSONv3*** nie jest obecnie obsługiwany. `GraphSONv2`W konfiguracji połączenia użyj klas serializatorów, czytników i składników zapisywania. Wyniki zwrócone przez interfejs API Azure Cosmos DB Gremlin nie mają takiego samego formatu jak format GraphSON. 
 

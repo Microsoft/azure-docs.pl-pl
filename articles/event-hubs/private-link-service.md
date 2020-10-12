@@ -4,10 +4,10 @@ description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą
 ms.date: 08/22/2020
 ms.topic: article
 ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334246"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Zezwalaj na dostęp do przestrzeni nazw platformy Azure Event Hubs za pośrednictwem prywatnych punktów końcowych 
@@ -64,7 +64,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
 1. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony. 
 1. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Strona sieci — karta połączenia prywatnego punktu końcowego — Dodawanie linku do prywatnego punktu końcowego":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Karta sieci — opcja wybrane sieci":::
 7. Na stronie **podstawowe** wykonaj następujące kroki: 
     1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.

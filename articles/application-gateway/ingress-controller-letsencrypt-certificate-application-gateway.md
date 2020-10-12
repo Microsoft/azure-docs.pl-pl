@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807028"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Używanie certyfikatów z LetsEncrypt.org na Application Gateway dla klastrów AKS
@@ -58,7 +58,7 @@ Wykonaj poniższe kroki, aby zainstalować [Menedżera certyfikatów](https://do
 
     Utwórz `ClusterIssuer` zasób. Jest to wymagane przez program `cert-manager` do reprezentowania `Lets Encrypt` urzędu certyfikacji, w którym zostaną uzyskane podpisane certyfikaty.
 
-    Przy użyciu zasobu bez przestrzeni nazw `ClusterIssuer` Menedżer certyfikatów będzie wystawiał certyfikaty, które mogą być używane z wielu przestrzeni nazw. `Let’s Encrypt`używa protokołu ACME do sprawdzenia, czy podaną nazwę domeny i wystawiasz certyfikat. Więcej szczegółowych informacji na temat konfigurowania `ClusterIssuer` właściwości [znajdziesz tutaj](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`nakazuje `cert-manager` wystawienie certyfikatów przy użyciu `Lets Encrypt` środowiska przejściowego używanego do testowania (certyfikat główny nieobecny w sklepie/magazyn zaufania klienta).
+    Przy użyciu zasobu bez przestrzeni nazw `ClusterIssuer` Menedżer certyfikatów będzie wystawiał certyfikaty, które mogą być używane z wielu przestrzeni nazw. `Let’s Encrypt` używa protokołu ACME do sprawdzenia, czy podaną nazwę domeny i wystawiasz certyfikat. Więcej szczegółowych informacji na temat konfigurowania `ClusterIssuer` właściwości [znajdziesz tutaj](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` nakazuje `cert-manager` wystawienie certyfikatów przy użyciu `Lets Encrypt` środowiska przejściowego używanego do testowania (certyfikat główny nieobecny w sklepie/magazyn zaufania klienta).
 
     Domyślny typ wyzwania w YAML poniżej to `http01` . Inne wyzwania są udokumentowane na [letsencrypt.org — typy wyzwania](https://letsencrypt.org/docs/challenge-types/)
 
@@ -133,8 +133,8 @@ Wykonaj poniższe kroki, aby zainstalować [Menedżera certyfikatów](https://do
 4. Certyfikat produkcyjny
 
     Po pomyślnym skonfigurowaniu certyfikatu przemieszczania można przełączyć się na produkcyjny serwer xyz:
-    1. Zastąp adnotację przemieszczania w zasobie transferu danych przychodzących przy użyciu:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Usuń istniejące przemieszczanie `ClusterIssuer` utworzone w poprzednim kroku i Utwórz nowe, zastępując serwer XYZ z CLUSTERISSUER YAML powyżej z`https://acme-v02.api.letsencrypt.org/directory`
+    1. Zastąp adnotację przemieszczania w zasobie transferu danych przychodzących przy użyciu: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. Usuń istniejące przemieszczanie `ClusterIssuer` utworzone w poprzednim kroku i Utwórz nowe, zastępując serwer XYZ z CLUSTERISSUER YAML powyżej z `https://acme-v02.api.letsencrypt.org/directory`
 
 5. Wygaśnięcie i odnowienie certyfikatu
 

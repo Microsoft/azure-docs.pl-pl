@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092749"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy związane z konfiguracją i zarządzaniem w usłudze Azure Cloud Services: często zadawane pytania
@@ -113,7 +113,7 @@ Można zautomatyzować to zadanie przy użyciu skryptu uruchamiania (Batch/cmd/P
 
 Ten certyfikat służy do szyfrowania kluczy komputera w rolach sieci Web platformy Azure. Aby dowiedzieć się więcej, zapoznaj się z [tym poradnikiem](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Typowe zadania uruchamiania usługi w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
@@ -192,7 +192,7 @@ Firma Microsoft stale monitoruje serwery, sieci i aplikacje w celu wykrywania za
 Systemy Windows 10 i Windows Server 2016 są dostarczane z obsługą protokołu HTTP/2 zarówno po stronie klienta, jak i serwera. Jeśli klient (przeglądarka) nawiązuje połączenie z serwerem IIS za pośrednictwem protokołu TLS, który negocjuje protokół HTTP/2 za pośrednictwem rozszerzeń TLS, nie trzeba wprowadzać żadnych zmian po stronie serwera. Wynika to z faktu, że za pośrednictwem protokołu TLS jest domyślnie wysyłany nagłówek H2-14 określający użycie protokołu HTTP/2. Jeśli z drugiej strony klient wysyła nagłówek uaktualnienia w celu uaktualnienia do protokołu HTTP/2, należy wprowadzić zmianę poniżej na stronie serwera, aby upewnić się, że uaktualnienie działa i zostanie zakończone połączenie HTTP/2. 
 
 1. Uruchom regedit.exe.
-2. Przejdź do klucza rejestru: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Przejdź do klucza rejestru: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Utwórz nową wartość DWORD o nazwie **DuoEnabled**.
 4. Ustaw jej wartość na 1.
 5. Uruchom ponownie serwer.
@@ -231,7 +231,7 @@ Firma Microsoft stosuje się do ścisłego procesu, który nie zezwoli wewnętrz
 Ten błąd może wystąpić, jeśli używasz pliku RDP z komputera, który jest przyłączony do Azure Active Directory. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
 1. Kliknij prawym przyciskiem myszy pobrany plik RDP, a następnie wybierz polecenie **Edytuj**.
-2. Dodaj "&#92;" jako prefiks przed nazwą użytkownika. Na przykład użyj **.\username** zamiast **nazwy użytkownika**.
+2. Dodaj "&#92;" jako prefiks przed nazwą użytkownika. Na przykład użyj **.\username** zamiast  **nazwy użytkownika**.
 
 ## <a name="scaling"></a>Skalowanie
 

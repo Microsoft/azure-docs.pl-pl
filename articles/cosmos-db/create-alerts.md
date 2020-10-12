@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099632"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Tworzenie alertów dla Azure Cosmos DB przy użyciu Azure Monitor
@@ -83,7 +83,7 @@ W tej sekcji przedstawiono sposób tworzenia alertu w przypadku otrzymania kodu 
 
    * Podaj nazwę akcji, a następnie wybierz opcję **wiadomości e-mail/SMS/wypychanie/głos** jako **Typ akcji**. Poniższy zrzut ekranu przedstawia szczegóły typu akcji:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Skonfiguruj typ akcji, na przykład powiadomienie e-mail, aby otrzymać Alert":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Konfigurowanie logiki w celu otrzymywania alertów dotyczących żądań o szybkości ograniczonej/429":::
 
 1. Wypełnij sekcję **szczegóły reguły alertu** :
 

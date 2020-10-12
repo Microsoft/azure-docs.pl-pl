@@ -8,13 +8,13 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129912"
 ---
-# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure przy użyciu programu PowerShell
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Skonfiguruj odzyskiwanie po awarii maszyn wirtualnych VMware na platformę Azure za pomocą programu PowerShell
 
 W tym artykule opisano sposób replikowania maszyn wirtualnych VMware i pracy w trybie failover na platformie Azure przy użyciu Azure PowerShell.
 
@@ -36,12 +36,12 @@ Omawiane kwestie:
 Przed rozpoczęciem:
 
 - Przeanalizuj informacje o [składnikach i architekturze scenariusza](vmware-azure-architecture.md).
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](./vmware-physical-azure-support-matrix.md) wszystkich składników.
-- Masz `Az` moduł Azure PowerShell. Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps).
+- Zapoznaj się z wymaganiami dotyczącymi [obsługi](./vmware-physical-azure-support-matrix.md) wszystkich składników.
+- Masz `Az`  moduł Azure PowerShell. Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Logowanie się do platformy Azure
 
-Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia cmdlet Connect-AzAccount:
+Zaloguj się do subskrypcji platformy Azure za pomocą polecenia cmdlet Connect-AzAccount:
 
 ```azurepowershell
 Connect-AzAccount
@@ -118,7 +118,7 @@ W poniższym przykładzie szczegóły magazynu ze zmiennej $vault są używane d
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Zamiast polecenia cmdlet Set-ASRVaultContext, można również użyć polecenia cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile, aby ustawić kontekst magazynu. Określ ścieżkę, w której znajduje się plik klucza rejestracji magazynu jako parametr-path polecenia cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Przykład:
+Alternatywą dla polecenia cmdlet Set-ASRVaultContext może być również użycie Import-AzRecoveryServicesAsrVaultSettingsFile polecenia cmdlet do ustawienia kontekstu magazynu. Określ ścieżkę, w której znajduje się plik klucza rejestracji magazynu jako parametr-path polecenia cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Na przykład:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -279,7 +279,7 @@ W tym kroku zostaną utworzone dwie zasady replikacji. Jedną z zasad w celu rep
 
 ## <a name="add-a-vcenter-server-and-discover-vms"></a>Dodawanie serwera vCenter i odnajdywanie maszyn wirtualnych
 
-Dodaj vCenter Server według adresu IP lub nazwy hosta. Parametr **-port** określa port serwera vCenter, z którym ma zostać nawiązane połączenie, parametr **-name** określa przyjazną nazwę, która ma być używana dla serwera vCenter, a parametr **-Account** określa uchwyt konta na serwerze konfiguracji, który będzie używany do odnajdywania maszyn wirtualnych zarządzanych przez serwer vCenter.
+Dodaj vCenter Server według adresu IP lub nazwy hosta. Parametr **-port** określa port serwera vCenter, z którym ma zostać nawiązane połączenie, parametr **-name** określa przyjazną nazwę, która ma być używana dla serwera vCenter, a parametr  **-Account** określa uchwyt konta na serwerze konfiguracji, który będzie używany do odnajdywania maszyn wirtualnych zarządzanych przez serwer vCenter.
 
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
@@ -354,7 +354,7 @@ Teraz Replikuj następujące maszyny wirtualne przy użyciu ustawień określony
 |Maszyna wirtualna  |Serwer przetwarzania        |Konto magazynu              |Konto magazynu dzienników  |Zasady           |Konto do instalacji usługi mobilności|Docelowa Grupa zasobów  | Docelowa sieć wirtualna  |Podsieć docelowa  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |Nie dotyczy| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR — Sieć wirtualna                 |Podsieć-1       |
-|Win2K12VM1       |Skalowania — ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR — Sieć wirtualna                 |Podsieć-1       |   
+|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR — Sieć wirtualna                 |Podsieć-1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Nie dotyczy                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR — Sieć wirtualna                 |Podsieć-1       |   
 
 
@@ -461,7 +461,7 @@ Errors           : {}
    ```
 2. Po pomyślnym ukończeniu zadania testowego przejścia w tryb failover można zauważyć, że maszyna wirtualna z sufiksem *"-test"* (Win2K12VM1-test w tym przypadku) została utworzona na platformie Azure.
 3. Teraz można nawiązać połączenie z testem zakończonym niepowodzeniem za pomocą maszyny wirtualnej i zweryfikować test pracy w trybie failover.
-4. Oczyść test pracy w trybie failover przy użyciu polecenia cmdlet Start-ASRTestFailoverCleanupJob. Ta operacja usuwa maszynę wirtualną utworzoną w ramach operacji testowej pracy w trybie failover.
+4. Oczyść test pracy w trybie failover za pomocą polecenia cmdlet Start-ASRTestFailoverCleanupJob. Ta operacja usuwa maszynę wirtualną utworzoną w ramach operacji testowej pracy w trybie failover.
 
    ```azurepowershell
    $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1

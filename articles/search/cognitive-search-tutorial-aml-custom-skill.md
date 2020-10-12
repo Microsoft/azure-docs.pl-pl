@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.openlocfilehash: 3ecef629e38e2823bea101af47899f9b7d6845f0
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399843"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Samouczek: kompilowanie i wdrażanie niestandardowej umiejętności przy użyciu Azure Machine Learning 
@@ -82,7 +82,7 @@ Sekcja 4 w notesie ma cztery komórki, które aktualizują zestawu umiejętnośc
 
 W portalu przejdź do zestawu umiejętności i wybierz łącze zestawu umiejętności Definition (JSON). W portalu zostanie wyświetlony kod JSON zestawu umiejętności, który został utworzony w pierwszej komórce notesu. Z prawej strony ekranu znajduje się menu rozwijane, w którym można wybrać szablon definicji umiejętności. Wybierz szablon Azure Machine Learning (AML). Podaj nazwę obszaru roboczego usługi Azure ML i punkt końcowy dla modelu wdrożonego w klastrze wnioskowania. Szablon zostanie zaktualizowany przy użyciu identyfikatora URI i klucza punktu końcowego.
 
-> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Szablon definicji zestawu umiejętności":::
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Szablon definicji zestawu umiejętności&quot;:::
 
 Skopiuj szablon zestawu umiejętności z okna i wklej go do definicji zestawu umiejętności po lewej stronie. Edytuj szablon, aby podać brakujące wartości dla:
 
@@ -90,7 +90,7 @@ Skopiuj szablon zestawu umiejętności z okna i wklej go do definicji zestawu um
 * Opis
 * Kontekst
 * Nazwa i źródło danych wejściowych
-* Nazwa "Outputs" i TargetName
+* Nazwa &quot;Outputs" i TargetName
 
 Zapisz zestawu umiejętności.
 
@@ -98,7 +98,7 @@ Po zapisaniu zestawu umiejętności przejdź do indeksatora i wybierz łącze in
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

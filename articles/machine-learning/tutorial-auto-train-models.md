@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896785"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Używanie automatycznego uczenia maszynowego do przewidywania opłat za taksówkę
@@ -137,7 +137,7 @@ green_taxi_df.describe()
 |----|----|---|---|----|---|---|---|---|---|---|---
 |count|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00
 |średnia|1,78|1,37|2,87|-73,83|40,69|-73,84|40,70|14,75|6,50|15,13|3,27|13,52
-|odchylenie standardowe|0,41|1.04|2,93|2,76|1,52|2,61|1,44|12,08|3,45|8,45|1,95|6,83
+|odchylenie standardowe|0,41|1,04|2,93|2,76|1,52|2,61|1,44|12,08|3,45|8,45|1,95|6,83
 |min|1,00|0,00|0,00|-74,66|0,00|-74,66|0,00|-300,00|1,00|1,00|0,00|0,00
 |25%|2,00|1,00|1.06|-73,96|40,70|-73,97|40,70|7,80|3,75|8,00|2,00|9,00
 |50%|2,00|1,00|1,90|-73,94|40,75|-73,94|40,75|11,30|6,50|15,00|3,00|15,00
@@ -376,7 +376,7 @@ Na podstawie dwóch metryk dokładności przewidywania zobaczysz, że model jest
 
 Tradycyjny proces opracowywania modelu uczenia maszynowego intensywnie korzysta z zasobów. Wymaga dużej wiedzy o danej dziedzinie oraz czasu, który trzeba poświęcić na uruchamianie kilkudziesięciu modeli i porównywanie ich wyników. Użycie automatycznego uczenia maszynowego jest doskonałym sposobem na szybkie przetestowanie wielu różnych modeli w danym scenariuszu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Nie wykonuj tej sekcji, jeśli planujesz Uruchamianie innych samouczków Azure Machine Learning.
 

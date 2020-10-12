@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807102"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Zainstaluj Application Gateway kontroler transferu danych przychodzących (AGIC) przy użyciu istniejącej Application Gateway
@@ -36,7 +36,7 @@ W tym dokumencie przyjęto założenie, że masz już zainstalowane następując
 
 Przed zainstalowaniem AGIC __Wykonaj kopię zapasową konfiguracji Application Gateway__ :
   1. Używanie [Azure Portal](https://portal.azure.com/) przejdź do `Application Gateway` wystąpienia
-  2. od `Export template` kliknięcia`Download`
+  2. od `Export template` kliknięcia `Download`
 
 Pobrany plik zip będzie miał szablony JSON, bash i skrypty programu PowerShell, których można użyć do przywrócenia bramy App Gateway.
 
@@ -79,7 +79,7 @@ Postępuj zgodnie z [instrukcjami dotyczącymi instalacji tożsamości usługi A
 Następnie musimy utworzyć tożsamość platformy Azure i udzielić jej uprawnień ARM.
 Użyj [Cloud Shell](https://shell.azure.com/) , aby uruchomić wszystkie następujące polecenia i utworzyć tożsamość:
 
-1. Utwórz tożsamość platformy Azure **w tej samej grupie zasobów co węzły AKS**. Wybranie odpowiedniej grupy zasobów jest ważne. Grupa zasobów wymagana w poleceniu poniżej *nie* jest tą, do której odwołuje się okienko portalu AKS. Jest to grupa zasobów `aks-agentpool` maszyn wirtualnych. Zwykle Grupa zasobów rozpoczyna się od `MC_` i zawiera nazwę AKS. Na przykład:`MC_resourceGroup_aksABCD_westus`
+1. Utwórz tożsamość platformy Azure **w tej samej grupie zasobów co węzły AKS**. Wybranie odpowiedniej grupy zasobów jest ważne. Grupa zasobów wymagana w poleceniu poniżej *nie* jest tą, do której odwołuje się okienko portalu AKS. Jest to grupa zasobów `aks-agentpool` maszyn wirtualnych. Zwykle Grupa zasobów rozpoczyna się od `MC_` i zawiera nazwę AKS. Na przykład: `MC_resourceGroup_aksABCD_westus`
 
     ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
@@ -91,9 +91,9 @@ Użyj [Cloud Shell](https://shell.azure.com/) , aby uruchomić wszystkie następ
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Nadaj tożsamości `Contributor` dostęp do Application Gateway. W takim przypadku wymagany jest identyfikator Application Gateway, który będzie wyglądać następująco:`/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+1. Nadaj tożsamości `Contributor` dostęp do Application Gateway. W takim przypadku wymagany jest identyfikator Application Gateway, który będzie wyglądać następująco: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
-    Pobierz listę identyfikatorów Application Gateway w ramach subskrypcji za pomocą:`az network application-gateway list --query '[].id'`
+    Pobierz listę identyfikatorów Application Gateway w ramach subskrypcji za pomocą: `az network application-gateway list --query '[].id'`
 
     ```azurecli
     az role assignment create \
@@ -102,7 +102,7 @@ Użyj [Cloud Shell](https://shell.azure.com/) , aby uruchomić wszystkie następ
         --scope <App-Gateway-ID>
     ```
 
-1. Nadaj tożsamości `Reader` dostęp do Application Gateway grupy zasobów. Identyfikator grupy zasobów będzie wyglądać następująco: `/subscriptions/A/resourceGroups/B` . Wszystkie grupy zasobów można uzyskać, korzystając z:`az group list --query '[].id'`
+1. Nadaj tożsamości `Reader` dostęp do Application Gateway grupy zasobów. Identyfikator grupy zasobów będzie wyglądać następująco: `/subscriptions/A/resourceGroups/B` . Wszystkie grupy zasobów można uzyskać, korzystając z: `az group list --query '[].id'`
 
     ```azurecli
     az role assignment create \
@@ -239,14 +239,14 @@ Domyślnie AGIC przyjmuje pełną własność Application Gateway, z którą jes
 
 Przed włączeniem tego ustawienia __Wykonaj kopię zapasową konfiguracji Application Gateway__ :
   1. Używanie [Azure Portal](https://portal.azure.com/) przejdź do `Application Gateway` wystąpienia
-  2. od `Export template` kliknięcia`Download`
+  2. od `Export template` kliknięcia `Download`
 
 Pobrany plik zip będzie zawierał szablony JSON, bash i skrypty programu PowerShell, których można użyć do przywracania Application Gateway
 
 ### <a name="example-scenario"></a>Przykładowy scenariusz
 Przyjrzyjmy się Application Gateway urojonym, który zarządza ruchem dla dwóch witryn sieci Web:
-  - `dev.contoso.com`-hostowane na nowym AKS przy użyciu Application Gateway i AGIC
-  - `prod.contoso.com`-hostowane w [zestawie skalowania maszyn wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+  - `dev.contoso.com` -hostowane na nowym AKS przy użyciu Application Gateway i AGIC
+  - `prod.contoso.com` -hostowane w [zestawie skalowania maszyn wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 Z ustawieniami domyślnymi AGIC zakłada, że ma 100% Application Gateway własności. AGIC zastępuje wszystkie konfiguracje bramy App Gateway. Jeśli udało Ci się ręcznie utworzyć odbiornik dla `prod.contoso.com` (na Application Gateway) bez definiowania go w Kubernetes, AGIC usunie `prod.contoso.com` konfigurację w ciągu kilku sekund.
 

@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143833"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Omówienie zasad zapory aplikacji sieci Web platformy Azure (WAF)
@@ -33,9 +33,9 @@ Jeśli chcesz, aby pojedyncze zasady dotyczyły wszystkich lokacji, możesz skoj
 
 ## <a name="per-site-waf-policy"></a>Zasady WAF na lokację
 
-Za pomocą zasad WAF dla poszczególnych witryn można chronić wiele lokacji z różnymi potrzebami dotyczącymi zabezpieczeń w ramach jednego WAFu przy użyciu zasad dla poszczególnych lokacji. Na przykład jeśli w WAF znajduje się pięć witryn, można mieć pięć oddzielnych zasad WAF (jeden dla każdego odbiornika), aby dostosować wykluczenia, reguły niestandardowe, zarządzane zestawy reguł oraz wszystkie inne ustawienia WAF dla każdej lokacji.
+Za pomocą zasad zapory aplikacji internetowej dla poszczególnych witryn można chronić wiele witryn z różnymi potrzebami dotyczącymi zabezpieczeń w ramach jednej zapory aplikacji internetowej przy użyciu zasad dla poszczególnych witryn. Jeśli na przykład za zaporą aplikacji internetowej znajduje się pięć witryn, można mieć pięć oddzielnych zasad zapory aplikacji internetowej (jedną dla każdego odbiornika), aby dostosować wykluczenia, reguły niestandardowe, zarządzane zestawy reguł oraz wszystkie inne ustawienia zapory aplikacji internetowej dla każdej witryny.
 
-Załóżmy, że Brama aplikacji ma zastosowane zasady globalne. Następnie należy zastosować różne zasady do odbiornika w tej bramie aplikacji. Zasady odbiornika teraz zaczynają obowiązywać tylko dla tego odbiornika. Globalne zasady bramy aplikacji nadal dotyczą wszystkich innych odbiorników i reguł opartych na ścieżce, do których nie są przypisane określone zasady.
+Załóżmy, że do bramy aplikacji są zastosowane zasady globalne. Należy zastosować różne zasady do odbiornika w tej bramie aplikacji. Zasady odbiornika teraz zaczynają obowiązywać tylko dla tego odbiornika. Globalne zasady bramy aplikacji nadal dotyczą wszystkich innych odbiorników i reguł opartych na ścieżce, do których nie są przypisane określone zasady.
 
 ## <a name="per-uri-policy"></a>Zasady dla identyfikatora URI
 

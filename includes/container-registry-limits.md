@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -9,10 +9,10 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512621"
 ---
 | Zasób | Podstawowa | Standardowa (Standard) | Premium |
@@ -25,16 +25,16 @@ ms.locfileid: "86512621"
 | Pobierz przepustowość<sup>2</sup> MB/s | 30 | 60 | 100 |
 | Przepustowość przekazywania<sup>2</sup> MB/s | 10 | 20 | 50 |
 | Elementy webhook | 2 | 10 | 500 |
-| Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwane][geo-replication] |
-| Zaufanie do zawartości | Nie dotyczy | Nie dotyczy | [Obsługiwane][content-trust] |
-| Prywatny link z prywatnymi punktami końcowymi | Nie dotyczy | Nie dotyczy | [Obsługiwane][plink] |
-| &bull;Prywatne punkty końcowe | Nie dotyczy | Nie dotyczy | 10 |
-| Dostęp do sieci wirtualnej punktu końcowego usługi | Nie dotyczy | Nie dotyczy | [Wersja zapoznawcza][vnet] |
-| Klucze zarządzane przez klienta | Nie dotyczy | Nie dotyczy | [Obsługiwane][cmk] |
-| Uprawnienia w zakresie repozytorium | Nie dotyczy | Nie dotyczy | [Wersja zapoznawcza][token]|
-| &bull;Żeton | Nie dotyczy | Nie dotyczy | 20 000 |
-| &bull;Mapy zakresu | Nie dotyczy | Nie dotyczy | 20 000 |
-| &bull;Repozytoria na mapę zakresu | Nie dotyczy | Nie dotyczy | 500 |
+| Replikacja geograficzna | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwał][geo-replication] |
+| Zaufanie do zawartości | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwał][content-trust] |
+| Prywatny link z prywatnymi punktami końcowymi | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwał][plink] |
+| &bull; Prywatne punkty końcowe | NIE DOTYCZY | NIE DOTYCZY | 10 |
+| Dostęp do sieci wirtualnej punktu końcowego usługi | NIE DOTYCZY | NIE DOTYCZY | [Wersja zapoznawcza][vnet] |
+| Klucze zarządzane przez klienta | NIE DOTYCZY | NIE DOTYCZY | [Obsługiwał][cmk] |
+| Uprawnienia w zakresie repozytorium | NIE DOTYCZY | NIE DOTYCZY | [Wersja zapoznawcza][token]|
+| &bull; Żeton | NIE DOTYCZY | NIE DOTYCZY | 20 000 |
+| &bull; Mapy zakresu | NIE DOTYCZY | NIE DOTYCZY | 20 000 |
+| &bull; Repozytoria na mapę zakresu | NIE DOTYCZY | NIE DOTYCZY | 500 |
 
 
 <sup>1</sup> magazyn uwzględniony w dziennej stawce dla każdej warstwy. W przypadku dodatkowego magazynu opłata jest naliczana za dodatkową dzienną stawkę za GiB, aż do limitu magazynu. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].

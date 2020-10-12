@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092732"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze platformy Azure
@@ -62,7 +62,7 @@ Aby utworzyć rekord CNAME, należy dodać nowy wpis w tabeli DNS dla domeny nie
 
        ![Sekcja szybkiego wglądu pokazująca adres URL witryny][csurl]
 
-       **ORAZ**
+       **OR**
    * Zainstaluj i skonfiguruj program [Azure PowerShell](/powershell/azure/), a następnie użyj następującego polecenia:
 
        ```powershell
@@ -95,7 +95,7 @@ Aby utworzyć rekord A, należy najpierw znaleźć wirtualny adres IP usługi w 
 
        ![Sekcja szybkiego wglądu pokazująca adres VIP][vip]
 
-       **ORAZ**
+       **OR**
    * Zainstaluj i skonfiguruj program [Azure PowerShell](/powershell/azure/), a następnie użyj następującego polecenia:
 
        ```powershell
@@ -135,7 +135,7 @@ Ten przykład ilustruje tworzenie rekordu A dla domeny katalogu głównego. Jeś
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

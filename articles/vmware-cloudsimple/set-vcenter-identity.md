@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212255"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Skonfiguruj źródła tożsamości vCenter do użycia Active Directory
@@ -45,9 +45,9 @@ Przed [dodaniem źródła tożsamości](#add-an-identity-source-on-vcenter)tymcz
 > [!IMPORTANT]
 > **Active Directory (uwierzytelnianie zintegrowane systemu Windows) nie jest obsługiwane.** Tylko Active Directory za pośrednictwem protokołu LDAP jest obsługiwany jako źródło tożsamości.
 
-## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Dodawanie Active Directory lokalnego jako źródła tożsamości logowania jednokrotnego
+## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Dodawanie Active Directory lokalnych jako jednego źródła tożsamości Sign-On
 
-Aby skonfigurować Active Directory lokalne jako źródło tożsamości logowania jednokrotnego, potrzebne są:
+Aby skonfigurować Active Directory lokalne jako pojedyncze Źródło tożsamości Sign-On, potrzebne są:
 
 * [Połączenie sieci VPN typu lokacja-lokacja](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) z lokalnego centrum danych z chmurą prywatną.
 * Adres IP lokalnego serwera DNS dodany do programu vCenter i kontrolera usług platformy (PSC).
@@ -65,12 +65,12 @@ Podczas konfigurowania domeny Active Directory należy skorzystać z informacji 
 | **Adres URL serwera pomocniczego** | Adres serwera LDAP pomocniczego kontrolera domeny, który jest używany do pracy w trybie failover. |
 | **Wybieranie certyfikatu** | Jeśli chcesz używać LDAPs z serwerem LDAP Active Directory lub źródłem tożsamości serwera OpenLDAP, po wpisaniu  `ldaps://`   w polu tekstowym adresu URL zostanie wyświetlony przycisk Wybierz certyfikat. Pomocniczy adres URL nie jest wymagany. |
 | **Nazwa użytkownika** | Identyfikator użytkownika w domenie, który ma minimalny dostęp tylko do odczytu do podstawowej nazwy wyróżniającej dla użytkowników i grup. |
-| **Password** (Hasło) | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
+| **Hasło** | Hasło użytkownika, który jest określony przez nazwę użytkownika. |
 
-Jeśli masz informacje w poprzedniej tabeli, możesz dodać swoje Active Directory lokalne jako źródło tożsamości logowania jednokrotnego w programie vCenter.
+Jeśli masz informacje w poprzedniej tabeli, możesz dodać swoje Active Directory lokalne jako pojedyncze Źródło tożsamości Sign-On w programie vCenter.
 
 > [!TIP]
-> Więcej informacji o źródłach tożsamości logowania jednokrotnego znajdziesz na [stronie dokumentacji programu VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
+> Więcej informacji na temat pojedynczych źródeł tożsamości Sign-On można znaleźć na [stronie dokumentacji programu VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Konfigurowanie nowego Active Directory w chmurze prywatnej
 
@@ -103,9 +103,9 @@ Po skonfigurowaniu domeny Active Directory można [dodać Źródło tożsamości
 
 ## <a name="set-up-active-directory-on-azure"></a>Konfigurowanie Active Directory na platformie Azure
 
-Active Directory uruchomiony na platformie Azure jest podobny do Active Directory działających lokalnie.  Aby skonfigurować Active Directory uruchomiony na platformie Azure jako źródło tożsamości logowania jednokrotnego w programie vCenter, serwer vCenter i kontroler PSC muszą mieć łączność sieciową z usługą Azure Virtual Network, w której działają usługi Active Directory.  Tę łączność można nawiązać przy użyciu usługi [azure Virtual Network Connection przy użyciu usługi ExpressRoute](azure-expressroute-connection.md) z sieci wirtualnej platformy Azure, w której usługa Active Directory Services działa w chmurze prywatnej CloudSimple.
+Active Directory uruchomiony na platformie Azure jest podobny do Active Directory działających lokalnie.  Aby skonfigurować Active Directory uruchomiony na platformie Azure jako pojedyncze Źródło tożsamości Sign-On w programie vCenter, serwer vCenter i kontroler PSC muszą mieć łączność sieciową z Virtual Network platformy Azure, w którym są uruchomione usługi Active Directory.  Tę łączność można nawiązać przy użyciu usługi [azure Virtual Network Connection przy użyciu usługi ExpressRoute](azure-expressroute-connection.md) z sieci wirtualnej platformy Azure, w której usługa Active Directory Services działa w chmurze prywatnej CloudSimple.
 
-Po nawiązaniu połączenia sieciowego wykonaj kroki opisane w sekcji [Dodawanie lokalnego Active Directory jako źródła tożsamości logowania jednokrotnego](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) , aby dodać je jako źródło tożsamości.  
+Po nawiązaniu połączenia sieciowego wykonaj kroki opisane w sekcji [Dodawanie lokalnego Active Directory jako jednego źródła tożsamości Sign-On,](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) aby dodać je jako źródło tożsamości.  
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Dodawanie źródła tożsamości w programie vCenter
 
