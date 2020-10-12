@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f708052e6c1b474d1447a352d10eb1defe311fc4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91025187"
 ---
 1. W portalu kliknij pozycję **+Utwórz zasób**.
@@ -34,7 +34,7 @@ ms.locfileid: "91025187"
 
     Jest to ta sama strona, ale z wyróżnioną nazwą FQDN:
    
-   :::image type="content" source="./media/vpn-gateway-add-lng-rm-portal-include/create-local-gateway-fqdn.png" alt-text="Tworzenie bramy sieci lokalnej — Nazwa FQDN":::
+   :::image type="content" source="./media/vpn-gateway-add-lng-rm-portal-include/create-local-gateway-fqdn.png" alt-text="Tworzenie bramy sieci lokalnej":::
    
    > [!NOTE]
    >

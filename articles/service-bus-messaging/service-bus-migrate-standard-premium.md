@@ -4,10 +4,10 @@ description: Przewodnik umożliwiający migrację istniejących Azure Service Bu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85340739"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrowanie istniejących Azure Service Bus standardowych przestrzeni nazw do warstwy Premium
@@ -211,7 +211,7 @@ Jeśli jednak można przeprowadzić migrację w oknie planowanej konserwacji/dla
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [różnicach między obsługą komunikatów w warstwach Standardowa i Premium](./service-bus-premium-messaging.md).
-* Dowiedz się więcej na temat [aspektów odzyskiwania o wysokiej dostępności i geograficznej awarii dla Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Dowiedz się więcej na temat [aspektów odzyskiwania wysokiej dostępności i Geo-Disaster dla Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Strona docelowa migracji]: ./media/service-bus-standard-premium-migration/1.png
 [Konfiguracja przestrzeni nazw]: ./media/service-bus-standard-premium-migration/2.png

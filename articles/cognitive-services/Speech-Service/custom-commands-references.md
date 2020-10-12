@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851836"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Pojęcia i definicje poleceń niestandardowych
@@ -49,17 +49,17 @@ To pole wyboru wskazuje, czy zakres tego parametru jest współużytkowany przez
 ### <a name="required"></a>Wymagane
 To pole wyboru wskazuje, czy wartość tego parametru jest wymagana do realizacji lub uzupełniania poleceń. Musisz skonfigurować odpowiedzi, aby monitować użytkownika o podanie wartości, jeśli parametr jest oznaczony jako wymagany.
 
-### <a name="type"></a>Typ
+### <a name="type"></a>Type
 Polecenia niestandardowe obsługują następujące typy parametrów:
 
 * DateTime
 * Lokalizacja geograficzna
 * Liczba
-* String
+* Ciąg
 
 Wszystkie te typy parametrów obsługują konfigurację wartości domyślnych, którą można skonfigurować przy użyciu Azure Portal.
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 Konfiguracja jest właściwością parametru zdefiniowaną tylko dla ciągu typu. Obsługiwane są następujące wartości:
 
 * **Brak**.
@@ -77,7 +77,7 @@ Walidacje to konstrukcje mające zastosowanie do niektórych typów parametrów,
 ## <a name="rules-configuration"></a>Konfiguracja reguł
 Reguła w poleceniach niestandardowych jest definiowana przez zestaw *warunków* , które po spełnieniu, wykonywania zestawu *akcji*. Reguły umożliwiają również Konfigurowanie *stanu po wykonaniu* i *oczekiwań* przy następnym włączeniu.
 
-### <a name="types"></a>Typy
+### <a name="types"></a>Types
 Polecenia niestandardowe obsługują następujące kategorie reguł:
 
 * **Reguły uzupełniania**: te reguły muszą zostać wykonane przy realizacji polecenia. Wszystkie reguły skonfigurowane w tej sekcji, dla których warunki są spełnione, zostaną wykonane. 

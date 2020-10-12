@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b5c5143c7bc92487aeabc3cdc1afea5061466027
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903159"
 ---
 # <a name="azure-stack-edge-pro-security-and-data-protection"></a>Azure Stack brzeg Pro zabezpieczenia i ochrona danych
@@ -56,7 +56,7 @@ Aby uzyskać więcej informacji, zobacz [Uzyskiwanie klucza aktywacji](azure-sta
 
 Hasła zapewniają, że dostęp do danych mają tylko autoryzowani użytkownicy. Azure Stack nastąpi rozruch urządzeń brzegowych Pro w stanie zablokowanym.
 
-Można:
+Dostępne możliwości:
 
 - Połącz się z lokalnym interfejsem użytkownika sieci Web urządzenia za pośrednictwem przeglądarki, a następnie podaj hasło, aby zalogować się na urządzeniu.
 - Zdalne łączenie się z interfejsem PowerShell urządzenia za pośrednictwem protokołu HTTP. Zdalne zarządzanie jest domyślnie włączone. Następnie można podać hasło urządzenia, aby zalogować się na urządzeniu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem Azure Stack EDGE Pro](azure-stack-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).

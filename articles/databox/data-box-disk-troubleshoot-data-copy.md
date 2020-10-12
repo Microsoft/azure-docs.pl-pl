@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d977fe0b7459af35f678e77681d3b27c31431cc
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85849180"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów z kopiowaniem danych w Azure Data Box Disk
@@ -38,7 +38,7 @@ Ponowne zainstalowanie dysku przy użyciu funkcji odczytu i zapisu nie działa z
 
 Mimo że ponowne zainstalowanie zakończyło się pomyślnie, dane nie zostaną zachowane.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 W systemie Linux wykonaj następujące czynności:
 
@@ -78,7 +78,7 @@ W systemie Linux wykonaj następujące czynności:
 
 Jeśli widzisz, że dysk nie ma danych po odinstalowaniu (Jeśli dane zostały skopiowane do niego), możliwe jest ponowne zainstalowanie dysku jako do odczytu i zapisu po zainstalowaniu dysku jako tylko do odczytu.
 
-**Rozdzielczość**
+**Rozwiązanie**
  
 W takim przypadku zapoznaj się z tematem rozdzielczość dysków, które mają zostać [zainstalowane jako tylko do odczytu](#issue-drive-getting-mounted-as-read-only).
 

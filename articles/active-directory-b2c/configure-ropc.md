@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87482859"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure AD B2C
@@ -127,7 +127,7 @@ Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 > [!NOTE]
 > Podczas tworzenia użytkowników za pośrednictwem interfejs API programu Graph aplikacja musi mieć uprawnienia "OpenID Connect", "offline_access" i "Profile" w Microsoft Graph.
 
-## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementowanie przy użyciu preferowanego natywnego zestawu SDK lub korzystanie z aplikacji App-auth
+## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Zaimplementuj przy użyciu preferowanego natywnego zestawu SDK lub użyj App-Auth
 
 Implementacja Azure AD B2C spełnia standardy protokołu OAuth 2,0 dla poświadczeń hasła właściciela publicznego zasobu klienta i powinny być zgodne z większością zestawów SDK klienta. Ten przepływ został przetestowany w środowisku produkcyjnym z AppAuth dla systemów iOS i AppAuth dla systemu Android. Najnowsze informacje znajdują się w temacie [Native App SDK for OAuth 2,0 i OpenID Connect Connect implementujące nowoczesne najlepsze rozwiązania](https://appauth.io/).
 

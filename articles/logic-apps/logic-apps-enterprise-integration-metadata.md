@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792471"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Zarządzanie metadanymi artefaktów na kontach integracji za pomocą usługi Azure Logic Apps i Pakietu integracyjnego dla przedsiębiorstw
@@ -86,12 +86,12 @@ Możesz zdefiniować niestandardowe metadane dla artefaktów na kontach integrac
       | Właściwość | Wymagany | Wartość | Opis | 
       |----------|----------|-------|-------------| 
       | **Metoda** | Tak | <*Operacja do uruchomienia*> | Operacja HTTP do uruchomienia na artefaktie. Na przykład ta akcja HTTP używa metody **Get** . | 
-      | **Identyfikator URI** | Tak | <*metadane — lokalizacja*> | Aby uzyskać dostęp do `routingUrl` wartości metadanych z pobranego artefaktu, można użyć wyrażenia, na przykład: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Nagłówki** | Nie | <*wartości nagłówka*> | Wszystkie dane wyjściowe nagłówka z wyzwalacza, które chcesz przekazać do akcji HTTP. Na przykład, aby przekazać wartość właściwości wyzwalacza `headers` : można użyć wyrażenia, na przykład: <p>`@triggeroutputs()['headers']` | 
+      | **URI** | Tak | <*metadane — lokalizacja*> | Aby uzyskać dostęp do `routingUrl` wartości metadanych z pobranego artefaktu, można użyć wyrażenia, na przykład: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Nagłówka** | Nie | <*wartości nagłówka*> | Wszystkie dane wyjściowe nagłówka z wyzwalacza, które chcesz przekazać do akcji HTTP. Na przykład, aby przekazać wartość właściwości wyzwalacza `headers` : można użyć wyrażenia, na przykład: <p>`@triggeroutputs()['headers']` | 
       | **Treść** | Nie | <*treść — zawartość*> | Każda inna zawartość, która ma zostać przekazana przez właściwość akcji HTTP `body` . Ten przykład przekazuje wartości artefaktu `properties` do akcji http: <p>1. kliknij wewnątrz właściwości **Body** , aby wyświetlić listę zawartości dynamicznej. Jeśli nie zostaną wyświetlone żadne właściwości, wybierz pozycję **Zobacz więcej**. <br>2. z listy zawartości dynamicznej w obszarze **Wyszukiwanie artefaktów konta integracji**wybierz pozycję **Właściwości**. | 
       |||| 
 
-      Przykład:
+      Na przykład:
 
       ![Określ wartości i wyrażenia dla akcji HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
 

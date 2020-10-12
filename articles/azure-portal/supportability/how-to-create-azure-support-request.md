@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
 ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851892"
 ---
 # <a name="create-an-azure-support-request"></a>Tworzenie wniosku o pomoc techniczną platformy Azure
@@ -23,9 +23,9 @@ System Azure umożliwia tworzenie i zarządzanie żądaniami pomocy technicznej,
 > [!NOTE]
 > Adres URL Azure Portal jest specyficzny dla chmury platformy Azure, w której wdrożono organizację.
 >
->* Azure Portal do użytku komercyjnego:[https://portal.azure.com](https://portal.azure.com)
->* Azure Portal dla Niemiec:[https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Azure Portal dla instytucji rządowych Stany Zjednoczone:[https://portal.azure.us](https://portal.azure.us)
+>* Azure Portal do użytku komercyjnego: [https://portal.azure.com](https://portal.azure.com)
+>* Azure Portal dla Niemiec: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>* Azure Portal dla instytucji rządowych Stany Zjednoczone: [https://portal.azure.us](https://portal.azure.us)
 
 Środowisko żądania pomocy technicznej koncentruje się na trzech głównych celach:
 
@@ -47,7 +47,7 @@ Aby utworzyć żądanie pomocy technicznej, musisz być [właścicielem](../../r
 
 Aby uruchomić żądanie pomocy technicznej z dowolnego miejsca w Azure Portal:
 
-1. Wybierz ikonę **?** w nagłówku globalnym. Następnie wybierz pozycję **Pomoc i obsługa techniczna**.
+1. Wybierz pozycję **?** w nagłówku globalnym. Następnie wybierz pozycję **Pomoc i obsługa techniczna**.
 
    ![Pomoc i obsługa techniczna](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -69,7 +69,7 @@ Aby uruchomić żądanie obsługi w kontekście zasobu, obecnie pracujesz z:
 
 Przeprowadzimy Cię przez kilka kroków, aby zebrać informacje o problemie i pomóc w jego rozwiązaniu. Każdy krok został opisany w poniższych sekcjach.
 
-### <a name="basics"></a>Informacje podstawowe
+### <a name="basics"></a>Podstawy
 
 Pierwszy krok procesu żądania pomocy technicznej gromadzi podstawowe informacje o problemie i planie pomocy technicznej.
 
@@ -95,7 +95,7 @@ Następnie zbieramy dodatkowe informacje o problemie. Dokładne i szczegółowe 
 
 1. Następnie wypełnij sekcję **informacje kontaktowe** , aby dowiedzieć się, jak skontaktować się z Tobą.
 
-### <a name="review--create"></a>Przegląd + tworzenie
+### <a name="review--create"></a>Przeglądanie i tworzenie
 
 Wykonaj wszystkie wymagane informacje na każdej karcie, a następnie wybierz pozycję **Przegląd + Utwórz**. Sprawdź szczegóły, które zostaną wysłane do pomocy technicznej. Wróć do dowolnej karty, aby wprowadzić zmianę w razie potrzeby. Gdy zostanie spełnione żądanie pomocy technicznej, wybierz pozycję **Utwórz**.
 

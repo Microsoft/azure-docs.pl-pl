@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74451634"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Wdrażanie szablonu za pomocą usługi Cloud Shell
@@ -33,7 +33,7 @@ Do wdrożenia swojego szablonu możesz użyć usługi [Cloud Shell](../articles/
 
    ![Dodawanie kontenera](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Nadaj kontenerowi nazwę i poziom dostępu. Przykładowy szablon w tym artykule nie zawiera poufnych informacji, więc Zezwalaj na anonimowy dostęp do odczytu. Kliknij przycisk **OK**.
+1. Nadaj kontenerowi nazwę i poziom dostępu. Przykładowy szablon w tym artykule nie zawiera poufnych informacji, więc Zezwalaj na anonimowy dostęp do odczytu. Wybierz przycisk **OK**.
 
    ![Podaj wartości kontenera](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
@@ -41,7 +41,7 @@ Do wdrożenia swojego szablonu możesz użyć usługi [Cloud Shell](../articles/
 
    ![Wybierz nowy kontener](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
-1. Wybierz przycisk **Przekaż**.
+1. Wybierz pozycję **Przekaż**.
 
    ![Przekaż obiekt BLOB](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 

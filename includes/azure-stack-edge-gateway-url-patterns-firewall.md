@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 92ec0cd0c39a515b15da88bb7c638edba2f57714
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085269"
 ---
 |    Wzorzec adresu URL                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Składnik lub funkcjonalność                                                                           |

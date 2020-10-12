@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378410"
 ---
 # <a name="arm-template-functions"></a>Funkcje szablonu ARM
@@ -40,7 +40,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 
 * [array](template-functions-array.md#array)
 * [Concat](template-functions-array.md#concat)
-* [zawiera](template-functions-array.md#contains)
+* [wyświetlana](template-functions-array.md#contains)
 * [przearray](template-functions-array.md#createarray)
 * [puste](template-functions-array.md#empty)
 * [pierwszego](template-functions-array.md#first)
@@ -106,7 +106,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z warunkami logicz
 * [bool](template-functions-logical.md#bool)
 * [if](template-functions-logical.md#if)
 * [niemożliwe](template-functions-logical.md#not)
-* [lub](template-functions-logical.md#or)
+* [oraz](template-functions-logical.md#or)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -140,7 +140,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 
 Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami.
 
-* [zawiera](template-functions-object.md#contains)
+* [wyświetlana](template-functions-object.md#contains)
 * [puste](template-functions-object.md#empty)
 * [część wspólną](template-functions-object.md#intersection)
 * [kodu](template-functions-object.md#json)
@@ -215,7 +215,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [Concat](template-functions-string.md#concat)
-* [zawiera](template-functions-string.md#contains)
+* [wyświetlana](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [puste](template-functions-string.md#empty)
@@ -233,7 +233,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [Skocz](template-functions-string.md#skip)
 * [podziału](template-functions-string.md#split)
 * [startsWith](template-functions-string.md#startswith)
-* [ciąg](template-functions-string.md#string)
+* [parametry](template-functions-string.md#string)
 * [podciąg](template-functions-string.md#substring)
 * [take (pobierz)](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)

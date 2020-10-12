@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74871146"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Sprzężenia w Azure Cosmos DB
@@ -23,7 +23,7 @@ Sprzężenia wewnętrzne powodują pełny iloczyn skrzyżowania zestawów uczest
 
 Język obsługuje składnię `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` . To zapytanie zwraca zestaw krotek z `N` wartościami. Każda krotka ma wartości utworzone w procesie iterowania wszystkich aliasów kontenera w odpowiednich zestawach. 
 
-Przyjrzyjmy się następującej klauzuli FROM:`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Przyjrzyjmy się następującej klauzuli FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Zezwól na zdefiniowanie każdego źródła `input_alias1, input_alias2, …, input_aliasN` . Ta klauzula FROM zwraca zestaw N-krotek (krotka z N wartościami). Każda krotka ma wartości utworzone w procesie iterowania wszystkich aliasów kontenera w odpowiednich zestawach.  
   
@@ -33,11 +33,11 @@ Przyjrzyjmy się następującej klauzuli FROM:`<from_source1> JOIN <from_source2
   
 - Zezwól na `<from_source2>` odwołujące się do zakresu dokumentu input_alias1 i reprezentowania zestawów:  
   
-    {1, 2} dla`input_alias1 = A,`  
+    {1, 2} dla `input_alias1 = A,`  
   
-    {3}dla`input_alias1 = B,`  
+    {3} dla `input_alias1 = B,`  
   
-    {4, 5} dla`input_alias1 = C,`  
+    {4, 5} dla `input_alias1 = C,`  
   
 - Klauzula FROM `<from_source1> JOIN <from_source2>` spowoduje powstanie następujących krotek:  
   
@@ -51,17 +51,17 @@ Przyjrzyjmy się następującej klauzuli FROM:`<from_source1> JOIN <from_source2
   
 - Zezwól na `<from_source2>` odwoływanie się do zakresu dokumentu `input_alias1` i reprezentowanie zestawów:  
   
-    {1, 2} dla`input_alias1 = A,`  
+    {1, 2} dla `input_alias1 = A,`  
   
-    {3}dla`input_alias1 = B,`  
+    {3} dla `input_alias1 = B,`  
   
-    {4, 5} dla`input_alias1 = C,`  
+    {4, 5} dla `input_alias1 = C,`  
   
 - Zezwól na `<from_source3>` odwoływanie się do zakresu dokumentu `input_alias2` i reprezentowanie zestawów:  
   
-    {100, 200} dla`input_alias2 = 1,`  
+    {100, 200} dla `input_alias2 = 1,`  
   
-    {300}dla`input_alias2 = 3,`  
+    {300} dla `input_alias2 = 3,`  
   
 - Klauzula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` spowoduje powstanie następujących krotek:  
   
@@ -80,17 +80,17 @@ Przyjrzyjmy się następującej klauzuli FROM:`<from_source1> JOIN <from_source2
   
 - Zezwól <from_source2> być odwołujące się do zakresu dokumentu input_alias1 i reprezentowania zestawów:  
   
-    {1, 2} dla`input_alias1 = A,`  
+    {1, 2} dla `input_alias1 = A,`  
   
-    {3}dla`input_alias1 = B,`  
+    {3} dla `input_alias1 = B,`  
   
-    {4, 5} dla`input_alias1 = C,`  
+    {4, 5} dla `input_alias1 = C,`  
   
 - Zezwól `<from_source3>` na zakres `input_alias1` i reprezentowanie zestawów:  
   
-    {100, 200} dla`input_alias2 = A,`  
+    {100, 200} dla `input_alias2 = A,`  
   
-    {300}dla`input_alias2 = C,`  
+    {300} dla `input_alias2 = C,`  
   
 - Klauzula FROM `<from_source1> JOIN <from_source2> JOIN <from_source3>` spowoduje powstanie następujących krotek:  
   
@@ -224,7 +224,7 @@ Poniższe rozszerzenie powyższego przykładu wykonuje podwójne sprzężenie. M
     }
 ```
 
-`AndersenFamily`ma jeden element podrzędny, który ma jedną PET, więc iloczyn krzyżowy daje jeden wiersz (1 \* 1 1 \* ) z tej rodziny. `WakefieldFamily`ma dwa elementy podrzędne, tylko jeden z nich ma zwierzęta domowe, ale ten element podrzędny ma dwa zwierzęta domowe. Iloczyn krzyżowy dla tej rodziny daje 1 \* 1 \* 2 = 2 wiersze.
+`AndersenFamily` ma jeden element podrzędny, który ma jedną PET, więc iloczyn krzyżowy daje jeden wiersz (1 \* 1 1 \* ) z tej rodziny. `WakefieldFamily` ma dwa elementy podrzędne, tylko jeden z nich ma zwierzęta domowe, ale ten element podrzędny ma dwa zwierzęta domowe. Iloczyn krzyżowy dla tej rodziny daje 1 \* 1 \* 2 = 2 wiersze.
 
 W następnym przykładzie istnieje dodatkowy filtr `pet` , który wyklucza wszystkie krotki, w których nie ma nazwy PET `Shadow` . Można tworzyć krotki z tablic, filtrować według dowolnego elementu krotki i projektować dowolną kombinację elementów.
 

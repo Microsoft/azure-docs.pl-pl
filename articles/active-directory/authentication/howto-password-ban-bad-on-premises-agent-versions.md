@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71fd33388cb1bdf7c87c44fb3273c6850122a0cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74847853"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historia wersji agenta ochrony haseł usługi Azure AD
@@ -41,7 +41,7 @@ Data wydania: 3/13/2019
   * Środowisko .NET 4,7 powinno być już zainstalowane w w pełni zaktualizowanym systemie Windows Server. Jeśli tak nie jest, Pobierz i uruchom Instalatora, który znajduje się w [instalatorze offline .NET Framework 4,7 dla systemu Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * W systemach Server Core może być konieczne przekazanie flagi/q do Instalatora .NET 4,7 w celu pomyślnego przeprowadzenia.
 * Usługa serwera proxy obsługuje teraz automatyczne uaktualnianie. Automatyczne uaktualnianie Microsoft Azure AD używa usługi Aktualizator Connect Agent, która jest zainstalowana równolegle z usługą proxy. Automatyczne uaktualnianie jest domyślnie włączone.
-* Automatyczne uaktualnianie można włączyć lub wyłączyć za pomocą polecenia cmdlet Set-AzureADPasswordProtectionProxyConfiguration. Bieżące ustawienie można wykonać przy użyciu polecenia cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
+* Automatyczne uaktualnianie można włączyć lub wyłączyć za pomocą polecenia cmdlet Set-AzureADPasswordProtectionProxyConfiguration. Bieżące ustawienie można zbadać przy użyciu polecenia cmdlet Get-AzureADPasswordProtectionProxyConfiguration.
 * Nazwa pliku binarnego usługi dla usługi agenta kontrolera domeny została zmieniona na AzureADPasswordProtectionDCAgent.exe.
 * Nazwa pliku binarnego usługi dla usługi serwera proxy została zmieniona na AzureADPasswordProtectionProxy.exe. W przypadku korzystania z zapory innej firmy może być konieczne zmodyfikowanie reguł zapory.
   * Uwaga: Jeśli plik konfiguracyjny serwera proxy HTTP był używany w poprzedniej instalacji serwera proxy, należy zmienić jego nazwę (z *proxyservice.exe.config* na *AzureADPasswordProtectionProxy.exe.config*) po tym uaktualnieniu.
@@ -56,8 +56,8 @@ Wprowadzane
 
 * Agent i serwer proxy usługi DC są teraz obsługiwane w trybie Server Core. Wymagania systemu operacyjnego Mininimum nie zostały zmienione przed: system Windows Server 2012 dla agentów DC i system Windows Server 2012 R2 dla serwerów proxy.
 * Polecenia cmdlet Register-AzureADPasswordProtectionProxy i Register-AzureADPasswordProtectionForest obsługują teraz tryby uwierzytelniania platformy Azure oparte na kodzie na urządzeniu.
-* Polecenie cmdlet Get-AzureADPasswordProtectionDCAgent ignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Pozwala to rozwiązać usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
-* Polecenie cmdlet Get-AzureADPasswordProtectionSummaryReport ignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Pozwala to rozwiązać usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
+* Get-AzureADPasswordProtectionDCAgent polecenie cmdlet zignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Pozwala to rozwiązać usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
+* Get-AzureADPasswordProtectionSummaryReport polecenie cmdlet zignoruje zniekształcona i/lub nieprawidłowe punkty połączenia usługi. Pozwala to rozwiązać usterkę, w której kontrolery domeny czasami będą widoczne w danych wyjściowych wiele razy.
 * Moduł serwera proxy programu PowerShell jest teraz zarejestrowany w usłudze%ProgramFiles%\WindowsPowerShell\Modules. Zmienna środowiskowa PSModulePath komputera nie jest już modyfikowana.
 * Dodano nowe polecenie cmdlet Get-AzureADPasswordProtectionProxy w celu ułatwienia odnajdywania zarejestrowanych serwerów proxy w lesie lub domenie.
 * Agent DC używa nowego folderu w udziale Sysvol do replikowania zasad haseł i innych plików.
@@ -110,8 +110,8 @@ Data wydania: 8/17/2018
 
 Prefix
 
-* Usługi Register-AzureADPasswordProtectionProxy i Register-AzureADPasswordProtectionForest obsługują teraz uwierzytelnianie wieloskładnikowe
-* Aby uniknąć błędów szyfrowania, w domenie AzureADPasswordProtectionProxy jest wymagany kontroler domeny WS2012 lub nowszy.
+* Register-AzureADPasswordProtectionProxy i Register-AzureADPasswordProtectionForest obsługują teraz uwierzytelnianie wieloskładnikowe
+* Aby uniknąć błędów szyfrowania, Register-AzureADPasswordProtectionProxy wymaga kontrolera domeny WS2012 lub nowszego w domenie.
 * Usługa agenta kontrolera domeny jest bardziej niezawodna na żądanie nowych zasad haseł z platformy Azure przy uruchamianiu.
 * Usługa agenta kontrolera domeny będzie żądać nowych zasad haseł od platformy Azure co godzinę, jeśli będzie to konieczne, ale teraz zostanie to zrobione w losowo wybranym czasie rozpoczęcia.
 * Usługa agenta DC nie będzie już powodowała nieograniczonego opóźnienia w nowym anonsie kontrolera domeny, gdy jest zainstalowany na serwerze przed jego podwyższeniem poziomu jako repliki.

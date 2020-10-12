@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008784"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące operatorów i deweloperów do kompilowania aplikacji i zarządzania nimi w usłudze Azure Kubernetes Service (AKS)
@@ -32,7 +32,7 @@ Jako operator klastra współpracują z właścicielami i programistami aplikacj
 * [Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji](operator-best-practices-identity.md)
     * Obejmuje integrację z Azure Active Directory przy użyciu kontroli dostępu opartej na rolach (RBAC) i tożsamości pod.
 
-**Bezpieczeństwo**
+**Zabezpieczenia**
 
 * [Najlepsze rozwiązania dotyczące zabezpieczeń i uaktualnień klastra](operator-best-practices-cluster-security.md)
     * Obejmuje zabezpieczenie dostępu do serwera interfejsu API, ograniczenie dostępu do kontenera oraz zarządzanie uaktualnieniami i ponownymi uruchomieniami węzła.

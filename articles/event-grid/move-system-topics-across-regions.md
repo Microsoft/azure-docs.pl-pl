@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086186"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Przenieś Azure Event Grid tematy systemowe do innego regionu
@@ -35,22 +35,7 @@ Aby rozpocząć, wyeksportuj szablon Menedżer zasobów dla grupy zasobów zawie
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Strona grupy zasobów":::        
 3. W menu po lewej stronie wybierz pozycję **Eksportuj szablon** w obszarze **Ustawienia**, a następnie wybierz pozycję **Pobierz** na pasku narzędzi. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Konto Storage — eksportowanie strony szablonu":::        
-5. Znajdź plik **zip** pobrany z portalu i rozpakuj ten plik do wybranego folderu. Ten plik zip zawiera pliki szablonów i parametrów JSON. 
-1. Otwórz **template.js** w wybranym edytorze. 
-1. Adres URL elementu webhook nie jest eksportowany do szablonu. Wykonaj następujące czynności:
-    1. W pliku szablonu Wyszukaj **element webhook**. 
-    1. W sekcji **Właściwości** Dodaj znak przecinka ( `,` ) na końcu ostatniego wiersza. W tym przykładzie jest to `"preferredBatchSizeInKilobytes": 64` . 
-    1. Dodaj `endpointUrl` Właściwość z wartością ustawioną na adres URL elementu webhook, jak pokazano w poniższym przykładzie. 
-
-        ```json
-        "destination": {
-            "properties": {
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64,
-                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-            },
-            "endpointType": "WebHook"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Strona grupy zasobów"
         }
         ```
 
@@ -80,7 +65,7 @@ Wdróż szablon w celu utworzenia konta magazynu i tematu systemu dla konta maga
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 3. Wybierz **Template Deployment**.
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 7. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
@@ -91,7 +76,7 @@ Wdróż szablon w celu utworzenia konta magazynu i tematu systemu dla konta maga
     1. W polu **nazwa tematu systemu**wprowadź nazwę tematu systemowego, który zostanie skojarzony z kontem magazynu.  
     1. W polu **nazwa konta magazynu**wprowadź nazwę konta magazynu, które ma zostać utworzone w regionie docelowym. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Wdróż szablon Menedżer zasobów":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Strona grupy zasobów":::
     5. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony. 
     1. Na stronie **Recenzja i tworzenie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**. 
 
@@ -110,7 +95,7 @@ Aby usunąć grupę zasobów (źródłową lub docelową) przy użyciu Azure Por
 1. W oknie wyszukiwania w górnej części Azure Portal wpisz **grupy zasobów**, a następnie wybierz pozycję **grupy zasobów** z wyników wyszukiwania. 
 2. Wybierz grupę zasobów do usunięcia, a następnie wybierz pozycję **Usuń** z paska narzędzi. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Usuwanie grupy zasobów":::
+    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Strona grupy zasobów":::
 3. Na stronie Potwierdzenie wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.  
 
 ## <a name="next-steps"></a>Następne kroki

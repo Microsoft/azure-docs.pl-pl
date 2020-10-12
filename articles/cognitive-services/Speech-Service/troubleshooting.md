@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74815417"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Rozwiązywanie problemów z zestawem Speech SDK
@@ -46,7 +46,7 @@ Ten błąd jest często spowodowany przez problemy z uwierzytelnianiem. Żądani
 Aby sprawdzić, czy masz prawidłowy klucz subskrypcji, możesz uruchomić jedno z poniższych poleceń.
 
 > [!NOTE]
-> `YOUR_SUBSCRIPTION_KEY` Zastąp `YOUR_REGION` i własnym kluczem subskrypcji i skojarzonym regionem.
+> Zastąp `YOUR_SUBSCRIPTION_KEY` i `YOUR_REGION` własnym kluczem subskrypcji i skojarzonym regionem.
 
 * PowerShell
 
@@ -73,7 +73,7 @@ Jeśli wprowadzono prawidłowy klucz subskrypcji, polecenie zwróci Token autory
 Jeśli używasz tokenu autoryzacji do uwierzytelniania, Uruchom jedno z następujących poleceń, aby sprawdzić, czy token autoryzacji jest nadal ważny. Tokeny są prawidłowe przez 10 minut.
 
 > [!NOTE]
-> Zamień `YOUR_AUDIO_FILE` na ścieżkę do zarejestrowanego pliku dźwiękowego. Zamień `YOUR_ACCESS_TOKEN` na token autoryzacji zwrócony w poprzednim kroku. Zamień `YOUR_REGION` na prawidłowy region.
+> Zamień na `YOUR_AUDIO_FILE` ścieżkę do zarejestrowanego pliku dźwiękowego. Zamień na `YOUR_ACCESS_TOKEN` Token autoryzacji zwrócony w poprzednim kroku. Zamień na `YOUR_REGION` prawidłowy region.
 
 * PowerShell
 
@@ -109,7 +109,7 @@ Jeśli wprowadzono prawidłowy token autoryzacji, polecenie zwróci transkrypcj�
 
 ## <a name="error-http-400-bad-request"></a>Błąd: Nieprawidłowe żądanie HTTP 400
 
-Ten błąd występuje zazwyczaj, gdy treść żądania zawiera nieprawidłowe dane audio. Obsługiwany jest tylko format WAV. Sprawdź również nagłówki żądania, aby upewnić się, że określono odpowiednie wartości dla `Content-Type` i `Content-Length`.
+Ten błąd występuje zazwyczaj, gdy treść żądania zawiera nieprawidłowe dane audio. Obsługiwany jest tylko format WAV. Sprawdź również nagłówki żądania, aby upewnić się, że określono odpowiednie wartości dla `Content-Type` i `Content-Length` .
 
 ## <a name="error-http-408-request-timeout"></a>Błąd: limit czasu żądania HTTP 408
 
@@ -119,7 +119,7 @@ Błąd jest najprawdopodobniej spowodowany tym, że żadne dane audio nie są wy
 
 Ten problem jest zwykle spowodowany przez dane audio. Ten błąd może pojawić się, ponieważ:
 
-* Na początku dźwięku istnieje długi rozciągnięcie. W takim przypadku usługa kończy rozpoznawanie po kilku sekundach i zwraca `InitialSilenceTimeout`.
+* Na początku dźwięku istnieje długi rozciągnięcie. W takim przypadku usługa kończy rozpoznawanie po kilku sekundach i zwraca `InitialSilenceTimeout` .
 
 * Dźwięk używa nieobsługiwanego formatu dekodera, co powoduje, że dane audio będą traktowane jako wyciszenie.
 

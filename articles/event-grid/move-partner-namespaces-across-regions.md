@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086211"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Przenoszenie przestrzeni nazw partnerów Azure Event Grid do innego regionu
@@ -59,7 +59,7 @@ Wdróż szablon, aby utworzyć przestrzeń nazw partnera w regionie docelowym.
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 3. Wybierz **Template Deployment**.
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 7. Wybierz pozycję **Zapisz** , aby zapisać szablon. 

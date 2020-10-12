@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289773"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurowanie usługi Azure Defender dla magazynu
@@ -69,7 +69,7 @@ Usługa Azure Defender jest teraz włączona dla wszystkich kont magazynu w tej 
 1. Przejdź do konta magazynu. W obszarze **Ustawienia**wybierz pozycję **Zabezpieczenia zaawansowane**.
 1. Wybierz pozycję **Włącz usługę Azure Defender dla magazynu**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla konta usługi Azure Storage":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
 Usługa Azure Defender jest teraz włączona dla tego konta magazynu.
 
@@ -84,15 +84,15 @@ Użyj Azure Policy, aby włączyć usługę Azure Defender na kontach magazynu w
 1. Uruchom stronę **definicje zasad** platformy Azure.
 1. Wyszukaj zasady **wdrażanie usługi Azure Defender na kontach magazynu** .
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Stosowanie zasad w celu włączenia usługi Azure Defender dla kont magazynu":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
 1. Wybierz subskrypcję platformy Azure lub grupę zasobów.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Wybierz subskrypcję lub grupę zasobów dla zakresu zasad ":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy2.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
 1. Przypisz zasady.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Przypisywanie zasad w celu włączenia usługi Azure Defender dla magazynu":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
 ### <a name="rest-api"></a>[Interfejs API REST](#tab/rest-api)
 
@@ -125,11 +125,11 @@ Gdy wystąpią anomalie aktywności magazynu, otrzymasz powiadomienie e-mail z i
 
 Wiadomość e-mail zawiera również szczegółowe informacje o możliwych przyczynach i zalecanych działaniach związanych z badaniem i łagodzeniem potencjalnego zagrożenia.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Wiadomość e-mail z alertem usługi Azure Defender dla magazynu":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
 Bieżące alerty zabezpieczeń można przeglądać i zarządzać nimi z poziomu [kafelka alerty zabezpieczeń](../../security-center/security-center-managing-and-responding-alerts.md)Azure Security Center. Kliknięcie określonego alertu zawiera szczegółowe informacje i akcje związane z badaniem bieżącego zagrożenia i rozwiązywanie przyszłych zagrożeń.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Alert usługi Azure Defender dla magazynu":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usługi Azure Defender dla magazynu w Security Center":::
 
 ## <a name="security-alerts"></a>Alerty zabezpieczeń
 

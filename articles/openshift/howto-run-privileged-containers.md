@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: ARO, OpenShift, aquasec, TwistLock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78271379"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Uruchamianie uprzywilejowanych kontenerów w klastrze usługi Azure Red Hat OpenShift
@@ -115,7 +115,7 @@ Podczas wdrażania wymuszania należy określić następujące pola:
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | akwamaryna — konto  |
-| Project        | akwamaryna — zabezpieczenia |
+| Projekt        | akwamaryna — zabezpieczenia |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Kroki specyficzne dla produktu Prisma Cloud/TwistLock
 
@@ -169,7 +169,7 @@ następnie uruchom polecenie:
 oc create -f twistlock_route.yaml
 ```
 
-Za pomocą tego polecenia można uzyskać adres URL przypisany do konsoli TwistLock:`oc get route twistlock-console -n twistlock`
+Za pomocą tego polecenia można uzyskać adres URL przypisany do konsoli TwistLock: `oc get route twistlock-console -n twistlock`
 
 ### <a name="configure-console"></a>Konfiguruj konsolę
 

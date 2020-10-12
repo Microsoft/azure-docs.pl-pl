@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418018"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Przełącz działanie w Azure Data Factory
@@ -69,8 +69,8 @@ Działanie Switch zapewnia te same funkcje, które instrukcja SWITCH zawiera w j
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania Switch. | String | Tak
-typ | Musi być ustawiona na wartość *Switch** | String | Tak
+name | Nazwa działania Switch. | Ciąg | Tak
+typ | Musi być ustawiona na wartość *Switch** | Ciąg | Tak
 expression | Wyrażenie, które musi obliczyć wartość ciągu | Wyrażenie z ciągiem typu wynikowego | Tak
 padkach | Zestaw przypadków, które zawierają wartość i zestaw działań do wykonania, gdy wartość jest zgodna z oceną wyrażenia. Należy podać co najmniej jeden przypadek. Obowiązuje maksymalnie 25 przypadków. | Tablica obiektów Case | Tak
 defaultActivities | Zestaw działań, które są wykonywane, gdy szacowanie wyrażenia nie jest spełnione. | Tablica działań | Tak

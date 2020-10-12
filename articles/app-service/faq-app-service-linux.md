@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961724"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux FAQ (Usługa Azure App Service w systemie Linux — często zadawane pytania)
@@ -201,7 +201,7 @@ Do ustawień aplikacji można używać tylko liter (A-Z, a-z), cyfr (0-9) i znak
 
 Swój pomysł można przesłać na [forum opinii Web Apps](https://aka.ms/webapps-uservoice). Dodaj "[Linux]" do tytułu Twojego pomysłu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest Azure App Service w systemie Linux?](overview.md#app-service-on-linux)
 - [Konfigurowanie środowisk przejściowych w usłudze Azure App Service](deploy-staging-slots.md)

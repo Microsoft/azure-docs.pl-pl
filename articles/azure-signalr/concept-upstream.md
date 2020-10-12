@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514241"
 ---
 # <a name="upstream-settings"></a>Ustawienia nadrzędne
@@ -82,7 +82,7 @@ Po wybraniu `ManagedIdentity` tej opcji należy najpierw włączyć zarządzaną
 3. Dodaj adresy URL w ramach **wzorca nadrzędnego adresu URL**. Następnie ustawienia, takie jak **reguły centrum** , będą zawierać wartość domyślną.
 4. Aby ustawić ustawienia dla **reguł centrum**, **reguły zdarzeń**, **reguły kategorii**i **uwierzytelnianie nadrzędne**, wybierz wartość **reguły centrum**. Zostanie wyświetlona strona, która umożliwia edytowanie ustawień:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Szczegóły ustawienia nadrzędnego":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Ustawienia nadrzędne":::
 
 5. Aby ustawić **uwierzytelnianie nadrzędne**, upewnij się, że została najpierw włączona tożsamość zarządzana. Następnie wybierz pozycję **Użyj tożsamości zarządzanej**. Zgodnie z potrzebami można wybrać opcje w obszarze **Identyfikator zasobu uwierzytelniania**. Szczegóły można znaleźć w temacie [zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md) .
 
@@ -133,7 +133,7 @@ POST
 |X-ASRS-User-Claims |Grupa oświadczeń połączenia z klientem.|
 |X-ASRS-User-ID |Tożsamość użytkownika klienta wysyłającego wiadomość.|
 |X-ASRS-Client-Query |Zapytanie o żądanie, gdy klienci łączą się z usługą.|
-|Authentication |Opcjonalny token podczas korzystania z programu `ManagedIdentity` . |
+|Uwierzytelnianie |Opcjonalny token podczas korzystania z programu `ManagedIdentity` . |
 
 ### <a name="request-body"></a>Treść żądania
 

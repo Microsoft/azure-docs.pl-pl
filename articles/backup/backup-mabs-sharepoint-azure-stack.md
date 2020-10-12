@@ -4,10 +4,10 @@ description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywr�
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378325"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Tworzenie kopii zapasowej farmy programu SharePoint na Azure Stack
@@ -148,7 +148,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
 5. Można także przeglądać różne punkty odzyskiwania i wybierać bazę danych lub element do odzyskania. Wybierz **datę > czas odzyskiwania**, a następnie wybierz prawidłową **bazę danych > farmy programu SharePoint > > elementu punktu odzyskiwania**.
 
     ![SERWERA usługi MAB SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj** , aby otworzyć **Kreatora odzyskiwania**. Wybierz pozycję **Next** (Dalej).
+6. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj** , aby otworzyć **Kreatora odzyskiwania**. Wybierz opcję **Dalej**.
 
     ![Przegląd wyboru odzyskiwania](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Wybierz typ odzyskiwania, który chcesz wykonać, a następnie wybierz przycisk **dalej**.
@@ -172,7 +172,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
     SERWERA usługi MAB dołącza bazę danych zawartości, która hostuje element programu SharePoint, do wystąpienia tymczasowego SQL Server. Z bazy danych zawartości odzyskuje element i umieszcza go w lokalizacji pliku przemieszczania w systemie serwera usługi MAB. Odzyskany element, który znajduje się w lokalizacji tymczasowej, musi zostać wyeksportowany do lokalizacji tymczasowej w farmie programu SharePoint.
 
     ![Location2 przemieszczania](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Wybierz opcję **Określ opcje odzyskiwania**i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Wybierz pozycję **Next** (Dalej).
+10. Wybierz opcję **Określ opcje odzyskiwania**i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Wybierz opcję **Dalej**.
 
     ![Opcje odzyskiwania](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -219,7 +219,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
     ![SERWERA usługi MAB SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. W tym momencie wykonaj kroki odzyskiwania opisane wcześniej w tym artykule, aby odzyskać bazę danych zawartości programu SharePoint z dysku.
 
-## <a name="switching-the-front-end-web-server"></a>Przełączanie serwera frontonu sieci Web
+## <a name="switching-the-front-end-web-server"></a>Przełączanie serwera sieci Web Front-End
 
 Jeśli masz więcej niż jeden serwer frontonu sieci Web i chcesz przełączyć serwer, którego serwera usługi MAB używa do ochrony farmy, postępuj zgodnie z instrukcjami:
 

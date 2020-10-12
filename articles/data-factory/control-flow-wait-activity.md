@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417916"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Działanie wykonywania oczekiwania w Azure Data Factory
@@ -41,9 +41,9 @@ Gdy używasz działania Wait w potoku, potok czeka przez określony okres z kont
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa `Wait` działania. | String | Tak
-typ | Musi być ustawiony na wartość **czekaj**. | String | Tak
-waitTimeInSeconds | Liczba sekund oczekiwania przez potok przed kontynuowaniem przetwarzania. | Integer | Tak
+name | Nazwa `Wait` działania. | Ciąg | Tak
+typ | Musi być ustawiony na wartość **czekaj**. | Ciąg | Tak
+waitTimeInSeconds | Liczba sekund oczekiwania przez potok przed kontynuowaniem przetwarzania. | Liczba całkowita | Tak
 
 ## <a name="example"></a>Przykład
 

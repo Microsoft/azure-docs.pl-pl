@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008597"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Samouczek: Tworzenie puli hostów w programie Virtual Desktop systemu Windows (klasyczny)
@@ -65,7 +65,7 @@ Oto co należy zrobić w przypadku karty **podstawowe** :
 1. Wybierz **region**.
 1. Wprowadź nazwę puli hostów, która jest unikatowa w ramach dzierżawy pulpitu wirtualnego systemu Windows.
 1. Wybierz pozycję **Typ pulpitu**. W przypadku wybrania opcji **osobiste**każdy użytkownik, który łączy się z tą pulą hostów, zostaje trwale przypisany do maszyny wirtualnej.
-1. Wprowadź użytkowników, którzy mogą logować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu. Użyj listy rozdzielanej przecinkami. Na przykład jeśli chcesz przypisać `user1@contoso.com` i `user2@contoso.com` uzyskać dostęp, wprowadź*`user1@contoso.com,user2@contoso.com`*
+1. Wprowadź użytkowników, którzy mogą logować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu. Użyj listy rozdzielanej przecinkami. Na przykład jeśli chcesz przypisać `user1@contoso.com` i `user2@contoso.com` uzyskać dostęp, wprowadź *`user1@contoso.com,user2@contoso.com`*
 1. W polu **Lokalizacja metadanych usługi**wybierz tę samą lokalizację co sieć wirtualna, która ma łączność z serwerem Active Directory.
 
    >[!IMPORTANT]

@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć artefakty do użycia z Azure DevTest Lab
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270686"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs
@@ -47,12 +47,12 @@ Poniższy przykład przedstawia sekcje, które składają się na podstawową st
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
 | $schema |Nie |Lokalizacja pliku schematu JSON. Plik schematu JSON może pomóc w przetestowaniu ważności pliku definicji. |
-| tytuł |Yes |Nazwa artefaktu wyświetlanego w laboratorium. |
-| description (opis) |Yes |Opis artefaktu wyświetlanego w środowisku laboratoryjnym. |
+| title |Tak |Nazwa artefaktu wyświetlanego w laboratorium. |
+| description |Tak |Opis artefaktu wyświetlanego w środowisku laboratoryjnym. |
 | iconUri |Nie |Identyfikator URI ikony wyświetlanej w laboratorium. |
-| targetOsType |Yes |System operacyjny maszyny wirtualnej, na której jest zainstalowany artefakt. Obsługiwane opcje to Windows i Linux. |
+| targetOsType |Tak |System operacyjny maszyny wirtualnej, na której jest zainstalowany artefakt. Obsługiwane opcje to Windows i Linux. |
 | parameters |Nie |Wartości, które są dostarczane, gdy polecenie instalacji artefaktu jest uruchamiane na komputerze. Ułatwia to dostosowanie artefaktu. |
-| Akcji |Yes |Polecenie instalacji artefaktu, które jest wykonywane na maszynie wirtualnej. |
+| Akcji |Tak |Polecenie instalacji artefaktu, które jest wykonywane na maszynie wirtualnej. |
 
 ### <a name="artifact-parameters"></a>Parametry artefaktu
 W sekcji parametry pliku definicji Określ wartości, które użytkownik może wprowadzać podczas instalacji artefaktu. Można odwołać się do tych wartości w poleceniu instalacji artefaktu.
@@ -71,9 +71,9 @@ Aby zdefiniować parametry, należy użyć następującej struktury:
 
 | Nazwa elementu | Wymagane? | Opis |
 | --- | --- | --- |
-| typ |Yes |Typ wartości parametru. Zapoznaj się z poniższą listą typów dozwolonych. |
-| displayName |Yes |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. |
-| description (opis) |Yes |Opis parametru, który jest wyświetlany w laboratorium. |
+| typ |Tak |Typ wartości parametru. Zapoznaj się z poniższą listą typów dozwolonych. |
+| displayName |Tak |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. |
+| description |Tak |Opis parametru, który jest wyświetlany w laboratorium. |
 
 Dozwolone typy to:
 
@@ -95,7 +95,7 @@ Zadeklaruj klucze tajne jako bezpieczne ciągi. Poniżej przedstawiono składni�
     },
 ```
 
-W przypadku polecenia install artefaktu Uruchom skrypt programu PowerShell, który przyjmuje bezpieczny ciąg utworzony przy użyciu polecenia ConvertTo-SecureString. 
+W przypadku polecenia install artefaktu Uruchom skrypt programu PowerShell, który pobiera bezpieczny ciąg utworzony przy użyciu polecenia ConvertTo-SecureString. 
 
 ```json
   "runCommand": {

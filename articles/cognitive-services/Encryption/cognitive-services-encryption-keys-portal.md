@@ -1,5 +1,5 @@
 ---
-title: Klucze zarządzane przez klienta dla Cognitive Services
+title: Klucze Customer-Managed dla Cognitive Services
 titleSuffix: Cognitive Services
 description: Informacje dotyczące konfigurowania kluczy zarządzanych przez klienta przy użyciu Azure Portal w programie Azure Key Vault. Klucze zarządzane przez klienta umożliwiają tworzenie, obracanie, wyłączanie i odwoływanie kontroli dostępu.
 services: cognitive-services
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310703"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Skonfiguruj klucze zarządzane przez klienta za pomocą Azure Key Vault dla Cognitive Services
 
-Proces włączania kluczy zarządzanych przez klienta Azure Key Vault dla Cognitive Services zależy od produktu. Skorzystaj z tych linków, aby uzyskać instrukcje dotyczące usługi:
+Proces włączania kluczy Customer-Managed w Azure Key Vault dla Cognitive Services zależy od produktu. Skorzystaj z tych linków, aby uzyskać instrukcje dotyczące usługi:
 
 ## <a name="vision"></a>Obraz
 
@@ -39,4 +39,4 @@ Proces włączania kluczy zarządzanych przez klienta Azure Key Vault dla Cognit
 ## <a name="next-steps"></a>Następne kroki
 
 * [Co to jest Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Formularz żądania klucza zarządzanego przez klienta Cognitive Services](https://aka.ms/cogsvc-cmk)
+* [Formularz żądania klucza Customer-Managed Cognitive Services](https://aka.ms/cogsvc-cmk)

@@ -4,10 +4,10 @@ description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii 
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378291"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
@@ -31,7 +31,7 @@ W tym artykule omówiono następujące zagadnienia:
 
 - Ta funkcja obecnie **nie obsługuje tworzenia kopii zapasowych przy użyciu agenta Mars**i może nie być możliwe użycie magazynu CMK-Encrypted. Agent MARS używa szyfrowania opartego na hasłach użytkownika. Ta funkcja nie obsługuje także tworzenia kopii zapasowych klasycznych maszyn wirtualnych.
 
-- Ta funkcja nie odnosi się do [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), która korzysta z szyfrowania maszyn wirtualnych na podstawie gościa za pomocą funkcji BitLocker (dla systemu Windows) i dm-crypt (system Linux)
+- Ta funkcja nie odnosi się do [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), która korzysta z szyfrowania na podstawie gościa dysków maszyny wirtualnej za pomocą funkcji BitLocker (dla systemu Windows) i DM-Crypt (w systemie Linux)
 
 - Magazyn Recovery Services może być szyfrowany tylko z kluczami przechowywanymi w Azure Key Vault, które znajdują się w **tym samym regionie**. Ponadto klucze muszą zawierać tylko **klucze RSA 2048** i powinny być w stanie **włączony** .
 

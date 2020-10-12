@@ -1,15 +1,15 @@
 ---
 title: Konfigurowanie aplikacji ASP.NET
-description: Dowiedz się, jak skonfigurować aplikację ASP.NET w Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
+description: Dowiedz się, jak skonfigurować aplikację ASP.NET w Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961707"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET dla Azure App Service
@@ -105,7 +105,7 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: Tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)

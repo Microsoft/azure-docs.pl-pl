@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: mblythe
 ms.openlocfilehash: f3b4806bf46750d74a54f68bd2ab58e402e75091
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85852385"
 ---
 # <a name="manage-an-azure-support-request"></a>Zarządzanie wnioskiem o pomoc techniczną platformy Azure
@@ -45,17 +45,17 @@ Na tej stronie można wyszukiwać, filtrować i sortować żądania pomocy techn
 
 1. Na stronie **żądanie pomocy technicznej** wybierz pozycję **Zmień**.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Zmiana ważności żądania obsługi":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Wszystkie żądania pomocy technicznej":::
 
 1. Azure Portal przedstawia jeden z dwóch ekranów, w zależności od tego, czy żądanie jest już przypisane do inżyniera pomocy technicznej:
 
     - Jeśli Twoje żądanie nie zostało przypisane, zobaczysz ekran podobny do poniższego. Wybierz nowy poziom ważności, a następnie wybierz pozycję **Zmień**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Wybierz nowy poziom ważności":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Wszystkie żądania pomocy technicznej":::
 
     - Jeśli Twoje żądanie zostało przypisane, zobaczysz ekran podobny do poniższego. Wybierz przycisk **OK**, a następnie Utwórz [Nowy komunikat](#send-a-message) , aby zażądać zmiany na poziomie ważności.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Nie można wybrać nowego poziomu ważności":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Wszystkie żądania pomocy technicznej":::
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Udostępnianie informacji diagnostycznych za pomocą pomocy technicznej platformy Azure
 
@@ -69,7 +69,7 @@ Gdy tworzysz żądanie obsługi, domyślnie jest zaznaczona opcja **Udostępnij 
     
     1. Na stronie **żądanie pomocy technicznej** wybierz pozycję **Udziel uprawnienia**, a następnie wybierz pozycję **tak** i kliknij przycisk **OK**.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Udziel uprawnień do informacji diagnostycznych":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Wszystkie żądania pomocy technicznej":::
 
 ## <a name="upload-files"></a>Przekazywanie plików
 
@@ -79,7 +79,7 @@ Możesz użyć opcji przekazywania plików, aby przekazać pliki diagnostyczne l
 
 1. Na stronie **żądanie pomocy technicznej** Wyszukaj plik, a następnie wybierz pozycję **Przekaż**. Powtórz ten proces, jeśli masz wiele plików.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Przekazywanie pliku":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Wszystkie żądania pomocy technicznej":::
 
 ### <a name="file-upload-guidelines"></a>Wskazówki dotyczące przekazywania plików
 
@@ -96,24 +96,24 @@ W przypadku korzystania z opcji przekazywania plików postępuj zgodnie z poniż
 | .7z         | . dat  | .hwl        | . ODX  | . rar     | .tdb       | xlam   |
 | . a          | . DB   | . ICS        | . oft  | . rdl     | .tdf       | .xlr    |
 | . ABC        | . DMP  | . ini        | . old  | . rdlc    | . Text      | xls    |
-| . adm        | . do_  | .java       | . one  | . re_     | thmx      | xlsb   |
+| . adm        | .do_  | .java       | . one  | .re_     | thmx      | xlsb   |
 | . aspx       | doc  | jpg        | . OSD  | . reg     | tif       | xlsm   |
 | . ATF        | docm | . LDF        | . OKREŚLONĄ  | . Usuń  | . trc       | xlsx   |
 | . b          | docx | . nagłówek list | . P1   | . Ren     | . DOCELOWY       | xlt    |
-| . ba_        | dotm | . lnk        | .pcap | . Zmień nazwę  | . tx_       | xltx   |
-| . bak        | dotx | . lo_        | . pdb  | .rft     | txt       | xml    |
+| .ba_        | dotm | . lnk        | .pcap | . Zmień nazwę  | .tx_       | xltx   |
+| . bak        | dotx | .lo_        | . pdb  | .rft     | txt       | xml    |
 | bat        | .dtsx | . log        | pdf  | . rpt     | .uccapilog | . XMLA   |
 | . blg        | . EDS  | . lpk        | .piz  | .rte     | .uccplog   | xps    |
-| . CA_        | . EMF  | . manifest   | .pmls | .rtf     | .udcx      | . xsd    |
-| . CAB        | . eml  | . Master     | png  | . Uruchom     | . vb_       | . xsn    |
-| . Cap        | .emz  | . MDMP       | potx | .saz     | . vbs_      | . xxx    |
-| .catx       | . błąd  | plik MOF        | ppt  | .sql     | . vcf       | . z_     |
+| .CA_        | . EMF  | . manifest   | .pmls | .rtf     | .udcx      | . xsd    |
+| . CAB        | . eml  | . Master     | png  | . Uruchom     | .vb_       | . xsn    |
+| . Cap        | .emz  | . MDMP       | potx | .saz     | .vbs_      | . xxx    |
+| .catx       | . błąd  | plik MOF        | ppt  | .sql     | . vcf       | .z_     |
 | . CFG        | . etl  | mp3        | pptm | . sqlplan | . vsd       | .z01    |
 | . skompresowane | . evt  | mpg        | pptx | . stp     | .wdb       | .z02    |
-| . Sygnatur     | . evtx | . ms_        | . prn  | .svclog  | . WKS       | . zi     |
-| .cpk        | . UPRZEDNI   | . msg        | . WPO  |   -       | wma       | . zi_    |
-| . cpp        | . ex_  | .msi        | . pst  |  -        | wmv       | zip    |
-| .cs         | .ex0  | . mso        | . pub  | -         | . WMZ       | . zip_   |
+| . Sygnatur     | . evtx | .ms_        | . prn  | .svclog  | . WKS       | . zi     |
+| .cpk        | . UPRZEDNI   | . msg        | . WPO  |   -       | wma       | .zi_    |
+| . cpp        | .ex_  | .msi        | . pst  |  -        | wmv       | zip    |
+| .cs         | .ex0  | . mso        | . pub  | -         | . WMZ       | .zip_   |
 | . CSV        | . FRD  | . msu        | -      |-          | . WPS       | .zipp   |
 | .cvr        | gif  | . nfo        | -      |-          | .wpt       | . spakowane |
 | -            | . GUID | -            | -      | -         | . WSDL      | .zippy  |

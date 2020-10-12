@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74787340"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Opóźnienie uruchamiania następnej akcji w Azure Logic Apps
@@ -52,8 +52,8 @@ Oto kilka przykładowych sposobów korzystania z tych akcji:
 
    | Właściwość | Nazwa JSON | Wymagany | Typ | Opis |
    |----------|-----------|----------|------|-------------|
-   | Liczba | count | Tak | Integer | Liczba jednostek czasu do opóźnienia |
-   | Jednostka | unit | Tak | String | Jednostka czasu, na przykład:,,,, `Second` `Minute` `Hour` `Day` `Week` lub`Month` |
+   | Liczba | count | Tak | Liczba całkowita | Liczba jednostek czasu do opóźnienia |
+   | Jednostka | unit | Tak | Ciąg | Jednostka czasu, na przykład:,,,, `Second` `Minute` `Hour` `Day` `Week` lub `Month` |
    ||||||
 
 1. Dodaj inne akcje, które mają być uruchamiane w przepływie pracy.
@@ -78,7 +78,7 @@ Oto kilka przykładowych sposobów korzystania z tych akcji:
 
    | Właściwość | Nazwa JSON | Wymagany | Typ | Opis |
    |----------|-----------|----------|------|-------------|
-   | Znacznik czasu | sygnatura czasowa | Tak | String | Data i godzina zakończenia przepływu pracy przy użyciu tego formatu: <p>RRRR-MM-DDTgg: mm: SSS <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ "2017-09-18T14:00:00Z". <p>**Uwaga:** Ten format czasu musi być zgodny ze [specyfikacją daty i godziny ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie daty/godziny](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Bez strefy czasowej należy dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Timestamp | sygnatura czasowa | Tak | Ciąg | Data i godzina zakończenia przepływu pracy przy użyciu tego formatu: <p>RRRR-MM-DDTgg: mm: SSS <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ "2017-09-18T14:00:00Z". <p>**Uwaga:** Ten format czasu musi być zgodny ze [specyfikacją daty i godziny ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie daty/godziny](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Bez strefy czasowej należy dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. Dodaj inne akcje, które mają być uruchamiane w przepływie pracy.

@@ -4,10 +4,10 @@ description: Użyj Azure Portal, aby wyświetlić Azure Container Registry repoz
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74456297"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Wyświetlanie repozytoriów rejestru kontenera w Azure Portal
@@ -34,7 +34,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Aby wyświetlić repozytorium:
 
-1. Zaloguj się do [Azure Portal][portal]
+1. Zaloguj się do witryny [Azure Portal][portal].
 1. Wybierz **Azure Container Registry** , do którego wypychasz obraz Nginx
 1. Wybierz pozycję **repozytoria** , aby wyświetlić listę repozytoriów zawierających obrazy w rejestrze
 1. Wybierz repozytorium, aby wyświetlić Tagi obrazu w tym repozytorium

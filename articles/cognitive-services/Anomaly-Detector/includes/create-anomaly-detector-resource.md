@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91025341"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
@@ -25,7 +25,7 @@ ms.locfileid: "91025341"
     |--|--|
     |Nazwa|Wymagana nazwa (2-64 znaków)|
     |Subskrypcja|Wybierz odpowiednią subskrypcję|
-    |Location|Wybierz dowolną lokalizację w pobliżu i dostępną|
+    |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i dostępną|
     |Warstwa cenowa|`F0` — minimalna warstwa cenowa|
     |Grupa zasobów|Wybierz dostępną grupę zasobów|
 
