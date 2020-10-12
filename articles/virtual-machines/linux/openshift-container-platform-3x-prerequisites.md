@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368187"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Wspólne wymagania wstępne dotyczące wdrażania OpenShift Container platform 3,11 na platformie Azure
@@ -173,4 +173,4 @@ W tym artykule omówiono następujące tematy:
 Następnie wdróż klaster OpenShift:
 
 - [Wdróż platformę kontenera OpenShift](./openshift-container-platform-3x.md)
-- [Wdróż niezarządzaną ofertę portalu OpenShift platformy kontenera](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [Wdróż platformę kontenera OpenShift Self-Managed ofertę w witrynie Marketplace](./openshift-container-platform-3x-marketplace-self-managed.md)

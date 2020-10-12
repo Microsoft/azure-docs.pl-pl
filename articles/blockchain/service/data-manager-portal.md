@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85200685"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurowanie menedżera danych łańcucha bloków przy użyciu witryny Azure Portal
@@ -119,7 +119,7 @@ Poniższy przykład pokazuje *abi.json* i *bytecode.jsna* plikach otwartych w ed
 
     ![Przekaż obiekt BLOB](./media/data-manager-portal/upload-blobs.png)
 
-    Wybierz przycisk **Przekaż**.
+    Wybierz pozycję **Przekaż**.
 
 #### <a name="generate-url"></a>Generuj adres URL
 

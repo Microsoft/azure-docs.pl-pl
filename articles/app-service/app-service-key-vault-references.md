@@ -1,5 +1,5 @@
 ---
-title: Użyj odwołań Key Vault
+title: Używanie odwołań do usługi Key Vault
 description: Dowiedz się, jak skonfigurować Azure App Service i Azure Functions do korzystania z Azure Key Vault odwołań. Udostępnienie Key Vault wpisów tajnych dla kodu aplikacji.
 author: mattchenderson
 ms.topic: article
@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85557920"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Użyj Key Vault odwołań dla App Service i Azure Functions

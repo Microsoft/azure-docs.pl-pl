@@ -5,10 +5,10 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86516128"
 ---
 # <a name="alerts-on-activity-log"></a>Alerty dotyczące dziennika aktywności
@@ -40,7 +40,7 @@ Alerty dziennika aktywności mają kilka typowych opcji:
     - Poziom subskrypcji: na przykład wszystkie maszyny wirtualne w subskrypcji (lub) wszystkie zasoby w ramach subskrypcji
 - **Grupa zasobów**: Domyślnie reguła alertu jest zapisywana w tej samej grupie zasobów co element docelowy zdefiniowany w zakresie. Użytkownik może również zdefiniować grupę zasobów, w której ma być przechowywana reguła alertu.
 - **Typ zasobu**: Menedżer zasobów zdefiniowanej przestrzeni nazw dla elementu docelowego alertu.
-- **Nazwa operacji**: użyto nazwy [operacji Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) dla Access Control opartej na rolach. Operacji nie zarejestrowano w Azure Resource Manager nie można użyć w regule alertu dziennika aktywności.
+- **Nazwa operacji**: użyto nazwy [operacji Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) dla Role-Based Access Control. Operacji nie zarejestrowano w Azure Resource Manager nie można użyć w regule alertu dziennika aktywności.
 - **Poziom**: poziom ważności zdarzenia (informacyjny, ostrzegawczy, błąd lub krytyczny).
 - **Stan**: stan zdarzenia, zazwyczaj rozpoczęte, zakończone niepowodzeniem lub zakończone powodzeniem.
 - **Zdarzenie zainicjowane przez**: nazywane również "obiektem wywołującym". Adres e-mail lub identyfikator Azure Active Directory użytkownika, który wykonał operację.
@@ -48,7 +48,7 @@ Alerty dziennika aktywności mają kilka typowych opcji:
 > [!NOTE]
 > W subskrypcji do 100 reguły alertów można utworzyć dla działania zakresu w jednym z nich: pojedynczy zasób, wszystkie zasoby w grupie zasobów (lub) cały poziom subskrypcji.
 
-Po aktywowaniu alertu dziennika aktywności program używa grupy akcji do generowania akcji lub powiadomień. Grupa akcji to zbiór odbiorników powiadomień wielokrotnego użytku, takich jak adresy e-mail, adresy URL elementów webhook lub numery telefonów SMS. Odbiorcy mogą odwoływać się z wielu alertów w celu scentralizowania i grupowania kanałów powiadomień. Podczas definiowania alertu dziennika aktywności dostępne są dwie opcje. Dostępne możliwości:
+Po aktywowaniu alertu dziennika aktywności program używa grupy akcji do generowania akcji lub powiadomień. Grupa akcji to zbiór odbiorników powiadomień wielokrotnego użytku, takich jak adresy e-mail, adresy URL elementów webhook lub numery telefonów SMS. Odbiorcy mogą odwoływać się z wielu alertów w celu scentralizowania i grupowania kanałów powiadomień. Podczas definiowania alertu dziennika aktywności dostępne są dwie opcje. Można:
 
 * Użyj istniejącej grupy akcji w alercie dziennika aktywności.
 * Utwórz nową grupę akcji.

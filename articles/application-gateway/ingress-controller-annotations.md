@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80335820"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Adnotacje dla Application Gateway kontroler danych przychodzących 
@@ -29,9 +29,9 @@ Aby zasób transferu danych przychodzących był obserwowany przez AGIC, **nale�
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
 | [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`s | `30` | |
+| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` s | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`s | `30` | |
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` s | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 
@@ -237,7 +237,7 @@ spec:
 
 ## <a name="backend-protocol"></a>Protokół zaplecza
 
-Ta adnotacja umożliwia określenie protokołu, który Application Gateway powinien być używany podczas rozmowy z zasobnikami. Obsługiwane protokoły: `http` ,`https`
+Ta adnotacja umożliwia określenie protokołu, który Application Gateway powinien być używany podczas rozmowy z zasobnikami. Obsługiwane protokoły: `http` , `https`
 
 > [!NOTE]
 > * W przypadku, gdy certyfikaty z podpisem własnym są obsługiwane w Application Gateway, obecnie AGIC tylko w `https` przypadku korzystania z certyfikatu podpisanego przez dobrze znany urząd certyfikacji.

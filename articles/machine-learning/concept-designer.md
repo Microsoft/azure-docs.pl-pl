@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90883127"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>Co to jest Azure Machine Learning Designer? 
@@ -26,7 +26,7 @@ Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów dany
 
 Projektant używa [obszaru roboczego](concept-workspace.md) Azure Machine Learning do organizowania zasobów udostępnionych, takich jak:
 
-+ [Pipelines](#pipeline)
++ [Potoki](#pipeline)
 + [Zestawy danych](#datasets)
 + [Zasoby obliczeniowe](#compute)
 + [Zarejestrowane modele](concept-azure-machine-learning-architecture.md#models)
@@ -90,7 +90,7 @@ Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algor
 
 Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
+| Docelowy zasób obliczeniowy | Szkolenie | Wdrożenie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
 | Wystąpienie obliczeniowe usługi Azure Machine Learning | ✓ | |
@@ -98,7 +98,7 @@ Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostow
 
 Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Wdróż
+## <a name="deploy"></a>Wdrażanie
 
 Aby wykonać inferencing w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym**. Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby wykonać wywołanie do punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na pozostałej, popularnej architekturze dla projektów programowania w sieci Web.
 

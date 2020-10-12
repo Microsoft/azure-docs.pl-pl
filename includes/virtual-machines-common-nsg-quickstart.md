@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183201"
 ---
 Możesz otworzyć port lub utworzyć punkt końcowy na maszynie wirtualnej na platformie Azure, tworząc filtr sieci dla podsieci lub interfejsu sieciowego maszyny wirtualnej. Należy umieścić te filtry, które kontrolują ruch przychodzący i wychodzący, w sieciowej grupie zabezpieczeń dołączonej do zasobu, który odbiera ruch.
@@ -21,7 +21,7 @@ W przykładzie w tym artykule pokazano, jak utworzyć filtr sieci korzystający 
 
 Po utworzeniu maszyny wirtualnej skonfigurowanej do obsłużenia żądań sieci Web na standardowym porcie TCP 80 można:
 
-1. Utwórz sieciową grupę zabezpieczeń.
+1. Utworzenie sieciowej grupy zabezpieczeń.
 
 2. Utwórz regułę zabezpieczeń dla ruchu przychodzącego zezwalającą na ruch i przypisując wartości do następujących ustawień:
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556157"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Włączanie obsługi wielu przestrzeni nazw w klastrze AKS przy użyciu kontrolera Application Gateway transferu danych przychodzących
@@ -29,11 +29,11 @@ Aby włączyć obsługę wielu przestrzeni nazw:
    - Usuń `watchNamespace` klucz całkowicie z [Helm-config. YAML](#sample-helm-config-file) -AGIC zaobserwuje wszystkie przestrzenie nazw
    - Ustaw `watchNamespace` na pusty ciąg — AGIC będzie obserwować wszystkie przestrzenie nazw
    - Dodaj wiele przestrzeni nazw rozdzielonych przecinkami ( `watchNamespace: default,secondNamespace` ) — AGIC będzie obserwować te obszary nazw wyłącznie
-2. Zastosuj zmiany szablonu Helm z:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+2. Zastosuj zmiany szablonu Helm z: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Po wdrożeniu z możliwością obserwowania wielu przestrzeni nazw AGIC będzie:
   - Wyświetlanie listy zasobów przychodzących ze wszystkich dostępnych przestrzeni nazw
-  - Przefiltruj do zasobów przychodzących z adnotacją`kubernetes.io/ingress.class: azure/application-gateway`
+  - Przefiltruj do zasobów przychodzących z adnotacją `kubernetes.io/ingress.class: azure/application-gateway`
   - Utwórz scaloną [Application Gateway konfigurację](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
   - Zastosuj konfigurację do skojarzonej Application Gateway za pomocą [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
@@ -84,11 +84,11 @@ spec:
 
 Pomimo tego, że oba zasoby związane z ruchem przychodzącym `www.contoso.com` , które mają być kierowane do odpowiednich przestrzeni nazw Kubernetes, mogą obsłużyć ruch. AGIC utworzy konfigurację dla jednego z zasobów na podstawie "pierwsze, pierwsze obsłużone". Jeśli dwa zasoby ingresses są tworzone w tym samym czasie, pierwszeństwo ma ten sam w alfabecie. Z powyższego przykładu będzie można tworzyć ustawienia dotyczące transferu danych przychodzących `production` . Application Gateway zostaną skonfigurowane przy użyciu następujących zasobów:
 
-  - Odbiornika`fl-www.contoso.com-80`
-  - Reguła routingu:`rr-www.contoso.com-80`
-  - Pula zaplecza:`pool-production-contoso-web-service-80-bp-80`
-  - Ustawienia protokołu HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
-  - Sonda kondycji:`pb-production-contoso-web-service-80-websocket-ingress`
+  - Odbiornika `fl-www.contoso.com-80`
+  - Reguła routingu: `rr-www.contoso.com-80`
+  - Pula zaplecza: `pool-production-contoso-web-service-80-bp-80`
+  - Ustawienia protokołu HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
+  - Sonda kondycji: `pb-production-contoso-web-service-80-websocket-ingress`
 
 Należy pamiętać, że oprócz *reguły* *odbiornika* i routingu, utworzone zasoby Application Gateway obejmują nazwę przestrzeni nazw (), `production` dla której zostały utworzone.
 

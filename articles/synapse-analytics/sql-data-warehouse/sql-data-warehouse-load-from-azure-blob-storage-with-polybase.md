@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461701"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Ładowanie danych detalicznych contoso do Synapse SQL 
@@ -28,7 +28,7 @@ W tym samouczku wykonasz następujące instrukcje:
 2. Ładowanie danych publicznych do bazy danych
 3. Wykonaj optymalizacje po zakończeniu ładowania.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Do uruchomienia tego samouczka potrzebne jest konto platformy Azure, które ma już Synapse SQL. Jeśli nie masz obsługiwanego magazynu danych, zobacz [Tworzenie magazynu danych i Ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
 

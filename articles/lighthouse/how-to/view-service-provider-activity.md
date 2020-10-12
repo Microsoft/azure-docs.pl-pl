@@ -4,10 +4,10 @@ description: Klienci mogą wyświetlać zarejestrowane działanie, aby zobaczyć
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131456"
 ---
 # <a name="view-service-provider-activity"></a>Wyświetlanie działań dostawcy usług
@@ -17,7 +17,7 @@ Klienci, którzy mają delegowane subskrypcje [usługi Azure Lighthouse](../over
 > [!TIP]
 > Firma Microsoft udostępnia również wbudowaną Azure Policy definicję zasad służącą do inspekcji delegowania zakresów do dzierżawy zarządzającej. Aby uzyskać więcej informacji, zobacz [Inspekcja delegowania w środowisku](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
-## <a name="view-activity-log-data"></a>Wyświetl dane dziennika aktywności
+## <a name="view-activity-log-data"></a>Wyświetlanie danych dziennika aktywności
 
 [Dziennik aktywności można wyświetlić](../../azure-monitor/platform/activity-log.md#view-the-activity-log) z menu **Monitoruj** w Azure Portal. Aby ograniczyć wyniki do określonej subskrypcji, użyj filtrów, aby wybrać konkretną subskrypcję. Możesz również [wyświetlać i pobierać zdarzenia dziennika aktywności](../../azure-monitor/platform/activity-log.md#view-the-activity-log) .
 

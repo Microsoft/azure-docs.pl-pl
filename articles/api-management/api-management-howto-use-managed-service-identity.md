@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558033"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure API Management
@@ -281,7 +281,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, należy najpierw utworzy
 3. Na karcie **przypisane przez użytkownika** wybierz pozycję **Dodaj**.
 4. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Wybory dotyczące włączania tożsamości zarządzanej przypisanej przez użytkownika" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Wybory umożliwiające włączenie tożsamości zarządzanej przypisanej do systemu" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

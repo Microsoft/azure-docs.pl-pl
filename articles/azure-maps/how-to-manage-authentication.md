@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311108"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Zarządzanie uwierzytelnianiem w Azure Maps
@@ -43,7 +43,7 @@ W poniższej tabeli przedstawiono typowe scenariusze uwierzytelniania i autoryza
 > [!IMPORTANT]
 > Firma Microsoft zaleca wdrożenie Azure Active Directory (Azure AD) z kontrolą dostępu opartą na rolach (RBAC) dla aplikacji produkcyjnych.
 
-| Scenariusz                                                                                    | Authentication | Autoryzacja | Nakład pracy programistycznej | Nakład pracy operacyjnej |
+| Scenariusz                                                                                    | Uwierzytelnianie | Autoryzacja | Nakład pracy programistycznej | Nakład pracy operacyjnej |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
 | [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Klucz wspólny     | Nie dotyczy           | Średniaa             | Wysoki               |
 | [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Azure AD       | Wys.          | Nis.                | Średniaa             |

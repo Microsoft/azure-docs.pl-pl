@@ -4,10 +4,10 @@ description: Kontrolowanie mapowania australijskiego planu ochrony instytucji rz
 ms.date: 09/11/2020
 ms.topic: sample
 ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030110"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Sterowanie mapowaniem przykładowej strategii CHRONIONEj przez rząd ISM
@@ -33,7 +33,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 ### <a name="0414-personnel-granted-access-to-a-system-and-its-resources-are-uniquely-identifiable"></a>0414 pracowników przyznających dostęp do systemu i jego zasobów można jednoznacznie zidentyfikować
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji
 
 ### <a name="1503-standard-access-to-systems-applications-and-data-repositories-is-limited-to-that-required-for-personnel-to-undertake-their-duties"></a>1503 standardowy dostęp do systemów, aplikacji i repozytoriów danych jest ograniczony do tych, które są wymagane przez personel do podejmowania obowiązków
@@ -118,7 +118,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 ### <a name="1173-multi-factor-authentication-is-used-to-authenticate-all-privileged-users-and-any-other-positions-of-trust"></a>1173 uwierzytelnianie wieloskładnikowe służy do uwierzytelniania wszystkich uprzywilejowanych użytkowników i innych pozycji zaufania
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>hasła 0421 używane do uwierzytelniania jednoskładnikowego są co najmniej 14 znakami ze złożonością, najlepiej w przypadku 4 losowych słów
 
@@ -130,7 +130,7 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 ### <a name="1384-multi-factor-authentication-is-used-to-authenticate-users-each-time-they-perform-privileged-actions"></a>1384 uwierzytelnianie wieloskładnikowe służy do uwierzytelniania użytkowników za każdym razem, gdy wykonują uprzywilejowane akcje
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
+- Uwierzytelnianie MFA powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji
 
 ### <a name="1386-management-traffic-is-only-allowed-to-originate-from-network-zones-that-are-used-to-administer-systems-and-applications"></a>1386 ruch związany z zarządzaniem jest dozwolony tylko w strefach sieciowych, które są używane do administrowania systemami i aplikacjami

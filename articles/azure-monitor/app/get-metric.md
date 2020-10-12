@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517148"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
-Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metody zbierania niestandardowych metryk, `TrackMetric()` i `GetMetric()` . Kluczową różnicą między tymi dwoma metodami jest agregacja lokalna. `TrackMetric()`Brak agregacji wstępnej podczas `GetMetric()` agregacji wstępnej. Zalecanym podejściem jest użycie agregacji, dlatego `TrackMetric()` nie jest już preferowaną metodą zbierania metryk niestandardowych. W tym artykule przedstawiono sposób użycia metody GetMetric () i niektóre racjonalne uzasadnienie jego działania.
+Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metody zbierania niestandardowych metryk, `TrackMetric()` i `GetMetric()` . Kluczową różnicą między tymi dwoma metodami jest agregacja lokalna. `TrackMetric()` Brak agregacji wstępnej podczas `GetMetric()` agregacji wstępnej. Zalecanym podejściem jest użycie agregacji, dlatego `TrackMetric()` nie jest już preferowaną metodą zbierania metryk niestandardowych. W tym artykule przedstawiono sposób użycia metody GetMetric () i niektóre racjonalne uzasadnienie jego działania.
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric a GetMetric
 
-`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ każdy `TrackMetric(item)` przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W przeciwieństwie `TrackMetric()` `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
+`TrackMetric()` wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()` jest również nieefektywna pod względem wydajności, ponieważ każdy `TrackMetric(item)` przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W przeciwieństwie `TrackMetric()` `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
 
 W Application Insights metryki niestandardowe zebrane za pośrednictwem `TrackMetric()` i `GetMetric()` nie podlegają [pobieraniu próbek](./sampling.md). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
 
@@ -285,9 +285,9 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`to maksymalna liczba szeregów czasowych danych, które może zawierać Metryka. Po osiągnięciu tego limitu wywołania do `TrackValue()` .
-* `valuesPerDimensionLimit`ogranicza liczbę unikatowych wartości na wymiar w podobny sposób.
-* `restrictToUInt32Values`Określa, czy mają być śledzone tylko nieujemne wartości całkowite.
+* `seriesCountLimit` to maksymalna liczba szeregów czasowych danych, które może zawierać Metryka. Po osiągnięciu tego limitu wywołania do `TrackValue()` .
+* `valuesPerDimensionLimit` ogranicza liczbę unikatowych wartości na wymiar w podobny sposób.
+* `restrictToUInt32Values` Określa, czy mają być śledzone tylko nieujemne wartości całkowite.
 
 Oto przykład sposobu wysyłania komunikatu, aby dowiedzieć się, czy przekroczono limity limitu:
 

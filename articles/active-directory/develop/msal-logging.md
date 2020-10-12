@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846228"
 ---
 # <a name="logging-in-msal-applications"></a>Logowanie w aplikacjach MSAL
@@ -48,10 +48,10 @@ Aby uzyskać szczegółowe informacje o rejestrowaniu MSAL w określonym języku
 
 W MSAL 3. x rejestrowanie jest ustawione na aplikację przy tworzeniu aplikacji przy użyciu `.WithLogging` modyfikatora konstruktora. Ta metoda pobiera parametry opcjonalne:
 
-- `Level`umożliwia wybór żądanego poziomu rejestrowania. Ustawienie na błędy spowoduje tylko błędy
-- `PiiLoggingEnabled`umożliwia rejestrowanie danych osobistych i organizacji, jeśli ustawiono wartość true. Domyślnie to ustawienie ma wartość FAŁSZ, aby aplikacja nie rejestrował danych osobowych.
-- `LogCallback`jest ustawiony na delegata, który wykonuje rejestrowanie. Jeśli `PiiLoggingEnabled` ma wartość true, ta metoda otrzyma komunikaty dwa razy: jeden z `containsPii` parametrem jest równa false, a komunikat bez danych osobowych, a drugi parametr ma wartość `containsPii` true, a komunikat może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), komunikat będzie taki sam.
-- `DefaultLoggingEnabled`Włącza rejestrowanie domyślne dla platformy. Domyślnie jest to wartość false. Jeśli ustawisz ją na wartość true, używa ona śledzenia zdarzeń w aplikacjach Desktop/platformy UWP, NSLog w systemach iOS i Logcat w systemie Android.
+- `Level` umożliwia wybór żądanego poziomu rejestrowania. Ustawienie na błędy spowoduje tylko błędy
+- `PiiLoggingEnabled` umożliwia rejestrowanie danych osobistych i organizacji, jeśli ustawiono wartość true. Domyślnie to ustawienie ma wartość FAŁSZ, aby aplikacja nie rejestrował danych osobowych.
+- `LogCallback` jest ustawiony na delegata, który wykonuje rejestrowanie. Jeśli `PiiLoggingEnabled` ma wartość true, ta metoda otrzyma komunikaty dwa razy: jeden z `containsPii` parametrem jest równa false, a komunikat bez danych osobowych, a drugi parametr ma wartość `containsPii` true, a komunikat może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), komunikat będzie taki sam.
+- `DefaultLoggingEnabled` Włącza rejestrowanie domyślne dla platformy. Domyślnie jest to wartość false. Jeśli ustawisz ją na wartość true, używa ona śledzenia zdarzeń w aplikacjach Desktop/platformy UWP, NSLog w systemach iOS i Logcat w systemie Android.
 
 ```csharp
 class Program
@@ -86,10 +86,10 @@ class Program
 
 Włącz logowanie przy tworzeniu aplikacji przez utworzenie wywołania zwrotnego rejestrowania. Wywołanie zwrotne przyjmuje następujące parametry:
 
-- `tag`jest ciągiem przesłanym do wywołania zwrotnego przez bibliotekę. Jest ona skojarzona z wpisem dziennika i może służyć do sortowania komunikatów rejestrowania.
-- `logLevel`umożliwia wybór żądanego poziomu rejestrowania. Obsługiwane poziomy dzienników to: `Error` , `Warning` , `Info` i `Verbose` .
-- `message`jest zawartością wpisu dziennika.
-- `containsPII`Określa, czy komunikaty zawierające dane osobowe lub dane organizacji są rejestrowane. Domyślnie to ustawienie ma wartość FAŁSZ, aby aplikacja nie rejestrował danych osobowych. Jeśli `containsPII` jest `true` , ta metoda otrzyma komunikaty dwa razy: jeden z `containsPII` parametrem ustawionym na, `false` `message` bez danych osobowych, a drugi raz z `containsPii` parametrem ustawionym na `true` , a komunikat może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), komunikat będzie taki sam.
+- `tag` jest ciągiem przesłanym do wywołania zwrotnego przez bibliotekę. Jest ona skojarzona z wpisem dziennika i może służyć do sortowania komunikatów rejestrowania.
+- `logLevel` umożliwia wybór żądanego poziomu rejestrowania. Obsługiwane poziomy dzienników to: `Error` , `Warning` , `Info` i `Verbose` .
+- `message` jest zawartością wpisu dziennika.
+- `containsPII` Określa, czy komunikaty zawierające dane osobowe lub dane organizacji są rejestrowane. Domyślnie to ustawienie ma wartość FAŁSZ, aby aplikacja nie rejestrował danych osobowych. Jeśli `containsPII` jest `true` , ta metoda otrzyma komunikaty dwa razy: jeden z `containsPII` parametrem ustawionym na, `false` `message` bez danych osobowych, a drugi raz z `containsPii` parametrem ustawionym na `true` , a komunikat może zawierać dane osobowe. W niektórych przypadkach (gdy wiadomość nie zawiera danych osobowych), komunikat będzie taki sam.
 
 ```java
 private StringBuilder mLogs;
@@ -129,9 +129,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  Włącz rejestrowanie w MSAL.js (JavaScript) przez przekazanie obiektu rejestratora podczas konfiguracji w celu utworzenia `UserAgentApplication` wystąpienia. Ten obiekt rejestratora ma następujące właściwości:
 
 - `localCallback`: wystąpienie wywołania zwrotnego, które może zostać dostarczone przez dewelopera do korzystania z dzienników i publikowania ich w niestandardowy sposób. Zaimplementuj metodę localCallback w zależności od tego, jak chcesz przekierować dzienniki.
-- `level`(opcjonalnie): konfigurowalny poziom rejestrowania. Obsługiwane poziomy dzienników to: `Error` , `Warning` , `Info` i `Verbose` . Wartość domyślna to `Info`.
-- `piiLoggingEnabled`(opcjonalnie): w przypadku ustawienia wartości true program rejestruje dane osobiste i organizacyjne. Domyślnie jest to wartość false, aby aplikacja nie rejestrował danych osobowych. Osobiste dzienniki danych nigdy nie są zapisywane w domyślnych danych wyjściowych, takich jak Console, Logcat lub NSLog.
-- `correlationId`(opcjonalnie): unikatowy identyfikator używany do mapowania żądania z odpowiedzią na potrzeby debugowania. Wartość domyślna to RFC4122 w wersji 4 GUID (128 bitów).
+- `level` (opcjonalnie): konfigurowalny poziom rejestrowania. Obsługiwane poziomy dzienników to: `Error` , `Warning` , `Info` i `Verbose` . Wartość domyślna to `Info`.
+- `piiLoggingEnabled` (opcjonalnie): w przypadku ustawienia wartości true program rejestruje dane osobiste i organizacyjne. Domyślnie jest to wartość false, aby aplikacja nie rejestrował danych osobowych. Osobiste dzienniki danych nigdy nie są zapisywane w domyślnych danych wyjściowych, takich jak Console, Logcat lub NSLog.
+- `correlationId` (opcjonalnie): unikatowy identyfikator używany do mapowania żądania z odpowiedzią na potrzeby debugowania. Wartość domyślna to RFC4122 w wersji 4 GUID (128 bitów).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -156,7 +156,7 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="objective-c"></a>[Obiektowy C](#tab/objc)
+## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL dla systemu iOS i rejestrowania macOS — ObjC
 
@@ -226,7 +226,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Format komunikatu dziennika
 
-Część komunikatów dziennika MSAL jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Część komunikatów dziennika MSAL jest w formacie `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Na przykład:
 
@@ -303,7 +303,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Format komunikatu dziennika
 
-Część komunikatów dziennika MSAL jest w formacie`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+Część komunikatów dziennika MSAL jest w formacie `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Na przykład:
 
@@ -389,6 +389,6 @@ MSAL dla języka Python nie rejestruje danych osobowych ani danych organizacji. 
 
 Możesz użyć standardowego rejestrowania w języku Python, aby zalogować się, ale użytkownik jest odpowiedzialny za bezpieczne obsługiwanie danych poufnych i spełnienie wymagań prawnych.
 
-Aby uzyskać więcej informacji na temat rejestrowania w języku Python, zapoznaj się z artykułem rejestrowanie w języku Python [porady](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+Aby uzyskać więcej informacji na temat rejestrowania w języku Python, zapoznaj się z artykułem rejestrowanie w języku Python  [porady](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
 
 ---

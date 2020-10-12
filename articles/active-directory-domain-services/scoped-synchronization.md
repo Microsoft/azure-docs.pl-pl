@@ -13,10 +13,10 @@ ms.date: 07/24/2020
 ms.author: iainfou
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: fe373b9aa08d6999a9c57dd0008a207071e1dddd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068902"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services przy użyciu Azure Portal
@@ -27,7 +27,7 @@ Domyślnie wszyscy użytkownicy i grupy z katalogu usługi Azure AD są synchron
 
 W tym artykule opisano sposób konfigurowania synchronizacji z zakresem, a następnie zmieniania lub wyłączania zestawu użytkowników z zakresem przy użyciu Azure Portal. [Te kroki można również wykonać przy użyciu programu PowerShell][scoped-sync-powershell].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

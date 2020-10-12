@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80331089"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Wymagane porty i protokoły dotyczące tożsamości hybrydowej
@@ -104,8 +104,8 @@ W tej tabeli opisano następujące porty i protokoły wychodzące, które są wy
 
 | Protokół | Porty | Opis |
 | --- | --- | --- |
-| HTTPS |443 (TCP) |Wychodzący |
-| Azure Service Bus |5671 (TCP) |Wychodzący |
+| HTTPS |443 (TCP) |Outbound |
+| Azure Service Bus |5671 (TCP) |Outbound |
 
 Azure Service Bus port 5671 nie jest już wymagany dla najnowszej wersji agenta. Najnowsza wersja agenta Azure AD Connect Health wymagana tylko przez port 443.
 

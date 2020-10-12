@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515499"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Rozwiązywanie problemów za pomocą Diagnostyki Azure
@@ -49,7 +49,7 @@ Poniżej przedstawiono ścieżki do ważnych dzienników i artefaktów. Te infor
 | **Ścieżka narzędzia do zbierania dzienników** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Plik dziennika MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuration\MonAgentHost. <seq_num>. log |
 
-## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Dane metryk nie są wyświetlane w Azure Portal
+## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Dane metryk nie są wyświetlane w witrynie Azure Portal
 Diagnostyka Azure udostępnia dane metryk, które mogą być wyświetlane w Azure Portal. Jeśli masz problemy z wyświetlaniem danych w portalu, sprawdź tabelę WADMetrics na \* koncie magazynu Diagnostyka Azure, aby sprawdzić, czy odpowiednie rekordy metryk są tam dostępne, i upewnij się, że [dostawca zasobów](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft. Insights został zarejestrowany.
 
 W tym miejscu **PartitionKey** tabeli jest identyfikatorem zasobu, maszyną wirtualną lub zestawem skalowania maszyn wirtualnych. **RowKey** to nazwa metryki (znana także jako Nazwa licznika wydajności).
@@ -79,7 +79,7 @@ Jeśli nie ma żadnych danych dla określonej metryki, sprawdź **konfigurację 
 Jeśli konfiguracja jest poprawnie ustawiona, ale nadal nie będzie można zobaczyć danych metryk, Skorzystaj z poniższych wskazówek, aby pomóc w rozwiązywaniu problemów.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Nie uruchomiono Diagnostyka Azure
+## <a name="azure-diagnostics-is-not-starting"></a>Nie można uruchomić Diagnostyki Azure
 Aby uzyskać informacje o tym, dlaczego nie można uruchomić Diagnostyka Azure, zobacz pliki **DiagnosticsPluginLauncher. log** i **DiagnosticsPlugin. log** w lokalizacji plików dziennika, która została dostarczona wcześniej.
 
 Jeśli te dzienniki wskazują `Monitoring Agent not reporting success after launch` , oznacza to, że wystąpił błąd podczas uruchamiania MonAgentHost.exe. Sprawdź dzienniki w lokalizacji wskazanej `MonAgentHost log file` w poprzedniej sekcji.
@@ -205,7 +205,7 @@ Oto przykład:
 ```
 Ten kod generuje cztery tabele:
 
-| Zdarzenie | Nazwa tabeli |
+| Wydarzenie | Nazwa tabeli |
 | --- | --- |
 | Provider = "prov1" &lt; Identyfikator zdarzenia = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
 | Provider = "prov1" &lt; Identyfikator zdarzenia = "2" eventDestination = "dest1"/&gt; |WADdest1 |
@@ -233,7 +233,7 @@ Wtyczka zwraca następujące kody zakończenia:
 | 0 |Powodzenie. |
 | -1 |Błąd rodzajowy. |
 | -2 |Nie można załadować pliku RCF.<p>Ten błąd wewnętrzny powinien wystąpić tylko w przypadku ręcznego wywołania programu uruchamiającego wtyczki agenta gościa na maszynie wirtualnej. |
-| -3 |Nie można załadować pliku konfiguracji diagnostyki.<p><p>Rozwiązanie: spowodowane przez plik konfiguracji, który nie przekazuje walidacji schematu. Rozwiązanie ma dostarczyć plik konfiguracji, który jest zgodny ze schematem. |
+| –3 |Nie można załadować pliku konfiguracji diagnostyki.<p><p>Rozwiązanie: spowodowane przez plik konfiguracji, który nie przekazuje walidacji schematu. Rozwiązanie ma dostarczyć plik konfiguracji, który jest zgodny ze schematem. |
 | -4 |Inne wystąpienie diagnostyki agenta monitorowania korzysta już z lokalnego katalogu zasobów.<p><p>Rozwiązanie: Określ inną wartość dla **LocalResourceDirectory**. |
 | -6 |Program uruchamiający wtyczki agenta gościa podjął próbę uruchomienia diagnostyki z nieprawidłowym wierszem polecenia.<p><p>Ten błąd wewnętrzny powinien wystąpić tylko w przypadku ręcznego wywołania programu uruchamiającego wtyczki agenta gościa na maszynie wirtualnej. |
 | -10 |Wtyczka diagnostyki zakończyła działanie, gdy wystąpił nieobsługiwany wyjątek. |

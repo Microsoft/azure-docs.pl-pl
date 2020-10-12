@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 6bc07dc4a46327981c432cf8982f0c3a646fda0d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068919"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia usługi Azure Multi-Factor Authentication
@@ -127,7 +127,7 @@ Poniższa tabela może pomóc w rozwiązywaniu problemów ze zdarzeniami przy u�
 |SUCCESS_NO_PIN_BUT_TIMEOUT | Brak danych wejściowych telefonu — Przekroczono limit czasu | Odebrano odpowiedź na wywołanie, ale nie ma odpowiedzi. Zazwyczaj oznacza to, że wywołanie zostało pobrane przez pocztę głosową. |
 | SUCCESS_PIN_EXPIRED | KOD PIN wygasł i nie został zmieniony | KOD PIN użytkownika wygasł i został wyświetlony monit o jego zmianę, ale zmiana numeru PIN nie została pomyślnie ukończona. |
 | SUCCESS_USED_CACHE | Użyta pamięć podręczna | Uwierzytelnianie zakończyło się pomyślnie bez wywołania Multi-Factor Authentication, ponieważ poprzednie pomyślne uwierzytelnienie dla tej samej nazwy użytkownika wystąpił w skonfigurowanym przedziale czasu pamięci podręcznej. |
-| SUCCESS_BYPASSED_AUTH | Pominięte uwierzytelnianie | Uwierzytelnianie zakończyło się pomyślnie za pomocą jednorazowego obejścia zainicjowanego dla użytkownika. Aby uzyskać więcej informacji na temat obejścia, zobacz Raport o pominiętych użytkownikach. |
+| SUCCESS_BYPASSED_AUTH | Pominięte uwierzytelnianie | Uwierzytelnianie zakończyło się pomyślnie przy użyciu obejścia One-Time zainicjowane dla użytkownika. Aby uzyskać więcej informacji na temat obejścia, zobacz Raport o pominiętych użytkownikach. |
 | SUCCESS_USED_IP_BASED_CACHE | Użyta pamięć podręczna oparta na protokole IP | Uwierzytelnianie zakończyło się pomyślnie bez wywołania Multi-Factor Authentication od momentu wcześniejszego pomyślnego uwierzytelnienia dla tej samej nazwy użytkownika, typu uwierzytelniania, nazwy aplikacji i adresu IP w skonfigurowanym przedziale czasu pamięci podręcznej. |
 | SUCCESS_USED_APP_BASED_CACHE | Używana pamięć podręczna oparta na aplikacji | Uwierzytelnianie zakończyło się pomyślnie bez wywołania Multi-Factor Authentication, ponieważ poprzednie pomyślne uwierzytelnienie dla tej samej nazwy użytkownika, typu uwierzytelniania i nazwy aplikacji w skonfigurowanym przedziale czasu pamięci podręcznej. |
 | SUCCESS_INVALID_INPUT | Nieprawidłowe dane wejściowe telefonu | Odpowiedź wysłana z telefonu jest nieprawidłowa. Może to być z komputera faksowego lub modemu albo użytkownik przeszedł * jako część swojego numeru PIN. |

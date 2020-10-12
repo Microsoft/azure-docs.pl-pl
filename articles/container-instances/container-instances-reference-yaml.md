@@ -4,10 +4,10 @@ description: Odwołanie do pliku YAML obsługiwanego przez Azure Container Insta
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084764"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Odwołanie YAML: Azure Container Instances
@@ -184,7 +184,7 @@ W poniższych tabelach opisano wartości, które należy ustawić w schemacie.
 |  ---- | ---- | ---- | ---- |
 |  containers | array | Tak | Kontenery w obrębie grupy kontenerów. - [Obiekt kontenera](#container-object) |
 |  imageRegistryCredentials | array | Nie | Poświadczenia rejestru obrazu, na podstawie których zostanie utworzona grupa kontenerów. - [Obiekt ImageRegistryCredential](#imageregistrycredential-object) |
-|  restartPolicy | enum | Nie | Zasady ponownego uruchamiania dla wszystkich kontenerów w grupie kontenerów. - `Always`Zawsze uruchamiaj ponownie `OnFailure` po niepowodzeniu — `Never` nigdy nie uruchamiaj ponownie. -Zawsze, OnFailure, nigdy |
+|  restartPolicy | enum | Nie | Zasady ponownego uruchamiania dla wszystkich kontenerów w grupie kontenerów. - `Always` Zawsze uruchamiaj ponownie `OnFailure` po niepowodzeniu — `Never` nigdy nie uruchamiaj ponownie. -Zawsze, OnFailure, nigdy |
 |  Adresu | object | Nie | Typ adresu IP grupy kontenerów. - [IpAddress — obiekt](#ipaddress-object) |
 |  osType | enum | Tak | Typ systemu operacyjnego wymagany przez kontenery w grupie kontenerów. — Windows lub Linux |
 |  volumes | array | Nie | Lista woluminów, które mogą być instalowane przez kontenery w tej grupie kontenerów. - [Obiekt woluminu](#volume-object) |
