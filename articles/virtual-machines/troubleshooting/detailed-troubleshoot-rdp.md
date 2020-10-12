@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 91f15e32866cca008553286f7585247909d9a4ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87009870"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Szczegółowe procedury rozwiązywania problemów z połączeniem pulpitu zdalnego z maszynami wirtualnymi systemu Windows na platformie Azure
@@ -193,7 +193,7 @@ Exit-PSSession
 
 Sprawdź, czy punkt końcowy Pulpit zdalny dla maszyny wirtualnej platformy Azure używa również portu TCP 3398 jako portu wewnętrznego. Uruchom ponownie maszynę wirtualną platformy Azure i spróbuj ponownie nawiązać połączenie Pulpit zdalny.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 [Jak zresetować hasło lub usługę Pulpit zdalny dla maszyn wirtualnych z systemem Windows](./reset-rdp.md)
 
 [How to install and configure Azure PowerShell](/powershell/azure/)

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761728"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Lepsze zarządzanie centrum operacji zabezpieczeń przy użyciu metryk zdarzeń
@@ -80,11 +80,11 @@ Aby uzupełnić tabelę **SecurityIncidents** , udostępniamy szablon skoroszytu
 - Ostatnie działania 
 - Ostatnio zamykające klasyfikacje  
 
-Ten nowy szablon skoroszytu można znaleźć, wybierając **skoroszyty** z menu nawigacyjnego wskaźnikowego platformy Azure, a następnie wybierając kartę **Szablony** . Wybierz pozycję **wydajność operacji zabezpieczeń** z galerii i kliknij jeden z przycisków **Wyświetl zapisany skoroszyt** i **Wyświetl szablon** .
+Ten nowy szablon skoroszytu można znaleźć, wybierając **skoroszyty** z menu nawigacyjnego wskaźnikowego platformy Azure i wybierając kartę **Szablony** . Wybierz opcję **wydajność operacji zabezpieczeń** z galerii, a następnie kliknij jeden z przycisków **Wyświetl zapisany skoroszyt** i **Wyświetl szablon** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Galeria skoroszytów zdarzeń zabezpieczeń":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabela zdarzeń zabezpieczeń":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Ukończono skoroszyt zdarzeń zabezpieczeń":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabela zdarzeń zabezpieczeń":::
 
 Możesz użyć szablonu, aby utworzyć własne niestandardowe skoroszyty dostosowane do konkretnych potrzeb.
 

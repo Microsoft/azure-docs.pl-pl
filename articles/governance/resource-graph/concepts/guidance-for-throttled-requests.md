@@ -5,10 +5,10 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006010"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
@@ -118,7 +118,7 @@ Grupowanie zapytań według subskrypcji, grupy zasobów lub pojedynczego zasobu 
 
 ## <a name="staggering-queries"></a>Rozkładanie zapytań
 
-Ze względu na sposób wymuszonego ograniczania przepustowości zalecamy użycie zapytań. Oznacza to, że zamiast wysyłać zapytania 60 w tym samym czasie, rozkładając zapytania na cztery 5-sekundowe okna:
+Ze względu na sposób wymuszonego ograniczania przepustowości zalecamy użycie zapytań. Oznacza to, że zamiast wysyłania zapytań 60 w tym samym czasie, należy rozłożyć zapytania na 4 5-sekundowe okna:
 
 - Nierozkładany harmonogram zapytań
 
@@ -240,7 +240,7 @@ Podaj następujące informacje:
 - Jakie typy zasobów interesują Cię?
 - Co to jest Twój wzorzec zapytania? X zapytań na sekundę i tak dalej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zobacz język używany w [zapytaniach początkowych](../samples/starter.md).
 - Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](../samples/advanced.md).

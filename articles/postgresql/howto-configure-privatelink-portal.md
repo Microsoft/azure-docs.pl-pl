@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907491"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Tworzenie prywatnego linku do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu portalu i zarządzanie nim
@@ -41,7 +41,7 @@ W tej sekcji utworzysz Virtual Network i podsieć, która będzie hostować masz
     | Przestrzeń adresowa | Wprowadź adres *10.1.0.0/16*. |
     | Subskrypcja | Wybierz subskrypcję.|
     | Grupa zasobów | Wybierz pozycję **Utwórz nową**, wprowadź nazwę *myResourceGroup*, a następnie wybierz przycisk **OK**. |
-    | Location | Wybierz pozycję **Europa Zachodnia**.|
+    | Lokalizacja | Wybierz pozycję **Europa Zachodnia**.|
     | Podsieć — nazwa | Wprowadź nazwę moja *podsieć*. |
     | Zakres adresów podsieci: 10.41.0.0/24 | Wprowadź *10.1.0.0/24*. |
     |||
@@ -116,7 +116,7 @@ W tej sekcji utworzysz serwer Azure Database for PostgreSQL na platformie Azure.
     |Nazwa serwera  | Wprowadź *tekst*. Jeśli ta nazwa jest wykonywana, utwórz unikatową nazwę.|
     | Nazwa użytkownika administratora| Wprowadź wybraną nazwę administratora. |
     | Hasło | Wprowadź wybrane hasło. Hasło musi mieć długość co najmniej 8 znaków i spełniać zdefiniowane wymagania. |
-    | Location | Wybierz region platformy Azure, w którym ma być przechowywany serwer PostgreSQL. |
+    | Lokalizacja | Wybierz region platformy Azure, w którym ma być przechowywany serwer PostgreSQL. |
     |Wersja  | Wybierz wymaganą wersję bazy danych serwera PostgreSQL.|
     | Obliczenia i magazyn| Wybierz warstwę cenową, która jest wymagana dla serwera na podstawie obciążenia. |
     |||
@@ -176,7 +176,7 @@ W tej sekcji utworzysz serwer PostgreSQL i dodasz do niego prywatny punkt końco
 1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przekierowanie do strony **Przeglądanie i tworzenie**, na której platforma Azure zweryfikuje konfigurację. 
 2. Po wyświetleniu komunikatu **Sprawdzanie poprawności zakończone powodzeniem** kliknij przycisk **Utwórz**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Utworzono link prywatny":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Omówienie linku prywatnego":::
 
     > [!NOTE] 
     > Nazwa FQDN w ustawieniu DNS klienta nie jest rozpoznawana jako prywatny adres IP skonfigurowany. Konieczne będzie skonfigurowanie strefy DNS dla skonfigurowanej nazwy FQDN, jak pokazano [poniżej](../dns/dns-operations-recordsets-portal.md).
@@ -243,7 +243,7 @@ Po utworzeniu **myVm**Połącz się z nim za pośrednictwem Internetu w następu
 
 8. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy skończysz korzystać z prywatnego punktu końcowego, serwera PostgreSQL i maszyny wirtualnej, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 
 1. Wprowadź *w* polu **wyszukiwania** w górnej części portalu *i wybierz pozycję*moja zasobów   z wyników wyszukiwania.

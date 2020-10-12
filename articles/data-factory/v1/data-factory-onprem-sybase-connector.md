@@ -13,10 +13,10 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707365"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Przenoszenie danych z programu Sybase przy użyciu Azure Data Factory
@@ -68,7 +68,7 @@ Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej us�
 | typ |Właściwość Type musi mieć wartość: **OnPremisesSybase** |Tak |
 | serwer |Nazwa serwera programu Sybase. |Tak |
 | database |Nazwa bazy danych programu Sybase. |Tak |
-| schematy |Nazwa schematu w bazie danych programu. |Nie |
+| schema |Nazwa schematu w bazie danych programu. |Nie |
 | authenticationType |Typ uwierzytelniania używany do nawiązywania połączenia z bazą danych programu Sybase. Możliwe wartości to: Anonymous, Basic i Windows. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego lub systemu Windows. |Nie |
 | hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. |Nie |

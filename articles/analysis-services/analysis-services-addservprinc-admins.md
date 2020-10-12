@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: ce8f7347e4813e72ede426ab17f09221ab859136
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015412"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
@@ -22,7 +22,7 @@ ms.locfileid: "87015412"
 > [!NOTE]
 > Nazwy główne usługi należy dodać bezpośrednio do roli administratora serwera. Dodanie nazwy głównej usługi do grupy zabezpieczeń, a następnie dodanie tej grupy zabezpieczeń do roli administratora serwera nie jest obsługiwane. 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestrowaną w Azure Active Directory.
 
 [Tworzenie jednostki usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   

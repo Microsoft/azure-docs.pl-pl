@@ -4,10 +4,10 @@ description: Opisuje sposób oceny dużej liczby maszyn wirtualnych VMware do mi
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171915"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Ocenianie dużej liczby maszyn wirtualnych VMware na potrzeby migracji na platformę Azure
@@ -37,7 +37,7 @@ Planując ocenę dużej liczby maszyn wirtualnych VMware, istnieje kilka rzeczy,
 - **Planowanie kont do odnajdowania**: urządzenie Azure Migrate używa konta z dostępem do vCenter Server w celu odnajdywania maszyn wirtualnych na potrzeby oceny i migracji. W przypadku odnajdywania więcej niż 10 000 maszyn wirtualnych Skonfiguruj wiele kont, ponieważ jest to wymagane, nie nakładają się na maszyny wirtualne wykryte z dwóch urządzeń w projekcie. 
 
 > [!NOTE]
-> Jeśli konfigurujesz wiele urządzeń, upewnij się, że nie ma nakładania się między maszynami wirtualnymi na kontach vCenter. Odnajdywanie z takim nakładaniem jest nieobsługiwanym scenariuszem. Jeśli maszyna wirtualna zostanie odnaleziona przez więcej niż jedno urządzenie, spowoduje to zduplikowanie podczas odnajdywania i problemów podczas włączania replikacji maszyny wirtualnej przy użyciu Azure Portal w ramach migracji serwera.
+> Jeśli konfigurujesz wiele urządzeń, upewnij się, że nie ma nakładania się między maszynami wirtualnymi na kontach vCenter. Odnajdywanie z takim nakładaniem się jest nieobsługiwane. Jeśli maszyna wirtualna zostanie odnaleziona przez więcej niż jedno urządzenie, spowoduje to zduplikowanie podczas odnajdywania i problemów podczas włączania replikacji maszyny wirtualnej przy użyciu Azure Portal w ramach migracji serwera.
 
 ## <a name="planning-limits"></a>Limity planowania
  
@@ -56,9 +56,9 @@ Mając na uwadze następujące limity, Oto kilka przykładowych wdrożeń:
 **serwer vCenter** | **Maszyny wirtualne na serwerze** | **Zalecenie** | **Akcja**
 ---|---|---|---
 Jeden | < 10 000 | Jeden Azure Migrate projektu.<br/> Jedno urządzenie.<br/> Jedno konto vCenter do odnajdowania. | Skonfiguruj urządzenie, Połącz się z vCenter Server przy użyciu konta.
-Jeden | > 10 000 | Jeden Azure Migrate projektu.<br/> Wiele urządzeń.<br/> Wiele kont vCenter. | Skonfiguruj urządzenie dla każdego 10 000 maszyn wirtualnych.<br/><br/> Skonfiguruj konta vCenter i Podziel zapasy, aby ograniczyć dostęp dla konta do mniej niż 10 000 maszyn wirtualnych.<br/> Połącz każde urządzenie z serwerem vCenter Server przy użyciu konta.<br/> Można analizować zależności między maszynami, które są wykrywane przy użyciu różnych urządzeń. <br/> <br/> Upewnij się, że nie ma nakładania się między maszynami wirtualnymi na kontach vCenter. Odnajdywanie z takim nakładaniem jest nieobsługiwanym scenariuszem. Jeśli maszyna wirtualna zostanie odnaleziona przez więcej niż jedno urządzenie, powoduje to duplikaty podczas odnajdywania i rozwiązywania problemów podczas włączania replikacji dla maszyny wirtualnej przy użyciu Azure Portal w ramach migracji serwera.
+Jeden | > 10 000 | Jeden Azure Migrate projektu.<br/> Wiele urządzeń.<br/> Wiele kont vCenter. | Skonfiguruj urządzenie dla każdego 10 000 maszyn wirtualnych.<br/><br/> Skonfiguruj konta vCenter i Podziel zapasy, aby ograniczyć dostęp dla konta do mniej niż 10 000 maszyn wirtualnych.<br/> Połącz każde urządzenie z serwerem vCenter Server przy użyciu konta.<br/> Można analizować zależności między maszynami, które są wykrywane przy użyciu różnych urządzeń. <br/> <br/> Upewnij się, że nie ma nakładania się między maszynami wirtualnymi na kontach vCenter. Odnajdywanie z takim nakładaniem się jest nieobsługiwane. Jeśli maszyna wirtualna zostanie odnaleziona przez więcej niż jedno urządzenie, powoduje to duplikaty podczas odnajdywania i rozwiązywania problemów podczas włączania replikacji dla maszyny wirtualnej przy użyciu Azure Portal w ramach migracji serwera.
 Wiele | < 10 000 |  Jeden Azure Migrate projektu.<br/> Wiele urządzeń.<br/> Jedno konto vCenter do odnajdowania. | Skonfiguruj urządzenia, Połącz się z vCenter Server przy użyciu konta.<br/> Można analizować zależności między maszynami, które są wykrywane przy użyciu różnych urządzeń.
-Wiele | > 10 000 | Jeden Azure Migrate projektu.<br/> Wiele urządzeń.<br/> Wiele kont vCenter. | W przypadku vCenter Server odnajdywania < 10 000 maszyn wirtualnych Skonfiguruj urządzenie dla każdego vCenter Server.<br/><br/> W przypadku vCenter Server odnajdywania > 10 000 maszyn wirtualnych Skonfiguruj urządzenie dla każdej maszyny wirtualnej 10 000.<br/> Skonfiguruj konta vCenter i Podziel zapasy, aby ograniczyć dostęp dla konta do mniej niż 10 000 maszyn wirtualnych.<br/> Połącz każde urządzenie z serwerem vCenter Server przy użyciu konta.<br/> Można analizować zależności między maszynami, które są wykrywane przy użyciu różnych urządzeń. <br/><br/> Upewnij się, że nie ma nakładania się między maszynami wirtualnymi na kontach vCenter. Odnajdywanie z takim nakładaniem jest nieobsługiwanym scenariuszem. Jeśli maszyna wirtualna zostanie odnaleziona przez więcej niż jedno urządzenie, powoduje to duplikaty podczas odnajdywania i rozwiązywania problemów podczas włączania replikacji dla maszyny wirtualnej przy użyciu Azure Portal w ramach migracji serwera.
+Wiele | > 10 000 | Jeden Azure Migrate projektu.<br/> Wiele urządzeń.<br/> Wiele kont vCenter. | W przypadku vCenter Server odnajdywania < 10 000 maszyn wirtualnych Skonfiguruj urządzenie dla każdego vCenter Server.<br/><br/> W przypadku vCenter Server odnajdywania > 10 000 maszyn wirtualnych Skonfiguruj urządzenie dla każdej maszyny wirtualnej 10 000.<br/> Skonfiguruj konta vCenter i Podziel zapasy, aby ograniczyć dostęp dla konta do mniej niż 10 000 maszyn wirtualnych.<br/> Połącz każde urządzenie z serwerem vCenter Server przy użyciu konta.<br/> Można analizować zależności między maszynami, które są wykrywane przy użyciu różnych urządzeń. <br/><br/> Upewnij się, że nie ma nakładania się między maszynami wirtualnymi na kontach vCenter. Odnajdywanie z takim nakładaniem się jest nieobsługiwane. Jeśli maszyna wirtualna zostanie odnaleziona przez więcej niż jedno urządzenie, powoduje to duplikaty podczas odnajdywania i rozwiązywania problemów podczas włączania replikacji dla maszyny wirtualnej przy użyciu Azure Portal w ramach migracji serwera.
 
 
 

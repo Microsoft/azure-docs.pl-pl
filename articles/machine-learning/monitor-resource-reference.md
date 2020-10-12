@@ -11,10 +11,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
 ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650596"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Machine Learning

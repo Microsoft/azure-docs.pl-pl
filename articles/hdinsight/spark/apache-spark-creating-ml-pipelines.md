@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.openlocfilehash: c270e9865aff30184ea236f56ab20ede78c5d577
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075454"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Tworzenie potoku uczenia maszynowego platformy Apache Spark
@@ -29,7 +29,7 @@ Każde wystąpienie bezstanowe transformatora lub szacowania ma własny unikatow
 
 ## <a name="pipeline-example"></a>Przykład potoku
 
-Aby zademonstrować praktyczne użycie potoku z tablicą, w tym przykładzie użyto pliku danych przykładowych, `HVAC.csv` który jest wstępnie załadowany do domyślnego magazynu dla klastra usługi HDInsight, Azure Storage lub Data Lake Storage. Aby wyświetlić zawartość pliku, przejdź do `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogu. `HVAC.csv`zawiera zestaw godzin zarówno w przypadku, jak i rzeczywiste temperatury dla systemów HVAC (*ogrzewania, wentylacji i*klimatyzacji) w różnych budynkach. Celem jest uczenie modelu danych i utworzenie prognozy dla danego budynku.
+Aby zademonstrować praktyczne użycie potoku z tablicą, w tym przykładzie użyto pliku danych przykładowych, `HVAC.csv` który jest wstępnie załadowany do domyślnego magazynu dla klastra usługi HDInsight, Azure Storage lub Data Lake Storage. Aby wyświetlić zawartość pliku, przejdź do `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogu. `HVAC.csv` zawiera zestaw godzin zarówno w przypadku, jak i rzeczywiste temperatury dla systemów HVAC (*ogrzewania, wentylacji i*klimatyzacji) w różnych budynkach. Celem jest uczenie modelu danych i utworzenie prognozy dla danego budynku.
 
 Następujący kod:
 
@@ -81,7 +81,7 @@ training = documents.toDF()
 Ten przykładowy potok ma trzy etapy: `Tokenizer` i `HashingTF` (obie transformatory) i `Logistic Regression` (szacowania).  Wyodrębnione i przeanalizowane dane w `training` ramce Dataframe przechodzą przez potok, gdy `pipeline.fit(training)` jest wywoływana.
 
 1. Pierwszy etap, `Tokenizer` dzieli `SystemInfo` kolumnę wejściową (składającą się z identyfikatora systemowego i wartości wieku) do `words` kolumny wyjściowej. Ta nowa `words` kolumna zostanie dodana do ramki Dataframe. 
-2. Drugi etap, `HashingTF` , konwertuje nową `words` kolumnę na wektory funkcji. Ta nowa `features` kolumna zostanie dodana do ramki Dataframe. Te pierwsze dwa etapy to Transformatory. 
+2. Drugi etap, `HashingTF` , konwertuje nową `words` kolumnę na wektory funkcji. Ta nowa  `features` kolumna zostanie dodana do ramki Dataframe. Te pierwsze dwa etapy to Transformatory. 
 3. Trzeci etap, `LogisticRegression` ,,, to szacowania, więc potok wywołuje `LogisticRegression.fit()` metodę w celu utworzenia `LogisticRegressionModel` . 
 
 ```python

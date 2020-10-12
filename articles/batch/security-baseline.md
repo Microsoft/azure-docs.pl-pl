@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400980"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
@@ -366,7 +366,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Odpowiedzialność**: klient
 
-### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
+### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3,4: Użyj jednego Sign-On (SSO) z Azure Active Directory
 
 **Wskazówki**: nie dotyczy, podczas gdy Azure Batch obsługuje uwierzytelnianie w usłudze Azure AD, logowanie jednokrotne nie jest obsługiwane.
 
@@ -1135,7 +1135,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: Jeśli Azure Key Vault są używane do przechowywania kluczy związanych z kontami magazynu puli Azure Batch, Włącz nietrwałe usuwanie w Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
+**Wskazówki**: Jeśli Azure Key Vault są używane do przechowywania kluczy związanych z kontami magazynu puli Azure Batch, Włącz Soft-Delete w Azure Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
 Jak włączyć usuwanie nietrwałe w Azure Key Vault:
 

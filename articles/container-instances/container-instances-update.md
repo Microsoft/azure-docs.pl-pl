@@ -4,10 +4,10 @@ description: Dowiedz się, jak aktualizować uruchomione kontenery w grupach kon
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82928724"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aktualizowanie kontenerów w usłudze Azure Container Instances
@@ -72,7 +72,7 @@ Zmiany tych właściwości wymagają usunięcia grupy kontenerów przed ponownem
 * Typ systemu operacyjnego
 * Zasoby procesora CPU, pamięci lub procesora GPU
 * Zasady ponownego uruchamiania
-* Profil sieciowy
+* Profil sieci
 
 Gdy usuniesz grupę kontenerów i utworzysz ją ponownie, nie jest to "redeployed", ale utworzona nowa. Wszystkie warstwy obrazu są ściągane z rejestru, a nie z pamięci podręcznej w poprzednim wdrożeniu. Adres IP kontenera może także ulec zmianie z powodu wdrożenia na innym hoście podstawowym.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86023129"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Debuguj błędy podczas tworzenia niestandardowej aplikacji poleceń
@@ -48,7 +48,7 @@ Nie można usunąć parametru, gdy jest on używany. Usuń wszystkie odwołania 
 Nie można usunąć punktu końcowego sieci Web, gdy jest on używany. Usuń wszystkie akcje **internetowego punktu końcowego wywołania** , które korzystają z tego punktu końcowego sieci Web przed usunięciem punktu końcowego sieci Web.
 
 ## <a name="errors-when-training-an-application"></a>Błędy podczas uczenia aplikacji
-### <a name="built-in-intents"></a>Wbudowane intencje
+### <a name="built-in-intents"></a>Built-In intencje
 LUIS ma wbudowane opcje tak/nie. Gdy przykładowe zdania mają tylko wartość "yes", wartość "No" spowoduje niepowodzenie szkolenia. 
 
 | Słowo kluczowe | Warianty | 

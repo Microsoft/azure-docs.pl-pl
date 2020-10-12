@@ -1,7 +1,7 @@
 ---
-title: 'Średnia Klasa Perceptron: odwołanie do modułu'
+title: 'Two-Class Average Perceptron: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć model uczenia maszynowego na podstawie średniego algorytmu Perceptron przy użyciu dwuklasowego modułu Perceptron w Azure Machine Learning.
+description: Dowiedz się, w jaki sposób używać Two-Class średniego modułu Perceptron w Azure Machine Learning do tworzenia modelu uczenia maszynowego opartego na średnim algorytmie Perceptron.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907747"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Moduł Perceptron o średniej klasie
+# <a name="two-class-averaged-perceptron-module"></a>Two-Class średniego modułu Perceptron
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 
@@ -30,7 +30,7 @@ Ten algorytm klasyfikacji to nadzorowana Metoda uczenia i wymaga *oznakowanego z
 
 Prostsze modele Perceptron są odpowiednie do uczenia się liniowo oddzielnych wzorców, natomiast sieci neuronowych (zwłaszcza głębokie sieci neuronowych) mogą modelować bardziej złożone granice klas. Perceptrons są jednak szybsze i ponieważ przetwarzają przypadki seryjnie, Perceptrons może być używany z ciągłym szkoleniem.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Jak skonfigurować Perceptron średniej klasy dwuklasowej
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Jak skonfigurować Two-Class Perceptron Average
 
 1.  Dodaj do potoku moduł **Perceptron o średniej klasie** .  
 

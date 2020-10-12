@@ -4,10 +4,10 @@ description: Opisuje funkcje, które mają być używane w szablonie Azure Resou
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058048"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
@@ -25,7 +25,7 @@ Dodaje czas trwania do wartości podstawowej. Oczekiwano formatu ISO 8601.
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | base | Tak | ciąg | Wartość daty i godziny dla dodania. Użyj [formatu znacznika czasu ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | czas trwania | Tak | ciąg | Wartość czasu, która ma zostać dodana do bazy. Może być wartością ujemną. Użyj [formatu czasu trwania ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
@@ -76,9 +76,9 @@ Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| add3Years | String | 4/7/2023 2:53:14 PM |
-| subtract9Days | String | 3/29/2020 2:53:14 PM |
-| add1Hour | String | 4/7/2020 3:53:14 PM |
+| add3Years | Ciąg | 4/7/2023 2:53:14 PM |
+| subtract9Days | Ciąg | 3/29/2020 2:53:14 PM |
+| add1Hour | Ciąg | 4/7/2020 3:53:14 PM |
 
 Następny przykładowy szablon pokazuje, jak ustawić godzinę rozpoczęcia harmonogramu automatyzacji.
 
@@ -142,7 +142,7 @@ Zwraca bieżącą wartość daty/godziny w określonym formacie. Jeśli format n
 
 ### <a name="parameters"></a>Parametry
 
-| Parametr | Wymagany | Typ | Opis |
+| Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | format |Nie |ciąg |Zakodowana wartość identyfikatora URI w celu przekonwertowania na ciąg. Użyj [standardowych ciągów formatu](/dotnet/standard/base-types/standard-date-and-time-format-strings) lub [niestandardowych ciągów formatu](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 

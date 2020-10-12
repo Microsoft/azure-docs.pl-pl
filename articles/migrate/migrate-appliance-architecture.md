@@ -4,10 +4,10 @@ description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i 
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322261"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
@@ -85,7 +85,7 @@ Urządzenie komunikuje się z serwerami vCenter i hostami/klastrami funkcji Hype
 
 Urządzenie zostanie uaktualnione w miarę aktualizowania Azure Migrate agentów działających na urządzeniu. Dzieje się tak automatycznie, ponieważ automatyczna aktualizacja jest domyślnie włączona na urządzeniu. Można zmienić to ustawienie domyślne, aby ręcznie zaktualizować agentów.
 
-Aby wyłączyć automatyczne aktualizowanie w rejestrze, należy ustawić klucz "auto\software\microsoft\azureappliance" HKEY_LOCAL_MACHINE "AutoUpdate" na 0 (DWORD).
+Aby wyłączyć automatyczne aktualizowanie w rejestrze, należy ustawić klucz "Autostart" HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance wartość 0 (DWORD).
 
 
 ## <a name="next-steps"></a>Następne kroki

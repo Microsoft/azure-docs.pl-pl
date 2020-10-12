@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
 ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82786618"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planowanie sieci wirtualnej dla usługi Azure HDInsight
@@ -86,7 +86,7 @@ Wykonaj kroki opisane w tej sekcji, aby dowiedzieć się, jak dodać nową usłu
         > [!IMPORTANT]  
         > Reguły sieciowej grupy zabezpieczeń są stosowane w kolejności na podstawie priorytetu reguły. Stosowana jest pierwsza reguła zgodna ze wzorcem ruchu, a żadne inne nie są stosowane do tego ruchu. Kolejność reguł od najmniejszej do najmniej ograniczającej. Aby uzyskać więcej informacji, zobacz [Filtrowanie ruchu sieciowego przy użyciu grup zabezpieczeń sieci](../virtual-network/security-overview.md) .
 
-    * Trasy definiowane przez użytkownika
+    * Trasy zdefiniowane przez użytkownika
 
         Zamień `RESOURCEGROUP` na nazwę grupy zasobów zawierającej sieć wirtualną, a następnie wprowadź polecenie:
 

@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 6a4f8b99be564779b350bff2ab5b37f3c7ccc6f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87020982"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Jak używać usługi Queue Storage z poziomu języka C++

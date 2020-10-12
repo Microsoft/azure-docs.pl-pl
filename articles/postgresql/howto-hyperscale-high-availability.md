@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907391"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Konfigurowanie wysokiej dostępności (Citus)
@@ -29,7 +29,7 @@ Kliknij przycisk **Zapisz** , aby zastosować wybór. Włączenie wysokiej dost�
 
 Na karcie **Przegląd** dla grupy serwerów zostaną wystawione wszystkie węzły i ich wstrzymania wraz z kolumną **o wysokiej dostępności** , która wskazuje, czy ha została pomyślnie włączona dla każdego węzła.
 
-:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="kolumna ha w grupie serwerów — Omówienie":::
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="suwak ha":::
 
 ### <a name="next-steps"></a>Następne kroki
 

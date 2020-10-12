@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3aa33efa9aa416ad1dfefd2fe957ce04b2b14432
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027464"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight
@@ -50,9 +50,9 @@ Te notesy są uruchamiane w jądrze pySpark3 serwera notesu Jupyter.
 > [!NOTE]
 > Zestaw danych linii lotniczych został dodany do notesów platformy Spark 2,0, aby lepiej zilustrować użycie algorytmów klasyfikacji. Zobacz następujące linki, aby uzyskać informacje na temat zestawu danych wychodzącego w czasie transportu lotniczego i zestawu danych pogody:
 > 
-> - Dane wychodzące z czasu transportu lotniczego:[https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> - Dane wychodzące z czasu transportu lotniczego: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
-> - Dane o pogodzie lotniska:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
+> - Dane o pogodzie lotniska: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 

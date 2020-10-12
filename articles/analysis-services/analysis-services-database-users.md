@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015276"
 ---
 # <a name="manage-database-roles-and-users"></a>Zarządzanie rolami i użytkownikami bazy danych
@@ -79,7 +79,7 @@ Aby dodać role i użytkowników do wdrożonej bazy danych modelu, należy poł�
   
 4. Kliknij pozycję **członkostwo**, a następnie wprowadź użytkownika lub grupę w dzierżawie usługi Azure AD według adresu e-mail.
 
-     ![Dodawanie użytkownika](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Dodaj użytkownika](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Jeśli tworzona rola ma uprawnienie Odczyt, można dodać filtry wierszy przy użyciu formuły języka DAX. Kliknij pozycję **filtry wierszy**, zaznacz tabelę, a następnie wpisz formułę języka DAX w polu **Filtr języka DAX** . 
 
@@ -119,7 +119,7 @@ W tym przykładzie użytkownik zewnętrzny i Grupa są dodawani do roli analityk
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Aby dodać role i użytkowników przy użyciu programu PowerShell
 
-Moduł [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) udostępnia specyficzne dla zadania polecenia cmdlet zarządzania bazami danych i polecenie cmdlet Invoke-ASCmd z parametrem ogólnego przeznaczenia, które akceptuje zapytanie lub skrypt języka skryptów tabelarycznych (TMSL). Następujące polecenia cmdlet służą do zarządzania rolami bazy danych i użytkownikami.
+Moduł [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) udostępnia specyficzne dla zadania polecenia cmdlet zarządzania bazami danych i polecenie cmdlet Invoke-ASCmd ogólnego przeznaczenia, które akceptuje zapytanie lub skrypt języka skryptów tabelarycznych (TMSL). Następujące polecenia cmdlet służą do zarządzania rolami bazy danych i użytkownikami.
   
 |Polecenie cmdlet|Opis|
 |------------|-----------------| 

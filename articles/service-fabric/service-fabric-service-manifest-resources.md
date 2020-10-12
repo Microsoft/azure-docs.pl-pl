@@ -4,10 +4,10 @@ description: Jak opisać zasoby punktu końcowego w manifeście usługi, w tym s
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91354763"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Określanie zasobów w manifeście usługi
@@ -220,7 +220,7 @@ Jeśli w określonym elemencie servicemanifest
 
 Załóżmy, że wartość PORT1 i Protocol1 dla parametrów aplikacji ma wartość null lub jest pusta. Port zostanie ustalony przez sieć szkieletową, a protokół będzie TCP.
 
-Załóżmy, że określono nieprawidłową wartość. Załóżmy, że port określił wartość ciągu "foo" zamiast int.  Polecenie New-ServiceFabricApplication zakończy się niepowodzeniem z powodu błędu: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+Załóżmy, że określono nieprawidłową wartość. Załóżmy, że port określił wartość ciągu "foo" zamiast int.  New-ServiceFabricApplication polecenie zakończy się niepowodzeniem z powodu błędu: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## <a name="next-steps"></a>Następne kroki
 

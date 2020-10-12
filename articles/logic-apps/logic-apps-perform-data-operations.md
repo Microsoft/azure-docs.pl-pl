@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710375"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Wykonywanie operacji na danych w Azure Logic Apps
@@ -35,7 +35,7 @@ Te akcje pomagają w pracy z danymi w tablicach.
 | [**Utwórz tabelę HTML**](#create-html-table-action) | Utwórz tabelę HTML z tablicy. |
 | [**Filtruj tablicę**](#filter-array-action) | Utwórz podzestaw tablicy z tablicy na podstawie określonego filtru lub warunku. |
 | [**Join**](#join-action) | Utwórz ciąg ze wszystkich elementów w tablicy i oddziel każdy element z określonym znakiem. |
-| [**Wybierz pozycję**](#select-action) | Utwórz tablicę na podstawie określonych właściwości dla wszystkich elementów w innej tablicy. |
+| [**Wybierz**](#select-action) | Utwórz tablicę na podstawie określonych właściwości dla wszystkich elementów w innej tablicy. |
 ||| 
 
 **Akcje JSON**
@@ -200,7 +200,7 @@ W akcji Zachowaj pustą kolumnę **nagłówka** . W każdym wierszu w kolumnie *
 
    `item()?['<array-property-name>']`
 
-   Przykład:
+   Na przykład:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ W definicji JSON akcji w `columns` tablicy Ustaw `header` Właściwość na pust
    }
    ```
 
-   Przykład:
+   Na przykład:
 
    ```json
    "Create_CSV_table": {
@@ -351,7 +351,7 @@ W akcji Zachowaj pustą kolumnę **nagłówka** . W każdym wierszu w kolumnie *
 
    `item()?['<array-property-name>']`
 
-   Przykład:
+   Na przykład:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ W definicji JSON akcji w `columns` tablicy Ustaw `header` Właściwość na pust
    }
    ```
 
-   Przykład:
+   Na przykład:
 
    ```json
    "Create_HTML_table": {

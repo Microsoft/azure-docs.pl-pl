@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
 ms.openlocfilehash: 3da6dd877a94da64f85f093ae98a0b8a109ab2e1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89255107"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrowanie z Media Indexer i Media Indexer 2 do Video Indexer
@@ -52,7 +52,7 @@ Interfejs API programu Azure Media Services v3 umożliwia wyodrębnienie szczeg�
 
 **AudioAnalyzerPreset** umożliwia wyodrębnienie wielu szczegółowych informacji audio z pliku audio lub wideo. Dane wyjściowe obejmują plik VTT lub TTML dla transkrypcji audio i pliku JSON (ze wszystkimi dodatkowymi spostrzeżeniami w usłudze audio). Szczegółowe informacje o danych audio obejmują słowa kluczowe, indeksowanie głośników i analizę tonacji mowy. AudioAnalyzerPreset obsługuje również wykrywanie języka dla określonych języków. Aby uzyskać szczegółowe informacje, zobacz [transformacje](/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby rozpocząć, zobacz:
 

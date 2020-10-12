@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
 ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88035471"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Skojarz publiczny adres IP z maszyną wirtualną
@@ -115,7 +115,7 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
 
 4. [Zezwalaj na ruch sieciowy do maszyny wirtualnej](#allow-network-traffic-to-the-vm) z regułami zabezpieczeń w sieciowej grupie zabezpieczeń.
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Zainstaluj program [PowerShell](/powershell/azure/install-az-ps)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Program PowerShell jest wstępnie zainstalowany i skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** w kolejnych poleceniach programu PowerShell. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 

@@ -13,10 +13,10 @@ ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80294383"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Włączanie Podłączanie pulpitu zdalnego roli na platformie Azure Cloud Services przy użyciu programu Visual Studio
@@ -146,6 +146,6 @@ Po opublikowaniu usługi w chmurze na platformie Azure i włączeniu Pulpit zdal
 
 3. Wprowadź nazwę użytkownika i hasło, które zostały wcześniej utworzone. Użytkownik jest zalogowany do sesji zdalnej.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 [Jak skonfigurować Cloud Services](cloud-services-how-to-configure-portal.md)

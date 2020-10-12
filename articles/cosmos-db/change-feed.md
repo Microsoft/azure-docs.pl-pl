@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 4cd0ad1553f04a781349a4664fbb408108015632
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510287"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Zestawienie zmian w usłudze Azure Cosmos DB
@@ -27,10 +27,10 @@ Ta funkcja jest obecnie obsługiwana przez następujące Azure Cosmos DB interfe
 
 | **Sterowniki klienta** | **INTERFEJS API SQL** | **Interfejs API Azure Cosmos DB dla Cassandra** | **Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB** | **Interfejs API języka Gremlin**|**Interfejs API tabel** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Yes | Yes | Yes | Yes | Nie |
-|Java|Yes|Yes|Yes|Yes|Nie|
-|Python|Yes|Yes|Yes|Yes|Nie|
-|Node/JS|Yes|Yes|Yes|Yes|Nie|
+| .NET | Tak | Tak | Tak | Tak | Nie |
+|Java|Tak|Tak|Tak|Tak|Nie|
+|Python|Tak|Tak|Tak|Tak|Nie|
+|Node/JS|Tak|Tak|Tak|Tak|Nie|
 
 ## <a name="change-feed-and-different-operations"></a>Zmień źródło danych i różne operacje
 

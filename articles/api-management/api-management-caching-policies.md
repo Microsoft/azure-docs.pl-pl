@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: f0aeef7bc67f5c59bb80d5ff24a97be737447a81
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510185"
 ---
 # <a name="api-management-caching-policies"></a>Zasady buforowania usługi API Management
@@ -102,20 +102,20 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|pamięć podręczna — wyszukiwanie|Element główny.|Yes|
+|pamięć podręczna — wyszukiwanie|Element główny.|Tak|
 |Zróżnicuj według nagłówka|Rozpocznij buforowanie odpowiedzi na wartość określonego nagłówka, na przykład Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, from, host, if-Match.|Nie|
 |Zróżnicuj według zapytania — parametr|Rozpocznij buforowanie odpowiedzi na wartość określonych parametrów zapytania. Wprowadź jeden lub wiele parametrów. Użyj średnika jako separatora. Jeśli żaden nie zostanie określony, używane są wszystkie parametry zapytania.|Nie|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                           | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny           |
+| Nazwa                           | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Zezwalaj na buforowanie z odpowiedziami prywatnymi | Gdy ustawiona na `true` , umożliwia buforowanie żądań zawierających nagłówek autoryzacji.                                                                                                                                                                                                                                                                        | Nie       | fałsz             |
 | Typ buforowania               | Wybierz między następującymi wartościami atrybutu:<br />- `internal` Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external` Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | buforowanie podrzędne-Type        | Ten atrybut musi być ustawiony na jedną z następujących wartości.<br /><br /> -None — buforowanie podrzędne nie jest dozwolone.<br />— prywatne buforowanie w trybie podrzędnym jest dozwolone.<br />-publiczne i udostępnione buforowanie podrzędne jest dozwolone.                                                                                                          | Nie       | brak              |
 | musi ponownie sprawdzić poprawność                | Gdy buforowanie podrzędne jest włączone, ten atrybut włącza lub wyłącza `must-revalidate` dyrektywę kontroli pamięci podręcznej w odpowiedziach bramy.                                                                                                                                                                                                                      | Nie       | true              |
-| Zróżnicuj według deweloperów              | Ustaw na `true` buforowanie odpowiedzi na konto dewelopera, do którego należy [klucz subskrypcji](./api-management-subscriptions.md) uwzględniony w żądaniu.                                                                                                                                                                                                                                                                                                  | Yes      |         Fałsz          |
-| różne grupy deweloperów       | Ustaw na wartość `true` w celu buforowania odpowiedzi dla każdej [grupy użytkowników](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Yes      |       Fałsz            |
+| Zróżnicuj według deweloperów              | Ustaw na `true` buforowanie odpowiedzi na konto dewelopera, do którego należy [klucz subskrypcji](./api-management-subscriptions.md) uwzględniony w żądaniu.                                                                                                                                                                                                                                                                                                  | Tak      |         Fałsz          |
+| różne grupy deweloperów       | Ustaw na wartość `true` w celu buforowania odpowiedzi dla każdej [grupy użytkowników](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Tak      |       Fałsz            |
 
 ### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
@@ -181,13 +181,13 @@ Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|Magazyn pamięci podręcznej|Element główny.|Yes|
+|Magazyn pamięci podręcznej|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| czas trwania         | Czas wygaśnięcia wpisów w pamięci podręcznej (w sekundach).                                                                                                                                                                                                                                                                                                   | Yes      | Nie dotyczy               |
+| czas trwania         | Czas wygaśnięcia wpisów w pamięci podręcznej (w sekundach).                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
 
 ### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
@@ -224,16 +224,16 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|pamięć podręczna — wyszukiwanie-wartość|Element główny.|Yes|
+|pamięć podręczna — wyszukiwanie-wartość|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal` Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external` Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
 | wartość domyślna    | Wartość, która zostanie przypisana do zmiennej, jeśli wyszukiwanie klucza pamięci podręcznej spowodowało brak. Jeśli ten atrybut nie jest określony, `null` jest przypisany.                                                                                                                                                                                                           | Nie       | `null`            |
-| key              | Wartość klucza pamięci podręcznej do użycia w wyszukiwaniu.                                                                                                                                                                                                                                                                                                                       | Yes      | Nie dotyczy               |
-| Nazwa zmiennej    | Nazwa [zmiennej kontekstowej](api-management-policy-expressions.md#ContextVariables) , do której zostanie przypisana wartość, jeśli wyszukiwanie zakończyło się pomyślnie. Jeśli wyszukiwanie spowoduje odrzucenie, zmienna zostanie przypisana do wartości `default-value` atrybutu lub `null` , jeśli `default-value` atrybut zostanie pominięty.                                       | Yes      | Nie dotyczy               |
+| key              | Wartość klucza pamięci podręcznej do użycia w wyszukiwaniu.                                                                                                                                                                                                                                                                                                                       | Tak      | Nie dotyczy               |
+| Nazwa zmiennej    | Nazwa [zmiennej kontekstowej](api-management-policy-expressions.md#ContextVariables) , do której zostanie przypisana wartość, jeśli wyszukiwanie zakończyło się pomyślnie. Jeśli wyszukiwanie spowoduje odrzucenie, zmienna zostanie przypisana do wartości `default-value` atrybutu lub `null` , jeśli `default-value` atrybut zostanie pominięty.                                       | Tak      | Nie dotyczy               |
 
 ### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
@@ -267,16 +267,16 @@ Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [niestandardowe 
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|pamięć podręczna-magazyn-wartość|Element główny.|Yes|
+|pamięć podręczna-magazyn-wartość|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal` Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external` Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
-| czas trwania         | Wartość zostanie zbuforowana dla podanej wartości czasu trwania określonej w sekundach.                                                                                                                                                                                                                                                                                 | Yes      | Nie dotyczy               |
-| key              | Klucz pamięci podręcznej, w której będzie przechowywana wartość.                                                                                                                                                                                                                                                                                                                   | Yes      | Nie dotyczy               |
-| value            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Yes      | Nie dotyczy               |
+| czas trwania         | Wartość zostanie zbuforowana dla podanej wartości czasu trwania określonej w sekundach.                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy               |
+| key              | Klucz pamięci podręcznej, w której będzie przechowywana wartość.                                                                                                                                                                                                                                                                                                                   | Tak      | Nie dotyczy               |
+| value            | Wartość do buforowania.                                                                                                                                                                                                                                                                                                                                     | Tak      | Nie dotyczy               |
 ### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes)zasad.
 
@@ -306,14 +306,14 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
-|pamięć podręczna — usuwanie wartości|Element główny.|Yes|
+|pamięć podręczna — usuwanie wartości|Element główny.|Tak|
 
 #### <a name="attributes"></a>Atrybuty
 
-| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślny           |
+| Nazwa             | Opis                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | Typ buforowania | Wybierz między następującymi wartościami atrybutu:<br />- `internal` Aby użyć wbudowanej pamięci podręcznej API Management,<br />- `external` Aby użyć zewnętrznej pamięci podręcznej, zgodnie z opisem w temacie [Korzystanie z zewnętrznej pamięci podręcznej platformy Azure dla Redis w usłudze Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` użycie zewnętrznej pamięci podręcznej, jeśli jest skonfigurowana lub wewnętrzna pamięć podręczna w przeciwnym razie. | Nie       | `prefer-external` |
-| key              | Klucz poprzednio buforowanej wartości, który ma zostać usunięty z pamięci podręcznej.                                                                                                                                                                                                                                                                                        | Yes      | Nie dotyczy               |
+| key              | Klucz poprzednio buforowanej wartości, który ma zostać usunięty z pamięci podręcznej.                                                                                                                                                                                                                                                                                        | Tak      | Nie dotyczy               |
 
 #### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](./api-management-howto-policies.md#sections) i [zakresach](./api-management-howto-policies.md#scopes) zasad.

@@ -14,10 +14,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293360"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Zmiana w miejscu SQL Server edycji na maszynie wirtualnej platformy Azure
@@ -35,7 +35,7 @@ Aby przeprowadzić zmianę w miejscu wersji SQL Server, potrzebne są następuj�
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
 - [SQL Server maszynę wirtualną w systemie Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) zarejestrowana przy użyciu [dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).
-- Skonfiguruj nośnik z **odpowiednią wersją** SQL Server. Klienci posiadający [program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) mogą uzyskać nośnik instalacyjny z [centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej, który ma odpowiednie wydanie (zazwyczaj znajduje się w temacie `C:\SQLServerFull` ). 
+- Skonfiguruj nośnik z **odpowiednią wersją** SQL Server. Klienci, którzy biorą udział w programie [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default), mogą uzyskać nośnik instalacyjny z [Centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej, który ma odpowiednie wydanie (zazwyczaj znajduje się w temacie `C:\SQLServerFull` ). 
 
 
 ## <a name="upgrade-an-edition"></a>Uaktualnianie wersji

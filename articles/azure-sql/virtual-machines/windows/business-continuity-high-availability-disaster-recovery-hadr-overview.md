@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
 ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293462"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Ciągłość działania i HADR Cluster SQL Server na platformie Azure Virtual Machines
@@ -150,7 +150,7 @@ Aby uzyskać więcej informacji na temat łączności klienta, zobacz:
 * [Łączenie klientów z sesją dublowania baz danych (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
 * [Łączenie z odbiornikiem grupy dostępności w hybrydowym](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Odbiorniki grup dostępności, łączność z klientem i tryb failover aplikacji (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Używanie parametrów połączenia dublowania baz danych z grupami dostępności](https://technet.microsoft.com/library/hh213417.aspx)
+* [Używanie Database-Mirroring parametrów połączenia z grupami dostępności](https://technet.microsoft.com/library/hh213417.aspx)
 
 ### <a name="network-latency-in-hybrid-it"></a>Opóźnienie sieci w hybrydowym
 Wdróż rozwiązanie HADR Cluster z założeniem, że mogą istnieć okresy wysokiego opóźnienia sieci między siecią lokalną a platformą Azure. Podczas wdrażania replik na platformie Azure Użyj zatwierdzenia asynchronicznego zamiast synchronicznego zatwierdzania w trybie synchronizacji. Wdrażając serwery dublowania baz danych zarówno lokalnie, jak i na platformie Azure, użyj trybu wysokiej wydajności, a nie trybu wysokiego poziomu zabezpieczeń.

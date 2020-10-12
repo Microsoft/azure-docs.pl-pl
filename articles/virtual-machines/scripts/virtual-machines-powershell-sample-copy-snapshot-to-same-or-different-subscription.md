@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
 ms.openlocfilehash: a2fd6f8b5f2ba0771449178a2d8d3958329e83eb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651593"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-windows"></a>Kopiowanie migawki dysku zarządzanego w ramach tej samej subskrypcji lub innej subskrypcji przy użyciu programu PowerShell (Windows)

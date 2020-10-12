@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
 ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398090"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Tworzenie publicznej komunikacji równorzędnej ExpressRoute i zarządzanie nią

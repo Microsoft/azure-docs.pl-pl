@@ -16,10 +16,10 @@ ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650692"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
@@ -135,7 +135,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
             - Oracle Linux 7,5. Jeśli używasz jądra RHCKL, wymagana jest wersja 3.10.0-862.13.1. el7. Jeśli używasz jądra Oracle UEK, wymagana jest wersja 5.
         - Przetestuj i Oceń opóźnienia sieci między maszynami wirtualnymi i maszynami wirtualnymi w warstwie aplikacji SAP zgodnie z uwagami dotyczącymi obsługi SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) i [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Oceń wyniki na wskazówki dotyczące opóźnień sieci w programie [SAP support uwagi #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Opóźnienie sieci powinno być w zakresie umiarkowanym lub dobrym. Wyjątki dotyczą ruchu między maszynami wirtualnymi i jednostkami dużych wystąpień platformy HANA, zgodnie z opisem w [tym artykule](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
         - Upewnij się, że wdrożenia ILB są skonfigurowane do używania bezpośredniego powrotu do serwera. To ustawienie spowoduje skrócenie opóźnienia, gdy usługa Azure ILB będzie używana do konfiguracji wysokiej dostępności na warstwie DBMS.
-        - Jeśli używasz Azure Load Balancer razem z systemami operacyjnymi gościa z systemem Linux, sprawdź, czy parametr sieci w systemie Linux **net. IPv4. tcp_timestamps** jest ustawiony na **wartość 0**. To zalecenie powoduje konflikt z zaleceniami we wcześniejszych wersjach programu [SAP uwagi #2382421](https://launchpad.support.sap.com/#/notes/2382421). Uwaga dotycząca oprogramowania SAP jest teraz aktualizowana do stanu, w którym ten parametr musi być ustawiony na **wartość 0** , aby pracować z modułami równoważenia obciążenia platformy Azure.
+        - Jeśli używasz Azure Load Balancer razem z systemami operacyjnymi gościa z systemem Linux, sprawdź, czy parametr sieci systemu Linux **net.IPv4.tcp_timestamps** ma wartość **0**. To zalecenie powoduje konflikt z zaleceniami we wcześniejszych wersjach programu [SAP uwagi #2382421](https://launchpad.support.sap.com/#/notes/2382421). Uwaga dotycząca oprogramowania SAP jest teraz aktualizowana do stanu, w którym ten parametr musi być ustawiony na **wartość 0** , aby pracować z modułami równoważenia obciążenia platformy Azure.
         - W celu uzyskania optymalnego opóźnienia sieci należy rozważyć użycie [grup umieszczania usługi Azure zbliżeniowe](../../linux/co-location.md) . Aby uzyskać więcej informacji, zobacz [grupy umieszczania zbliżeniowe platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP](sap-proximity-placement-scenarios.md).
    4. Wdrożenia wysokiej dostępności i odzyskiwania po awarii.
         - W przypadku wdrażania warstwy aplikacji SAP bez definiowania określonej strefy dostępności platformy Azure upewnij się, że wszystkie maszyny wirtualne, które uruchamiają wystąpienia okna dialogowego SAP lub wystąpienia oprogramowania pośredniczącego pojedynczego systemu SAP są wdrożone w [zestawie dostępności](../../windows/manage-availability.md).
@@ -161,7 +161,7 @@ Zalecamy skonfigurowanie i zweryfikowanie pełnego projektu rozwiązania HADR Cl
             -   [Uwaga dotycząca pomocy technicznej SAP #2753418 potencjalne obniżenie wydajności z powodu powrotu czasomierza](https://launchpad.support.sap.com/#/notes/2753418)
             -   [Uwaga dotycząca pomocy technicznej SAP #2791572-spadek wydajności z powodu braku obsługi VDSO dla funkcji Hyper-V na platformie Azure](https://launchpad.support.sap.com/#/notes/2791572)
             -   [Uwaga dotycząca pomocy technicznej SAP #2382421 — Optymalizacja konfiguracji sieci na poziomie platformy HANA i systemu operacyjnego](https://launchpad.support.sap.com/#/notes/2382421)
-            -   [Uwaga dotycząca pomocy technicznej SAP #2694118-Red Hat Enterprise Linux dodatku HA na platformie Azure](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [Uwaga dotycząca pomocy technicznej SAP #2694118-Red Hat Enterprise Linux HA Add-On na platformie Azure](https://launchpad.support.sap.com/#/notes/2694118)
             -   [Uwaga dotycząca pomocy technicznej SAP #1984787 — SUSE LINUX Enterprise Server 12: uwagi dotyczące instalacji](https://launchpad.support.sap.com/#/notes/1984787)
             -   [Uwaga dotycząca pomocy technicznej SAP #2002167-Red Hat Enterprise Linux 7. x: Instalacja i uaktualnienie](https://launchpad.support.sap.com/#/notes/0002002167)
             -   [Uwaga dotycząca pomocy technicznej SAP #2292690-SAP HANA DB: zalecane ustawienia systemu operacyjnego dla RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690)

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271947"
 ---
 # <a name="retrieve-operations"></a>Pobieranie operacji
@@ -33,13 +33,13 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 
 |  **Nazwa**          |      **Opis**                                                                                           | **Typ danych** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identyfikator wydawcy, na przykład`Contoso`                                                                   |  String       |
-|  offerId           |  Identyfikator oferty                                                                                              |  String       |
+|  publisherId       |  Identyfikator wydawcy, na przykład `Contoso`                                                                   |  Ciąg       |
+|  offerId           |  Identyfikator oferty                                                                                              |  Ciąg       |
 |  operationId       |  Identyfikator GUID, który jednoznacznie identyfikuje operację na ofercie. OperationId może zostać pobrany za pomocą tego interfejsu API i jest również zwracany w nagłówku HTTP odpowiedzi dla dowolnej długotrwałej operacji, takiej jak interfejs API [oferty publikacji](./cloud-partner-portal-api-publish-offer.md) .  |   Guid (identyfikator GUID)   |
-|  api-version       | Najnowsza wersja interfejsu API |    Data      |
+|  api-version       | Najnowsza wersja interfejsu API |    Date      |
 |  |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 
 |  **Nazwa**          |  **Wartość**           |
 |  ---------------   | -------------------- |
@@ -49,7 +49,7 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 
 ## <a name="body-example"></a>Przykład treści
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 #### <a name="get-operations"></a>Pobierz operacje
 
@@ -172,11 +172,11 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  **Nazwa**                    |  **Opis**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  identyfikator                          | Identyfikator GUID, który jednoznacznie identyfikuje operację                                                       |
-|  submisja              | Identyfikuje typ operacji raportowanej dla oferty, na przykład`Publish/GoLive`      |
+|  submisja              | Identyfikuje typ operacji raportowanej dla oferty, na przykład `Publish/GoLive`      |
 |  createdDateTime             | UTC DateTime podczas tworzenia operacji                                                       |
 |  lastActionDateTime          | Data i godzina UTC ostatniej aktualizacji dla operacji                                       |
 |  status                      | Stan operacji `not started` \| `running` \| `failed` \| `completed` . W danym momencie może istnieć tylko jedna operacja `running` . |
-|  Błąd                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
+|  error                       | Komunikat o błędzie dla operacji zakończonych niepowodzeniem                                                               |
 |  |  |
 
 ### <a name="response-step-properties"></a>Właściwości kroku odpowiedzi
@@ -185,7 +185,7 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | Szacowany czas trwania tej operacji |
 | identyfikator | Unikatowy identyfikator procesu kroku |
-| description (opis) | Opis kroku |
+| description | Opis kroku |
 | krokname | Przyjazna nazwa kroku |
 | status | Stan kroku, `notStarted` \| `running` \| `failed` albo \|`completed` |
 | z chmury do urządzenia | Wszystkie powiadomienia lub ostrzeżenia wystąpiły w trakcie tego kroku. Tablica ciągów |
@@ -196,8 +196,8 @@ Pobiera wszystkie operacje z oferty lub w celu uzyskania określonej operacji dl
 
 | **Kod**  |   **Opis**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
-|  200      | `OK`-Żądanie zostało pomyślnie przetworzone i zostały zwrócone żądane operacje.        |
-|  400      | `Bad/Malformed request`-Treść odpowiedzi błędu może zawierać więcej informacji.                    |
-|  403      | `Forbidden`-Klient nie ma dostępu do określonego obszaru nazw.                          |
-|  404      | `Not found`-Określona jednostka nie istnieje.                                                 |
+|  200      | `OK` -Żądanie zostało pomyślnie przetworzone i zostały zwrócone żądane operacje.        |
+|  400      | `Bad/Malformed request` -Treść odpowiedzi błędu może zawierać więcej informacji.                    |
+|  403      | `Forbidden` -Klient nie ma dostępu do określonego obszaru nazw.                          |
+|  404      | `Not found` -Określona jednostka nie istnieje.                                                 |
 |  |  |

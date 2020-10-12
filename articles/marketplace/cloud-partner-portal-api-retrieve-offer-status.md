@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272015"
 ---
 # <a name="retrieve-offer-status"></a>Pobieranie stanu oferty
@@ -27,12 +27,12 @@ Pobiera bieżący stan oferty.
 
 |  **Nazwa**       |   **Opis**                            |  **Typ danych** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identyfikator wydawcy, na przykład`Contoso`  |     String     |
-|  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     String     |
-|  api-version    | Najnowsza wersja interfejsu API                        |     Data       |
+|  publisherId    | Identyfikator wydawcy, na przykład `Contoso`  |     Ciąg     |
+|  offerId        | Identyfikator GUID, który jednoznacznie identyfikuje ofertę      |     Ciąg     |
+|  api-version    | Najnowsza wersja interfejsu API                        |     Date       |
 |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 
 
 |  Nazwa           |  Wartość               |
@@ -43,7 +43,7 @@ Pobiera bieżący stan oferty.
 
 ## <a name="body-example"></a>Przykład treści
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 ``` json
   {
@@ -126,7 +126,7 @@ Pobiera bieżący stan oferty.
 |  estimatedTimeFrame   | Oszacowanie czasu, jaki mógłby wykonać ten krok, w przyjaznym formacie                       |
 |  identyfikator                   | Identyfikator kroku                                                                         |
 |  krokname             | Nazwa kroku                                                                               |
-|  description (opis)          | Opis kroku                                                                        |
+|  description          | Opis kroku                                                                        |
 |  status               | Stan kroku. Aby uzyskać listę możliwych wartości, zobacz [Step status](#step-status) poniżej.    |
 |  z chmury do urządzenia             | Tablica komunikatów dotyczących kroku                                                          |
 |  processPercentage    | Procent wykonania kroku                                                              |
@@ -139,9 +139,9 @@ Pobiera bieżący stan oferty.
 
 | **Kod** |   **Opis**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
-|  200     |  `OK`-Żądanie zostało pomyślnie przetworzone i został zwrócony bieżący stan oferty. |
-|  400     | `Bad/Malformed request`-Treść odpowiedzi błędu może zawierać więcej informacji.                 |
-|  404     | `Not found`-Określona jednostka nie istnieje.                                                |
+|  200     |  `OK` -Żądanie zostało pomyślnie przetworzone i został zwrócony bieżący stan oferty. |
+|  400     | `Bad/Malformed request` -Treść odpowiedzi błędu może zawierać więcej informacji.                 |
+|  404     | `Not found` -Określona jednostka nie istnieje.                                                |
 |  |  |
 
 ### <a name="offer-status"></a>Stan oferty
@@ -151,8 +151,8 @@ Pobiera bieżący stan oferty.
 |  NeverPublished              | Oferta nie została nigdy opublikowana.                          |
 |  NotStarted                  | Oferta jest nowa i nie została uruchomiona.                            |
 |  WaitingForPublisherReview   | Oferta oczekuje na zatwierdzenie przez wydawcę.                 |
-|  Uruchomiono                     | Przesyłanie oferty jest przetwarzane.                     |
-|  Powodzenie                   | Przesyłanie oferty zostało zakończone.               |
+|  Uruchomienie                     | Przesyłanie oferty jest przetwarzane.                     |
+|  Sukces                   | Przesyłanie oferty zostało zakończone.               |
 |  Anulowane                    | Przesyłanie oferty zostało anulowane.                           |
 |  Niepowodzenie                      | Nie można przesłać oferty.                                 |
 |  |  |

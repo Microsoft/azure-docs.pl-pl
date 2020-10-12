@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038260"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Konfiguracja modułu równoważenia obciążenia tylko dla ruchu wychodzącego
@@ -63,7 +63,7 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > sieci > sieci wirtualnej** lub Wyszukaj **sieć wirtualną** w polu wyszukiwania.
+2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób > Sieć > Sieć wirtualna** lub wyszukaj frazę **Sieć wirtualna** w polu wyszukiwania.
 
 2. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie **podstawowe** :
 
@@ -82,7 +82,7 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
 
     | Ustawienie            | Wartość                      |
     |--------------------|----------------------------|
-    | Przestrzeń adresów IPv4 | Wprowadź **10.1.0.0/16** |
+    | Przestrzeń adresowa IPv4 | Wprowadź **10.1.0.0/16** |
 
 5. W obszarze **Nazwa podsieci**wybierz pozycję **domyślny**wyraz.
 
@@ -108,7 +108,7 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -125,13 +125,13 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region | Wybierz **Wschodnie stany USA 2** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika |
     | Hasło | Wprowadź hasło |
-    | Potwierdź hasło | Wprowadź ponownie hasło |
+    | Potwierdź hasło | Ponownie wprowadź hasło |
     | **Reguły portów ruchu przychodzącego** |  |
     | Publiczne porty wejściowe | Wybierz opcję **Zezwalaj na wybrane porty** |
     | Wybierz porty wejściowe | Wybierz **protokół RDP (3389)** |
@@ -158,7 +158,7 @@ Utwórz maszynę wirtualną w nowej sieci wirtualnej.
     | **Monitorowanie** |  |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
    
-7. Wybierz pozycję **Przegląd + utwórz**. 
+7. Wybierz pozycję **Przeglądanie + tworzenie**. 
   
 8. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -183,7 +183,7 @@ Dodaj utworzoną maszynę wirtualną do puli zaplecza każdego z nich.  Następn
     | Grupa zasobów         | Wybierz **myResourceGroupLB** utworzone w poprzednim kroku.|
     | Nazwa                   | Wprowadź **myInternalLoadBalancer**                                   |
     | Region         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
-    | Typ          | wybierz pozycję **Wewnętrzny**.                                        |
+    | Type          | wybierz pozycję **Wewnętrzny**.                                        |
     | SKU           | Wybierz pozycję **standardowa** |
     | Sieć wirtualna | Wybierz **myVNet** utworzone w poprzednim kroku. |
     | Podsieć  | Wybierz **myBackendSubnet** utworzone w poprzednim kroku. |
@@ -205,7 +205,7 @@ Dodaj utworzoną maszynę wirtualną do puli zaplecza każdego z nich.  Następn
     | Grupa zasobów         | Wybierz pozycję **Utwórz nowy** i wprowadź **myResourceGroupLB** w polu tekstowym.|
     | Nazwa                   | Wprowadź **myPublicLoadBalancer**                                   |
     | Region         | Wybierz pozycję **East US 2** (Wschodnie stany USA 2).                                        |
-    | Typ          | Wybierz pozycję **Publiczna**.                                        |
+    | Type          | Wybierz pozycję **Publiczna**.                                        |
     | SKU           | Wybierz pozycję **standardowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. |
     | Nazwa publicznego adresu IP | Wprowadź **myFrontendIP** w polu tekstowym.|

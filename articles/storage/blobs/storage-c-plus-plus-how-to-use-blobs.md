@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033635"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Jak używać usługi BLOB Storage w języku C++
@@ -157,7 +157,7 @@ blob3.upload_text(U("other text"));
 Alternatywnie możesz użyć metody **upload_from_file** , aby przekazać plik do blokowego obiektu BLOB.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Instrukcje: Wyświetlanie listy obiektów BLOB w kontenerze
-Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera. Następnie można użyć metody **list_blobs** kontenera do pobrania obiektów blob i/lub znajdujących się w niej katalogów. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **list_blob_item**, należy wywołać metodę **list_blob_item. as_blob** , aby uzyskać obiekt **cloud_blob** lub metodę **list_blob. as_directory** , aby uzyskać obiekt cloud_blob_directory. Poniższy kod ilustruje sposób pobierania i wyprowadzania identyfikatorów URI poszczególnych elementów w kontenerze **My-Sample-Container** :
+Aby wyświetlić listę obiektów blob w kontenerze, należy najpierw uzyskać odwołanie do kontenera. Następnie można użyć metody **list_blobs** kontenera do pobrania obiektów blob i/lub znajdujących się w niej katalogów. Aby uzyskać dostęp do bogatego zestawu właściwości i metod dla zwracanych **list_blob_item**, należy wywołać metodę **list_blob_item. as _blob** , aby uzyskać obiekt  **cloud_blob** lub metodę **list_blob. as _directory** , aby uzyskać obiekt cloud_blob_directory. Poniższy kod ilustruje sposób pobierania i wyprowadzania identyfikatorów URI poszczególnych elementów w kontenerze **My-Sample-Container** :
 
 ```cpp
 // Retrieve storage account from connection string.

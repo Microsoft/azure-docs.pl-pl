@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 4/11/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530096"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
@@ -74,7 +74,7 @@ Aby dowiedzieć się więcej, zobacz [wymagania dotyczące konta magazynu](./fun
 
 ## <a name="use-key-vault-references"></a>Używanie odwołań do usługi Key Vault
 
-Możesz użyć odwołań Azure Key Vault, aby użyć wpisów tajnych z Azure Key Vault w aplikacji Azure Functions bez konieczności wprowadzania żadnych zmian w kodzie. Azure Key Vault to usługa zapewniająca scentralizowane zarządzanie kluczami tajnymi z pełną kontrolą nad zasadami dostępu i historią inspekcji.
+Możesz użyć odwołań Azure Key Vault, aby użyć wpisów tajnych z Azure Key Vault w aplikacji Azure Functions bez konieczności wprowadzania żadnych zmian w kodzie. Azure Key Vault to usługa zapewniająca scentralizowane zarządzanie kluczami tajnymi, z pełną kontrolą nad zasadami dostępu i historią inspekcji.
 
 Obecnie [odwołania Key Vault](../app-service/app-service-key-vault-references.md) nie będą działały, jeśli Magazyn kluczy jest zabezpieczony za pomocą punktów końcowych usługi. Aby nawiązać połączenie z magazynem kluczy przy użyciu integracji z siecią wirtualną, należy wywołać Key Vault w kodzie aplikacji.
 

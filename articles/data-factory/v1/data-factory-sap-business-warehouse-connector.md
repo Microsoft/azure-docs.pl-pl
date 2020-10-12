@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707280"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Przenoszenie danych z programu SAP Business Warehouse przy użyciu Azure Data Factory
@@ -291,27 +291,27 @@ Podczas przemieszczania danych z SAP BW następujące mapowania są używane z t
 Typ danych w słowniku ABAP | Typ danych .NET
 -------------------------------- | --------------
 ACCP |  int
-DELIKATN | String
-CLNT | String
-WALUCIE | Wartość dziesiętna
-CUKY | String
-GRUDZIEŃ | Wartość dziesiętna
+DELIKATN | Ciąg
+CLNT | Ciąg
+WALUCIE | Liczba dziesiętna
+CUKY | Ciąg
+GRUDZIEŃ | Liczba dziesiętna
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | int
-BIBLIOGRAFI | String
-LCHR | String
+BIBLIOGRAFI | Ciąg
+LCHR | Ciąg
 LRAW | Byte []
 PREC | Int16
-QUAN | Wartość dziesiętna
+QUAN | Liczba dziesiętna
 SUROWCÓW | Byte []
 RAWSTRING | Byte []
-PARAMETRY | String
-JEDNOSTKA | String
-DATS | String
-NUMC | String
-TIMS | String
+PARAMETRY | Ciąg
+JEDNOSTKA | Ciąg
+DATS | Ciąg
+NUMC | Ciąg
+TIMS | Ciąg
 
 > [!NOTE]
 > Aby zmapować kolumny ze źródłowego zestawu danych do kolumn z obiektu ujścia danych, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

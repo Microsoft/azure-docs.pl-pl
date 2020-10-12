@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84705053"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnozowanie problemu z routingiem maszyny wirtualnej
@@ -85,7 +85,7 @@ W poprzednich danych wyjściowych nazwa interfejsu sieciowego to *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnozuj przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Można uruchomić następujące polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.32 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz również uruchomić `az login` i zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
+Można uruchomić następujące polecenia w  [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.32 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz również uruchomić `az login` i zalogować się do platformy Azure przy użyciu konta, które ma [wymagane uprawnienia](virtual-network-network-interface.md#permissions).
 
 Uzyskaj efektywne trasy dla interfejsu sieciowego za pomocą [AZ Network nic show-skuteczna-Route-Table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). Poniższy przykład pobiera obowiązujące trasy dla interfejsu sieciowego o nazwie *myVMNic1* , który znajduje się w grupie zasobów o nazwie Moja *zasobów*:
 
@@ -116,7 +116,7 @@ Rozwiązywanie problemów z routingiem zwykle składa się z:
 
 Jeśli nadal występują problemy z komunikacją, zapoznaj się z [zagadnieniami](#considerations) i dodatkową diagnostyką.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Podczas rozwiązywania problemów z komunikacją należy wziąć pod uwagę następujące kwestie:
 

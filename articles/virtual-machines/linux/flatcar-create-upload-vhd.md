@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
 ms.openlocfilehash: 555e53899ed78a5200009d04659e974f8157057e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87268243"
 ---
 # <a name="using-a-prebuilt-flatcar-image-for-azure"></a>Używanie prekompilowanego obrazu Flatcar dla platformy Azure
@@ -21,7 +21,7 @@ Możesz pobrać wstępnie utworzone obrazy wirtualnego dysku twardego platformy 
 
 - [stabilne](https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [wersja beta](https://beta.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
-- [alfa](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
+- [alpha](https://alpha.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 - [brzegu](https://edge.release.flatcar-linux.net/amd64-usr/current/flatcar_production_azure_image.vhd.bz2)
 
 Ten obraz jest już w pełni skonfigurowany i zoptymalizowany pod kątem uruchamiania na platformie Azure. Wystarczy tylko zdekompresować.

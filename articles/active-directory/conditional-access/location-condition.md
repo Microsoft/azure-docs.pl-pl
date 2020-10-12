@@ -13,10 +13,10 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055381"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
@@ -80,7 +80,7 @@ Jeśli skonfigurowano Zaufane adresy IP, są one wyświetlane jako **Zaufane adr
 
 ### <a name="skipping-multi-factor-authentication"></a>Pomijanie uwierzytelniania wieloskładnikowego
 
-Na stronie Ustawienia usługi uwierzytelniania wieloskładnikowego można zidentyfikować użytkowników intranetu firmowego, wybierając pozycję **Pomiń uwierzytelnianie wieloskładnikowe w przypadku żądań od użytkowników federacyjnych w moim intranecie**. To ustawienie wskazuje, że wewnątrz roszczeń sieci firmowej, które jest wydawane przez AD FS, powinno być zaufane i używane do identyfikowania użytkownika jako sieci firmowej. Aby uzyskać więcej informacji, zobacz [Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Na stronie Ustawienia usługi uwierzytelniania wieloskładnikowego można zidentyfikować użytkowników intranetu firmowego, wybierając pozycję  **Pomiń uwierzytelnianie wieloskładnikowe w przypadku żądań od użytkowników federacyjnych w moim intranecie**. To ustawienie wskazuje, że wewnątrz roszczeń sieci firmowej, które jest wydawane przez AD FS, powinno być zaufane i używane do identyfikowania użytkownika jako sieci firmowej. Aby uzyskać więcej informacji, zobacz [Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Po zaznaczeniu tej opcji, w tym nazwanej **Zaufane adresy IP usługi MFA** , będą stosowane do wszystkich zasad z wybraną opcją.
 

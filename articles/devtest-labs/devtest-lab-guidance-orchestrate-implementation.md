@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480851"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Organizuj implementację Azure DevTest Labs
@@ -40,7 +40,7 @@ Gdy topologia sieci jest na miejscu, pierwsze/pilotażowe laboratorium można ut
 4. Skonfiguruj DevTest Labs, aby używać zasad, takich jak harmonogramy, zarządzanie kosztami, maszyny wirtualne do zajmowania, obrazy niestandardowe lub formuły.
 5. Ustanów repozytorium online, takie jak Azure Repos/git.
 6. Zdecyduj o użyciu publicznych lub prywatnych repozytoriów lub kombinacji obu tych elementów. Organizuj szablony JSON na potrzeby wdrożeń i długoterminowych warunków utrzymania.
-7. W razie konieczności Utwórz niestandardowe artefakty. Ten krok jest opcjonalny. 
+7. W razie konieczności Utwórz niestandardowe artefakty. Ta czynność jest opcjonalna. 
 
 ## <a name="milestone-3-documentation-support-learn-and-improve"></a>Punkt kontrolny 3: dokumentacja, pomoc techniczna, nauka i poprawa
 Początkowe zespoły pilotażowe mogą wymagać szczegółowej pomocy technicznej dotyczącej rozpoczynania pracy. Skorzystaj z ich środowiska, aby upewnić się, że odpowiednia dokumentacja i pomoc techniczna są przeznaczone do ciągłego wdrażania Azure DevTest Labs.

@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80244736"
 ---
 # <a name="detect-color-schemes-in-images"></a>Wykryj schematy kolorów w obrazach
@@ -63,7 +63,7 @@ W poniższej tabeli przedstawiono zwrócone kolory pierwszego planu, tła i obra
 
  W poniższej tabeli przedstawiono zwrócony kolor akcentu jako szesnastkową wartość koloru HTML dla każdego przykładowego obrazu.
 
-| Obraz | Kolor wiodący |
+| Obraz | Kolor akcentu |
 |-------|--------------|
 |![Osoba stojąca na skałie górskim o zachodzie słońca](./Images/mountain_vista.png) | #BB6D10 |
 |![Biały kwiat z zielonym tłem](./Images/flower.png) | #C6A205 |

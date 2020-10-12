@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83124826"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Dodawanie odwołania do istniejącej sieci wirtualnej w szablonie zestawu skalowania platformy Azure
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak zmodyfikować [podstawowy szablon zestawu skalowani
 
 W [poprzednim artykule](virtual-machine-scale-sets-mvss-start.md) został utworzony podstawowy szablon zestawu skalowania. Teraz użyjemy tego wcześniejszego szablonu i zmodyfikujesz go, aby utworzyć szablon, który wdraża zestaw skalowania w istniejącej sieci wirtualnej. 
 
-Najpierw Dodaj `subnetId` parametr. Ten ciąg jest przesyłany do konfiguracji zestawu skalowania, co pozwala zestawowi skalowania identyfikować wstępnie utworzoną podsieć, w której mają zostać wdrożone maszyny wirtualne. Ten ciąg musi mieć postać:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+Najpierw Dodaj `subnetId` parametr. Ten ciąg jest przesyłany do konfiguracji zestawu skalowania, co pozwala zestawowi skalowania identyfikować wstępnie utworzoną podsieć, w której mają zostać wdrożone maszyny wirtualne. Ten ciąg musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
 Na przykład w celu wdrożenia zestawu skalowania w istniejącej sieci wirtualnej z nazwą `myvnet` , podsiecią `mysubnet` , grupą zasobów `myrg` i subskrypcją `00000000-0000-0000-0000-000000000000` subnetId będzie: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
 

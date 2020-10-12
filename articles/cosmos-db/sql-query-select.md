@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005949"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Klauzula SELECT w Azure Cosmos DB
@@ -59,7 +59,7 @@ SELECT <select_specification>
 
 ## <a name="remarks"></a>Uwagi
 
-`SELECT *`Składnia jest prawidłowa tylko wtedy, gdy klauzula FROM deklaruje dokładnie jeden alias. `SELECT *`dostarcza projekcję tożsamości, która może być przydatna, jeśli nie jest wymagana projekcja. SELECT * jest prawidłowy tylko wtedy, gdy klauzula FROM jest określona i wprowadza tylko pojedyncze źródło danych wejściowych.  
+`SELECT *`Składnia jest prawidłowa tylko wtedy, gdy klauzula FROM deklaruje dokładnie jeden alias. `SELECT *` dostarcza projekcję tożsamości, która może być przydatna, jeśli nie jest wymagana projekcja. SELECT * jest prawidłowy tylko wtedy, gdy klauzula FROM jest określona i wprowadza tylko pojedyncze źródło danych wejściowych.  
   
 Zarówno `SELECT <select_list>` , `SELECT *` jak i są "cukrem" i mogą być również wyrażone przy użyciu prostych instrukcji SELECT, jak pokazano poniżej.  
   

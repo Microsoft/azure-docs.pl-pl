@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045505"
 ---
 # <a name="plan-virtual-networks"></a>Planowanie sieci wirtualnych
@@ -115,4 +115,4 @@ Zasady są stosowane do następującej hierarchii: grupy zarządzania, subskrypc
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat wszystkich zadań, ustawień i opcji dla [sieci wirtualnej](manage-virtual-network.md), [punktu końcowego podsieci i usługi](virtual-network-manage-subnet.md), [interfejsu sieciowego](virtual-network-network-interface.md), [komunikacji równorzędnej](virtual-network-manage-peering.md), [sieci i grupy zabezpieczeń aplikacji](manage-network-security-group.md)lub [tabeli tras](manage-route-table.md).
+Dowiedz się więcej na temat wszystkich zadań, ustawień i opcji dla [sieci wirtualnej](manage-virtual-network.md), [punktu końcowego podsieci i usługi](virtual-network-manage-subnet.md), [interfejsu sieciowego](virtual-network-network-interface.md), [komunikacji równorzędnej](virtual-network-manage-peering.md),  [sieci i grupy zabezpieczeń aplikacji](manage-network-security-group.md)lub [tabeli tras](manage-route-table.md).

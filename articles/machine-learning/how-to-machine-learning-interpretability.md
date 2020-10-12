@@ -12,10 +12,10 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322363"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretowanie modeli w Azure Machine Learning (wersja zapoznawcza)
@@ -62,7 +62,7 @@ Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynow
 
  `azureml-interpret` używa technik interpretacji opracowanych w ramach [interpretacji Community](https://github.com/interpretml/interpret-community/), pakietu języka Python Open Source na potrzeby uczenia modeli, które mogą być interpretowane i pomagają w wyjaśnieniu systemów Blackbox AI. [Interpretuj — społeczność](https://github.com/interpretml/interpret-community/) służy jako host dla obsługiwanych przez niego OBJAŚNIEŃ zestawu SDK i obecnie obsługuje następujące techniki interpretowania:
 
-|Metoda interpretacji|Opis|Typ|
+|Metoda interpretacji|Opis|Type|
 |--|--|--------------------|
 |Objaśnienie drzewa kształtu| Klasyfikator drzewa [kształtu](https://github.com/slundberg/shap), który koncentruje się na algorytmie oceny wartości szybkiego kształtu czasu wielomianu, który jest specyficzny dla **drzew i ich kompletów drzew**.|Specyficzne dla modelu|
 |Szczegółowy opis kształtu| W oparciu o objaśnienie z kształtu, szczegółowy opis "jest algorytmem zbliżeniowym o dużej szybkości, dla wartości kształtu w modelach uczenia głębokiego, które kompilują się w połączeniu z DeepLIFT opisanym w [dokumencie kształt NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Obsługiwane są modele **TensorFlow** i modele **Keras** korzystające z zaplecza TensorFlow (istnieje również wstępna pomoc techniczna dla PyTorch) ".|Specyficzne dla modelu|

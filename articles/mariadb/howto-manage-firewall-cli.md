@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3edf6248d42878bb79115fad925ef38e3353c979
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502275"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Tworzenie reguł zapory Azure Database for MariaDB i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure
@@ -27,7 +27,7 @@ Reguły Virtual Network (VNet) mogą również służyć do zabezpieczania dost�
 ## <a name="firewall-rule-commands"></a>Polecenia reguły zapory:
 Polecenie **AZ MariaDB Server firewall-Rule** jest używane w interfejsie wiersza polecenia platformy Azure do tworzenia, usuwania, wyświetlania i aktualizowania reguł zapory.
 
-Polecenia
+Polecenia:
 - **Tworzenie**: Tworzenie reguły zapory serwera usługi Azure MariaDB.
 - **usuwanie**: Usuwanie reguły zapory serwera usługi Azure MariaDB.
 - **Lista**: Lista reguł zapory serwera usługi Azure MariaDB.

@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać laboratoriów Azure DevTest Labs w ramac
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481072"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integracja Azure DevTest Labs i Azure DevOps
@@ -29,7 +29,7 @@ W przypadku laboratorium w potoku ciągłej integracji/ciągłego wdrażania mo�
 ### <a name="development--operation"></a>Programowanie/operacja 
 Laboratorium powinno być skoncentrowane na zespole, który działa w obszarze funkcji. Ten typowy fokus umożliwia udostępnianie zasobów specyficznych dla obszaru, takich jak narzędzia, skrypty i szablony Menedżer zasobów. Pozwala to na szybsze zmiany przy jednoczesnym ograniczeniu negatywnych efektów do mniejszej grupy. Te zasoby udostępnione umożliwiają deweloperom tworzenie maszyn wirtualnych na potrzeby programowania przy użyciu wszystkich niezbędnych kodów, narzędzi i konfiguracji. Można je utworzyć dynamicznie lub mieć system, który tworzy obrazy podstawowe z dostosowaniami. Deweloperzy nie tylko mogą tworzyć maszyny wirtualne, ale mogą również tworzyć środowiska DevTest Labs na podstawie niezbędnych szablonów do tworzenia odpowiednich zasobów platformy Azure w laboratorium. Wszelkie zmiany i destrukcyjne działania mogą być wykonywane w środowisku laboratoryjnym bez wpływu na innych użytkowników. Rozważ scenariusz, w którym produkt jest systemem autonomicznym zainstalowanym na komputerze klienta. W tym scenariuszu w DevTest Labs Ulepszono tworzenie maszyn wirtualnych, które obejmują Instalowanie dodatkowego oprogramowania przy użyciu artefaktów i wstępne tworzenie konfiguracji klienta w celu szybkiego testowania pętli wewnętrznej w kodzie. 
   
-## <a name="cicd-pipeline"></a>Potok ciągłej integracji/ciągłego wdrażania 
+## <a name="cicd-pipeline"></a>Potok ciągłej integracji/ciągłego dostarczania 
 Potok ciągłej integracji/ciągłego wdrażania to jeden z kluczowych składników w DevOps, który przenosi kod z żądania ściągnięcia dewelopera, integruje go z istniejącym kodem i wdraża go w ekosystemie produkcyjnym. Wszystkie zasoby nie muszą znajdować się w środowisku laboratoryjnym. Na przykład host Jenkins można skonfigurować poza laboratorium jako bardziej trwały zasób. Poniżej przedstawiono kilka konkretnych przykładów integracji laboratoriów z potokiem. 
 
 ### <a name="build"></a>Kompilacja 
@@ -40,7 +40,7 @@ W przypadku agentów kompilacji zdolność laboratorium do ograniczania dostępu
 ### <a name="test"></a>Testowanie 
 DevTest Labs umożliwia potok ciągłej integracji/ciągłego wdrażania, który umożliwia automatyzację tworzenia zasobów platformy Azure (maszyn wirtualnych, środowisk), których można użyć do automatycznego i ręcznego testowania. Maszyny wirtualne zostaną utworzone przy użyciu artefaktów lub formuł, które używają informacji z procesu kompilacji, aby utworzyć różne konfiguracje niestandardowe niezbędne do testowania.   
 
-### <a name="release"></a>Wydanie 
+### <a name="release"></a>Release 
 DevTest Labs jest często używany do weryfikacji w sekcji Release przed wdrożeniem kodu. Jest to podobne do testowania w sekcji Kompilacja. Zasobów produkcyjnych nie należy wdrażać w ramach DevTest Labs. 
 
 ### <a name="customization"></a>Dostosowywanie 

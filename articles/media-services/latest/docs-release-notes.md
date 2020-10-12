@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 78879733a35395ae2dc486ab8eb08da544925a8a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89255158"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji Azure Media Services v3

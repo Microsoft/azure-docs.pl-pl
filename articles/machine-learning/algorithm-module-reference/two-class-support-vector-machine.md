@@ -1,5 +1,5 @@
 ---
-title: 'Maszyna wektorowa obsługująca dwie klasy: odwołanie do modułu'
+title: 'Two-Class obsługa maszyny wektorowej: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak używać **dwuklasowego modułu maszyny wektorowego** w Azure Machine Learning, aby utworzyć model oparty na algorytmie maszyny wektorowej obsługi.
 services: machine-learning
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907665"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Moduł maszyny wektorowej obsługujący dwie klasy
+# <a name="two-class-support-vector-machine-module"></a>Two-Class obsługa modułu maszyny wektorowej
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246694"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Przywracanie kopii zapasowej na platformie Azure Service Fabric
@@ -207,7 +207,7 @@ W przypadku _utraty danych_ lub _uszkodzenia danych_kopie zapasowe partycji dla 
 
 Poniższy przykład to kontynuacja [włączania okresowych kopii zapasowych dla niezawodnej usługi stanowej i Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). W tym przykładzie zasady tworzenia kopii zapasowej są włączone dla partycji, a usługa tworzy kopie zapasowe z odpowiednią częstotliwością w usłudze Azure Storage.
 
-Wybierz kopię zapasową z danych wyjściowych [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). W tym scenariuszu kopia zapasowa jest generowana z tego samego klastra co poprzednio.
+Wybierz kopię zapasową z danych wyjściowych  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). W tym scenariuszu kopia zapasowa jest generowana z tego samego klastra co poprzednio.
 
 Aby wyzwolić przywracanie, wybierz kopię zapasową z listy. W przypadku bieżącego _data loss_ / _uszkodzenia danych_utraty danych wybierz następujące kopie zapasowe:
 

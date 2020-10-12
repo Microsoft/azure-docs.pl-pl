@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710562"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania wiadomości Bing
@@ -48,15 +48,15 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 |Republika Filipin|Angielski|EN-PH|
 |Singapur|Angielski|EN-SG|
 |Stany Zjednoczone|Angielski|pl-PL|
-|Angielski|Ogólne|pl-WW|
-|Angielski|Ogólne|pl-XA|
+|Angielski|ogólne|pl-WW|
+|Angielski|ogólne|pl-XA|
 |Republika Południowej Afryki|Angielski|pl-za|
 |Argentyna|Hiszpański|ES-AR|
 |Chile|Hiszpański|ES — CL|
 |Hiszpania|Hiszpański|es-ES|
 |Meksyk|Hiszpański|es — MX|
 |Stany Zjednoczone|Hiszpański|es — US|
-|Hiszpański|Ogólne|ES — XL|
+|Hiszpański|ogólne|ES — XL|
 |Finlandia|Fiński|fi-FI|  
 |Francja|Francuski|fr — należy|
 |Kanada|Francuski|fr — CA|
@@ -66,7 +66,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 |Włochy|Włoski|it-IT|
 |SRA Hongkong|Chiński tradycyjny|zh-HK|  
 |Tajwan|Chiński tradycyjny|zh-TW|
-|Japonia|Japoński|ja-JP|  
+|Japonia|japoński|ja-JP|  
 |Korea|Koreański|ko-KR|  
 |Holandia|Niderlandzki|nl-NL|  
 |Chińska Republika Ludowa|Chiński|zh-CN|  
@@ -87,7 +87,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 |Australia|Angielski|en-AU|
 |Zjednoczone Królestwo|Angielski|en-GB|
 |Stany Zjednoczone|Angielski|pl-PL|
-|Angielski|Ogólne|pl-WW|
+|Angielski|ogólne|pl-WW|
 |Chile|Hiszpański|ES — CL|
 |Meksyk|Hiszpański|es — MX|
 |Stany Zjednoczone|Hiszpański|es — US|
@@ -122,7 +122,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` pa
 
 Poniżej znajdują się kody kraju/regionu, które można określić w `cc` parametrze zapytania. Lista może ulec zmianie.  
 
-|Kraj/region|Kod kraju|  
+|Kraj/region|Numer kierunkowy kraju|  
 |---------------------|------------------|  
 |Argentyna|AR|  
 |Australia|AU|  
@@ -137,7 +137,7 @@ Poniżej znajdują się kody kraju/regionu, które można określić w `cc` para
 |Niemcy|DE|  
 |SRA Hongkong|HK|  
 |Indie|IN|  
-|Indonezja|ID|  
+|Indonezja|ID (Identyfikator)|  
 |Włochy|IT|  
 |Japonia|JP|  
 |Korea|KR|  

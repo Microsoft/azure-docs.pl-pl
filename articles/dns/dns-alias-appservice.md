@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710545"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hostowanie aplikacji sieci Web platformy Azure ze zrównoważonym obciążeniem w wierzchołku strefy
@@ -45,8 +45,8 @@ Utwórz dwa plany App Service sieci Web w grupie zasobów, korzystając z poniż
 
 |Nazwa  |System operacyjny  |Lokalizacja  |Warstwa cenowa  |
 |---------|---------|---------|---------|
-|ASP — 01     |Windows|Wschodnie stany USA|Tworzenie i testowanie D1 — udostępnione|
-|ASP — 02     |Windows|Środkowe stany USA|Tworzenie i testowanie D1 — udostępnione|
+|ASP — 01     |Windows|East US|D1-Shared tworzenia i testowania|
+|ASP — 02     |Windows|Central US|D1-Shared tworzenia i testowania|
 
 ## <a name="create-app-services"></a>Utwórz App Services
 
@@ -55,13 +55,13 @@ Utwórz dwie aplikacje sieci Web, jeden w każdym planie App Service.
 1. W lewym górnym rogu strony Azure Portal wybierz pozycję **Utwórz zasób**.
 2. Wpisz ciąg **aplikacja sieci Web** na pasku wyszukiwania i naciśnij klawisz ENTER.
 3. Wybierz pozycję **aplikacja sieci Web**.
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Zaakceptuj wartości domyślne i Skorzystaj z poniższej tabeli, aby skonfigurować dwie aplikacje sieci Web:
 
    |Nazwa<br>(musi być unikatowy w obrębie. azurewebsites.net)|Grupa zasobów |Stos środowiska uruchomieniowego|Region|App Service plan/lokalizacja
    |---------|---------|-|-|-------|
-   |Aplikacja — 01|Użyj istniejącego<br>Wybieranie grupy zasobów|.NET Core 2.2|Wschodnie stany USA|ASP — 01 (D1)|
-   |App-02|Użyj istniejącego<br>Wybieranie grupy zasobów|.NET Core 2.2|Środkowe stany USA|ASP-02 (D1)|
+   |Aplikacja — 01|Użyj istniejącej<br>Wybierz grupę zasobów|.NET Core 2.2|East US|ASP — 01 (D1)|
+   |App-02|Użyj istniejącej<br>Wybierz grupę zasobów|.NET Core 2.2|Central US|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Zbierz szczegóły
 
@@ -87,10 +87,10 @@ Teraz można utworzyć punkty końcowe dla dwóch aplikacji sieci Web.
 3. Wybierz pozycję **Dodaj**.
 4. Skorzystaj z poniższej tabeli, aby skonfigurować punkty końcowe:
 
-   |Typ  |Nazwa  |Środowisko docelowe  |Lokalizacja  |Niestandardowe ustawienia nagłówka|
+   |Type  |Nazwa  |Cel  |Lokalizacja  |Niestandardowe ustawienia nagłówka|
    |---------|---------|---------|---------|---------|
-   |Zewnętrzny punkt końcowy     |Koniec-01|Adres IP zarejestrowany dla aplikacji App-01|Wschodnie stany USA|Host:\<the URL you recorded for App-01\><br>Przykład: **host: App-01.azurewebsites.NET**|
-   |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla aplikacji App-02|Środkowe stany USA|Host:\<the URL you recorded for App-02\><br>Przykład: **host: App-02.azurewebsites.NET**
+   |Zewnętrzny punkt końcowy     |Koniec-01|Adres IP zarejestrowany dla aplikacji App-01|East US|Host:\<the URL you recorded for App-01\><br>Przykład: **host: App-01.azurewebsites.NET**|
+   |Zewnętrzny punkt końcowy     |Koniec 02|Adres IP zarejestrowany dla aplikacji App-02|Central US|Host:\<the URL you recorded for App-02\><br>Przykład: **host: App-02.azurewebsites.NET**
 
 ## <a name="create-dns-zone"></a>Utwórz strefę DNS
 
