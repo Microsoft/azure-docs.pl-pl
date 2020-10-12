@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937048"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Koncepcje wysokiej dostępności na serwerze elastycznym Azure Database for PostgreSQL
@@ -18,7 +18,7 @@ ms.locfileid: "90937048"
 > [!IMPORTANT]
 > Azure Database for PostgreSQL — serwer elastyczny jest w wersji zapoznawczej
 
-Serwer elastyczny Azure Database for PostgreSQL oferuje konfigurację wysokiej dostępności z funkcją automatycznej pracy awaryjnej przy użyciu **nadmiarowego** wdrażania serwera. W przypadku wdrożenia w strefie nadmiarowej konfiguracji, elastyczny serwer automatycznie inicjuje i zarządza repliką rezerwową w innej strefie dostępności. Przy użyciu replikacji Streaming PostgreSQL dane są replikowane do serwera repliki gotowości w trybie **synchronicznym** . 
+Serwer elastyczny Azure Database for PostgreSQL oferuje konfigurację wysokiej dostępności z funkcją automatycznej pracy awaryjnej przy użyciu **nadmiarowego** wdrażania serwera. W przypadku wdrożenia w konfiguracji strefowo nadmiarowej serwer elastyczny automatycznie aprowizuje replikę rezerwową i zarządza nią w innej strefie dostępności. Przy użyciu replikacji Streaming PostgreSQL dane są replikowane do serwera repliki gotowości w trybie **synchronicznym** . 
 
 Konfiguracja nadmiarowa stref umożliwia automatyczne przejście w tryb failover bez utraty danych podczas planowanych zdarzeń, takich jak operacja obliczeniowa skalowania przez użytkownika, a także podczas nieplanowanych zdarzeń, takich jak błędy sprzętu i oprogramowania, awarie sieci i niepowodzenia strefy dostępności. 
 
@@ -26,7 +26,7 @@ Konfiguracja nadmiarowa stref umożliwia automatyczne przejście w tryb failover
 
 ## <a name="zone-redundant-high-availability-architecture"></a>Architektura nadmiarowej wysokiej dostępności strefy
 
-Możesz wybrać region i strefę dostępności, aby wdrożyć podstawowy serwer bazy danych. Serwer repliki w stanie wstrzymania jest inicjowany w innej strefie dostępności z taką samą konfiguracją jak serwer podstawowy, w tym z warstwą obliczeniową, rozmiarem obliczeń, rozmiarem magazynu i konfiguracją sieci. Dzienniki transakcji są replikowane w trybie synchronicznym do repliki gotowości przy użyciu replikacji PostgreSQL Streaming. Automatyczne kopie zapasowe są wykonywane okresowo z podstawowego serwera bazy danych, podczas gdy dzienniki transakcji są ciągle archiwizowane w magazynie kopii zapasowych z repliki gotowości. 
+Możesz wybrać region i strefę dostępności, aby wdrożyć podstawowy serwer bazy danych. Serwer repliki rezerwowej jest aprowizowany w innej strefie dostępności z taką samą konfiguracją, jak serwer podstawowy, z uwzględnieniem warstwy obliczeniowej, rozmiaru zasobów obliczeniowych, rozmiaru magazynu i konfiguracji sieci. Dzienniki transakcji są replikowane w trybie synchronicznym do repliki gotowości przy użyciu replikacji PostgreSQL Streaming. Automatyczne kopie zapasowe są wykonywane okresowo z podstawowego serwera bazy danych, podczas gdy dzienniki transakcji są ciągle archiwizowane w magazynie kopii zapasowych z repliki gotowości. 
 
 Kondycja konfiguracji wysokiej dostępności jest stale monitorowana i raportowana w portalu. Poniżej wymieniono Stany nadmiarowej wysokiej dostępności strefy:
 
@@ -43,7 +43,7 @@ Kondycja konfiguracji wysokiej dostępności jest stale monitorowana i raportowa
 
 PostgreSQL aplikacje klienckie są połączone z serwerem podstawowym przy użyciu nazwy serwera bazy danych. Odczyty aplikacji są obsługiwane bezpośrednio z serwera podstawowego, podczas gdy zatwierdzenia i zapisy są potwierdzane do aplikacji dopiero po utrwaleniu danych zarówno na serwerze podstawowym, jak i w replice gotowości. Ze względu na to, że to dodatkowe wymaganie dotyczące rundy, aplikacje mogą oczekiwać na podwyższony czas oczekiwania na zapisy i zatwierdzenia. Możesz monitorować kondycję wysokiej dostępności w portalu.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności — stan stały"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności"::: 
 
 1. Klienci łączą się z serwerem elastycznym i wykonują operacje zapisu.
 2. Zmiany są replikowane do lokacji w stanie wstrzymania.
@@ -64,7 +64,7 @@ W przypadku innych operacji zainicjowanych przez użytkownika, takich jak skalow
 
 Nieplanowane przestoje obejmują błędy oprogramowania lub składniki infrastruktury mające wpływ na dostępność bazy danych. W przypadku wykrycia niedostępności serwera w systemie monitorowania replikacja do repliki w stanie wstrzymania jest poważna, a replika rezerwy jest aktywowana jako podstawowy serwer bazy danych. Klienci mogą ponownie połączyć się z serwerem bazy danych przy użyciu tych samych parametrów połączenia i wznowić ich operacje. Oczekiwany czas pracy w trybie failover wynosi 60 120s. Jednak w zależności od działania w podstawowym serwerze baz danych w czasie pracy w trybie failover, takim jak duże transakcje i czas odzyskiwania, praca awaryjna może trwać dłużej.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności — tryb failover"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="Strefa nadmiarowa wysokiej dostępności"::: 
 
 1. Serwer podstawowej bazy danych nie działa, a klienci utracą łączność z bazą danych. 
 2. Serwer rezerwy został aktywowany, aby stał się nowym serwerem podstawowym. Klient nawiązuje połączenie z nowym serwerem podstawowym przy użyciu tych samych parametrów połączenia. Posiadanie aplikacji klienckiej w tej samej strefie co serwer podstawowej bazy danych zmniejsza opóźnienia i zwiększa wydajność.
@@ -111,7 +111,7 @@ Elastyczne serwery z konfiguracją wysokiej dostępności umożliwiają replikac
 
 -   Konfigurowanie zadań zarządzania inicjowanych przez klienta nie można zaplanować podczas zarządzanego okna obsługi.
 
--   Planowane zdarzenia, takie jak skalowanie obliczeniowe i magazyn skalowania, odbywają się najpierw w stanie wstrzymania, a następnie na serwerze podstawowym. Usługa nie została przełączona w tryb failover. 
+-   Zdarzenia planowane, takie jak skalowanie zasobów obliczeniowych i skalowanie magazynu, najpierw odbywają się na serwerze rezerwowym, a następnie na serwerze podstawowym. Usługa nie jest przełączana w tryb failover. 
 
 ## <a name="next-steps"></a>Następne kroki
 

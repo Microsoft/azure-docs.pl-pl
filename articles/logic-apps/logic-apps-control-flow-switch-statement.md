@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657452"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Utwórz instrukcje Switch, które uruchamiają akcje przepływu pracy na podstawie określonych wartości w Azure Logic Apps
@@ -67,7 +67,7 @@ Załóżmy na przykład, że chcesz, aby aplikacja logiki, która wykonuje róż
    |--------|--------------------|--------|
    | Przypadek 1 | **Zatwierdzenie** | Dodaj akcję **Wyślij wiadomość e-mail** do programu Outlook w celu wysłania szczegółowych informacji o elemencie RSS tylko wtedy, gdy osoba zatwierdzająca zabrała **zatwierdzenie**. |
    | Przypadek 2 | **Reject** | Dodaj akcję **Wyślij wiadomość e-mail** do programu Outlook, aby poinformować inne osoby zatwierdzające o odrzuceniu elementu RSS. |
-   | Domyślny | Brak | Nie trzeba podejmować żadnych działań. W tym przykładzie **domyślnym** przypadkiem jest pusty, ponieważ **SelectedOption** ma tylko dwie opcje. |
+   | Domyślne | Brak | Nie trzeba podejmować żadnych działań. W tym przykładzie **domyślnym** przypadkiem jest pusty, ponieważ **SelectedOption** ma tylko dwie opcje. |
    |||
 
    ![Zakończono przełączanie instrukcji](./media/logic-apps-control-flow-switch-statement/finished-switch.png)

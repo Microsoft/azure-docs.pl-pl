@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
 ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409769"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
@@ -45,7 +45,7 @@ Następnym krokiem jest określenie, czy wykres ma być używany do celów anali
 
 Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiektach grafu:
 
-| Obiekt | Właściwość | Typ | Uwagi |
+| Obiekt | Właściwość | Type | Uwagi |
 | --- | --- | --- |  --- |
 | Wierzchołka | ID (Identyfikator) | Ciąg | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
 | Wierzchołka | label | Ciąg | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
@@ -105,7 +105,7 @@ Korzystanie z opisowych etykiet relacji może poprawić wydajność operacji roz
 * Aby oznaczyć relację, użyj nieogólnych warunków.
 * Skojarz etykietę wierzchołka źródłowego z etykietą wierzchołka docelowego z nazwą relacji.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Przykłady etykietowania relacji." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Model jednostki z wierzchołkami dla właściwości." border="false":::
 
 Im bardziej szczegółowa etykieta, która będzie używana przez przechodzenie do filtrowania krawędzi, tym lepiej. Ta decyzja może mieć znaczny wpływ na koszt zapytań. Koszt zapytania można oszacować w dowolnym momencie [przy użyciu kroku executionProfile](graph-execution-profile.md).
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439087"
 ---
 # <a name="train-pytorch-model"></a>Trenowanie modelu Pytorch
@@ -66,11 +66,11 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa          | Zakres            | Typ    | Domyślny | Opis                              |
+| Nazwa          | Zakres            | Type    | Domyślne | Opis                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoki        | >0               | Liczba całkowita | 5       | Wybierz kolumnę, która zawiera etykietę lub kolumnę wyniku |
 | Rozmiar partii    | >0               | Liczba całkowita | 16      | Liczba wystąpień do uczenia w partii   |
-| Tempo nauki | >= Double. Epsilon | Float   | 0,001   | Początkowa stawka szkoleniowa dla Stochastycznegoego gradientu. |
+| Tempo nauki | >= Double. Epsilon | Liczba zmiennoprzecinkowa   | 0,001   | Początkowa stawka szkoleniowa dla Stochastycznegoego gradientu. |
 | Losowy inicjator   | Dowolne              | Liczba całkowita | 1       | Inicjator dla generatora liczb losowych używanego przez model. |
 | Oczekując      | >0               | Liczba całkowita | 3       | Ile epok z wczesnym zatrzymywaniem szkoleń   |
 

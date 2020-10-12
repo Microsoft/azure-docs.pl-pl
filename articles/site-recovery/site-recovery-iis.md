@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083773"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji sieci Web opartej na usługach IIS
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji internetowej opartej na usługach IIS
 
 Oprogramowanie aplikacji jest aparatem produktywności biznesowej w organizacji. Różne aplikacje sieci Web mogą działać w różnych celach w organizacji. Niektóre aplikacje, takie jak aplikacje używane do przetwarzania listy płac, aplikacje finansowe i witryny sieci Web dostępne dla klientów, mogą mieć kluczowe znaczenie dla organizacji. Aby zapobiec utracie produktywności, ważne jest, aby organizacja mogła stale pracować z tymi aplikacjami. Ponadto, jeśli te aplikacje są stale dostępne, może to zapobiec uszkodzeniu marki lub wizerunku organizacji.
 
@@ -62,8 +62,8 @@ Scenariusz | Do lokacji dodatkowej | Na platformę Azure
 --- | --- | ---
 Hyper-V | Tak | Tak
 VMware | Tak | Tak
-Serwer fizyczny | Nie | Yes
-Azure|Nie dotyczy|Tak
+Serwer fizyczny | Nie | Tak
+Azure|Nie dotyczy|Yes
 
 ## <a name="replicate-virtual-machines"></a>Replikowanie maszyn wirtualnych
 

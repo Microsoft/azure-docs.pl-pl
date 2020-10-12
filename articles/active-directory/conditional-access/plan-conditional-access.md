@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258680"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
@@ -67,7 +67,7 @@ Jeśli wymagane są dodatkowe funkcje, mogą również być potrzebne powiązane
 Następujące zasoby mogą być przydatne podczas nauki na temat dostępu warunkowego:
 
 
-#### <a name="videos"></a>Filmy wideo
+#### <a name="videos"></a>Wideo
 
 * [Co to jest dostęp warunkowy?](https://youtu.be/ffMAw2IVO7A)
 * [Jak wdrożyć dostęp warunkowy?](https://youtu.be/c_izIRNJNuk)
@@ -493,7 +493,7 @@ Po zebraniu informacji zapoznaj się z następującymi zasobami:
 
 * [Problemy z logowaniem przy użyciu dostępu warunkowego](troubleshoot-conditional-access.md) — informacje o nieoczekiwanych próbach logowania związane z dostępem warunkowym przy użyciu komunikatów o błędach i dziennika logowania usługi Azure AD.
 
-* [Korzystanie z narzędzia do analizy warunkowej — informacje](troubleshoot-conditional-access-what-if.md) o tym, dlaczego zasady były lub nie zostały zastosowane do użytkownika w konkretnym przypadku lub w przypadku, gdy zasady byłyby stosowane w znanym stanie.
+* [Za pomocą narzędzia What-If](troubleshoot-conditional-access-what-if.md) — informacje o tym, dlaczego zasady były lub nie zostały zastosowane do użytkownika w konkretnym przypadku lub w przypadku, gdy zasady byłyby stosowane w znanym stanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

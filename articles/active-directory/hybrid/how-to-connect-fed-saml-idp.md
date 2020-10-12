@@ -15,20 +15,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295042"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Korzystanie z dostawcy tożsamości SAML 2.0 na potrzeby logowania jednokrotnego
 
-Ten dokument zawiera informacje na temat używania dostawcy tożsamości protokołu SAML 2,0 zgodnego z profilem SP-Lite jako preferowanej usługi tokenu zabezpieczającego (STS)/dostawcy tożsamości. Ten scenariusz jest przydatny, jeśli masz już lokalny katalog użytkownika i Magazyn haseł, do których można uzyskać dostęp za pomocą protokołu SAML 2,0. Istniejący katalog użytkownika może służyć do logowania się do Microsoft 365 i innych zasobów zabezpieczonych za pomocą usługi Azure AD. Profil protokołu SAML 2,0 SP-Lite jest oparty na powszechnie używanym standardzie tożsamości federacyjnych SAML (SAML) w celu udostępnienia środowiska rejestracji i atrybutów wymiany.
+Ten dokument zawiera informacje na temat używania dostawcy tożsamości usługi SAML 2,0 SP-Lite zgodnego z profilem jako preferowanego tokenu zabezpieczającego (STS)/dostawcy tożsamości. Ten scenariusz jest przydatny, jeśli masz już lokalny katalog użytkownika i Magazyn haseł, do których można uzyskać dostęp za pomocą protokołu SAML 2,0. Istniejący katalog użytkownika może służyć do logowania się do Microsoft 365 i innych zasobów zabezpieczonych za pomocą usługi Azure AD. Profil SP-Lite SAML 2,0 jest oparty na powszechnie używanym SAML (SAML) federacyjnym standardem tożsamości w celu udostępnienia środowiska rejestracji i atrybutów wymiany.
 
 >[!NOTE]
 >Aby zapoznać się z listą dostawców tożsamości innych firm, które zostały przetestowane do użycia z usługą Azure AD, zobacz [listę zgodności Federacji usługi Azure AD](how-to-connect-fed-compatibility.md)
 
-Firma Microsoft obsługuje to Logowanie jako integrację usługi firmy Microsoft w chmurze, takiej jak Microsoft 365, z prawidłowo skonfigurowanym dostawcy tożsamości opartym na profilach SAML 2,0. Dostawcy tożsamości SAML 2,0 są produktami innych firm, w związku z czym firma Microsoft nie zapewnia pomocy technicznej dotyczącej wdrażania, konfiguracji i rozwiązywania problemów z najlepszymi rozwiązaniami. Po poprawnym skonfigurowaniu integracji z dostawcą tożsamości SAML 2,0 można sprawdzić w celu uzyskania prawidłowej konfiguracji przy użyciu narzędzia Microsoft Connectivity Analyzer, które zostało opisane bardziej szczegółowo. Aby uzyskać więcej informacji na temat dostawcy tożsamości protokołu SAML 2,0 SP-Lite, należy polecić organizacji, która go dostarczyła.
+Firma Microsoft obsługuje to Logowanie jako integrację usługi firmy Microsoft w chmurze, takiej jak Microsoft 365, z prawidłowo skonfigurowanym dostawcy tożsamości opartym na profilach SAML 2,0. Dostawcy tożsamości SAML 2,0 są produktami innych firm, w związku z czym firma Microsoft nie zapewnia pomocy technicznej dotyczącej wdrażania, konfiguracji i rozwiązywania problemów z najlepszymi rozwiązaniami. Po poprawnym skonfigurowaniu integracji z dostawcą tożsamości SAML 2,0 można sprawdzić w celu uzyskania prawidłowej konfiguracji przy użyciu narzędzia Microsoft Connectivity Analyzer, które zostało opisane bardziej szczegółowo. Aby uzyskać więcej informacji na temat dostawcy tożsamości opartego na profilach SAML 2,0 SP-Lite, poprosimy o podawanie tej organizacji.
 
 > [!IMPORTANT]
 > Tylko ograniczony zestaw klientów jest dostępny w tym scenariuszu logowania z dostawcami tożsamości SAML 2,0. obejmuje to:
@@ -276,7 +276,7 @@ Aby uzyskać więcej informacji na temat wyewidencjonowania "New-MsolUser", [/Pr
 >Wartość "UserPrinciplName" musi być zgodna z wartością, która zostanie wysłana dla elementu "IDPEmail" w ramach żądania SAML 2,0, a wartość "ImmutableID" musi być zgodna z wartością wysłaną w potwierdzeniu "NameID".
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>Weryfikowanie logowania jednokrotnego przy użyciu protokołu SAML 2,0 dostawcy tożsamości
-Jako administrator przed sprawdzeniem i zarządzaniem logowaniem jednokrotnym (nazywanego również tożsamością Federacji) zapoznaj się z informacjami i wykonaj kroki opisane w poniższych artykułach, aby skonfigurować Logowanie jednokrotne przy użyciu dostawcy tożsamości SAML 2,0 SP-Lite:
+Jako administrator przed sprawdzeniem i zarządzaniem logowaniem jednokrotnym (nazywanego również Federacją tożsamością) zapoznaj się z informacjami i wykonaj kroki opisane w poniższych artykułach, aby skonfigurować Logowanie jednokrotne za pomocą dostawcy tożsamości na podstawie SP-Lite SAML 2,0:
 
 
 1.  Zawarto przegląd wymagań dotyczących protokołu SAML 2,0 usługi Azure AD
@@ -286,7 +286,7 @@ Jako administrator przed sprawdzeniem i zarządzaniem logowaniem jednokrotnym (n
 5.  Poznanie znanego podmiotu użytkownika testowego do Azure Active Directory (Microsoft 365) za pomocą programu Windows PowerShell lub Azure AD Connect.
 6.  Skonfiguruj synchronizację katalogów za pomocą [Azure AD Connect](whatis-hybrid-identity.md).
 
-Po skonfigurowaniu logowania jednokrotnego za pomocą dostawcy tożsamości SAML 2,0 SP-Lite należy sprawdzić, czy działa poprawnie.
+Po skonfigurowaniu logowania jednokrotnego za pomocą dostawcy tożsamości opartego na protokole SAML 2,0 SP-Lite należy sprawdzić, czy działa poprawnie.
 
 >[!NOTE]
 >Jeśli przeprowadzono konwersję domeny, a nie dodasz jej, może upłynąć nawet 24 godziny, aby skonfigurować Logowanie jednokrotne.

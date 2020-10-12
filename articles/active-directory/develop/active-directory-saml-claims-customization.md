@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89421462"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
@@ -62,7 +62,7 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
 | **Kwalifikowana nazwa domeny systemu Windows** | Platforma tożsamości firmy Microsoft będzie używać WindowsDomainQualifiedName jako formatu NameID. |
 
-Przejściowa NameID jest również obsługiwana, ale nie jest dostępna na liście rozwijanej i nie można jej skonfigurować na stronie platformy Azure. Aby dowiedzieć się więcej o atrybucie NameIDPolicy, zobacz Logowanie jednokrotne [protokołu SAML](single-sign-on-saml-protocol.md).
+Przejściowa NameID jest również obsługiwana, ale nie jest dostępna na liście rozwijanej i nie można jej skonfigurować na stronie platformy Azure. Aby dowiedzieć się więcej o atrybucie NameIDPolicy, zobacz [Single Sign-On SAML Protocol](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -70,7 +70,7 @@ Wybierz żądane źródło dla `NameIdentifier` żądania (lub NameID). Można w
 
 | Nazwa | Opis |
 |------|-------------|
-| E-mail | Adres e-mail użytkownika |
+| Poczta e-mail | Adres e-mail użytkownika |
 | userprincipalName | Główna nazwa użytkownika (UPN) użytkownika |
 | onpremisessamaccount | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
 | obiektu | Identyfikator obiektu użytkownika w usłudze Azure AD |

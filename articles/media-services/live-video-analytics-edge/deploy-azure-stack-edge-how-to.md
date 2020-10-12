@@ -4,10 +4,10 @@ description: W tym artykule wymieniono kroki, które ułatwią wdrożenie analiz
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937716"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Wdrażanie usługi Live Video Analytics na Azure Stack Edge
@@ -58,11 +58,11 @@ Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie ko
     |Nazwa|Wprowadź nazwę dla zasobu IoT Hub.|
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Rozpoczęcie Azure Stack krawędzi":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
 1. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Tworzenie zasobów IoT Hub":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
 
     > [!NOTE]
     > Jeśli okno dialogowe Konfigurowanie obliczeń zostanie zamknięte przed skojarzeniem IoT Hub z zasobem Azure Stack brzegowego, IoT Hub zostanie utworzony, ale nie będzie wyświetlany w konfiguracji obliczeniowej. Załaduj ponownie stronę po kilku minutach i zobaczysz ją.
@@ -72,7 +72,7 @@ Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie ko
     Po wypełnieniu wszystkich informacji na karcie Konfiguracja obliczeń Edge zostanie wyświetlona informacja poniżej:
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Konfigurowanie karty obliczeniowej Edge ":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
  
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Włącz wymagania wstępne dotyczące obliczeń w Azure Stack krawędzi lokalnego interfejsu użytkownika
 
@@ -89,12 +89,7 @@ Przed kontynuowaniem upewnij się, że:
         * Wybierz pozycję Zastosuj — ta operacja powinna trwać około 2 minuty.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Wymagania wstępne dotyczące obliczeń dla lokalnego interfejsu użytkownika Azure Stack Edge":::
-
-        * Jeśli usługa DNS nie jest skonfigurowana dla interfejsu API Kubernetes i Azure Stack, możesz zaktualizować plik hosta okna.
-        
-            * Otwórz Edytor tekstu jako administrator
-            * Otwórz plik "do C:\Windows\System32\drivers\etc\hosts"
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge"
             * Dodaj adres IPv4 i nazwę hosta usługi Kubernetes API do pliku. (Te informacje można znaleźć w portalu Azure Stack Edge w sekcji urządzenia).
             * Zapisz i zamknij
 
@@ -185,7 +180,7 @@ Te kroki obejmują tworzenie użytkownika bramy i Konfigurowanie udziałów plik
     1. Kliknij pozycję **Utwórz**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Udział lokalny":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
     
 1. Utwórz udział zdalny dla magazynu synchronizacji plików.
 
@@ -203,36 +198,7 @@ Te kroki obejmują tworzenie użytkownika bramy i Konfigurowanie udziałów plik
     1. Kliknij pozycję **Utwórz**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Udział zdalny":::
-    
-    > [!TIP]
-    > Korzystając z klienta systemu Windows połączonego z Azure Stack krawędzią, Połącz się z udziałami SMB, wykonując kroki opisane [w tym dokumencie](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
-    
-1. Zaktualizuj opcje tworzenia kontenera usługi Live Video Analytics na żywo (patrz punkt 4 w [dokumencie Dodawanie modułów](deploy-iot-edge-device.md#add-modules)), aby użyć instalacji woluminów.
-
-   ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
             }]
         }
     }
@@ -248,7 +214,7 @@ Wykonaj poniższe kroki, aby sprawdzić, czy moduł jest uruchomiony:
 1. Wybierz kafelek moduły. Spowoduje to przejście do bloku moduły. Na liście modułów Zidentyfikuj wdrożony moduł. Powinien być uruchomiony stan środowiska uruchomieniowego modułu, który został dodany.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Moduł niestandardowy":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Konfigurowanie rozszerzenia narzędzi Azure IoT Tools
 

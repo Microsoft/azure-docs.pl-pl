@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
 ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393072"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Korzystanie z usług równoważenia obciążenia na platformie Azure
@@ -88,10 +88,10 @@ Na poniższym diagramie przedstawiono architekturę tego scenariusza:
    * **Liczba**wystąpień: liczba wystąpień, wartość z przenoszącą od 2 do 10.
    * **Grupa zasobów**: Grupa zasobów zawierająca bramę aplikacji. Może to być istniejąca Grupa zasobów lub nowa.
    * **Lokalizacja**: region bramy aplikacji, który jest tą samą lokalizacją jak grupa zasobów. Lokalizacja jest ważna, ponieważ sieć wirtualna i publiczny adres IP muszą znajdować się w tej samej lokalizacji co brama.
-3. Kliknij pozycję **OK**.
+3. Kliknij przycisk **OK**.
 4. Zdefiniuj konfigurację sieci wirtualnej, podsieci, adresu IP frontonu i odbiornika dla bramy aplikacji. W tym scenariuszu adres IP frontonu jest **publiczny**, co umożliwia jego dodanie jako punkt końcowy do profilu Traffic Manager w późniejszym czasie.
 5. Skonfiguruj odbiornik przy użyciu jednej z następujących opcji:
-    * Jeśli używasz protokołu HTTP, nie ma niczego do skonfigurowania. Kliknij pozycję **OK**.
+    * Jeśli używasz protokołu HTTP, nie ma niczego do skonfigurowania. Kliknij przycisk **OK**.
     * Jeśli używasz protokołu HTTPS, wymagana jest dodatkowa konfiguracja. Zapoznaj się z tematem [Tworzenie bramy aplikacji](../application-gateway/application-gateway-create-gateway-portal.md), rozpoczynając od kroku 9. Po zakończeniu konfiguracji kliknij przycisk **OK**.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Konfigurowanie routingu adresów URL dla bram aplikacji

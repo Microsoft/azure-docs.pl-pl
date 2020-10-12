@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829088"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
@@ -90,7 +90,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure są uruchamiane na istniejących
 
 Poniższe metody mogą służyć do uruchamiania rozszerzenia dla istniejącej maszyny wirtualnej.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Istnieje kilka poleceń programu PowerShell do uruchamiania indywidualnych rozszerzeń. Aby wyświetlić listę, użyj [poleceń Get-Command](/powershell/module/microsoft.powershell.core/get-command) i Filter on *Extension*:
 
@@ -254,7 +254,7 @@ Przeniesienie **polecenia do wykonania** właściwości do **chronionej** konfig
 
 Na maszynie wirtualnej IaaS platformy Azure, która korzysta z rozszerzeń, w konsoli Certyfikaty mogą zostać wyświetlone certyfikaty, które mają temat **_Generator certyfikatów usługi Microsoft Azure CRP_**. Na klasycznej maszynie wirtualnej frontonu reddog te certyfikaty mają nazwę podmiotu **_usługi Microsoft Azure Service Management dla rozszerzeń_**.
 
-Te certyfikaty zabezpieczają komunikację między maszyną wirtualną i jej hostem podczas transferu ustawień chronionych (hasła, inne poświadczenia) używanych przez rozszerzenia. Certyfikaty są kompilowane przez kontroler sieci szkieletowej platformy Azure i przesyłane do agenta maszyny wirtualnej. Jeśli zatrzymasz i uruchomisz maszynę wirtualną codziennie, nowy certyfikat może być utworzony przez kontroler sieci szkieletowej. Certyfikat jest przechowywany w osobistym magazynie certyfikatów komputera. Te certyfikaty można usunąć. Agent maszyny wirtualnej w razie potrzeby tworzy ponowne utworzenie certyfikatów.
+Te certyfikaty zabezpieczają komunikację między maszyną wirtualną i jej hostem podczas transferu ustawień chronionych (hasło, inne poświadczenia) używanych przez rozszerzenia. Certyfikaty są tworzone przez kontroler sieci szkieletowej platformy Azure i przekazywane do agenta maszyny wirtualnej. Jeśli codziennie zatrzymujesz i uruchamiasz maszynę wirtualną, kontroler sieci szkieletowej może utworzyć nowy certyfikat. Certyfikat jest przechowywany w magazynie certyfikatów osobistych komputera. Te certyfikaty można usunąć. Agent maszyny wirtualnej w razie potrzeby tworzy ponowne utworzenie certyfikatów.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Jak są aktualizowane agenci i rozszerzenia?
 

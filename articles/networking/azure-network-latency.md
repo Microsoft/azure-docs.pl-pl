@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: kumud
 ms.openlocfilehash: 72168a56bfb4e08c7f44c84c773d9f6599cfa607
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91848890"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statystyka opóźnienia w sieci platformy Azure

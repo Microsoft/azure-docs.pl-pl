@@ -4,10 +4,10 @@ description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Az
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324339"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
@@ -36,7 +36,7 @@ Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji usługi
 
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
-## <a name="create-a-continuous-export"></a><a name="setup"></a>Tworzenie eksportu ciągłego
+## <a name="create-a-continuous-export"></a><a name="setup"></a> Tworzenie eksportu ciągłego
 
 1. W Application Insights zasób dla aplikacji w obszarze Konfigurowanie po lewej stronie Otwórz eksport ciągły i wybierz polecenie **Dodaj**:
 
@@ -61,7 +61,7 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 |Nazwa | Opis |
 |:----|:------|
 | [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](./monitor-web-app-availability.md).  |
-| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
+| [Wydarzen](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 | [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](./asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.
@@ -81,7 +81,7 @@ Aby zatrzymać eksport trwale, usuń go. Wykonanie tej czynności nie powoduje u
 ### <a name="cant-add-or-change-an-export"></a>Nie można dodać lub zmienić eksportu?
 * Aby dodać lub zmienić eksporty, musisz mieć prawa dostępu Właściciel, Współautor lub Współautor w usłudze Application Insights. [Poznaj role][roles].
 
-## <a name="what-events-do-you-get"></a><a name="analyze"></a>Jakie zdarzenia są uzyskiwane?
+## <a name="what-events-do-you-get"></a><a name="analyze"></a> Jakie zdarzenia są uzyskiwane?
 Wyeksportowane dane są nieoczyszczoną telemetrią otrzymywaną z aplikacji, z tą różnicą, że dodawane są dane lokalizacji, które są obliczane na podstawie adresu IP klienta.
 
 Dane, które zostały odrzucone przez [pobranie próbek](./sampling.md) nie są uwzględniane w wyeksportowanych danych.
@@ -95,7 +95,7 @@ Dane obejmują również wyniki wszelkich skonfigurowanych [testów dostępnośc
 >
 >
 
-## <a name="inspect-the-data"></a><a name="get"></a>Inspekcja danych
+## <a name="inspect-the-data"></a><a name="get"></a> Inspekcja danych
 Magazyn można sprawdzić bezpośrednio w portalu. Kliknij pozycję Strona główna w menu z lewej strony, w górnej części strony "usługi platformy Azure" Wybierz pozycję **konta magazynu**, wybierz nazwę konta magazynu, na stronie Przegląd wybierz pozycję **obiekty blob** w obszarze usługi, a następnie wybierz nazwę kontenera.
 
 Aby sprawdzić usługę Azure Storage w programie Visual Studio, Otwórz **Widok**, **Eksplorator chmury**. (Jeśli nie masz tego polecenia menu, musisz zainstalować zestaw Azure SDK: Otwórz okno dialogowe **Nowy projekt** , rozwiń pozycję Visual C#/Cloud i wybierz polecenie **Pobierz zestaw Microsoft Azure SDK dla platformy .NET**.)
@@ -114,10 +114,10 @@ $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}
 
 Lokalizacja
 
-* `blobCreationTimeUtc`to czas, w którym obiekt BLOB został utworzony w wewnętrznym magazynie przemieszczania
-* `blobDeliveryTimeUtc`to czas, po jakim obiekt BLOB jest kopiowany do magazynu docelowego eksportu
+* `blobCreationTimeUtc` to czas, w którym obiekt BLOB został utworzony w wewnętrznym magazynie przemieszczania
+* `blobDeliveryTimeUtc` to czas, po jakim obiekt BLOB jest kopiowany do magazynu docelowego eksportu
 
-## <a name="data-format"></a><a name="format"></a>Format danych
+## <a name="data-format"></a><a name="format"></a> Format danych
 * Każdy obiekt BLOB jest plikiem tekstowym zawierającym wiele wierszy "\n", które są oddzielone. Zawiera dane telemetryczne przetwarzane w przedziale czasu wynoszącym około pół minuty.
 * Każdy wiersz reprezentuje punkt danych telemetrii, taki jak żądanie lub widok strony.
 * Każdy wiersz jest niesformatowanym dokumentem JSON. Jeśli chcesz wyświetlić wiersze, Otwórz obiekt BLOB w programie Visual Studio i wybierz polecenie **Edytuj**  >  **Advanced**  >  **plik formatu**zaawansowanego:
@@ -197,7 +197,7 @@ W przypadku większych skal należy wziąć pod uwagę klastry usługi [HDInsigh
   * Ponadto w przypadku aplikacji o dużym natężeniu ruchu są przydzielone dodatkowe jednostki partycji. W takim przypadku każda jednostka tworzy obiekt BLOB co minutę.
 * *Ponownie wygenerowano klucz do magazynu lub zmieniono nazwę kontenera, a teraz eksportowanie nie działa.*
 
-    Edytuj kartę Eksportuj i Otwórz lokalizację docelową eksportu. Pozostaw ten sam magazyn wybrany jak poprzednio, a następnie kliknij przycisk OK, aby potwierdzić. Eksport zostanie uruchomiony ponownie. Jeśli zmiana była w ciągu ostatnich kilku dni, utracisz dane.
+    Edytuj eksport i Otwórz kartę eksport docelowy. Pozostaw ten sam magazyn wybrany jak wcześniej, a następnie kliknij przycisk OK, aby potwierdzić. Eksport zostanie uruchomiony ponownie. Jeśli zmiana była w ciągu ostatnich kilku dni, utracisz dane.
 * *Czy mogę wstrzymać eksport?*
 
     Tak. Kliknij przycisk Wyłącz.

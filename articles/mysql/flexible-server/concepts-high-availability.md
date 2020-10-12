@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937132"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Pojęcia dotyczące wysokiej dostępności w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)
@@ -18,7 +18,7 @@ ms.locfileid: "90937132"
 > [!IMPORTANT] 
 > Serwer elastyczny Azure Database for MySQL jest obecnie w publicznej wersji zapoznawczej.
 
-Azure Database for MySQL elastyczny serwer (wersja zapoznawcza) umożliwia konfigurowanie wysokiej dostępności z automatycznym trybem failover przy użyciu opcji **nadmiarowej** wysokiej dostępności strefy. W przypadku wdrożenia w strefie nadmiarowej konfiguracji, elastyczny serwer automatycznie inicjuje i zarządza repliką rezerwową w innej strefie dostępności. Przy użyciu replikacji na poziomie magazynu dane są **synchronicznie replikowane** do serwera rezerw w strefie pomocniczej w celu włączenia zerowej utraty danych po przejściu do trybu failover. Tryb failover jest w pełni niewidoczny dla aplikacji klienckiej i nie wymaga żadnych akcji użytkownika. Serwer rezerwy nie jest dostępny dla żadnej operacji odczytu lub zapisu, ale jest to pasywne wstrzymywanie, aby włączyć szybką pracę w trybie failover. Czasy pracy w trybie failover zazwyczaj należą do zakresu od 60-120 sekund.
+Azure Database for MySQL elastyczny serwer (wersja zapoznawcza) umożliwia konfigurowanie wysokiej dostępności z automatycznym trybem failover przy użyciu opcji **nadmiarowej** wysokiej dostępności strefy. W przypadku wdrożenia w konfiguracji strefowo nadmiarowej serwer elastyczny automatycznie aprowizuje replikę rezerwową i zarządza nią w innej strefie dostępności. Przy użyciu replikacji na poziomie magazynu dane są **synchronicznie replikowane** do serwera rezerw w strefie pomocniczej w celu włączenia zerowej utraty danych po przejściu do trybu failover. Tryb failover jest w pełni niewidoczny dla aplikacji klienckiej i nie wymaga żadnych akcji użytkownika. Serwer rezerwy nie jest dostępny dla żadnej operacji odczytu lub zapisu, ale jest to pasywne wstrzymywanie, aby włączyć szybką pracę w trybie failover. Czasy pracy w trybie failover zazwyczaj należą do zakresu od 60-120 sekund.
 
 Konfiguracja nadmiarowej strefy o wysokiej dostępności umożliwia automatyczne przełączanie w tryb failover podczas planowanych zdarzeń, takich jak operacje obliczeniowe skalowania przez użytkownika, a także niezaplanowanych zdarzeń, takich jak błędy sprzętu i oprogramowania, awarie sieci, a nawet niepowodzenia strefy dostępności.
 

@@ -16,10 +16,10 @@ ms.date: 04/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cfc2ae06a1dca855b03f69b7f57adcfd2bfe13e5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89259884"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy
@@ -254,7 +254,7 @@ Poniższy kod przedstawia sposób wysyłania żądania do usługi dostarczania k
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a name="example"></a><a id="example"></a>Przykład
+### <a name="example"></a><a id="example"></a>Przyklad
 
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
  
@@ -268,5 +268,5 @@ Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w któryc
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

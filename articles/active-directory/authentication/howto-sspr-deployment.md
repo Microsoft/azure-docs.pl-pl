@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657223"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
@@ -75,7 +75,7 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Azure Activ
 
 | Zasoby| Link i opis |
 | - | - |
-| Filmy wideo| [ZAPEWNIAnie użytkownikom lepszej skalowalności](https://youtu.be/g9RpRnylxS8) 
+| Wideo| [ZAPEWNIAnie użytkownikom lepszej skalowalności](https://youtu.be/g9RpRnylxS8) 
 | |[Co to jest samoobsługowe resetowanie hasła?](https://youtu.be/hc97Yx5PJiM)|
 | |[Wdrażanie samoobsługowego resetowania hasła](https://www.youtube.com/watch?v=Pa0eyqjEjvQ&index=18&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0)|
 | |[Jak skonfigurować Samoobsługowe resetowanie haseł dla użytkowników w usłudze Azure AD?](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/) |
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Azure Activ
 |Samouczki |[przeprowadzanie pilotażowego wdrożenia samoobsługowego resetowania hasła usługi Azure AD](./tutorial-enable-sspr.md) |
 | |[włączanie zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md) |
 | |[Resetowanie hasła usługi Azure AD na ekranie logowania dla systemu Windows 10](./howto-sspr-windows.md) |
-| Często zadawane pytania|[Często zadawane pytania dotyczące zarządzania hasłami](./active-directory-passwords-faq.md) |
+| Najczęściej zadawane pytania|[Często zadawane pytania dotyczące zarządzania hasłami](./active-directory-passwords-faq.md) |
 
 
 ### <a name="solution-architecture"></a>Architektura rozwiązania
@@ -149,7 +149,7 @@ Aby utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure A
 
 Następujące ustawienia są wymagane do włączenia SSPR oraz zalecanych wartości.
 
-| Obszar | Ustawienie | Wartość |
+| Warstwowy | Ustawienie | Wartość |
 | --- | --- | --- |
 | **Właściwości SSPR** | Włączono Samoobsługowe resetowanie hasła | **Wybrana** Grupa dla pilotażu/ **wszystko** dla środowiska produkcyjnego |
 | **Metody uwierzytelniania** | Metody uwierzytelniania wymagane do zarejestrowania | Zawsze 1 więcej niż wymagane do zresetowania |

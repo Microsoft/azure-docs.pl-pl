@@ -5,10 +5,10 @@ ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
 ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532379"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Korzystanie z danych usługi Azure Blockchain Workbench w usłudze Microsoft Power BI
@@ -29,7 +29,7 @@ Ten artykuł zawiera przewodnik krok po kroku, w którym przedstawiono instrukcj
     ![Pobieranie danych](./media/data-powerbi/get-data.png)
 3.  Wybierz pozycję **SQL Server** z listy typów źródeł danych.
 
-4.  Podaj nazwę serwera i bazy danych w oknie dialogowym. Określ, czy chcesz importować dane lub wykonać zapytanie w trybie **DirectQuery**. Wybierz pozycję **OK**.
+4.  Podaj nazwę serwera i bazy danych w oknie dialogowym. Określ, czy chcesz importować dane lub wykonać zapytanie w trybie **DirectQuery**. Wybierz przycisk **OK**.
 
     ![Wybieranie pozycji SQL Server](./media/data-powerbi/select-sql.png)
 

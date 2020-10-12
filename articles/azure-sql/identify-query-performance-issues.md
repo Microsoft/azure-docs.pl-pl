@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619767"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w usłudze Azure SQL Database
@@ -153,8 +153,8 @@ Niska wydajność zapytań nie jest związana z nieoptymalnymi planami zapytań 
 - Wykrywanie limitów zasobów przy użyciu [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Wykrywanie problemów z zasobami przy użyciu [widoków DMV](database/monitoring-with-dmvs.md):
 
-  - [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca procesor, we/wy i użycie pamięci dla bazy danych. Jeden wiersz istnieje dla każdego 15-sekundowego interwału, nawet jeśli w bazie danych nie ma żadnych działań. Dane historyczne są przechowywane przez jedną godzinę.
-  - DMV [sys. resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) zwraca dane użycia procesora CPU i magazynu dla Azure SQL Database. Dane są zbierane i agregowane w odstępach 5-minutowych.
+  - [Sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca procesor, we/wy i użycie pamięci dla bazy danych. Jeden wiersz istnieje dla każdego 15-sekundowego interwału, nawet jeśli w bazie danych nie ma żadnych działań. Dane historyczne są przechowywane przez jedną godzinę.
+  - [Sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca dane użycia procesora CPU i magazynu dla Azure SQL Database. Dane są zbierane i agregowane w odstępach 5-minutowych.
   - [Wiele indywidualnych zapytań, które łącznie zużywają duże użycie procesora CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 W przypadku zidentyfikowania problemu jako niewystarczającego zasobu można uaktualnić zasoby, aby zwiększyć pojemność bazy danych w celu zaabsorbowania wymagań procesora. Aby uzyskać więcej informacji, zobacz [skalowanie zasobów pojedynczej bazy danych w Azure SQL Database](database/single-database-scale.md) i [skalowanie zasobów puli elastycznej w Azure SQL Database](database/elastic-pool-scale.md). Aby uzyskać informacje na temat skalowania wystąpienia zarządzanego, zobacz [limity zasobów w warstwie usług](managed-instance/resource-limits.md#service-tier-characteristics)
@@ -203,16 +203,16 @@ Gdy zostanie wyeliminowany nieoptymalny plan i problemy *związane* z uruchamian
 Te metody są często używane do wyświetlania najważniejszych kategorii typów oczekiwania:
 
 - Użyj Intelligent Insights, aby identyfikować zapytania z obniżeniem wydajności z powodu [zwiększonego oczekiwania](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Użyj [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) , aby znaleźć statystyki oczekiwania dla każdego zapytania w czasie. W magazynie zapytań typy oczekiwania są łączone w kategorie oczekiwania. Można znaleźć Mapowanie kategorii oczekiwania na typy oczekiwania w [tabeli sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Użyj wykazu [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) , aby zwrócić informacje o wszystkich czekach na wątki wykonywane podczas operacji zapytania. Ten Zagregowany widok służy do diagnozowania problemów z wydajnością Azure SQL Database a także z określonymi kwerendami i partiami. Zapytania oczekują na zasoby, czekają na kolejki lub czekają na zewnątrz.
-- Użyj wykazu [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) , aby zwrócić informacje o kolejce zadań oczekujących na jakiś zasób.
+- Użyj [magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) , aby znaleźć statystyki oczekiwania dla każdego zapytania w czasie. W magazynie zapytań typy oczekiwania są łączone w kategorie oczekiwania. Możesz znaleźć Mapowanie kategorii oczekiwania na typy oczekiwania w [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Użyj [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) , aby zwrócić informacje o wszystkich oczekiwaniach napotkanych przez wątki wykonywane w trakcie operacji zapytania. Ten Zagregowany widok służy do diagnozowania problemów z wydajnością Azure SQL Database a także z określonymi kwerendami i partiami. Zapytania oczekują na zasoby, czekają na kolejki lub czekają na zewnątrz.
+- Użyj [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) , aby zwrócić informacje o kolejce zadań oczekujących na jakiś zasób.
 
 W scenariuszach z wysokim procesorem CPU magazyn zapytań i statystyki oczekiwania mogą nie odzwierciedlać użycia procesora, jeśli:
 
 - Nadal są wykonywane zapytania o wysokim zużyciu procesora CPU.
 - W przypadku przełączenia w tryb failover działały zapytania o wysokim zużyciu procesora CPU.
 
-Widoków DMV, który śledzi magazyn zapytań i statystyki oczekiwania, pokazują wyniki tylko dla zapytań zakończonych pomyślnie i przekroczenia limitu czasu. Nie wyświetlają one danych dla aktualnie wykonywanych instrukcji do momentu zakończenia instrukcji. Użyj dynamicznego widoku zarządzania [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby śledzić aktualnie wykonywane zapytania i czas skojarzonego pracownika.
+Widoków DMV, który śledzi magazyn zapytań i statystyki oczekiwania, pokazują wyniki tylko dla zapytań zakończonych pomyślnie i przekroczenia limitu czasu. Nie wyświetlają one danych dla aktualnie wykonywanych instrukcji do momentu zakończenia instrukcji. Użyj dynamicznego widoku zarządzania [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) , aby śledzić aktualnie wykonywane zapytania i czas skojarzonego pracownika.
 
 > [!TIP]
 > Dodatkowe narzędzia:

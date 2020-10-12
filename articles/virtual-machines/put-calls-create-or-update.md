@@ -1,5 +1,5 @@
 ---
-title: Umieść wywołania dla operacji tworzenia lub aktualizacji
+title: Wywołania PUT na potrzeby operacji tworzenia lub aktualizacji
 description: Umieść wywołania operacji tworzenia lub aktualizacji w zasobach obliczeniowych
 author: mimckitt
 ms.author: mimckitt
@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
 ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347501"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>UMIESZCZENIE wywołań do tworzenia lub aktualizacji zasobów obliczeniowych

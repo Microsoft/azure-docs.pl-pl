@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: bezproblemowe logowanie jednokrotne — często zadawane pytania | Microsoft Docs'
+title: 'Azure AD Connect: bezproblemowe pojedyncze Sign-On — często zadawane pytania | Microsoft Docs'
 description: Odpowiedzi na często zadawane pytania dotyczące Azure Active Directory bezproblemowego logowania jednokrotnego.
 services: active-directory
 keywords: Co to jest Azure AD Connect, zainstaluj Active Directory, wymagane składniki usługi Azure AD, logowania jednokrotnego, rejestracji jednokrotnej
@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658340"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
-W tym artykule opisano często zadawane pytania dotyczące Azure Active Directory bezproblemowego logowania jednokrotnego. Kontynuuj sprawdzanie pod kątem nowej zawartości.
+W tym artykule opisano często zadawane pytania dotyczące Azure Active Directory bezproblemowe pojedyncze Sign-On (bezproblemowe logowanie jednokrotne). Kontynuuj sprawdzanie pod kątem nowej zawartości.
 
 **P: Jakie metody logowania umożliwiają bezproblemowe logowanie jednokrotne za pomocą**
 

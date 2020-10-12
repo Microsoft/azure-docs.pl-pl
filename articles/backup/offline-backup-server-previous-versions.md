@@ -4,10 +4,10 @@ description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą us
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890097"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
@@ -58,8 +58,8 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
     | Region suwerennej chmury | Link pliku ustawień publikowania platformy Azure |
     | --- | --- |
-    | Stany Zjednoczone | [Łącze](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
-    | Chiny | [Łącze](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Stany Zjednoczone | [Powiązań](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Chiny | [Powiązań](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
 * W subskrypcji, z której pobrano plik ustawień publikowania, utworzono konto usługi Azure Storage z modelem wdrażania Menedżer zasobów. Na koncie magazynu Utwórz nowy kontener obiektów blob, który będzie używany jako miejsce docelowe.
 
@@ -99,7 +99,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 
@@ -115,7 +115,7 @@ Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej 
     ![Przekazywanie certyfikatu](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. Na serwerze otwórz rejestr, wprowadzając polecenie **regedit** w oknie uruchamiania.
-1. Przejdź do wpisu rejestru *Computer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
+1. Przejdź do wpisu rejestru *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
 1. Kliknij prawym przyciskiem myszy pozycję **CloudBackupProvider**, a następnie Dodaj nową wartość ciągu o nazwie `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
@@ -124,7 +124,7 @@ Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej 
     >* Z poziomu programu PowerShell połączonego z platformą Azure Uruchom `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"` polecenie.
     >* Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
-1. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 7. Następnie wybierz pozycję **OK**.
+1. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 7. Następnie wybierz przycisk **OK**.
 1. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
 
     ![Kopiuj wartość z pola odcisku palca](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)

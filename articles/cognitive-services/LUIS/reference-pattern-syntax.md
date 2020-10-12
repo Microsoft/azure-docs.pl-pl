@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542193"
 ---
 # <a name="pattern-syntax"></a>Składnia wzorca
@@ -33,7 +33,7 @@ Składnia wzorca obsługuje następującą składnię:
 
 ## <a name="nesting-syntax-in-patterns"></a>Zagnieżdżanie składni w wzorcach
 
-**Opcjonalna** składnia, z nawiasami kwadratowymi, może być zagnieżdżona na dwa poziomy. Na przykład: `[[this]is] a new form`. Ten przykład umożliwia korzystanie z następujących wyrażenia długości:
+**Opcjonalna** składnia, z nawiasami kwadratowymi, może być zagnieżdżona na dwa poziomy. Przykład: `[[this]is] a new form`. Ten przykład umożliwia korzystanie z następujących wyrażenia długości:
 
 |Zagnieżdżony opcjonalny przykład wypowiedź|Objaśnienie|
 |--|--|
@@ -41,7 +41,7 @@ Składnia wzorca obsługuje następującą składnię:
 |jest nowym formularzem|dopasowuje zewnętrzne słowo opcjonalne i słowa inne niż opcjonalne we wzorcu|
 |nowy formularz|Dopasowuje tylko wymagane wyrazy|
 
-Składnia **grupowania** z nawiasami może być zagnieżdżona na dwa poziomy. Na przykład: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Ta funkcja umożliwia dopasowanie dowolnej z trzech jednostek.
+Składnia **grupowania** z nawiasami może być zagnieżdżona na dwa poziomy. Przykład: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Ta funkcja umożliwia dopasowanie dowolnej z trzech jednostek.
 
 Jeśli jednostki Entity1 jest lokalizacją z rolami, takimi jak Origin (Seattle) i Destination (Kair), a Entity 2 to znana nazwa budynku z jednostki listy (RedWest-C), następująca wyrażenia długości zostałaby zamapowana na ten wzorzec:
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089670"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
@@ -48,15 +48,15 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 
 | Typ tożsamości urządzenia | Infrastruktura tożsamości | Urządzenia z systemem Windows | Wersja platformy VDI | Obsługiwane |
 | --- | --- | --- | --- | --- |
-| hybrydowym dołączonym do usługi Azure AD. | Federacyjna<sup>3</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Yes |
+| hybrydowym dołączonym do usługi Azure AD. | Federacyjna<sup>3</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
 |   |   | Bieżące dla systemu Windows | Nietrwałe | Tak<sup>5</sup> |
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
-|   | Zarządzany<sup>4</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Yes |
+|   | Zarządzany<sup>4</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
 |   |   | Bieżące dla systemu Windows | Nietrwałe | Nie |
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
-|   | Zarządzany | Bieżące dla systemu Windows | Stale | Nie |
+|   | Zarządzani | Bieżące dla systemu Windows | Stale | Nie |
 |   |   |   | Nietrwałe | Nie |
 | Zarejestrowane w usłudze Azure AD | Federacyjne/zarządzane | Windows na poziomie bieżącym/Windows | Trwały/nietrwały | Nie dotyczy |
 

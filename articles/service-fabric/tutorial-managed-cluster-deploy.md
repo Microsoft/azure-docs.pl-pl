@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
 ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410452"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Samouczek: Wdrażanie klastra zarządzanego Service Fabric (wersja zapoznawcza)
@@ -65,9 +65,9 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="deploy-a-service-fabric-managed-cluster"></a>Wdróż klaster zarządzany Service Fabric
 
-### <a name="create-a-service-fabric-managed-cluster"></a>Tworzenie klastra zarządzanego Service Fabric
+### <a name="create-a-service-fabric-managed-cluster"></a>Tworzenie klastra zarządzanego usługi Service Fabric
 
-W tym kroku utworzysz klaster zarządzany Service Fabric za pomocą polecenia New-AzServiceFabricManagedCluster programu PowerShell. W poniższym przykładzie tworzony jest klaster o nazwie "Moja klaster" w grupie zasobów o nazwie Moje zasoby. Ta grupa zasobów została utworzona w poprzednim kroku w regionie eastus2.
+W tym kroku utworzysz klaster zarządzany Service Fabric przy użyciu polecenia programu PowerShell New-AzServiceFabricManagedCluster. W poniższym przykładzie tworzony jest klaster o nazwie "Moja klaster" w grupie zasobów o nazwie Moje zasoby. Ta grupa zasobów została utworzona w poprzednim kroku w regionie eastus2.
 
 W tym kroku Podaj własne wartości dla następujących parametrów:
 

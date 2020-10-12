@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89008696"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)
@@ -272,7 +272,7 @@ Oto kilka przykładowych zapytań i sposób interpretowania niektórych metryk z
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Zapytanie jest wykonywane w ramach skanowania, ponieważ jest w nim stosowane `LOWER` , a 500 z 2491 pobrane dokumenty są zwracane. |
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * Aby dowiedzieć się więcej na temat obsługiwanych operatorów zapytań SQL i słów kluczowych, zobacz [zapytanie SQL](sql-query-getting-started.md). 
 * Aby dowiedzieć się więcej o jednostkach żądania, zobacz [jednostki żądań](request-units.md).
 * Aby dowiedzieć się więcej na temat zasad indeksowania, zobacz [zasady indeksowania](index-policy.md) 

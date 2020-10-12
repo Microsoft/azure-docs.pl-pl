@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
 ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836126"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
@@ -176,7 +176,7 @@ Serwera proxy można użyć do zezwalania na wywołania Pacemaker do publicznego
 ### <a name="important-considerations"></a>Istotne zagadnienia
 
   - Jeśli istnieje już firmowy serwer proxy, możesz kierować wywołania wychodzące do publicznych punktów końcowych. Wywołania wychodzące do publicznych punktów końcowych przechodzą przez punkt kontroli firmowej.  
-  - Upewnij się, że konfiguracja serwera proxy umożliwia łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i`https://login.microsoftonline.com`  
+  - Upewnij się, że konfiguracja serwera proxy umożliwia łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i `https://login.microsoftonline.com`  
   - Upewnij się, że istnieje trasa z maszyn wirtualnych do serwera proxy  
   - Serwer proxy będzie obsługiwał tylko wywołania HTTP/HTTPS. Jeśli istnieje dodatkowe zapotrzebowanie na wywołania wychodzące do publicznego punktu końcowego przez różne protokoły (takie jak RFC), wymagane jest alternatywne rozwiązanie  
   - Rozwiązanie serwera proxy musi być wysoce dostępne, aby uniknąć niestabilności w klastrze Pacemaker  
@@ -224,7 +224,7 @@ Aby umożliwić usłudze Pacemaker komunikowanie się z interfejsem API zarządz
 
 Jeśli ruch wychodzący jest kierowany za pośrednictwem zapory innej firmy:
 
-- w przypadku korzystania z agenta usługi Azure ogrodzenia upewnij się, że konfiguracja zapory zezwala na łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i`https://login.microsoftonline.com`   
+- w przypadku korzystania z agenta usługi Azure ogrodzenia upewnij się, że konfiguracja zapory zezwala na łączność wychodzącą z interfejsem API zarządzania platformy Azure: `https://management.azure.com` i `https://login.microsoftonline.com`   
 - Jeśli korzystasz z infrastruktury aktualizacji chmury publicznej platformy Azure do stosowania aktualizacji i poprawek, zobacz [infrastruktura aktualizacji chmury publicznej platformy azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## <a name="next-steps"></a>Następne kroki
