@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461378"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konwertowanie klas zasobów na grupy obciążeń
@@ -27,7 +27,7 @@ Grupy obciążeń zapewniają mechanizm izolowania i zawierania zasobów systemo
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Zrozumienie istniejącej konfiguracji klasy zasobów
 
-Grupy obciążeń wymagają parametru o nazwie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , który określa procent łącznych zasobów systemowych przyznanych na żądanie.  Alokacja zasobów jest wykonywana dla [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) przez alokowanie miejsc współbieżności.  Aby określić wartość do określenia `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , użyj wykazu sys. dm_workload_management_workload_groups_stats <link tbd> DMV.  Na przykład poniższe zapytanie zapytania zwraca wartość, która może być użyta dla `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametru w celu utworzenia grupy obciążeń podobnej do staticrc40.
+Grupy obciążeń wymagają parametru o nazwie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , który określa procent łącznych zasobów systemowych przyznanych na żądanie.  Alokacja zasobów jest wykonywana dla [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) przez alokowanie miejsc współbieżności.  Aby określić wartość do określenia `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , użyj sys.dm_workload_management_workload_groups_stats <link tbd> DMV.  Na przykład poniższe zapytanie zapytania zwraca wartość, która może być użyta dla `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametru w celu utworzenia grupy obciążeń podobnej do staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent

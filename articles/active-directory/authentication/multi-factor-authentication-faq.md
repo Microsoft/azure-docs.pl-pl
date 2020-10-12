@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706272"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
@@ -190,7 +190,7 @@ W niektórych przypadkach tak.
 
 W przypadku jednokierunkowego SMS z usługą Azure MFA Server w wersji 7.0 lub nowszej można skonfigurować ustawienie limitu czasu, ustawiając klucz rejestru. Po wysłaniu wiadomości tekstowej przez usługę MFA w chmurze kod weryfikacyjny (lub jednorazowy kod dostępu) jest zwracany do serwera usługi MFA. Serwer MFA domyślnie przechowuje kod w pamięci przez 300 sekund. Jeśli użytkownik nie wprowadzi kodu przed upływem 300 sekund, jego uwierzytelnienie zostanie odrzucone. Wykonaj następujące kroki, aby zmienić domyślne ustawienie limitu czasu:
 
-1. Przejdź do witryny `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Przejdź do adresu `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Utwórz klucz rejestru **typu DWORD** o nazwie *pfsvc_pendingSmsTimeoutSeconds* i Ustaw czas w sekundach, w ciągu którego serwer usługi Azure MFA ma przechowywać kody dostępu jednorazowego.
 
 >[!TIP]
@@ -234,7 +234,7 @@ Istnieje kilka powodów, dla których użytkownicy mogą uzyskać monit o zareje
 - Organizacja utworzyła i włączyła zasady rejestracji usługi MFA, które zostały zastosowane do użytkownika.
 - Użytkownik zarejestrował się wcześniej do uwierzytelniania wieloskładnikowego, ale wybiera metodę weryfikacji, która została wyłączona przez administratora. W związku z tym użytkownik musi ponownie wykonać rejestrację usługi MFA, aby wybrać nową domyślną metodę weryfikacji.
 
-## <a name="errors"></a>błędy
+## <a name="errors"></a>Errors
 
 * [Co powinni zrobić użytkownicy, jeśli podczas korzystania z powiadomień aplikacji mobilnej zobaczysz komunikat o błędzie "żądanie uwierzytelnienia nie dotyczy aktywowanego konta"?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [Co powinni zrobić użytkownicy, Jeśli zobaczysz komunikat o błędzie 0x800434D4L podczas logowania do aplikacji nie korzystającej z przeglądarki?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)

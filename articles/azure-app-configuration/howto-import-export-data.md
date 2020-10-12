@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: 21eba653bcd853db9550d0d3781aacd281884605
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588079"
 ---
 # <a name="import-or-export-configuration-data"></a>Importowanie lub eksportowanie danych konfiguracji
@@ -44,7 +44,7 @@ Importuj dane przy użyciu [Azure Portal](https://portal.azure.com) lub [interfe
 
     ![Zakończono Importowanie pliku](./media/import-file-complete.png)
 
-## <a name="export-data"></a>Wyeksportowanie danych
+## <a name="export-data"></a>Eksportuj dane
 
 Eksportuj dane konfiguracji zapisu przechowywane w konfiguracji aplikacji do innego miejsca docelowego. Użyj funkcji eksportu, na przykład, aby zapisać dane w magazynie konfiguracji aplikacji do pliku, który jest osadzony w kodzie aplikacji podczas wdrażania.
 

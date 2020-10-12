@@ -9,10 +9,10 @@ ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708894"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Rozwiązywanie problemów z udziałami plików NFS systemu Azure
@@ -90,7 +90,7 @@ Na poniższym diagramie przedstawiono łączność przy użyciu publicznych punk
     - Komunikacja równorzędna sieci wirtualnych z sieciami wirtualnymi hostowanymi w prywatnym punkcie końcowym daje dostęp do klientów w równorzędnych sieciach wirtualnych.
     - Prywatne punkty końcowe mogą być używane z ExpressRoute, punkt-lokacja i sieci VPN typu lokacja-lokacja.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram łączności między prywatnymi punktami końcowymi." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagram łączności między publicznymi punktami końcowymi." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Przyczyna 2: włączono bezpieczny transfer
 
@@ -100,7 +100,7 @@ Szyfrowanie podwójne nie jest jeszcze obsługiwane w przypadku udziałów NFS. 
 
 W bloku Konfiguracja konta magazynu jest wymagane wyłączenie bezpiecznego transferu.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Zrzut ekranu przedstawiający blok Konfiguracja konta magazynu, który jest wymagany do bezpiecznego transferu.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagram łączności między publicznymi punktami końcowymi.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Przyczyna 3: nie zainstalowano pakietu Common NFS
 Przed uruchomieniem polecenia mount Zainstaluj pakiet, uruchamiając polecenie dystrybucji.

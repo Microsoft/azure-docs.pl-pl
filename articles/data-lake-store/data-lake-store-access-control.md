@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88190163"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Access control in Azure Data Lake Storage Gen1 (Kontrola dostępu w usłudze Azure Data Lake Storage Gen1)
@@ -75,7 +75,7 @@ Poniżej przedstawiono niektóre typowe scenariusze, które ułatwiają zrozumie
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Odczyt      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Dołącz do | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Usuń    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Usuwanie    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Utwórz    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Lista      | Biuro           |   `--X`   |   `R-X`    |  `---`      | `---`          |
@@ -124,7 +124,7 @@ Użytkownik, który utworzył element, jest automatycznie właścicielem element
 
 ### <a name="the-owning-group"></a>Grupa będąca właścicielem
 
-**Tle**
+**Tło**
 
 Na listach ACL w modelu POSIX każdy użytkownik jest skojarzony z „grupą główną”. Przykładowo użytkownik „Alicja” może należeć do grupy „Finanse”. Alicja może również należeć do wielu grup, ale jedna grupa jest zawsze wyznaczona jako jej grupa główna. W modelu POSIX, gdy Alicja tworzy plik, na grupę będącą właścicielem tego pliku zostaje ustawiona jej grupa główna. W tym przypadku jest to grupa „Finanse”. Grupa będąca właścicielem w przeciwnym razie działa podobnie do przypisanych uprawnień dla innych użytkowników/grup.
 
@@ -222,8 +222,8 @@ Maska umask dla Azure Data Lake Storage Gen1 jest stałą wartością ustawioną
 
 | składnik maska umask     | Forma liczbowa | Forma krótka | Znaczenie |
 |---------------------|--------------|------------|---------|
-| Maska umask. owning_user   |    0         |   `---`      | W przypadku użytkownika będącego właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu elementu podrzędnego. | 
-| Maska umask. owning_group  |    0         |   `---`      | W przypadku grupy będącej właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu do elementu podrzędnego. | 
+| umask.owning_user   |    0         |   `---`      | W przypadku użytkownika będącego właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu elementu podrzędnego. | 
+| umask.owning_group  |    0         |   `---`      | W przypadku grupy będącej właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu do elementu podrzędnego. | 
 | Maska umask. other         |    7         |   `RWX`      | W przypadku innych Usuń wszystkie uprawnienia na liście ACL dostępu dziecka |
 
 Wartość maska umask używana Azure Data Lake Storage Gen1 efektywnie oznacza, że wartość dla innych nigdy nie jest domyślnie przekazywana w nowych elementach podrzędnych — niezależnie od tego, co wskazuje domyślna lista ACL. 

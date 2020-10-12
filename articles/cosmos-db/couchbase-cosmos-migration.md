@@ -8,10 +8,10 @@ ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
 ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87366725"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
@@ -25,7 +25,7 @@ Poniżej przedstawiono kluczowe funkcje, które działają inaczej w Azure Cosmo
 |   Couchbase     |   Azure Cosmos DB   |
 | ---------------|-------------------|
 |Serwer Couchbase| Konto       |
-|Porcj           | Baza danych      |
+|Porcj           | baza danych      |
 |Porcj           | Kontener/kolekcja |
 |Dokument JSON    | Element/dokument |
 
@@ -187,7 +187,7 @@ Zapytania N1QL są sposobem definiowania zapytań w Couchbase.
 
 |N1QL zapytanie | Zapytanie CosmosDB platformy Azure|
 |-------------------|-------------------|
-|Wybierz META ( `TravelDocument` ). ID as ID, `TravelDocument` . * z `TravelDocument` Where `_type` = "com. XX. XX. XX. xxx. xxx. xxxx" i Country = "Indie" oraz wszystkie m w wizach spełnia wartość m. Type = = "wiele-entry" i m. Country w ["Indie", BHUTAN "] order by ` Validity`   | Wybierz pozycję c. identyfikator, c od c Dołącz m w c. Country = "Indie", gdzie c. _type = "com. XX. XX. XX. xxx. xxx. xxxx" i c. Country = "Indie" i m. Type = "wiele wpisów" i m. Country ("Indie", "Bhutan") ORDER BY c |
+|Wybierz META ( `TravelDocument` ). ID as ID, `TravelDocument` . * z `TravelDocument` Where `_type` = "com. XX. XX. XX. xxx. xxx. xxxx" i Country = "Indie" oraz wszystkie m w wizach spełnia wartość m. Type = = "wiele-entry" i m. Country w ["Indie", BHUTAN "] order by ` Validity`   | Wybierz pozycję c. ID, c z pozycji c JOIN m w c. Country = "Indie", gdzie c._type = "com. XX. XX. XX. xxx. xxx. xxxx" i c. Country = "Indie" i m. Type = "wiele wpisów" i m. Country w ("Indie", "Bhutan") ORDER BY c |
 
 W zapytaniach N1QL można zauważyć następujące zmiany:
 
@@ -311,7 +311,7 @@ Jest to prosty typ obciążenia, w którym można wykonywać wyszukiwania zamias
 
 1. Rozważ użycie "/ID" jako klucza podstawowego, co zapewni, że można wykonać operację wyszukiwania bezpośrednio w konkretnej partycji. Utwórz kolekcję i określ wartość "/ID" jako klucz partycji.
 
-1. Całkowicie Wyłącz indeksowanie. Ponieważ wykonujesz operacje wyszukiwania, nie ma żadnego punktu, aby przeciążać indeksowanie. Aby wyłączyć indeksowanie, zaloguj się do Azure Portal, przejdź do Azure Cosmos DB konta. Otwórz **Eksplorator danych**, wybierz swoją **bazę danych** i **kontener**. Otwórz kartę **ustawienia & skalowanie** i wybierz **zasady indeksowania**. Obecnie zasady indeksowania wyglądają następująco:
+1. Całkowicie Wyłącz indeksowanie. Ponieważ wykonujesz operacje wyszukiwania, nie ma żadnego punktu, aby przeciążać indeksowanie. Aby wyłączyć indeksowanie, zaloguj się do Azure Portal, przejdź do Azure Cosmos DB konta. Otwórz **Eksplorator danych**, wybierz swoją **bazę danych** i **kontener**. Otwórz kartę **ustawienia & skalowanie** i wybierz  **zasady indeksowania**. Obecnie zasady indeksowania wyglądają następująco:
     
    ```json
    {

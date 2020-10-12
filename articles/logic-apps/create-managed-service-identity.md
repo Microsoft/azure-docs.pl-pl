@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88565931"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Uwierzytelnianie dostępu do zasobów platformy Azure przy użyciu tożsamości zarządzanych w programie Azure Logic Apps
@@ -54,7 +54,7 @@ Aby skonfigurować tożsamość zarządzaną, która ma być używana, Użyj lin
 
 W przeciwieństwie do tożsamości przypisanych przez użytkownika nie trzeba ręcznie tworzyć tożsamości przypisanej do systemu. Aby skonfigurować tożsamość przypisaną przez system dla aplikacji logiki, poniżej przedstawiono opcje, których można użyć:
 
-* [Witryna Azure Portal](#azure-portal-system-logic-app)
+* [Azure Portal](#azure-portal-system-logic-app)
 * [Szablony usługi Azure Resource Manager](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
@@ -132,7 +132,7 @@ Gdy platforma Azure utworzy definicję zasobu aplikacji logiki, `identity` obiek
 
 Aby skonfigurować tożsamość zarządzaną przez użytkownika dla aplikacji logiki, należy najpierw utworzyć tę tożsamość jako osobny autonomiczny zasób platformy Azure. Poniżej przedstawiono opcje, których można użyć:
 
-* [Witryna Azure Portal](#azure-portal-user-identity)
+* [Azure Portal](#azure-portal-user-identity)
 * [Szablony usługi Azure Resource Manager](#template-user-identity)
 * Azure PowerShell
   * [Tworzenie tożsamości przypisanej do użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -284,7 +284,7 @@ Jeśli szablon zawiera również definicję zasobu tożsamości zarządzanej, mo
 
 Aby można było użyć tożsamości zarządzanej aplikacji logiki na potrzeby uwierzytelniania, Skonfiguruj dostęp dla tej tożsamości w zasobie platformy Azure, w którym planujesz używać tożsamości. Aby wykonać to zadanie, przypisz odpowiednią rolę do tej tożsamości w docelowym zasobie platformy Azure. Poniżej przedstawiono opcje, których można użyć:
 
-* [Witryna Azure Portal](#azure-portal-assign-access)
+* [Azure Portal](#azure-portal-assign-access)
 * [Szablon usługi Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) — Aby uzyskać więcej informacji, zobacz [Dodawanie przypisania roli przy użyciu usług Azure RBAC i Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Interfejs wiersza polecenia platformy Azure ([AZ role Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) — Aby uzyskać więcej informacji, zobacz [Dodawanie przypisania roli przy użyciu funkcji Azure RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md).
@@ -431,7 +431,7 @@ W tych krokach pokazano, jak używać zarządzanej tożsamości z wyzwalaczem lu
 
 Aby zatrzymać korzystanie z tożsamości zarządzanej dla aplikacji logiki, możesz skorzystać z następujących opcji:
 
-* [Witryna Azure Portal](#azure-portal-disable)
+* [Azure Portal](#azure-portal-disable)
 * [Szablony usługi Azure Resource Manager](#template-disable)
 * Azure PowerShell
   * [Usuń przypisanie roli](../role-based-access-control/role-assignments-powershell.md)

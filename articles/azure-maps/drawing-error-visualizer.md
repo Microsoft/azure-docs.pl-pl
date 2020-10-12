@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524747"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Korzystanie z Azure Maps wizualizatora błędów rysowania
@@ -82,11 +82,11 @@ Po uruchomieniu narzędzia wizualizatora błędów rysowania zostanie wyświetlo
 
 _ConversionWarningsAndErrors.jsw_ pliku został umieszczony w katalogu głównym pobranego katalogu. Aby załadować _ConversionWarningsAndErrors.js_ , możesz przeciągnąć & usunąć plik do pola lub kliknąć pole, znaleźć plik w oknie dialogowym Eksploratora plików, a następnie przekazać plik.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Wizualizator błędu rysowania — przeciąganie i upuszczanie w celu załadowania danych":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplikacja wizualizatora błędów rysowania — Strona początkowa":::
 
 Po załadowaniu pliku _ConversionWarningsAndErrors.js_ zostanie wyświetlona lista błędów i ostrzeżeń pakietu rysowania. Każdy błąd lub ostrzeżenie jest określany na podstawie warstwy, poziomu i komunikatu szczegółowego. Aby wyświetlić szczegółowe informacje dotyczące błędu lub ostrzeżenia, kliknij link **szczegóły** . Sekcja, która może zostać przemieszczona, zostanie wyświetlona poniżej listy. Możesz teraz przejść do każdego błędu, aby uzyskać więcej szczegółowych informacji na temat sposobu rozwiązania błędu.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Wizualizator błędu aplikacji — błędy i ostrzeżenia":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplikacja wizualizatora błędów rysowania — Strona początkowa":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525045"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Tworzenie kopii zapasowych maszyn wirtualnych obciążeń w chmurze prywatnej CloudSimple przy użyciu Veeam B&R
@@ -54,7 +54,7 @@ W przypadku środowisk o pojemności poniżej 30 TB do utworzenia kopii zapasowe
 
 * Serwer Veeam Backup i serwer proxy zainstalowane na tej samej maszynie wirtualnej w chmurze prywatnej.
 * Główne repozytorium kopii zapasowej oparte na systemie Linux na platformie Azure skonfigurowane jako element docelowy dla zadań tworzenia kopii zapasowych.
-* `azcopy`służy do kopiowania danych z głównego repozytorium kopii zapasowej do kontenera obiektów blob platformy Azure, który jest replikowany do innego regionu.
+* `azcopy` służy do kopiowania danych z głównego repozytorium kopii zapasowej do kontenera obiektów blob platformy Azure, który jest replikowany do innego regionu.
 
 ![Podstawowe scenariusze wdrażania](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ W przypadku środowisk z więcej niż 30 TB kopii zapasowych CloudSimple zaleca 
 * Jeden serwer proxy na węzeł w klastrze sieci vSAN, zgodnie z zaleceniami Veeam.
 * Główne repozytorium kopii zapasowej oparte na systemie Windows w chmurze prywatnej umożliwiające szybkie przywracanie danych z pięciu dni.
 * Repozytorium kopii zapasowych systemu Linux na platformie Azure jako element docelowy dla zadań kopii zapasowych w celu dłuższego okresu przechowywania. To repozytorium należy skonfigurować jako repozytorium kopii zapasowych skalowalne w poziomie.
-* `azcopy`służy do kopiowania danych z głównego repozytorium kopii zapasowej do kontenera obiektów blob platformy Azure, który jest replikowany do innego regionu.
+* `azcopy` służy do kopiowania danych z głównego repozytorium kopii zapasowej do kontenera obiektów blob platformy Azure, który jest replikowany do innego regionu.
 
 ![Podstawowe scenariusze wdrażania](media/veeam-advanceddeployment.png)
 

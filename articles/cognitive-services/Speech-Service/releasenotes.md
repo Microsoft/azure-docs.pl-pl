@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462381"
 ---
 # <a name="speech-service-release-notes"></a>Informacje o wersji usługi mowy
@@ -57,7 +57,7 @@ ms.locfileid: "89462381"
     | `fr-CA` | Sylvie |
     | `fr-FR` | Denise |
     | `ja-JP` | Nanami |
-    | `ko-KR` | Sun — Hi |
+    | `ko-KR` | Sun-Hi |
 
 ### <a name="bug-fixes"></a>Poprawki błędów
 
@@ -293,7 +293,7 @@ Bądź w dobrej kondycji
  - DialogServiceConnector obsługuje teraz opcjonalny parametr "bot ID" na BotFrameworkConfig. Ten parametr umożliwia korzystanie z wielu bezpośrednich botów mowy wiersza za pomocą pojedynczego zasobu usługi Azure Speech. Bez określonego parametru zostanie użyta wartość domyślna bot (zgodnie z konfiguracją kanału Direct Speech line).
  - DialogServiceConnector ma teraz Właściwość SpeechActivityTemplate. Zawartość tego ciągu JSON zostanie użyta w bezpośrednim wierszu mowy, aby wstępnie wypełnić szeroką gamę obsługiwanych pól we wszystkich działaniach, które docierają do bezpośredniego bot mowy liniowej, w tym działań automatycznie generowanych w odpowiedzi na zdarzenia, takie jak rozpoznawanie mowy.
  - Funkcja TTS używa teraz klucza subskrypcji do uwierzytelniania, co zmniejsza czas opóźnienia pierwszego bajtu z pierwszego wyniku w przypadku tworzenia syntezatora.
- - Zaktualizowane modele rozpoznawania mowy dla 19 ustawień regionalnych dla średniego współczynnika błędów wyrazu redukcja 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, Ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, Fi-FL, ru-PL, pl-am, "CA-ES", zh-TW, th, pt-PT, TR-TR). Nowe modele zapewniają znaczące ulepszenia w wielu domenach, takich jak Dyktowanie, transkrypcja wyśrodkowania i scenariusze indeksowania wideo.
+ - Zaktualizowane modele rozpoznawania mowy dla 19 ustawień regionalnych dla średniego współczynnika błędów wyrazu redukcja 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, Ko-KR, pt-BR, zh-CN, zh-HK, NB-NO, Fi-FL, ru-PL, pl-am, "CA-ES", zh-TW, th, pt-PT, TR-TR). Nowe modele zapewniają znaczące ulepszenia w wielu domenach, takich jak Dyktowanie, Call-Center transkrypcje i scenariusze indeksowania wideo.
 
 **Poprawki błędów**
 
@@ -325,7 +325,7 @@ Bądź w dobrej kondycji
 - JavaScript: Dodano obsługę programu `FromHost API` , aby ułatwić korzystanie z kontenerów Premium i suwerennych chmur. [Tutaj](speech-container-howto.md)znajdziesz dokumentację.
 - JavaScript: Firma Microsoft honoruje `NODE_TLS_REJECT_UNAUTHORIZED` się z [orgads](https://github.com/orgads). Szczegóły można znaleźć [tutaj](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - `OpenSSL` został zaktualizowany do wersji 1.1.1 b i jest statycznie połączony z biblioteką podstawową zestawu Speech SDK dla systemu Linux. Może to spowodować przerwanie, jeśli skrzynka odbiorcza `OpenSSL` nie została zainstalowana w `/usr/lib/ssl` katalogu w systemie. Aby obejść ten problem, zapoznaj się z [naszą dokumentacją](how-to-configure-openssl-linux.md) w obszarze dokumentacja zestawu Speech SDK.
 - Zmieniono typ danych zwrócony dla języka C# `WordLevelTimingResult.Offset` z na, `int` `long` Aby zezwolić na dostęp, `WordLevelTimingResults` gdy dane mowy są dłuższe niż 2 minuty.
@@ -366,7 +366,7 @@ Bądź w dobrej kondycji
 - Dodano `KeywordRecognizer` obsługę systemu Windows (platformy UWP), systemów Android i iOS za pomocą pakietów NuGet i programu Unity
 - Dodano interfejs API języka Java konwersacji zdalnych w celu przeprowadzenia transkrypcji konwersacji w partiach asynchronicznych.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - Funkcje Transcriber konwersacji przenoszone w obszarze nazw `Microsoft.CognitiveServices.Speech.Transcription` .
 - Część metod Transcriber konwersacji jest przenoszona do nowej `Conversation` klasy.
@@ -673,7 +673,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 - Obsługa celu języka C w systemie iOS. Zapoznaj się z naszym [przewodnikiem Szybki Start dla systemu iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Obsługa języka JavaScript w przeglądarce. Zapoznaj się z naszym [przewodnikiem Szybki Start dla języka JavaScript](quickstart-js-browser.md).
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - W tej wersji wprowadzono kilka istotnych zmian.
   Sprawdź [Tę stronę](https://aka.ms/csspeech/breakingchanges_1_0_0) , aby uzyskać szczegółowe informacje.
@@ -692,7 +692,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 
 - Uwidacznianie dodatkowych szczegółowych informacji o błędach dotyczących błędów połączenia.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - W systemie Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` Funkcja nie wymaga już parametru Path. Teraz ścieżka jest automatycznie wykrywana na wszystkich obsługiwanych platformach.
 - Metoda Get-accessor właściwości `EndpointUrl` w językach Java i C# została usunięta.
@@ -721,7 +721,7 @@ W naszym [przykładowym repozytorium](https://aka.ms/csspeech/samples)dodano now
 - Wynik rozpoznawania zawiera więcej pól. Są one przesunięte od początku i czasu trwania (w taktach) rozpoznanego tekstu oraz wartości dodatkowych reprezentujących stan rozpoznawania, na przykład `InitialSilenceTimeout` i `InitialBabbleTimeout` .
 - Obsługa AuthorizationToken do tworzenia wystąpień fabryki.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - Zdarzenia rozpoznawania: `NoMatch` Typ zdarzenia został scalony w `Error` zdarzeniu.
 - Nazwa SpeechOutputFormat w języku C# została zmieniona na `OutputFormat` , aby zachować wyrównanie do języka C++.

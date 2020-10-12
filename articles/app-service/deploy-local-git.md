@@ -7,10 +7,10 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77152996"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokalne wdrożenie narzędzia Git do Azure App Service
@@ -151,8 +151,8 @@ W przypadku publikowania w aplikacji App Service na platformie Azure przy użyci
 |`Couldn't resolve host 'hostname'`|Informacje o adresie dla elementu zdalnego "Azure" są nieprawidłowe.|Użyj `git remote -v` polecenia, aby wyświetlić listę wszystkich zdalnych, wraz z skojarzonym adresem URL. Sprawdź, czy adres URL dla zdalnego "Azure" jest prawidłowy. W razie konieczności Usuń i Utwórz ponownie ten zdalny przy użyciu poprawnego adresu URL.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Nie określono gałęzi `git push` w trakcie lub wartość nie została ustawiona `push.default` w `.gitconfig` .|Uruchom `git push` ponownie, określając gałąź główną: `git push azure master` .|
 |`src refspec [branchname] does not match any.`|Podjęto próbę wypchnięcia do gałęzi innej niż główna na zdalnym serwerze "Azure".|Uruchom `git push` ponownie, określając gałąź główną: `git push azure master` .|
-|`RPC failed; result=22, HTTP code = 5xx.`|Ten błąd może wystąpić, jeśli spróbujesz wypchnąć duże repozytorium Git za pośrednictwem protokołu HTTPS.|Zmień konfigurację Git na komputerze lokalnym, aby zwiększyć `postBuffer` rozmiar. Na przykład: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Wdrożono aplikację Node.js przy użyciu _package.jsw_ pliku, który określa dodatkowe wymagane moduły.|Sprawdź `npm ERR!` komunikaty o błędach przed tym błędem, aby uzyskać więcej kontekstu w przypadku awarii. Poniżej przedstawiono znane przyczyny tego błędu oraz odpowiadające im `npm ERR!` komunikaty:<br /><br />**Nieprawidłowo sformułowany package.jsw pliku**:`npm ERR! Couldn't read dependencies.`<br /><br />**Moduł macierzysty nie ma dystrybucji binarnej dla systemu Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />lub <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`RPC failed; result=22, HTTP code = 5xx.`|Ten błąd może wystąpić, jeśli spróbujesz wypchnąć duże repozytorium Git za pośrednictwem protokołu HTTPS.|Zmień konfigurację Git na komputerze lokalnym, aby zwiększyć `postBuffer` rozmiar. Przykład: `git config --global http.postBuffer 524288000`.|
+|`Error - Changes committed to remote repository but your web app not updated.`|Wdrożono aplikację Node.js przy użyciu _package.jsw_ pliku, który określa dodatkowe wymagane moduły.|Sprawdź `npm ERR!` komunikaty o błędach przed tym błędem, aby uzyskać więcej kontekstu w przypadku awarii. Poniżej przedstawiono znane przyczyny tego błędu oraz odpowiadające im `npm ERR!` komunikaty:<br /><br />**Nieprawidłowo sformułowany package.jsw pliku**: `npm ERR! Couldn't read dependencies.`<br /><br />**Moduł macierzysty nie ma dystrybucji binarnej dla systemu Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />lub <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

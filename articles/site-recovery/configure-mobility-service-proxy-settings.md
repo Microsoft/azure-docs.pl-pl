@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 429ffcab147142ae2e96de13b7c9e1e5ee1ac7ba
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133231"
 ---
 # <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Skonfiguruj ustawienia serwera proxy usługi mobilności na platformie Azure na potrzeby odzyskiwania po awarii platformy Azure
@@ -54,5 +54,5 @@ W takim przypadku klient udostępnia niestandardowe ustawienia serwera proxy apl
 ProxyInfo. conf zawiera następujący szablon [proxy] Address = http://1.2.3.4 port = 5678 BypassList = hypervrecoverymanager. windowsazure. com, Login. microsoftonline. com, BLOB. Core. Windows. NET. BypassList nie obsługuje symboli wieloznacznych, takich jak "*. windows.net", ale podawanie windows.net jest wystarczające do obejścia. 
 
 ## <a name="next-steps"></a>Następne kroki:
-- Odczytaj [wskazówki dotyczące sieci](./azure-to-azure-about-networking.md) dotyczące replikacji maszyn wirtualnych platformy Azure.
+- Odczytaj [wskazówki dotyczące sieci](./azure-to-azure-about-networking.md)  dotyczące replikacji maszyn wirtualnych platformy Azure.
 - Wdróż odzyskiwanie po awarii przez [replikowanie maszyn wirtualnych platformy Azure](./azure-to-azure-quickstart.md).

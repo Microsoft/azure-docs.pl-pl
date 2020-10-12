@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523999"
 ---
 # <a name="customize-your-text-translations"></a>Dostosowywanie tłumaczenia tekstu
@@ -27,7 +27,7 @@ Funkcja ta może również służyć do dostosowywania tłumaczenia mowy, gdy je
 
 Dzięki usłudze translator niestandardowy można budować systemy tłumaczenia neuronowych, które znają terminologię używaną we własnej firmie i branży. Dostosowany system tłumaczenia zostanie następnie zintegrowany z istniejącymi aplikacjami, przepływami pracy i witrynami sieci Web.
 
-### <a name="how-does-it-work"></a>Jak działa?
+### <a name="how-does-it-work"></a>Jak to działa?
 
 Skorzystaj z wcześniej przetłumaczonych dokumentów (ulotek, stron sieci Web, dokumentacji itp.), aby skompilować system tłumaczenia, który odzwierciedla terminologię i styl specyficzny dla domeny, lepszy niż standardowy system tłumaczenia. Użytkownicy mogą przekazywać dokumenty TMX, XLIFF, TXT, DOCX i XLSX.  
 
@@ -47,13 +47,13 @@ Więcej szczegółowych informacji na temat różnych poziomów dostosowywania o
 
 ## <a name="custom-translator-versus-hub"></a>Translator niestandardowy a centrum
 
-| Cechy | Koncentrator | Custom Translator |
+| Cecha | Koncentrator | Custom Translator |
 | ------- | :-: | :---------------: |
 |Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
 | Wersja interfejsu API tekstu    | Tylko wersja 2    | Tylko wersja 3 |
-| Dostosowanie SMT    | Yes    | Nie |
-| Dostosowanie NMT    | Nie    | Yes |
-| Nowe ujednolicone usługi rozpoznawania mowy    | Nie    | Yes |
+| Dostosowanie SMT    | Tak    | Nie |
+| Dostosowanie NMT    | Nie    | Tak |
+| Nowe ujednolicone usługi rozpoznawania mowy    | Nie    | Tak |
 | [Brak śladu](https://www.aka.ms/notrace) | Tak    | Tak |
 
 ## <a name="collaborative-translations-framework"></a>Struktura tłumaczeń współpracy

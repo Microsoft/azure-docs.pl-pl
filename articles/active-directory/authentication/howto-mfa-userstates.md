@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 1b1ff8a54037392ac01402056ada0f3040dbd123
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068936"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
@@ -85,7 +85,7 @@ Aby zmienić stan użytkownika przy użyciu [programu Azure AD PowerShell](/powe
 
 * *Włączone*
 * *Enforced (Wymuszony)*
-* *Disabled*  
+* *Wyłączone*  
 
 Ogólnie rzecz biorąc nie przenoś użytkowników bezpośrednio do stanu *wymuszonego* , chyba że są one już zarejestrowane dla usługi MFA. W takim przypadku starsze aplikacje uwierzytelniania przestaną działać, ponieważ użytkownik nie przeszedł przez rejestrację usługi Azure Multi-Factor Authentication i uzyskał [hasło aplikacji](howto-mfa-app-passwords.md). W niektórych przypadkach takie zachowanie może być odpowiednie, ale ma wpływ na środowisko użytkownika do momentu zarejestrowania użytkownika.
 

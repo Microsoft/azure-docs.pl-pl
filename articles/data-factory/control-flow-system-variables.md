@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 2690ded0ac45719cb1082c85ab535c91ad491172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417967"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Zmienne systemowe obsługiwane przez Azure Data Factory
@@ -34,7 +34,7 @@ Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON p
 | @pipeline(). TriggerType | Typ wyzwalacza, który wywołał potok (ręczny, Scheduler) |
 | @pipeline(). TriggerId| Identyfikator wyzwalacza, który wywołuje potok |
 | @pipeline(). TriggerName| Nazwa wyzwalacza, który wywołuje potok |
-| @pipeline(). TriggerTime| Czas, gdy wyzwalacz, który wywołał potok. Czas wyzwalacza jest rzeczywistym czasem uruchomienia, a nie zaplanowanym czasem. Na przykład, `13:20:08.0149599Z` jest zwracany zamiast`13:20:00.00Z` |
+| @pipeline(). TriggerTime| Czas, gdy wyzwalacz, który wywołał potok. Czas wyzwalacza jest rzeczywistym czasem uruchomienia, a nie zaplanowanym czasem. Na przykład, `13:20:08.0149599Z` jest zwracany zamiast `13:20:00.00Z` |
 
 ## <a name="schedule-trigger-scope"></a>Zakres wyzwalania harmonogramu
 Te zmienne systemowe mogą być przywoływane w dowolnym miejscu w kodzie JSON wyzwalacza, jeśli wyzwalacz jest typu: "ScheduleTrigger".

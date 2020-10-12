@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,14 +9,14 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183057"
 ---
 1. Aby otworzyć wiersz polecenia z podwyższonym poziomem uprawnień, kliknij prawym przyciskiem myszy pozycję **wiersz polecenia** i wybierz polecenie **Uruchom jako administrator**.
-2. W wierszu polecenia wpisz następujące polecenia:
+2. W wierszu polecenia uruchom następujące polecenia:
 
    ```
    reg add HKLM\SYSTEM\CurrentControlSet\Services\RasMan\PPP\EAP\13 /v TlsVersion /t REG_DWORD /d 0xfc0

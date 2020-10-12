@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88189864"
 ---
 # <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
@@ -257,7 +257,7 @@ Dedykowane zasady usługi HSM SafeNet Network module HSM 7. Obsługują one szer
 * Szyfrowanie
   * RSA
   * DSA
-  * Diffie-Hellmana
+  * Diffie-Hellman
   * Krzywa eliptyczna
   * Kryptografia (ECDSA, ECDH, Ed25519, ECIES) z nazwanymi, zdefiniowanymi przez użytkownika i Brainpool krzywych, KCDSA
 * Symetrycznego

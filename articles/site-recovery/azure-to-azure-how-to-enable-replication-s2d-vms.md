@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135751"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replikowanie maszyn wirtualnych platformy Azure z systemem Bezpośrednie miejsca do magazynowania do innego regionu

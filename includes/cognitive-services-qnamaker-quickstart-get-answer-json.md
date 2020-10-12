@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 11/12/2018
 ms.author: diberry
 ms.openlocfilehash: fd6a4a4e2d779047d252fdc5e3eae8e3fba8b507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183531"
 ---
 ## <a name="request-and-response-json"></a>Żądanie i odpowiedź w formacie JSON

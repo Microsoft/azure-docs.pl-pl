@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523982"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migracja z usługi Translator do wersji v3
@@ -30,7 +30,7 @@ Na końcu tego dokumentu znajdują się przydatne linki umożliwiające uzyskani
 
 ## <a name="summary-of-features"></a>Podsumowanie funkcji
 
-* Brak śladu — w wersji 3 śledzenia nie ma zastosowania do wszystkich warstw cenowych w Azure Portal. Ta funkcja oznacza, że żaden tekst przesłany do interfejsu API V3 nie zostanie zapisany przez firmę Microsoft.
+* Brak śladu w No-Trace v3 dotyczy wszystkich warstw cenowych w Azure Portal. Ta funkcja oznacza, że żaden tekst przesłany do interfejsu API V3 nie zostanie zapisany przez firmę Microsoft.
 * Kod JSON-XML jest zastępowany przez kod JSON. Wszystkie dane wysyłane do usługi i odbierane z usługi są w formacie JSON.
 * Wiele języków docelowych w pojedynczym żądaniu — Metoda translation akceptuje wiele języków "do" w celu tłumaczenia w pojedynczym żądaniu. Na przykład pojedyncze żądanie może mieć wartość "from" w języku angielskim i niemieckim, hiszpańskim i japońskim lub dowolną inną grupą języków.
 * Słownik dwujęzyczny — Metoda słownika dwujęzycznego została dodana do interfejsu API. Ta metoda zawiera "Lookup" i "Przykłady".
@@ -141,7 +141,7 @@ Jeśli używasz punktu końcowego api.cognitive.microsofttranslator.com, używas
 
 * [Zasady zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure informacje prawne](https://azure.microsoft.com/support/legal)
-* [Warunki dotyczące usług online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Postanowienia dotyczące Usług Online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,10 +8,10 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069021"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu programu PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "89069021"
 
 W tym artykule przedstawiono sposób wdrażania narzędzia do zarządzania przy użyciu programu PowerShell.
 
-## <a name="important-considerations"></a>Ważne zagadnienia
+## <a name="important-considerations"></a>Istotne zagadnienia
 
 Każda subskrypcja dzierżawy usługi Azure Active Directory (Azure AD) wymaga oddzielnego wdrożenia narzędzia do zarządzania. To narzędzie nie obsługuje scenariuszy usługi Azure AD Business-to-Business (B2B).
 
@@ -60,7 +60,7 @@ Zacznij od zalogowania się do modułów AZ i Azure AD PowerShell. Oto jak się 
     Connect-AzureAD
     ```
 
-4. Następnie przejdź do folderu, w którym zapisano dwa skrypty programu PowerShell z repozytorium usług pulpitu zdalnego w witrynie GitHub.
+4. Następnie przejdź do folderu, w którym zapisano dwa skrypty programu PowerShell z repozytorium usługi GitHub RDS-Templates.
 
 Pozostaw okno programu PowerShell użyte do logowania się w celu uruchomienia dodatkowych poleceń cmdlet programu PowerShell podczas logowania.
 

@@ -7,10 +7,10 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852399"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Omówienie opcji migracji do nowszych alertów
@@ -171,16 +171,16 @@ W przypadku Application Insights równoważne metryki są przedstawione poniżej
 | clientPerformance. receiveRequest. Value | browserTimings/receiveDuration| Pomnóż pierwotny próg o 1000, ponieważ jednostki dla metryki klasycznej są w sekundach, a nowe są w milisekundach.  |
 | clientPerformance. sendRequest. Value | browserTimings/sendDuration| Pomnóż pierwotny próg o 1000, ponieważ jednostki dla metryki klasycznej są w sekundach, a nowe są w milisekundach.  |
 | clientPerformance. Total. Value | browserTimings/totalDuration| Pomnóż pierwotny próg o 1000, ponieważ jednostki dla metryki klasycznej są w sekundach, a nowe są w milisekundach.  |
-| performanceCounter. available_bytes. Value | Liczniki wydajności/memoryAvailableBytes|   |
-| performanceCounter. io_data_bytes_per_sec. Value | Liczniki wydajności/processIOBytesPerSecond|   |
-| performanceCounter. number_of_exceps_thrown_per_sec. Value | Liczniki wydajności/exceptionsPerSecond|   |
-| performanceCounter. percentage_processor_time_normalized. Value | Liczniki wydajności/processCpuPercentage|   |
-| performanceCounter. percentage_processor_time. Value | Liczniki wydajności/processCpuPercentage| Próg musi być odpowiednio zmodyfikowany, ponieważ oryginalna Metryka była dla wszystkich rdzeni, a nowa Metryka jest znormalizowana do jednego rdzenia. Narzędzie migracji nie zmienia progów.  |
-| performanceCounter. percentage_processor_total. Value | Liczniki wydajności/processorCpuPercentage|   |
-| performanceCounter. process_private_bytes. Value | Liczniki wydajności/processPrivateBytes|   |
-| performanceCounter. request_execution_time. Value | Liczniki wydajności/requestExecutionTime|   |
-| performanceCounter. requests_in_application_queue. Value | Liczniki wydajności/requestsInQueue|   |
-| performanceCounter. requests_per_sec. Value | Liczniki wydajności/requestsPerSecond|   |
+| performanceCounter.available_bytes. Value | Liczniki wydajności/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec. Value | Liczniki wydajności/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec. Value | Liczniki wydajności/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized. Value | Liczniki wydajności/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time. Value | Liczniki wydajności/processCpuPercentage| Próg musi być odpowiednio zmodyfikowany, ponieważ oryginalna Metryka była dla wszystkich rdzeni, a nowa Metryka jest znormalizowana do jednego rdzenia. Narzędzie migracji nie zmienia progów.  |
+| performanceCounter.percentage_processor_total. Value | Liczniki wydajności/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes. Value | Liczniki wydajności/processPrivateBytes|   |
+| performanceCounter.request_execution_time. Value | Liczniki wydajności/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue. Value | Liczniki wydajności/requestsInQueue|   |
+| performanceCounter.requests_per_sec. Value | Liczniki wydajności/requestsPerSecond|   |
 | żądanie. czas trwania | żądania/czas trwania| Pomnóż pierwotny próg o 1000, ponieważ jednostki dla metryki klasycznej są w sekundach, a nowe są w milisekundach.  |
 | żądanie. rate | żądania/częstotliwość|   |
 | requestFailed. Count | żądania/niepowodzenie| Użyj `aggregationType` elementu "Count" zamiast elementu "Sum".   |
@@ -262,4 +262,4 @@ W ramach migracji zostaną utworzone nowe alerty metryki i nowe grupy akcji, a n
 ## <a name="next-steps"></a>Następne kroki
 
 - [Jak korzystać z narzędzia do migracji](alerts-using-migration-tool.md)
-- [Przygotowywanie do migracji](alerts-prepare-migration.md)
+- [Przygotowanie do migracji](alerts-prepare-migration.md)

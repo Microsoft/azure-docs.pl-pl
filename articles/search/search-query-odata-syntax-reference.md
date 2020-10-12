@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 83e9ae4aa68bc0c819d02a0cc6c39758549811cb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928857"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze
@@ -34,7 +34,7 @@ W tym artykule opisano wszystkie te formy wyrażeń OData przy użyciu formalnej
 
 ## <a name="formal-grammar"></a>Formalna Gramatyka
 
-Można opisać podzestaw języka OData obsługiwanego przez platformę Azure Wyszukiwanie poznawcze przy użyciu gramatyki EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). Reguły są wyświetlane na liście "w górę", zaczynając od najbardziej złożonych wyrażeń i dzieląc je na więcej wyrażeń pierwotnych. W górnej części są reguły gramatyki, które odpowiadają określonym parametrom interfejsu API REST usługi Azure Wyszukiwanie poznawcze:
+Możemy opisać podzestaw języka OData obsługiwanego przez platformę Azure Wyszukiwanie poznawcze przy użyciu gramatyki ([rozszerzonej Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). Reguły są wyświetlane na liście "w górę", zaczynając od najbardziej złożonych wyrażeń i dzieląc je na więcej wyrażeń pierwotnych. W górnej części są reguły gramatyki, które odpowiadają określonym parametrom interfejsu API REST usługi Azure Wyszukiwanie poznawcze:
 
 - [`$filter`](search-query-odata-filter.md)zdefiniowane przez `filter_expression` regułę.
 - [`$orderby`](search-query-odata-orderby.md)zdefiniowane przez `order_by_expression` regułę.

@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135802"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Wykluczanie dysków z replikacji programu PowerShell na maszynach wirtualnych platformy Azure
@@ -24,7 +24,7 @@ W tym artykule opisano sposób wykluczania dysków podczas replikowania maszyn w
 Przed rozpoczęciem:
 
 - Upewnij się, że rozumiesz [architekturę i składniki odzyskiwania po awarii](azure-to-azure-architecture.md).
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](azure-to-azure-support-matrix.md) wszystkich składników.
+- Zapoznaj się z wymaganiami dotyczącymi [obsługi](azure-to-azure-support-matrix.md) wszystkich składników.
 - Upewnij się, że masz moduł AzureRm programu PowerShell "AZ". Aby zainstalować lub zaktualizować program PowerShell, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps).
 - Upewnij się, że utworzono magazyn usługi Recovery Services i chronione maszyny wirtualne co najmniej raz. Jeśli te czynności nie zostały wykonane, postępuj zgodnie z procesem w obszarze [Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych platformy Azure przy użyciu Azure PowerShell](azure-to-azure-powershell.md).
 - Jeśli szukasz informacji na temat dodawania dysków do maszyny wirtualnej platformy Azure z włączoną replikacją, [zapoznaj się z tym artykułem](azure-to-azure-enable-replication-added-disk.md).

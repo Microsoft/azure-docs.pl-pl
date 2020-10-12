@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588198"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania
@@ -323,7 +323,7 @@ W emulatorze nie ma żadnych różnic związanych z magazynem kolejek.
 ### <a name="version-30"></a>Wersja 3,0
 
 * Emulator usługi Azure Storage nie jest już dostarczany w tym samym pakiecie co emulator obliczeniowy.
-* Graficzny interfejs użytkownika emulatora magazynu jest przestarzały. Został on zastąpiony przez skryptowy interfejs wiersza polecenia. Aby uzyskać szczegółowe informacje na temat interfejsu wiersza polecenia, zobacz temat narzędzie wiersza polecenia emulatora magazynu. Interfejs graficzny będzie nadal występować w wersji 3,0, ale można uzyskać do niego dostęp tylko wtedy, gdy emulator obliczeń zostanie zainstalowany, klikając prawym przyciskiem myszy ikonę zasobnika systemowego i wybierając pozycję Pokaż interfejs użytkownika emulatora magazynu.
+* Graficzny interfejs użytkownika emulatora magazynu jest przestarzały. Został on zastąpiony przez skryptowy interfejs wiersza polecenia. Aby uzyskać szczegółowe informacje na temat interfejsu wiersza polecenia, zobacz temat informacje o emulatorze magazynu Command-Line narzędzia. Interfejs graficzny będzie nadal występować w wersji 3,0, ale można uzyskać do niego dostęp tylko wtedy, gdy emulator obliczeń zostanie zainstalowany, klikając prawym przyciskiem myszy ikonę zasobnika systemowego i wybierając pozycję Pokaż interfejs użytkownika emulatora magazynu.
 * Wersja 2013-08-15 usług Azure Storage jest teraz w pełni obsługiwana. (Wcześniej ta wersja była obsługiwana tylko przez emulator magazynu w wersji wersja zapoznawcza).
 
 ## <a name="next-steps"></a>Następne kroki
