@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846848"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Szablony problemów na platformie Azure API Management
@@ -34,7 +34,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="issue-list"></a><a name="IssueList"></a>Lista problemów  
+##  <a name="issue-list"></a><a name="IssueList"></a> Lista problemów  
  Szablon **Lista problemów** umożliwia dostosowanie treści strony Lista problemów w portalu dla deweloperów.  
   
  ![Portal dla deweloperów listy problemów](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal dla deweloperów listy problemów APIM")  
@@ -98,12 +98,12 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`Issues`|Kolekcja jednostek [problemu](api-management-template-data-model-reference.md#Issue) .|Problemy widoczne dla bieżącego użytkownika.|  
 |`Paging`|Jednostka [stronicowania](api-management-template-data-model-reference.md#Paging) .|Informacje o stronicowaniu dla kolekcji aplikacji.|  
-|`IsAuthenticated`|wartość logiczna|Czy bieżący użytkownik jest zalogowany do portalu dla deweloperów.|  
-|`CanReportIssues`|wartość logiczna|Czy bieżący użytkownik ma uprawnienia do pliku problemu.|  
+|`IsAuthenticated`|boolean|Czy bieżący użytkownik jest zalogowany do portalu dla deweloperów.|  
+|`CanReportIssues`|boolean|Czy bieżący użytkownik ma uprawnienia do pliku problemu.|  
 |`Search`|ciąg|Ta właściwość jest przestarzała i nie powinna być używana.|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  

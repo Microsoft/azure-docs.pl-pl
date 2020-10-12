@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367737"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w Azure Active Directory serwerze proxy aplikacji
@@ -45,7 +45,7 @@ Możesz publikować aplikacje z symbolami wieloznacznymi, jeśli oba, wewnętrzn
 
 > http (s)://*.\<domain\>
 
-Na przykład: `http(s)://*.adventure-works.com`.
+Przykład: `http(s)://*.adventure-works.com`.
 
 Ponieważ wewnętrzne i zewnętrzne adresy URL mogą korzystać z różnych domen, najlepszym rozwiązaniem powinna być taka sama. Podczas publikowania aplikacji zostanie wyświetlony komunikat o błędzie, jeśli jeden z adresów URL nie ma symbolu wieloznacznego.
 
@@ -68,13 +68,13 @@ Ze względów bezpieczeństwa jest to wymaganie twarde i nie będzie on obsługi
 
 ### <a name="dns-updates"></a>Aktualizacje DNS
 
-W przypadku korzystania z domen niestandardowych należy utworzyć wpis DNS z rekordem CNAME dla zewnętrznego adresu URL (na przykład `*.adventure-works.com` ) wskazującego zewnętrzny adres URL punktu końcowego serwera proxy aplikacji. W przypadku aplikacji z symbolami wieloznacznymi rekord CNAME musi wskazywać odpowiednie zewnętrzne adresy URL:
+W przypadku korzystania z domen niestandardowych należy utworzyć wpis DNS z rekordem CNAME dla zewnętrznego adresu URL (na przykład  `*.adventure-works.com` ) wskazującego zewnętrzny adres URL punktu końcowego serwera proxy aplikacji. W przypadku aplikacji z symbolami wieloznacznymi rekord CNAME musi wskazywać odpowiednie zewnętrzne adresy URL:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 Aby upewnić się, że rekord CNAME został prawidłowo skonfigurowany, można użyć [polecenia nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) na jednym z docelowych punktów końcowych, na przykład `expenses.adventure-works.com` .  Odpowiedź powinna zawierać już wymieniony alias ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę w przypadku aplikacji wieloznacznych.
 
@@ -84,7 +84,7 @@ W przypadku aplikacji z symbolami wieloznacznymi **wewnętrzny adres URL** musi 
 
 ![W przypadku wewnętrznego adresu URL Użyj formatu http (s)://*. \<> domeny](./media/application-proxy-wildcard/22.png)
 
-W przypadku konfigurowania **zewnętrznego adresu URL**należy użyć następującego formatu:`https://*.<custom domain>`
+W przypadku konfigurowania **zewnętrznego adresu URL**należy użyć następującego formatu: `https://*.<custom domain>`
 
 ![W przypadku zewnętrznego adresu URL Użyj formatu https://*. \<> domeny niestandardowej](./media/application-proxy-wildcard/21.png)
 
@@ -132,7 +132,7 @@ Wszystkie trzy aplikacje:
 
 Można opublikować wieloznaczną aplikację, wykonując czynności opisane w temacie [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-add-on-premises-application.md). W tym scenariuszu przyjęto założenie:
 
-- Dzierżawy z następującym IDENTYFIKATORem:`000aa000-11b1-2ccc-d333-4444eee4444e`
+- Dzierżawy z następującym IDENTYFIKATORem: `000aa000-11b1-2ccc-d333-4444eee4444e`
 - Została skonfigurowana zweryfikowana domena o nazwie `adventure-works.com` .
 - Wpis **CNAME** wskazujący, że został `*.adventure-works.com` `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` utworzony.
 
@@ -158,7 +158,7 @@ Konfiguracja implementuje następującą strukturę:
 
 | Kolor | Opis |
 | ---   | ---         |
-| Niebieski  | Aplikacje jawnie opublikowane i widoczne w Azure Portal. |
+| Blue (Niebieski)  | Aplikacje jawnie opublikowane i widoczne w Azure Portal. |
 | Szary  | Aplikacje, które można uzyskać za pomocą aplikacji nadrzędnej. |
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>Scenariusz 2: ogólna aplikacja wieloznaczna z wyjątkiem

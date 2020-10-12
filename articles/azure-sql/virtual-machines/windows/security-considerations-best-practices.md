@@ -15,13 +15,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272399"
 ---
-# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Zagadnienia dotyczące zabezpieczeń SQL Server na platformie Azure Virtual Machines
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Ten temat zawiera ogólne wytyczne dotyczące zabezpieczeń, które pomagają w ustanowieniu bezpiecznego dostępu do wystąpień SQL Server na maszynie wirtualnej platformy Azure.
@@ -59,7 +59,7 @@ Na koniec Rozważ włączenie zaszyfrowanych połączeń dla wystąpienia aparat
 
 ## <a name="encryption"></a>Szyfrowanie
 
-Dyski zarządzane oferują szyfrowanie po stronie serwera i Azure Disk Encryption. [Szyfrowanie po stronie serwera](/azure/virtual-machines/windows/disk-encryption) zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) używa technologii BitLocker lub dm-crypt i integruje się z Azure Key Vault, aby szyfrować zarówno system operacyjny, jak i dyski z danymi. 
+Dyski zarządzane oferują Server-Side szyfrowanie i Azure Disk Encryption. [Szyfrowanie po stronie serwera](/azure/virtual-machines/windows/disk-encryption) zapewnia szyfrowanie w spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) używa technologii Bitlocker lub DM-Crypt i integruje się z Azure Key Vault w celu szyfrowania zarówno dysków systemu operacyjnego, jak i danych. 
 
 ## <a name="use-a-non-default-port"></a>Użyj portu innego niż domyślny
 

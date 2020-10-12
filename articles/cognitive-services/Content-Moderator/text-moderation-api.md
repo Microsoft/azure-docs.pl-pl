@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85800095"
 ---
 # <a name="learn-text-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem tekstu
@@ -74,11 +74,11 @@ Poniższy wyodrębnienie w ekstrakcie JSON pokazuje przykładowe dane wyjściowe
 
 ### <a name="explanation"></a>Objaśnienie
 
-- `Category1`odnosi się do potencjalnej obecności języka, który może być uważany za jawny lub dorosły w pewnych sytuacjach.
-- `Category2`odnosi się do potencjalnej obecności języka, który może być uważany za seksowo lub dojrzały w niektórych sytuacjach.
-- `Category3`odnosi się do potencjalnej obecności języka, który może być uznany za obraźliwy w pewnych sytuacjach.
-- `Score`jest z zakresu od 0 do 1. Im wyższy wynik, tym większy jest przewidywanie, że Kategoria może być stosowana. Ta funkcja opiera się na modelu statystycznym zamiast ręcznie zakodowanych wyników. Zalecamy testowanie przy użyciu własnej zawartości, aby określić, jak każda kategoria jest wyrównana do wymagań.
-- `ReviewRecommended`ma wartość true lub false, w zależności od wewnętrznych progów wyniku. Klienci powinni ocenić, czy należy używać tej wartości, czy też decydować o niestandardowych progach na podstawie ich zasad dotyczących zawartości.
+- `Category1` odnosi się do potencjalnej obecności języka, który może być uważany za jawny lub dorosły w pewnych sytuacjach.
+- `Category2` odnosi się do potencjalnej obecności języka, który może być uważany za seksowo lub dojrzały w niektórych sytuacjach.
+- `Category3` odnosi się do potencjalnej obecności języka, który może być uznany za obraźliwy w pewnych sytuacjach.
+- `Score` jest z zakresu od 0 do 1. Im wyższy wynik, tym większy jest przewidywanie, że Kategoria może być stosowana. Ta funkcja opiera się na modelu statystycznym zamiast ręcznie zakodowanych wyników. Zalecamy testowanie przy użyciu własnej zawartości, aby określić, jak każda kategoria jest wyrównana do wymagań.
+- `ReviewRecommended` ma wartość true lub false, w zależności od wewnętrznych progów wyniku. Klienci powinni ocenić, czy należy używać tej wartości, czy też decydować o niestandardowych progach na podstawie ich zasad dotyczących zawartości.
 
 ## <a name="personal-data"></a>Dane osobowe
 

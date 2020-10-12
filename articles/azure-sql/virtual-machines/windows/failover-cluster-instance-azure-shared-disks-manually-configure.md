@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
 ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272654"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Tworzenie FCI przy użyciu dysków udostępnionych platformy Azure (SQL Server na maszynach wirtualnych platformy Azure)

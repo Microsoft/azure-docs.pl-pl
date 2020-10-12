@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171384"
 ---
 # <a name="security-and-authentication"></a>Zabezpieczenia i uwierzytelnianie
@@ -35,7 +35,7 @@ W poniższych sekcjach szczegółowo opisano, jak te ustawienia są zabezpieczon
 
 Moduł Event Grid obsługuje zarówno punkty końcowe HTTP, jak i HTTPS. Każdy moduł IoT Edge ma przypisany certyfikat serwera za pomocą demona zabezpieczeń IoT Edge. Certyfikat serwera jest używany do zabezpieczenia punktu końcowego. Po wygaśnięciu moduł automatycznie odświeża przy użyciu nowego certyfikatu z poziomu demona zabezpieczeń IoT Edge.
 
-Domyślnie dozwolona jest tylko komunikacja przy użyciu protokołu HTTPS. Zachowanie to można zastąpić za pomocą konfiguracji **inbound__serverAuth__tlsPolicy** . W poniższej tabeli przedstawiono możliwe wartości tej właściwości.
+Domyślnie dozwolona jest tylko komunikacja przy użyciu protokołu HTTPS. Zachowanie to można zastąpić za pomocą konfiguracji  **inbound__serverAuth__tlsPolicy** . W poniższej tabeli przedstawiono możliwe wartości tej właściwości.
 
 | Możliwe wartości | Opis |
 | ---------------- | ------------ |

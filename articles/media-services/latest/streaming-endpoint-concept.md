@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297199"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
@@ -43,7 +43,7 @@ W przypadku korzystania z domyślnego punktu końcowego przesyłania strumieniow
 * Nazwa punktu końcowego przesyłania strumieniowego ma maksymalną wartość 24 znaków.
 * Nazwa powinna być zgodna z tym wzorcem [wyrażenia regularnego](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
-## <a name="types"></a>Typy
+## <a name="types"></a>Types
 
 Istnieją dwa typy **punktów końcowych przesyłania strumieniowego** : **standardowa** (wersja zapoznawcza) i **Premium**. Typ jest definiowany przez liczbę jednostek skalowania ( `scaleUnits` ) przydzielonego dla punktu końcowego przesyłania strumieniowego.
 
@@ -51,7 +51,7 @@ Maksymalny limit jednostek przesyłania strumieniowego to zwykle 10. Skontaktuj 
 
 Tabela zawiera opis typów:
 
-|Typ|Jednostki skalowania|Opis|
+|Type|Jednostki skalowania|Opis|
 |--------|--------|--------|  
 |**Standardowa**|0|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** — można go zmienić na typ Premium przez dostosowanie `scaleUnits` .|
 |**Premium**|>0|Wersja **Premium** Punkty końcowe przesyłania strumieniowego są odpowiednie dla zaawansowanych obciążeń i zapewniają dedykowaną i skalowalną przepustowość. Przechodzenie do typu **Premium** przez dostosowanie `scaleUnits` (jednostki przesyłania strumieniowego). `scaleUnits` Zapewnij dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. W przypadku korzystania z typu **Premium** każda włączona jednostka zapewnia dodatkową przepustowość dla aplikacji. |
@@ -63,7 +63,7 @@ Aby uzyskać informacje o umowie SLA, zobacz [Cennik i Umowa SLA](https://azure.
 
 ## <a name="comparing-streaming-types"></a>Porównywanie typów przesyłania strumieniowego
 
-Cechy|Standardowa (Standard)|Premium
+Cecha|Standardowa (Standard)|Premium
 ---|---|---
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
@@ -165,7 +165,7 @@ Zobacz następujące artykuły:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 

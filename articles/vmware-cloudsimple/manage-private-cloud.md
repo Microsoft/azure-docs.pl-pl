@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b0aff8298ac2335e5216252eb2cbd5a393cc37d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525000"
 ---
 # <a name="manage-private-cloud-resources-and-activity"></a>Zarządzanie zasobami i aktywnością chmury prywatnej
@@ -46,7 +46,7 @@ Wyświetl kompleksowe podsumowanie wybranej chmury prywatnej.  Strona podsumowan
 * [Uruchom klienta vSphere](./vcenter-access.md). Uzyskaj dostęp do programu vCenter dla tej chmury prywatnej.
 * [Kup węzły](create-nodes.md). Dodaj węzły do tej chmury prywatnej.
 * [Rozwiń węzeł](expand-private-cloud.md). Dodaj węzły do tej chmury prywatnej.
-* **Odświeżanie**. Zaktualizuj informacje na tej stronie.
+* **Odśwież**. Zaktualizuj informacje na tej stronie.
 * **Usuń**. Chmurę prywatną można usunąć w dowolnym momencie. **Przed usunięciem upewnij się, że utworzono kopię zapasową wszystkich systemów i danych.** Usunięcie chmury prywatnej spowoduje usunięcie wszystkich maszyn wirtualnych, konfiguracji programu vCenter i danych. Kliknij pozycję **Usuń** w sekcji Podsumowanie dla wybranej chmury prywatnej. Po usunięciu wszystkie dane w chmurze prywatnej są usuwane w bezpiecznym, wysoce zgodnym procesie wymazywania.
 * [Zmień uprawnienia vSphere](escalate-private-cloud-privileges.md).  Eskalacja uprawnień do tej chmury prywatnej.
 

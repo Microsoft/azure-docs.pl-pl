@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851381"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Omówienie usługi Azure Storage w usłudze HDInsight
@@ -33,7 +33,7 @@ Usługa HDInsight zapewnia dostęp do rozproszonego systemu plików, który jest
 
 `hdfs://<namenodehost>/<path>`
 
-Za pomocą usługi HDInsight możesz również uzyskiwać dostęp do danych w usłudze Azure Storage. Składnia jest następująca:
+Za pomocą usługi HDInsight możesz również uzyskiwać dostęp do danych w usłudze Azure Storage. Składnia wygląda następująco:
 
 `wasb://<containername>@<accountname>.blob.core.windows.net/<path>`
 
@@ -77,6 +77,6 @@ Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, które n
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
+* [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md)
 * [Omówienie usługi Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)

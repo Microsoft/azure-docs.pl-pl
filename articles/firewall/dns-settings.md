@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610646"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Ustawienia usługi DNS zapory platformy Azure (wersja zapoznawcza)
@@ -66,7 +66,7 @@ Aby skonfigurować serwer proxy DNS, należy skonfigurować ustawienie serwerów
 4. Przejrzyj konfigurację **serwerów DNS** , aby upewnić się, że ustawienia są odpowiednie dla danego środowiska.
 5. Wybierz pozycję **Zapisz**.
 
-:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Serwer proxy DNS":::
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Serwery DNS":::
 
 ## <a name="next-steps"></a>Następne kroki
 

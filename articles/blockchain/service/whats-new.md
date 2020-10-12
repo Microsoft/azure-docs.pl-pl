@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921883"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Co nowego w usłudze Azure łańcucha bloków Service?
@@ -123,7 +123,7 @@ Jeśli to możliwe, należy użyć wartości zachowawczej gazu do przesyłania t
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Nieograniczone pętle w przypadku kontraktów inteligentnych zmniejszają wydajność
 
-Unikaj niepowiązanych pętli w inteligentnych kontraktach, ponieważ mogą one obniżyć wydajność. Więcej informacji zawierają następujące zasoby:
+Unikaj niepowiązanych pętli w inteligentnych kontraktach, ponieważ mogą one obniżyć wydajność. Więcej informacji można znaleźć w następujących zasobach:
 
 - [Unikaj pętli niezwiązanych](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Najlepsze rozwiązania w zakresie zabezpieczeń dla kontraktu inteligentnego](https://github.com/ConsenSys/smart-contract-best-practices)

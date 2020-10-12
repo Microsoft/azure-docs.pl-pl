@@ -4,10 +4,10 @@ description: Wskazówki dotyczące zmiennych środowiskowych środowiska uruchom
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85960915"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Zmienne środowiskowe środowiska uruchomieniowego Azure Batch
@@ -52,7 +52,7 @@ Wiersze poleceń wykonywane przez zadania w węzłach obliczeniowych nie są uru
 | AZ_BATCH_NODE_ID                | IDENTYFIKATOR węzła, do którego zadanie jest przypisane. | Wszystkie zadania. | TVM-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Jeśli `true` bieżący węzeł jest dedykowanym węzłem. Jeśli `false` jest to [węzeł o niskim priorytecie](batch-low-pri-vms.md). | Wszystkie zadania. | `true` |
 | AZ_BATCH_NODE_LIST              | Lista węzłów, które są przydzielono do [zadania o wiele wystąpień][multi_instance] w formacie `nodeIP;nodeIP` . | Podstawowe i podrzędne podzadania. | `10.0.0.4;10.0.0.5` |
-| AZ_BATCH_NODE_MOUNTS_DIR        | Pełna ścieżka lokalizacji [instalacji systemu plików](virtual-file-mount.md) na poziomie węzła, w której znajdują się wszystkie katalogi instalacji. Udziały plików systemu Windows używają litery dysku, więc dla systemu Windows dysk instalacji jest częścią urządzeń i dysków.  |  Wszystkie zadania, w tym uruchamianie zadania, mają dostęp do użytkownika, na przykład użytkownik ma świadomość uprawnień instalacji dla zainstalowanego katalogu. | Na przykład w Ubuntu lokalizacja:`/mnt/batch/tasks/fsmounts` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | Pełna ścieżka lokalizacji [instalacji systemu plików](virtual-file-mount.md) na poziomie węzła, w której znajdują się wszystkie katalogi instalacji. Udziały plików systemu Windows używają litery dysku, więc dla systemu Windows dysk instalacji jest częścią urządzeń i dysków.  |  Wszystkie zadania, w tym uruchamianie zadania, mają dostęp do użytkownika, na przykład użytkownik ma świadomość uprawnień instalacji dla zainstalowanego katalogu. | Na przykład w Ubuntu lokalizacja: `/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | Pełna ścieżka katalogu głównego wszystkich [katalogów wsadowych][files_dirs] w węźle. | Wszystkie zadania. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Pełna ścieżka [katalogu udostępnionego][files_dirs] w węźle. Wszystkie zadania wykonywane w węźle mają dostęp do odczytu i zapisu do tego katalogu. Zadania wykonywane w innych węzłach nie mają dostępu zdalnego do tego katalogu (nie jest to katalog sieciowy "udostępniony"). | Wszystkie zadania. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Pełna ścieżka do [katalogu zadań początkowych][files_dirs] w węźle. | Wszystkie zadania. | C:\user\tasks\startup |
@@ -61,7 +61,7 @@ Wiersze poleceń wykonywane przez zadania w węzłach obliczeniowych nie są uru
 | AZ_BATCH_TASK_ID                | Identyfikator bieżącego zadania. | Wszystkie zadania poza uruchomieniem zadania. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Ścieżka katalogu, która jest taka sama dla zadania podstawowego i każde podzadanie zadania o [wielu wystąpieniach][multi_instance]. Ścieżka istnieje w każdym węźle, w którym jest uruchamiane zadanie wielowystąpienie, i ma dostęp do odczytu/zapisu dla poleceń zadań uruchomionych w tym węźle ( [polecenie koordynacyjne][coord_cmd] i [polecenie aplikacji][app_cmd]). Podzadania lub zadanie podstawowe wykonywane na innych węzłach nie mają dostępu zdalnego do tego katalogu (nie jest to katalog sieciowy "udostępniony"). | Podstawowe i podrzędne podzadania. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | Pełna ścieżka [katalogu roboczego zadania][files_dirs] w węźle. Aktualnie uruchomione zadanie ma dostęp do odczytu/zapisu do tego katalogu. | Wszystkie zadania. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | Lista węzłów i liczba rdzeni na węzeł, które są przydzieleni do zadania o [wielu wystąpieniach][multi_instance]. Węzły i rdzenie są wymienione w formacie`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, gdzie po liczbie węzłów następuje jeden lub więcej adresów IP węzła i liczba rdzeni dla każdej z nich. |  Podstawowe i podrzędne podzadania. |`2 10.0.0.4 1 10.0.0.5 1` |
+| CCP_NODES                       | Lista węzłów i liczba rdzeni na węzeł, które są przydzieleni do zadania o [wielu wystąpieniach][multi_instance]. Węzły i rdzenie są wymienione w formacie `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, gdzie po liczbie węzłów następuje jeden lub więcej adresów IP węzła i liczba rdzeni dla każdej z nich. |  Podstawowe i podrzędne podzadania. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 [files_dirs]: ./files-and-directories.md
 [multi_instance]: ./batch-mpi.md

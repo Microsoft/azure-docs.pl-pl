@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415348"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Kopiowanie danych z usługi ServiceNow za pomocą Azure Data Factory
@@ -116,7 +116,7 @@ Aby skopiować dane z usługi ServiceNow, ustaw typ źródła w działaniu Copy 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **ServiceNowSource** | Tak |
-| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Actual.alm_asset"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
+| query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `"SELECT * FROM Actual.alm_asset"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 Należy pamiętać o następujących kwestiach podczas określania schematu i kolumny dla usługi ServiceNow w kwerendzie i **zapoznaj się z [poradami dotyczącymi wydajności](#performance-tips) kopiowania**.
 

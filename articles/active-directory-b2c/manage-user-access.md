@@ -11,10 +11,10 @@ ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387732"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Zarządzanie dostępem użytkowników w Azure Active Directory B2C
@@ -78,7 +78,7 @@ Poniższe kroki pokazują logikę, która jest używana do obliczania **grupy wi
 
 4. Jeśli żadna z obliczeń nie zwraca wartości true, obliczenia zwracają wartość **dorosłą**.
 
-Jeśli aplikacja ma niezawodne dane DOB lub kraju/regionu według innych metod, aplikacja może używać interfejs API programu Graph do aktualizowania rekordu użytkownika przy użyciu tych informacji. Przykład:
+Jeśli aplikacja ma niezawodne dane DOB lub kraju/regionu według innych metod, aplikacja może używać interfejs API programu Graph do aktualizowania rekordu użytkownika przy użyciu tych informacji. Na przykład:
 
 - Jeśli użytkownik jest znany jako osoba dorosła, należy zaktualizować atrybut katalogu **grupy wiekowej** wartością **dorosłą**.
 - Jeśli użytkownik jest znany jako pomocniczy, należy zaktualizować atrybut katalogu **grupy wiekowej** o wartości **mniejszości** i ustawić **consentProvidedForMinor**, zgodnie z potrzebami.

@@ -4,15 +4,15 @@ description: Jak korzystać z systemu HPC i rozmiaru maszyny wirtualnej procesor
 ms.topic: how-to
 ms.date: 12/17/2018
 ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86147338"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
 
-Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn wirtualnych platformy Azure przeznaczonych do obliczeń na dużą skalę. Przykład:
+Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn wirtualnych platformy Azure przeznaczonych do obliczeń na dużą skalę. Na przykład:
 
 * Aby uruchomić wiele wystąpień [obciążeń MPI](batch-mpi.md), wybierz serię H lub inne rozmiary, które mają interfejs sieciowy do zdalnego bezpośredniego dostępu do pamięci (RDMA). Rozmiary te łączą się z siecią InfiniBand w celu komunikacji między węzłami, co umożliwia przyspieszenie aplikacji MPI. 
 
@@ -156,7 +156,7 @@ Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę pr
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
 | **Publisher** | OpenLogic |
 | **Oferta** | CentOS — HPC |
-| **Magazyn** | 7.4 |
+| **Magazyn** | 7,4 |
 | **Rozmiar węzła** | Standard H16r |
 | **Komunikacja między węzłami włączona** | Prawda |
 | **Maksymalna liczba zadań na węzeł** | 1 |

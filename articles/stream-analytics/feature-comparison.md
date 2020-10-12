@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885568"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Porównanie funkcji Azure Stream Analytics
@@ -23,7 +23,7 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 ## <a name="cloud-job-features"></a>Funkcje zadania w chmurze
 
 
-|Cechy  |Portal  |Visual Studio  |Visual Studio Code  |
+|Cecha  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Wiele platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Tworzenie skryptu     |Tak         |Tak         |Tak         |
@@ -45,7 +45,7 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 |Java UDF i UDA     |Tak         |Tak         |Tylko Windows         |
 |Usługa Machine Learning     |Tak        |Tak         |Nie         |
 |Machine Learning Studio     |Tak, ale nie można przetestować zapytania        |Tak |Nie         |
-|Poziom zgodności     |1,0</br>1,1</br>1,2 (wartość domyślna)         |1,0</br>1,1</br>1,2 (wartość domyślna)           |1,0</br>1,1</br>1,2 (wartość domyślna)           |
+|Poziom zgodności     |1.0</br>1,1</br>1,2 (wartość domyślna)         |1.0</br>1,1</br>1,2 (wartość domyślna)           |1.0</br>1,1</br>1,2 (wartość domyślna)           |
 |Wbudowane funkcje wykrywania anomalii opartej na ML     |Tak         |Tak         |Tak         |
 |Wbudowane funkcje geograficzne     |Tak         |Tak         |Tak         |
 
@@ -53,7 +53,7 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 
 ## <a name="iot-edge-job-features"></a>Funkcje zadania IoT Edge
 
-|Cechy  |Portal  |Visual Studio  |Visual Studio Code  |
+|Cecha  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Tworzenie zadań     |Tak         |Tak         |Nie         |
 |Kontrola źródła     |Nie         |Tak         |Nie         |

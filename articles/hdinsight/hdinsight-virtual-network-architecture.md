@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81390221"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architektura sieci wirtualnej usługi Azure HDInsight
@@ -40,7 +40,7 @@ Te nazwy FQDN będą mieć postać `<node-type-prefix><instance-number>-<abbrevi
 
 Wartość `<node-type-prefix>` będzie *HN* dla węzłów głównych, *WN* dla węzłów procesu roboczego i *Zn* dla węzłów dozorcy.
 
-Jeśli potrzebujesz tylko nazwy hosta, użyj tylko pierwszej części nazwy FQDN:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
+Jeśli potrzebujesz tylko nazwy hosta, użyj tylko pierwszej części nazwy FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Podstawowe zasoby sieci wirtualnej
 

@@ -16,10 +16,10 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63d1d87d9b576a8e181b5b339052a6b6512f18a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85359232"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Dane usługi kondycji są nieaktualne
@@ -43,12 +43,12 @@ W poniższej tabeli przedstawiono typy usług odpowiadające wymaganym typom dan
 
 | Typ usługi | Agent (nazwa usługi systemu Windows) | Przeznaczenie | Wygenerowano typ danych  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (synchronizacja) | Usługa szczegółowych informacji synchronizacji programu Azure AD Connect Health | Zbierz informacje specyficzne dla połączenia usługi AAD (łączniki, reguły synchronizacji itp.) | - AadSyncService-SynchronizationRules <br />  -AadSyncService — łączniki <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> -AadSyncService-serviceconfigurations <br /> -AadSyncService-servicestatus   |
+| Azure AD Connect (synchronizacja) | Usługa szczegółowych informacji synchronizacji programu Azure AD Connect Health | Zbierz informacje specyficzne dla połączenia usługi AAD (łączniki, reguły synchronizacji itp.) | -AadSyncService-SynchronizationRules <br />  -AadSyncService-Connectors <br /> -AadSyncService-GlobalConfigurations  <br />  -AadSyncService-RunProfileResults <br /> -AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
 |  | Usługa monitorowania synchronizacji programu Azure AD Connect Health | Zbieranie liczników wydajności specyficznych dla połączenia usługi AAD, śledzenia ETW, plików | Licznik wydajności |
 | AD DS | Usługa szczegółowych informacji usług AD DS programu Azure AD Connect Health | Wykonywanie testów syntetycznych, zbieranie informacji o topologii, metadane replikacji |  -Dodaje-TopologyInfo-JSON <br /> -Common-TestData-JSON (tworzy wyniki testu)   | 
 |  | Usługa monitorowania usług AD DS programu Azure AD Connect Health | Zbieranie danych liczników wydajności, śledzenia ETW, plików | -Licznik wydajności  <br /> -Common-TestData-JSON (przekazuje wyniki testu)  |
 | AD FS | Usługa diagnostyczna usług AD FS programu Azure AD Connect Health | Wykonaj testy syntetyczne | TestResult (tworzy wyniki testu) | 
-| | Usługa szczegółowych informacji usług AD FS programu Azure AD Connect Health  | Zbieranie metryk użycia usług ADFS | ADFS — UsageMetrics |
+| | Usługa szczegółowych informacji usług AD FS programu Azure AD Connect Health  | Zbieranie metryk użycia usług ADFS | Adfs-UsageMetrics |
 | | Usługa monitorowania usług AD FS programu Azure AD Connect Health | Zbieranie liczników wydajności dotyczących usług AD FS, śledzenia ETW, plików | TestResult (przekazuje wyniki testu) |
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów 
@@ -58,8 +58,8 @@ Kroki wymagane do zdiagnozowania problemu są podane poniżej. Pierwszy to zesta
 > [!IMPORTANT] 
 > Ten alert następuje po nawiązaniu połączenia z [zasadami przechowywania danych](reference-connect-health-user-privacy.md#data-retention-policy) dotyczących kondycji
 
-* Upewnij się, że są zainstalowane najnowsze wersje agentów. Wyświetl [historię wydania](reference-connect-health-version-history.md). 
-* Upewnij się, że usługi agentów Azure AD Connect Health są **uruchomione** na tym komputerze. Na przykład program Connect Health dla AD FS powinien mieć trzy usługi.
+* Upewnij się, że zainstalowano najnowsze wersje agentów. Wyświetl [historię wersji](reference-connect-health-version-history.md). 
+* Upewnij się, że usługi agentów Azure AD Connect Health są **uruchomione** na komputerze. Na przykład program Connect Health dla usługi AD FS powinien mieć trzy usługi.
   ![Weryfikowanie programu Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Upewnij się, że przejdziesz do [sekcji wymagania](how-to-connect-health-agent-install.md#requirements)i spełnisz ją.

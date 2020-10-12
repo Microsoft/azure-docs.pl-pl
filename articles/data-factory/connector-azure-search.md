@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
 ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418239"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Kopiowanie danych do indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu Azure Data Factory
@@ -171,12 +171,12 @@ W poniższej tabeli określono, czy typ danych Wyszukiwanie poznawcze platformy 
 
 | Typ danych Wyszukiwanie poznawcze platformy Azure | Obsługiwane w usłudze Azure Wyszukiwanie poznawcze sink |
 | ---------------------- | ------------------------------ |
-| String | Tak |
-| Int32 | Tak |
-| Int64 | Tak |
-| Double | Tak |
-| Boolean | Tak |
-| DataTimeOffset | Tak |
+| Ciąg | T |
+| Int32 | T |
+| Int64 | T |
+| Double | T |
+| Boolean | T |
+| DataTimeOffset | T |
 | Tablica ciągów | N |
 | GeographyPoint względem | N |
 

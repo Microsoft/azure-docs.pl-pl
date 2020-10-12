@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205564"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis
@@ -109,7 +109,7 @@ Istnieją dziewięć wymagań portu wychodzącego. Żądania wychodzące w tych 
 | 10221-10231 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) | (Podsieć Redis) |
 | 20226 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
 | 13000-13999 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
-| 15000-15999 |Outbound |TCP |Komunikacja wewnętrzna Redis i replikacja geograficzna | (Podsieć Redis) |(Podsieć Redis) (Podsieć równorzędna repliki geograficznej) |
+| 15000-15999 |Outbound |TCP |Komunikacja wewnętrzna dla Redis i Geo-Replication | (Podsieć Redis) |(Podsieć Redis) (Podsieć równorzędna repliki geograficznej) |
 | 6379-6380 |Outbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
 
 <sup>1</sup> możesz użyć znacznika usługi "AzureKeyVault" z grupami zabezpieczeń sieci Menedżer zasobów.
@@ -133,7 +133,7 @@ Istnieją osiem wymagań zakresu portów przychodzących. Żądania przychodząc
 | 8500 |Inbound |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
 | 10221-10231 |Inbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis), Azure Load Balancer |
 | 13000-13999 |Inbound |TCP |Komunikacja klienta z klastrami Redis, usługa równoważenia obciążenia platformy Azure | (Podsieć Redis) |Virtual Network, Azure Load Balancer |
-| 15000-15999 |Inbound |TCP |Komunikacja z klientem do klastrów Redis, równoważenia obciążenia platformy Azure i replikacji geograficznej | (Podsieć Redis) |Virtual Network, Azure Load Balancer, (podsieć równorzędna z repliką geograficzną) |
+| 15000-15999 |Inbound |TCP |Komunikacja z klientem do klastrów Redis, równoważenia obciążenia platformy Azure i Geo-Replication | (Podsieć Redis) |Virtual Network, Azure Load Balancer, (podsieć równorzędna z repliką geograficzną) |
 | 16001 |Inbound |TCP/UDP |Równoważenie obciążenia na platformie Azure | (Podsieć Redis) |Azure Load Balancer |
 | 20226 |Inbound |TCP |Komunikacja wewnętrzna dla Redis | (Podsieć Redis) |(Podsieć Redis) |
 

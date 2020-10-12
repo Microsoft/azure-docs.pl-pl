@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850973"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig programu PowerShell
@@ -134,7 +134,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncBasicReadPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncBasicReadPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Odczytaj dostęp do właściwości dla wszystkich atrybutów dla wszystkich obiektów zależnych komputerów
 2.
@@ -307,7 +307,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncExchangeHybridPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncExchangeHybridPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Dostęp do właściwości odczytu/zapisu dla wszystkich atrybutów dla wszystkich obiektów podrzędnych użytkownika
 2.
@@ -475,7 +475,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncExchangeMailPublicFolderPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncExchangeMailPublicFolderPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Odczytaj dostęp do właściwości dla wszystkich atrybutów dla wszystkich obiektów podrzędnych PublicFolder
 
@@ -636,7 +636,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncMsDsConsistencyGuidPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncMsDsConsistencyGuidPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Dostęp do właściwości odczytu/zapisu w atrybucie mS-DS-ConsistencyGuid dla wszystkich obiektów podrzędnych użytkownika
 
@@ -796,7 +796,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [-WhatIf] [
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncPasswordHashSyncPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncPasswordHashSyncPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Replikowanie zmian w katalogu
 2.
@@ -918,7 +918,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncPasswordWritebackPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncPasswordWritebackPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Zresetuj hasło dla podrzędnych obiektów użytkownika
 2.
@@ -1078,14 +1078,14 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncRestrictedPermissions zwiększy uprawnienia oo podanego konta.
+Funkcja Set-ADSyncRestrictedPermissions będzie zacieśniać uprawnienia oo podane konto.
 Podwyższenie poziomu uprawnień obejmuje następujące kroki:
 1. Wyłącz dziedziczenie dla określonego obiektu
 2. Usuń wszystkie wpisy kontroli dostępu do określonego obiektu, z wyjątkiem ACE określonych dla siebie.
 Chcemy zachować domyślne uprawnienia, które są niezmienione, gdy nastąpi samodzielne.
 3. Przypisz te określone uprawnienia:
 
-   | Typ | Nazwa | Access | Dotyczy: |
+   | Type | Nazwa | Dostęp | Dotyczy: |
    |------|------|--------|------------|
    | Zezwalaj | SYSTEM | Pełna kontrola | Ten obiekt |
    | Zezwalaj | Enterprise Admins | Pełna kontrola | Ten obiekt |
@@ -1205,7 +1205,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ```
 
 ### <a name="description"></a>OPIS
-Funkcja Set-ADSyncUnifiedGroupWritebackPermissions przyznaje wymagane uprawnienia do konta synchronizacji usługi AD, co obejmuje następujące elementy:
+Funkcja Set-ADSyncUnifiedGroupWritebackPermissions udzieli wymaganych uprawnień do konta synchronizacji usługi AD, co obejmuje następujące elementy:
 1.
 Ogólne odczyt/zapis, usuwanie, usuwanie drzewa i element podrzędny Create\Delete dla wszystkich typów obiektów grup i podobiektach
 
@@ -1347,7 +1347,7 @@ Accept wildcard characters: False
 To polecenie cmdlet obsługuje typowe parametry: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction i -WarningVariable.
 Aby uzyskać więcej informacji, zobacz about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="show-adsyncadobjectpermissions"></a>Pokaż-ADSyncADObjectPermissions
+## <a name="show-adsyncadobjectpermissions"></a>Show-ADSyncADObjectPermissions
 
 ### <a name="synopsis"></a>STRESZCZENIE
 Pokazuje uprawnienia określonego obiektu usługi AD.

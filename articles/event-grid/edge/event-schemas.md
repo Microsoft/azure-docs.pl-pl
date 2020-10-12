@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171571"
 ---
 # <a name="event-schemas"></a>Schematy zdarzeń
@@ -55,10 +55,10 @@ Wszystkie zdarzenia mają następujące dane najwyższego poziomu:
 | Właściwość | Typ | Wymagane | Opis |
 | -------- | ---- | ----------- |-----------
 | temat | ciąg | Nie | Powinien być zgodny z tematem, na którym został opublikowany. Event Grid wypełnia ją nazwą tematu, na którym jest publikowana, jeśli nie została określona. |
-| subject | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| Temat | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | eventType | ciąg | Tak | Typ zdarzenia dla tego źródła zdarzeń, na przykład BlobCreated. |
 | eventTime | ciąg | Tak | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| ID | ciąg | Nie | Unikatowy identyfikator zdarzenia. |
+| ID (Identyfikator) | ciąg | Nie | Unikatowy identyfikator zdarzenia. |
 | dane | object | Nie | Służy do przechwytywania danych zdarzeń specyficznych dla jednostki publikowania. |
 | dataVersion | ciąg | Tak | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Nie | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
