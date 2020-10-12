@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027549"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark
@@ -90,7 +90,7 @@ datetime.datetime.now()
 
 DateTime. DateTime (2016, 4, 18, 17, 36, 27, 832799)
 
-### <a name="import-libraries"></a>Importuj biblioteki
+### <a name="import-libraries"></a>Importowanie bibliotek
 Zaimportuj niezbędne biblioteki przy użyciu następującego kodu:
 
 ```python

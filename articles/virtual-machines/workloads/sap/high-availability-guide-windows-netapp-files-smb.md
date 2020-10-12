@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88853106"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie Windows z Azure NetApp Files (SMB) dla aplikacji SAP
@@ -143,7 +143,7 @@ W oprogramowaniu SAP wymagane jest następujące oprogramowanie:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Zainstaluj wystąpienie ASCS/SCS w pierwszym węźle klastra ASCS/SCS
 
-1. Zainstaluj wystąpienie SAP ASCS/SCS w pierwszym węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do: **Product**  >  **DBMS** > Installation > Application Server ABAP (lub Java) > systemie wysokiej dostępności > wystąpienia ASCS/SCS > pierwszym węźle klastra.  
+1. Zainstaluj wystąpienie SAP ASCS/SCS w pierwszym węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do: **Product**  >  **DBMS** > Installation > Application Server ABAP (lub Java) > High-Availability system > ASCS/SCS, > pierwszym węźle klastra.  
 
 2. Wybierz opcję **klaster udziałów plików** jako konfigurację udziału klastra w SWPM.  
 3. Po wyświetleniu monitu w kroku **Parametry klastra systemowego SAP**wprowadź nazwę hosta dla Azure NETAPP Files udziału SMB, który został już utworzony jako **Nazwa hosta udziału plików**.  W tym przykładzie nazwą hosta udziału SMB jest **anfsmb-9562**. 
@@ -158,7 +158,7 @@ W oprogramowaniu SAP wymagane jest następujące oprogramowanie:
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalowanie wystąpienia ASCS/SCS w drugim węźle klastra ASCS/SCS
 
-1. Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do **produktu**  >  system**DBMS** > Installation > Application Server ABAP (lub Java) > systemie wysokiej dostępności > wystąpienia ASCS/SCS > dodatkowego węzła klastra.  
+1. Zainstaluj wystąpienie SAP ASCS/SCS w drugim węźle klastra. Uruchom narzędzie instalacji SAP SWPM, a następnie przejdź do **produktu**  >  system**DBMS** > Installation > Application Server ABAP (lub Java) > High-Availability > ASCS/SCS > dodatkowym węźle klastra.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalowanie wystąpienia systemu DBMS i serwerów aplikacji SAP
 

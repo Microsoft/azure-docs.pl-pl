@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
 ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397236"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń sieci na platformie Azure
@@ -133,7 +133,7 @@ W hybrydowym scenariuszu IT zwykle jest kilka typów łączności między lokali
 * [Sieć VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Jest to zaufana, niezawodna i ustanowiona technologia, ale połączenie odbywa się za pośrednictwem Internetu. Przepustowość jest ograniczona do maksymalnie 1,25 GB/s. Sieci VPN typu lokacja-lokacja jest pożądaną opcją w niektórych scenariuszach.
 * **Azure ExpressRoute**. Zalecamy używanie [ExpressRoute](../../expressroute/expressroute-introduction.md) do połączeń obejmujących wiele lokalizacji. Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Azure, Microsoft 365 i Dynamics 365. ExpressRoute to dedykowany link sieci WAN między lokalizacją lokalną lub dostawcą hostingu programu Microsoft Exchange. Ponieważ jest to połączenie odpływ, dane nie podróżują przez Internet, więc nie są narażone na potencjalne ryzyko związane z komunikacją internetową.
 
-Lokalizacja połączenia usługi ExpressRoute może wpłynąć na wydajność zapory, skalowalność, niezawodność i widoczność ruchu sieciowego. Należy określić, gdzie należy zakończyć ExpressRoute w istniejących sieciach (lokalnych). Można:
+Lokalizacja połączenia usługi ExpressRoute może wpłynąć na wydajność zapory, skalowalność, niezawodność i widoczność ruchu sieciowego. Należy określić, gdzie należy zakończyć ExpressRoute w istniejących sieciach (lokalnych). Dostępne możliwości:
 
 - Zakończ poza zaporą (model sieci obwodowej), jeśli potrzebujesz wglądu w ruch, jeśli chcesz kontynuować istniejącą sprawność izolowania centrów danych, lub jeśli nie masz wyłącznie zasobów ekstranetu na platformie Azure.
 - Przerwij wewnątrz zapory (model rozszerzenia sieci). Jest to domyślne zalecenie. We wszystkich innych przypadkach zalecamy traktowanie platformy Azure jako n-ty centrum danych.

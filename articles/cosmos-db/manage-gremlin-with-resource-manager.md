@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 2ce6020d31f52a81450bfb7f8be499b13f2ce356
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86028192"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB Gremlin przy użyciu szablonów Azure Resource Manager
@@ -33,7 +33,7 @@ Aby utworzyć dowolny z poniższych zasobów Azure Cosmos DB, Skopiuj poniższy 
 
 Ten szablon utworzy konto usługi Azure Cosmos dla interfejsu API Gremlin z bazą danych i grafem o przepływności skalowania automatycznego. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin-autoscale/azuredeploy.json":::
 
@@ -43,7 +43,7 @@ Ten szablon utworzy konto usługi Azure Cosmos dla interfejsu API Gremlin z baz�
 
 Ten szablon spowoduje utworzenie konta usługi Azure Cosmos dla interfejsu API Gremlin z użyciem bazy danych i grafu przy użyciu standardowej (ręcznej) przepływności. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdróż na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json":::
 
@@ -51,7 +51,7 @@ Ten szablon spowoduje utworzenie konta usługi Azure Cosmos dla interfejsu API G
 
 Oto kilka dodatkowych zasobów:
 
-* [Dokumentacja Azure Resource Manager](/azure/azure-resource-manager/)
+* [Dokumentacja usługi Azure Resource Manager](/azure/azure-resource-manager/)
 * [Schemat dostawcy zasobów Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB Szablony szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [Rozwiązywanie typowych błędów wdrażania Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)

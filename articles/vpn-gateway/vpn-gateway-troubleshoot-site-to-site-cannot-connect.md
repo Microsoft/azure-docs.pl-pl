@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037838"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Rozwiązywanie problemów: połączenie sieci VPN typu lokacja-lokacja platformy Azure nie może nawiązać połączenia i przestanie działać
@@ -28,7 +28,7 @@ Aby rozwiązać ten problem, najpierw spróbuj [zresetować bramę sieci VPN pla
 
 Sprawdź typ bramy sieci VPN platformy Azure.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
 2. Aby uzyskać informacje o typie, zapoznaj się ze stroną z **omówieniem** bramy sieci VPN.
     
@@ -52,7 +52,7 @@ Aby wyświetlić klucz współużytkowany dla połączenia sieci VPN platformy A
 
 2. W sekcji **Ustawienia** kliknij pozycję **klucz współużytkowany**.
     
-    ![Klucz współużytkowany](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
+    ![Klucz wspólny](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
 **Azure PowerShell**
 

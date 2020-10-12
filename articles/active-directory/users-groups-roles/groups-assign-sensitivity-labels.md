@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056272"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Przypisywanie etykiet czułości do grup Microsoft 365 w Azure Active Directory
@@ -114,7 +114,7 @@ Opcja etykiety czułości jest wyświetlana tylko dla grup, gdy spełnione są w
 
 1. Etykiety są publikowane w centrum zgodności Microsoft 365 dla tej organizacji usługi Azure AD.
 1. Funkcja jest włączona, EnableMIPLabels jest ustawiona na wartość true w module Azure AD PowerShell.
-1. Poszukiwaniu są synchronizowane z usługą Azure AD za pomocą polecenia cmdlet Execute-AzureAdLabelSync w module zgodności z zabezpieczeniami &.
+1. Poszukiwaniu są synchronizowane z usługą Azure AD za pomocą polecenia cmdlet Execute-AzureAdLabelSync w module zgodności & zabezpieczeń programu PowerShell.
 1. Grupa jest grupą Microsoft 365.
 1. Organizacja ma aktywną licencję na Azure Active Directory — wersja Premium P1.
 1. Bieżący zalogowany użytkownik ma wystarczające uprawnienia do przypisywania etykiet. Użytkownik musi być administratorem globalnym, administratorem grupy lub właścicielem grupy.

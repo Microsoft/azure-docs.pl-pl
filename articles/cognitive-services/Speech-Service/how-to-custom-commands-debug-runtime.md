@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86023027"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Debuguj błędy podczas uruchamiania aplikacji poleceń niestandardowych

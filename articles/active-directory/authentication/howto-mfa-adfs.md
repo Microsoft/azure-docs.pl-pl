@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531245"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
@@ -44,7 +44,7 @@ Aby zabezpieczyć zasób w chmurze, skonfiguruj regułę oświadczeń, tak aby u
 7. Wybierz wartość **Odwołania metod uwierzytelniania** jako typ oświadczenia przychodzącego.
 8. Wybierz pozycję **Przekazuj wszystkie wartości oświadczeń**.
     ![Zrzut ekranu przedstawia Kreatora dodawania reguły przekształcania roszczeń, w którym wybiera się opcję Przekazuj wszystkie wartości.](./media/howto-mfa-adfs/configurewizard.png)
-9. Kliknij przycisk **Zakończ**. Zamknij konsolę zarządzania usługami AD FS.
+9. Kliknij przycisk **Finish** (Zakończ). Zamknij konsolę zarządzania usługami AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>Zaufane adresy IP dla użytkowników federacyjnych
 
@@ -67,7 +67,7 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 6. W polu Nazwa reguły oświadczenia wpisz nazwę reguły, np. WewnSiećFirm.
 7. Dla pola Typ oświadczenia przychodzącego wybierz z listy rozwijanej pozycję **Wewnątrz sieci firmowej**.
    ![Dodawanie wewnątrz roszczeń sieci firmowej](./media/howto-mfa-adfs/trustedip4.png)
-8. Kliknij przycisk **Zakończ**.
+8. Kliknij przycisk **Finish** (Zakończ).
 9. W obszarze reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
 10. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Wysyłanie oświadczeń przy użyciu reguły niestandardowej**, a następnie kliknij przycisk **Dalej**.
 11. W polu Nazwa reguły oświadczenia wprowadź tekst *Nie wylogowuj użytkowników*.
@@ -79,7 +79,7 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
 ```
 
-13. Kliknij przycisk **Zakończ**.
+13. Kliknij przycisk **Finish** (Zakończ).
 14. Kliknij pozycję **Zastosuj**.
 15. Kliknij przycisk **OK**.
 16. Zamknij przystawkę zarządzania usługami AD FS.
@@ -97,4 +97,4 @@ Po skonfigurowaniu oświadczeń można przystąpić do konfigurowania zaufanych 
 4. Na stronie Ustawienia usługi w obszarze **zaufanych adresów IP** wybierz pozycję **Pomiń uwierzytelnianie wieloskładnikowe w przypadku żądań od użytkowników federacyjnych w moim intranecie**.  
 5. Kliknij przycisk **Zapisz**.
 
-Gotowe. W tym momencie użytkownicy federacyjne Microsoft 365 powinni używać usługi MFA tylko wtedy, gdy roszczeń pochodzi spoza firmowej sieci intranet.
+To wszystko. W tym momencie użytkownicy federacyjne Microsoft 365 powinni używać usługi MFA tylko wtedy, gdy roszczeń pochodzi spoza firmowej sieci intranet.

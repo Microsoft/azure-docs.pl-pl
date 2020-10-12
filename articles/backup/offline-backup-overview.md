@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: c5e0f4e722e2dd15b7277a484af2a101844344e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86503629"
 ---
 # <a name="overview-of-offline-backup"></a>Przegląd kopii zapasowej offline
@@ -72,11 +72,11 @@ Poniższa tabela zawiera porównanie dwóch dostępnych opcji, dzięki czemu mo�
 | Azure Backup modele wdrażania                              | Agent MARS (wersja zapoznawcza)                                              | Agent MARS, serwera usługi MAB, DPM-A                                           |
 | Maksymalna ilość danych kopii zapasowej na serwer (MARS) lub na grupę ochrony (serwera usługi MAB, DPM-A) | [Azure Data Box dysk](../databox/data-box-disk-overview.md) — 7,2 TB <br> [Azure Data Box](../databox/data-box-overview.md) – 80 TB       | 80 TB (do 10 dysków o pojemności 8 TB)                          |
 | Zabezpieczenia (dane, urządzenia i usługa)                           | [Data](../databox/data-box-security.md#data-box-data-protection) -AES 256-bit szyfrowany <br> Przypadek niezależny od [urządzenia](../databox/data-box-security.md#data-box-device-protection) , własnościowy interfejs oparty na poświadczeniach do kopiowania danych <br> [Usługa](../databox/data-box-security.md#data-box-service-protection) chroniona przez funkcje zabezpieczeń platformy Azure | Dane — szyfrowanie funkcją BitLocker                                 |
-| Tymczasowa lokalizacja tymczasowa aprowizacji                     | Nie jest wymagana                                                | Większy niż lub równy szacowanemu rozmiarowi danych kopii zapasowej        |
+| Tymczasowa lokalizacja tymczasowa aprowizacji                     | Niewymagane                                                | Większy niż lub równy szacowanemu rozmiarowi danych kopii zapasowej        |
 | Obsługiwane regiony                                           | [Azure Data Box regionów dysków](../databox/data-box-disk-overview.md#region-availability) <br> [Azure Data Box regiony](../databox/data-box-disk-overview.md#region-availability) | [Regiony usługi Azure Import/Export](../storage/common/storage-import-export-service.md#region-availability) |
 | Wysyłka między krajami                                     | Nieobsługiwane  <br>    Adres źródłowy i docelowy centrum danych platformy Azure muszą znajdować się w tym samym kraju/regionie * | Obsługiwane                                                    |
 | Przenoszenie logistyki (dostarczanie, transport, odbiór)           | W pełni zarządzane firmy Microsoft                                     | Zarządzane przez klienta                                            |
-| Ceny                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
+| Cennik                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
 * Jeśli kraj/region nie ma centrum danych platformy Azure, musisz dostarczyć dyski do centrum danych platformy Azure w innym kraju/regionie.
 

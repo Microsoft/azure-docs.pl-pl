@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056343"
 ---
 # <a name="repairing-an-export-job"></a>Naprawianie zadania eksportu
@@ -32,14 +32,14 @@ Następujące parametry można określić za pomocą **RepairExport**:
   
 |Parametr|Opis|  
 |---------------|-----------------|  
-|**/r: <RepairFile\>**|Wymagany. Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku należy przekazać ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Zawsze określaj plik naprawy odpowiadający dyskowi docelowemu.|  
+|**/r: <RepairFile\>**|Wymagane. Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku należy przekazać ścieżkę do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Zawsze określaj plik naprawy odpowiadający dyskowi docelowemu.|  
 |**/logdir: <LogDirectory\>**|Opcjonalny. Katalog dzienników. Pełne pliki dziennika będą zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog będzie używany jako katalog dziennika.|  
-|**/d: <TargetDirectory\>**|Wymagany. Katalog, który ma zostać zweryfikowany i naprawiony. Ten katalog jest zazwyczaj katalogiem głównym dysku eksportu, ale może być również sieciowym udziałem plików zawierającym kopię eksportowanych plików.|  
+|**/d: <TargetDirectory\>**|Wymagane. Katalog, który ma zostać zweryfikowany i naprawiony. Ten katalog jest zazwyczaj katalogiem głównym dysku eksportu, ale może być również sieciowym udziałem plików zawierającym kopię eksportowanych plików.|  
 |**/BK: <BitLockerKey\>**|Opcjonalny. Określ klucz funkcji BitLocker, jeśli chcesz, aby narzędzie odblokowało zaszyfrowany plik, w którym są przechowywane eksportowane pliki.|  
-|**/SN: <StorageAccountName\>**|Wymagany. Nazwa konta magazynu dla zadania eksportu.|  
+|**/SN: <StorageAccountName\>**|Wymagane. Nazwa konta magazynu dla zadania eksportu.|  
 |**/SK: <StorageAccountKey\>**|**Wymagane** , jeśli i tylko wtedy, gdy nie określono sygnatury dostępu współdzielonego kontenera. Klucz konta magazynu dla zadania eksportu.|  
 |**/CSAS: <ContainerSas\>**|**Wymagane** , jeśli i tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS kontenera do uzyskiwania dostępu do obiektów BLOB skojarzonych z zadaniem eksportu.|  
-|**/CopyLogFile: <DriveCopyLogFile\>**|Wymagany. Ścieżka do pliku dziennika kopiowania dysku. Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
+|**/CopyLogFile: <DriveCopyLogFile\>**|Wymagane. Ścieżka do pliku dziennika kopiowania dysku. Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
 |**/ManifestFile: <DriveManifestFile\>**|Opcjonalny. Ścieżka do pliku manifestu dysku eksportu. Ten plik jest generowany przez usługę Import/Export systemu Windows Azure i przechowywany na dysku eksportu. Opcjonalnie w obiekcie BLOB na koncie magazynu skojarzonym z zadaniem.<br /><br /> Zawartość plików na dysku eksportu zostanie zweryfikowana przy użyciu skrótów MD5 zawartych w tym pliku. Wszystkie uszkodzone pliki zostaną pobrane i ponownie umieszczone w katalogach docelowych.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Poprawianie nieudanych eksportów przy użyciu trybu RepairExport  

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037566"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Automatyczne skalowanie zadań Stream Analytics przy użyciu Azure Automation
@@ -31,19 +31,19 @@ Dodaj następujące zmienne w ramach konta Azure Automation. Te zmienne zostaną
 
 | Nazwa | Typ | Wartość |
 | --- | --- | --- |
-| **jobName** | String | Nazwa zadania Stream Analytics, które ma być skalowane automatycznie. |
-| **resourceGroupName** | String | Nazwa grupy zasobów, w której znajduje się to zadanie. |
-| **subId** | String | Identyfikator subskrypcji, w której znajduje się to zadanie. |
-| **increasedSU** | Integer | Wyższa wartość SU, w której ma być skalowane zadanie w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
-| **decreasedSU** | Integer | Dolna wartość SU, na którą zadanie ma być skalowane w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
-| **maxSU** | Integer | Maksymalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
-| **minSU** | Integer | Minimalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **jobName** | Ciąg | Nazwa zadania Stream Analytics, które ma być skalowane automatycznie. |
+| **resourceGroupName** | Ciąg | Nazwa grupy zasobów, w której znajduje się to zadanie. |
+| **subId** | Ciąg | Identyfikator subskrypcji, w której znajduje się to zadanie. |
+| **increasedSU** | Liczba całkowita | Wyższa wartość SU, w której ma być skalowane zadanie w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **decreasedSU** | Liczba całkowita | Dolna wartość SU, na którą zadanie ma być skalowane w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **maxSU** | Liczba całkowita | Maksymalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **minSU** | Liczba całkowita | Minimalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
 
 ![Dodawanie zmiennych w Azure Automation](./media/autoscale/variables.png)
 
 ### <a name="create-runbooks"></a>Tworzenie elementów Runbook
 Następnym krokiem jest utworzenie dwóch elementów Runbook programu PowerShell. Jeden na potrzeby skalowania w górę i w dół dla operacji skalowania w dół.
-1. Na koncie Azure Automation przejdź do pozycji **elementy Runbook** w obszarze **Automatyzacja procesów** , a następnie wybierz pozycję **Utwórz element Runbook**.
+1. Na koncie Azure Automation przejdź do pozycji **elementy Runbook** w obszarze **Automatyzacja procesów**  , a następnie wybierz pozycję **Utwórz element Runbook**.
 2. Nazwij pierwszy element Runbook *ScaleUpRunbook* z typem ustawionym na PowerShell. Użyj [skryptu ScaleUpRunbook PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) dostępnego w serwisie GitHub. Zapisz i Opublikuj.
 3. Utwórz inny element Runbook o nazwie *ScaleDownRunbook* z typem PowerShell. Użyj [skryptu ScaleDownRunbook PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) dostępnego w serwisie GitHub. Zapisz i Opublikuj.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 0bbfdc2463795770b52f5008fc633fe9e95244a0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Samouczek: integracja Azure Active Directory z usługą usługi FreshDesk
@@ -179,7 +179,7 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 
     przykład W polu tekstowym **certyfikat zabezpieczeń** wklej wartość **certyfikatu (base64)** , którą uzyskano wcześniej.
   
-    h. Kliknij pozycję **Zapisz**.
+    h. Kliknij przycisk **Zapisz**.
 
 ## <a name="create-freshdesk-test-user"></a>Tworzenie użytkownika testowego aplikacji FreshDesk
 
@@ -218,7 +218,7 @@ Po kliknięciu kafelka usługi FreshDesk w panelu dostępu należy automatycznie
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

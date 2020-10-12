@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/24/2020
 ms.author: zarhoads
 ms.openlocfilehash: d05d0166724e586fa79e58e2e74fb583b45d0cc6
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88852870"
 ---
 # <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalowanie istniejących aplikacji przy użyciu usługi Helm w usłudze Azure Kubernetes Service (AKS)
@@ -19,7 +19,7 @@ ms.locfileid: "88852870"
 
 W tym artykule opisano sposób konfigurowania i używania Helm w klastrze Kubernetes w systemie AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -212,7 +212,7 @@ release "my-nginx-ingress" uninstalled
 Aby uzyskać więcej informacji na temat zarządzania wdrożeniami aplikacji Kubernetes z Helm, zobacz dokumentację Helm.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja Helm][helm-documentation]
+> [Dokumentacja programu Helm][helm-documentation]
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/

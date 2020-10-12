@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501657"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Przenoszenie zasobów w konfiguracji kontroli konserwacji do innego regionu
@@ -32,7 +32,7 @@ Przed rozpoczęciem przeniesienia zasobów skojarzonych z konfiguracją kontroli
 - Podczas pobierania konfiguracji dla zasobu:
     - Upewnij się, że używasz identyfikatora subskrypcji dla konta, a nie dedykowanego identyfikatora hosta platformy Azure.
     - Interfejs wiersza polecenia: parametr--Output Table jest używany tylko do odczytu i może zostać usunięty lub zmieniony.
-    - PowerShell: format nazwy tabeli jest używany tylko do odczytu i może być usunięty lub zmieniony.
+    - PowerShell: parametr name Format-Table jest używany tylko do odczytu i może zostać usunięty lub zmieniony.
     - Jeśli używasz programu PowerShell, występuje błąd, jeśli spróbujesz wyświetlić konfiguracje dla zasobu, który nie ma żadnych skojarzonych konfiguracji. Błąd będzie wyglądać podobnie do: "operacja nie powiodła się. stan: nie znaleziono". Szczegóły: 404 błąd klienta: nie znaleziono adresu URL ".
 
     

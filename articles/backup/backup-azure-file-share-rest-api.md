@@ -4,10 +4,10 @@ description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii z
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88824869"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST

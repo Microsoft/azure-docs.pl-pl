@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: 215835bf7f1e6676adba6541da70dcb86fc3500c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039045"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Przetwarzaj konfigurowalne reguły oparte na progach w Azure Stream Analytics
@@ -137,7 +137,7 @@ Te przykładowe dane JSON reprezentują dane wejściowe **metryk** , które są 
 - Trzy przykładowe zdarzenia są wymienione w 1-minutowym przedziale czasu, wartość `T14:50` . 
 - Wszystkie trzy mają tę samą `deviceId` wartość `978648` .
 - Wartości metryk procesora CPU różnią się w zależności od zdarzenia, `98` `95` `80` odpowiednio. Tylko pierwsze dwa Przykładowe zdarzenia przekraczają regułę alertu procesora CPU ustanowioną w regule.
-- Pole includeDim w regule alertu było kluczem nr 2. Odpowiednie pole klucz 2 w zdarzeniach przykładowych ma nazwę `NodeName` . Trzy przykładowe zdarzenia mają odpowiednio wartości `N024` , `N024` , i `N014` . W danych wyjściowych zobaczysz tylko węzeł, `N024` który jest jedynymi danymi, które pasują do kryteriów alertów dla wysokiego procesora. `N014`nie spełnia wysokiego progu procesora CPU.
+- Pole includeDim w regule alertu było kluczem nr 2. Odpowiednie pole klucz 2 w zdarzeniach przykładowych ma nazwę `NodeName` . Trzy przykładowe zdarzenia mają odpowiednio wartości `N024` , `N024` , i `N014` . W danych wyjściowych zobaczysz tylko węzeł, `N024` który jest jedynymi danymi, które pasują do kryteriów alertów dla wysokiego procesora. `N014` nie spełnia wysokiego progu procesora CPU.
 - Reguła alertu ma skonfigurowany `filter` tylko dla klucza o numerze 2, który odnosi się do `cluster` pola w przykładowych zdarzeniach. Trzy przykładowe zdarzenia wszystkie mają wartość `C1` i pasują do kryteriów filtrowania.
 
 ```json

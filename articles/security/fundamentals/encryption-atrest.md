@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397253"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Szyfrowanie danych magazynowanych platformy Azure
@@ -64,7 +64,7 @@ Jak opisano wcześniej, celem szyfrowania w czasie spoczynku jest to, że dane u
 
 Lokalizacją przechowywania kluczy szyfrowania i kontroli dostępu do tych kluczy jest centralne szyfrowanie w modelu Rest. Klucze muszą być wysoce zabezpieczone, ale mogą być zarządzane przez określonych użytkowników i dostępne dla określonych usług. W przypadku usług Azure Azure Key Vault jest zalecanym rozwiązaniem magazynu kluczy i oferuje wspólne środowisko zarządzania w ramach usług. Klucze są przechowywane i zarządzane w magazynach kluczy, a dostęp do magazynu kluczy można udzielić użytkownikom lub usługom. Azure Key Vault obsługuje tworzenie kluczy lub importowanie kluczy klienta do użytku w scenariuszach z kluczami szyfrowania zarządzanymi przez klienta.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Uprawnienia do korzystania z kluczy przechowywanych w Azure Key Vault w celu zarządzania nimi lub uzyskiwania do nich dostępu w celu szyfrowania podczas szyfrowania i odszyfrowywania w czasie spoczynku można nadać Azure Active Directory kontom.
 
@@ -107,7 +107,7 @@ Wszystkie Managed Disks, migawki i obrazy są szyfrowane przy użyciu szyfrowani
 
 #### <a name="custom-encryption-at-rest"></a>Niestandardowe szyfrowanie w spoczynku
 
-Zaleca się, aby zawsze, gdy to możliwe, IaaS aplikacje wykorzystują Azure Disk Encryption i szyfrowanie w opcjach REST zapewnianych przez wszystkie wykorzystane usługi platformy Azure. W niektórych przypadkach, takich jak nietypowe wymagania dotyczące szyfrowania lub magazyn oparty na systemie innym niż Azure, Deweloper aplikacji IaaS może wymagać zaimplementowania szyfrowania w samym czasie. Deweloperzy rozwiązań IaaS można lepiej zintegrować z usługą Azure Management i oczekiwaniami klientów, wykorzystując pewne składniki platformy Azure. W szczególności deweloperzy powinni używać usługi Azure Key Vault, aby zapewnić bezpieczny Magazyn kluczy, a także zapewnić klientom spójne opcje zarządzania kluczami w przypadku większości usług platformy Azure. Dodatkowo rozwiązania niestandardowe powinny używać tożsamości usługi zarządzanej przez platformę Azure, aby umożliwić kontom usługi dostęp do kluczy szyfrowania. Informacje dla deweloperów dotyczące Azure Key Vault i tożsamości usługi zarządzanej znajdują się w odpowiednich zestawach SDK.
+Zaleca się, aby zawsze, gdy to możliwe, IaaS aplikacje wykorzystują Azure Disk Encryption i szyfrowanie w opcjach REST zapewnianych przez wszystkie wykorzystane usługi platformy Azure. W niektórych przypadkach, takich jak nietypowe wymagania dotyczące szyfrowania lub magazyn oparty na systemie innym niż Azure, Deweloper aplikacji IaaS może wymagać zaimplementowania szyfrowania w samym czasie. Deweloperzy rozwiązań IaaS można lepiej zintegrować z usługą Azure Management i oczekiwaniami klientów, wykorzystując pewne składniki platformy Azure. W szczególności deweloperzy powinni używać usługi Azure Key Vault, aby zapewnić bezpieczny Magazyn kluczy, a także zapewnić klientom spójne opcje zarządzania kluczami w przypadku większości usług platformy Azure. Dodatkowo rozwiązania niestandardowe powinny używać tożsamości usługi Azure-Managed, aby umożliwić kontom usługi dostęp do kluczy szyfrowania. Informacje dla deweloperów dotyczące Azure Key Vault i tożsamości usługi zarządzanej znajdują się w odpowiednich zestawach SDK.
 
 ## <a name="azure-resource-providers-encryption-model-support"></a>Obsługa modelu szyfrowania dostawców zasobów platformy Azure
 
