@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77084057"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Przewodnik migracji biblioteki ADAL do MSAL dla systemu Android
@@ -46,8 +46,8 @@ Publiczny interfejs API MSAL wprowadza ważne zmiany, w tym:
   - Urzędy nie są już weryfikowane w czasie wykonywania. Zamiast tego deweloper deklaruje listę "znanych urzędów" podczas opracowywania.
 - Zmiany interfejsu API tokenu:
   - W bibliotece ADAL `AcquireToken()` najpierw jest wysyłane żądanie dyskretne. Niepowodzenie oznacza, że wykonuje interaktywne żądanie. Takie zachowanie spowodowało, że niektórzy deweloperzy opierają się tylko na tym `AcquireToken` , co spowodowało nieoczekiwane wyświetlenie monitu o poświadczenia w czasie. MSAL wymaga, aby deweloperzy mogli zamierzać, kiedy użytkownik otrzyma monit o interfejs użytkownika.
-    - `AcquireTokenSilent`zawsze powoduje, że żądanie dyskretne lub zakończy się niepowodzeniem.
-    - `AcquireToken`zawsze powoduje żądanie, które monituje użytkownika za pośrednictwem interfejsu użytkownika.
+    - `AcquireTokenSilent` zawsze powoduje, że żądanie dyskretne lub zakończy się niepowodzeniem.
+    - `AcquireToken` zawsze powoduje żądanie, które monituje użytkownika za pośrednictwem interfejsu użytkownika.
 - MSAL obsługuje logowanie z poziomu domyślnej przeglądarki lub osadzonego widoku sieci Web:
   - Domyślnie używana jest domyślna przeglądarka na urządzeniu. Pozwala to MSAL na używanie stanu uwierzytelniania (plików cookie), które mogą już być obecne dla jednego lub więcej zalogowanych kont. Jeśli stan uwierzytelniania nie jest obecny, uwierzytelnianie w trakcie autoryzacji za pomocą usługi MSAL powoduje utworzenie stanu uwierzytelniania (plików cookie) w celu skorzystania z zalet innych aplikacji sieci Web, które będą używane w tej samej przeglądarce.
 - Nowy model wyjątku:
@@ -146,11 +146,11 @@ Weź pod uwagę konto bankowe. Może istnieć więcej niż jedno konto w więcej
 
 Analogicznie, podobnie jak konta w instytucji finansowej, do kont na platformie tożsamości firmy Microsoft uzyskuje się dostęp przy użyciu poświadczeń. Te poświadczenia są zarejestrowane w programie lub przez firmę Microsoft. Lub przez firmę Microsoft w imieniu organizacji.
 
-W takim przypadku platforma tożsamości firmy Microsoft różni się od instytucji finansowej, ponieważ platforma tożsamości firmy Microsoft udostępnia strukturę, która umożliwia użytkownikowi korzystanie z jednego konta i skojarzonych z nim poświadczeń w celu uzyskania dostępu do zasobów należących do wielu osób i organizacji. Jest to takie samo, jak w przypadku korzystania z karty wystawionej przez jeden Bank, a jeszcze innej instytucji finansowej. Wynika to z faktu, że wszystkie zainteresowane organizacje korzystają z platformy tożsamości firmy Microsoft, która umożliwia użycie jednego konta w wielu organizacjach. Przykład:
+W takim przypadku platforma tożsamości firmy Microsoft różni się od instytucji finansowej, ponieważ platforma tożsamości firmy Microsoft udostępnia strukturę, która umożliwia użytkownikowi korzystanie z jednego konta i skojarzonych z nim poświadczeń w celu uzyskania dostępu do zasobów należących do wielu osób i organizacji. Jest to takie samo, jak w przypadku korzystania z karty wystawionej przez jeden Bank, a jeszcze innej instytucji finansowej. Wynika to z faktu, że wszystkie zainteresowane organizacje korzystają z platformy tożsamości firmy Microsoft, która umożliwia użycie jednego konta w wielu organizacjach. Oto przykład:
 
 Sam działa dla Contoso.com, ale zarządza maszynami wirtualnymi platformy Azure należącymi do Fabrikam.com. Aby zarządzać maszynami wirtualnymi firmy Fabrikam, musi mieć autoryzację w celu uzyskania dostępu do nich. Ten dostęp można udzielić przez dodanie konta sam do Fabrikam.com i przyznanie swojemu kontu roli, która umożliwia mu współdziałanie z maszynami wirtualnymi. Można to zrobić za pomocą Azure Portal.
 
-Dodanie konta Contoso.com użytkownika sam jako elementu członkowskiego Fabrikam.com spowoduje utworzenie nowego rekordu w Azure Active Directory fabrikam. com dla sam. Rekord sam w Azure Active Directory jest znany jako obiekt użytkownika. W takim przypadku ten obiekt użytkownika będzie wskazywał z powrotem do obiektu użytkownika sam w Contoso.com. Obiekt użytkownika Fabrikam firmy sam jest lokalną reprezentacją sam i służy do przechowywania informacji o koncie skojarzonym z sam w kontekście Fabrikam.com. W Contoso.com, tytuł sam jest wyższym konsultantem DevOps. W Fabrikam, tytuł sam jest zleceniobiorcą — Virtual Machines. W Contoso.com, sam nie jest odpowiedzialny ani autoryzowany do zarządzania maszynami wirtualnymi. W Fabrikam.com jest to jedyna funkcja zadania. Jeszcze sam ma tylko jeden zestaw poświadczeń do śledzenia, które są poświadczeniami wydanymi przez Contoso.com.
+Dodanie konta Contoso.com użytkownika sam jako elementu członkowskiego Fabrikam.com spowoduje utworzenie nowego rekordu w Azure Active Directory fabrikam. com dla sam. Rekord sam w Azure Active Directory jest znany jako obiekt użytkownika. W takim przypadku ten obiekt użytkownika będzie wskazywał z powrotem do obiektu użytkownika sam w Contoso.com. Obiekt użytkownika Fabrikam firmy sam jest lokalną reprezentacją sam i służy do przechowywania informacji o koncie skojarzonym z sam w kontekście Fabrikam.com. W Contoso.com, tytuł sam jest wyższym konsultantem DevOps. W Fabrikam, tytuł sam to Contractor-Virtual maszyny. W Contoso.com, sam nie jest odpowiedzialny ani autoryzowany do zarządzania maszynami wirtualnymi. W Fabrikam.com jest to jedyna funkcja zadania. Jeszcze sam ma tylko jeden zestaw poświadczeń do śledzenia, które są poświadczeniami wydanymi przez Contoso.com.
 
 Po pomyślnym wykonaniu wywołania zobaczysz `acquireToken` odwołanie do `IAccount` obiektu, którego można użyć w późniejszych `acquireTokenSilent` żądaniach.
 

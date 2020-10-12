@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: ceb2626a43ed44338bb0faad475ae2333af2de9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183463"
 ---
 Upewnij się, że masz już [utworzoną przestrzeń nazw usługi Relay][namespace-how-to].
@@ -26,6 +26,6 @@ Upewnij się, że masz już [utworzoną przestrzeń nazw usługi Relay][namespac
 6. W obszarze **Tworzenie połączenia hybrydowego** wprowadź wartość dla nazwy połączenia hybrydowego. Pozostaw inne wartości domyślne.
    
     ![Wybieranie nowych kolejek](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 

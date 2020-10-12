@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: ccc7df5bfac327fabf05f210764dbe10658b5015
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86520719"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aktualizacje schematu dla Azure Logic Apps — 1 czerwca 2016
@@ -21,7 +21,7 @@ ms.locfileid: "86520719"
 
 * [Zakresy](#scopes) umożliwiają grupowanie lub zagnieżdżanie akcji jako kolekcji akcji.
 * [Warunki i pętle](#conditions-loops) są teraz akcjami pierwszej klasy.
-* Dokładniejsza kolejność uruchamiania akcji z `runAfter` właściwością, zastępując`dependsOn`
+* Dokładniejsza kolejność uruchamiania akcji z `runAfter` właściwością, zastępując `dependsOn`
 
 Aby uaktualnić Aplikacje logiki z 1 sierpnia 2015 schematu wersji zapoznawczej do schematu 1 czerwca 2016, [zapoznaj się z sekcją uaktualniania](#upgrade-your-schema).
 

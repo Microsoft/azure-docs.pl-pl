@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75645722"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Partnerzy monitorowania Service Fabric platformy Azure
@@ -28,7 +28,7 @@ Usługi Datadog ma rozszerzenie dla VMSS zarówno dla wystąpień systemu Window
 
 Service Fabric integracja z usługą AppDynamics jest na poziomie aplikacji. Aktualizując zmienne środowiskowe i korzystając z NuGet usługi App Dynamics, można wysłać dane telemetryczne aplikacji do usługi AppDynamics. Zapoznaj się z tymi [instrukcjami](https://docs.appdynamics.com/display/AZURE/Install+AppDynamics+for+Azure+Service+Fabric) , jak zintegrować aplikacje .NET Service Fabric z usługą AppDynamics.
 
-## <a name="new-relic"></a>New Relic
+## <a name="new-relic"></a>Nowy Relic
 
 New Relic to inne narzędzie do zarządzania wydajnością aplikacji, które integruje się dobrze z aplikacjami Service Fabric. Możesz zainstalować nowe pakiety NuGet Relic i dodać określone zmienne środowiskowe w plikach manifestu, aby wysłać dane telemetryczne aplikacji do nowej Relic. Zapoznaj się z tymi [instrukcjami](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/install-net-agent-azure-service-fabric) , aby włączyć nową telemetrię Relic dla aplikacji .NET Service Fabric.
 

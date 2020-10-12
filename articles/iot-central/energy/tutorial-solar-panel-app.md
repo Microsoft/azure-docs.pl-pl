@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971309"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji monitorującej panel słoneczny 
@@ -25,7 +25,7 @@ Ten samouczek przeprowadzi Cię przez proces tworzenia aplikacji monitorującej 
 > [!div class="checklist"]
 > * Utwórz bezpłatnie aplikację panelu słonecznego
 > * Przewodnik po aplikacji
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 
 Jeśli nie masz subskrypcji, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free)
@@ -96,7 +96,7 @@ Kliknij kartę **Szablony urządzeń** , aby wyświetlić model urządzenia w pa
 > ![Szablon urządzeń z panelem słonecznym](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując następujące czynności:
 
 1. W okienku po lewej stronie Otwórz kartę Administracja

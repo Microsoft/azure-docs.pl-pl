@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970090"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Tworzenie projektów za pomocą edytora Video Indexer
@@ -55,7 +55,7 @@ W tym artykule pokazano, jak utworzyć projekt od podstaw, a także jak utworzy�
 
     Możesz bardziej filtrować wyniki, wybierając pozycję **Filtruj wyniki**. Można filtrować, aby pokazać wideo, które mają określoną osobę lub określić, że mają być widoczne tylko wyniki wideo, które są w określonym języku lub mają określonego właściciela. <br/> Możesz również określić zakres zapytania. Jeśli na przykład chcesz wyszukać ciąg "GitHub" w OCR, wybierz pozycję **tekst wizualny**.
 
-    ![Filtr](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtrowanie](./media/video-indexer-view-edit/visual-text.png)
 
     Do zapytania można przydzielić wiele filtrów. Użyj **+** / **-** przycisków, aby dodać/usunąć filtry. Użyj **Wyczyść filtry** , aby usunąć wszystkie filtry.
 1. Aby dodać filmy wideo, zaznacz je, a następnie wybierz pozycję **Dodaj**.

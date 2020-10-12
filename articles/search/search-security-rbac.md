@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928687"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Ustawianie ról platformy Azure na potrzeby dostępu administracyjnego do usługi Azure Wyszukiwanie poznawcze
@@ -54,4 +54,4 @@ Poniższa tabela zawiera podsumowanie operacji dozwolonych w usłudze Azure Wysz
 
 + [Zarządzanie przy użyciu programu PowerShell](search-manage-powershell.md) 
 + [Wydajność i optymalizacja na platformie Azure Wyszukiwanie poznawcze](search-performance-optimization.md)
-+ [Rozpocznij pracę z Access Controlami opartymi na rolach w Azure Portal](../role-based-access-control/overview.md).
++ [Rozpocznij pracę z Role-Based Access Control w Azure Portal](../role-based-access-control/overview.md).

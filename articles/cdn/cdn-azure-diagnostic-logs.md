@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191278"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Dzienniki diagnostyczne — Content Delivery Network platformy Azure
@@ -52,7 +52,7 @@ Wykonaj następujące kroki, aby włączyć rejestrowanie dla punktu końcowego 
 
 3. W sekcji **monitorowanie** wybierz pozycję **dzienniki diagnostyczne** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wybierz pozycję dzienniki diagnostyczne." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Włączanie rejestrowania w usłudze Azure Storage
 
@@ -69,7 +69,7 @@ Aby użyć konta magazynu do przechowywania dzienników, wykonaj następujące c
 
 4. Wybierz subskrypcję i konto magazynu dla dzienników.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Dzienniki diagnostyczne — magazyn." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
 
 3. Wybierz pozycję **Zapisz**.
 
@@ -86,7 +86,7 @@ Aby użyć Log Analytics dzienników, wykonaj następujące kroki:
 
 3. Wybierz obszar roboczy subskrypcji i Log Analytics dla dzienników.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Dzienniki diagnostyczne — Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
 
 4. Wybierz pozycję **Zapisz**.
 
@@ -103,7 +103,7 @@ Aby użyć centrum zdarzeń dla dzienników, wykonaj następujące kroki:
 
 3. Wybierz przestrzeń nazw subskrypcji i centrum zdarzeń dla dzienników.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Dzienniki diagnostyczne — centrum zdarzeń." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Wybierz punkt końcowy usługi CDN." border="true":::
 
 4. Wybierz pozycję **Zapisz**.
 
@@ -210,8 +210,8 @@ Dzienniki analizy podstawowej są generowane co godzinę, a dane są zbierane i 
 |Nazwa grupy zasobów |Nazwa grupy zasobów, do której należą zasoby sieci CDN.|
 |Profile Name (Nazwa profilu) |Nazwa profilu CDN|
 |Nazwa punktu końcowego |Nazwa punktu końcowego usługi CDN|
-|Rok|  Czwarta reprezentacja roku, na przykład 2017|
-|Miesiąc| Dwucyfrowa reprezentacja numeru miesiąca. 01 = styczeń... 12 = grudzień|
+|Year (Rok)|  Czwarta reprezentacja roku, na przykład 2017|
+|Month (Miesiąc)| Dwucyfrowa reprezentacja numeru miesiąca. 01 = styczeń... 12 = grudzień|
 |Dzień|   Dwucyfrowa reprezentacja dnia miesiąca|
 |PT1H.jsna| Rzeczywisty plik JSON, w którym są przechowywane dane analizy|
 
@@ -265,7 +265,7 @@ Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie r�
 | RequestCountCacheHit | Liczba wszystkich żądań, które spowodowały trafienie pamięci podręcznej. Zasób został obsłużony bezpośrednio z punktu POP do klienta. | Tak | Tak | Nie  |
 | RequestCountCacheMiss | Liczba wszystkich żądań, które spowodowały odrzucenie pamięci podręcznej. Chybienia w pamięci podręcznej oznacza, że zasób nie został odnaleziony w punkcie POP najbliżej klienta i został pobrany z lokalizacji źródłowej. | Tak | Tak | Nie |
 | RequestCountCacheNoCache | Liczba wszystkich żądań do elementu zawartości, które nie są przechowywane w pamięci podręcznej z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
-| RequestCountCacheUncacheable | Liczba wszystkich żądań do zasobów, które nie są przechowywane w pamięci podręcznej przez formant Cache-Control i wygaśnięcia elementu zawartości. Ta liczba wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
+| RequestCountCacheUncacheable | Liczba wszystkich żądań do zasobów, które nie są przechowywane w pamięci podręcznej przez Cache-Control i wygaśnięcia nagłówków zasobów. Ta liczba wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
 | RequestCountCacheOthers | Liczba wszystkich żądań ze stanem pamięci podręcznej, które nie zostały omówione powyżej. | Nie | Tak | Nie  |
 | EgressTotal | Wychodzący transfer danych w GB | Tak |Tak |Tak |
 | EgressHttpStatus2xx | Wychodzący transfer danych * dla odpowiedzi z kodami stanu HTTP 2xx w GB. | Tak | Tak | Nie  |
@@ -276,7 +276,7 @@ Nie wszystkie metryki są dostępne dla wszystkich dostawców, chociaż takie r�
 | EgressCacheHit | Wychodzący transfer danych dla odpowiedzi dostarczonych bezpośrednio z pamięci podręcznej usługi CDN w przypadku punktów obecności/krawędzi sieci CDN. | Tak | Tak | Nie |
 | EgressCacheMiss. | Wychodzący transfer danych dla odpowiedzi, które nie zostały znalezione na najbliższym serwerze POP i pobierane z serwera pochodzenia. | Tak | Tak | Nie |
 | EgressCacheNoCache | Wychodzący transfer danych dla zasobów, które nie są przechowywane w pamięci podręcznej z powodu konfiguracji użytkownika na krawędzi. | Tak | Tak | Nie |
-| EgressCacheUncacheable | Wychodzący transfer danych dla zasobów, które nie mogą być buforowane przez formant pamięci podręcznej i lub wygasają nagłówkiem. Wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
+| EgressCacheUncacheable | Wychodzący transfer danych dla zasobów, które nie są przechowywane w pamięci podręcznej przez Cache-Control i lub wygaśnięcia nagłówków elementu zawartości. Wskazuje, że nie powinna być buforowana w punkcie POP ani przez klienta HTTP. | Tak | Tak | Nie |
 | EgressCacheOthers | Wychodzące transfery danych dla innych scenariuszy pamięci podręcznej. | Nie | Tak | Nie |
 
 * Wychodzący transfer danych odnosi się do ruchu dostarczonego z serwerów POP usługi CDN do klienta.

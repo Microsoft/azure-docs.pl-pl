@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558561"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box BLOB Storage
@@ -26,7 +26,7 @@ W tej sekcji przedstawiono niektóre problemy związane z używaniem Eksplorator
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
 |Nie można pobrać zasobów podrzędnych. Wartość jednego z nagłówków HTTP nie ma poprawnego formatu.|Z menu **Edycja** wybierz pozycję **docelowa Azure Stack interfejsy API**. <br>Uruchom ponownie Eksplorator usługi Azure Storage.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w tej ścieżce: <li>`C:\Windows\System32\drivers\etc\hosts`w systemie Windows lub </li><li> `/etc/hosts`w systemie Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w tej ścieżce: <li>`C:\Windows\System32\drivers\etc\hosts` w systemie Windows lub </li><li> `/etc/hosts` w systemie Linux.</li>|
 |Nie można pobrać zasobów podrzędnych. <br>Szczegóły: certyfikat z podpisem własnym |Zaimportuj certyfikat TLS/SSL dla urządzenia do Eksplorator usługi Azure Storage: <li>Pobierz certyfikat z Azure Portal. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Z menu **Edycja** wybierz pozycję **Certyfikaty SSL** , a następnie wybierz pozycję **Importuj certyfikaty**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Błędy widoczne w AzCopy dla systemu Windows
@@ -35,7 +35,7 @@ W tej sekcji przedstawiono niektóre problemy związane z korzystaniem z program
 
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
-|AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu: <br>Nie można wyliczyć https://katalogu... Nie można rozpoznać nazwy zdalnej`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `C:\Windows\System32\drivers\etc\hosts` .|
+|AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu: <br>Nie można wyliczyć https://katalogu... Nie można rozpoznać nazwy zdalnej `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `C:\Windows\System32\drivers\etc\hosts` .|
 |AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu: <br>Wystąpił błąd podczas analizowania lokalizacji źródłowej. Połączenie podstawowe zostało zamknięte: nie można ustanowić relacji zaufania dla bezpiecznego kanału SSL/TLS.|Zaimportuj certyfikat TLS/SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 
@@ -55,7 +55,7 @@ W tej sekcji przedstawiono niektóre najczęstsze problemy związane z wdrażani
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
 |Wartość jednego z nagłówków HTTP nie ma poprawnego formatu. |Zainstalowana wersja biblioteki Microsoft Azure Storage dla języka Python nie jest obsługiwana przez urządzenie Data Box. Zobacz Azure Data Box wymagania dotyczące magazynu obiektów BLOB dla obsługiwanych wersji.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu TLS zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. <br> Na przykład na platformie Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu TLS zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Na przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. <br> Na przykład na platformie Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Typowe błędy

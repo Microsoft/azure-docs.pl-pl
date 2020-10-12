@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851718"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Szablony interfejsu API na platformie Azure API Management
@@ -46,7 +46,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="api-list"></a><a name="APIList"></a>Lista interfejsów API  
+## <a name="api-list"></a><a name="APIList"></a> Lista interfejsów API  
  Szablon **lista interfejsów API** umożliwia dostosowanie treści strony listy interfejsów API w portalu dla deweloperów.  
   
  ![Lista interfejsów API portalu dla deweloperów](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista interfejsów API szablonów portalu deweloperów APIM")  
@@ -90,7 +90,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`apis`|Kolekcja jednostek [podsumowania interfejsu API](api-management-template-data-model-reference.md#APISummary) .|Interfejsy API widoczne dla bieżącego użytkownika.|  
   
@@ -114,7 +114,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 }  
 ```  
   
-## <a name="operation"></a><a name="Product"></a>Operacje  
+## <a name="operation"></a><a name="Product"></a> Operacje  
  Szablon **operacji** umożliwia dostosowanie treści strony operacje w portalu dla deweloperów.  
   
  ![Strona operacji portalu dla deweloperów](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Strona operacji szablonów portalu deweloperów APIM")  
@@ -345,7 +345,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 ### <a name="data-model"></a>Model danych  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`apiId`|ciąg|Identyfikator bieżącego interfejsu API.|  
 |`apiName`|ciąg|Nazwa interfejsu API.|  
@@ -644,7 +644,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
 }  
 ```  
   
-## <a name="code-samples"></a><a name="CodeSamples"></a>Przykłady kodu  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Przykłady kodu  
  Poniższe Szablony umożliwiają dostosowanie treści poszczególnych przykładów kodu na stronie operacje.  
   
  ![Przykłady kodu szablonów portalu dla deweloperów](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Przykłady kodu szablonów portalu dla deweloperów APIM")  
@@ -665,7 +665,7 @@ Szablony w tej sekcji umożliwiają dostosowanie zawartości stron interfejsu AP
   
 -   [Ruby](#Ruby)  
   
-### <a name="curl"></a><a name="Curl"></a>Odsłon  
+### <a name="curl"></a><a name="Curl"></a> Odsłon  
  Szablon **DocumentationSamplesCurl** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  
@@ -897,7 +897,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="java"></a><a name="Stub"></a>Oprogramowania  
+### <a name="java"></a><a name="Stub"></a> Oprogramowania  
  Szablon **DocumentationSamplesJava** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  
@@ -993,7 +993,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="javascript"></a><a name="JavaScript"></a>JavaScript  
+### <a name="javascript"></a><a name="JavaScript"></a> JavaScript  
  Szablon **DocumentationSamplesJs** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  
@@ -1082,7 +1082,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="objective-c"></a><a name="ObjectiveC"></a>Cel C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Cel C  
  Szablon **DocumentationSamplesObjc** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  
@@ -1194,7 +1194,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="php"></a><a name="PHP"></a>Obsługa  
+### <a name="php"></a><a name="PHP"></a> Obsługa  
  Szablon **DocumentationSamplesPhp** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  
@@ -1402,7 +1402,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="ruby"></a><a name="Ruby"></a>Dopisek  
+### <a name="ruby"></a><a name="Ruby"></a> Dopisek  
  Szablon **DocumentationSamplesRuby** umożliwia dostosowanie tego przykładu kodu w sekcji Przykłady kodu na stronie operacje.  
   
 #### <a name="default-template"></a>Szablon domyślny  

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2020
 tags: connectors
 ms.openlocfilehash: 2db9649fd52c96ded5233311f3cf275da5d5ea86
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033153"
 ---
 # <a name="monitor-and-manage-wunderlist-in-azure-logic-apps"></a>Monitoruj i Zarządzaj usługą Wunderlist w Azure Logic Apps

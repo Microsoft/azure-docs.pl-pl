@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021861"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database funkcje zabezpieczeń    
@@ -40,14 +40,14 @@ Zapora bramy może ograniczyć adresy, co pozwala klientom szczegółowo kontrol
 Klienci mogą uzyskać konfigurację zapory przy użyciu portalu zarządzania lub programowo przy użyciu interfejsu API REST zarządzania Azure SQL Database. Zapora Azure SQL Database Gateway domyślnie uniemożliwia wszystkim klientom dostęp do Azure SQL Database. Klienci muszą skonfigurować dostęp przy użyciu list kontroli dostępu (ACL), aby zezwalać na połączenia Azure SQL Database przez źródłowe i docelowe adresy internetowe, protokoły i numery portów.
 
 ### <a name="dosguard"></a>DoSGuard
-Ataki typu "odmowa usługi" (DoS) są redukowane przez usługę bramy SQL Database o nazwie DoSGuard. DoSGuard aktywnie śledzi nieudane logowania z adresów IP. W przypadku wystąpienia wielu nieudanych logowań z określonego adresu IP w danym okresie adres IP nie ma dostępu do dowolnych zasobów usługi w ramach wstępnie zdefiniowanego okresu.
+Atakom typu „odmowa usługi” (DoS) przeciwdziała usługa bramy usługi SQL Database o nazwie DoSGuard. Usługa DoSGuard aktywnie śledzi nieudane logowania z adresów IP. W przypadku wystąpienia wielu nieudanych logowań z określonego adresu IP w danym okresie adres IP nie ma dostępu do dowolnych zasobów usługi w ramach wstępnie zdefiniowanego okresu.
 
 Ponadto Brama Azure SQL Database wykonuje następujące czynności:
 
 - Negocjacje możliwości bezpiecznego kanału w celu zaimplementowania zaszyfrowanego połączenia protokołu TDS w trybie FIPS 140-2 podczas łączenia się z serwerami baz danych.
 - Stanowa Inspekcja pakietów TDS podczas akceptowania połączeń od klientów. Brama weryfikuje informacje o połączeniu i przekazuje je do odpowiedniego serwera fizycznego na podstawie nazwy bazy danych określonej w parametrach połączenia.
 
-Zasada odnosząca się do zabezpieczeń sieci w ramach oferty Azure SQL Database jest umożliwienie tylko połączenia i komunikacji, które są niezbędne, aby umożliwić działanie usługi. Wszystkie inne porty, protokoły i połączenia są domyślnie blokowane. Wirtualne sieci lokalne (VLAN) i listy kontroli dostępu są używane do ograniczania komunikacji sieciowej według sieci źródłowej i docelowej, protokołów i numerów portów.
+Nadrzędną zasadą dotyczącą zabezpieczeń sieci w ramach oferty usługi Azure SQL Database jest zezwalanie wyłącznie na połączenia i komunikację, która jest niezbędna do działania usługi. Wszystkie inne porty, protokoły i połączenia są domyślnie blokowane. Wirtualne sieci lokalne (VLAN) i listy kontroli dostępu są używane do ograniczania komunikacji sieciowej według sieci źródłowej i docelowej, protokołów i numerów portów.
 
 Mechanizmy zatwierdzone do implementacji list ACL opartych na sieci obejmują listy ACL na routerach i modułach równoważenia obciążenia. Te mechanizmy są zarządzane przez sieć platformy Azure, zaporę maszyny wirtualnej gościa i reguły zapory Azure SQL Database Gateway, które są konfigurowane przez klienta.
 

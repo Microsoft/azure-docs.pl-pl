@@ -9,10 +9,10 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88185387"
 ---
 # <a name="what-is-azure-importexport-service"></a>Co to jest usługa Azure Import/Export?
@@ -120,7 +120,7 @@ Usługa Azure Import/Export obsługuje kopiowanie danych do i ze wszystkich kont
 
 |Kraj/region  |Kraj/region  |Kraj/region  |Kraj/region  |
 |---------|---------|---------|---------|
-|East US    | Europa Północna        | Central India        |US Gov Iowa         |
+|East US    | Europa Północna        | Indie Środkowe        |US Gov Iowa         |
 |Zachodnie stany USA     |West Europe         | Indie Południowe        | US DoD (region wschodni)        |
 |Wschodnie stany USA 2    | Azja Wschodnia        |  Indie Zachodnie        | US DoD (region środkowy)        |
 |Zachodnie stany USA 2     | Southeast Asia        | Kanada Środkowa        | Chiny Wschodnie         |
@@ -130,7 +130,7 @@ Usługa Azure Import/Export obsługuje kopiowanie danych do i ze wszystkich kont
 |Zachodnio-środkowe stany USA     |  Japan East       | US Gov Wirginia        | Niemcy Północno-Wschodnie        |
 |Zachodnia Republika Południowej Afryki   |  Północna Republika Południowej Afryki |
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Dane na dysku są szyfrowane przy użyciu algorytmu AES 256-bit szyfrowanie dysków funkcją BitLocker. To szyfrowanie chroni dane podczas przesyłania.
 

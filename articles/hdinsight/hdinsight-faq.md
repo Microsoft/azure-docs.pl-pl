@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84022218"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
@@ -190,7 +190,7 @@ W przypadku wymagań inspekcji firma Microsoft zaleca włączenie dzienników Az
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>Czy mogę wyłączyć `Clamscan` w moim klastrze?
 
-`Clamscan`Program jest oprogramowaniem antywirusowym uruchamianym w klastrze usługi HDInsight i jest używany przez zabezpieczenia platformy Azure (azsecd) do ochrony klastrów przed atakami z wykorzystaniem wirusów. Firma Microsoft zdecydowanie zaleca, aby użytkownicy nie mogli wprowadzać zmian do `Clamscan` konfiguracji domyślnej.
+`Clamscan` Program jest oprogramowaniem antywirusowym uruchamianym w klastrze usługi HDInsight i jest używany przez zabezpieczenia platformy Azure (azsecd) do ochrony klastrów przed atakami z wykorzystaniem wirusów. Firma Microsoft zdecydowanie zaleca, aby użytkownicy nie mogli wprowadzać zmian do `Clamscan` konfiguracji domyślnej.
 
 Ten proces nie zakłóca działania ani nie podejmuje żadnych cykli od innych procesów. Zawsze będzie ona podlegać innemu procesowi. Wartości skoków procesora CPU z `Clamscan` powinny być widoczne tylko wtedy, gdy system jest w stanie bezczynności.  
 

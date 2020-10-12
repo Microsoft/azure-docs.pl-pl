@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133812"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurowanie odzyskiwania po awarii dla wielowarstwowej aplikacji Dynamics AX   
@@ -43,7 +43,7 @@ Na potrzeby tworzenia tego artykułu korzystamy z maszyn wirtualnych VMware z sy
 
 **Scenariusz** | **Do lokacji dodatkowej** | **Na platformie Azure**
 --- | --- | ---
-**Funkcja Hyper-V** | Tak | Tak
+**Hyper-V** | Tak | Tak
 **VMware** | Tak | Tak
 **Serwer fizyczny** | Tak | Tak
 

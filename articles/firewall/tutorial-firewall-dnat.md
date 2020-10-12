@@ -9,10 +9,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069276"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Samouczek: filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure firewall DNAT przy użyciu Azure Portal
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 3. W polu **Nazwa grupy zasobów** wpisz **RG-DNAT-Test**.
 4. W polu **Subskrypcja** wybierz subskrypcję.
 5. W polu **Lokalizacja grupy zasobów** wybierz lokalizację. Wszystkie kolejne zasoby, które utworzysz, muszą znajdować się w tej samej lokalizacji.
-6. Wybierz pozycję **Utwórz**.
+6. Wybierz przycisk **Utwórz**.
 
 ## <a name="set-up-the-network-environment"></a>Konfigurowanie środowiska sieciowego
 
@@ -94,11 +94,11 @@ Teraz połącz sieci wirtualne przy użyciu komunikacji równorzędnej.
 1. Wybierz sieć wirtualną dla **centrów VN** .
 2. W obszarze **Ustawienia**wybierz pozycję **Komunikacja równorzędna**.
 3. Wybierz pozycję **Dodaj**.
-4. Wpisz **peer-HubSpoke** dla **nazwy komunikacji równorzędnej z piasty od VN do VN-szprych**.
+4. Wpisz **peer-HubSpoke** dla **nazwy komunikacji równorzędnej z VN-Hub do VN-szprych**.
 5. Jako sieć wirtualną wybierz **VN-Spoke**.
-6. Wpisz **peer-SpokeHub** dla **nazwy komunikacji równorzędnej od VN-szprychy z-węzłem VN**.
-7. Dla opcji **Zezwalaj na ruch przesłany z ODczynu VN-szprychy do typu VN-Hub** wybierz opcję **włączone**.
-8. Wybierz przycisk **OK**.
+6. Wpisz **peer-SpokeHub** dla **nazwy komunikacji równorzędnej z VN-Spoke do centrum VN**.
+7. Dla opcji **Zezwalaj na ruch przesłany z VN-Spoke do centrum z ODczynem VN** wybierz opcję **włączone**.
+8. Kliknij przycisk **OK**.
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
@@ -117,7 +117,7 @@ Utwórz maszynę wirtualną obciążenia i umieść ją w podsieci **SN-Workload
 1. Wybierz pozycję **Dalej: dyski**.
 
 **Dyski**
-1. Wybierz pozycję **Dalej: sieć**.
+1. Wybierz pozycję **Dalej: Sieć**.
 
 **Sieć**
 
@@ -172,12 +172,12 @@ Na potrzeby podsieci **SN-Workload** skonfiguruj trasę domyślną ruchu wychodz
 5. W polu **Subskrypcja** wybierz subskrypcję.
 6. W obszarze **Grupa zasobów** wybierz pozycję **Użyj istniejącej**, a następnie wybierz pozycję **RG-DNAT-Test**.
 7. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 9. Wybierz pozycję **Odśwież**, a następnie wybierz tabelę tras **RT-FWroute** .
 10. Wybierz pozycję **podsieci**, a następnie wybierz pozycję **Skojarz**.
 11. Wybierz pozycję **Sieć wirtualna**, a następnie wybierz pozycję **VN-szprycha**.
 12. W polu **Podsieć** wybierz pozycję **SN-Workload**.
-13. Wybierz przycisk **OK**.
+13. Kliknij przycisk **OK**.
 14. Wybierz pozycję **trasy**, a następnie wybierz pozycję **Dodaj**.
 15. W polu **Nazwa trasy** wpisz wartość **FW-DG**.
 16. W polu **Prefiks adresu** wpisz wartość **0.0.0.0/0**.
@@ -185,7 +185,7 @@ Na potrzeby podsieci **SN-Workload** skonfiguruj trasę domyślną ruchu wychodz
 
     Usługa Azure Firewall to w rzeczywistości usługa zarządzana, ale urządzenie wirtualne działa w tej sytuacji.
 18. W polu **Adres następnego skoku** wpisz wcześniej zanotowany prywatny adres IP zapory.
-19. Wybierz przycisk **OK**.
+19. Kliknij przycisk **OK**.
 
 ## <a name="configure-a-nat-rule"></a>Konfigurowanie reguł translatora adresów sieciowych
 

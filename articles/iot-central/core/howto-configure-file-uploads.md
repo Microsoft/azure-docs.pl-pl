@@ -8,10 +8,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556378"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Przekazywanie plików z urządzeń do chmury

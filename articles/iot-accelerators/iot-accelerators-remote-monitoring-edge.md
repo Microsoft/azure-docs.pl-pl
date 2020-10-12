@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 43ba14845765230b9a54c2b34dbc7ccd53af950b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970001"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Samouczek: Wykrywanie anomalii na urządzeniach brzegowych za pomocą akceleratora rozwiązania do monitorowania zdalnego
@@ -83,7 +83,7 @@ Aby ułatwić zarządzanie urządzeniami usługi IoT Edge w ramach rozwiązania,
     | Zadanie     | Tagi  |
     | Nazwa zadania | AddEdgeTag |
     | Klucz     | IsOilPump |
-    | Wartość   | Y     |
+    | Wartość   | T     |
     | Typ    | Tekst  |
 
     [![Dodaj tag](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -99,12 +99,12 @@ Aby ułatwić zarządzanie urządzeniami usługi IoT Edge w ramach rozwiązania,
     | Nazwa    | OilPumps |
     | Pole   | Tags.IsOilPump |
     | Operator | = Równa się |
-    | Wartość    | Y |
+    | Wartość    | T |
     | Typ     | Tekst |
 
     [![Utwórz grupę urządzeń](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 Urządzenie usługi IoT Edge jest teraz w grupie **OilPumps**.
 
@@ -209,11 +209,11 @@ Następne należy utworzyć manifest wdrożenia usługi IoT Edge, definiujący m
 
 1. Na stronie **Tworzenie wdrożenia > Dodawanie modułów** kliknij pozycję **+ Dodaj**. Wybierz pozycję **Moduł usługi IoT Edge**.
 
-1. Na panelu **Moduły niestandardowe usługi IoT Edge** wpisz nazwę **temperatureSensor** oraz identyfikator URI obrazu **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64**. Kliknij pozycję **Zapisz**.
+1. Na panelu **Moduły niestandardowe usługi IoT Edge** wpisz nazwę **temperatureSensor** oraz identyfikator URI obrazu **asaedgedockerhubtest/asa-edge-test-module:sensor-ad-linux-amd64**. Kliknij przycisk **Zapisz**.
 
 1. Na stronie **Tworzenie wdrożenia > Dodawanie modułów** kliknij pozycję **+ Dodaj**, aby dodać drugi moduł. Wybierz pozycję **Moduł usługi Azure Stream Analytics**.
 
-1. Na panelu **Wdrożenie usługi Edge** wybierz swoją subskrypcję oraz zadanie **EdgeDeviceJob** utworzone w poprzedniej sekcji. Kliknij pozycję **Zapisz**.
+1. Na panelu **Wdrożenie usługi Edge** wybierz swoją subskrypcję oraz zadanie **EdgeDeviceJob** utworzone w poprzedniej sekcji. Kliknij przycisk **Zapisz**.
 
 1. Na stronie **Tworzenie wdrożenia > Dodawanie modułów** kliknij pozycję **Dalej**.
 

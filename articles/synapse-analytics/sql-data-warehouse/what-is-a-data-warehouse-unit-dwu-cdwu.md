@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461990"
 ---
 # <a name="data-warehouse-units-dwus"></a>Jednostki magazynu danych (jednostek dwu)
@@ -108,7 +108,7 @@ Aby wyświetlić bieżące ustawienie jednostek dwu:
 
 1. Otwórz Eksplorator obiektów SQL Server w programie Visual Studio.
 2. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem logicznym SQL.
-3. Wybierz opcję z dynamicznego widoku zarządzania sys. database_service_objectives. Oto przykład:
+3. Wybierz z sys.database_service_objectives dynamiczny widok zarządzania. Oto przykład:
 
 ```sql
 SELECT  db.name [Database]
@@ -129,9 +129,9 @@ Aby zmienić jednostek dwu:
 
 2. W obszarze **skalowanie**przesuń suwak w lewo lub w prawo, aby zmienić ustawienie jednostek dwu.
 
-3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
+3. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij pozycję **tak**, aby potwierdzić, lub **nie**, aby anulować.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

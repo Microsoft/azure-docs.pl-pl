@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130406"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Rozwiązywanie problemów z replikacją w ramach odzyskiwania po awarii maszyny wirtualnej Azure
@@ -35,7 +35,7 @@ Powinna zostać wyświetlona **częstotliwość zmian danych zdarzeń poza obsł
 
 W przypadku wybrania zdarzenia powinny zostać wyświetlone dokładne informacje o dysku:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Strona wyświetlająca szczegóły zdarzenia dotyczącego szybkości zmiany danych.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limity usługi Azure Site Recovery
 
@@ -56,7 +56,7 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 16
 
 Azure Site Recovery ma limity szybkości zmian danych, w zależności od typu dysku. Aby sprawdzić, czy ten problem jest cykliczny, czy tymczasowy, Znajdź szybkość zmian danych maszyny wirtualnej, której dotyczy problem. Przejdź do źródłowej maszyny wirtualnej, Znajdź metryki w obszarze **monitorowanie**i Dodaj metryki, jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Na stronie, na której jest wyświetlany proces trzech kroków służący do znajdowania współczynnika zmian danych.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
 
 1. Wybierz pozycję **Dodaj metrykę**i Dodaj **Bajty zapisu dysku systemu operacyjnego/s** i **Bajty zapisu na dysku danych/s**.
 1. Monitoruj skok, jak pokazano na zrzucie ekranu.
@@ -65,7 +65,7 @@ Azure Site Recovery ma limity szybkości zmian danych, w zależności od typu dy
 Wzrost liczby zmian danych może pochodzić z okazjonalnej serii danych. Jeśli częstotliwość zmian danych jest większa niż 10 MB/s (w przypadku wersji Premium) lub 2 MB/s (w przypadku wersji Standard) i zostanie wystawiona replikacja, zostanie wystąpić. Jeśli zmiany są spójne znacznie poza obsługiwanym limitem, należy wziąć pod uwagę jedną z następujących opcji:
 
 - Wyklucz dysk powodujący wysoki współczynnik zmian danych: najpierw wyłącz replikację. Następnie możesz wykluczyć dysk przy użyciu [programu PowerShell](azure-to-azure-exclude-disks.md).
-- Zmień warstwę dysku magazynu odzyskiwania po awarii: Ta opcja jest możliwa tylko wtedy, gdy ilość danych na dysku jest mniejsza niż 20 MB/s. Na przykład maszyna wirtualna z dyskiem P10 ma zmienione dane o rozmiarze większym niż 8 MB/s, ale mniej niż 10 MB/s. Jeśli klient może korzystać z dysku P30 dla magazynu docelowego podczas ochrony, problem może zostać rozwiązany. To rozwiązanie jest możliwe tylko w przypadku maszyn korzystających z wersji Premium-Managed Disks. Wykonaj następujące kroki:
+- Zmień warstwę dysku magazynu odzyskiwania po awarii: Ta opcja jest możliwa tylko wtedy, gdy ilość danych na dysku jest mniejsza niż 20 MB/s. Na przykład maszyna wirtualna z dyskiem P10 ma zmienione dane o rozmiarze większym niż 8 MB/s, ale mniej niż 10 MB/s. Jeśli klient może korzystać z dysku P30 dla magazynu docelowego podczas ochrony, problem może zostać rozwiązany. To rozwiązanie jest możliwe tylko dla maszyn, które używają Premium-Managed dysków. Wykonaj następujące kroki:
 
   1. Przejdź do obszaru **dyski** replikowanej maszyny i skopiuj nazwę dysku repliki.
   1. Przejdź do tej repliki dysku zarządzanego.

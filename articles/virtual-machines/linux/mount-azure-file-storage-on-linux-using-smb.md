@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085490"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Instalowanie usługi Azure File Storage na maszynach wirtualnych z systemem Linux przy użyciu protokołu SMB
@@ -110,4 +110,4 @@ W celu zwiększenia bezpieczeństwa w środowiskach produkcyjnych należy przech
 
 - [Dostosowywanie maszyny wirtualnej z systemem Linux podczas tworzenia przy użyciu funkcji Cloud-init](using-cloud-init.md)
 - [Dodawanie dysku do maszyny wirtualnej z systemem Linux](add-disk.md)
-- [Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](disk-encryption-overview.md)
+- [Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](disk-encryption-overview.md)

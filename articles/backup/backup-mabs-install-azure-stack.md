@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak używać Azure Backup Server do oc
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970245"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalowanie składnika Azure Backup Server w usłudze Azure Stack
@@ -217,7 +217,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
 
     ![Azure Backup Server — sprawdzanie wymagań wstępnych](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz pozycję **Dalej**.  
+    Jeśli środowisko ma wymagane wymagania wstępne, zobaczysz komunikat informujący o tym, że komputer spełnia wymagania. Wybierz opcję **Dalej**.  
 
     ![Zakończono sprawdzanie wymagań wstępnych Azure Backup Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -255,7 +255,7 @@ Azure Backup Server udostępnia kod z Data Protection Manager. W instalatorze Az
    > Zalecamy, aby Windows Update przekierować do Microsoft Update, który oferuje bezpieczeństwo i ważne aktualizacje systemu Windows oraz innych produktów, takich jak Microsoft Azure Backup Server.
    >
 
-    ![Ekran z zapytaniem Microsoft Update](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Microsoft Update Opt-In ekranu](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
 8. Przejrzyj *Podsumowanie ustawień* i wybierz pozycję **Zainstaluj**.
 

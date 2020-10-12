@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
 ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030801"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Table Storage do zarządzania komercyjnymi klientami portalu Marketplace
@@ -38,7 +38,7 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
 1. Na stronie **głównej** Azure Portal wybierz pozycję **Zobacz wszystkie zasoby** , aby uzyskać dostęp do konta magazynu. Możesz również wybrać pozycję **wszystkie zasoby** na pasku menu po lewej stronie Azure Portal.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Uzyskaj dostęp do konta usługi Azure Storage.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Procedura tworzenia konta usługi Azure Storage.":::
 
 1. W okienku konto magazynu wybierz pozycję **klucze dostępu** i skopiuj wartość **Parametry połączenia** dla klucza. Zapisz tę wartość, ponieważ jest to wartość **parametrów połączenia konta magazynu** , która będzie potrzebna w portalu wydawców w celu otrzymywania potencjalnych klientów na potrzeby oferty platformy Azure Marketplace.
 
@@ -48,7 +48,7 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Klucz usługi Azure Storage.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Procedura tworzenia konta usługi Azure Storage.":::
 
 
 1. W okienku konto magazynu wybierz pozycję **tabele**, a następnie wybierz pozycję **+ tabela** , aby utworzyć tabelę. Wprowadź nazwę tabeli i wybierz **przycisk OK**. Zapisz tę wartość, ponieważ będzie ona potrzebna, jeśli chcesz skonfigurować przepływ do odbierania powiadomień e-mail po odebraniu potencjalnych klientów.
@@ -72,7 +72,7 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
    ![Moje przepływy + zaplanowano — z pustej](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym**przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz pozycję **Utwórz**.
+1. W oknie **kompilacja zaplanowanego przepływu** dla opcji **Powtarzaj w każdym**przypadku wybierz wartość **1** dla interwału i **godziny** dla częstotliwości. Ponadto Nadaj nazwę przepływowi, jeśli chcesz. Wybierz przycisk **Utwórz**.
 
    >[!NOTE]
    >Mimo że w tym przykładzie używany jest interwał jednogodzinny, można wybrać interwał i częstotliwość, które najlepiej odpowiadają potrzebom biznesowym.
@@ -185,7 +185,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Potencjalni klienci":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Procedura tworzenia konta usługi Azure Storage.":::
 
 1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **tabela Azure** dla **miejsca docelowego potencjalnego klienta**. 
      ![Zarządzanie potencjalnymi klientami, szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
 ms.openlocfilehash: 0c60fdfda0c18f5a8feb11c3d9c5a386025670cd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368153"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Wdrażanie OpenShift kontenera platform 3,11 na platformie Azure
@@ -278,12 +278,12 @@ Różne wersje mogą mieć inne parametry, aby zweryfikować wymagane parametry 
 | `aadClientId` | Identyfikator klienta Azure Active Directory znany również jako identyfikator aplikacji dla jednostki usługi |  |  |
 | `domainName` | Nazwa niestandardowej nazwy domeny do użycia (jeśli dotyczy). Ustaw na wartość "none", jeśli nie jest wdrażany w pełni prywatny klaster |  | brak |
 | `masterClusterDnsType` | Typ domeny dla konsoli sieci Web OpenShift. wartość "default" spowoduje użycie etykiety DNS publicznego adresu IP infrastruktury Master. element "Custom" umożliwia zdefiniowanie własnej nazwy | default <br> niestandardowe | default |
-| `masterClusterDns` | Niestandardowa nazwa DNS, która ma być używana do uzyskiwania dostępu do konsoli sieci Web OpenShift w przypadku wybrania elementu "Custom" dla`masterClusterDnsType` |  | console.contoso.com |
+| `masterClusterDns` | Niestandardowa nazwa DNS, która ma być używana do uzyskiwania dostępu do konsoli sieci Web OpenShift w przypadku wybrania elementu "Custom" dla `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Jeśli zostanie ustawiona na wartość "nipio", `routingSubDomain` użyje NIP.IO.  Użyj elementu "Custom", jeśli masz własną domenę, która ma być używana do routingu | nipio <br> niestandardowe | nipio |
-| `routingSubDomain` | Symbol wieloznaczny DNS, który ma być używany na potrzeby routingu w przypadku wybrania elementu "Custom" dla`routingSubDomainType` |  | apps.contoso.com |
+| `routingSubDomain` | Symbol wieloznaczny DNS, który ma być używany na potrzeby routingu w przypadku wybrania elementu "Custom" dla `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Wybierz, czy chcesz użyć istniejącego Virtual Network, czy utworzyć nowy Virtual Network | istniejącego <br> new | new |
-| `virtualNetworkResourceGroupName` | Nazwa grupy zasobów dla nowego Virtual Network w przypadku wybrania elementu "New" dla`virtualNetworkNewOrExisting` |  | resourceName (). Name |
-| `virtualNetworkName` | Nazwa nowego Virtual Network do utworzenia, jeśli wybrano element "New" dla`virtualNetworkNewOrExisting` |  | openshiftvnet |
+| `virtualNetworkResourceGroupName` | Nazwa grupy zasobów dla nowego Virtual Network w przypadku wybrania elementu "New" dla `virtualNetworkNewOrExisting` |  | resourceName (). Name |
+| `virtualNetworkName` | Nazwa nowego Virtual Network do utworzenia, jeśli wybrano element "New" dla `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefiks adresu nowej sieci wirtualnej |  | 10.0.0.0/14 |
 | `masterSubnetName` | Nazwa podsieci głównej |  | mastersubnet |
 | `masterSubnetPrefix` | CIDR używany dla podsieci głównej — musi być podzbiorem addressPrefix |  | 10.1.0.0/16 |
@@ -295,9 +295,9 @@ Różne wersje mogą mieć inne parametry, aby zweryfikować wymagane parametry 
 | `existingInfraSubnetReference` | Pełne odwołanie do istniejącej podsieci dla węzłów infrastruktury. Niewymagane w przypadku tworzenia nowej sieci wirtualnej/podsieci |  |  |
 | `existingCnsSubnetReference` | Pełne odwołanie do istniejącej podsieci dla węzłów CNS. Niewymagane w przypadku tworzenia nowej sieci wirtualnej/podsieci |  |  |
 | `existingNodeSubnetReference` | Pełne odwołanie do istniejącej podsieci dla węzłów obliczeniowych. Niewymagane w przypadku tworzenia nowej sieci wirtualnej/podsieci |  |  |
-| `masterClusterType` | Określ, czy klaster ma używać prywatnych, jak i publicznych węzłów głównych. W przypadku wybrania opcji prywatne węzły główne nie będą uwidaczniane w Internecie za pośrednictwem publicznego adresu IP. Zamiast tego będzie używany prywatny adres IP określony w`masterPrivateClusterIp` | public <br> private | public |
+| `masterClusterType` | Określ, czy klaster ma używać prywatnych, jak i publicznych węzłów głównych. W przypadku wybrania opcji prywatne węzły główne nie będą uwidaczniane w Internecie za pośrednictwem publicznego adresu IP. Zamiast tego będzie używany prywatny adres IP określony w `masterPrivateClusterIp` | public <br> private | public |
 | `masterPrivateClusterIp` | W przypadku wybrania prywatnych węzłów głównych należy określić prywatny adres IP do użycia przez wewnętrzny moduł równoważenia obciążenia dla węzłów głównych. Ten statyczny adres IP musi znajdować się w bloku CIDR dla podsieci głównej i nie jest już używany. Jeśli wybrane są publiczne węzły główne, ta wartość nie zostanie użyta, ale nadal musi być określona |  | 10.1.0.200 |
-| `routerClusterType` | Określ, czy klaster ma używać prywatnych, czy publicznych węzłów infrastruktury. W przypadku wybrania opcji prywatne węzły infrastruktury nie będą ujawniane w Internecie za pośrednictwem publicznego adresu IP. Zamiast tego będzie używany prywatny adres IP określony w`routerPrivateClusterIp` | public <br> private | public |
+| `routerClusterType` | Określ, czy klaster ma używać prywatnych, czy publicznych węzłów infrastruktury. W przypadku wybrania opcji prywatne węzły infrastruktury nie będą ujawniane w Internecie za pośrednictwem publicznego adresu IP. Zamiast tego będzie używany prywatny adres IP określony w `routerPrivateClusterIp` | public <br> private | public |
 | `routerPrivateClusterIp` | W przypadku wybrania prywatnych węzłów infrastruktury należy określić prywatny adres IP do użycia przez wewnętrzny moduł równoważenia obciążenia dla węzłów infrastruktury. Ten statyczny adres IP musi znajdować się w bloku CIDR dla podsieci infrastruktury i nie jest już używany. Jeśli są wybrane węzły infrastruktury publicznej, ta wartość nie zostanie użyta, ale nadal musi być określona |  | 10.2.0.200 |
 | `routingCertType` | Użyj certyfikatu niestandardowego dla domeny routingu lub domyślnego certyfikatu z podpisem własnym — postępuj zgodnie z instrukcjami w sekcji **certyfikaty niestandardowe** | selfsigned <br> niestandardowe | selfsigned |
 | `masterCertType` | Użyj certyfikatu niestandardowego dla domeny głównej lub domyślnego certyfikatu z podpisem własnym — wykonaj instrukcje w sekcji **certyfikaty niestandardowe** | selfsigned <br> niestandardowe | selfsigned |
@@ -336,7 +336,7 @@ Po zakończeniu wdrażania Pobierz połączenie z sekcji Wyjście wdrożenia. Na
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 

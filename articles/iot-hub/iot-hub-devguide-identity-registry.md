@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90029838"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje o rejestrze tożsamości w centrum IoT Hub
@@ -124,7 +124,7 @@ Komunikat powiadomienia dla urządzenia:
 |operationTimestamp | ISO8601 sygnatura czasowa operacji |
 |iothub — komunikat-schemat | deviceLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Na przykład
+Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Przykład:
 
 ```json
 {
@@ -160,7 +160,7 @@ moduleId | Identyfikator modułu |
 operationTimestamp | ISO8601 sygnatura czasowa operacji |
 iothub — komunikat-schemat | moduleLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Na przykład
+Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Przykład:
 
 ```json
 {

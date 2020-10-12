@@ -12,10 +12,10 @@ ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201280"
 ---
 # <a name="boolean-claims-transformations"></a>Przekształcenia logiczne oświadczeń
@@ -30,9 +30,9 @@ Wykonuje operację i dwie inputClaims logiczne i ustawia oświadczenie outputcla
 
 | Element  | TransformationClaimType  | Typ danych  | Uwagi |
 |-------| ------------------------ | ---------- | ----- |
-| Oświadczenie inputclaim | inputClaim1 | wartość logiczna | Pierwszy ClaimType do obliczenia. |
-| Oświadczenie inputclaim | inputClaim2  | wartość logiczna | Drugie wyrażenie Claim, które ma zostać obliczone. |
-|Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Oświadczenia są tworzone po wywołaniu tej transformacji oświadczeń (true lub false). |
+| Oświadczenie inputclaim | inputClaim1 | boolean | Pierwszy ClaimType do obliczenia. |
+| Oświadczenie inputclaim | inputClaim2  | boolean | Drugie wyrażenie Claim, które ma zostać obliczone. |
+|Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Oświadczenia są tworzone po wywołaniu tej transformacji oświadczeń (true lub false). |
 
 Następująca transformacja oświadczeń pokazuje, jak i dwa elementy Claims Boolean: `isEmailNotExist` , i `isSocialAccount` . Oświadczenie wyjściowe `presentEmailSelfAsserted` ma ustawioną `true` wartość, jeśli wartością obu oświadczeń wejściowych są `true` . W kroku aranżacji możesz użyć warunku wstępnego, aby wstępnie zapewnieł stronę, tylko jeśli adres e-mail konta społecznościowego jest pusty.
 
@@ -63,8 +63,8 @@ Sprawdza, czy wartości logiczne dwóch oświadczeń są równe, i zgłasza wyj�
 
 | Element | TransformationClaimType  | Typ danych  | Uwagi |
 | ---- | ------------------------ | ---------- | ----- |
-| Oświadczenie inputclaim | Oświadczenie inputclaim | wartość logiczna | Wartość oświadczenia, która ma zostać potwierdzona. |
-| InputParameter |valueToCompareTo | wartość logiczna | Wartość do porównania (true lub false). |
+| Oświadczenie inputclaim | Oświadczenie inputclaim | boolean | Wartość oświadczenia, która ma zostać potwierdzona. |
+| InputParameter |valueToCompareTo | boolean | Wartość do porównania (true lub false). |
 
 Przekształcenie oświadczeń **AssertBooleanClaimIsEqualToValue** jest zawsze wykonywane z poziomu [weryfikacji profilu technicznego](validation-technical-profile.md) , który jest wywoływany przez [własny profil techniczny](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** z własnym profilem technicznym metadane są kontrolowane komunikat o błędzie, który zostanie wyświetlony przez profil techniczny. Komunikaty o błędach można [lokalizować](localization-string-ids.md#claims-transformations-error-messages).
 
@@ -121,9 +121,9 @@ Sprawdza, czy wartość logiczna żądania jest równa `true` lub `false` i zwra
 
 | Element | TransformationClaimType  | Typ danych  | Uwagi |
 | ---- | ------------------------ | ---------- | ----- |
-| Oświadczenie inputclaim | Oświadczenie inputclaim | wartość logiczna | Wartość oświadczenia, która ma zostać potwierdzona. |
-| InputParameter |valueToCompareTo | wartość logiczna | Wartość do porównania (true lub false). |
-| Oświadczenie outputclaim | compareResult | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
+| Oświadczenie inputclaim | Oświadczenie inputclaim | boolean | Wartość oświadczenia, która ma zostać potwierdzona. |
+| InputParameter |valueToCompareTo | boolean | Wartość do porównania (true lub false). |
+| Oświadczenie outputclaim | compareResult | boolean | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
 Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logicznego elementu ClaimType z `true` wartością. Jeśli wartość `IsAgeOver21Years` oświadczenia jest równa `true` , transformacja oświadczeń zwraca `true` , w przeciwnym razie `false` .
 
@@ -156,8 +156,8 @@ Wykonuje operację not dla oświadczenie inputclaim logicznego i ustawia oświad
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| Oświadczenie inputclaim | Oświadczenie inputclaim | wartość logiczna | Zastrzeżenie, które ma być obsługiwane. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Oświadczenia są tworzone po wywołaniu tego ClaimsTransformation (true lub false). |
+| Oświadczenie inputclaim | Oświadczenie inputclaim | boolean | Zastrzeżenie, które ma być obsługiwane. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Oświadczenia są tworzone po wywołaniu tego ClaimsTransformation (true lub false). |
 
 Ta transformacja jest używana do wykonywania logicznego negacji dla żądania.
 
@@ -185,9 +185,9 @@ Oblicza wartość lub z dwóch inputClaims logicznych i ustawia oświadczenie ou
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| Oświadczenie inputclaim | inputClaim1 | wartość logiczna | Pierwszy ClaimType do obliczenia. |
-| Oświadczenie inputclaim | inputClaim2 | wartość logiczna | Drugie wyrażenie Claim, które ma zostać obliczone. |
-| Oświadczenie outputclaim | Oświadczenie outputclaim | wartość logiczna | Oświadczenia są tworzone po wywołaniu tego ClaimsTransformation (true lub false). |
+| Oświadczenie inputclaim | inputClaim1 | boolean | Pierwszy ClaimType do obliczenia. |
+| Oświadczenie inputclaim | inputClaim2 | boolean | Drugie wyrażenie Claim, które ma zostać obliczone. |
+| Oświadczenie outputclaim | Oświadczenie outputclaim | boolean | Oświadczenia są tworzone po wywołaniu tego ClaimsTransformation (true lub false). |
 
 Następująca transformacja oświadczeń pokazuje, jak `Or` dwa elementy Claims Boolean. W kroku aranżacji można użyć warunku wstępnego, aby wstępnie zatwierdzić stronę, jeśli wartość jednego z oświadczeń jest równa `true` .
 

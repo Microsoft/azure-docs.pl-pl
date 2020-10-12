@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201416"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny Application Insights w Azure AD B2C zasadach niestandardowych
@@ -32,9 +32,9 @@ Azure Active Directory B2C (Azure AD B2C) obsługuje wysyłanie danych zdarzeń 
 
 ## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla Application Insights: `Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-Poniższy przykład przedstawia wspólny profil techniczny Application Insights. Inne Application Insights profile techniczne obejmują AzureInsightsą, aby wykorzystać jej konfigurację.  
+Poniższy przykład przedstawia wspólny profil techniczny Application Insights. Inne Application Insights profile techniczne obejmują AzureInsights-Common w celu wykorzystania jej konfiguracji.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">

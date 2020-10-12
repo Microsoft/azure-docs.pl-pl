@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030076"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opcje migracji danych lokalnych lub w chmurze do Azure Cosmos DB
@@ -77,7 +77,7 @@ W przypadku interfejsów API innych niż interfejs API SQL, interfejs API Mongo 
 * [Narzędzie do migracji danych](table-import.md#data-migration-tool)
 * [AzCopy](table-import.md#migrate-data-by-using-azcopy)
 
-**Interfejs API Gremlin**
+**Interfejs API języka Gremlin**
 
 * [Biblioteka wykonawców zbiorczych wykresu](bulk-executor-graph-dotnet.md)
 * [Gremlin Spark](https://github.com/Azure/azure-cosmosdb-spark/blob/2.4/samples/graphframes/main.scala) 

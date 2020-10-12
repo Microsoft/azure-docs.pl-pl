@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024980"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>Publiczny adres IP CloudSimple — Omówienie
@@ -23,7 +23,7 @@ Publiczny adres IP jest przydzielany do prywatnego adresu IP, dopóki nie zostan
 
 Zasób skojarzony z publicznym adresem IP zawsze używa publicznego adresu IP na potrzeby dostępu do Internetu. Domyślnie na publicznym adresie IP jest dozwolony tylko wychodzący dostęp do Internetu.  Odmowa ruchu przychodzącego na publicznym adresie IP.  Aby zezwolić na ruch przychodzący, Utwórz regułę zapory dla publicznego adresu IP na określonym porcie.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Użycie publicznego adresu IP do komunikacji przychodzącej zapewnia następujące informacje:
 

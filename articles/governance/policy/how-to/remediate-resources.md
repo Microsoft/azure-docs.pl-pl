@@ -4,10 +4,10 @@ description: Ten przewodnik przeprowadzi Cię przez korygowanie zasobów, które
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269849"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Koryguj niezgodne zasoby za pomocą Azure Policy
@@ -129,11 +129,11 @@ Aby utworzyć **zadanie korygowania**, wykonaj następujące kroki:
 
 1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad w wszystkich usługach." border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 
 1. Wybierz pozycję **korygowanie** po lewej stronie Azure Policy.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Zrzut ekranu przedstawiający węzeł korygowania na stronie zasady." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 
 1. Wszystkie przypisania zasad **deployIfNotExists** i **Modify** z niezgodnymi zasobami są zawarte w **zasadach do korygowania** kart i tabeli danych. Wybierz zasadę z zasobami, które są niezgodne. Zostanie otwarta strona **nowe zadanie korygowania** .
 
@@ -142,17 +142,17 @@ Aby utworzyć **zadanie korygowania**, wykonaj następujące kroki:
 
 1. Na stronie **nowe zadanie korygowania** odfiltruj zasoby do skorygowania, używając wielokropka **zakresu** , aby wybrać zasoby podrzędne, z których są przypisane zasady (w tym w dół do poszczególnych obiektów zasobów). Ponadto należy użyć listy rozwijanej **lokalizacje** do dalszej odfiltrowania zasobów. Korygowane są tylko zasoby wymienione w tabeli.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Zrzut ekranu przedstawiający węzeł korygowanie oraz siatkę zasobów do skorygowania." border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 
 1. Rozpocznij zadanie korygowania, gdy zasoby zostały odfiltrowane, wybierając pozycję **Koryguj**. Strona zgodność zasad zostanie otwarta na karcie **zadania korygowania** , aby wyświetlić stan zadań postępu. Wdrożenia utworzone przez zadanie korygowania zaczynają się od razu.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Zrzut ekranu przedstawiający kartę zadania korygowania i postęp istniejących zadań korygowania." border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 
 1. Aby uzyskać szczegółowe informacje o postępie, wybierz **zadanie korygowania** na stronie zgodność zasad. Filtrowanie używane na potrzeby zadania jest wyświetlane wraz z listą zasobów, które są korygowane.
 
 1. Na stronie **zadanie korygowania** kliknij prawym przyciskiem myszy zasób, aby wyświetlić jego wdrożenie lub zasób. Na końcu wiersza wybierz pozycję dla **powiązanych zdarzeń** , aby wyświetlić szczegóły, takie jak komunikat o błędzie.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Zrzut ekranu przedstawiający menu kontekstowe dla zasobu na karcie korygowanie zadania." border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 
 Zasoby wdrożone za pośrednictwem **zadania korygowania** są dodawane do karty **wdrożone zasoby** na stronie Zgodność z zasadami.
 

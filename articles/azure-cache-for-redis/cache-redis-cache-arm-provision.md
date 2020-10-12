@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
 ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461242"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu Menedżer zasobów
@@ -59,7 +59,7 @@ Aby sprawdzić dostępność najnowszych szablonów, zobacz [Szablony szybkiego 
     * **Grupa zasobów**: wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów, lub wybierz istniejącą grupę zasobów.
     * **Lokalizacja**: wybierz lokalizację grupy zasobów. Konto magazynu i pamięć podręczna Redis muszą znajdować się w tym samym regionie. Domyślnie pamięć podręczna Redis używa tej samej lokalizacji co grupa zasobów. Należy więc określić tę samą lokalizację, w której znajduje się konto magazynu.
     * **Nazwa Redis Cache**: Wprowadź nazwę pamięci podręcznej Redis.
-    * **Istniejące konto magazynu diagnostyki**: Wprowadź identyfikator zasobu konta magazynu. Składnia to **/SUBSCRIPTIONS/ &lt; identyfikatora subskrypcji,>/RESOURCEGROUPS/ &lt; nazwa grupy zasobów>/Providers/Microsoft.Storage/storageaccounts/ &lt; nazwa konta magazynu>**.
+    * **Istniejące konto magazynu diagnostyki**: Wprowadź identyfikator zasobu konta magazynu. Składnia to **/SUBSCRIPTIONS/ &lt; identyfikatora subskrypcji,>/RESOURCEGROUPS/ &lt; nazwa grupy zasobów>/Providers/Microsoft.Storage/storageAccounts/ &lt; nazwa konta magazynu>**.
 
     Użyj wartości domyślnej dla pozostałej części ustawień.
 1. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**, a następnie wybierz pozycję **Kup**.

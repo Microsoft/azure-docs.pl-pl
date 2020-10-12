@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024878"
 ---
 # <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>Co to jest rozwiązanie Azure VMware według CloudSimple
@@ -34,7 +34,7 @@ ms.locfileid: "77024878"
 * Funkcje zarządzania, takie jak zarządzanie działaniami, użycie, rozliczenia/pomiar i zarządzanie użytkownikami.
 * 24x7 obsługi klienta.
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 * **Ciągłość działania**. CloudSimple oferuje natywny dostęp do platform VMware. Architektura CloudSimple jest zgodna z istniejącymi:
     * Aplikacje
@@ -47,7 +47,7 @@ ms.locfileid: "77024878"
     * Procesy
 * **Brak przeszkolenia**. Zgodność platformy VMware pozwala korzystać z istniejących umiejętności i wiedzy.
 * **Elastyczność infrastruktury**. Nie jest już konieczne przewidywalność wszystkich potrzeb związanych z pojemnością, a następnie dowiesz się, że nie ma żadnych niedobórów pojemności lub infrastruktury. CloudSimple jest dostarczany jako usługa w chmurze i można w dowolnym momencie dodać lub zmniejszyć pojemność
-* **Zabezpieczenia**. Dostęp do środowiska CloudSimple za pomocą platformy Azure zapewnia wbudowaną ochronę DDoS i monitorowanie zabezpieczeń.
+* **Bezpieczeństwo**. Dostęp do środowiska CloudSimple za pomocą platformy Azure zapewnia wbudowaną ochronę DDoS i monitorowanie zabezpieczeń.
 * **Niższy koszt**. Platforma CloudSimple jest wysoce skonstruowana i zapewnia wysoki poziom automatyzacji, efektywność operacyjną i oszczędności skali. Ponadto CloudSimple publikuje architektury rozwiązań, które wykorzystują obecność VMware w chmurze publicznej do obniżenia kosztów. Przykłady obejmują usługę Azure AD, kopię zapasową do usługi Azure Storage, bramę aplikacji, moduł równoważenia obciążenia i inne.
 * **Nowa platforma hybrydowa**. Usługa umożliwia dostęp do reszty systemu Azure o wysokiej szybkości i o małym opóźnieniu. Ponadto zarządzanie CloudSimple umożliwia ujednolicone zarządzanie maszynami wirtualnymi VMware i resztą platformy Azure przy użyciu tego samego interfejsu użytkownika i interfejsu API. Zespoły programistyczne mogą korzystać z zarówno platform publicznych, jak i prywatnych w zintegrowany, spójny sposób.
 * **Monitorowanie infrastruktury, rozwiązywanie problemów i pomoc techniczna**. Usługa CloudSimple obsługuje podstawową infrastrukturę jako usługę. Awaria sprzętowa jest automatycznie zastępowana. Możesz skupić się na zużyciu, podczas gdy CloudSimple gwarantuje, że środowisko działa bezproblemowo.

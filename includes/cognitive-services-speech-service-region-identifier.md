@@ -5,32 +5,32 @@ ms.topic: include
 ms.date: 02/12/2020
 ms.author: wolfma
 ms.openlocfilehash: c8e6c11771ae4cd216b3b1e43f3db7924dca81cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77168172"
 ---
 | Lokalizacja geograficzna | Region | Identyfikator regionu |
 | ----- | ----- | ----- |
-| Ameryki | Środkowe stany USA | `centralus` |
-| Ameryki | Wschodnie stany USA | `eastus` |
-| Ameryki | Wschodnie stany USA 2 | `eastus2` |
-| Ameryki | Północno-środkowe stany USA | `northcentralus` |
-| Ameryki | Południowo-środkowe stany USA | `southcentralus` |
-| Ameryki | Zachodnio-środkowe stany USA | `westcentralus` |
-| Ameryki | Zachodnie stany USA | `westus` |
-| Ameryki | Zachodnie stany USA 2 | `westus2` |
-| Ameryki | Kanada Środkowa | `canadacentral` |
-| Ameryki | Brazylia Południowa | `brazilsouth` |
+| Ameryka Północna i Południowa | Central US | `centralus` |
+| Ameryka Północna i Południowa | East US | `eastus` |
+| Ameryka Północna i Południowa | Wschodnie stany USA 2 | `eastus2` |
+| Ameryka Północna i Południowa | Północno-środkowe stany USA | `northcentralus` |
+| Ameryka Północna i Południowa | South Central US | `southcentralus` |
+| Ameryka Północna i Południowa | Zachodnio-środkowe stany USA | `westcentralus` |
+| Ameryka Północna i Południowa | Zachodnie stany USA | `westus` |
+| Ameryka Północna i Południowa | Zachodnie stany USA 2 | `westus2` |
+| Ameryka Północna i Południowa | Kanada Środkowa | `canadacentral` |
+| Ameryka Północna i Południowa | Brazil South | `brazilsouth` |
 | Azja i Pacyfik | Azja Wschodnia | `eastasia` |
-| Azja i Pacyfik | Azja Południowo-Wschodnia | `southeastasia` |
+| Azja i Pacyfik | Southeast Asia | `southeastasia` |
 | Azja i Pacyfik | Australia Wschodnia | `australiaeast` |
 | Azja i Pacyfik | Indie Środkowe | `centralindia` |
-| Azja i Pacyfik | Japonia Wschodnia | `japaneast` |
+| Azja i Pacyfik | Japan East | `japaneast` |
 | Azja i Pacyfik | Japonia Zachodnia | `japanwest` |
 | Azja i Pacyfik | Korea Środkowa | `koreacentral` |
 | Europa | Europa Północna | `northeurope` |
-| Europa | Europa Zachodnia | `westeurope` |
+| Europa | West Europe | `westeurope` |
 | Europa | Francja Środkowa | `francecentral` |
 | Europa | Południowe Zjednoczone Królestwo | `uksouth` |

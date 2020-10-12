@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291470"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Zdarzenia na żywo i wyjście na żywo w Media Services
@@ -60,7 +60,7 @@ Zobacz przykład kodu platformy .NET w [MediaV3LiveApp](https://github.com/Azure
 
 ![kodowanie na żywo z przykładowym diagramem Media Services](./media/live-streaming/live-encoding.svg)
 
-W przypadku korzystania z kodowania na żywo z Media Services należy skonfigurować lokalny koder na żywo, aby wysyłał wideo o pojedynczej szybkości transmisji bitów, jako źródło strumieniowe źródła danych do zdarzenia na żywo (przy użyciu protokołu RTMP lub z fragmentacją MP4). Następnie skonfigurujesz wydarzenie na żywo, aby zakodować strumień przychodzącej pojedynczej szybkości transmisji bitów do [strumienia wideo o wielu szybkościach transmisji bitów](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), a następnie dane wyjściowe dostępne do dostarczenia w celu odtwarzania urządzeń za pomocą protokołów takich jak MPEG-kreska, HLS i Smooth Streaming.
+W przypadku korzystania z funkcji kodowania na żywo z Media Services należy skonfigurować lokalny koder na żywo, aby wysyłał wideo o pojedynczej szybkości transmisji bitów jako źródło źródła danych do zdarzenia na żywo (przy użyciu protokołu RTMP lub Fragmented-Mp4). Następnie skonfigurujesz wydarzenie na żywo, aby zakodować strumień przychodzącej pojedynczej szybkości transmisji bitów do [strumienia wideo o wielu szybkościach transmisji bitów](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), a następnie dane wyjściowe dostępne do dostarczenia w celu odtwarzania urządzeń za pomocą protokołów takich jak MPEG-kreska, HLS i Smooth Streaming.
 
 W przypadku korzystania z kodowania na żywo można wysłać kanał informacyjny dotyczący tylko rozdzielczości o rozdzielczości do 1080p (30 klatek na sekundę) przy użyciu kodera-dekoder wideo H. 264/AVC i AAC (AAC-LC, AACv1 lub AACv2). Należy pamiętać, że zdarzenia przekazywane na żywo mogą obsługiwać rozdzielczość do 4K w 60 klatkach na sekundę. Aby uzyskać więcej informacji, zobacz [Porównanie typów zdarzeń na żywo](live-event-types-comparison.md).
 
