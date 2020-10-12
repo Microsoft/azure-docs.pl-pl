@@ -15,16 +15,16 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056221"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
 
 > [!div class="op_single_selector"]
-> - [Witryna Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > - [Program PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -146,7 +146,7 @@ Aby utworzyć nową grupę w katalogu, należy użyć polecenia cmdlet New-Azure
 
 ## <a name="update-groups"></a>Grupy aktualizacji
 
-Aby zaktualizować istniejącą grupę, należy użyć polecenia cmdlet Set-AzureADGroup. W tym przykładzie zmieniamy Właściwość DisplayName grupy "Administratorzy usługi Intune". Najpierw wyszukamy grupę przy użyciu polecenia cmdlet Get-AzureADGroup i filtrowania przy użyciu atrybutu DisplayName:
+Aby zaktualizować istniejącą grupę, użyj polecenia cmdlet Set-AzureADGroup. W tym przykładzie zmieniamy Właściwość DisplayName grupy "Administratorzy usługi Intune". Najpierw wyszukamy grupę przy użyciu polecenia cmdlet Get-AzureADGroup i filtrowania przy użyciu atrybutu DisplayName:
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -260,7 +260,7 @@ Teraz, jeśli chcemy sprawdzić członkostwa w grupie użytkownika przy użyciu 
     https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 ```
 
-Zwracana wartość to lista grup, których członkiem jest ten użytkownik. Można również zastosować tę metodę, aby sprawdzić kontakty, grupy lub członkostwo w jednostkach usługi dla danej listy grup przy użyciu polecenia SELECT-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf lub SELECT-AzureADGroupIdsServicePrincipalIsMemberOf
+Zwracana wartość to lista grup, których członkiem jest ten użytkownik. Można również zastosować tę metodę, aby sprawdzić kontakty, grupy lub członkostwo w jednostkach usługi dla danej listy grup przy użyciu polecenia SELECT-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf lub Select-AzureADGroupIdsServicePrincipalIsMemberOf
 
 ## <a name="disable-group-creation-by-your-users"></a>Wyłącz tworzenie grupy przez użytkowników
 
@@ -304,7 +304,7 @@ Polecenie cmdlet zwraca listę właścicieli (użytkowników i nazw podmiotów u
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 ```
 
-Jeśli chcesz usunąć właściciela z grupy, użyj polecenia cmdlet Remove-AzureADGroupOwner:
+Jeśli chcesz usunąć właściciela z grupy, użyj Remove-AzureADGroupOwner polecenia cmdlet:
 
 ```powershell
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67

@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: plik dołączany
+description: plik dołączany
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
@@ -8,10 +8,10 @@ ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89494306"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
@@ -123,7 +123,7 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Dostęp
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 

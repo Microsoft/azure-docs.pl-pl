@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 308958f00a3658196f124ac911d4d0195ebeb228
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119841"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Uruchamianie Planista wdrażania na potrzeby odzyskiwania po awarii oprogramowania VMware
@@ -44,7 +44,7 @@ Najpierw musisz utworzyć listę maszyn wirtualnych, które chcesz profilować. 
     Set-ExecutionPolicy –ExecutionPolicy AllSigned
     ```
 
-4. Opcjonalnie może być konieczne uruchomienie następującego polecenia, jeśli polecenie Connect-VIServer nie jest rozpoznawane jako nazwa polecenia cmdlet.
+4. Opcjonalnie można uruchomić następujące polecenie, jeśli Connect-VIServer nie jest rozpoznawana jako nazwa polecenia cmdlet.
 
     ```powershell
     Add-PSSnapin VMware.VimAutomation.Core

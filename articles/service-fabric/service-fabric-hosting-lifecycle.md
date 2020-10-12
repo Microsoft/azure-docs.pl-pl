@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
 ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87405130"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Cykl życia usługi Azure Service Fabric hosting
@@ -58,7 +58,7 @@ W przypadku awarii CodePackage Service Fabric wycofać ją ponownie, a wycofanie
 Wartość wycofania jest zawsze minimalna (RetryTime, **ActivationMaxRetryInterval**), a ta wartość może być stała, liniowa lub wykładnicza na podstawie konfiguracji **ActivationRetryBackoffExponentiationBase** .
 
 - Stała: Jeśli **ActivationRetryBackoffExponentiationBase** = = 0, RetryTime = **ActivationRetryBackoffInterval**;
-- Liniowy: Jeśli **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** , gdzie ContinousFailureCount to liczba awarii programu CodePackage lub Niepowodzenie aktywacji.
+- Liniowy: Jeśli  **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** , gdzie ContinousFailureCount to liczba awarii programu CodePackage lub Niepowodzenie aktywacji.
 - Wykładniczy: RetryTime = (**ActivationRetryBackoffInterval** w sekundach) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
     
 Zachowanie można kontrolować, tak jak szybkie ponowne uruchamianie. Porozmawiamy o skali liniowej. Oznacza to, że jeśli CodePackage ulega awarii, interwał uruchamiania będzie po 10, 20, 30 40 sek., dopóki nie zostanie zdezaktywowany CodePackage. 
@@ -81,7 +81,7 @@ Service Fabric zawsze używa liniowego wycofywania, gdy napotka błąd podczas p
 > [!NOTE]
 > Przed zmianą konfiguracji należy pamiętać o kilku przykładach.
 
-* Jeśli CodePackage powoduje awarię i wyłączenie z powrotem, ServiceType zostanie wyłączona. Jeśli jednak konfiguracja aktywacji jest taka, że ma ona Szybkie ponowne uruchomienie, CodePackage może być dostępna przez kilka razy, zanim będzie mogła zobaczyć wyłączenie elementu serviceType. Na przykład: Załóżmy, że CodePackage się, rejestruje ServiceType z Service Fabric a następnie ulega awarii. W takim przypadku, gdy hosting otrzyma rejestrację typu, anulowano okres **ServiceTypeDisableGraceInterval** . Może to być powtarzane, dopóki nie CodePackage się z powrotem do wartości większej niż **ServiceTypeDisableGraceInterval** , a następnie ServiceType zostanie wyłączona w węźle. Tak więc może być trochę czasu przed wyłączeniem ServiceType w węźle.
+* Jeśli CodePackage powoduje awarię i wyłączenie z powrotem, ServiceType zostanie wyłączona. Jeśli jednak konfiguracja aktywacji jest taka, że ma ona Szybkie ponowne uruchomienie, CodePackage może być dostępna przez kilka razy, zanim będzie mogła zobaczyć wyłączenie elementu serviceType. Na przykład: Załóżmy, że CodePackage się, rejestruje ServiceType z Service Fabric a następnie ulega awarii. W takim przypadku, gdy hosting otrzyma rejestrację typu, anulowano okres **ServiceTypeDisableGraceInterval** . Może to być powtarzane, dopóki nie CodePackage się z powrotem do wartości większej niż  **ServiceTypeDisableGraceInterval** , a następnie ServiceType zostanie wyłączona w węźle. Tak więc może być trochę czasu przed wyłączeniem ServiceType w węźle.
 
 * W przypadku aktywacji, gdy Service Fabric system musi umieścić replikę w węźle, RA (ReconfigurationAgent) żąda podsystemu hostingu w celu aktywowania aplikacji i ponawiania prób żądania aktywacji co 15 sek. (**RAPMessageRetryInterval**). Aby dowiedzieć się, że usługa ServiceType została wyłączona, operacja aktywacji w hostingu musi być aktywna przez dłuższy okres niż interwał ponawiania prób i **ServiceTypeDisableGraceInterval**. Service Fabric Na przykład: pozwól, aby klaster miał konfigurację **ActivationMaxFailureCount** ustawioną na 5 i **ActivationRetryBackoffInterval** ustawioną na 1 sekundę. Oznacza to, że operacja aktywacji zostanie przekazana po (0 + 1 + 2 + 3 + 4) = 10 sekund (pierwsza ponowna próba jest natychmiast), a po tym, gdy host przeprowadzi ponowną próbę. W takim przypadku operacja aktywacji zostanie zakończona i nie zostanie ponowiona ponowna próba po 15 sekundach. Wystąpił, ponieważ Service Fabric wszystkie ponownych prób w ciągu 15 sekund. W związku z tym każda próba ponowienia z ReconfigurationAgent tworzy nową operację aktywacji w podsystemie hostingu, a wzorzec będzie utrzymywać powtarzanie, a typ ServiceType nigdy nie będzie wyłączony w węźle. Ponieważ typ ServiceType nie zostanie wyłączony w węźle, nie będzie można przenieść repliki do innego węzła.
 > 
@@ -128,23 +128,23 @@ Konfiguracje z wartościami domyślnymi wpływającymi na aktywację/decativatio
 
 ### <a name="servicetype"></a>ServiceType
 **ServiceTypeDisableFailureThreshold**: domyślny 1. Próg liczby niepowodzeń po tym, że FM (trybu failover) jest powiadamiany o wyłączeniu typu usługi w tym węźle i próba umieszczania w innym węźle.
-**ServiceTypeDisableGraceInterval**: domyślnie 30 sekund interwału czasowego, po którym można wyłączyć typ usługi.
+**ServiceTypeDisableGraceInterval**: domyślnie 30 sek. Przedział czasu, po którym można wyłączyć typ usługi.
 **ServiceTypeRegistrationTimeout**: domyślnie 300 sek. Limit czasu rejestrowania dla ServiceType w Service Fabric.
 
 ### <a name="activation"></a>Uaktywnienie
-**ActivationRetryBackoffInterval**: domyślnie 10 sek. wycofywania interwał dla każdej awarii aktywacji.
+**ActivationRetryBackoffInterval**: wartość domyślna to 10 sekund. Wycofywania interwał dla każdej awarii aktywacji.
 **ActivationMaxFailureCount**: domyślnie 20. Maksymalna liczba, dla której system podejmie ponowną próbę niepowodzenia aktywacji przed pokazaniem. 
 **ActivationRetryBackoffExponentiationBase**: domyślnie 1,5.
-**ActivationMaxRetryInterval**: domyślnie 3600 sek. max dla aktywacji w przypadku awarii.
+**ActivationMaxRetryInterval**: domyślnie 3600 sek. Maksymalna liczba wycofywania dla aktywacji w przypadku awarii.
 **CodePackageContinuousExitFailureResetInterval**: domyślnie 300 sek. Limit czasu resetowania liczby niepowodzeń ciągłego zamykania dla CodePackage.
 
 ### <a name="download"></a>Pobierz
 **DeploymentRetryBackoffInterval**: domyślnie 10. Interwał wycofywania dla błędu wdrożenia.
-**DeploymentMaxRetryInterval**: domyślnie 3600 sek. max dla wdrożenia w przypadku awarii.
+**DeploymentMaxRetryInterval**: domyślnie 3600 sek. Maksymalna liczba wycofywania dla wdrożenia w przypadku awarii.
 **DeploymentMaxFailureCount**: domyślnie 20. Ponowna próba wdrożenia aplikacji zostanie ponowiona dla DeploymentMaxFailureCount czasów przed niepowodzeniem wdrożenia tej aplikacji w węźle.
 
 ### <a name="deactivation"></a>Dezaktywacji
-**DeactivationScanInterval**: domyślnie 600 sek. minimalny czas nadawany przez pakiet servicepackage do hostowania repliki, jeśli nigdy nie obsługiwał żadnej repliki, tj. Jeśli nie jest używany.
+**DeactivationScanInterval**: domyślnie 600 sek. Minimalny czas, który ma być obsługiwany przez pakiet servicepackage do hostowania repliki, jeśli nigdy nie obsługiwał żadnej repliki, tj. Jeśli nie jest używany.
 **DeactivationGraceInterval**: domyślnie 60 sek. Czas, który ma być obsługiwany przez pakiet servicepackage, będzie obsługiwał ponownie inną replikę po przeprowadzeniu przez nią repliki w przypadku modelu procesu **udostępnionego** .
 **ExclusiveModeDeactivationGraceInterval**: domyślnie 1 s. Czas, który ma być obsługiwany przez pakiet servicepackage, będzie obsługiwał ponownie inną replikę, gdy przekroczy ona replikę w przypadku modelu procesu **wyłącznego** .
 

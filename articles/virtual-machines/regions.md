@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
 ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88650557"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiony maszyn wirtualnych na platformie Azure
@@ -85,10 +85,10 @@ Aby uzyskać więcej informacji, zobacz [opcje replikacji magazynu Azure Storage
 Ceny różnią się w zależności od wybranego typu magazynu i dostępności.
 
 **Dyski zarządzane platformy Azure**
-* Managed Disks w warstwie Premium są obsługiwane przez dyski półprzewodnikowe (dysków SSD), a standardowe Managed Disks są obsługiwane przez regularne obracające się dyski. Opłaty za dyski funkcji Dyski zarządzane w warstwach Premium i Standardowa są naliczane zgodnie z aprowizowaną pojemnością dysku.
+* Managed Disks w warstwie Premium są obsługiwane przez dyski Solid-State (dysków SSD) i standardowe Managed Disks są obsługiwane przez regularne obracające się dyski. Opłaty za dyski funkcji Dyski zarządzane w warstwach Premium i Standardowa są naliczane zgodnie z aprowizowaną pojemnością dysku.
 
 **Dyski niezarządzane**
-* Usługa Premium Storage jest obsługiwana przez dyski półprzewodnikowe (dysków SSD) i jest naliczana na podstawie pojemności dysku.
+* Usługa Premium Storage jest obsługiwana przez Solid-State Drives (dysków SSD) i jest naliczana na podstawie pojemności dysku.
 * Magazyn w warstwie Standardowa opiera się na zwykłych dyskach obrotowych, a opłaty są naliczane na podstawie używanej pojemności i żądanej dostępności magazynu.
   * W przypadku magazynów RA-GRS istnieje dodatkowa opłata za transfer danych replikacji geograficznej związana z przepustowością wykorzystywaną do replikowania tych danych do innego regionu platformy Azure.
 

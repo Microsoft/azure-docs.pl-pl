@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
 ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297573"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do używania węzłów wirtualnych w Azure Portal
@@ -18,7 +18,7 @@ Aby szybko wdrożyć obciążenia w klastrze usługi Azure Kubernetes Service (A
 
 W tym artykule pokazano, jak utworzyć i skonfigurować zasoby sieci wirtualnej oraz klaster AKS z włączonymi węzłami wirtualnymi.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Węzły wirtualne umożliwiają komunikację sieciową między jednostkami, które działają w Azure Container Instances (ACI) i klastrze AKS. W celu zapewnienia tej komunikacji zostanie utworzona podsieć sieci wirtualnej i przypisane uprawnienia delegowane. Węzły wirtualne działają tylko w przypadku klastrów AKS utworzonych przy użyciu *zaawansowanej* sieci. Domyślnie klastry AKS są tworzone z użyciem sieci *podstawowej* . W tym artykule opisano sposób tworzenia sieci wirtualnej i podsieci, a następnie wdrażania klastra AKS, który korzysta z zaawansowanej sieci.
 
@@ -95,7 +95,7 @@ Domyślnie zostanie utworzona jednostka usługi Azure Active Directory. Ta nazwa
 
 Klaster jest również skonfigurowany pod kątem zaawansowanej sieci. Węzły wirtualne są skonfigurowane do używania własnej podsieci sieci wirtualnej platformy Azure. Ta podsieć ma delegowane uprawnienia do łączenia zasobów platformy Azure między klastrem AKS. Jeśli nie masz jeszcze delegowanej podsieci, Azure Portal tworzy i konfiguruje sieć wirtualną platformy Azure oraz podsieć do użycia z węzłami wirtualnymi.
 
-Wybierz pozycję **Przejrzyj i utwórz**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
+Wybierz pozycję **Przeglądanie + tworzenie**. Po zakończeniu walidacji wybierz pozycję **Utwórz**.
 
 Utworzenie klastra usługi AKS i przygotowanie go do użycia trwa kilka minut.
 

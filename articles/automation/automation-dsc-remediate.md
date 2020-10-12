@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
 ms.openlocfilehash: 4430b8cdfe9414ddbfd7aad3c3fe7827adbc8705
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186371"
 ---
 # <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Koryguj niezgodne serwery konfiguracji stanu Azure Automation
@@ -41,7 +41,7 @@ W przypadku węzłów platformy Azure można poprawić dryf z Azure Portal lub p
 
 W przypadku węzłów hybrydowych można poprawić dryf przy użyciu skryptów języka Python. Zobacz [wykonywanie operacji DSC na komputerze z systemem Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).

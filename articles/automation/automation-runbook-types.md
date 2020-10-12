@@ -6,17 +6,17 @@ ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185929"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation typy elementów Runbook
 
 Funkcja automatyzacji procesów Azure Automation obsługuje kilka typów elementów Runbook, zgodnie z definicją w poniższej tabeli. Aby dowiedzieć się więcej o środowisku automatyzacji procesów, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
 
-| Typ | Opis |
+| Type | Opis |
 |:--- |:--- |
 | [Element graficzny](#graphical-runbooks)|Graficzny element Runbook oparty na programie Windows PowerShell i utworzony i edytowany całkowicie w edytorze graficznym w Azure Portal. |
 | [Graficzny przepływ pracy programu PowerShell](#graphical-runbooks)|Graficzny element Runbook oparty na przepływie pracy programu Windows PowerShell i utworzony i edytowany całkowicie w edytorze graficznym w Azure Portal. |

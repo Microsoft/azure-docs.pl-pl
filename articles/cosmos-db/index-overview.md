@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
 ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068391"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
@@ -180,7 +180,7 @@ Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat
 
 Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj/region) byłoby zgodny z ścieżką wyróżnioną w kolorze czerwonym poniżej:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Dopasowanie określonej ścieżki w drzewie" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Poprzedni element reprezentowany jako drzewo" border="false":::
 
 > [!NOTE]
 > `ORDER BY`Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.

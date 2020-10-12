@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87903191"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Rozwiązywanie problemów dotyczących danych wyjściowych Azure Stream Analytics
@@ -87,7 +87,7 @@ Podczas konfigurowania IGNORE_DUP_KEY dla kilku typów indeksów należy zwróci
 
 W przypadku używania oryginalnego poziomu zgodności (1,0) Azure Stream Analytics zmienia nazwy kolumn na małe litery. Takie zachowanie zostało rozwiązane na późniejszych poziomach zgodności. Aby zachować sprawność, przejdź do poziomu zgodności 1,1 lub nowszego. Aby uzyskać więcej informacji, zobacz [poziom zgodności zadań Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 

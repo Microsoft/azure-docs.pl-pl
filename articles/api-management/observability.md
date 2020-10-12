@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/01/2020
 ms.author: apimpm
 ms.openlocfilehash: 1ebebed465952bbb5d3e8f82ae1c7776c441c6b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097825"
 ---
 # <a name="observability-in-azure-api-management"></a>Zaobserwowanie na platformie Azure API Management
@@ -34,7 +34,7 @@ Poniższa tabela podsumowuje wszystkie narzędzia obsługiwane przez API Managem
 | **[Inspektor interfejsu API](api-management-howto-api-inspector.md)** | Testowanie i debugowanie | Błyskawiczne | Ostatnie 100 śladów | Włączone na żądanie | Śledzenie żądań | Zawsze
 | **Wbudowana analiza** | Raportowanie i monitorowanie | Minuty | Okres istnienia | 100% | Raporty i dzienniki | Zawsze |
 | **[Metryki Azure Monitor](api-management-howto-use-azure-monitor.md)** | Raportowanie i monitorowanie | Minuty | 93 dni (uaktualnienie do rozszerzenia) | 100% | Metryki | Zawsze |
-| **[Dzienniki Azure Monitor](api-management-howto-use-azure-monitor.md)** | Raportowanie, monitorowanie i debugowanie | Minuty | 31 dni/5 GB (uaktualnienie do rozszerzenia) | 100% (regulowane) | Dzienniki | Opcjonalne |
+| **[Dzienniki usługi Azure Monitor](api-management-howto-use-azure-monitor.md)** | Raportowanie, monitorowanie i debugowanie | Minuty | 31 dni/5 GB (uaktualnienie do rozszerzenia) | 100% (regulowane) | Dzienniki | Opcjonalne |
 | **[Azure Application Insights](api-management-howto-app-insights.md)** | Raportowanie, monitorowanie i debugowanie | Sekundy | 90 dni/5 GB (uaktualnienie do rozszerzenia) | Niestandardowy | Dzienniki, metryki | Opcjonalne |
 | **[Logowanie za pomocą usługi Azure Event Hub](api-management-howto-log-event-hubs.md)** | Scenariusze niestandardowe | Sekundy | Zarządzane przez użytkownika | Niestandardowy | Niestandardowy | Opcjonalne |
 

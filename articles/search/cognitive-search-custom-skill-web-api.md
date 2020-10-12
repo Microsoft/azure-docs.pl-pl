@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: cb5ee7d3549e433fb184b8c55c28b9a28ed89272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982122"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Niestandardowa umiejętność interfejsu API sieci Web w potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure
@@ -37,7 +37,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
 | `uri` | Identyfikator URI internetowego interfejsu API, do którego zostanie wysłany ładunek _JSON_ . Dozwolony jest tylko schemat URI **https** |
-| `httpMethod` | Metoda do użycia podczas wysyłania ładunku. Dozwolone metody to `PUT` lub`POST` |
+| `httpMethod` | Metoda do użycia podczas wysyłania ładunku. Dozwolone metody to `PUT` lub `POST` |
 | `httpHeaders` | Kolekcja par klucz-wartość, gdzie klucze reprezentują nazwy i wartości nagłówków, reprezentujące wartości nagłówka, które będą wysyłane do internetowego interfejsu API wraz z ładunkiem. Następujące nagłówki nie mogą być w tej kolekcji:,,,,,,,,, `Accept` `Accept-Charset` `Accept-Encoding` `Content-Length` `Content-Type` `Cookie` `Host` `TE` `Upgrade``Via` |
 | `timeout` | Obowiązkowe Gdy ta wartość jest określona, wskazuje limit czasu dla klienta http wykonującego wywołanie interfejsu API. Musi być sformatowana jako wartość XSD "dayTimeDuration" (ograniczony podzbiór wartości [Duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Na przykład `PT60S` przez 60 sekund. Jeśli nie zostanie ustawiona, zostanie wybrana wartość domyślna wynosząca 30 sekund. Limit czasu można ustawić na maksymalnie 230 sekund i co najmniej 1 sekundę. |
 | `batchSize` | Obowiązkowe Wskazuje, ile "rekordów danych" (patrz struktura ładunku _JSON_ poniżej) zostanie wysłana na wywołanie interfejsu API. Jeśli nie zostanie ustawiona, zostanie wybrana wartość domyślna 1000. Zalecamy użycie tego parametru, aby osiągnąć odpowiednią kompromis między indeksowaniem przepływności i obciążeniem interfejsu API |
@@ -87,7 +87,7 @@ Brak "wstępnie zdefiniowanych" danych wyjściowych dla tej umiejętności. W za
 Ta struktura _JSON_ reprezentuje ładunek, który zostanie wysłany do internetowego interfejsu API.
 Zawsze będą przestrzegane następujące ograniczenia:
 
-* Jednostka najwyższego poziomu jest wywoływana `values` i będzie tablicą obiektów. Liczba takich obiektów nie może być większa niż`batchSize`
+* Jednostka najwyższego poziomu jest wywoływana `values` i będzie tablicą obiektów. Liczba takich obiektów nie może być większa niż `batchSize`
 * Każdy obiekt w `values` tablicy będzie miał
     * `recordId`Właściwość, która jest **unikatowym** ciągiem używanym do identyfikowania tego rekordu.
     * `data`Właściwość, która jest obiektem _JSON_ . Pola `data` właściwości będą odpowiadać nazwie "names" określonej w `inputs` sekcji definicji umiejętności. Wartości tych pól będą pochodzić z `source` tych pól (które mogą pochodzić z pola w dokumencie lub potencjalnie z innej umiejętności)
@@ -201,7 +201,7 @@ Oprócz nieprawidłowego interfejsu API sieci Web lub wysyłania kodów stanu, k
 
 W przypadku niedostępności internetowego interfejsu API lub zwrócenie błędu HTTP, przyjazny błąd ze wszystkimi dostępnymi szczegółami dotyczącymi błędu HTTP zostanie dodany do historii wykonywania indeksatora.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
 + [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)

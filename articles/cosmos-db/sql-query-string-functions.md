@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 192f015b37eadb57b8e4a5c83ce3adf94c8bf038
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85549520"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funkcje ciągów (Azure Cosmos DB)
@@ -27,10 +27,10 @@ Następujące funkcje skalarne wykonują operacje na wartościach wejściowych c
 * [ENDSWITH](sql-query-endswith.md)
 * [INDEX_OF](sql-query-index-of.md)
 * [LEFT](sql-query-left.md)
-* [LENGTH](sql-query-length.md)
+* [Długość](sql-query-length.md)
 * [LOWER](sql-query-lower.md)
 * [LTRIM](sql-query-ltrim.md)
-* [STĘPOWAĆ](sql-query-replace.md)
+* [REPLACE](sql-query-replace.md)
 * [REPLIKACJA](sql-query-replicate.md)
 * [COFNIĘCI](sql-query-reverse.md)
 * [RIGHT](sql-query-right.md)

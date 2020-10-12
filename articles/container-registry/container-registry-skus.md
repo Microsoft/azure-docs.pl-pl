@@ -4,10 +4,10 @@ description: Dowiedz się więcej o funkcjach i ograniczeniach w warstwach usłu
 ms.topic: article
 ms.date: 05/18/2020
 ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512620"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry warstw usług
@@ -16,9 +16,9 @@ Azure Container Registry jest dostępny w wielu warstwach usług (nazywanych ró
 
 | Warstwa | Opis |
 | --- | ----------- |
-| **Podstawowa** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Podstawowe rejestry mają takie same funkcje programistyczne jak standard i Premium (takie jak Azure Active Directory [integracja z uwierzytelnianiem](container-registry-authentication.md#individual-login-with-azure-ad), [Usuwanie obrazu][container-registry-delete]i elementy [webhook][container-registry-webhook]). Jednak przepływność dołączonego magazynu i obrazu jest najbardziej odpowiednia w przypadku małych scenariuszy użycia. |
+| **Podstawowe** | Zoptymalizowany pod kątem kosztów punkt wejścia dla deweloperów poznających usługę Azure Container Registry. Podstawowe rejestry mają takie same funkcje programistyczne jak standard i Premium (takie jak Azure Active Directory [integracja z uwierzytelnianiem](container-registry-authentication.md#individual-login-with-azure-ad), [Usuwanie obrazu][container-registry-delete]i elementy [webhook][container-registry-webhook]). Jednak przepływność dołączonego magazynu i obrazu jest najbardziej odpowiednia w przypadku małych scenariuszy użycia. |
 | **Standardowa** | Standardowe rejestry oferują te same możliwości co podstawowa, dzięki czemu można zwiększyć pojemność magazynu i przepływność obrazu. Rejestry w warstwie Standardowa powinny spełniać wymagania większości scenariuszy produkcyjnych. |
-| **Tytułu** | Rejestry Premium zapewniają największą ilość dołączonego magazynu i współbieżnych operacji, co umożliwia wykonywanie scenariuszy o dużej pojemności. Oprócz wyższej przepływności obrazów funkcja Premium dodaje funkcje, takie jak [replikacja geograficzna][container-registry-geo-replication] służąca do zarządzania pojedynczym rejestrem w wielu regionach, [zaufania zawartości](container-registry-content-trust.md) dla podpisywania tagów obrazu, [prywatnego linku z prywatnymi punktami końcowymi](container-registry-private-link.md) w celu ograniczenia dostępu do rejestru. |
+| **Premium** | Rejestry Premium zapewniają największą ilość dołączonego magazynu i współbieżnych operacji, co umożliwia wykonywanie scenariuszy o dużej pojemności. Oprócz wyższej przepływności obrazów funkcja Premium dodaje funkcje, takie jak [replikacja geograficzna][container-registry-geo-replication] służąca do zarządzania pojedynczym rejestrem w wielu regionach, [zaufania zawartości](container-registry-content-trust.md) dla podpisywania tagów obrazu, [prywatnego linku z prywatnymi punktami końcowymi](container-registry-private-link.md) w celu ograniczenia dostępu do rejestru. |
 
 Warstwy Basic, standard i Premium zapewniają te same funkcje programistyczne. Wszystkie korzyści z [magazynu obrazów][container-registry-storage] są również zarządzane całkowicie przez platformę Azure. Wybranie warstwy wyższego poziomu zapewnia lepszą wydajność i skalowalność. W przypadku wielu warstw usług możesz rozpocząć pracę z usługą Basic, a następnie przekonwertować ją na Standard i Premium w miarę wzrostu użycia rejestru.
 
@@ -46,7 +46,7 @@ W obszarze **Przegląd** rejestru kontenerów w Azure Portal wybierz pozycję **
 
 ![Aktualizowanie jednostki SKU rejestru kontenerów w Azure Portal][update-registry-sku]
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Aby uzyskać informacje o cenach poszczególnych Azure Container Registry warstw usług, zobacz [Container Registry Cennik][container-registry-pricing].
 

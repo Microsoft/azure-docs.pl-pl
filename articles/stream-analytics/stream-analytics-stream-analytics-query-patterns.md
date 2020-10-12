@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 84e3ced20b828087cd3f2b9e7534826debf1706a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279981"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Typowe wzorce zapytań w Azure Stream Analytics
@@ -415,14 +415,14 @@ Czas trwania zdarzenia może być obliczany przez wyszukanie ostatniego zdarzeni
 
 **Dane wejściowe**:  
 
-| Użytkownik | Cechy | Zdarzenie | Godzina |
+| Użytkownik | Cecha | Wydarzenie | Godzina |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Rozpocznij |2015-01-01T00:00:01.0000000 Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000 Z |
 
 **Dane wyjściowe**:  
 
-| Użytkownik | Cechy | Czas trwania |
+| Użytkownik | Cecha | Czas trwania |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 

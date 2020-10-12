@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87021481"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi administracyjnej w oprogramowaniu VMware
@@ -151,7 +151,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 26. Na stronie **Opcje zaawansowane** Zaakceptuj ustawienie domyślne i kliknij przycisk **dalej**.
 
     ![Zrzut ekranu strony opcji zaawansowanych. Przycisk dalej zostanie wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. **Przed ukończeniem Sprawdź ustawienia maszyny wirtualnej**. Kliknij pozycję **Kontynuuj**.
+27. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. **Przed ukończeniem Sprawdź ustawienia maszyny wirtualnej**. Kliknij przycisk **Kontynuuj**.
 
     ![Zrzut ekranu przedstawiający stronę gotowy do ukończenia z wyróżnionym przyciskiem Kontynuuj. Zaznaczona jest opcja Edytuj ustawienia maszyny wirtualnej przed ukończeniem.](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
 28. Na stronie **właściwości Virtual Machines** na karcie **sprzęt** zlokalizuj sprzęt urządzenia. Wybierz pozycję **nowy dysk twardy**. Kliknij pozycję **Dodaj**.
@@ -169,13 +169,13 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 32. Na stronie **Opcje zaawansowane** Zaakceptuj wartość domyślną.
 
     ![Zrzut ekranu strony opcji zaawansowanych. Węzeł urządzenia wirtualnego jest ustawiony na SCSI (0:0), a przycisk Dalej jest wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. Na stronie **gotowy do ukończenia** przejrzyj opcje dysku. Kliknij przycisk **Zakończ**.
+33. Na stronie **gotowy do ukończenia** przejrzyj opcje dysku. Kliknij przycisk **Finish** (Zakończ).
 
     ![Zrzut ekranu przedstawiający stronę gotowy do wykonania. Widoczne jest podsumowanie opcji dysku, a przycisk Zakończ jest wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Wróć do strony właściwości maszyny wirtualnej. Do maszyny wirtualnej zostanie dodany nowy dysk twardy. Kliknij przycisk **Zakończ**.
+34. Wróć do strony właściwości maszyny wirtualnej. Do maszyny wirtualnej zostanie dodany nowy dysk twardy. Kliknij przycisk **Finish** (Zakończ).
 
     ![Zrzut ekranu przedstawiający stronę właściwości maszyny wirtualnej. Lista sprzęt zawiera nowy dysk twardy, a przycisk Zakończ jest wyróżniony.](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. Po wybraniu maszyny wirtualnej w okienku po prawej stronie przejdź do karty **Podsumowanie** . Przejrzyj ustawienia maszyny wirtualnej.
+35. Po wybraniu maszyny wirtualnej w okienku po prawej stronie przejdź do karty **Podsumowanie** . Przejrzyj ustawienia dla swojej maszyny wirtualnej.
 
     ![Zrzut ekranu przedstawiający kartę Podsumowanie klienta vSphere. Nowa maszyna wirtualna zostanie wyróżniona, a jej zasoby i właściwości ogólne są widoczne.](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -196,10 +196,10 @@ Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim
    ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. Pole hasła jest puste.](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Ze względów bezpieczeństwa hasło administratora urządzenia wygasa przy pierwszym logowaniu. Zostanie wyświetlony monit informujący o konieczności zmiany hasła.
 
-   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. tekst na stronie wskazuje, że należy zmienić hasło.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. Tekst na stronie informuje o tym, że należy zmienić hasło.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
 4. Wprowadź hasło zawierające co najmniej 8 znaków. Hasło musi zawierać 3 z 4 tych wymagań: wielkie litery, małe litery, cyfry i znaki specjalne. Wprowadź ponownie hasło w celu potwierdzenia. Zostanie wyświetlone powiadomienie o zmianie hasła.
 
-   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. tekst na stronie wskazuje, że hasło zostało zmienione.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. Tekst na stronie wskazuje, że hasło zostało zmienione.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
 5. Po pomyślnym zmianie hasła urządzenie wirtualne może zostać ponownie rozruchowe. Poczekaj na zakończenie ponownego rozruchu. Konsola programu Windows PowerShell urządzenia może być wyświetlana wraz z paskiem postępu.
 
    ![Zrzut ekranu przedstawiający okno konsoli z paskiem postępu. W oknie zostanie wyświetlona informacja, że początkowa konfiguracja jest ciągła, i prosi użytkownika o oczekiwanie.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)

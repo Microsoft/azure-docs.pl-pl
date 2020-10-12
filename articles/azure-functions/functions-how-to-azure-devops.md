@@ -7,10 +7,10 @@ ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
 ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210210"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie za pomocą usługi Azure DevOps
@@ -30,7 +30,7 @@ Aby utworzyć potok oparty na YAML, najpierw skompiluj aplikację, a następnie 
 
 Sposób kompilowania aplikacji w Azure Pipelines zależy od języka programowania aplikacji. Każdy język zawiera konkretne kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do wdrażania aplikacji funkcji na platformie Azure.
 
-# <a name="c"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[S\#](#tab/csharp)
 
 Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu skompilowania aplikacji .NET:
 
@@ -151,7 +151,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu spakowania aplikacji programu PowerShell. Program PowerShell jest obsługiwany tylko w przypadku Azure Functions systemu Windows.
 

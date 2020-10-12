@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
 ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887432"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure CDN przy użyciu uwierzytelniania tokenów
@@ -72,7 +72,7 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
 
       ```rand -hex <key length>```
 
-      Przykład:
+      Na przykład:
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -193,7 +193,7 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
    - C
    - C#
    - PHP
-   - Języku
+   - Perl
    - Java
    - Python    
 

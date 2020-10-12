@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/21/2020
 ms.openlocfilehash: eece6f97e82f3800d4f59ac1849b34c2a1e4635b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83800084"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Przekształcenie podziału warunkowego w mapowaniu przepływu danych
@@ -23,7 +23,7 @@ Transformacja podziału warunkowego przekierowuje wiersze danych do różnych st
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Ustawienie **Split on** określa, czy wiersz danych jest przepływem do pierwszego zgodnego strumienia lub każdego strumienia, do którego jest zgodny.
 
@@ -47,7 +47,7 @@ Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla w
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład to transformacja podziału warunkowego o nazwie `SplitByYear` , która przyjmuje strumień przychodzący `CleanData` . Ta transformacja ma dwa warunki podziału `year < 1960` i `year > 1980` . `disjoint`ma wartość false, ponieważ dane przechodzą do pierwszego warunku dopasowywania. Każdy wiersz pasujący do pierwszego warunku przechodzi do strumienia wyjściowego `moviesBefore1960` . Wszystkie pozostałe wiersze zgodne z drugim warunkiem przechodzą do strumienia wyjściowego `moviesAFter1980` . Wszystkie inne wiersze przepływają przez domyślny strumień `AllOtherMovies` .
+Poniższy przykład to transformacja podziału warunkowego o nazwie `SplitByYear` , która przyjmuje strumień przychodzący `CleanData` . Ta transformacja ma dwa warunki podziału `year < 1960` i `year > 1980` . `disjoint` ma wartość false, ponieważ dane przechodzą do pierwszego warunku dopasowywania. Każdy wiersz pasujący do pierwszego warunku przechodzi do strumienia wyjściowego `moviesBefore1960` . Wszystkie pozostałe wiersze zgodne z drugim warunkiem przechodzą do strumienia wyjściowego `moviesAFter1980` . Wszystkie inne wiersze przepływają przez domyślny strumień `AllOtherMovies` .
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 

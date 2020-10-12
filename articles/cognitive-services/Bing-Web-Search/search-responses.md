@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297794"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Struktura odpowiedzi interfejs API wyszukiwania w sieci Web Bing i typy odpowiedzi  
@@ -295,7 +295,7 @@ Wyrażenie matematyczne może zawierać następujące symbole:
 |+|Dodawanie|
 |-|Odejmowanie|
 |/|Dział|
-|*|Mnożenie|
+|*|Znak mnożenia|
 |^|Zasilanie|
 |!|Silnia|
 |.|Liczba dziesiętna|
@@ -480,6 +480,6 @@ Poniżej przedstawiono sposób korzystania z sugestii pisowni w usłudze Bing.
 
 * Przejrzyj dokumentację dotyczącą [ograniczania żądań](throttling-requests.md) .  
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 * [Informacje interfejs API wyszukiwania w sieci Web Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

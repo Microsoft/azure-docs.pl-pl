@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84982496"
 ---
 # <a name="list-azure-role-definitions"></a>Wyświetlanie listy definicji ról platformy Azure
@@ -344,7 +344,7 @@ Aby wyświetlić listę definicji ról, użyj interfejsu API REST z [listą ról
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz wyświetlić listę definicji ról.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Typ |
+    > | Zakres | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
@@ -356,7 +356,7 @@ Aby wyświetlić listę definicji ról, użyj interfejsu API REST z [listą ról
 1. Zamień *filtr {Filter}* na warunek, który ma zostać zastosowany, aby przefiltrować listę definicji ról.
 
     > [!div class="mx-tableFixed"]
-    > | Filtr | Opis |
+    > | Filtrowanie | Opis |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Wyświetla definicje ról dla określonego zakresu i wszelkich podzakresów. |
     > | `$filter=type+eq+'{type}'` | Wyświetla definicje ról określonego typu. Typem roli może być `CustomRole` lub `BuiltInRole` . |
@@ -429,7 +429,7 @@ Aby wyświetlić szczegółowe informacje o określonej roli, należy użyć def
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, dla którego chcesz utworzyć listę definicji roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Typ |
+    > | Zakres | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
@@ -476,7 +476,7 @@ Poniżej przedstawiono przykład danych wyjściowych:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wbudowane role platformy Azure](built-in-roles.md)
+- [Role wbudowane platformy Azure](built-in-roles.md)
 - [Role niestandardowe platformy Azure](custom-roles.md)
 - [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)
-- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)

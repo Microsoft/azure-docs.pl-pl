@@ -7,10 +7,10 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208361"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions monitorowania z dziennikami Azure Monitor
@@ -38,7 +38,7 @@ Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używa
 
 1. Wprowadź **nazwę ustawień diagnostycznych**, a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Dodaj ustawienie diagnostyczne":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Wybieranie ustawień diagnostycznych":::
 
 ## <a name="user-generated-logs"></a>Dzienniki generowane przez użytkownika
 
@@ -63,7 +63,7 @@ context.getLogger().info("My app logs here.");
 context.log('My app logs here.');
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 Write-Host "My app logs here."
@@ -89,7 +89,7 @@ Aby wykonać zapytanie dotyczące wygenerowanych dzienników:
 
    Azure Functions zapisuje wszystkie dzienniki w tabeli **FunctionAppLogs** w obszarze **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Okno zapytania w obszarze roboczym Log Analytics":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Wybieranie ustawień diagnostycznych":::
 
 Oto kilka przykładowych zapytań:
 

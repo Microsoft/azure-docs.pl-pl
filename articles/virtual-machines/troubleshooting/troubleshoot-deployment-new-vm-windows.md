@@ -16,10 +16,10 @@ ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87028400"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Rozwiązywanie problemów z wdrażaniem podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure
@@ -51,7 +51,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 **N<sup>2</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Windows i został przekazany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi administracyjnej maszyny wirtualnej zablokowanej na ekranie OOBE, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania oryginalnego wirtualnego dysku twardego](/powershell/module/az.compute/add-azvhd), dostępnego lokalnie, z tym samym ustawieniem jak w przypadku systemu operacyjnego (uogólniony/wyspecjalizowany). Aby przekazać jako uogólniony, pamiętaj, aby najpierw uruchomić program Sysprep.
 
@@ -61,7 +61,7 @@ Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania or
 
 **N<sup>4</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Windows i jest przechwytywany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem. Ponadto oryginalna maszyna wirtualna nie jest używana, ponieważ jest oznaczona jako wyspecjalizowana.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby rozwiązać oba te błędy, Usuń bieżący obraz z portalu i [Przechwyć go ponownie z bieżącego dysku VHD](../windows/create-vm-specialized.md) z tym samym ustawieniem dla systemu operacyjnego (uogólniony/wyspecjalizowany).
 

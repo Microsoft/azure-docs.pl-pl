@@ -16,10 +16,10 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654603"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP
@@ -179,7 +179,7 @@ Zalecenie dotyczące zastosowania kompresji przed przekazaniem na platformę Azu
 * Czas trwania wykonywania kompresji jest krótszy, przy założeniu, że jeden może korzystać z silniejszego sprzętu z większą liczbą procesorów CPU lub wyższą przepustowością operacji we/wy lub mniejszą zwłoką we/wy w środowisku lokalnym
 * Mniejsze rozmiary baz danych mogą prowadzić do mniejszej ilości kosztów alokacji dysku
 
-Dane i kompresja LOB są wykonywane na maszynie wirtualnej hostowanej na platformie Azure Virtual Machines jako lokalna. Aby uzyskać więcej informacji o tym, jak sprawdzić, czy kompresja jest już używana w istniejącej bazie danych SAP ASE, [należy sprawdzić uwagi dotyczące pomocy technicznej sap 1750510](https://launchpad.support.sap.com/#/notes/1750510). Aby uzyskać więcej szczegółowych informacji o sprawdzaniu kompresji bazy danych SAP ASE, zobacz [uwagi dotyczące pomocy technicznej sap #2121797](https://launchpad.support.sap.com/#/notes/2121797)
+Dane i LOB-Compression pracy na maszynie wirtualnej hostowanej na platformie Azure Virtual Machines, ponieważ działa ona lokalnie. Aby uzyskać więcej informacji o tym, jak sprawdzić, czy kompresja jest już używana w istniejącej bazie danych SAP ASE, [należy sprawdzić uwagi dotyczące pomocy technicznej sap 1750510](https://launchpad.support.sap.com/#/notes/1750510). Aby uzyskać więcej szczegółowych informacji o sprawdzaniu kompresji bazy danych SAP ASE, zobacz [uwagi dotyczące pomocy technicznej sap #2121797](https://launchpad.support.sap.com/#/notes/2121797)
 
 ## <a name="high-availability-of-sap-ase-on-azure"></a>Wysoka dostępność oprogramowania SAP ASE na platformie Azure 
 W podręczniku użytkowników HADR Cluster szczegółowo zawarto konfigurację i konfigurację rozwiązania z 2 węzłami SAP ASE "Always-On".  Ponadto obsługiwany jest również trzeci węzeł odzyskiwania po awarii. Oprogramowanie SAP ASE obsługuje wiele konfiguracji o wysokiej dostępności, w tym dysk udostępniony i natywne klastrowanie systemu operacyjnego (zmiennoprzecinkowy adres IP). Jedyną obsługiwaną konfiguracją na platformie Azure jest korzystanie z Menedżera błędów bez zmiennoprzecinkowych adresów IP.  Metoda zmiennoprzecinkowego adresu IP nie będzie działała na platformie Azure.  Jądro SAP jest aplikacją "HA aware" i wie o podstawowym i pomocniczym serwerze SAP ASE. Nie ma żadnych bliskich integracji między programem SAP ASE i platformą Azure, wewnętrzny moduł równoważenia obciążenia platformy Azure nie jest używany. W związku z tym, standardowa dokumentacja SAP ASE powinna być stosowana od [podręcznika użytkowników programu SAP ASE HADR Cluster](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 
@@ -188,7 +188,7 @@ W podręczniku użytkowników HADR Cluster szczegółowo zawarto konfigurację i
 > Jedyną obsługiwaną konfiguracją na platformie Azure jest korzystanie z Menedżera błędów bez zmiennoprzecinkowych adresów IP.  Metoda zmiennoprzecinkowego adresu IP nie będzie działała na platformie Azure. 
 
 ### <a name="third-node-for-disaster-recovery"></a>Trzeci węzeł odzyskiwania po awarii
-Oprócz korzystania z platformy SAP ASE zawsze w przypadku lokalnej wysokiej dostępności, można chcieć rozszerzenie konfiguracji na węzeł asynchronicznie replikowany w innym regionie świadczenia usługi Azure. Dokumentację tego scenariusza można znaleźć [tutaj](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Oprócz korzystania z programu SAP ASE Always-On w przypadku lokalnej wysokiej dostępności, można chcieć rozszerzenie konfiguracji na węzeł asynchronicznie replikowany w innym regionie świadczenia usługi Azure. Dokumentację tego scenariusza można znaleźć [tutaj](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## <a name="sap-ase-database-encryption--ssl"></a>Szyfrowanie bazy danych SAP ASE & SSL 
 Menedżer aprowizacji oprogramowania SAP (SWPM) zapewnia możliwość szyfrowania bazy danych podczas instalacji.  Jeśli chcesz użyć szyfrowania, zaleca się korzystanie z pełnego szyfrowania bazy danych SAP.  Zobacz szczegóły udokumentowane w:
@@ -239,7 +239,7 @@ a linki wygenerowane w ramach transakcji DBACockpit wyglądają podobnie do:
 
 W zależności od tego, jak maszyna wirtualna platformy Azure hostującym system SAP jest połączona z usługami AD i DNS, należy się upewnić, że ICM korzysta z w pełni kwalifikowanej nazwy hosta, którą można rozwiązać na komputerze, na którym jest otwierany DBACockpit. Zobacz [uwagi dotyczące pomocy technicznej SAP #773830](https://launchpad.support.sap.com/#/notes/773830) , aby zrozumieć, jak ICM określa w pełni kwalifikowaną nazwę hosta na podstawie parametrów profilu i w razie potrzeby jawnie ustaw parametr icm/host_name_full.
 
-Jeśli maszyna wirtualna została wdrożona w scenariuszu obejmującym tylko chmurę bez połączenia między środowiskiem lokalnym i platformą Azure, musisz zdefiniować publiczny adres IP i `domainlabel` . Format publicznej nazwy DNS maszyny wirtualnej wygląda następująco:
+Jeśli maszyna wirtualna została wdrożona w scenariuszu Cloud-Only bez połączenia między środowiskiem lokalnym i platformą Azure, należy zdefiniować publiczny adres IP i `domainlabel` . Format publicznej nazwy DNS maszyny wirtualnej wygląda następująco:
 
 > `<custom domainlabel`>. `<azure region`>. cloudapp.azure.com
 > 

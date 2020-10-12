@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887867"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Sterowanie zachowaniem buforowania w usłudze Azure CDN przy użyciu reguł buforowania
@@ -113,7 +113,7 @@ Gdy te reguły są ustawione, żądanie dla _ &lt; nazwy hosta &gt; punktu końc
 > - W przypadku **Azure CDN standardowych z profilów Verizon** Propagacja zwykle kończy się w ciągu 10 minut.  
 >
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Jak działa buforowanie](cdn-how-caching-works.md)
 - [Samouczek: ustawianie reguł buforowania usługi Azure CDN](cdn-caching-rules-tutorial.md)

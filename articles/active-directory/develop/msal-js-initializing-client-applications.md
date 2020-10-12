@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027040"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicjuj aplikacje klienckie przy użyciu MSAL.js
@@ -107,9 +107,9 @@ Wywołaj [handleRedirectPromise][msal-js-handleredirectpromise] , gdy aplikacja 
 
 Istnieją trzy możliwe wyniki z obietnic:
 
-- `.then`jest wywoływany i `tokenResponse` ma prawdziwą wartość: aplikacja zwraca z operacji przekierowania, która zakończyła się pomyślnie.
-- `.then`jest wywoływana i `tokenResponse` ma wartość false ( `null` ): aplikacja nie zwraca z operacji przekierowania.
-- `.catch`jest wywoływany: aplikacja zwraca z operacji przekierowania i wystąpił błąd.
+- `.then` jest wywoływany i `tokenResponse` ma prawdziwą wartość: aplikacja zwraca z operacji przekierowania, która zakończyła się pomyślnie.
+- `.then` jest wywoływana i `tokenResponse` ma wartość false ( `null` ): aplikacja nie zwraca z operacji przekierowania.
+- `.catch` jest wywoływany: aplikacja zwraca z operacji przekierowania i wystąpił błąd.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Inicjowanie aplikacji MSAL.js 1. x
 

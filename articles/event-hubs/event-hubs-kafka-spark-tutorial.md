@@ -4,10 +4,10 @@ description: W tym artykule opisano, jak korzystać z platformy Apache Spark z u
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 8535b7dc81da8c46685e12c3861793b919296cb4
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061584"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Łączenie aplikacji Apache Spark z platformą Azure Event Hubs
@@ -16,7 +16,7 @@ Ten samouczek przeprowadzi Cię przez połączenie aplikacji Spark w celu Event 
 > [!NOTE]
 > Ten przykład jest dostępny w witrynie [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Klonowanie projektu przykładowego
@@ -30,7 +30,7 @@ Przed rozpoczęciem tego samouczka upewnij się, że masz następujące elementy
 -   Subskrypcja platformy Azure. Jeśli jej nie masz, [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 -   [Apache Spark w wersji 2.4](https://spark.apache.org/downloads.html)
 -   [Apache Kafka w wersji 2.0]( https://kafka.apache.org/20/documentation.html)
--   [Narzędzia](https://www.git-scm.com/downloads)
+-   [Git](https://www.git-scm.com/downloads)
 
 > [!NOTE]
 > Adapter Spark-Kafka został zaktualizowany do obsługi platformy Kafka w wersji 2.0 i platformy Spark od wersji 2.4. W poprzednich wersjach platformy Spark adapter obsługiwał platformę Kafka w wersji 0.10 i nowszych, ale bazował na interfejsach API platformy Kafka w wersji 0.10. Ponieważ usługa Event Hubs dla platformy Kafka nie obsługuje platformy Kafka w wersji 0.10, adaptery Spark-Kafka w wersjach platformy Spark wcześniejszych niż 2.4 nie są obsługiwane przez usługę Event Hubs dla ekosystemów platformy Kafka.

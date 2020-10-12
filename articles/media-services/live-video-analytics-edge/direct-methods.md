@@ -4,10 +4,10 @@ description: Analiza filmów wideo na żywo na IoT Edge uwidacznia kilka metod b
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091831"
 ---
 # <a name="direct-methods"></a>Metody bezpośrednie
@@ -58,7 +58,7 @@ Metody bezpośrednie są oparte na następujących konwencjach:
 
 ### <a name="top-level-error-codes"></a>Kody błędów najwyższego poziomu     
 
-|Stan |Kod   |Komunikat|
+|Stan |Kod   |Wiadomość|
 |---|---|---|
 |400|   BadRequest| Żądanie jest nieprawidłowe|
 |400|   InvalidResource|    Zasób jest nieprawidłowy|
@@ -112,7 +112,7 @@ Szczegóły błędu sprawdzania poprawności, takie jak walidacje modułu grafu,
 
 Ta metoda Direct pobiera topologię pojedynczego wykresu.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -124,7 +124,7 @@ Ta metoda Direct pobiera topologię pojedynczego wykresu.
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -160,7 +160,7 @@ Kluczowe aspekty:
     * Żaden Graf nie odwołuje się do usuniętych parametrów
 * Aktualizacje topologii są niedozwolone, jeśli istnieją aktywne wykresy
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -175,7 +175,7 @@ Kluczowe aspekty:
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -204,7 +204,7 @@ Ogólne błędy serwera   |500 zakresu  ||
 
 Usuwa topologię pojedynczego wykresu.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -216,7 +216,7 @@ Usuwa topologię pojedynczego wykresu.
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -239,7 +239,7 @@ Usuwa topologię pojedynczego wykresu.
 
 Pobiera listę wszystkich topologii wykresu, które pasują do kryteriów filtrowania.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -255,7 +255,7 @@ Pobiera listę wszystkich topologii wykresu, które pasują do kryteriów filtro
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -295,7 +295,7 @@ Pobiera listę wszystkich topologii wykresu, które pasują do kryteriów filtro
 
 Pobiera pojedyncze wystąpienie grafu:
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -307,7 +307,7 @@ Pobiera pojedyncze wystąpienie grafu:
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -342,7 +342,7 @@ Kluczowe aspekty:
 * Aktualizacje wystąpienia grafu są częściowo ograniczone, gdy wykres nie jest w stanie "nieaktywny".
 * Aktualizacje wystąpienia grafu nie są dozwolone dla aktywnych wykresów.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -357,7 +357,7 @@ Kluczowe aspekty:
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ````
 {
@@ -391,7 +391,7 @@ Kluczowe aspekty:
 
 * Można usuwać tylko wykresy dezaktywowane.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -403,7 +403,7 @@ Kluczowe aspekty:
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -427,7 +427,7 @@ Kluczowe aspekty:
 Jest to podobne do GraphTopologyList. Umożliwia użycie do wyliczenia wystąpień grafu.
 Pobiera listę wszystkich wystąpień grafów, które pasują do kryteriów filtrowania.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -443,7 +443,7 @@ Pobiera listę wszystkich wystąpień grafów, które pasują do kryteriów filt
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -493,7 +493,7 @@ Kluczowe aspekty
     * Uruchamianie grafu w stanie "Aktywowanie" działa tak samo jak wtedy, gdy wykres został zdezaktywowany (to jest: bloki wywołań do momentu aktywowania grafu)
     * Aktywowanie grafu w stanie "aktywny" powiodło się.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -505,7 +505,7 @@ Kluczowe aspekty
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -542,7 +542,7 @@ Kluczowe aspekty:
     * Dezaktywowanie wykresu w stanie "dezaktywowanie" ma taki sam sposób jak w przypadku dezaktywowania grafu (czyli bloków wywołań do momentu dezaktywowania grafu)
     * Dezaktywowanie wykresu w stanie "nieaktywny" powiodło się natychmiast.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
 ```
 {
@@ -556,7 +556,7 @@ Kluczowe aspekty:
 }
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```
 {
@@ -575,4 +575,4 @@ Kluczowe aspekty:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Schemat konfiguracji sznurka modułu](module-twin-configuration-schema.md)
+[Schemat konfiguracji bliźniaczej reprezentacji modułu](module-twin-configuration-schema.md)

@@ -4,10 +4,10 @@ description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V dzięki ocen
 ms.topic: conceptual
 ms.date: 06/14/2020
 ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318181"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
@@ -23,7 +23,7 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 --- | ---
 **Limity oceny** | Do 35 000 maszyn wirtualnych funkcji Hyper-V można odkrywać i oceniać w jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects).
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz maszyn wirtualnych funkcji Hyper-V projekt może obejmować maszyny wirtualne VMware i serwery fizyczne, a także limity oceny dla każdego z nich.
-**Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 5000 maszyn wirtualnych funkcji Hyper-V.<br/><br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
+**Odnajdywanie** | Urządzenie Azure Migrate może odnajdywać maksymalnie 5000 maszyn wirtualnych funkcji Hyper-V.<br/><br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
 **Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> Można ocenić do 35 000 maszyn wirtualnych w ramach pojedynczej oceny dla grupy.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.

@@ -4,10 +4,10 @@ description: Limity przydziałów, ograniczenia i dostępność regionów dla us
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: eaaa8e0b2d72aaea546a1bc351da40932c1deb14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87384836"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Przydziały i limity dla Azure Container Instances

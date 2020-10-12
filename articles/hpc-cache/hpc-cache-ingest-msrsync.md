@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: 323ecd6a2dd001c3c8df1b2ec15f0ae8402ec70c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092409"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Pobieranie danych z pamięci podręcznej platformy Azure HPC — Metoda msrsync
@@ -21,7 +21,7 @@ Aby dowiedzieć się więcej na temat przenoszenia danych do magazynu obiektów 
 
 ``msrsync``Narzędzie to może służyć do przenoszenia danych do miejsca docelowego magazynu zaplecza dla pamięci podręcznej platformy Azure HPC. To narzędzie służy do optymalizowania użycia przepustowości przez uruchamianie wielu procesów równoległych ``rsync`` . Jest on dostępny w witrynie GitHub pod adresem https://github.com/jbd/msrsync .
 
-``msrsync``dzieli Katalog źródłowy na oddzielne "zasobniki", a następnie uruchamia poszczególne ``rsync`` procesy w każdym przedziale.
+``msrsync`` dzieli Katalog źródłowy na oddzielne "zasobniki", a następnie uruchamia poszczególne ``rsync`` procesy w każdym przedziale.
 
 Testowanie wstępne przy użyciu maszyny wirtualnej z czterema rdzeniami wykazało najlepszą wydajność podczas korzystania z 64 procesów. Użyj ``msrsync`` opcji, ``-p`` Aby ustawić liczbę procesów na 64.
 

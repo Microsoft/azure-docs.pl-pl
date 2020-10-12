@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 3b5aedb20bc7a8d2aa6f3aa3d8691a71af4cd3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808369"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Uzyskiwanie metryk użycia Load Balancer przy użyciu interfejsu API REST
@@ -38,7 +38,7 @@ Wymagane są następujące nagłówki:
 |Nagłówek żądania|Opis|  
 |--------------------|-----------------|  
 |*Content-Type:*|Wymagany. Ustaw wartość `application/json`.|  
-|*Authorization:*|Wymagany. Ustaw na prawidłowy  [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer`. |  
+|*Authorization:*|Wymagany. Ustaw na prawidłowy [token dostępu](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer`. |  
 
 ### <a name="uri-parameters"></a>Parametry identyfikatora URI
 
@@ -47,7 +47,7 @@ Wymagane są następujące nagłówki:
 | subscriptionId | Identyfikator subskrypcji, który identyfikuje subskrypcję platformy Azure. Jeśli masz wiele subskrypcji, zobacz [Praca z wieloma subskrypcjami](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nazwa grupy zasobów zawierającej zasób. Tę wartość można uzyskać za pomocą interfejsu API Azure Resource Manager, interfejsu wiersza polecenia lub portalu. |
 | loadBalancerName | Nazwa Azure Load Balancer. |
-| nazwy metryk | Rozdzielana przecinkami lista prawidłowych [metryk Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| nazwy metryk | Rozdzielana przecinkami lista prawidłowych  [metryk Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | Wersja interfejsu API do użycia dla żądania.<br /><br /> Ten dokument obejmuje interfejs API-Version `2018-01-01` uwzględniony w powyższym adresie URL.  |
 | zakres czasu | Przedział czasu zapytania. Jest to ciąg o następującym formacie `startDateTime_ISO/endDateTime_ISO` . Ten opcjonalny parametr ma ustawioną wartość zwracającą wartość dnia w przykładzie. |
 | &nbsp; | &nbsp; |

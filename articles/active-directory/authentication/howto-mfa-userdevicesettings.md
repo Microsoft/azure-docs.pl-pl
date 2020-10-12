@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87418223"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Zarządzanie ustawieniami użytkownika dla usługi Azure Multi-Factor Authentication

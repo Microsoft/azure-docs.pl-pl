@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
 ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904806"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
@@ -122,7 +122,7 @@ Aby określić, co się stało, wykonaj następujące czynności:
    }
    ```
 
-## <a name="scenario-run-login-azurermaccount-to-log-in"></a><a name="login-azurerm"></a>Scenariusz: Uruchom logowanie-AzureRMAccount, aby się zalogować
+## <a name="scenario-run-login-azurermaccount-to-log-in"></a><a name="login-azurerm"></a>Scenariusz: uruchamianie Login-AzureRMAccount w celu zalogowania
 
 ### <a name="issue"></a>Problem
 
@@ -188,7 +188,7 @@ Podczas pracy z poleceniem, lub zostanie wyświetlony następujący `Select-Azur
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
 Ten błąd może wystąpić, jeśli:
 
@@ -368,7 +368,7 @@ Aby rozwiązać ten problem, użyj jednego z następujących rozwiązań:
 * Jeśli występuje konflikt nazw, a polecenie cmdlet jest dostępne w dwóch różnych modułach, należy rozwiązać problem, używając w pełni kwalifikowanej nazwy polecenia cmdlet. Na przykład możesz użyć nazwy `ModuleName\CmdletName`.
 * Jeśli element Runbook jest wykonywany lokalnie w grupie hybrydowych procesów roboczych, upewnij się, że moduł i polecenie cmdlet są zainstalowane na komputerze, który hostuje hybrydowy proces roboczy.
 
-## <a name="scenario-incorrect-object-reference-on-call-to-add-azaccount"></a><a name="object-reference-not-set"></a>Scenariusz: nieprawidłowe odwołanie do obiektu w wywołaniu metody Add-AzAccount
+## <a name="scenario-incorrect-object-reference-on-call-to-add-azaccount"></a><a name="object-reference-not-set"></a>Scenariusz: nieprawidłowe odwołanie do obiektu w wywołaniu Add-AzAccount
 
 ### <a name="issue"></a>Problem
 
@@ -677,7 +677,7 @@ Postępuj zgodnie z [krok 5. Dodawanie uwierzytelniania w celu zarządzania zaso
 
 ## <a name="recommended-documents"></a>Zalecane dokumenty
 
-* [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
+* [Wykonanie elementu Runbook w Azure Automation](../automation-runbook-execution.md)
 * [Uruchamianie elementu Runbook w Azure Automation](../start-runbooks.md)
 
 ## <a name="next-steps"></a>Następne kroki

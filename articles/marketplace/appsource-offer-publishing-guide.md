@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
 ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484820"
 ---
 # <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Oferowany Przewodnik publikowania dla Microsoft 365, Dynamics 365, aplikacji zaawansowanych i Power BI

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090284"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady, samouczki i przewodniki dotyczące Azure Logic Apps
@@ -99,7 +99,7 @@ Czasami Aplikacje logiki i konta integracji muszą mieć dostęp do zabezpieczon
 
 Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu Visual Studio, platformy Azure DevOps lub dowolnej innej kontroli źródła i zautomatyzowanych narzędzi kompilacji. Aby obsługiwać wdrożenie dla przepływów pracy i połączeń zależnych w szablonie zasobu, Aplikacje logiki używają szablonów wdrażania zasobów platformy Azure. Narzędzia Visual Studio Tools automatycznie generują te szablony, które można zaewidencjonować do kontroli źródła w celu przechowywania wersji. W przypadku dzienników powiadomień i diagnostyki dla stanu przebiegu przepływu pracy Azure Logic Apps udostępnia również monitorowanie i alerty.
 
-### <a name="deploy"></a>Wdróż
+### <a name="deploy"></a>Wdrażanie
 
 * [Szybki Start: Tworzenie zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps — Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Przegląd: Automatyzowanie wdrażania aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
@@ -117,7 +117,7 @@ Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu V
 * [Tworzenie kont integracji dla integracji z przedsiębiorstwem B2B i zarządzanie nimi](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Zarządzanie środowiskiem usługi integracji (ISE) w Azure Logic Apps](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitor
+### <a name="monitor"></a>Monitorowanie
 
 * [Monitoruj stan przebiegu, przeglądaj historię wyzwalaczy i konfiguruj alerty w usłudze Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dla Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md)
@@ -128,7 +128,7 @@ Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu V
 
 Można uzyskać dostęp do, konwertować i przetwarzać wiele typów zawartości za pomocą wielu funkcji w Azure Logic Apps [języku definicji przepływu pracy](https://aka.ms/logicappsdocs). Na przykład można dokonać konwersji między ciągami, JSON i XML za pomocą `@json()` `@xml()` wyrażeń i. Aparat Logic Apps zachowuje typy zawartości obsługujące transfer zawartości w sposób bezstratny między usługami.
 
-* [Obsługa typów zawartości w Azure Logic Apps](../logic-apps/logic-apps-content-type.md), takich jak `application/` , `application/octet-stream` , i`multipart/formdata`
+* [Obsługa typów zawartości w Azure Logic Apps](../logic-apps/logic-apps-content-type.md), takich jak `application/` , `application/octet-stream` , i `multipart/formdata`
 * [Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Schemat języka definicji przepływu pracy dla Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
 

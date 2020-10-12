@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061612"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Samouczek: przenoszenie zasobów Azure SQL Database do innego regionu

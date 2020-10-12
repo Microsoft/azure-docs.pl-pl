@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807158"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Jak zainstalować Application Gateway kontroler transferu danych przychodzących (AGIC) przy użyciu nowego Application Gateway
@@ -30,10 +30,10 @@ Alternatywnie można uruchomić Cloud Shell z Azure Portal przy użyciu następu
 
 [Azure Cloud Shell](https://shell.azure.com/) masz już wszystkie niezbędne narzędzia. Jeśli zdecydujesz się użyć innego środowiska, upewnij się, że są zainstalowane następujące narzędzia wiersza polecenia:
 
-* `az`— Interfejs wiersza polecenia platformy Azure: [instrukcje dotyczące instalacji](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* `kubectl`-Kubernetes narzędzia wiersza polecenia: [instrukcje dotyczące instalacji](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* `helm`-Kubernetes Package Manager: [instrukcje dotyczące instalacji](https://github.com/helm/helm/releases/latest)
-* `jq`-line wiersza polecenia JSON: [instrukcje dotyczące instalacji](https://stedolan.github.io/jq/download/)
+* `az` — Interfejs wiersza polecenia platformy Azure: [instrukcje dotyczące instalacji](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `kubectl` -Kubernetes narzędzia wiersza polecenia: [instrukcje dotyczące instalacji](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm` -Kubernetes Package Manager: [instrukcje dotyczące instalacji](https://github.com/helm/helm/releases/latest)
+* `jq` -line wiersza polecenia JSON: [instrukcje dotyczące instalacji](https://stedolan.github.io/jq/download/)
 
 
 ## <a name="create-an-identity"></a>Tworzenie tożsamości
@@ -66,7 +66,7 @@ Wykonaj poniższe kroki, aby utworzyć [obiekt główny usługi](https://docs.mi
     }
     EOF
     ```
-    Aby wdrożyć klaster z obsługą **RBAC** , należy ustawić `aksEnableRBAC` pole na`true`
+    Aby wdrożyć klaster z obsługą **RBAC** , należy ustawić `aksEnableRBAC` pole na `true`
 
 ## <a name="deploy-components"></a>Wdróż składniki
 Ten krok spowoduje dodanie do subskrypcji następujących składników:
@@ -124,7 +124,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
   Azure Active Directory pod tożsamością zapewnia dostęp oparty na tokenach do [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
   [Tożsamość usługi AAD pod](https://github.com/Azure/aad-pod-identity) zostanie dodana do klastra Kubernetes następujące składniki:
-   * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` ,`AzureIdentityBinding`
+   * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` , `AzureIdentityBinding`
    * Składnik [zarządzanego kontrolera tożsamości (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
    * Składnik [tożsamości zarządzanej przez węzeł (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
@@ -256,7 +256,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
      - `appgw.name`: Nazwa Application Gateway. Przykład: `applicationgatewayd0f0`
      - `appgw.shared`: Ta flaga logiczna powinna być domyślną wartością `false` . Ustaw, aby `true` była potrzebna [Application Gateway udostępnione](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
      - `kubernetes.watchNamespace`: Określ przestrzeń nazw, która AGIC powinna być obserwowana. Może to być jedna wartość ciągu lub rozdzielona przecinkami lista przestrzeni nazw.
-    - `armAuth.type`: może być `aadPodIdentity` lub`servicePrincipal`
+    - `armAuth.type`: może być `aadPodIdentity` lub `servicePrincipal`
     - `armAuth.identityResourceID`: Identyfikator zasobu tożsamości zarządzanej platformy Azure
     - `armAuth.identityClientId`: Identyfikator klienta tożsamości. Aby uzyskać więcej informacji na temat tożsamości, zobacz poniżej.
     - `armAuth.secretJSON`: Jest to konieczne tylko wtedy, gdy wybrano typ wpisu tajnego jednostki usługi (gdy ustawiono `armAuth.type` wartość `servicePrincipal` ) 
@@ -267,7 +267,7 @@ Aby zainstalować tożsamość usługi AAD pod względem klastra:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
-   > `<resource-group>`w powyższym poleceniu jest Grupa zasobów Application Gateway. `<identity-name>`jest nazwą utworzonej tożsamości. Wszystkie tożsamości dla danej subskrypcji można wyświetlić przy użyciu:`az identity list`
+   > `<resource-group>` w powyższym poleceniu jest Grupa zasobów Application Gateway. `<identity-name>` jest nazwą utworzonej tożsamości. Wszystkie tożsamości dla danej subskrypcji można wyświetlić przy użyciu: `az identity list`
 
 
 1. Zainstaluj pakiet Application Gateway transferu danych przychodzących:

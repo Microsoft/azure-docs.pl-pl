@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945311"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Omówienie dzienników platformy Azure
@@ -24,7 +24,7 @@ W poniższej tabeli wymieniono konkretne dzienniki platformy, które są dostęp
 |:---|:---|:---|
 | [Dzienniki zasobów](resource-logs.md) | Zasoby platformy Azure | Zapewniaj wgląd w operacje wykonywane w ramach zasobu platformy Azure ( *płaszczyzny danych*), na przykład w celu uzyskania wpisu tajnego z Key Vault lub żądania do bazy danych. Zawartość dzienników zasobów zależy od usługi platformy Azure i typu zasobu.<br><br>*Dzienniki zasobów wcześniej były nazywane dziennikami diagnostycznymi.*  |
 | [Dziennik aktywności](activity-log.md) | Subskrypcja platformy Azure | Zapewnia wgląd w operacje dotyczące poszczególnych zasobów platformy Azure w ramach subskrypcji z zewnątrz (*płaszczyzny zarządzania*) poza aktualizacjami Service Health zdarzeń. Użyj dziennika _aktywności, aby określić,_ kto i kiedy _mają_być wykonywane _when_ operacje zapisu (Put, post, Delete) dotyczące zasobów w ramach subskrypcji. Dla każdej subskrypcji platformy Azure istnieje pojedynczy dziennik aktywności. |
-| [Dzienniki Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Dzierżawa platformy Azure |  Zawiera historię działań związanych z logowaniem i dziennika inspekcji zmian wprowadzonych w Azure Active Directory dla określonej dzierżawy.   |
+| [Dzienniki usługi Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Dzierżawa platformy Azure |  Zawiera historię działań związanych z logowaniem i dziennika inspekcji zmian wprowadzonych w Azure Active Directory dla określonej dzierżawy.   |
 
 > [!NOTE]
 > Dziennik aktywności platformy Azure jest przeznaczony głównie dla działań, które wystąpiły w Azure Resource Manager. Nie śledzi zasobów przy użyciu modelu klasycznego/frontonu reddog. Niektóre klasyczne typy zasobów mają dostawcę zasobów serwera proxy w Azure Resource Manager (na przykład Microsoft. ClassicCompute). W przypadku korzystania z klasycznego typu zasobu za pośrednictwem Azure Resource Manager przy użyciu tych dostawców zasobów serwera proxy operacje będą widoczne w dzienniku aktywności. W przypadku korzystania z klasycznego typu zasobu poza serwerem proxy Azure Resource Manager akcje są rejestrowane tylko w dzienniku operacji. Dziennik operacji można przeglądać w osobnej sekcji portalu.

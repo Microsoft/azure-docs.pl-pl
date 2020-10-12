@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
 ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279777"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
@@ -150,7 +150,7 @@ Odp.: może upłynąć trochę czasu na rejestrację subskrypcji usługi Red Hat
 ## <a name="common-errors"></a>Typowe błędy
 Ta sekcja zawiera listę typowych błędów i kroków związanych z ograniczeniami.
 
-| Error | Ograniczanie ryzyka |
+| Błąd | Ograniczanie ryzyka |
 | ----- | ---------- |
 | "Subskrypcja nie jest zarejestrowana w wersji zapoznawczej systemu Linux dla Korzyść użycia hybrydowego platformy Azure. Aby uzyskać instrukcje krok po kroku, zobacz https://aka.ms/ahb-linux " | Wypełnij formularz, https://aka.ms/ahb-linux-form Aby zarejestrować się w wersji zapoznawczej systemu Linux dla korzyść użycia hybrydowego platformy Azure.
 | "Akcja nie może zostać ukończona, ponieważ nasze rekordy pokazują, że nie udało Ci się pomyślnie włączyć usługi Red Hat Cloud Access w ramach subskrypcji platformy Azure..." | Aby można było korzystać z zalet z maszynami wirtualnymi RHEL, należy najpierw zarejestrować subskrypcje platformy Azure przy użyciu usługi Red Hat Cloud Access. Odwiedź ten link, aby dowiedzieć się więcej o rejestrowaniu subskrypcji platformy Azure na potrzeby usługi Red Hat Cloud Access

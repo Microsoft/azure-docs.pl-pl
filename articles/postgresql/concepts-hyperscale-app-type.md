@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895960"
 ---
 # <a name="determining-application-type"></a>Określanie typu aplikacji
@@ -22,7 +22,7 @@ Istnieją rozległie dwa rodzaje aplikacji, które działają dobrze na Citus. P
 
 ## <a name="at-a-glance"></a>Na pierwszy rzut oka
 
-| Aplikacje z wieloma dzierżawcami                                 | Aplikacje w czasie rzeczywistym                                |
+| Aplikacje z wieloma dzierżawcami                                 | Real-Time aplikacji                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
 | Czasami dziesiątki lub setki tabel w schemacie          | Niewielka liczba tabel                                |
 | Zapytania dotyczące jednej dzierżawy (firmy/magazynu) w danym momencie | Stosunkowo proste zapytania analizy z agregacjami |

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023470"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik warunków IoT Hub
@@ -58,7 +58,7 @@ Istnieją _zestawy SDK usługi_ dostępne dla wielu języków, które umożliwia
 
 [Narzędzia Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to międzyplatformowe rozszerzenie Visual Studio Code typu open-source, które ułatwia zarządzanie usługą Azure IoT Hub i urządzeniami w vs Code. Korzystając z narzędzi Azure IoT Tools, deweloperzy IoT mogą łatwo opracowywać projekt IoT w VS Code.
 
-## <a name="azure-portal"></a>Witryna Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 [Microsoft Azure Portal](https://portal.azure.com) to centralne miejsce, w którym można zainicjować obsługę zasobów platformy Azure i zarządzać nimi. Organizuje swoją _zawartość przy użyciu_bloków.
 
@@ -94,7 +94,7 @@ Brama w chmurze umożliwia łączność urządzeń, które nie mogą łączyć s
 
 Odnosi się do komunikatów wysyłanych z usługi IoT Hub do podłączonego urządzenia. Często te komunikaty są poleceniami, które nakazują urządzeniu wykonanie akcji. Aby uzyskać więcej informacji, zobacz [wysyłanie i odbieranie komunikatów przy użyciu IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W kontekście [automatycznej konfiguracji urządzeń](iot-hub-auto-device-config.md)konfiguracja w ramach IoT Hub definiuje żądaną konfigurację zestawu urządzeń bliźniaczych reprezentacji i zawiera zestaw metryk do raportowania stanu i postępu.
 
@@ -212,7 +212,7 @@ Komunikat interaktywny to komunikat z [chmury do urządzenia](#cloud-to-device) 
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-hub"></a>Usługa IoT Hub
 
 IoT Hub to w pełni zarządzana usługa platformy Azure, która umożliwia niezawodne i bezpieczne komunikację dwukierunkową między milionami urządzeń i zapleczem rozwiązania. Aby uzyskać więcej informacji, zobacz [co to jest platforma Azure IoT Hub?](about-iot-hub.md) Korzystając z [subskrypcji platformy Azure](#subscription), można utworzyć centra IoT do obsługi obciążeń związanych z wiadomościami IoT.
 

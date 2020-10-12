@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055082"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Wdróż przystawkę StorSimple Snapshot Manager MMC
@@ -117,7 +117,7 @@ Aby nawiązać połączenie z usługą StorSimple Snapshot Manager z urządzenie
 2. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **urządzenia** , a następnie kliknij polecenie **Konfiguruj urządzenie**. Zostanie wyświetlone okno dialogowe **Konfigurowanie urządzenia** .
    
     ![Konfigurowanie urządzenia](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
-3. W polu Lista **urządzeń** wybierz adres IP urządzenia Microsoft Azure StorSimple lub urządzenia wirtualnego. W polu tekstowym **hasło** wpisz StorSimple Snapshot Manager hasło, które zostało utworzone dla urządzenia w Azure Portal. Kliknij pozycję **OK**.
+3. W polu Lista **urządzeń** wybierz adres IP urządzenia Microsoft Azure StorSimple lub urządzenia wirtualnego. W polu tekstowym **hasło** wpisz StorSimple Snapshot Manager hasło, które zostało utworzone dla urządzenia w Azure Portal. Kliknij przycisk **OK**.
 4. StorSimple Snapshot Manager wyszukuje zidentyfikowane urządzenie. Jeśli urządzenie jest dostępne, StorSimple Snapshot Manager dodaje połączenie. Możesz [sprawdzić połączenie z urządzeniem](#to-verify-the-connection) , aby upewnić się, że połączenie zostało pomyślnie dodane.
    
     Jeśli urządzenie jest niedostępne z jakiegokolwiek powodu, StorSimple Snapshot Manager zwraca komunikat o błędzie. Kliknij przycisk **OK** , aby zamknąć komunikat o błędzie, a następnie kliknij przycisk **Anuluj** , aby zamknąć okno dialogowe **Konfigurowanie urządzenia** .

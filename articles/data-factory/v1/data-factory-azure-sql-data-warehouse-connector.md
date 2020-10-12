@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b7324115c880fb1ee4d5a1730a3b84a289cee4b0
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490143"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) przy użyciu Azure Data Factory
@@ -307,22 +307,22 @@ Data Factory tworzy tabelę w magazynie docelowym z tą samą nazwą tabeli w ź
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Liczba dziesiętna | Liczba dziesiętna |
-| Numeryczny | Liczba dziesiętna |
-| Float | Float |
+| Numeryczne | Liczba dziesiętna |
+| Liczba zmiennoprzecinkowa | Liczba zmiennoprzecinkowa |
 | Pieniądze | Pieniądze |
 | Rzeczywiste | Rzeczywiste |
 | SmallMoney | SmallMoney |
 | Binarne | Binarne |
 | Liczby | Varbinary (do 8000) |
-| Data | Data |
-| Data i godzina | Data i godzina |
+| Date | Date |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Godzina | Godzina |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Tekst | Varchar (do 8000) |
 | NText | NVarChar (do 4000) |
-| Image (Obraz) | VarBinary (do 8000) |
+| Obraz | VarBinary (do 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
@@ -346,15 +346,15 @@ Mapowanie jest takie samo jak [Mapowanie typu danych SQL Server ADO.NET](https:/
 | --- | --- |
 | bigint |Int64 |
 | binarny |Byte [] |
-| bit |Wartość logiczna |
+| bit |Boolean (wartość logiczna) |
 | char |String, Char [] |
-| date |Data i godzina |
-| Datetime (data/godzina) |Data i godzina |
-| datetime2 |Data i godzina |
+| date |DateTime |
+| Datetime (data/godzina) |DateTime |
+| datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Liczba dziesiętna |Liczba dziesiętna |
 | FILESTREAM — atrybut (varbinary (max)) |Byte [] |
-| Float |Double |
+| Liczba zmiennoprzecinkowa |Double |
 | image (obraz) |Byte [] |
 | int |Int32 |
 | pieniędzy |Liczba dziesiętna |
@@ -364,7 +364,7 @@ Mapowanie jest takie samo jak [Mapowanie typu danych SQL Server ADO.NET](https:/
 | nvarchar |String, Char [] |
 | liczba rzeczywista |Pojedynczy |
 | rowversion |Byte [] |
-| smalldatetime |Data i godzina |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Liczba dziesiętna |
 | sql_variant |Stream |

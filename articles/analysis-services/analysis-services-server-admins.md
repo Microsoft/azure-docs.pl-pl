@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922953"
 ---
 # <a name="manage-server-administrators"></a>Zarządzanie administratorami serwerów
@@ -36,7 +36,7 @@ Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` . Nazwy g�
    
     ![Dodawanie administratorów serwera w programie SSMS](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,4 +54,4 @@ Użyj [aktualizacji](https://docs.microsoft.com/rest/api/analysisservices/server
 
 [Uwierzytelnianie i uprawnienia użytkownika](analysis-services-manage-users.md)  
 [Zarządzanie rolami i użytkownikami bazy danych](analysis-services-database-users.md)  
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md)  
+[Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../role-based-access-control/overview.md)  

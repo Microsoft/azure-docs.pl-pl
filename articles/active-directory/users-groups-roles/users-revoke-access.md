@@ -14,10 +14,10 @@ ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8d1b6d912cadb073251d72ee327f4b19950ab1b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055189"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Odwołaj dostęp użytkownika w Azure Active Directory

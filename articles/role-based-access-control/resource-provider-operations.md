@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400098"
 ---
 # <a name="azure-resource-provider-operations"></a>Operacje dostawcy zasobów platformy Azure
@@ -22,7 +22,7 @@ Ta sekcja zawiera listę operacji dla dostawców zasobów platformy Azure, któr
 
 Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę operacji.
 
-## <a name="all"></a>Wszystko
+## <a name="all"></a>Wszystkie
 
 | Ogólne |
 | --- |
@@ -121,7 +121,7 @@ Kliknij nazwę dostawcy zasobów w poniższej tabeli, aby wyświetlić listę op
 | [Microsoft. wspólny](#microsoftdevtestlab) |
 | [Microsoft. LabServices](#microsoftlabservices) |
 | [Microsoft. VisualStudio](#microsoftvisualstudio) |
-| **Migrate** |
+| **Migrate (Migracja)** |
 | [Microsoft. Migrowanie](#microsoftmigrate) |
 | [Microsoft. OffAzure](#microsoftoffazure) |
 | **Monitorowanie** |
@@ -270,7 +270,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -1339,7 +1339,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnsites/Delete | Usuwa zasób witryny sieci VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/odczyt | Pobiera łącze do witryny sieci VPN |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -1421,7 +1421,7 @@ Usługa platformy Azure: [Azure Data Box](../databox/index.yml)
 > | Microsoft. DataBox/Operations/Read | Wyświetl lub Pobierz operacje |
 > | **Akcja dataaction** | **Opis** |
 > | Microsoft. DataBox/Register/Action | Zarejestruj dostawcę Microsoft. DATAbox |
-> | Microsoft. DataBox/Unregister/Action | Wyrejestruj dostawcę Microsoft. DATAbox |
+> | Microsoft. DataBox/Unregister/Action | Dostawca Un-Register Microsoft. DATAbox |
 > | Microsoft. DataBox/Jobs/Cancel/Action | Anuluje zamówienie w toku. |
 > | Microsoft. DataBox/Jobs/bookShipmentPickUp/akcja | Umożliwia zaksięgowanie pobrania dla wysyłek zwrotnych. |
 > | Microsoft. DataBox/Jobs/listCredentials/akcja | Wyświetla listę nieszyfrowanych poświadczeń związanych z kolejnością. |
@@ -5667,7 +5667,7 @@ Usługa platformy Azure: [API Management](../api-management/index.yml)
 > | Microsoft. ApiManagement/Service/policyDescriptions/Read | Wyświetla listę wszystkich opisów zasad. |
 > | Microsoft. ApiManagement/Service/policySnippets/Read | Wyświetla wszystkie fragmenty kodu zasad. |
 > | Microsoft. ApiManagement/Service/portalSettings/Read | Wyświetla kolekcję ustawień portalu. lub uzyskaj ustawienia logowania dla portalu lub uzyskaj ustawienia rejestracji w portalu lub uzyskaj ustawienia delegowania dla portalu. |
-> | Microsoft. ApiManagement/Service/portalSettings/Write | Zaktualizuj ustawienia logowania. lub Utwórz lub zaktualizuj ustawienia logowania. lub zaktualizuj ustawienia rejestracji lub zaktualizuj ustawienia rejestracji lub zaktualizuj ustawienia delegowania. lub Utwórz lub zaktualizuj ustawienia delegowania. |
+> | Microsoft. ApiManagement/Service/portalSettings/Write | Aktualizowanie ustawień Sign-In. lub Utwórz lub zaktualizuj ustawienia Sign-In. lub zaktualizuj ustawienia rejestracji lub zaktualizuj ustawienia rejestracji lub zaktualizuj ustawienia delegowania. lub Utwórz lub zaktualizuj ustawienia delegowania. |
 > | Microsoft. ApiManagement/Service/portalSettings/listSecrets/Action | Pobiera klucz weryfikacji ustawień delegowania portalu. lub Pobierz identyfikator URI kontenera obiektów BLOB zawartości multimedialnej. |
 > | Microsoft. ApiManagement/Service/Products/Read | Wyświetla kolekcję produktów w określonym wystąpieniu usługi. lub pobiera szczegóły produktu określonego przez jego identyfikator. |
 > | Microsoft. ApiManagement/Service/Products/Write | Tworzy lub aktualizuje produkt. lub zaktualizuj istniejące informacje o produkcie. |
@@ -6287,8 +6287,8 @@ Usługa platformy Azure: Azure Active Directory
 > | Microsoft. aadiam/diagnosticsettings/odczyt | Odczytywanie ustawień diagnostycznych |
 > | Microsoft. aadiam/diagnosticsettings/Delete | Usuwanie ustawień diagnostycznych |
 > | Microsoft. aadiam/diagnosticsettingscategories/odczyt | Odczytywanie kategorii ustawień diagnostycznych |
-> | Microsoft. aadiam/metricDefinitions/odczyt | Odczytywanie definicji metryk na poziomie dzierżawy |
-> | Microsoft. aadiam/Metrics/Read | Odczytywanie metryk na poziomie dzierżawy |
+> | Microsoft. aadiam/metricDefinitions/odczyt | Odczytywanie definicji metryk Tenant-Level |
+> | Microsoft. aadiam/Metrics/Read | Odczytywanie metryk Tenant-Level |
 > | Microsoft. aadiam/privateLinkForAzureAD/odczyt | Odczytaj definicję zasad prywatnego linku |
 > | Microsoft. aadiam/privateLinkForAzureAD/Write | Tworzenie i aktualizowanie definicji zasad prywatnego linku |
 > | Microsoft. aadiam/privateLinkForAzureAD/Delete | Usuń definicję zasad prywatnego linku |
@@ -6867,7 +6867,7 @@ Usługa platformy Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/
 > | Microsoft. VisualStudio/Project/Delete | Usuń projekt |
 > | Microsoft. VisualStudio/Project/Read | Odczytaj projekt |
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>Migrate (Migracja)
 
 ### <a name="microsoftmigrate"></a>Microsoft. Migrowanie
 
