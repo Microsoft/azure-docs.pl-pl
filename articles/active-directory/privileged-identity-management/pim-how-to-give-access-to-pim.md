@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009566"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delegowanie dostępu do Privileged Identity Management
@@ -46,7 +46,7 @@ Upewnij się, że w roli administratora roli uprzywilejowanej są zawsze co najm
 
     ![Administrator ról uprzywilejowanych — członkowie](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Wybierz pozycję **Dodaj członka** , aby otworzyć okienko **Dodawanie elementów zarządzanych** .
+1. Wybierz pozycję **Dodaj członka**  , aby otworzyć okienko **Dodawanie elementów zarządzanych** .
 
 1. Wybierz pozycję **Wybierz członków** , aby otworzyć okienko **Wybierz członków** .
 

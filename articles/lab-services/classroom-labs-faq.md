@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotycz�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ca35d70bc1106e46df4e3c68889b03679fd54b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443302"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
@@ -19,7 +19,7 @@ Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonar
 Przydział ustawiony dla laboratorium jest przeznaczony dla każdego ucznia na cały czas trwania laboratorium. [Zaplanowana godzina działania maszyn wirtualnych](how-to-create-schedules.md) nie jest uwzględniana w stosunku do przydziału przydzielonego dla użytkownika. Limit przydziału jest przeznaczony dla czasu poza godzinami harmonogramu, które student spędza na maszynach wirtualnych.  Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md#set-quotas-for-users).
 
 ### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Jeśli nauczycieli włącza na maszynie wirtualnej ucznia, czy ma to wpływ na limit przydziału ucznia? 
-Nie. Nie. Gdy nauczycieli włącza na maszynie wirtualnej ucznia, nie ma to wpływu na przydział przydzielony studentowi. 
+Nie. Żadnej. Gdy nauczycieli włącza na maszynie wirtualnej ucznia, nie ma to wpływu na przydział przydzielony studentowi. 
 
 ## <a name="schedules"></a>Harmonogramy
 

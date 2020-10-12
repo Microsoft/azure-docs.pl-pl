@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86223690"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować Skalowanie automatyczne dla usługi w chmurze w portalu
@@ -21,7 +21,7 @@ Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwal
 > [!NOTE]
 > Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](../virtual-machines/windows/classic/configure-availability-classic.md) i ręcznie ją włączać lub wyłączać.
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następujące informacje:
 
 * Na skalowanie ma wpływ podstawowe użycie.
@@ -66,7 +66,7 @@ Po skonfigurowaniu profilu i reguł Wybierz ikonę **Zapisz** u góry.
 #### <a name="profile"></a>Profil
 Profil ustawia minimalne i maksymalne wystąpienia skali, a także wtedy, gdy ten zakres skali jest aktywny.
 
-* **Zawsze**
+* **Always** (Zawsze)
 
     Zawsze zachowuj dostęp do tego zakresu wystąpień.  
 

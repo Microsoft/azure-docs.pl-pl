@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
 ms.openlocfilehash: 3bf63aa08ec4c1deff2551cfcc0cf188a75261bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82515484"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>Interfejs API REST do wysyłania zapytań do usługi Apache HBase w usłudze Azure HDInsight
@@ -26,7 +26,7 @@ Korzystanie z interfejsu REST usługi Apache HBase w celu wykonywania zapytań w
 
 Interfejs API REST HBase jest obsługiwany tylko w przypadku korzystania z domyślnej przestrzeni nazw. Jest to znany problem związany z używaniem przestrzeni nazw HBase lub wykonywaniem wywołań odwołujących się do określonych kolumn get w kolumnach z rodzinami kolumn z serwerem REST w usłudze HDInsight. Jest to spowodowane problemem z zabezpieczeniami w usłudze HDInsight Gateway. Korzystając z interfejsu API do tworzenia tabeli z przestrzenią nazw, uzyskując dostęp do kolumn za pośrednictwem rodzin kolumn, należy określić `:` znak, który jest uznawany za problem z zabezpieczeniami w module bramy usług IIS.
 
-## <a name="mitigation"></a>Środki zaradcze
+## <a name="mitigation"></a>Ograniczanie ryzyka
 
 Pomiń bramę/serwer REST, wdrażając aplikację na maszynie wirtualnej znajdującej się w tej samej sieci wirtualnej platformy Azure co klaster usługi HDInsight. Następnie można komunikować się z usługą HBase bezpośrednio za pośrednictwem usługi RPC (całkowicie pomijając serwer REST) lub do poszczególnych serwerów REST działających w węzłach procesu roboczego pomijających bramy usługi HDInsight.
 

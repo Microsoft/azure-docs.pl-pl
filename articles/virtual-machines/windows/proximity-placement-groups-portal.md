@@ -1,5 +1,5 @@
 ---
-title: Tworzenie grupy umieszczania w sąsiedztwie przy użyciu portalu
+title: Tworzenie grupy umieszczania w pobliżu przy użyciu portalu
 description: Dowiedz się, jak utworzyć grupę umieszczania w sąsiedztwie przy użyciu Azure Portal.
 author: cynthn
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190405"
 ---
-# <a name="create-a-proximity-placement-group-using-the-portal"></a>Tworzenie grupy umieszczania w sąsiedztwie przy użyciu portalu
+# <a name="create-a-proximity-placement-group-using-the-portal"></a>Tworzenie grupy umieszczania w pobliżu przy użyciu portalu
 
 Aby zapewnić, że maszyny wirtualne będą możliwie jak najbliżej, osiągając najniższe możliwe opóźnienie, należy wdrożyć je w obrębie [grupy umieszczania sąsiedztwa](co-location.md#proximity-placement-groups).
 

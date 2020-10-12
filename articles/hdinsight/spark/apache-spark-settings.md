@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82188161"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurowanie ustawień platformy Apache Spark
@@ -29,7 +29,7 @@ Liczba maszyn wirtualnych i rozmiary maszyn wirtualnych dla węzłów w klastrze
 
 Użyj najlepszej wersji platformy Spark dla klastra.  Usługa HDInsight obejmuje kilka wersji zarówno platformy Spark, jak i usługi HDInsight.  Każda wersja platformy Spark zawiera zestaw domyślnych ustawień klastra.  
 
-Podczas tworzenia nowego klastra istnieje wiele wersji platformy Spark do wyboru. Aby zapoznać się z pełną listą, [składnikami i wersjami usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Podczas tworzenia nowego klastra istnieje wiele wersji platformy Spark do wyboru. Aby zapoznać się z pełną listą,  [składnikami i wersjami usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 
 > [!NOTE]  
 > Domyślna wersja Apache Spark w usłudze HDInsight może ulec zmianie bez powiadomienia. Jeśli masz zależność wersji, firma Microsoft zaleca, aby określić tę konkretną wersję podczas tworzenia klastrów przy użyciu zestawu .NET SDK, Azure PowerShell i klasycznego interfejsu wiersza polecenia platformy Azure.
@@ -90,7 +90,7 @@ Trzy kluczowe parametry, które są często dostosowywane do dostrajania konfigu
 > [!NOTE]  
 > Te trzy parametry konfiguracji można skonfigurować na poziomie klastra (dla wszystkich aplikacji uruchamianych w klastrze), a także dla każdej pojedynczej aplikacji.
 
-Innym źródłem informacji o zasobach używanych przez moduł wykonawczy platformy Spark jest interfejs użytkownika aplikacji platformy Spark.  W interfejsie użytkownika program **wykonujący** wyświetla podsumowanie i szczegółowe widoki konfiguracji i zużytych zasobów.  Określ, czy zmienić wartości wykonawców dla całego klastra, czy też określonego zestawu wykonań zadań.
+Innym źródłem informacji o zasobach używanych przez moduł wykonawczy platformy Spark jest interfejs użytkownika aplikacji platformy Spark.  W interfejsie użytkownika program  **wykonujący** wyświetla podsumowanie i szczegółowe widoki konfiguracji i zużytych zasobów.  Określ, czy zmienić wartości wykonawców dla całego klastra, czy też określonego zestawu wykonań zadań.
 
 ![Testy platformy Spark](./media/apache-spark-settings/apache-spark-executors.png)
 

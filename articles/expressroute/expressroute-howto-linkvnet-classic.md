@@ -9,15 +9,15 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395812"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -85,7 +85,7 @@ Właściciel obwodu ma uprawnienia do modyfikowania i odwoływania autoryzacji w
 
 **Tworzenie autoryzacji**
 
-Właściciel obwodu autoryzuje administratorów innych subskrypcji do używania określonego obwodu. W poniższym przykładzie administrator obwodu (contoso IT) umożliwia administratorowi innej subskrypcji (Tworzenie i testowanie) łączenie się z dwoma sieciami wirtualnymi do obwodu. W tym celu administrator IT firmy Contoso umożliwia określenie identyfikatora Microsoft Dev-Test ID. Polecenie cmdlet nie wysyła wiadomości e-mail do określonego identyfikatora firmy Microsoft. Właściciel obwodu musi jawnie powiadomić innego właściciela subskrypcji o ukończeniu autoryzacji.
+Właściciel obwodu autoryzuje administratorów innych subskrypcji do używania określonego obwodu. W poniższym przykładzie administrator obwodu (contoso IT) umożliwia administratorowi innej subskrypcji (Tworzenie i testowanie) łączenie się z dwoma sieciami wirtualnymi do obwodu. W tym celu administrator IT firmy Contoso umożliwia określenie identyfikatora Microsoft Dev-Test. Polecenie cmdlet nie wysyła wiadomości e-mail do określonego identyfikatora firmy Microsoft. Właściciel obwodu musi jawnie powiadomić innego właściciela subskrypcji o ukończeniu autoryzacji.
 
 ```powershell
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'

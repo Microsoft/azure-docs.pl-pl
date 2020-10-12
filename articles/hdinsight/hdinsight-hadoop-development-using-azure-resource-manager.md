@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500184"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrowanie do narzędzi programistycznych opartych na Azure Resource Manager dla klastrów usługi HDInsight
@@ -31,21 +31,21 @@ Usługa HDInsight jest przestarzała narzędzia oparte na platformie Azure Servi
 
 Poniżej przedstawiono podstawowe polecenia do pracy z usługą HDInsight za pomocą klasycznego interfejsu wiersza polecenia platformy Azure:
 
-* `azure hdinsight cluster create`-Tworzy nowy klaster usługi HDInsight
-* `azure hdinsight cluster delete`-usuwa istniejący klaster usługi HDInsight
-* `azure hdinsight cluster show`-Wyświetla informacje o istniejącym klastrze
-* `azure hdinsight cluster list`-Wyświetla listę klastrów usługi HDInsight dla Twojej subskrypcji platformy Azure
+* `azure hdinsight cluster create` -Tworzy nowy klaster usługi HDInsight
+* `azure hdinsight cluster delete` -usuwa istniejący klaster usługi HDInsight
+* `azure hdinsight cluster show` -Wyświetla informacje o istniejącym klastrze
+* `azure hdinsight cluster list` -Wyświetla listę klastrów usługi HDInsight dla Twojej subskrypcji platformy Azure
 
 Użyj `-h` przełącznika, aby sprawdzić parametry i przełączniki dostępne dla każdego polecenia.
 
 ### <a name="new-commands"></a>Nowe polecenia
 Nowe polecenia dostępne w Azure Resource Manager są następujące:
 
-* `azure hdinsight cluster resize`— dynamicznie zmienia liczbę węzłów procesu roboczego w klastrze
-* `azure hdinsight cluster enable-http-access`-Włącza dostęp HTTPs do klastra (domyślnie włączone)
-* `azure hdinsight cluster disable-http-access`-wyłącza dostęp HTTPs do klastra
-* `azure hdinsight script-action`— udostępnia polecenia do tworzenia akcji skryptu i zarządzania nimi w klastrze
-* `azure hdinsight config`— zawiera polecenia służące do tworzenia pliku konfiguracji, który może być używany z `hdinsight cluster create` poleceniem w celu zapewnienia informacji o konfiguracji.
+* `azure hdinsight cluster resize` — dynamicznie zmienia liczbę węzłów procesu roboczego w klastrze
+* `azure hdinsight cluster enable-http-access` -Włącza dostęp HTTPs do klastra (domyślnie włączone)
+* `azure hdinsight cluster disable-http-access` -wyłącza dostęp HTTPs do klastra
+* `azure hdinsight script-action` — udostępnia polecenia do tworzenia akcji skryptu i zarządzania nimi w klastrze
+* `azure hdinsight config` — zawiera polecenia służące do tworzenia pliku konfiguracji, który może być używany z `hdinsight cluster create` poleceniem w celu zapewnienia informacji o konfiguracji.
 
 ### <a name="deprecated-commands"></a>Przestarzałe polecenia
 Jeśli używasz `azure hdinsight job` poleceń do przesyłania zadań do klastra usługi HDInsight, polecenia te nie są dostępne za pomocą poleceń Menedżer zasobów. Aby programowo przesłać zadania do usługi HDInsight ze skryptów, należy zamiast tego użyć interfejsów API REST dostarczonych przez usługi HDInsight. Aby uzyskać więcej informacji na temat przesyłania zadań przy użyciu interfejsów API REST, zobacz następujące dokumenty.
@@ -59,26 +59,26 @@ Aby uzyskać informacje na temat innych sposobów uruchamiania Apache Hadoop Map
 ### <a name="examples"></a>Przykłady
 **Tworzenie klastra**
 
-* Stare polecenie (ASM) —`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Nowe polecenie —`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Stare polecenie (ASM) — `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Nowe polecenie — `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Usuwanie klastra**
 
-* Stare polecenie (ASM) —`azure hdinsight cluster delete myhdicluster`
-* Nowe polecenie —`azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Stare polecenie (ASM) — `azure hdinsight cluster delete myhdicluster`
+* Nowe polecenie — `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Wyświetl listę klastrów**
 
-* Stare polecenie (ASM) —`azure hdinsight cluster list`
-* Nowe polecenie —`azure hdinsight cluster list`
+* Stare polecenie (ASM) — `azure hdinsight cluster list`
+* Nowe polecenie — `azure hdinsight cluster list`
 
 > [!NOTE]  
 > Dla polecenia list, określenie grupy zasobów przy użyciu zwróci `-g` tylko te klastry w określonej grupie zasobów.
 
 **Pokaż informacje o klastrze**
 
-* Stare polecenie (ASM) —`azure hdinsight cluster show myhdicluster`
-* Nowe polecenie —`azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Stare polecenie (ASM) — `azure hdinsight cluster show myhdicluster`
+* Nowe polecenie — `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrowanie Azure PowerShell do Azure Resource Manager
 Ogólne informacje dotyczące Azure PowerShell w trybie Azure Resource Manager można znaleźć w temacie [Korzystanie z Azure PowerShell z Azure Resource Manager](../powershell-azure-resource-manager.md).

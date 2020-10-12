@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/1/2020
 ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964519"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opcje konfiguracji Azure Database for PostgreSQL — Citus)
@@ -75,20 +75,20 @@ Grupy serwerów ze skalowaniem (Citus) są dostępne w następujących regionach
 
 * Południowej
     * Kanada Środkowa
-    * Środkowe stany USA
-    * Wschodnie stany USA
+    * Central US
+    * East US
     * Wschodnie stany USA 2
     * Północno-środkowe stany USA
     * Zachodnie stany USA 2
 * Azja i Pacyfik:
     * Australia Wschodnia
-    * Japonia Wschodnia
+    * Japan East
     * Korea Środkowa
-    * Azja Południowo-Wschodnia
+    * Southeast Asia
 * Terenie
     * Europa Północna
     * Południowe Zjednoczone Królestwo
-    * Europa Zachodnia
+    * West Europe
 
 Niektóre z tych regionów mogą nie być początkowo aktywowane we wszystkich subskrypcjach platformy Azure. Jeśli chcesz użyć regionu z powyższej listy i nie widzisz go w Twojej subskrypcji, lub jeśli chcesz użyć regionu, którego nie ma na tej liście, Otwórz [żądanie pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

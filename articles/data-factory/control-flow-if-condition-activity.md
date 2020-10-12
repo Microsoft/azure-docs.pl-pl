@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85414610"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Działanie if Condition w Azure Data Factory
@@ -67,8 +67,8 @@ Działanie If Condition pełni taką samą rolę, co instrukcja if w językach p
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania if-Condition. | String | Tak
-typ | Musi być ustawiona na **IfCondition** | String | Tak
+name | Nazwa działania if-Condition. | Ciąg | Tak
+typ | Musi być ustawiona na **IfCondition** | Ciąg | Tak
 expression | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenie z typem wyniku Boolean | Tak
 ifTrueActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `true` . | Tablica | Tak
 ifFalseActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `false` . | Tablica | Tak
@@ -79,7 +79,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 > [!NOTE]
 > Ta sekcja zawiera definicje JSON i przykładowe polecenia programu PowerShell umożliwiające uruchomienie potoku. Aby zapoznać się z instrukcjami krok po kroku dotyczącymi tworzenia potoku Data Factory przy użyciu definicji Azure PowerShell i JSON, zobacz [Samouczek: Tworzenie fabryki danych przy użyciu Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem IF-Condition (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem IF-Condition (Adfv2QuickStartPipeline.jswłączony)
 
 ```json
 {

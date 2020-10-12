@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82185595"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów platformy Spark z potoków Azure Data Factory
@@ -78,7 +78,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    > [!IMPORTANT]
    > Aby utworzyć wystąpienia Data Factory, musisz być członkiem roli [współautor Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.
@@ -118,7 +118,7 @@ W tym kroku utworzysz połączoną usługę HDInsight, aby połączyć klaster u
 
 1. Skopiuj i wklej poniższy fragment kodu do okna Wersja robocza-1. W edytorze JSON wykonaj następujące czynności:
 
-    a. Określ identyfikator URI klastra usługi HDInsight Spark. Na przykład: `https://<sparkclustername>.azurehdinsight.net/`.
+    a. Określ identyfikator URI klastra usługi HDInsight Spark. Przykład: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Określ nazwę użytkownika, który ma dostęp do klastra Spark.
 
@@ -273,7 +273,7 @@ Ponieważ GetDebugInfo — jest ustawiony na **zawsze**, w folderze pyFiles w ko
 Aby uzyskać dalsze informacje dotyczące rozwiązywania problemów, wykonaj następujące czynności:
 
 
-1. Przejdź do witryny `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Przejdź do adresu `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Aplikacja interfejsu użytkownika PRZĘDZy](media/data-factory-spark/yarnui-application.png)
 
@@ -344,10 +344,10 @@ Działanie platformy Spark nie obsługuje skryptu wbudowanego jako działań zwi
 
 Utwórz następującą strukturę folderów w magazynie obiektów blob, do której odwołuje się połączona Usługa HDInsight. Następnie Przekaż pliki zależne do odpowiednich podfolderów w folderze głównym przedstawionym przez **entryFilePath**. Na przykład przekazanie plików Python do podfolderu pyFiles i plików jar do podfolderu Jars folderu głównego. W czasie wykonywania Usługa Data Factory oczekuje następującej struktury folderów w magazynie obiektów blob:
 
-| Ścieżka | Opis | Wymagany | Typ |
+| Ścieżka | Opis | Wymagane | Typ |
 | ---- | ----------- | -------- | ---- |
 | . | Ścieżka katalogu głównego zadania platformy Spark w połączonej usłudze Storage. | Tak | Folder |
-| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka wskazująca plik wpisu zadania Spark. | Tak | Plik |
+| &lt;zdefiniowane przez użytkownika &gt; | Ścieżka wskazująca plik wpisu zadania Spark. | Tak | Plik |
 | ./jars | Wszystkie pliki w tym folderze są przekazywane i umieszczane na ścieżce klas Java klastra. | Nie | Folder |
 | ./pyFiles | Wszystkie pliki w tym folderze są przekazywane i umieszczane w PYTHONPATH klastra. | Nie | Folder |
 | ./files | Wszystkie pliki w tym folderze są przekazywane i umieszczane w katalogu roboczym programu wykonującego. | Nie | Folder |

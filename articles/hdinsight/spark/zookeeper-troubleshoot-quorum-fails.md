@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 05/20/2020
 ms.openlocfilehash: 9038630a2623a8b20ddfcf98899ce9a89f16bdc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84673364"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Serwer Apache ZooKeeper nie może utworzyć kworum w usłudze Azure HDInsight
@@ -57,7 +57,7 @@ Message
 
 * Znajdź serwery dozorcy z pliku/etc/hosts lub z interfejsu użytkownika Ambari
 * Uruchom następujące polecenie
-  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181`(lub 2182)  
+  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181` (lub 2182)  
   * Port 2181 to wystąpienie Apache dozorcy
   * Port 2182 jest używany przez dozorcy usługi HDInsight (w celu zapewnienia wysokiej dostępności dla usług, które nie są natywnie HA)
   * Jeśli polecenie nie wyświetla danych wyjściowych, oznacza to, że serwery dozorcy nie są uruchomione
@@ -105,12 +105,12 @@ Node count: 133212
 * Dozorcami są skonfigurowane do autoprzeczyszczania starych migawek
 * Domyślnie ostatnie 30 migawek są zachowywane
 * Liczba zachowywanych migawek jest kontrolowana przez klucz konfiguracji `autopurge.snapRetainCount` . Tę właściwość można znaleźć w następujących plikach:
-  * `/etc/zookeeper/conf/zoo.cfg`w przypadku usługi Hadoop dozorcy
-  * `/etc/hdinsight-zookeeper/conf/zoo.cfg`dla usługi HDInsight dozorcy
+  * `/etc/zookeeper/conf/zoo.cfg` w przypadku usługi Hadoop dozorcy
+  * `/etc/hdinsight-zookeeper/conf/zoo.cfg` dla usługi HDInsight dozorcy
 * Ustaw `autopurge.snapRetainCount` wartość 3 i ponownie uruchom serwery dozorcy
   * Konfigurację usługi Hadoop dozorcy można zaktualizować, a usługa może zostać ponownie uruchomiona za pomocą Ambari
   * Ręczne zatrzymywanie i ponowne uruchamianie usługi HDInsight dozorcy
-    * `sudo lsof -i :2182`podaje identyfikator procesu do zabicia
+    * `sudo lsof -i :2182` podaje identyfikator procesu do zabicia
     * `sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py`
 * Nie Przeczyść migawek ręcznie — ręczne usuwanie migawek może spowodować utratę danych
 

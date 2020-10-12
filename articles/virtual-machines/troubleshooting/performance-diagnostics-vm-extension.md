@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090656"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows
@@ -79,7 +79,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej diagnosty
 |apiVersion|2015-06-15|Wersja interfejsu API.
 |publisher|Microsoft. Azure. Performance. Diagnostics|Przestrzeń nazw wydawcy dla rozszerzenia.
 |typ|AzurePerformanceDiagnostics|Typ rozszerzenia maszyny wirtualnej.
-|typeHandlerVersion|1,0|Wersja procedury obsługi rozszerzenia.
+|typeHandlerVersion|1.0|Wersja procedury obsługi rozszerzenia.
 |performanceScenario|prosty|Scenariusz wydajności, dla którego mają zostać przechwycone dane. Prawidłowe wartości to: **Basic**, **vmslow**, **migracji pamięci**i **Custom**.
 |traceDurationInSeconds|300|Czas trwania śledzenia, jeśli wybrano dowolną z opcji śledzenia.
 |perfCounterTrace|p|Opcja włączenia śledzenia licznika wydajności. Prawidłowe wartości to **p** lub wartość pusta. Jeśli nie chcesz przechwytywać tego śledzenia, pozostaw wartość pustą.
@@ -219,7 +219,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 ## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla istniejącej maszyny wirtualnej.
 
-PowerShell
+Program PowerShell
 
 ```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }

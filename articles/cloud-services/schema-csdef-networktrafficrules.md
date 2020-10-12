@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79534732"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schemat NetworkTrafficRules definicji Cloud Services platformy Azure
@@ -64,39 +64,39 @@ AllowAllTraffic, element
 
 [FromRole, element](#FromRole)
 
-##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>NetworkTrafficRules, element
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a> NetworkTrafficRules, element
 `NetworkTrafficRules`Element określa, które role mogą komunikować się z punktem końcowym w innej roli. Usługa może zawierać jedną `NetworkTrafficRules` definicję.
 
-##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>OnlyAllowTrafficTo, element
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> OnlyAllowTrafficTo, element
 `OnlyAllowTrafficTo`Element opisuje zbiór docelowych punktów końcowych i role, które mogą się z nimi komunikować. Można określić wiele `OnlyAllowTrafficTo` węzłów.
 
-##  <a name="destinations-element"></a><a name="Destinations"></a>Element Destinations
+##  <a name="destinations-element"></a><a name="Destinations"></a> Element Destinations
 `Destinations`Element zawiera opis kolekcji RoleEndpoints niż może być przekazywany za pomocą.
 
-##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>RoleEndpoint, element
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> RoleEndpoint, element
 `RoleEndpoint`Element opisuje punkt końcowy roli, aby zezwalać na komunikację z usługą. Można określić wiele `RoleEndpoint` elementów, jeśli w danej roli istnieje więcej niż jeden punkt końcowy.
 
 | Atrybut      | Typ     | Opis |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Wymagany. Nazwa punktu końcowego, do którego ma być dozwolony ruch.|
-| `roleName`     | `string` | Wymagany. Nazwa roli sieci Web, w której ma być dozwolona komunikacja.|
+| `endpointName` | `string` | Wymagane. Nazwa punktu końcowego, do którego ma być dozwolony ruch.|
+| `roleName`     | `string` | Wymagane. Nazwa roli sieci Web, w której ma być dozwolona komunikacja.|
 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic, element
 `AllowAllTraffic`Element jest regułą, która umożliwia wszystkim rolom komunikowanie się z punktami końcowymi zdefiniowanymi w `Destinations` węźle.
 
-##  <a name="whensource-element"></a><a name="WhenSource"></a>WhenSource, element
+##  <a name="whensource-element"></a><a name="WhenSource"></a> WhenSource, element
 `WhenSource`Element opisuje zbiór ról niż może komunikować się z punktami końcowymi zdefiniowanymi w `Destinations` węźle.
 
 | Atrybut | Typ     | Opis |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Wymagany. Określa regułę, która ma zostać zastosowana podczas zezwalania na komunikację. Jedyną prawidłową wartością jest obecnie `AnyRule` .|
+| `matches` | `string` | Wymagane. Określa regułę, która ma zostać zastosowana podczas zezwalania na komunikację. Jedyną prawidłową wartością jest obecnie `AnyRule` .|
   
-##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole, element
+##  <a name="fromrole-element"></a><a name="FromRole"></a> FromRole, element
 `FromRole`Element określa role, które mogą komunikować się z punktami końcowymi zdefiniowanymi w `Destinations` węźle. Można określić wiele `FromRole` elementów, jeśli istnieje więcej niż jedna rola, która może komunikować się z punktami końcowymi.
 
 | Atrybut  | Typ     | Opis |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Wymagany. Nazwa roli, z której ma być dozwolona komunikacja.|
+| `roleName` | `string` | Wymagane. Nazwa roli, z której ma być dozwolona komunikacja.|
 
 ## <a name="see-also"></a>Zobacz też
 [Schemat definicji usługi w chmurze (klasycznej)](schema-csdef-file.md)

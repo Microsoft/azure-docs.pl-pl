@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: b470fa72518f805c10403931280bdec96bda0fbe
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226543"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Podstawa zabezpieczeń Azure dla usługi Azure Application Gateway
@@ -983,7 +983,7 @@ Skonfiguruj ustawienia diagnostyczne dla wdrożeń usługi Azure Application Gat
 
 **Wskazówki**: usługa Azure Application Gateway nie przechowuje danych klienta. Jeśli jednak korzystasz z niestandardowych definicji zasad platformy Azure, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-Azure DevOps Services wykorzystuje wiele funkcji usługi Azure Storage, aby zapewnić dostępność danych w przypadku awarii sprzętu, przerwania działania usługi lub awarii regionu. Ponadto zespół usługi Azure DevOps stosuje procedury umożliwiające ochronę danych przed przypadkowym lub złośliwym usunięciem.
+Usługa Azure DevOps Services wykorzystuje wiele funkcji usługi Azure Storage w celu zapewnienia dostępności danych w przypadku awarii sprzętowej, przerw w działaniu usługi lub awarii regionu. Ponadto zespół usługi Azure DevOps postępuje zgodnie z procedurami w celu ochrony danych przed przypadkowym lub złośliwym usunięciem.
 
 * [Zrozumienie dostępności danych w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 

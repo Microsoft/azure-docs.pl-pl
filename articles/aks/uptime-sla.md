@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749123"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
@@ -37,7 +37,7 @@ Umowa SLA na czas działania jest dostępna w regionach publicznych i Azure Gove
 
 Umowa SLA na czas pracy to płatna funkcja i włączona na klaster. Cennik umowy SLA na czas pracy jest określany przez liczbę klastrów dyskretnych, a nie przez rozmiar poszczególnych klastrów. Aby uzyskać więcej informacji, możesz wyświetlić [szczegóły cennika umowy SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) .
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) w wersji 2.8.0 lub nowszej
 
@@ -112,7 +112,7 @@ Użyj [`az aks update`][az-aks-nodepool-update] polecenia, aby zaktualizować is
   },
   ```
 
-## <a name="clean-up"></a>Czyszczenie zasobów
+## <a name="clean-up"></a>Czyszczenie
 
 Aby uniknąć naliczania opłat, wyczyść wszystkie utworzone zasoby. Aby usunąć klaster, użyj polecenia, [`az group delete`][az-group-delete] Aby usunąć grupę zasobów AKS:
 

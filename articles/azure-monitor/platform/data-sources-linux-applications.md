@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85963244"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Zbieranie liczników wydajności dla aplikacji systemu Linux w Azure Monitor 
@@ -44,7 +44,7 @@ Wpisy w pliku uwierzytelniania są opisane w poniższej tabeli.
 | Właściwość | Opis |
 |:--|:--|
 | Port | Reprezentuje bieżący port, na którym nasłuchuje wystąpienie MySQL. Port 0 Określa, że w przypadku wystąpienia domyślnego są używane następujące właściwości. |
-| Adres powiązania| Bieżący adres powiązania MySQL. |
+| Bind-Address| Bieżący adres powiązania MySQL. |
 | nazwa użytkownika| Użytkownik programu MySQL używany do monitorowania wystąpienia serwera MySQL. |
 | Hasło zakodowane w formacie base64| Hasło użytkownika monitorowania MySQL zakodowane w formacie base64. |
 | AutoUpdate| Określa, czy ponownie skanować pod kątem zmian w pliku my. cnf i zastępować plik uwierzytelniania MySQL OMI, gdy zostanie uaktualniony dostawca programu MySQL OMI. |
@@ -54,7 +54,7 @@ Plik uwierzytelniania MySQL OMI może definiować wystąpienie domyślne i numer
 
 W poniższej tabeli przedstawiono przykładowe ustawienia wystąpienia 
 
-| Opis | Plik |
+| Opis | File |
 |:--|:--|
 | Wystąpienie domyślne i wystąpienie z portem 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Wystąpienie domyślne i wystąpienie z portem 3308 oraz inną nazwą użytkownika i hasłem. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |

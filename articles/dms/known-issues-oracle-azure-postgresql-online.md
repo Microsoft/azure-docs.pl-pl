@@ -1,7 +1,7 @@
 ---
 title: 'Znane problemy: Migrowanie z programu Oracle do Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Informacje o znanych problemach i ograniczeniach migracji z migracją online z programu Oracle do Azure Database for PostgreSQL-pojedynczego serwera przy użyciu Azure Database Migration Service.
+description: Informacje o znanych problemach i ograniczeniach migracji z migracją online z programu Oracle do usługi Azure Database for PostgreSQL-Single Server przy użyciu Azure Database Migration Service.
 services: database-migration
 author: arunkumarthiags
 ms.author: arthiaga
@@ -13,15 +13,15 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.openlocfilehash: 2316e0314c9d8f36aee123d4a516f382f58e83e6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291660"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Znane problemy/ograniczenia migracji z migracją online z programu Oracle do usługi Azure DB dla PostgreSQL — pojedynczy serwer
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Znane problemy/ograniczenia migracji z migracją online z programu Oracle do usługi Azure DB dla PostgreSQL-Single Server
 
-Znane problemy i ograniczenia związane z migracją w trybie online z programu Oracle do Azure Database for PostgreSQL-pojedynczego serwera są opisane w poniższych sekcjach.
+Znane problemy i ograniczenia związane z migracją online z programu Oracle do usługi Azure Database for PostgreSQL-Single Server zostały opisane w poniższych sekcjach.
 
 ## <a name="oracle-versions-supported-as-a-source-database"></a>Wersje programu Oracle obsługiwane jako źródłowa baza danych
 
@@ -34,7 +34,7 @@ Azure Database Migration Service nie obsługuje łączenia z wielodostępnymi ba
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>Wersje PostgreSQL obsługiwane jako docelowa baza danych
 
-Azure Database Migration Service obsługuje migracje do Azure Database for PostgreSQL-jednego serwera w wersji 9,5, 9,6, 10 i 11. Zapoznaj się z artykułem [obsługiwane wersje bazy danych PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) , aby uzyskać aktualne informacje o obsłudze wersji na pojedynczym serwerze Azure Database for PostgreSQL.
+Azure Database Migration Service obsługuje migracje do usługi Azure Database dla programu PostgreSQL-Single Server w wersji 9,5, 9,6, 10 i 11. Zapoznaj się z artykułem [obsługiwane wersje bazy danych PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) , aby uzyskać aktualne informacje o obsłudze wersji w usłudze Azure database for PostgreSQL-Single Server.
 
 ## <a name="datatype-limitations"></a>Ograniczenia typów danych
 

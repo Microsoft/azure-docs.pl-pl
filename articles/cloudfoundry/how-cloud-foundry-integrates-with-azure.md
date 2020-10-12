@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82145125"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integracja usługi Cloud Foundry z platformą Azure
@@ -40,7 +40,7 @@ Strefa dostępności platformy Azure osiąga HA dzięki umieszczeniu zestawu mas
 ## <a name="2-network-routing"></a>2. Routing sieciowy
 Domyślnie usługa równoważenia obciążenia Azure w warstwie Podstawowa jest używana w przypadku żądań przychodzących interfejsów API/aplikacji CF, przekazując je do Gorouters. Składniki CF, takie jak Diego mózg, MySQL, ERT, mogą również zrównoważyć ruch dla dużej dostępności, korzystając z modułu równoważenia obciążenia. Platforma Azure udostępnia również zestaw w pełni zarządzanych rozwiązań do równoważenia obciążenia. Jeśli szukasz zakończenia protokołu TLS/SSL ("odciążanie protokołu SSL") lub na żądanie HTTP/HTTPS żądania przetwarzania warstwy aplikacji, weź pod uwagę Application Gateway. Aby zapewnić wysoką dostępność i skalowalność równoważenia obciążenia w warstwie 4, rozważ użycie standardowego modułu równoważenia obciążenia.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway *
-[Usługa Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferuje różne możliwości równoważenia obciążenia warstwy 7, w tym odciążanie protokołu SSL, kompleksową obsługę protokołu TLS, zaporę aplikacji sieci Web, koligację sesji na podstawie plików cookie i wiele więcej. Application Gateway można [skonfigurować w Cloud Foundry Open Source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). W przypadku usługi PCF Sprawdź [Informacje o wersji PCF 2,1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) dla testu ZK.
+[Usługa Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferuje różne możliwości równoważenia obciążenia warstwy 7, w tym odciążanie protokołu SSL, kompleksową obsługę protokołu TLS, zaporę aplikacji sieci Web, koligację sesji na podstawie plików cookie i wiele więcej. Application Gateway można [skonfigurować w Cloud Foundry Open Source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). W przypadku usługi PCF Sprawdź  [Informacje o wersji PCF 2,1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) dla testu ZK.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure usługa Load Balancer w warstwie Standardowa *
 Azure Load Balancer to moduł równoważenia obciążenia warstwy 4. Służy do dystrybuowania ruchu między wystąpieniami usług w zestawie o zrównoważonym obciążeniu. Wersja Standard zapewnia [Zaawansowane funkcje](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) w wersji podstawowej. Na przykład 1. Maksymalny limit puli zaplecza jest wywoływany z 100 do 1000 maszyn wirtualnych.  2. Punkty końcowe obsługują teraz wiele zestawów dostępności zamiast jednego zestawu dostępności.  3. Dodatkowe funkcje, takie jak porty HA, bogatsze dane monitorowania i tak dalej. Jeśli przenosisz do strefy dostępności platformy Azure, wymagany jest standardowy moduł równoważenia obciążenia. W przypadku nowego wdrożenia zalecamy rozpoczęcie pracy z usługą Azure usługa Load Balancer w warstwie Standardowa. 

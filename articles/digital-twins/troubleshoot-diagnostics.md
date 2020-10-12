@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723932"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
@@ -49,7 +49,7 @@ Poniżej przedstawiono sposób włączania ustawień diagnostycznych dla wystąp
     
 4. Zapisz nowe ustawienia. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych, na której użytkownik wypełnił nazwę ustawienia diagnostycznego i wprowadził pewne wybory pola wyboru dla szczegółów kategorii i szczegółów miejsca docelowego. Przycisk Zapisz jest wyróżniony.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Zrzut ekranu przedstawiający stronę ustawień diagnostycznych i przycisk do dodania":::
 
 Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym z powrotem na stronie **Ustawienia diagnostyczne** dla danego wystąpienia. 
 
@@ -70,7 +70,7 @@ Każda kategoria dziennika składa się z operacji zapisu, odczytu, usuwania i a
 | --- | --- |
 | Zapisywanie | PUT i PATCH |
 | Odczyt | GET |
-| Usuń | DELETE |
+| Usuwanie | DELETE |
 | Akcja | POST |
 
 Poniżej znajduje się kompleksowa Lista operacji i odpowiednich [wywołań interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji](https://docs.microsoft.com/rest/api/azure-digitaltwins/) , które są rejestrowane w każdej kategorii. 

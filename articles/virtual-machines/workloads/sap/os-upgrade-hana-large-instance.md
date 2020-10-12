@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82192420"
 ---
 # <a name="operating-system-upgrade"></a>Uaktualnienie systemu operacyjnego
@@ -95,7 +95,7 @@ Usługa SAP w dużych wystąpieniach platformy Azure Hana (typ I) może być w s
 
 
 *   Wykonaj `multipath -ll` polecenie.
-*   Pobierz identyfikator LUN o rozmiarze około 50G lub użyj polecenia:`fdisk -l | grep mapper`
+*   Pobierz identyfikator LUN o rozmiarze około 50G lub użyj polecenia: `fdisk -l | grep mapper`
 *   Aktualizuj `/etc/default/grub_installdevice` plik z wierszem `/dev/mapper/<LUN ID>` . Przykład:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >Identyfikator LUN różni się od serwera do serwera.
@@ -110,7 +110,7 @@ Usługa SAP w dużych wystąpieniach platformy Azure Hana (typ I) może być w s
 ```
 lsmod | grep -i edac 
 ```
-* Wyłącz moduły, dołączając następujące wiersze do pliku`/etc/modprobe.d/blacklist.conf`
+* Wyłącz moduły, dołączając następujące wiersze do pliku `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
@@ -121,8 +121,8 @@ Aby zmiany zostały wprowadzone, wymagany jest ponowny rozruch. Wykonaj `lsmod` 
 ### <a name="kernel-parameters"></a>Parametry jądra
    Upewnij się, że są stosowane poprawne ustawienia dla `transparent_hugepage` ,, `numa_balancing` `processor.max_cstate` `ignore_ce` i `intel_idle.max_cstate` .
 
-* intel_idle. max_cstate = 1
-* procesor. max_cstate = 1
+* intel_idle intel_idle.max_cstate = 1
+* processor.max_cstate = 1
 * transparent_hugepage = nigdy
 * numa_balancing = Wyłącz
 * MCE = ignore_ce
@@ -130,7 +130,7 @@ Aby zmiany zostały wprowadzone, wymagany jest ponowny rozruch. Wykonaj `lsmod` 
 
 #### <a name="execution-steps"></a>Kroki wykonywania
 
-* Dodaj te parametry do `GRB_CMDLINE_LINUX` wiersza w pliku`/etc/default/grub`
+* Dodaj te parametry do `GRB_CMDLINE_LINUX` wiersza w pliku `/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749315"
 ---
 # <a name="speech-service-supported-regions"></a>Obsługiwane regiony usługi Speech
@@ -48,7 +48,7 @@ Jeśli używasz [zestawu Speech SDK](speech-sdk.md), regiony są określane prze
 
 Dostępne regiony do **rozpoznawania intencji** za pośrednictwem zestawu Speech SDK są następujące:
 
-| Region globalny | Region (Region)           | Identyfikator regionu |
+| Region globalny | Region           | Identyfikator regionu |
 | ------------- | ---------------- | -------------------- |
 | Azja          | Azja Wschodnia        | `eastasia`           |
 | Azja          | Southeast Asia   | `southeastasia`      |
@@ -69,7 +69,7 @@ Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language
 
 [Zestaw Speech SDK](speech-sdk.md) obsługuje funkcje **asystenta głosowego** w następujących regionach:
 
-| Region (Region)         | Identyfikator regionu |
+| Region         | Identyfikator regionu |
 | -------------- | -------------------- |
 | Zachodnie stany USA        | `westus`             |
 | Zachodnie stany USA 2      | `westus2`            |

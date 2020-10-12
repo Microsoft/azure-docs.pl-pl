@@ -7,10 +7,10 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002287"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Przewodnik konwersji ról sieci Web i procesu roboczego w celu Service Fabric usług bezstanowych
@@ -244,7 +244,7 @@ W Service Fabric w ServiceManifest.xml skonfigurowano punkt wejścia uruchamiani
 ## <a name="a-note-about-development-environment"></a>Uwaga dotycząca środowiska deweloperskiego
 Zarówno Cloud Services, jak i Service Fabric są zintegrowane z programem Visual Studio z szablonami projektów i obsługują debugowanie, Konfigurowanie i wdrażanie zarówno lokalnie, jak i na platformie Azure. Zarówno Cloud Services, jak i Service Fabric udostępniają także lokalne środowisko środowiska uruchomieniowego. Różnica polega na tym, że podczas gdy środowisko uruchomieniowe usług w chmurze emuluje środowisko platformy Azure, w którym działa, Service Fabric nie korzysta z emulatora — używa kompletnego środowiska uruchomieniowego Service Fabric. Środowisko Service Fabric uruchamiane na lokalnym komputerze deweloperskim jest tym samym środowiskiem, które działa w środowisku produkcyjnym.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Przeczytaj więcej na temat Service Fabric Reliable Services i podstawowych różnic między architekturą aplikacji Cloud Services i Service Fabric, aby zrozumieć, jak korzystać z pełnego zestawu funkcji Service Fabric.
 
 * [Wprowadzenie do Service Fabric Reliable Services](service-fabric-reliable-services-quick-start.md)

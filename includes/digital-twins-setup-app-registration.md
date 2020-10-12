@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: 45f55e6c18d7cc551a6b96504ad2ce2ec3f84d86
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009669"
 ---
 Po skonfigurowaniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji często można korzystać z tego wystąpienia za pomocą aplikacji klienckiej. Aby można było utworzyć działającą aplikację kliencką, należy upewnić się, że aplikacja kliencka będzie mogła się uwierzytelniać w usłudze Azure Digital bliźniaczych reprezentacji. W tym celu należy skonfigurować **rejestrację aplikacji** [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) do użycia w aplikacji klienckiej.

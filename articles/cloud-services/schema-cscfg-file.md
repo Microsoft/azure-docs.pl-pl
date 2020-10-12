@@ -10,10 +10,10 @@ caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79534749"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schemat konfiguracji usługi Azure Cloud Services (plik cscfg)
@@ -51,14 +51,14 @@ W poniższych tematach opisano schemat dla `ServiceConfiguration` elementu:
 ## <a name="service-configuration-namespace"></a>Przestrzeń nazw konfiguracji usługi
 Przestrzeń nazw XML dla pliku konfiguracji usługi: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration` .
 
-##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a>Element ServiceConfiguration
+##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a> Element ServiceConfiguration
 `ServiceConfiguration`Element jest elementem najwyższego poziomu w pliku konfiguracji usługi.
 
 W poniższej tabeli opisano atrybuty `ServiceConfiguration` elementu. Wszystkie wartości atrybutów są typami ciągu.
 
 | Atrybut | Opis |
 | --------- | ----------- |
-|serviceName|Wymagany. Nazwa usługi w chmurze. Nazwa podana w tym miejscu musi być zgodna z nazwą określoną w pliku definicji usługi.|
+|serviceName|Wymagane. Nazwa usługi w chmurze. Nazwa podana w tym miejscu musi być zgodna z nazwą określoną w pliku definicji usługi.|
 |osFamily|Opcjonalny. Określa system operacyjny gościa, który będzie uruchamiany w wystąpieniach roli w usłudze w chmurze. Aby uzyskać informacje na temat obsługiwanych wersji systemu operacyjnego gościa, zobacz [wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Jeśli nie dołączysz `osFamily` wartości i nie ustawisz `osVersion` atrybutu dla określonej wersji systemu operacyjnego gościa, zostanie użyta domyślna wartość 1.|
 |osVersion|Opcjonalny. Określa wersję systemu operacyjnego gościa, który będzie uruchamiany w wystąpieniach roli w usłudze w chmurze. Aby uzyskać więcej informacji na temat wersji systemu operacyjnego gościa, zobacz wersje [systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Można określić, że system operacyjny gościa ma być automatycznie uaktualniany do najnowszej wersji. W tym celu ustaw wartość `osVersion` atrybutu na `*` . Po ustawieniu na `*` , wystąpienia roli są wdrażane przy użyciu najnowszej wersji systemu operacyjnego gościa dla określonej rodziny systemów operacyjnych i zostaną automatycznie uaktualnione po wydaniu nowych wersji systemu operacyjnego gościa.<br /><br /> Aby określić konkretną wersję ręcznie, należy skorzystać `Configuration String` z tabeli w sekcji **przyszła, bieżąca i przejściowa wersja systemu operacyjnego gościa** w artykule wersje [systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Wartość domyślna dla `osVersion` atrybutu to `*` .|
 |schemaVersion|Opcjonalny. Określa wersję schematu konfiguracji usługi. Wersja schematu umożliwia programowi Visual Studio wybranie poprawnych narzędzi zestawu SDK, które będą używane do sprawdzania poprawności schematu w przypadku, gdy więcej niż jedna wersja zestawu SDK jest zainstalowana obok siebie. Aby uzyskać więcej informacji na temat zgodności schematów i wersji, zobacz [wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK](cloud-services-guestos-update-matrix.md)|

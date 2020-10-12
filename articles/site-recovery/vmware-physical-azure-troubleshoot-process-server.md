@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87499759"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
@@ -230,7 +230,7 @@ Sprawdź, czy zapora oparta na adresie IP na serwerze przetwarzania blokuje dost
 
 ## <a name="step-12-verify-process-server-proxy-settings"></a>Krok 12. Weryfikowanie ustawień serwera proxy serwera przetwarzania 
 
-1. Jeśli używasz serwera proxy, upewnij się, że nazwa serwera proxy jest rozpoznawana przez serwer DNS. Sprawdź wartość podaną podczas konfigurowania serwera konfiguracji w kluczu rejestru **HKEY_LOCAL_MACHINE \Software\microsoft\azure lokacji Recovery\ProxySettings**.
+1. Jeśli używasz serwera proxy, upewnij się, że nazwa serwera proxy jest rozpoznawana przez serwer DNS. Sprawdź wartość podaną podczas konfigurowania serwera konfiguracji w kluczu rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
 2. Upewnij się, że te same ustawienia są używane przez agenta Azure Site Recovery do wysyłania danych.
 
     a) Wyszukaj **Microsoft Azure Backup**.

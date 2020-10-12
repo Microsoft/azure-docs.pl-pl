@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 8483fd2a1b33330b868fb21d71922377e906e6c8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85958425"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące pul SQL w usłudze Azure Synapse Analytics
@@ -71,7 +71,7 @@ Aby zmaksymalizować przepływność przy użyciu plików tekstowych gzip, nale�
 
 Baza nie jest optymalna dla zapytań. Tabele bazowe dla pul SQL obecnie obsługują tylko pliki obiektów blob platformy Azure i Magazyn Azure Data Lake. Te pliki nie mają żadnych zasobów obliczeniowych. W związku z tym pule SQL nie mogą odciążać tej pracy i muszą odczytywać cały plik przez załadowanie go do bazy danych tempdb, dzięki czemu może odczytywać dane.
 
-Jeśli masz kilka zapytań na potrzeby wykonywania zapytań dotyczących tych danych, lepiej jest ładować te dane jednokrotnie, a kwerendy używają tabeli lokalnej. Dalsze wskazówki podstawowe są zawarte w [przewodniku dotyczącym korzystania z artykułu bazowego](data-loading-best-practices.md) .
+Jeśli masz kilka zapytań na potrzeby wykonywania zapytań dotyczących tych danych, lepiej jest ładować te dane jednokrotnie, a kwerendy używają tabeli lokalnej. Dalsze wskazówki podstawowe są zawarte w  [przewodniku dotyczącym korzystania z artykułu bazowego](data-loading-best-practices.md) .
 
 ## <a name="hash-distribute-large-tables"></a>Dystrybucja dużych tabel z użyciem skrótów
 
@@ -171,7 +171,7 @@ Aby uzyskać dodatkowe informacje na temat klas zasobów, zapoznaj się z artyku
 
 Jeśli zauważysz długie opóźnienie zapytań użytkowników, użytkownicy mogą pracować w większych klasach zasobów. Ten scenariusz promuje zużycie miejsc współbieżności, co może spowodować Zakolejkowanie innych zapytań.  Aby określić, czy zapytania użytkowników są umieszczane w kolejce, uruchom polecenie, `SELECT * FROM sys.dm_pdw_waits` Aby sprawdzić, czy wiersze są zwracane.
 
-[Klasy zasobów dla zarządzania obciążeniami](../sql-data-warehouse/resource-classes-for-workload-management.md) i [sys. dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) zawierają więcej informacji.
+[Klasy zasobów dotyczące zarządzania obciążeniami](../sql-data-warehouse/resource-classes-for-workload-management.md) i artykułów [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) zawierają więcej informacji.
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Korzystanie z widoków DMV do monitorowania i optymalizowania zapytań
 
