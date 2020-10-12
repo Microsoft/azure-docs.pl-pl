@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 095d9cf68374ee81cafdb6e7a32df29a57d122cb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287918"
 ---
 # <a name="cancel-operation"></a>Anuluj operację
@@ -29,12 +29,12 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 
 |  **Nazwa**    |      **Opis**                                  |    **Typ danych**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identyfikator wydawcy, na przykład`contoso`         |   String          |
-| offerId      |  Identyfikator oferty                                     |   String          |
-| api-version  |  Bieżąca wersja interfejsu API                               |    Data           |
+| publisherId  |  Identyfikator wydawcy, na przykład `contoso`         |   Ciąg          |
+| offerId      |  Identyfikator oferty                                     |   Ciąg          |
+| api-version  |  Bieżąca wersja interfejsu API                               |    Date           |
 |  |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 ------
 
 |  **Nazwa**              |  **Wartość**         |
@@ -63,7 +63,7 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 |  powiadomienie — wiadomości e-mail     | Rozdzielana przecinkami lista identyfikatorów e-mail do powiadamiania o postępie operacji publikowania. |
 |  |  |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 #### <a name="migrated-offers"></a>Zmigrowane oferty
 
@@ -77,7 +77,7 @@ Ten interfejs API anuluje aktualnie wykonywaną operację na ofercie. Użyj [int
 
 |  **Nazwa**             |    **Wartość**                       |
 |  ---------            |    ----------                      |
-| Location    | Ścieżka względna do pobrania stanu tej operacji. |
+| Lokalizacja    | Ścieżka względna do pobrania stanu tej operacji. |
 |  |  |
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi

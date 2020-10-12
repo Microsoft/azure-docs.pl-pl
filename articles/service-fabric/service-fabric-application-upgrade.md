@@ -4,10 +4,10 @@ description: Ten artykuł zawiera wprowadzenie do uaktualniania aplikacji Servic
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067515"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uaktualniania aplikacji

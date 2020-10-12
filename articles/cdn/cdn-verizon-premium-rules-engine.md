@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040220"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Przesłoń zachowanie protokołu HTTP przy użyciu Azure CDN z aparatu reguł Verizon Premium
@@ -22,7 +22,7 @@ ms.locfileid: "87040220"
 
 Aparat reguł Azure CDN umożliwia dostosowywanie sposobu obsługi żądań HTTP. Na przykład blokowanie dostarczania określonych typów zawartości, definiowanie zasad buforowania lub modyfikowanie nagłówka HTTP. W tym samouczku pokazano, jak utworzyć regułę, która zmienia zachowanie buforowania zasobów sieci CDN. Aby uzyskać więcej informacji na temat składni aparatu reguł, zobacz temat [Informacje o aparacie Azure CDN reguł](cdn-verizon-premium-rules-engine-reference.md).
 
-## <a name="access"></a>Access
+## <a name="access"></a>Dostęp
 
 Aby uzyskać dostęp do aparatu reguł, musisz najpierw wybrać pozycję **Zarządzaj** w górnej części strony **profilu usługi CDN** , aby uzyskać dostęp do strony zarządzania Azure CDN. W zależności od tego, czy punkt końcowy jest zoptymalizowany pod kątem przyspieszania witryn dynamicznych (DSA), uzyskujesz dostęp do aparatu reguł przy użyciu zestawu reguł odpowiednich dla danego typu punktu końcowego:
 
@@ -97,7 +97,7 @@ Aby uzyskać dostęp do aparatu reguł, musisz najpierw wybrać pozycję **Zarz�
 
 - [Przegląd Azure CDN](cdn-overview.md)
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)
-- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Wyrażenia warunkowe aparatu reguł](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funkcje aparatu reguł](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Piątek platformy Azure: zaawansowane nowe funkcje Premium](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (wideo) Azure CDN

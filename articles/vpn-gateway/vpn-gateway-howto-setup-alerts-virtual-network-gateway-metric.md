@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: 05fbc5675d6ee3b6720d9db9e07e7010cf1d9172
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435661"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Konfigurowanie alertów dotyczących metryk VPN Gateway
@@ -50,11 +50,11 @@ Poniższe przykładowe kroki spowodują utworzenie alertu na bramie dla:
 
 2. Wybierz bramę sieci VPN jako zasób.
 
-   ![Przycisk Wybierz i Brama sieci VPN na liście zasobów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Wybierz pozycję")
+   ![Przycisk Wybierz i Brama sieci VPN na liście zasobów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert2.png "Wybierz")
 
 3. Wybierz metrykę, która ma zostać skonfigurowana dla alertu.
 
-   ![Wybrana Metryka na liście metryk](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Wybierz pozycję")
+   ![Wybrana Metryka na liście metryk](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert3.png "Wybierz")
 4. Skonfiguruj logikę sygnału. Istnieją trzy składniki:
 
     a. **Wymiary**: Jeśli Metryka ma wymiary, można wybrać określone wartości wymiaru, aby alert obliczał tylko dane tego wymiaru. Są one opcjonalne.
@@ -63,11 +63,11 @@ Poniższe przykładowe kroki spowodują utworzenie alertu na bramie dla:
 
     c. **Czas**: Określ stopień szczegółowości danych metryki oraz okres, w którym ma zostać obliczony alert.
 
-   ![Szczegóły dotyczące konfigurowania logiki sygnałów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Wybierz pozycję")
+   ![Szczegóły dotyczące konfigurowania logiki sygnałów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert4.png "Wybierz")
 
 5. Aby wyświetlić skonfigurowane reguły, wybierz pozycję **Zarządzaj regułami alertów**.
 
-   ![Przycisk służący do zarządzania regułami alertów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Wybierz pozycję")
+   ![Przycisk służący do zarządzania regułami alertów](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "Wybierz")
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 2be48025bcf2be8cec63e2a251f034e72c803e88
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289655"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Tworzenie maszyny wirtualnej na podstawie zarządzanego obrazu
@@ -39,7 +39,7 @@ Za pomocą programu PowerShell można utworzyć maszynę wirtualną na podstawie
 
  
 
-Uproszczony zestaw parametrów dla [New-AzVm](/powershell/module/az.compute/new-azvm) wymaga podania nazwy, grupy zasobów i nazwy obrazu w celu utworzenia maszyny wirtualnej na podstawie obrazu. Funkcja New-AzVm będzie używać wartości parametru **-name** jako nazwy wszystkich zasobów, które tworzy automatycznie. W tym przykładzie udostępniamy bardziej szczegółowe nazwy dla każdego z zasobów, ale umożliwiają automatyczne tworzenie ich przez polecenie cmdlet. Możesz również utworzyć zasoby wcześniej, takie jak sieć wirtualna, i przekazać nazwę zasobu do polecenia cmdlet. Funkcja New-AzVm będzie używać istniejących zasobów, jeśli można je znaleźć według ich nazwy.
+Uproszczony zestaw parametrów dla [New-AzVm](/powershell/module/az.compute/new-azvm) wymaga podania nazwy, grupy zasobów i nazwy obrazu w celu utworzenia maszyny wirtualnej na podstawie obrazu. New-AzVm będzie używać wartości parametru **-name** jako nazwy wszystkich zasobów, które tworzy automatycznie. W tym przykładzie udostępniamy bardziej szczegółowe nazwy dla każdego z zasobów, ale umożliwiają automatyczne tworzenie ich przez polecenie cmdlet. Możesz również utworzyć zasoby wcześniej, takie jak sieć wirtualna, i przekazać nazwę zasobu do polecenia cmdlet. New-AzVm będzie używać istniejących zasobów, jeśli można je znaleźć według ich nazwy.
 
 Poniższy przykład tworzy maszynę wirtualną o nazwie *myVMFromImage*w grupie zasobów zasobu *webresources* z obrazu o nazwie Moja *obraz*. 
 

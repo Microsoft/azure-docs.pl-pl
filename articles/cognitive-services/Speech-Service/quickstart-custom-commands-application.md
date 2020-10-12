@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289426"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
@@ -66,7 +66,7 @@ W tej chwili polecenia niestandardowe obsługują subskrypcje mowy utworzone w n
     > [!div class="mx-imgBorder"]
     > ![Tworzenie projektu](media/custom-commands/import-project.png)
 
-1.  Z listy **zasobów tworzenie Luis** wybierz zasób tworzenia. Jeśli nie ma prawidłowych zasobów tworzenia, utwórz je, wybierając pozycję **Utwórz nowy zasób tworzenia Luis**.
+1.  Z listy **zasobów tworzenie Luis** wybierz zasób tworzenia. Jeśli nie ma prawidłowych zasobów tworzenia, utwórz je, wybierając pozycję  **Utwórz nowy zasób tworzenia Luis**.
 
     > [!div class="mx-imgBorder"]
     > ![Tworzenie zasobu](media/custom-commands/create-new-luis-resource.png)
@@ -101,7 +101,7 @@ Aby można było uzyskać dostęp do tej aplikacji z programu Speech Studio, nal
 ### <a name="update-prediction-luis-resource"></a>Aktualizuj zasób LUIS predykcyjny
 
 
-1. W lewym okienku wybierz pozycję **Ustawienia** , a następnie wybierz pozycję **Luis zasoby** w środkowym okienku.
+1. W lewym okienku wybierz pozycję **Ustawienia** , a następnie wybierz pozycję  **Luis zasoby** w środkowym okienku.
 1. Wybierz zasób predykcyjny lub utwórz go, wybierając pozycję **Utwórz nowy zasób**.
 1. Wybierz pozycję **Zapisz**.
     
@@ -113,7 +113,7 @@ Aby można było uzyskać dostęp do tej aplikacji z programu Speech Studio, nal
 
 ### <a name="publish-the-application"></a>Publikowanie aplikacji
 
-Wybierz pozycję **Publikuj** w górnej części okienka po prawej stronie. Po zakończeniu publikowania zostanie wyświetlone nowe okno. Zanotuj w dół wartość **Identyfikator aplikacji** i **klucz zasobu mowy** z tego klucza. Te dwie wartości będą potrzebne do uzyskania dostępu do aplikacji spoza programu Speech Studio.
+Wybierz pozycję  **Publikuj** w górnej części okienka po prawej stronie. Po zakończeniu publikowania zostanie wyświetlone nowe okno. Zanotuj w dół wartość **Identyfikator aplikacji** i **klucz zasobu mowy** z tego klucza. Te dwie wartości będą potrzebne do uzyskania dostępu do aplikacji spoza programu Speech Studio.
 
 Alternatywnie można również uzyskać te wartości, wybierając pozycję **Ustawienia**  >  **Ogólne** .
 

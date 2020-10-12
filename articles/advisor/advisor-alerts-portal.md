@@ -4,10 +4,10 @@ description: Utwórz alerty Azure Advisor dla nowego zalecenia
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973660"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Utwórz Azure Advisor alerty dotyczące nowych zaleceń przy użyciu Azure Portal 
@@ -187,11 +187,11 @@ W Azure Advisor można edytować, usuwać lub wyłączać i włączać alerty do
 
 1. W **portalu**wybierz pozycję **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Zrzut ekranu przedstawiający menu Azure Portal, w którym zaznaczono Azure Advisor.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Zrzut ekranu przedstawiający sekcję Szczegóły alertu.":::
 
 2. W sekcji **monitorowanie** w menu po lewej stronie wybierz pozycję **alerty**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Zrzut ekranu przedstawiający menu Azure Portal, w którym są zaznaczone alerty.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Zrzut ekranu przedstawiający sekcję Szczegóły alertu.":::
 
 3. Aby edytować alert, kliknij nazwę alertu, aby otworzyć alert i edytować pola, które chcesz edytować.
 

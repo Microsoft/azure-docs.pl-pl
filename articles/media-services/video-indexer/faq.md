@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
 ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87046968"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer często zadawane pytania

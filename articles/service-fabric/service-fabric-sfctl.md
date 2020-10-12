@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257057"
 ---
 # <a name="sfctl"></a>sfctl
@@ -24,10 +24,10 @@ Polecenia są zgodne ze wzorcem rzeczownik-czasownik. Aby uzyskać więcej infor
 | [Chaos](service-fabric-sfctl-chaos.md) | Uruchamianie, zatrzymywanie i raportowanie w usłudze testowej chaos. |
 | [hosta](service-fabric-sfctl-cluster.md) | Wybieranie klastrów Service Fabric i zarządzanie nimi. |
 | [Compose](service-fabric-sfctl-compose.md) | Twórz i usuwaj Docker Compose aplikacje oraz zarządzaj nimi. |
-| [wbudowane](service-fabric-sfctl-container.md) | Uruchom polecenia związane z kontenerem w węźle klastra. |
+| [kontener](service-fabric-sfctl-container.md) | Uruchom polecenia związane z kontenerem w węźle klastra. |
 | [wydarzeniach](service-fabric-sfctl-events.md) | Pobierz zdarzenia ze sklepu Events (Jeśli usługa EventStore jest już zainstalowana). |
 | [była](service-fabric-sfctl-is.md) | Wykonywanie zapytań i wysyłanie poleceń do usługi infrastruktury. |
-| [siatka](service-fabric-sfctl-mesh.md) | Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi. |
+| [rozmiarze](service-fabric-sfctl-mesh.md) | Usuwanie aplikacji siatki Service Fabric i zarządzanie nimi. |
 | [większości](service-fabric-sfctl-node.md) | Zarządzaj węzłami, które tworzą klaster. |
 | [podzielić](service-fabric-sfctl-partition.md) | Wykonywanie zapytań dotyczących partycji i zarządzanie nimi dla dowolnej usługi. |
 | [wartość](service-fabric-sfctl-property.md) | Właściwości magazynu i zapytania w obszarze nazwy Service Fabric. |

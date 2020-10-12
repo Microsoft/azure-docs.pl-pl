@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
 ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274440"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
@@ -71,7 +71,7 @@ W przypadku korzystania z usługi Oracle Data Guard można także otworzyć pomo
 > Usługa Active Data Guard wymaga dodatkowej licencji. Ta licencja jest również wymagana do korzystania z funkcji daleko Sync. Skontaktuj się z przedstawicielem firmy Oracle, aby omówić implikacje związane z licencjonowaniem.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Oracle Data Guard z FSFO
-Funkcja Oracle Data Guard z szybkim uruchomieniem trybu failover (FSFO) może zapewnić dodatkową odporność przez skonfigurowanie brokera na osobnej maszynie. Broker usługi Data Guard i pomocnicza baza danych uruchamiają obserwatora i obserwują podstawową bazę danych w celu przestoju. Pozwala to na nadmiarowość w instalacji obserwatora usługi Data Guard. 
+Funkcja Oracle Data Guard z Fast-Start tryb failover (FSFO) może zapewnić dodatkową odporność przez skonfigurowanie brokera na osobnej maszynie. Broker usługi Data Guard i pomocnicza baza danych uruchamiają obserwatora i obserwują podstawową bazę danych w celu przestoju. Pozwala to na nadmiarowość w instalacji obserwatora usługi Data Guard. 
 
 W przypadku Oracle Database w wersji 12,2 lub nowszej można również skonfigurować wiele obserwatorów z jedną konfiguracją brokera funkcji Oracle Data Guard. Ta konfiguracja zapewnia dodatkową dostępność, na wypadek awarii jednego obserwatora i pomocniczej bazy danych. Broker funkcji Data Guard jest lekki i może być hostowany na stosunkowo niewielkiej maszynie wirtualnej. Aby dowiedzieć się więcej na temat brokera i jego zalet programu Data Guard, zapoznaj się z [dokumentacją firmy Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) w tym temacie.
 
@@ -152,7 +152,7 @@ Oprogramowanie Oracle fragmentowania obejmuje głównie następujące składniki
 
 - **Globalna usługa** — usługa globalna jest podobna do zwykłej usługi bazy danych. Oprócz wszystkich właściwości usługi bazy danych globalna usługa ma właściwości dla baz danych podzielonej na fragmenty, takich jak koligacja regionów między klientami a fragmentu i odpornością na opóźnienia replikacji. Do odczytu/zapisu danych do/z bazy danych podzielonej na fragmenty należy utworzyć tylko jedną usługę globalną. W przypadku korzystania z usługi Active Data Guard i konfigurowania replik tylko do odczytu fragmentów można utworzyć kolejną usługę gGobal dla obciążeń tylko do odczytu. Klient może używać tych usług globalnych do łączenia się z bazą danych.
 
-- Bazy **danych fragmentu** — bazy danych fragmentu są bazami danych Oracle. Każda baza danych jest replikowana przy użyciu funkcji Oracle Data Guard w konfiguracji brokera z włączonym szybkim rozpoczęciem pracy w trybie failover (FSFO). Nie ma potrzeby konfigurowania trybu failover i replikacji w usłudze Data Guard dla każdego fragmentuu. Jest to automatycznie konfigurowane i wdrażane podczas tworzenia udostępnionej bazy danych. Jeśli określony fragmentu ulegnie awarii, udostępnianie oprogramowania Oracle automatycznie przejdzie w tryb failover w przypadku połączeń bazy danych z poziomu podstawowego do stanu wstrzymania.
+- Bazy **danych fragmentu** — bazy danych fragmentu są bazami danych Oracle. Każda baza danych jest replikowana przy użyciu funkcji Oracle Data Guard w konfiguracji brokera z włączonym Fast-Start trybem failover (FSFO). Nie ma potrzeby konfigurowania trybu failover i replikacji w usłudze Data Guard dla każdego fragmentuu. Jest to automatycznie konfigurowane i wdrażane podczas tworzenia udostępnionej bazy danych. Jeśli określony fragmentu ulegnie awarii, udostępnianie oprogramowania Oracle automatycznie przejdzie w tryb failover w przypadku połączeń bazy danych z poziomu podstawowego do stanu wstrzymania.
 
 Bazy danych Oracle podzielonej na fragmenty można wdrożyć i zarządzać nimi za pomocą dwóch interfejsów: graficznego interfejsu użytkownika kontroli chmury programu Oracle Enterprise Manager i/lub `GDSCTL` narzędzia wiersza polecenia. Można nawet monitorować różne fragmentów pod kątem dostępności i wydajności przy użyciu funkcji Cloud Control. `GDSCTL DEPLOY`Polecenie automatycznie tworzy fragmentów i odpowiadające im detektory. Ponadto to polecenie automatycznie wdraża konfigurację replikacji używaną na poziomie fragmentu o wysokiej dostępności określonej przez administratora.
 
@@ -232,6 +232,6 @@ Zapoznaj się z następującymi artykułami referencyjnymi firmy Oracle, które 
 
 - [Wprowadzenie do funkcji Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Pojęcia związane z brokerem funkcji Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
-- [Konfigurowanie programu Oracle GoldenGate dla aktywnego — aktywnej wysokiej dostępności](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
+- [Konfigurowanie usługi Oracle GoldenGate pod kątem Active-Active wysokiej dostępności](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Omówienie programu Oracle fragmentowania](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
 - [Usługa Oracle Active Data Guard nie synchronizuje zerowej utraty danych w dowolnej odległości](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

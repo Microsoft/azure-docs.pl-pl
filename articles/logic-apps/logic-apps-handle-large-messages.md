@@ -8,10 +8,10 @@ ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
 ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83117567"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Obsługa dużych komunikatów z fragmentacją w Azure Logic Apps
@@ -115,16 +115,16 @@ W tych krokach opisano szczegółowy proces Logic Apps używany do przekazywania
 
    | Pole nagłówka żądania Logic Apps | Wartość | Typ | Opis |
    |---------------------------------|-------|------|-------------|
-   | **x-MS-Transfer-Mode** | podzielony | String | Wskazuje, że zawartość jest przekazywana w fragmentach |
-   | **x-MS-Content-Length** | <*Długość zawartości*> | Integer | Cały rozmiar zawartości w bajtach przed fragmentem |
+   | **x-MS-Transfer-Mode** | podzielony | Ciąg | Wskazuje, że zawartość jest przekazywana w fragmentach |
+   | **x-MS-Content-Length** | <*Długość zawartości*> | Liczba całkowita | Cały rozmiar zawartości w bajtach przed fragmentem |
    ||||
 
 2. Punkt końcowy odpowiada za pomocą kodu stanu sukcesu "200" i informacji dodatkowych:
 
    | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagane | Opis |
    |--------------------------------|------|----------|-------------|
-   | **x-MS-fragment rozmiaru** | Integer | Nie | Sugerowany rozmiar fragmentu w bajtach |
-   | **Lokalizacja** | String | Tak | Lokalizacja adresu URL, w której mają zostać wysłane komunikaty poprawek HTTP |
+   | **x-MS-fragment rozmiaru** | Liczba całkowita | Nie | Sugerowany rozmiar fragmentu w bajtach |
+   | **Lokalizacja** | Ciąg | Tak | Lokalizacja adresu URL, w której mają zostać wysłane komunikaty poprawek HTTP |
    ||||
 
 3. Aplikacja logiki tworzy i wysyła komunikaty poprawek protokołu HTTP z monitami o następujące informacje:
@@ -135,17 +135,17 @@ W tych krokach opisano szczegółowy proces Logic Apps używany do przekazywania
 
      | Pole nagłówka żądania Logic Apps | Wartość | Typ | Opis |
      |---------------------------------|-------|------|-------------|
-     | **Zakres zawartości** | <*zakresu*> | String | Zakres bajtów bieżącego fragmentu zawartości, łącznie z wartością początkową, wartością końcową i łącznym rozmiarem zawartości, na przykład: "bajty = 0-1023/10100" |
-     | **Typ zawartości** | <*Typ zawartości*> | String | Typ zawartości fragmentarycznej |
-     | **Długość zawartości** | <*Długość zawartości*> | String | Długość rozmiaru w bajtach bieżącego fragmentu |
+     | **Zakres zawartości** | <*zakresu*> | Ciąg | Zakres bajtów bieżącego fragmentu zawartości, łącznie z wartością początkową, wartością końcową i łącznym rozmiarem zawartości, na przykład: "bajty = 0-1023/10100" |
+     | **Typ zawartości** | <*Typ zawartości*> | Ciąg | Typ zawartości fragmentarycznej |
+     | **Długość zawartości** | <*Długość zawartości*> | Ciąg | Długość rozmiaru w bajtach bieżącego fragmentu |
      |||||
 
 4. Po każdym żądaniu poprawki punkt końcowy potwierdza odbiór dla każdego fragmentu, odpowiadając na kod stanu "200" i następujące nagłówki odpowiedzi:
 
    | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagane | Opis |
    |--------------------------------|------|----------|-------------|
-   | **Zakresu** | String | Tak | Zakres bajtów dla zawartości otrzymanej przez punkt końcowy, na przykład: "bajty = 0-1023" |   
-   | **x-MS-fragment rozmiaru** | Integer | Nie | Sugerowany rozmiar fragmentu w bajtach |
+   | **Zakres** | Ciąg | Tak | Zakres bajtów dla zawartości otrzymanej przez punkt końcowy, na przykład: "bajty = 0-1023" |   
+   | **x-MS-fragment rozmiaru** | Liczba całkowita | Nie | Sugerowany rozmiar fragmentu w bajtach |
    ||||
 
 Na przykład ta definicja akcji przedstawia żądanie HTTP POST dotyczące przekazywania fragmentarycznej zawartości do punktu końcowego. We właściwości akcji właściwość `runTimeConfiguration` `contentTransfer` ustawia `transferMode` `chunked` :

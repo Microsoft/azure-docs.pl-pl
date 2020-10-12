@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738757"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnozowanie połączeń lokalnych za pośrednictwem bram sieci VPN
@@ -44,7 +44,7 @@ Jedną z krytycznych czynności konfiguracyjnych jest skonfigurowanie parametró
 
 ### <a name="ike-phase-1-setup"></a>Konfiguracja usługi IKE fazy 1
 
-| **Właściwość** | **PolicyBased** | **Brama sieci VPN RouteBased i standardowa lub o wysokiej wydajności** |
+| **Właściwość** | **PolicyBased** | **Brama sieci VPN RouteBased i standardowa lub High-Performance** |
 | --- | --- | --- |
 | Wersja IKE |IKEv1 |IKEv2 |
 | Grupa Diffie’ego-Hellmana |Grupa 2 (1024 bity) |Grupa 2 (1024 bity) |
@@ -80,7 +80,7 @@ Funkcja rozwiązywania problemów z usługą Azure Network Watcher umożliwia di
 
 ### <a name="gateway"></a>Brama
 
-| Typ błędu | Przyczyna | Log|
+| Typ błędu | Przyczyna | Dziennik|
 |---|---|---|
 | NoFault (brak błędów) | Nie wykryto żadnego błędu. |Tak|
 | GatewayNotFound (nie znaleziono bramy) | Nie można znaleźć bramy lub Brama nie jest obsługiwana. |Nie|
@@ -95,7 +95,7 @@ Funkcja rozwiązywania problemów z usługą Azure Network Watcher umożliwia di
 
 ### <a name="connection"></a>Połączenie
 
-| Typ błędu | Przyczyna | Log|
+| Typ błędu | Przyczyna | Dziennik|
 |---|---|---|
 | NoFault (brak błędów) | Nie wykryto żadnego błędu. |Tak|
 | GatewayNotFound (nie znaleziono bramy) | Nie można znaleźć bramy lub Brama nie jest obsługiwana. |Nie|
@@ -106,7 +106,7 @@ Funkcja rozwiązywania problemów z usługą Azure Network Watcher umożliwia di
 | ConnectionIsMarkedDisconnected | Połączenie jest oznaczone jako "odłączone". |Nie|
 | ConnectionNotConfiguredOnGateway | Usługa bazowa nie ma skonfigurowanego połączenia. | Tak |
 | ConnectionMarkedStandby | Podstawowa usługa jest oznaczona jako w stanie wstrzymania.| Tak|
-| Authentication | Niezgodność klucza wstępnego. | Tak|
+| Uwierzytelnianie | Niezgodność klucza wstępnego. | Tak|
 | PeerReachability | Brama równorzędna jest nieosiągalna. | Tak|
 | IkePolicyMismatch | Brama równorzędna ma zasady IKE, które nie są obsługiwane przez platformę Azure. | Tak|
 | Błąd WfpParse | Wystąpił błąd podczas analizowania dziennika WFP. |Tak|

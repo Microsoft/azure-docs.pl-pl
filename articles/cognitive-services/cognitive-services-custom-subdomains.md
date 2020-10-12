@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
 ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590642"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Niestandardowe nazwy domen poddomen dla Cognitive Services
@@ -68,35 +68,35 @@ Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane 
 > [!NOTE]
 > Usługa translator i interfejsy API wyszukiwania Bing używać globalnych punktów końcowych.
 
-| Typ punktu końcowego | Region | Endpoint |
+| Typ punktu końcowego | Region | Punkt końcowy |
 |---------------|--------|----------|
 | Public | Globalne (translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia Wschodnia | `https://australiaeast.api.cognitive.microsoft.com` |
-| | Brazylia Południowa | `https://brazilsouth.api.cognitive.microsoft.com` |
+| | Brazil South | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Kanada Środkowa | `https://canadacentral.api.cognitive.microsoft.com` |
-| | Środkowe stany USA | `https://centralus.api.cognitive.microsoft.com` |
+| | Central US | `https://centralus.api.cognitive.microsoft.com` |
 | | Azja Wschodnia | `https://eastasia.api.cognitive.microsoft.com` |
-| | Wschodnie stany USA | `https://eastus.api.cognitive.microsoft.com` |
+| | East US | `https://eastus.api.cognitive.microsoft.com` |
 | | Wschodnie stany USA 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | Francja Środkowa | `https://francecentral.api.cognitive.microsoft.com` |
 | | Indie Środkowe | `https://centralindia.api.cognitive.microsoft.com` |
-| | Japonia Wschodnia | `https://japaneast.api.cognitive.microsoft.com` |
+| | Japan East | `https://japaneast.api.cognitive.microsoft.com` |
 | | Korea Środkowa | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Północno-środkowe stany USA | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Europa Północna | `https://northeurope.api.cognitive.microsoft.com` |
 | | Północna Republika Południowej Afryki | `https://southafricanorth.api.cognitive.microsoft.com` |
-| | Południowo-środkowe stany USA | `https://southcentralus.api.cognitive.microsoft.com` |
-| | Azja Południowo-Wschodnia | `https://southeastasia.api.cognitive.microsoft.com` |
+| | South Central US | `https://southcentralus.api.cognitive.microsoft.com` |
+| | Southeast Asia | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Południowe Zjednoczone Królestwo | `https://uksouth.api.cognitive.microsoft.com` |
 | | Zachodnio-środkowe stany USA | `https://westcentralus.api.cognitive.microsoft.com` |
-| | Europa Zachodnia | `https://westeurope.api.cognitive.microsoft.com` |
+| | West Europe | `https://westeurope.api.cognitive.microsoft.com` |
 | | Zachodnie stany USA | `https://westus.api.cognitive.microsoft.com` |
 | | Zachodnie stany USA 2 | `https://westus2.api.cognitive.microsoft.com` |
 | US Gov | US Gov Wirginia | `https://virginia.api.cognitive.microsoft.us` |
 | Chiny | Chiny Wschodnie 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Chiny Północne | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Co to jest Cognitive Services?](Welcome.md)
 * [Authentication](authentication.md)

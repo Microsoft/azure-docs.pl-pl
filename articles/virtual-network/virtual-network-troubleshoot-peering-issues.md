@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83587735"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
@@ -127,7 +127,7 @@ Aby rozwiązać ten problem:
    1. Rozpocznij śledzenie sieci na docelowej maszynie wirtualnej. Dla systemu Windows można użyć **narzędzia Netsh**. W przypadku systemu Linux Użyj **TCPDump**.
    2. Uruchom **TcpPing** lub **PsPing** ze źródła do docelowego adresu IP.
 
-      Jest to przykład polecenia **TcpPing** :`tcping64.exe -t <destination VM address> 3389`
+      Jest to przykład polecenia **TcpPing** : `tcping64.exe -t <destination VM address> 3389`
 
    3. Po zakończeniu **TcpPing** Zatrzymaj śledzenie sieci w miejscu docelowym.
    4. Jeśli pakiety dotarły ze źródła, nie ma problemu z siecią. Aby zlokalizować problem z konfiguracją, należy przeanalizować zarówno zaporę maszyny wirtualnej, jak i aplikację nasłuchującą na tym porcie.
@@ -212,13 +212,13 @@ Aby uzyskać więcej informacji, zobacz [wymagania i ograniczenia](https://docs.
 
 Aby rozwiązać ten problem:
 
-1. Zaloguj się do witryny Azure Portal. 
+1. Zaloguj się do Portalu Azure. 
 1. W aplikacji sieci Web wybierz pozycję **Sieć**, a następnie wybierz pozycję integracja z siecią **wirtualną**.
 1. Sprawdź, czy jest wyświetlana zdalna Sieć wirtualna. Ręcznie wprowadź zdalną przestrzeń adresową sieci wirtualnej (**Synchronizacja sieci** i **Dodawanie tras**).
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
-* [Integrowanie aplikacji z siecią wirtualną platformy Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+* [Integrowanie aplikacji z usługą Azure Virtual Network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [Routing sieci VPN typu punkt-lokacja — informacje](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Rozwiązywanie problemów z konfiguracją komunikacji równorzędnej sieci wirtualnej 

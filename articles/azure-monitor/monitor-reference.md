@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
 ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435409"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
@@ -91,7 +91,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Data Box | Nie | Nie | Nie |  |
 |Data Catalog Gen2 | Nie | Nie | Nie |  |
 |Data Explorer | Tak | Tak | Nie |  |
-|Data Factory | Tak | Tak | Nie |  |
+|Fabryka danych | Tak | Tak | Nie |  |
 |Data Factory v2 | Nie | Tak | Nie |  |
 |Data Share | Nie | Nie | Nie |  |
 |Database for MariaDB | Tak | Tak | Nie |  |
@@ -109,7 +109,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Event Grid | Tak | Nie | Nie |  |
 |Event Hubs | Tak | Tak | Nie |  |
 |ExpressRoute | Tak | Tak | Nie |  |
-|Firewall | Tak | Tak | Nie |  |
+|Zapora | Tak | Tak | Nie |  |
 |Front Door | Tak | Tak | Nie |  |
 |Funkcje | Tak | Tak | Nie |  |
 |HDInsight | Nie | Tak | Nie |  |
@@ -120,7 +120,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Usługa IoT Hub | Tak | Tak | Nie |  |
 |Usługa Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
-|Load Balancer | Tak | Nie | Nie |  |
+|Moduł równoważenia obciążenia | Tak | Nie | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
 |Usługa Machine Learning | Nie | Nie | Nie |  |
 |Aplikacje zarządzane  | Nie | Nie | Nie |  |
@@ -138,14 +138,14 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Open Datasets | Nie | Nie | Nie |  |
 |Zasady | Nie | Nie | Nie |  |
 |Power BI Embedded | Tak | Tak | Nie |  |
-|Private Link | Nie | Nie | Nie |  |
+|Link prywatny | Nie | Nie | Nie |  |
 |Platforma komunikacji buforu projektu | Nie | Nie | Nie |  |
 |Red Hat OpenShift | Nie | Nie | Nie |  |
 |Pamięć podręczna Redis | Tak | Tak | [Tak](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | Nie | Nie | Nie |  |
+|Wykres zasobów | Nie | Nie | Nie |  |
 |Resource Manager | Nie | Nie | Nie |  |
 |Wyszukiwanie detaliczne — według Bing | Nie | Nie | Nie |  |
-|Wyszukiwanie | Tak | Tak | Nie |  |
+|Wyszukaj | Tak | Tak | Nie |  |
 |Service Bus | Tak | Tak | Nie |  |
 |Service Fabric | Nie | Tak | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
 |Portal rejestracji | Nie | Nie | Nie |  |
@@ -163,8 +163,8 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |TINA | Nie | Nie | Nie |  |
 |Traffic Manager | Tak | Tak | Nie |  |
 |Wydruk uniwersalny | Nie | Nie | Nie |  |
-|Zestawy skali maszyn wirtualnych | Nie | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
-|Maszyny wirtualne | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
+|Virtual Machine Scale Sets | Nie | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
+|Virtual Machines | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Network | Tak | Tak | [Tak](insights/network-insights-overview.md) |  |
 |Dzienniki przepływów Virtual Network sieciowej grupy zabezpieczeń | Nie | Tak | Nie |  |
 |VPN Gateway | Tak | Tak | Nie |  |

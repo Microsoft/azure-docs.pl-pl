@@ -4,10 +4,10 @@ description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiani
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330285"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
@@ -77,7 +77,7 @@ Użyj **DisplayName** i **Description** , aby zidentyfikować definicję zasad i
 > [!NOTE]
 > Podczas tworzenia lub aktualizowania definicji zasad, **identyfikatora**, **typu**i **nazwy** są zdefiniowane przez właściwości zewnętrzne w formacie JSON i nie są wymagane w pliku JSON. Pobieranie definicji zasad za pomocą zestawu SDK zwraca **Identyfikator**, **Typ**i właściwości **nazwy** w ramach JSON, ale każda z nich jest informacjami tylko do odczytu związanymi z definicją zasad.
 
-## <a name="type"></a>Typ
+## <a name="type"></a>Type
 
 Podczas gdy nie można ustawić właściwości **Type** , istnieją trzy wartości, które są zwracane przez zestaw SDK i widoczne w portalu:
 

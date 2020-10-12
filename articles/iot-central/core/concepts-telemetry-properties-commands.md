@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291611"
 ---
-# <a name="telemetry-property-and-command-payloads"></a>Dane telemetryczne, właściwości i polecenia
+# <a name="telemetry-property-and-command-payloads"></a>Ładunki telemetrii, właściwości i polecenia
 
 _Ten artykuł ma zastosowanie do deweloperów urządzeń._
 
@@ -49,7 +49,7 @@ IoT Central umożliwia wyświetlenie danych pierwotnych wysyłanych przez urząd
 
     W tym widoku można wybrać kolumny do wyświetlenia i ustawić zakres czasu do wyświetlenia. W kolumnie **dane niemodelowane** są wyświetlane dane z urządzenia, które nie są zgodne z żadną definicją właściwości lub telemetrii w szablonie urządzenia.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetria
 
 ### <a name="primitive-types"></a>Typy pierwotne
 
@@ -347,7 +347,7 @@ Poniższy fragment kodu z DCM zawiera definicję `Object` typu telemetrii. Ten o
 }
 ```
 
-Klient urządzenia powinien wysłać dane telemetryczne jako kod JSON, który wygląda podobnie do poniższego przykładu. `DateTime`typy muszą być zgodne ze standardem ISO 8061. Możliwe wartości dla programu `Property3` to `0` , i, które są `1` wyświetlane w IoT Central jako `Item1` , `Item2` i `Item3` :
+Klient urządzenia powinien wysłać dane telemetryczne jako kod JSON, który wygląda podobnie do poniższego przykładu. `DateTime` typy muszą być zgodne ze standardem ISO 8061. Możliwe wartości dla programu `Property3` to `0` , i, które są `1` wyświetlane w IoT Central jako `Item1` , `Item2` i `Item3` :
 
 ```json
 {
@@ -531,7 +531,7 @@ Poniższy fragment kodu z DCM zawiera definicję `date` typu właściwości:
 }
 ```
 
-Klient urządzenia powinien wysłać ładunek JSON, który wygląda jak w poniższym przykładzie jako raportowaną właściwość w bliźniaczych urządzeniach. `Date`typy muszą być zgodne ze standardem ISO 8061:
+Klient urządzenia powinien wysłać ładunek JSON, który wygląda jak w poniższym przykładzie jako raportowaną właściwość w bliźniaczych urządzeniach. `Date` typy muszą być zgodne ze standardem ISO 8061:
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -766,18 +766,18 @@ W tej sekcji przedstawiono przykłady typów właściwości zapisywalnych odbier
 
 IoT Central oczekuje odpowiedzi z urządzenia na zapisywalne aktualizacje właściwości. Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjonalne. Przykłady można znaleźć w następujących fragmentach kodu.
 
-`ac`to pole liczbowe, które używa wartości z następującej tabeli:
+`ac` to pole liczbowe, które używa wartości z następującej tabeli:
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
-| `'ac': 202`oraz`'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku |
+| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 202`  oraz `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku |
 | `'ac': 4xx` | Błąd | Żądana zmiana właściwości jest nieprawidłowa lub wystąpił błąd |
 | `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
 
-`av`jest numerem wersji wysyłanym do urządzenia.
+`av` jest numerem wersji wysyłanym do urządzenia.
 
-`ad`jest opisem ciągu opcji.
+`ad` jest opisem ciągu opcji.
 
 Poniższy fragment kodu z DCM pokazuje definicję `string` typu właściwości do zapisu:
 

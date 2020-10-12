@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737533"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Wyświetlanie topologii sieci wirtualnej platformy Azure
@@ -30,7 +30,7 @@ Aby wyświetlić topologię, można użyć [Azure Portal](#azure-portal), [inter
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które ma wymagane [uprawnienia](required-rbac-permissions.md).
 2. W lewym górnym rogu portalu wybierz pozycję **wszystkie usługi**.
-3. W polu Filtr **wszystkie usługi** wprowadź *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
+3. W polu Filtr **wszystkie usługi** wprowadź *Network Watcher*. Gdy **Network Watcher** pojawi się w wynikach, wybierz ją.
 4. Wybierz pozycję **Topologia**. Generowanie topologii wymaga obserwatora sieci w tym samym regionie, w którym znajduje się sieć wirtualna, w której ma zostać wygenerowana topologia. Jeśli nie masz włączonego obserwatora sieciowego w regionie, w którym nie ma sieci wirtualnej, dla której ma zostać wygenerowana topologia, w programie obserwatorzy sieci są automatycznie tworzeniu dla Ciebie we wszystkich regionach. Obserwatorzy sieciowi są tworzeniu w grupie zasobów o nazwie **NetworkWatcherRG**.
 5. Wybierz subskrypcję, grupę zasobów sieci wirtualnej, dla której ma zostać wyświetlona topologia, a następnie wybierz sieć wirtualną. Na poniższej ilustracji przedstawiono topologię sieci wirtualnej o nazwie *MyVnet*w grupie zasobów o nazwie Moja *zasobów*:
 

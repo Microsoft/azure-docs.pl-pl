@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706000"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji, zobacz [obiekty główne aplikacji i usługi][A
 
 Aby umożliwić aplikacji integrację z funkcjami zarządzania tożsamościami i dostępem do usługi Azure AD oraz ich delegowanie, należy ją zarejestrować w [dzierżawie](#tenant)usługi Azure AD. Po zarejestrowaniu aplikacji w usłudze Azure AD udostępniamy konfigurację tożsamości dla aplikacji, umożliwiając jej integrację z usługą Azure AD i używanie takich funkcji jak:
 
-* Niezawodne zarządzanie logowaniem jednokrotnym przy użyciu usługi Azure AD Identity Management i implementacji protokołu [OpenID Connect Connect][OpenIDConnect]
+* Niezawodne zarządzanie pojedynczymi Sign-On przy użyciu usługi Azure AD Identity Management i implementacji protokołu [połączenia OpenID Connect][OpenIDConnect]
 * Dostęp przez brokera do [chronionych zasobów](#resource-server) przez [aplikacje klienckie](#client-application)za pośrednictwem [serwera autoryzacji](#authorization-server) OAuth 2,0
 * [Struktura wyrażania zgody](#consent) na zarządzanie dostępem klientów do chronionych zasobów w oparciu o autoryzację właściciela zasobu.
 

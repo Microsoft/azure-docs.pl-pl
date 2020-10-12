@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076882"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Korzystanie z programu Apache Sqoop za pomocą platformy Hadoop w usłudze HDInsight
@@ -52,7 +52,7 @@ Klaster usługi HDInsight zawiera kilka przykładowych danych. Używasz dwóch n
   | deviceplatform |ciąg |
   | devicemake |ciąg |
   | devicemodel |ciąg |
-  | state |ciąg |
+  | stan |ciąg |
   | country |ciąg |
   | querydwelltime |double |
   | SessionID |bigint |
@@ -95,7 +95,7 @@ Klaster, baza danych SQL i inne obiekty są tworzone za pośrednictwem Azure Por
     |Nazwa pliku BACPAC |Użyj wartości domyślnej, chyba że chcesz użyć własnego pliku BACPAC.|
     |Lokalizacja |Użyj wartości domyślnej.|
 
-    Nazwa [serwera logicznego SQL](../../azure-sql/database/logical-servers.md) `<ClusterName>dbserver` . Nazwa bazy danych `<ClusterName>db` . Domyślną nazwą konta magazynu będzie `e6qhezrh2pdqu` .
+    Nazwa [serwera logicznego SQL](../../azure-sql/database/logical-servers.md)  `<ClusterName>dbserver` . Nazwa bazy danych `<ClusterName>db` . Domyślną nazwą konta magazynu będzie `e6qhezrh2pdqu` .
 
 3. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**.
 

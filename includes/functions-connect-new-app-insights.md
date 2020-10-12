@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 87af50c5b5e5b69fd175ac4a570c4b6f659b97e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84731038"
 ---
 Azure Functions ułatwia dodawanie Application Insights integracji do aplikacji funkcji z [Azure Portal].
@@ -30,7 +30,7 @@ Azure Functions ułatwia dodawanie Application Insights integracji do aplikacji 
     | **Nowa nazwa zasobu** | Unikatowa nazwa aplikacji | Najłatwiej używać tej samej nazwy, co aplikacja funkcji, która musi być unikatowa w subskrypcji. | 
     | **Lokalizacja** | West Europe | Jeśli to możliwe, użyj tego samego [regionu](https://azure.microsoft.com/regions/) , w którym znajduje się aplikacja funkcji lub która znajduje się blisko tego regionu. |
 
-    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Tworzenie zasobu Application Insights":::
+    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Włączanie Application Insights z poziomu portalu":::
 
 1. Wybierz przycisk **Zastosuj**. 
 
@@ -38,4 +38,4 @@ Azure Functions ułatwia dodawanie Application Insights integracji do aplikacji 
 
 1. W aplikacji funkcji wybierz pozycję **Konfiguracja** w obszarze **Ustawienia**, a następnie wybierz pozycję **Ustawienia aplikacji**. Jeśli zobaczysz ustawienie o nazwie `APPINSIGHTS_INSTRUMENTATIONKEY` , Application Insights integracja jest włączona dla aplikacji funkcji działającej na platformie Azure.
 
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

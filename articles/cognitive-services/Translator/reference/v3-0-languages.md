@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588602"
 ---
 # <a name="translator-30-languages"></a>Translator 3,0: Języki
@@ -67,11 +67,11 @@ Uwierzytelnianie nie jest wymagane w celu pobrania zasobów językowych.
 
 Klient używa `scope` parametru zapytania, aby określić, które grupy języków interesują.
 
-* `scope=translation`udostępnia języki obsługiwane w celu tłumaczenia tekstu z jednego języka do innego języka;
+* `scope=translation` udostępnia języki obsługiwane w celu tłumaczenia tekstu z jednego języka do innego języka;
 
-* `scope=transliteration`zapewnia możliwości konwertowania tekstu w jednym języku z jednego skryptu na inny skrypt;
+* `scope=transliteration` zapewnia możliwości konwertowania tekstu w jednym języku z jednego skryptu na inny skrypt;
 
-* `scope=dictionary`zawiera pary językowe, dla których `Dictionary` operacje zwracają dane.
+* `scope=dictionary` zawiera pary językowe, dla których `Dictionary` operacje zwracają dane.
 
 Klient może pobrać kilka grup jednocześnie, określając rozdzieloną przecinkami listę nazw. Na przykład `scope=translation,transliteration,dictionary` Zwróć języki obsługiwane dla wszystkich grup.
 
@@ -93,7 +93,7 @@ Pomyślna odpowiedź to obiekt JSON z jedną właściwością dla każdej z żą
 
 Wartość każdej właściwości jest następująca.
 
-* `translation`wartość
+* `translation` wartość
 
   Wartość `translation` właściwości jest słownik par (klucz, wartość). Każdy klucz jest tagiem języka BCP 47. Klucz określa język, w którym można przetłumaczyć lub przetłumaczyć tekst. Wartość skojarzona z kluczem jest obiektem JSON z właściwościami opisującymi język:
 
@@ -119,7 +119,7 @@ Wartość każdej właściwości jest następująca.
   }
   ```
 
-* `transliteration`wartość
+* `transliteration` wartość
 
   Wartość `transliteration` właściwości jest słownik par (klucz, wartość). Każdy klucz jest tagiem języka BCP 47. Klucz określa język, dla którego tekst może być konwertowany z jednego skryptu na inny. Wartość skojarzona z kluczem jest obiektem JSON z właściwościami opisującymi język i obsługiwane skrypty:
 
@@ -184,7 +184,7 @@ Wartość każdej właściwości jest następująca.
   }
   ```
 
-* `dictionary`wartość
+* `dictionary` wartość
 
   Wartość `dictionary` właściwości jest słownik par (klucz, wartość). Każdy klucz jest tagiem języka BCP 47. Klucz identyfikuje język, dla którego są dostępne alternatywne tłumaczenia i zwrotne. Wartość jest obiektem JSON opisującym język źródłowy i Języki docelowe z dostępnymi tłumaczeniami:
 

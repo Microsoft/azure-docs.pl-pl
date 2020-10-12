@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87046869"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architektura SQL usługi Azure Synapse 
@@ -59,7 +59,7 @@ Usługa SQL na żądanie umożliwia wykonywanie zapytań dotyczących plików w 
 
 ## <a name="control-node"></a>Węzeł kontrolny
 
-Węzeł kontrolny jest mózgiem architektury. Jest to fronton współdziałający ze wszystkimi aplikacjami i połączeniami. 
+Węzeł kontrolny to mózg całej architektury. Jest to fronton współdziałający ze wszystkimi aplikacjami i połączeniami. 
 
 W puli SQL aparat MPP jest uruchamiany w węźle kontroli w celu optymalizacji i koordynowania zapytań równoległych. Po przesłaniu zapytania T-SQL do puli SQL, węzeł kontrolny przekształca go w zapytania, które są wykonywane równolegle do każdej dystrybucji.
 
@@ -69,7 +69,7 @@ W przypadku programu SQL na żądanie aparat DQP jest uruchamiany w węźle kont
 
 Węzły obliczeniowe zapewniają moc obliczeniową. 
 
-W puli SQL dystrybucja jest mapowana na węzły obliczeniowe do przetworzenia. W miarę płacenia za więcej zasobów obliczeniowych Pula ponownie mapuje dystrybucje do dostępnych węzłów obliczeniowych. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla puli SQL. Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy zaczynają się od sys. pdw_nodes. Aby zapoznać się z listą tych widoków systemowych, zobacz [widoki systemowe MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+W puli SQL dystrybucja jest mapowana na węzły obliczeniowe do przetworzenia. W miarę płacenia za więcej zasobów obliczeniowych Pula ponownie mapuje dystrybucje do dostępnych węzłów obliczeniowych. Liczba węzłów obliczeniowych z zakresu od 1 do 60 i jest określana na podstawie poziomu usługi dla puli SQL. Każdy węzeł obliczeniowy ma identyfikator węzła, który jest widoczny w widokach systemu. IDENTYFIKATOR węzła obliczeniowego można zobaczyć, szukając kolumny node_id w widokach systemowych, których nazwy rozpoczynają się od sys.pdw_nodes. Aby zapoznać się z listą tych widoków systemowych, zobacz [widoki systemowe MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 W przypadku programu SQL na żądanie każdy węzeł obliczeniowy jest przypisywany do zadania i zestawu plików, na których ma zostać wykonane zadanie. Zadanie jest jednostką wykonawczą zapytania rozproszonego, która jest w rzeczywistości częścią kwerendy przesłanej przez użytkownika. Automatyczne skalowanie jest stosowane w celu zapewnienia wystarczającej liczby węzłów obliczeniowych do wykonywania zapytań użytkownika.
 

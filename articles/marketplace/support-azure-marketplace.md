@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
 ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329758"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
@@ -28,7 +28,7 @@ Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://aka.ms
 |:--- |:--- |:--- |  
 | Aby uzyskać pomoc, odwiedź stronę Tworzenie zdarzenia znajdującą się w [pomocy technicznej portalu Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Obsługa Centrum partnerskiego. | Pomoc techniczna jest świadczona 24x5. |  
 
-## <a name="technical"></a>Techniczny  
+## <a name="technical"></a>Szczegóły techniczne  
 
 | Kanał pomocy technicznej | Opis |  
 |:--- |:--- |  

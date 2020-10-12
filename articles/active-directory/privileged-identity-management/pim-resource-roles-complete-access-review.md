@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1601c9fc750df1f8e18bdaa072ede1b5ee164329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84743817"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Dokończ przegląd dostępu ról zasobów platformy Azure w Privileged Identity Management
@@ -30,7 +30,7 @@ Po przekroczeniu okresu przeglądu dostępu lub po zakończeniu samooceny przez 
 
 ## <a name="manage-access-reviews"></a>Zarządzanie recenzjami dostępu
 
-1. Przejdź do [Azure Portal](https://portal.azure.com/). Na pulpicie nawigacyjnym wybierz usługę **Azure Resources** .
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com/). Na pulpicie nawigacyjnym wybierz usługę **Azure Resources** .
 
 2. Wybierz zasób.
 
@@ -56,7 +56,7 @@ Możesz zresetować przegląd dostępu, aby usunąć wszystkie podejmowane decyz
 
 Po zakończeniu przeglądu dostępu wybierz pozycję **Zastosuj** , aby zaimplementować wynik przeglądu. W przypadku odmowy dostępu użytkownika do przeglądu ten krok spowoduje usunięcie przypisania roli.  
 
-### <a name="delete"></a>Usuń
+### <a name="delete"></a>Usuwanie
 
 Jeśli nie chcesz dowiedzieć się więcej, usuń je. Wybierz pozycję **Usuń** yo Usuń przegląd z usługi Privileged Identity Management.
 
@@ -66,7 +66,7 @@ Na stronie **wyniki** Wyświetl i Pobierz listę wyników przeglądu.
 
 ![Strona wyników z listą użytkowników, wyników, przyczyn, zrecenzowanych przez, stosowanych przez i Zastosuj wynik](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
-## <a name="reviewers"></a>Recenzenci
+## <a name="reviewers"></a>Weryfikatorzy
 
 Wyświetlanie i Dodawanie recenzentów do istniejących przeglądów dostępu. Przypomnij recenzentom, aby dokończyli swoje przeglądy.
 

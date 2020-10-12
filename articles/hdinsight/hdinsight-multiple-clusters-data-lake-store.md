@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083954"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Używanie wielu klastrów usługi HDInsight z kontem Azure Data Lake Storage
@@ -65,7 +65,7 @@ Firma Microsoft zaleca, aby dane wejściowe do zadania i wyniki z zadania były 
 
 Limit liczby klastrów, które mogą współużytkować pojedyncze konto Data Lake Storage, zależy od obciążenia uruchamianego w tych klastrach. Zbyt wiele klastrów lub bardzo duże obciążenia klastrów, które współużytkują konto magazynu, mogą spowodować ograniczenie przepustowości konta magazynu/ruchu wychodzącego.
 
-## <a name="support-for-default-acls"></a>Obsługa domyślnych list ACL
+## <a name="support-for-default-acls"></a>Obsługa Default-ACLs
 
 Podczas tworzenia jednostki usługi z dostępem do określonego użytkownika (jak pokazano w powyższej tabeli) zaleca się, aby **nie** dodawać użytkownika nazwanego z domyślnym listą ACL. Inicjowanie dostępu użytkownika o nazwie przy użyciu domyślnych list ACL skutkuje przypisaniem uprawnień 770 dla użytkownika, grupy będącej właścicielem i innych użytkowników. Ta wartość domyślna 770 nie ma uprawnień od użytkownika będącego właścicielem (7) lub należących do grupy (7), więc odbierze wszystkie uprawnienia dla innych (0). W wyniku tego występuje znany problem z konkretnym przypadkiem użycia, który został szczegółowo omówiony w sekcji [znane problemy i obejścia](#known-issues-and-workarounds) .
 
@@ -89,7 +89,7 @@ Jak określono w połączonej wcześniej JIRA PRZĘDZy, podczas lokalizowania za
 
 Ustaw uprawnienia do odczytu dla **innych użytkowników** w hierarchii, na przykład, **/** **/Clusters** i **/Clusters/Finance** , jak pokazano w powyższej tabeli.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Szybki start: konfigurowanie klastrów w usłudze HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 - [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

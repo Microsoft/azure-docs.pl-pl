@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885971"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Włącz rejestrowanie w potokach projektanta Azure Machine Learning
@@ -59,7 +59,7 @@ W poniższym przykładzie pokazano, jak zarejestrować średni kwadratowy błąd
         return dataframe1,
     ```
     
-Ten kod używa Azure Machine Learning Python SDK, aby rejestrować wartości. Używa Run. get_context (), aby uzyskać kontekst bieżącego przebiegu. Następnie rejestruje wartości w tym kontekście za pomocą metody Run. Parent. log (). Używa `parent` do rejestrowania wartości w nadrzędnym przebiegu potoku, a nie do uruchomienia modułu.
+Ten kod używa Azure Machine Learning Python SDK, aby rejestrować wartości. Używa Run.get_context () do pobrania kontekstu bieżącego przebiegu. Następnie rejestruje wartości w tym kontekście za pomocą metody Run. Parent. log (). Używa `parent` do rejestrowania wartości w nadrzędnym przebiegu potoku, a nie do uruchomienia modułu.
 
 Aby uzyskać więcej informacji na temat rejestrowania wartości przy użyciu zestawu SDK języka Python, zobacz [Włączanie rejestrowania w usłudze Azure ml Training](how-to-track-experiments.md).
 

@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
 ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705711"
 ---
 # <a name="saml-token-claims-reference"></a>Odwołanie do oświadczeń tokenów SAML
@@ -156,5 +156,5 @@ Jest to przykład typowego tokenu SAML.
 
 * Aby dowiedzieć się więcej na temat zarządzania zasadami okresu istnienia tokenu za pomocą interfejsu API Microsoft Graph, zobacz [Omówienie zasobów zasad usługi Azure AD](/graph/api/resources/policy).
 * Dodawanie [niestandardowych i opcjonalnych oświadczeń](active-directory-optional-claims.md) do tokenów aplikacji.
-* Użyj logowania jednokrotnego [(SSO) z](single-sign-on-saml-protocol.md)użyciem protokołu SAML.
-* Korzystanie z [protokołu SAML logowania](single-sign-out-saml-protocol.md) jednokrotnego na platformie Azure
+* Użyj [jednego Sign-On (SSO) z użyciem protokołu SAML](single-sign-on-saml-protocol.md).
+* Korzystanie z [protokołu SAML Single Sign-Out platformy Azure](single-sign-out-saml-protocol.md)

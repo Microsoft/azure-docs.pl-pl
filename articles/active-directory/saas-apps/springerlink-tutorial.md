@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Samouczek: integracja Azure Active Directory z linkiem Springer
@@ -72,7 +72,7 @@ Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego us
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu linku Springer, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj link rejestracji](#configure-springer-link-single-sign-on)** jednokrotnej w usłudze Springer, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania](#configure-springer-link-single-sign-on)** jednokrotnego w usłudze Springer, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
@@ -116,11 +116,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu linku Spr
     > [!NOTE]
     > Wartość adresu URL logowania nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. `<entityID>` czy identyfikator usługi Azure AD został skopiowany z sekcji **Konfigurowanie linku Springer** , opisanej w dalszej części samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-6. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij ikonę kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+6. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** kliknij ikonę kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link pobierania metadanych](common/copy_metadataurl.png)
 
-### <a name="configure-springer-link-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w usłudze Springer
+### <a name="configure-springer-link-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On linku Springer
 
 Aby skonfigurować Logowanie jednokrotne na stronie **linku Springer** , musisz wysłać skopiowany **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej linku Springer](mailto:onlineservice@springernature.com). Zespół pomocy technicznej linku Springer używa tego adresu URL do prawidłowego skonfigurowania połączenia SSO protokołu SAML po obu stronach.
 
@@ -147,7 +147,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Maps interfejs API długotrwałej operacji
+title: Interfejs API operacji Long-Running Azure Maps
 description: Dowiedz się więcej na temat długotrwałego przetwarzania asynchronicznego w tle w Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
@@ -10,15 +10,15 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83598388"
 ---
-# <a name="creator-long-running-operation-api"></a>Interfejs API długotrwałej operacji wykonywanej przez twórcę
+# <a name="creator-long-running-operation-api"></a>Interfejs API Long-Running operacji Kreatora
 
-Niektóre interfejsy API w Azure Maps używają [asynchronicznego wzorca odpowiedzi na żądanie](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Ten wzorzec umożliwia Azure Maps zapewniania usług o wysokiej dostępności i odpowiedzi. W tym artykule opisano implementację określonej asynchronicznej operacji przetwarzania w tle długotrwałą przez usługę Azure map.
+Niektóre interfejsy API w Azure Maps używają [wzorca Request-Reply asynchronicznego](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Ten wzorzec umożliwia Azure Maps zapewniania usług o wysokiej dostępności i odpowiedzi. W tym artykule opisano implementację określonej asynchronicznej operacji przetwarzania w tle długotrwałą przez usługę Azure map.
 
 ## <a name="submitting-a-request"></a>Przesyłanie żądania
 

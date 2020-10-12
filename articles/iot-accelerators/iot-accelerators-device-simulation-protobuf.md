@@ -10,10 +10,10 @@ ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012334"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializowanie telemetrii przy użyciu buforów protokołu
@@ -275,6 +275,6 @@ Jeśli nie potrzebujesz już IoT Hub i Cosmos DB wystąpień, usuń je z subskry
 
 Wiele funkcji IoT Hub nie obsługuje natywnie protobuf ani innych formatów binarnych. Na przykład nie można kierować na podstawie ładunku komunikatu, ponieważ IoT Hub nie będzie w stanie przetworzyć ładunku komunikatu. Można jednak kierować trasy na podstawie nagłówków komunikatów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz wiesz już, jak dostosować symulację urządzenia do korzystania z protobuf w celu wysyłania danych telemetrycznych, następnym krokiem jest teraz poznanie [wdrożenia niestandardowego obrazu do chmury](iot-accelerators-device-simulation-deploy-image.md).

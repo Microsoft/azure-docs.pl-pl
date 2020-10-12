@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084362"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Optymalizowanie Apache Hive w usłudze Apache Ambari w usłudze Azure HDInsight
@@ -132,7 +132,7 @@ Zadania usługi Hadoop są zwykle w wąskim obłączeniem we/wy. Kompresowanie d
 
 Dostępne typy kompresji to:
 
-| Format | Narzędzie | Algorytm | Rozszerzenie pliku | Podzielne? |
+| Formatuj | Narzędzie | Algorytm | Rozszerzenie pliku | Podzielne? |
 | --- | --- | --- | --- | --- |
 | Gzip | Gzip | WKLĘŚNIĘCIE | `.gz` | Nie |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | Tak |
@@ -223,7 +223,7 @@ W poniższych sekcjach opisano dodatkowe optymalizacje dotyczące technologii Hi
 
 Domyślny typ sprzężenia w programie Hive to *sprzężenie losowe*. W programie Hive specjalne mapowania odczytują dane wejściowe i emitują parę klucz/wartość sprzężenia do pliku pośredniego. Usługa Hadoop sortuje i scala te pary na etapie losowym. Ten etap losowy jest kosztowny. Wybranie odpowiedniego sprzężenia na podstawie danych może znacząco poprawić wydajność.
 
-| Typ sprzężenia | Czasie | W jaki sposób? | Ustawienia programu Hive | Komentarze |
+| Typ sprzężenia | Kiedy | Jak | Ustawienia programu Hive | Komentarze |
 | --- | --- | --- | --- | --- |
 | Rozłączenie losowe | <ul><li>Wybór domyślny</li><li>Zawsze działa</li></ul> | <ul><li>Odczytuje z części jednej z tabel</li><li>Zasobniki i sortuje według klucza sprzężenia</li><li>Wysyła jeden zasobnik do każdego zmniejszenia</li><li>Przyłączanie odbywa się po stronie Zmniejsz</li></ul> | Nie jest wymagana znaczna wartość ustawienia Hive | Działa za każdym razem |
 | Sprzężenie mapy | <ul><li>Jedna tabela może zmieścić się w pamięci</li></ul> | <ul><li>Odczytuje małą tabelę w tabeli skrótów pamięci</li><li>Strumienie w ramach dużego pliku</li><li>Sprzęga każdy rekord z tabeli skrótów</li><li>Sprzężenia są zależne od mapowania</li></ul> | `hive.auto.confvert.join=true` | Szybkie, ale ograniczone |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705728"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Rozwiązywanie problemów Enterprise State Roaming ustawień w Azure Active Directory
@@ -90,7 +90,7 @@ Aby uzyskać zaawansowane Rozwiązywanie problemów, Podgląd zdarzeń może sł
 
 ### <a name="sync-does-not-work-on-devices-that-have-apps-side-loaded-using-mdm-software"></a>Synchronizacja nie działa na urządzeniach z załadowanymi bezpośrednio aplikacjami przy użyciu oprogramowania MDM
 
-Dotyczy urządzeń z aktualizacją systemu Windows 10 (wersja 1607). W Podgląd zdarzeń z dzienników SettingSync-Azure często pojawia się zdarzenie o IDENTYFIKATORze 6013 z błędem 80070259.
+Dotyczy urządzeń z aktualizacją systemu Windows 10 (wersja 1607). W Podgląd zdarzeń poniżej dzienników SettingSync-Azure często pojawia się zdarzenie o IDENTYFIKATORze 6013 z błędem 80070259.
 
 **Zalecana akcja**  
 Upewnij się, że klient v1607 systemu Windows 10 ma 23 sierpnia 2016 aktualizację zbiorczą ([KB3176934](https://support.microsoft.com/kb/3176934) OS Build 14393,82). 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: ''
 ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709673"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Samouczek: Wdrażanie grupy wielokontenerowej przy użyciu Docker Compose 
@@ -18,7 +18,7 @@ W tym samouczku użyto [Docker Compose](https://docs.docker.com/compose/) do def
 Uruchamiaj kontenery w Azure Container Instances na żądanie, gdy tworzysz aplikacje natywne w chmurze przy użyciu platformy Docker i chcesz bezproblemowo przełączać się do wdrożenia w chmurze. Ta funkcja jest włączona w ramach [integracji między platformą Docker i platformą Azure](https://docs.docker.com/engine/context/aci-integration/). Możesz użyć natywnych poleceń platformy Docker, aby uruchomić [jedno wystąpienie kontenera](quickstart-docker-cli.md) lub grupę wielokontenerową na platformie Azure.
 
 > [!IMPORTANT]
-> Nie wszystkie funkcje Azure Container Instances są obsługiwane. Prześlij opinię na temat integracji platformy Docker z platformą Azure, tworząc problem w repozytorium usługi [Docker ACI Integration](https://github.com/docker/aci-integration-beta) w witrynie GitHub.
+> Nie wszystkie funkcje Azure Container Instances są obsługiwane. Prześlij opinię na temat integracji Docker-Azure, tworząc problem w repozytorium GitHub usługi [Docker ACI Integration](https://github.com/docker/aci-integration-beta) .
 
 > [!TIP]
 > Możesz użyć [rozszerzenia Docker, aby uzyskać Visual Studio Code](https://aka.ms/VSCodeDocker) zintegrowanego środowiska do opracowywania i uruchamiania kontenerów, obrazów i kontekstów oraz zarządzania nimi.
@@ -212,7 +212,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Aby wyświetlić uruchomioną aplikację w chmurze, wprowadź wyświetlany adres IP w lokalnej przeglądarce sieci Web. W tym przykładzie wprowadź `52.179.23.131` . Zostanie załadowana przykładowa aplikacja, jak pokazano w poniższym przykładzie:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Obraz aplikacji do głosowania w ACI":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Obraz aplikacji do głosowania":::
 
 Aby wyświetlić dzienniki kontenera frontonu, uruchom polecenie [Docker Logs](https://docs.docker.com/engine/reference/commandline/logs) . Na przykład:
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ba68df53f1f21b9ff360772fe1a60c93c8df74d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252219"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Bezpieczna komunikacja zdalna usługi w usłudze C#
@@ -186,7 +186,7 @@ Aby pomóc w zabezpieczeniu usługi w przypadku korzystania z usług zdalnych us
 
     Jeśli klient nie działa w ramach usługi, można utworzyć plik client_name.settings.xml w tej samej lokalizacji, w której znajduje się client_name.exe. Następnie utwórz sekcję TransportSettings w tym pliku.
 
-    Podobnie jak w przypadku dodania `TransportSettings` sekcji w settings.xml klienta/client_name.settings.xml, program `FabricTransportRemotingSettings` Domyślnie ładuje wszystkie ustawienia z tej sekcji.
+    Podobnie jak w przypadku dodania `TransportSettings` sekcji w settings.xmlklienta/client_name.settings.xml, program `FabricTransportRemotingSettings` Domyślnie ładuje wszystkie ustawienia z tej sekcji.
 
     W takim przypadku poprzedni kod jest jeszcze bardziej uproszczony:  
 

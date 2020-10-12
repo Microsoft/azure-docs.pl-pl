@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886486"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurowanie modułów IoT Edge i połączeń
@@ -60,7 +60,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
 
    *serwer logowania containerregistry* / *Nazwa repozytorium*:*nazwa tagu*
 
-   Przykład:
+   Na przykład:
 
    ```
    ASEdemocontregistry.azurecr.io/silicaprediction:amd64
@@ -92,7 +92,7 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/IronOreMeasures")
    ```
 
-   Przykład:
+   Na przykład:
 
    ```
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/IronOreMeasures")
@@ -115,8 +115,8 @@ Teraz określ poświadczenia kontenera w module IoT Edge.
    |Serwer|Publiczny adres IP wymieniony na maszynie wirtualnej, który został utworzony dla tej wersji demonstracyjnej|
    |Nazwa użytkownika|sa|
    |Hasło|Silne hasło użyte podczas tworzenia wystąpienia usługi Azure SQL Edge|
-   |baza danych|Domyślny|
-   |Grupa serwerów|Domyślny|
+   |baza danych|Domyślne|
+   |Grupa serwerów|Domyślne|
    |Nazwa (opcjonalnie)|Podaj nazwę opcjonalną|
 
 3. Kliknij przycisk **Połącz** .

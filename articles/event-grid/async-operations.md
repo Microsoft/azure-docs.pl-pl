@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89011688"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Śledź Event Grid asynchroniczne operacje na platformie Azure
@@ -31,7 +31,7 @@ Zapoznaj się z [dokumentacją interfejsu API REST](/rest/api/) , aby zobaczyć 
 Asynchroniczne operacje REST zwracają wartości nagłówka, których można użyć do określenia stanu operacji. Istnieją potencjalnie trzy wartości nagłówka do sprawdzenia:
 
 * `Azure-AsyncOperation` -Adres URL służący do sprawdzania stanu trwającego operacji. Jeśli operacja zwróci tę wartość, zawsze używaj jej (zamiast lokalizacji) do śledzenia stanu operacji.
-* `Location` -Adres URL służący do określania, kiedy operacja została ukończona. Ta wartość jest używana tylko wtedy, gdy usługa Azure-AsyncOperation nie jest zwracana.
+* `Location` -Adres URL służący do określania, kiedy operacja została ukończona. Ta wartość jest używana tylko wtedy, gdy Azure-AsyncOperation nie jest zwracana.
 * `Retry-After` — Liczba sekund oczekiwania przed sprawdzeniem stanu operacji asynchronicznej.
 
 Jednak nie każda operacja asynchroniczna zwraca wszystkie te wartości. Na przykład może być konieczne oszacowanie wartości nagłówka Azure-AsyncOperation dla jednej operacji oraz wartości nagłówka lokalizacji dla innej operacji. 
@@ -42,9 +42,9 @@ Możesz pobrać wartości nagłówka, tak jak pobieranie dowolnej wartości nag�
 response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 ```
 
-## <a name="azure-asyncoperation-request-and-response"></a>Żądanie i odpowiedź na platformie Azure AsyncOperation
+## <a name="azure-asyncoperation-request-and-response"></a>Żądanie i odpowiedź Azure-AsyncOperation
 
-Aby uzyskać stan operacji asynchronicznej, Wyślij żądanie GET do adresu URL w wartości nagłówka Azure-AsyncOperation.
+Aby uzyskać stan operacji asynchronicznej, Wyślij żądanie GET do adresu URL w Azure-AsyncOperation wartości nagłówka.
 
 Treść odpowiedzi z tej operacji zawiera informacje o operacji. W poniższym przykładzie przedstawiono możliwe wartości zwracane przez operację:
 
@@ -72,7 +72,7 @@ Treść odpowiedzi z tej operacji zawiera informacje o operacji. W poniższym pr
 
 Operacje, które tworzą, aktualizują lub usuwają (PUT, PATCH, Usuń) zasobu zwykle zwracają `provisioningState` wartość. Po zakończeniu operacji jest zwracana jedna z następujących trzech wartości: 
 
-* Powodzenie
+* Sukces
 * Niepowodzenie
 * Anulowane
 
@@ -183,7 +183,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Jeśli żądanie jest nadal uruchomione, zostanie wyświetlony kod stanu 202. Jeśli żądanie zostało zakończone, otrzymano kod stanu 200 i treść odpowiedzi zawiera właściwości konta magazynu, które zostało utworzone.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać dokumentację dotyczącą każdej operacji REST, zobacz [dokumentację interfejsu API REST](/rest/api/).
 * Aby uzyskać informacje na temat wdrażania szablonów za pomocą interfejsu API REST Menedżer zasobów, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejs API rest Menedżer zasobów](../azure-resource-manager/templates/deploy-rest.md).

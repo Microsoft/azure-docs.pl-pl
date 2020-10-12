@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88077513"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
@@ -144,7 +144,7 @@ Użycie serwera proxy przesyłania dalej do komunikacji w ramach aplikacji zaple
 Aby je włączyć, wykonaj następujące czynności:
 
 ### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Krok 1. Dodawanie wymaganej wartości rejestru do serwera
-1. Aby włączyć korzystanie z domyślnego serwera proxy, Dodaj następującą wartość rejestru (DWORD) `UseDefaultProxyForBackendRequests = 1` do klucza rejestru konfiguracji łącznika znajdującego się w temacie "HKEY_LOCAL_MACHINE \software\microsoft\microsoft" łącznik serwera proxy aplikacji usługi AAD.
+1. Aby włączyć korzystanie z domyślnego serwera proxy, Dodaj następującą wartość rejestru (DWORD) `UseDefaultProxyForBackendRequests = 1` do klucza rejestru konfiguracji łącznika znajdującego się w lokalizacji "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
 
 ### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Krok 2. Konfigurowanie serwera proxy ręcznie przy użyciu polecenia netsh
 1.  Włącz ustawienia zasad grupy Ustaw serwer proxy dla komputera. Ten temat znajduje się w temacie: Konfiguracja komputera \ składniki systemu Windows\internet Explorer. Należy to skonfigurować zamiast mieć te zasady ustawione na użytkownika.

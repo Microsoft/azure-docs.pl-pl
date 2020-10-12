@@ -4,10 +4,10 @@ description: Zakolejkowanie uruchomienia zadania ACR w celu skompilowania obrazu
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82927772"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Uruchamianie zadań ACR przy użyciu szablonów Menedżer zasobów
@@ -16,7 +16,7 @@ ms.locfileid: "82927772"
 
 W tym artykule przedstawiono przykłady szablonów Azure Resource Manager do kolejki przebiegu szybkiego zadania, podobnie jak w przypadku, można utworzyć ręcznie przy użyciu polecenia [AZ ACR Build][az-acr-build] .
 
-Szablon Menedżer zasobów do zakolejkowania uruchomienia zadania jest użyteczny w scenariuszach automatyzacji i rozszerza funkcje programu `az acr build` . Przykład:
+Szablon Menedżer zasobów do zakolejkowania uruchomienia zadania jest użyteczny w scenariuszach automatyzacji i rozszerza funkcje programu `az acr build` . Na przykład:
 
 * Użyj szablonu, aby utworzyć rejestr kontenerów i natychmiast kolejkować uruchomione zadanie w celu kompilowania i wypychania obrazu kontenera
 * Tworzenie lub Włączanie dodatkowych zasobów, których można użyć w szybkim przebiegu zadania, takich jak zarządzana tożsamość zasobów platformy Azure
@@ -46,7 +46,7 @@ Na potrzeby tego przykładu podaj wartości dla następujących parametrów szab
 |taskRunName     |Nazwa uruchomienia zadania, która określa tag obrazu |
 |sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład https://github.com/Azure-Samples/acr-build-helloworld-node . Pliku dockerfile w katalogu głównym repozytorium tworzy obraz kontenera dla małej Node.js aplikacji sieci Web. W razie potrzeby użyj rozwidlenia repozytorium jako kontekstu kompilacji.         |
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] . Ten przykład kompiluje i wypycha plik *HelloWorld-Node: przebiegu testowego* do rejestru o nazwie *mycontainerregistry*.
 
@@ -190,7 +190,7 @@ Na potrzeby tego przykładu podaj wartości dla następujących parametrów szab
 |sourceLocation     |Kontekst zdalny dla zadania kompilacji, na przykład * https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-Node.* |
 |dockerFilePath | Ścieżka do pliku dockerfile w kontekście zdalnym, użyta do utworzenia obrazu. |
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wdróż szablon za pomocą polecenia [AZ Deployment Group Create][az-deployment-group-create] . Ten przykład kompiluje i wypycha plik *HelloWorld-Node: przebiegu testowego* do rejestru o nazwie *mycontainerregistry*. Obraz podstawowy jest pobierany z *mybaseregistry.azurecr.IO*.
 

@@ -4,10 +4,10 @@ description: W tym artykule wyjaśniono, jak za pomocą modułu Azure PowerShell
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065747"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Zarządzanie zasobami Service Bus przy użyciu programu PowerShell
@@ -26,7 +26,7 @@ Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
 * Komputer z Azure PowerShell. Aby uzyskać instrukcje, zobacz [wprowadzenie do Azure PowerShell poleceń cmdlet](/powershell/azure/get-started-azureps).
 * Ogólna znajomość skryptów programu PowerShell, pakietów NuGet i .NET Framework.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Pierwszym krokiem jest użycie programu PowerShell w celu zalogowania się do konta platformy Azure i subskrypcji platformy Azure. Postępuj zgodnie z instrukcjami w temacie [wprowadzenie do Azure PowerShell poleceń cmdlet](/powershell/azure/get-started-azureps) , aby zalogować się do konta platformy Azure i pobrać i uzyskać dostęp do zasobów w ramach subskrypcji platformy Azure.
 
@@ -34,11 +34,11 @@ Pierwszym krokiem jest użycie programu PowerShell w celu zalogowania się do ko
 
 Podczas pracy z Service Bus przestrzeniami nazw można użyć poleceń cmdlet [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)i [Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
-Ten przykład tworzy kilka zmiennych lokalnych w skrypcie; `$Namespace`i `$Location` .
+Ten przykład tworzy kilka zmiennych lokalnych w skrypcie; `$Namespace` i `$Location` .
 
-* `$Namespace`jest nazwą przestrzeni nazw Service Bus, z którą chcemy.
-* `$Location`Identyfikuje centrum danych, w którym ma zostać zainicjowana przestrzeń nazw.
-* `$CurrentNamespace`przechowuje przestrzeń nazw referencyjnych pobieranych (lub tworzonych).
+* `$Namespace` jest nazwą przestrzeni nazw Service Bus, z którą chcemy.
+* `$Location` Identyfikuje centrum danych, w którym ma zostać zainicjowana przestrzeń nazw.
+* `$CurrentNamespace` przechowuje przestrzeń nazw referencyjnych pobieranych (lub tworzonych).
 
 W rzeczywistym skrypcie `$Namespace` i `$Location` mogą być przesyłane jako parametry.
 

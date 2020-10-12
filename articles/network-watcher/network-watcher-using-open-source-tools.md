@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84738638"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Wizualizowanie wzorców ruchu sieciowego do i z maszyn wirtualnych za pomocą narzędzi open source
@@ -36,7 +36,7 @@ Prosta aplikacja internetowa wdrożona na maszynie wirtualnej na platformie Azur
 ### <a name="install-capanalysis"></a>Zainstaluj CapAnalysis
 
 Aby zainstalować CapAnalysis na maszynie wirtualnej, możesz zapoznać się z oficjalnymi instrukcjami tutaj https://www.capanalysis.net/ca/how-to-install-capanalysis .
-Aby zdalnie uzyskać dostęp do CapAnalysis, musisz otworzyć port 9877 na maszynie wirtualnej przez dodanie nowej reguły zabezpieczeń dla ruchu przychodzącego. Aby uzyskać więcej informacji na temat tworzenia reguł w sieciowych grupach zabezpieczeń, zapoznaj się z tematem [Tworzenie reguł w istniejącej sieciowej grupy zabezpieczeń](../virtual-network/manage-network-security-group.md#create-a-security-rule). Po pomyślnym dodaniu reguły powinno być możliwe uzyskanie dostępu do CapAnalysis z`http://<PublicIP>:9877`
+Aby zdalnie uzyskać dostęp do CapAnalysis, musisz otworzyć port 9877 na maszynie wirtualnej przez dodanie nowej reguły zabezpieczeń dla ruchu przychodzącego. Aby uzyskać więcej informacji na temat tworzenia reguł w sieciowych grupach zabezpieczeń, zapoznaj się z tematem [Tworzenie reguł w istniejącej sieciowej grupy zabezpieczeń](../virtual-network/manage-network-security-group.md#create-a-security-rule). Po pomyślnym dodaniu reguły powinno być możliwe uzyskanie dostępu do CapAnalysis z `http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Użyj usługi Azure Network Watcher, aby rozpocząć sesję przechwytywania pakietów
 
@@ -47,7 +47,7 @@ Przechwycenie pakietu wykonane przez obserwatora sieci można przekazać bezpoś
 
 Po udostępnieniu linku do CapAnalysis upewnij się, że w adresie URL obiektu blob magazynu zostanie dołączony token sygnatury dostępu współdzielonego.  W tym celu przejdź do sygnatury dostępu współdzielonego z konta magazynu, Wyznacz dozwolone uprawnienia i naciśnij przycisk Generuj SAS, aby utworzyć token. Następnie można dołączyć token sygnatury dostępu współdzielonego do adresu URL obiektu blob magazynu przechwytywania pakietów.
 
-Otrzymany adres URL będzie wyglądać podobnie do następującego adresu URL:`http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+Otrzymany adres URL będzie wyglądać podobnie do następującego adresu URL: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analizowanie przechwytywania pakietów

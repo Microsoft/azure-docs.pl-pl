@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 56a7b91327e84ca36e6ec6e4b15f594dbc61830e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274303"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver
@@ -404,7 +404,7 @@ Istnieje kilka możliwości wykonywania kopii zapasowych "ręcznych" według:
 
 1. Wykonywanie konwencjonalnych SQL Server kopii zapasowych na podłączonych bezpośrednio dyskach platformy Azure. Ta metoda ma zaletę, że kopie zapasowe są dostępne szybko do odświeżenia systemu i tworzą nowe systemy jako kopie istniejących systemów SAP
 2.  SQL Server 2012 CU4 i nowsze mogą tworzyć kopie zapasowe baz danych w adresie URL usługi Azure Storage.
-3.  Kopie zapasowe migawek plików dla plików bazy danych w usłudze Azure Blob Storage. Ta metoda działa tylko wtedy, gdy SQL Server danych i plików dziennika znajdują się w usłudze Azure Blob Storage
+3.  File-Snapshot kopie zapasowe plików bazy danych w usłudze Azure Blob Storage. Ta metoda działa tylko wtedy, gdy SQL Server danych i plików dziennika znajdują się w usłudze Azure Blob Storage
 
 Pierwsza metoda jest dobrze znana i stosowana w wielu przypadkach w lokalnym świecie. Niemniej jednak opuszcza zadanie, aby rozwiązać dłuższy termin lokalizacji kopii zapasowej. Ponieważ nie chcesz przechowywać kopii zapasowych przez 30 lub więcej dni w lokalnie dołączonym magazynie Azure, musisz użyć usług Azure Backup Services lub innego narzędzia do tworzenia kopii zapasowych/odzyskiwania innych firm, które obejmuje zarządzanie dostępem i przechowywaniem kopii zapasowych. Możesz też utworzyć duży serwer plików na platformie Azure przy użyciu funkcji miejsca do magazynowania systemu Windows.
 
@@ -464,7 +464,7 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 
 Jeśli wynik jest inny, Zatrzymaj wdrażanie SAP i sprawdź, dlaczego polecenie instalacji nie działa zgodnie z oczekiwaniami. Wdrożenie aplikacji SAP NetWeaver na wystąpienie SQL Server z różnymi SQL Server CodePage **nie** jest obsługiwane.
 
-## <a name="sql-server-high-availability-for-sap-in-azure"></a>SQL Server wysoką dostępność dla oprogramowania SAP na platformie Azure
+## <a name="sql-server-high-availability-for-sap-in-azure"></a>SQL Server High-Availability dla oprogramowania SAP na platformie Azure
 Za pomocą SQL Server w wdrożeniach IaaS platformy Azure dla oprogramowania SAP masz kilka różnych możliwości do dodania w celu wdrożenia warstwy DBMS o wysokiej dostępności. Zgodnie z opisem w temacie [zagadnienia dotyczące wdrażania systemu azure Virtual Machines DBMS dla obciążeń SAP](dbms_guide_general.md) już istnieje, platforma Azure udostępnia różne umowy SLA w czasie dla jednej maszyny wirtualnej i parę maszyn wirtualnych wdrożonych w zestawie dostępności platformy Azure. Przyjęto założenie, że na bieżąco podano umowę SLA dla wdrożeń produkcyjnych, które wymagają wdrożenia w zestawach dostępności platformy Azure. W takim przypadku należy wdrożyć co najmniej dwie maszyny wirtualne w tym zestawie dostępności. Dla jednej maszyny wirtualnej zostanie uruchomione wystąpienie usługi Active SQL Server. Na drugiej maszynie wirtualnej zostanie uruchomione wystąpienie pasywne
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>SQL Server klastrowanie przy użyciu serwera plików skalowalnego w poziomie systemu Windows lub dysku udostępnionego platformy Azure
@@ -484,7 +484,7 @@ Funkcja dostarczania dzienników SQL Server była twardo używana na platformie 
 ### <a name="database-mirroring"></a>Dublowanie baz danych
 Funkcja dublowania baz danych obsługiwana przez oprogramowanie SAP (patrz Uwaga dla oprogramowania SAP [965908]) opiera się na definiowaniu partnera trybu failover w parametrach połączenia SAP. W przypadku przypadków obejmujących wiele lokalizacji należy założyć, że dwie maszyny wirtualne znajdują się w tej samej domenie i że kontekst użytkownika ma dwa wystąpienia SQL Server są uruchamiane w ramach użytkownika domeny i ma odpowiednie uprawnienia w dwóch wystąpieniach SQL Server. W związku z tym Konfiguracja funkcji dublowania baz danych na platformie Azure nie różni się od standardowej instalacji lokalnej/konfiguracji.
 
-W przypadku wdrożeń opartych tylko na chmurze najłatwiej jest skonfigurować inną domenę na platformie Azure w celu posiadania tych maszyn wirtualnych systemu DBMS (i najlepiej dedykowanych maszyn wirtualnych SAP) w jednej domenie.
+W przypadku wdrożeń Cloud-Only najłatwiej jest skonfigurować inną konfigurację domeny na platformie Azure w celu posiadania tych maszyn wirtualnych systemu DBMS (i najlepiej dedykowanych maszyn wirtualnych SAP) w jednej domenie.
 
 Jeśli domena nie jest możliwa, można także użyć certyfikatów dla punktów końcowych dublowania bazy danych, jak opisano tutaj: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 

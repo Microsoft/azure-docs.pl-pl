@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88079026"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Skonfiguruj laboratorium do zarządzania i programowania przy użyciu SQL Server
@@ -50,7 +50,7 @@ Teraz, gdy strona sieci jest obsługiwana, umożliwia utworzenie bazy danych SQL
 9. Wybierz region dla **lokalizacji**.  Jeśli to możliwe, wprowadź tę samą lokalizację, w której znajduje się konto laboratorium i równorzędna Sieć wirtualna, aby zminimalizować opóźnienie.
 10. Kliknij przycisk **OK** , aby powrócić do formularza **tworzenia SQL Database** .
 11. Kliknij pozycję **Konfiguruj bazę danych** w obszarze Ustawienia **obliczenia + magazyn** .
-12. Zmodyfikuj ustawienia bazy danych zgodnie z wymaganiami klasy.  Można wybrać opcję między opcją zainicjowaną i bezserwerową.  Na potrzeby tego przykładu użyjemy opcji bezserwerowego skalowania automatycznego z maksymalną rdzeni wirtualnychą 4, minimum rdzeni wirtualnych z 1. Ustawienie AutoPause zostanie zachowane co najmniej 1 godzina. Kliknij przycisk **Zastosuj**.
+12. Zmodyfikuj ustawienia bazy danych zgodnie z wymaganiami klasy.  Można wybrać opcję między opcją zainicjowaną i bezserwerową.  Na potrzeby tego przykładu użyjemy opcji bezserwerowego skalowania automatycznego z maksymalną rdzeni wirtualnychą 4, minimum rdzeni wirtualnych z 1. Ustawienie AutoPause zostanie zachowane co najmniej 1 godzina. Kliknij pozycję **Zastosuj**.
 13. Kliknij przycisk **Dalej: sieć** przycisk.
 14. Na karcie Sieć wybierz pozycję prywatny punkt końcowy dla **metody łączności**.
 15. W sekcji **prywatne punkty końcowe** kliknij pozycję **Dodaj prywatny punkt końcowy**.
@@ -98,7 +98,7 @@ Program Visual Studio obsługuje kilka obciążeń, w tym **& sieci Web w chmurz
 4. Na stronie **Wybierz folder menu Start** kliknij pozycję **Dalej**.
 5. Na stronie **Wybierz dodatkowe zadania** Sprawdź **ikonę Utwórz pulpit** , jeśli chcesz mieć ikonę pulpitu.  Kliknij przycisk **Dalej**.
 6. Na stronie **gotowy do instalacji**kliknij przycisk **dalej**.
-7. Poczekaj na uruchomienie Instalatora.  Kliknij przycisk **Zakończ**.
+7. Poczekaj na uruchomienie Instalatora.  Kliknij przycisk **Finish** (Zakończ).
 
 Teraz, gdy zainstalowano Azure Data Studio, Skonfigurujmy połączenie z Azure SQL Database.
 
@@ -109,7 +109,7 @@ Teraz, gdy zainstalowano Azure Data Studio, Skonfigurujmy połączenie z Azure S
     - Ustaw **hasło** do hasła używanego do tworzenia bazy danych.
     - Zaznacz pole wyboru **Zapamiętaj hasło**.
     - W obszarze **baza danych**wybierz pozycję *classlabdb*.
-3. Kliknij przycisk **Podłącz**.
+3. Kliknij przycisk **Połącz**.
 
 ## <a name="install-sql-server-management-studio"></a>Zainstaluj SQL Server Management Studio
 

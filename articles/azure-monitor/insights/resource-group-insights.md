@@ -8,10 +8,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87045775"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorowanie grup zasobów przy użyciu Azure Monitor (wersja zapoznawcza)
@@ -20,7 +20,7 @@ Nowoczesne aplikacje są często skomplikowane i wysoce dystrybuowane z wieloma 
 
 ## <a name="access-insights-for-resource-groups"></a>Dostęp do szczegółowych informacji dla grup zasobów
 
-1. Wybierz pozycję **grupy zasobów** na pasku nawigacyjnym po lewej stronie.
+1. Wybierz pozycję **grupy zasobów**  na pasku nawigacyjnym po lewej stronie.
 2. Wybierz jedną z grup zasobów, które chcesz zbadać. (Jeśli wiele grup zasobów jest filtrowanych przez subskrypcję, może być czasami przydatne).
 3. Aby uzyskać dostęp do usługi Insights dla grupy zasobów, kliknij pozycję **szczegółowe informacje** w menu po lewej stronie dowolnej grupy zasobów.
 
