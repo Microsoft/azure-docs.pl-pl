@@ -4,17 +4,17 @@ description: Dowiedz się więcej o projekcie aplikacji, który właśnie zosta�
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75349413"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Twoja aplikacja Service Fabric i następne kroki
 Aplikacja Service Fabric platformy Azure została utworzona. W tym artykule opisano niektóre samouczki, które należy wypróbować, korzeń projektu, kilka dodatkowych informacji, które mogą być interesujące, oraz potencjalnych dalszych kroków.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>Rozpocznij pracę z samouczkami, instruktażami i przykładami
-Chcesz zacząć?  
+Możemy zaczynać?  
 
 Pracuj w samouczku dotyczącym aplikacji .NET. Dowiedz się, w jaki sposób [utworzyć aplikację](service-fabric-tutorial-create-dotnet-app.md) za pomocą frontonu ASP.NET Core i zapasowego zaplecza, [wdrożyć aplikację](service-fabric-tutorial-deploy-app-to-party-cluster.md) w klastrze, [skonfigurować Ci/CD/](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)na [bieżąco i skonfigurować monitorowanie i diagnostykę](service-fabric-tutorial-monitoring-aspnet.md).
 

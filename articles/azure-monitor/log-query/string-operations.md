@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75397470"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Pracuj z ciągami w zapytaniach dziennika Azure Monitor
@@ -46,7 +46,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Porównanie ciągów
 
-Operator       |Opis                         |Z uwzględnieniem wielkości liter|Przykład (yields `true` )
+Operator       |Opis                         |Case-Sensitive|Przykład (yields `true` )
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Równa się                              |Tak           |`"aBc" == "aBc"`
 `!=`           |Nie równa się                          |Tak           |`"abc" != "ABC"`
@@ -91,8 +91,8 @@ countof(text, search [, kind])
 ```
 
 ### <a name="arguments"></a>Argumentu
-- `text`-Ciąg wejściowy 
-- `search`-Zwykłego ciągu lub wyrażenia regularnego do dopasowania wewnątrz tekstu.
+- `text` -Ciąg wejściowy 
+- `search` -Zwykłego ciągu lub wyrażenia regularnego do dopasowania wewnątrz tekstu.
 - `kind` - _normalne_  |  _wyrażenie regularne_ (domyślnie: Normal).
 
 ### <a name="returns"></a>Zwraca
@@ -132,10 +132,10 @@ extract(regex, captureGroup, text [, typeLiteral])
 
 ### <a name="arguments"></a>Argumenty
 
-- `regex`-Wyrażenie regularne.
-- `captureGroup`-Dodatnia stała całkowita wskazująca grupę przechwytywania do wyodrębnienia. 0 dla całego dopasowania, 1 dla wartości dopasowanej przez pierwszy znak "(" nawias ")" w wyrażeniu regularnym, 2 lub więcej dla kolejnych nawiasów.
-- `text`-Ciąg do wyszukania.
-- `typeLiteral`-Opcjonalny literał typu (na przykład typeof (Long)). Jeśli jest podany, wyodrębniony podciąg jest konwertowany na ten typ.
+- `regex` -Wyrażenie regularne.
+- `captureGroup` -Dodatnia stała całkowita wskazująca grupę przechwytywania do wyodrębnienia. 0 dla całego dopasowania, 1 dla wartości dopasowanej przez pierwszy znak "(" nawias ")" w wyrażeniu regularnym, 2 lub więcej dla kolejnych nawiasów.
+- `text` -Ciąg do wyszukania.
+- `typeLiteral` -Opcjonalny literał typu (na przykład typeof (Long)). Jeśli jest podany, wyodrębniony podciąg jest konwertowany na ten typ.
 
 ### <a name="returns"></a>Zwraca
 Podciąg dopasowany do wskazanej grupy przechwytywania grupa przechwytywania, opcjonalnie przekonwertowany na typeLiteral.
@@ -239,9 +239,9 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argumenty
 
-- `regex`-Wyrażenie regularne, które ma zostać dopasowane przez. Może zawierać grupy przechwytywania w nawiasach klamrowych ().
-- `rewrite`— Wyrażenie regularne zastąpienia dla dowolnego dopasowania wykonanego przez zgodne wyrażenie regularne. Użyj \ 0, aby odwołać się do całego dopasowania, \ 1 dla pierwszej grupy przechwytywania, \ 2 itd. dla kolejnych grup przechwytywania.
-- `input_text`-Ciąg wejściowy do wyszukania.
+- `regex` -Wyrażenie regularne, które ma zostać dopasowane przez. Może zawierać grupy przechwytywania w nawiasach klamrowych ().
+- `rewrite` — Wyrażenie regularne zastąpienia dla dowolnego dopasowania wykonanego przez zgodne wyrażenie regularne. Użyj \ 0, aby odwołać się do całego dopasowania, \ 1 dla pierwszej grupy przechwytywania, \ 2 itd. dla kolejnych grup przechwytywania.
+- `input_text` -Ciąg wejściowy do wyszukania.
 
 ### <a name="returns"></a>Zwraca
 Tekst po zamianie wszystkich odpowiedników wyrażenia regularnego na oceny ponownego zapisu. Dopasowania nie nakładają się.
@@ -273,9 +273,9 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="arguments"></a>Argumentu
 
-- `source`-Ciąg, który ma zostać podzielony według określonego ogranicznika.
-- `delimiter`— Ogranicznik, który będzie używany w celu podzielenia ciągu źródłowego.
-- `requestedIndex`— Opcjonalny indeks oparty na wartości zero. Jeśli jest podany, zwracana tablica ciągów będzie przechowywać tylko ten element (jeśli istnieje).
+- `source` -Ciąg, który ma zostać podzielony według określonego ogranicznika.
+- `delimiter` — Ogranicznik, który będzie używany w celu podzielenia ciągu źródłowego.
+- `requestedIndex` — Opcjonalny indeks oparty na wartości zero. Jeśli jest podany, zwracana tablica ciągów będzie przechowywać tylko ten element (jeśli istnieje).
 
 
 ### <a name="examples"></a>Przykłady
@@ -330,9 +330,9 @@ substring(source, startingIndex [, length])
 
 ### <a name="arguments"></a>Argumentu
 
-- `source`-Ciąg źródłowy, z którego zostanie pobrany podciąg.
-- `startingIndex`— Znak początkowy na podstawie zera dla żądanego podciągu.
-- `length`-Opcjonalny parametr, który może służyć do określania żądanych długości zwracanego podciągu.
+- `source` -Ciąg źródłowy, z którego zostanie pobrany podciąg.
+- `startingIndex` — Znak początkowy na podstawie zera dla żądanego podciągu.
+- `length` -Opcjonalny parametr, który może służyć do określania żądanych długości zwracanego podciągu.
 
 ### <a name="examples"></a>Przykłady
 ```Kusto

@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536186"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Zakresy dla internetowego interfejsu API akceptujące tokeny v 1.0
@@ -64,7 +64,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 Logika używana przez usługę Azure AD jest następująca:
 
 - Dla punktu końcowego biblioteki ADAL (Azure AD v 1.0) z tokenem dostępu w wersji 1.0 (możliwe), AUD = zasób
-- Punkt końcowy usługi MSAL (Microsoft Identity platform (v 2.0)) z prośbą o token dostępu dla zasobu akceptującego tokeny v 2.0`aud=resource.AppId`
+- Punkt końcowy usługi MSAL (Microsoft Identity platform (v 2.0)) z prośbą o token dostępu dla zasobu akceptującego tokeny v 2.0 `aud=resource.AppId`
 - W przypadku usługi MSAL (punkt końcowy v 2.0) z prośbą o token dostępu dla zasobu, który akceptuje token dostępu w wersji 1.0 (w przypadku powyższego przypadku), usługa Azure AD analizuje żądanych odbiorców od żądanego zakresu, pobierając wszystko przed ostatnim ukośnikiem i używając go jako identyfikatora zasobu. W związku z tym, jeśli https: \/ /Database.Windows.NET oczekuje odbiorców protokołu https: \/ /Database.Windows.NET/, należy zażądać zakresu "https: \/ /Database.Windows.NET//.default". Zobacz również problem z usługą GitHub [#747: zostanie pominięty końcowy ukośnik adresu URL zasobu, co spowodowało błąd uwierzytelniania SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Zakresy żądania dostępu do wszystkich uprawnień aplikacji w wersji 1.0

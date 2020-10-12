@@ -9,10 +9,10 @@ ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961860"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Ciągłe wdrażanie za pomocą usługi Web App for Containers
@@ -61,7 +61,7 @@ Aby skonfigurować CI/CD za pomocą interfejsu wiersza polecenia platformy Azure
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 * [Tworzenie aplikacji internetowej platformy .NET Core w usłudze App Service w systemie Linux](quickstart-dotnetcore.md?pivots=platform-linux)

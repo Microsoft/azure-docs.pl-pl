@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91290691"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Skonfiguruj Akcelerator rozwiązania połączonej fabryki
@@ -32,7 +32,7 @@ Każda fabryka firmy Contoso ma linie produkcyjne, które składają się z trze
 * Stacja testowa
 * Stacja pakowania
 
-Te serwery OPC UA mają węzły OPC UA i [OPC Publisher](overview-opc-publisher.md) wysyłają wartości tych węzłów do połączonej fabryki. Obejmuje on:
+Te serwery OPC UA mają węzły OPC UA i [OPC Publisher](overview-opc-publisher.md) wysyłają wartości tych węzłów do połączonej fabryki. Możliwości obejmują:
 
 * Bieżący stan operacyjny, na przykład bieżące zużycie mocy.
 * Informacje o produkcji, takie jak liczba produkowanych produktów.
@@ -269,7 +269,7 @@ Właściwości w tej kategorii definiują wygląd pulpitu nawigacyjnego połącz
 
 * Nazwa
 * Opis
-* Image (Obraz)
+* Obraz
 * Lokalizacja
 * Lekcji
 * Widoczne

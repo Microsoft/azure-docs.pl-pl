@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cd6602f68b63e2c236e7f3905d33b88fbda36ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81429865"
 ---
 # <a name="security-controls-for-azure-key-vault"></a>Kontrolki zabezpieczeń dla Azure Key Vault
@@ -42,7 +42,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Key Vault.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Uwierzytelnianie| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |
+| Authentication| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |
 | Autoryzacja| Tak | Korzystanie z zasad dostępu Key Vault. |
 
 ## <a name="data-protection"></a>Ochrona danych
@@ -51,8 +51,8 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Key Vault.
 |---|---|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Wszystkie obiekty są zaszyfrowane. |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Klient kontroluje wszystkie klucze w Key Vault. Gdy są określone klucze z zabezpieczeniami sprzętowego modułu zabezpieczeń (HSM), moduł HSM poziomu 2 trybu FIPS chroni klucz, certyfikat lub wpis tajny. |
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy |  |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Cała komunikacja odbywa się za pośrednictwem szyfrowanych wywołań interfejsu API |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak |  |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Cała komunikacja odbywa się za pośrednictwem szyfrowanych wywołań interfejsu API |
 | Wywołania interfejsu API są szyfrowane| Tak | Przy użyciu protokołu HTTPS. |
 
 ## <a name="access-controls"></a>Kontrole dostępu

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 5caed64beb43cbb1e884a3dde6bc0052c617f83e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378784"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Zabezpieczenia w usłudze Azure Database for MySQL
@@ -38,7 +38,7 @@ Reguły zapory adresów IP umożliwiają dostęp do serwerów na podstawie źró
 Punkty końcowe usługi sieci wirtualnej zwiększają łączność sieci wirtualnej przez sieć szkieletową platformy Azure. Korzystając z reguł sieci wirtualnej, można włączyć serwer Azure Database for MySQL, aby zezwalać na połączenia z wybranych podsieci w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie punktu końcowego usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md).
 
 ### <a name="private-ip"></a>Prywatny adres IP
-Link prywatny umożliwia nawiązanie połączenia z Azure Database for MySQL na platformie Azure za pośrednictwem prywatnego punktu końcowego. Link prywatny platformy Azure zasadniczo zapewnia usługi platformy Azure w ramach prywatnego Virtual Network (VNet). Dostęp do zasobów PaaS można uzyskać przy użyciu prywatnego adresu IP, podobnie jak w przypadku każdego innego zasobu w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [link prywatny — Omówienie](concepts-data-access-security-private-link.md)
+Link prywatny umożliwia nawiązanie połączenia z Azure Database for MySQL na platformie Azure za pośrednictwem prywatnego punktu końcowego. Usługa Azure Private Link zasadniczo łączy usługi platformy Azure z Twoją prywatną siecią wirtualną. Dostęp do zasobów PaaS można uzyskać przy użyciu prywatnego adresu IP, podobnie jak w przypadku każdego innego zasobu w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [link prywatny — Omówienie](concepts-data-access-security-private-link.md)
 
 ## <a name="access-management"></a>Zarządzanie dostępem
 

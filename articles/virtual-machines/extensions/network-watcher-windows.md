@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
 ms.openlocfilehash: e78a18055d85e2105ea604d568c154c889ab0655
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86206014"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej agenta Network Watcher dla systemu Windows
@@ -76,7 +76,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Network Watcher. Rozs
 
 Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Można użyć schematu JSON szczegółowego w poprzedniej sekcji w szablonie Azure Resource Manager, aby uruchomić rozszerzenie agenta Network Watcher podczas wdrażania szablonu Azure Resource Manager.
 
-## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
+## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 
 Użyj `Set-AzVMExtension` polecenia, aby wdrożyć rozszerzenie maszyny wirtualnej agenta Network Watcher na istniejącej maszynie wirtualnej:
 

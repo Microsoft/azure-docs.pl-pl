@@ -9,10 +9,10 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
 ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81428955"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault światy zabezpieczeń i granice geograficzne
@@ -32,7 +32,7 @@ Przykładowo kopia zapasowa wykonywana przez daną subskrypcję klucza w magazyn
 
 ## <a name="regions-and-products"></a>Regiony i produkty
 
-- [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/)
+- [Regiony platformy Azure](https://azure.microsoft.com/regions/)
 - [Produkty firmy Microsoft według regionów](https://azure.microsoft.com/regions/services/)
 
 Regiony są mapowane na światowe środowiska zabezpieczeń, pokazane jako główne nagłówki w tabelach:

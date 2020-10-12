@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75360348"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Jak zaktualizować usługę w chmurze
@@ -53,7 +53,7 @@ W poniższej tabeli przedstawiono dozwolone zmiany usługi w trakcie aktualizacj
 | Ustawienia magazynu lokalnego |Zwiększ tylko<sup>2</sup> |Tak |Tak |
 | Dodawanie lub usuwanie ról w usłudze |Tak |Tak |Tak |
 | Liczba wystąpień określonej roli |Tak |Tak |Tak |
-| Liczba lub typ punktów końcowych dla usługi |Tak<sup>2</sup> |Nie |Yes |
+| Liczba lub typ punktów końcowych dla usługi |Tak<sup>2</sup> |Nie |Tak |
 | Nazwy i wartości ustawień konfiguracji |Tak |Tak |Tak |
 | Wartości (ale nie nazwy) ustawień konfiguracji |Tak |Tak |Tak |
 | Dodaj nowe certyfikaty |Tak |Tak |Tak |
@@ -104,7 +104,7 @@ Podczas uaktualniania usługi z jednego wystąpienia do wielu wystąpień usług
 |Ponowne uruchomienie maszyny wirtualnej|Naruszon|Naruszon|Naruszon|
 |Ponowny rozruch portalu|Naruszon|Naruszon|Zniszcz|
 |Odobrazowanie portalu|Naruszon|Zniszcz|Zniszcz|
-|Uaktualnianie w miejscu|Naruszon|Naruszon|Zniszcz|
+|Uaktualnianie In-Place|Naruszon|Naruszon|Zniszcz|
 |Migracja węzłów|Zniszcz|Zniszcz|Zniszcz|
 
 Należy pamiętać, że na powyższej liście dysk E: reprezentuje dysk główny roli i nie powinien być zakodowany na stałe. Zamiast tego należy użyć zmiennej środowiskowej **% RoleRoot%** do reprezentowania dysku.

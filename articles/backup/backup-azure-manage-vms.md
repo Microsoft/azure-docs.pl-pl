@@ -4,10 +4,10 @@ description: Dowiedz się, jak zarządzać kopiami zapasowymi maszyny wirtualnej
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145437"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure za pomocą usługi Azure Backup
@@ -34,7 +34,7 @@ Aby wyświetlić maszyny wirtualne na pulpicie nawigacyjnym magazynu:
 
     ![Wybieranie pozycji Wszystkie usługi](./media/backup-azure-manage-vms/select-all-services.png)
 
-1. W oknie dialogowym **Wszystkie usługi** wprowadź frazę *Recovery Services*. Lista filtrów zasobów zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **magazyny Recovery Services**.
+1. W oknie dialogowym **Wszystkie usługi** wprowadź frazę *Recovery Services*. Lista zasobów jest filtrowana zgodnie z danymi wejściowymi. Na liście zasobów wybierz pozycję **Magazyny usługi Recovery Services**.
 
     ![Wprowadzanie i wybieranie pozycji Magazyny usługi Recovery Services](./media/backup-azure-manage-vms/all-services.png)
 
@@ -86,7 +86,7 @@ Aby zarządzać zasadami tworzenia kopii zapasowych:
 
      ![Wybieranie zasad kopii zapasowych](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-## <a name="run-an-on-demand-backup"></a>Uruchamianie kopii zapasowej na żądanie
+## <a name="run-an-on-demand-backup"></a>Uruchamianie tworzenia kopii zapasowej na żądanie
 
 Można uruchomić kopię zapasową maszyny wirtualnej na żądanie po skonfigurowaniu jej ochrony. Pamiętaj o tych szczegółach:
 

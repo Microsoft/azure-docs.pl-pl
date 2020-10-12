@@ -9,10 +9,10 @@ ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289875"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
@@ -46,7 +46,7 @@ Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć n
 
    Gdy użytkownik spróbuje przejść do strony, która nie istnieje w statycznej witrynie internetowej, wyświetlona zostanie domyślna strona błędu.
 
-7. Kliknij pozycję **Zapisz**. W witrynie Azure Portal jest teraz wyświetlany punkt końcowy statycznej witryny internetowej. 
+7. Kliknij przycisk **Zapisz**. W witrynie Azure Portal jest teraz wyświetlany punkt końcowy statycznej witryny internetowej. 
 
     ![Włączanie hostowania statycznej witryny internetowej na koncie magazynu](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -54,7 +54,7 @@ Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć n
 
 <a id="cli"></a>
 
-Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejsu Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 1. Najpierw Otwórz [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205842"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatyczne skalowanie wystąpienia usługi Azure API Management  
@@ -31,7 +31,7 @@ Artykuł przeprowadzi Cię przez proces konfigurowania automatycznego skalowania
 
 Aby wykonać kroki opisane w tym artykule, musisz:
 
-+ Mieć aktywną subskrypcję platformy Azure.
++ Aktywna subskrypcja platformy Azure.
 + Posiadanie wystąpienia usługi Azure API Management. Aby uzyskać więcej informacji, zobacz [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Zrozumienie koncepcji [pojemności wystąpienia usługi Azure API Management](api-management-capacity.md).
 + Poznaj [proces ręcznego skalowania wystąpienia API Management platformy Azure](upgrade-and-scale.md), w tym konsekwencje dotyczące kosztów.
@@ -127,7 +127,7 @@ Wykonaj poniższe kroki, aby skonfigurować automatyczne skalowanie dla usługi 
 
     ![Reguła skalowania Azure Monitor](media/api-management-howto-autoscale/07.png)
 
-13. Kliknij pozycję **Zapisz**. Twoje Skalowanie automatyczne zostało skonfigurowane.
+13. Kliknij przycisk **Zapisz**. Twoje Skalowanie automatyczne zostało skonfigurowane.
 
 ## <a name="next-steps"></a>Następne kroki
 

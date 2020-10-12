@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75364955"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>wyrażenie obszaru roboczego () w zapytaniu dziennika Azure Monitor
@@ -30,7 +30,7 @@ ms.locfileid: "75364955"
 |:---|:---|:---|
 | Nazwa zasobu | Czytelna dla człowieka nazwa obszaru roboczego ("Nazwa składnika") | obszar roboczy ("ContosoRetail") |
 | Kwalifikowana nazwa | Pełna nazwa obszaru roboczego w postaci: "subscriptionname/resourceName/ComponentName" | obszar roboczy ("contoso/ContosoResource/ContosoWorkspace") |
-| ID | Identyfikator GUID obszaru roboczego | obszar roboczy ("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| ID (Identyfikator) | Identyfikator GUID obszaru roboczego | obszar roboczy ("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Identyfikator zasobu platformy Azure | Identyfikator zasobu platformy Azure | obszar roboczy ("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 

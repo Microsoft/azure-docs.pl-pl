@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378733"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategie uwierzytelniania usługi pomiaru w portalu Marketplace
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Dir
 
 #### <a name="http-method"></a>Metoda HTTP
 
-**POUBOJOWEGO**
+**POST**
 
 #### <a name="request-url"></a>*Adres URL żądania*
 
@@ -114,7 +114,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
     * [Interfejs użytkownika Azure Portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
     * [Interfejs wiersza polecenia](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
     * [Program PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-    * [Szablon usługi Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [Szablon Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
     * [Rest](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
     * [Zestawy Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 

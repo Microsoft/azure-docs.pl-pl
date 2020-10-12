@@ -4,10 +4,10 @@ description: W tym artykule pokazano, jak przenieść dedykowany klaster platfor
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380835"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Przenoszenie dedykowanego klastra Event Hubs platformy Azure do innego regionu
@@ -50,7 +50,7 @@ Wdróż szablon, aby utworzyć dedykowany klaster Event Hubs w regionie docelowy
     4. W sekcji **Ustawienia** wykonaj następujące czynności:    
         1. Wprowadź nazwę nowego **klastra**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Wdróż szablon Menedżer zasobów":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Pobierz szablon Menedżer zasobów":::
     5. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony. 
     1. Na stronie **Recenzja i tworzenie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.  
 

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380980"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Jak dodać odbiorcę w wersji zapoznawczej dla oferty SaaS

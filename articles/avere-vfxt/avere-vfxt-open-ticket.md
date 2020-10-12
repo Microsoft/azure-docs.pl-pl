@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88271111"
 ---
 # <a name="get-help-with-your-system"></a>Uzyskaj pomoc dotyczącą systemu
@@ -43,7 +43,7 @@ Wykonaj następujące kroki, aby upewnić się, że bilet pomocy technicznej jes
 
     ![zrzut ekranu przedstawiający nowy ekran żądania obsługi w Azure Portal. Wybrana jest karta podstawy. Elementy ekranu obejmują typ problemu, subskrypcję, usługę, podsumowanie i typ problemu.](media/ticket-basics.png)
 
-   Kliknij pozycję **Next** (Dalej), aby kontynuować.
+   Kliknij przycisk **Dalej** , aby kontynuować.
 
 1. Druga strona formularza pomocy technicznej zawiera sugestie dotyczące rozwiązania problemu na podstawie opisu podsumowania. Kliknij przycisk **dalej** w dolnej części, jeśli nadal potrzebujesz utworzyć bilet pomocy technicznej.
 

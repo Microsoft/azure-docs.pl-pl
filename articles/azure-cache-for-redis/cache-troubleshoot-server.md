@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008920"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Rozwiązywanie problemów z usługą Azure Cache for Redis po stronie serwera
@@ -40,7 +40,7 @@ Istnieje kilka możliwych zmian, które mogą pomóc w poprawnym użyciu pamięc
 - [Skonfiguruj zasady pamięci](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) i ustaw czasy wygaśnięcia kluczy. Te zasady mogą nie być wystarczające w przypadku fragmentacji.
 - [Skonfiguruj wartość zarezerwowaną maxmemory](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) , która jest wystarczająco duża, aby zrekompensować fragmentację pamięci.
 - Podziel duże obiekty w pamięci podręcznej na mniejsze obiekty pokrewne.
-- [Utwórz alerty](cache-how-to-monitor.md#alerts) na podstawie metryk, takich jak używana pamięć, aby szybko otrzymywać powiadomienia o potencjalnym wpływie.
+- [Utwórz alerty](cache-how-to-monitor.md#alerts) dla metryk, takich jak użyta pamięć, aby uzyskiwać wczesne powiadomienia o potencjalnym wpływie.
 - [Skalowanie](cache-how-to-scale.md) do większego rozmiaru pamięci podręcznej o większej pojemności pamięci.
 
 ## <a name="high-cpu-usage-or-server-load"></a>Duże użycie procesora CPU lub obciążenie serwera
@@ -70,7 +70,7 @@ Metryki "Odczyt pamięci podręcznej" i "Zapisywanie pamięci podręcznej" mogą
 Aby wyeliminować sytuacje, w których wykorzystanie przepustowości sieci zbliża się do maksymalnej pojemności:
 
 - Zmień zachowanie wywołania klienta, aby zmniejszyć zapotrzebowanie na sieć.
-- [Utwórz alerty](cache-how-to-monitor.md#alerts) na podstawie metryk, takich jak pamięć podręczna odczytu lub zapisu w pamięci podręcznej, aby otrzymywać powiadomienia na wczesnym etapie.
+- [Utwórz alerty](cache-how-to-monitor.md#alerts) dla metryk, takich jak odczyt z pamięci podręcznej lub zapis w pamięci podręcznej, aby uzyskiwać wczesne powiadomienia o potencjalnym wpływie.
 - [Skalowanie](cache-how-to-scale.md) do większego rozmiaru pamięci podręcznej o większej pojemności sieci.
 
 ## <a name="additional-information"></a>Dodatkowe informacje

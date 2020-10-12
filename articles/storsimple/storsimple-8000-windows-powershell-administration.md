@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bba3666fbce6a8ea591654d1abdad319f1e0857c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999521"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Używanie programu Windows PowerShell dla usługi StorSimple do administrowania urządzeniem
@@ -50,14 +50,14 @@ Aby nawiązać połączenie z interfejsem programu Windows PowerShell z poziomu 
 1. W oknie dialogowym wyznaczanie ponownej **konfiguracji** w okienku **Kategoria** wybierz pozycję **Klawiatura**.
 2. Upewnij się, że wybrano następujące opcje (są to ustawienia domyślne podczas uruchamiania nowej sesji).
    
-   | Element klawiatury | Wybierz pozycję |
+   | Element klawiatury | Wybierz |
    | --- | --- |
    | Klawisz Backspace |Kontrolka-? (127) |
-   | Główne i końcowe klawisze |Standard |
+   | Główne i końcowe klawisze |Standardowa |
    | Klawisze funkcyjne i klawiatura |ESC [n ~ |
    | Początkowy stan kluczy kursora |Normalne |
    | Początkowy stan klawiatury numerycznej |Normalne |
-   | Włącz dodatkowe funkcje klawiatury |Formant — Alt różni się od klawisza AltGr |
+   | Włącz dodatkowe funkcje klawiatury |Control-Alt różni się od AltGr |
    
     ![Obsługiwane ustawienia.](./media/storsimple-windows-powershell-administration/IC740877.png)
 3. Kliknij pozycję **Zastosuj**.
@@ -157,8 +157,8 @@ Poniżej znajduje się krótki opis typów pomocy dla tego interfejsu programu W
 
 ### <a name="to-get-help-for-a-cmdlet"></a>Aby uzyskać pomoc dotyczącą polecenia cmdlet
 
-* Aby uzyskać pomoc dotyczącą dowolnego polecenia cmdlet lub funkcji, użyj następującego polecenia:`Get-Help <cmdlet-name>`
-* Aby uzyskać pomoc online dotyczącą dowolnego polecenia cmdlet, użyj poprzedniego polecenia cmdlet z `-Online` parametrem:`Get-Help <cmdlet-name> -Online`
+* Aby uzyskać pomoc dotyczącą dowolnego polecenia cmdlet lub funkcji, użyj następującego polecenia: `Get-Help <cmdlet-name>`
+* Aby uzyskać pomoc online dotyczącą dowolnego polecenia cmdlet, użyj poprzedniego polecenia cmdlet z `-Online` parametrem: `Get-Help <cmdlet-name> -Online`
 * Aby uzyskać pełną pomoc, można użyć `–Full` parametru, a na przykład użyć `–Examples` parametru.
 
 ### <a name="to-update-help"></a>Aby zaktualizować pomoc
@@ -167,7 +167,7 @@ Możesz łatwo zaktualizować pomoc w interfejsie programu Windows PowerShell. W
 
 #### <a name="to-update-cmdlet-help"></a>Aby zaktualizować pomoc polecenia cmdlet
 1. Uruchom program Windows PowerShell przy użyciu opcji **Uruchom jako administrator** .
-2. W wierszu polecenia wpisz:`Update-Help`
+2. W wierszu polecenia wpisz:  `Update-Help`
 3. Zaktualizowane pliki pomocy zostaną zainstalowane.
 4. Po zainstalowaniu plików pomocy wpisz: `Get-Help Get-Command` . Zostanie wyświetlona lista poleceń cmdlet, dla których pomoc jest dostępna.
 

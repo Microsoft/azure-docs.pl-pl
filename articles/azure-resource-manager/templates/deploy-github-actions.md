@@ -4,10 +4,10 @@ description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy u
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85854744"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
@@ -62,7 +62,7 @@ Skopiuj dane wyjściowe JSON i Zapisz je jako wpis tajny usługi GitHub w repozy
 
 1. W repozytorium GitHub wybierz kartę **Ustawienia** .
 1. W menu po lewej stronie wybierz pozycję wpisy **tajne** .
-1. Wprowadź następujące wartości:
+1. Podaj następujące wartości:
 
     - **Nazwa**: AZURE_CREDENTIALS
     - **Wartość**: (Wklej dane wyjściowe JSON)

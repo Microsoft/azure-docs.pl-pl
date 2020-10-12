@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85856835"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Ocena dokładności usługi Custom Speech
@@ -33,7 +33,7 @@ Niepoprawnie zidentyfikowane słowa dzielą się na trzy kategorie:
 * Usuwanie (D): wyrazy, które nie są wykrywane w transkrypcji hipotezy
 * Substytucje: słowa, które zostały zastąpione przez odwołanie i hipotezę
 
-Przykład:
+Oto przykład:
 
 ![Przykład niepoprawnie zidentyfikowanych wyrazów](./media/custom-speech/custom-speech-dis-words.png)
 
@@ -56,7 +56,7 @@ Aby oszacować modele obok siebie:
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Oceń dokładność**. Nadaj testowi nazwę, opis, a następnie wybierz swój audio + ludzki zestaw danych transkrypcji.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
-6. Kliknij pozycję **Utwórz**.
+6. Kliknij przycisk **Utwórz**.
 
 Po pomyślnym utworzeniu testu można porównać wyniki obok siebie.
 
@@ -66,7 +66,7 @@ Po zakończeniu testu, wskazywanym przez zmianę stanu na *powodzenie*, można z
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Szkolenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe

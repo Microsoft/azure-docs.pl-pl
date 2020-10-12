@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
 ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961979"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
@@ -267,7 +267,7 @@ Jeśli chcesz zobaczyć n różne typy błędów niż określa splitByLimit jako
 
 Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany. Spróbuj znaleźć określone konto magazynu, w którym zapisano skoroszyt. W przeciwnym razie nie ma możliwości znalezienia określonego skoroszytu bez znajomości zasobu (konto magazynu).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 

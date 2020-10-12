@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 900221bd27fe4020a927b3155c91aa8e494ca890
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203846"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transfer dużych zestawów danych w przypadku umiarkowanej lub wysokiej przepustowości sieci
@@ -65,11 +65,11 @@ W przypadku korzystania z transferu danych w trybie offline Skorzystaj z poniżs
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    **Rozmiar danych**                    |    Do 35 usług TBs                 |    Do 80 usług TBs na urządzenie                       |    Do 800 TB na urządzenie               |    Zmienna                            |
-|    **Typ danych**                    |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
+|    **Typ danych**                    |    Obiekty blob platformy Azure                  |    Obiekty blob platformy Azure<br>Azure Files                    |    Obiekty blob platformy Azure<br>Azure Files            |    Obiekty blob platformy Azure<br>Azure Files          |
 |    **Współczynnik postaci**                  |    5 dysków SSD na zamówienie             |    1 X 50-funtów urządzenie o rozmiarze stacjonarnym na zamówienie    |    1 X ~ 500-funty. duże urządzenie na zamówienie    |    Do 10 HDD/dysków SSD na zamówienie        |
-|    **Czas wstępnej instalacji**               |    Niski <br>(15 minut)            |    Od niska do umiarkowanych <br> (<30 minut)               |    Umiarkowany<br>(1-2 godzin)               |    Umiarkowane, aby trudne<br>zmiennej |
+|    **Czas wstępnej instalacji**               |    Niski <br>(15 minut)            |    Od niska do umiarkowanych <br> (<30 minut)               |    Umiarkowane<br>(1-2 godzin)               |    Umiarkowane, aby trudne<br>zmiennej |
 |    **Wysyłanie danych do platformy Azure**           |    Tak                          |    Tak                                           |    Tak                                   |    Tak                                 |
-|    **Eksportowanie danych z platformy Azure**           |    Nie                           |    Nie                                            |    Nie                                    |    Yes                                 |
+|    **Eksportowanie danych z platformy Azure**           |    Nie                           |    Nie                                            |    Nie                                    |    Tak                                 |
 |    **Szyfrowanie**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    **Sprzęt**                     |     Dostarczone przez firmę Microsoft          |    Dostarczone przez firmę Microsoft                            |    Dostarczone przez firmę Microsoft                    |    Dostarczone przez klienta                   |
 |    **Interfejs sieciowy**            |    USB 3.1/SATA                 |    PORT RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
@@ -87,7 +87,7 @@ W przypadku korzystania z transferu danych w trybie online Skorzystaj z tabeli w
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    **Typ danych**              |    Obiekty blob platformy Azure, Azure Files, tabele platformy Azure    |    Obiekty blob platformy Azure, Azure Files, tabele platformy Azure    |    Obiekty blob platformy Azure, Azure Files                           |   Obsługuje ponad 70 łączników danych dla magazynów danych i formatów    |
 |    **Współczynnik postaci**            |    Narzędzia wiersza polecenia                        |    Interfejs programistyczny                    |    Firma Microsoft dostarcza wirtualne <br>lub urządzenie fizyczne     |    Usługa w Azure Portal                                            |
-|    **Początkowa konfiguracja jednorazowa** |    Narzędzia               |    Umiarkowany                       |    Łatwe (<30 minut) do umiarkowanego (1-2 godzin)            |    Złożone                                                          |
+|    **Początkowa konfiguracja jednorazowa** |    Narzędzia               |    Umiarkowane                       |    Łatwe (<30 minut) do umiarkowanego (1-2 godzin)            |    Złożone                                                          |
 |    **Przetwarzanie wstępne danych**          |    Nie                                        |    Nie                                        |    Tak (przy użyciu obliczeń brzegowych)                               |    Tak                                                                |
 |    **Transfer z innych chmur**   |    Nie                                        |    Nie                                        |    Nie                                                    |    Tak                                                                |
 |    **Typ użytkownika**                    |    Specjalista IT Pro lub dev                                       |    Deweloperskie                                       |    Informatyk                                                |    Informatyk                                                             |

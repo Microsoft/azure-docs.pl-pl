@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207155"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Rozwiązywanie typowych pytań lub problemów z kontrolerem transferu danych przychodzących
@@ -95,7 +95,7 @@ Pobierz listę ingresses: `kubectl get ingress` . Oczekujemy, że zasób transfe
 
 ![zasobników](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Jednym z tych zasobników będzie AGIC. `kubectl get pods`zostanie wyświetlona lista wielowymiarowa, z których jedna będzie zaczynać się od "ruchu przychodzącego z platformy Azure". Pobierz wszystkie dzienniki tego programu pod względem programu, `kubectl logs <name-of-ingress-controller-pod>` Aby sprawdzić, czy zakończono pomyślnie wdrożenie. Pomyślne wdrożenie dodaliśmy następujące wiersze do dziennika:
+Jednym z tych zasobników będzie AGIC. `kubectl get pods` zostanie wyświetlona lista wielowymiarowa, z których jedna będzie zaczynać się od "ruchu przychodzącego z platformy Azure". Pobierz wszystkie dzienniki tego programu pod względem programu, `kubectl logs <name-of-ingress-controller-pod>` Aby sprawdzić, czy zakończono pomyślnie wdrożenie. Pomyślne wdrożenie dodaliśmy następujące wiersze do dziennika:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -142,7 +142,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynn
      ```
 
   2. Co najmniej jedna **Usługa**, odwołująca się do powyższych zasobników za pośrednictwem pasujących `selector` etykiet.
-     Sprawdź poprawność tego [Cloud Shell](https://shell.azure.com/) z`kubectl get services -o wide`
+     Sprawdź poprawność tego [Cloud Shell](https://shell.azure.com/) z `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
@@ -199,9 +199,9 @@ Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynn
 
 
 * Jeśli AGIC pod nie jest w dobrej kondycji ( `STATUS` kolumna z powyższego polecenia nie jest `Running` ):
-  - Pobierz dzienniki, aby zrozumieć, dlaczego:`kubectl logs <pod-name>`
-  - dla poprzedniego wystąpienia:`kubectl logs <pod-name> --previous`
-  - opisz element pod, aby uzyskać więcej kontekstu:`kubectl describe pod <pod-name>`
+  - Pobierz dzienniki, aby zrozumieć, dlaczego: `kubectl logs <pod-name>`
+  - dla poprzedniego wystąpienia: `kubectl logs <pod-name> --previous`
+  - opisz element pod, aby uzyskać więcej kontekstu: `kubectl describe pod <pod-name>`
 
 
 * Czy masz [usługę](https://kubernetes.io/docs/concepts/services-networking/service/) [Kubernetes i zasoby](https://kubernetes.io/docs/concepts/services-networking/ingress/) dotyczące transferu danych przychodzących?
@@ -224,7 +224,7 @@ Aby AGIC działał zgodnie z oczekiwaniami, należy wykonać następujące czynn
 
 
 * AGIC emituje zdarzenia Kubernetes dla pewnych błędów krytycznych. Można je wyświetlić:
-  - w terminalu za pośrednictwem`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - w terminalu za pośrednictwem `kubectl get events --sort-by=.metadata.creationTimestamp`
   - w przeglądarce przy użyciu [interfejsu użytkownika sieci Web Kubernetes (pulpit nawigacyjny)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
@@ -245,7 +245,7 @@ Społeczność Kubernetes ustanowiła 9 poziomów rejestrowania dla narzędzia [
 
 Poziomy szczegółowości są ustawiane za pośrednictwem `verbosityLevel` zmiennej w pliku [Helm-config. YAML](#sample-helm-config-file) . Zwiększ poziom szczegółowości, aby `5` uzyskać konfigurację JSON wysłaną do [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
   - Dodaj `verbosityLevel: 5` bezpośrednio w wierszu w [Helm-config. YAML](#sample-helm-config-file) i ponownie zainstaluj
-  - Pobierz dzienniki z`kubectl logs <pod-name>`
+  - Pobierz dzienniki z `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>Przykładowy plik konfiguracji Helm
 ```yaml

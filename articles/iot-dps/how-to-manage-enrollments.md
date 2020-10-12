@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74974942"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracjami urządzeń za pomocą witryny Azure Portal
@@ -32,9 +32,9 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
   1. Kliknij usługę Device Provisioning, z której chcesz zarejestrować urządzenie na liście zasobów.  
   1. W usłudze aprowizacji:  
      a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **grupy rejestracji** .  
-     b. Kliknij przycisk **Dodaj** na górze.  
+     b. Kliknij przycisk **Dodaj** znajdujący się u góry.  
      c. Po wyświetleniu panelu "Dodaj grupę rejestracji" Wprowadź informacje dotyczące wpisu listy rejestracji.  **Nazwa grupy** jest wymagana. W polu **Typ certyfikatu**wybierz również pozycję "ca lub pośredni" i przekaż główny **certyfikat podstawowy** dla grupy urządzeń.  
-     d. Kliknij pozycję **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
+     d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji powinna zostać wyświetlona nazwa grupy wyświetlana na karcie **grupy rejestracji** .  
 
      [![Grupa rejestracji w portalu](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
@@ -47,9 +47,9 @@ Istnieją dwa sposoby rejestrowania urządzeń przy użyciu usługi aprowizacji:
     1. Kliknij usługę Device Provisioning, z której chcesz zarejestrować urządzenie na liście zasobów.
     1. W usłudze aprowizacji:  
        a. Kliknij pozycję **Zarządzanie rejestracjami**, a następnie wybierz kartę **rejestracje indywidualne** .  
-       b. Kliknij przycisk **Dodaj** na górze.   
+       b. Kliknij przycisk **Dodaj** znajdujący się u góry.   
        c. Po wyświetleniu panelu "Dodaj rejestrację" Wprowadź informacje dotyczące wpisu listy rejestracji. Najpierw wybierz **mechanizm** zaświadczania dla urządzenia (X. 509 lub moduł TPM). Zaświadczanie X. 509 wymaga przekazania **podstawowego certyfikatu** liścia dla urządzenia. Moduł TPM wymaga wprowadzenia **klucza zaświadczania** i **identyfikatora rejestracji** dla urządzenia.  
-       d. Kliknij pozycję **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
+       d. Kliknij przycisk **Zapisz**. Po pomyślnym utworzeniu grupy rejestracji urządzenie zostanie wyświetlone na karcie **indywidualne rejestracje** .  
 
        [![Rejestracja indywidualna w portalu](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

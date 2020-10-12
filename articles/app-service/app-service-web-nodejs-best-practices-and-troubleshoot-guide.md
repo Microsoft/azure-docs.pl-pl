@@ -9,10 +9,10 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961894"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Najlepsze rozwiązania i wskazówki dotyczące rozwiązywania problemów z aplikacjami węzłów w systemie Azure App Service Windows
@@ -143,7 +143,7 @@ let keepaliveAgent = new Agent({
 Użytkownik może otrzymać zalecenie dotyczące Azure App Service w portalu dotyczące wysokiego użycia procesora CPU. Możesz również skonfigurować monitory do oglądania określonych [metryk](web-sites-monitor.md). Podczas sprawdzania użycia procesora na [pulpicie nawigacyjnym witryny Azure Portal](../azure-monitor/app/web-monitor-performance.md)Sprawdź wartości maksymalne dla procesora, aby nie trafiać wartości szczytu.
 Jeśli uważasz, że aplikacja zużywa zbyt dużo czasu procesora i nie możesz wyjaśnić, dlaczego można profilować aplikację węzła, aby się dowiedzieć.
 
-#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilowanie aplikacji node na Azure App Service za pomocą narzędzia V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilowanie aplikacji node na Azure App Service przy użyciu V8-Profiler
 
 Załóżmy na przykład, że masz aplikację Hello World, którą chcesz profilować w następujący sposób:
 

@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85855703"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integracja z siecią wirtualną w usłudze Azure Data Lake Storage Gen1
@@ -81,7 +81,7 @@ Dostępne opcje to między innymi:
   
 - Dane plików i folderów na koncie usługi Data Lake Storage Gen1 z włączoną integracją z siecią wirtualną nie są dostępne z poziomu portalu. To ograniczenie dotyczy również dostępu z poziomu maszyny wirtualnej znajdującej się w tej sieci wirtualnej oraz czynności takich jak korzystanie z Eksploratora danych. Czynności związane z zarządzaniem kontem będą nadal działać. Dane plików i folderów na koncie usługi Data Lake Storage z włączoną integracją z siecią wirtualną są dostępne z poziomu wszystkich zasobów poza portalem. Te zasoby obejmują dostęp za pomocą zestawów SDK, skryptów programu PowerShell i innych usług platformy Azure, gdy nie pochodzą z portalu. 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Krok 1. Konfigurowanie sieci wirtualnej pod kątem korzystania z punktu końcowego usługi Azure AD
 

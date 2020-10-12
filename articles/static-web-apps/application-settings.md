@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250032"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurowanie ustawień aplikacji dla usługi Azure static Web Apps Preview
@@ -110,7 +110,7 @@ Azure Portal udostępnia interfejs do tworzenia, aktualizowania i usuwania ustaw
 
 1. Kliknij przycisk **OK**.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 ### <a name="using-the-azure-cli"></a>Przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -144,7 +144,7 @@ Polecenie interfejsu wiersza polecenia platformy Azure wymaga określonych warto
 2. Nazwa grupy zasobów
 3. Identyfikator subskrypcji
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Azure static Web Apps — Omówienie":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Widok konfiguracji Web Apps statycznej platformy Azure":::
 
 4. W terminalu lub wierszu polecenia wykonaj następujące polecenie. Pamiętaj, aby zastąpić symbole zastępcze `<YOUR_STATIC_SITE_NAME>` , `<YOUR_RESOURCE_GROUP_NAME>` i `<YOUR_SUBSCRIPTION_ID>` z wartościami z okna _Przegląd_ .
 

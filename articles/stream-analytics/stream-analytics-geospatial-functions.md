@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75426221"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Wprowadzenie do Stream Analytics funkcji geoprzestrzennych
@@ -44,7 +44,7 @@ FROM input
   
 |rodziny|Długość geograficzna|  
 |--------------|---------------|  
-|3.0|-10,2|  
+|3,0|-10,2|  
 |-87,33|20,2321|  
   
 ### <a name="output-example"></a>Przykład danych wyjściowych  
@@ -71,7 +71,7 @@ FROM input
   
 |rodziny|Długość geograficzna|  
 |--------------|---------------|  
-|3.0|-10,2|  
+|3,0|-10,2|  
 |-87,33|20,2321|  
   
 ### <a name="output-example"></a>Przykład danych wyjściowych
@@ -98,7 +98,7 @@ FROM input
   
 |rodziny|Długość geograficzna|  
 |--------------|---------------|  
-|3.0|-10,2|  
+|3,0|-10,2|  
 |-87,33|20,2321|  
   
 ### <a name="output-example"></a>Przykład danych wyjściowych  

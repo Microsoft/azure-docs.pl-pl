@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145347"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Przenoszenie Azure Event Grid niestandardowych tematów do innego regionu
@@ -38,22 +38,10 @@ Aby rozpocząć, wyeksportuj szablon Menedżer zasobów dla tematu niestandardow
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Wyszukaj i wybierz tematy Event Grid":::
 3. Wybierz **temat** , który chcesz wyeksportować do szablonu Menedżer zasobów. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Wybieranie tematu niestandardowego":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Wyszukaj i wybierz tematy Event Grid":::   
 4. Na stronie **temat Event Grid** wybierz pozycję **Eksportuj szablon** w obszarze **Ustawienia** w menu po lewej stronie, a następnie wybierz pozycję **Pobierz** na pasku narzędzi. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Eksportuj szablon — pobieranie >":::   
-
-    > [!IMPORTANT]
-    > Tylko temat jest eksportowany do szablonu. Subskrypcje tematu nie są eksportowane. W związku z tym należy utworzyć subskrypcje dla tematu po przeniesieniu tematu do regionu docelowego. 
-5. Znajdź plik **zip** pobrany z portalu i rozpakuj ten plik do wybranego folderu. Ten plik zip zawiera pliki szablonów i parametrów JSON. 
-1. Otwórz **template.js** w wybranym edytorze. 
-8. Zaktualizuj `location` zasób **tematu** do docelowego regionu lub lokalizacji. Aby uzyskać kody lokalizacji, zapoznaj się z tematem [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Kod regionu to nazwa regionu bez spacji, na przykład, `West US` jest równa `westus` .
-
-    ```json
-    "type": "Microsoft.EventGrid/topics",
-    "apiVersion": "2020-06-01",
-    "name": "[parameters('topics_mytopic0130_name')]",
-    "location": "westus"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Wyszukaj i wybierz tematy Event Grid"
     ```
 1. **Zapisz** szablon. 
 
@@ -74,14 +62,14 @@ Wdróż szablon, aby utworzyć niestandardowy temat w regionie docelowym.
     1. W polu **nazwa tematu**wprowadź nową nazwę tematu. 
     1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Wdrożenie niestandardowe":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Wyszukaj i wybierz tematy Event Grid":::
     1. Na stronie **Recenzja i tworzenie** przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**. 
 
 ## <a name="verify"></a>Weryfikacja
 
 1. Po pomyślnym wdrożeniu wybierz pozycję **Przejdź do zasobu**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Przejdź do zasobu":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Wyszukaj i wybierz tematy Event Grid":::
 1. Upewnij się, że na stronie **tematu Event Grid** nie ma widocznego tematu niestandardowego.   
 1. Wykonaj kroki opisane w temacie [trasy niestandardowe zdarzenia do punktu końcowego sieci Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) , aby wysłać zdarzenia do tematu. Sprawdź, czy program obsługi zdarzeń elementu webhook jest wywoływany. 
 

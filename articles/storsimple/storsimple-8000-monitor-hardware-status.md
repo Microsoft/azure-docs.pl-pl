@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999500"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Monitorowanie składników i stanu sprzętu za pomocą usługi StorSimple Menedżer urządzeń
@@ -79,69 +79,69 @@ Wykonaj następujące kroki, aby wyświetlić stan sprzętu składnika urządzen
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista składników dla podstawowej obudowy urządzenia StorSimple
 W poniższej tabeli przedstawiono składniki fizyczne i logiczne zawarte w podstawowej obudowie (obecne zarówno w 8100 i 8600) lokalnego urządzenia StorSimple.
 
-| Składnik | Moduł | Typ | Lokalizacja | Jednostka przemieszczenia pola (FRU)? | Opis |
+| Składnik | Moduł | Type | Lokalizacja | Jednostka przemieszczenia pola (FRU)? | Opis |
 | --- | --- | --- | --- | --- | --- |
-| Napęd w gnieździe [0-11] |Stacje dysków |Fizyczne |Udostępniona |Tak |Dla każdego dysku SSD lub dysków twarde w obudowie podstawowej jest prezentowany jeden wiersz. |
-| Czujnik temperatury otoczenia |Szaf |Fizyczne |Udostępniona |Nie |Mierzy temperaturę w obudowie. |
-| Czujnik temperatury średniej płaszczyzny |Szaf |Fizyczne |Udostępniona |Nie |Mierzy temperaturę płaszczyzny środkowej. |
-| Alarm dźwiękowy |Szaf |Fizyczne |Udostępniona |Nie |Wskazuje, czy dźwiękowy podsystem alarmowy w obudowie jest funkcjonalny. |
-| Szaf |Szaf |Fizyczne |Udostępniona |Tak |Wskazuje obecność obudowy. |
-| Ustawienia obudowy |Szaf |Fizyczne |Udostępniona |Nie |Odnosi się do panelu przedniego obudowy. |
-| Czujniki napięcia linii |PCM |Fizyczne |Udostępniona |Nie |W przypadku wielu czujników napięcia linii są wyświetlane ich Stany, które wskazują, czy mierzone napięcie jest objęte tolerancją. |
-| Czujniki bieżące liniowe |PCM |Fizyczne |Udostępniona |Nie |Wszystkie czujniki bieżące z wieloma wierszami mają wyświetlany stan, który wskazuje, czy mierzona wartość bieżąca jest równa tolerancji. |
-| Czujniki temperatury w module PCM |PCM |Fizyczne |Udostępniona |Nie |W przypadku wielu czujników temperatury, takich jak czujniki wlotu i hotspotu, są wyświetlane ich Stany, wskazujące, czy zmierzona temperatura jest w zakresie tolerancji. |
-| Zasilacz [0-1] |PCM |Fizyczne |Udostępniona |Tak |Dla każdego zasilacza w dwóch PCMs znajdujących się w tylnej części urządzenia jest prezentowany jeden wiersz. |
-| Chłodzenie [0-1] |PCM |Fizyczne |Udostępniona |Tak |Jeden wiersz jest prezentowany dla każdego z czterech wentylatorów chłodzących znajdujących się w dwóch PCMs. |
-| Bateria [0-1] |PCM |Fizyczne |Udostępniona |Tak |Dla każdego z modułów baterii tworzenia kopii zapasowych, które znajdują się w module PCM, jest prezentowany jeden wiersz. |
-| Funkcja Metis |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Wyświetla stan baterii: czy potrzebują ładowania i zbliżają się do końca okresu użytkowania. |
-| Klaster |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Przedstawia stan klastra utworzonego między dwoma modułami zintegrowanego kontrolera. |
-| Węzeł klastra |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Wskazuje stan kontrolera w ramach klastra. |
+| Napęd w gnieździe [0-11] |Stacje dysków |Fizyczny |Shared |Tak |Dla każdego dysku SSD lub dysków twarde w obudowie podstawowej jest prezentowany jeden wiersz. |
+| Czujnik temperatury otoczenia |Szaf |Fizyczny |Shared |Nie |Mierzy temperaturę w obudowie. |
+| Czujnik temperatury średniej płaszczyzny |Szaf |Fizyczny |Shared |Nie |Mierzy temperaturę płaszczyzny środkowej. |
+| Alarm dźwiękowy |Szaf |Fizyczny |Shared |Nie |Wskazuje, czy dźwiękowy podsystem alarmowy w obudowie jest funkcjonalny. |
+| Szaf |Szaf |Fizyczny |Shared |Tak |Wskazuje obecność obudowy. |
+| Ustawienia obudowy |Szaf |Fizyczny |Shared |Nie |Odnosi się do panelu przedniego obudowy. |
+| Czujniki napięcia linii |PCM |Fizyczny |Shared |Nie |W przypadku wielu czujników napięcia linii są wyświetlane ich Stany, które wskazują, czy mierzone napięcie jest objęte tolerancją. |
+| Czujniki bieżące liniowe |PCM |Fizyczny |Shared |Nie |Wszystkie czujniki bieżące z wieloma wierszami mają wyświetlany stan, który wskazuje, czy mierzona wartość bieżąca jest równa tolerancji. |
+| Czujniki temperatury w module PCM |PCM |Fizyczny |Shared |Nie |W przypadku wielu czujników temperatury, takich jak czujniki wlotu i hotspotu, są wyświetlane ich Stany, wskazujące, czy zmierzona temperatura jest w zakresie tolerancji. |
+| Zasilacz [0-1] |PCM |Fizyczny |Shared |Tak |Dla każdego zasilacza w dwóch PCMs znajdujących się w tylnej części urządzenia jest prezentowany jeden wiersz. |
+| Chłodzenie [0-1] |PCM |Fizyczny |Shared |Tak |Jeden wiersz jest prezentowany dla każdego z czterech wentylatorów chłodzących znajdujących się w dwóch PCMs. |
+| Bateria [0-1] |PCM |Fizyczny |Shared |Tak |Dla każdego z modułów baterii tworzenia kopii zapasowych, które znajdują się w module PCM, jest prezentowany jeden wiersz. |
+| Funkcja Metis |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Wyświetla stan baterii: czy potrzebują ładowania i zbliżają się do końca okresu użytkowania. |
+| Klaster |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan klastra utworzonego między dwoma modułami zintegrowanego kontrolera. |
+| Węzeł klastra |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Wskazuje stan kontrolera w ramach klastra. |
 | Kworum klastra |Nie dotyczy |Logiczny | |Nie dotyczy |Wskazuje obecność większościowego członkostwa dysku w puli magazynu dysk twardy. |
-| Obszar danych dysku twardego |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Miejsce do magazynowania używane dla danych w puli magazynów dysków twardych (dysk twardy). |
-| Przestrzeń zarządzania dyskami twardymi |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych na potrzeby zadań zarządzania. |
-| Obszar kworum dysku twardego |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych dla kworum klastra. |
-| Przestrzeń zastępująca dysk twardy |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych do zastępowania kontrolera. |
-| Przestrzeń danych SSD |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Miejsce do magazynowania używane na potrzeby danych w puli magazynów półprzewodnikowych (SSD). |
-| Przestrzeń dyskowa SSD |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Miejsce do magazynowania w puli magazynów SSD dedykowane dla logiki NVRAM. |
-| Pula magazynów dysków twardych |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
-| Pula magazynu SSD |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia dysków SSD. |
-| Kontroler [0-1] [stan] |WE/WY |Fizyczne |Kontroler |Tak |Wyświetla stan kontrolera i czy jest on w trybie aktywnym lub w stanie wstrzymania w ramach obudowy. |
-| Czujniki temperatury w kontrolerze |WE/WY |Fizyczne |Kontroler |Nie |W przypadku wielu czujników temperatury, takich jak moduł we/wy, czujniki procesora CPU, moduły DIMM i PCIe, są wyświetlane ich Stany, które wskazują, czy napotkana temperatura jest w zakresie tolerancji. |
-| Ekspander SAS |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan ekspandera Serial Attached SCSI (SAS), który jest używany do łączenia zintegrowanego magazynu z kontrolerem. |
-| Łącznik SAS [0-1] |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan każdego łącznika SAS, który jest używany do łączenia magazynu zintegrowanego z ekspanderem SAS. |
-| SBB — połączenie średniej płaszczyzny |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan łącznika środkowej płaszczyzny, który jest używany do łączenia poszczególnych kontrolerów z płaszczyzną środkową. |
-| Rdzeń procesora |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan rdzeni procesora w poszczególnych kontrolerach. |
-| Moc elektroniki obudowy |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan systemu zasilacza używanego przez obudowę. |
-| Diagnostyka elektroniki obudowy |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan podsystemów diagnostyki dostarczonych przez kontroler. |
-| Kontroler zarządzania płytą główną (BMC) |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan kontrolera zarządzania płytą główną (BMC), który jest wyspecjalizowanym procesorem usług, który monitoruje urządzenie sprzętowe za pośrednictwem czujników i komunikuje się z administratorem systemu za pośrednictwem niezależnego połączenia. |
-| Sieć Ethernet |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan każdego z interfejsów sieciowych, czyli portów zarządzania i danych znajdujących się na kontrolerze. |
-| PAMIĘCI |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan pamięci NVRAM, czyli nielotną pamięć z dostępem losowym, utworzoną przez baterię, która służy do zachowywania informacji krytycznych dla aplikacji w przypadku awarii zasilania. |
+| Obszar danych dysku twardego |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce do magazynowania używane dla danych w puli magazynów dysków twardych (dysk twardy). |
+| Przestrzeń zarządzania dyskami twardymi |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych na potrzeby zadań zarządzania. |
+| Obszar kworum dysku twardego |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych dla kworum klastra. |
+| Przestrzeń zastępująca dysk twardy |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych do zastępowania kontrolera. |
+| Przestrzeń danych SSD |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce do magazynowania używane na potrzeby danych w puli magazynów półprzewodnikowych (SSD). |
+| Przestrzeń dyskowa SSD |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce do magazynowania w puli magazynów SSD dedykowane dla logiki NVRAM. |
+| Pula magazynów dysków twardych |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
+| Pula magazynu SSD |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia dysków SSD. |
+| Kontroler [0-1] [stan] |WE/WY |Fizyczny |Kontroler |Tak |Wyświetla stan kontrolera i czy jest on w trybie aktywnym lub w stanie wstrzymania w ramach obudowy. |
+| Czujniki temperatury w kontrolerze |WE/WY |Fizyczny |Kontroler |Nie |W przypadku wielu czujników temperatury, takich jak moduł we/wy, czujniki procesora CPU, moduły DIMM i PCIe, są wyświetlane ich Stany, które wskazują, czy napotkana temperatura jest w zakresie tolerancji. |
+| Ekspander SAS |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan ekspandera Serial Attached SCSI (SAS), który jest używany do łączenia zintegrowanego magazynu z kontrolerem. |
+| Łącznik SAS [0-1] |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan każdego łącznika SAS, który jest używany do łączenia magazynu zintegrowanego z ekspanderem SAS. |
+| SBB — połączenie średniej płaszczyzny |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan łącznika środkowej płaszczyzny, który jest używany do łączenia poszczególnych kontrolerów z płaszczyzną środkową. |
+| Rdzeń procesora |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan rdzeni procesora w poszczególnych kontrolerach. |
+| Moc elektroniki obudowy |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan systemu zasilacza używanego przez obudowę. |
+| Diagnostyka elektroniki obudowy |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan podsystemów diagnostyki dostarczonych przez kontroler. |
+| Kontroler zarządzania płytą główną (BMC) |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan kontrolera zarządzania płytą główną (BMC), który jest wyspecjalizowanym procesorem usług, który monitoruje urządzenie sprzętowe za pośrednictwem czujników i komunikuje się z administratorem systemu za pośrednictwem niezależnego połączenia. |
+| Sieć Ethernet |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan każdego z interfejsów sieciowych, czyli portów zarządzania i danych znajdujących się na kontrolerze. |
+| PAMIĘCI |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan pamięci NVRAM, czyli nielotną pamięć z dostępem losowym, utworzoną przez baterię, która służy do zachowywania informacji krytycznych dla aplikacji w przypadku awarii zasilania. |
 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista składników dla obudowy EBOD urządzenia StorSimple
 W poniższej tabeli przedstawiono składniki fizyczne i logiczne zawarte w obudowie EBOD (obecne tylko w modelu 8600) lokalnego urządzenia StorSimple.
 
-| Składnik | Moduł | Typ | Lokalizacja | FRU? | Opis |
+| Składnik | Moduł | Type | Lokalizacja | FRU? | Opis |
 | --- | --- | --- | --- | --- | --- |
-| Napęd w gnieździe [0-11] |Stacje dysków |Fizyczne |Udostępniona |Tak |Jeden wiersz jest prezentowany dla każdego z dysków twardych znajdujących się na początku obudowy EBOD. |
-| Czujnik temperatury otoczenia |Szaf |Fizyczne |Udostępniona |Nie |Mierzy temperaturę w obudowie. |
-| Czujnik temperatury średniej płaszczyzny |Szaf |Fizyczne |Udostępniona |Nie |Mierzy temperaturę płaszczyzny środkowej. |
-| Alarm dźwiękowy |Szaf |Fizyczne |Udostępniona |Nie |Wskazuje, czy dźwiękowy podsystem alarmowy w obudowie jest funkcjonalny. |
-| Szaf |Szaf |Fizyczne |Udostępniona |Tak |Wskazuje obecność obudowy. |
-| Ustawienia obudowy |Szaf |Fizyczne |Udostępniona |Nie |Odnosi się do działania lub panelu przedniego obudowy. |
-| Czujniki napięcia linii |PCM |Fizyczne |Udostępniona |Nie |W przypadku wielu czujników napięcia linii są wyświetlane ich Stany, które wskazują, czy mierzone napięcie jest objęte tolerancją. |
-| Czujniki bieżące liniowe |PCM |Fizyczne |Udostępniona |Nie |Wszystkie czujniki bieżące z wieloma wierszami mają wyświetlany stan, który wskazuje, czy mierzona wartość bieżąca jest równa tolerancji. |
-| Czujniki temperatury w module PCM |PCM |Fizyczne |Udostępniona |Nie |W przypadku wielu czujników temperatury, takich jak czujniki wlotu i hotspotu, są wyświetlane ich Stany, które wskazują, czy zmierzona temperatura jest w zakresie tolerancji. |
-| Zasilacz [0-1] |PCM |Fizyczne |Udostępniona |Tak |Dla każdego zasilacza w dwóch PCMs znajdujących się w tylnej części urządzenia jest prezentowany jeden wiersz. |
-| Chłodzenie [0-1] |PCM |Fizyczne |Udostępniona |Tak |Jeden wiersz jest prezentowany dla każdego z czterech wentylatorów chłodzących znajdujących się w dwóch PCMs. |
-| Magazyn lokalny [dysk twardy] |Nie dotyczy |Logiczny |Udostępniona |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
-| Kontroler [0-1] [stan] |WE/WY |Fizyczne |Kontroler |Tak |Wyświetla stan kontrolerów w module EBOD. |
-| Czujniki temperatury w EBOD |WE/WY |Fizyczne |Kontroler |Nie |W przypadku wielu czujników temperatury z każdego kontrolera są wyświetlane ich Stany, które wskazują, czy napotkana temperatura jest tolerancja. |
-| Ekspander SAS |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan ekspandera SAS, który jest używany do łączenia magazynu zintegrowanego z kontrolerem. |
-| Łącznik SAS [0-2] |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan każdego łącznika SAS, który jest używany do łączenia magazynu zintegrowanego z ekspanderem SAS. |
-| SBB — połączenie średniej płaszczyzny |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan łącznika środkowej płaszczyzny, który jest używany do łączenia poszczególnych kontrolerów z płaszczyzną środkową. |
-| Moc elektroniki obudowy |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan systemu zasilacza używanego przez obudowę. |
-| Diagnostyka elektroniki obudowy |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan podsystemów diagnostyki dostarczonych przez kontroler. |
-| Połączenie z kontrolerem urządzenia |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan połączenia między modułem we/wy EBOD i kontrolerem urządzenia. |
+| Napęd w gnieździe [0-11] |Stacje dysków |Fizyczny |Shared |Tak |Jeden wiersz jest prezentowany dla każdego z dysków twardych znajdujących się na początku obudowy EBOD. |
+| Czujnik temperatury otoczenia |Szaf |Fizyczny |Shared |Nie |Mierzy temperaturę w obudowie. |
+| Czujnik temperatury średniej płaszczyzny |Szaf |Fizyczny |Shared |Nie |Mierzy temperaturę płaszczyzny środkowej. |
+| Alarm dźwiękowy |Szaf |Fizyczny |Shared |Nie |Wskazuje, czy dźwiękowy podsystem alarmowy w obudowie jest funkcjonalny. |
+| Szaf |Szaf |Fizyczny |Shared |Tak |Wskazuje obecność obudowy. |
+| Ustawienia obudowy |Szaf |Fizyczny |Shared |Nie |Odnosi się do działania lub panelu przedniego obudowy. |
+| Czujniki napięcia linii |PCM |Fizyczny |Shared |Nie |W przypadku wielu czujników napięcia linii są wyświetlane ich Stany, które wskazują, czy mierzone napięcie jest objęte tolerancją. |
+| Czujniki bieżące liniowe |PCM |Fizyczny |Shared |Nie |Wszystkie czujniki bieżące z wieloma wierszami mają wyświetlany stan, który wskazuje, czy mierzona wartość bieżąca jest równa tolerancji. |
+| Czujniki temperatury w module PCM |PCM |Fizyczny |Shared |Nie |W przypadku wielu czujników temperatury, takich jak czujniki wlotu i hotspotu, są wyświetlane ich Stany, które wskazują, czy zmierzona temperatura jest w zakresie tolerancji. |
+| Zasilacz [0-1] |PCM |Fizyczny |Shared |Tak |Dla każdego zasilacza w dwóch PCMs znajdujących się w tylnej części urządzenia jest prezentowany jeden wiersz. |
+| Chłodzenie [0-1] |PCM |Fizyczny |Shared |Tak |Jeden wiersz jest prezentowany dla każdego z czterech wentylatorów chłodzących znajdujących się w dwóch PCMs. |
+| Magazyn lokalny [dysk twardy] |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
+| Kontroler [0-1] [stan] |WE/WY |Fizyczny |Kontroler |Tak |Wyświetla stan kontrolerów w module EBOD. |
+| Czujniki temperatury w EBOD |WE/WY |Fizyczny |Kontroler |Nie |W przypadku wielu czujników temperatury z każdego kontrolera są wyświetlane ich Stany, które wskazują, czy napotkana temperatura jest tolerancja. |
+| Ekspander SAS |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan ekspandera SAS, który jest używany do łączenia magazynu zintegrowanego z kontrolerem. |
+| Łącznik SAS [0-2] |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan każdego łącznika SAS, który jest używany do łączenia magazynu zintegrowanego z ekspanderem SAS. |
+| SBB — połączenie średniej płaszczyzny |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan łącznika środkowej płaszczyzny, który jest używany do łączenia poszczególnych kontrolerów z płaszczyzną środkową. |
+| Moc elektroniki obudowy |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan systemu zasilacza używanego przez obudowę. |
+| Diagnostyka elektroniki obudowy |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan podsystemów diagnostyki dostarczonych przez kontroler. |
+| Połączenie z kontrolerem urządzenia |WE/WY |Fizyczny |Kontroler |Nie |Wskazuje stan połączenia między modułem we/wy EBOD i kontrolerem urządzenia. |
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby użyć usługi StorSimple Menedżer urządzeń do administrowania urządzeniem, przejdź do [korzystania z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

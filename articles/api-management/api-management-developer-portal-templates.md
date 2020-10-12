@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75430787"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Jak dostosować Portal deweloperów API Management platformy Azure przy użyciu szablonów
@@ -103,7 +103,7 @@ W poprzednim przykładzie w portalu deweloperów są wyświetlane dwa produkty, 
 }
 ```
 
-Znaczniki w szablonie **listy produktów** przetwarzają dane w celu zapewnienia żądanych danych wyjściowych przez iterację kolekcji produktów do wyświetlania informacji oraz łącza do poszczególnych produktów. Zanotuj `<search-control>` `<page-control>` elementy i w znaczniku. Kontrolują one wyświetlanie kontrolek wyszukiwania i stronicowania na stronie. `ProductsStrings|PageTitleProducts`to zlokalizowane odwołanie do ciągu, które zawiera `h2` tekst nagłówka strony. Listę zasobów ciągów, kontrolek stron i ikon dostępnych do użycia w szablonach portalu deweloperów można znaleźć w temacie [API Management dokumentacja szablonów portalu dla deweloperów](api-management-developer-portal-templates-reference.md).
+Znaczniki w szablonie **listy produktów** przetwarzają dane w celu zapewnienia żądanych danych wyjściowych przez iterację kolekcji produktów do wyświetlania informacji oraz łącza do poszczególnych produktów. Zanotuj `<search-control>` `<page-control>` elementy i w znaczniku. Kontrolują one wyświetlanie kontrolek wyszukiwania i stronicowania na stronie. `ProductsStrings|PageTitleProducts` to zlokalizowane odwołanie do ciągu, które zawiera `h2` tekst nagłówka strony. Listę zasobów ciągów, kontrolek stron i ikon dostępnych do użycia w szablonach portalu deweloperów można znaleźć w temacie [API Management dokumentacja szablonów portalu dla deweloperów](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>

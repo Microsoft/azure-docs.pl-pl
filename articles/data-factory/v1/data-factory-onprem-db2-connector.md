@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74931784"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Przenoszenie danych z programu DB2 przy użyciu działania kopiowania Azure Data Factory
@@ -56,7 +56,7 @@ Brama zarządzania danymi zawiera wbudowany sterownik programu DB2, dlatego nie 
 
 > [!TIP]
 > Jeśli zostanie wyświetlony komunikat o błędzie "nie znaleziono pakietu odpowiadającego żądaniu wykonania instrukcji SQL. SQLSTATE = 51002 SQLCODE =-805 "powód jest niezbędny pakiet dla normalnego użytkownika w systemie operacyjnym. Aby rozwiązać ten problem, wykonaj następujące instrukcje dotyczące typu serwera bazy danych DB2:
-> - DB2 for i (systemu AS400): Pozwól użytkownikowi zaawansowanemu utworzyć kolekcję dla normalnego użytkownika przed uruchomieniem działania kopiowania. Aby utworzyć kolekcję, użyj polecenia:`create collection <username>`
+> - DB2 for i (systemu AS400): Pozwól użytkownikowi zaawansowanemu utworzyć kolekcję dla normalnego użytkownika przed uruchomieniem działania kopiowania. Aby utworzyć kolekcję, użyj polecenia: `create collection <username>`
 > - DB2 dla systemu z/OS lub LUW: Użyj konta o wysokim poziomie uprawnień — użytkownik zaawansowany lub administrator, który ma urzędy i powiązania pakietów, BINDADD, PRZYZNAj uprawnienia wykonywanie do publicznych uprawnień — aby uruchomić kopię raz. Wymagany pakiet jest automatycznie tworzony podczas kopiowania. Później można wrócić do normalnego użytkownika w przypadku kolejnych przebiegów kopiowania.
 
 ## <a name="getting-started"></a>Wprowadzenie
@@ -308,45 +308,45 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | Typ bazy danych DB2 | Typ programu .NET Framework |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Liczba całkowita |Int32 |
 | BigInt |Int64 |
-| Rzeczywiste |Pojedyncze |
+| Rzeczywiste |Pojedynczy |
 | Double |Double |
-| Float |Double |
-| Wartość dziesiętna |Wartość dziesiętna |
-| DecimalFloat |Wartość dziesiętna |
-| Numeryczne |Wartość dziesiętna |
-| Data |DateTime |
+| Liczba zmiennoprzecinkowa |Double |
+| Liczba dziesiętna |Liczba dziesiętna |
+| DecimalFloat |Liczba dziesiętna |
+| Numeryczne |Liczba dziesiętna |
+| Data |Data i godzina |
 | Godzina |przedział_czasu |
-| Znacznik czasu |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte [] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
+| Char |Ciąg |
+| VarChar |Ciąg |
+| LongVarChar |Ciąg |
+| DB2DynArray |Ciąg |
 | Binarne |Byte [] |
 | Liczby |Byte [] |
 | LongVarBinary |Byte [] |
-| Zdjęć |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Obiektów CLOB |String |
+| Zdjęć |Ciąg |
+| VarGraphic |Ciąg |
+| LongVarGraphic |Ciąg |
+| Obiektów CLOB |Ciąg |
 | Obiekt blob |Byte [] |
-| DbClob |String |
+| DbClob |Ciąg |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Liczba całkowita |Int32 |
 | BigInt |Int64 |
-| Rzeczywiste |Pojedyncze |
+| Rzeczywiste |Pojedynczy |
 | Double |Double |
-| Float |Double |
-| Wartość dziesiętna |Wartość dziesiętna |
-| DecimalFloat |Wartość dziesiętna |
-| Numeryczne |Wartość dziesiętna |
-| Data |DateTime |
+| Liczba zmiennoprzecinkowa |Double |
+| Liczba dziesiętna |Liczba dziesiętna |
+| DecimalFloat |Liczba dziesiętna |
+| Numeryczne |Liczba dziesiętna |
+| Data |Data i godzina |
 | Godzina |przedział_czasu |
-| Znacznik czasu |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte [] |
-| Char |String |
+| Char |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się, jak mapować kolumny w źródłowym zestawie danych na kolumny w zestawie danych ujścia, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

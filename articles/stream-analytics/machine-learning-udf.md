@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91249488"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja Azure Stream Analytics z Azure Machine Learning (wersja zapoznawcza)
@@ -51,13 +51,13 @@ Funkcje Azure Machine Learning można dodawać do zadania Stream Analytics bezpo
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Dodaj funkcję UDF w VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Dodaj Azure Machine Learning UDF w VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Dodaj funkcję UDF w VS Code":::
 
 2. Wprowadź nazwę funkcji i wypełnij ustawienia w pliku konfiguracji przy użyciu **opcji wybierz z subskrypcji** w programie CodeLens.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Wybierz pozycję Azure Machine Learning UDF w VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Dodaj funkcję UDF w VS Code":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Konfigurowanie Azure Machine Learning UDF w VS Code":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Dodaj funkcję UDF w VS Code":::
 
 W poniższej tabeli opisano każdą właściwość funkcji usługi Azure Machine Learning w Stream Analytics.
 

@@ -11,10 +11,10 @@ ms.date: 6/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 03cbe4eb56f3b3b99f87048b699f76b30b7937c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85373968"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konwertowanie szablonu zestawu skalowania na szablon zestawu skalowania dysku zarządzanego
@@ -118,7 +118,7 @@ W poniższym pozostałej różnicy można zobaczyć, że usuwamy klauzulę zale�
 W konfiguracji zestawu skalowania nie ma jawnej właściwości, czy ma być używany dysk zarządzany lub niezarządzany. Zestaw skalowania wie, który ma być używany na podstawie właściwości znajdujących się w profilu magazynu. Dlatego ważne jest, aby zmodyfikować szablon w celu upewnienia się, że odpowiednie właściwości znajdują się w profilu magazynu zestawu skalowania.
 
 
-## <a name="data-disks"></a>Dyski z danymi
+## <a name="data-disks"></a>Dyski danych
 
 Po wprowadzeniu powyższych zmian zestaw skalowania używa dysków zarządzanych dla dysku systemu operacyjnego, ale co o dyskach z danymi? Aby dodać dyski danych, należy dodać właściwość "datadisks" w pozycji "obszarze storageprofile" na tym samym poziomie co "osDisk". Wartość właściwości jest listą obiektów JSON, każdy z nich ma właściwości "LUN" (które muszą być unikatowe dla każdego dysku z danymi na maszynie wirtualnej), "diskSizeGB" ("Empty" jest obecnie jedyną obsługiwaną opcją), a "wartość" (rozmiar dysku w gigabajtach) musi być większa niż 0 i mniejsza niż 1024), jak w poniższym przykładzie:
 

@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250134"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny VuePress w wersji zapoznawczej usługi Azure static Web Apps
@@ -127,7 +127,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
 1. W obszarze _jednostka SKU_wybierz pozycję **bezpłatnie**.
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Szczegóły wypełnione":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
 1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** .
 
@@ -137,7 +137,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
 1. Dla _gałęzi_ wybierz gałąź **główna**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
 ### <a name="build"></a>Kompilacja
 
@@ -151,7 +151,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Ustawienia kompilacji":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
 ### <a name="review-and-create"></a>Przegląd i tworzenie
 
@@ -163,7 +163,7 @@ Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwil
 
 1. Na ekranie zasób kliknij link _adresu URL_ , aby otworzyć wdrożoną aplikację. Może być konieczne poczekanie minutę lub dwie, aby wykonać akcję usługi GitHub.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Wdrożona aplikacja":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Tworzenie statycznej Web Apps (wersja zapoznawcza) w portalu":::
 
 ### <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86204449"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Zarządzanie woluminami (Aktualizacja Update 3 lub nowsza) za pomocą usługi StorSimple Menedżer urządzeń
@@ -51,7 +51,7 @@ Jeśli używasz woluminu warstwowego dla danych archiwalnych, zaznacz pole wybor
 
 Zapoznaj się z poniższą tabelą dotyczącą maksymalnej alokowanej pojemności dla każdego typu urządzenia i woluminu. (Należy zauważyć, że woluminy przypięte lokalnie nie są dostępne na urządzeniu wirtualnym).
 
-| Typ | Maksymalny rozmiar warstwowy | Maksymalny rozmiar woluminu przypiętego lokalnie |
+| Type | Maksymalny rozmiar warstwowy | Maksymalny rozmiar woluminu przypiętego lokalnie |
 | --- | --- | --- |
 | **Urządzenia fizyczne** | | |
 | 8100 |64 TB |8 TB |
@@ -112,7 +112,7 @@ Skorzystaj z instrukcji przedstawionych w tym samouczku, aby wykonać następuj�
       
        W przypadku alokowania woluminu przypiętego lokalnie o rozmiarze 8,5 TB (maksymalny dozwolony rozmiar) na urządzeniu 8100 całe lokalne miejsce dostępne na urządzeniu zostanie wyczerpane. Od tego momentu nie można tworzyć woluminów warstwowych, ponieważ w urządzeniu nie ma już miejsca lokalnego do hostowania roboczego zestawu woluminu warstwowego. Istniejące woluminy warstwowe również wpływają na dostępne miejsce. Jeśli na przykład masz urządzenie 8100 z woluminami warstwowymi o wielkości około 106 TB, tylko 4 TB są dostępne dla woluminów przypiętych lokalnie.
 
-    6. W polu **Połączone hosty** kliknij strzałkę. W bloku **połączone hosty** wybierz istniejący ACR lub Dodaj nowy ACR. Jeśli wybierzesz nowy ACR, podaj **nazwę** dla ACR, podaj **kwalifikowaną nazwę iSCSI** (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu Pobieranie nazwy IQN hosta z systemem Windows Server. Kliknij pozycję **Utwórz**. Wolumin zostanie utworzony przy użyciu wybranych ustawień.
+    6. W polu **Połączone hosty** kliknij strzałkę. W bloku **połączone hosty** wybierz istniejący ACR lub Dodaj nowy ACR. Jeśli wybierzesz nowy ACR, podaj **nazwę** dla ACR, podaj **kwalifikowaną nazwę iSCSI** (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu Pobieranie nazwy IQN hosta z systemem Windows Server. Kliknij przycisk **Utwórz**. Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
         ![Kliknięcie pozycji Utwórz](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
@@ -157,7 +157,7 @@ Należy zmodyfikować wolumin, gdy trzeba go rozszerzyć lub zmienić hosty, kt�
 
        ![Przejrzyj wpływ przełączenia woluminu w tryb offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Kliknij przycisk **Zapisz**, aby zapisać zmiany. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. W Azure Portal zostanie wyświetlony komunikat o aktualizowaniu woluminu. Po pomyślnym zaktualizowaniu woluminu zostanie wyświetlony komunikat o powodzeniu.
+5. Kliknij pozycję **Zapisz**, aby zapisać zmiany. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. W Azure Portal zostanie wyświetlony komunikat o aktualizowaniu woluminu. Po pomyślnym zaktualizowaniu woluminu zostanie wyświetlony komunikat o powodzeniu.
 
     ![Przejrzyj wpływ przełączenia woluminu w tryb offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 

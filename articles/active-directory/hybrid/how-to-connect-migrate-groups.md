@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358586"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Migrowanie grup z jednego lasu do drugiego dla Azure AD Connect
@@ -25,7 +25,7 @@ W tym artykule opisano sposób migrowania grup z jednego lasu do drugiego, aby z
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Azure AD Connect w wersji 1.5.18.0 lub nowszej
-- Atrybut kotwicy źródłowej ustawiony na`mS-DS-ConsistencyGuid`
+- Atrybut kotwicy źródłowej ustawiony na `mS-DS-ConsistencyGuid`
 
 ## <a name="migrate-groups"></a>Migrowanie grup
 

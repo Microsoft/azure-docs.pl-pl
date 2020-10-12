@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
 ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719703"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia wypychania do konfiguracji aplikacji z Azure Pipelines
@@ -87,7 +87,7 @@ Następujące parametry są używane przez zadanie wypychania konfiguracji aplik
 - **Label**: ciąg, który jest dodawany do każdej wartości klucza jako etykieta w magazynie konfiguracji aplikacji.
 - **Typ zawartości**: ciąg, który jest dodawany do każdej wartości klucza jako typ zawartości w magazynie konfiguracji aplikacji.
 - **Tagi**: obiekt JSON w formacie `{"tag1":"val1", "tag2":"val2"}` , który definiuje Tagi, które są dodawane do każdej wartości klucza wypychanej do magazynu konfiguracji aplikacji.
-- **Usuń wszystkie pozostałe wartości kluczy w sklepie o określonym prefiksie i etykiecie**: wartość domyślna to **unchecked**.
+- **Usuń wszystkie inne Key-Values w sklepie o określonym prefiksie i etykiecie**: wartość domyślna nie jest **zaznaczona**.
   - **Sprawdzono**: usuwa wszystkie wartości klucza w magazynie konfiguracji aplikacji, które pasują do określonego prefiksu i etykiety przed wypchnięciem nowych wartości klucza z pliku konfiguracyjnego.
   - **Niezaznaczone**: wypycha wszystkie wartości klucza z pliku konfiguracji do magazynu konfiguracji aplikacji i pozostawia wszystkie inne w magazynie konfiguracji aplikacji bez zmian.
 
@@ -97,7 +97,7 @@ Po wypełnieniu wymaganych parametrów Uruchom potok. Wszystkie wartości kluczy
 
 Jeśli wystąpi nieoczekiwany błąd, Dzienniki debugowania można włączyć, ustawiając zmienną potoku `system.debug` na `true` .
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Jak można przekazać wiele plików konfiguracji?**
 

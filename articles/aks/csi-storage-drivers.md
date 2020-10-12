@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/27/2020
 author: palma21
 ms.openlocfilehash: 54764b16ba63d5656f61152cfe40ef50475192a5
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085670"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks-preview"></a>Włącz sterowniki interfejsu magazynu kontenerów (CSI) dla dysków platformy Azure i Azure Files w usłudze Azure Kubernetes Service (wersja zapoznawcza)

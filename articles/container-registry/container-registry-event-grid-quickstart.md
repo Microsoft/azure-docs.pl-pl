@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78403241"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Szybki Start: wysyłanie zdarzeń z rejestru kontenerów prywatnych do Event Grid

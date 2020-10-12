@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81460651"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices (Najlepsze rozwiązania dotyczące macierzy wirtualnej StorSimple)
@@ -41,7 +41,7 @@ StorSimple Virtual Array to maszyna wirtualna (VM) obsługiwana w funkcji hyperv
 
 Podczas aprowizacji macierzy wirtualnej należy zaimplementować następujące najlepsze rozwiązania:
 
-|  | Funkcja Hyper-V | VMware |
+|  | Hyper-V | VMware |
 | --- | --- | --- |
 | **Typ maszyny wirtualnej** |**Generacja 2** Maszyna wirtualna do użycia z systemem Windows Server 2012 lub nowszym oraz obrazem *VHDX* . <br></br> **Generacja 1** Maszyna wirtualna do użycia z systemem Windows Server 2008 lub nowszym oraz obrazem *VHD* . |Użyj maszyny wirtualnej w wersji 8 przy użyciu obrazu *. vmdk* . |
 | **Typ pamięci** |Skonfiguruj jako **pamięć statyczną**. <br></br> Nie używaj opcji **pamięci dynamicznej** . | |
@@ -121,7 +121,7 @@ W związku z tym zalecamy:
 * Upewnij się, że tablica wirtualna ma własną jednostkę organizacyjną (OU) dla Active Directory.
 * Upewnij się, że żadne obiekty zasad grupy (GPO) nie są stosowane do macierzy wirtualnej. Można zablokować dziedziczenie, aby upewnić się, że Macierz wirtualna (węzeł podrzędny) nie dziedziczy automatycznie żadnych obiektów zasad grupy z elementu nadrzędnego. Aby uzyskać więcej informacji, przejdź do [bloku Blokowanie dziedziczenia](https://technet.microsoft.com/library/cc731076.aspx).
 
-### <a name="networking"></a>Sieć
+### <a name="networking"></a>Networking
 Konfiguracja sieci dla macierzy wirtualnej odbywa się za pomocą lokalnego interfejsu użytkownika sieci Web. Interfejs sieci wirtualnej jest włączany za pomocą funkcji hypervisor, w której zainicjowano obsługę macierzy wirtualnej. Na stronie [Ustawienia sieci](storsimple-virtual-array-deploy3-fs-setup.md) można skonfigurować adres IP, podsieć i bramę interfejsu sieci wirtualnej.  Można również skonfigurować podstawowy i pomocniczy serwer DNS, ustawienia czasu oraz opcjonalne ustawienia serwera proxy dla urządzenia. Większość konfiguracji sieci to jednorazowa konfiguracja. Przed wdrożeniem macierzy wirtualnej zapoznaj się z [wymaganiami dotyczącymi sieci StorSimple](storsimple-ova-system-requirements.md#networking-requirements) .
 
 Podczas wdrażania macierzy wirtualnej zalecamy przestrzeganie następujących najlepszych rozwiązań:
@@ -149,7 +149,7 @@ Poniższe zalecenia dotyczą kont magazynu skojarzonych z wirtualną tablicą.
   
   * Zalecamy utworzenie go w regionie najbliższym zdalnej biurze/oddziału, w którym wdrożono macierz wirtualną StorSimple, aby zminimalizować opóźnienia.
   * Należy pamiętać, że nie można przenieść konta magazynu w różnych regionach. Nie można również przenieść usługi między subskrypcjami.
-  * Użyj konta magazynu, które implementuje nadmiarowość między centrami danych. Magazyn Geograficznie nadmiarowy (GRS), pamięć nadmiarowa stref (ZRS) i Magazyn lokalnie nadmiarowy (LRS) są obsługiwane do użycia z wirtualną tablicą. Aby uzyskać więcej informacji na temat różnych typów kont magazynu, przejdź do [replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
+  * Użyj konta magazynu, które implementuje nadmiarowość między centrami danych. Geo-Redundant Storage (GRS), magazyn strefowo nadmiarowy (ZRS) i Magazyn lokalnie nadmiarowy (LRS) są obsługiwane na potrzeby używania z wirtualną tablicą. Aby uzyskać więcej informacji na temat różnych typów kont magazynu, przejdź do [replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Udziały i woluminy
 W przypadku macierzy wirtualnej StorSimple można udostępnić udziały, gdy jest ona skonfigurowana jako serwer plików i woluminy, gdy są skonfigurowane jako serwer iSCSI. Najlepsze rozwiązania dotyczące tworzenia udziałów i woluminów są związane z rozmiarem i skonfigurowanym typem.
@@ -287,6 +287,6 @@ Może być konieczne wdrożenie wielu tablic wirtualnych na potrzeby rosnącego 
 * W przypadku wdrażania wielu tablic wirtualnych zaleca się, aby z perspektywy równoważenia obciążenia rozesłać tablicę między różnymi hostami funkcji hypervisor.
 * Wiele macierzy wirtualnych (w przypadku skonfigurowania serwera plików lub serwera iSCSI) można wdrożyć w przestrzeni nazw rozproszony system plików. Aby uzyskać szczegółowe instrukcje, przejdź do [rozwiązania rozproszony system plików przestrzeń nazw z przewodnikiem wdrażania hybrydowego magazynu w chmurze](https://www.microsoft.com/download/details.aspx?id=45507). Replikacja rozproszony system plików nie jest obecnie zalecana do użycia z wirtualną macierzą. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Dowiedz się, jak [administrować macierzą wirtualną StorSimple](storsimple-virtual-array-manager-service-administration.md) za pośrednictwem usługi StorSimple Manager.
 

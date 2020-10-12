@@ -15,15 +15,15 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921154"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Używanie Azure CDN z mechanizmem CORS
 ## <a name="what-is-cors"></a>Co to jest mechanizm CORS?
-CORS (Udostępnianie zasobów między źródłami) to funkcja protokołu HTTP, która umożliwia aplikacji sieci Web działającej w ramach jednej domeny dostęp do zasobów w innej domenie. Aby zmniejszyć prawdopodobieństwo ataków na skrypty między lokacjami, wszystkie nowoczesne przeglądarki sieci Web implementują ograniczenie zabezpieczeń znane jako [zasady tego samego źródła](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Zapobiega to wywoływaniu interfejsów API w innej domenie przez stronę sieci Web.  Mechanizm CORS umożliwia bezpieczny sposób wywoływania interfejsów API w innym źródle.
+Mechanizm CORS (udostępnianie zasobów między źródłami) to funkcja protokołu HTTP, która umożliwia aplikacji internetowej działającej w ramach jednej domeny dostęp do zasobów w innej domenie. Aby zmniejszyć prawdopodobieństwo ataków na skrypty między lokacjami, wszystkie nowoczesne przeglądarki sieci Web implementują ograniczenie zabezpieczeń znane jako [zasady tego samego źródła](https://www.w3.org/Security/wiki/Same_Origin_Policy).  Zapobiega to wywoływaniu interfejsów API w innej domenie przez stronę sieci Web.  Mechanizm CORS umożliwia bezpieczny sposób wywoływania interfejsów API w innym źródle.
 
 ## <a name="how-it-works"></a>Jak to działa
 Istnieją dwa typy żądań CORS, *proste żądania* i *skomplikowane żądania.*
@@ -36,7 +36,7 @@ Istnieją dwa typy żądań CORS, *proste żądania* i *skomplikowane żądania.
 
 2. Serwer może odpowiedzieć z dowolnego z następujących elementów:
 
-   * Nagłówek **Access-Control-Allow-Origin** w odpowiedzi wskazujący, która lokacja pochodzenia jest dozwolona. Przykład:
+   * Nagłówek **Access-Control-Allow-Origin** w odpowiedzi wskazujący, która lokacja pochodzenia jest dozwolona. Na przykład:
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
