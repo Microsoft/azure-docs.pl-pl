@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087358"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB
@@ -58,7 +58,7 @@ Aby zezwolić na dostęp publiczny do konta magazynu lub go uniemożliwić, skon
 >
 > Właściwość **AllowBlobPublicAccess** jest obecnie dostępna tylko dla kont magazynu w chmurze publicznej platformy Azure.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby zezwolić na dostęp publiczny do konta magazynu w Azure Portal lub go uniemożliwić, wykonaj następujące czynności:
 
@@ -193,7 +193,7 @@ Jeśli dostęp publiczny jest dozwolony dla konta magazynu, można skonfigurowa�
 
 Nie można zmienić publicznego poziomu dostępu dla pojedynczego obiektu BLOB. Poziom dostępu publicznego jest ustawiany tylko na poziomie kontenera. Można ustawić publiczny poziom dostępu kontenera podczas tworzenia kontenera lub zaktualizować ustawienia w istniejącym kontenerze.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby zaktualizować poziom dostępu publicznego dla jednego lub kilku istniejących kontenerów w Azure Portal, wykonaj następujące kroki:
 
@@ -207,7 +207,7 @@ Aby zaktualizować poziom dostępu publicznego dla jednego lub kilku istniejący
 
 Jeśli dostęp publiczny jest niedozwolony dla konta magazynu, nie można ustawić publicznego poziomu dostępu kontenera. Jeśli zostanie podjęta próba ustawienia publicznego poziomu dostępu kontenera, zobaczysz, że ustawienie jest wyłączone, ponieważ dostęp publiczny jest niedozwolony dla konta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Zrzut ekranu pokazujący, że poziom dostępu publicznego kontenera jest blokowany, gdy publiczny dostęp nie jest dozwolony":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Zrzut ekranu przedstawiający sposób zezwalania lub zapobiegania dostępowi do dostępu publicznego obiektu BLOB dla konta":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 

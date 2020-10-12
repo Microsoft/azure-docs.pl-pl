@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711038"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Zarządzanie aplikacją Service Fabric platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure Service Fabric (sfctl)
@@ -73,7 +73,7 @@ Aby usunąć pakiet aplikacji z magazynu obrazów, użyj następującego polecen
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`musi być nazwą katalogu, który został przekazany podczas tworzenia aplikacji.
+`content-path` musi być nazwą katalogu, który został przekazany podczas tworzenia aplikacji.
 
 ### <a name="create-an-application-from-an-application-type"></a>Tworzenie aplikacji na podstawie typu aplikacji
 
@@ -83,7 +83,7 @@ Po udostępnieniu aplikacji użyj następującego polecenia, aby nawiązać nazw
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`jest nazwą, która ma być używana dla wystąpienia aplikacji. Możesz uzyskać dodatkowe parametry z wcześniej zainicjowanego manifestu aplikacji.
+`app-name` jest nazwą, która ma być używana dla wystąpienia aplikacji. Możesz uzyskać dodatkowe parametry z wcześniej zainicjowanego manifestu aplikacji.
 
 Nazwa aplikacji musi zaczynać się od prefiksu `fabric:/` .
 

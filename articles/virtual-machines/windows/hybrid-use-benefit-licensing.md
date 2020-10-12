@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335990"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
@@ -85,7 +85,7 @@ Jeśli masz istniejącą maszynę wirtualną, którą chcesz przekonwertować, a
 ### <a name="portal"></a>Portal
 W bloku maszyny wirtualnej portalu możesz zaktualizować maszynę wirtualną, aby używała Korzyść użycia hybrydowego platformy Azure, wybierając opcję "Konfiguracja" i przełączając opcję "korzyść użycia hybrydowego platformy Azure"
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 - Konwertuj istniejące maszyny wirtualne z systemem Windows Server na Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server
 
     ```powershell
@@ -115,7 +115,7 @@ Po wdrożeniu maszyny wirtualnej za pomocą programu PowerShell, Menedżer zasob
 ### <a name="portal"></a>Portal
 W bloku maszyny wirtualnej portalu można wyświetlić przełącznik dla Korzyść użycia hybrydowego platformy Azure dla systemu Windows Server, wybierając kartę "Konfiguracja".
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 W poniższym przykładzie przedstawiono typ licencji dla jednej maszyny wirtualnej
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"

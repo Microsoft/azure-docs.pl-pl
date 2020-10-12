@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996841"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorowanie operacji zarządzania wystąpieniami zarządzanymi Azure SQL
@@ -43,7 +43,7 @@ Istnieje kilka sposobów monitorowania operacji zarządzania wystąpieniami zarz
 
 Poniższa tabela zawiera porównanie opcji monitorowania operacji zarządzania: 
 
-| Opcja | Przechowywanie | Obsługuje anulowanie | Utwórz | Aktualizacja | Usuń | Anuluj | Kroki |
+| Opcja | Przechowywanie | Obsługuje anulowanie | Utwórz | Aktualizacja | Usuwanie | Anuluj | Kroki |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Wdrożenia grupy zasobów | Nieskończoność<sup>1</sup> | Nr<sup>2</sup> | Widoczne | Widoczne | Niewidoczne | Widoczne | Niewidoczne |
 | Dziennik aktywności | 90 dni | Nie | Widoczne | Widoczne | Widoczne | Widoczne |  Niewidoczne |

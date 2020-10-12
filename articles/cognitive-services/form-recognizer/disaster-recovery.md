@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718819"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
@@ -82,7 +82,7 @@ Treść żądania musi mieć następujący format. Należy wprowadzić identyfik
 > [!NOTE]
 > Interfejs API kopiowania w sposób przezroczysty obsługuje funkcję [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) . Nie wymaga to żadnej szczególnej obróbki, ale należy pamiętać, że jeśli kopiujesz między niezaszyfrowanym zasobem a zaszyfrowanym zasobem, musisz dołączyć nagłówek żądania `x-ms-forms-copy-degrade: true` . Jeśli ten nagłówek nie jest uwzględniony, operacja kopiowania zakończy się niepowodzeniem i zwróci `DataProtectionTransformServiceError` .
 
-Otrzymasz `202\Accepted` odpowiedź z nagłówkiem lokalizacji operacji. Ta wartość jest adresem URL, który będzie używany do śledzenia postępu operacji. Skopiuj ją do tymczasowej lokalizacji dla następnego kroku.
+Otrzymasz `202\Accepted` odpowiedź z nagłówkiem Operation-Location. Ta wartość jest adresem URL, który będzie używany do śledzenia postępu operacji. Skopiuj ją do tymczasowej lokalizacji dla następnego kroku.
 
 ```
 HTTP/1.1 202 Accepted
@@ -91,7 +91,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Typowe błędy
 
-|Error|Rozwiązanie|
+|Błąd|Rozwiązanie|
 |:--|:--|
 | 400/złe żądanie z `"code:" "1002"` | Wskazuje błąd walidacji lub nieprawidłowo sformułowane żądanie kopiowania. Typowe problemy obejmują: a) nieprawidłowy lub zmodyfikowany `copyAuthorization` ładunek. b) wygasła wartość `expirationDateTimeTicks` tokenu ( `copyAuhtorization` ładunek jest ważny przez 24 godziny). c) jest nieprawidłowy lub nieobsługiwany `targetResourceRegion` . d) nieprawidłowy lub źle sformułowany `targetResourceId` ciąg.
 |
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Typowe błędy
 
-|Error|Rozwiązanie|
+|Błąd|Rozwiązanie|
 |:--|:--|
 |"błędy": [{"Code": "AuthorizationError",<br>"Message": "niepowodzenie autoryzacji z powodu <br>brakujące lub nieprawidłowe oświadczenia autoryzacji. "}]   | Występuje, gdy `copyAuthorization` ładunek lub zawartość są modyfikowane na podstawie tego, co zostało zwrócone przez `copyAuthorization` interfejs API. Upewnij się, że ładunek jest identyczny z dokładną zawartością, która została zwrócona z wcześniejszego `copyAuthorization` wywołania.|
 |"błędy": [{"Code": "AuthorizationError",<br>"komunikat": "nie można pobrać autoryzacji <br>metadane. Jeśli ten problem będzie nadal występował, użyj innego <br>Model docelowy do kopiowania. "}] | Wskazuje, że `copyAuthorization` ładunek jest ponownie używany z żądaniem kopiowania. Żądanie Copy, które powiodło się, nie będzie zezwalać na żadne dalsze żądania, które używają tego samego `copyAuthorization` ładunku. Jeśli zostanie zgłoszony oddzielny błąd (taki jak wymienione poniżej), a następnie ponów próbę kopiowania z tym samym ładunkiem autoryzacji, ten błąd zostanie wygenerowany. Rozwiązanie to wygenerowanie nowego `copyAuthorization` ładunku, a następnie ponowne wydanie żądania kopiowania.|

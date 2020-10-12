@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950208"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Środowiska użytkownika z Azure AD Identity Protection
@@ -67,7 +67,7 @@ Po skonfigurowaniu zasad ryzyka użytkownika użytkownicy, którzy spełnią pra
 
 1. Użytkownik jest informowany, że zabezpieczenia konta są zagrożone ze względu na podejrzane działanie lub nieujawnione poświadczenia.
    
-    ![Korygowanie](./media/concept-identity-protection-user-experience/101.png)
+    ![Korekty](./media/concept-identity-protection-user-experience/101.png)
 
 1. Użytkownik musi potwierdzić swoją tożsamość, kończąc usługę Azure MFA przy użyciu jednej z wcześniej zarejestrowanych metod. 
 1. Na koniec użytkownik jest zmuszony do zmiany hasła przy użyciu funkcji samoobsługowego resetowania hasła, ponieważ ktoś inny mógł uzyskać dostęp do swojego konta.

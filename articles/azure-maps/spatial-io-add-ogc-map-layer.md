@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128560"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Dodaj warstwę mapy z Open Geospatial Consortium (OGC)
@@ -23,7 +23,7 @@ W poniższych sekcjach opisano funkcje usługi mapy sieci Web, które są obsłu
 
 **Usługa mapy sieci Web (WMS)**
 
-- Obsługiwane wersje: `1.0.0` , `1.1.0` , `1.1.1` i`1.3.0`
+- Obsługiwane wersje: `1.0.0` , `1.1.0` , `1.1.1` i `1.3.0`
 - Usługa musi obsługiwać `EPSG:3857` system projekcji lub obsługiwać reprojekcje.
 - GetFeatureInfo wymaga, aby usługa obsługiwała `EPSG:4326` lub obsługiwała przedziały. 
 - Obsługiwane operacje:
@@ -36,9 +36,9 @@ W poniższych sekcjach opisano funkcje usługi mapy sieci Web, które są obsłu
 
 **Usługa kafelków mapy sieci Web (WMTS)**
 
-- Obsługiwane wersje:`1.0.0`
+- Obsługiwane wersje: `1.0.0`
 - Kafelki muszą być kwadratowe, na przykład `TileWidth == TileHeight` .
-- Obsługiwane przez KSR `EPSG:3857` :`GoogleMapsCompatible` 
+- Obsługiwane przez KSR `EPSG:3857` : `GoogleMapsCompatible` 
 - Identyfikator TileMatrix musi być wartością całkowitą, która odpowiada poziomowi powiększenia na mapie. Na mapie platformy Azure poziom powiększenia jest wartością z zakresu od `"0"` do `"22"` . Jest to `"0"` obsługiwane, ale `"00"` nie jest obsługiwane.
 - Obsługiwane operacje:
 

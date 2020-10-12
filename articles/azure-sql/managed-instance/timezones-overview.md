@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
 ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617931"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Strefy czasowe w wystąpieniu zarządzanym usługi Azure SQL
@@ -34,7 +34,7 @@ Zestaw obsługiwanych stref czasowych jest Dziedziczony z bazowego systemu opera
 
 [Zasady zmiany czasu/strefy czas letni](https://aka.ms/time) gwarantuje prawidłowość historyczną od 2010 do przodu.
 
-Lista z nazwami obsługiwanych stref czasowych jest dostępna za pomocą widoku [sys. time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system.
+Lista z nazwami obsługiwanych stref czasowych jest dostępna za pomocą widoku system [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
 ## <a name="set-a-time-zone"></a>Ustawianie strefy czasowej
 
@@ -144,7 +144,7 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 | Saint-Pierre (czas standardowy) | (UTC-03:00) Saint-Pierre i Miquelon |
 | Bahia ((czas standardowy) | (UTC-03:00) Salwadoru |
 | UTC — 02 | (UTC-02:00) Uniwersalny czas koordynowany-02 |
-| Środkowy Atlantyk (czas standardowy) | (UTC-02:00) Środkowy Atlantyk |
+| Mid-Atlantic czasu standardowego | (UTC-02:00) Mid-Atlantic — stary |
 | Azory (czas standardowy) | (UTC-01:00) Azory |
 | Wyspy Zielonego Przylądka (czas standardowy) | (UTC-01:00) Wyspy Zielonego Przylądka |
 | UTC | (UTC) Uniwersalny czas koordynowany |
@@ -199,7 +199,7 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 | Omsk (czas standardowy) | (UTC + 06:00) Omsk |
 | Myanmar (czas standardowy) | (UTC + 06:30) Yangon (Rangun) |
 | Azja Wschodnia (czas standardowy) | (UTC + 07:00) Bangkok, Hanoi, Dżakarta |
-| Ałtaj ((czas standardowy) | (UTC + 07:00) Barnauł, Gornoałtajsk-Gornoałtajsk |
+| Ałtaj ((czas standardowy) | (UTC + 07:00) Barnauł, Gorno-Altaysk |
 | K. Mongolia (czas standardowy) | (UTC + 07:00) Ajmak kobdoski |
 | Azja Północna (czas standardowy) | (UTC + 07:00) Krasnojarsk |
 | Azotan. Azja Środkowa (czas standardowy) | (UTC + 07:00) Nowosybirsk |
@@ -230,20 +230,20 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 | Norfolk (czas standardowy) | (UTC + 11:00) Wyspa Norfolk |
 | Sachalin (czas standardowy) | (UTC + 11:00) Sachalin |
 | Środkowy Pacyfik (czas standardowy) | (UTC + 11:00) Wyspy Salomona, Nowa Kaledonia |
-| Rosja strefa czasowa 11 | (UTC + 12:00) Anadyr, Pietropawłowsk Kamczacki |
+| Rosja strefa czasowa 11 | (UTC + 12:00) Anadyr, Petropavlovsk-Kamchatsky |
 | Nowa Zelandia (czas standardowy) | (UTC + 12:00) Auckland, Wellington |
 | UTC + 12 | (UTC + 12:00) Uniwersalny czas koordynowany + 12 |
 | Fidżi (czas standardowy) | (UTC + 12:00) Fidżi |
-| Kamczatka (czas standardowy) | (UTC + 12:00) Pietropawłowsk Kamczacki — stare |
+| Kamczatka (czas standardowy) | (UTC + 12:00) Petropavlovsk-Kamchatsky — stary |
 | Wyspy Chatham (czas standardowy) | (UTC + 12:45) Wyspy Chatham |
 | UTC + 13 | (UTC + 13:00) Uniwersalny czas koordynowany + 13 |
 | Tonga (czas standardowy) | (UTC + 13:00) Nuku'alofa |
 | Samoa (czas standardowy) | (UTC + 13:00) Zachodniego |
 | Wyspy liniowe (czas standardowy) | (UTC + 14:00) Wyspa Kiritimati |
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
 - [W strefie CZASowej (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

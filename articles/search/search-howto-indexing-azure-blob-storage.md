@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: e3419711c9a7358914f85574f6dbd5af29def1cf
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403618"
 ---
 # <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Jak skonfigurować indeksator obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
@@ -31,7 +31,7 @@ Indeksator obiektów BLOB może wyodrębnić tekst z następujących formatów d
 
 Można skonfigurować usługę Azure Blob Storage indeksator przy użyciu:
 
-* [Witryna Azure Portal](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * [Interfejs API REST](/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
 * Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/overview/azure/search)
 

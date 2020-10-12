@@ -4,10 +4,10 @@ description: Ten artykuł zawiera procedury tworzenia kopii zapasowych i odzyski
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378002"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą Azure Backup Server
@@ -84,7 +84,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące tworzenia kopii zapasowych 
 
 5. Na stronie **Wybierz metodę ochrony danych** podaj nazwę grupy ochrony. Wybierz opcję **Chcę uzyskać krótkoterminową ochronę za pomocą dysku** oraz opcję **Chcę uzyskać ochronę online** , aby tworzyć kopie zapasowe danych na platformie Azure za pomocą usługi Kopia zapasowa Azure.
 
-6. W obszarze **Określ cele krótkoterminowe**  >  **Zakres przechowywania**Określ, jak długo mają być przechowywane dane dysku. W obszarze **częstotliwość synchronizacji**Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe danych. Zamiast określać interwał tworzenia przyrostowych kopii zapasowych, możesz włączyć opcję **Bezpośrednio przed punktem odzyskiwania**. Po włączeniu tego ustawienia serwera usługi MAB będzie uruchamiać ekspresową pełną kopię zapasową tuż przed każdym zaplanowanym punktem odzyskiwania.
+6. W obszarze **Określ Short-Term cele**  >  **Zakres przechowywania**Określ, jak długo mają być przechowywane dane dysku. W obszarze **częstotliwość synchronizacji**Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe danych. Zamiast określać interwał tworzenia przyrostowych kopii zapasowych, możesz włączyć opcję **Bezpośrednio przed punktem odzyskiwania**. Po włączeniu tego ustawienia serwera usługi MAB będzie uruchamiać ekspresową pełną kopię zapasową tuż przed każdym zaplanowanym punktem odzyskiwania.
 
     > [!NOTE]
     >
@@ -132,7 +132,7 @@ Gdy możesz odzyskać kopię zapasową maszyny wirtualnej, użyj Kreatora odzysk
 
 3. Z menu **Akcje** wybierz polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
 
-    Wybrana maszyna wirtualna i punkt odzyskiwania są wyświetlane na ekranie **Przegląd wybranego elementu do odzyskania**. Wybierz pozycję **Next** (Dalej).
+    Wybrana maszyna wirtualna i punkt odzyskiwania są wyświetlane na ekranie **Przegląd wybranego elementu do odzyskania**. Wybierz opcję **Dalej**.
 
 4. Na ekranie **Wybieranie typu odzyskiwania** wybierz miejsce, w którym chcesz przywrócić dane, a następnie wybierz pozycję **dalej**.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717850"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integracja infrastruktury Pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD
@@ -51,12 +51,12 @@ Bramę usług pulpitu zdalnego można skonfigurować do korzystania z centralneg
 
 Gdy rozszerzenie serwera NPS dla platformy Azure jest zintegrowane z bramą serwera NPS i Pulpit zdalny, przepływ pomyślnego uwierzytelnienia jest następujący:
 
-1. Serwer bramy Pulpit zdalny odbiera żądanie uwierzytelnienia od użytkownika pulpitu zdalnego w celu nawiązania połączenia z zasobem, na przykład sesji Pulpit zdalny. Działając jako klient usługi RADIUS, serwer bramy Pulpit zdalny przekonwertuje żądanie na komunikat żądania dostępu usługi RADIUS i wysyła komunikat do serwera RADIUS (NPS), na którym zainstalowano rozszerzenie serwera NPS.
+1. Serwer bramy Pulpit zdalny odbiera żądanie uwierzytelnienia od użytkownika pulpitu zdalnego w celu nawiązania połączenia z zasobem, na przykład sesji Pulpit zdalny. Działając jako klient usługi RADIUS, Pulpit zdalny serwer bramy konwertuje żądanie na komunikat Access-Request usługi RADIUS i wysyła komunikat do serwera RADIUS (NPS), na którym zainstalowano rozszerzenie serwera NPS.
 1. Kombinacja nazwy użytkownika i hasła jest weryfikowana w Active Directory i użytkownik jest uwierzytelniany.
 1. Jeśli spełnione są wszystkie warunki określone w żądaniu połączenia serwera NPS i zasady sieciowe (na przykład ograniczenia dotyczące czasu lub członkostwa w grupie), rozszerzenie serwera zasad sieciowych wyzwala żądanie uwierzytelniania pomocniczego za pomocą usługi Azure MFA.
 1. Usługa Azure MFA komunikuje się z usługą Azure AD, pobiera szczegóły użytkownika i wykonuje uwierzytelnianie pomocnicze przy użyciu obsługiwanych metod.
 1. Po pomyślnym zakończeniu żądania MFA usługa Azure MFA komunikuje wynik rozszerzenia serwera NPS.
-1. Serwer NPS, na którym rozszerzenie jest zainstalowane, wysyła komunikat akceptacji dostępu usługi RADIUS dla zasad RD CAP do serwera bramy Pulpit zdalny.
+1. Serwer NPS, na którym rozszerzenie jest zainstalowane, wysyła komunikat Access-Accept usługi RADIUS dla zasad RD CAP do serwera bramy Pulpit zdalny.
 1. Użytkownik uzyskuje dostęp do żądanego zasobu sieciowego za pomocą bramy usług pulpitu zdalnego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -306,7 +306,7 @@ Należy odwołać się do wyszukanego centralnego magazynu zasad dla zasad autor
 
    ![Opcjonalnie określ warunki połączenia](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-1. Kliknij pozycję **OK**. Po wyświetleniu monitu o wyświetlenie odpowiedniego tematu pomocy kliknij przycisk **nie**.
+1. Kliknij przycisk **OK**. Po wyświetleniu monitu o wyświetlenie odpowiedniego tematu pomocy kliknij przycisk **nie**.
 1. Upewnij się, że nowe zasady są na początku listy, że zasady są włączone i że mają dostęp.
 
    ![Przenieś zasady na początek listy](./media/howto-mfa-nps-extension-rdg/image24.png)

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717901"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Wdrażanie przykładowego narzędzia do oznaczania etykietami
@@ -35,7 +35,7 @@ Najszybszą metodą uruchamiania etykietowania danych jest uruchomienie lokalneg
 Przed rozpoczęciem należy zauważyć, że istnieją dwa sposoby wdrożenia przykładowego narzędzia do tworzenia etykiet do wystąpienia kontenera platformy Azure (ACI). Obie opcje służą do uruchamiania przykładowego narzędzia do etykietowania z ACI: 
 
 * [Korzystanie z witryny Azure Portal](#azure-portal)
-* [Korzystanie z interfejsu wiersza polecenia platformy Azure](#azure-cli)
+* [Przy użyciu interfejsu wiersza polecenia platformy Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure Portal
 

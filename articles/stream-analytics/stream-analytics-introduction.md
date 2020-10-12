@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 07/6/2020
-ms.openlocfilehash: c6c878aa0e4a9d5caa22f7cd94c438f22a81d2ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/9/2020
+ms.openlocfilehash: 10ffe7c2544be2bf2c09ae39f323b1e643063d27
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90881871"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892884"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Co to jest usługa Azure Stream Analytics?
 
@@ -43,33 +43,32 @@ Na poniższej ilustracji pokazano, jak dane są wysyłane do Stream Analytics, a
 
 ## <a name="key-capabilities-and-benefits"></a>Najważniejsze funkcje i korzyści
 
-Usługa Stream Analytics została zaprojektowana tak, aby była łatwa w użyciu, elastyczna, niezawodna i skalowalna do dowolnej wielkości zadania. Jest ona dostępna w wielu regionach platformy Azure. Na poniższej ilustracji przedstawiono kluczowe możliwości Azure Stream Analytics:
-
-![Kluczowe możliwości usługi Stream Analytics](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
+Usługa Stream Analytics została zaprojektowana tak, aby była łatwa w użyciu, elastyczna, niezawodna i skalowalna do dowolnej wielkości zadania. Jest ona dostępna w wielu regionach świadczenia usługi Azure i jest uruchamiana na IoT Edge lub Azure Stack.
 
 ## <a name="ease-of-getting-started"></a>Łatwość rozpoczynania pracy
 
 Azure Stream Analytics jest łatwy do uruchomienia. Wystarczy kilka kliknięć, aby nawiązać połączenie z wieloma źródłami i ujściami, tworząc kompleksowe potoki. Stream Analytics może nawiązać połączenie z [usługą azure Event Hubs](/azure/event-hubs/) i [IoT Hub platformy Azure](/azure/iot-hub/) na potrzeby pozyskiwania danych przesyłanych strumieniowo oraz z usługi [Azure Blob Storage](/azure/storage/common/storage-introduction) w celu pozyskiwania danych historycznych. Dane wejściowe zadania mogą również zawierać statyczne lub wolne zmiany danych referencyjnych z usługi Azure Blob Storage lub [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database) , które można dołączyć do danych przesyłanych strumieniowo w celu wykonania operacji wyszukiwania.
 
-Stream Analytics może kierować dane wyjściowe zadań do wielu systemów magazynowych, takich jak [Azure Blob Storage](/azure/storage/common/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/)i [Azure CosmosDB](/azure/cosmos-db/introduction). Usługę Batch Analytics można uruchomić na przechowywanych danych wyjściowych za pomocą usługi Azure HDInsight lub można wysłać dane wyjściowe do innej usługi, takiej jak Event Hubs do użycia lub [Power BI](https://docs.microsoft.com/power-bi/) do wizualizacji w czasie rzeczywistym.
+Stream Analytics może kierować dane wyjściowe zadań do wielu systemów magazynowych, takich jak [Azure Blob Storage](/azure/storage/common/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/)i [Azure CosmosDB](/azure/cosmos-db/introduction). Możesz również uruchomić usługę Batch Analytics w usłudze Stream outpust za pomocą usługi Azure Synapse Analytics lub HDInsight lub wysłać dane wyjściowe do innej usługi, takiej jak Event Hubs do użycia lub [Power BI](https://docs.microsoft.com/power-bi/) do wizualizacji w czasie rzeczywistym.
 
 Aby uzyskać pełną listę Stream Analytics danych wyjściowych, zobacz [Opis danych wyjściowych z Azure Stream Analytics](stream-analytics-define-outputs.md).
 
 ## <a name="programmer-productivity"></a>Produktywność programisty
 
-Azure Stream Analytics używa prostego języka zapytań opartego na języku SQL, który został rozszerzony o zaawansowane ograniczenia czasowe do analizowania danych w ruchu. Aby zdefiniować przekształcenia zadań, należy użyć prostego, deklaratywnego [języka zapytań usługi Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference), który umożliwia tworzenie złożonych zapytań czasowych i analizy przy użyciu prostych konstrukcji języka SQL. Ponieważ język zapytań Stream Analytics jest spójny z językiem SQL, znajomość programu SQL jest wystarczająca do rozpoczęcia tworzenia zadań. Możesz również tworzyć zadania przy użyciu narzędzi programistycznych, takich jak Azure PowerShell, [Stream Analytics narzędzia Visual Studio](stream-analytics-tools-for-visual-studio-install.md), [rozszerzenia Stream Analytics Visual Studio Code](quick-create-visual-studio-code.md)lub szablony Azure Resource Manager. Narzędzia dla deweloperów pozwalają tworzyć zapytania przekształceń w trybie offline i używać [potoków ciągłej integracji/ciągłego wdrażania](stream-analytics-tools-for-visual-studio-cicd.md) w celu przesłania zadań na platformę Azure.
+Azure Stream Analytics używa języka zapytań SQL, który został rozszerzony o zaawansowane ograniczenia czasowe do analizowania danych w ruchu. Możesz również tworzyć zadania przy użyciu narzędzi deweloperskich, takich jak Azure PowerShell, interfejs wiersza polecenia platformy Azure, [Stream Analytics narzędzia Visual Studio](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code rozszerzenie](quick-create-visual-studio-code.md)lub szablony Azure Resource Manager. Korzystanie z narzędzi deweloperskich umożliwia tworzenie zapytań transformacji w trybie offline i używanie [potoku](stream-analytics-tools-for-visual-studio-cicd.md) ciągłej integracji/ciągłego dostarczania w celu przesyłania zadań do platformy Azure.
 
-Język zapytań Stream Analytics oferuje szeroką gamę funkcji służących do analizowania i przetwarzania danych przesyłanych strumieniowo. Ten język zapytań obsługuje proste operacje manipulowania danymi, agregacja i analiza, [funkcje geograficzne](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [Dopasowanie wzorców](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) i [wykrywanie anomalii](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). Można edytować zapytania w portalu i testować je przy użyciu przykładowych danych wyodrębnionych z strumienia na żywo.
+Język zapytań Stream Analytics umożliwia wykonywanie CEP (Complex Event procssing) przez oferowanie szerokiej gamy funkcji do analizowania danych przesyłanych strumieniowo. Ten język zapytań obsługuje proste operacje manipulowania danymi, agregacja i analiza, [funkcje geograficzne](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [Dopasowanie wzorców](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) i [wykrywanie anomalii](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). Można edytować zapytania w portalu lub korzystać z naszych narzędzi programistycznych i testować je przy użyciu przykładowych danych wyodrębnionych z strumienia na żywo.
 
 Możliwości języka zapytań można rozszerzyć, definiując i wywołując dodatkowe funkcje. Możesz definiować wywołania funkcji w Azure Machine Learning, aby skorzystać z rozwiązań Azure Machine Learning i zintegrować funkcje języka JavaScript lub języka C# zdefiniowane przez użytkownika (UDF) lub agregacje zdefiniowane przez użytkownika, aby wykonywać złożone obliczenia jako część zapytania Stream Analytics.
 
 ## <a name="fully-managed"></a>W pełni zarządzane
 
-Usługa Azure Stream Analytics to bezserwerowe w pełni zarządzane rozwiązanie typu „platforma jako usługa” (PaaS) platformy Azure. Nie trzeba udostępniać żadnego sprzętu, zarządzać klastrami do uruchamiania zadań lub aktualizować systemu operacyjnego lub oprogramowania. Azure Stream Analytics w pełni zarządzać zadaniem, dzięki czemu możesz skupić się na logice biznesowej, a nie na infrastrukturze.
+Azure Stream Analytics to w pełni zarządzana oferta (PaaS) na platformie Azure. Nie trzeba udostępniać sprzętu ani infrastruktury, aktualizować systemu operacyjnego ani oprogramowania. Azure Stream Analytics w pełni zarządzać zadaniem, dzięki czemu możesz skupić się na logice biznesowej, a nie na infrastrukturze.
+
 
 ## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Uruchamiaj w chmurze lub na inteligentnej granicy
 
-Azure Stream Analytics można uruchamiać w chmurze, w przypadku analiz na dużą skalę lub działać na IoT Edge na potrzeby analizy niezwykle niskich opóźnień. Azure Stream Analytics używa tych samych narzędzi i języka zapytań zarówno w chmurze, jak i krawędzi, co umożliwia deweloperom tworzenie prawdziwie architektur hybrydowych na potrzeby przetwarzania strumieniowego. 
+Azure Stream Analytics można uruchamiać w chmurze, w przypadku analiz na dużą skalę lub działać na IoT Edge lub Azure Stack na potrzeby analizy niezwykle małych opóźnień. Azure Stream Analytics używa tych samych narzędzi i języka zapytań zarówno w chmurze, jak i krawędzi, co umożliwia deweloperom tworzenie prawdziwie architektur hybrydowych na potrzeby przetwarzania strumieniowego. 
 
 ## <a name="low-total-cost-of-ownership"></a>Niski całkowity koszt posiadania
 
@@ -89,7 +88,7 @@ Jako usługa zarządzana, Stream Analytics gwarantuje przetwarzanie zdarzeń o d
 
 ### <a name="security"></a>Zabezpieczenia
 
-Z punktu widzenia zabezpieczeń usługa Azure Stream Analytics szyfruje całą komunikację przychodzącą i wychodzącą oraz obsługuje protokół TLS 1.2. Wbudowane punkty kontrolne również są szyfrowane. Usługa Stream Analytics nie przechowuje danych przychodzących, ponieważ całe przetwarzanie odbywa się w pamięci.
+Z punktu widzenia zabezpieczeń usługa Azure Stream Analytics szyfruje całą komunikację przychodzącą i wychodzącą oraz obsługuje protokół TLS 1.2. Wbudowane punkty kontrolne również są szyfrowane. Usługa Stream Analytics nie przechowuje danych przychodzących, ponieważ całe przetwarzanie odbywa się w pamięci. Stream Analytics obsługuje również usługi Azure Virtual Networks (VNET) podczas uruchamiania zadania w [klastrze Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/cluster-overview).
 
 ### <a name="compliance"></a>Zgodność
 

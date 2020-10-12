@@ -8,13 +8,13 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322453"
 ---
-# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów z tym, dlaczego dane z urządzeń nie są wyświetlane na platformie Azure IoT Central
+# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów dotyczących niewyświetlania danych z urządzeń w usłudze Azure IoT Central
 
 Ten dokument ułatwia deweloperom urządzeń Dowiedz się, dlaczego dane wysyłane przez urządzenia do IoT Central mogą nie być wyświetlane w aplikacji.
 
@@ -131,7 +131,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | Stan aprowizacji urządzeń | Opis | Możliwe środki zaradcze |
 | - | - | - |
-| Aprowizowane | Brak natychmiastowego rozpoznawania problemu. | Nie dotyczy |
+| Zaaprowizowane | Brak natychmiastowego rozpoznawania problemu. | Nie dotyczy |
 | Zarejestrowany | Urządzenie nie zostało jeszcze podłączone do IoT Central. | Sprawdź dzienniki urządzeń pod kątem problemów z łącznością. |
 | Zablokowane | Urządzenie ma zablokowany dostęp do IoT Central. | Urządzenie ma zablokowany dostęp do aplikacji IoT Central. Odblokuj urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [blokowanie urządzeń](concepts-get-connected.md#device-status-values). |
 | Niezatwierdzonych | Urządzenie nie jest zatwierdzone. | Urządzenie nie jest zatwierdzone do nawiązania połączenia z aplikacją IoT Central. Zatwierdź urządzenie w IoT Central i ponów próbę. Aby dowiedzieć się więcej, zobacz [zatwierdzanie urządzeń](concepts-get-connected.md#connect-without-registering-devices) |

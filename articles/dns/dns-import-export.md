@@ -9,10 +9,10 @@ ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: 8f17d7f32d774cac283ec335c372e8f68d50931f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87424226"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importowanie i eksportowanie pliku strefy systemu DNS za pomocą interfejsu wiersza polecenia platformy Azure
@@ -69,9 +69,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 Wartości:
 
-* `<resource group>`jest nazwą grupy zasobów dla strefy w Azure DNS.
-* `<zone name>`jest nazwą strefy.
-* `<zone file name>`jest ścieżką/nazwą pliku strefy do zaimportowania.
+* `<resource group>` jest nazwą grupy zasobów dla strefy w Azure DNS.
+* `<zone name>` jest nazwą strefy.
+* `<zone file name>` jest ścieżką/nazwą pliku strefy do zaimportowania.
 
 Jeśli strefa o tej nazwie nie istnieje w grupie zasobów, zostanie utworzona dla Ciebie. Jeśli strefa już istnieje, zaimportowane zestawy rekordów są scalane z istniejącymi zestawami rekordów. 
 
@@ -163,9 +163,9 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 Wartości:
 
-* `<resource group>`jest nazwą grupy zasobów dla strefy w Azure DNS.
-* `<zone name>`jest nazwą strefy.
-* `<zone file name>`jest ścieżką/nazwą pliku strefy do wyeksportowania.
+* `<resource group>` jest nazwą grupy zasobów dla strefy w Azure DNS.
+* `<zone name>` jest nazwą strefy.
+* `<zone file name>` jest ścieżką/nazwą pliku strefy do wyeksportowania.
 
 Tak jak w przypadku importowania strefy najpierw musisz się zalogować, wybrać subskrypcję i skonfigurować interfejs wiersza polecenia platformy Azure do używania trybu Menedżer zasobów.
 

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285275"
 ---
 # <a name="azcopy-login"></a>azcopy login
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 Traktuj `/path/to/my/cert` jako ścieżkę do pliku PEM lub PKCS12. Usługa AzCopy nie dociera do magazynu certyfikatów systemu w celu uzyskania certyfikatu.
 
-`--certificate-path`jest wymagany w przypadku uwierzytelniania jednostki usługi opartej na certyfikatach.
+`--certificate-path` jest wymagany w przypadku uwierzytelniania jednostki usługi opartej na certyfikatach.
 
 ## <a name="options"></a>Opcje
 
@@ -105,7 +105,7 @@ Traktuj `/path/to/my/cert` jako ścieżkę do pliku PEM lub PKCS12. Usługa AzCo
 
 **--** ścieżka ciągu ścieżki certyfikatu do certyfikatu na potrzeby uwierzytelniania SPN. Wymagane dla uwierzytelniania nazwy głównej usługi opartej na certyfikatach.
 
-**--Pomoc** dla `azcopy login` polecenia.
+**--Pomoc**   dla `azcopy login` polecenia.
 
 **--tożsamość**   Zaloguj się przy użyciu tożsamości maszyny wirtualnej, znanej również jako tożsamość usługi zarządzanej (MSI).
 
@@ -127,6 +127,6 @@ Traktuj `/path/to/my/cert` jako ścieżkę do pliku PEM lub PKCS12. Usługa AzCo
 |--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
 |--Zaufane — ciąg sufiksów firmy Microsoft   |Określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [azcopy](storage-ref-azcopy.md)

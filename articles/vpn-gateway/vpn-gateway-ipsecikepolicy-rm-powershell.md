@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392654"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurowanie zasad protokołu IPsec/IKE dla połączeń międzylokacyjnej sieci VPN lub połączeń typu sieć wirtualna-sieć wirtualna
@@ -83,8 +83,8 @@ W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły kl
 > 3. W powyższej tabeli:
 >    * Protokół IKEv2 odpowiada trybowi głównemu lub fazie 1
 >    * Protokół IPsec odnosi się do trybu szybkiego lub fazy 2
->    * Grupa DH określa grupę diff-Hellmen używaną w trybie głównym lub w fazie 1
->    * Grupa PFS została określona dla grupy Diffie-Hellmen używanej w trybie szybkim lub w fazie 2
+>    * Grupa DH określa grupę Diffie-Hellmen używaną w trybie głównym lub w fazie 1
+>    * Grupa PFS określiła grupę Diffie-Hellmen używaną w trybie szybkim lub fazie 2
 > 4. Okres istnienia skojarzenia zabezpieczeń trybu głównego protokołu IKEv2 jest ustalony na 28 800 sekund na bramach sieci VPN platformy Azure
 > 5. Ustawienie opcji "UsePolicyBasedTrafficSelectors" na $True połączenia spowoduje skonfigurowanie bramy sieci VPN platformy Azure w celu połączenia z zaporą sieci VPN opartej na zasadach lokalnych. W przypadku włączenia PolicyBasedTrafficSelectors należy upewnić się, że urządzenie sieci VPN ma pasujące selektory ruchu zdefiniowane ze wszystkimi kombinacjami sieci lokalnych (Brama sieci lokalnej) prefiksami do/z prefiksów sieci wirtualnej platformy Azure, a nie z dowolnego miejsca. Na przykład jeśli prefiksy sieci lokalnej to 10.1.0.0/16 i 10.2.0.0/16, a prefiksy sieci wirtualnej to 192.168.0.0/16 i 172.16.0.0/16, trzeba określić następujące selektory ruchu:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
@@ -94,7 +94,7 @@ W poniższej tabeli wymieniono obsługiwane algorytmy kryptograficzne i siły kl
 
 Aby uzyskać więcej informacji na temat selektorów ruchu opartych na zasadach, zobacz [łączenie wielu lokalnych urządzeń sieci VPN opartych na zasadach](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-W poniższej tabeli wymieniono odpowiednie grupy Diffie-Hellmana obsługiwane przez zasady niestandardowe:
+Poniższa tabela zawiera listę odpowiednich grup Diffie-Hellman obsługiwanych przez zasady niestandardowe:
 
 | **Grupa Diffie’ego-Hellmana**  | **DHGroup**              | **PFSGroup** | **Długość klucza** |
 | --- | --- | --- | --- |
@@ -115,7 +115,7 @@ Ta sekcja przeprowadzi Cię przez kroki tworzenia połączenia sieci VPN S2S prz
 
 Zobacz [Tworzenie połączenia S2S VPN](vpn-gateway-create-site-to-site-rm-powershell.md) , aby uzyskać bardziej szczegółowe instrukcje krok po kroku dotyczące tworzenia połączenia sieci VPN S2S.
 
-### <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 * Zainstaluj Azure Resource Manager polecenia cmdlet programu PowerShell. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [omówienie Azure PowerShell](/powershell/azure/) .

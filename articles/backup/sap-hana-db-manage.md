@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono typowe zadania związane z zarządzani
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377458"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
@@ -57,7 +57,7 @@ Aby dowiedzieć się więcej o monitorowaniu, przejdź do [obszaru monitorowanie
 
 Azure Backup umożliwia łatwe zarządzanie kopią zapasową bazy danych SAP HANA Database przy użyciu dużej ilości obsługiwanych operacji zarządzania. Te operacje zostały omówione bardziej szczegółowo w poniższych sekcjach.
 
-### <a name="run-an-on-demand-backup"></a>Uruchamianie kopii zapasowej na żądanie
+### <a name="run-an-on-demand-backup"></a>Uruchamianie tworzenia kopii zapasowej na żądanie
 
 Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową można uruchomić na żądanie w następujący sposób:
 

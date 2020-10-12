@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906940"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
@@ -41,7 +41,7 @@ Aby zintegrować chmurę z usługą Azure wiosną Traffic Manager, Dodaj swoje p
 Dodawanie punktów końcowych w usłudze Traffic Manager:
 1.  Określ **Typ** jako *zewnętrzny punkt końcowy*.
 1.  Wprowadź w pełni kwalifikowaną nazwę domeny (FQDN) każdego publicznego punktu końcowego chmury platformy Azure.
-1. Kliknij pozycję **OK**.
+1. Kliknij przycisk **OK**.
 
     ![Traffic Manager 1 ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 

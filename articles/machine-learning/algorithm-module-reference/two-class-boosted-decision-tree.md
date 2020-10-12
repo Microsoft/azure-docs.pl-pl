@@ -1,7 +1,7 @@
 ---
-title: 'Dwuklasowe drzewo decyzyjne: odwołanie do modułu'
+title: 'Two-Class wzmocnione drzewo decyzyjne: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć model uczenia maszynowego oparty na algorytmie podwyższania poziomu drzewa decyzyjnego w programie Azure Machine Learning.
+description: Dowiedz się, jak utworzyć model uczenia maszynowego oparty na algorytmie podwyższania poziomu drzewa decyzyjnego Two-Class w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907735"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Moduł drzewa decyzyjnej z dwoma klasami
+# <a name="two-class-boosted-decision-tree-module"></a>Two-Class moduł drzewa podwyższania decyzji
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 

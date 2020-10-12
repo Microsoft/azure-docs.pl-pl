@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: cd7496690ec88fbe4297386c32d1b8a2c3234577
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540765"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników pulpitu wirtualnego systemu Windows (klasyczny)
@@ -37,7 +37,7 @@ Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp o nazwie i FriendlyName wyróżniony, aby dostosować nazwę wyświetlaną.](../media/get-rdsremoteapp.png)
+> ![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z nazwami i FriendlyName wyróżniony, aby dostosować nazwę wyświetlaną.](../media/get-rdsremoteapp.png)
 
 Aby przypisać przyjazną nazwę do usługi RemoteApp, uruchom następujące polecenie cmdlet programu PowerShell:
 
@@ -46,7 +46,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu poleceń cmdlet programu PowerShell Set-RDSRemoteApp o nazwie i nowej FriendlyName wyróżniony, aby dostosować nazwę wyświetlaną.](../media/set-rdsremoteapp.png)
+> ![Zrzut ekranu przedstawiający polecenie cmdlet programu PowerShell Set-RDSRemoteApp z nazwą i nową FriendlyName wyróżnioną w celu dostosowania nazwy wyświetlanej.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Dostosuj nazwę wyświetlaną dla Pulpit zdalny
 
@@ -59,7 +59,7 @@ Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/get-rdsremotedesktop.png)
+> ![Zrzut ekranu przedstawiający polecenie cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](../media/get-rdsremotedesktop.png)
 
 Aby przypisać przyjazną nazwę do zasobu pulpitu zdalnego, uruchom następujące polecenie cmdlet programu PowerShell:
 
@@ -68,7 +68,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Zrzut ekranu poleceń cmdlet programu PowerShell Set-RDSRemoteApp o nazwie i nowej FriendlyName wyróżniony.](../media/set-rdsremotedesktop.png)
+> ![Zrzut ekranu przedstawiający polecenie cmdlet programu PowerShell Set-RDSRemoteApp o nazwie i nowej nazwie FriendlyName wyróżniony.](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
 title: Protokół SAML logowania jednokrotnego na platformie Azure
-description: W tym artykule opisano protokół SAML logowania jednokrotnego w Azure Active Directory
+description: W tym artykule opisano pojedynczy Sign-Out protokołu SAML w Azure Active Directory
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118267"
 ---
-# <a name="single-sign-out-saml-protocol"></a>Protokół SAML wylogowania jednokrotnego
+# <a name="single-sign-out-saml-protocol"></a>Pojedynczy Sign-Out protokół SAML
 
 Azure Active Directory (Azure AD) obsługuje profil rejestracji jednokrotnej w przeglądarce internetowej protokołu SAML 2,0. Aby logowanie jednokrotne działało prawidłowo, **LogoutURL** aplikacji musi być jawnie zarejestrowana w usłudze Azure AD podczas rejestracji aplikacji. Usługa Azure AD korzysta z LogoutURL, aby przekierować użytkowników po ich wylogowaniu.
 
@@ -40,9 +40,9 @@ Usługa w chmurze wysyła `LogoutRequest` komunikat do usługi Azure AD w celu w
 ### <a name="logoutrequest"></a>LogoutRequest
 `LogoutRequest`Element wysłany do usługi Azure AD wymaga następujących atrybutów:
 
-* `ID`— Identyfikuje żądanie wylogowania. Wartość `ID` nie może rozpoczynać się od cyfry. Typowym sposobem jest dołączenie **identyfikatora** do ciągu REPREZENTUJĄCEGO identyfikator GUID.
-* `Version`-Ustaw wartość tego elementu na **2,0**. Ta wartość jest wymagana.
-* `IssueInstant`— Jest to `DateTime` ciąg z wartością uniwersalnego czasu koordynowanego (UTC) i [formatem rundy ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Usługa Azure AD oczekuje wartości tego typu, ale nie wymusza jej.
+* `ID` — Identyfikuje żądanie wylogowania. Wartość `ID` nie może rozpoczynać się od cyfry. Typowym sposobem jest dołączenie **identyfikatora** do ciągu REPREZENTUJĄCEGO identyfikator GUID.
+* `Version` -Ustaw wartość tego elementu na **2,0**. Ta wartość jest wymagana.
+* `IssueInstant` — Jest to `DateTime` ciąg z wartością uniwersalnego czasu koordynowanego (UTC) i [formatem rundy ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Usługa Azure AD oczekuje wartości tego typu, ale nie wymusza jej.
 
 ### <a name="issuer"></a>Wystawca
 `Issuer`Element w a `LogoutRequest` musi dokładnie odpowiadać jednemu z **ServicePrincipalNames** w usłudze w chmurze w usłudze Azure AD. Zwykle jest to **Identyfikator URI aplikacji** określony podczas rejestracji aplikacji.

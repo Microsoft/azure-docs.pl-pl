@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
 ms.openlocfilehash: cb986f1e0172c4a44381b2f9cf043025cb5abe8a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88705031"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Dostawca wyjściowej pamięci podręcznej ASP.NET dla usługi Azure cache for Redis
@@ -52,12 +52,12 @@ Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu i dodaje do pliku w
 
 Skonfiguruj atrybuty przy użyciu wartości z bloku pamięci podręcznej w Microsoft Azure Portal i skonfiguruj inne wartości zgodnie z potrzebami. Aby uzyskać instrukcje dotyczące uzyskiwania dostępu do właściwości pamięci podręcznej, zobacz [Konfigurowanie usługi Azure cache for Redis Settings](cache-configure.md#configure-azure-cache-for-redis-settings).
 
-| Atrybut | Typ | Domyślny | Opis |
+| Atrybut | Typ | Domyślne | Opis |
 | --------- | ---- | ------- | ----------- |
 | *Host* | ciąg | lokalnym | Adres IP lub nazwa hosta serwera Redis |
 | *przewożąc* | dodatnia liczba całkowita | 6379 (bez protokołu TLS/SSL)<br/>6380 (TLS/SSL) | Port serwera Redis |
 | *accessKey* | ciąg | "" | Hasło serwera Redis, gdy autoryzacja Redis jest włączona. Wartość jest domyślnie pustym ciągiem, co oznacza, że dostawca stanu sesji nie będzie używać żadnego hasła podczas nawiązywania połączenia z serwerem Redis. **Jeśli Twój serwer Redis znajduje się w publicznie dostępnej sieci, takiej jak Azure Redis Cache, upewnij się, że włączono autoryzację Redis, aby zwiększyć bezpieczeństwo i zapewnić bezpieczne hasło.** |
-| *zastosowania* | boolean | **false** | Czy nawiązać połączenie z serwerem Redis za pośrednictwem protokołu TLS. Ta wartość jest domyślnie **fałszywa** , ponieważ Redis nie obsługuje protokołu TLS z pola. **Jeśli używasz Azure Redis Cache, który obsługuje protokół SSL z pola, pamiętaj, aby ustawić wartość true, aby zwiększyć bezpieczeństwo.**<br/><br/>Port inny niż TLS jest domyślnie wyłączony w przypadku nowych pamięci podręcznych. Określ **wartość true** dla tego ustawienia, aby używać portu niezwiązanego z protokołem TLS. Aby uzyskać więcej informacji na temat włączania portu bez protokołu TLS, zobacz sekcję [porty dostępu](cache-configure.md#access-ports) w temacie [Konfigurowanie pamięci podręcznej](cache-configure.md) . |
+| *zastosowania* | boolean | **fałsz** | Czy nawiązać połączenie z serwerem Redis za pośrednictwem protokołu TLS. Ta wartość jest domyślnie **fałszywa** , ponieważ Redis nie obsługuje protokołu TLS z pola. **Jeśli używasz Azure Redis Cache, który obsługuje protokół SSL z pola, pamiętaj, aby ustawić wartość true, aby zwiększyć bezpieczeństwo.**<br/><br/>Port inny niż TLS jest domyślnie wyłączony w przypadku nowych pamięci podręcznych. Określ **wartość true** dla tego ustawienia, aby używać portu niezwiązanego z protokołem TLS. Aby uzyskać więcej informacji na temat włączania portu bez protokołu TLS, zobacz sekcję [porty dostępu](cache-configure.md#access-ports) w temacie [Konfigurowanie pamięci podręcznej](cache-configure.md) . |
 | *databaseIdNumber* | dodatnia liczba całkowita | 0 | *Ten atrybut może być określony tylko za pomocą web.config lub AppSettings.*<br/><br/>Określ, która baza danych Redis ma być używana. |
 | *connectionTimeoutInMilliseconds* | dodatnia liczba całkowita | Dostarczone przez StackExchange. Redis | Służy do ustawiania *ConnectTimeout* podczas tworzenia stackexchange. Redis. ConnectionMultiplexer. |
 | *operationTimeoutInMilliseconds* | dodatnia liczba całkowita | Dostarczone przez StackExchange. Redis | Służy do ustawiania *SyncTimeout* podczas tworzenia stackexchange. Redis. ConnectionMultiplexer. |

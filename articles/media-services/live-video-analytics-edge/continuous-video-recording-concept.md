@@ -4,10 +4,10 @@ description: Stałe nagrywanie wideo (CVR) odnosi się do procesu ciągłego rej
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566702"
 ---
 # <a name="continuous-video-recording"></a>Ciągłe nagrywanie wideo  
@@ -53,7 +53,7 @@ Właściwość segmentLength gwarantuje, że moduł Edge przekaże wideo maksyma
 > [!NOTE]
 > Zapoznaj się z artykułem [nagrania odtwarzania](playback-recordings-how-to.md) , aby uzyskać efekt segmentLength podczas odtwarzania.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Nagrywanie wideo oparte na zdarzeniach](event-based-video-recording-concept.md)
 * [Odtwarzanie zarejestrowanej zawartości](video-playback-concept.md)

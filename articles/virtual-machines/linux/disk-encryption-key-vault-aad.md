@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950072"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption z usługą Azure AD (poprzednią wersją) dla maszyn wirtualnych z systemem Linux
@@ -129,7 +129,7 @@ Wykonaj kroki z [portalu use, aby utworzyć aplikację Azure Active Directory i 
 3. [Pobierz identyfikator aplikacji i klucz uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). 
      - Klucz uwierzytelniania jest kluczem tajnym klienta i jest używany jako AadClientSecret dla elementu Set-AzVMDiskEncryptionExtension. 
         - Klucz uwierzytelniania jest używany przez aplikację jako poświadczenia do logowania się do usługi Azure AD. W Azure Portal ten klucz tajny nosi nazwę klucze, ale nie ma relacji do magazynów kluczy. Odpowiednio Zabezpiecz ten klucz tajny. 
-     - Identyfikator aplikacji będzie później używany jako AadClientId dla właściwości Set-AzVMDiskEncryptionExtension i jako ServicePrincipalName dla elementu Set-AzKeyVaultAccessPolicy. 
+     - Identyfikator aplikacji będzie później używany jako AadClientId dla Set-AzVMDiskEncryptionExtension i jako ServicePrincipalName dla właściwości Set-AzKeyVaultAccessPolicy. 
 
 ## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a> Ustawianie zasad dostępu magazynu kluczy dla aplikacji usługi Azure AD
 Aby zapisać wpisy tajne szyfrowania do określonego Key Vault, Azure Disk Encryption potrzebuje identyfikatora klienta i klucza tajnego klienta aplikacji Azure Active Directory, która ma uprawnienia do zapisu wpisów tajnych do Key Vault. 
@@ -220,7 +220,7 @@ Użyj [AZ Key Update](/cli/azure/keyvault#az-keyvault-update) , aby włączyć s
 1. Wybierz swój magazyn kluczy, przejdź do pozycji **zasady dostępu**, a **następnie kliknij, aby wyświetlić zaawansowane zasady dostępu**.
 2. Zaznacz pole o nazwie **Włącz dostęp do Azure Disk Encryption na potrzeby szyfrowania woluminów**.
 3. Wybierz pozycję **Włącz dostęp do usługi Azure Virtual Machines w celu wdrożenia** i/lub **włącz dostęp do Azure Resource Manager na potrzeby wdrożenia szablonu**, jeśli jest to konieczne. 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 ![Zaawansowane zasady dostępu magazynu kluczy platformy Azure](./media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -460,6 +460,6 @@ Jeśli chcesz użyć uwierzytelniania certyfikatu i otoczyć klucz szyfrowania K
 ```
 
  
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Włączanie Azure Disk Encryption z usługą Azure AD na maszynach wirtualnych z systemem Linux (poprzednia wersja)](disk-encryption-linux-aad.md)

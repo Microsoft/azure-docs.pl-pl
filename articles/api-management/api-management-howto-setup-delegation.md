@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.author: apimpm
 ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461004"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować rejestrację użytkownika i subskrypcję produktu
@@ -72,7 +72,7 @@ Teraz musisz utworzyć **punkt końcowy delegowania**. Musi wykonać kilka akcji
    * [Żądaj tokenu logowania jednokrotnego (SSO)] za pośrednictwem interfejsu API REST API Management
    * Dołącz parametr zapytania returnUrl do adresu URL logowania jednokrotnego otrzymanego z wywołania interfejsu API powyżej:
      
-     > na przykład`https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
+     > na przykład `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * Przekieruj użytkownika do powyższego wygenerowanego adresu URL

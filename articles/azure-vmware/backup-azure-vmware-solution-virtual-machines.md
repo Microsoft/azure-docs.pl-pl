@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platform
 description: Skonfiguruj środowisko rozwiązań VMware platformy Azure, aby tworzyć kopie zapasowe maszyn wirtualnych przy użyciu Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: a62bccb729cfa6aec89a3ce6de7283f5d9412428
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580311"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893020"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu Azure Backup Server
 
@@ -105,36 +105,6 @@ W przypadku oprogramowania VMware 6,7 jako protokołu komunikacyjnego włączono
 
 1. Kliknij prawym przyciskiem myszy protokół TLS. Plik REG i wybierz pozycję **Scal** lub **Otwórz** , aby dodać ustawienia do rejestru.
 
-## <a name="add-the-provisioning-ip-address"></a>Dodawanie adresu IP aprowizacji 
-
-W trakcie okresu zapoznawczego rozwiązanie Azure VMware nie rozpoznaje hosta ESX z maszyny wirtualnej wdrożonej w sieci wirtualnej. Należy wykonać dodatkowe czynności, aby dodać wpis pliku hosta na Azure Backup Server maszynie wirtualnej.
-
-### <a name="identify-the-ip-address-for-esxi-hosts"></a>Zidentyfikuj adres IP dla hostów ESXi
-
-1. Otwórz przeglądarkę i zaloguj się do adresów URL vCenter. 
-
-   > [!TIP]
-   > Adresy URL można znaleźć w [Połącz z lokalnym programem vCenter w chmurze prywatnej](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud).
-
-1. W kliencie vSphere wybierz klaster, dla którego ma zostać włączona kopia zapasowa.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vsphere-client-select-host.png" alt-text="Klient sieci Web vSphere":::
-
-1. Wybierz pozycję **Konfiguruj**  >  **sieciowe**  >  **karty VMkernel**. Na liście urządzeń Zidentyfikuj kartę sieciową, która ma włączoną rolę **aprowizacji** . Zanotuj **adres IP** i nazwę hosta ESXi.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="Klient sieci Web vSphere":::
-
-1. Powtórz poprzedni krok dla każdego hosta ESXi w każdym klastrze, dla którego ma zostać włączona kopia zapasowa.
-
-### <a name="update-the-host-file-on-azure-backup-server"></a>Zaktualizuj plik hosta na Azure Backup Server
-
-1. Otwórz Notatnik jako administrator.
-
-1. Wybierz pozycję **plik**  >  **Otwórz**, a następnie wyszukaj ciąg c:\Windows\System32\Drivers\etc\hosts.
-
-1. Dodaj wpis dla każdego hosta ESXi wraz z adresem IP zidentyfikowanym w poprzedniej sekcji.
-
-1. Zapisz zmiany i zamknij Notatnik.
 
 ## <a name="add-the-account-on-azure-backup-server"></a>Dodaj konto na Azure Backup Server
 
