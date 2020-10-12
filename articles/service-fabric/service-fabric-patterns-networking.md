@@ -4,10 +4,10 @@ description: Opisuje typowe wzorce sieci dla Service Fabric i sposób tworzenia 
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421471"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric wzorców sieci
@@ -342,7 +342,7 @@ Ten scenariusz zastępuje zewnętrzny moduł równoważenia obciążenia w domy�
                 ],
     ```
 
-5. Zmień ustawienie usługi równoważenia obciążenia `frontendIPConfigurations` z using na `publicIPAddress` , aby używać podsieci i `privateIPAddress` . `privateIPAddress`używa wstępnie zdefiniowanego statycznego wewnętrznego adresu IP. Aby użyć dynamicznego adresu IP, Usuń `privateIPAddress` element, a następnie zmień `privateIPAllocationMethod` na **dynamiczny**.
+5. Zmień ustawienie usługi równoważenia obciążenia `frontendIPConfigurations` z using na `publicIPAddress` , aby używać podsieci i `privateIPAddress` . `privateIPAddress` używa wstępnie zdefiniowanego statycznego wewnętrznego adresu IP. Aby użyć dynamicznego adresu IP, Usuń `privateIPAddress` element, a następnie zmień `privateIPAllocationMethod` na **dynamiczny**.
 
     ```json
                 "frontendIPConfigurations": [

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
 ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335606"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Dostęp do zasobów Kubernetes z Azure Portal (wersja zapoznawcza)
@@ -48,19 +48,19 @@ W tym przykładzie użyjemy naszego przykładowego klastra AKS do wdrożenia apl
 
 Po dodaniu pliku YAML w podglądzie zasobów zostaną wyświetlone zarówno usługi Kubernetes, które zostały utworzone: usługa wewnętrzna (Azure-głosowa-back), jak i usługa zewnętrzna (Azure-głosowa-Front), aby uzyskać dostęp do aplikacji do głosowania platformy Azure. Usługa zewnętrzna obejmuje połączony zewnętrzny adres IP, dzięki czemu można łatwo wyświetlić aplikację w przeglądarce.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Informacje o aplikacji do głosowania platformy Azure wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### <a name="monitor-deployment-insights"></a>Monitorowanie szczegółowych informacji o wdrożeniu
 
 Klastry AKS z włączoną funkcją [Azure monitor dla kontenerów][enable-monitor] mogą szybko wyświetlać szczegółowe informacje o wdrożeniu. W widoku zasobów Kubernetes użytkownicy mogą zobaczyć stan na żywo poszczególnych wdrożeń, w tym użycie procesora CPU i pamięci, a także przejść do usługi Azure monitor, aby uzyskać bardziej szczegółowe informacje. Oto przykład szczegółowych informacji dotyczących wdrażania z przykładowego klastra AKS:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Szczegółowe informacje o wdrożeniu wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## <a name="edit-yaml"></a>Edytuj YAML
 
 Widok zasobów Kubernetes zawiera również edytor YAML. Wbudowany edytor YAML oznacza, że można aktualizować lub tworzyć usługi i wdrożenia z poziomu portalu i natychmiast zastosować zmiany.
 
-:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Edytor YAML dla usługi Kubernetes wyświetlanej w Azure Portal.":::
+:::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal.":::
 
 Po przeprowadzeniu edycji YAML zmiany są stosowane, wybierając pozycję **Przegląd + Zapisz**, potwierdź zmiany, a następnie Zapisz ponownie.
 
@@ -82,7 +82,7 @@ Aby uzyskać dostęp do zasobów Kubernetes, musisz mieć dostęp do klastra AKS
 
 W przypadku istniejących klastrów może być konieczne włączenie widoku zasobów Kubernetes. Aby włączyć widok zasobów, postępuj zgodnie z monitami w portalu dla klastra.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure Portal komunikat, aby włączyć widok zasobów Kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Kubernetes pod informacje wyświetlane w Azure Portal." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 > [!TIP]
 > Można dodać funkcję AKS dla [**dozwolonych zakresów adresów IP serwera interfejsu API**](api-server-authorized-ip-ranges.md) , aby ograniczyć dostęp serwera API tylko do publicznego punktu końcowego zapory. Inna opcja dla takich klastrów jest aktualizowana `--api-server-authorized-ip-ranges` w celu uwzględnienia dostępu do lokalnego komputera klienckiego lub zakresu adresów IP (z którego portalu jest przeglądany). Aby zezwolić na ten dostęp, potrzebny jest publiczny adres IPv4 komputera. Ten adres można znaleźć za pomocą poniższego polecenia lub przez wyszukiwanie w przeglądarce internetowej "co to jest mój adres IP".

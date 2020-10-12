@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900058"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Kontenery Cognitive Services platformy Azure — często zadawane pytania
@@ -37,14 +37,14 @@ Odp **.:** Wcześniej w repozytorium były hostowane kontenery w wersji zapoznaw
 
 Odp **.:** Chcemy, aby więcej Cognitive Services dostępnych jako oferty kontenerów. Skontaktuj się z lokalnym menedżerem konto Microsoft, aby uzyskać aktualizacje dotyczące nowych wydań kontenerów i innych anonsów Cognitive Services.
 
-**P: jaka będzie umowa dotycząca poziomu usług (SLA) dla Cognitive Services kontenerów?**
+**P: co Service-Level umowa SLA dla Cognitive Services kontenerów?**
 
 Odp **.:** Kontenery Cognitive Services nie mają umowy SLA.
 
 Cognitive Services konfiguracjami kontenerów zasobów są kontrolowane przez klientów, dlatego firma Microsoft nie oferuje umowy SLA na potrzeby ogólnej dostępności. Klienci mogą bezpłatnie wdrażać kontenery w środowisku lokalnym, a tym samym definiować środowiska hosta.
 
 > [!IMPORTANT]
-> Aby dowiedzieć się więcej na temat Cognitive Services umów dotyczących poziomu usług, [odwiedź stronę umów SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+> Aby dowiedzieć się więcej na temat umów Service-Level Cognitive Services, [odwiedź naszą stronę umów SLA](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
 
 **P: czy te kontenery są dostępne w ramach suwerennych chmur?**
 

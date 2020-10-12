@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343204"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN z funkcji aparatu reguł Verizon Premium
@@ -30,22 +30,22 @@ Dostępne typy funkcji to:
 * [Nagłówki](#headers)
 * [Dzienniki](#logs)
 * [Optymalizacja](#optimize)
-* [Origin](#origin)
+* [Źródł](#origin)
 * [Specjalizacja](#specialty)
 * [Adres URL](#url)
 * [Web Application Firewall](#waf)
 
-### <a name="access"></a><a name="access"></a>Access
+### <a name="access"></a><a name="access"></a>Dostęp
 
 Te funkcje zostały zaprojektowane w celu kontrolowania dostępu do zawartości.
 
 | Nazwa       | Przeznaczenie                                                           |
 |------------|-------------------------------------------------------------------|
 | [Odmów dostępu (403)](https://docs.vdms.com/cdn/Content/HRE/F/Deny-Access-403.htm) | Określa, czy wszystkie żądania są odrzucane z niedostępną odpowiedzią 403. |
-| [Uwierzytelnianie tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Określa, czy uwierzytelnianie oparte na tokenach zostanie zastosowane do żądania. |
-| [Kod odmowy uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm) | Określa typ odpowiedzi, która zostanie zwrócona użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie. |
-| [Adres URL ignorowania tokenu uwierzytelniania](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm) | Określa, czy porównania adresów URL wykonywane przez uwierzytelnianie oparte na tokenach będą uwzględniać wielkość liter. |
-| [Parametr uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm) | Określa, czy należy zmienić nazwę parametru ciągu zapytania uwierzytelniania opartego na tokenie. |
+| [Uwierzytelnianie tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Określa, czy do żądania zostanie zastosowane uwierzytelnianie Token-Based. |
+| [Kod odmowy uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm) | Określa typ odpowiedzi, która zostanie zwrócona użytkownikowi, gdy żądanie zostanie odrzucone z powodu Token-Based uwierzytelniania. |
+| [Adres URL ignorowania tokenu uwierzytelniania](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm) | Określa, czy porównania adresów URL dokonywane przy użyciu uwierzytelniania Token-Based będą rozróżniane wielkości liter. |
+| [Parametr uwierzytelniania tokenu](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm) | Określa, czy należy zmienić nazwę parametru ciągu zapytania uwierzytelniania Token-Based. |
 
 **[Powrót do początku](#top)**
 
@@ -58,24 +58,24 @@ Te funkcje zostały zaprojektowane w celu dostosowania, kiedy i w jaki sposób z
 | [Parametry przepustowości](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Parameters.htm) | Określa, czy parametry ograniczenia przepustowości (tj. ec_rate i ec_prebuf) będą aktywne. |
 | [Ograniczanie przepustowości](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Ogranicza przepustowość odpowiedzi udostępnionej przez serwery brzegowe. |
 | [Pomiń pamięć podręczną](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Określa, czy żądanie może korzystać z naszej technologii buforowania. |
-| [Przetwarzanie nagłówka kontroli pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Steruje generowaniem nagłówków kontroli pamięci podręcznej przez serwer graniczny, gdy aktywna jest funkcja max-age. |
+| [Przetwarzanie nagłówka kontroli pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Steruje generowaniem nagłówków Cache-Control przez serwer graniczny, gdy funkcja Max-Age zewnętrzna jest aktywna. |
 | [Ciąg zapytania klucza pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Określa, czy **klucz pamięci podręcznej*** zostanie uwzględniony lub wykluczony parametry ciągu zapytania skojarzone z żądaniem. <br> _* Ścieżka względna, która jednoznacznie identyfikuje element zawartości na potrzeby buforowania.  Nasze serwery brzegowe używają tej ścieżki względnej podczas sprawdzania zawartości w pamięci podręcznej.  Domyślnie klucz pamięci podręcznej nie będzie zawierał parametrów ciągu zapytania._ |
 | [Pamięć podręczna — ponowne zapisywanie klucza](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Ponownie zapisuje klucz pamięci podręcznej skojarzony z żądaniem. |
 | [Wypełnienie kompletnej pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Określa, co się dzieje, gdy żądanie spowoduje przeznaczenie częściowej pamięci podręcznej na serwerze brzegowym. |
 | [Kompresuj typy plików](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Definiuje formaty plików, które zostaną skompresowane na serwerze. | 
 | [Domyślny maksymalny wiek wewnętrzny](https://docs.vdms.com/cdn/Content/HRE/F/Default-Internal-Max-Age.htm) | Określa domyślny interwał maksymalnego wieku serwera brzegowego na potrzeby ponownej walidacji pamięci podręcznej serwera. |
-| [Wygasa traktowanie nagłówków](https://docs.vdms.com/cdn/Content/HRE/F/Expires-Header-Treatment.htm) | Steruje generowaniem nagłówków wygaśnięcia przez serwer graniczny, gdy aktywna jest funkcja max-age. |
+| [Wygasa traktowanie nagłówków](https://docs.vdms.com/cdn/Content/HRE/F/Expires-Header-Treatment.htm) | Steruje generowaniem nagłówków wygasania przez serwer graniczny, gdy funkcja zewnętrzna Max-Age jest aktywna. |
 | [Zewnętrzny maksymalny wiek](https://docs.vdms.com/cdn/Content/HRE/F/External-Max-Age.htm) | Określa maksymalny okres sprawdzania poprawności pamięci podręcznej serwera programu Edge przez przeglądarkę. |
 | [Wymuszaj wewnętrzny maksymalny wiek](https://docs.vdms.com/cdn/Content/HRE/F/Force-Internal-Max-Age.htm) | Określa maksymalny okres sprawdzania poprawności pamięci podręcznej serwera usługi Edge dla serwera brzegowego. |
 | [Obsługa H. 264 (pobieranie progresywne HTTP)](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-HPD.htm) | Określa typy formatów plików H. 264, które mogą być używane do przesyłania strumieniowego zawartości. |
 | [H. 264 — parametry wyszukiwania wideo](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-VSP-HPD.htm) | Zastępuje nazwy przypisane do parametrów kontrolujących wyszukiwanie za pomocą nośnika H. 264 przy użyciu pobierania progresywnego HTTP. |
-| [Uznają żądanie braku pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | Określa, czy żądania braku pamięci podręcznej klienta HTTP będą przekazywane do serwera pochodzenia. |
+| [Honor No-Cache żądania](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | Określa, czy żądania braku pamięci podręcznej klienta HTTP będą przekazywane do serwera pochodzenia. |
 | [Ignoruj Źródło bez pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Origin-No-Cache.htm) | Określa, czy nasza sieć CDN zignoruje niektóre dyrektywy, które są obsługiwane przez serwer pochodzenia. |
 | [Ignoruj zakresy Unsatisfiable](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Unsatisfiable-Ranges.htm) | Określa odpowiedź, która zostanie zwrócona do klientów, gdy żądanie 416 generuje kod stanu niewłaściwego. |
 | [Wewnętrzna maksymalna — nieodświeżona](https://docs.vdms.com/cdn/Content/HRE/F/Internal-Max-Stale.htm) | Określa, jak długo przeszło czas normalnego czasu wygaśnięcia w pamięci podręcznej, gdy serwer graniczny nie może ponownie sprawdzić poprawności pamięci podręcznej z serwerem pochodzenia. |
 | [Częściowe udostępnianie pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Partial-Cache-Sharing.htm) | Określa, czy żądanie może generować częściowo buforowaną zawartość. |
 | [Wstępne Weryfikowanie zawartości w pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Prevalidate-Cached-Content.htm) | Określa, czy zawartość pamięci podręcznej będzie kwalifikować się do wczesnego sprawdzania poprawności przed upływem czasu wygaśnięcia. |
-| [Odświeżanie plików pamięci podręcznej zero bajtów](https://docs.vdms.com/cdn/Content/HRE/F/Refresh-Zero-Byte-Cache-Files.htm) | Określa, w jaki sposób żądanie klienta HTTP dla zasobu pamięci podręcznej 0-bajtowej jest obsługiwane przez nasze serwery brzegowe. |
+| [Odświeżanie plików pamięci podręcznej Zero-Byte](https://docs.vdms.com/cdn/Content/HRE/F/Refresh-Zero-Byte-Cache-Files.htm) | Określa, w jaki sposób żądanie klienta HTTP dla zasobu pamięci podręcznej 0-bajtowej jest obsługiwane przez nasze serwery brzegowe. |
 | [Ustawianie kodów stanu pamięci podręcznej](https://docs.vdms.com/cdn/Content/HRE/F/Set-Cacheable-Status-Codes.htm) | Definiuje zestaw kodów stanu, które mogą prowadzić do zawartości w pamięci podręcznej. |
 | [Nieodświeżone dostarczanie zawartości w przypadku błędu](https://docs.vdms.com/cdn/Content/HRE/F/Stale-Content-Delivery-on-Error.htm) | Określa, czy wygasła buforowana zawartość zostanie dostarczona, gdy wystąpi błąd podczas ponownej walidacji pamięci podręcznej lub gdy pobiera żądaną zawartość z serwera pochodzenia klienta. | 
 | [Nieodświeżone podczas weryfikacji](https://docs.vdms.com/cdn/Content/HRE/F/Stale-While-Revalidate.htm) | Zwiększa wydajność dzięki umożliwieniu serwerom brzegowym nieodświeżonemu klientowi żądającemu podczas ponownej walidacji. |
@@ -124,13 +124,13 @@ Te funkcje określają, czy żądanie zostanie poddane optymalizacji zapewnianej
 
 **[Powrót do początku](#top)**
 
-### <a name="origin"></a><a name="origin"></a>Origin
+### <a name="origin"></a><a name="origin"></a>Źródł
 
 Te funkcje zostały zaprojektowane w celu kontrolowania, jak sieć CDN komunikuje się z serwerem pochodzenia.
 
 | Nazwa       | Przeznaczenie                                                           |
 |------------|-------------------------------------------------------------------|
-| [Maksymalna liczba żądań Keep-Alive](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Określa maksymalną liczbę żądań dla połączenia Keep-Alive przed zamknięciem. |
+| [Maksymalna liczba żądań Keep-Alive](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Określa maksymalną liczbę żądań połączenia Keep-Alive, zanim zostanie zamknięty. |
 | [Specjalne nagłówki serwera proxy](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | Definiuje zestaw [nagłówków żądań specyficznych](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders) dla sieci CDN, które będą przekazywane z serwera graniczny do serwera źródłowego. |
 
 **[Powrót do początku](#top)**
@@ -161,7 +161,7 @@ Te funkcje umożliwiają przekierowanie lub zapisanie żądania w innym adresie 
 
 **[Powrót do początku](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Web Application Firewall
+### <a name="web-application-firewall"></a><a name="waf"></a>Zapora aplikacji internetowej
 
 Funkcja [Zapora aplikacji sieci Web](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) określa, czy żądanie będzie sprawdzane przez zaporę aplikacji sieci Web.
 
@@ -173,6 +173,6 @@ Najnowsze funkcje można znaleźć w [dokumentacji aparatu reguł Verizon](https
 
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)
 - [Wyrażenia warunkowe aparatu reguł](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Zastępowanie zachowania HTTP przy użyciu aparatu reguł](cdn-verizon-premium-rules-engine.md)
 - [Przegląd Azure CDN](cdn-overview.md)

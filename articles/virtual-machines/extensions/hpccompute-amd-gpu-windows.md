@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87010873"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Rozszerzenie sterownika procesora GPU AMD dla systemu Windows
 
-Ten artykuł zawiera Omówienie rozszerzenia maszyny wirtualnej do wdrażania sterowników procesora GPU AMD na maszynach wirtualnych z [serii NVv4](../nvv4-series.md) systemu Windows. Jeśli instalujesz sterowniki AMD przy użyciu tego rozszerzenia, akceptujesz i wyrażasz zgodę na warunki [umowy licencyjnej użytkownika oprogramowania AMD](https://amd.com/radeonsoftwarems). Podczas instalacji maszyna wirtualna może zostać ponownie przetworzony w celu ukończenia instalacji sterownika.
+Ten artykuł zawiera Omówienie rozszerzenia maszyny wirtualnej do wdrażania sterowników procesora GPU AMD na maszynach wirtualnych z [serii NVv4](../nvv4-series.md) systemu Windows. Jeśli instalujesz sterowniki AMD przy użyciu tego rozszerzenia, akceptujesz i wyrażasz zgodę na warunki [umowy licencyjnej platformy amd End-User](https://amd.com/radeonsoftwarems). Podczas instalacji maszyna wirtualna może zostać ponownie przetworzony w celu ukończenia instalacji sterownika.
 
 Instrukcje dotyczące ręcznej instalacji sterowników i aktualnie obsługiwanych wersji są dostępne [tutaj](../windows/n-series-amd-driver-setup.md).
 
@@ -69,7 +69,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | AmdGpuDriverWindows | ciąg |
 | typeHandlerVersion | 1.0 | int |
@@ -135,7 +135,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu Azure PowerShell i interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie.
 

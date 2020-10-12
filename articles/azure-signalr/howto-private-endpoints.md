@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84300204"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Używanie prywatnych punktów końcowych dla usługi Azure Signal Service
@@ -89,7 +89,7 @@ Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do
 
 ### <a name="create-a-private-endpoint-along-with-a-new-azure-signalr-service-in-the-azure-portal"></a>Utwórz prywatny punkt końcowy wraz z nową usługą Azure Signal w Azure Portal
 
-1. Podczas tworzenia nowej usługi Azure sygnalizującej wybierz pozycję Karta **Sieć** . Wybierz **prywatny punkt końcowy** jako metodę łączności.
+1. Podczas tworzenia nowej usługi Azure sygnalizującej wybierz pozycję Karta **sieciowa** . Wybierz **prywatny punkt końcowy** jako metodę łączności.
 
     ![Tworzenie usługi Azure Signal Service — Karta Sieć](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
 
@@ -97,7 +97,7 @@ Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do
 
     ![Tworzenie usługi Azure Signal Service — Dodawanie prywatnego punktu końcowego](media/howto-private-endpoints/portal-create-blade-add-private-endpoint.png)
 
-1. Kliknij pozycję **Przegląd + utwórz**.
+1. Kliknij pozycję **Przejrzyj i utwórz**.
 
 ### <a name="create-a-private-endpoint-for-an-existing-azure-signalr-service-in-the-azure-portal"></a>Utwórz prywatny punkt końcowy dla istniejącej usługi Azure Signal w Azure Portal
 
@@ -121,7 +121,7 @@ Aby uzyskać więcej informacji na temat konfigurowania własnego serwera DNS do
 
     ![Tworzenie prywatnego punktu końcowego — konfiguracja](media/howto-private-endpoints/portal-create-private-endpoint-configuration.png)
 
-1. Kliknij pozycję **Przegląd + utwórz**.
+1. Kliknij pozycję **Przejrzyj i utwórz**.
 
 ### <a name="create-a-private-endpoint-using-azure-cli"></a>Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
 

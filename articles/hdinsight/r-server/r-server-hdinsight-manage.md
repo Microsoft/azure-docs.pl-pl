@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
 ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087643"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Zarządzanie klastrem usług ML w usłudze Azure HDInsight
@@ -201,11 +201,11 @@ Aby zainstalować pakiety języka R na węzłach procesu roboczego klastra, musi
 
    * W polu **Nazwa**Podaj nazwę akcji skryptu.
 
-     * Dla **identyfikatora URI skryptu bash**wprowadź `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh` . Jest to skrypt instalujący dodatkowe pakiety języka R w węźle procesu roboczego
+     * Dla **identyfikatora URI skryptu bash**wprowadź  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh` . Jest to skrypt instalujący dodatkowe pakiety języka R w węźle procesu roboczego
 
    * Zaznacz pole wyboru tylko dla **procesu roboczego**.
 
-   * **Parametry**: pakiety R do zainstalowania. Na przykład: `bitops stringr arules`
+   * **Parametry**: pakiety R do zainstalowania. Na przykład `bitops stringr arules`
 
    * Zaznacz to pole wyboru, aby **zachować tę akcję skryptu**.  
 

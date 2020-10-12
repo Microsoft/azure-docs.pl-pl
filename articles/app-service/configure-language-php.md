@@ -1,15 +1,15 @@
 ---
 title: Konfigurowanie aplikacji PHP
-description: Dowiedz się, jak skonfigurować aplikację PHP w natywnych wystąpieniach systemu Windows lub we wstępnie skompilowanym kontenerze PHP w Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
+description: Dowiedz się, jak skonfigurować aplikację PHP w natywnych wystąpieniach systemu Windows lub we wstępnie skompilowanym kontenerze PHP w Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055303"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP dla Azure App Service
@@ -231,7 +231,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Uzyskiwanie dostępu do zmiennych środowiskowych
 
-W App Service można [ustawić ustawienia aplikacji](configure-common.md#configure-app-settings) poza kodem aplikacji. Następnie możesz uzyskać do nich dostęp przy użyciu standardowego wzorca [getenv ()](https://secure.php.net/manual/function.getenv.php) . Aby na przykład uzyskać dostęp do ustawienia aplikacji o nazwie `DB_HOST`, użyj następującego kodu:
+W usłudze App Service można [określić ustawienia aplikacji](configure-common.md#configure-app-settings) poza kodem aplikacji. Następnie możesz uzyskać do nich dostęp przy użyciu standardowego wzorca [getenv ()](https://secure.php.net/manual/function.getenv.php) . Aby na przykład uzyskać dostęp do ustawienia aplikacji o nazwie `DB_HOST`, użyj następującego kodu:
 
 ```php
 getenv("DB_HOST")
@@ -489,7 +489,7 @@ Gdy działająca aplikacja PHP działa inaczej w App Service lub zawiera błędy
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux — często zadawane pytania](faq-app-service-linux.md)
+> [App Service dla systemu Linux — często zadawane pytania](faq-app-service-linux.md)
 
 ::: zone-end
 

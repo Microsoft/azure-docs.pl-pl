@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób publikowania zdarzenia w temacie nie
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108264"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Opublikuj w temacie niestandardowym dla Azure Event Grid
@@ -16,7 +16,7 @@ W tym artykule opisano sposób publikowania zdarzenia w temacie niestandardowym.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="endpoint"></a>Endpoint
+## <a name="endpoint"></a>Punkt końcowy
 
 Podczas wysyłania wpisu HTTP do niestandardowego tematu Użyj formatu identyfikatora URI: `https://<topic-endpoint>?api-version=2018-01-01` .
 
@@ -92,15 +92,15 @@ Na przykład prawidłowy schemat danych zdarzenia to:
 }]
 ```
 
-## <a name="response"></a>Odpowiedź
+## <a name="response"></a>Reakcja
 
 Po opublikowaniu w punkcie końcowym tematu otrzymujesz odpowiedź. Odpowiedź jest standardowym kodem odpowiedzi HTTP. Niektóre typowe odpowiedzi to:
 
-|Wynik  |Odpowiedź  |
+|Wynik  |Reakcja  |
 |---------|---------|
 |Powodzenie  | 200 OK  |
 |Dane zdarzenia mają niepoprawny format | 400 Nieprawidłowe żądanie |
-|Nieprawidłowy klucz dostępu | 401 — nieautoryzowane |
+|Nieprawidłowy klucz dostępu | 401 Brak autoryzacji |
 |Nieprawidłowy punkt końcowy | 404 — Nie znaleziono |
 |Tablica lub zdarzenie przekraczają limity rozmiaru | ładunek 413 zbyt duży |
 

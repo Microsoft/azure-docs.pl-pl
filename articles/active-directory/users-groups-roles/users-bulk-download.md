@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb119ef0ffd4da4dc524c9d3c0a88b94e2251142
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423562"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Pobieranie listy użytkowników w portalu Azure Active Directory
@@ -53,7 +53,7 @@ Aby pobrać listę użytkowników z centrum administracyjnego usługi Azure AD, 
    - accountEnabled
    - usageLocation
    - streetAddress
-   - state
+   - stan
    - country
    - physicalDeliveryOfficeName
    - city

@@ -10,17 +10,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073905"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Szybki Start — Konfigurowanie środowiska chmury prywatnej
 
 W tym artykule dowiesz się, jak utworzyć chmurę prywatną CloudSimple i skonfigurować środowisko chmury prywatnej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przejrzyj [wymagania wstępne dotyczące sieci](cloudsimple-network-checklist.md).
 
@@ -58,13 +58,13 @@ Chmurami prywatnymi zarządza się za pomocą portalu CloudSimple. Mają własny
 
 11. Kliknij przycisk **Dalej: Przejrzyj i Utwórz**.
 12. Przejrzyj ustawienia. Jeśli musisz zmienić dowolne ustawienia, kliknij przycisk **Wstecz**.
-13. Kliknij pozycję **Utwórz**.
+13. Kliknij przycisk **Utwórz**.
 
 Rozpocznie się proces aprowizacji w chmurze prywatnej.  Zainicjowanie obsługi chmury prywatnej może potrwać do dwóch godzin.
 
 ## <a name="launch-cloudsimple-portal"></a>Uruchom Portal CloudSimple
 
-Możesz uzyskać dostęp do portalu CloudSimple z poziomu Azure Portal.  Portal CloudSimple zostanie uruchomiony z poświadczeniami logowania platformy Azure przy użyciu logowania jednokrotnego (SSO).  Dostęp do portalu CloudSimple wymaga autoryzacji aplikacji **autoryzacji usługi CloudSimple** .  Aby uzyskać więcej informacji na temat przyznawania uprawnień, zobacz [wyrażanie zgody na aplikację autoryzacji usługi CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+Możesz uzyskać dostęp do portalu CloudSimple z poziomu Azure Portal.  Portal CloudSimple zostanie uruchomiony z poświadczeniami logowania platformy Azure przy użyciu jednego Sign-On (Logowanie jednokrotne).  Dostęp do portalu CloudSimple wymaga autoryzacji aplikacji **autoryzacji usługi CloudSimple** .  Aby uzyskać więcej informacji na temat przyznawania uprawnień, zobacz [wyrażanie zgody na aplikację autoryzacji usługi CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
 
 1. Wybierz pozycję **Wszystkie usługi**.
 2. Wyszukaj **usługi CloudSimple Services**.
@@ -101,7 +101,7 @@ Połączenie sieci VPN typu punkt-lokacja jest najprostszym sposobem nawiązywan
 
     * Opcje **automatycznie Dodaj** ustawienia zasady globalne dla tej bramy. Ustawienia dotyczą bieżącej bramy. Ustawienia można przesłonić w obszarze **wyboru** .
     * Wybierz pozycję **Dodaj sieci VLAN zarządzania/podsieci chmur prywatnych**.
-    * Aby dodać wszystkie zdefiniowane przez użytkownika podsieci/sieci VLAN, kliknij opcję **Dodaj zdefiniowane przez użytkownika sieci VLAN/podsieci**.
+    * Aby dodać wszystkie zdefiniowane przez użytkownika podsieci/sieci VLAN, kliknij opcję  **Dodaj zdefiniowane przez użytkownika sieci VLAN/podsieci**.
     * **Wybrane** ustawienia zastępują ustawienia globalne w obszarze **Automatyczne dodawanie**.
 
 7. Kliknij przycisk **dalej** , aby przejrzeć ustawienia. Kliknij ikonę Edytuj, aby wprowadzić zmiany.
@@ -159,7 +159,7 @@ Teraz możesz zalogować się do programu vCenter, aby skonfigurować maszyny wi
     ![Uruchom klienta vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Wybierz preferowanego klienta vSphere, aby uzyskać dostęp do programu vCenter i zalogować się przy użyciu nazwy użytkownika i hasła.  Wartości domyślne to:
-    * Nazwa użytkownika:`CloudOwner@cloudsimple.local`
+    * Nazwa użytkownika: `CloudOwner@cloudsimple.local`
     * Password (Hasło): `CloudSimple123!`
 
 Ekrany programu vCenter w następnych procedurach pochodzą z klienta vSphere (HTML5).

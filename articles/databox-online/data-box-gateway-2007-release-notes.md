@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: alkohli
 ms.openlocfilehash: 85614ab6455e149d64b7d1b9774c37c764bb600f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055881"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-2007-release-notes"></a>Informacje o wersji Azure Stack Edge i Azure Data Box Gateway 2007

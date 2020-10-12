@@ -14,10 +14,10 @@ ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
 ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539201"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
@@ -232,7 +232,7 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure — publiczna| Australia Południowo-Wschodnia| 20.40.160.107|
 | Azure — publiczna| Australia Środkowa| 20.37.52.67|
 | Azure — publiczna| Indie Południowe| 20.44.33.246|
-| Azure — publiczna| Środkowe stany USA| 13.86.102.66|
+| Azure — publiczna| Central US| 13.86.102.66|
 | Azure — publiczna| Australia Wschodnia| 20.40.125.155|
 | Azure — publiczna| Zachodnie stany USA 2| 51.143.127.203|
 | Azure — publiczna| Wschodnie stany USA 2 — EUAP| 52.253.229.253|

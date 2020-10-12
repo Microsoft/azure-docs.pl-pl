@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987560"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami Python 2 w Azure Automation
@@ -25,11 +25,11 @@ Na koncie usługi Automation wybierz **pakiety Python 2** w obszarze **udostępn
 
 Na stronie Dodawanie pakietu Python 2 Wybierz pakiet lokalny do przekazania. Pakiet może być plikiem **. WHL** lub **. tar. gz** . Po wybraniu pakietu kliknij przycisk **OK** , aby go załadować.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Zrzut ekranu przedstawia stronę Dodawanie pakietu Python 2 z wybranym plikem tar. gz.":::
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Zrzut ekranu przedstawiający stronę pakietów języka Python 2 zawiera pakiety Python 2 w menu po lewej stronie i dodano wyróżniony pakiet Python 2.":::
 
 Po zaimportowaniu pakietu jest on wyświetlany na stronie pakiety języka Python 2 na koncie usługi Automation. Jeśli musisz usunąć pakiet, wybierz pakiet, a następnie kliknij przycisk **Usuń**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Zrzut ekranu przedstawia stronę pakietów języka Python 2 po zaimportowaniu pakietu.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Zrzut ekranu przedstawiający stronę pakietów języka Python 2 zawiera pakiety Python 2 w menu po lewej stronie i dodano wyróżniony pakiet Python 2.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importuj pakiety z zależnościami
 
@@ -54,7 +54,7 @@ Po pobraniu pakietów można je zaimportować do konta usługi Automation.
 * -a \<automationAccount\>
 * -m \<modulePackage\>
 
-:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Zrzut ekranu przedstawia stronę przegląd dla import_py2package_from_pypi przy użyciu okienka Uruchamianie elementu Runbook po prawej stronie.":::
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Zrzut ekranu przedstawiający stronę pakietów języka Python 2 zawiera pakiety Python 2 w menu po lewej stronie i dodano wyróżniony pakiet Python 2.":::
 
 Element Runbook umożliwia określenie pakietu do pobrania. Na przykład, użycie `Azure` parametru pobiera wszystkie moduły platformy Azure i wszystkie zależności (około 105).
 

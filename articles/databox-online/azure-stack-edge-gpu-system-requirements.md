@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320731"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Wymagania systemowe dla programu Azure Stack EDGE Pro z procesorem GPU 
@@ -40,7 +40,7 @@ Wymagania systemowe dotyczące Azure Stack Edge w wersji Pro obejmują:
 
 W przypadku zarządzania z Azure Stack następujące konta magazynu warstwowego są obsługiwane przez interfejsy SMB/NFS/REST.
 
-|Typ  |Konto magazynu  |Komentarze  |
+|Type  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|
 |Standardowa     |GPv1: blokowy obiekt BLOB         |         |
 |    |  BLOB Storage: blokowy obiekt BLOB       | Obsługiwane tylko dla NAS     |

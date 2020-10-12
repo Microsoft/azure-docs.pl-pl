@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń Media Ser
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c1c5953cae7364131eefcec97d3375404c85e963
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105935"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services jako źródło Event Grid
@@ -124,10 +124,10 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **JobStateChange** :
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | previousState | ciąg | Stan zadania przed zdarzeniem. |
-| state | ciąg | Nowy stan zadania, które jest zgłaszane w tym zdarzeniu. Na przykład "zaplanowane: zadanie jest gotowe do rozpoczęcia" lub "zakończone: zadanie zostało zakończone".|
+| stan | ciąg | Nowy stan zadania, które jest zgłaszane w tym zdarzeniu. Na przykład "zaplanowane: zadanie jest gotowe do rozpoczęcia" lub "zakończone: zadanie zostało zakończone".|
 
 Gdzie stan zadania może być jedną z wartości: *kolejkowane*, *zaplanowane*, *przetwarzane*, *zakończone*, *błąd*, *anulowano*, *Anulowanie*
 
@@ -194,7 +194,7 @@ Dla każdej ostatecznej zmiany stanu zadania (na przykład JobFinished, JobCance
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | wydajności | Tablica | Pobiera dane wyjściowe zadania.|
 
@@ -310,7 +310,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventConnectionR
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
 | ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |  
@@ -346,7 +346,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderConn
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za podanie tego identyfikatora w adresie URL pozyskiwania. |
 | ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |
@@ -380,7 +380,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventEncoderDisc
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | Obecny streamid | ciąg | Identyfikator strumienia lub połączenia. Koder lub klient jest odpowiedzialny za dodanie tego identyfikatora w adresie URL pozyskiwania. |  
 | ingestUrl | ciąg | Adres URL pozyskiwania podany przez wydarzenie na żywo. |  
@@ -430,7 +430,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingDat
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki. |
@@ -470,7 +470,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStr
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
@@ -509,7 +509,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingStr
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | minLastTimestamp | ciąg | Minimum ostatnich sygnatur czasowych między wszystkimi ścieżkami (audio lub wideo). |
 | typeOfTrackWithMinLastTimestamp | ciąg | Typ ścieżki (audio lub wideo) z minimalną ostatnią sygnaturą czasową. |
@@ -545,7 +545,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIncomingVid
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | firstTimestamp | ciąg | Odebrano sygnaturę czasową dla jednego z poziomów śledzenia/jakości typu wideo. |
 | firstDuration | ciąg | Czas trwania fragmentu danych z pierwszym znacznikiem czasu. |
@@ -587,7 +587,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventIngestHeart
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
@@ -599,7 +599,7 @@ Obiekt danych ma następujące właściwości:
 | discontinuityCount | liczba całkowita | Liczba nietrzymań zaobserwowanych w ciągu ostatnich 20 sekund. |
 | nonIncreasingCount | liczba całkowita | Liczba fragmentów danych z sygnaturami czasowymi w przeszłości została odebrana w ciągu ostatnich 20 sekund. |
 | unexpectedBitrate | bool | Jeśli oczekiwane i rzeczywiste szybkości transmisji bitów różnią się o więcej niż dozwolony limit w ciągu ostatnich 20 sekund. Prawda, jeśli i tylko wtedy, gdy, incomingBitrate >= 2 * szybkość transmisji bitów lub incomingBitrate <= szybkość transmisji bitów/2 lub IncomingBitrate = 0. |
-| state | ciąg | Stan zdarzenia na żywo. |
+| stan | ciąg | Stan zdarzenia na żywo. |
 | dobrej kondycji | bool | Wskazuje, czy pozyskiwanie jest w dobrej kondycji na podstawie liczby i flag. Dobra kondycja ma wartość true, jeśli overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
@@ -631,7 +631,7 @@ W poniższym przykładzie przedstawiono schemat zdarzenia **LiveEventTrackDiscon
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | ścieżka śledzenia | ciąg | Typ ścieżki (audio/wideo). |
 | ścieżka śledzenia | ciąg | Nazwa ścieżki (dostarczonej przez koder lub, w przypadku protokołu RTMP, serwer generuje w formacie *TrackType_Bitrate* ). |
@@ -645,11 +645,11 @@ Obiekt danych ma następujące właściwości:
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Temat EventGrid. Ta właściwość ma identyfikator zasobu dla konta Media Services. |
 | Temat | ciąg | Ścieżka zasobu dla Media Services kanału w ramach konta Media Services. Łączenie tematu i tematu zapewnia identyfikator zasobu dla zadania. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Media Services dane zdarzenia. |

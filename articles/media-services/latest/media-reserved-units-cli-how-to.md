@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: bcbe5fe71e5a4d4d39a29d4a6828c104f6891c0d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617149"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Jak skalować jednostki zarezerwowane multimediów
@@ -52,6 +52,6 @@ Opłata jest naliczana na podstawie liczby minut, w ciągu których zainicjowano
 
 [Analizowanie wideo](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Limity przydziału i ograniczenia](limits-quotas-constraints.md)

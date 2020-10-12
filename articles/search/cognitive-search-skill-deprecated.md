@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 85f3b9862bd8155c1a4b11860dc82d92a2f9e810
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936099"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Przestarzałe umiejętności poznawcze na platformie Azure Wyszukiwanie poznawcze

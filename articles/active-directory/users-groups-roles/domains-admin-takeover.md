@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054708"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie katalogu niezarządzanego jako administrator w usłudze Azure Active Directory
@@ -154,7 +154,7 @@ cmdlet | Użycie
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. W publicznej przestrzeni nazw DNS Utwórz rekord TXT DNS zawierający wartość skopiowaną w poprzednim kroku. Nazwa tego rekordu to nazwa domeny nadrzędnej, więc jeśli ten rekord zasobu zostanie utworzony przy użyciu roli DNS z systemu Windows Server, pozostaw pustą nazwę rekordu i po prostu wklej wartość w polu tekstowym.
-6. Uruchom polecenie cmdlet Confirm-MsolDomain, aby zweryfikować wyzwanie:
+6. Uruchom polecenie cmdlet Confirm-MsolDomain, aby sprawdzić wyzwanie:
   
    ```powershell
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force

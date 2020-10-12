@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: sagupt
 ms.openlocfilehash: 66bb500d419d1f5537afafd7a2df543ded8cc7ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87057768"
 ---
 # <a name="query-for-advisor-data-in-resource-graph-explorer-azure-resource-graph"></a>Zapytanie dotyczące danych klasyfikatora w Eksploratorze grafu zasobów (Wykres zasobów platformy Azure)
@@ -35,7 +35,7 @@ Te typy zasobów są wymienione w nowej tabeli o nazwie AdvisorResources, któr�
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
-* [Wprowadzenie do Azure Advisor](advisor-overview.md)
+* [Wprowadzenie do usługi Azure Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
 * [Zalecenia usługi Advisor dotyczące kosztów](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące niezawodności usługi Advisor](advisor-high-availability-recommendations.md)
