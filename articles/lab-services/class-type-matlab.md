@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445002"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Konfigurowanie laboratorium do uczenia programu MATLAB
@@ -69,7 +69,7 @@ Musisz być administratorem licencji, aby pobrać pliki instalacyjne, a także p
 11. Wybierz pozycję **Windows** jako platformę komputera, który ma zostać zainstalowany w programie Matlab.
 12. Na stronie **Wybierz produkt** upewnij się, że jest ZAZNACZONA opcja MATLAB oraz inne MathWorks produkty, które chcesz zainstalować.
 13. Na stronie **Potwierdzanie opcji i pobieranie** kliknij pozycję **Rozpocznij pobieranie**.  
-14. Poczekaj na pobranie wybranych produktów.  Kliknij przycisk **Zakończ**.
+14. Poczekaj na pobranie wybranych produktów.  Kliknij przycisk **Finish** (Zakończ).
 
 Obraz ISO można także pobrać z witryny sieci Web MathWorks.
 
@@ -94,7 +94,7 @@ Po pobraniu plików drugi krok to uruchomienie Instalatora. Aby ukończyć ten k
 9. Na stronie **Wybierz produkty** kliknij przycisk **dalej**.
 10. Na stronie **Wybieranie opcji** kliknij przycisk **dalej**.
 11. Na stronie **Potwierdzanie wyboru i instalacji** kliknij przycisk **Rozpocznij instalację**.
-12. Na stronie **ukończenie instalacji** Sprawdź, czy jest zaznaczona opcja **Aktywuj program MATLAB** .  Kliknij przycisk **Zakończ**.
+12. Na stronie **ukończenie instalacji** Sprawdź, czy jest zaznaczona opcja **Aktywuj program MATLAB** .  Kliknij przycisk **Finish** (Zakończ).
 
 ## <a name="cost-estimate"></a>Oszacowanie kosztów
 
@@ -102,7 +102,7 @@ Przyjrzyjmy się możliwemu szacunkowi kosztów dla tej klasy.  To oszacowanie n
 
 Oto przykład możliwego oszacowania kosztów dla tej klasy:
 
-25 studentów \* (20 zaplanowanych godzin + 10 godzin przydziału) \* 55 jednostek laboratoryjnych \* 0,01 USD za godzinę = 412,50 USD
+25 studentów \* (20 zaplanowanych godzin + 10 godzin przydziału) \* 55 jednostek laboratoryjnych \*  0,01 USD za godzinę = 412,50 USD
 
 >[!IMPORTANT]
 > Oszacowanie kosztów odbywa się tylko na przykład.  Aby uzyskać aktualne informacje o cenach, zobacz [Cennik usługi Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).  

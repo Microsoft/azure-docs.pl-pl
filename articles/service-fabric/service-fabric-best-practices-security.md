@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257602"
 ---
 # <a name="azure-service-fabric-security"></a>Zabezpieczenia usługi Azure Service Fabric 
@@ -171,7 +171,7 @@ Aby włączyć tożsamość zarządzaną przypisaną przez system podczas tworze
 ```
 Aby uzyskać więcej informacji, zobacz [co to są zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss.md#system-assigned-managed-identity)
 
-Jeśli utworzono [tożsamość zarządzaną przypisaną przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity), zadeklaruj następujący zasób w szablonie, aby przypisać go do zestawu skalowania maszyn wirtualnych. Zamień na `\<USERASSIGNEDIDENTITYNAME\>` nazwę utworzonej tożsamości zarządzanej przez użytkownika:
+Jeśli utworzono  [tożsamość zarządzaną przypisaną przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity), zadeklaruj następujący zasób w szablonie, aby przypisać go do zestawu skalowania maszyn wirtualnych. Zamień na `\<USERASSIGNEDIDENTITYNAME\>` nazwę utworzonej tożsamości zarządzanej przez użytkownika:
 
 ```json
 "identity": {

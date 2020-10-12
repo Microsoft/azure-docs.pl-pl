@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415820"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Skopiuj dane z Azure Data Lake Storage Gen1 do Gen2 z Azure Data Factory
@@ -52,10 +52,10 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
     * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych \" LoadADLSDemo \" jest niedostępna", wprowadź inną nazwę fabryki danych. Na przykład użyj nazwy _**twojanazwa**_**ADFTutorialDataFactory**. Ponownie utwórz fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
     * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej. Możesz również wybrać opcję **Utwórz nową** , a następnie wprowadzić nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
-    * **Wersja**: wybierz pozycję **v2**.
+    * **Wersja**: Wybierz pozycję **Wersja 2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych, które są używane przez fabrykę danych, mogą znajdować się w innych lokalizacjach i regionach. 
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji: 
    
    ![Strona główna fabryki danych](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -67,7 +67,7 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
 1. Na stronie **wprowadzenie** wybierz kafelek **Kopiowanie danych** , aby uruchomić narzędzie do kopiowania danych. 
 
    ![Kafelek Narzędzia do kopiowania danych](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. Na stronie **Właściwości** Określ **CopyFromADLSGen1ToGen2** dla pola **Nazwa zadania** . Wybierz pozycję **Dalej**.
+2. Na stronie **Właściwości** Określ **CopyFromADLSGen1ToGen2** dla pola **Nazwa zadania** . Wybierz opcję **Dalej**.
 
     ![Strona właściwości](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
 3. Na stronie **Magazyn danych źródłowych** wybierz pozycję **+ Utwórz nowe połączenie**.
@@ -84,7 +84,7 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
   
    b. Wybierz **Test connection** , aby sprawdzić poprawność ustawień. Następnie wybierz pozycję **Zakończ**.
   
-   c. Zobaczysz, że zostało utworzone nowe połączenie. Wybierz pozycję **Dalej**.
+   c. Zobaczysz, że zostało utworzone nowe połączenie. Wybierz opcję **Dalej**.
    
    > [!IMPORTANT]
    > W tym przewodniku do uwierzytelniania Azure Data Lake Storage Gen1 służy tożsamość zarządzana dla zasobów platformy Azure. Aby udzielić zarządzanej tożsamości odpowiednich uprawnień w Azure Data Lake Storage Gen1, postępuj zgodnie z [tymi instrukcjami](connector-azure-data-lake-store.md#managed-identity).
@@ -95,7 +95,7 @@ W tym artykule pokazano, jak za pomocą narzędzia do kopiowania danych Data Fac
 
     ![Wybieranie pliku lub folderu wejściowego](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Określ zachowanie kopiowania, wybierając opcje **kopiowania cyklicznie** i kopiowania plików **binarnych** . Wybierz pozycję **Dalej**.
+7. Określ zachowanie kopiowania, wybierając opcje **kopiowania cyklicznie** i kopiowania plików **binarnych** . Wybierz opcję **Dalej**.
 
     ![Określ folder wyjściowy](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     

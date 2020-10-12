@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82193126"
 ---
 # <a name="security-control-network-security"></a>Kontrola zabezpieczeń: zabezpieczenia sieci
@@ -22,7 +22,7 @@ Zalecenia dotyczące zabezpieczeń sieci koncentrują się na określaniu, któr
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 1.1 | 9,2, 9,4, 14,1, 14,2, 14,3 | Klient |
+| 1,1 | 9,2, 9,4, 14,1, 14,2, 14,3 | Klient |
 
 Upewnij się, że wszystkie wdrożenia podsieci Virtual Network mają grupę zabezpieczeń sieci stosowaną z kontrolami dostępu do sieci, które są specyficzne dla zaufanych portów i źródeł aplikacji. Jeśli to możliwe, użyj prywatnych punktów końcowych z prywatnym linkiem, aby zabezpieczyć zasoby usługi platformy Azure w sieci wirtualnej, rozszerzając tożsamość VNet do usługi. Gdy prywatne punkty końcowe i link prywatny są niedostępne, użyj punktów końcowych usługi. Wymagania dotyczące konkretnych usług zapoznaj się z zaleceniami dotyczącymi zabezpieczeń tej konkretnej usługi. 
 
@@ -42,7 +42,7 @@ Alternatywnie, jeśli masz określony przypadek użycia, wymagania mogą być sp
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 1.2 | 9,3, 12,2, 12,8 | Klient |
+| 1,2 | 9,3, 12,2, 12,8 | Klient |
 
 Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczącymi ochrony sieci, aby pomóc w zabezpieczeniu zasobów sieciowych na platformie Azure. Włącz dzienniki przepływu sieciowej grupy zabezpieczeń i Wyślij dzienniki do konta magazynu na potrzeby inspekcji ruchu. Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do obszaru roboczego Log Analytics i użyć Analiza ruchu, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. Niektóre zalety Analiza ruchu to możliwość wizualizacji aktywności sieciowej i identyfikowania aktywnych punktów, identyfikowania zagrożeń bezpieczeństwa, zrozumienia wzorców przepływu ruchu i wyznaczania konfiguracji sieci.
 
@@ -102,7 +102,7 @@ Włącz przechwytywanie pakietów Network Watcher, aby zbadać nietypowe działa
 |--|--|--|
 | 1.6 | 12,6, 12,7 | Klient |
 
-Wybierz ofertę z portalu Azure Marketplace, która obsługuje funkcje identyfikatorów/adresów IP z możliwościami inspekcji ładunku.  Jeśli wykrywanie i/lub zapobieganie włamaniu nie są wymagane w oparciu o inspekcję ładunku, można użyć zapory platformy Azure z funkcją analizy zagrożeń. Filtrowanie oparte na analizie zagrożeń na platformie Azure może wysyłać alerty i odrzucać ruch do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft.
+Wybierz ofertę z portalu Azure Marketplace, która obsługuje funkcje identyfikatorów/adresów IP z możliwościami inspekcji ładunku.  Jeśli wykrywanie i/lub zapobieganie włamaniu nie są wymagane w oparciu o inspekcję ładunku, można użyć zapory platformy Azure z funkcją analizy zagrożeń. Filtrowanie oparte na analizie zagrożeń na platformie Azure może wysyłać alerty i odrzucać ruch do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft.
 
 Wdrażaj wybrane rozwiązanie zapory w każdej z granic sieci organizacji, aby wykrywać i/lub odrzucać złośliwy ruch.
 
@@ -116,7 +116,7 @@ Wdrażaj wybrane rozwiązanie zapory w każdej z granic sieci organizacji, aby w
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 1.7 | 12,9, 12,10 | Klient |
+| 1,7 | 12,9, 12,10 | Klient |
 
 Wdróż Application Gateway platformy Azure dla aplikacji sieci Web z włączonym protokołem HTTPS/TLS dla zaufanych certyfikatów.
 
@@ -144,7 +144,7 @@ Aby uprościć konfigurację zabezpieczeń, można również użyć grup zabezpi
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 1.9 | 11,1 | Klient |
+| 1,9 | 11,1 | Klient |
 
 Zdefiniuj i Implementuj standardowe konfiguracje zabezpieczeń dla zasobów sieciowych za pomocą Azure Policy.
 

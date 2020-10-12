@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730010"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Wysyłanie komunikatów z chmury do urządzeń z Centrum IoT Hub
@@ -77,7 +77,7 @@ Po wysłaniu komunikatu z chmury do urządzenia usługa może zażądać dostarc
 | ACK — wartość właściwości | Zachowanie |
 | ------------ | -------- |
 | brak     | Centrum IoT nie generuje wiadomości z opiniami (domyślne zachowanie). |
-| pozytywna | Jeśli komunikat z chmury do urządzenia osiągnie stan *ukończono* , usługa IoT Hub generuje wiadomość z opinią. |
+| positive | Jeśli komunikat z chmury do urządzenia osiągnie stan *ukończono* , usługa IoT Hub generuje wiadomość z opinią. |
 | negative | Jeśli komunikat z chmury do urządzenia osiągnie stan *utraconych* wiadomości, usługa IoT Hub generuje wiadomość z opinią. |
 | szczegółowe     | W obu przypadkach w usłudze IoT Hub jest generowany komunikat z opinią. |
 

@@ -4,10 +4,10 @@ description: Opisuje sposób znajdowania i stosowania zalecanych zasad dla usłu
 ms.date: 09/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 919d09a569fd950ab2061ba3452a4a940d25cb5c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89447896"
 ---
 # <a name="recommended-policies-for-azure-services"></a>Zalecane zasady dla usług platformy Azure

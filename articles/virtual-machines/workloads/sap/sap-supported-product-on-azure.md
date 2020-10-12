@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065089"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Jakie oprogramowanie SAP jest obsługiwane w przypadku wdrożeń platformy Azure
@@ -117,7 +117,7 @@ W przypadku maszyn wirtualnych platformy Azure te numery przepływności SAP są
 
 W #1928533 uwagi na temat [pomocy technicznej SAP](https://launchpad.support.sap.com/#/notes/1928533)są stosowane następujące uwagi:
 
-- **W przypadku maszyn wirtualnych platformy Azure z serii M i maszyn wirtualnych platformy Azure z serii Mv2 są stosowane różne minimalne wersje systemu operacyjnego niż w przypadku innych typów maszyn wirtualnych platformy Azure**. Wymagania dotyczące nowszych wersji systemu operacyjnego są oparte na zmianach wprowadzonych przez różnych dostawców systemów operacyjnych w ich wersjach systemu operacyjnego w celu umożliwienia ich systemów operacyjnych działających na określonych typach maszyn wirtualnych platformy Azure lub optymalizacji wydajności i przepływności obciążeń SAP na tych typach maszyn wirtualnych
+- **W przypadku maszyn wirtualnych platformy Azure z serii M i Mv2-Series maszyn wirtualnych platformy Azure są stosowane różne minimalne wersje systemu operacyjnego niż w przypadku innych typów maszyn wirtualnych platformy Azure**. Wymagania dotyczące nowszych wersji systemu operacyjnego są oparte na zmianach wprowadzonych przez różnych dostawców systemów operacyjnych w ich wersjach systemu operacyjnego w celu umożliwienia ich systemów operacyjnych działających na określonych typach maszyn wirtualnych platformy Azure lub optymalizacji wydajności i przepływności obciążeń SAP na tych typach maszyn wirtualnych
 - Istnieją dwie tabele, które określają różne typy maszyn wirtualnych. Druga tabela określa przepływność SAP dla typów maszyn wirtualnych platformy Azure, które obsługują tylko usługę Azure Standard Storage. Wdrożenie systemu DBMS w jednostkach określonych w drugiej tabeli notatki nie jest obsługiwane.
 
 

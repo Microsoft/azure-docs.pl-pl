@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 007c19a10db5e000770c8c80189453d4a80edec2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82204557"
 ---
 W poniższej tabeli wymieniono limity związane z różnymi warstwami usług S1, S2, S3 i F1. Aby uzyskać informacje o kosztach poszczególnych *jednostek* w poszczególnych warstwach, zobacz [cennik usługi Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
@@ -32,7 +32,7 @@ W poniższej tabeli wymieniono limity dotyczące zasobów IoT Hub.
 | Maksymalna liczba znaków w IDENTYFIKATORze urządzenia | 128 |
 | Maksymalna liczba tożsamości urządzeń<br/> zwróconych w pojedynczym wywołaniu |1000 |
 | Maksymalny okres przechowywania komunikatów usługi IoT Hub dla komunikatów przesyłanych z urządzenia do chmury |7 dni |
-| Maksymalny rozmiar komunikatu przesyłanego z urządzenia do chmury |256 KB |
+| Maksymalny rozmiar komunikatu przesyłanego z urządzenia do chmury |256 KB |
 | Maksymalny rozmiar partii przesyłanej z urządzenia do chmury |AMQP i HTTP: 256 KB dla całej partii <br/>MQTT: 256 KB dla każdego komunikatu |
 | Maksymalna liczba komunikatów w partii przesyłanej z urządzenia do chmury |500 |
 | Maksymalny rozmiar komunikatu przesyłanego z chmury do urządzenia |64 KB |

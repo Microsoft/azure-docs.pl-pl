@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323183"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Zmiany zasobów na podstawie obszaru roboczego (wersja zapoznawcza)
@@ -43,7 +43,7 @@ Większość kolumn ma taką samą nazwę co różne wielkości liter. Ponieważ
 
 Starsza tabela: dostępność
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -58,15 +58,15 @@ Starsza tabela: dostępność
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
-|customMeasurements|dynamic|Miary|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customMeasurements|dynamiczna|Miary|Dynamiczny|
 |czas trwania|liczba rzeczywista|DurationMs|liczba rzeczywista|
 |`id`|ciąg|`Id`|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
-|location|ciąg|Location|ciąg|
+|itemType|ciąg|Type|Ciąg|
+|location|ciąg|Lokalizacja|ciąg|
 |message|ciąg|Wiadomość|ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
@@ -87,7 +87,7 @@ Starsza tabela: dostępność
 
 Starsza tabela: browserTimings
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -102,8 +102,8 @@ Starsza tabela: browserTimings
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
-|customMeasurements|dynamic|Miary|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customMeasurements|dynamiczna|Miary|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -131,7 +131,7 @@ Starsza tabela: browserTimings
 
 Starsza tabela: zależności
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -146,15 +146,15 @@ Starsza tabela: zależności
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
-|customMeasurements|dynamic|Miary|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customMeasurements|dynamiczna|Miary|Dynamiczny|
 |dane|ciąg|Dane|ciąg|
 |czas trwania|liczba rzeczywista|DurationMs|liczba rzeczywista|
 |`id`|ciąg|`Id`|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
+|itemType|ciąg|Type|Ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -176,7 +176,7 @@ Starsza tabela: zależności
 
 Starsza tabela: customEvents
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -191,8 +191,8 @@ Starsza tabela: customEvents
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
-|customMeasurements|dynamic|Miary|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customMeasurements|dynamiczna|Miary|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -213,7 +213,7 @@ Starsza tabela: customEvents
 
 Starsza tabela: customMetrics
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -228,7 +228,7 @@ Starsza tabela: customMetrics
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |Elementów|ciąg|\_Elementów|ciąg|
 |itemType|ciąg|Typ|ciąg|
@@ -243,7 +243,7 @@ Starsza tabela: customMetrics
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|wartość|liczba rzeczywista|usunięte||
+|value|liczba rzeczywista|usunięte||
 |valueCount|int|ValueCount|int|
 |valueMax|liczba rzeczywista|ValueMax|liczba rzeczywista|
 |valueMin|liczba rzeczywista|ValueMin|liczba rzeczywista|
@@ -254,7 +254,7 @@ Starsza tabela: customMetrics
 
 Starsza tabela: pageViews
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -269,14 +269,14 @@ Starsza tabela: pageViews
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
-|customMeasurements|dynamic|Miary|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customMeasurements|dynamiczna|Miary|Dynamiczny|
 |czas trwania|liczba rzeczywista|DurationMs|liczba rzeczywista|
 |`id`|ciąg|`Id`|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
+|itemType|ciąg|Type|Ciąg|
 |name|ciąg|Nazwa|ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
@@ -295,7 +295,7 @@ Starsza tabela: pageViews
 
 Starsza tabela: Liczniki wydajności
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -312,7 +312,7 @@ Starsza tabela: Liczniki wydajności
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
 |counter|ciąg|usunięte||
-|customDimensions|dynamic|Właściwości|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
 |iKey|ciąg|IKey|ciąg|
 |np|ciąg|Wystąpienie|ciąg|
 |Elementów|ciąg|\_Elementów|ciąg|
@@ -328,13 +328,13 @@ Starsza tabela: Liczniki wydajności
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
-|wartość|liczba rzeczywista|Wartość|liczba rzeczywista|
+|value|liczba rzeczywista|Wartość|liczba rzeczywista|
 
 ### <a name="apprequests"></a>AppRequests
 
 Starsza tabela: żądania
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -349,27 +349,27 @@ Starsza tabela: żądania
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|Dynamiczny|
-|customMeasurements|dynamic|Miary|Dynamiczny|
+|customDimensions|dynamiczna|Właściwości|Dynamiczny|
+|customMeasurements|dynamiczna|Miary|Dynamiczny|
 |czas trwania|liczba rzeczywista|DurationMs|Rzeczywiste|
-|`id`|ciąg|`Id`|String|
+|`id`|ciąg|`Id`|Ciąg|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|
-|itemType|ciąg|Typ|String|
-|name|ciąg|Nazwa|String|
+|itemType|ciąg|Type|Ciąg|
+|name|ciąg|Nazwa|Ciąg|
 |operation_Id|ciąg|OperationId|ciąg|
 |operation_Name|ciąg|OperationName|ciąg|
 |operation_ParentId|ciąg|OperationParentId|ciąg|
 |operation_SyntheticSource|ciąg|OperationSyntheticSource|ciąg|
-|performanceBucket|ciąg|PerformanceBucket|String|
-|resultCode|ciąg|ResultCode|String|
+|performanceBucket|ciąg|PerformanceBucket|Ciąg|
+|resultCode|ciąg|ResultCode|Ciąg|
 |sdkVersion|ciąg|SdkVersion|ciąg|
 |session_Id|ciąg|SessionId|ciąg|
-|source|string|Element źródłowy|String|
+|source|string|Element źródłowy|Ciąg|
 |powodzenie|ciąg|Powodzenie|Wartość logiczna|
 |sygnatura czasowa|datetime|TimeGenerated|datetime|
-|url|ciąg|Url|String|
+|url|ciąg|Url|Ciąg|
 |user_AccountId|ciąg|UserAccountId|ciąg|
 |user_AuthenticatedId|ciąg|UserAuthenticatedId|ciąg|
 |user_Id|ciąg|UserId|ciąg|
@@ -378,7 +378,7 @@ Starsza tabela: żądania
 
 Starsza tabela: wyjątki
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -394,9 +394,9 @@ Starsza tabela: wyjątki
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|dynamic|
-|customMeasurements|dynamic|Miary|dynamic|
-|uzyskać|dynamic|Szczegóły|dynamic|
+|customDimensions|dynamiczna|Właściwości|dynamiczna|
+|customMeasurements|dynamiczna|Miary|dynamiczna|
+|uzyskać|dynamiczna|Szczegóły|dynamiczna|
 |handledAt|ciąg|HandledAt|ciąg|
 |iKey|ciąg|IKey|ciąg|
 |innermostAssembly|ciąg|InnermostAssembly|ciąg|
@@ -430,7 +430,7 @@ Starsza tabela: wyjątki
 
 Starsza tabela: ślady
 
-|ApplicationInsights|Typ|LogAnalytics|Typ|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|ciąg|\_ResourceGUID|ciąg|
 |application_Version|ciąg|AppVersion|ciąg|
@@ -445,8 +445,8 @@ Starsza tabela: ślady
 |client_Type|ciąg|ClientType|ciąg|
 |cloud_RoleInstance|ciąg|AppRoleInstance|ciąg|
 |cloud_RoleName|ciąg|AppRoleName|ciąg|
-|customDimensions|dynamic|Właściwości|dynamic|
-|customMeasurements|dynamic|Miary|dynamic|
+|customDimensions|dynamiczna|Właściwości|dynamiczna|
+|customMeasurements|dynamiczna|Miary|dynamiczna|
 |iKey|ciąg|IKey|ciąg|
 |itemCount|int|ItemCount|int|
 |Elementów|ciąg|\_Elementów|ciąg|

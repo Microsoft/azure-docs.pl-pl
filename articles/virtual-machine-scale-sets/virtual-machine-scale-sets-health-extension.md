@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783048"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Używanie rozszerzenia kondycji aplikacji z zestawami skalowania maszyn wirtualnych
@@ -61,16 +61,16 @@ Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerz
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | ciąg |
-| typ | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (system Windows) | ciąg |
+| typ | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (system Windows) | ciąg |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Ustawienia
 
 | Nazwa | Wartość/przykład | Typ danych
 | ---- | ---- | ----
-| protokol | `http`lub `https` lub`tcp` | ciąg |
-| port | Opcjonalne, gdy protokół jest `http` lub `https` , obowiązkowy, gdy protokół jest`tcp` | int |
-| requestPath | Obowiązkowe, gdy protokół jest `http` lub `https` , nie jest dozwolony, gdy protokół jest`tcp` | ciąg |
+| protokol | `http` lub `https` lub `tcp` | ciąg |
+| port | Opcjonalne, gdy protokół jest `http` lub `https` , obowiązkowy, gdy protokół jest `tcp` | int |
+| requestPath | Obowiązkowe, gdy protokół jest `http` lub `https` , nie jest dozwolony, gdy protokół jest `tcp` | ciąg |
 
 ## <a name="deploy-the-application-health-extension"></a>Wdróż rozszerzenie kondycji aplikacji
 Istnieje wiele sposobów wdrażania rozszerzenia kondycji aplikacji w zestawach skalowania, jak opisano w poniższych przykładach.

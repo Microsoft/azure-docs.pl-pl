@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855917"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
@@ -48,7 +48,7 @@ Przed rozpoczęciem migracji:
 * Zaplanuj przeprowadzenie migracji poza godzinami pracy, aby uwzględnić możliwość wystąpienia nieoczekiwanych awarii podczas migracji.
 * Pobierz bieżącą konfigurację maszyn wirtualnych przy użyciu programu PowerShell, poleceń interfejsu wiersza polecenia (CLI) lub interfejsów API REST, aby ułatwić walidację po zakończeniu kroku przygotowania.
 * Przed rozpoczęciem migracji zaktualizuj skrypty automatyzacji i operacjonalizacji, aby obsługiwały model wdrażania Menedżer zasobów. Opcjonalnie możesz wykonać operacje GET, gdy zasoby są w stanie przygotowania.
-* Oceń zasady Access Control oparte na rolach (RBAC), które są skonfigurowane dla zasobów IaaS w klasycznym modelu wdrażania, i Zaplanuj po zakończeniu migracji.
+* Oceń zasady Role-Based Access Control (RBAC), które są skonfigurowane dla zasobów IaaS w klasycznym modelu wdrażania, i Zaplanuj po zakończeniu migracji.
 
 Przepływ pracy migracji jest następujący:
 

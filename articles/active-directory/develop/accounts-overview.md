@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
 ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115989"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konta i profile dzierżaw (Android)
@@ -48,7 +48,7 @@ Konto na platformie tożsamości firmy Microsoft składa się z:
 - Ponieważ konto może być obecne w co najmniej jednej dzierżawie, konto może mieć więcej niż jeden profil.
 
 > [!NOTE]
-> MSAL traktuje system konto Microsoft (na żywo, MSA) jako inną dzierżawę w ramach platformy tożsamości firmy Microsoft. Identyfikator dzierżawy dzierżawy konto Microsoft:`9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL traktuje system konto Microsoft (na żywo, MSA) jako inną dzierżawę w ramach platformy tożsamości firmy Microsoft. Identyfikator dzierżawy dzierżawy konto Microsoft: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>Diagram omówienia konta
 
@@ -58,12 +58,12 @@ Na powyższym diagramie:
 
 - Konto `bob@contoso.com` jest tworzone w lokalnym systemie Windows Server Active Directory (pierwotny system lokalny rekordu).
 - Konto `tom@live.com` zostanie utworzone w dzierżawie konto Microsoft.
-- `bob@contoso.com`ma dostęp do co najmniej jednego zasobu w następujących Azure Active Directory dzierżawców:
+- `bob@contoso.com` ma dostęp do co najmniej jednego zasobu w następujących Azure Active Directory dzierżawców:
   - contoso.com (system w chmurze rekordu — połączony z systemem lokalnym rekordu)
   - fabrikam.com
   - woodgrovebank.com
   - Profil dzierżawy `bob@contoso.com` istnieje w każdej z tych dzierżawców.
-- `tom@live.com`ma dostęp do zasobów w następujących dzierżawcach firmy Microsoft:
+- `tom@live.com` ma dostęp do zasobów w następujących dzierżawcach firmy Microsoft:
   - contoso.com
   - fabrikam.com
   - Profil dzierżawy `tom@live.com` istnieje w każdej z tych dzierżawców.
@@ -99,7 +99,7 @@ Oprócz żądania tokenu dostępu MSAL również zawsze żąda tokenu identyfika
 - OpenID Connect
 - profil
 
-Token identyfikatora zawiera listę oświadczeń. `Claims`są parami nazw/wartości na koncie i są używane do żądania.
+Token identyfikatora zawiera listę oświadczeń. `Claims` są parami nazw/wartości na koncie i są używane do żądania.
 
 Jak wspomniano wcześniej, każda dzierżawa, w której istnieje konto, może przechowywać różne informacje o koncie, w tym m.in.: stanowisko, Lokalizacja biura i tak dalej.
 

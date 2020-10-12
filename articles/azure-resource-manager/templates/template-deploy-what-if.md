@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: tomfitz
 ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810075"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
@@ -110,18 +110,18 @@ Resource changes: 1 to modify.
 
 Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) lub [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Dodaj `-Whatif` parametr Switch do polecenia Deployment.
 
-* `New-AzResourceGroupDeployment -Whatif`dla wdrożeń grup zasobów
-* `New-AzSubscriptionDeployment -Whatif`i `New-AzDeployment -Whatif` dla wdrożeń na poziomie subskrypcji
+* `New-AzResourceGroupDeployment -Whatif` dla wdrożeń grup zasobów
+* `New-AzSubscriptionDeployment -Whatif` i `New-AzDeployment -Whatif` dla wdrożeń na poziomie subskrypcji
 
 Możesz użyć `-Confirm` parametru Switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
 
-* `New-AzResourceGroupDeployment -Confirm`dla wdrożeń grup zasobów
-* `New-AzSubscriptionDeployment -Confirm`i `New-AzDeployment -Confirm` dla wdrożeń na poziomie subskrypcji
+* `New-AzResourceGroupDeployment -Confirm` dla wdrożeń grup zasobów
+* `New-AzSubscriptionDeployment -Confirm` i `New-AzDeployment -Confirm` dla wdrożeń na poziomie subskrypcji
 
 Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt, który można programowo sprawdzić pod kątem zmian, użyj polecenie [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) lub [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
-* `$results = Get-AzResourceGroupDeploymentWhatIfResult`dla wdrożeń grup zasobów
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult`lub `$results = Get-AzDeploymentWhatIfResult` w przypadku wdrożeń na poziomie subskrypcji
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` dla wdrożeń grup zasobów
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` lub `$results = Get-AzDeploymentWhatIfResult` w przypadku wdrożeń na poziomie subskrypcji
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -325,7 +325,7 @@ Niektóre z właściwości, które są wymienione jako usunięte, nie ulegną zm
 
 Teraz można programowo oszacować wyniki działania warunkowego, ustawiając polecenie na zmienną.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `

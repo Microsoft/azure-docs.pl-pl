@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861065"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Przenoszenie przestrzeni nazw Azure Service Bus do innego regionu
@@ -48,19 +48,19 @@ Wdróż szablon, aby utworzyć Service Bus przestrzeń nazw w regionie docelowym
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu** dla tekstu wyszukiwania, wybierz **Template Deployment (Wdróż przy użyciu szablonów niestandardowych)**, a następnie naciśnij klawisz **Enter**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Wdrożenie nowego szablonu":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Pobierz szablon Menedżer zasobów":::    
 1. Na stronie **Template Deployment** wybierz pozycję **Utwórz**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Wdrażanie nowego szablonu — przycisk Utwórz":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Pobierz szablon Menedżer zasobów":::        
 1. Na stronie **wdrożenie niestandardowe** wybierz opcję **Kompiluj własny szablon w edytorze**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Tworzenie własnego szablonu przy użyciu linku edytora":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Pobierz szablon Menedżer zasobów":::            
 1. Na stronie **Edytuj szablon** wybierz pozycję **Załaduj plik** na pasku narzędzi, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** do pliku pobranego w ostatniej sekcji.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Wybierz szablon":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Pobierz szablon Menedżer zasobów":::                
 1. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Zapisz szablon":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Pobierz szablon Menedżer zasobów":::                    
 1. Na stronie **wdrożenie niestandardowe** wykonaj następujące kroki: 
     1. Wybierz **subskrypcję**platformy Azure. 
     2. Wybierz istniejącą **grupę zasobów** lub utwórz ją. 
@@ -68,26 +68,26 @@ Wdróż szablon, aby utworzyć Service Bus przestrzeń nazw w regionie docelowym
     4. Wprowadź nową **nazwę przestrzeni nazw**.
     1. Wybierz pozycję **Przeglądanie + tworzenie**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Wdróż szablon Menedżer zasobów":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Pobierz szablon Menedżer zasobów":::
     1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz** w dolnej części strony. 
     
 ## <a name="verify"></a>Weryfikacja
 1. Po pomyślnym wdrożeniu wybierz pozycję **Przejdź do grupy zasobów**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Łącze przejdź do grupy zasobów":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Pobierz szablon Menedżer zasobów":::    
 1. Na stronie **Grupa zasobów** wybierz przestrzeń nazw Service Bus. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Wybierz Service Bus przestrzeń nazw":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Pobierz szablon Menedżer zasobów":::    
 1. Na stronie **obszar nazw Service Bus** Sprawdź, czy są widoczne kolejki, tematy i subskrypcje z regionu źródłowego. 
     1. Wyświetlane są **kolejki** w przestrzeni nazw u dołu okienka po prawej stronie.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Kolejki w przestrzeni nazw":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Pobierz szablon Menedżer zasobów":::
     2. Przejdź do karty **Tematy** , aby wyświetlić tematy w przestrzeni nazw
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Tematy w przestrzeni nazw":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Pobierz szablon Menedżer zasobów":::
     3. Wybierz temat, aby sprawdzić, czy są tworzone subskrypcje. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Subskrypcje tematów":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Pobierz szablon Menedżer zasobów":::      
     
     
 

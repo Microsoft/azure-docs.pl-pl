@@ -1,5 +1,5 @@
 ---
-title: Szyfrowanie po stronie klienta przy użyciu platformy .NET dla Microsoft Azure Storage | Microsoft Docs
+title: Client-Side szyfrowanie przy użyciu platformy .NET dla Microsoft Azure Storage | Microsoft Docs
 description: Biblioteka klienta usługi Azure Storage dla platformy .NET obsługuje szyfrowanie po stronie klienta i integrację z usługą Azure Key Vault, aby uzyskać maksymalne zabezpieczenia aplikacji usługi Azure Storage.
 services: storage
 author: tamram
@@ -11,13 +11,13 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f54b91ab1ea4521c17a3b40c88214f5637ab47a3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021616"
 ---
-# <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Szyfrowanie po stronie klienta i Azure Key Vault dla Microsoft Azure Storage
+# <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side szyfrowanie i Azure Key Vault Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Omówienie
@@ -244,7 +244,7 @@ Jak wspomniano powyżej, jeśli jednostka implementuje klasy tableentity, właś
 ## <a name="encryption-and-performance"></a>Szyfrowanie i wydajność
 Należy pamiętać, że szyfrowanie danych magazynu skutkuje dodatkowym obciążeniem wydajności. Należy wygenerować klucz zawartości i IV, zawartość musi być zaszyfrowana, a dodatkowe metadane muszą być sformatowane i przekazane. To obciążenie będzie się różnić w zależności od ilości szyfrowanych danych. Zalecamy, aby klienci zawsze testować swoje aplikacje pod kątem wydajności podczas opracowywania.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Samouczek: szyfrowanie i odszyfrowywanie obiektów BLOB w Microsoft Azure Storage przy użyciu Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Pobierz [pakiet NuGet biblioteki klienta usługi Azure Storage dla platformy .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Pobieranie Azure Key Vault pakietów programu NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [klienta](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)i [rozszerzeń](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)  
