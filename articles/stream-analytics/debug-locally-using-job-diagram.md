@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045403"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debuguj Azure Stream Analytics zapytań lokalnie przy użyciu diagramu zadań w programie Visual Studio
@@ -52,7 +52,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Diagram zadań — dynamiczne źródła danych wejściowych](./media/debug-locally-using-job-diagram/live-input.png)
 
-|Metric|Opis|
+|Metryka|Opis|
 |-|-|
 |**TaxiRide**| Nazwa danych wejściowych.|
 |**Centrum zdarzeń** | Typ źródła danych wejściowych.|
@@ -68,7 +68,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Lokalne źródła danych wejściowych diagramu zadania](./media/debug-locally-using-job-diagram/local-input.png)
 
-|Metric|Opis|
+|Metryka|Opis|
 |-|-|
 |**TaxiRide**| Nazwa danych wejściowych.|
 |**Liczba wierszy**| Liczba wierszy wygenerowanych z kroku.|
@@ -79,7 +79,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Krok zapytania diagramu zadania](./media/debug-locally-using-job-diagram/query-step.png)
 
-|Metric|Opis|
+|Metryka|Opis|
 |-|-|
 |**TripData**|Nazwa tymczasowego zestawu wyników.|
 |**Liczba wierszy**| Liczba wierszy wygenerowanych z kroku.|
@@ -89,7 +89,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Lokalne ujścia danych wyjściowych diagramu zadań](./media/debug-locally-using-job-diagram/live-output.png)
 
-|Metric|Opis|
+|Metryka|Opis|
 |-|-|
 |**regionaggEH**|Nazwa danych wyjściowych.|
 |**Zdarzenia**|Liczba danych wyjściowych zdarzeń do ujścia.|
@@ -98,7 +98,7 @@ W tej sekcji przedstawiono metryki dostępne dla każdej części diagramu.
 
 ![Lokalne ujścia danych wyjściowych diagramu zadań](./media/debug-locally-using-job-diagram/local-output.png)
 
-|Metric|Opis|
+|Metryka|Opis|
 |-|-|
 |**regionaggEH**|Nazwa danych wyjściowych.|
 |**Dane wyjściowe lokalnego**| Wynikowe dane wyjściowe do pliku lokalnego.|

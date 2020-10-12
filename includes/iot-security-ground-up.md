@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050324"
 ---
 Internet rzeczy (IoT) stanowi unikatowe wyzwania w zakresie zabezpieczeń, prywatności i zgodności dla firm na całym świecie. W przeciwieństwie do tradycyjnej technologii cybernetycznymi, w której te problemy są nanoszone wokół oprogramowania i sposobu ich implementacji, IoT ma wpływ na to, co się dzieje w przypadku zbieżności cybernetycznymi i fizycznych rozwiązań. Ochrona rozwiązań IoT wymaga zapewnienia bezpiecznego aprowizacji urządzeń, bezpiecznej łączności między tymi urządzeniami i chmurą oraz zapewnienia bezpiecznej ochrony danych w chmurze podczas przetwarzania i przechowywania. Korzystanie z tych funkcji jest jednak urządzeniami z ograniczeniami zasobów, dystrybucją geograficzną wdrożeń i dużą liczbą urządzeń w ramach rozwiązania.

@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować zasady przechowywania, wyczyścić
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476057"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Konfigurowanie zasad przechowywania w Azure DevTest Labs
@@ -47,7 +47,7 @@ To zadanie usuwa wszystkie stare obrazy, zachowując tylko historię pasującą 
 
 ![Wycofywanie starych obrazów — zadanie programu PowerShell](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-Parametry skryptu są następujące:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
+Parametry skryptu są następujące: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
 ## <a name="queue-the-build"></a>Kolejkowanie kompilacji
 Po zakończeniu definiowania kompilacji Utwórz kolejkę nowej kompilacji, aby upewnić się, że wszystko działa. Po pomyślnym zakończeniu kompilacji nowe obrazy niestandardowe są wyświetlane w laboratorium docelowym, a w przypadku zaznaczenia programu Image Factory Lab nie są wyświetlane maszyny wirtualne z obsługą administracyjną. Ponadto w przypadku tworzenia kolejek dalszych kompilacji są wyświetlane zadania oczyszczania, które wycofywanie starych obrazów niestandardowych z laboratoriów DevTest zgodnie z wartością przechowywania ustawioną w zmiennych kompilacji.

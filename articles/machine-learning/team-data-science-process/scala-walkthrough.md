@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026189"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analiza danych przy użyciu języka Scala i platformy Spark na platformie Azure
@@ -77,18 +77,18 @@ val beginningTime = Calendar.getInstance().getTime()
 
 Jądra platformy Spark dostarczane z notesami Jupyter mają wstępnie ustawione konteksty. Nie musisz jawnie ustawiać kontekstów platformy Spark lub Hive przed rozpoczęciem pracy z aplikacją, którą tworzysz. Konteksty predefiniowane są następujące:
 
-* `sc`dla SparkContext
-* `sqlContext`dla HiveContext
+* `sc` dla SparkContext
+* `sqlContext` dla HiveContext
 
 ### <a name="spark-magics"></a>Magiczna platforma Spark
 Jądro Spark zawiera kilka wstępnie zdefiniowanych "Magic", które są poleceniami specjalnymi, z których można nawiązać połączenie `%%` . Dwa z tych poleceń są używane w poniższych przykładach kodu.
 
-* `%%local`Określa, że kod w kolejnych wierszach będzie wykonywany lokalnie. Kod musi być prawidłowym kodem Scala.
-* `%%sql -o <variable name>`Wykonuje zapytanie programu Hive względem `sqlContext` . Jeśli `-o` parametr zostanie przesłany, wynik zapytania jest utrwalany w `%%local` kontekście Scala jako ramka danych Spark.
+* `%%local` Określa, że kod w kolejnych wierszach będzie wykonywany lokalnie. Kod musi być prawidłowym kodem Scala.
+* `%%sql -o <variable name>` Wykonuje zapytanie programu Hive względem `sqlContext` . Jeśli `-o` parametr zostanie przesłany, wynik zapytania jest utrwalany w `%%local` kontekście Scala jako ramka danych Spark.
 
 Aby uzyskać więcej informacji na temat jądra dla notesów Jupyter oraz ich wstępnie zdefiniowanych "magicznych", które są wywoływane za pomocą `%%` (na przykład `%%local` ), zobacz [jądra dostępne dla notesów Jupyter z klastrami usługi HDInsight Spark Linux w usłudze HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
-### <a name="import-libraries"></a>Importuj biblioteki
+### <a name="import-libraries"></a>Importowanie bibliotek
 Zaimportuj platformy Spark, MLlib i inne potrzebne biblioteki, korzystając z poniższego kodu.
 
 ```scala
@@ -258,8 +258,8 @@ sqlResultsDF.show(3)
 | fare_amount | passenger_count | tip_amount | Przechylony |
 | --- | --- | --- | --- |
 |        13,5 |1.0 |2.9 |1.0 |
-|        16,0 |2.0 |3.4 |1.0 |
-|        10.5 |2.0 |1.0 |1.0 |
+|        16,0 |2,0 |3.4 |1.0 |
+|        10.5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Eksploracja i Wizualizacja danych
 Po przeniesieniu danych do platformy Spark następnym krokiem w procesie analizy danych jest dokładniejsze zrozumienie danych za pomocą eksploracji i wizualizacji. W tej sekcji przeanalizuje dane dotyczące taksówki przy użyciu zapytań SQL. Następnie zaimportuj wyniki do ramki danych, aby wykreślić zmienne docelowe i funkcje potencjalnej kontroli wzrokowej przy użyciu funkcji automatycznej wizualizacji Jupyter.
@@ -302,8 +302,8 @@ sqlResults
 
 * Tabela
 * Kołowy
-* Wiersz
-* Obszar
+* Liniowy
+* Warstwowy
 * Słupkowy
 
 Oto kod do wykreślenia danych:

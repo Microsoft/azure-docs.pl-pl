@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040422"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Sprawdzanie kondycji domeny zarządzanej Azure Active Directory Domain Services
@@ -40,7 +40,7 @@ Stan w prawym górnym rogu wskazuje ogólną kondycję domeny zarządzanej. Stan
 
 | Stan | Ikona | Objaśnienie |
 | --- | :----: | --- |
-| Działanie | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Domena zarządzana działa prawidłowo i nie ma alertów krytycznych ani ostrzeżeń. Domena może mieć alerty informacyjne. |
+| Uruchomienie | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Domena zarządzana działa prawidłowo i nie ma alertów krytycznych ani ostrzeżeń. Domena może mieć alerty informacyjne. |
 | Wymaga uwagi (ostrzeżenie) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Brak alertów krytycznych w domenie zarządzanej, ale istnieje co najmniej jeden Alert ostrzegawczy, który powinien zostać rozkierowany. |
 | Wymaga uwagi (krytyczne) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Istnieje co najmniej jeden alert krytyczny w domenie zarządzanej, do którego należy rozwiązać problem. Możesz również mieć alerty ostrzegawcze i/lub informacyjne. |
 | Wdrażanie | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Trwa wdrażanie domeny zarządzanej. |

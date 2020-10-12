@@ -10,10 +10,10 @@ ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87011077"
 ---
 # <a name="orchestration-modes-preview"></a>Tryby aranżacji (wersja zapoznawcza)
@@ -42,7 +42,7 @@ Zestawy skalowania maszyn wirtualnych będą obsługiwały dwa różne tryby ara
 
 ## <a name="orchestration-modes"></a>Tryby aranżacji
 
-| Cechy                     | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+| Cecha                     | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | Model konfiguracji maszyny wirtualnej      | Brak                                       | Wymagane |
 | Dodawanie nowej maszyny wirtualnej do zestawu skalowania  | Maszyny wirtualne są jawnie dodawane do zestawu skalowania podczas tworzenia maszyny wirtualnej. | Maszyny wirtualne są niejawnie tworzone i dodawane do zestawu skalowania na podstawie modelu konfiguracji maszyny wirtualnej, liczby wystąpień i reguł skalowania automatycznego | |

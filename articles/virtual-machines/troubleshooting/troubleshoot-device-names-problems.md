@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88756830"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Rozwiązywanie problemów ze zmianami nazw urządzeń maszyny wirtualnej z systemem Linux
@@ -162,9 +162,9 @@ Aby uzyskać najnowsze zasady usługi Azure Storage, uruchom następujące polec
 # sudo udevadm trigger --subsystem-match=block
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Ubuntu: używanie identyfikatora UUID](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: trwałe nazewnictwo](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)

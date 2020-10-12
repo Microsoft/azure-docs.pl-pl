@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006606"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Uruchamianie zadań MapReduce w Apache Hadoop usłudze HDInsight przy użyciu programu PowerShell
@@ -38,7 +38,7 @@ Następujące polecenia cmdlet są używane podczas uruchamiania zadań MapReduc
 |Connect-AzAccount|Uwierzytelnia Azure PowerShell w ramach subskrypcji platformy Azure.|
 |New-AzHDInsightMapReduceJobDefinition|Tworzy nową *definicję zadania* przy użyciu określonych informacji MapReduce.|
 |Start-AzHDInsightJob|Wysyła definicję zadania do usługi HDInsight i uruchamia zadanie. Obiekt *zadania* jest zwracany.|
-|Oczekiwanie — AzHDInsightJob|Używa obiektu zadanie do sprawdzenia stanu zadania. Czeka na zakończenie zadania lub przekroczenie czasu oczekiwania.|
+|Wait-AzHDInsightJob|Używa obiektu zadanie do sprawdzenia stanu zadania. Czeka na zakończenie zadania lub przekroczenie czasu oczekiwania.|
 |Get-AzHDInsightJobOutput|Służy do pobierania danych wyjściowych zadania.|
 
 Poniższe kroki pokazują, jak używać tych poleceń cmdlet do uruchamiania zadania w klastrze usługi HDInsight.

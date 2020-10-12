@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044587"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Tworzenie rozwiązania IoT przy użyciu Stream Analytics
@@ -43,7 +43,7 @@ To rozwiązanie współpracuje z dwoma strumieniami danych. Czujniki zainstalowa
 ### <a name="entry-data-stream"></a>Strumień danych wejściowych
 Strumień danych wprowadzania zawiera informacje o samochodach, które wprowadzają opłaty za połączenia. Zdarzenia danych wyjściowych są przesyłane strumieniowo do kolejki centrum zdarzeń z aplikacji sieci Web dołączonej do przykładowej aplikacji.
 
-| TollID | EntryTime | LicensePlate | Stan | Marka | Model | Nr pojazdu | VehicleWeight | Płatny | Tag |
+| TollID | EntryTime | LicensePlate | State | Marka | Model | Nr pojazdu | VehicleWeight | Płatny | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -59,7 +59,7 @@ Poniżej znajduje się krótki opis kolumn:
 | TollID |Identyfikator kabiny płatnej, który jednoznacznie identyfikuje połączenie płatne |
 | EntryTime |Data i godzina wprowadzenia pojazdu do telefonu w formacie UTC |
 | LicensePlate |Numer płyty licencji dla pojazdu |
-| Stan |Stan w Stany Zjednoczone |
+| State |Stan w Stany Zjednoczone |
 | Marka |Producent urządzenia przenośnego |
 | Model |Numer modelu samochodów |
 | Nr pojazdu |1 w przypadku pojazdów pasażerskich lub 2 dla pojazdów komercyjnych |
@@ -299,7 +299,7 @@ Aby skalować zadanie przesyłania strumieniowego do większej liczby jednostek 
 
 1. **Zatrzymaj** bieżące zadanie.
 
-2. Zaktualizuj składnię zapytania na stronie **kwerendy< > ** i Zapisz zmiany.
+2. Zaktualizuj składnię zapytania na stronie ** kwerendy< > ** i Zapisz zmiany.
 
 3. W obszarze Konfigurowanie nagłówka w zadaniu przesyłania strumieniowego wybierz pozycję **Skala**.
 

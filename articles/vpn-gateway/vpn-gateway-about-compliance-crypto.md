@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032428"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Wymagania kryptograficzne i bramy sieci VPN platformy Azure — informacje
@@ -36,7 +36,7 @@ Domyślny zestaw zasad dla usługi Azure VPN Gateway jest wymieniony w artykule:
 
 W przypadku komunikacji wymagającej określonych algorytmów kryptograficznych lub parametrów, zazwyczaj ze względu na wymagania dotyczące zgodności lub zabezpieczeń, można teraz skonfigurować bramy sieci VPN platformy Azure tak, aby korzystały z niestandardowych zasad protokołu IPsec/IKE z określonymi algorytmami kryptograficznymi i silnymi zasadami, a nie z domyślnymi zestawami zasad platformy Azure.
 
-Na przykład zasady trybu głównego protokołu IKEv2 dla bram sieci VPN platformy Azure używają tylko grupy Diffie'ego-Hellmana 2 (1024 bitów). może być konieczne określenie silniejszych grup do użycia w usłudze IKE, takich jak grupa 14 (2048-bitowa), Grupa 24 (2048-bitowa Grupa MODP, bitowy) lub ECP (grupy krzywej eliptycznej) 256 lub 384 bit (odpowiednio grupy 19 i grupy 20). Podobne wymagania dotyczą również zasad trybu szybkiego protokołu IPsec.
+Na przykład zasady trybu głównego protokołu IKEv2 dla bram sieci VPN platformy Azure używają tylko Diffie-Hellman grupy 2 (1024 bitów), podczas gdy może być konieczne określenie silniejszych grup do użycia w usłudze IKE, takich jak grupa 14 (2048-bitowa), Grupa 24 (2048-bitowa Grupa MODP, bitowy) lub ECP (grupy krzywej eliptycznej) 256 lub 384 (odpowiednio grupy 19 i grupy 20). Podobne wymagania dotyczą również zasad trybu szybkiego protokołu IPsec.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Niestandardowe zasady protokołu IPsec/IKE z bramami sieci VPN platformy Azure
 

@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/22/2020
 ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905928"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrowanie bazy danych MySQL przy użyciu funkcji importowania i eksportowania
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 W tym artykule opisano dwa typowe podejścia do importowania i eksportowania danych na serwer Azure Database for MySQL przy użyciu programu MySQL Workbench.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Aby krokowo poprowadzić ten przewodnik, musisz:
 - Serwer Azure Database for MySQL, wykonując następujące czynności: [Utwórz serwer Azure Database for MySQL przy użyciu Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md).
 - Nie można importować/eksportować programu [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) lub innego narzędzia MySQL innej firmy.
@@ -31,7 +31,7 @@ Aby nawiązać połączenie, Znajdź informacje o połączeniu w **przeglądzie*
 
 Dodaj informacje o połączeniu do programu MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Parametry połączenia MySQL Workbench":::
+:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Znajdź informacje o połączeniu w Azure Portal":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>Ustalanie, kiedy należy używać technik importu i eksportu
 
@@ -68,7 +68,7 @@ Istnieją dwa sposoby eksportowania i importowania danych w programie MySQL Work
 > - W przypadku serwera elastycznego MySQL można tylko użyć elementu "username", jeśli używasz " username@servername " do nawiązywania połączenia, połączenie zakończy się niepowodzeniem.
 
 ### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>Kreatory eksportu i importu danych z tabeli z menu kontekstowego przeglądarki obiektów
-:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Kreatorzy Workbench MySQL w menu kontekstowym przeglądarki obiektów":::
+:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Znajdź informacje o połączeniu w Azure Portal":::
 
 Kreatory dla danych tabeli obsługują operacje importowania i eksportowania przy użyciu plików CSV i JSON. Obejmują one kilka opcji konfiguracji, takich jak separatory, wybór kolumn i wybór kodowania. Każdy Kreator można wykonać względem lokalnego lub zdalnie połączonego serwera MySQL. Akcja Importuj obejmuje mapowanie tabeli, kolumny i typu.
 
@@ -94,7 +94,7 @@ Poniższy przykład importuje tabelę z pliku CSV:
 Użyj kreatora, aby wyeksportować lub zaimportować kod SQL wygenerowany z Workbench MySQL lub wygenerowany z polecenia mysqldump. Uzyskaj dostęp do tych kreatorów z okienka **Nawigator** lub wybierając opcję **serwer** z menu głównego. Następnie wybierz pozycję **eksport danych** lub **Import danych**.
 
 #### <a name="data-export"></a>Eksport danych
-:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Eksport danych MySQL Workbench przy użyciu okienka Nawigator":::
+:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Znajdź informacje o połączeniu w Azure Portal":::
 
 Karta **Eksportowanie danych** służy do eksportowania danych MySQL.
 1. Zaznacz każdy schemat, który chcesz wyeksportować, opcjonalnie wybierz konkretne obiekty schematu/tabele z każdego schematu i Wygeneruj eksport. Opcje konfiguracji obejmują eksport do folderu projektu lub samodzielnego pliku SQL, Zrzuć procedury składowane i zdarzenia lub Pomiń dane tabeli.
@@ -107,7 +107,7 @@ Karta **Eksportowanie danych** służy do eksportowania danych MySQL.
 
 
 #### <a name="data-import"></a>Importowanie danych
-:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Import danych MySQL Workbench za pomocą nawigatora zarządzania":::
+:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Znajdź informacje o połączeniu w Azure Portal":::
 
 Karta **Importowanie danych** służy do importowania lub przywracania eksportowanych danych z operacji eksportu danych lub polecenia mysqldump.
 1. Wybierz folder projektu lub własny plik SQL, wybierz schemat do zaimportowania lub wybierz pozycję **Nowy** , aby zdefiniować nowy schemat.

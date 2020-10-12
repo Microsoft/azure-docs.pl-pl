@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697694"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizowanie wydajności i niezawodności usługi Azure Functions
@@ -114,11 +114,11 @@ Dla funkcji języka C# można zmienić typ na tablicę o jednoznacznie określon
 
 Ustawienia w host.jsw pliku dotyczą wszystkich funkcji w aplikacji w ramach *jednego wystąpienia* funkcji. Na przykład jeśli masz aplikację funkcji z dwoma funkcjami HTTP i [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) żądaniami ustawionymi na wartość 25, żądanie do wyzwalacza http będzie wliczane do współużytkowanych 25 współbieżnych żądań.  Gdy aplikacja funkcji jest skalowana do 10 wystąpień, te dwie funkcje skutecznie zezwalają na 250 współbieżnych żądań (10 wystąpień * 25 współbieżnych żądań na wystąpienie). 
 
-Inne opcje konfiguracji hosta znajdują się w [artykulehost.jsw konfiguracji](functions-host-json.md).
+Inne opcje konfiguracji hosta znajdują się w [ artykulehost.jsw konfiguracji](functions-host-json.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji zawierają następujące zasoby:
+Więcej informacji można znaleźć w następujących zasobach:
 
 * [Jak zarządzać połączeniami w Azure Functions](manage-connections.md)
 * [Azure App Service najlepszych praktyk](../app-service/app-service-best-practices.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232529"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Zestaw SDK urządzenia mowy zalecenia dotyczące tablicy mikrofonów
@@ -30,7 +30,7 @@ Poniższe geometrie tablicowe są zalecane do użycia z stosem audio firmy Micro
 | MICS & geometrii | Tablica cykliczna | Tablica cykliczna | Tablica liniowa | Tablica liniowa |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \#Mics | 7 | 4 | 4 | 2 |
+| \# Mics | 7 | 4 | 4 | 2 |
 | Geometria | 6 zewnętrznych, 1 centrum, promień = 42,5 mm, równomiernie rozmieszczone | 3 zewnętrzne, 1 centrum, promień = 42,5 mm, równomiernie rozmieszczone | Długość = 120 mm, odstępy = 40 mm | Odstępy = 40 mm |
 
 Kanały mikrofonu powinny być uporządkowane zgodnie z numerami przedstawionymi dla każdej z powyższych tablic i zwiększają się od 0. Stos audio firmy Microsoft wymaga dodatkowego strumienia referencyjnego odtwarzania audio do wykonywania anulowania echa.
@@ -62,7 +62,7 @@ Wydajność macierzy mikrofonu, gdy jest ona zintegrowana z urządzeniem, różn
 
 | Parametr          | Zalecane                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \>63 dB (1 kHz sygnał 94 dBSPL, szum ważony) |
+| SNR                | \> 63 dB (1 kHz sygnał 94 dBSPL, szum ważony) |
 | Czułość wyjściowa | -26 dBFS/PA @ 1 kHz (zalecane)                  |
 | Dopasowanie amplitudy | 2 dB, 200-8000 Hz                                |
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, piąty porządek             |
@@ -81,7 +81,7 @@ Ponieważ w przypadku urządzeń rozpoznawania mowy, które zawierają głośnik
 | Uwagi dotyczące liniowości | Bez przetwarzania nieliniowego po odwołaniu się do osoby mówiącej, w przeciwnym razie wymagany jest strumień referencyjny pętli sprzężenia zwrotnego |
 | Sprzężenie zwrotne głośników | Udostępniane za pośrednictwem WASAPI, prywatnych interfejsów API, wtyczki niestandardowej ALSA (Linux) lub dostarczonych za pośrednictwem kanału oprogramowania układowego |
 | THD% | 5.3.630-5000 5. rzędów o minimalnym przepięciu, 315-500 6,3 0,8 70 |
-| Echo sprzęgania z mikrotelefonami | \>-10 dB TCLw z użyciem ITU-T G. 122 załącznik B. 4 Metoda, znormalizowana do poziomu mikrofonu<br />TCLw = TCLwmeasured \+ (zmierzony poziom — czułość wyjściowa)<br />TCLw = TCLwmeasured \+ (poziom zmierzony-(-26)) |
+| Echo sprzęgania z mikrotelefonami | \> -10 dB TCLw z użyciem ITU-T G. 122 załącznik B. 4 Metoda, znormalizowana do poziomu mikrofonu<br />TCLw = TCLwmeasured \+ (zmierzony poziom — czułość wyjściowa)<br />TCLw = TCLwmeasured \+ (poziom zmierzony-(-26)) |
 
 ## <a name="integration-design-architecture"></a>Architektura projektowania integracji
 

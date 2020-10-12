@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
 ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015089"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Eksportowanie interfejsu API hostowanego na platformie Azure do usługi PowerApps i Microsoft Flow
@@ -60,7 +60,7 @@ Aby zakończyć eksport w trybie **Express** , wykonaj następujące kroki:
 
     |Ustawienie|Opis|
     |--------|------------|
-    |**Naturalne**|Wybierz środowisko, w którym ma zostać zapisany łącznik niestandardowy. Aby uzyskać więcej informacji, zobacz [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/) (Omówienie środowisk).|
+    |**Środowisko**|Wybierz środowisko, w którym ma zostać zapisany łącznik niestandardowy. Aby uzyskać więcej informacji, zobacz [Environments overview](https://powerapps.microsoft.com/tutorials/environments-overview/) (Omówienie środowisk).|
     |**Nazwa niestandardowego interfejsu API**|Wprowadź nazwę, która będzie widoczna dla aplikacji PowerApps i Microsoft Flow builds na liście łączników.|
     |**Przygotuj konfigurację zabezpieczeń**|W razie potrzeby podaj szczegóły konfiguracji zabezpieczeń potrzebne do udzielenia użytkownikom dostępu do interfejsu API. Ten przykład przedstawia klucz interfejsu API. Aby uzyskać więcej informacji, zobacz [Określ typ uwierzytelniania](#auth) poniżej.|
  
@@ -103,7 +103,7 @@ Aby zaimportować definicję interfejsu API do usługi PowerApps i Microsoft Flo
 
 4. Na karcie **Ogólne** Przejrzyj informacje, które pochodzą z definicji openapi.
 
-5. Jeśli zostanie wyświetlony monit o podanie szczegółów uwierzytelniania, na karcie **zabezpieczenia** wprowadź odpowiednie wartości w polu Typ uwierzytelniania. Kliknij pozycję **Kontynuuj**.
+5. Jeśli zostanie wyświetlony monit o podanie szczegółów uwierzytelniania, na karcie **zabezpieczenia** wprowadź odpowiednie wartości w polu Typ uwierzytelniania. Kliknij przycisk **Kontynuuj**.
 
     ![Karta Zabezpieczenia](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 

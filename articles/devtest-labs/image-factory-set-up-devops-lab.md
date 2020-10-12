@@ -4,10 +4,10 @@ description: W tym artykule opisano wszystkie przygotowania, które są konieczn
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476142"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Uruchamianie fabryki obrazów z usługi Azure DevOps
@@ -43,7 +43,7 @@ Wszystkie środowiska programu PowerShell, szablony i konfiguracje dla fabryki o
 1. Przejdź do projektu DevOps platformy Azure, który został utworzony w poprzednim kroku (adres URL wygląda podobnie do **protokołu https: \/ / \<accountname> . VisualStudio.com/MyFirstProject**).
 2. Wybierz pozycję **Importuj repozytorium**.
 3. Wprowadź **adres URL klonowania** repozytorium DevTest Labs: `https://github.com/Azure/azure-devtestlab` .
-4. Wybierz pozycję **Import**.
+4. Wybierz pozycję **Importuj**.
 
     ![Importuj repozytorium git](./media/set-up-devops-lab/import-git-repo.png)
 
@@ -107,7 +107,7 @@ W przypadku wybrania zadania kompilacji w okienku po prawej stronie zostaną wy�
 3. Wybierz **punkt końcowy usługi**.
 4. W obszarze **ścieżka skryptu**wybierz pozycję **... (wielokropek)** po prawej stronie.
 5. Przejdź do **MakeGoldenImageVMs.ps1** skryptu.
-6. Parametry skryptu powinny wyglądać następująco:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+6. Parametry skryptu powinny wyglądać następująco: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![Ukończ definicję kompilacji](./media/set-up-devops-lab/complete-build-definition.png)
 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82733777"
 ---
 # <a name="understand-azure-deny-assignments"></a>Informacje o przypisaniach Odmów na platformie Azure
@@ -56,19 +56,19 @@ Odmowa przypisania jest zgodna z podobnym wzorcem jako przypisaniem roli, ale r�
 > [!div class="mx-tableFixed"]
 > | Właściwość | Wymagany | Typ | Opis |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Tak | String | Nazwa wyświetlana przypisania Odmów. Nazwy muszą być unikatowe dla danego zakresu. |
-> | `Description` | Nie | String | Opis przypisania Odmów. |
+> | `DenyAssignmentName` | Tak | Ciąg | Nazwa wyświetlana przypisania Odmów. Nazwy muszą być unikatowe dla danego zakresu. |
+> | `Description` | Nie | Ciąg | Opis przypisania Odmów. |
 > | `Permissions.Actions` | Co najmniej jedno działanie lub jedna akcja dataactions | Ciąg [] | Tablica ciągów, które określają operacje zarządzania, do których blok przypisania Odmów dostępu. |
 > | `Permissions.NotActions` | Nie | Ciąg [] | Tablica ciągów, które określają operacje zarządzania, które mają zostać wykluczone z przypisania Odmów. |
 > | `Permissions.DataActions` | Co najmniej jedno działanie lub jedna akcja dataactions | Ciąg [] | Tablica ciągów, które określają operacje na danych, do których blok przypisania Odmów dostępu. |
 > | `Permissions.NotDataActions` | Nie | Ciąg [] | Tablica ciągów, które określają operacje na danych, które mają zostać wykluczone z przypisania Odmów. |
-> | `Scope` | Nie | String | Ciąg określający zakres, do którego odnosi się przypisanie odmowy. |
-> | `DoNotApplyToChildScopes` | Nie | Boolean | Określa, czy przypisanie odmowy dotyczy zakresów podrzędnych. Wartość domyślna to false. |
+> | `Scope` | Nie | Ciąg | Ciąg określający zakres, do którego odnosi się przypisanie odmowy. |
+> | `DoNotApplyToChildScopes` | Nie | Boolean (wartość logiczna) | Określa, czy przypisanie odmowy dotyczy zakresów podrzędnych. Wartość domyślna to false. |
 > | `Principals[i].Id` | Tak | Ciąg [] | Tablica identyfikatorów obiektów podmiotu zabezpieczeń usługi Azure AD (użytkownik, Grupa, nazwa główna usługi lub tożsamość zarządzana), do której ma zastosowanie przypisanie odmowy. Ustaw na pusty identyfikator GUID `00000000-0000-0000-0000-000000000000` reprezentujący wszystkie podmioty zabezpieczeń. |
 > | `Principals[i].Type` | Nie | Ciąg [] | Tablica typów obiektów reprezentowanych przez podmioty zabezpieczeń [i]. ID. ustawiona do `SystemDefined` reprezentowania wszystkich podmiotów zabezpieczeń. |
 > | `ExcludePrincipals[i].Id` | Nie | Ciąg [] | Tablica identyfikatorów obiektów podmiotu zabezpieczeń usługi Azure AD (użytkownik, Grupa, nazwa główna usługi lub tożsamość zarządzana), do której nie ma zastosowania przypisanie odmowy. |
 > | `ExcludePrincipals[i].Type` | Nie | Ciąg [] | Tablica typów obiektów reprezentowana przez ExcludePrincipals [i]. ID. |
-> | `IsSystemProtected` | Nie | Boolean | Określa, czy to przypisanie odmowy zostało utworzone przez platformę Azure i nie można go edytować ani usunąć. Obecnie wszystkie przydziały Odmów są chronione przez system. |
+> | `IsSystemProtected` | Nie | Boolean (wartość logiczna) | Określa, czy to przypisanie odmowy zostało utworzone przez platformę Azure i nie można go edytować ani usunąć. Obecnie wszystkie przydziały Odmów są chronione przez system. |
 
 ## <a name="the-all-principals-principal"></a>Główne wszystkie podmioty zabezpieczeń
 
@@ -85,7 +85,7 @@ Principals              : {
 Wszystkie podmioty zabezpieczeń mogą być łączone z `ExcludePrincipals` , aby odmówić wszystkim podmiotom, z wyjątkiem niektórych użytkowników. Wszystkie podmioty zabezpieczeń mają następujące ograniczenia:
 
 - Może być używany tylko w `Principals` i nie może być używany w `ExcludePrincipals` .
-- `Principals[i].Type`musi być ustawiony na `SystemDefined` .
+- `Principals[i].Type` musi być ustawiony na `SystemDefined` .
 
 ## <a name="next-steps"></a>Następne kroki
 

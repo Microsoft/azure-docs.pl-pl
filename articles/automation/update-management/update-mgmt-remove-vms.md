@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.custom: mvc
 ms.openlocfilehash: 66631adbb56a98431e70f956f3e860b16e8f7ea2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648631"
 ---
 # <a name="remove-vms-from-update-management"></a>Usuwanie maszyn wirtualnych z rozwiązania Update Management

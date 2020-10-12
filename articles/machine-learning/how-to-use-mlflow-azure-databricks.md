@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347034"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Śledź eksperymenty Azure Databricks ML z MLflow i Azure Machine Learning (wersja zapoznawcza)
@@ -172,7 +172,7 @@ mlflow.sklearn.log_model(model, artifact_path = "model",
 
 Gdy wszystko będzie gotowe do utworzenia punktu końcowego dla modeli sieci. Można wdrożyć usługę jako, 
 
-* Usługa internetowa odpowiedzi na żądanie Azure Machine Learning na potrzeby interaktywnego oceniania. To wdrożenie umożliwia korzystanie z funkcji zarządzania modelami Azure Machine Learning i stosowanie ich do modeli produkcyjnych oraz zarządzanie nimi. 
+* Usługa sieci Web Request-Response Azure Machine Learning na potrzeby interaktywnego oceniania. To wdrożenie umożliwia korzystanie z funkcji zarządzania modelami Azure Machine Learning i stosowanie ich do modeli produkcyjnych oraz zarządzanie nimi. 
 
 * Obiekty modelu MLFlow, które mogą być używane w potokach przesyłania strumieniowego lub wsadowego jako funkcje języka Python lub UDF Pandas w obszarze roboczym Azure Databricks.
 

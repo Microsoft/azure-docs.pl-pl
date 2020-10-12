@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613710"
 ---
 # <a name="outline-rendering"></a>Renderowanie konturów

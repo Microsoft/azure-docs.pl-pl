@@ -7,10 +7,10 @@ ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613729"
 ---
 # <a name="debug-rendering"></a>Debugowanie renderowania
@@ -64,7 +64,7 @@ void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight
 > [!NOTE]
 > Wszystkie efekty renderowania debugowania to globalne ustawienia, które mają wpływ na całą ramkę.
 
-## <a name="use-cases"></a>Przypadki użycia
+## <a name="use-cases"></a>Przypadki zastosowań
 
 Interfejs API renderowania debugowania jest przeznaczony dla prostych zadań debugowania, takich jak sprawdzenie, czy połączenie z usługą zostało prawidłowo uruchomione. Opcje renderowania tekstu wpływają bezpośrednio na ramki wideo w dół. Włączenie tych funkcji sprawdza, czy są odbierane nowe ramki i poprawnie zdekodowane wideo.
 

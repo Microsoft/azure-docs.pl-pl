@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86231713"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenariusz urządzenia wirtualnego
@@ -38,7 +38,7 @@ Jest to standardowy scenariusz sieci obwodowej (nazywany także strefą DMZ) ze 
 
 Poniższe rozwiązanie używa urządzeń wirtualnych zapory do implementowania scenariusza sieci/Protected sieci obwodowej (DMZ).
 
-## <a name="considerations"></a>Kwestie do rozważenia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 Środowisko opisane powyżej na platformie Azure można wdrożyć przy użyciu różnych funkcji dostępnych dzisiaj w następujący sposób.
 
 * **Sieć wirtualna (VNet)** . Sieć wirtualna platformy Azure działa podobnie jak w przypadku sieci lokalnej i może zostać ujęta w jedną lub kilka podsieci w celu zapewnienia izolacji ruchu i rozdzielenia problemów.
@@ -77,30 +77,30 @@ Aby zapewnić, że komunikacja odbywa się przez odpowiednie urządzenie zapory,
 ### <a name="azgwudr"></a>azgwudr
 W tym scenariuszu jedyny ruch przepływający z lokalnego na platformę Azure będzie używany do zarządzania zaporami przez połączenie z usługą **AZF3**, a ruch musi przechodzić przez zaporę wewnętrzną, **AZF2**. W związku z tym w **GatewaySubnet** jest konieczna tylko jedna trasa, jak pokazano poniżej.
 
-| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Zezwala na ruch lokalny do **AZF3** zapory zarządzania |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Zezwala na ruch do podsieci zaplecza hostującym serwer aplikacji za pomocą **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Zezwala na kierowanie całego ruchu przez **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Zezwala na **azsn2** ruchu z serwera aplikacji do serwera WebServer za pośrednictwem usługi **AZF2** |
 
 Należy również utworzyć tabele tras dla podsieci w **onpremvnet** , aby naśladować lokalny centrum danych.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Zezwala na ruch do **onpremsn2** przez **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Miejsce docelowe | Narzędzie Następny przeskok | Objaśnienie |
+| Element docelowy | Narzędzie Następny przeskok | Objaśnienie |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Zezwala na ruch do podsieci z kopią zapasową na platformie Azure za pomocą **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Zezwala na ruch do **onpremsn1** przez **OPFW** |

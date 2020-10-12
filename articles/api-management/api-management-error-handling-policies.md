@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243549"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasadach usługi API Management
@@ -100,20 +100,20 @@ Gdy wystąpi błąd i formant przechodzi do `on-error` sekcji zasad, ten błąd 
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny wbudowanych kroków przetwarzania.
 
-| Źródło        | Warunek                                 | Przyczyna                  | Komunikat                                                                                                                |
+| Element źródłowy        | Warunek                                 | Przyczyna                  | Wiadomość                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | konfiguracja | Identyfikator URI nie jest zgodny z żadnym interfejsem API ani operacją | OperationNotFound       | Nie można dopasować przychodzącego żądania do operacji.                                                                      |
 | autoryzacja | Nie podano klucza subskrypcji             | SubscriptionKeyNotFound | Odmowa dostępu z powodu braku klucza subskrypcji. Pamiętaj o dołączeniu klucza subskrypcji podczas wykonywania żądań do tego interfejsu API. |
 | autoryzacja | Wartość klucza subskrypcji jest nieprawidłowa         | SubscriptionKeyInvalid  | Odmowa dostępu z powodu nieprawidłowego klucza subskrypcji. Upewnij się, że podano prawidłowy klucz dla aktywnej subskrypcji.            |
-| wiele | Połączenie podrzędne (od klienta do bramy API Management) zostało przerwane przez klienta podczas oczekiwania na żądanie | ClientConnectionFailure | wiele |
-| wiele | Połączenie nadrzędne (z bramy API Management do usługi wewnętrznej bazy danych) nie zostało nawiązane lub zostało przerwane przez zaplecze | BackendConnectionFailure | wiele |
-| wiele | Wystąpił wyjątek czasu wykonywania podczas obliczania określonego wyrażenia | ExpressionValueEvaluationFailure | wiele |
+| wielokrotność | Połączenie podrzędne (od klienta do bramy API Management) zostało przerwane przez klienta podczas oczekiwania na żądanie | ClientConnectionFailure | wielokrotność |
+| wielokrotność | Połączenie nadrzędne (z bramy API Management do usługi wewnętrznej bazy danych) nie zostało nawiązane lub zostało przerwane przez zaplecze | BackendConnectionFailure | wielokrotność |
+| wielokrotność | Wystąpił wyjątek czasu wykonywania podczas obliczania określonego wyrażenia | ExpressionValueEvaluationFailure | wielokrotność |
 
 ## <a name="predefined-errors-for-policies"></a>Wstępnie zdefiniowane błędy zasad
 
 Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które mogą wystąpić podczas oceny zasad.
 
-| Źródło       | Warunek                                                       | Przyczyna                    | Komunikat                                                                                                                              |
+| Element źródłowy       | Warunek                                                       | Przyczyna                    | Wiadomość                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | stawka — limit   | Przekroczono limit szybkości                                             | RateLimitExceeded         | Przekroczono limit szybkości                                                                                                               |
 | limit przydziału        | Przekroczono limit przydziału                                                  | QuotaExceeded             | Poza limitem woluminu wywołania. Przydział zostanie uzupełniony w XX: XX: XX. -lub do limitu przydziału przepustowości. Przydział zostanie uzupełniony w XX: XX: XX. |
@@ -132,7 +132,7 @@ Następujące błędy są wstępnie zdefiniowane dla warunków błędów, które
 | Walidacja — JWT | Brak wymaganych oświadczeń w tokenie                          | TokenClaimNotFound        | W tokenie JWT brakuje następujących oświadczeń: <C1 \> , <C2 \> ,... Odmowa dostępu.                                                            |
 | Walidacja — JWT | Niezgodność wartości zgłoszeń                                           | TokenClaimValueNotAllowed | Wartość {Claim-name} elementu {Claim-Value} jest niedozwolona. Odmowa dostępu.                                                             |
 | Walidacja — JWT | Inne błędy weryfikacji                                       | JwtInvalid                | <komunikat z biblioteki JWT\>                                                                                                          |
-| żądanie przesyłania dalej lub wysyłanie żądania | Kod stanu odpowiedzi HTTP i nagłówki nie zostały odebrane z zaplecza w skonfigurowanym limicie czasu | Limit czasu | wiele |
+| żądanie przesyłania dalej lub wysyłanie żądania | Kod stanu odpowiedzi HTTP i nagłówki nie zostały odebrane z zaplecza w skonfigurowanym limicie czasu | Limit czasu | wielokrotność |
 
 ## <a name="example"></a>Przykład
 

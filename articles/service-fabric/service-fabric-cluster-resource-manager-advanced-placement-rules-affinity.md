@@ -9,10 +9,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9c141cd96877fd140b858d0aaed9197f2de80eca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005738"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurowanie i używanie koligacji usługi w Service Fabric
@@ -74,7 +74,7 @@ Kolejną kwestią, aby zauważyć, że relacje koligacji już dzisiaj są domyś
 ### <a name="partitioning-support"></a>Obsługa partycjonowania
 Ostatnim krokiem, aby zauważyć o koligacji, jest to, że relacje koligacji nie są obsługiwane w przypadku partycjonowania elementu nadrzędnego. Podzielone na partycje usługi nadrzędne mogą być obsługiwane ostatecznie, ale dzisiaj nie jest to dozwolone.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 - Aby uzyskać więcej informacji na temat konfigurowania usług, [Dowiedz się więcej o konfigurowaniu usług](service-fabric-cluster-resource-manager-configure-services.md)
 - Aby ograniczyć usługi do małego zestawu maszyn lub agregowania obciążeń usług, należy użyć [grup aplikacji](service-fabric-cluster-resource-manager-application-groups.md)
 

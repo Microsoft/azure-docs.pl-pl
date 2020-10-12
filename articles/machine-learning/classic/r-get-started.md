@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347262"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Wprowadzenie do Azure Machine Learning Studio (klasyczne) w języku R
@@ -1280,7 +1280,7 @@ RStudio jest dobrze udokumentowane. Oto kilka linków do najważniejszych sekcji
 * **Edytuj i wykonaj kod r**: RStudio zapewnia zintegrowane środowisko do edycji i wykonywania kodu języka r. Aby uzyskać więcej informacji, zobacz [Edytowanie i wykonywanie kodu](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
 * **Debugowanie**: RStudio obejmuje zaawansowane funkcje debugowania. Aby uzyskać więcej informacji o tych funkcjach, zobacz [debugowanie za pomocą RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Aby uzyskać informacje o funkcjach rozwiązywania problemów z punktem przerwania, zobacz temat [Rozwiązywanie problemów](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)
 
-## <a name="further-reading"></a><a id="appendixb"></a>Dalsze odczytywanie
+## <a name="further-reading"></a><a id="appendixb"></a>Dodatkowe informacje
 
 Ten samouczek programowania w języku R obejmuje podstawowe informacje o tym, co jest potrzebne do korzystania z języka R z Machine Learning Studio (klasyczny). Jeśli nie znasz języka R, dostępne są dwa wprowadzenie w witrynie CRAN:
 

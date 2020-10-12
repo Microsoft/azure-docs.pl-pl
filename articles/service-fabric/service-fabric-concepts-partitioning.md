@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005432"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric reliable services (Partycjonowanie usług Reliable Services w ramach usługi Service Fabric)
@@ -350,7 +350,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
 
 Cały kod źródłowy przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje na temat pojęć Service Fabric, zobacz następujące tematy:
 
 * [Dostępność usług Service Fabric Services](service-fabric-availability-services.md)

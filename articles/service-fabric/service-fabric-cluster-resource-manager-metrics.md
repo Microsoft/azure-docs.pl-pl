@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005653"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Zarządzanie zużyciem zasobów i obciążeniem Service Fabric przy użyciu metryk
@@ -19,7 +19,7 @@ ms.locfileid: "89005653"
 Takie jak pamięć, dysk i użycie procesora są przykładowe metryki. Te metryki to metryki fizyczne, zasoby odpowiadające zasobom fizycznym w węźle, który musi być zarządzany. Metryki mogą być również (i często) metryki logiczne. Metryki logiczne są takie jak "MyWorkQueueDepth" lub "MessagesToProcess" lub "TotalRecords". Metryki logiczne są zdefiniowane przez aplikację i pośrednio odpowiadają pewnemu zużyciu zasobów fizycznych. Metryki logiczne są wspólne, ponieważ mogą być trudne do mierzenia i raportowania zużycia zasobów fizycznych na podstawie poszczególnych usług. Ze względu na złożoność mierzenia i raportowania własnych metryk fizycznych jest również Service Fabric udostępniają pewne metryki domyślne.
 
 ## <a name="default-metrics"></a>Metryki domyślne
-Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie wiesz, jakie zasoby fizyczne lub logiczne zużywają. To dobrze! Klaster Service Fabric Menedżer zasobów używa pewnych metryk domyślnych, gdy nie zostaną określone żadne inne metryki. Oto one:
+Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie wiesz, jakie zasoby fizyczne lub logiczne zużywają. To dobrze! Klaster Service Fabric Menedżer zasobów używa pewnych metryk domyślnych, gdy nie zostaną określone żadne inne metryki. Są to:
 
   - PrimaryCount — liczba replik podstawowych w węźle 
   - ReplicaCount — liczba całkowitych replik stanowych w węźle
@@ -29,7 +29,7 @@ Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie 
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Wysoki |
 | ReplicaCount |0 |1 |1 |Średniaa |
-| Liczba |1 |1 |1 |Małe |
+| Liczba |1 |1 |1 |Niski |
 
 
 W przypadku obciążeń podstawowych metryki domyślne zapewniają dystrybucję znośnego pracy w klastrze. W poniższym przykładzie Zobaczmy, co się dzieje, gdy utworzymy dwie usługi i korzystasz z domyślnych metryk na potrzeby równoważenia. Pierwsza usługa jest usługą stanową z trzema partycjami i docelowym zestawem replik o rozmiarze trzech. Druga usługa to usługa bezstanowa z jedną partycją i liczbą wystąpień trzy.
@@ -259,7 +259,7 @@ W górnym przykładzie opartym tylko na globalnym saldzie klaster jako całość
 
 W dolnym przykładzie klaster Menedżer zasobów rozłożyć repliki na podstawie zarówno globalnego, jak i za usługę. Podczas obliczania wyniku rozwiązania zapewnia większość wagi do rozwiązania globalnego i (konfigurowalne) część do poszczególnych usług. Saldo globalne dla metryki jest obliczane na podstawie średniej wagi metryk z każdej usługi. Każda usługa jest zrównoważona zgodnie ze zdefiniowanymi wagami metryk. Dzięki temu usługi są zrównoważone w zależności od potrzeb. W związku z tym, jeśli ten sam pierwszy węzeł ulegnie awarii, błąd jest dystrybuowany we wszystkich partycjach wszystkich usług. Wpływ na poszczególne są takie same.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 - Aby uzyskać więcej informacji na temat konfigurowania usług, [Dowiedz się więcej o konfigurowaniu usług](service-fabric-cluster-resource-manager-configure-services.md)(Service-Fabric-Cluster-Resource-Manager-Configure-Services.MD)
 - Definiowanie metryk defragmentacji jest jednym ze sposobów konsolidacji obciążenia węzłów zamiast rozproszenia go. Aby dowiedzieć się, jak skonfigurować defragmentację, zapoznaj się z [tym artykułem](service-fabric-cluster-resource-manager-defragmentation-metrics.md) .
 - Aby dowiedzieć się, w jaki sposób klaster Menedżer zasobów zarządza i równoważenia obciążenia w klastrze, zapoznaj się z artykułem dotyczącym [równoważenia obciążenia](service-fabric-cluster-resource-manager-balancing.md)

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478131"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Instrukcje: Dostosowywanie przeglądarek i WebViews dla systemu iOS/macOS
@@ -36,7 +36,7 @@ Dla systemów iOS i macOS:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL for macOS obsługuje tylko `WKWebView` starsze wersje systemu operacyjnego. `ASWebAuthenticationSession`jest obsługiwana tylko w macOS 10,15 i nowszych. 
+MSAL for macOS obsługuje tylko `WKWebView` starsze wersje systemu operacyjnego. `ASWebAuthenticationSession` jest obsługiwana tylko w macOS 10,15 i nowszych. 
 
 ## <a name="system-browsers"></a>Przeglądarki systemu
 
@@ -61,8 +61,8 @@ Domyślnie program MSAL dynamicznie wykrywa wersję systemu iOS i wybiera zaleca
 
 Deweloperzy mogą również wybrać inną przeglądarkę systemową dla aplikacji MSAL:
 
-- `SFAuthenticationSession`jest wersją systemu iOS 11 `ASWebAuthenticationSession` .
-- `SFSafariViewController`jest bardziej ogólnego przeznaczenia i udostępnia interfejs do przeglądania sieci Web i może służyć również do celów logowania. W systemach iOS 9 i 10 pliki cookie i inne dane witryny sieci Web są udostępniane za pomocą przeglądarki Safari — ale nie w systemie iOS 11 i nowszych.
+- `SFAuthenticationSession` jest wersją systemu iOS 11 `ASWebAuthenticationSession` .
+- `SFSafariViewController` jest bardziej ogólnego przeznaczenia i udostępnia interfejs do przeglądania sieci Web i może służyć również do celów logowania. W systemach iOS 9 i 10 pliki cookie i inne dane witryny sieci Web są udostępniane za pomocą przeglądarki Safari — ale nie w systemie iOS 11 i nowszych.
 
 ## <a name="in-app-browser"></a>Przeglądarka w aplikacji
 
@@ -96,7 +96,7 @@ Każde żądanie można skonfigurować w celu przesłaniania domyślnej przeglą
 
 Ponadto MSAL obsługuje przekazywanie w niestandardowym `WKWebView` przez ustawienie `MSALInteractiveTokenParameters.webviewParameters.customWebView` właściwości.
 
-Przykład:
+Na przykład:
 
 Obiektowy C
 ```objc

@@ -7,10 +7,10 @@ ms.date: 08/26/2019
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cb5820849fb34e232a07d610e1cedeb40c0fcfba
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005330"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalowanie w Service Fabric
@@ -141,7 +141,7 @@ Ten wzorzec dynamicznego tworzenia ma wiele zalet:
   - Nie korzystasz z wielu wystąpień usługi ani replik, gdy czekasz na wyświetlenie klientów
   - Jeśli klient kiedykolwiek opuści te informacje, usuwanie ich z usługi jest tak proste, jakby Menedżer usunął tę usługę lub aplikację, którą utworzyła.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat pojęć Service Fabric, zobacz następujące artykuły:
 
 * [Dostępność usług Service Fabric Services](service-fabric-availability-services.md)

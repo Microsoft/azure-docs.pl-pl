@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82789004"
 ---
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów
@@ -93,7 +93,7 @@ Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać.
 
 Zalecamy Udostępnianie dostępu na poziomie galerii obrazów. Poniżej przedstawiono udostępnianie galerii, która została właśnie utworzona.
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 1. W menu po lewej stronie wybierz pozycję **grupy zasobów**. 
 1. Na liście grup zasobów wybierz pozycję **myGalleryRG**. Zostanie otwarty blok dla grupy zasobów.
 1. W menu po lewej stronie **myGalleryRG** wybierz pozycję **Kontrola dostępu (IAM)**. 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82892084"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Jak używać grup w skoroszytach
@@ -22,7 +22,7 @@ Element grupy w skoroszycie umożliwia logiczne grupowanie zestawu kroków w sko
 
 Grupy w skoroszytach są przydatne w kilku kwestiach:
 
-- Layout
+- Układ
   - W scenariuszach, w których elementy mają być zorganizowane w pionie, można utworzyć grupę elementów, które będą miały wszystkie stosy, i ustawić styl grupy jako szerokość procentową, a nie ustawienie szerokości procentowej dla wszystkich poszczególnych elementów.
 - Widoczność
   - W scenariuszach, w których wiele elementów ma być ukrywanych i wyświetlanych razem, można ustawić widoczność całej grupy elementów, zamiast ustawiać ustawienia widoczności poszczególnych elementów. Może to być przydatne w szablonach korzystających z kart, jak można użyć grupy jako zawartości karty, a cała grupa może być ukryta/pokazana na podstawie parametru ustawionego przez wybraną kartę.
@@ -68,7 +68,7 @@ Grupa zostanie załadowana tylko wtedy, gdy element jest widoczny. Pozwala to na
 
 W przypadku grup utworzonych na podstawie szablonu zawartość szablonu nie jest pobierana, a elementy w grupie nie są tworzone, dopóki Grupa nie staną się widoczne. Podczas pobierania zawartości użytkownik zobaczy pokrętła postępu dla całej grupy.
 
-### <a name="explicit"></a>Wprost
+### <a name="explicit"></a>Jawna
 
 W tym trybie przycisk jest wyświetlany, gdy grupa będzie się znajdować i żadna zawartość nie zostanie pobrana lub utworzona do momentu, gdy użytkownik jawnie kliknie przycisk w celu załadowania zawartości. Jest to przydatne w scenariuszach, w których zawartość może być kosztowna do obliczeń lub rzadko używanych. Autor może określić tekst, który ma być wyświetlany na przycisku.
 
@@ -98,8 +98,8 @@ Po załadowaniu szablonu do grupy skoroszyt próbuje scalić wszystkie parametry
 
 Rozważmy szablon, który ma dwa parametry w górnej części.
 
-- `TimeRange`-parametr zakresu czasu.
-- `Filter`-Parametr tekstowy.
+- `TimeRange` -parametr zakresu czasu.
+- `Filter` -Parametr tekstowy.
 
 ![Edytowanie elementu parametrów: "parametry najwyższego poziomu"](./media/workbooks-groups/groups-top-level-params.png)
 
@@ -113,12 +113,12 @@ Po załadowaniu drugiego szablonu do grupy, zduplikowane parametry zostaną scal
 
 Rozważmy szablon grupy, który ma dwa parametry u góry.
 
-- `TimeRange`-parametr zakresu czasu.
-- `FilterB`-Parametr tekstowy, należy zauważyć, że nie jest `Filter` tak samo jak w przypadku górnego szablonu.
+- `TimeRange` -parametr zakresu czasu.
+- `FilterB` -Parametr tekstowy, należy zauważyć, że nie jest `Filter` tak samo jak w przypadku górnego szablonu.
 
 ![Edytowanie elementu grupy z wynikiem parametrów scalonych](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Po załadowaniu szablonu item's grupy `TimeRange` parametr zostanie scalony z grupy. Następnie skoroszyt będzie miał krok początkowy parametrów z `TimeRange` i `Filter` , a krok parametru grupy będzie zawierać tylko`FilterB`
+Po załadowaniu szablonu item's grupy `TimeRange` parametr zostanie scalony z grupy. Następnie skoroszyt będzie miał krok początkowy parametrów z `TimeRange` i `Filter` , a krok parametru grupy będzie zawierać tylko `FilterB`
 
 ![wynik parametrów, które nie zostaną scalone](./media/workbooks-groups/groups-wont-merge-away-result.png)
 

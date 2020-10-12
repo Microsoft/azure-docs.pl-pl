@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: d2b1afea746410e966b43bef01a039a8471d4ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87007932"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schemat rozszerzenia diagnostyki systemu Windows
@@ -39,13 +39,13 @@ Dodano w wersji 1,3.
 
 Element najwyższego poziomu pliku konfiguracji diagnostyki.  
 
-**Atrybut** xmlns — przestrzeń nazw XML dla pliku konfiguracji diagnostyki:  
+**Atrybut**  xmlns — przestrzeń nazw XML dla pliku konfiguracji diagnostyki:  
 `http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**PublicConfig**|Wymagany. Zobacz opis w innym miejscu na tej stronie.|  
+|**PublicConfig**|Wymagane. Zobacz opis w innym miejscu na tej stronie.|  
 |**PrivateConfig**|Opcjonalny. Zobacz opis w innym miejscu na tej stronie.|  
 |**IsEnabled**|Typu. Zobacz opis w innym miejscu na tej stronie.|  
 
@@ -56,10 +56,10 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**WadCfg**|Wymagany. Zobacz opis w innym miejscu na tej stronie.|  
-|**StorageAccount**|Nazwa konta usługi Azure Storage do przechowywania danych. Może być również określony jako parametr podczas wykonywania polecenia cmdlet Set-AzureServiceDiagnosticsExtension.|  
+|**WadCfg**|Wymagane. Zobacz opis w innym miejscu na tej stronie.|  
+|**StorageAccount**|Nazwa konta usługi Azure Storage do przechowywania danych. Może być również określony jako parametr podczas wykonywania Set-AzureServiceDiagnosticsExtension polecenia cmdlet.|  
 |**StorageType**|Może to być *tabela*, *obiekt BLOB*lub *TableAndBlob*. Tabela jest domyślna. Po wybraniu TableAndBlob dane diagnostyczne są zapisywane dwa razy do każdego typu.|  
-|**LocalResourceDirectory**|Katalog na maszynie wirtualnej, w której Agent monitorowania przechowuje dane zdarzenia. Jeśli nie, ustaw, domyślny katalog jest używany:<br /><br /> Dla roli proces roboczy/Sieć Web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Dla maszyny wirtualnej:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Wymagane atrybuty:<br /><br /> - **ścieżka** — katalog w systemie, który ma być używany przez Diagnostyka Azure.<br /><br /> - **expandEnvironment** — określa, czy zmienne środowiskowe są rozwinięte w nazwie ścieżki.|  
+|**LocalResourceDirectory**|Katalog na maszynie wirtualnej, w której Agent monitorowania przechowuje dane zdarzenia. Jeśli nie, ustaw, domyślny katalog jest używany:<br /><br /> Dla roli proces roboczy/Sieć Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Dla maszyny wirtualnej: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Wymagane atrybuty:<br /><br /> - **ścieżka** — katalog w systemie, który ma być używany przez Diagnostyka Azure.<br /><br /> - **expandEnvironment** — określa, czy zmienne środowiskowe są rozwinięte w nazwie ścieżki.|  
 
 ## <a name="wadcfg-element"></a>WadCFG, element  
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG*
@@ -85,7 +85,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |--------------------|-----------------|  
 |**CrashDumps**|Zobacz opis w innym miejscu na tej stronie.|  
 |**DiagnosticInfrastructureLogs**|Włącz zbieranie dzienników generowanych przez Diagnostyka Azure. Dzienniki infrastruktury diagnostycznej są przydatne do rozwiązywania problemów z systemem diagnostyki. Atrybuty opcjonalne:<br /><br /> - **scheduledTransferLogLevelFilter** — konfiguruje minimalny poziom ważności zbieranych dzienników.<br /><br /> - **scheduledTransferPeriod** — interwał między planowanymi transferami do magazynu zaokrąglony do najbliższej minuty. Wartość jest [typem danych "Duration" typu XML ".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
-|**Katalogi**|Zobacz opis w innym miejscu na tej stronie.|  
+|**Katalogu**|Zobacz opis w innym miejscu na tej stronie.|  
 |**EtwProviders**|Zobacz opis w innym miejscu na tej stronie.|  
 |**Metryki**|Zobacz opis w innym miejscu na tej stronie.|  
 |**Liczniki wydajności**|Zobacz opis w innym miejscu na tej stronie.|  
@@ -107,7 +107,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Wymagany. Definiuje wartości konfiguracyjne dla każdego procesu.<br /><br /> Wymagany jest również następujący atrybut:<br /><br /> **ProcessName** — nazwa procesu, który ma Diagnostyka Azure zbierać zrzut awaryjny dla.|  
+|**CrashDumpConfiguration**|Wymagane. Definiuje wartości konfiguracyjne dla każdego procesu.<br /><br /> Wymagany jest również następujący atrybut:<br /><br /> **ProcessName** — nazwa procesu, który ma Diagnostyka Azure zbierać zrzut awaryjny dla.|  
 
 ## <a name="directories-element"></a>Elementy katalogów
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-DiagnosticMonitorConfiguration-katalogi*
@@ -132,7 +132,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Wymagany. Wymagany atrybut:<br /><br /> **ContainerName** — nazwa kontenera obiektów BLOB na koncie usługi Azure Storage, która ma być używana do przechowywania plików dziennika.|  
+|**DirectoryConfiguration**|Wymagane. Wymagany atrybut:<br /><br /> **ContainerName** — nazwa kontenera obiektów BLOB na koncie usługi Azure Storage, która ma być używana do przechowywania plików dziennika.|  
 
 
 
@@ -170,7 +170,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Opcjonalny atrybut:<br/><br/> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
-|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
+|**Wydarzen**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
 
 
 
@@ -180,7 +180,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
-|**Zdarzenie**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
+|**Wydarzen**|Wymagany atrybut:<br /><br /> **Identyfikator** — identyfikator zdarzenia.<br /><br /> Opcjonalny atrybut:<br /><br /> **eventDestination** — nazwa tabeli, w której mają być przechowywane zdarzenia|  
 
 
 
@@ -270,7 +270,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 |---------------|----------|-----------------|  
 |**Nazwij**|ciąg|Ciąg identyfikujący obiekt ujścianame.|  
 
-|Element|Typ|Opis|  
+|Element|Type|Opis|  
 |-------------|----------|-----------------|  
 |**Application Insights**|ciąg|Używane tylko w przypadku wysyłania danych do Application Insights. Zawiera klucz Instrumentacji dla aktywnego konta Application Insights, do którego masz dostęp.|  
 |**Kanały**|ciąg|Jeden dla każdego dodatkowego filtrowania, który przesyła strumieniowo|  
@@ -282,9 +282,9 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Definiuje filtry strumieni danych dziennika przechodzących przez ujścia.  
 
-|Element|Typ|Opis|  
+|Element|Type|Opis|  
 |-------------|----------|-----------------|  
-|**Ukierunkowan**|ciąg|Zobacz opis w innym miejscu na tej stronie.|  
+|**Kanał**|ciąg|Zobacz opis w innym miejscu na tej stronie.|  
 
 ## <a name="channel-element"></a>Element kanału
  *Drzewo: root-DiagnosticsConfiguration-PublicConfig-WadCFG-SinksConfig-ujścia-Channel*
@@ -293,7 +293,7 @@ Element najwyższego poziomu pliku konfiguracji diagnostyki.
 
  Definiuje lokalizacje, do których mają być wysyłane dane diagnostyczne. Na przykład usługa Application Insights.  
 
-|Atrybuty|Typ|Opis|  
+|Atrybuty|Type|Opis|  
 |----------------|----------|-----------------|  
 |**logLevel**|**parametry**|Określa minimalny poziom ważności wpisów dziennika, które są transferowane. Wartość domyślna to **undefined**, która przenosi wszystkie dzienniki. Inne możliwe wartości (w kolejności od największej do najmniejszej ilości informacji) to **pełny**, **informacyjny**, **ostrzegawczy**, **błąd**i **krytyczny**.|  
 |**Nazwij**|**parametry**|Unikatowa nazwa kanału, do którego odwołuje się|  

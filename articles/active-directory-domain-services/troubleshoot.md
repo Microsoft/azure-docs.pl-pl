@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 7642a32ce69dbbbb5ddebbe56b74f3202b2e6422
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039572"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Typowe błędy i kroki rozwiązywania problemów dla Azure Active Directory Domain Services
@@ -28,7 +28,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów z typowymi pro
 
 Jeśli masz problemy z włączeniem usługi Azure AD DS, przejrzyj następujące typowe błędy i wykonaj kroki, aby je rozwiązać:
 
-| **Przykładowy komunikat o błędzie** | **Rozdzielczość** |
+| **Przykładowy komunikat o błędzie** | **Rozwiązanie** |
 | --- |:--- |
 | *Nazwa aaddscontoso.com jest już używana w tej sieci. Określ nazwę, która nie jest używana.* |[Konflikt nazw domen w sieci wirtualnej](troubleshoot.md#domain-name-conflict) |
 | *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Usługa nie ma wystarczających uprawnień do aplikacji o nazwie "Azure AD Domain Services Sync". Usuń aplikację o nazwie "Azure AD Domain Services Sync", a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.* |[Usługi domenowe nie mają wystarczających uprawnień do aplikacji do synchronizacji Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
@@ -41,7 +41,7 @@ Jeśli masz problemy z włączeniem usługi Azure AD DS, przejrzyj następujące
 
 *Nazwa aaddscontoso.com jest już używana w tej sieci. Określ nazwę, która nie jest używana.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy nie masz istniejącego środowiska AD DS o tej samej nazwie domeny w tej samej lub równorzędnej sieci wirtualnej. Na przykład może istnieć AD DS domena o nazwie *aaddscontoso.com* , która jest uruchamiana na maszynach wirtualnych platformy Azure. Gdy próbujesz włączyć domenę zarządzaną platformy Azure AD DS z tą samą nazwą domeny *aaddscontoso.com* w sieci wirtualnej, żądana operacja nie powiedzie się.
 
@@ -53,7 +53,7 @@ Ten błąd jest spowodowany konfliktami nazw dla nazwy domeny w sieci wirtualnej
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Usługa nie ma wystarczających uprawnień do aplikacji o nazwie "Azure AD Domain Services Sync". Usuń aplikację o nazwie "Azure AD Domain Services Sync", a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy w katalogu usługi Azure AD znajduje się aplikacja o nazwie *Azure AD Domain Services Sync* . Jeśli ta aplikacja istnieje, usuń ją, a następnie spróbuj ponownie, aby włączyć usługę Azure AD DS. Aby wyszukać istniejącą aplikację i usunąć ją w razie potrzeby, wykonaj następujące czynności:
 
@@ -68,7 +68,7 @@ Sprawdź, czy w katalogu usługi Azure AD znajduje się aplikacja o nazwie *Azur
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Aplikacja usług domenowych w dzierżawie usługi Azure AD nie ma wymaganych uprawnień, aby włączyć usługi domenowe. Usuń aplikację z identyfikatorem aplikacji d87dcbc6-a371-462e-88e3-28ad15ec4e64, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy masz istniejącą aplikację o nazwie *AzureActiveDirectoryDomainControllerServices* z identyfikatorem aplikacji *d87dcbc6-a371-462e-88e3-28ad15ec4e64* w katalogu usługi Azure AD. Jeśli ta aplikacja istnieje, usuń ją, a następnie spróbuj ponownie, aby włączyć usługę Azure AD DS.
 
@@ -112,7 +112,7 @@ if ($sp -ne $null)
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Aplikacja Microsoft Azure AD jest wyłączona w dzierżawie usługi Azure AD. Włącz aplikację przy użyciu identyfikatora aplikacji 00000002-0000-0000-C000-000000000000, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy aplikacja została wyłączona z identyfikatorem *00000002-0000-0000-C000-000000000000*. Ta aplikacja jest aplikacją Microsoft Azure AD i zapewnia interfejs API programu Graph dostęp do dzierżawy usługi Azure AD. Aby zsynchronizować dzierżawę usługi Azure AD, ta aplikacja musi być włączona.
 

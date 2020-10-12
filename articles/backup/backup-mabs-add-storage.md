@@ -4,10 +4,10 @@ description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W ty
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292901"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
@@ -89,7 +89,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 Poniższy zrzut ekranu przedstawia polecenie cmdlet Update-DPMDiskStorage w oknie programu PowerShell.
 
-![Polecenie Update-DPMDiskStorage w oknie programu PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
+![Update-DPMDiskStorage polecenie w oknie programu PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
 Zmiany wprowadzane przy użyciu programu PowerShell są odzwierciedlone na serwerze kopii zapasowej konsola administratora.
 

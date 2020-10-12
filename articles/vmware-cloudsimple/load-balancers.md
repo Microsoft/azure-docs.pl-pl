@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2fec54c19b9040e7cb44f1a5d2b7909510ab7313
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82734607"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Wybierz rozwiązanie do równoważenia obciążenia dla chmur prywatnych CloudSimple
@@ -25,7 +25,7 @@ Możesz wybrać wirtualny lub oparty na oprogramowaniu moduł równoważenia obc
 
 Wirtualne urządzenia usługi równoważenia obciążenia można wdrożyć w środowisku VMware za pomocą interfejsu vCenter i skonfigurować je do frontonu ruchu aplikacji.
 
-Niektórzy popularni dostawcy to: NginX: http://nginx.org/en/docs/http/load_balancing.html F5-BigIP-Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC:https://www.citrix.com/products/citrix-adc/
+Niektórzy popularni dostawcy to: NginX: http://nginx.org/en/docs/http/load_balancing.html F5-BigIP-Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC: https://www.citrix.com/products/citrix-adc/
 
 ## <a name="azure-l7-load-balancer"></a>Moduł równoważenia obciążenia (P7) platformy Azure
 

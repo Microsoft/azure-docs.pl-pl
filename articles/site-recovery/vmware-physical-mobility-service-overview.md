@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530067"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informacje o usłudze mobilności dla maszyn wirtualnych VMware i serwerów fizycznych
@@ -85,15 +85,15 @@ Podczas instalacji wypychanej usługi mobilności wykonywane są następujące c
 
 1. Monitoruj instalację w **trakcie instalacji**. Po zakończeniu instalacji wybierz pozycję **Kontynuuj do konfiguracji** , aby zarejestrować usługę na serwerze konfiguracji.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Strona rejestracji usługi mobilności.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Strona opcji instalacji usługi mobilności.":::
 
 1. W obszarze **Szczegóły serwera konfiguracji**Określ adres IP i hasło, które zostały skonfigurowane.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Strona rejestracji usługi mobilności.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Strona opcji instalacji usługi mobilności.":::
 
 1. Wybierz pozycję **zarejestruj** , aby zakończyć rejestrację.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Ostatnia strona rejestracji usługi mobilności.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Strona opcji instalacji usługi mobilności.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Instalowanie usługi mobilności przy użyciu wiersza polecenia
 

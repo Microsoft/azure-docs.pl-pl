@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034774"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: Hive, & usługi HDInsight Azure Data Lake Storage Gen2
@@ -58,7 +58,7 @@ Obciążenia intensywnie korzystające z operacji we/wy mogą korzystać z więk
 Liczba współbieżnych zadań uruchomionych lub równoległych zostanie ograniczona przez łączną ilość pamięci PRZĘDZy.  Liczba kontenerów PRZĘDZy będzie określać liczbę współbieżnych zadań, które można uruchomić.  Aby znaleźć pamięć PRZĘDZy na węzeł, możesz przejść do Ambari.  Przejdź do PRZĘDZy i Wyświetl kartę konfiguracje.  W tym oknie zostanie wyświetlona pamięć PRZĘDZy.  
 
 - Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
-- \#kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/rozmiar kontenera tez
+- \# kontenerów PRZĘDZy = Łączna ilość pamięci PRZĘDZy/rozmiar kontenera tez
 
 Kluczem do poprawienia wydajności przy użyciu Data Lake Storage Gen2 jest zwiększenie współbieżności tak, jak to możliwe.  Tez automatycznie oblicza liczbę zadań, które należy utworzyć, aby nie trzeba było ich ustawiać.   
 
@@ -68,7 +68,7 @@ Załóżmy, że masz klaster D14 z 8 węzłami.
 
 - Łączna ilość pamięci PRZĘDZy = węzły * pamięć PRZĘDZy na węzeł
 - Łączna ilość pamięci PRZĘDZy = 8 węzłów * 96GB = 768GB
-- \#kontenerów PRZĘDZy = 768GB/3072MB = 256
+- \# kontenerów PRZĘDZy = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Więcej informacji na temat dostrajania programu Hive
 

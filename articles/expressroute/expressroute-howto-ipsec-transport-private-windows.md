@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89396492"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurowanie trybu transportu IPsec dla prywatnej komunikacji równorzędnej ExpressRoute
@@ -61,7 +61,7 @@ Podczas konfigurowania zasad protokołu IPsec ważne jest zapoznanie się z nast
 
 [![5]][5]
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Upewnij się, że spełniono następujące wymagania wstępne:
 
@@ -255,7 +255,7 @@ Dodaj do zasad IPsec **listy filtrów IP** i **akcji filtrowania** , które zost
 7. System Windows obsługuje cztery różne typy uwierzytelniania: Kerberos, certyfikaty, NTLMv2 i klucz wstępny. Ponieważ pracujemy z hostami przyłączonymi do domeny, wybierz opcję **Active Directory domyślne (protokół Kerberos V5)**, a następnie kliknij przycisk **dalej**.
 
    [![47]][47]
-8. Nowe zasady tworzą regułę zabezpieczeń: **Azure-onpremises-HTTP8080**. Kliknij pozycję **OK**.
+8. Nowe zasady tworzą regułę zabezpieczeń: **Azure-onpremises-HTTP8080**. Kliknij przycisk **OK**.
 
    [![48]][48]
 

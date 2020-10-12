@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87014943"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Obsługa zdarzeń zewnętrznych w Durable Functions (Azure Functions)
@@ -223,7 +223,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-`WaitForExternalEvent`czeka na nieokreślony czas w przypadku niektórych danych wejściowych.  Aplikacja funkcji może zostać bezpiecznie zwolniona z ładowania podczas oczekiwania. Jeśli i po nadejściu zdarzenia dla tego wystąpienia aranżacji zostanie ono automatycznie wznowione i natychmiast przetworzy zdarzenie.
+`WaitForExternalEvent` czeka na nieokreślony czas w przypadku niektórych danych wejściowych.  Aplikacja funkcji może zostać bezpiecznie zwolniona z ładowania podczas oczekiwania. Jeśli i po nadejściu zdarzenia dla tego wystąpienia aranżacji zostanie ono automatycznie wznowione i natychmiast przetworzy zdarzenie.
 
 > [!NOTE]
 > Jeśli aplikacja funkcji korzysta z planu zużycia, nie są naliczane opłaty za rozliczanie, gdy funkcja programu Orchestrator oczekuje na zadanie z `WaitForExternalEvent` (.NET), `waitForExternalEvent` (JavaScript) lub `wait_for_external_event` (Python), niezależnie od tego, jak długo czeka.

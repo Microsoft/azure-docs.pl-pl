@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243719"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Zasady uwierzytelniania
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Zasady uwierzytelniania
 
 -   [Uwierzytelnianie z](api-management-authentication-policies.md#Basic) uwierzytelnianiem Basic z użyciem usługi wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego.
 
@@ -31,7 +31,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   [Uwierzytelnianie przy użyciu tożsamości zarządzanej](api-management-authentication-policies.md#ManagedIdentity) — uwierzytelnianie za pomocą [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla usługi API Management.
 
-##  <a name="authenticate-with-basic"></a><a name="Basic"></a>Uwierzytelnianie za pomocą języka Basic
+##  <a name="authenticate-with-basic"></a><a name="Basic"></a> Uwierzytelnianie za pomocą języka Basic
  Zasady służą `authentication-basic` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu uwierzytelniania podstawowego. Te zasady skutecznie ustawiają nagłówek autoryzacji HTTP na wartość odpowiadającą podanym w zasadzie poświadczeniami.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -66,7 +66,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a>Uwierzytelnianie przy użyciu certyfikatu klienta
+##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Uwierzytelnianie przy użyciu certyfikatu klienta
  Zasady służą `authentication-certificate` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](https://go.microsoft.com/fwlink/?LinkID=511599) jako pierwszy i jest identyfikowany przez jego odcisk palca.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -117,7 +117,7 @@ W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany
   
 -   **Zakresy zasad:** wszystkie zakresy  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Uwierzytelnianie przy użyciu tożsamości zarządzanej  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Uwierzytelnianie przy użyciu tożsamości zarządzanej  
  Zasady służą `authentication-managed-identity` do uwierzytelniania w usłudze zaplecza przy użyciu tożsamości zarządzanej. Te zasady zasadniczo wykorzystują zarządzaną tożsamość do uzyskiwania tokenu dostępu z Azure Active Directory na potrzeby uzyskiwania dostępu do określonego zasobu. Po pomyślnym uzyskaniu tokenu zasady ustawili wartość tokenu w `Authorization` nagłówku przy użyciu `Bearer` schematu.
 
 Do żądania tokenu można użyć zarówno tożsamości przypisanej do systemu, jak i dowolnej tożsamości przypisanej do użytkownika. Jeśli `client-id` nie podano tożsamości przypisanej do systemu, przyjmuje się. Jeśli `client-id` dla tej tożsamości przypisanej do użytkownika jest żądany token, na podstawie Azure Active Directory

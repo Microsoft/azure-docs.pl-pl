@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230623"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Znajdowanie raportów dotyczących aktywności w witrynie Azure Portal
@@ -52,7 +52,7 @@ Możesz użyć filtrowania zaawansowanego w raporcie inspekcji, aby uzyskać dos
 
 Kategorie obejmują:
 
-- Wszystko
+- Wszystkie
 - AdministrativeUnit
 - ApplicationManagement
 - Uwierzytelnianie
@@ -73,7 +73,7 @@ Możesz również filtrować określoną usługę za pomocą filtru listy rozwij
 
 Usługi obejmują:
 
-- Wszystko
+- Wszystkie
 - Przeglądy dostępu
 - Aprowizacja kont 
 - Logowanie jednokrotne aplikacji
@@ -106,7 +106,7 @@ Aby uzyskać dostęp do raportu logowania:
 
 Możesz użyć raportu logowania, aby wyświetlić szczegółowe informacje o użyciu aplikacji, filtrując nazwę użytkownika lub nazwę aplikacji.
 
-![Strona filtrowania zdarzeń logowania](./media/howto-find-activity-reports/07.png "Strona filtrowania zdarzeń logowania")
+![Strona filtrowania zdarzeń Sign-In](./media/howto-find-activity-reports/07.png "Strona filtrowania zdarzeń Sign-In")
 
 ## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń
 

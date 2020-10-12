@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: f793535f04b36d231cec384b7acd66e38a7eb039
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91253534"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Używanie trybu programu w celu uczenia personalizacji bez wpływu na istniejącą aplikację
@@ -59,7 +59,7 @@ Tryb działalności jest przydatny dla deweloperów, naukowców danych i osób p
 
 Uczenie się w trybie pracy różni się od trybu online w następujący sposób.
 
-|Obszar|Tryb ucznia|Tryb online|
+|Warstwowy|Tryb ucznia|Tryb online|
 |--|--|--|
 |Wpływ na środowisko użytkownika|Możesz użyć istniejącego zachowania użytkownika w celu pouczenia personalizacji, zezwalając na przestrzeganie (nie ma wpływu na to, jakie **działania domyślne** byłyby, a uzyskaną przez niego opłatą). Oznacza to, że nie będzie to miało wpływu na wrażenia użytkowników i wyniki biznesowe.|Wyświetl najwyższą akcję zwróconą z wywołania rangi w celu wpływu na zachowanie użytkownika.|
 |Szybkość uczenia|Personalizowanie będzie bardziej wolniejsze w trybie zawodnym niż w przypadku uczenia się w trybie online. Tryb działania może uczyć się tylko przez zaobserwowanie korzyści uzyskanych przez **akcję domyślną**, co ogranicza szybkość uczenia się, ponieważ nie można przeprowadzić eksploracji.|Szybsze uczenie się, ponieważ może wykorzystać bieżący model i poznać nowe trendy.|
