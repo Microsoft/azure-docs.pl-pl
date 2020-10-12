@@ -4,10 +4,10 @@ description: W tym artykule przedstawiono kroki umożliwiające szybkie i łatwe
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d2bcbcbea613aa84da91789fb9f118afd7023fab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481994"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Uruchom ponownie maszynę wirtualną w laboratorium w Azure DevTest Labs

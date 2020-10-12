@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
 ms.openlocfilehash: 4e817d572a98ffb8135adf58d13f50ccacbc8746
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86251998"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Ręczne tworzenie i używanie woluminu systemu plików NFS (sieciowy system plików) z systemem Linux za pomocą usługi Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ Podczas gdy usługa Azure Files jest opcją, Tworzenie serwera NFS na maszynie w
 
 W tym artykule przedstawiono sposób tworzenia serwera NFS na maszynie wirtualnej Ubuntu. Ponadto nadajemy kontenerom AKS dostęp do tego współużytkowanego systemu plików.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
 Klaster AKS będzie musiał być aktywny w tych samych lub równorzędnych sieciach wirtualnych co serwer NFS. Klaster musi zostać utworzony w istniejącej sieci wirtualnej, która może być tą samą siecią wirtualną co maszyna wirtualna.

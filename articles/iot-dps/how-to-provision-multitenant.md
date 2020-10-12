@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531427"
 ---
-# <a name="how-to-provision-for-multitenancy"></a>Jak zapewnić obsługę wielodostępności 
+# <a name="how-to-provision-for-multitenancy"></a>Jak aprowizować pod kątem wielu dzierżaw 
 
 W tym artykule pokazano, jak bezpiecznie zainicjować obsługę wielu urządzeń z kluczami symetrycznymi w grupie centrów IoT przy użyciu [zasad alokacji](concepts-service.md#allocation-policy). Zasady alokacji zdefiniowane przez usługę aprowizacji obsługują różne scenariusze alokacji. Dwa typowe scenariusze:
 

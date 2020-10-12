@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027091"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrowanie aplikacji jednostronicowej JavaScript z niejawnego przydzielenia do przepływu kodu uwierzytelniania
@@ -48,11 +48,11 @@ Wykonaj następujące kroki w przypadku rejestracji aplikacji skonfigurowanych o
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Transparent ostrzeżenia o niejawnym przepływie na kafelku aplikacji sieci Web w Azure Portal":::
 1. Wybierz *tylko* te identyfikatory URI przekierowania, których aplikacje będą używać MSAL.js 2. x, a następnie wybierz pozycję **Konfiguruj**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Wybieranie okienka URI przekierowania w okienku SPA w Azure Portal":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Transparent ostrzeżenia o niejawnym przepływie na kafelku aplikacji sieci Web w Azure Portal":::
 
 Te identyfikatory URI przekierowania powinny teraz pojawić się na kafelku platformy **aplikacji jednostronicowej** , pokazując, że obsługa mechanizmu CORS z przepływem kodu autoryzacji i PKCE jest włączona dla tych identyfikatorów URI.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Kafelek aplikacji jednostronicowej w ramach rejestracji aplikacji w Azure Portal":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Transparent ostrzeżenia o niejawnym przepływie na kafelku aplikacji sieci Web w Azure Portal":::
 
 Możesz również [utworzyć nową rejestrację aplikacji](scenario-spa-app-registration.md) zamiast aktualizować identyfikatory URI przekierowania w istniejącej rejestracji.
 

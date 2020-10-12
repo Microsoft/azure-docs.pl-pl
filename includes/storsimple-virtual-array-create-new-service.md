@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507473"
 ---
 #### <a name="to-create-a-new-service"></a>Aby utworzyć nową usługę
 
-1.  Korzystając z poświadczeń konto Microsoft, zaloguj się do Azure Portal pod tym adresem URL: <https://portal.azure.com/> . W przypadku wdrażania urządzenia w portalu dla instytucji rządowych Zaloguj się pod adresem:<https://portal.azure.us/>
+1.  Korzystając z poświadczeń konto Microsoft, zaloguj się do Azure Portal pod tym adresem URL: <https://portal.azure.com/> . W przypadku wdrażania urządzenia w portalu dla instytucji rządowych Zaloguj się pod adresem: <https://portal.azure.us/>
 
 2.  W Azure Portal kliknij pozycję **+ Utwórz** &gt; **Magazyn** zasobów &gt; **StorSimple serii wirtualnej**.
 

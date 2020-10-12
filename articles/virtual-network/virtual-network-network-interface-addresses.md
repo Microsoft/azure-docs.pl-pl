@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
 ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711004"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie i usuwanie adresów IP dla interfejsów sieciowych platformy Azure
@@ -55,7 +55,7 @@ Możesz dodać dowolną liczbę [prywatnych](#private) i [publicznych](#public) 
    |Ustawienie|Wymagane?|Szczegóły|
    |---|---|---|
    |Nazwa|Tak|Musi być unikatowa dla interfejsu sieciowego|
-   |Typ|Tak|Ponieważ dodawana jest konfiguracja protokołu IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [podstawową](#primary) konfigurację adresu IP, jedyną opcją jest **pomocnicza**.|
+   |Type|Tak|Ponieważ dodawana jest konfiguracja protokołu IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [podstawową](#primary) konfigurację adresu IP, jedyną opcją jest **pomocnicza**.|
    |Metoda przypisania prywatnego adresu IP|Tak|[**Dynamiczny**](#dynamic): platforma Azure przypisuje następny dostępny adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy. [**Statyczny**](#static): przypiszesz nieużywany adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy.|
    |Publiczny adres IP|Nie|**Wyłączone:** Z konfiguracją IP nie jest obecnie skojarzony żaden zasób publicznego adresu IP. **Włączone:** Wybierz istniejący publiczny adres IP IPv4 lub Utwórz nowy. Aby dowiedzieć się, jak utworzyć publiczny adres IP, zapoznaj się z artykułem [publiczne adresy IP](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Ręcznie Dodaj pomocnicze prywatne adresy IP do systemu operacyjnego maszyny wirtualnej, wykonując instrukcje podane w artykule [przypisywanie wielu adresów IP do systemów operacyjnych maszyn wirtualnych](virtual-network-multiple-ip-addresses-portal.md#os-config) . Zapoznaj się z [prywatnymi](#private) adresami IP, aby uzyskać specjalne uwagi przed ręcznym dodaniem adresów IP do systemu operacyjnego maszyny wirtualnej. Nie należy dodawać żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.

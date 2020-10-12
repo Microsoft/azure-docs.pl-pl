@@ -7,10 +7,10 @@ ms.date: 03/19/2018
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4eb8dd98909459feab72f61e46834e60c5b07ebd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89007761"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementowanie funkcji na poziomie usług w usłudze aktora
@@ -173,7 +173,7 @@ Ta zmiana jest uaktualnieniem dwuetapowym. Wykonaj kroki opisane w tej sekwencji
 2. Uaktualnij klientów aktorów po zakończeniu poprzedniego uaktualnienia.
    Ten krok zapewnia, że serwer proxy aktora korzysta ze stosu V2_1 zdalnych.
 
-3. Ten krok jest opcjonalny. Zmień poprzedni atrybut, aby usunąć odbiornik v1.
+3. Ta czynność jest opcjonalna. Zmień poprzedni atrybut, aby usunąć odbiornik v1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
@@ -206,13 +206,13 @@ Ta zmiana jest uaktualnieniem dwuetapowym. Wykonaj kroki opisane w tej sekwencji
 2. Uaktualnij klientów aktorów po zakończeniu poprzedniego uaktualnienia.
    Ten krok zapewnia, że serwer proxy aktora korzysta ze stosu usług zdalnych w wersji 2.
 
-3. Ten krok jest opcjonalny. Zmień poprzedni atrybut, aby usunąć odbiornik v1.
+3. Ta czynność jest opcjonalna. Zmień poprzedni atrybut, aby usunąć odbiornik v1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
 * [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)

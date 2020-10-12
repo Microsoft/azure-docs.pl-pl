@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9118a99f285dedfe0b76e890db001627e4f85969
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657126"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opcje raportowania dotyczące zarządzania hasłami w usłudze Azure AD)
@@ -72,7 +72,7 @@ W poniższej tabeli opisano różne wartości, które można ustawić dla każde
 | --- | --- |
 | Zarejestrowane dane |**Alternatywny adres e-mail**: użytkownik użył alternatywnego adresu e-mail lub wiadomości e-mail do uwierzytelnienia.<p><p>**Telefon biurowy**: użytkownik użył telefonu biurowego do uwierzytelnienia.<p>**Telefon komórkowy**: użytkownik użył telefonu komórkowego lub telefonu uwierzytelniania do uwierzytelnienia.<p>**Pytania zabezpieczające**: użytkownik użył pytań zabezpieczających do uwierzytelnienia.<p>**Dowolna kombinacja poprzednich metod, na przykład alternatywnej poczty e-mail i telefonu komórkowego**: występuje, gdy określono zasady dwubramowe i pokazano dwie metody używane do uwierzytelniania żądania resetowania hasła. |
 
-## <a name="self-service-password-management-activity-types"></a>Typy działań samoobsługowego zarządzania hasłami
+## <a name="self-service-password-management-activity-types"></a>Self-Service typów działań związanych z zarządzaniem hasłami
 
 Następujące typy działań są wyświetlane w kategorii zdarzenia inspekcji **samoobsługowego zarządzania hasłami** :
 

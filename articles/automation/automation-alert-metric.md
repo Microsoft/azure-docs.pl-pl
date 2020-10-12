@@ -5,10 +5,10 @@ services: automation
 ms.date: 08/10/2020
 ms.topic: article
 ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055936"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Monitorowanie elementów runbook za pomocą alertów metryki
@@ -46,7 +46,7 @@ Alerty umożliwiają zdefiniowanie warunku do monitorowania oraz akcję podejmow
 
 3. W obszarze **logika alertu**Zdefiniuj warunek i próg alertu. Poniżej przedstawiono Podgląd zdefiniowanego warunku.
 
-4. W obszarze **oceniane na podstawie**wybierz pozycję TimeSpan dla zapytania i częstotliwość uruchamiania tej kwerendy. Na przykład w przypadku wybrania **w ciągu ostatnich 5 minut** **okresu**, a **co 1 minutę** dla **częstotliwości**, alert szuka liczby elementów Runbook, które spełniają kryteria w ciągu ostatnich 5 minut. To zapytanie jest uruchamiane co minutę, a gdy zdefiniowane kryteria alertu nie będą już znajdować się w oknie 5-minutowym, alert zostanie automatycznie rozwiązany. Na koniec kliknij przycisk **Gotowe**.
+4. W obszarze **oceniane na podstawie**wybierz pozycję TimeSpan dla zapytania i częstotliwość uruchamiania tej kwerendy. Na przykład w przypadku wybrania **w ciągu ostatnich 5 minut** **okresu**, a **co 1 minutę** dla **częstotliwości**, alert szuka liczby elementów Runbook, które spełniają kryteria w ciągu ostatnich 5 minut. To zapytanie jest uruchamiane co minutę, a gdy zdefiniowane kryteria alertu nie będą już znajdować się w oknie 5-minutowym, alert zostanie automatycznie rozwiązany. Po zakończeniu kliknij przycisk **gotowe**.
 
    ![Wybierz zasób dla alertu](./media/automation-alert-activity-log/configure-signal-logic.png)
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294142"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
@@ -184,10 +184,10 @@ Zobacz ten przykład oceny alertu:
 
 | Godzina    | Szacowanie warunku dziennika | Wynik 
 | ------- | ----------| ----------| ------- 
-| 00:05 | FALSE | Alert nie jest wyzwalany. Nie wywołano żadnych akcji.
-| 00:10 | TRUE  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
-| 00:15 | TRUE  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
-| 00:20 | FALSE | Alert nie jest wyzwalany. Nie wywołano żadnych akcji. Stan alertów poprzedniej pozostaje aktywny.
+| 00:05 | Fałsz | Alert nie jest wyzwalany. Nie wywołano żadnych akcji.
+| 00:10 | Prawda  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
+| 00:15 | Prawda  | Wyzwolone alerty i grupy akcji o nazwie. Nowy stan alertu jest aktywny.
+| 00:20 | Fałsz | Alert nie jest wyzwalany. Nie wywołano żadnych akcji. Stan alertów poprzedniej pozostaje aktywny.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Cennik i rozliczanie alertów dziennika
 

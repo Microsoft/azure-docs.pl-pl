@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 54a6293a29a407a7014aafb66587dcb01fc13337
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645793"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Dostrajanie aplikacji i baz danych pod kątem wydajności w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
@@ -122,7 +122,7 @@ Po jego utworzeniu ta sama instrukcja SELECT wybiera inny plan, który używa wy
 
 ![Plan zapytania ze poprawionymi indeksami](./media/performance-guidance/query_plan_corrected_indexes.png)
 
-Kluczowym wglądem jest to, że pojemność we/wy udostępnionego systemu asortymentu jest bardziej ograniczona niż w przypadku dedykowanego komputera serwera. Istnieje możliwość zminimalizowania niepotrzebnych operacji we/wy na wyższy poziom, co umożliwia maksymalne wykorzystanie systemu w zasobach każdego rozmiaru obliczeniowego warstw usług. Opcje projektowania odpowiednich fizycznych baz danych mogą znacząco poprawić opóźnienia poszczególnych zapytań, zwiększyć przepływność współbieżnych żądań obsłużonych na jednostkę skalowania i zminimalizować koszty wymagane do zaspokojenia zapytania. Aby uzyskać więcej informacji na temat brakującego indeksu widoków DMV, zobacz [sys. dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+Kluczowym wglądem jest to, że pojemność we/wy udostępnionego systemu asortymentu jest bardziej ograniczona niż w przypadku dedykowanego komputera serwera. Istnieje możliwość zminimalizowania niepotrzebnych operacji we/wy na wyższy poziom, co umożliwia maksymalne wykorzystanie systemu w zasobach każdego rozmiaru obliczeniowego warstw usług. Opcje projektowania odpowiednich fizycznych baz danych mogą znacząco poprawić opóźnienia poszczególnych zapytań, zwiększyć przepływność współbieżnych żądań obsłużonych na jednostkę skalowania i zminimalizować koszty wymagane do zaspokojenia zapytania. Aby uzyskać więcej informacji na temat brakującego indeksu widoków DMV, zobacz [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### <a name="query-tuning-and-hinting"></a>Dostrajanie zapytania i podpowiedzi
 
@@ -216,7 +216,7 @@ W drugiej części przykładu użyto wskazówki zapytania, aby nakazać Optymali
 
 ![Dostrajanie zapytania przy użyciu podpowiedzi zapytania](./media/performance-guidance/query_tuning_3.png)
 
-Efekt można zobaczyć w tabeli **sys. resource_stats** (istnieje opóźnienie od momentu wykonania testu oraz momentu, gdy dane wypełniają tabelę). W tym przykładzie część 1 została wykonana w przedziale czasu 22:25:00, a część 2 została uruchomiona o 22:35:00. Wcześniej przedział czasu użył więcej zasobów w tym przedziale czasu niż później (z powodu ulepszeń planu).
+Efekt można zobaczyć w tabeli **sys.resource_stats** (istnieje opóźnienie od momentu wykonania testu oraz momentu, gdy dane wypełniają tabelę). W tym przykładzie część 1 została wykonana w przedziale czasu 22:25:00, a część 2 została uruchomiona o 22:35:00. Wcześniej przedział czasu użył więcej zasobów w tym przedziale czasu niż później (z powodu ulepszeń planu).
 
 ```sql
 SELECT TOP 1000 *
@@ -230,7 +230,7 @@ ORDER BY start_time DESC
 > [!NOTE]
 > Chociaż wolumin w tym przykładzie jest celowo mały, wpływ parametrów optymalnych może być istotny, szczególnie w przypadku większych baz danych. Różnica w skrajnych przypadkach może wynosić od sekund dla szybkich przypadków i godzin w przypadku wolnych przypadków.
 
-Możesz sprawdzić, czy **sys. resource_stats** , aby określić, czy zasób dla testu używa więcej lub mniej zasobów niż inny test. Podczas porównywania danych należy oddzielić chronometraż testów, tak aby nie były w tym samym oknie 5-minutowym w widoku **sys. resource_stats** . Celem ćwiczenia jest zminimalizowanie łącznej ilości używanych zasobów, a nie zminimalizowanie zasobów szczytowych. Ogólnie Optymalizacja fragmentu kodu do opóźnienia zmniejsza również zużycie zasobów. Upewnij się, że zmiany wprowadzane do aplikacji są niezbędne i że zmiany nie wpłyną negatywnie na wrażenia klienta dla kogoś, kto może korzystać z podpowiedzi zapytania w aplikacji.
+Możesz sprawdzić, czy **sys.resource_stats** , aby określić, czy zasób do testu używa więcej lub mniej zasobów niż inny test. Podczas porównywania danych należy oddzielić chronometraż testów, tak aby nie były w tym samym oknie 5-minutowym w widoku **sys.resource_stats** . Celem ćwiczenia jest zminimalizowanie łącznej ilości używanych zasobów, a nie zminimalizowanie zasobów szczytowych. Ogólnie Optymalizacja fragmentu kodu do opóźnienia zmniejsza również zużycie zasobów. Upewnij się, że zmiany wprowadzane do aplikacji są niezbędne i że zmiany nie wpłyną negatywnie na wrażenia klienta dla kogoś, kto może korzystać z podpowiedzi zapytania w aplikacji.
 
 Jeśli obciążenie zawiera zestaw powtarzających się zapytań, często warto przechwycić i sprawdzić Optymalność opcji planu, ponieważ obejmuje ona minimalną jednostkę rozmiaru zasobu wymaganą do hostowania bazy danych programu. Po sprawdzeniu poprawności należy ponownie sprawdzić plany, aby upewnić się, że nie zostały one obniżone. Więcej informacji na temat [wskazówek dotyczących zapytań (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 

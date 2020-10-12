@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
 ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230538"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Używanie łącznika Ethereum łańcucha bloków z Azure Logic Apps
@@ -156,8 +156,8 @@ Aby ułatwić skonfigurowanie połączenia z członkiem usługi Azure łańcucha
 
 | Właściwość | Opis |
 |----------|-------------|
-|**Nazwa połączenia** | Nazwa połączenia interfejsu API. Wymagany. |
-|**Punkt końcowy RPC Ethereum** | Adres HTTP węzła transakcji usługi Azure łańcucha bloków. Wymagany. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie punktu końcowego RPC](#get-the-rpc-endpoint). |
+|**Nazwa połączenia** | Nazwa połączenia interfejsu API. Wymagane. |
+|**Punkt końcowy RPC Ethereum** | Adres HTTP węzła transakcji usługi Azure łańcucha bloków. Wymagane. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie punktu końcowego RPC](#get-the-rpc-endpoint). |
 |**Klucz prywatny** | Klucz prywatny konta Ethereum. Do transakcji są wymagane klucze prywatne lub adresy i hasła. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie klucza prywatnego](#get-the-private-key). |
 |**Adres konta** | Adres konta członka usługi Azure łańcucha bloków. Do transakcji są wymagane klucze prywatne lub adresy i hasła. Aby uzyskać więcej informacji, zobacz [pobieranie adresu konta](#get-the-account-address). |
 |**Hasło konta** | Hasło konta jest ustawiane podczas tworzenia elementu członkowskiego. Aby uzyskać informacje na temat resetowania hasła, zobacz [Ethereum Account (konto](consortium.md#ethereum-account)).|

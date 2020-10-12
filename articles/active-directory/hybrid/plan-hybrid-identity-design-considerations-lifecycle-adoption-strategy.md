@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658545"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Określ strategię wdrażania cyklu życia tożsamości hybrydowej
@@ -60,7 +60,7 @@ Inne firmy mogą okazać się niepraktyczne dla powodów firmy, aby osiągnąć 
 ## <a name="license-management"></a>Zarządzanie licencjami
 Zarządzanie licencjami opartymi na grupach w usłudze Azure AD pozwala administratorom przypisywać użytkowników do grupy zabezpieczeń, a usługa Azure AD automatycznie przypisuje licencje wszystkim członkom tej grupy. Jeśli użytkownik zostanie następnie dodany do grupy lub usunięty z niej, licencja zostanie automatycznie przypisana lub usunięta zgodnie z potrzebami.
 
-Można używać grup synchronizowanych z lokalnej usługi AD lub zarządzania nimi w usłudze Azure AD. Parowanie tego programu z funkcją samoobsługowego zarządzania grupami w usłudze Azure AD Premium można łatwo delegować przypisanie licencji do odpowiednich osoby podejmujących decyzje. Możesz mieć pewność, że problemy, takie jak konflikty licencji i brakujące dane lokalizacji, są automatycznie sortowane.
+Można używać grup synchronizowanych z lokalnej usługi AD lub zarządzania nimi w usłudze Azure AD. Parowanie tego programu z usługą Azure AD w wersji Premium Self-Service zarządzanie grupami możesz łatwo delegować przypisanie licencji do odpowiednich decyzji. Możesz mieć pewność, że problemy, takie jak konflikty licencji i brakujące dane lokalizacji, są automatycznie sortowane.
 
 ## <a name="self-regulating-user-administration"></a>Samoobsługowe administrowanie użytkownikami
 Gdy organizacja rozpocznie udostępnianie zasobów między wszystkimi organizacjami wewnętrznymi, wdrażana jest możliwość samodzielnego zarządzania użytkownikami. Zalety i korzyści płynące z aprowizacji użytkowników w granicach organizacyjnych. W tym środowisku zmiana stanu użytkownika jest automatycznie odzwierciedlana w prawach dostępu między granicami organizacji i lokalizacje geograficzne. Można zmniejszyć koszty aprowizacji i usprawnić procesy dostępu i zatwierdzania. Implementacja ta realizuje pełny potencjał implementacji kontroli dostępu opartej na rolach na potrzeby zarządzania dostępem kompleksowym w organizacji. Możesz zmniejszyć koszty administracyjne za poorednictwem zautomatyzowanych procedur dotyczących aprowizacji użytkowników. Aby zwiększyć bezpieczeństwo, można zautomatyzować wymuszanie zasad zabezpieczeń i usprawnić i scentralizować Zarządzanie cyklem życia użytkowników oraz inicjowanie obsługi zasobów dla dużych populacji użytkowników.

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281484"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrowanie aplikacji opartych na ekranach 3270 na komputerach mainframe IBM z platformą Azure przy użyciu usługi Azure Logic Apps i łącznika IBM 3270
@@ -363,7 +363,7 @@ Po zakończeniu wszystkich tych kroków możesz użyć akcji utworzonej w aplika
    | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> | Nazwa połączenia |
    | **Identyfikator konta integracji** | Tak | <*Integracja — nazwa konta*> | Nazwa konta integracji |
    | **Adres URL sygnatury dostępu współdzielonego konta integracji** | Tak | <*Integration-Account-SAS-URL*> | Adres URL sygnatury dostępu współdzielonego (SAS) konta integracji, który można wygenerować na podstawie ustawień konta integracji w Azure Portal. <p>1. w menu konto integracji w obszarze **Ustawienia**wybierz pozycję **adres URL wywołania zwrotnego**. <br>2. w okienku po prawej stronie Skopiuj **wygenerowaną wartość adresu URL wywołania zwrotnego** . |
-   | **Serwer** | Tak | <*PROTOKOŁU TN3270-Server-Name*> | Nazwa serwera dla usługi protokołu TN3270 |
+   | **Server** (Serwer) | Tak | <*PROTOKOŁU TN3270-Server-Name*> | Nazwa serwera dla usługi protokołu TN3270 |
    | **Port** | Nie | <*PROTOKOŁU TN3270-serwer-port*> | Port używany przez serwer protokołu TN3270. Jeśli pole pozostanie puste, łącznik używa `23` jako wartości domyślnej. |
    | **Typ urządzenia** | Nie | <*IBM-Terminal-model*> | Nazwa lub numer modelu terminalu IBM do emulowania. Jeśli pole pozostanie puste, łącznik użyje wartości domyślnych. |
    | **Strona kodowa** | Nie | <*kod — numer strony*> | Numer strony kodowej dla hosta. Jeśli pole pozostanie puste, łącznik używa `37` jako wartości domyślnej. |

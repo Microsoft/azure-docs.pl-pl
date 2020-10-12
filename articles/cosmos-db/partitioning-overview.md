@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481837"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partycjonowanie w usłudze Azure Cosmos DB
@@ -48,7 +48,7 @@ Wybór klucza partycji to prosty, ale istotny wybór w Azure Cosmos DB. Po wybra
 W przypadku **wszystkich** kontenerów klucz partycji powinien:
 
 * Należy do właściwości, która ma wartość, która nie jest zmieniana. Jeśli właściwość jest kluczem partycji, nie można zaktualizować wartości tej właściwości.
-* Wysoka Kardynalność. Innymi słowy właściwość powinna mieć szeroką gamę możliwych wartości.
+* Ma wysoką kardynalność. Innymi słowy właściwość powinna mieć szeroką gamę możliwych wartości.
 * Rozproszone użycie jednostek żądań (RU) i magazyn danych przez wszystkie partycje logiczne. Zapewnia to nawet użycie RU i dystrybucję magazynu dla partycji fizycznych.
 
 Jeśli potrzebujesz [wieloelementowych transakcji kwasowych](database-transactions-optimistic-concurrency.md#multi-item-transactions) w Azure Cosmos DB, musisz użyć [procedur składowanych i wyzwalaczy](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). Wszystkie procedury składowane oparte na języku JavaScript i wyzwalacze są objęte zakresem pojedynczej partycji logicznej.

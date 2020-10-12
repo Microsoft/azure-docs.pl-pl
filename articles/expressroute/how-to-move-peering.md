@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
 ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401422"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft)
@@ -22,7 +22,7 @@ Publiczna Komunikacja równorzędna Azure ma 1 adres IP translatora adresów sie
 
 Po włączeniu publicznej komunikacji równorzędnej można nawiązać połączenie ze wszystkimi usługami platformy Azure. Nie zezwalamy na selektywne Wybieranie usług, do których anonsuje trasy. Podczas gdy Komunikacja równorzędna firmy Microsoft jest łącznością dwukierunkową, w której można inicjować połączenie z usługi Microsoft Azure Service wraz z siecią WAN. Aby uzyskać więcej informacji o domenach routingu i komunikacji równorzędnej, zobacz [obwody usługi ExpressRoute i domeny routingu](expressroute-circuit-peerings.md).
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Aby nawiązać połączenie z usługą komunikacji równorzędnej firmy Microsoft, należy skonfigurować translator adresów sieciowych i zarządzać nim. Dostawca połączenia może skonfigurować i zarządzać translatorem adresów sieciowych jako usługą zarządzaną. Jeśli planujesz uzyskiwanie dostępu do usług Azure PaaS i Azure SaaS na potrzeby komunikacji równorzędnej firmy Microsoft, ważne jest, aby poprawnie zmienić rozmiar puli adresów IP NAT. Aby uzyskać więcej informacji na temat translatora adresów sieciowych dla usługi ExpressRoute, zobacz [wymagania NAT dotyczące komunikacji równorzędnej firmy Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering). Po nawiązaniu połączenia z firmą Microsoft za pomocą usługi Azure ExpressRoute (komunikacji równorzędnej firmy Microsoft) masz wiele linków do firmy Microsoft. Jedno połączenie to istniejące połączenie internetowe, a drugie to usługa ExpressRoute. Część ruchu do firmy Microsoft może wychodzić przez Internet ale wracać przez usługę ExpressRoute lub odwrotnie.
 

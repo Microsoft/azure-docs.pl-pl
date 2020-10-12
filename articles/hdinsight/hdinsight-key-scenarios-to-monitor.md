@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075574"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorowanie wydajności klastra w usłudze Azure HDInsight
@@ -29,10 +29,10 @@ Aby uzyskać ogólne omówienie węzłów klastra i ich ładowania, zaloguj się
 
 | Kolor | Opis |
 | --- | --- |
-| Red | Co najmniej jeden główny składnik na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
+| Red (Czerwony) | Co najmniej jeden główny składnik na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
 | Orange | Co najmniej jeden składnik pomocniczy na hoście nie działa. Umieść kursor w celu wyświetlenia etykietki narzędzia, która wyświetla listę składników, których to dotyczy. |
 | Yellow | Serwer Ambari nie otrzymał pulsu od hosta przez więcej niż 3 minuty. |
-| Green | Normalny stan działania. |
+| Green (Zielony) | Normalny stan działania. |
 
 Zobaczysz również kolumny przedstawiające liczbę rdzeni i ilość pamięci RAM dla każdego hosta, a także użycie dysku i średnie obciążenie.
 
@@ -84,7 +84,7 @@ Jeśli magazyn zapasowy klastra jest Azure Data Lake Storage (ADLS), ograniczeni
 
 ## <a name="troubleshoot-sluggish-node-performance"></a>Rozwiązywanie problemów z powolnymi węzłami
 
-W niektórych przypadkach może wystąpić pomniejszanie z powodu małej ilości miejsca na dysku w klastrze. Zbadaj następujące kroki:
+W niektórych przypadkach może wystąpić spowolnienie z powodu małej ilości miejsca na dysku w klastrze. Zbadaj następujące kroki:
 
 1. Użyj [polecenia SSH](./hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z każdym węzłem.
 
@@ -97,7 +97,7 @@ W niektórych przypadkach może wystąpić pomniejszanie z powodu małej ilości
 
 1. Przejrzyj dane wyjściowe i sprawdź obecność dużych plików w `mnt` folderze lub innych folderach. Zwykle `usercache` foldery, i `appcache` (mnt/Resource/Hadoop/usercache/Hive/appcache/) zawierają duże pliki.
 
-1. W przypadku dużych plików, bieżące zadanie powoduje wzrost rozmiaru pliku lub zakończyło się niepowodzeniem poprzednie zadanie mogło zostać wniesione do tego problemu. Aby sprawdzić, czy to zachowanie jest spowodowane przez bieżące zadanie, uruchom następujące polecenie:
+1. W przypadku dużych plików, bieżące zadanie powoduje wzrost rozmiaru pliku lub zakończyło się niepowodzeniem poprzednie zadanie mogło zostać wniesione do tego problemu. Aby sprawdzić, czy to zachowanie jest spowodowane przez bieżące zadanie, uruchom następujące polecenie: 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/

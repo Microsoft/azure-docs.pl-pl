@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89418885"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Łączenie bram sieci VPN platformy Azure z wieloma lokalnymi urządzeniami sieci VPN opartymi na zasadach przy użyciu programu PowerShell
@@ -38,7 +38,7 @@ Obecnie platforma Azure obsługuje oba tryby bram sieci VPN: bramy sieci VPN opa
 
 | Kategoria | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
-| **Jednostka SKU bramy platformy Azure**    | Podstawowe                       | Podstawowe                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **Jednostka SKU bramy platformy Azure**    | Podstawowy                       | Podstawowy                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Wersja IKE**          | IKEv1                       | IKEv2                            | Protokoły IKEv1 i IKEv2                         |
 | **Maksymalna liczba połączeń S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
@@ -68,7 +68,7 @@ Przepływ pracy umożliwiający włączenie tej łączności:
 3. Zastosuj zasady podczas tworzenia połączenia S2S lub VNet-to-VNet i **włączania selektorów ruchu opartych na zasadach** w połączeniu.
 4. Jeśli połączenie zostało już utworzone, możesz zastosować lub zaktualizować zasady do istniejącego połączenia.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 

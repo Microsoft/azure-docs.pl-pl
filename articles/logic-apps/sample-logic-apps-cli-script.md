@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: ceb4a3356ef78d2129f76bd11f555a9ca5206d51
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505837"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — Tworzenie aplikacji logiki
@@ -25,7 +25,7 @@ Ten skrypt tworzy przykładową aplikację logiki za pomocą [rozszerzenia Logic
 
 * Konto platformy Azure z aktywną subskrypcją. Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) zainstalowany na komputerze lokalnym.
-* [Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) zainstalowane na tym komputerze. Aby zainstalować to rozszerzenie, użyj tego polecenia:`az extension add --name logic`
+* [Rozszerzenie interfejsu wiersza polecenia platformy Azure Logic Apps](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) zainstalowane na tym komputerze. Aby zainstalować to rozszerzenie, użyj tego polecenia: `az extension add --name logic`
 * [Definicja przepływu pracy](quickstart-logic-apps-azure-cli.md#workflow-definition) dla aplikacji logiki. Ten plik JSON musi być zgodny ze [schematem języka definicji przepływu pracy](logic-apps-workflow-definition-language.md).
 * Połączenie interfejsu API z kontem e-mail za pośrednictwem obsługiwanego [łącznika Logic Apps](../connectors/apis-list.md) w tej samej grupie zasobów, w której znajduje się aplikacja logiki. W tym przykładzie użyto łącznika [pakietu Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) , ale można również użyć innych łączników, takich jak [Outlook.com](../connectors/connectors-create-api-outlook.md).
 

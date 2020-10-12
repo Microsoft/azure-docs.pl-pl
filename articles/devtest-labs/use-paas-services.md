@@ -4,10 +4,10 @@ description: Dowiedz się, jak korzystać z usług typu "platforma jako usługa"
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478743"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Korzystanie z usług typu "platforma jako usługa" (PaaS) w Azure DevTest Labs
@@ -44,7 +44,7 @@ Istnieje kilka niestandardowych informacji laboratorium, które znajdują się p
 W artykule [łączącym środowiska z siecią wirtualną laboratorium](connect-environment-lab-virtual-network.md) opisano, jak zmodyfikować szablon Menedżer zasobów, aby używał `$(LabSubnetId)` tokenu. Po utworzeniu środowiska `$(LabSubnetId)` token jest zastępowany pierwszym znacznikiem podsieci, gdzie opcja **tworzenia maszyny wirtualnej** jest ustawiona na **wartość true**. Pozwala naszym środowisku używać wcześniej utworzonych sieci. Jeśli chcesz używać tych samych szablonów Menedżer zasobów w środowiskach testowych jako przejściowych i produkcyjnych, użyj `$(LabSubnetId)` jako wartości domyślnej w parametrze Menedżer zasobów szablonu. 
 
 #### <a name="environment-storage-account"></a>Konto magazynu środowiska
-DevTest Labs obsługuje użycie [zagnieżdżonych szablonów Menedżer zasobów](../azure-resource-manager/templates/linked-templates.md). W artykule [[Deploying nested Azure Resource Manager templates for test](deploy-nested-template-environments.md) Environments wyjaśniono, jak używać `_artifactsLocation` `_artifactsLocationSasToken` tokenów i do tworzenia identyfikatora URI dla szablonu Menedżer zasobów w tym samym folderze co lub w zagnieżdżonym folderze szablonu głównego. Aby uzyskać więcej informacji na temat tych dwóch tokenów, zobacz sekcję **artefakty wdrożenia** w [podręczniku Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs obsługuje użycie [zagnieżdżonych szablonów Menedżer zasobów](../azure-resource-manager/templates/linked-templates.md). W artykule [[Deploying nested Azure Resource Manager templates for test](deploy-nested-template-environments.md) Environments wyjaśniono, jak używać  `_artifactsLocation` `_artifactsLocationSasToken` tokenów i do tworzenia identyfikatora URI dla szablonu Menedżer zasobów w tym samym folderze co lub w zagnieżdżonym folderze szablonu głównego. Aby uzyskać więcej informacji na temat tych dwóch tokenów, zobacz sekcję **artefakty wdrożenia** w [podręczniku Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Doświadczenie użytkownika
 
@@ -62,7 +62,7 @@ Funkcja śledzenia kosztów obejmuje zasoby platformy Azure w różnych środowi
 ### <a name="security"></a>Zabezpieczenia
 Prawidłowo skonfigurowana subskrypcja platformy Azure z DevTest Labs może [ograniczyć dostęp do zasobów platformy Azure tylko za pomocą laboratorium](devtest-lab-add-devtest-user.md). Dzięki środowiskom właściciel laboratorium może pozwolić użytkownikom na dostęp do zasobów PaaS z zatwierdzonymi konfiguracjami bez zezwalania na dostęp do innych zasobów platformy Azure. W scenariuszu, w którym użytkownicy laboratorium dostosowują środowiska, właściciel laboratorium może zezwolić na dostęp współautora. Dostęp współautora umożliwia użytkownikowi laboratorium Dodawanie lub usuwanie zasobów platformy Azure tylko w ramach zarządzanej grupy zasobów. Pozwala to na łatwiejsze śledzenie i zarządzanie, a następnie umożliwienie użytkownikom dostępu do subskrypcji.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 Automatyzacja to kluczowy składnik dla dużej skali, obowiązujący ekosystem. Automatyzacja jest niezbędna do obsługi zarządzania lub śledzenia wielu środowisk w ramach subskrypcji i laboratoriów.
 
 ### <a name="cicd-pipeline"></a>Potok ciągłej integracji/ciągłego wdrażania

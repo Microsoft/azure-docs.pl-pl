@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906281"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Zaawansowane wykrywanie ataków potokach wieloetapowych na platformie Azure — wskaźnik
@@ -40,7 +40,7 @@ To wykrywanie jest domyślnie włączone w wskaźniku na platformie Azure. Aby s
 
 1. Wybierz pozycję **aktywne reguły**, a następnie Znajdź **Zaawansowane wykrywanie ataków potokach wieloetapowych** w kolumnie **Nazwa** , filtrując listę dla typu reguły **Fusion** . Sprawdź kolumnę **stan** , aby sprawdzić, czy to wykrywanie jest włączone czy wyłączone.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{Alt-text}":::
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}":::
 
 1. Aby zmienić stan, wybierz ten wpis i w bloku **Zaawansowane wykrywanie ataków potokach wieloetapowych** wybierz pozycję **Edytuj**.
 
@@ -422,7 +422,7 @@ Ten scenariusz jest obecnie w **publicznej wersji zapoznawczej**.
 
 **Mitre ATT&taktykę:** Wstępny dostęp, wykonywanie, przenoszenie boczne, eskalacja uprawnień
 
-**Techniki MITRE&ATT:** Wykorzystanie publicznej aplikacji (T1190), wykorzystanie do wykonania klienta (T1203), wykorzystanie usług zdalnych (T1210), wykorzystanie do eskalacji uprawnień (T1068)
+**Techniki MITRE&ATT:** Wykorzystanie Public-Facing aplikacji (T1190), wykorzystanie do wykonania klienta (T1203), wykorzystanie usług zdalnych (T1210), wykorzystanie do eskalacji uprawnień (T1068)
 
 **Źródła łącznika danych:** Microsoft Defender for Endpoint (dawniej MDATP), Palo Alto Networks 
 

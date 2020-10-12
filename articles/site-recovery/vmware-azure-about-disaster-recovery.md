@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87021464"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informacje na temat odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure
@@ -61,7 +61,7 @@ Na platformie Azure należy przygotować następujące elementy:
 2. Utwórz sieć platformy Azure, która będzie dołączana do maszyn wirtualnych platformy Azure po utworzeniu ich z poziomu kont magazynu lub dysków zarządzanych po przejściu do trybu failover.
 3. Skonfiguruj magazyn usługi Azure Recovery Services dla Site Recovery. Magazyn znajduje się w Azure Portal i służy do wdrażania, konfigurowania, organizowania, monitorowania i rozwiązywania problemów z wdrożeniem Site Recovery.
 
-*Potrzebujesz dodatkowej pomocy?*
+*Potrzebujesz więcej pomocy?*
 
 Dowiedz się, jak skonfigurować platformę Azure, [weryfikując swoje konto](tutorial-prepare-azure.md#verify-account-permissions), tworząc [Sieć](tutorial-prepare-azure.md#set-up-an-azure-network)i [konfigurując magazyn](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
@@ -79,7 +79,7 @@ W tym miejscu należy wykonać następujące czynności:
 2. Jeśli jeszcze tego nie zrobisz, musisz sprawdzić zgodność infrastruktury programu VMware.
 3. Upewnij się, że możesz połączyć się z maszynami wirtualnymi platformy Azure po przejściu do trybu failover. Można skonfigurować protokół RDP na lokalnych maszynach z systemem Windows lub na maszynach SSH na komputerze z systemem Linux.
 
-*Potrzebujesz dodatkowej pomocy?*
+*Potrzebujesz więcej pomocy?*
 - Przygotuj konta do [automatycznego odnajdywania](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) i [instalacji usługi mobilności](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation).
 - [Sprawdź](vmware-azure-tutorial-prepare-on-premises.md#check-vmware-requirements) , czy ustawienia programu VMware są zgodne.
 - [Przygotuj](vmware-azure-tutorial-prepare-on-premises.md#prepare-to-connect-to-azure-vms-after-failover) się, aby nawiązać połączenie na platformie Azure po przejściu do trybu failover.
@@ -102,7 +102,7 @@ Po włączeniu platformy Azure i infrastruktury lokalnej można skonfigurować o
 5. **Zasady replikacji**: Określ sposób replikacji. Ustawienia obejmują między innymi tworzenie i przechowywanie punktów odzyskiwania oraz możliwość tworzenia migawek spójnych na poziomie aplikacji.
 6. **Włącz replikację**. Należy włączyć replikację dla maszyn lokalnych. Jeśli utworzono konto w celu zainstalowania usługi mobilności, zostanie ona zainstalowana po włączeniu replikacji dla maszyny. 
 
-*Potrzebujesz dodatkowej pomocy?*
+*Potrzebujesz więcej pomocy?*
 
 - Aby zapoznać się z krótkim przewodnikiem, możesz skorzystać z [samouczka](vmware-azure-tutorial.md)dotyczącego programu VMware i [serwera fizycznego](physical-azure-disaster-recovery.md).
 - [Dowiedz się więcej](vmware-azure-set-up-source.md) o konfigurowaniu środowiska źródłowego.

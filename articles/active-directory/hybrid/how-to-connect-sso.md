@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: bezproblemowe logowanie jednokrotne | Microsoft Docs'
-description: W tym temacie Azure Active Directory opisano sposób bezproblemowego logowania jednokrotnego (Azure AD) i sposób, w jaki można zapewnić prawdziwą rejestrację jednokrotną dla użytkowników stacjonarnych w sieci firmowej.
+title: 'Azure AD Connect: bezproblemowe pojedyncze Sign-On | Microsoft Docs'
+description: W tym temacie Azure Active Directory opisano bezproblemową pojedynczą Sign-On i sposób zapewniania logowania jednokrotnego dla użytkowników stacjonarnych w sieci firmowej.
 services: active-directory
 keywords: Co to jest Azure AD Connect, zainstaluj Active Directory, wymagane składniki usługi Azure AD, logowania jednokrotnego, rejestracji jednokrotnej
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658355"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory bezproblemowe logowanie jednokrotne
+# <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On (Bezproblemowe logowanie jednokrotne w usłudze Azure Active Directory)
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Co Azure Active Directory bezproblemowe logowanie jednokrotne?
 
@@ -33,7 +33,7 @@ Bezproblemowe logowanie jednokrotne w usłudze Azure Active Directory zapewnia a
 
 Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skrótów haseł](how-to-connect-password-hash-synchronization.md) lub metodami logowania przy [użyciu uwierzytelniania przekazywanego](how-to-connect-pta.md) . Bezproblemowe logowanie jednokrotne _nie_ ma zastosowania do Active Directory Federation Services (AD FS).
 
-![Bezproblemowe logowanie jednokrotne](./media/how-to-connect-sso/sso1.png)
+![Bezproblemowe pojedyncze Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >Bezproblemowe logowanie jednokrotne wymaga, aby urządzenie użytkownika zostało przyłączone do **domeny** , ale nie jest używane w [przyłączonych do usługi Azure AD](../devices/concept-azure-ad-join.md) lub w [hybrydowych urządzeniach usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md) . Logowanie jednokrotne w usłudze Azure AD, dołączona hybrydowa usługa Azure AD oraz zarejestrowane urządzenia usługi Azure AD działają na podstawie [podstawowego tokenu odświeżania](../devices/concept-primary-refresh-token.md).

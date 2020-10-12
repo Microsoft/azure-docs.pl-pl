@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249516"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Szablony profilów użytkowników w usłudze Azure API Management
@@ -40,7 +40,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Profilu  
+##  <a name="profile"></a><a name="Profile"></a> Profilu  
  Szablon **profilu** umożliwia dostosowanie sekcji profil użytkownika na stronie profil użytkownika w portalu dla deweloperów.  
   
  ![Strona profilu użytkownika](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Strona profilu użytkownika APIM")  
@@ -105,7 +105,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 > [!NOTE]
 >  Szablony [Profile](#Profile), [aplikacje](#Applications)i [subskrypcje](#Subscriptions) współużytkują ten sam model danych i otrzymują te same dane szablonu.  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`firstName`|ciąg|Imię bieżącego użytkownika.|  
 |`lastName`|ciąg|Nazwisko bieżącego użytkownika.|  
@@ -116,8 +116,8 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |`applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje bieżącego użytkownika.|  
 |`changePasswordUrl`|ciąg|Względny adres URL umożliwiający zmianę hasła bieżącego użytkownika.|  
 |`changeNameOrEmailUrl`|ciąg|Względny adres URL służący do zmiany nazwy i adresu e-mail bieżącego użytkownika.|  
-|`canChangePassword`|wartość logiczna|Czy bieżący użytkownik może zmienić swoje hasło.|  
-|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolean|Czy bieżący użytkownik może zmienić swoje hasło.|  
+|`isSystemUser`|boolean|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -185,7 +185,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a>Opłaty  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> Opłaty  
  Szablon **subskrypcje** umożliwia dostosowywanie sekcji subskrypcje na stronie profil użytkownika w portalu dla deweloperów.  
   
  ![Strona subskrypcji użytkownika](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Strona subskrypcji użytkownika APIM")  
@@ -326,7 +326,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 > [!NOTE]
 >  Szablony [Profile](#Profile), [aplikacje](#Applications)i [subskrypcje](#Subscriptions) współużytkują ten sam model danych i otrzymują te same dane szablonu.  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`firstName`|ciąg|Imię bieżącego użytkownika.|  
 |`lastName`|ciąg|Nazwisko bieżącego użytkownika.|  
@@ -337,8 +337,8 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |`applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje bieżącego użytkownika.|  
 |`changePasswordUrl`|ciąg|Względny adres URL umożliwiający zmianę hasła bieżącego użytkownika.|  
 |`changeNameOrEmailUrl`|ciąg|Względny adres URL służący do zmiany nazwy i adresu e-mail bieżącego użytkownika.|  
-|`canChangePassword`|wartość logiczna|Czy bieżący użytkownik może zmienić swoje hasło.|  
-|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolean|Czy bieżący użytkownik może zmienić swoje hasło.|  
+|`isSystemUser`|boolean|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -406,7 +406,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>Zastosowania  
+##  <a name="applications"></a><a name="Applications"></a> Zastosowania  
  Szablon **aplikacje** umożliwia dostosowywanie sekcji subskrypcje na stronie profil użytkownika w portalu dla deweloperów.  
   
  ![Strona aplikacji konta użytkownika](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Strona aplikacji konta użytkownika APIM")  
@@ -489,7 +489,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 > [!NOTE]
 >  Szablony [Profile](#Profile), [aplikacje](#Applications)i [subskrypcje](#Subscriptions) współużytkują ten sam model danych i otrzymują te same dane szablonu.  
   
-|Właściwość|Typ|Opis|  
+|Właściwość|Type|Opis|  
 |--------------|----------|-----------------|  
 |`firstName`|ciąg|Imię bieżącego użytkownika.|  
 |`lastName`|ciąg|Nazwisko bieżącego użytkownika.|  
@@ -500,8 +500,8 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 |`applications`|Kolekcja jednostek [aplikacji](api-management-template-data-model-reference.md#Application) .|Aplikacje bieżącego użytkownika.|  
 |`changePasswordUrl`|ciąg|Względny adres URL umożliwiający zmianę hasła bieżącego użytkownika.|  
 |`changeNameOrEmailUrl`|ciąg|Względny adres URL służący do zmiany nazwy i adresu e-mail bieżącego użytkownika.|  
-|`canChangePassword`|wartość logiczna|Czy bieżący użytkownik może zmienić swoje hasło.|  
-|`isSystemUser`|wartość logiczna|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
+|`canChangePassword`|boolean|Czy bieżący użytkownik może zmienić swoje hasło.|  
+|`isSystemUser`|boolean|Czy bieżący użytkownik jest członkiem jednej z wbudowanych [grup](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -569,7 +569,7 @@ Usługa Azure API Management umożliwia dostosowanie zawartości stron portalu d
 }  
 ```  
   
-##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a>Aktualizowanie informacji o koncie  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Aktualizowanie informacji o koncie  
  Szablon **Informacje o aktualizacji konta** umożliwia dostosowanie strony **Aktualizowanie informacji o koncie** w portalu dla deweloperów.  
   
  ![Strona informacji o koncie użytkownika Szablony portalu dla deweloperów](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM — szablony portalu dla deweloperów strony informacji o koncie użytkownika")  

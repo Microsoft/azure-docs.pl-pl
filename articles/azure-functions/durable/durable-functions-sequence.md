@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
 ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033568"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Łańcuch funkcji w Durable Functions-Hello Sequence przykład
@@ -43,7 +43,7 @@ Kod wywołuje `E1_SayHello` trzy razy sekwencję z różnymi wartościami parame
 
 #### <a name="functionjson"></a>function.json
 
-Jeśli używasz Visual Studio Code lub Azure Portal do tworzenia aplikacji, poniżej przedstawiono zawartość *function.jsw* pliku dla funkcji programu Orchestrator. Większośćfunction.jsprogramu Orchestrator *na* plikach wygląda niemal dokładnie tak samo.
+Jeśli używasz Visual Studio Code lub Azure Portal do tworzenia aplikacji, poniżej przedstawiono zawartość *function.jsw* pliku dla funkcji programu Orchestrator. Większośćfunction.jsprogramu Orchestrator * na* plikach wygląda niemal dokładnie tak samo.
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 

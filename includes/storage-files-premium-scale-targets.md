@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
 ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88057738"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Dodatkowe limity poziomów udziałów plików w warstwie Premium
 
-|Obszar  |Cel  |
+|Warstwowy  |Cel  |
 |---------|---------|
 |Minimalny wzrost/zmniejszenie rozmiaru    |1 GiB      |
 |Liczba IOPS linii bazowej    |1 Liczba operacji we/wy na sekundę, do 100 000|
@@ -23,7 +23,7 @@ ms.locfileid: "88057738"
 
 #### <a name="file-level-limits"></a>Limity poziomów plików
 
-|Obszar  |Plik standardowy  |Plik Premium  |
+|Warstwowy  |Plik standardowy  |Plik Premium  |
 |---------|---------|---------|
 |Rozmiar     |1 TiB         |4 TiB         |
 |Maksymalna liczba operacji we/wy na plik      |1000         |5000         |

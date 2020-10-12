@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907856"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Ukryty moduł alokacji Dirichlet
@@ -181,26 +181,26 @@ Po przeprowadzeniu indeksowania indeksów, miara podobieństwa na odległość p
 
 ###  <a name="module-parameters"></a>Parametry modułu
 
-|Nazwa|Typ|Zakres|Opcjonalne|Domyślny|Opis|  
+|Nazwa|Typ|Zakres|Opcjonalne|Domyślne|Opis|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Kolumny docelowe|Wybór kolumny||Wymagane|StringFeature|Nazwa lub indeks kolumny docelowej.|  
-|Liczba tematów do modelowania|Integer|[1; 1000]|Wymagane|5|Modelowanie dystrybucji dokumentu względem N tematów.|  
-|N-gramy|Integer|[1; 10]|Wymagane|2|Kolejność N-gramów wygenerowana podczas tworzenia skrótów.|  
-|Normalizuj|Boolean|Prawda lub FAŁSZ|Wymagane|true|Normalizowanie danych wyjściowych do prawdopodobieństwa.  Przekształcony zestaw danych będzie P (temat&#124;dokument), a macierz tematu funkcji będzie P (temat Word&#124;temat).|  
-|Pokaż wszystkie opcje|Boolean|Prawda lub FAŁSZ|Wymagane|Fałsz|Przedstawia dodatkowe parametry charakterystyczne dla scikit — uczenie online LDA.|  
-|Parametr Rho|Float|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja wyrazów tematu.|  
-|Parametr alfa|Float|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja dokumentu w temacie.|  
-|Szacowana Liczba dokumentów|Integer|[1; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|1000|Szacowana Liczba dokumentów. Odnosi się do `total_samples` parametru.|  
-|Rozmiar partii|Integer|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|32|Rozmiar wsadu.|  
-|Początkowa wartość iteracji użyta w harmonogramie aktualizacji szybkości uczenia|Integer|[0; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0|Wartość początkowa, która downweights szybkość uczenia dla wczesnych iteracji. Odnosi się do `learning_offset` parametru.|  
-|Moc zastosowana do iteracji podczas aktualizacji|Float|[0.0; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,5|Moc zastosowana do liczby iteracji w celu kontrolowania stawki szkoleniowej. Odnosi się do `learning_decay` parametru. |  
-|Liczba iteracji szkoleniowych|Integer|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|25|Liczba iteracji szkoleniowych.|  
-|Słownik kompilacji ngrams|Boolean|Prawda lub FAŁSZ|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone|Prawda|Kompiluje słownik ngrams przed przetwarzaniem LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
-|Maksymalny rozmiar słownika ngram|Integer|[1; int. MaxValue|Stosuje się, gdy **słownik kompilacji opcji ngrams** ma **wartość true**|20000|Maksymalny rozmiar słownika ngrams. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić.|  
-|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji.|Integer|[1; 31]|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone, a **słownik kompilacji ngrams** ma **wartość FAŁSZ**|12|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji.| 
-|Kompilowanie słownika ngrams przed LDA|Boolean|Prawda lub FAŁSZ|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|Prawda|Kompiluje słownik ngrams przed LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
-|Maksymalna liczba ngrams w słowniku|Integer|[1; int. MaxValue|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma **wartość true** .|20000|Maksymalny rozmiar słownika. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić.|  
-|Liczba bitów skrótu|Integer|[1; 31]|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma **wartość FAŁSZ**|12|Liczba bitów do użycia podczas tworzenia skrótów funkcji.|   
+|Liczba tematów do modelowania|Liczba całkowita|[1; 1000]|Wymagane|5|Modelowanie dystrybucji dokumentu względem N tematów.|  
+|N-gramy|Liczba całkowita|[1; 10]|Wymagane|2|Kolejność N-gramów wygenerowana podczas tworzenia skrótów.|  
+|Normalizuj|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Wymagane|true|Normalizowanie danych wyjściowych do prawdopodobieństwa.  Przekształcony zestaw danych będzie P (temat&#124;dokument), a macierz tematu funkcji będzie P (temat Word&#124;temat).|  
+|Pokaż wszystkie opcje|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Wymagane|Fałsz|Przedstawia dodatkowe parametry charakterystyczne dla scikit — uczenie online LDA.|  
+|Parametr Rho|Liczba zmiennoprzecinkowa|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja wyrazów tematu.|  
+|Parametr alfa|Liczba zmiennoprzecinkowa|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja dokumentu w temacie.|  
+|Szacowana Liczba dokumentów|Liczba całkowita|[1; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|1000|Szacowana Liczba dokumentów. Odnosi się do `total_samples` parametru.|  
+|Rozmiar partii|Liczba całkowita|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|32|Rozmiar wsadu.|  
+|Początkowa wartość iteracji użyta w harmonogramie aktualizacji szybkości uczenia|Liczba całkowita|[0; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0|Wartość początkowa, która downweights szybkość uczenia dla wczesnych iteracji. Odnosi się do `learning_offset` parametru.|  
+|Moc zastosowana do iteracji podczas aktualizacji|Liczba zmiennoprzecinkowa|[0.0; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,5|Moc zastosowana do liczby iteracji w celu kontrolowania stawki szkoleniowej. Odnosi się do `learning_decay` parametru. |  
+|Liczba iteracji szkoleniowych|Liczba całkowita|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|25|Liczba iteracji szkoleniowych.|  
+|Słownik kompilacji ngrams|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone|Prawda|Kompiluje słownik ngrams przed przetwarzaniem LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
+|Maksymalny rozmiar słownika ngram|Liczba całkowita|[1; int. MaxValue|Stosuje się, gdy **słownik kompilacji opcji ngrams** ma **wartość true**|20000|Maksymalny rozmiar słownika ngrams. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić.|  
+|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji.|Liczba całkowita|[1; 31]|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone, a **słownik kompilacji ngrams** ma **wartość FAŁSZ**|12|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji.| 
+|Kompilowanie słownika ngrams przed LDA|Boolean (wartość logiczna)|Prawda lub FAŁSZ|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|Prawda|Kompiluje słownik ngrams przed LDA. Przydatny do przeprowadzania inspekcji i interpretacji modeli.|  
+|Maksymalna liczba ngrams w słowniku|Liczba całkowita|[1; int. MaxValue|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma **wartość true** .|20000|Maksymalny rozmiar słownika. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić.|  
+|Liczba bitów skrótu|Liczba całkowita|[1; 31]|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma **wartość FAŁSZ**|12|Liczba bitów do użycia podczas tworzenia skrótów funkcji.|   
 
 
 ## <a name="next-steps"></a>Następne kroki

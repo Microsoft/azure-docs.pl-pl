@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2db941edef93b1e836e82753a6d6016adb977e65
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322601"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Troubleshoot DMS errors when connecting to source databases (Rozwiązywanie problemów z błędami usługi DMS podczas nawiązywania połączenia ze źródłowymi bazami danych)
@@ -27,7 +27,7 @@ Poniższy artykuł zawiera szczegółowe informacje dotyczące sposobu rozwiązy
 
 Potencjalne problemy związane z nawiązywaniem połączenia z źródłową bazą danych SQL Server i sposoby ich rozwiązywania znajdują się w poniższej tabeli.
 
-| Error         | Szczegóły przyczyny i rozwiązywania problemów |
+| Błąd         | Szczegóły przyczyny i rozwiązywania problemów |
 | ------------- | ------------- |
 | Połączenie SQL nie powiodło się. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został znaleziony lub był niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne.<br> | Ten błąd występuje, gdy usługa nie może zlokalizować serwera źródłowego. Aby rozwiązać ten problem, zobacz artykuł [błąd podczas łączenia się z SQL Server źródłowym w przypadku używania portu dynamicznego lub nazwanego wystąpienia](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
 | **Błąd 53** — połączenie SQL nie powiodło się. (Również w przypadku kodów błędów 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z poniższymi zasobami, a następnie spróbuj ponownie. <br><br>  [Interaktywny przewodnik użytkownika dotyczący rozwiązywania problemów z łącznością](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Wymagania wstępne dotyczące migrowania SQL Server do Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Wymagania wstępne dotyczące migrowania SQL Server do wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
@@ -38,7 +38,7 @@ Potencjalne problemy związane z nawiązywaniem połączenia z źródłową baz�
 
 Potencjalne problemy związane z nawiązywaniem połączenia z źródłową bazą danych MySQL AWS RDS oraz sposób ich rozwiązywania znajdują się w poniższej tabeli.
 
-| Error         | Szczegóły przyczyny i rozwiązywania problemów |
+| Błąd         | Szczegóły przyczyny i rozwiązywania problemów |
 | ------------- | ------------- |
 | **Błąd [2003]**[HY000] — połączenie nie powiodło się. Błąd [HY000] [MySQL] [ODBC x. x (w) Driver] nie można nawiązać połączenia z serwerem MySQL na serwerze "{Server}" (10060) | Ten błąd występuje, gdy sterownik MySQL ODBC nie może nawiązać połączenia z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie.<br> |
 | **Błąd [2005]**[HY000] — połączenie nie powiodło się. Błąd [HY000] [MySQL] [ODBC x. x (w) Driver] nieznany Host serwera MySQL "{Server}" | Ten błąd występuje, gdy usługa nie może znaleźć hosta źródłowego na serwerze RDS. Problem może być spowodowany tym, że wymienione źródło nie istnieje lub występuje problem z infrastrukturą usług pulpitu zdalnego. Aby rozwiązać ten problem, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie.<br> |
@@ -55,10 +55,10 @@ Potencjalne problemy związane z nawiązywaniem połączenia z źródłową baz�
 
 Potencjalne problemy związane z nawiązywaniem połączenia ze źródłową bazą danych AWS RDS PostgreSQL i sposoby ich rozwiązywania znajdują się w poniższej tabeli.
 
-| Error         | Szczegóły przyczyny i rozwiązywania problemów |
+| Błąd         | Szczegóły przyczyny i rozwiązywania problemów |
 | ------------- | ------------- |
 | **Błąd [101]**[08001] — połączenie nie powiodło się. Błąd [08001] upłynął limit czasu. | Ten błąd występuje, gdy sterownik Postgres nie może nawiązać połączenia z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie. |
-| **Błąd: wal_level parametru ma wartość "{value}". Zmień go na "Logical", aby umożliwić replikację.** | Ten błąd występuje, jeśli parametr wal_level ma nieprawidłową wartość. Aby rozwiązać ten problem, Zmień wartość RDS. logical_replication w grupie parametrów na 1, a następnie uruchom ponownie wystąpienie. Aby uzyskać więcej informacji, zobacz [wymagania wstępne dotyczące migracji do usługi Azure PostgreSQL za pomocą systemu DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) lub [PostgreSQL w usłudze Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
+| **Błąd: wal_level parametru ma wartość "{value}". Zmień go na "Logical", aby umożliwić replikację.** | Ten błąd występuje, jeśli parametr wal_level ma nieprawidłową wartość. Aby rozwiązać ten problem, Zmień rds.logical_replication w grupie parametrów na 1, a następnie uruchom ponownie wystąpienie. Aby uzyskać więcej informacji, zobacz [wymagania wstępne dotyczące migracji do usługi Azure PostgreSQL za pomocą systemu DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) lub [PostgreSQL w usłudze Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat rozwiązywania problemów związanych z nawiązywaniem połączenia z bazą danych AWS RDS PostgreSQL, zobacz następujące zasoby:
@@ -69,7 +69,7 @@ Potencjalne problemy związane z nawiązywaniem połączenia ze źródłową baz
 
 Potencjalne problemy związane z nawiązywaniem połączenia z bazą danych AWS RDS SQL Server i sposób ich rozwiązywania znajdują się w poniższej tabeli.
 
-| Error         | Szczegóły przyczyny i rozwiązywania problemów |
+| Błąd         | Szczegóły przyczyny i rozwiązywania problemów |
 | ------------- | ------------- |
 | **Błąd 53** — połączenie SQL nie powiodło się. Podczas nawiązywania połączenia z serwerem SQL wystąpił błąd dotyczący sieci lub wystąpienia. Serwer nie został odnaleziony lub nie jest dostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy SQL Server jest skonfigurowany tak, aby zezwalał na połączenia zdalne. (Dostawca: Dostawca nazwanych potoków, błąd: 40 — nie można otworzyć połączenia z SQL Server | Ten błąd występuje, gdy usługa nie może połączyć się z serwerem źródłowym. Aby rozwiązać ten problem, zapoznaj się z dokumentem rozwiązywania problemów wymienionym w uwadze poniżej tej tabeli, a następnie spróbuj ponownie. |
 | **Błąd 18456** — logowanie nie powiodło się. Logowanie użytkownika "{User}" nie powiodło się | Ten błąd występuje, gdy usługa nie może nawiązać połączenia ze źródłową bazą danych przy użyciu podanych poświadczeń T-SQL. Aby rozwiązać ten problem, sprawdź wprowadzone poświadczenia. Możesz również odwołać się do [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) lub do dokumentów rozwiązywania problemów wymienionych w uwadze poniżej tej tabeli i spróbować ponownie. |

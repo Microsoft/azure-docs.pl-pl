@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80297705"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Oprogramowanie StorSimple 8000 Series, wysoka dostępność i wymagania dotyczące sieci
@@ -41,7 +41,7 @@ Poniższe wymagania dotyczące oprogramowania dotyczą klientów magazynu, któr
 
 | Obsługiwane systemy operacyjne | Wymagana wersja | Dodatkowe wymagania/uwagi |
 | --- | --- | --- |
-| Windows Server |2008 R2 Z DODATKIEM SP1, 2012, 2012 R2, 2016 |StorSimple woluminów iSCSI są obsługiwane tylko na następujących typach dysków systemu Windows:<ul><li>Wolumin prosty na dysku podstawowym</li><li>Wolumin prosty i dublowany na dysku dynamicznym</li></ul>Obsługiwane są tylko inicjatory iSCSI oprogramowania obecne w systemie operacyjnym. Sprzętowe inicjatory iSCSI nie są obsługiwane.<br></br>W przypadku korzystania z StorSimple woluminu iSCSI obsługiwane są funkcje alokowania elastycznego i ODX systemu Windows Server 2012 i 2016.<br><br>StorSimple mogą tworzyć woluminy alokowane elastycznie i w pełni inicjowane. Nie można utworzyć woluminów częściowo zainicjowanych.<br><br>Ponowne formatowanie woluminu alokowanego elastycznie może zająć dużo czasu. Zalecamy usunięcie woluminu, a następnie utworzenie nowego, a nie ponowne formatowanie. Jeśli jednak nadal wolisz ponownie sformatować wolumin:<ul><li>Przed ponownym formatowaniem Uruchom następujące polecenie, aby uniknąć opóźnień odzyskiwania miejsca: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po zakończeniu formatowania Użyj następującego polecenia, aby ponownie włączyć odzyskiwanie miejsca:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Zastosuj poprawkę systemu Windows Server 2012, zgodnie z opisem w artykule [KB 2878635](https://support.microsoft.com/kb/2870270) na komputerze z systemem Windows Server.</li></ul></li></ul></ul> Jeśli konfigurujesz StorSimple Snapshot Manager lub StorSimple adapter dla programu SharePoint, przejdź do pozycji [wymagania dotyczące oprogramowania dla składników opcjonalnych](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 Z DODATKIEM SP1, 2012, 2012 R2, 2016 |StorSimple woluminów iSCSI są obsługiwane tylko na następujących typach dysków systemu Windows:<ul><li>Wolumin prosty na dysku podstawowym</li><li>Wolumin prosty i dublowany na dysku dynamicznym</li></ul>Obsługiwane są tylko inicjatory iSCSI oprogramowania obecne w systemie operacyjnym. Sprzętowe inicjatory iSCSI nie są obsługiwane.<br></br>W przypadku korzystania z StorSimple woluminu iSCSI obsługiwane są funkcje alokowania elastycznego i ODX systemu Windows Server 2012 i 2016.<br><br>StorSimple mogą tworzyć woluminy alokowane elastycznie i w pełni inicjowane. Nie można utworzyć woluminów częściowo zainicjowanych.<br><br>Ponowne formatowanie woluminu alokowanego elastycznie może zająć dużo czasu. Zalecamy usunięcie woluminu, a następnie utworzenie nowego, a nie ponowne formatowanie. Jeśli jednak wolisz ponownie sformatować wolumin:<ul><li>Przed ponownym formatowaniem uruchom następujące polecenie, aby uniknąć opóźnień odzyskiwania miejsca:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po zakończeniu formatowania użyj następującego polecenia, aby ponownie włączyć odzyskiwanie miejsca: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Zastosuj poprawkę systemu Windows Server 2012, zgodnie z opisem w artykule [KB 2878635](https://support.microsoft.com/kb/2870270) na komputerze z systemem Windows Server.</li></ul></li></ul></ul> Jeśli konfigurujesz StorSimple Snapshot Manager lub StorSimple adapter dla programu SharePoint, przejdź do pozycji [wymagania dotyczące oprogramowania dla składników opcjonalnych](#software-requirements-for-optional-components). |
 | VMware ESX |5,5 i 6,0 |Obsługiwane w przypadku VMware vSphere jako klienta iSCSI. Funkcja VAAI-Block jest obsługiwana w VMware vSphere na urządzeniach StorSimple. |
 | Linux RHEL/CentOS |5, 6 i 7 |Obsługa klientów iSCSI z systemem Linux z użyciem inicjatora Open-iSCSI w wersji 5, 6 i 7. |
 | Linux |SUSE Linux 11 | |
@@ -122,7 +122,7 @@ Zalecamy ustawienie reguł zapory dla ruchu wychodzącego na podstawie stałych 
 
 Metryka routingu jest skojarzona z interfejsami i bramą, która kieruje dane do określonych sieci. Metryka routingu jest używana przez protokół routingu do obliczania najlepszej ścieżki do danego miejsca docelowego, jeśli poznanie wielu ścieżek istnieje w tym samym miejscu docelowym. Im niższa jest Metryka routingu, tym wyższy poziom preferencji.
 
-W kontekście StorSimple, jeśli skonfigurowano wiele interfejsów sieciowych i bram do ruchu sieciowego, metryki routingu będą odtwarzane w celu określenia względnej kolejności, w której będą używane interfejsy. Metryki routingu nie mogą być zmieniane przez użytkownika. Można jednak użyć `Get-HcsRoutingTable` polecenia cmdlet do drukowania tabeli routingu (i metryk) na urządzeniu StorSimple. Więcej informacji na temat polecenia cmdlet Get-HcsRoutingTable w [rozwiązywaniu problemów StorSimple Deployment](storsimple-troubleshoot-deployment.md).
+W kontekście StorSimple, jeśli skonfigurowano wiele interfejsów sieciowych i bram do ruchu sieciowego, metryki routingu będą odtwarzane w celu określenia względnej kolejności, w której będą używane interfejsy. Metryki routingu nie mogą być zmieniane przez użytkownika. Można jednak użyć `Get-HcsRoutingTable` polecenia cmdlet do drukowania tabeli routingu (i metryk) na urządzeniu StorSimple. Więcej informacji na temat polecenia cmdlet Get-HcsRoutingTable w [rozwiązywaniu problemów z wdrażaniem StorSimple](storsimple-troubleshoot-deployment.md).
 
 Algorytm metryk routingu używany do aktualizacji Update 2 i nowszych można wyjaśnić w następujący sposób.
 
@@ -203,7 +203,7 @@ Urządzenia StorSimple obejmują nadmiarowe, wymienialne moduły kontrolerów. M
 
 #### <a name="network-interfaces"></a>Interfejsy sieciowe
 
-Moduły kontrolera urządzeń StorSimple każdy ma cztery interfejsy sieciowe Ethernet 1 Gigabit i 2 10.
+W przypadku modułów kontrolera urządzenia StorSimple każdy ma 4 1 Gigabit i 2 10 Gigabit interfejsów sieciowych Ethernet.
 
 * Upewnij się, że połączenia sieciowe do obu modułów kontrolera są identyczne, a interfejsy sieciowe, które są podłączone do interfejsów modułu kontrolera, mają identyczną konfigurację sieci.
 * Jeśli to możliwe, należy wdrożyć połączenia sieciowe między różnymi przełącznikami, aby zapewnić dostępność usługi w przypadku awarii urządzenia sieciowego.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: fe70c42387e9dedea8943b5dcce04a1f9ded5190
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033301"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Element interfejsu użytkownika Microsoft. Storage. StorageAccountSelector
@@ -64,7 +64,7 @@ Kontrolka umożliwia użytkownikowi utworzenie nowego konta magazynu lub wybrani
 
 - Jeśli jest określony, `defaultValue.name` jest automatycznie weryfikowany pod kątem unikatowości. Jeśli nazwa konta magazynu nie jest unikatowa, użytkownik musi określić inną nazwę lub wybrać istniejące konto magazynu.
 - Wartość domyślna dla `defaultValue.type` jest **Premium_LRS**.
-- Dowolny typ, który nie jest określony w elemencie `constraints.allowedTypes` jest ukryty, i dowolny typ, który nie jest określony w, `constraints.excludedTypes` jest pokazywany. `constraints.allowedTypes`i `constraints.excludedTypes` są opcjonalne, ale nie mogą być używane jednocześnie.
+- Dowolny typ, który nie jest określony w elemencie `constraints.allowedTypes` jest ukryty, i dowolny typ, który nie jest określony w, `constraints.excludedTypes` jest pokazywany. `constraints.allowedTypes` i `constraints.excludedTypes` są opcjonalne, ale nie mogą być używane jednocześnie.
 - Jeśli `options.hideExisting` ma **wartość true**, użytkownik nie może wybrać istniejącego konta magazynu. Wartość domyślna to **fałsz**.
 
 ## <a name="next-steps"></a>Następne kroki

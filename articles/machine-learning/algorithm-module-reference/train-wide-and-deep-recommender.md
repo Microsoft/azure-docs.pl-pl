@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
 ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907782"
 ---
 # <a name="train-wide--deep-recommender"></a>& głębokiego polecania szkolenia w szerokim zakresie
@@ -66,7 +66,7 @@ Zestaw danych **funkcji użytkownika** musi zawierać identyfikatory użytkownik
 
 Na przykład typowy zestaw funkcji użytkownika może wyglądać następująco: 
 
-|UserId|Wiek|Płeć|Licz|Location|
+|UserId|Wiek|Płeć|Licz|Lokalizacja|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|mężczyzna| Dramat    |Europa|
 |223|40|kobieta|Romański|Azja|
