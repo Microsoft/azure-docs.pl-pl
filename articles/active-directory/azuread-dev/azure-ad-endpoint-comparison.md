@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116397"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Dlaczego warto wykonać aktualizację do platformy tożsamości Microsoft (wersja 2.0)?
@@ -61,7 +61,7 @@ Zgoda administratora w imieniu organizacji nadal wymaga uprawnień statycznych z
 
 W przypadku aplikacji korzystających z punktu końcowego v 1.0 Aplikacja może zachowywać się jako **zasób**lub odbiorca tokenów. Zasób może definiować wiele **zakresów** lub **oAuth2Permissions** , które rozumie, dzięki czemu aplikacje klienckie mogą żądać tokenów z tego zasobu dla określonego zestawu zakresów. Rozważmy Microsoft Graph API jako przykładu zasobu:
 
-* Identyfikator zasobu lub `AppID URI` :`https://graph.microsoft.com/`
+* Identyfikator zasobu lub `AppID URI` : `https://graph.microsoft.com/`
 * Zakresy lub `oAuth2Permissions` : `Directory.Read` , `Directory.Write` i tak dalej.
 
 Ta wartość dotyczy punktu końcowego platformy tożsamości firmy Microsoft. Aplikacja może nadal działać jako zasób, definiować zakresy i być identyfikowane za pomocą identyfikatora URI. Aplikacje klienckie nadal mogą żądać dostępu do tych zakresów. Jednak sposób, w jaki klient żąda tych uprawnień, został zmieniony.

@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764897"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Ustawienia plików cookie do uzyskiwania dostępu do aplikacji lokalnych w Azure Active Directory
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) zawiera pliki cookie dostępu i sesji do uzysk
 
 | Ustawienie pliku cookie | Domyślne | Opis | Zalecenia |
 | -------------- | ------- | ----------- | --------------- |
-| Użyj pliku cookie tylko HTTP | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji dołączenie flagi HTTPOnly w nagłówkach odpowiedzi HTTP. Ta flaga zapewnia dodatkowe korzyści z zabezpieczeń, na przykład uniemożliwiają kopiowanie lub modyfikowanie plików cookie przez skrypty po stronie klienta.<br></br><br></br>Przed udostępnieniem ustawienia tylko protokołu HTTP serwer proxy aplikacji zaszyfrowany i przesyłający pliki cookie za pośrednictwem zabezpieczonego kanału TLS w celu ochrony przed modyfikacją. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.<br></br><br></br>**Nie** należy używać klientów ani agentów użytkowników, którzy wymagają dostępu do pliku cookie sesji. Na przykład użyj **nie** dla klienta RDP lub MTSC, który łączy się z serwerem bramy pulpit zdalny za pomocą serwera proxy aplikacji.|
+| Użyj pliku cookie tylko HTTP | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji dołączenie flagi HTTPOnly w nagłówkach odpowiedzi HTTP. Ta flaga zapewnia dodatkowe korzyści z zabezpieczeń, na przykład uniemożliwiają kopiowanie lub modyfikowanie plików cookie przez skrypty po stronie klienta.<br></br><br></br>Przed rozpoczęciem obsługi ustawień HTTP-Only serwer proxy aplikacji zaszyfrowany i przesyłający pliki cookie przez zabezpieczony kanał TLS w celu ochrony przed modyfikacją. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.<br></br><br></br>**Nie** należy używać klientów ani agentów użytkowników, którzy wymagają dostępu do pliku cookie sesji. Na przykład użyj **nie** dla klienta RDP lub MTSC, który łączy się z serwerem bramy pulpit zdalny za pomocą serwera proxy aplikacji.|
 | Użyj bezpiecznego pliku cookie | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji uwzględnienie bezpiecznej flagi w nagłówkach odpowiedzi HTTP. Zabezpieczanie plików cookie zwiększa bezpieczeństwo przez przesyłanie plików cookie za pośrednictwem bezpiecznego kanału TLS, takiego jak HTTPS. Zapobiega to zastępowaniu plików cookie przez nieautoryzowane strony ze względu na przesłanie pliku cookie w postaci zwykłego tekstu. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.|
 | Używaj trwałego pliku cookie | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji ustawianie plików cookie dostępu, które nie wygasną po zamknięciu przeglądarki sieci Web. Trwałość obowiązuje do momentu wygaśnięcia tokenu dostępu lub do momentu ręcznego usunięcia trwałych plików cookie przez użytkownika. | **Nie** należy używać ze względu na zagrożenie bezpieczeństwa związane z uwierzytelnianiem użytkowników.<br></br><br></br>Sugerujemy używanie **tak** dla starszych aplikacji, które nie mogą udostępniać plików cookie między procesami. Lepiej jest zaktualizować swoją aplikację, aby obsługiwała udostępnianie plików cookie między procesami zamiast korzystać z trwałych plików cookie. Można na przykład potrzebować trwałych plików cookie, aby użytkownicy mogli otwierać dokumenty pakietu Office w widoku Eksploratora z witryny programu SharePoint. Bez trwałych plików cookie ta operacja może zakończyć się niepowodzeniem, jeśli pliki cookie dostępu nie są współużytkowane przez przeglądarkę, proces Eksploratora i proces biura. |
 
@@ -41,7 +41,7 @@ Począwszy od wersji Chrome 80 i ostatecznie w przeglądarkach wykorzystujących
 
 Te zmiany w plikach cookie aplikacji są uwzględniane w ciągu następnych kilku tygodni przed datą wydania Chrome 80.
 
-Ponadto, jeśli aplikacja zaplecza zawiera pliki cookie, które muszą być dostępne w kontekście innej firmy, należy jawnie zadecydować o zmianie aplikacji tak, aby korzystała z SameSite = None dla tych plików cookie. Serwer proxy aplikacji tłumaczy nagłówek Set-cookie na jego adresy URL i uwzględni ustawienia dla tych plików cookie ustawionych przez aplikację zaplecza.
+Ponadto, jeśli aplikacja zaplecza zawiera pliki cookie, które muszą być dostępne w kontekście innej firmy, należy jawnie zadecydować o zmianie aplikacji tak, aby korzystała z SameSite = None dla tych plików cookie. Serwer proxy aplikacji tłumaczy nagłówek Set-Cookie na jego adresy URL i uwzględni ustawienia tych plików cookie ustawionych przez aplikację zaplecza.
 
 
 

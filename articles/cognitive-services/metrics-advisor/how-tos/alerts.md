@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977790"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Instrukcje: Konfigurowanie alertów i otrzymywanie powiadomień przy użyciu punktu zaczepienia
@@ -77,7 +77,7 @@ Aby utworzyć punkt zaczepienia usługi Azure DevOps, należy dodać następują
 |---------|---------|
 | Nazwa | Nazwa punktu zaczepienia |
 | Organizacja | Organizacja, do której należy DevOps |
-| Project | Konkretny projekt w DevOps. |
+| Projekt | Konkretny projekt w DevOps. |
 | Token dostępu |  Token do uwierzytelniania w usłudze DevOps. | 
 
 > [!Note]
@@ -88,11 +88,11 @@ Aby utworzyć punkt zaczepienia usługi Azure DevOps, należy dodać następują
 Przejdź do strony szczegółów metryk, aby znaleźć sekcję **Ustawienia alertu** w lewym dolnym rogu strony szczegółów metryk. Zawiera listę wszystkich ustawień alertów, które mają zastosowanie do wybranej konfiguracji wykrywania. Po utworzeniu nowej konfiguracji wykrywania nie ma żadnego ustawienia alertu i alerty nie będą wysyłane.  
 Aby zmodyfikować ustawienia alertów, można użyć ikon **Dodaj**, **Edytuj** i **Usuń** .
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Element menu Ustawienia alertu.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="okno tworzenia elementu webhook.":::
 
 Kliknij przycisk **Dodaj** lub **Edytuj** , aby wyświetlić okno umożliwiające dodanie lub edycję ustawień alertów.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Dodawanie lub edytowanie ustawień alertów":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="okno tworzenia elementu webhook.":::
 
 **Nazwa ustawienia alertu**: Nazwa tego ustawienia alertu. Zostanie ona wyświetlona w tytule wiadomości e-mail z alertami.
 
@@ -134,7 +134,7 @@ Selektor **operatora** jest relacją logiczną każdej sekcji, aby określić, c
 |AND     | Wyślij alert tylko wtedy, gdy seria pasuje do każdej sekcji alertu, a wszystkie punkty danych są anomaliami. Jeśli metryki mają różne nazwy wymiarów, alert nigdy nie zostanie wyzwolony.         |
 |LUB     | Wyślij alert, jeśli co najmniej jedna sekcja zawiera anomalie.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operator dla wielu sekcji ustawień alertów":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="okno tworzenia elementu webhook.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83677952"
 ---
 # <a name="manage-azure-maps-creator"></a>Zarządzaj twórcą Azure Maps
@@ -23,17 +23,17 @@ W tym artykule opisano kroki tworzenia i usuwania zasobu twórcy na koncie Azure
 
 ## <a name="create-creator-resource"></a>Utwórz zasób twórcy
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 2. Wybierz konto Azure Maps. Jeśli nie widzisz konta Azure Maps w obszarze **ostatnie zasoby**, przejdź do menu Azure Portal. Wybierz pozycję **Wszystkie zasoby**. Znajdź i wybierz swoje konto Azure Maps.
 
     ![Strona główna portalu Azure Maps](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Gdy jesteś na stronie konta Azure Maps, przejdź do opcji **Przegląd** w obszarze **Creator**(Tworzenie). Kliknij przycisk **Utwórz** , aby utworzyć zasób twórcy Azure Maps.
+3. Gdy jesteś na stronie konta Azure Maps, przejdź do opcji **Przegląd** w obszarze **Creator**(Tworzenie). Kliknij przycisk  **Utwórz**  , aby utworzyć zasób twórcy Azure Maps.
 
     ![Tworzenie strony kreatora Azure Maps](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Wprowadź nazwę i lokalizację zasobu twórcy. Obecnie Kreator jest obsługiwany tylko w Stany Zjednoczone. Kliknij pozycję **Przegląd + utwórz**.
+4. Wprowadź nazwę i lokalizację zasobu twórcy. Obecnie Kreator jest obsługiwany tylko w Stany Zjednoczone. Kliknij pozycję **Przejrzyj i utwórz**.
 
    ![Wprowadź stronę informacji o koncie twórcy](./media/how-to-manage-creator/creator-creation-dialog.png)
 
@@ -45,7 +45,7 @@ W tym artykule opisano kroki tworzenia i usuwania zasobu twórcy na koncie Azure
 
    ![Strona stanu wdrożenia zasobu](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Kliknij pozycję **Przejdź do zasobu**. Na stronie widok zasobów twórcy zostanie wyświetlony stan zasobu twórcy i wybrany region demograficzny.
+7. Kliknij opcję **Przejdź do zasobu**. Na stronie widok zasobów twórcy zostanie wyświetlony stan zasobu twórcy i wybrany region demograficzny.
 
     ![Strona stanu twórcy](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -65,13 +65,13 @@ Kliknij przycisk **Usuń** i wpisz swoją nazwę twórcy, aby potwierdzić usuni
 
 ![Strona twórcy z potwierdzeniem usunięcia](./media/how-to-manage-creator/creator-confirmdelete.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Twórca dziedziczy ustawienia Azure Maps Access Control (IAM). Wszystkie wywołania interfejsu API do uzyskiwania dostępu do danych muszą być wysyłane z regułami uwierzytelniania i autoryzacji.
 
 Dane użycia twórcy są zawarte w Azure Maps wykresy użycia i dziennik aktywności.  Aby uzyskać więcej informacji, zobacz [Zarządzanie uwierzytelnianiem w Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
-## <a name="access-to-creator-services"></a>Dostęp do usług Creator Services
+## <a name="access-to-creator-services"></a>Dostęp do usług Creator
 
 Usługi Creator Services są dostępne tylko w lokalizacji wybranej podczas tworzenia. Jeśli wywołania są wykonywane w ramach usług Creator spoza wybranej lokalizacji, zostanie zwrócony komunikat o błędzie użytkownika. Aby nawiązywać wywołania spoza wybranej lokalizacji, adres URL usługi musi zawierać prefiks geograficzny dla wybranych lokalizacji. Na przykład jeśli utworzono twórcę w Stany Zjednoczone, wszystkie wywołania do usługi konwersji muszą zostać przesłane do `us.atlas.microsoft.com/conversion/convert` .
 
@@ -88,7 +88,7 @@ Wprowadzenie do kreatora dla mapowania pomieszczeń:
 > [Konwersja danych](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
+> [Zestaw danych](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

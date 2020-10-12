@@ -11,13 +11,13 @@ ms.date: 08/03/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
 ms.openlocfilehash: c95e1012decf1e3ae4ee3fbab8aae1a4c1a71be9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87544622"
 ---
-# <a name="continuously-deploy-models"></a>Ciągle Wdrażaj modele
+# <a name="continuously-deploy-models"></a>Ciągłe wdrażanie modeli
 
 W tym artykule pokazano, jak używać ciągłego wdrażania w usłudze Azure DevOps, aby automatycznie sprawdzać dostępność nowych wersji zarejestrowanych modeli i wypchnąć te nowe modele do środowiska produkcyjnego.
 
@@ -25,7 +25,7 @@ W tym artykule pokazano, jak używać ciągłego wdrażania w usłudze Azure Dev
 
 W tym artykule przyjęto założenie, że model został już zarejestrowany w obszarze roboczym Azure Machine Learning. Zapoznaj się z [tym samouczkiem](how-to-train-scikit-learn.md) , aby zapoznać się z przykładem szkoleń i rejestrowania modelu scikit.
 
-## <a name="continuously-deploy-models"></a>Ciągle Wdrażaj modele
+## <a name="continuously-deploy-models"></a>Ciągłe wdrażanie modeli
 
 Możesz ciągle wdrażać modele przy użyciu rozszerzenia Machine Learning dla [usługi Azure DevOps](https://azure.microsoft.com/services/devops/). Możesz użyć rozszerzenia Machine Learning dla usługi Azure DevOps, aby wyzwolić potok wdrożenia w przypadku zarejestrowania nowego modelu uczenia maszynowego w obszarze roboczym Azure Machine Learning.
 

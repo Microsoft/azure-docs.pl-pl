@@ -12,10 +12,10 @@ ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782130"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD
@@ -66,4 +66,4 @@ Gdy użytkownik wyświetla jako "pominięte" w dziennikach aprowizacji, bardzo w
   * **Mapowania atrybutów dla grup:** Inicjowanie obsługi administracyjnej nazw grup i grup, oprócz członków, jeśli są obsługiwane w przypadku niektórych aplikacji. Tę funkcję można włączyć lub wyłączyć, włączając lub wyłączając **Mapowanie** dla obiektów grupy wyświetlanych na karcie **aprowizacji** . Jeśli włączono grupy aprowizacji, należy sprawdzić mapowania atrybutów, aby upewnić się, że odpowiednie pole jest używane dla "zgodnego identyfikatora". Może to być nazwa wyświetlana lub alias adresu e-mail, ponieważ Grupa i jej elementy członkowskie nie są obsługiwane, jeśli właściwość odpowiadająca jest pusta lub nie została wypełniona dla grupy w usłudze Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
-[Automatyzacja aprowizacji i cofania aprowizacji użytkowników dla aplikacji SaaS przy użyciu usługi Azure Active Directory](user-provisioning.md)
+[Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS przy użyciu Azure Active Directory](user-provisioning.md)

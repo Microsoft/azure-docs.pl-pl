@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
 ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83681800"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfejs wiersza polecenia usługi Azure Service Fabric
@@ -35,7 +35,7 @@ Interfejs wiersza polecenia usługi Service Fabric jest przeznaczony do obsługi
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
-| 5.0.0         | 6.2                       |
+| 5.0.0         | 6,2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |

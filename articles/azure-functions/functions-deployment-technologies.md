@@ -5,10 +5,10 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88641963"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologie wdrażania w Azure Functions
@@ -187,7 +187,7 @@ W edytorze opartym na portalu można bezpośrednio edytować pliki znajdujące s
 >
 >* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (wiersz polecenia)](functions-run-local.md)
->* [Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Program Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 W poniższej tabeli przedstawiono systemy operacyjne i języki obsługujące edycję portalu:
 

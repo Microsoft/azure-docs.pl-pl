@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439218"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Jak skalować usługę sygnalizującą z wieloma wystąpieniami?

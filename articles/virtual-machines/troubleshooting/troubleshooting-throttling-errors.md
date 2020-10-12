@@ -14,10 +14,10 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074278"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Rozwiązywanie problemów dotyczących błędów ograniczania przepływności interfejsu API 
@@ -32,7 +32,7 @@ Gdy klient interfejsu API platformy Azure uzyska błąd ograniczania przepustowo
 
 ## <a name="call-rate-informational-response-headers"></a>Nagłówki odpowiedzi informacyjnych o szybkości wywołania 
 
-| Nagłówek                            | Format wartości                           | Przykład                               | Opis                                                                                                                                                                                               |
+| Header                            | Format wartości                           | Przykład                               | Opis                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-MS-ratelimit — pozostało-zasób |```<source RP>/<policy or bucket>;<count>```| Microsoft. COMPUTE/HighCostGet3Min; 159 | Pozostała liczba wywołań interfejsu API dla zasad ograniczania przepływności obejmujących zasobnik zasobów lub grupę operacji, w tym element docelowy tego żądania                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Liczba wywołań "naliczona" dla tego żądania HTTP w kierunku limitu obowiązujących zasad. Zwykle jest to 1. Żądania usługi Batch, takie jak skalowanie zestawu skalowania maszyn wirtualnych, mogą obciążać wiele liczników. |
@@ -93,7 +93,7 @@ Polecenia cmdlet programu PowerShell używają interfejsu API usługi REST, któ
 
 - Nie ponowij ponownie błędów interfejsu API usługi platformy Azure bez warunku i/lub natychmiast. Typowym wystąpieniem jest powstawanie kodu klienta w pętli szybkiej ponownej próby w przypadku wystąpienia błędu, który nie jest ponownie możliwy. Ponowne próby spowodują wyczerpanie dozwolonego limitu wywołań dla grupy operacji docelowej i wpływają na innych klientów subskrypcji. 
 - W przypadku funkcji automatyzacji w dużej liczbie interfejsów API należy rozważyć zaimplementowanie samoczynnej samodzielnej przepustowości po stronie klienta, gdy liczba dostępnych wywołań dla docelowej grupy operacji spadnie poniżej pewnego dolnego progu. 
-- Podczas śledzenia operacji asynchronicznych należy przestrzegać wskazówek dotyczących ponownych prób po nagłówku. 
+- Podczas śledzenia operacji asynchronicznych należy przestrzegać wskazówek dotyczących nagłówków Retry-After. 
 - Jeśli kod klienta wymaga informacji o określonej maszynie wirtualnej, należy wykonać zapytanie dotyczące bezpośrednio tej maszyny wirtualnej zamiast wyświetlania wszystkich maszyn wirtualnych w zawierającej ją grupy zasobów lub całej subskrypcji, a następnie wybrać wymaganą maszynę wirtualną po stronie klienta. 
 - Jeśli kod klienta wymaga maszyn wirtualnych, dysków i migawek z określonej lokalizacji platformy Azure, użyj formularza opartego na lokalizacji zapytania zamiast zapytania o wszystkie maszyny wirtualne subskrypcji, a następnie Przefiltruj według lokalizacji na stronie klienta: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` zapytanie do regionalnych punktów końcowych dostawcy zasobów obliczeniowych. 
 -   W przypadku tworzenia lub aktualizowania zasobów interfejsu API w określonych maszynach wirtualnych i zestawach skalowania maszyn wirtualnych jest znacznie bardziej wydajna śledzenie zwracanej asynchronicznej operacji do ukończenia niż sondowanie samego adresu URL zasobu (na podstawie `provisioningState` ).

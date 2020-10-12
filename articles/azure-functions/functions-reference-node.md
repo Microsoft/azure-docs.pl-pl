@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317180"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
@@ -201,11 +201,11 @@ module.exports = (context) => {
 
 Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, która jest obiektem o następujących właściwościach:
 
-| Nazwa właściwości  | Typ  | Opis |
+| Nazwa właściwości  | Type  | Opis |
 |---------|---------|---------|
-| `invocationId` | String | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
-| `functionName` | String | Zawiera nazwę działającej funkcji |
-| `functionDirectory` | String | Udostępnia katalog aplikacji usługi Functions. |
+| `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
+| `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
+| `functionDirectory` | Ciąg | Udostępnia katalog aplikacji usługi Functions. |
 
 Poniższy przykład pokazuje, jak zwrócić `invocationId` .
 

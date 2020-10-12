@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087745"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Tworzenie klastrów Apache HBase w usłudze HDInsight na platformie Azure Virtual Network
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 W tej sekcji utworzysz oparty na systemie Linux Klaster Apache HBase z zależnym kontem usługi Azure Storage w sieci wirtualnej platformy Azure przy użyciu [szablonu Azure Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md). Aby poznać inne metody tworzenia klastra i zrozumieć ustawienia, zobacz [Tworzenie klastrów usługi HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Aby uzyskać więcej informacji o używaniu szablonu do tworzenia klastrów Apache Hadoop w usłudze HDInsight, zobacz [Tworzenie klastrów Apache Hadoop w usłudze HDInsight przy użyciu szablonów Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
-> Niektóre właściwości są trwale kodowane w szablonie. Przykład:
+> Niektóre właściwości są trwale kodowane w szablonie. Na przykład:
 >
 > * **Lokalizacja**: Wschodnie stany USA 2
 > * **Wersja klastra**: 3.6
@@ -43,7 +43,7 @@ W tej sekcji utworzysz oparty na systemie Linux Klaster Apache HBase z zależnym
 > * **Nazwa podsieci**: subnet1
 > * **Zakres adresów podsieci**: 10.0.0.0/24
 >
-> `CLUSTERNAME`jest zastępowana nazwą klastra, którą podano podczas korzystania z szablonu.
+> `CLUSTERNAME` jest zastępowana nazwą klastra, którą podano podczas korzystania z szablonu.
 
 1. Wybierz Poniższy obraz, aby otworzyć szablon w Azure Portal. Szablon znajduje się w szablonach [szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
@@ -51,7 +51,7 @@ W tej sekcji utworzysz oparty na systemie Linux Klaster Apache HBase z zależnym
 
 1. W oknie dialogowym **wdrożenie niestandardowe** wybierz pozycję **Edytuj szablon**.
 
-1. W wierszu 165 Zmień wartość `Standard_A3` na `Standard_A4_V2` . Następnie wybierz pozycję **Zapisz**.
+1. W wierszu 165 Zmień wartość `Standard_A3` na `Standard_A4_V2` . Następnie wybierz przycisk **Zapisz**.
 
 1. Ukończ pozostałe szablony z następującymi informacjami:
 
@@ -92,11 +92,11 @@ W przypadku korzystania z aplikacji Java do zdalnego łączenia się z usługą 
 
 * Użyj przeglądarki sieci Web, aby nawiązać połączenie [Apache Ambari](https://ambari.apache.org/) :
 
-    Przejdź do `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts?minimal_response=true`. Zwraca plik JSON z sufiksami DNS.
+    Przejdź na stronę `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts?minimal_response=true`. Zwraca plik JSON z sufiksami DNS.
 
 * Użyj witryny sieci Web Ambari:
 
-    1. Przejdź do `https://CLUSTERNAME.azurehdinsight.net`.
+    1. Przejdź na stronę `https://CLUSTERNAME.azurehdinsight.net`.
     2. Wybierz pozycję **hosty** z górnego menu.
 
 * Użyj Zwinięciea, aby nawiązywać wywołania REST:
@@ -105,7 +105,7 @@ W przypadku korzystania z aplikacji Java do zdalnego łączenia się z usługą 
     curl -u <username>:<password> -k https://CLUSTERNAME.azurehdinsight.net/ambari/api/v1/clusters/CLUSTERNAME.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-W zwróconych danych JavaScript Object Notation (JSON) Znajdź wpis "host_name". Zawiera nazwę FQDN dla węzłów w klastrze. Przykład:
+W zwróconych danych JavaScript Object Notation (JSON) Znajdź wpis "host_name". Zawiera nazwę FQDN dla węzłów w klastrze. Na przykład:
 
 ```
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
@@ -132,7 +132,7 @@ Częścią nazwy domeny rozpoczynającą się nazwą klastra jest sufiks DNS. Na
 
 Aby sprawdzić, czy maszyna wirtualna może komunikować się z klastrem HBase, użyj polecenia `ping headnode0.<dns suffix>` z maszyny wirtualnej. Na przykład `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
-Aby użyć tych informacji w aplikacji Java, można wykonać kroki opisane w temacie Korzystanie z platformy [Apache Maven do kompilowania aplikacji Java, które korzystają z platformy Apache HBase z usługą HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) w celu utworzenia. Aby aplikacja łączyła się ze zdalnym serwerem HBase, należy zmodyfikować plik **hbase-site.xml** w tym przykładzie, aby użyć nazwy FQDN dla dozorcy. Przykład:
+Aby użyć tych informacji w aplikacji Java, można wykonać kroki opisane w temacie Korzystanie z platformy [Apache Maven do kompilowania aplikacji Java, które korzystają z platformy Apache HBase z usługą HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) w celu utworzenia. Aby aplikacja łączyła się ze zdalnym serwerem HBase, należy zmodyfikować plik **hbase-site.xml** w tym przykładzie, aby użyć nazwy FQDN dla dozorcy. Na przykład:
 
 ```xml
 <property>
@@ -153,4 +153,4 @@ W tym artykule przedstawiono sposób tworzenia klastra Apache HBase. Aby dowiedz
 * [Konfigurowanie replikacji Apache HBase w usłudze HDInsight](apache-hbase-replication.md)
 * [Tworzenie klastrów Apache Hadoop w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Rozpoczynanie pracy z usługą Apache HBase z usługą Apache Hadoop w usłudze HDInsight](./apache-hbase-tutorial-get-started-linux.md)
-* [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
+* [Przegląd Virtual Network](../../virtual-network/virtual-networks-overview.md)

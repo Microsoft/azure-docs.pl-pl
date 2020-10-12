@@ -12,10 +12,10 @@ ms.date: 09/20/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 5a109f1a06e7ee8aff3e455c009217ff670d2781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782215"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>W aplikacji z galerii usługi Azure AD jest inicjowany niewłaściwy zestaw użytkowników
@@ -108,4 +108,4 @@ Jeśli obsługa administracyjna została skonfigurowana i jest już uruchomiona 
 Jeśli włączono grupy aprowizacji, należy sprawdzić mapowania atrybutów, aby upewnić się, że odpowiednie pole jest używane dla "zgodnego identyfikatora". Ten pasujący Identyfikator może być nazwą wyświetlaną lub aliasem adresu e-mail. Grupa i jej elementy członkowskie nie są obsługiwane, jeśli właściwość pasująca jest pusta lub nie została wypełniona dla grupy w usłudze Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
-[Automatyzacja aprowizacji i cofania aprowizacji użytkowników dla aplikacji SaaS przy użyciu usługi Azure Active Directory](user-provisioning.md)
+[Automatyzowanie aprowizacji użytkowników i anulowanie obsługi aplikacji SaaS przy użyciu Azure Active Directory](user-provisioning.md)

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 924aff8f2ba3d796b65f52494845f3b10018065c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063979"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft. Common. Section — element interfejsu użytkownika
@@ -45,7 +45,7 @@ Kontrolka, która grupuje co najmniej jeden element w ramach nagłówka.
 
 ## <a name="remarks"></a>Uwagi
 
-- `elements`musi zawierać co najmniej jeden element i może zawierać wszystkie typy elementów z wyjątkiem `Microsoft.Common.Section` .
+- `elements` musi zawierać co najmniej jeden element i może zawierać wszystkie typy elementów z wyjątkiem `Microsoft.Common.Section` .
 - Ten element nie obsługuje `toolTip` właściwości.
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe

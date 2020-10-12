@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261937"
 ---
 # <a name="add-a-bubble-layer"></a>Dodawanie warstwy bąbelkowej
@@ -49,7 +49,7 @@ Jeśli pole zostanie przesłane do zasobnika **rozmiar** okienka **pola** , bąb
 |---------------------|--------------|
 | Minimalny rozmiar            | Minimalny rozmiar bąbelków podczas skalowania danych.|
 | Maksymalny rozmiar            | Maksymalny rozmiar bąbelka podczas skalowania danych.|
-| Metoda skalowania rozmiaru | Algorytm skalowania używany do określania względnego rozmiaru bąbelka.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Liniowy zakres danych wejściowych jest liniowo mapowany na minimalny i maksymalny rozmiar. (wartość domyślna)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Zakres rejestrowania danych wejściowych logarithmically mapowany na minimalny i maksymalny rozmiar.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Sześcienne-Bezier-Określ wartości x1, Y1, X2, Y2 krzywej Beziera, aby utworzyć niestandardową metodę skalowania. |
+| Metoda skalowania rozmiaru | Algorytm skalowania używany do określania względnego rozmiaru bąbelka.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Liniowy zakres danych wejściowych jest liniowo mapowany na minimalny i maksymalny rozmiar. (wartość domyślna)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Zakres rejestrowania danych wejściowych logarithmically mapowany na minimalny i maksymalny rozmiar.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier-Określ wartości x1, Y1, X2, Y2 dla krzywej Cubic-Bezier, aby utworzyć niestandardową metodę skalowania. |
 
 Gdy ustawiona jest **Metoda skalowania rozmiaru** do **dziennika**, dostępne są następujące opcje.
 
@@ -67,25 +67,25 @@ Gdy **Metoda skalowania rozmiaru** jest ustawiona na wartość **Beziera**, w ce
 | Y2      | Parametr Y2 krzywej Beziera. |
 
 > [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/)dysponuje przydatnym narzędziem do tworzenia parametrów dla krzywych Beziera.
+> [https://cubic-bezier.com/](https://cubic-bezier.com/) ma przydatne narzędzie do tworzenia parametrów dla krzywych Cubic-Bezier.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zmień sposób wyświetlania danych na mapie:
 
 > [!div class="nextstepaction"]
-> [Dodaj warstwę wykresu słupkowego](power-bi-visual-add-bar-chart-layer.md)
+> [Dodawanie warstwy wykresu słupkowego](power-bi-visual-add-bar-chart-layer.md)
 
 Dodaj więcej kontekstu do mapy:
 
 > [!div class="nextstepaction"]
-> [Dodaj warstwę referencyjną](power-bi-visual-add-reference-layer.md)
+> [Dodawanie warstwy odwołania](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Dodawanie warstwy kafelków](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Pokaż ruch w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
+> [Pokazywanie ruchu w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
 
 Dostosuj wizualizację:
 

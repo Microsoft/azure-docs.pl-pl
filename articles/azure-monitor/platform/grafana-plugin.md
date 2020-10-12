@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073468"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorowanie usług platformy Azure w Grafana

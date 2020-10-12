@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
 ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103572"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Jak uzyskać promowanie w AppSource i witrynie Azure Marketplace
@@ -30,7 +30,7 @@ Aby poprawić wynik, można wykonać następujące czynności:
 1. *Upewnij się, że Twoja aplikacja lub usługa jest odpowiednio skategoryzowana*: Wybierz trzy kategorie reprezentujące możliwości aplikacji lub usługi.
 2. *Aplikacje platformy Azure Marketplace: Zwiększ miesięczny poziom użycia platformy Azure w ciągu miesiąca.* Jeśli masz dostęp do 1 000 godzin korzystania z platformy Azure w miesiącu, znacznie zwiększy się szanse na ich promowanie.
 3. *AppSource Apps: Zwiększ liczbę operacji pozyskiwania do oferty.* Jeśli masz możliwość osiągnięcia 10 nabyć miesięcznie, znacznie zwiększy się szanse na ich promowanie. 
-4. *Osiągnięcie stanu gotowości do rozłożenia*: należy spełnić wymagania dotyczące współdziałania w ramach współpracy.
+4. *Osiągnięcie stanu gotowości do Co-Sell*: należy spełnić wymagania dotyczące współdziałania z współsprzedażą.
 5. *Popraw jakość oferty*: Aby uzyskać informacje na temat modyfikowania oferty, zobacz [wytyczne dotyczące zawartości](marketplace-criteria-content-validation.md)
 6. Publikuj wiele ofert w portalu Marketplace: czy wszystkie podstawowe aplikacje i usługi są wymienione na liście? Czy masz doświadczenie w wersji próbnej?
 7. Zachęcaj klientów do pisania recenzji.

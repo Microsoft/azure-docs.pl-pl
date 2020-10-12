@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
 ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023877"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Dzienniki Azure Monitor dla zapory platformy Azure
@@ -30,7 +30,7 @@ Wykonaj następujące kroki, aby dodać widok do obszaru roboczego Log Analytics
 2. Otwórz **projektanta widoków** poniżej **ogólnego**.
 3. Kliknij pozycję **Importuj**.
 4. Przeglądaj i wybierz pobrany wcześniej plik **AzureFirewall. omsview** .
-5. Kliknij pozycję **Zapisz**.
+5. Kliknij przycisk **Zapisz**.
 
 Oto jak widok wyszukuje dane dziennika reguły aplikacji:
 

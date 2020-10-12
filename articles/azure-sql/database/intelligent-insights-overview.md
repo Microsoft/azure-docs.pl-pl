@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317059"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych (wersja zapoznawcza)
@@ -158,7 +158,7 @@ Wygenerowane szczegółowe dane zawierają liczbę żądań, które przekroczył
 
 ## <a name="excessive-wait-times"></a>Nadmierny czas oczekiwania
 
-Model czasu nadmiarowego oczekiwania monitoruje poszczególne zapytania bazy danych. Wykrywa nietypowo wysokie statystyki oczekiwania na zapytania, które przekroczyły progi bezwzględne zarządzane przez system. Następujące zapytania nadmiernie nadmiarowe metryki czasu oczekiwania są zaobserwowane przy użyciu polecenia, [Statystyka oczekiwania magazynu zapytań (sys. query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
+Model czasu nadmiarowego oczekiwania monitoruje poszczególne zapytania bazy danych. Wykrywa nietypowo wysokie statystyki oczekiwania na zapytania, które przekroczyły progi bezwzględne zarządzane przez system. Następujące zapytania nadmiernie nadmiarowe metryki czasu oczekiwania są zaobserwowane przy użyciu, [Statystyka oczekiwania magazynu zapytań (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
 
 - Osiąganie limitów zasobów
 - Osiągnięcie limitów zasobów puli elastycznej

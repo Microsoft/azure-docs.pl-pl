@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799251"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog koncepcje dla deweloperów
@@ -74,7 +74,7 @@ Na przykład w obszarze głównym elementu zawartości jest to tablica obiektów
 Zgodnie z opisem w sekcji kluczowe pojęcia **Azure Data Catalog** model obiektów zawiera elementy, które mogą być zasobami lub adnotacjami. Elementy mają właściwości, które mogą być opcjonalne lub wymagane. Niektóre właściwości są stosowane do wszystkich elementów. Niektóre właściwości mają zastosowanie do wszystkich zasobów. Niektóre właściwości mają zastosowanie tylko do określonych typów zasobów.
 
 ### <a name="system-properties"></a>Właściwości systemu
-<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>sygnatura czasowa</td><td>DateTime</td><td>Godzina ostatniej modyfikacji elementu. To pole jest generowane przez serwer, gdy element zostanie wstawiony i za każdym razem, gdy element zostanie zaktualizowany. Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>ID</td><td>Adresu</td><td>Bezwzględny adres URL elementu (tylko do odczytu). Jest to unikatowy adres URI dla elementu.  Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>typ</td><td>Ciąg</td><td>Typ zasobu (tylko do odczytu).</td></tr><tr><td>element ETag</td><td>Ciąg</td><td>Ciąg odpowiadający wersji elementu, który może być używany do optymistycznej kontroli współbieżności podczas wykonywania operacji, które aktualizują elementy w wykazie. znaku "*" można użyć do dopasowania dowolnej wartości.</td></tr></table>
+<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>sygnatura czasowa</td><td>DateTime</td><td>Godzina ostatniej modyfikacji elementu. To pole jest generowane przez serwer, gdy element zostanie wstawiony i za każdym razem, gdy element zostanie zaktualizowany. Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>ID (Identyfikator)</td><td>Adresu</td><td>Bezwzględny adres URL elementu (tylko do odczytu). Jest to unikatowy adres URI dla elementu.  Wartość tej właściwości jest ignorowana podczas wprowadzania operacji publikowania.</td></tr><tr><td>typ</td><td>Ciąg</td><td>Typ zasobu (tylko do odczytu).</td></tr><tr><td>element ETag</td><td>Ciąg</td><td>Ciąg odpowiadający wersji elementu, który może być używany do optymistycznej kontroli współbieżności podczas wykonywania operacji, które aktualizują elementy w wykazie. znaku "*" można użyć do dopasowania dowolnej wartości.</td></tr></table>
 
 ### <a name="common-properties"></a>Wspólne właściwości
 Te właściwości mają zastosowanie do wszystkich typów zasobów głównych i wszystkich typów adnotacji.
@@ -111,7 +111,7 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 <tr><td><b>Typ adnotacji (nazwa widoku zagnieżdżonego)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr>
 
 <tr><td>Opis ("opisy")</td><td></td><td></td><td>Ta właściwość zawiera opis elementu zawartości. Każdy użytkownik systemu może dodać własny opis.  Tylko ten użytkownik może edytować obiekt Description.  (Administratorzy i właściciele zasobów mogą usunąć obiekt opisu, ale go nie edytować). System obsługuje opisy użytkowników osobno.  W ten sposób istnieje tablica opisów dla każdego elementu zawartości (po jednym dla każdego użytkownika, który pobrał swoją wiedzę na temat zasobu, oprócz możliwego, który zawiera informacje pochodzące ze źródła danych).</td></tr>
-<tr><td></td><td>description (opis)</td><td>ciąg</td><td>Krótki opis (2-3 wierszy) elementu zawartości</td></tr>
+<tr><td></td><td>description</td><td>ciąg</td><td>Krótki opis (2-3 wierszy) elementu zawartości</td></tr>
 
 <tr><td>Tag ("Tagi")</td><td></td><td></td><td>Ta właściwość definiuje tag dla elementu zawartości. Każdy użytkownik systemu może dodać wiele tagów dla elementu zawartości.  Tylko użytkownik, który utworzył obiekty tagów, może je edytować.  (Administratorzy i właściciele zasobów mogą usunąć obiekt tagów, ale nie edytować go). System obsługuje znaczniki użytkowników osobno.  W ten sposób istnieje tablica obiektów tagów dla każdego elementu zawartości.</td></tr>
 <tr><td></td><td>tag</td><td>ciąg</td><td>Tag opisujący element zawartości.</td></tr>
@@ -123,11 +123,11 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 <tr><td></td><td>columns</td><td>Kolumna []</td><td>Tablica obiektów kolumn. Opisują kolumnę z informacjami uzyskanymi na podstawie źródła danych.</td></tr>
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Ta właściwość zawiera opis kolumny.  Każdy użytkownik systemu może dodać własne opisy dla wielu kolumn (najwyżej jednej na kolumnę). Tylko użytkownik, który utworzył obiekty ColumnDescription, może je edytować.  (Administratorzy i właściciele zasobów mogą usunąć obiekt ColumnDescription, ale go nie edytować). System zachowuje opisy kolumn tego użytkownika osobno.  W ten sposób istnieje tablica obiektów ColumnDescription dla każdego elementu zawartości (po jednej dla każdego użytkownika, który utworzył swoją wiedzę o kolumnie, a nie może być taka, która zawiera informacje pochodzące ze źródła danych).  ColumnDescription jest luźno powiązany ze schematem, dzięki czemu może nie być zsynchronizowany. ColumnDescription może opisywać kolumnę, która już nie istnieje w schemacie.  Aby zachować opis i schemat w synchronizacji, należy do składnika zapisywania.  Źródło danych może również zawierać informacje o opisach kolumn i są dodatkowymi obiektami ColumnDescription, które zostaną utworzone podczas uruchamiania narzędzia.</td></tr>
-<tr><td></td><td>columnName</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ten opis.</td></tr>
-<tr><td></td><td>description (opis)</td><td>Ciąg</td><td>Krótki opis (2-3 wierszy) kolumny.</td></tr>
+<tr><td></td><td>nazwa_kolumny</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ten opis.</td></tr>
+<tr><td></td><td>description</td><td>Ciąg</td><td>Krótki opis (2-3 wierszy) kolumny.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Ta właściwość zawiera tag dla kolumny. Każdy użytkownik systemu może dodać wiele tagów dla danej kolumny i może dodać Tagi dla wielu kolumn. Tylko użytkownik, który utworzył obiekty ColumnTag, może je edytować. (Administratorzy i właściciele zasobów mogą usunąć obiekt ColumnTag, ale go nie edytować). System przechowuje znaczniki kolumn użytkowników osobno.  W ten sposób istnieje tablica obiektów ColumnTag dla każdego elementu zawartości.  ColumnTag jest luźno powiązany ze schematem, dzięki czemu może nie być zsynchronizowany. ColumnTag może opisywać kolumnę, która już nie istnieje w schemacie.  Jest on do składnika zapisywania, aby zachować synchronizację tagów i schematu kolumn.</td></tr>
-<tr><td></td><td>columnName</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ten tag.</td></tr>
+<tr><td></td><td>nazwa_kolumny</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ten tag.</td></tr>
 <tr><td></td><td>tag</td><td>Ciąg</td><td>Tag opisujący kolumnę.</td></tr>
 
 <tr><td>Ekspert ("eksperci")</td><td></td><td></td><td>Ta właściwość zawiera użytkownika, który jest traktowany jak ekspert w zestawie danych. Podczas tworzenia listy opisów jest bąbelkowy dymek (opisy) ekspertów na górze środowiska użytkownika. Każdy użytkownik może określić swoich własnych ekspertów. Tylko ten użytkownik może edytować obiekt ekspertów. (Administratorzy i właściciele zasobów mogą usunąć obiekty, ale nie edytować ich).</td></tr>
@@ -150,7 +150,7 @@ Typy adnotacji reprezentują typy metadanych, które można przypisać do innych
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>Tablica profilów danych kolumn.</td></tr>
 
 <tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ta Klasyfikacja.</td></tr>
+<tr><td></td><td>nazwa_kolumny</td><td>Ciąg</td><td>Nazwa kolumny, do której odwołuje się ta Klasyfikacja.</td></tr>
 <tr><td></td><td>klasyfikacja</td><td>Ciąg</td><td>Klasyfikacja danych w tej kolumnie.</td></tr>
 
 <tr><td>Dokumentacja ("Dokumentacja")</td><td></td><td></td><td>Z danym zasobem może być skojarzona tylko jedna dokumentacja.</td></tr>
@@ -169,8 +169,8 @@ Typy wspólne mogą służyć jako typy właściwości, ale nie są elementami.
 <tr><td></td><td>objectType</td><td>ciąg</td><td>Opisuje typ obiektu w źródle danych. Na przykład: tabela, widok dla SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protokol</td><td>ciąg</td><td>Wymagany. Opisuje protokół używany do komunikacji ze źródłem danych. Na przykład: `tds` dla SQL Server, `oracle` dla Oracle itd. Zapoznaj się ze [specyfikacją odwołania do źródła danych — strukturą DSL](data-catalog-dsr.md) dla listy aktualnie obsługiwanych protokołów.</td></tr>
-<tr><td></td><td>adres</td><td>&lt;Ciąg słownika, obiekt&gt;</td><td>Wymagany. Address to zestaw danych specyficznych dla protokołu, który jest używany do identyfikowania źródła danych, do którego się odwołuje. Dane adresowe z zakresu określonego protokołu, co oznacza, że jest to bez znajomości protokołu.</td></tr>
+<tr><td></td><td>protokol</td><td>ciąg</td><td>Wymagane. Opisuje protokół używany do komunikacji ze źródłem danych. Na przykład: `tds` dla SQL Server, `oracle` dla Oracle itd. Zapoznaj się ze [specyfikacją odwołania do źródła danych — strukturą DSL](data-catalog-dsr.md) dla listy aktualnie obsługiwanych protokołów.</td></tr>
+<tr><td></td><td>adres</td><td>&lt;Ciąg słownika, obiekt&gt;</td><td>Wymagane. Address to zestaw danych specyficznych dla protokołu, który jest używany do identyfikowania źródła danych, do którego się odwołuje. Dane adresowe z zakresu określonego protokołu, co oznacza, że jest to bez znajomości protokołu.</td></tr>
 <tr><td></td><td>uwierzytelnianie</td><td>ciąg</td><td>Opcjonalny. Schemat uwierzytelniania używany do komunikacji ze źródłem danych. Na przykład: Windows, OAuth itp.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>&lt;Ciąg słownika, obiekt&gt;</td><td>Opcjonalny. Dodatkowe informacje na temat nawiązywania połączenia ze źródłem danych.</td></tr>
 
@@ -189,7 +189,7 @@ Typy wspólne mogą służyć jako typy właściwości, ale nie są elementami.
 <tr><td></td><td>expression</td><td>ciąg</td><td>Jeśli wartość jest kolumną obliczeniową, to pole zawiera wyrażenie, które wyraża wartość. Pochodzące ze źródła danych. Dotyczy tylko niektórych typów źródłowych.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>ciąg</td><td>Nazwa kolumny.</td></tr>
+<tr><td></td><td>nazwa_kolumny </td><td>ciąg</td><td>Nazwa kolumny.</td></tr>
 <tr><td></td><td>typ </td><td>ciąg</td><td>Typ kolumny</td></tr>
 <tr><td></td><td>min </td><td>ciąg</td><td>Minimalna wartość w zestawie danych</td></tr>
 <tr><td></td><td>max </td><td>ciąg</td><td>Maksymalna wartość w zestawie danych</td></tr>

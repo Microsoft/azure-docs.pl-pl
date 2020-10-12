@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
 ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051991"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Wysoka dostępność programu IBM DB2 LUW na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server z Pacemaker
@@ -327,7 +327,7 @@ Następujące elementy są poprzedzone prefiksem:
 > - W przypadku programu SLES 15/15 z dodatkiem SP1 wersja musi być co najmniej równa "Resource-Agents-4.3.0184.6 ee15eb2-4.13.1.  
 >
 > Należy pamiętać, że zmiana będzie wymagała krótkiego przestoju.  
-> W przypadku istniejących klastrów Pacemaker, jeśli konfiguracja została już zmieniona tak, aby korzystała z socat zgodnie z opisem w zabezpieczeniach [wykrywania modułu równoważenia obciążenia platformy Azure](https://www.suse.com/support/kb/doc/?id=7024128), nie ma potrzeby natychmiastowego przełączania do agenta zasobów Azure-LB.
+> W przypadku istniejących klastrów Pacemaker, jeśli konfiguracja została już zmieniona tak, aby korzystała z socat zgodnie z opisem w obszarze [Ograniczanie poziomu wykrywania w usłudze azure Load-Balancer](https://www.suse.com/support/kb/doc/?id=7024128), nie ma potrzeby natychmiastowego przełączenia do agenta zasobów platformy Azure.
 
 **[1]** konfiguracja Pacemaker programu IBM DB2 HADR cluster:
 <pre><code># Put Pacemaker into maintenance mode
@@ -409,7 +409,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Ustaw **przypisanie** na **static**, a następnie wprowadź adres IP **Virtual-IP** zdefiniowany na początku.
 
-   d. Wybierz przycisk **OK**.
+   d. Kliknij przycisk **OK**.
 
    e. Po utworzeniu nowej puli adresów IP frontonu Zanotuj adres IP puli.
 
@@ -425,7 +425,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    e. Wybierz Maszyny wirtualne w klastrze programu IBM DB2.
 
-   f. Wybierz przycisk **OK**.
+   f. Kliknij przycisk **OK**.
 
 1. Utwórz sondę kondycji:
 
@@ -435,7 +435,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    c. Wybierz pozycję **TCP** jako protokół i port **62500**. Pozostaw wartość **interwału** ustawioną na **5**i pozostaw wartość **progową złej kondycji** ustawioną na **2**.
 
-   d. Wybierz przycisk **OK**.
+   d. Kliknij przycisk **OK**.
 
 1. Utwórz reguły równoważenia obciążenia:
 
@@ -451,7 +451,7 @@ Aby skonfigurować Azure Load Balancer, zalecamy użycie [jednostki SKU usługa 
 
    f. Upewnij się, że **włączono zmiennoprzecinkowy adres IP**.
 
-   przykład Wybierz przycisk **OK**.
+   przykład Kliknij przycisk **OK**.
 
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Wprowadzanie zmian w profilach SAP do używania wirtualnego adresu IP na potrzeby połączenia
@@ -478,7 +478,7 @@ W przypadku wykonania instalacji przed utworzeniem konfiguracji programu DB2 HAD
 
 Użyj narzędzia konfiguracji J2EE, aby sprawdzić lub zaktualizować adres URL JDBC. Ponieważ narzędzie konfiguracji J2EE jest narzędziem graficznym, musisz mieć zainstalowany serwer X:
  
-1. Zaloguj się do podstawowego serwera aplikacji wystąpienia J2EE i wykonaj następujące operacje:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Zaloguj się do podstawowego serwera aplikacji wystąpienia J2EE i wykonaj następujące operacje:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. W lewej ramce wybierz pozycję **Magazyn zabezpieczeń**.
 1. W prawej ramce wybierz pozycję Key JDBC/Pool/ \<SAPSID> /URL.
 1. Zmień nazwę hosta w adresie URL JDBC na nazwę hosta wirtualnego.

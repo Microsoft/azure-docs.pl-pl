@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89017621"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Wprowadzenie do usługi Azure queue storage i usług połączonych programu Visual Studio (projekty usług Cloud Services)
@@ -149,8 +149,8 @@ int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
-## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Używanie wzorca Async-await ze wspólnymi interfejsami API usługi Azure Queue
-Ten przykład pokazuje, jak używać wzorca Async-await ze wspólnymi interfejsami API usługi Azure Queue. Przykład wywołuje asynchroniczną wersję każdej z tych metod, może to być postrzegane przez **asynchroniczne** po rozwiązaniu każdej metody. Gdy używana jest metoda async, proces Async-await zawiesza wykonywanie lokalne do momentu zakończenia wywołania. To zachowanie umożliwia wykonywanie innych czynności przez bieżący wątek, co pomaga uniknąć wąskich gardeł w zakresie wydajności i zwiększa ogólną czas odpowiedzi aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
+## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Używanie wzorca Async-Await ze wspólnymi interfejsami API usługi Azure Queue
+Ten przykład pokazuje, jak używać wzorca Async-Await ze wspólnymi interfejsami API usługi Azure Queue. Przykład wywołuje asynchroniczną wersję każdej z tych metod, może to być postrzegane przez **asynchroniczne** po rozwiązaniu każdej metody. Gdy używana jest metoda async, proces Async-await zawiesza wykonywanie lokalne do momentu zakończenia wywołania. To zachowanie umożliwia wykonywanie innych czynności przez bieżący wątek, co pomaga uniknąć wąskich gardeł w zakresie wydajności i zwiększa ogólną czas odpowiedzi aplikacji. Aby uzyskać szczegółowe informacje o wykorzystaniu wzorca Async-Await w programie .NET, zobacz [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx) (Async i Await [C# i Visual Basic]).
 
 ```csharp
 // Create a message to put in the queue
@@ -177,6 +177,6 @@ Aby usunąć kolejkę i wszystkie zawarte w niej komunikaty, wywołaj metodę **
 messageQueue.Delete();
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 

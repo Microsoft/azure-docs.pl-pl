@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87069170"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Szczegółowe procedury rozwiązywania problemów dotyczących połączenia SSH z maszyną wirtualną z systemem Linux na platformie Azure
@@ -132,5 +132,5 @@ Spróbuj ponownie nawiązać połączenie z komputera. Jeśli nadal nie powiedzi
 * Lokalna Zapora na docelowej maszynie wirtualnej ma reguły uniemożliwiające ruch w ruchu SSH lub wychodzącym.
 * Wykrywanie intruza lub oprogramowanie do monitorowania sieci działające na maszynie wirtualnej platformy Azure uniemożliwia połączenia SSH.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 Aby uzyskać więcej informacji na temat rozwiązywania problemów z dostępem do aplikacji, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](./troubleshoot-app-connection.md)

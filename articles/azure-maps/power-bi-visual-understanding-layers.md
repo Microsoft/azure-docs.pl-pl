@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261847"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Informacje o warstwach w Azure Maps Power BI wizualizacji
@@ -87,15 +87,15 @@ Zmień sposób wyświetlania danych na mapie:
 > [Dodawanie warstwy bąbelkowej](power-bi-visual-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Dodaj warstwę wykresu słupkowego](power-bi-visual-add-bar-chart-layer.md)
+> [Dodawanie warstwy wykresu słupkowego](power-bi-visual-add-bar-chart-layer.md)
 
 Dodaj więcej kontekstu do mapy:
 
 > [!div class="nextstepaction"]
-> [Dodaj warstwę referencyjną](power-bi-visual-add-reference-layer.md)
+> [Dodawanie warstwy odwołania](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Dodawanie warstwy kafelków](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Pokaż ruch w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
+> [Pokazywanie ruchu w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)

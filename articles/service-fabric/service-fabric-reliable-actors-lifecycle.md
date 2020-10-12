@@ -7,10 +7,10 @@ ms.date: 10/06/2017
 ms.author: amanbha
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89016703"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne odzyskiwanie pamięci i usuwanie ręczne
@@ -108,7 +108,7 @@ Aktor nigdy nie zostanie pobrany jako bezużyteczny podczas wykonywania jednej z
 ## <a name="manually-deleting-actors-and-their-state"></a>Ręczne usuwanie aktorów i ich Stanów
 Wyrzucanie elementów bezużytecznych nieaktywowanych aktorów jedynie czyści obiekt aktora, ale nie usuwa danych przechowywanych w Menedżerze stanu aktora. Po ponownym aktywowaniu aktora jego dane zostaną ponownie udostępnione za pomocą menedżera stanu. W przypadkach, gdy aktory przechowują dane w Menedżerze stanu i są dezaktywowane, ale nigdy nie są ponownie aktywowane, może być konieczne wyczyszczenie danych.  Przykłady usuwania aktorów, odczytu [i ich stanu](service-fabric-reliable-actors-delete-actors.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Czasomierze aktora i przypomnienia](service-fabric-reliable-actors-timers-reminders.md)
 * [Zdarzenia aktora](service-fabric-reliable-actors-events.md)
 * [Współużytkowania wątkowości aktora](service-fabric-reliable-actors-reentrancy.md)

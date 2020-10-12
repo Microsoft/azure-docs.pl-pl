@@ -4,10 +4,10 @@ description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej p
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332682"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)

@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
 ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073320"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Możliwości wielomodelowe Azure SQL Database & wystąpienia zarządzane SQL
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Tę strukturę klucz-wartość można dostosować do własnych potrzeb bez ograniczeń. Przykładowo wartością może być dokument XML, a nie `nvarchar(max)` Typ, jeśli wartość jest dokumentu JSON, można umieścić `CHECK` ograniczenie, które weryfikuje ważność zawartości JSON. Można umieścić dowolną liczbę wartości związanych z jednym kluczem w dodatkowych kolumnach, dodać kolumny obliczane i indeksy, aby uprościć i zoptymalizować dostęp do danych, zdefiniować tabelę jako pamięć/zoptymalizowaną pod względem schematu tabelę, aby uzyskać lepszą wydajność itd.
 
-Zobacz, w [jaki sposób BWin korzysta z OLTP w pamięci, aby osiągnąć niespotykaną wydajność i skalę](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) dla swojego rozwiązania pamięci podręcznej ASP.NET, które osiągnęło 1.200.000 partie w ciągu kilku sekund, jako przykład sposobu, w jaki model relacyjny może być efektywnie używany jako rozwiązanie par klucz-wartość w praktyce.
+Zobacz, [jak BWin korzysta z In-Memory OLTP, aby osiągnąć niespotykaną wydajność i skalę](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) dla swojego rozwiązania pamięci podręcznej ASP.NET, które osiągnęło 1.200.000 partie w ciągu kilku sekund, jak na przykład model relacyjny może być efektywnie używany jako rozwiązanie par klucz-wartość w praktyce.
 
 ## <a name="next-steps"></a>Następne kroki
 

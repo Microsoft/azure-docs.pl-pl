@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7afcd3bfe16775d5c99100278eda81da739b8d22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764489"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Uzyskiwanie dostępu do aplikacji lokalnych przy użyciu zespołów Microsoft Teams

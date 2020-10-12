@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
 ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88607410"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Zintegruj swoją aukcję komercyjną Marketplace z usługą Azure Active Directory

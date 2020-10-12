@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073732"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Przenoszenie aplikacji App Service do innego regionu
@@ -78,7 +78,7 @@ Jeśli chcesz tylko odzyskać pliki z aplikacji, której dotyczy problem, bez pr
     Skopiuj trzy wartości atrybutów: 
         
     - `publishUrl`: Nazwa hosta FTP
-    - `userName`i `userPWD` : poświadczenia FTP
+    - `userName` i `userPWD` : poświadczenia FTP
 
 1. Użyj wybranego klienta FTP, aby nawiązać połączenie z hostem FTP aplikacji, których dotyczy problem, przy użyciu nazwy hosta i poświadczeń.
 

@@ -7,10 +7,10 @@ description: Dowiedz się, jak skonfigurować Azure Dev Spaces, aby użyć niest
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
 ms.custom: devx-track-js
 ms.openlocfilehash: 23bad8d7def12f4454986fb005158c3a65acd33e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276268"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Korzystanie z niestandardowego kontrolera NGINX Ingres i Konfigurowanie protokołu HTTPS

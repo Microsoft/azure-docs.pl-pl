@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274796"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementowanie bramy Oracle na maszynie wirtualnej platformy Azure z systemem Linux 
@@ -384,7 +384,7 @@ Aby pobrać i przygotować oprogramowanie Oracle, należy wykonać następujące
    ```
 
 ### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Przygotuj klienta i maszynę wirtualną do uruchomienia X11 (tylko dla klientów z systemem Windows)
-Jest to opcjonalny krok. Ten krok można pominąć, jeśli używasz klienta z systemem Linux lub masz już Instalatora X11.
+Ten krok jest opcjonalny. Ten krok można pominąć, jeśli używasz klienta z systemem Linux lub masz już Instalatora X11.
 
 1. Pobierz i Xming na komputer z systemem Windows:
 

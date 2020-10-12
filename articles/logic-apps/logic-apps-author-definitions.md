@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 9163071237041d7c8510a644c573e3763434bb0c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87060662"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Tworzenie, edytowanie lub rozszerzanie danych JSON dla definicji przepływu pracy aplikacji logiki w usłudze Azure Logic Apps
@@ -149,7 +149,7 @@ Pierwszy przepływ pracy pobiera listę artykułów. Następnie przepływ pracy 
 
 *   [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md)Funkcja sprawdza, czy kategoria pasuje do znanej zdefiniowanej kategorii.
 
-*   Po otrzymaniu pasującej kategorii przykład ściąga element z mapy przy użyciu nawiasów kwadratowych:`parameters[...]`
+*   Po otrzymaniu pasującej kategorii przykład ściąga element z mapy przy użyciu nawiasów kwadratowych: `parameters[...]`
 
 ``` json
 {

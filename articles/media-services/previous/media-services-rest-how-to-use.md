@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264287"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations
@@ -78,23 +78,23 @@ Poniżej znajduje się zestaw opcjonalnych nagłówków:
 
 | Header | Typ | Wartość |
 | --- | --- | --- |
-| Data |Data 1123 |Sygnatura czasowa żądania |
+| Date |Data 1123 |Sygnatura czasowa żądania |
 | Zaakceptuj |Typ zawartości |Żądany typ zawartości dla odpowiedzi, na przykład następujące:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Odpowiedzi mogą mieć inny typ zawartości, taki jak pobieranie obiektów blob, gdzie pomyślnie odpowiedź zawiera strumień obiektów BLOB jako ładunek. |
-| Akceptuj — kodowanie |Gzip, Wklęśnięcie |Kodowanie GZIP i WKLĘŚNIĘCIE, jeśli ma zastosowanie. Uwaga: w przypadku dużych zasobów Media Services może zignorować ten nagłówek i zwrócić nieskompresowane dane. |
+| Accept-Encoding |Gzip, Wklęśnięcie |Kodowanie GZIP i WKLĘŚNIĘCIE, jeśli ma zastosowanie. Uwaga: w przypadku dużych zasobów Media Services może zignorować ten nagłówek i zwrócić nieskompresowane dane. |
 | Accept-Language |"pl", "es" i tak dalej. |Określa preferowany język odpowiedzi. |
 | Accept-Charset |Typ charset, taki jak "UTF-8" |Wartość domyślna to UTF-8. |
 | X-HTTP-Metoda |Metoda HTTP |Zezwala klientom lub zaporom, które nie obsługują metod HTTP, takich jak PUT lub DELETE, do korzystania z tych metod, tunelowanie za pośrednictwem wywołania GET. |
 | Content-Type |Typ zawartości |Typ zawartości treści żądania w żądaniu PUT lub POST. |
-| Identyfikator żądania klienta |String |Wartość zdefiniowana przez obiekt wywołujący, która identyfikuje określone żądanie. Jeśli jest określony, ta wartość zostanie uwzględniona w komunikacie odpowiedzi jako sposób mapowania żądania. <p><p>**Ważne**<p>Wartości powinny być ograniczone w 2096b (2K). |
+| Identyfikator żądania klienta |Ciąg |Wartość zdefiniowana przez obiekt wywołujący, która identyfikuje określone żądanie. Jeśli jest określony, ta wartość zostanie uwzględniona w komunikacie odpowiedzi jako sposób mapowania żądania. <p><p>**Ważne**<p>Wartości powinny być ograniczone w 2096b (2K). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standardowe nagłówki odpowiedzi HTTP obsługiwane przez Media Services
 Poniżej znajduje się zestaw nagłówków, które mogą zostać zwrócone do użytkownika w zależności od zasobu, którego dotyczy żądanie, oraz akcji, która ma zostać wykonana.
 
 | Header | Typ | Wartość |
 | --- | --- | --- |
-| Identyfikator żądania |String |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
-| Identyfikator żądania klienta |String |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |
-| Data |Data 1123 |Data/godzina przetworzenia żądania. |
+| Identyfikator żądania |Ciąg |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
+| Identyfikator żądania klienta |Ciąg |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |
+| Date |Data 1123 |Data/godzina przetworzenia żądania. |
 | Content-Type |Różnie |Typ zawartości treści odpowiedzi. |
 | Content-Encoding |Różnie |Odpowiednio, gzip lub Wklęśnięcie. |
 
@@ -130,5 +130,5 @@ Aby dowiedzieć się, jak używać uwierzytelniania usługi Azure AD za pomocą 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

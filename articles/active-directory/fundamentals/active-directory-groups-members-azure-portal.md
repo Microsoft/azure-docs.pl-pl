@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbb7b7da4ed5268e66260e48d6367bbe02f0845a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797580"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Dodawanie lub usuwanie członków grupy przy użyciu Azure Active Directory
@@ -31,7 +31,7 @@ Za pomocą Azure Active Directory można nadal dodawać i usuwać członków gru
 
 3. Na stronie **grupy — wszystkie grupy** Wyszukaj i wybierz grupę, do której chcesz dodać element członkowski. W takim przypadku należy użyć wcześniej utworzonej grupy, **zasad zarządzania urządzeniami przenośnymi — zachodnie**.
 
-    ![Grupy — Strona wszystkie grupy, wyróżniona nazwa grupy](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
+    ![Strona grupy Groups-All, wyróżniona nazwa grupy](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
 4. Na stronie przeglądu grupy **MDM policy - West** wybierz pozycję **Członkowie** w obszarze **Zarządzanie**.
 

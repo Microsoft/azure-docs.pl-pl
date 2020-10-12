@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 3ea8be2bbf3296f97ca0562a2d8e72bfe7a77d3b
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760485"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Platforma Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver na Red Hat Enterprise Linux
@@ -69,14 +69,14 @@ Najpierw przeczytaj następujące informacje i dokumenty SAP
 * [Dokumentacja produktu dla magazynu Red Hat Gluster](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [NetWeaver SAP w klastrze Pacemaker](https://access.redhat.com/articles/3150081)
 * Ogólna dokumentacja RHEL
-  * [Omówienie dodatku wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administracja dodatkiem wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Dodatkowe informacje o wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administracja Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Informacje o wysokiej dostępności Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Konfigurowanie ASCS/wykres WYWOŁUJĄCYCH dla SAP NetWeaver z zasobami autonomicznymi w RHEL 7,5](https://access.redhat.com/articles/3569681)
-  * [Skonfiguruj rozwiązanie SAP S/4HANA ASCS/wykres WYWOŁUJĄCYCH za pomocą autonomicznej kolejki serwer 2 (ENSA2) w Pacemaker na RHEL](https://access.redhat.com/articles/3974941)
+  * [Skonfiguruj rozwiązanie SAP S/4HANA ASCS/wykres WYWOŁUJĄCYCH za pomocą autonomicznej kolejki serwer 2 (ENSA2) w Pacemaker na RHEL ](https://access.redhat.com/articles/3974941)
 * Dokumentacja usługi RHEL specyficznej dla platformy Azure:
   * [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra](https://access.redhat.com/articles/3131341)
-  * [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) klastra o wysokiej dostępności na Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) High-Availability klastra na Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>Omówienie
 
@@ -161,10 +161,10 @@ Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy
 1. Tworzenie zestawu dostępności  
    Ustaw maksymalną domenę aktualizacji
 1. Utwórz maszynę wirtualną 1  
-   Użyj co najmniej RHEL 7, w tym przykładzie obrazu Red Hat Enterprise Linux 7,4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Użyj co najmniej RHEL 7, w tym przykładzie obrazu Red Hat Enterprise Linux 7,4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Wybierz utworzony wcześniej zestaw dostępności  
 1. Tworzenie maszyny wirtualnej 2  
-   Użyj co najmniej RHEL 7, w tym przykładzie obrazu Red Hat Enterprise Linux 7,4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Użyj co najmniej RHEL 7, w tym przykładzie obrazu Red Hat Enterprise Linux 7,4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Wybierz utworzony wcześniej zestaw dostępności  
 1. Dodaj co najmniej jeden dysk danych do obu maszyn wirtualnych  
    Dyski danych są używane dla `<SAPSID` katalogu>/usr/SAP/
@@ -244,7 +244,7 @@ Najpierw musisz utworzyć maszyny wirtualne dla tego klastra. Następnie należy
 > Gdy maszyny wirtualne bez publicznych adresów IP są umieszczane w puli zaplecza wewnętrznego (bez publicznego adresu IP) standardowego modułu równoważenia obciążenia platformy Azure, nie będzie wychodzące połączenie z Internetem, chyba że zostanie przeprowadzona dodatkowa konfiguracja zezwalająca na kierowanie do publicznych punktów końcowych. Aby uzyskać szczegółowe informacje na temat sposobu osiągnięcia łączności wychodzącej, zobacz [publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net. IPv4. tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.IPv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### <a name="create-pacemaker-cluster"></a>Tworzenie klastra Pacemaker
 
@@ -545,7 +545,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    </code></pre>
 
    System SAP wprowadził obsługę dla kolejki serwera 2, w tym replikację, w przypadku oprogramowania SAP NW 7,52. Począwszy od programu ABAP platform 1809, w kolejce serwer 2 jest instalowany domyślnie. Zobacz temat SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416) dla obsługi kolejki serwera 2.
-   W przypadku korzystania z programu w ramach architektury Server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)) Zainstaluj agenta zasobów Resource-Agents-SAP-4.1.1 -12. el7. x86_64 lub nowszego i zdefiniuj zasoby w następujący sposób:
+   W przypadku korzystania z programu w ramach architektury Server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)) Zainstaluj agenta zasobów agentów zasobów — SAP-4.1.1-12.el7.x86_64 lub nowszego i zdefiniuj zasoby w następujący sposób:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    
