@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423324"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partycjonowanie w Azure Cosmos DB interfejs API Cassandra
@@ -58,7 +58,7 @@ W tym projekcie definiujemy `id` pole jako klucz podstawowy. Klucz podstawowy pe
 
 ## <a name="compound-primary-key"></a>Złożony klucz podstawowy
 
-Rozwiązanie Apache Cassandra ma również koncepcję programu `compound keys` . Związek `primary key` składa się z więcej niż jednej kolumny; pierwsza kolumna to `partition key` , a wszystkie dodatkowe kolumny są `clustering keys` . Składnia dla elementu `compound primary key` jest pokazana poniżej:
+Rozwiązanie Apache Cassandra ma również koncepcję programu  `compound keys` . Związek `primary key` składa się z więcej niż jednej kolumny; pierwsza kolumna to `partition key` , a wszystkie dodatkowe kolumny są `clustering keys` . Składnia dla elementu `compound primary key` jest pokazana poniżej:
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])

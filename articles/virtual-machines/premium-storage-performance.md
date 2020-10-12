@@ -8,10 +8,10 @@ ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776157"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
@@ -197,7 +197,7 @@ Aby posłużyć do monitorowania wpływu rozmiaru operacji we/wy na wydajność 
 
 ## <a name="high-scale-vm-sizes"></a>Rozmiary maszyn wirtualnych o dużej skali
 
-Po rozpoczęciu projektowania aplikacji należy wybrać maszynę wirtualną do hostowania aplikacji. Premium Storage obejmuje rozmiary maszyn wirtualnych o dużej skali, które mogą uruchamiać aplikacje wymagające większej mocy obliczeniowej i wysoką wydajność we/wy dysku lokalnego. Te maszyny wirtualne zapewniają szybszy procesor, wyższy stosunek pamięci do rdzenia oraz dysk SSD (SSD) dla dysku lokalnego. Przykładami maszyn wirtualnych o dużej skali obsługujących Premium Storage są maszyny wirtualne z serii DS i GS.
+Po rozpoczęciu projektowania aplikacji należy wybrać maszynę wirtualną do hostowania aplikacji. Premium Storage obejmuje rozmiary maszyn wirtualnych o dużej skali, które mogą uruchamiać aplikacje wymagające większej mocy obliczeniowej i wysoką wydajność we/wy dysku lokalnego. Te maszyny wirtualne zapewniają szybszy procesor, większy stosunek pamięci do rdzenia i dysk Solid-State (SSD) dla dysku lokalnego. Przykładami maszyn wirtualnych o dużej skali obsługujących Premium Storage są maszyny wirtualne z serii DS i GS.
 
 Maszyny wirtualne o wysokiej skali są dostępne w różnych rozmiarach przy użyciu innej liczby rdzeni procesora CPU, pamięci, systemu operacyjnego i tymczasowego rozmiaru dysku. Każdy rozmiar maszyny wirtualnej ma również maksymalną liczbę dysków z danymi, które można dołączyć do maszyny wirtualnej. W związku z tym wybrany rozmiar maszyny wirtualnej będzie miał wpływ na to, jak dużo pamięci masowej i pojemności magazynu są dostępne dla aplikacji. Ma to również wpływ na koszt obliczeń i magazynu. Na przykład poniżej przedstawiono specyfikacje największego rozmiaru maszyny wirtualnej w serii DS i serii GS:
 

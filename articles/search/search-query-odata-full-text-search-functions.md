@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935793"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funkcja wyszukiwania pełnotekstowego OData w usłudze Azure Wyszukiwanie poznawcze — `search.ismatch` i `search.ismatchscoring`
@@ -35,7 +35,7 @@ Usługa Azure Wyszukiwanie poznawcze obsługuje wyszukiwanie pełnotekstowe w ko
 
 ## <a name="syntax"></a>Składnia
 
-Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę `search.ismatch` `search.ismatchscoring` funkcji and:
+Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę `search.ismatch` `search.ismatchscoring` funkcji and:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -69,7 +69,7 @@ Dostępny jest również interaktywny diagram składni:
 
 Parametry są zdefiniowane w poniższej tabeli:
 
-| Nazwa parametru | Typ | Opis |
+| Nazwa parametru | Type | Opis |
 | --- | --- | --- |
 | `search` | `Edm.String` | Zapytanie wyszukiwania (w [prostej](query-simple-syntax.md) lub [pełnej](query-lucene-syntax.md) składni zapytań Lucene). |
 | `searchFields` | `Edm.String` | Rozdzielana przecinkami lista pól wyszukiwania do wyszukania; Domyślnie wszystkie pola z możliwością wyszukiwania w indeksie. W przypadku używania [wyszukiwania z polami](query-lucene-syntax.md#bkmk_fields) w `search` parametrze specyfikatory pola w zapytaniu Lucene zastępują wszystkie pola określone w tym parametrze. |

@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.openlocfilehash: d716b026159311c12341c30a8c32d5a9ecc6fa3f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432752"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Używanie Azure CDN z sygnaturą dostępu współdzielonego
@@ -58,7 +58,7 @@ Ta opcja jest najprostszym i używa jednego tokenu sygnatury dostępu współdzi
 
 2. Po skonfigurowaniu sygnatury dostępu współdzielonego na koncie magazynu musisz użyć tokenu sygnatury dostępu współdzielonego z adresami URL punktu końcowego usługi CDN i serwerem źródłowym, aby uzyskać dostęp do pliku. 
    
-   Otrzymany adres URL punktu końcowego usługi CDN ma następujący format:`https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   Otrzymany adres URL punktu końcowego usługi CDN ma następujący format: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    Na przykład:   
    ```
@@ -90,7 +90,7 @@ Ta opcja jest dostępna tylko dla **Azure CDN Premium z profilów Verizon** . Za
    ![Reguła ponownego zapisywania adresu URL usługi CDN — pozostała ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
     ![ reguła ponownego zapisywania adresu URL sieci CDN — uprawnienie](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Gdy Nowa reguła stanie się aktywna, każdy może uzyskać dostęp do plików w określonym kontenerze w punkcie końcowym usługi CDN, niezależnie od tego, czy używali tokenu SAS w adresie URL. Oto format:`https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Gdy Nowa reguła stanie się aktywna, każdy może uzyskać dostęp do plików w określonym kontenerze w punkcie końcowym usługi CDN, niezależnie od tego, czy używali tokenu SAS w adresie URL. Oto format: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Na przykład:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`

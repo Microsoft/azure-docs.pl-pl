@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985323"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurowanie pulpitu nawigacyjnego aplikacji
@@ -33,7 +33,7 @@ Po wybraniu opcji **Edytuj** lub **Nowy**pulpit nawigacyjny jest w trybie *edycj
 1. Wybierz co najmniej jedno urządzenie na liście rozwijanej **urządzenia** , które ma być wyświetlane na kafelku. Teraz widzisz dostępne dane telemetryczne, właściwości i polecenia z urządzeń.
 1. Wybierz pozycję **temperatura** w sekcji Telemetria, a następnie wybierz pozycję **Dodaj kafelek**. Kafelek jest teraz widoczny na pulpicie nawigacyjnym, w którym można zmienić wizualizację, zmienić rozmiar kafelka i skonfigurować go:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dodawanie kafelka telemetrii dla temperatury do pulpitu nawigacyjnego":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
 Po zakończeniu dodawania i dostosowywania kafelków na pulpicie nawigacyjnym wybierz pozycję **Zapisz**.
 
@@ -75,23 +75,23 @@ W przypadku kafelków, które wyświetlają wartości zagregowane, wybierz ikon�
 
 W przypadku wykresów liniowych, wykresów słupkowych i wykresów kołowych można dostosować kolor różnych wartości telemetrii. Wybierz ikonę palety obok danych telemetrycznych, które chcesz dostosować:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Zmiana koloru wartości telemetrii":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
 W przypadku kafelków pokazujących właściwości ciągu lub wartości telemetryczne możesz wybrać sposób wyświetlania tekstu. Na przykład jeśli urządzenie przechowuje adres URL we właściwości ciągu, można go wyświetlić jako link do kliknięcia. Jeśli adres URL odwołuje się do obrazu, można renderować obraz w ostatniej znanej wartości lub kafelku właściwości. Aby zmienić sposób wyświetlania ciągu, w obszarze Konfiguracja kafelka wybierz ikonę koła zębatego obok pozycji Typ telemetrii lub właściwość:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Zmień sposób wyświetlania ciągu na kafelku":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
 W przypadku liczbowych **wskaźników KPI**, **ostatniej znanej wartości**i kafelków **Właściwości** można użyć formatowania warunkowego, aby dostosować kolor kafelka na podstawie jego bieżącej wartości. Aby dodać formatowanie warunkowe, wybierz pozycję **Konfiguruj** na kafelku, a następnie wybierz ikonę **Formatowanie warunkowe** obok wartości, która ma zostać dostosowana:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Zrzut ekranu przedstawiający sposób znalezienia opcji konfigurowania dla kafelka, a następnie ikony formatowania warunkowego":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
 Dodaj reguły formatowania warunkowego:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Zrzut ekranu przedstawiający reguły formatowania warunkowego dla średniego przepływu. Istnieją trzy reguły — mniej określona 20 to kolor zielony, mniejszy niż 50 50":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
 Poniższy zrzut ekranu przedstawia efekt reguły formatowania warunkowego:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Zrzut ekranu przedstawiający żółty kolor tła na kafelku średniego przepływu wody. Liczba na kafelku to 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Pulpit nawigacyjny dla aplikacji opartych na szablonie aplikacji niestandardowej":::
 
 ## <a name="next-steps"></a>Następne kroki
 

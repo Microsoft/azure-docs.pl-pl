@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
 ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387561"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurowanie DPDK na maszynie wirtualnej z systemem Linux
@@ -45,8 +45,8 @@ Obsługiwane są następujące dystrybucje z portalu Azure Marketplace:
 | Ubuntu 16.04 | 4.15.0-1014-Azure +           | 
 | Ubuntu 18.04 | 4.15.0-1014-Azure +           |
 | SLES 15 SP1  | 4.12.14-8.19-Azure +          | 
-| RHEL 7.5     | 3.10.0-862.11.6. el7. x86_64 +  | 
-| CentOS 7.5   | 3.10.0-862.11.6. el7. x86_64 +  | 
+| RHEL 7.5     | 3.10.0 — 862.11.6.el7.x86_64 +  | 
+| CentOS 7.5   | 3.10.0 — 862.11.6.el7.x86_64 +  | 
 
 **Obsługa niestandardowych jądra**
 
@@ -251,7 +251,7 @@ Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
 
 Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie, `app/test-pmd/txonly.c` aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są usuwane przed osiągnięciem usługi przesyłania dalej. Nie będzie możliwe odbieranie przez trzeci komputer ruchu przesyłanego dalej, ponieważ usługa przesyłania dalej *testpmd* nie modyfikuje adresów warstwy 3, chyba że wprowadzisz pewne zmiany w kodzie.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * [Opcje EAL](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Polecenia Testpmd](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)

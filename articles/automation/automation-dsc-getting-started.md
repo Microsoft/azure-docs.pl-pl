@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186439"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Wprowadzenie do konfiguracji stanu Azure Automation
@@ -83,7 +83,7 @@ Po zaimportowaniu konfiguracji można wyświetlić ją w Azure Portal.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po lewej stronie kliknij pozycję **wszystkie zasoby** , a następnie nazwę konta usługi Automation.
-1. Na stronie konto usługi Automation wybierz pozycję **Konfiguracja stanu (DSC)** w obszarze **Zarządzanie konfiguracją**.
+1. Na stronie konto usługi Automation wybierz pozycję  **Konfiguracja stanu (DSC)** w obszarze **Zarządzanie konfiguracją**.
 1. Na stronie Konfiguracja stanu (DSC) kliknij kartę **konfiguracje** , a następnie kliknij pozycję **TestConfig**. Jest to nazwa konfiguracji zaimportowanej w poprzedniej procedurze.
 1. W okienku Konfiguracja TestConfig kliknij pozycję **Wyświetl źródło konfiguracji**.
 

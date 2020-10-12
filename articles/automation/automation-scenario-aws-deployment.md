@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 456a7e4f07b2416e1d2037205574f2e7149e70e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185946"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Wdrażanie maszyny wirtualnej Amazon Web Services za pomocą elementu Runbook
@@ -44,7 +44,7 @@ Po wdrożeniu modułu AWS PowerShell możesz teraz utworzyć element Runbook, ab
 > Aby uzyskać więcej opcji i informacji dotyczących tego skryptu, odwiedź [Galeria programu PowerShell](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
-1. Pobierz skrypt programu PowerShell New-AwsVM z Galeria programu PowerShell, otwierając sesję programu PowerShell i wpisując następujące polecenie:<br>
+1. Pobierz New-AwsVM skryptu programu PowerShell z Galeria programu PowerShell, otwierając sesję programu PowerShell i wpisując następujące polecenie:<br>
    ```powershell
    Save-Script -Name New-AwsVM -Path <path>
    ```
@@ -92,7 +92,7 @@ Po wdrożeniu modułu AWS PowerShell możesz teraz utworzyć element Runbook, ab
 Upewnij się, że moduł AWS PowerShell został zaimportowany do Azure Automation.  
 3. W Azure Automation Skonfiguruj **rekordy pełne dziennika** i opcjonalnie **Rejestruj rekordy postępu** w obszarze **Rejestrowanie i śledzenie** operacji elementu **Runbook.**<br><br> ![Rejestrowanie i śledzenie elementów Runbook ](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png) .  
 4. Kliknij przycisk **Start** , aby uruchomić element Runbook, a następnie kliknij przycisk **OK** po otwarciu okienka uruchamiania elementu Runbook.
-5. W okienku Uruchamianie elementu Runbook Podaj nazwę maszyny wirtualnej. Zaakceptuj wartości domyślne dla innych parametrów, które zostały wstępnie skonfigurowane w skrypcie. Kliknij przycisk **OK** , aby uruchomić zadanie elementu Runbook.<br><br> ![Uruchom nowy element Runbook AwsVM](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+5. W okienku Uruchamianie elementu Runbook Podaj nazwę maszyny wirtualnej. Zaakceptuj wartości domyślne dla innych parametrów, które zostały wstępnie skonfigurowane w skrypcie. Kliknij przycisk **OK** , aby uruchomić zadanie elementu Runbook.<br><br> ![Rozpocznij New-AwsVM elementu Runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 6. Zostanie otwarte okienko zadań dla utworzonego zadania elementu Runbook. Zamknij to okienko.
 7. Możesz wyświetlić postęp zadania i wyświetlić strumienie wyjściowe, wybierając pozycję **wszystkie dzienniki** w okienku zadania elementu Runbook.<br><br> ![Dane wyjściowe strumienia](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 8. Aby upewnić się, że maszyna wirtualna jest obsługiwana, zaloguj się do konsoli zarządzania AWS, jeśli obecnie nie jest zalogowany.<br><br> ![Wdrożona maszyna wirtualna w konsoli AWS](./media/automation-scenario-aws-deployment/aws-instances-status.png)

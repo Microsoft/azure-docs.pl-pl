@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984788"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurowanie połączenia typu punkt-lokacja przy użyciu uwierzytelniania certyfikatu (wersja klasyczna)
@@ -81,7 +81,7 @@ Przed rozpoczęciem sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie 
 
 Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją. Zamieszczone zrzuty ekranu są przykładowe. Przedstawione na nich wartości należy zastąpić własnymi. Aby utworzyć sieć wirtualną przy użyciu witryny Azure Portal, wykonaj poniższe kroki:
 
-1. W menu [Azure Portal](https://portal.azure.com) lub na stronie **głównej** wybierz pozycję **Utwórz zasób**. Zostanie otwarta strona **Nowy**.
+1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**. Zostanie otwarta strona **Nowy**.
 
 2. W polu **Wyszukaj w witrynie Marketplace** wpisz *sieć wirtualna* i wybierz pozycję **Sieć wirtualna** na liście wyników. Zostanie otwarta strona **Sieć wirtualna**.
 
@@ -93,7 +93,7 @@ Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją. Zamieszczone zrzuty ekran
 
 5. Na liście rozwijanej wybierz **subskrypcję**, której chcesz użyć.
 
-6. Wybierz istniejącą **grupę zasobów**. Możesz też utworzyć nową grupę zasobów, wybierając pozycję **Utwórz nową** i wprowadzając nazwę. Jeśli tworzysz nową grupę zasobów, nadaj jej nazwę odpowiadającą wartościom planowanej konfiguracji. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../azure-resource-manager/management/overview.md#resource-groups).
+6. Wybierz istniejącą **grupę zasobów**. Możesz też utworzyć nową grupę zasobów, wybierając pozycję **Utwórz nową** i wprowadzając nazwę. Jeśli tworzysz nową grupę zasobów, nadaj jej nazwę odpowiadającą wartościom planowanej konfiguracji. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Wybierz **lokalizację** sieci wirtualnej. To ustawienie określa lokalizację geograficzną zasobów wdrażanych w tej sieci wirtualnej.
 

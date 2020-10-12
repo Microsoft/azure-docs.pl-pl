@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214141"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
@@ -407,7 +407,7 @@ W przypadku funkcji, które tworzysz w Azure Portal z wyzwalaczem Event Grid, wy
 
 Po wybraniu tego linku w portalu zostanie otwarta strona **Tworzenie subskrypcji zdarzeń** z aktualnie zdefiniowanym punktem końcowym wyzwalacza.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Utwórz subskrypcję zdarzeń z już zdefiniowanym punktem końcowym funkcji" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Połącz nową subskrypcję zdarzeń, aby wyzwolić w portalu." :::
 
 Aby uzyskać więcej informacji o sposobach tworzenia subskrypcji przy użyciu Azure Portal, zobacz [Tworzenie niestandardowych zdarzeń Azure Portal](../event-grid/custom-event-quickstart-portal.md) w dokumentacji Event Grid.
 

@@ -12,10 +12,10 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319184"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurowanie środowiska hostowanego interfejsu użytkownika
@@ -130,7 +130,7 @@ Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**zostanie wyświetlo
 
 Po kliknięciu przycisku **Pokaż konfiguracje zaawansowane**wyświetlane są następujące konfiguracje.  
 
-|Kolumna 1  |Kolumna 2  |
+|Column1  |Kolumna2  |
 |---------|---------|
 |Symbol zastępczy tekstu pola wyszukiwania   | Tekst wyświetlany w polu wyszukiwania przed wejściem.        |
 |Adres URL linku tytułu    |Element docelowy linku tytułu.         |

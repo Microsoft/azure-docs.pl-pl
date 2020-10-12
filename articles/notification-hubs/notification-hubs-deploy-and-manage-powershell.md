@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: f000251009bda730b15458f3ab4d8b7d6ca1db6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87030304"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Wdrażanie centrów powiadomień i zarządzanie nimi przy użyciu programu PowerShell
@@ -78,7 +78,7 @@ catch [System.Exception]
 
 Aby zainicjować obsługę administracyjną Notification Hubs, Utwórz wystąpienie klasy [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) z zestawu SDK.
 
-Za pomocą polecenia cmdlet [Get-AzureSBAuthorizationRule] dołączonego do Azure PowerShell można pobrać regułę autoryzacji używaną w celu podania parametrów połączenia. Odwołanie do `NamespaceManager` wystąpienia jest przechowywane w `$NamespaceManager` zmiennej. `$NamespaceManager`służy do aprowizacji centrum powiadomień.
+Za pomocą polecenia cmdlet [Get-AzureSBAuthorizationRule] dołączonego do Azure PowerShell można pobrać regułę autoryzacji używaną w celu podania parametrów połączenia. Odwołanie do `NamespaceManager` wystąpienia jest przechowywane w `$NamespaceManager` zmiennej. `$NamespaceManager` służy do aprowizacji centrum powiadomień.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace

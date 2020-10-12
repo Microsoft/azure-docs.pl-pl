@@ -1,7 +1,7 @@
 ---
-title: 'Wykrywanie anomalii oparte na UPW: odwołanie do modułu'
+title: 'PCA-Based wykrywanie anomalii: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, w jaki sposób używać modułu wykrywania anomalii opartego na usłudze UPW do tworzenia modelu wykrywania anomalii na podstawie głównej analizy składników (PPW).
+description: Dowiedz się, jak za pomocą modułu wykrywania anomalii PCA-Based utworzyć model wykrywania anomalii oparty na głównej analizie składników (PPW).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898456"
 ---
-# <a name="pca-based-anomaly-detection-module"></a>Moduł wykrywania anomalii opartego na UPW
+# <a name="pca-based-anomaly-detection-module"></a>PCA-Based moduł wykrywania anomalii
 
-W tym artykule opisano, jak używać modułu wykrywania anomalii opartego na usłudze UPW w programie Azure Machine Learning Designer do tworzenia modelu wykrywania anomalii na podstawie głównej analizy składników (PPW).
+W tym artykule opisano sposób używania modułu wykrywania anomalii PCA-Based w programie Azure Machine Learning Designer do tworzenia modelu wykrywania anomalii na podstawie głównej analizy składników (PPW).
 
 Ten moduł ułatwia tworzenie modeli w scenariuszach, w których można łatwo uzyskać dane szkoleniowe z jednej klasy, takie jak prawidłowe transakcje, ale trudno jest uzyskać wystarczającą ilość próbek dla określonych anomalii. 
 
-Na przykład w celu wykrywania fałszywych transakcji często nie masz wystarczającej liczby przykładów oszustw do uczenia się. Może jednak istnieć wiele przykładów dobrych transakcji. Moduł wykrywania anomalii opartego na UPW rozwiązuje problem, analizując dostępne funkcje, aby określić, co stanowi Klasa "normal". Następnie moduł stosuje metryki odległości, aby identyfikować przypadki reprezentujące anomalie. Takie podejście umożliwia uczenie modelu przy użyciu istniejących niezrównoważonych danych.
+Na przykład w celu wykrywania fałszywych transakcji często nie masz wystarczającej liczby przykładów oszustw do uczenia się. Może jednak istnieć wiele przykładów dobrych transakcji. Moduł wykrywania anomalii PCA-Based rozwiązuje problem, analizując dostępne funkcje, aby określić, co stanowi Klasa "normal". Następnie moduł stosuje metryki odległości, aby identyfikować przypadki reprezentujące anomalie. Takie podejście umożliwia uczenie modelu przy użyciu istniejących niezrównoważonych danych.
 
 ## <a name="more-about-principal-component-analysis"></a>Więcej informacji o głównej analizie składników
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji o działaniu UPW oraz o implementacji wykrywania
 
 - [Znajdowanie struktury z losowością: algorytmy probabilistyczne do konstruowania przybliżonych dekompozycji macierzy](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (pobieranie plików PDF), przez Halko, Martinsson i tropp
 
-## <a name="how-to-configure-pca-based-anomaly-detection"></a>Jak skonfigurować wykrywanie anomalii oparte na UPW
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>Jak skonfigurować PCA-Based wykrywanie anomalii
 
 1. Dodaj moduł **wykrywania anomalii opartego na UPW** do potoku w projektancie. Ten moduł można znaleźć w kategorii **wykrywania anomalii** .
 
