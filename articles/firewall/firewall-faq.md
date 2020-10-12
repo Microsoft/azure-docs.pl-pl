@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
 ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88611181"
 ---
 # <a name="azure-firewall-faq"></a>Zapora platformy Azure — często zadawane pytania
@@ -62,7 +62,7 @@ Zapora aplikacji sieci Web (WAF) to funkcja Application Gateway, która zapewnia
 
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Czym różnią się sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i Zapora platformy Azure?
 
-Usługa Zapora platformy Azure uzupełnia funkcjonalność sieciowych grup zabezpieczeń. Wspólnie zapewniają lepsze zabezpieczenia sieci "Ochrona przed bardziej szczegółowymi". Sieciowe grupy zabezpieczeń zapewniają Filtrowanie ruchu warstwy sieci rozproszonej, aby ograniczyć ruch do zasobów w ramach sieci wirtualnych w ramach każdej subskrypcji. Zapora systemu Azure to w pełni stanowa, scentralizowana Zapora sieciowa jako usługa, która zapewnia ochronę na poziomie sieci i aplikacji w różnych subskrypcjach i sieciach wirtualnych.
+Usługa Zapora platformy Azure uzupełnia funkcjonalność sieciowych grup zabezpieczeń. Wspólnie zapewniają lepsze zabezpieczenia sieci "Ochrona przed bardziej szczegółowymi". Sieciowe grupy zabezpieczeń zapewniają filtrowanie ruchu warstwy sieci rozproszonej, aby ograniczyć ruch do zasobów w ramach sieci wirtualnych w każdej subskrypcji. Zapora systemu Azure to w pełni stanowa, scentralizowana Zapora sieciowa jako usługa, która zapewnia ochronę na poziomie sieci i aplikacji w różnych subskrypcjach i sieciach wirtualnych.
 
 ## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Czy sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) są obsługiwane przez AzureFirewallSubnet?
 

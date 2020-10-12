@@ -4,10 +4,10 @@ description: W tym temacie opisano schemat kodu JSON w module dla analizy filmó
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053063"
 ---
 # <a name="module-twin-json-schema"></a>Schemat JSON
@@ -25,21 +25,21 @@ Usługa Analiza filmów wideo na żywo na IoT Edge uwidacznia następujące wła
 
 |Właściwość |Wymagany |Dynamiczny |Opis |
 |---|---|---|---|
-|applicationDataDirectory |Yes |Nie |Ścieżka do zainstalowanego woluminu w celu utrwalenia konfiguracji. |
-|azureMediaServicesArmId |Yes |Nie |Unikatowy identyfikator zarządzania zasobami platformy Azure dla konta Media Services.|
-|aadTenantId |Yes |Nie |Identyfikator dzierżawy usługi Azure AD klienta.|
+|applicationDataDirectory |Tak |Nie |Ścieżka do zainstalowanego woluminu w celu utrwalenia konfiguracji. |
+|azureMediaServicesArmId |Tak |Nie |Unikatowy identyfikator zarządzania zasobami platformy Azure dla konta Media Services.|
+|aadTenantId |Tak |Nie |Identyfikator dzierżawy usługi Azure AD klienta.|
 |aadServicePrincipalAppId |Tak |Tak |Klient utworzył usługę Azure AD AppId.|
 |aadServicePrincipalCertificate |Opcję<sup>*</sup>  |Tak |Klient utworzył certyfikat AppId usługi Azure AD.|
 |aadServicePrincipalPassword |Opcję<sup>*</sup>  |Tak |Klient utworzył hasło AppId usługi Azure AD.|
-|aadEndpoint |Nie |Nie |Punkt końcowy usługi Azure AD związany z chmurą. <br/>Wartooć`https://login.microsoftonline.com` |
-|aadResourceId |Nie |Nie |Specyficzne dla chmury grupy odbiorców/zasobów usługi Azure AD <br/>Wartooć`https://management.core.windows.net/` |
-|armEndpoint |Nie |Nie |Punkt końcowy zarządzania zasobami platformy Azure związany z chmurą. <br/>Wartooć`https://management.azure.com/` |
-|diagnosticsLevel |Nie |Yes |Poziom szczegółowości zdarzeń: <br/>Informacje & # x02758; Ostrzeżenie & # x02758; Błąd & # x02758; Krytyczny & # x02758; Dawaj |
-|diagnosticsEventsOutputName |Nie |Yes |Dane wyjściowe centrum dla zdarzeń diagnostycznych. <br/>(Puste oznacza, że Diagnostyka nie jest publikowana)|
-|operationalEventsOutputName|Nie|Yes|Dane wyjściowe centrum dla zdarzeń operacyjnych.<br/>(Puste oznacza, że zdarzenia operacyjne nie są publikowane)
-|logLevel|Nie|Yes|Jeden z poniższych programów: <br/>& # x000B7; Pełne<br/>& # x000B7; Informacje (domyślne)<br/>& # x000B7; Wyświetlania<br/>& # x000B7; Porn<br/>& # x000B7; Dawaj|
-|logCategories|Nie|Yes|Rozdzielana przecinkami lista następujących elementów: Application, MediaPipeline, Events <br/>Domyślne: aplikacja, zdarzenia|
-|debugLogsDirectory|Nie|Yes|Katalog dla dzienników debugowania. Jeśli dzienniki są generowane, jeśli nie są obecne, Dzienniki debugowania są wyłączone.
+|aadEndpoint |Nie |Nie |Punkt końcowy usługi Azure AD związany z chmurą. <br/>Wartooć `https://login.microsoftonline.com` |
+|aadResourceId |Nie |Nie |Specyficzne dla chmury grupy odbiorców/zasobów usługi Azure AD <br/>Wartooć `https://management.core.windows.net/` |
+|armEndpoint |Nie |Nie |Punkt końcowy zarządzania zasobami platformy Azure związany z chmurą. <br/>Wartooć `https://management.azure.com/` |
+|diagnosticsLevel |Nie |Tak |Poziom szczegółowości zdarzeń: <br/>Informacje & # x02758; Ostrzeżenie & # x02758; Błąd & # x02758; Krytyczny & # x02758; Dawaj |
+|diagnosticsEventsOutputName |Nie |Tak |Dane wyjściowe centrum dla zdarzeń diagnostycznych. <br/>(Puste oznacza, że Diagnostyka nie jest publikowana)|
+|operationalEventsOutputName|Nie|Tak|Dane wyjściowe centrum dla zdarzeń operacyjnych.<br/>(Puste oznacza, że zdarzenia operacyjne nie są publikowane)
+|logLevel|Nie|Tak|Jeden z poniższych programów: <br/>& # x000B7; Pełne<br/>& # x000B7; Informacje (domyślne)<br/>& # x000B7; Wyświetlania<br/>& # x000B7; Porn<br/>& # x000B7; Dawaj|
+|logCategories|Nie|Tak|Rozdzielana przecinkami lista następujących elementów: Application, MediaPipeline, Events <br/>Domyślne: aplikacja, zdarzenia|
+|debugLogsDirectory|Nie|Tak|Katalog dla dzienników debugowania. Jeśli dzienniki są generowane, jeśli nie są obecne, Dzienniki debugowania są wyłączone.
 
 <sup>*</sup>MUSISZ podać certyfikat lub hasło jednostki usługi. 
 

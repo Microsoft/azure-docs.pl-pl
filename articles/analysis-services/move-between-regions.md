@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050360"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
@@ -195,7 +195,7 @@ Aby wdrożyć nowy zasób serwera w innym regionie, użyjesz **template.jsna** w
 
 3. Wybierz **Template Deployment**.
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 
@@ -278,7 +278,7 @@ Opcjonalne: po przywróceniu bazy danych modelu przetwórz model i tabele, aby o
 
 Opcjonalnie: [Alm Toolkit](http://alm-toolkit.com/) to narzędzie *Open Source* służące do porównywania i zarządzania Power BI zestawami danych *i* Analysis Servicesymi bazami kodu modelu tabelarycznego. Użyj zestawu narzędzi, aby połączyć się z bazami danych serwera źródłowego i docelowego i porównać. Jeśli migracja bazy danych zakończy się pomyślnie, obiekty modelu będą mieć tę samą definicję. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Zestaw narzędzi ALM Toolkit":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Pobieranie sygnatury dostępu współdzielonego":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513693"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Szybkie kroki: Tworzenie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure
@@ -37,7 +37,7 @@ Następujące polecenie tworzy parę kluczy SSH przy użyciu szyfrowania RSA i d
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Jeśli używasz [interfejsu wiersza polecenia platformy Azure](/cli/azure) , aby utworzyć maszynę wirtualną z poleceniem [AZ VM Create](/cli/azure/vm#az-vm-create) , możesz opcjonalnie wygenerować pliki publicznego i prywatnego klucza SSH przy użyciu `--generate-ssh-keys` opcji. Pliki kluczy są przechowywane w katalogu ~/.SSH, chyba że określono inaczej z `--ssh-dest-key-path` opcją. Jeśli para kluczy SSH już istnieje i `--generate-ssh-keys` jest używana opcja, Nowa para kluczy nie zostanie wygenerowana, ale zamiast tego zostanie użyta istniejąca para kluczy. W poniższym poleceniu Zastąp wartości *VMName* i *RGname* własnymi wartościami:
+Jeśli używasz [interfejsu wiersza polecenia platformy Azure](/cli/azure) , aby utworzyć maszynę wirtualną z poleceniem [AZ VM Create](/cli/azure/vm#az-vm-create) , możesz opcjonalnie wygenerować pliki publicznego i prywatnego klucza SSH przy użyciu `--generate-ssh-keys` opcji. Pliki kluczy są przechowywane w katalogu ~/.SSH, chyba że określono inaczej z `--ssh-dest-key-path` opcją. Jeśli para kluczy SSH już istnieje i  `--generate-ssh-keys` jest używana opcja, Nowa para kluczy nie zostanie wygenerowana, ale zamiast tego zostanie użyta istniejąca para kluczy. W poniższym poleceniu Zastąp wartości *VMName* i *RGname* własnymi wartościami:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 

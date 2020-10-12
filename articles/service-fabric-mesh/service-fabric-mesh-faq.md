@@ -5,10 +5,10 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260126"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Często zadawane pytania dotyczące Service Fabric siatki
@@ -42,7 +42,7 @@ Tak. Przydziały dla każdej subskrypcji są następujące:
 
 Obecnie ograniczono okres istnienia aplikacji na dwa dni. Jest to w celu zmaksymalizowania używania bezpłatnych rdzeni przyznanych do wersji zapoznawczej. W związku z tym można uruchamiać tylko danego wdrożenia w sposób ciągły przez 48 godzin, po upływie którego czas zostanie zamknięty.
 
-Jeśli zobaczysz ten problem, możesz sprawdzić, czy system zamknie go, uruchamiając `az mesh app show` polecenie w interfejsie wiersza polecenia platformy Azure. Sprawdź, czy funkcja zwróci wartość`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Jeśli zobaczysz ten problem, możesz sprawdzić, czy system zamknie go, uruchamiając `az mesh app show` polecenie w interfejsie wiersza polecenia platformy Azure. Sprawdź, czy funkcja zwróci wartość `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Na przykład: 
 
@@ -127,7 +127,7 @@ Inne znane problemy z usługą DNS dotyczące uruchamiania Service Fabric klastr
 
 Translator adresów sieciowych usługi servicefabric może zniknąć podczas korzystania z aplikacji na komputerze lokalnym. Aby zdiagnozować, czy ten wystąpił, uruchom następujące polecenie w wierszu polecenia:
 
-`docker network ls`i sprawdź, czy `servicefabric_nat` jest wyświetlana lista.  Jeśli nie, uruchom następujące polecenie:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls` i sprawdź, czy `servicefabric_nat` jest wyświetlana lista.  Jeśli nie, uruchom następujące polecenie: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
 Spowoduje to rozwiązanie problemu, nawet jeśli aplikacja została już wdrożona lokalnie i w złej kondycji.
 
@@ -135,7 +135,7 @@ Spowoduje to rozwiązanie problemu, nawet jeśli aplikacja została już wdrożo
 
 W przypadku wszystkich aplikacji mogą wystąpić problemy z dostępnością procesora CPU i ograniczeniami. Aby wyeliminować:
 - Utwórz klaster z pięcioma węzłami.
-- Zmniejsz użycie procesora CPU w usługach w ramach wdrożonej aplikacji. Na przykład w pliku Service. YAML usługi przejdź `cpu: 1.0` do`cpu: 0.5`
+- Zmniejsz użycie procesora CPU w usługach w ramach wdrożonej aplikacji. Na przykład w pliku Service. YAML usługi przejdź `cpu: 1.0` do `cpu: 0.5`
 
 Nie można wdrożyć wielu aplikacji w klastrze z jednym węzłem. Aby wyeliminować:
 - W przypadku wdrażania wielu aplikacji w klastrze lokalnym należy użyć pięciu węzłów klastra.

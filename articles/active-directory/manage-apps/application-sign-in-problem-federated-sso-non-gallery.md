@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e72ed9ef43fd1222592e7f88d4e3a6e998c59d2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759083"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemy z logowaniem do aplikacji spoza galerii skonfigurowanej do federacyjnego logowania jednokrotnego
@@ -38,7 +38,7 @@ Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie pon
 
 Atrybut wystawcy wysyłany z aplikacji do usługi Azure AD w żądaniu SAML nie jest zgodny z wartością identyfikatora skonfigurowaną w aplikacji Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Upewnij się, że `Issuer` atrybut w ŻĄDANIU SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
 
@@ -68,7 +68,7 @@ Upewnij się, że `Issuer` atrybut w ŻĄDANIU SAML jest zgodny z wartością id
 
 Wartość AssertionConsumerServiceURL w żądaniu SAML nie jest zgodna z wartością lub wzorcem adresu URL odpowiedzi w usłudze Azure AD. Wartość AssertionConsumerServiceURL w żądaniu SAML to adres URL wyświetlany w komunikacie o błędzie. 
 
-**Rozdzielczość** 
+**Rozwiązanie** 
 
 Upewnij się, że `Issuer` atrybut w ŻĄDANIU SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
  
@@ -100,7 +100,7 @@ Po zaktualizowaniu wartości adresu URL odpowiedzi w usłudze Azure AD, która j
 
 Użytkownikowi nie udzielono dostępu do aplikacji w usłudze Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby bezpośrednio przypisać co najmniej jednego użytkownika do aplikacji, wykonaj poniższe czynności. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
 
@@ -150,7 +150,7 @@ Usługa Azure AD nie obsługuje żądania SAML wysłanego przez aplikację na po
 
 -   Zakodowana metoda żądania SAML
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 1.  Przechwyć żądanie SAML. Postępuj zgodnie z samouczkiem dotyczącym debugowania logowania jednokrotnego opartego na protokole [SAML do aplikacji w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) , aby dowiedzieć się, jak przechwycić żądanie SAML.
 
@@ -170,7 +170,7 @@ Dostawca aplikacji powinien sprawdzić, czy obsługują one implementację proto
 
 `Issuer`Atrybut wysłany z aplikacji do usługi Azure AD w ŻĄDANIU SAML nie jest zgodny z wartością identyfikatora skonfigurowaną dla aplikacji w usłudze Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Upewnij się, że `Issuer` atrybut w ŻĄDANIU SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem my Apps Secure Browser, nie musisz wykonać następujących czynności ręcznie:
 
@@ -198,7 +198,7 @@ Błąd AADSTS50003: nie skonfigurowano klucza podpisywania.
 
 Obiekt aplikacji jest uszkodzony, a usługa Azure AD nie rozpoznaje certyfikatu skonfigurowanego dla aplikacji.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby usunąć i utworzyć nowy certyfikat, wykonaj następujące czynności:
 
@@ -234,7 +234,7 @@ Aby usunąć i utworzyć nowy certyfikat, wykonaj następujące czynności:
 
 Usługa Azure AD nie mogła zidentyfikować żądania SAML w parametrach adresu URL w żądaniu HTTP. Może się tak zdarzyć, jeśli aplikacja nie korzysta z powiązania przekierowania HTTP podczas wysyłania żądania SAML do usługi Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aplikacja musi wysłać żądanie SAML zakodowane w nagłówku lokalizacji przy użyciu powiązania przekierowywania HTTP. Aby dowiedzieć się więcej o sposobie implementacji tego rozwiązania, zapoznaj się z sekcją powiązania przekierowania HTTP w [dokumencie specyfikacji protokołu SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
@@ -246,7 +246,7 @@ W trakcie logowania jednokrotnego, jeśli żądanie logowania nie zawiera jawneg
 
 Podczas dodawania tej aplikacji jako aplikacji spoza galerii usługa Azure Active Directory utworzyła ten adres URL odpowiedzi jako wartość domyślną. To działanie zostało zmienione i usługa Azure Active Directory nie dodaje już domyślnie tego adresu URL. 
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Usuń nieużywane adresy URL odpowiedzi skonfigurowane dla aplikacji.
 

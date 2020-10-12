@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
 ms.openlocfilehash: 34e9ef3ab46f2ce11500aa87db9676635d3e9b4f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90016286"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii HB
@@ -22,7 +22,7 @@ Kilka testów wydajności zostało uruchomionych w rozmiarach z serii HB. Poniż
 | Obciążenie                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | Triad strumienia                                    | 260 GB/s (32-33 GB/s na CCX)  |
-| Linpack o wysokiej wydajności (HPL)                  | 1 000 GigaFLOPS (Rpeak), 860 GigaFLOPS (RMAX) |
+| High-Performance Linpack (HPL)                  | 1 000 GigaFLOPS (Rpeak), 860 GigaFLOPS (RMAX) |
 | Opóźnienie RDMA & przepustowość                        | 1,27 mikrosekund, 99,1 GB/s   |
 | FIO na lokalnym dysku SSD interfejsu NVMe                           | 1,7 GB/s odczyty, 1,0 GB/s zapisów      |  
 | IOR na 4 * SSD w warstwie Premium platformy Azure (P30 Managed Disks, RAID0) * *  | 725 MB/s odczyty, 780 MB/zapisy   |
@@ -46,7 +46,7 @@ Test przepustowości MPI z zestawu OSU mikrotestu jest uruchamiany. Przykładowe
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hb.png" alt-text="MPI przepustowość na platformie Azure (HB).":::
+:::image type="content" source="./media/bandwidth-hb.png" alt-text="MPI opóźnienie na platformie Azure.":::
 
 
 ## <a name="mellanox-perftest"></a>Perftest Mellanox

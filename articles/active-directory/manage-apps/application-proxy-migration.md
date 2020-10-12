@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cccabaf069a3027e615892e36e218f865a6c983a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706656"
 ---
 # <a name="compare-remote-access-solutions"></a>Porównywanie rozwiązań dostępu zdalnego
@@ -32,23 +32,23 @@ Serwer proxy aplikacji usługi Azure Active Directory jest jednym z dwóch rozwi
 
 Skorzystaj z tej tabeli, aby zrozumieć, jak Brama zarządzania zagrożeniami (TMG), Unified Access Gateway (UAG), serwer proxy aplikacji sieci Web (WAP) i usługa Azure serwer proxy aplikacji usługi Azure AD (AP) porównują się ze sobą.
 
-| Cechy | TMG | UAG | WAP | AP |
+| Cecha | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Uwierzytelnianie certyfikatu | Yes | Yes | - | - |
-| Selektywne publikowanie aplikacji przeglądarki | Yes | Yes | Yes | Yes |
-| Wstępne uwierzytelnianie i logowanie jednokrotne | Yes | Yes | Yes | Yes | 
-| Zapora warstwy 2/3 | Yes | Yes | - | - |
-| Przekazywanie możliwości serwera proxy | Yes | - | - | - |
-| Możliwości sieci VPN | Yes | Yes | - | - |
-| Obsługa zaawansowanych protokołów | - | Yes | Tak, w przypadku uruchamiania za pośrednictwem protokołu HTTP | Tak, w przypadku uruchamiania za pośrednictwem protokołu HTTP lub za pośrednictwem bramy Pulpit zdalny |
-| Służy jako serwer proxy usług ADFS | - | Yes | Yes | - |
-| Jeden portal na potrzeby dostępu do aplikacji | - | Yes | - | Yes |
-| Tłumaczenie łącza treści odpowiedzi | Yes | Yes | - | Yes | 
-| Uwierzytelnianie z nagłówkami | - | Yes | - | Tak, z PingAccess | 
-| Zabezpieczenia w skali chmury | - | - | - | Yes | 
-| Dostęp warunkowy | - | Yes | - | Yes |
-| Brak składników w strefie zdemilitaryzowana (DMZ) | - | - | - | Yes |
-| Brak połączeń przychodzących | - | - | - | Yes |
+| Uwierzytelnianie certyfikatu | Tak | Tak | - | - |
+| Selektywne publikowanie aplikacji przeglądarki | Tak | Tak | Tak | Tak |
+| Wstępne uwierzytelnianie i logowanie jednokrotne | Tak | Tak | Tak | Tak | 
+| Zapora warstwy 2/3 | Tak | Tak | - | - |
+| Przekazywanie możliwości serwera proxy | Tak | - | - | - |
+| Możliwości sieci VPN | Tak | Tak | - | - |
+| Obsługa zaawansowanych protokołów | - | Tak | Tak, w przypadku uruchamiania za pośrednictwem protokołu HTTP | Tak, w przypadku uruchamiania za pośrednictwem protokołu HTTP lub za pośrednictwem bramy Pulpit zdalny |
+| Służy jako serwer proxy usług ADFS | - | Tak | Tak | - |
+| Jeden portal na potrzeby dostępu do aplikacji | - | Tak | - | Tak |
+| Tłumaczenie łącza treści odpowiedzi | Tak | Tak | - | Tak | 
+| Uwierzytelnianie z nagłówkami | - | Tak | - | Tak, z PingAccess | 
+| Zabezpieczenia w skali chmury | - | - | - | Tak | 
+| Dostęp warunkowy | - | Tak | - | Tak |
+| Brak składników w strefie zdemilitaryzowana (DMZ) | - | - | - | Tak |
+| Brak połączeń przychodzących | - | - | - | Tak |
 
 W przypadku większości scenariuszy zalecamy korzystanie z platformy Azure serwer proxy aplikacji usługi Azure AD jako nowoczesnego rozwiązania. Serwer proxy aplikacji sieci Web jest preferowany tylko w scenariuszach, które wymagają serwera proxy dla AD FS i nie można używać domen niestandardowych w programie Azure Active Directory. 
 

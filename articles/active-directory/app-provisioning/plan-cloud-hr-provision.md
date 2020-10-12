@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706350"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
@@ -92,11 +92,11 @@ Potrzebna jest również ważna licencja subskrypcyjna na Azure AD — wersja Pr
 
 | **Zasoby** | **Link i opis** |
 |:-|:-|
-| Filmy wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure](https://youtu.be/pKzyts6kfrw) |
 | Samouczki | [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](../saas-apps/tutorial-list.md) |
 | | [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| Często zadawane pytania | [Automatyczne Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| Najczęściej zadawane pytania | [Automatyczne Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Inicjowanie obsługi z poziomu produktu Workday do usługi Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Architektura rozwiązania
@@ -255,7 +255,7 @@ Można również [dostosować domyślne mapowania atrybutów](../app-provisionin
 
 Domyślnie aplikacja łącznika aprowizacji mapuje stan profilu użytkownika usługi HR na stan konta użytkownika w Active Directory lub Azure AD w celu ustalenia, czy należy włączyć lub wyłączyć konto użytkownika.
 
-Po zainicjowaniu procesu przyłączania — wypełniania należy zebrać poniższe wymagania.
+Po zainicjowaniu procesu Joiners-Leavers należy zebrać poniższe wymagania.
 
 | Proces | Wymagania |
 | - | - |

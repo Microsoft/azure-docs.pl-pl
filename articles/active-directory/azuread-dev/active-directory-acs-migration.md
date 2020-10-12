@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706255"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Instrukcje: Migrowanie z usługi Azure Access Control Service
@@ -148,7 +148,7 @@ Każda usługa w chmurze firmy Microsoft, która akceptuje tokeny wystawiane prz
 
 Klienci programu SharePoint 2013, 2016 i SharePoint Online mogą korzystać z usługi ACS na potrzeby uwierzytelniania w środowiskach lokalnych i hybrydowych. W przypadku niektórych funkcji i zastosowań programu SharePoint wpłynie to na wycofanie usług ACS, a inne nie. Poniższa tabela zawiera podsumowanie wskazówek dotyczących migracji dla niektórych najpopularniejszych funkcji programu SharePoint, które wykorzystują usługę ACS:
 
-| Cechy | Wskazówki |
+| Cecha | Wskazówki |
 | ------- | -------- |
 | Uwierzytelnianie użytkowników z usługi Azure AD | Wcześniej usługa Azure AD nie obsługiwała tokenów SAML 1,1 wymaganych przez program SharePoint na potrzeby uwierzytelniania, a składnik ACS został użyty jako pośrednik, który udostępnił program SharePoint w formatach tokenów usługi Azure AD. Teraz możesz [połączyć program SharePoint bezpośrednio z usługą Azure AD za pomocą galerii aplikacja usługi Azure AD SharePoint w aplikacji lokalnej](../saas-apps/sharepoint-on-premises-tutorial.md). |
 | [Uwierzytelnianie aplikacji & uwierzytelnianie między serwerami w programie SharePoint lokalnie](/SharePoint/security-for-sharepoint-server/authentication-overview) | Nie ma to wpływ na wycofanie usługi ACS; nie trzeba zmieniać żadnych zmian. | 
@@ -199,7 +199,7 @@ Na wysokim poziomie *Azure Active Directory jest prawdopodobnie najlepszym wybor
 | WIF | Obsługiwane | Obsługiwane, ale są dostępne ograniczone instrukcje |
 | WS-Federation | Obsługiwane | Obsługiwane |
 | OAuth 2.0 | Obsługa wersji 3 | Obsługa specyfikacji RFC 6749, najbardziej nowoczesnej specyfikacji |
-| Usługa WS-Trust | Obsługiwane | Nieobsługiwane |
+| WS-Trust | Obsługiwane | Nieobsługiwane |
 | **Formaty tokenów** | | |
 | JWT | Obsługiwane w wersji beta | Obsługiwane |
 | ELEMENT SAML 1,1 | Obsługiwane | Wersja zapoznawcza |
@@ -214,7 +214,7 @@ Na wysokim poziomie *Azure Active Directory jest prawdopodobnie najlepszym wybor
 
 Jeśli zdecydujesz, że usługa Azure AD jest najlepszą ścieżką migracji aplikacji i usług, należy pamiętać o dwóch sposobach integracji aplikacji z usługą Azure AD.
 
-Aby skorzystać z usługi WS-Federation lub WIF do integracji z usługą Azure AD, zalecamy wykonanie podejścia opisanego w temacie [Konfigurowanie federacyjnego logowania jednokrotnego dla aplikacji spoza galerii](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Artykuł dotyczy konfigurowania usługi Azure AD na potrzeby logowania jednokrotnego opartego na protokole SAML, ale również w przypadku konfigurowania usługi WS-Federation. Poniższe podejście wymaga licencji Azure AD — wersja Premiumej. Takie podejście ma dwie zalety:
+Aby użyć WS-Federation lub WIF do integracji z usługą Azure AD, zalecamy wykonanie podejścia opisanego w temacie [Konfigurowanie federacyjnego logowania jednokrotnego dla aplikacji spoza galerii](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Artykuł dotyczy konfigurowania usługi Azure AD na potrzeby logowania jednokrotnego opartego na protokole SAML, ale również w przypadku konfigurowania usługi WS-Federation. Poniższe podejście wymaga licencji Azure AD — wersja Premiumej. Takie podejście ma dwie zalety:
 
 - Możesz uzyskać pełną elastyczność dostosowywania tokenów usługi Azure AD. Oświadczenia, które są wystawiane przez usługę Azure AD, można dostosować do oświadczeń wystawionych przez Access Control. Dotyczy to zwłaszcza identyfikatora użytkownika lub nazwy żądania. Aby nadal otrzymywać spójne identyfikatory użytkowników dla użytkowników po zmianie technologii, należy się upewnić, że identyfikatory użytkowników wystawione przez usługę Azure AD są zgodne z tymi wystawionymi przez Access Control.
 - Można skonfigurować certyfikat podpisywania tokenu, który jest specyficzny dla Twojej aplikacji, i z okresem istnienia, który kontrolujesz.
@@ -243,14 +243,14 @@ Poniższa tabela zawiera porównanie funkcji Access Control, które są istotne 
 | **Typy kont** | | |
 | Konta służbowe lub szkolne firmy Microsoft | Obsługiwane | Obsługiwane przez zasady niestandardowe  |
 | Konta z systemu Windows Server Active Directory i AD FS | Obsługiwane za pośrednictwem bezpośredniej Federacji z AD FS | Obsługiwane za pośrednictwem Federacji SAML przy użyciu zasad niestandardowych |
-| Konta z innych systemów zarządzania tożsamościami przedsiębiorstwa | Obsługiwane za pośrednictwem bezpośredniej Federacji za pośrednictwem usługi WS-Federation | Obsługiwane za pośrednictwem Federacji SAML przy użyciu zasad niestandardowych |
+| Konta z innych systemów zarządzania tożsamościami przedsiębiorstwa | Obsługiwane za pośrednictwem bezpośredniej Federacji za pośrednictwem WS-Federation | Obsługiwane za pośrednictwem Federacji SAML przy użyciu zasad niestandardowych |
 | Konta Microsoft do użytku osobistego | Obsługiwane | Obsługiwane | 
 | Konta w serwisie Facebook, Google, Yahoo | Obsługiwane | Serwis Facebook i Google obsługują natywnie usługi Yahoo obsługiwane za pośrednictwem Federacji OpenID Connect Connect przy użyciu zasad niestandardowych |
 | **Protokoły i zgodność z zestawem SDK** | | |
 | Windows Identity Foundation (WIF) | Obsługiwane | Nieobsługiwane |
 | WS-Federation | Obsługiwane | Nieobsługiwane |
 | OAuth 2.0 | Obsługa wersji 3 | Obsługa specyfikacji RFC 6749, najbardziej nowoczesnej specyfikacji |
-| Usługa WS-Trust | Obsługiwane | Nieobsługiwane |
+| WS-Trust | Obsługiwane | Nieobsługiwane |
 | **Formaty tokenów** | | |
 | JWT | Obsługiwane w wersji beta | Obsługiwane |
 | ELEMENT SAML 1,1 | Obsługiwane | Nieobsługiwane |
@@ -266,14 +266,14 @@ Poniższa tabela zawiera porównanie funkcji Access Control, które są istotne 
 Jeśli zdecydujesz, że Azure AD B2C jest najlepszą ścieżką migracji dla aplikacji i usług, Zacznij od następujących zasobów:
 
 - [Dokumentacja Azure AD B2C](../../active-directory-b2c/overview.md)
-- [Azure AD B2C zasad niestandardowych](../../active-directory-b2c/custom-policy-overview.md)
+- [Zasady niestandardowe usługi Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Cennik Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrowanie do usługi ping Identity lub rozwiązanie Auth0
 
 W niektórych przypadkach może się okazać, że usługa Azure AD i Azure AD B2C nie są wystarczające do zastępowania Access Control w aplikacjach sieci Web bez konieczności wprowadzania istotnych zmian w kodzie. Niektóre typowe przykłady mogą obejmować:
 
-- Aplikacje sieci Web, które używają usługi WIF lub WS-Federation do logowania się przy użyciu dostawców tożsamości społecznościowych, takich jak Google lub Facebook.
+- Aplikacje sieci Web, które używają WIF lub WS-Federation do logowania się przy użyciu dostawców tożsamości społecznościowych, takich jak Google lub Facebook.
 - Aplikacje sieci Web, które wykonują bezpośrednie Federacji z dostawcą tożsamości przedsiębiorstwa za pośrednictwem protokołu WS-Federation.
 - Aplikacje sieci Web, które wymagają tokenu dostępu wystawionego przez dostawcę tożsamości społecznościowej (np. Google lub Facebook) jako roszczeń w tokenach wystawionych przez Access Control.
 - Aplikacje sieci Web ze złożonymi regułami transformacji tokenów, których usługa Azure AD lub Azure AD B2C nie może odtworzyć.

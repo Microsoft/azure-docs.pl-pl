@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436301"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Przekształć dane w Azure Data Factory wersji 1
@@ -24,7 +24,7 @@ ms.locfileid: "89436301"
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Połączenia strumieniowe usługi Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Usługa Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Procedura składowana](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [Niestandardowe środowisko .NET](data-factory-use-custom-activities.md)

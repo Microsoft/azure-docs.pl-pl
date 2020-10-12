@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053045"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Poprawka protokołu Smooth Streaming Protocol (MS-SSTR) dla HEVC 
@@ -40,11 +40,11 @@ Poniższe warunki są zdefiniowane w temacie *[MS-glos]*:
 
 Następujące terminy są specyficzne dla tego dokumentu:
 
->  **czas kompozycji:** Czas, w którym jest wyświetlany przykład na kliencie, zgodnie z definicją w [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>  **czas kompozycji:** Czas, w którym jest wyświetlany przykład na kliencie, zgodnie z definicją w   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **Cenc**: Common Encryption, zgodnie z definicją w [ISO/IEC 23001-7] Second Edition.
 > 
->   **czas dekodowania:** Czas wymagany do zdekodowania przykładu na kliencie, zgodnie z definicją w [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>   **czas dekodowania:** Czas wymagany do zdekodowania przykładu na kliencie, zgodnie z definicją w   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment:** Niezależnie do pobrania jednostka **nośnika** , która składa się z jednego lub większej liczby **przykładów**.
 
@@ -54,9 +54,9 @@ Następujące terminy są specyficzne dla tego dokumentu:
 > 
 >   **Prezentacja:** Zestaw wszystkich **strumieni** i powiązanych metadanych wymaganych do odtworzenia pojedynczego filmu. **żądanie:** Komunikat HTTP wysłany z klienta do serwera, zgodnie z definicją w odpowiedzi [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **:** komunikat http wysłany z serwera do klienta, zgodnie z definicją w [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
->   **przykład:** Najmniejsza jednostka podstawowa (na przykład ramka), w której **multimedia** są przechowywane i przetwarzane.
+>   **przykład:** Najmniejsza jednostka podstawowa (na przykład ramka), w której   **multimedia** są przechowywane i przetwarzane.
 > 
->   **może być** , musi, nie może być: Te warunki (we wszystkich wersalikach) są używane zgodnie z opisem w [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) . wszystkie instrukcje dotyczące użycia funkcji OPCJONALNEj mogą być, powinny lub nie powinny być.
+>   **może być** , musi, nie może być: Te warunki (we wszystkich wersalikach) są używane zgodnie z opisem w   [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) . wszystkie instrukcje dotyczące użycia funkcji OPCJONALNEj mogą być, powinny lub nie powinny być.
 
 ## <a name="12-references"></a>1,2 odwołań
 
@@ -64,7 +64,7 @@ Następujące terminy są specyficzne dla tego dokumentu:
 
 ### <a name="121-normative-references"></a>1.2.1 odwołania do normatywnych 
 
->  [MS-SSTR] *V20140502* protokołu Smooth Streaming[https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
+>  [MS-SSTR] *V20140502* protokołu Smooth Streaming [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] Międzynarodowa Organizacja Normalizacyjna "technologia informacyjna — kodowanie obiektów dźwięk-Visual — część 12: Format pliku multimediów ISO Base", ISO/IEC 14496-12:2014, wydanie 4 i sprostowanie 1, zmiany 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -72,23 +72,23 @@ Następujące terminy są specyficzne dla tego dokumentu:
 >   [ISO/IEC 14496-15] Międzynarodowa Organizacja Normalizacyjna, "technologia informacyjna — kodowanie obiektów dźwięk-wizualizacji — część 15: przewóz wideo z strukturalną jednostką NAL w formacie pliku nośnika podstawowego ISO", ISO 14496-15:2015, wydanie 3.
 >   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 > 
->   [ISO/IEC 23008-2] Technologia informacyjna — wysoka wydajność kodowania i dostarczania multimediów w środowiskach heterogenicznych — część 2: kodowanie wideo o wysokiej wydajności: 2013 lub Najnowsza wersja<https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008-2] Technologia informacyjna — wysoka wydajność kodowania i dostarczania multimediów w środowiskach heterogenicznych — część 2: kodowanie wideo o wysokiej wydajności: 2013 lub Najnowsza wersja   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 > 
->   [ISO/IEC 23001-7] Technologia informacyjna — technologie systemu MPEG — część 7: typowe szyfrowanie w plikach ISO Base File Format Files, CENC Edition 2:2015<https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   [ISO/IEC 23001-7] Technologia informacyjna — technologie systemu MPEG — część 7: typowe szyfrowanie w plikach ISO Base File Format Files, CENC Edition 2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 > 
->   [RFC-6381] IETF RFC-6381 "" kodery-dekoder "i" Profile "dla typów nośników" datazasobnik "<https://tools.ietf.org/html/rfc6381>
+>   [RFC-6381] IETF RFC-6381 "" kodery-dekoder "i" Profile "dla typów nośników" datazasobnik " <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] Urząd rejestrowania MP4, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] Urząd rejestrowania MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   [RFC2119] Bradner, S., "kluczowe słowa do użycia w specyfikacjach RFC do wskazania poziomów wymagań", BCP 14, RFC 2119, marzec 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "kluczowe słowa do użycia w specyfikacjach RFC do wskazania poziomów wymagań", BCP 14, RFC 2119, marzec 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 informacje informacyjne 
 
 >   [MS-GLOS] Microsoft Corporation, "*Protokoły systemu Windows — Słownik główny*".
 > 
->   [RFC3548] Josefsson, S., Ed., "kodowania danych Base16, Base32 i base64", RFC 3548, 2003 lipca,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed., "kodowania danych Base16, Base32 i base64", RFC 3548, 2003 lipca, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   [RFC5234] Crocker, D., Ed., i Overell, P., "rozszerzone BNF dla specyfikacji składni: ABNF", STD 68, RFC 5234, styczeń 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., i Overell, P., "rozszerzone BNF dla specyfikacji składni: ABNF", STD 68, RFC 5234, styczeń 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1,3 — Omówienie 
@@ -211,11 +211,11 @@ Aby można było zastosować Common Encryption (CENC) do strumieni wideo lub aud
 > 
 >   **SampleCompositionTimeOffset (4 bajty):** Wartość próbki przesunięcia czasu dla każdej próbki skorygowana, tak aby czas prezentacji pierwszego prezentowanej próbki w fragmencie był równy czasowi zdekodowania pierwszego zdekodowanego przykładu. Należy użyć negatywnych przesunięć próbek wideo,
 > 
->   zgodnie z definicją w [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   zgodnie z definicją w   [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
 >   Uwaga: pozwala to uniknąć błędu synchronizacji wideo spowodowany przez wideo opóźnione audio równe największym opóźnionemu wykorzystaniu buforu obrazu, a zachowanie chronometrażu prezentacji między alternatywnymi fragmentami, które mogą mieć różne opóźnienia usuwania.
 > 
->   Składnia pól zdefiniowanych w tej sekcji określona w ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) pozostaje taka sama, z wyjątkiem następujących:
+>   Składnia pól zdefiniowanych w tej sekcji określona w ABNF   [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) pozostaje taka sama, z wyjątkiem następujących:
 > 
 >   SampleCompositionTimeOffset = SIGNED_INT32
 
@@ -240,7 +240,7 @@ Aby można było zastosować Common Encryption (CENC) do strumieni wideo lub aud
 >   **CompatibleBrands (zmienna):** Określa obsługiwane marki MPEG-4.
 >   MUSI zawierać "ccff" i "ISO8".
 > 
->   Składnia pól zdefiniowanych w tej sekcji określona w ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) jest następująca:
+>   Składnia pól zdefiniowanych w tej sekcji określona w ABNF   [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) jest następująca:
 
 ```properties
 FileType = MajorBrand MinorVersion CompatibleBrands
@@ -324,7 +324,7 @@ TimeScale = 90000
 
 ##### <a name="3113-fragment-reference-description"></a>Opis odwołania do fragmentu 3.1.1.3 
 
-###### <a name="31131-track-specific-fragment-reference-description"></a>Opis odwołania do fragmentu dotyczącego śledzenia 3.1.1.3.1 
+###### <a name="31131-track-specific-fragment-reference-description"></a>Opis odwołania do 3.1.1.3.1 Track-Specific 
 
 #### <a name="3112-fragment-description"></a>Opis fragmentu 3.1.1.2 
 
@@ -334,7 +334,7 @@ TimeScale = 90000
 
 ### <a name="313-initialization"></a>Inicjacja 3.1.3 
 
-### <a name="314-higher-layer-triggered-events"></a>3.1.4 zdarzenia wyzwolone wyższe warstwy 
+### <a name="314-higher-layer-triggered-events"></a>3.1.4 Higher-Layer zdarzenia wyzwalane 
 
 #### <a name="3141-open-presentation"></a>3.1.4.1 Otwórz prezentację 
 
@@ -391,7 +391,7 @@ Następujące pola mogą być obecne w odpowiedziach na fragmenty, gdy Common En
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób włączania tożsamości usługi zar
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534247"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
@@ -26,7 +26,7 @@ Tożsamość przypisaną przez system można włączyć dla tematu lub domeny, p
 
 ![Włącz tożsamość podczas tworzenia tematu](./media/managed-service-identity/create-topic-identity.png)
 
-### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+### <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 Możesz również użyć interfejsu wiersza polecenia platformy Azure do utworzenia tematu lub domeny z tożsamością przypisaną do systemu. Użyj `az eventgrid topic create` polecenia z `--identity` parametrem ustawionym na `systemassigned` . Jeśli nie określisz wartości tego parametru, `noidentity` zostanie użyta wartość domyślna. 
 
 ```azurecli-interactive
@@ -53,7 +53,7 @@ Poniższa procedura pokazuje, jak włączyć tożsamość zarządzaną przez sys
 
 Możesz użyć podobnych kroków, aby włączyć tożsamość dla domeny usługi Event Grid.
 
-### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+### <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 Użyj `az eventgrid topic update` polecenia z `--identity` ustawioną opcją `systemassigned` , aby włączyć tożsamość przypisaną przez system dla istniejącego tematu. Jeśli chcesz wyłączyć tożsamość, określ `noidentity` jako wartość. 
 
 ```azurecli-interactive
@@ -68,11 +68,11 @@ Po włączeniu tożsamości dla tematu lub domeny w usłudze Event Grid platform
 
 Obecnie usługa Azure Event Grid obsługuje tematy lub domeny skonfigurowane przy użyciu tożsamości zarządzanej przypisanej przez system do przesyłania zdarzeń do następujących miejsc docelowych. Ta tabela zawiera również role, w których powinna znajdować się tożsamość, aby temat mógł przesłać dalej zdarzenia.
 
-| Element docelowy | Rola platformy Azure | 
+| Element docelowy | Rola na platformie Azure | 
 | ----------- | --------- | 
 | Service Bus kolejki i tematy | [Nadawca danych Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Azure Event Hubs | [Nadawca danych Event Hubs platformy Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Współautor danych obiektu blob magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Blob Storage | [Współautor danych obiektu blob usługi Storage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Azure Queue Storage |[Nadawca komunikatu o danych kolejki magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
 ## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Dodawanie tożsamości do ról platformy Azure w miejscach docelowych
@@ -93,7 +93,7 @@ Poniższy przykład dodaje tożsamość zarządzaną dla tematu usługi Event Gr
 
 Kroki są podobne do dodawania tożsamości do innych ról wymienionych w tabeli. 
 
-### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+### <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 W przykładzie w tej sekcji pokazano, jak dodać tożsamość do roli platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Przykładowe polecenia są przeznaczone dla tematów usługi Event Grid. Polecenia dla domen usługi Event Grid są podobne. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Pobierz identyfikator podmiotu zabezpieczeń dla tożsamości systemu tematu 

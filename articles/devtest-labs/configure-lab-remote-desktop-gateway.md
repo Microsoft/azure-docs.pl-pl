@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium w Azure DevTest Labs 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288070"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurowanie laboratorium w Azure DevTest Labs, aby można było korzystać z bramy usług pulpitu zdalnego
@@ -21,9 +21,9 @@ Ta metoda jest bezpieczniejsza, ponieważ użytkownik laboratorium uwierzytelnia
 
 1. Akcja [Pobierz zawartość pliku RDP](/rest/api/dtl/virtualmachines/getrdpfilecontents) jest wywoływana po wybraniu przycisku **Połącz** . 1. 
 1. Akcja Pobierz zawartość pliku RDP wywołuje `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` żądanie tokenu uwierzytelniania.
-    1. `{gateway-hostname}`jest nazwą hosta bramy określoną na stronie **ustawień laboratorium** dla laboratorium w Azure Portal. 
-    1. `{lab-machine-name}`to nazwa komputera, na którym próbujesz nawiązać połączenie.
-    1. `{port-number}`to port, na którym należy nawiązać połączenie. Zazwyczaj ten port to 3389. Jeśli maszyna wirtualna laboratorium używa [udostępnionej funkcji IP](devtest-lab-shared-ip.md) w DevTest Labs, port będzie się różnić.
+    1. `{gateway-hostname}` jest nazwą hosta bramy określoną na stronie **ustawień laboratorium** dla laboratorium w Azure Portal. 
+    1. `{lab-machine-name}` to nazwa komputera, na którym próbujesz nawiązać połączenie.
+    1. `{port-number}` to port, na którym należy nawiązać połączenie. Zazwyczaj ten port to 3389. Jeśli maszyna wirtualna laboratorium używa [udostępnionej funkcji IP](devtest-lab-shared-ip.md) w DevTest Labs, port będzie się różnić.
 1. Brama usług pulpitu zdalnego odkłada wywołania z `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` usługi Azure Function w celu wygenerowania tokenu uwierzytelniania. Usługa DevTest Labs automatycznie uwzględnia klucz funkcji w nagłówku żądania. Klucz funkcji należy zapisać w magazynie kluczy laboratorium. Nazwa wpisu tajnego, który ma być pokazywany jako **wpis tajny tokenu bramy** na stronie **ustawień laboratorium** dla laboratorium.
 1. Funkcja platformy Azure powinna zwrócić token uwierzytelniania tokenów opartych na certyfikatach na maszynę bramy.  
 1. Akcja Pobierz zawartość pliku RDP zwraca pełny plik RDP, w tym informacje o uwierzytelnianiu.

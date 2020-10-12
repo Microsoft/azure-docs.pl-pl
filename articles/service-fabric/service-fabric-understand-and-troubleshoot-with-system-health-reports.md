@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260180"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
@@ -139,7 +139,7 @@ System. host zgłasza ostrzeżenie, jeśli zdefiniowane pojemności węzłów w 
 ## <a name="application-system-health-reports"></a>Raporty kondycji systemu aplikacji
 System.CM, który reprezentuje usługę Menedżera klastra, jest urzędem zarządzającym informacjami o aplikacji.
 
-### <a name="state"></a>Stan
+### <a name="state"></a>State
 System.CM raporty jako poprawne po utworzeniu lub zaktualizowaniu aplikacji. Informuje magazyn kondycji o usunięciu aplikacji, dzięki czemu można go usunąć ze sklepu.
 
 * **SourceId**: System.cm
@@ -172,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Raporty kondycji systemu usługi
 System.FM, który reprezentuje usługę Menedżer trybu failover, jest urzędem zarządzającym informacjami o usługach.
 
-### <a name="state"></a>Stan
+### <a name="state"></a>State
 System.FM raporty jako poprawne, gdy usługa została utworzona. Usuwa jednostkę z magazynu kondycji, gdy usługa zostanie usunięta.
 
 * **SourceId**: System.fm
@@ -214,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Partycjonowanie raportów kondycji systemu
 System.FM, który reprezentuje usługę Menedżer trybu failover, jest urzędem zarządzającym informacjami o partycjach usługi.
 
-### <a name="state"></a>Stan
+### <a name="state"></a>State
 System.FM raporty jako poprawne, gdy partycja została utworzona i jest w dobrej kondycji. Usuwa jednostkę z magazynu kondycji, gdy partycja zostanie usunięta.
 
 Jeśli partycja jest mniejsza niż minimalna liczba replik, zgłosi błąd. Jeśli partycja nie jest mniejsza niż minimalna liczba replik, ale znajduje się poniżej docelowej liczby replik, zgłosi ostrzeżenie. Jeśli partycja jest w utracie kworum, System.FM zgłasza błąd.
@@ -391,7 +391,7 @@ W przypadku, podobnie jak w przypadku przykładu, należy wykonać dalsze badani
 ## <a name="replica-system-health-reports"></a>Raporty kondycji systemu repliki
 **System. RA**, który reprezentuje składnik Agent rekonfiguracji, jest urzędem dla stanu repliki.
 
-### <a name="state"></a>Stan
+### <a name="state"></a>State
 Raporty system. RA są prawidłowe, gdy replika została utworzona.
 
 * **SourceId**: System. RA
@@ -773,7 +773,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Pobieranie
+### <a name="download"></a>Pobierz
 System. host zgłasza błąd, jeśli pobieranie pakietu aplikacji nie powiedzie się.
 
 * **SourceId**: System. hosting
@@ -851,7 +851,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Pobieranie
+### <a name="download"></a>Pobierz
 System. host zgłasza błąd, jeśli pobranie pakietu usługi nie powiedzie się.
 
 * **SourceId**: System. hosting

@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050446"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Zarządzanie usługami Azure Analysis Services przy użyciu programu PowerShell
@@ -37,7 +37,7 @@ Dokumentacja- [AZ. AnalysisServices Reference](/powershell/module/az.analysisser
 
 Operacje bazy danych Azure Analysis Services używają tego samego modułu SqlServer co SQL Server Analysis Services. Nie wszystkie polecenia cmdlet są jednak obsługiwane dla Azure Analysis Services. 
 
-Moduł SqlServer udostępnia specyficzne dla zadania polecenia cmdlet zarządzania bazami danych, a także polecenie cmdlet Invoke-ASCmd z parametrem ogólnego przeznaczenia, które akceptuje zapytanie lub skrypt języka skryptów tabelarycznych (TMSL). Następujące polecenia cmdlet w module SqlServer są obsługiwane dla Azure Analysis Services.
+Moduł SqlServer udostępnia specyficzne dla zadania polecenia cmdlet zarządzania bazami danych, a także polecenie cmdlet Invoke-ASCmd ogólnego przeznaczenia, które akceptuje zapytanie lub skrypt języka skryptów tabelarycznych (TMSL). Następujące polecenia cmdlet w module SqlServer są obsługiwane dla Azure Analysis Services.
 
 Moduł instalacji — [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
 Dokumentacja — [odwołanie do SqlServer](/powershell/module/sqlserver)
@@ -47,7 +47,7 @@ Dokumentacja — [odwołanie do SqlServer](/powershell/module/sqlserver)
 |Polecenie cmdlet|Opis|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Dodaj członka do roli bazy danych.| 
-|[Kopia zapasowa — ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Utwórz kopię zapasową bazy danych Analysis Services.|  
+|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Utwórz kopię zapasową bazy danych Analysis Services.|  
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Usuń członka z roli bazy danych.|   
 |[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Wykonaj skrypt TMSL.|
 |[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Przetwarzaj bazę danych.|  

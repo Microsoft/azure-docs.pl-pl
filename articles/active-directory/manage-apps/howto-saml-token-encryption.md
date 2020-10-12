@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 779d1b73f45f9be5b4bd00d546987b7c1e0b6a43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763350"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Instrukcje: Konfigurowanie szyfrowania tokenów SAML usługi Azure AD
@@ -55,7 +55,7 @@ Aby skonfigurować szyfrowanie tokenu SAML, wykonaj następujące kroki:
 
 Możesz dodać publiczny certyfikat do konfiguracji aplikacji w ramach Azure Portal.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 
 1. Przejdź do bloku **Azure Active Directory > aplikacje przedsiębiorstwa** , a następnie wybierz aplikację, dla której chcesz skonfigurować szyfrowanie tokenu.
 

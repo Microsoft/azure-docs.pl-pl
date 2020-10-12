@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cf080f2a6173651fce8f306619dba60347067e0e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085616"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurowanie replikacji klastra Apache HBase w usłudze Azure Virtual Networks
@@ -104,7 +104,7 @@ W ostatniej sekcji szablon tworzy maszynę wirtualną Ubuntu w każdej z dwóch 
 
 Aby zainstalować powiązanie, Yon musi znaleźć publiczny adres IP dwóch maszyn wirtualnych DNS.
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 2. Otwórz maszynę wirtualną DNS, wybierając pozycję **grupy zasobów > [nazwa grupy zasobów] > [vnet1DNS]**.  Nazwa grupy zasobów jest tworzona w ostatniej procedurze. Domyślne nazwy maszyn wirtualnych DNS to *vnet1DNS* i *vnet2NDS*.
 3. Wybierz pozycję **Właściwości** , aby otworzyć stronę właściwości sieci wirtualnej.
 4. Zapisz **publiczny adres IP**, a także Zweryfikuj **prywatny adres IP**.  Prywatny adres IP powinien być **10.1.0.4** dla vnet1DNS i **10.2.0.4** dla vnet2DNS.  
@@ -305,7 +305,7 @@ Poniższe kroki opisują sposób wywoływania skryptu akcji skryptu z Azure Port
       >
       > W tym instruktażu przyjęto założenie hn1 jako aktywnego węzła głównego. Sprawdź, czy klaster ma identyfikować aktywny węzeł główny.
 
-6. Wybierz pozycję **Utwórz**. Wykonanie skryptu może zająć trochę czasu, szczególnie w przypadku użycia argumentu **-CopyData** .
+6. Wybierz przycisk **Utwórz**. Wykonanie skryptu może zająć trochę czasu, szczególnie w przypadku użycia argumentu **-CopyData** .
 
 Wymagane argumenty:
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395774"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Omówienie zarządzania i monitorowania zabezpieczeń platformy Azure
@@ -27,12 +27,12 @@ Ten artykuł zawiera omówienie funkcji zabezpieczeń i usług oferowanych przez
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Access Control oparte na rolach (RBAC) zapewnia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Za pomocą RBAC, można przyznać użytkownikom tylko dostęp do ich zadań. Kontrola RBAC może również pomóc w zapewnieniu, że osoby, które opuściją organizację, utracą dostęp do zasobów w chmurze.
+Role-Based Access Control (RBAC) zapewnia szczegółowe zarządzanie dostępem do zasobów platformy Azure. Za pomocą RBAC, można przyznać użytkownikom tylko dostęp do ich zadań. Kontrola RBAC może również pomóc w zapewnieniu, że osoby, które opuściją organizację, utracą dostęp do zasobów w chmurze.
 
 Więcej informacji:
 
 * [Blog zespołu Active Directory w sprawie RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Kontrola dostępu oparta na rolach (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Oprogramowanie chroniące przed złośliwym kodem
 

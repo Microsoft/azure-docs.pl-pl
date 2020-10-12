@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2ec0bf460a73f95e18e2e9221e8cbd8d4e14ff77
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086215"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Tworzenie Apache Spark zadań przesyłania strumieniowego o wysokiej dostępności przy użyciu PRZĘDZy
@@ -21,7 +21,7 @@ ms.locfileid: "86086215"
 
 Usługa Spark Streaming tworzy długotrwałe zadania, w których można zastosować przekształcenia do danych, a następnie wypchnąć wyniki do systemów plików, baz danych, pulpitów nawigacyjnych i konsoli programu. Procesy przesyłania strumieniowego Spark przetwarzają mikropartie danych, tworząc najpierw partię zdarzeń w określonym przedziale czasu. Następnie ta partia jest wysyłana na potrzeby przetwarzania i wygenerowania danych wyjściowych. Przedziały czasu partii są zwykle zdefiniowane w częściach sekundy.
 
-![Przesyłanie strumieniowe Spark](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -123,4 +123,4 @@ Aby podsumować przy użyciu punktów kontrolnych + WAL i niezawodnych odbiorcó
 * [Twórz Apache Spark zadania przesyłania strumieniowego za pomocą dokładnie jednokrotnego przetwarzania zdarzeń](apache-spark-streaming-exactly-once.md)
 * [Długotrwałe wykonywanie zadań przesyłania strumieniowego Apache Spark na PRZĘDZe](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/)
 * [Przesyłanie strumieniowe strukturalne: semantyka odporna na uszkodzenia](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Zdyskretyzowanej strumienie: model odporny na uszkodzenia dla skalowalnego przetwarzania strumieniowego](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Zdyskretyzowanej strumienie: model Fault-Tolerant na potrzeby skalowalnego przetwarzania strumieniowego](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

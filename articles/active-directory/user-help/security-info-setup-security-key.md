@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797670"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Skonfiguruj klucz zabezpieczeń jako metodę weryfikacji
@@ -49,7 +49,7 @@ Administrator lub Twoja organizacja dostarczy klucz zabezpieczeń, jeśli będzi
 > [!Note]
 > Jeśli nie możesz użyć klucza zabezpieczeń FIDO2, istnieją inne metody weryfikacji bezhasła, których można użyć, takich jak aplikacja Microsoft Authenticator lub funkcja Windows Hello. Aby uzyskać więcej informacji na temat aplikacji Microsoft Authenticator, zobacz [co to jest aplikacja Microsoft Authenticator?](user-help-auth-app-overview.md). Aby uzyskać więcej informacji na temat usługi Windows Hello, zobacz [Omówienie funkcji Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby można było zarejestrować klucz zabezpieczeń, należy wykonać następujące czynności:
 
@@ -92,7 +92,7 @@ Przed zalogowaniem się do konta służbowego przy użyciu klucza należy utworz
 
     Powrócisz do **Ustawienia nowej metody logowania** .
 
-7. Wybierz pozycję **Dalej**.
+7. Wybierz opcję **Dalej**.
 
 8. Wróć do strony **informacje zabezpieczające** wpisz nazwę rozpoznawaną później dla nowego klucza zabezpieczeń, a następnie wybierz przycisk **dalej**.
 

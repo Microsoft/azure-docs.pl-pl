@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330319"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Znane problemy/ograniczenia migracji z migracją online z PostgreSQL do usługi Azure DB dla PostgreSQL
@@ -44,7 +44,7 @@ Znane problemy i ograniczenia związane z migracją online z PostgreSQL do Azure
 
 - Użytkownik musi mieć rolę replikacji na serwerze hostującym źródłową bazę danych.
 - Źródłowe i docelowe schematy bazy danych muszą być zgodne.
-- Schemat w docelowym Azure Database for PostgreSQL-pojedynczy serwer nie może mieć kluczy obcych. Użyj następującego zapytania, aby porzucić klucze obce:
+- Schemat w docelowym serwerze usługi Azure Database for PostgreSQL-Single nie może mieć kluczy obcych. Użyj następującego zapytania, aby porzucić klucze obce:
 
     ```
                                 SELECT Queries.tablename
@@ -75,7 +75,7 @@ Znane problemy i ograniczenia związane z migracją online z PostgreSQL do Azure
 
     Uruchom docelowy klucz obcy (znajduje się w drugiej kolumnie) w wyniku zapytania.
 
-- Schemat w Azure Database for PostgreSQL docelowym — pojedynczy serwer nie może mieć żadnych wyzwalaczy. Aby wyłączyć Wyzwalacze w docelowej bazie danych, wykonaj następujące czynności:
+- Schemat w docelowym serwerze usługi Azure Database for PostgreSQL-Single nie może mieć żadnych wyzwalaczy. Aby wyłączyć Wyzwalacze w docelowej bazie danych, wykonaj następujące czynności:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

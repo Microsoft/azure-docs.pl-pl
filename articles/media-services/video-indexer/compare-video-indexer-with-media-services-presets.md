@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: juliako
 ms.openlocfilehash: 0961aa3e573e511a6941bc59ddc335f64799abb4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047333"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Porównanie ustawień wstępnych Azure Media Services v3 i Video Indexer 
@@ -29,7 +29,7 @@ Obecnie istnieje nakładanie się między funkcjami oferowanymi przez [interfejs
 
 ## <a name="compare"></a>Porównaj
 
-|Cechy|Interfejsy API Video Indexer |Analizator wideo i ustawienia wstępne analizatora dźwięku<br/>w interfejsach API Media Services v3|
+|Cecha|Interfejsy API Video Indexer |Analizator wideo i ustawienia wstępne analizatora dźwięku<br/>w interfejsach API Media Services v3|
 |---|---|---|
 |Szczegółowe informacje o multimediach|[Rozszerzone](video-indexer-output-json-v2.md) |[Podstawy](../latest/analyzing-video-audio-files-concept.md)|
 |Możliwości|Zapoznaj się z pełną listą obsługiwanych funkcji: <br/> [Omówienie](video-indexer-overview.md)|Zwraca tylko wgląd w dane wideo|

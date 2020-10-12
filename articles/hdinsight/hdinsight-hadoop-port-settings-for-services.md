@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085280"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Porty używane przez usługi Apache Hadoop w usłudze HDInsight
@@ -41,7 +41,7 @@ Wszystkie węzły w klastrze usługi HDInsight znajdują się w Virtual Network 
 | SSHD |23 |Protokół SSH |Łączy klientów z usługą SSHD na pomocniczym węzła głównego. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interfejs użytkownika sieci Web Ambari. Zobacz [Zarządzanie usługą HDInsight za pomocą interfejsu użytkownika sieci Web Apache Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Interfejs API REST usługi Ambari. Zobacz [Zarządzanie usługą HDInsight przy użyciu interfejsu API REST usługi Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |Interfejs API REST usługi HCatalog. Zobacz [Używanie MapReduce z zwinięciem](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |Interfejs API REST usługi HCatalog. Zobacz  [Używanie MapReduce z zwinięciem](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | Serwera hiveserver2 |443 |ODBC |Nawiązuje połączenie z programem Hive przy użyciu ODBC. Zobacz [łączenie programu Excel z usługą HDInsight za pomocą sterownika ODBC firmy Microsoft](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | Serwera hiveserver2 |443 |JDBC |Nawiązuje połączenie z usługą ApacheHive przy użyciu JDBC. Zobacz [nawiązywanie połączenia Apache Hive w usłudze HDInsight przy użyciu sterownika Hive JDBC](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -55,7 +55,7 @@ Dla określonych typów klastrów dostępne są następujące elementy:
 | Storm |443 |HTTPS |Storm |Interfejs użytkownika sieci Web burzy. Zobacz [wdrażanie topologii Apache Storm w usłudze HDInsight i zarządzanie nimi](storm/apache-storm-deploy-monitor-topology-linux.md) |
 | Serwer proxy REST Kafka |443 |HTTPS |Kafka |Interfejs API REST usługi Kafka. Zobacz [posługiwanie się klastrami Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST](kafka/rest-proxy.md) |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Wszystkie usługi publicznie uwidocznione w Internecie muszą zostać uwierzytelnione:
 
@@ -81,7 +81,7 @@ Wszystkie usługi publicznie uwidocznione w Internecie muszą zostać uwierzytel
 
 Przykłady:
 
-* Interfejs API REST usługi Ambari:`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
+* Interfejs API REST usługi Ambari: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Porty HDFS
 

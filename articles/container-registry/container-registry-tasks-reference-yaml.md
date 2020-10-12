@@ -4,10 +4,10 @@ description: Dokumentacja dotycząca definiowania zadań w YAML dla zadań ACR, 
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067587"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Informacje o zadaniach ACR: YAML
@@ -75,11 +75,11 @@ az configure --defaults acr=myregistry
 
 Właściwości zadania zwykle pojawiają się u góry `acr-task.yaml` pliku i są właściwościami globalnymi, które są stosowane w całym wykonaniu kroków zadania. Niektóre z tych właściwości globalnych można przesłonić w ramach pojedynczego kroku.
 
-| Właściwość | Typ | Opcjonalne | Opis | Przesłonięcie obsługiwane | Wartość domyślna |
+| Właściwość | Type | Opcjonalne | Opis | Przesłonięcie obsługiwane | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | ciąg | Tak | Wersja `acr-task.yaml` pliku, przeanalizowana przez usługę zadań ACR. Chociaż zadania ACR dążą do zachowania zgodności z poprzednimi wersjami, ta wartość umożliwia ACR zadań w celu zachowania zgodności w ramach zdefiniowanej wersji. Jeśli nie zostanie określony, wartość domyślna to Najnowsza wersja. | Nie | Brak |
 | `stepTimeout` | int (sekundy) | Tak | Maksymalna liczba sekund, przez jaką krok może zostać uruchomiony. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `timeout` Właściwość wszystkich kroków. Jeśli `timeout` Właściwość jest określona w kroku, zastępuje właściwość dostarczoną przez zadanie. | Tak | 600 (10 minut) |
-| `workingDirectory` | ciąg | Tak | Katalog roboczy kontenera w czasie wykonywania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `workingDirectory` Właściwość wszystkich kroków. Jeśli określono w kroku, zastępuje on Właściwość dostarczoną przez zadanie. | Tak | `c:\workspace`w systemie Windows lub `/workspace` Linux |
+| `workingDirectory` | ciąg | Tak | Katalog roboczy kontenera w czasie wykonywania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `workingDirectory` Właściwość wszystkich kroków. Jeśli określono w kroku, zastępuje on Właściwość dostarczoną przez zadanie. | Tak | `c:\workspace` w systemie Windows lub `/workspace` Linux |
 | `env` | [ciąg, String,...] | Tak |  Tablica ciągów w `key=value` formacie, która definiuje zmienne środowiskowe dla zadania. Jeśli właściwość jest określona w zadaniu, ustawia domyślną `env` Właściwość wszystkich kroków. Jeśli jest określony w kroku, zastępuje wszystkie zmienne środowiskowe dziedziczone z zadania. | Tak | Brak |
 | `secrets` | [Secret, Secret,...] | Tak | Tablica obiektów [tajnych](#secret) . | Nie | Brak |
 | `networks` | [Sieć, Sieć,...] | Tak | Tablica obiektów [sieciowych](#network) . | Nie | Brak |
@@ -89,7 +89,7 @@ Właściwości zadania zwykle pojawiają się u góry `acr-task.yaml` pliku i s�
 
 Obiekt tajny ma następujące właściwości.
 
-| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | ciąg | Nie | Identyfikator wpisu tajnego. | Brak |
 | `keyvault` | ciąg | Tak | Azure Key Vault tajny adres URL. | Brak |
@@ -99,7 +99,7 @@ Obiekt tajny ma następujące właściwości.
 
 Obiekt sieciowy ma następujące właściwości.
 
-| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | ciąg | Nie | Nazwa sieci. | Brak |
 | `driver` | ciąg | Tak | Sterownik do zarządzania siecią. | Brak |
@@ -111,7 +111,7 @@ Obiekt sieciowy ma następujące właściwości.
 
 Obiekt woluminu ma następujące właściwości.
 
-| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | ciąg | Nie | Nazwa woluminu do zainstalowania. Może zawierać tylko znaki alfanumeryczne, "-" i "_". | Brak |
 | `secret` | ciąg [ciąg] mapy | Nie | Każdy klucz mapy jest nazwą pliku, który został utworzony i wypełniony w woluminie. Każda wartość to ciąg wersji klucza tajnego. Wartości tajne muszą być zakodowane w formacie base64. | Brak |
@@ -143,8 +143,8 @@ steps:
 
 | Parametr | Opis | Opcjonalne |
 | --------- | ----------- | :-------: |
-| `-t`&#124;`--image` | Definiuje w pełni kwalifikowana `image:tag` dla skompilowanego obrazu.<br /><br />Ponieważ obrazy mogą być używane do sprawdzania poprawności zadań wewnętrznych, takich jak testy funkcjonalne, nie wszystkie obrazy wymagają `push` do rejestru. Jednak w celu wystąpienia obrazu w ramach wykonywania zadania obraz musi mieć nazwę do odwołania.<br /><br />W przeciwieństwie do `az acr build` , uruchamianie zadań ACR nie zapewnia domyślnego zachowania wypychania. W przypadku zadań ACR w scenariuszu domyślnym założono możliwość kompilowania, weryfikowania i wypychania obrazu. Zobacz [wypychanie](#push) , aby dowiedzieć się, jak opcjonalnie wypchnąć skompilowane obrazy. | Tak |
-| `-f`&#124;`--file` | Określa pliku dockerfile przekazaną do `docker build` . Jeśli nie zostanie określony, przyjmuje się domyślny pliku dockerfile w katalogu głównym kontekstu. Aby określić pliku dockerfile, przekaż nazwę pliku względem katalogu głównego kontekstu. | Tak |
+| `-t` &#124; `--image` | Definiuje w pełni kwalifikowana `image:tag` dla skompilowanego obrazu.<br /><br />Ponieważ obrazy mogą być używane do sprawdzania poprawności zadań wewnętrznych, takich jak testy funkcjonalne, nie wszystkie obrazy wymagają `push` do rejestru. Jednak w celu wystąpienia obrazu w ramach wykonywania zadania obraz musi mieć nazwę do odwołania.<br /><br />W przeciwieństwie do `az acr build` , uruchamianie zadań ACR nie zapewnia domyślnego zachowania wypychania. W przypadku zadań ACR w scenariuszu domyślnym założono możliwość kompilowania, weryfikowania i wypychania obrazu. Zobacz [wypychanie](#push) , aby dowiedzieć się, jak opcjonalnie wypchnąć skompilowane obrazy. | Tak |
+| `-f` &#124; `--file` | Określa pliku dockerfile przekazaną do `docker build` . Jeśli nie zostanie określony, przyjmuje się domyślny pliku dockerfile w katalogu głównym kontekstu. Aby określić pliku dockerfile, przekaż nazwę pliku względem katalogu głównego kontekstu. | Tak |
 | `context` | Katalog główny przeszedł do `docker build` . Katalog główny każdego zadania jest ustawiony na [WorkingDirectory](#task-step-properties)udostępnione i zawiera katalog główny skojarzonego sklonowanego katalogu Git. | Nie |
 
 ### <a name="properties-build"></a>Właściwości: kompilacja
@@ -381,7 +381,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 Każdy typ kroku obsługuje kilka właściwości, które są odpowiednie dla tego typu. W poniższej tabeli zdefiniowano wszystkie dostępne właściwości kroku. Nie wszystkie typy kroków obsługują wszystkie właściwości. Aby zobaczyć, które z tych właściwości są dostępne dla każdego typu kroku, zapoznaj się z sekcjami odwołania dla kroków [cmd](#cmd), [Build](#build)i [push](#push) .
 
-| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Tak | Określa, czy kontener ma zostać odłączony podczas uruchamiania. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Tak | Określa, czy należy wyłączyć `workingDirectory` funkcję przesłonięcia. Użyj tej usługi w połączeniu z programem, `workingDirectory` Aby mieć pełną kontrolę nad katalogiem roboczym kontenera. | `false` |
@@ -404,13 +404,13 @@ Każdy typ kroku obsługuje kilka właściwości, które są odpowiednie dla teg
 | `timeout` | int (sekundy) | Tak | Maksymalna liczba sekund, przez jaką krok może zostać wykonany przed zakończeniem. | 600 |
 | [`when`](#example-when) | [ciąg, String,...] | Tak | Konfiguruje zależność kroku od jednego lub kilku innych kroków w ramach zadania. | Brak |
 | `user` | ciąg | Tak | Nazwa użytkownika lub identyfikator UID kontenera | Brak |
-| `workingDirectory` | ciąg | Tak | Ustawia katalog roboczy dla kroku. Domyślnie zadania ACR tworzą katalog główny jako katalog roboczy. Jeśli jednak kompilacja zawiera kilka kroków, wcześniejsze kroki mogą współużytkować artefakty z późniejszymi krokami, określając ten sam katalog roboczy. | `c:\workspace`w systemie Windows lub `/workspace` Linux |
+| `workingDirectory` | ciąg | Tak | Ustawia katalog roboczy dla kroku. Domyślnie zadania ACR tworzą katalog główny jako katalog roboczy. Jeśli jednak kompilacja zawiera kilka kroków, wcześniejsze kroki mogą współużytkować artefakty z późniejszymi krokami, określając ten sam katalog roboczy. | `c:\workspace` w systemie Windows lub `/workspace` Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
 Obiekt volumeMount ma następujące właściwości.
 
-| Właściwość | Typ | Opcjonalne | Opis | Wartość domyślna |
+| Właściwość | Type | Opcjonalne | Opis | Wartość domyślna |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | ciąg | Nie | Nazwa woluminu do zainstalowania. Musi być dokładnie zgodna z nazwą z `volumes` właściwości. | Brak |
 | `mountPath`   | ciąg | nie | Ścieżka bezwzględna do instalowania plików w kontenerze.  | Brak |
@@ -432,8 +432,8 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 `when`Właściwość określa zależność kroku od innych kroków w ramach zadania. Obsługuje dwie wartości parametrów:
 
-* `when: ["-"]`-Wskazuje, że nie ma zależności od innych kroków. Krok określający `when: ["-"]` , że rozpocznie wykonywanie wykonywania natychmiast, i włącza współbieżne wykonywanie kroków.
-* `when: ["id1", "id2"]`-Wskazuje, że krok zależy od kroków z `id` "ID1" i `id` "ID2". Ten krok nie zostanie wykonany do czasu zakończenia obu kroków "ID1" i "ID2".
+* `when: ["-"]` -Wskazuje, że nie ma zależności od innych kroków. Krok określający `when: ["-"]` , że rozpocznie wykonywanie wykonywania natychmiast, i włącza współbieżne wykonywanie kroków.
+* `when: ["id1", "id2"]` -Wskazuje, że krok zależy od kroków z `id` "ID1" i `id` "ID2". Ten krok nie zostanie wykonany do czasu zakończenia obu kroków "ID1" i "ID2".
 
 Jeśli `when` nie jest określony w kroku, ten krok zależy od ukończenia poprzedniego kroku w `acr-task.yaml` pliku.
 
@@ -576,7 +576,7 @@ steps:
 
 Każdy z następujących aliasów wskazuje stabilny obraz w programie Microsoft Container Registry (MCR). Można odwołać się do każdego z nich w `cmd` sekcji pliku zadania bez używania dyrektywy.
 
-| Alias | Image (Obraz) |
+| Alias | Obraz |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |

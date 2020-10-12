@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079296"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Użyj rozszerzonych funkcji serwera historii Apache Spark, aby debugować i diagnozować aplikacje Spark
@@ -26,7 +26,7 @@ Serwer historii platformy Spark jest interfejsem użytkownika sieci Web dla uko�
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Otwórz interfejs użytkownika sieci Web serwera historii platformy Spark z poziomu Azure Portal
 
 1. W [Azure Portal](https://portal.azure.com/)Otwórz klaster Spark. Aby uzyskać więcej informacji, zobacz Wyświetlanie [i wyświetlanie klastrów](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. W obszarze **pulpity nawigacyjne klastra**wybierz pozycję **serwer historii platformy Spark**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra Spark.
+2. W obszarze **pulpity nawigacyjne klastra**wybierz pozycję  **serwer historii platformy Spark**. Po wyświetleniu monitu wprowadź poświadczenia administratora dla klastra Spark.
 
     ![Uruchom serwer historii platformy Spark z poziomu Azure Portal.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Serwer historii platformy Spark")
 
@@ -99,11 +99,11 @@ Wybierz identyfikator zadania, a następnie wybierz pozycję **dane** w menu Nar
 
     |Kolor |Opis |
     |---|---|
-    |Green|Zadanie zostało ukończone pomyślnie.|
+    |Green (Zielony)|Zadanie zostało ukończone pomyślnie.|
     |Orange|Zadanie nie powiodło się, ale nie ma wpływu na końcowy wynik zadania. Te zadania mają zduplikowane lub ponawiane wystąpienia, które mogą się powieść później.|
-    |Niebieski|Zadanie jest uruchomione.|
+    |Blue (Niebieski)|Zadanie jest uruchomione.|
     |Biały|Zadanie oczekuje na uruchomienie lub etap został pominięty.|
-    |Red|Zadanie nie powiodło się.|
+    |Red (Czerwony)|Zadanie nie powiodło się.|
 
      ![Uruchamianie zadania na stronie grafu zadania & aplikacji platformy Spark.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
@@ -130,7 +130,7 @@ Wybierz identyfikator zadania, a następnie wybierz pozycję **dane** w menu Nar
     ![Ikona zadania skośnego na stronie grafu zadania & aplikacji platformy Spark.](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + W węźle grafu zadania zostaną wyświetlone następujące informacje dotyczące poszczególnych etapów:
-  + ID
+  + ID (Identyfikator)
   + Nazwa lub opis
   + Łączny numer zadania
   + Odczytane dane: suma rozmiaru danych wejściowych i rozmiaru losowego odczytu
@@ -201,7 +201,7 @@ Wybierz ikonę koloru, aby wybrać lub usunąć zaznaczenie odpowiedniej zawarto
 
  ![Wybierz wykres na karcie Analiza użycia programu wykonującego.](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 ### <a name="how-do-i-revert-to-the-community-version"></a>Jak mogę powrócić do wersji społecznościowej?
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085552"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Uruchamianie zapytań Apache Hive z Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
@@ -33,7 +33,7 @@ Dowiedz się, jak używać interfejsu API REST WebHCat do uruchamiania zapytań 
 
 Podstawowy Uniform Resource Identifier (URI) dla interfejsu API REST w usłudze HDInsight to `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , gdzie `CLUSTERNAME` jest nazwą klastra.  Nazwy klastra w identyfikatorach URI są **rozróżniane wielkości**liter.  W czasie, gdy nazwa klastra w w pełni kwalifikowana nazwa domeny (FQDN) w ramach identyfikatora URI ( `CLUSTERNAME.azurehdinsight.net` ) nie uwzględnia wielkości liter, inne wystąpienia w identyfikatorze URI uwzględniają wielkość liter.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 W przypadku korzystania z zawieszeń lub innej komunikacji REST z WebHCat należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Aby upewnić się, że poświadczenia są bezpiecznie wysyłane do serwera, należy zawsze wysyłać żądania przy użyciu bezpiecznego protokołu HTTP (HTTPS).
 
@@ -48,7 +48,7 @@ Edytuj Poniższy skrypt, zastępując go `PASSWORD` rzeczywistym hasłem.  Nast�
 export password='PASSWORD'
 ```  
 
-**B. program PowerShell** wykonuje Poniższy kod, a następnie wprowadź swoje poświadczenia w oknie podręcznym:
+**B. PowerShell** Wykonaj Poniższy kod, a następnie wprowadź swoje poświadczenia w oknie podręcznym:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -98,8 +98,8 @@ $clusterName
 
     W tym poleceniu są używane następujące parametry:
 
-    * `-u`— Nazwa użytkownika i hasło używane do uwierzytelniania żądania.
-    * `-G`-Wskazuje, że to żądanie jest operacją pobierania.
+    * `-u` — Nazwa użytkownika i hasło używane do uwierzytelniania żądania.
+    * `-G` -Wskazuje, że to żądanie jest operacją pobierania.
 
 1. Początek adresu URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1` , jest taki sam dla wszystkich żądań. Ścieżka wskazuje, `/status` że żądanie ma zwrócić stan WebHCat (znany również jako Templeton) dla serwera. Możesz również zażądać wersji programu Hive przy użyciu następującego polecenia:
 
@@ -140,23 +140,23 @@ $clusterName
 
     To żądanie używa metody POST, która wysyła dane w ramach żądania do interfejsu API REST. Następujące wartości danych są wysyłane z żądaniem:
 
-     * `user.name`— Użytkownik, który uruchamia polecenie.
-     * `execute`-Instrukcje HiveQL do wykonania.
-     * `statusdir`-Katalog, w którym jest zapisywana wartość stanu tego zadania.
+     * `user.name` — Użytkownik, który uruchamia polecenie.
+     * `execute` -Instrukcje HiveQL do wykonania.
+     * `statusdir` -Katalog, w którym jest zapisywana wartość stanu tego zadania.
 
    Te instrukcje wykonują następujące czynności:
 
-   * `DROP TABLE`-Jeśli tabela już istnieje, zostanie usunięta.
-   * `CREATE EXTERNAL TABLE`-Tworzy nową tabelę "External" w gałęzi. Tabele zewnętrzne przechowują tylko definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji.
+   * `DROP TABLE` -Jeśli tabela już istnieje, zostanie usunięta.
+   * `CREATE EXTERNAL TABLE` -Tworzy nową tabelę "External" w gałęzi. Tabele zewnętrzne przechowują tylko definicję tabeli w programie Hive. Dane pozostaną w oryginalnej lokalizacji.
 
      > [!NOTE]  
      > Tabele zewnętrzne powinny być używane, gdy oczekuje się, że dane podstawowe mają być aktualizowane przez zewnętrzne źródło. Na przykład proces automatycznego przekazywania danych lub inna operacja MapReduce.
      >
      > Porzucenie tabeli **zewnętrznej nie powoduje usunięcia danych** , tylko definicji tabeli.
 
-   * `ROW FORMAT`— Jak są formatowane dane. Pola w każdym dzienniku są oddzielone spacjami.
-   * `STORED AS TEXTFILE LOCATION`— Miejsce, w którym dane są przechowywane (przykład/katalog danych) i są przechowywane jako tekst.
-   * `SELECT`-Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.
+   * `ROW FORMAT` — Jak są formatowane dane. Pola w każdym dzienniku są oddzielone spacjami.
+   * `STORED AS TEXTFILE LOCATION` — Miejsce, w którym dane są przechowywane (przykład/katalog danych) i są przechowywane jako tekst.
+   * `SELECT` -Wybiera liczbę wszystkich wierszy, w których kolumna **T4** zawiera wartość **[Error]**. Ta instrukcja zwraca wartość **3** , ponieważ istnieją trzy wiersze, które zawierają tę wartość.
 
      > [!NOTE]  
      > Należy zauważyć, że odstępy między instrukcjami HiveQL są zastępowane `+` znakiem, gdy jest używany z zwinięciem. Ujęte w cudzysłów wartości zawierające spację, takie jak ogranicznik, nie powinny być zastępowane przez `+` .

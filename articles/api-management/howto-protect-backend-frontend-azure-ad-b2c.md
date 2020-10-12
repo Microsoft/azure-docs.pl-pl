@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253698"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Ochrona zaplecza SPA przy użyciu protokołu OAuth 2,0 Azure Active Directory B2C i platformy Azure API Management
@@ -99,7 +99,7 @@ Otwórz blok Azure AD B2C w portalu i wykonaj następujące czynności.
 
 ## <a name="build-the-function-api"></a>Tworzenie interfejsu API funkcji
 1. Przełącz się z powrotem do standardowej dzierżawy usługi Azure AD w Azure Portal, aby umożliwić ponowne skonfigurowanie elementów w ramach subskrypcji 
-1. Przejdź do bloku aplikacje funkcji Azure Portal, Otwórz pustą aplikację funkcji, a następnie utwórz nową funkcję "webhook" w portalu za pośrednictwem przewodnika Szybki Start.
+1. Przejdź do bloku aplikacje funkcji Azure Portal, Otwórz pustą aplikację funkcji, a następnie utwórz nową funkcję In-Portal "webhook + API" za pośrednictwem przewodnika Szybki Start.
 1. Wklej przykładowy kod z poniższych do Run. CSX na istniejącym kodzie, który zostanie wyświetlony.
 
    ```csharp

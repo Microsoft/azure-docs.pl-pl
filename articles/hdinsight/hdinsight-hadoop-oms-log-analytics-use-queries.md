@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085365"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Wykonywanie zapytań dotyczących dzienników Azure Monitor do monitorowania klastrów usługi HDInsight
@@ -33,7 +33,7 @@ Należy skonfigurować klaster usługi HDInsight do używania dzienników Azure 
 Dowiedz się, jak szukać określonych metryk dla klastra usługi HDInsight.
 
 1. Otwórz obszar roboczy Log Analytics, który jest skojarzony z klastrem usługi HDInsight z Azure Portal.
-1. W obszarze **Ogólne**wybierz pozycję **dzienniki**.
+1. W obszarze **Ogólne** wybierz pozycję **Dzienniki**.
 1. Wpisz następujące zapytanie w polu wyszukiwania, aby wyszukać wszystkie metryki dla wszystkich dostępnych metryk dla wszystkich klastrów usługi HDInsight skonfigurowanych do korzystania z dzienników Azure Monitor, a następnie wybierz pozycję **Uruchom**. Przejrzyj wyniki.
 
     ```kusto
@@ -55,7 +55,7 @@ Dowiedz się, jak szukać określonych metryk dla klastra usługi HDInsight.
     | where Type == "Heartbeat"
     ```
 
-1. Możesz Dig się bardziej szczegółowo przy użyciu opcji dostępnych w menu po lewej stronie. Przykład:
+1. Możesz Dig się bardziej szczegółowo przy użyciu opcji dostępnych w menu po lewej stronie. Na przykład:
 
     - Aby wyświetlić dzienniki z określonego węzła:
 
@@ -94,7 +94,7 @@ search in (metrics_resourcemanager_queue_root_default_CL) *
 Pierwszym krokiem tworzenia alertu jest dotarcie do zapytania, na podstawie którego zostanie wyzwolony alert. Możesz użyć dowolnego zapytania, które chcesz utworzyć alert.
 
 1. Otwórz obszar roboczy Log Analytics, który jest skojarzony z klastrem usługi HDInsight z Azure Portal.
-1. W obszarze **Ogólne**wybierz pozycję **dzienniki**.
+1. W obszarze **Ogólne** wybierz pozycję **Dzienniki**.
 1. Uruchom następujące zapytanie, dla którego chcesz utworzyć alert, a następnie wybierz pozycję **Uruchom**.
 
     ```kusto
@@ -127,7 +127,7 @@ Pierwszym krokiem tworzenia alertu jest dotarcie do zapytania, na podstawie któ
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie i wyświetlanie alertów metryk i zarządzanie nimi przy użyciu Azure monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-* [Wprowadzenie do zapytań dzienników w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Wprowadzenie do zapytań dotyczących dzienników w usłudze Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Tworzenie widoków niestandardowych za pomocą projektanta widoków w Azure Monitor](../azure-monitor/platform/view-designer.md)

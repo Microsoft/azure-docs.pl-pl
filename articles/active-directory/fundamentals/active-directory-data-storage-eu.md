@@ -13,10 +13,10 @@ ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395893"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Magazyn danych tożsamości dla klientów europejskich w Azure Active Directory
@@ -36,7 +36,7 @@ W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze uwierzy
 
 Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i opartą na chmurze usługę Azure MFA, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
 
-## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Logowanie jednokrotne oparte na hasłach dla aplikacji dla przedsiębiorstw
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Pojedyncze Sign-On oparte na hasłach dla aplikacji dla przedsiębiorstw
  
 Jeśli klient utworzy nową aplikację dla przedsiębiorstw (za pośrednictwem galerii usługi Azure AD lub bez galerii) i włączy Logowanie jednokrotne oparte na hasłach, adres URL logowania aplikacji i niestandardowe pola logowania przechwytywania są przechowywane w Stany Zjednoczone. Aby uzyskać więcej informacji na temat tej funkcji, zapoznaj się z tematem [Konfigurowanie logowania jednokrotnego opartego na hasłach](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md) .
 
