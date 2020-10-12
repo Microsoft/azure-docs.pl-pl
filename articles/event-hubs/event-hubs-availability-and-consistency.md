@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000638"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Availability and consistency in Event Hubs (Dostępność i spójność w usłudze Event Hubs)
@@ -139,7 +139,7 @@ await producer.SendAsync(data);
 
 Ten przykład wysyła zdarzenie do jednej z dostępnych partycji w centrum zdarzeń i ustawia odpowiedni numer sekwencyjny z aplikacji. To rozwiązanie wymaga zachowania stanu przez aplikację do przetwarzania, ale daje nadawcom punkt końcowy, który jest bardziej prawdopodobnie dostępny.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Przegląd usługi Event Hubs](./event-hubs-about.md)

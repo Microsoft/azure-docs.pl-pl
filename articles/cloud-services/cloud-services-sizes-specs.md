@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82086253"
 ---
 # <a name="sizes-for-cloud-services"></a>Rozmiary dla Cloud Services
@@ -63,7 +63,7 @@ Utworzyliśmy koncepcję jednostki obliczeniowej platformy Azure (ACU), aby zape
 | [D v3](#dv3-series) |160 – 190 * |
 | [E v3](#ev3-series) |160 – 190 * |
 | [G](#g-series) |180 - 240* |
-| [H](#h-series) |290 - 300* |
+| [C](#h-series) |290 - 300* |
 
 Jednostki ACU oznaczone gwiazdką (*) wykorzystują technologię Intel® Turbo w celu zwiększenia częstotliwości zegara procesora CPU i zapewniania większej wydajności. Skala zwiększenia wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
 
@@ -79,9 +79,9 @@ W poniższych tabelach przedstawiono rozmiary maszyn wirtualnych i możliwości,
 | Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB  | Magazyn tymczasowy: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / niska |
-| Mały           | 1         | 1,75         | 225                  | 1 / średnia |
+| Mała           | 1         | 1,75         | 225                  | 1 / średnia |
 | Średniaa          | 2         | 3,5          | 490                  | 1 / średnia |
-| Duży           | 4         | 7            | 1000                 | 2 / wysoka |
+| Duża           | 4         | 7            | 1000                 | 2 / wysoka |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / wysoka |
 | A5              | 2         | 14           | 490                  | 1 / średnia |
 | A6              | 4         | 28           | 1000                 | 2 / wysoka |

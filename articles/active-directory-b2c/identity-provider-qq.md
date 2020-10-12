@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d230bc8a1e9bf388e1cca4e3a3a691223146d734
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387987"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi QQ za pomocą Azure Active Directory B2C
@@ -29,20 +29,20 @@ Aby użyć konta QQ jako dostawcy tożsamości w Azure Active Directory B2C (Azu
 
 1. Zaloguj się do [portalu deweloperów QQ](http://open.qq.com) przy użyciu poświadczeń konta QQ.
 1. Po zalogowaniu się przejdź do, aby [https://open.qq.com/reg](https://open.qq.com/reg) zarejestrować się jako deweloper.
-1. Wybierz pozycję**个人**(indywidualny deweloper).
-1. Wprowadź wymagane informacje i wybierz pozycję**下一步**(Następny krok).
+1. Wybierz pozycję **个人** (indywidualny deweloper).
+1. Wprowadź wymagane informacje i wybierz pozycję **下一步** (Następny krok).
 1. Ukończ proces weryfikacji poczty e-mail. Musisz poczekać kilka dni po zarejestrowaniu się jako deweloper.
 
 ### <a name="register-a-qq-application"></a>Rejestrowanie aplikacji QQ
 
 1. Przejdź do witryny [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
-1. Wybierz pozycję**应用管理**(Zarządzanie aplikacjami).
-1. Wybierz pozycję**创建应用**(Utwórz aplikację) i wprowadź wymagane informacje.
-1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` w**授权回调域**(adres URL wywołania zwrotnego). Na przykład jeśli jesteś `tenant_name` contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
-1. Wybierz pozycję**创建应用**(Utwórz aplikację).
-1. Na stronie potwierdzenie wybierz pozycję**应用管理**(Zarządzanie aplikacjami), aby powrócić do strony zarządzania aplikacjami.
-1. Wybierz pozycję**查看**(widok) obok utworzonej aplikacji.
-1. Wybierz pozycję**修改**(Edytuj).
+1. Wybierz pozycję **应用管理** (Zarządzanie aplikacjami).
+1. Wybierz pozycję **创建应用** (Utwórz aplikację) i wprowadź wymagane informacje.
+1. Wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` w **授权回调域** (adres URL wywołania zwrotnego). Na przykład jeśli jesteś `tenant_name` contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
+1. Wybierz pozycję **创建应用** (Utwórz aplikację).
+1. Na stronie potwierdzenie wybierz pozycję **应用管理** (Zarządzanie aplikacjami), aby powrócić do strony zarządzania aplikacjami.
+1. Wybierz pozycję **查看** (widok) obok utworzonej aplikacji.
+1. Wybierz pozycję **修改** (Edytuj).
 1. Skopiuj **Identyfikator aplikacji** i **klucz aplikacji**. Musisz mieć obie te wartości, aby dodać dostawcę tożsamości do dzierżawy.
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Konfigurowanie QQ jako dostawcy tożsamości

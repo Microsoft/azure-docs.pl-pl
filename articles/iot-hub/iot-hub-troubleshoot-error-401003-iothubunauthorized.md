@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81759600"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -42,7 +42,7 @@ W dziennikach diagnostycznych zostanie wyświetlony wzorzec urządzeń odłącza
 
 ### <a name="cause-1"></a>Przyczyna 1
 
-W przypadku MQTT niektóre zestawy SDK są zależne od IoT Hub, aby wystawić rozłączenie, gdy token sygnatury dostępu współdzielonego wygaśnie, aby wiedzieć, kiedy Aby 
+W przypadku MQTT niektóre zestawy SDK są zależne od IoT Hub, aby wystawić rozłączenie, gdy token sygnatury dostępu współdzielonego wygaśnie, aby wiedzieć, kiedy Zatem 
 
 1. Token sygnatury dostępu współdzielonego wygasa
 1. IoT Hub Zwróć uwagę na wygaśnięcie i rozłącza urządzenie z **401003 IoTHubUnauthorized**

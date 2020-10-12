@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85956240"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Tworzenie kolekcji w portalu Moje aplikacje
@@ -57,7 +57,7 @@ Aby utworzyć kolekcję, musisz mieć licencję na Azure AD — wersja Premium P
 
    ![Nowa strona kolekcji](media/acces-panel-collections/new-collection.png)
 
-5. Wybierz kartę **aplikacje** . Wybierz pozycję **+ Dodaj aplikację**, a następnie na stronie **Dodawanie aplikacji** zaznacz wszystkie aplikacje, które chcesz dodać do kolekcji, lub użyj pola **wyszukiwania** , aby znaleźć aplikacje.
+5. Wybierz kartę **aplikacje** . Wybierz pozycję **+ Dodaj aplikację**, a następnie na stronie **Dodaj aplikacje** zaznacz wszystkie aplikacje, które chcesz dodać do kolekcji, lub użyj pola **wyszukiwania** , aby znaleźć aplikacje.
 
    ![Dodawanie aplikacji do kolekcji](media/acces-panel-collections/add-applications.png)
 

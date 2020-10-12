@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79477667"
 ---
 # <a name="convert-to-indicator-values"></a>Konwertowanie na wartości wskaźnika
@@ -47,7 +47,7 @@ Załóżmy, że masz kolumnę z wynikami wskazującą, czy serwer ma wysokie, ś
 
 | Identyfikator serwera | Ocena niepowodzenia |
 | --------- | ------------- |
-| 10301     | Małe           |
+| 10301     | Niski           |
 | 10302     | Średniaa        |
 | 10303     | Wysoki          |
 
@@ -98,7 +98,7 @@ Ta sekcja zawiera szczegóły implementacji, porady i odpowiedzi na często zada
 
 -   Tylko kolumny oznaczone jako kategorii mogą być konwertowane na kolumny wskaźników. Jeśli zobaczysz następujący błąd, prawdopodobnie jedna z wybranych kolumn nie jest kategorii:  
 
-     Błąd 0056: kolumna o nazwie \<column name> nie jest w dozwolonej kategorii.  
+     Błąd 0056: kolumna o nazwie  \<column name> nie jest w dozwolonej kategorii.  
 
      Domyślnie większość kolumn ciągów jest obsługiwana jako funkcje ciągów, dlatego należy jawnie oznaczyć je jako kategorii przy użyciu polecenia [Edytuj metadane](edit-metadata.md).  
 

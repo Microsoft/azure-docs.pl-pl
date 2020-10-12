@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.openlocfilehash: 05e55d1608323b8e746a1c82ccb915a2db58ce97
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132096"
 ---
 # <a name="export-a-u-sql-database"></a>Eksportowanie bazy danych U-SQL
@@ -49,7 +49,7 @@ W tym kroku można zweryfikować wybrane obiekty w polu **listy Eksportuj obiekt
 
 Można także skonfigurować inne ustawienia dla elementu docelowego eksportu. Opisy konfiguracji są wymienione w poniższej tabeli:
 
-|Konfigurowanie|Opis|
+|Konfiguracja|Opis|
 |-------------|-----------|
 |Nazwa miejsca docelowego|Ta nazwa wskazuje, gdzie mają zostać zapisane wyeksportowane zasoby bazy danych. Przykłady to zestawy, dodatkowe pliki i przykładowe dane. Folder o tej nazwie jest tworzony w folderze głównym danych lokalnych.|
 |Katalog projektu|Ta ścieżka definiuje, gdzie ma być zapisany wyeksportowany skrypt U-SQL. Wszystkie definicje obiektów bazy danych są zapisywane w tej lokalizacji.|

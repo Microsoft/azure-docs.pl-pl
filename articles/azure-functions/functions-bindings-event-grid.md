@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85957182"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Event Grid powiązania Azure Functions
@@ -23,7 +23,7 @@ Event Grid to usługa platformy Azure, która wysyła żądania HTTP w celu powi
 
 Jeśli wolisz, możesz użyć wyzwalacza HTTP do obsługi zdarzeń Event Grid; Zobacz [odbieranie zdarzeń do punktu końcowego http](../event-grid/receive-events.md). Obecnie nie można używać wyzwalacza Event Grid dla aplikacji Azure Functions, gdy zdarzenie jest dostarczane w [schemacie CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). Zamiast tego należy użyć wyzwalacza HTTP.
 
-| Akcja | Typ |
+| Akcja | Type |
 |---------|---------|
 | Uruchom funkcję po wysłaniu zdarzenia Event Grid | [Wyzwalacz](./functions-bindings-event-grid-trigger.md) |
 | Wysyła Zdarzenie Event Grid |[Powiązanie danych wyjściowych](./functions-bindings-event-grid-output.md) |

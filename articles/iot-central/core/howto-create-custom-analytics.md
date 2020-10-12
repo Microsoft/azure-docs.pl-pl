@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660133"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Rozszerzając IoT Central platformy Azure z analizą niestandardową przy użyciu Azure Databricks
@@ -39,7 +39,7 @@ Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Applicatio
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Plan cenowy | Standardowa (Standard) |
+| Plan cenowy | Standardowa |
 | Szablon aplikacji | Analiza warunków w sklepie — monitorowanie |
 | Nazwa aplikacji | Zaakceptuj wartość domyślną lub wybierz własną nazwę |
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
@@ -78,7 +78,7 @@ Użyj [Azure Portal, aby utworzyć usługę Azure Databricks](https://portal.azu
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | IoTCentralAnalysis |
 | Lokalizacja | Wschodnie stany USA |
-| Warstwa cenowa | Standardowa (Standard) |
+| Warstwa cenowa | Standardowa |
 
 Po utworzeniu wymaganych zasobów Grupa zasobów **IoTCentralAnalysis** wygląda podobnie do poniższego zrzutu ekranu:
 
@@ -113,7 +113,7 @@ W witrynie sieci Web programu [Azure IoT Central Application Manager](https://ak
     | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
-    | Urządzenia | Wyłączone |
+    | Devices | Wyłączone |
     | Szablony urządzeń | Wyłączone |
 
 ![Konfiguracja eksportu danych](media/howto-create-custom-analytics/cde-configuration.png)
@@ -133,7 +133,7 @@ Skorzystaj z informacji w poniższej tabeli, aby utworzyć klaster:
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa klastra | centralanalysis |
-| Tryb klastra | Standardowa (Standard) |
+| Tryb klastra | Standardowa |
 | Wersja Databricks Runtime | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
 | Wersja języka Python | 3 |
 | Włącz Skalowanie automatyczne | Nie |
@@ -158,7 +158,7 @@ W poniższych krokach pokazano, jak zaimportować bibliotekę potrzebną w ramac
 
 1. Na stronie **Instalowanie biblioteki** wybierz **Maven** jako źródło biblioteki.
 
-1. W polu tekstowym **współrzędne** Wprowadź następującą wartość:`com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+1. W polu tekstowym **współrzędne** Wprowadź następującą wartość: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
 
 1. Wybierz pozycję **Zainstaluj** , aby zainstalować bibliotekę w klastrze.
 
@@ -172,7 +172,7 @@ Wykonaj następujące kroki, aby zaimportować Notes datacegły zawierający kod
 
 1. Przejdź do strony **obszaru roboczego** w środowisku datakostks. Wybierz listę rozwijaną obok swojej nazwy konta, a następnie wybierz pozycję **Importuj**.
 
-1. Wybierz opcję importowania z adresu URL i wprowadź następujący adres:[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Wybierz opcję importowania z adresu URL i wprowadź następujący adres: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. Aby zaimportować Notes, wybierz pozycję **Importuj**.
 

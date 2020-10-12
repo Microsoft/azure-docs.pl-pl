@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób dynamicznego dodawania partycji do c
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87002543"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Dynamiczne dodawanie partycji do centrum zdarzeń (Apache Kafka tematu) na platformie Azure Event Hubs
@@ -25,7 +25,7 @@ Można określić liczbę partycji w momencie tworzenia centrum zdarzeń. W niek
 ## <a name="update-the-partition-count"></a>Aktualizowanie liczby partycji
 W tej sekcji pokazano, jak zaktualizować liczbę partycji centrum zdarzeń na różne sposoby (program PowerShell, interfejs wiersza polecenia itd.).
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 Użyj polecenia programu PowerShell [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) , aby zaktualizować partycje w centrum zdarzeń. 
 
 ```azurepowershell-interactive
@@ -74,7 +74,7 @@ Event Hubs oferuje trzy opcje nadawcy:
 - Nadawca działający w trybie okrężnym **(domyślnie)** — w tym scenariuszu Usługa Event Hubs Round Robins zdarzenia w partycjach. Usługa Event Hubs ma świadomość zmian liczby partycji i będzie wysyłać do nowych partycji w ciągu kilku sekund od zmiany liczby partycji.
 
 ### <a name="receiverconsumer-clients"></a>Klienci odbiorcy/odbiorcy
-Event Hubs zapewnia bezpośrednich odbiorników i łatwą bibliotekę użytkowników nazywaną [hostem procesora zdarzeń (starym zestawem SDK)](event-hubs-event-processor-host.md) lub [procesorem zdarzeń (nowy zestaw SDK)](event-processor-balance-partition-load.md).
+Event Hubs zapewnia bezpośrednich odbiorników i łatwą bibliotekę użytkowników nazywaną [hostem procesora zdarzeń (starym zestawem SDK)](event-hubs-event-processor-host.md)  lub [procesorem zdarzeń (nowy zestaw SDK)](event-processor-balance-partition-load.md).
 
 - **Odbiorniki bezpośrednie** — odbiorniki bezpośrednie nasłuchują określonych partycji. Nie ma to żadnego oddziaływania na działanie środowiska uruchomieniowego, gdy partycje są skalowane dla centrum zdarzeń. Aplikacja, która korzysta z bezpośrednich odbiorników, musi zwrócić uwagę na pobranie nowych partycji i przydzielenie odpowiednio odbiorców.
 - **Host procesora zdarzeń** — ten klient nie odświeża automatycznie metadanych jednostki. W związku z tym nie można pobrać w celu zwiększenia liczby partycji. Ponowne utworzenie wystąpienia procesora zdarzeń spowoduje pobranie metadanych jednostki, co z kolei spowoduje utworzenie nowych obiektów BLOB dla nowo dodanych partycji. Nie ma to wpływu na istniejące obiekty blob. Zalecane jest ponowne uruchomienie wszystkich wystąpień procesora zdarzeń, aby upewnić się, że wszystkie wystąpienia są świadome nowo dodanych partycji, a Równoważenie obciążenia jest prawidłowo obsługiwane wśród klientów.

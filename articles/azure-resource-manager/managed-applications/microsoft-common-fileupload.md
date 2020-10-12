@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004288"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft. Common. FileUpload — element interfejsu użytkownika
@@ -80,13 +80,13 @@ Podczas testowania CreateUiDefinition, niektóre przeglądarki (na przykład Goo
 
 ## <a name="remarks"></a>Uwagi
 
-- `constraints.accept`Określa typy plików, które są wyświetlane w oknie dialogowym pliku przeglądarki. Aby uzyskać dozwolone wartości, zobacz [specyfikację HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) . Wartość domyślna to **null**.
+- `constraints.accept` Określa typy plików, które są wyświetlane w oknie dialogowym pliku przeglądarki. Aby uzyskać dozwolone wartości, zobacz [specyfikację HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) . Wartość domyślna to **null**.
 - Jeśli `options.multiple` jest ustawiona na **true**, użytkownik może wybrać więcej niż jeden plik w oknie dialogowym pliku przeglądarki. Wartość domyślna to **fałsz**.
 - Ten element obsługuje przekazywanie plików w dwóch trybach na podstawie wartości `options.uploadMode` . Jeśli **plik** jest określony, dane wyjściowe mają zawartość pliku jako obiekt BLOB. Jeśli określono **adres URL** , plik zostanie przekazany do tymczasowej lokalizacji, a dane wyjściowe zawierają adres URL obiektu BLOB. Tymczasowe obiekty blob zostaną przeczyszczone po 24 godzinach. Wartość domyślna to **plik**.
 - Przekazany plik jest chroniony. Wyjściowy adres URL zawiera [token SAS](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) służący do uzyskiwania dostępu do pliku podczas wdrażania.
 - Wartość `options.openMode` określa, jak odczytywany jest plik. Jeśli oczekujesz, że plik ma być zwykłym tekstem, określ **tekst**; w przeciwnym razie Określ dane **binarne**. Wartość domyślna to **Text**.
 - Jeśli `options.uploadMode` jest ustawiona na wartość **File** i `options.openMode` jest ustawiona na wartość **binarną**, dane wyjściowe są kodowane algorytmem Base64.
-- `options.encoding`Określa kodowanie, które ma być używane podczas odczytywania pliku. Wartość domyślna to **UTF-8**i jest używana tylko wtedy, gdy `options.openMode` jest ustawiona na **Text**.
+- `options.encoding` Określa kodowanie, które ma być używane podczas odczytywania pliku. Wartość domyślna to **UTF-8**i jest używana tylko wtedy, gdy `options.openMode` jest ustawiona na **Text**.
 
 ## <a name="next-steps"></a>Następne kroki
 

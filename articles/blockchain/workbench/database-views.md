@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87003325"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Widoki bazy danych usługi Azure łańcucha bloków Workbench
@@ -289,7 +289,7 @@ Ten widok zawiera szczegółowe informacje o członkach konsorcjum, które są u
 
 | Nazwa               | Typ          | Może mieć wartość null | Opis                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                 | int           | Nie          | Unikatowy identyfikator użytkownika |
+| ID (Identyfikator)                 | int           | Nie          | Unikatowy identyfikator użytkownika |
 | ExternalID         | nvarchar (255) | Nie          | Identyfikator zewnętrzny użytkownika. Domyślnie ten identyfikator jest identyfikatorem GUID reprezentującym identyfikator Azure Active Directory użytkownika. |
 | ProvisioningStatus | int           | Nie          |Identyfikuje bieżący stan procesu aprowizacji dla użytkownika. Możliwe wartości: <br />0 — użytkownik został utworzony przez interfejs API<br />1 — klucz został skojarzony z użytkownikiem w bazie danych<br />2 — użytkownik jest w pełni zainicjowany |
 | FirstName (Imię)          | nvarchar (50)  | Tak         | Imię użytkownika |

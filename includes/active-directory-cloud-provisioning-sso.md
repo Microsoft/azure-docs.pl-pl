@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79504284"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Procedura włączania logowania jednokrotnego
@@ -18,7 +18,7 @@ Inicjowanie obsługi administracyjnej w chmurze współpracuje z logowaniem jedn
 ### <a name="step-1-download-and-extract-azure-ad-connect-files"></a>Krok 1. Pobieranie i wyodrębnianie plików Azure AD Connect
 1.  Najpierw pobierz najnowszą wersję programu [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2.  Otwórz wiersz polecenia przy użyciu uprawnień administracyjnych i przejdź do pobranego pliku msi.
-3.  Uruchom następujące czynności:`msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
+3.  Uruchom następujące czynności:  `msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
 4. Zmień ścieżki FilePath i extractfolder, aby odpowiadały ścieżce pliku i nazwie folderu wyodrębniania.  Zawartość powinna teraz znajdować się w folderze wyodrębniania.
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Krok 2. zaimportowanie bezproblemowego modułu programu PowerShell logowania jednokrotnego

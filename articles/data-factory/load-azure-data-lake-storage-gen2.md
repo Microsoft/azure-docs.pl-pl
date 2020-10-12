@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660478"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Załaduj dane do Azure Data Lake Storage Gen2 z Azure Data Factory
@@ -51,10 +51,10 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
     * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych *twojanazwafabrykidanych nazwapołączonejusługi* jest niedostępna", wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
     * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja**: wybierz pozycję **v2**.
+    * **Wersja**: Wybierz pozycję **Wersja 2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. 
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji: 
    
@@ -80,13 +80,13 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
    3. Kliknij przycisk **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Utwórz**.
 
       ![Określ konto Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   4. Zostanie wyświetlone nowe połączenie usługi AmazonS3. Wybierz pozycję **Dalej**. 
+   4. Zostanie wyświetlone nowe połączenie usługi AmazonS3. Wybierz opcję **Dalej**. 
 
 5. Na stronie **Wybieranie pliku lub folderu wejściowego** przejdź do folderu i pliku, z którego ma zostać przeprowadzone kopiowanie. Wybierz folder/plik, a następnie wybierz pozycję **Wybierz**.
 
     ![Wybieranie pliku lub folderu wejściowego](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
 
-6. Określ zachowanie kopiowania, sprawdzając **cyklicznie** i binarne opcje **kopiowania** . Wybierz pozycję **Dalej**.
+6. Określ zachowanie kopiowania, sprawdzając **cyklicznie** i binarne opcje **kopiowania** . Wybierz opcję **Dalej**.
 
     ![Określ folder wyjściowy](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
@@ -131,5 +131,5 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd działania kopiowania](copy-activity-overview.md)
+* [Omówienie działania kopiowania](copy-activity-overview.md)
 * [Łącznik usługi Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)

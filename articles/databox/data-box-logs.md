@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498807"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Śledzenie i rejestrowanie zdarzeń dla Azure Data Box i Azure Data Box Heavy zamówienie importu
@@ -297,7 +297,7 @@ Po wymazaniu danych z urządzenie Data Box dysków zgodnie z wytycznymi dla prog
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 
-Dzienniki inspekcji zawierają informacje dotyczące włączania i uzyskiwania dostępu do udziałów na urządzenie Data Box lub Data Box Heavy, gdy nie znajduje się on poza centrum danych platformy Azure. Te dzienniki znajdują się w:`storage-account/azuredatabox-chainofcustodylogs`
+Dzienniki inspekcji zawierają informacje dotyczące włączania i uzyskiwania dostępu do udziałów na urządzenie Data Box lub Data Box Heavy, gdy nie znajduje się on poza centrum danych platformy Azure. Te dzienniki znajdują się w: `storage-account/azuredatabox-chainofcustodylogs`
 
 Oto przykład dziennika inspekcji z urządzenie Data Box:
 

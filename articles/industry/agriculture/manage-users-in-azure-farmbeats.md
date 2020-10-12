@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79502068"
 ---
 # <a name="manage-users"></a>Zarządzanie użytkownikami
@@ -78,7 +78,7 @@ Postępuj zgodnie z instrukcjami, aby dodać użytkowników do usługi Azure AD:
     ![Okienko "Wszyscy użytkownicy"](./media/create-farms-in-azure-farmbeats/manage-users-3.png)
 
 5. Wybierz nazwę nowego użytkownika, a następnie wypełnij pola wymagane dla tego użytkownika.
-6. Wybierz pozycję **Utwórz**.
+6. Wybierz przycisk **Utwórz**.
 
 Aby uzyskać informacje na temat zarządzania użytkownikami usługi Azure AD, zobacz [Dodawanie lub usuwanie użytkowników w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
 

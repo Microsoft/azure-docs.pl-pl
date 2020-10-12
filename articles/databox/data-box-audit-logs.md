@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86209977"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Dzienniki inspekcji dla Azure Data Box i Azure Data Box Heavy
@@ -49,7 +49,7 @@ Następujące identyfikatory zdarzeń dziennika systemu są zbierane jako dzienn
 |    |                              |
 |Microsoft-Windows-jądro  |41  |System został uruchomiony ponownie bez czystego zamknięcia.| 
 |    |                              |
-|Microsoft-Windows-BitLocker-sterownik|Wszystko|    |
+|Microsoft-Windows-BitLocker-sterownik|Wszystkie|    |
 
 ### <a name="security-logs"></a>Dzienniki zabezpieczeń
 
@@ -83,7 +83,7 @@ Poniżej przedstawiono tabelę zawierającą podsumowanie różnych dostawców z
 |                                                  |                 |         |
 |Microsoft-Azure-DataBox-HcsMgmt-Audit        |65003       |NotStarted stanu zdarzenia przygotowanie do wysłania, InProgress, niepomyślne, anulowane, zakończone powodzeniem, ScanCompletedWithIssues, SucceededWithWarnings          |
 |                                                  |                 |     |
-|Microsoft-Azure-DataBox-IfxAudit    |Wszystko |Wszystkie zdarzenia są rejestrowane za pomocą interfejsu API dziennika inspekcji w kodzie |
+|Microsoft-Azure-DataBox-IfxAudit    |Wszystkie |Wszystkie zdarzenia są rejestrowane za pomocą interfejsu API dziennika inspekcji w kodzie |
 
 Oto przykład dziennika inspekcji struktury Instrumentacji (IFX):
 

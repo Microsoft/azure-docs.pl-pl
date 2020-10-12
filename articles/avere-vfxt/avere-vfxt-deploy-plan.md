@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
 ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272794"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planowanie systemu Avere vFXT
@@ -75,8 +75,8 @@ Postępuj zgodnie z poniższymi wskazówkami podczas planowania infrastruktury s
   |----------|-----------|----------|
   | Grupa zasobów | Tak, jeśli wartość jest pusta | Musi być pusty|
   | Konto magazynu | **Tak** w przypadku łączenia istniejącego kontenera obiektów BLOB po utworzeniu klastra <br/>  **Nie** w przypadku tworzenia nowego kontenera obiektów BLOB podczas tworzenia klastra | Istniejący kontener obiektów BLOB musi być pusty <br/> &nbsp; |
-  | Sieć wirtualna | Yes | Musi zawierać punkt końcowy usługi magazynu, jeśli tworzysz nowy kontener obiektów blob platformy Azure |
-  | Podsieć | Yes | Nie może zawierać innych zasobów |
+  | Sieć wirtualna | Tak | Musi zawierać punkt końcowy usługi magazynu, jeśli tworzysz nowy kontener obiektów blob platformy Azure |
+  | Podsieć | Tak | Nie może zawierać innych zasobów |
 
 ## <a name="ip-address-requirements"></a>Wymagania dotyczące adresów IP
 

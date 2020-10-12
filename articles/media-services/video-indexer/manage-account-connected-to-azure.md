@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79499669"
 ---
-# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Zarządzanie kontem Video Indexer połączonym z platformą Azure
+# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Zarządzanie kontem usługi Video Indexer połączonym z platformą Azure
 
 W tym artykule pokazano, jak zarządzać kontem Video Indexer połączonym z subskrypcją platformy Azure i kontem Azure Media Services.
 
@@ -50,7 +50,7 @@ Jeśli konto indeksatora wideo jest połączone z platformą Azure, zobaczysz na
 
 Jeśli Twoje konto wymaga korekt, zobaczysz odpowiednie błędy i ostrzeżenia dotyczące konfiguracji konta na stronie **Ustawienia** . Komunikaty zawierają linki do dokładnych miejsc w Azure Portal, w których należy wprowadzić zmiany. Aby uzyskać więcej informacji, zobacz sekcję [błędy i ostrzeżenia](#errors-and-warnings) poniżej.
 
-## <a name="repair-the-connection-to-azure"></a>Napraw połączenie z platformą Azure
+## <a name="repair-the-connection-to-azure"></a>Naprawianie połączenia z platformą Azure
 
 W oknie dialogowym **Aktualizowanie połączenia do Azure Media Services** strony [Video Indexer](https://www.videoindexer.ai/) zostanie wyświetlony monit o podanie wartości dla następujących ustawień:
 
@@ -61,7 +61,7 @@ W oknie dialogowym **Aktualizowanie połączenia do Azure Media Services** stron
 |Identyfikator aplikacji|Identyfikator aplikacji usługi Azure AD (z uprawnieniami dla określonego konta Media Services) utworzonym dla tego konta Video Indexer. <br/><br/>Aby uzyskać identyfikator aplikacji, przejdź do Azure Portal. W obszarze konto Media Services wybierz swoje konto i przejdź do pozycji **dostęp do interfejsu API**. Wybierz pozycję **Połącz z interfejsem API Media Services przy użyciu jednostki usługi**  ->  **aplikacja usługi Azure AD**. Skopiuj odpowiednie parametry.|
 |Klucz aplikacji|Klucz aplikacji usługi Azure AD skojarzony z Twoim kontem Media Services określonym powyżej. <br/><br/>Aby uzyskać klucz aplikacji, przejdź do Azure Portal. W obszarze konto Media Services wybierz swoje konto i przejdź do pozycji **dostęp do interfejsu API**. Wybierz pozycję **Połącz z interfejsem API Media Services przy użyciu nazwy głównej usługi**  ->  **Zarządzaj**  ->  **certyfikatami aplikacji &** Secret. Skopiuj odpowiednie parametry.|
 
-## <a name="autoscale-reserved-units"></a>Jednostki zarezerwowane automatycznego skalowania
+## <a name="autoscale-reserved-units"></a>Jednostki zarezerwowane autoskalowania
 
 Strona **Ustawienia** umożliwia ustawienie automatycznego skalowania jednostek zarezerwowanych multimediów (ru). Jeśli opcja jest **włączona**, można przydzielić maksymalną liczbę jednostek ru i upewnić się, że Video Indexer zatrzyma/uruchamia jednostek ru automatycznie. W przypadku tej opcji nie należy uiszczać dodatkowych opłat za czas bezczynności, ale również nie czekać na ukończenie zadań indeksowania, gdy obciążenie indeksowania jest wysokie.
 

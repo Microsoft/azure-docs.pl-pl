@@ -8,10 +8,10 @@ ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89225670"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Podstawa zabezpieczeń platformy Azure dla Azure DNS
@@ -260,7 +260,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów
 
-**Wskazówki**: Access Control oparte na rolach platformy Azure (Azure RBAC) umożliwiają precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą usługi Azure RBAC można przyznać poziom dostępu wymagany użytkownikom. 
+**Wskazówki**: usługa azure Role-Based Access Control (RBAC systemu Azure) umożliwia precyzyjne zarządzanie dostępem użytkowników, grup i zasobów platformy Azure. Za pomocą usługi Azure RBAC można przyznać poziom dostępu wymagany użytkownikom. 
 
 W Azure DNS istnieje rola współautor strefy DNS, a także poziom strefy i rekordu zestawu RBAC platformy Azure. Istnieje również możliwość utworzenia własnych niestandardowych ról platformy Azure, aby zapewnić bardziej precyzyjną kontrolę.
 

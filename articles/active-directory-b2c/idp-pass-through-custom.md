@@ -12,10 +12,10 @@ ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c434ad6a724ba513caf7923916997600097b43f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387868"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Przekaż token dostępu za pomocą zasad niestandardowych do aplikacji w Azure Active Directory B2C
@@ -90,7 +90,7 @@ Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token Azur
 4. Wybierz pozycję **platforma obsługi tożsamości**.
 5. Na stronie zasady niestandardowe kliknij pozycję **Przekaż zasady**.
 6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustframeworkExtensions.xml* .
-7. Wybierz przycisk **Przekaż**.
+7. Wybierz pozycję **Przekaż**.
 8. Powtórz kroki od 5 do 7 dla pliku jednostki uzależnionej, takie jak *SignUpOrSignIn.xml*.
 
 ### <a name="run-the-policy"></a>Uruchamianie zasad

@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
 ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85392981"
 ---
 # <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Tworzenie roli niestandardowej platformy Azure przy użyciu szablonu Azure Resource Manager
@@ -50,7 +50,7 @@ Zakres, do którego można przypisać tę rolę niestandardową, jest ustawiany 
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-role-def/azuredeploy.json":::
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Wykonaj następujące kroki, aby wdrożyć poprzedni szablon.
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby wdrożyć poprzedni szablon.
 
     Polecenie [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) wdraża szablon, aby utworzyć rolę niestandardową.
 
-    Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
+    Wyświetlone dane wyjściowe powinny przypominać następujące dane:
 
     ```azurepowershell
     PS> New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
@@ -118,7 +118,7 @@ Wykonaj następujące kroki, aby sprawdzić, czy rola niestandardowa została ut
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
-    Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
+    Wyświetlone dane wyjściowe powinny przypominać następujące dane:
 
     ```azurepowershell
     {

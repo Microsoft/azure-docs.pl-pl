@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79480525"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Wyłącz monitorowanie maszyn wirtualnych w Azure Monitor dla maszyn wirtualnych
@@ -24,7 +24,7 @@ Azure Monitor dla maszyn wirtualnych opiera się na następujących składnikach
 * Obszar roboczy Log Analytics, w którym są przechowywane dane monitorowania z maszyn wirtualnych i innych źródeł.
 * Kolekcja liczników wydajności skonfigurowanych w obszarze roboczym. Kolekcja aktualizuje konfigurację monitorowania na wszystkich maszynach wirtualnych podłączonych do obszaru roboczego.
 * `VMInsights`, czyli rozwiązanie do monitorowania skonfigurowane w obszarze roboczym. To rozwiązanie aktualizuje konfigurację monitorowania na wszystkich maszynach wirtualnych podłączonych do obszaru roboczego.
-* `MicrosoftMonitoringAgent`i `DependencyAgent` , które są rozszerzeniami maszyny wirtualnej platformy Azure. Te rozszerzenia zbierają i przesyłają dane do obszaru roboczego.
+* `MicrosoftMonitoringAgent` i `DependencyAgent` , które są rozszerzeniami maszyny wirtualnej platformy Azure. Te rozszerzenia zbierają i przesyłają dane do obszaru roboczego.
 
 Przygotowując się do wyłączenia monitorowania maszyn wirtualnych, pamiętaj o następujących kwestiach:
 

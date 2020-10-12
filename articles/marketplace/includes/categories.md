@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: plik dołączany
 description: Dołącz plik do listy kategorii i podkategorii
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.custom: include file
 author: anbene
 ms.author: mingshen
 ms.openlocfilehash: 763ee108e1e2899bb2268ae5e6236f74a73e4b44
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498054"
 ---
 | [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
@@ -84,7 +84,7 @@ ms.locfileid: "87498054"
 | &nbsp;&nbsp;Łączność | &nbsp;&nbsp;Zarządzanie zamówieniami & sprzedaży |
 | &nbsp;&nbsp;Zapory | &nbsp;&nbsp;Transport & Zarządzanie magazynem |
 | &nbsp;&nbsp;Moduły równoważenia obciążenia | **Produktywność** |
-| **Bezpieczeństwo**  | &nbsp;&nbsp;Tworzenie zawartości & zarządzanie |
+| **Zabezpieczenia**  | &nbsp;&nbsp;Tworzenie zawartości & zarządzanie |
 | &nbsp;&nbsp;Zarządzanie dostępem & tożsamości | &nbsp;&nbsp;Zarządzanie dokumentami |
 | &nbsp;&nbsp;Ochrona przed zagrożeniami | &nbsp;&nbsp;Zarządzanie pocztą e-mail |
 | &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Tłumaczenie & języka |

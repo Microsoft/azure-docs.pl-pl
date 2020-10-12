@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389194"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Włącz opcję Nie wylogowuj mnie (KMSI) w Azure Active Directory B2C
@@ -90,9 +90,9 @@ Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez 
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** — wskazuje, jak sesja jest rozszerzona o czas określony w `SessionExpiryInSeconds` i `KeepAliveInDays` . `Rolling`Wartość (domyślnie) wskazuje, że sesja jest rozszerzana za każdym razem, gdy użytkownik wykonuje uwierzytelnianie. `Absolute`Wartość oznacza, że użytkownik jest zmuszony do ponownego uwierzytelnienia po upływie określonego czasu.
+    - **SessionExpiryType** — wskazuje, jak sesja jest rozszerzona o czas określony w `SessionExpiryInSeconds` i  `KeepAliveInDays` . `Rolling`Wartość (domyślnie) wskazuje, że sesja jest rozszerzana za każdym razem, gdy użytkownik wykonuje uwierzytelnianie. `Absolute`Wartość oznacza, że użytkownik jest zmuszony do ponownego uwierzytelnienia po upływie określonego czasu.
 
-    - **SessionExpiryInSeconds** — okres istnienia plików cookie sesji, gdy nie włączono *logowania* , nie jest włączony lub jeśli użytkownik nie wybierze opcji nie *wylogowuj mnie*. Sesja wygaśnie po upływie `SessionExpiryInSeconds` Zakończono lub zamknięto przeglądarkę.
+    - **SessionExpiryInSeconds**  — okres istnienia plików cookie sesji, gdy nie włączono *logowania* , nie jest włączony lub jeśli użytkownik nie wybierze opcji nie *wylogowuj mnie*. Sesja wygaśnie po upływie `SessionExpiryInSeconds` Zakończono lub zamknięto przeglądarkę.
 
     - **KeepAliveInDays** — okres istnienia plików cookie sesji, gdy jest włączone *Logowanie* , a użytkownik wybierze opcję Nie wylogowuj *mnie*.  Wartość `KeepAliveInDays` ma pierwszeństwo przed `SessionExpiryInSeconds` wartością i określa czas wygaśnięcia sesji. Jeśli użytkownik zamknie przeglądarkę i ponownie otworzy ją później, nadal może się zalogować w trybie dyskretnym, o ile jest w okresie KeepAliveInDays czasu.
 

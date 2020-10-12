@@ -4,10 +4,10 @@ description: Uruchom kontenery init w Azure Container Instances, aby wykonać za
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85954285"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Uruchamianie kontenera init na potrzeby zadań instalacyjnych w grupie kontenerów
@@ -160,7 +160,7 @@ Aby uzyskać więcej informacji i przykładów przy użyciu `aci-wordcount` obra
 }
 ```
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Utwórz grupę zasobów za pomocą polecenia [az group create][az-group-create].
 
@@ -213,7 +213,7 @@ Dane wyjściowe:
 
 Kontenery inicjowania ułatwiają wykonywanie zadań instalacyjnych i inicjalizacji dla kontenerów aplikacji. Aby uzyskać więcej informacji na temat uruchamiania kontenerów opartych na zadaniach, zobacz [Uruchamianie zadań kontenera z zasadami ponownego uruchamiania](container-instances-restart-policy.md).
 
-Azure Container Instances oferuje inne opcje modyfikacji zachowania kontenerów aplikacji. Przykłady obejmują:
+Azure Container Instances oferuje inne opcje modyfikacji zachowania kontenerów aplikacji. Przykłady:
 
 * [Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów](container-instances-environment-variables.md)
 * [Ustaw wiersz polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia](container-instances-start-command.md)

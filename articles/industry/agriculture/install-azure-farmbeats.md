@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479563"
 ---
 # <a name="install-azure-farmbeats"></a>Zainstaluj projekt Azure FarmBeats
@@ -57,13 +57,13 @@ Koszt usługi Azure FarmBeats to zagregowany koszt podstawowych usług platformy
 Obecnie platforma Azure FarmBeats jest obsługiwana w środowiskach chmury publicznej w następujących regionach:
 
 - Australia Wschodnia
-- Środkowe stany USA
-- Wschodnie stany USA
+- Central US
+- East US
 - Wschodnie stany USA 2
 - Zachodnie stany USA
 - Zachodnie stany USA 2
 - Europa Północna
-- Europa Zachodnia
+- West Europe
 - Azja Wschodnia
 - Azja Południowo-Wschodnia
 
@@ -148,11 +148,11 @@ Proces rejestracji został ukończony. Zanotuj **nazwę użytkownika** i hasło 
 
 Teraz można przystąpić do instalowania FarmBeats. Wykonaj poniższe kroki, aby rozpocząć instalację:
 
-1. Zaloguj się do witryny Azure Portal. Wybierz swoje konto w prawym górnym rogu i przejdź do dzierżawy usługi Azure AD, w której chcesz zainstalować usługę Azure FarmBeats.
+1. Zaloguj się do Portalu Azure. Wybierz swoje konto w prawym górnym rogu i przejdź do dzierżawy usługi Azure AD, w której chcesz zainstalować usługę Azure FarmBeats.
 
 2. Przejdź do witryny Azure Marketplace w portalu i Wyszukaj **usługę Azure FarmBeats** w witrynie Marketplace.
 
-3. Zostanie wyświetlone nowe okno z omówieniem usługi Azure FarmBeats. Wybierz pozycję **Utwórz**.
+3. Zostanie wyświetlone nowe okno z omówieniem usługi Azure FarmBeats. Wybierz przycisk **Utwórz**.
 
 4. Zostanie wyświetlone nowe okno. Ukończ proces rejestracji, wybierając poprawną subskrypcję, grupę zasobów i lokalizację, w której chcesz zainstalować usługę Azure FarmBeats.
 
@@ -198,7 +198,7 @@ Użytkownicy korzystający z pierwszego czasu będą monitowani o wybranie subsk
 
 Ścieżka do input.jsw pliku jest opcjonalna. Jeśli nie zostanie określony, skrypt będzie pytał wszystkie wymagane dane wejściowe. Uaktualnienie powinno zakończyć się około 30 minut.
 
-## <a name="uninstall"></a>Dezinstalacja
+## <a name="uninstall"></a>Odinstalowanie
 
 Aby odinstalować usługę Azure FarmBeats Datahub lub akcelerator, wykonaj następujące czynności:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723320"
 ---
 # <a name="application-gateway-components"></a>Składniki bramy aplikacji
@@ -77,7 +77,7 @@ Istnieją dwa typy odbiorników:
 
 Po utworzeniu odbiornika należy skojarzyć go z regułą routingu żądania. Ta reguła określa, w jaki sposób żądanie otrzymane na odbiorniku powinno być kierowane do zaplecza. Reguła routingu żądań zawiera również pulę zaplecza, do której należy się kierować, oraz ustawienie protokołu HTTP, w którym są wymienione port zaplecza, protokół itp.
 
-## <a name="request-routing-rules"></a>Reguły routingu żądań
+## <a name="request-routing-rules"></a>Żądanie reguł rozsyłania
 
 Reguła routingu żądań jest kluczem składnika bramy aplikacji, ponieważ określa sposób kierowania ruchu do odbiornika. Reguła wiąże odbiornik, pulę serwerów zaplecza i ustawienia protokołu HTTP zaplecza.
 

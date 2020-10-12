@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 462e33c836d8ca0a904e8f7b2e833dc7103311fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387902"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Konfigurowanie rejestracji i logowania przy użyciu konta usługi WeChat za pomocą Azure Active Directory B2C
@@ -29,9 +29,9 @@ Aby użyć konta WeChat jako dostawcy tożsamości w Azure Active Directory B2C 
 ### <a name="register-a-wechat-application"></a>Rejestrowanie aplikacji WeChat
 
 1. Zaloguj się [https://open.weixin.qq.com/](https://open.weixin.qq.com/) przy użyciu swoich poświadczeń WeChat.
-1. Wybierz pozycję**管理中心**(centrum zarządzania).
+1. Wybierz pozycję **管理中心** (centrum zarządzania).
 1. Postępuj zgodnie z instrukcjami, aby zarejestrować nową aplikację.
-1. Wprowadź `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w**授权回调域**(adres URL wywołania zwrotnego). Na przykład jeśli nazwa dzierżawy to contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
+1. Wprowadź `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w **授权回调域** (adres URL wywołania zwrotnego). Na przykład jeśli nazwa dzierżawy to contoso, ustaw adres URL na `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
 1. Skopiuj **Identyfikator aplikacji** i **klucz aplikacji**. Będą one potrzebne do dodania dostawcy tożsamości do dzierżawy.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Konfigurowanie WeChat jako dostawcy tożsamości w dzierżawie
