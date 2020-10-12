@@ -7,10 +7,10 @@ ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018641"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Jak używać interfejsów API komunikacji Reliable Services
@@ -422,7 +422,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [ASP.NET Core z Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Zdalne wywołania procedur z Reliable Services komunikacji zdalnej](service-fabric-reliable-services-communication-remoting.md)
 * [Komunikacja WCF przy użyciu Reliable Services](service-fabric-reliable-services-communication-wcf.md)

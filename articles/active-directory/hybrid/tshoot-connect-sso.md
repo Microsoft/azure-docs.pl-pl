@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Connect: Rozwiązywanie problemów z bezproblemowym logowaniem jednokrotnym | Microsoft Docs'
-description: W tym temacie opisano sposób rozwiązywania problemów Azure Active Directory bezproblemowe logowanie jednokrotne
+title: 'Azure Active Directory Connect: Rozwiązywanie problemów z bezproblemową pojedynczą Sign-On | Microsoft Docs'
+description: W tym temacie opisano sposób rozwiązywania problemów Azure Active Directory bezproblemowe pojedyncze Sign-On
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
@@ -14,15 +14,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294822"
 ---
-# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe logowanie jednokrotne
+# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe pojedyncze Sign-On
 
-Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotyczących typowych problemów dotyczących Azure Active Directory (usługa Azure AD) bezproblemowe logowanie jednokrotne (bezproblemowy Logowanie jednokrotne).
+Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotyczących typowych problemów dotyczących Azure Active Directory (usługa Azure AD) bezproblemowe pojedyncze Sign-On (bezproblemowe logowanie jednokrotne).
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -70,7 +70,7 @@ Przejdź do **Azure Active Directory**  >  **logowania** w [centrum administracy
 | 81012 | Użytkownik próbujący zalogować się do usługi Azure AD różni się od użytkownika, który jest zalogowany na urządzeniu. | Użytkownik musi zalogować się z innego urządzenia.
 | 81013 | Nie można znaleźć obiektu użytkownika na podstawie informacji z biletu Kerberos użytkownika. |Użyj Azure AD Connect, aby zsynchronizować informacje o użytkowniku w usłudze Azure AD. 
 
-## <a name="troubleshooting-checklist"></a>Troubleshooting checklist (Lista kontrolna rozwiązywania problemów)
+## <a name="troubleshooting-checklist"></a>Lista kontrolna rozwiązywania problemów
 
 Użyj poniższej listy kontrolnej, aby rozwiązać problemy z logowaniem jednokrotnym:
 

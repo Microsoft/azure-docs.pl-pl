@@ -7,10 +7,10 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7552609fc4c85cdd5033e67b1bab7fb58cb6ebf1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89016567"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfizm w Reliable Actors Framework
@@ -86,7 +86,7 @@ public class Circle extends ShapeImpl implements Circle
 
 Zwróć uwagę na `ActorService` atrybut typu aktora. Ten atrybut informuje niezawodną strukturę aktora, że powinna automatycznie utworzyć usługę do hostingu aktorów tego typu. W niektórych przypadkach można utworzyć typ podstawowy, który jest przeznaczony wyłącznie do udostępniania funkcjonalności z podtypem i nigdy nie będzie używany do wystąpienia konkretnych aktorów. W takich przypadkach należy użyć `abstract` słowa kluczowego, aby wskazać, że nigdy nie utworzysz aktora na podstawie tego typu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * Zobacz, [jak struktura Reliable Actors wykorzystuje platformę Service Fabric](service-fabric-reliable-actors-platform.md) , aby zapewnić niezawodność, skalowalność i spójny stan.
 * Dowiedz się więcej o [cyklu życia aktora](service-fabric-reliable-actors-lifecycle.md).
 

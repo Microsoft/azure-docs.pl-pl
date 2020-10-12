@@ -7,16 +7,16 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296369"
 ---
 # <a name="feature-list"></a>Lista funkcji #
 Poniżej znajduje się Lista przetestowanych funkcji i nieobsługiwanych funkcji:
 
-| Cechy | SPRAWDZA | CZĘŚCIOWO PRZETESTOWANE | NIEPRZETESTOWANEGO | ICH | UWAGI |
+| Cecha | SPRAWDZA | CZĘŚCIOWO PRZETESTOWANE | NIEPRZETESTOWANEGO | ICH | UWAGI |
 | ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | **Odtwarzanie**                                |        |                  |          |             |                                                                                                                      |
 | Podstawowe odtwarzanie na żądanie                | X      |                  |          |             | Obsługuje strumienie tylko z Azure Media Services                                                                      |
@@ -59,7 +59,7 @@ Poniżej znajduje się Lista przetestowanych funkcji i nieobsługiwanych funkcji
 | Analiza                               |        | X                |          |             | AMP umożliwia nasłuchiwanie zdarzeń analitycznych i diagnostycznych w celu wysłania do wybranego zaplecze analizy.  Wszystkie zdarzenia i właściwości nie są dostępne w ramach techniczna ze względu na ograniczenia platformy.                                                                            |
 | Karnacje niestandardowe                            |        |                  | X        |             | Ten scenariusz można osiągnąć przez włączenie dla kontrolek ustawień wartości false w AMP i użycie własnego kodu HTML i CSS.           |
 | Szybka kontrola paska wyszukiwania                      |        |                  |          | X           |                                                                                                                      |
-| Gra z lew                              |        |                  |          | X           |                                                                                                                      |
+| Trick-Play                              |        |                  |          | X           |                                                                                                                      |
 | Tylko audio                              | X      |                  |          |           | Obsługiwane w AzureHtml5JS. Progresywne odtwarzanie w formacie MP3 może współpracowało z przepisami HTML5 Tech., jeśli Platforma obsługuje tę funkcję.                                                                                                        |
 | Tylko wideo                              | X      |                  |          |           | Obsługiwane w AzureHtml5JS.                                                                                                        |
 | Prezentacja wielookresowa               |        |                  |          | X                                                                                                                                  |

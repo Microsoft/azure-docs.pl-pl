@@ -11,10 +11,10 @@ author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
 ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708275"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
@@ -409,7 +409,7 @@ Jeśli użyto `az ml environment scaffold` polecenia, generuje `azureml_environm
 
 Poniższa tabela zawiera szczegółowe informacje o każdym polu najwyższego poziomu w pliku JSON, jego typie i opisie. Jeśli typ obiektu jest połączony z klasą z zestawu Python SDK, istnieje luźne dopasowanie 1:1 między wszystkimi polami JSON i nazwą zmiennej publicznej w klasie języka Python. W niektórych przypadkach pole może mapować do argumentu konstruktora, a nie zmiennej klasy. Na przykład pole jest `environmentVariables` mapowane na `environment_variables` zmienną w [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) klasie.
 
-| Pole JSON | Typ | Opis |
+| Pole JSON | Type | Opis |
 |---|---|---|
 | `name` | `string` | Nazwa środowiska. Nie rozpoczynaj nazwy od **firmy Microsoft** ani platformy **Azure**. |
 | `version` | `string` | Wersja środowiska. |

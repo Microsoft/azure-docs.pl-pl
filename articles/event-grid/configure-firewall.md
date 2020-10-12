@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób konfigurowania ustawień zapory dla 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324165"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Konfigurowanie zapory IP dla tematów Azure Event Grid lub domen 
-Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony). Aby uzyskać więcej informacji na temat funkcji zabezpieczeń sieci obsługiwanych przez Event Grid, zobacz [zabezpieczenia sieci dla Event Grid](network-security.md).
+Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony). Aby uzyskać więcej informacji na temat funkcji zabezpieczeń sieci obsługiwanych przez Event Grid, zobacz [zabezpieczenia sieci dla Event Grid](network-security.md).
 
 W tym artykule opisano sposób konfigurowania ustawień zapory adresów IP dla tematów Azure Event Grid lub domen.
 

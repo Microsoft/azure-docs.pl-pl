@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830754"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Jak używać Azure Portal do wywoływania metod bezpośrednich
@@ -60,13 +60,13 @@ Użyj `GraphTopologyList` wywołania metody, aby pobrać listę wszystkich topol
 1. Wybierz przycisk **Wywołaj metodę** w górnej części strony.<br><br>
     ![przycisk wywołania metody](media/use-azure-portal-to-invoke-directs-methods/direct-method.png)
 1. W obszarze **wynik** powinien zostać wyświetlony komunikat o stanie 200.<br><br>
-    ![limit czasu połączenia](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
+    ![przekroczenie limitu czasu połączenia](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
 
 ## <a name="responses"></a>Odpowiedzi
 
 | Warunek             | Kod stanu | Szczegółowy kod błędu |
 |-----------------------|-------------|---------------------|
-| Powodzenie               | 200         | Brak                 |
+| Powodzenie               | 200         | Nie dotyczy                 |
 | Ogólne błędy użytkowników   | 400 zakresu   |                     |
 | Ogólne błędy serwera | 500 zakresu   |                     |
 

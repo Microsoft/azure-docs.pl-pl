@@ -4,11 +4,11 @@ description: Skonfiguruj poświadczenia repozytorium, aby pobierać obrazy z rej
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89421428"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Skonfiguruj poświadczenia repozytorium dla aplikacji, aby pobierać obrazy kontenerów
@@ -83,10 +83,6 @@ Poniżej znajduje się przykład, co można dodać do `Hosting` sekcji w Cluster
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
-          },
-          {
-        "name": "DefaultMSIEndpointForTokenAuthentication",
-        "value": "URI"
           }
         ]
       },
@@ -121,25 +117,6 @@ Service Fabric obsługuje używanie tokenów jako poświadczeń do pobierania ob
 
     > [!NOTE]
     > Flaga ma `UseDefaultRepositoryCredentials` ustawioną wartość true, gdy `UseTokenAuthenticationCredentials` ma wartość true, spowoduje wystąpienie błędu podczas wdrażania.
-
-### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Używanie poświadczeń tokenu poza chmurą globalną platformy Azure
-
-W przypadku korzystania z poświadczeń rejestru opartych na tokenach Service Fabric pobiera token w imieniu maszyny wirtualnej w celu zaprezentowania ACR. Domyślnie Service Fabric żąda tokenu, którego odbiorcy są globalnym punktem końcowym w chmurze platformy Azure. W przypadku wdrażania w innym wystąpieniu w chmurze, takim jak Azure (Niemcy) lub Azure Government, należy zastąpić domyślną wartość parametru `DefaultMSIEndpointForTokenAuthentication` . Jeśli wdrożenie nie jest wdrażane w środowisku specjalnym, nie należy przesłaniać tego parametru. Jeśli jesteś, Zastąp wartość domyślną, czyli
-
-```
-http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
-```
-
-z odpowiednim punktem końcowym zasobu dla danego środowiska. Na przykład w przypadku [platformy Azure (Niemcy](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)) zastąpienie zostanie 
-
-```json
-{
-    "name": "DefaultMSIEndpointForTokenAuthentication",
-    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
-}
-```
-
-[Przeczytaj więcej na temat pobierania tokenów zestawu skalowania maszyn wirtualnych](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## <a name="next-steps"></a>Następne kroki
 

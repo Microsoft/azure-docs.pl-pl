@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843434"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
@@ -78,15 +78,15 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 
 | Zasób | Bezpłatnie &nbsp; <sup>1</sup> | Podstawowa &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maksymalna liczba indeksatorów |3 |5 lub 15|50 |200 |200 |Brak |10 |10 |
-| Maksymalna liczba źródeł danych |3 |5 lub 15 |50 |200 |200 |Brak |10 |10 |
-| Maksymalna umiejętności <sup>4</sup> |3 |5 lub 15 |50 |200 |200 |Brak |10 |10 |
-| Maksymalne ładowanie indeksowania na wywołanie |10 000 dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Brak |Bez ograniczeń |Bez ograniczeń |
+| Maksymalna liczba indeksatorów |3 |5 lub 15|50 |200 |200 |Nie dotyczy |10 |10 |
+| Maksymalna liczba źródeł danych |3 |5 lub 15 |50 |200 |200 |Nie dotyczy |10 |10 |
+| Maksymalna umiejętności <sup>4</sup> |3 |5 lub 15 |50 |200 |200 |Nie dotyczy |10 |10 |
+| Maksymalne ładowanie indeksowania na wywołanie |10 000 dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Nie dotyczy |Bez ograniczeń |Bez ograniczeń |
 | Minimalny harmonogram | 5 min |5 min |5 min |5 min |5 min |5 min |5 min | 5 min |
-| Maksymalny czas działania| 1-3 minut |24 godziny |24 godziny |24 godziny |24 godziny |Brak  |24 godziny |24 godziny |
-| Maksymalny czas działania indeksatorów z zestawu umiejętności <sup>5</sup> | 3-10 minut |2 godziny |2 godziny |2 godziny |2 godziny |Brak  |2 godziny |2 godziny |
-| Indeksator obiektów blob: maksymalny rozmiar obiektu BLOB, MB |16 |16 |128 |256 |256 |Brak  |256 |256 |
-| Indeksator obiektów blob: Maksymalna liczba znaków zawartości wyodrębnionych z obiektu BLOB |32 000 |64 000 |4 &nbsp; mln |8 &nbsp; mln |16 &nbsp; mln |Brak |4 &nbsp; mln |4 &nbsp; mln |
+| Maksymalny czas działania| 1-3 minut |24 godziny |24 godziny |24 godziny |24 godziny |Nie dotyczy  |24 godziny |24 godziny |
+| Maksymalny czas działania indeksatorów z zestawu umiejętności <sup>5</sup> | 3-10 minut |2 godziny |2 godziny |2 godziny |2 godziny |Nie dotyczy  |2 godziny |2 godziny |
+| Indeksator obiektów blob: maksymalny rozmiar obiektu BLOB, MB |16 |16 |128 |256 |256 |Nie dotyczy  |256 |256 |
+| Indeksator obiektów blob: Maksymalna liczba znaków zawartości wyodrębnionych z obiektu BLOB |32 000 |64 000 |4 &nbsp; mln |8 &nbsp; mln |16 &nbsp; mln |Nie dotyczy |4 &nbsp; mln |4 &nbsp; mln |
 
 <sup>1</sup> bezpłatne usługi mają maksymalny czas wykonywania indeksatora wynoszący 3 minuty dla źródeł obiektów blob i 1 minuty dla wszystkich innych źródeł danych. W przypadku indeksowania AI, które wywołuje Cognitive Services, bezpłatne usługi są ograniczone do 20 bezpłatnych transakcji dziennie, gdzie transakcja jest definiowana jako dokument, który został pomyślnie przeszedł przez potok wzbogacania.
 
@@ -110,7 +110,7 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Wsparcie dla prywatnego indeksatora punktu końcowego | Nie | Tak | Tak | Tak | Tak | Nie | Tak | Tak |
 | Obsługa prywatnego punktu końcowego dla indeksatorów z zestawu umiejętności<sup>1</sup> | Nie | Nie | Nie | Tak | Tak | Nie | Tak | Tak |
-| Maksymalna liczba prywatnych punktów końcowych | Brak | 10 lub 30 | 100 | 400 | 400 | Brak | 20 | 20 |
+| Maksymalna liczba prywatnych punktów końcowych | Nie dotyczy | 10 lub 30 | 100 | 400 | 400 | Nie dotyczy | 20 | 20 |
 | Maksymalna liczba różnych typów zasobów<sup>2</sup> | Nie dotyczy | 4 | 7 | 15 | 15 | Nie dotyczy | 4 | 4 |
 
 <sup>1</sup> wzbogacanie programu AI i analiza obrazów są intensywnie czasochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej, dlatego w przypadku mniejszych warstw usług wyszukiwania, które umożliwiają uruchamianie ich w środowisku prywatnym, mogą mieć negatywny wpływ na wydajność i stabilność usługi wyszukiwania.

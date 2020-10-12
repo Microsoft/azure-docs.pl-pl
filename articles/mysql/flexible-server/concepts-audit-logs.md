@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 00d0808e83a888a39f9268328feb209167c9b644
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295993"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Śledź aktywność bazy danych za pomocą dzienników inspekcji w Azure Database for MySQL elastycznym serwerze
 
 > [!IMPORTANT] 
 > Azure Database for MySQL elastyczny serwer jest obecnie w publicznej wersji zapoznawczej
-
-> [!NOTE]
-> Integracja z Azure Monitor ustawieniami diagnostycznymi w celu uzyskiwania dostępu do dzienników jest w trakcie wdrażania i pełna funkcjonalność będzie dostępna wkrótce.
 
 Azure Database for MySQL elastyczny serwer zapewnia użytkownikom możliwość konfigurowania dzienników inspekcji. Dzienniki inspekcji mogą służyć do śledzenia aktywności na poziomie bazy danych, w tym połączeń, administratorów, DDL i zdarzeń DML. Te typy dzienników są często używane na potrzeby zapewniania zgodności.
 
@@ -39,7 +36,7 @@ Inne parametry, które można dostosować do kontroli inspekcji, obejmują:
 > [!NOTE]
 > `audit_log_include_users` ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
 
-| **Zdarzenie** | **Opis** |
+| **Wydarzen** | **Opis** |
 |---|---|
 | `CONNECTION` | -Inicjacja połączenia (powodzenie lub niepowodzenie) <br> — Ponowne uwierzytelnianie użytkownika przy użyciu innego użytkownika/hasła podczas sesji <br> -Zakończenie połączenia |
 | `DML_SELECT`| Wybieranie zapytań |
@@ -52,9 +49,6 @@ Inne parametry, które można dostosować do kontroli inspekcji, obejmują:
 | `TABLE_ACCESS` | -Dostępne tylko dla MySQL 5,7 <br> — Instrukcje odczytu tabeli, takie jak SELECT lub INSERT INTO... ZAZNACZENIA <br> -Instrukcji DELETE tabeli, takich jak DELETE lub TRUNCATE TABLE <br> — Instrukcje INSERT tabeli, takie jak INSERT lub REPLACE <br> — Instrukcje aktualizacji tabeli, takie jak aktualizacja |
 
 ## <a name="access-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji
-
-> [!NOTE]
-> Integracja z Azure Monitor ustawieniami diagnostycznymi w celu uzyskiwania dostępu do dzienników jest w trakcie wdrażania i pełna funkcjonalność będzie dostępna wkrótce.
 
 Dzienniki inspekcji są zintegrowane z ustawieniami diagnostycznymi Azure Monitor. Po włączeniu dzienników inspekcji na serwerze elastycznym MySQL można je emitować do Azure Monitor dzienników, Event Hubs lub Azure Storage. Aby dowiedzieć się więcej na temat ustawień diagnostycznych, zobacz [dokumentację dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md). Aby dowiedzieć się więcej na temat włączania ustawień diagnostycznych w Azure Portal, zobacz [artykuł Portal dziennika inspekcji](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

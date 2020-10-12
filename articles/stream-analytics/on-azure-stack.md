@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88860984"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Uruchom Azure Stream Analytics na Azure Stack (wersja zapoznawcza)
@@ -114,12 +114,12 @@ Po utworzeniu zadania usługi Stream Analytics w witrynie Azure Portal można je
    > [!div class="mx-imgBorder"]
    > [![Dane wejściowe ](media/on-azure-stack/event-hub-input.png) centrum zdarzeń](media/on-azure-stack/event-hub-input.png#lightbox)
 
-   #### <a name="iot-hub"></a>IoT Hub
+   #### <a name="iot-hub"></a>Usługa IoT Hub
 
    | Pole | Wartość |
    | --- | --- |
    | Alias danych wejściowych | Przyjazna nazwa używana w zapytaniu zadania do odwoływania się do tych danych wejściowych. |
-   | IoT Hub | Nazwa IoT Hub do użycia jako dane wejściowe. (Przykład:* <IoT Hub Name> . Shanghai.azurestack.Corp.Microsoft.com*) |
+   | Usługa IoT Hub | Nazwa IoT Hub do użycia jako dane wejściowe. (Przykład:* <IoT Hub Name> . Shanghai.azurestack.Corp.Microsoft.com*) |
    | Nazwa zasad dostępu współdzielonego | Zasady dostępu współdzielonego zapewniające dostęp do IoT Hub. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
    | Klucz zasad dostępu współdzielonego | Współużytkowany klucz dostępu używany do autoryzacji dostępu do IoT Hub. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień Centrum IoT. |
    | Grupa konsumentów (opcjonalnie) | Zdecydowanie zaleca się użycie innej grupy odbiorców dla każdego zadania Stream Analytics. Grupa konsumentów służy do pozyskiwania danych z IoT Hub. Stream Analytics używa grupy konsumentów $Default, chyba że określisz inaczej. |

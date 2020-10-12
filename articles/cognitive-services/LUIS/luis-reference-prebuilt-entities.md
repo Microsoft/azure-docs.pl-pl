@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542006"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu LUIS
@@ -54,7 +54,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -98,7 +98,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
@@ -120,7 +120,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -142,7 +142,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -164,7 +164,7 @@ Obsługiwane są następujące jednostki:
 | -------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -254,7 +254,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -276,7 +276,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    V2, V3   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    V2, V3   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -298,7 +298,7 @@ Obsługiwane są następujące jednostki:
 | --------------- | :---: |
 [Wiek](luis-reference-prebuilt-age.md):<br>rok<br>miesiąc<br>ciągu<br>dzień   |    -   |
 [Waluta (pieniądze)](luis-reference-prebuilt-currency.md):<br>dolarów<br>Jednostka ułamkowa (np. groszki)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>timerange   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
 [Wymiar](luis-reference-prebuilt-dimension.md):<br>wolumin<br>obszar<br>waga<br>informacje (np. bit/Byte)<br>Długość (np. miernik)<br>szybkość (np. droga na godzinę)  |    -   |
 [Poczta e-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -346,9 +346,9 @@ KeyPhrase is not available.
 -->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Współtworzenie do prekompilowanych kultur jednostek
-Wstępnie skompilowane jednostki są opracowywane w projekcie rozpoznawania tekstu Open-Source. [Współtworzenie](https://github.com/Microsoft/Recognizers-Text) projektu. Ten projekt zawiera przykłady walut na kulturę.
+Wstępnie skompilowane jednostki są opracowywane w projekcie Recognizers-Text Open Source. [Współtworzenie](https://github.com/Microsoft/Recognizers-Text) projektu. Ten projekt zawiera przykłady walut na kulturę.
 
-GeographyV2 i PersonName nie są uwzględnione w projekcie rozpoznawania tekstu. W przypadku problemów z tymi wstępnie skompilowanymi jednostkami Otwórz [żądanie pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+GeographyV2 i PersonName nie są uwzględnione w projekcie Recognizers-Text. W przypadku problemów z tymi wstępnie skompilowanymi jednostkami Otwórz [żądanie pomocy technicznej](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

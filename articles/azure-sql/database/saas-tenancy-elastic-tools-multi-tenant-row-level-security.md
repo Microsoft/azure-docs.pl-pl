@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619937"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplikacje z wieloma dzierżawcami z narzędziami Elastic Database i zabezpieczeniami na poziomie wierszy
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> W złożonym projekcie może być konieczne dodanie predykatu do setek tabel, które mogą być żmudnym. Występuje procedura składowana pomocnika, która automatycznie generuje zasady zabezpieczeń i dodaje predykat dla wszystkich tabel w schemacie. Aby uzyskać więcej informacji, zobacz wpis w blogu na stronie [Zastosuj zabezpieczenia na poziomie wiersza do wszystkich tabel — skrypt pomocnika](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
+> W złożonym projekcie może być konieczne dodanie predykatu do setek tabel, które mogą być żmudnym. Występuje procedura składowana pomocnika, która automatycznie generuje zasady zabezpieczeń i dodaje predykat dla wszystkich tabel w schemacie. Aby uzyskać więcej informacji, zapoznaj się z wpisem w blogu na stronie [zastosuj Row-Level zabezpieczenia do wszystkich tabel — skrypt pomocnika](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Teraz po ponownym uruchomieniu przykładowej aplikacji dzierżawy będą widzieć tylko wiersze należące do nich. Ponadto aplikacja nie może wstawiać wierszy należących do dzierżawców innych niż aktualnie połączone z bazą danych fragmentu. Ponadto aplikacja nie może zaktualizować TenantId w żadnym z wierszy, które może zobaczyć. Jeśli aplikacja podejmie próbę wykonania tej czynności, zostanie zgłoszony wyjątek dbupdateexception.
 
@@ -303,7 +303,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 > [!NOTE]
 > Jeśli używasz ograniczeń domyślnych dla projektu Entity Framework, zaleca się, aby *nie* uwzględnić kolumny TenantId w modelu danych EF. To zalecenie wynika z faktu, że Entity Framework zapytania automatycznie dostarczają wartości domyślne, które zastępują ograniczenia domyślne utworzone w języku T-SQL, który używa \_ kontekstu sesji.
-> Aby użyć ograniczeń domyślnych w projekcie przykładowym, na przykład należy usunąć TenantId z DataClasses.cs (i uruchomić polecenie Add-Migration w konsoli Menedżera pakietów) i użyć języka T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. W ten sposób EF automatycznie poda nieprawidłowe wartości domyślne podczas wstawiania danych.
+> Aby użyć ograniczeń domyślnych w projekcie przykładowym, na przykład należy usunąć TenantId z DataClasses.cs (i uruchomić Add-Migration w konsoli Menedżera pakietów) i użyć T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. W ten sposób EF automatycznie poda nieprawidłowe wartości domyślne podczas wstawiania danych.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>Obowiązkowe Włącz dostęp do *administratora* wszystkich wierszy
 
@@ -342,13 +342,13 @@ GO
 ### <a name="maintenance"></a>Konserwacja
 
 - **Dodawanie nowego fragmentów**: Wykonaj skrypt T-SQL, aby włączyć zabezpieczenia na poziomie wiersza na dowolnym nowym fragmentów, w przeciwnym razie zapytania dotyczące tych fragmentów nie są filtrowane.
-- **Dodawanie nowych tabel**: Dodaj predykat Filter i Block do zasad zabezpieczeń na wszystkich fragmentów za każdym razem, gdy zostanie utworzona nowa tabela. W przeciwnym razie zapytania w nowej tabeli nie są filtrowane. To dodanie może być zautomatyzowane przy użyciu wyzwalacza DDL, zgodnie z opisem w temacie [stosuj zabezpieczenia na poziomie wiersza automatycznie do nowo utworzonych tabel (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Dodawanie nowych tabel**: Dodaj predykat Filter i Block do zasad zabezpieczeń na wszystkich fragmentów za każdym razem, gdy zostanie utworzona nowa tabela. W przeciwnym razie zapytania w nowej tabeli nie są filtrowane. To dodanie może być zautomatyzowane przy użyciu wyzwalacza DDL, zgodnie z opisem w artykule [zastosuj Row-Level zabezpieczenia automatycznie do nowo utworzonych tabel (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Podsumowanie
 
 Narzędzia Elastic Database i zabezpieczenia na poziomie wiersza mogą być używane razem w celu skalowania warstwy danych aplikacji z obsługą zarówno wielodostępnych, jak i fragmentów jednej dzierżawy. Fragmentów z wieloma dzierżawami mogą służyć do wydajniejszego przechowywania danych. Ta wydajność jest wymawiana, gdy duża liczba dzierżawców ma tylko kilka wierszy danych. Fragmentów z jedną dzierżawą mogą obsługiwać dzierżawy w warstwie Premium, które mają bardziej rygorystyczne wymagania dotyczące wydajności i izolacji. Aby uzyskać więcej informacji, zobacz [Informacje o zabezpieczeniach na poziomie wiersza][rls].
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Co to jest pula elastyczna Azure?](elastic-pool-overview.md)
 - [Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)](elastic-scale-introduction.md)

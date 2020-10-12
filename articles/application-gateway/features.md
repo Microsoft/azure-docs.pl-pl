@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: victorh
 ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355741"
 ---
 # <a name="azure-application-gateway-features"></a>Funkcje Application Gateway platformy Azure
@@ -58,7 +58,7 @@ Application Gateway Standard_v2 może obejmować wiele Strefy dostępnościów, 
 
 Jednostka SKU Standard_v2 bramy aplikacji obsługuje wyłącznie statyczny typ adresu VIP. Dzięki temu wirtualne adresy IP skojarzone z bramą aplikacji nie zmieniają się nawet w okresie istnienia Application Gateway.
 
-## <a name="web-application-firewall"></a>Web Application Firewall
+## <a name="web-application-firewall"></a>Zapora aplikacji internetowej
 
 Zapora aplikacji sieci Web (WAF) to usługa, która zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi programami wykorzystującymi luki w zabezpieczeniach. WAF opiera się na regułach z [OWASP (Open Web Application Security Project) podstawowych zestawów reguł](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (tylko WAF_v2), 3,0 i 2.2.9. 
 
@@ -155,7 +155,7 @@ Pełna lista limitów usługi Application Gateway znajduje się na stronie [ogra
 
 W poniższej tabeli przedstawiono średnią przepływność wydajności dla każdego wystąpienia usługi Application Gateway V1 z włączonym odciążeniem SSL:
 
-| Średni rozmiar odpowiedzi strony zaplecza | Mały | Średniaa | Duży |
+| Średni rozmiar odpowiedzi strony zaplecza | Mała | Średniaa | Duża |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mb/s |13 Mb/s |50 Mb/s |
 | 100 KB |35 Mb/s |100 Mb/s |200 Mb/s |

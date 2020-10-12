@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544302"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Samouczek: integracja Azure Active Directory z systemem GTNexus SSO
 
@@ -101,11 +101,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji GTNexus SS
 
     a. Kliknij pozycję **Przekaż plik metadanych**.
 
-    ![image (obraz)](common/upload-metadata.png)
+    ![Zrzut ekranu przedstawiający stronę "podstawowa S A M" konfiguracji z wybraną akcją Przekaż plik metadanych.](common/upload-metadata.png)
 
     b. Kliknij **logo folderu**, aby wybrać plik metadanych, a następnie kliknij pozycję **Przekaż**.
 
-    ![image (obraz)](common/browse-upload-metadata.png)
+    ![Zrzut ekranu pokazujący pole "Wybierz plik" z wybranym przyciskiem logo "folder" i "Przekaż".](common/browse-upload-metadata.png)
 
     c. Po pomyślnym przekazaniu pliku metadanych wartości **Identyfikator** i **Adres URL odpowiedzi** zostaną automatycznie wypełnione w polu tekstowym sekcji GTNexus SSO System:
 
@@ -145,7 +145,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

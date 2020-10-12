@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855854"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Często zadawane pytania dotyczące migracji z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
@@ -24,7 +24,7 @@ ms.locfileid: "88855854"
 
 Słowo "klasyczne" w maszynie wirtualnej IaaS (klasyczny) odnosi się do maszyn wirtualnych zarządzanych przez usługę Azure Service Manager (ASM). Azure Service Manager (ASM) to stara płaszczyzna kontroli platformy Azure odpowiedzialna za tworzenie, zarządzanie, usuwanie maszyn wirtualnych i wykonywanie innych operacji na płaszczyźnie kontroli. 
 
-## <a name="what-is-azure-resource-manager"></a>Co to jest Azure Resource Manager?
+## <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) to najnowsza płaszczyzna kontroli platformy Azure odpowiedzialna za tworzenie, zarządzanie, usuwanie maszyn wirtualnych i wykonywanie innych operacji na płaszczyźnie kontroli. 
 

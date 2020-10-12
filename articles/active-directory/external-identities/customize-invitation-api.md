@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295162"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory interfejs API współpracy B2B i dostosowywanie
@@ -83,7 +83,7 @@ W kontekście tylko aplikacji aplikacja wymaga elementu User. zaprasza. All, aby
 Aby uzyskać więcej informacji, zobacz: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Za pomocą programu PowerShell możesz łatwo dodawać i zapraszać użytkowników zewnętrznych do organizacji. Utwórz zaproszenie przy użyciu polecenia cmdlet:
 
@@ -100,7 +100,7 @@ Możesz użyć następujących opcji:
 
 ### <a name="invitation-status"></a>Stan zaproszenia
 
-Po wysłaniu zaproszenia użytkownika zewnętrznego możesz użyć polecenia cmdlet **Get-AzureADUser** , aby sprawdzić, czy zaakceptuje to polecenie. Następujące właściwości get-AzureADUser są wypełniane, gdy użytkownik zewnętrzny otrzymuje zaproszenie:
+Po wysłaniu zaproszenia użytkownika zewnętrznego możesz użyć polecenia cmdlet **Get-AzureADUser** , aby sprawdzić, czy zaakceptuje to polecenie. Następujące właściwości Get-AzureADUser są wypełniane, gdy użytkownik zewnętrzny otrzymuje zaproszenie:
 
 * **UserState** wskazuje, czy zaproszenie jest **PendingAcceptance** lub **zaakceptowane**.
 * **UserStateChangedOn** pokazuje sygnaturę czasową dla najnowszej zmiany właściwości **userState** .

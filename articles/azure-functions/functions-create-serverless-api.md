@@ -7,10 +7,10 @@ ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083025"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Dostosowywanie punktu końcowego HTTP w Azure Functions
@@ -112,13 +112,13 @@ Wykonaj ponownie procedurę [Tworzenie aplikacji funkcji](./functions-create-fir
     | Adres URL zaplecza | https://%HELLO_HOST%/api/hello | Określa punkt końcowy, do którego powinno być przekazywane żądanie |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Tworzenie serwera proxy":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Dostosowywanie funkcji HTTP":::
 
     Serwery proxy usługi Azure Functions nie udostępnia `/api` prefiksu ścieżki podstawowej, który musi być uwzględniony w szablonie trasy. `%HELLO_HOST%`Składnia odwołuje się do utworzonego wcześniej ustawienia aplikacji. Rozpoznany adres URL będzie wskazywał oryginalną funkcję.
 
 1. Wypróbuj nowy serwer proxy przez skopiowanie adresu URL serwera proxy i przetestowanie go w przeglądarce lub z ulubionym klientem HTTP:
-    - Użycie funkcji anonimowej: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
-    - Dla funkcji z użyciem autoryzacji: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
+    - Użycie funkcji anonimowej:   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
+    - Dla funkcji z użyciem autoryzacji:   `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
 
 ## <a name="create-a-mock-api"></a>Tworzenie makiety interfejsu API
 

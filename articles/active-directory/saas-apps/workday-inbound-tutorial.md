@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541292"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
@@ -370,7 +370,7 @@ Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki podane poni
    >[!div class="mx-imgBorder"]
    >![Ekran zakończenia](./media/workday-inbound-tutorial/pa_install_screen_9.png "Ekran zakończenia")
    
-1. Sprawdź instalację agenta i upewnij się, że jest uruchomiona, otwierając przystawkę "usługi" i Wyszukaj usługę o nazwie "Microsoft Azure AD Połącz agenta aprowizacji"
+1. Sprawdź instalację agenta i upewnij się, że jest on uruchomiony, otwierając "usługi" Snap-In i poszukaj usługi o nazwie "Microsoft Azure AD Połącz agenta aprowizacji"
 
    >[!div class="mx-imgBorder"]
    >![Zrzut ekranu przedstawiający agenta aprowizacji Microsoft Azure AD łączenia z usługą w usługach.](./media/workday-inbound-tutorial/services.png)
@@ -478,7 +478,7 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 
          * **Tylko podczas tworzenia** — Zastosuj to mapowanie tylko dla akcji tworzenia użytkownika
 
-1. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Mapowanie atrybutów.
+1. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Attribute-Mapping.
    >[!div class="mx-imgBorder"]
    >![Zrzut ekranu przedstawiający stronę "Mapowanie atrybutów" z wybraną akcją "Zapisz".](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -528,7 +528,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij pozycję **Zapisz**.
+2. Kliknij przycisk **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie produktu Workday. 
 
@@ -1126,7 +1126,7 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad2.png)
 
-11. Wybierz pozycję **Zapisz** powyżej, a następnie kliknij przycisk **tak** w oknie dialogowym. Zamknij ekran mapowania atrybutów, jeśli jest on nadal otwarty.
+11. Wybierz pozycję **Zapisz** powyżej, a następnie kliknij przycisk **tak** w oknie dialogowym. Zamknij ekran Attribute-Mapping, jeśli jest nadal otwarty.
 
 12. Z powrotem na głównej karcie **aprowizacji** wybierz pozycję **Synchronizuj procesy robocze w dniach roboczych z lokalną Active Directory** (lub **zsynchronizuj pracowników ponownie z usługą Azure AD**).
 

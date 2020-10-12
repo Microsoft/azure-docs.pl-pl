@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f6f193f531be746d3ef4920b86855ffa49efda2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260448"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893088"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Tworzenie, opracowywanie i konserwowanie notesów Synapse Studio (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -90,8 +90,8 @@ Nie można odwoływać się do danych ani zmiennych bezpośrednio w różnych j�
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-   scalaDataFrame.registerTempTable( "mydataframetable" )
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
 2. W komórce 2 zbadaj dane przy użyciu platformy Spark SQL.

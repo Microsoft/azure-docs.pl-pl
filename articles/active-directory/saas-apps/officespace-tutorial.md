@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e05a2a4ba12d5fc665090d5bf078da520000f43b
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554183"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945366"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania OfficeSpace
 
@@ -124,7 +124,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -150,11 +150,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Przejdź do pozycji **Ustawienia** i kliknij pozycję **Łączniki**.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Zrzut ekranu pokazujący listę rozwijaną "Ustawienia" z wybranymi "łącznikami".](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Kliknij pozycję **uwierzytelnianie SAML**.
 
-    ![Konfigurowanie logowania jednokrotnego po stronie aplikacji](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Zrzut ekranu przedstawiający sekcję "Authentication" z wybraną akcją "S A M L Authentication".](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. W sekcji **SAML Authentication** (Uwierzytelnianie SAML) wykonaj następujące kroki:
 
@@ -181,7 +181,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka oprogramowanie OfficeSpace w panelu dostępu należy automatycznie zalogować się do oprogramowania OfficeSpace, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

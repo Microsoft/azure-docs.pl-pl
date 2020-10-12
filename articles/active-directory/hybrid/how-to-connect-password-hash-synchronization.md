@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89652078"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementowanie synchronizacji skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
@@ -63,7 +63,7 @@ W poniższej sekcji opisano szczegółowo, jak działa synchronizacja skrótów 
 > [!NOTE]
 > Oryginalny skrót MD4 nie jest przesyłany do usługi Azure AD. Zamiast tego jest przesyłany Skrót SHA256 oryginalnego skrótu MD4. W związku z tym, jeśli zostanie uzyskany skrót przechowywany w usłudze Azure AD, nie można go używać w przypadku ataku typu "nastąpi lokalne".
 
-### <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+### <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 Podczas synchronizowania haseł wersja zwykłego tekstu hasła nie jest udostępniona funkcji synchronizacji skrótów haseł w usłudze Azure AD ani żadnej z skojarzonych usług.
 
@@ -113,7 +113,7 @@ Po włączeniu usługa Azure AD nie przechodzi do każdego synchronizowanego uż
 
 Zaleca się włączenie EnforceCloudPasswordPolicyForPasswordSyncedUsers przed włączeniem synchronizacji skrótów haseł, dzięki czemu początkowa synchronizacja skrótów haseł nie dodaje `DisablePasswordExpiration` wartości do atrybutu PasswordPolicies dla użytkowników.
 
-Domyślne zasady haseł usługi Azure AD wymagają od użytkowników zmiany haseł co 90 dni. Jeśli zasady usługi AD są również 90 dni, dwie zasady powinny być zgodne. Jeśli jednak zasady usługi AD nie są 90 dni, można zaktualizować zasady haseł usługi Azure AD tak, aby odpowiadały za pomocą polecenia Set-MsolPasswordPolicy programu PowerShell.
+Domyślne zasady haseł usługi Azure AD wymagają od użytkowników zmiany haseł co 90 dni. Jeśli zasady usługi AD są również 90 dni, dwie zasady powinny być zgodne. Jeśli jednak zasady usługi AD nie są 90 dni, można zaktualizować zasady haseł usługi Azure AD w celu dopasowania przy użyciu polecenia Set-MsolPasswordPolicy PowerShell.
 
 Usługa Azure AD obsługuje oddzielne zasady wygasania haseł dla zarejestrowanej domeny.
 
@@ -122,7 +122,7 @@ Zastrzeżenie: Jeśli istnieją zsynchronizowane konta, które muszą mieć niew
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Polecenie Set-MsolPasswordPolicy programu PowerShell nie będzie działało w domenach federacyjnych. 
+> Polecenie Set-MsolPasswordPolicy PowerShell nie będzie działało w domenach federacyjnych. 
 
 #### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Synchronizowanie haseł tymczasowych i "Wymuś zmianę hasła przy następnym logowaniu"
 

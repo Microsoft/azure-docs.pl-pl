@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541411"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Jak ulepszyć aplikację przy użyciu pulpitu nawigacyjnego
@@ -152,7 +152,7 @@ Określ procent wartości progowych, z którymi masz doświadczenie dla Twojej f
 
 Filtr umożliwia znalezienie intencji z określonym problemem:
 
-|Filtr|Sugerowana wartość procentowa|Przeznaczenie|
+|Filtrowanie|Sugerowana wartość procentowa|Przeznaczenie|
 |--|--|--|
 |Najbardziej problematyczne intencje|-|**Zacznij tutaj** — naprawianie wyrażenia długości w tym celu poprawi aplikację więcej niż inne poprawki.|
 |Poprawne przewidywania poniżej|60%|Jest to wartość procentowa wyrażenia długości w wybranym zamierzeniu, która jest poprawna, ale ma wynik pewności poniżej wartości progowej. |

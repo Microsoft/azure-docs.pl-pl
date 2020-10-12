@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295230"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
@@ -186,7 +186,7 @@ Sekcja przekształcenia definiuje wszystkie przepływy atrybutów, które są st
 
 ![Karta przekształcenia w Edytorze reguł synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
-Aby wprowadzić tę konfigurację w kontekście, w ramach wdrożenia lasu zasobów konta oczekiwane jest znalezienie włączonego konta w lesie konta i wyłączone konto w lesie zasobów z ustawieniami programu Exchange i Lync. Reguła synchronizacji, która jest wyświetlana, zawiera atrybuty wymagane do logowania, a te atrybuty powinny przepływać z lasu, w którym jest włączone konto. Wszystkie te przepływy atrybutów są umieszczane w jednej regule synchronizacji.
+Aby wprowadzić tę konfigurację w kontekście, w ramach wdrożenia lasu Account-Resource należy znaleźć włączone konto w lesie konta i wyłączone konto w lesie zasobów z ustawieniami programu Exchange i Lync. Reguła synchronizacji, która jest wyświetlana, zawiera atrybuty wymagane do logowania, a te atrybuty powinny przepływać z lasu, w którym jest włączone konto. Wszystkie te przepływy atrybutów są umieszczane w jednej regule synchronizacji.
 
 Transformacja może mieć różne typy: stałe, bezpośrednie i wyrażenie.
 

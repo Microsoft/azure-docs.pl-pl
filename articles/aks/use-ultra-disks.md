@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420867"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
 [Usługa Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) oferuje wysoką przepływność, dużą liczbę IOPS i spójną małą ilość miejsca na dysku dla aplikacji stanowych. Jedną z głównych zalet funkcji Ultra disks jest możliwość dynamicznego zmieniania wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania węzłów agentów. Ultra dyski są odpowiednie dla obciążeń intensywnie korzystających z danych.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli węzłów.
 
