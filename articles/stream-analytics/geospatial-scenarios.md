@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045267"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scenariusze wieloogrodzeniowe i agregacji geoprzestrzennej z Azure Stream Analytics
@@ -70,7 +70,7 @@ Urządzenie "C" znajduje się w obrębie kompilacji o IDENTYFIKATORze 2, co nie 
 
 ### <a name="site-with-multiple-allowed-devices"></a>Lokacja z wieloma dozwolonymi urządzeniami
 
-Jeśli lokacja zezwala na wiele urządzeń, tablica identyfikatorów urządzeń może być zdefiniowana w programie `AllowedDeviceID` , a funkcja zdefiniowana przez użytkownika może być używana w `WHERE` klauzuli w celu sprawdzenia, czy identyfikator urządzenia strumienia pasuje do dowolnego identyfikatora urządzenia na tej liście. Aby uzyskać więcej informacji, zapoznaj się z samouczkiem [UDF języka JavaScript](stream-analytics-javascript-user-defined-functions.md) dla zadań w chmurze i samouczka [UDF języka C#](stream-analytics-edge-csharp-udf.md) dla zadań brzegowych.
+Jeśli lokacja programu zezwala na wiele urządzeń, można zdefiniować w niej tablicę identyfikatorów urządzeń `AllowedDeviceID` i można użyć funkcji User-Defined w `WHERE` celu sprawdzenia, czy identyfikator urządzenia strumienia pasuje do dowolnego identyfikatora urządzenia na tej liście. Aby uzyskać więcej informacji, zapoznaj się z samouczkiem [UDF języka JavaScript](stream-analytics-javascript-user-defined-functions.md) dla zadań w chmurze i samouczka [UDF języka C#](stream-analytics-edge-csharp-udf.md) dla zadań brzegowych.
 
 ## <a name="geospatial-aggregation"></a>Agregacja geoprzestrzenna
 

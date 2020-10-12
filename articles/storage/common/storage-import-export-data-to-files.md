@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: a88cf9981d4f3a69a503c9caa56be1b5f35029f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105187"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Use Azure Import/Export service to import data to Azure Files (Używanie usługi Azure Import/Export do importowania danych do usługi Azure Files)
@@ -50,7 +50,7 @@ Wykonaj poniższe kroki, aby przygotować dyski.
 2. Utwórz pojedynczy wolumin NTFS na każdym dysku. Przypisz literę dysku do woluminu. Nie należy używać mountpoints.
 3. Zmodyfikuj plik *dataset.csv* w folderze głównym, w którym znajduje się narzędzie. W zależności od tego, czy chcesz zaimportować plik, czy folder, należy dodać wpisy w pliku *dataset.csv* podobnie jak w poniższych przykładach.  
 
-   - **Aby zaimportować plik**: w poniższym przykładzie dane do skopiowania znajdują się na dysku F:. Plik *MyFile1.txt* jest kopiowany do katalogu głównego *MyAzureFileshare1*. Jeśli *MyAzureFileshare1* nie istnieje, zostanie on utworzony na koncie usługi Azure Storage. Struktura folderów jest utrzymywana.
+   - **Aby zaimportować plik**: w poniższym przykładzie dane do skopiowania znajdują się na dysku F:. Plik *MyFile1.txt*  jest kopiowany do katalogu głównego *MyAzureFileshare1*. Jeśli *MyAzureFileshare1* nie istnieje, zostanie on utworzony na koncie usługi Azure Storage. Struktura folderów jest utrzymywana.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -145,7 +145,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie importowania w Azure Portal.
 
 4. W oknie **Informacje o wysyłce zwrotu**:
 
-    - Z listy rozwijanej wybierz pozycję przewoźnik. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com` z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
+    - Z listy rozwijanej wybierz pozycję przewoźnik. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com`  z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
     - Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta, aby po zakończeniu zadania importowania dostarczać dyski z powrotem do użytkownika.
     - Podaj pełną i poprawną nazwę kontaktu, numer telefonu, adres e-mail, ulica, miasto, kod pocztowy, Województwo i kraj/region.
 

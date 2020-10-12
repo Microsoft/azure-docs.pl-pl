@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
 ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287940"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager dysk testowy
@@ -122,7 +122,7 @@ Test Drive Inicjuje ten parametr przy użyciu nowej losowej nazwy użytkownika:
 }
 ```
 
-Przykładowa wartość:`admin68876`
+Przykładowa wartość: `admin68876`
 
 Możesz użyć losowo lub stałych nazw użytkowników dla rozwiązania.
 
@@ -144,7 +144,7 @@ Test Drive Inicjuje ten parametr przy użyciu nowego hasła losowego:
 }
 ```
 
-Przykładowa wartość:`Lp!ACS^2kh`
+Przykładowa wartość:  `Lp!ACS^2kh`
 
 Do rozwiązania można użyć haseł losowych lub stałych.
 
@@ -166,7 +166,7 @@ Test Drive Inicjuje ten parametr z unikatowym identyfikatorem GUID reprezentują
 }
 ```
 
-Przykładowa wartość:`b8c8693e-5673-449c-badd-257a405a6dee`
+Przykładowa wartość: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 Tego parametru można użyć do unikatowego identyfikowania sesji dysku testowego, jeśli jest to konieczne.
 
@@ -266,7 +266,7 @@ Przykład:
 
 ### <a name="subscription-limits"></a>Limity subskrypcji
 
-Nie zapomnij o limitach subskrypcji i usług. Jeśli na przykład chcesz wdrożyć do dziesięciu maszyn wirtualnych z systemem 10 rdzeni, musisz upewnić się, że subskrypcja używana dla laboratorium umożliwia korzystanie z 40 rdzeni. Aby uzyskać więcej informacji na temat limitów subskrypcji i usług platformy Azure, zobacz [limity dotyczące subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md). Ponieważ można jednocześnie wykonać wiele testów, sprawdź, czy subskrypcja może obsłużyć liczbę rdzeni pomnożonych przez łączną liczbę współbieżnych dysków testowych, które mogą być wykonywane.
+Nie zapomnij o limitach subskrypcji i usług. Jeśli na przykład chcesz wdrożyć maksymalnie 10 4-rdzeniowe maszyny wirtualne, musisz upewnić się, że subskrypcja używana dla laboratorium umożliwia korzystanie z rdzeni 40. Aby uzyskać więcej informacji na temat limitów subskrypcji i usług platformy Azure, zobacz [limity dotyczące subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md). Ponieważ można jednocześnie wykonać wiele testów, sprawdź, czy subskrypcja może obsłużyć liczbę rdzeni pomnożonych przez łączną liczbę współbieżnych dysków testowych, które mogą być wykonywane.
 
 ### <a name="what-to-upload"></a>Co należy przekazać
 

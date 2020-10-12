@@ -7,10 +7,10 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: ce2169838faaee8da459f80979fa31318e9d50c9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322180"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Tworzenie i publikowanie funkcji na platformie Azure przy użyciu języka Java i Gradle
@@ -176,4 +176,4 @@ Utworzono projekt funkcji języka Java z funkcją wyzwalaną przez protokół HT
 
 
 [Interfejs wiersza polecenia platformy Azure]: /cli/azure
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

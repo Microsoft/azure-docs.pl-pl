@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 51ad28319a372cd791575b5a3e67cc0fd6934be2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90981642"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą DocuSign
@@ -119,7 +119,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 1. W górnej części ekranu wybierz pozycję **nowy użytkownik**.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wpisz **B. Simon**.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość `<username>@<companydomain>.<extension>` . Na przykład: `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość `<username>@<companydomain>.<extension>` . Przykład: `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie zanotuj wartość wyświetlaną w polu **hasło** .
    1. Wybierz przycisk **Utwórz**.
 

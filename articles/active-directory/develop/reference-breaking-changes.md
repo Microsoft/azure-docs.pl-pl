@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115037"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
@@ -69,7 +69,7 @@ Użytkownicy z hasłami dłuższymi niż 256 znaków, które logują się bezpo�
 
 Błąd w dziennikach logowania to AADSTS 50052: InvalidPasswordExceedsMaxLength
 
-Komunikat:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+Komunikat: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
 Korygowania
 
@@ -127,7 +127,7 @@ Aby rozwiązać ten problem, użyj środowiska zgody administratora, aby utworzy
 
 #### <a name="example-request"></a>Przykładowe żądanie
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`W tym przykładzie dzierżawca zasobów (Urząd) to contoso.com, aplikacja zasobów jest aplikacją jednodostępną o nazwie `gateway.contoso.com/api` dzierżawcy contoso, a aplikacja kliencka `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Jeśli aplikacja kliencka ma nazwę główną usługi w ramach Contoso.com, to żądanie może być kontynuowane.  W przeciwnym razie żądanie zakończy się niepowodzeniem z błędem powyżej.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` W tym przykładzie dzierżawca zasobów (Urząd) to contoso.com, aplikacja zasobów jest aplikacją jednodostępną o nazwie `gateway.contoso.com/api` dzierżawcy contoso, a aplikacja kliencka `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Jeśli aplikacja kliencka ma nazwę główną usługi w ramach Contoso.com, to żądanie może być kontynuowane.  W przeciwnym razie żądanie zakończy się niepowodzeniem z błędem powyżej.
 
 Jeśli jednak aplikacja bramy contoso była aplikacją z wieloma dzierżawcami, żądanie będzie kontynuowane bez względu na to, czy aplikacja kliencka ma nazwę główną usługi w Contoso.com.
 

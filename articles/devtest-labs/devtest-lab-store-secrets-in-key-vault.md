@@ -4,10 +4,10 @@ description: Dowiedz się, jak przechowywać wpisy tajne w Azure Key Vault i kor
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5714279ef183cb930d643575466dae3d6cb69bba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481650"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Przechowywanie wpisów tajnych w magazynie kluczy w Azure DevTest Labs

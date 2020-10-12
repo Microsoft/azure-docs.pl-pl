@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,17 +9,17 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815474"
 ---
 Skonfigurowanie kluczy zarządzanych przez klienta dla dysków będzie wymagało utworzenia zasobów w określonej kolejności, jeśli jest to wykonywane po raz pierwszy. Najpierw należy utworzyć i skonfigurować Azure Key Vault.
 
 ## <a name="set-up-your-azure-key-vault"></a>Skonfiguruj Azure Key Vault
 
-1. Zaloguj się do [Azure Portal](https://aka.ms/diskencryptionupdates).
+1. Zaloguj się w witrynie [Azure Portal](https://aka.ms/diskencryptionupdates).
 1. Wyszukaj i wybierz pozycję **magazyny kluczy**.
 
     [![Zrzut ekranu przedstawiający Azure Portal przy użyciu okna dialogowego Wyszukiwanie rozwinięte.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
@@ -65,7 +65,7 @@ Skonfigurowanie kluczy zarządzanych przez klienta dla dysków będzie wymagało
 1. Wybierz **pozycję kliknij, aby wybrać klucz**.
 1. Wybierz utworzony wcześniej Magazyn kluczy i klucz, a także wersję.
 1. Naciśnij **pozycję Wybierz**.
-1. Wybierz kolejno pozycje **Przegląd + Utwórz** i **Utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**, a następnie pozycję **Utwórz**.
 
     ![Zrzut ekranu przedstawiający blok tworzenia szyfrowania dysku. Wyświetlanie subskrypcji, grupy zasobów, nazwy zestawu szyfrowania dysku, regionu i selektora kluczy + Key.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 

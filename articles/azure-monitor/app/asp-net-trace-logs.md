@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
 ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973840"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Poznaj dzienniki śledzenia .NET/.NET Core i Python w Application Insights
@@ -136,7 +136,7 @@ Dla każdego źródła można ustawić następujące parametry:
 ## <a name="use-the-trace-api-directly"></a>Bezpośrednie używanie interfejsu API śledzenia
 Interfejs API śledzenia Application Insights można wywołać bezpośrednio. Karty rejestrowania używają tego interfejsu API.
 
-Przykład:
+Na przykład:
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -145,7 +145,7 @@ telemetry.TrackTrace("Slow response - database01");
 
 Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w komunikacie. Na przykład możesz kodować dane POST w tym miejscu.
 
-Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Przykład:
+Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Na przykład:
 
   ```csharp
   var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();

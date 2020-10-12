@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982998"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
@@ -70,15 +70,15 @@ Zwykle projekt sieci Web jest wdrażany z `customErrors` flagą w pliku Web.conf
 
 **Błąd serwera w aplikacji "/":**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji "/" w przeglądarce sieci Web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
 **Wystąpił błąd:**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Zrzut ekranu przedstawiający przykład błędu ogólnego występujący w przeglądarce sieci Web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
 **Witryna sieci Web nie może wyświetlić strony**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Zrzut ekranu przedstawiający witrynę internetową nie można wyświetlić błędu strony w przeglądarce sieci Web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
 Często najprostszym sposobem znalezienia przyczyny błędu jest włączenie szczegółowych komunikatów o błędach, które pierwszy z powyższych zrzutów ekranu wyjaśnia, jak to zrobić. Wymaga zmiany we wdrożonym pliku Web.config. Można edytować *Web.config* plik w projekcie i ponownie wdrożyć projekt lub utworzyć [Web.config Przekształć](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) i wdrożyć kompilację debugowania, ale istnieje szybszy sposób: w **Eksplorator rozwiązań**można bezpośrednio wyświetlać i edytować pliki w aplikacji zdalnej przy użyciu funkcji *Widok zdalny* .
 
@@ -139,7 +139,7 @@ W tej sekcji przedstawiono sposób debugowania zdalnego przy użyciu projektu ut
 
 1. W **Eksplorator serwera**kliknij prawym przyciskiem myszy aplikację, a następnie kliknij pozycję **Dołącz debuger**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Zrzut ekranu przedstawiający okno Eksplorator serwera, w którym zaznaczono aplikację, a następnie klikając pozycję Dołącz debuger.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
     Przeglądarka zostanie automatycznie otwarta na stronie głównej działającej na platformie Azure. Może być konieczne odczekanie 20 sekund lub tak, dopóki platforma Azure skonfiguruje serwer na potrzeby debugowania. To opóźnienie występuje tylko podczas pierwszego uruchomienia w trybie debugowania w aplikacji w ciągu 48 godzin. Po ponownym uruchomieniu debugowania w tym samym okresie nie ma opóźnienia.
 
@@ -192,7 +192,7 @@ Zdalne debugowanie działa tylko z ciągłymi zadaniami WebJob. Zaplanowane i na
 
 8. Kliknij pozycję **Dołącz debuger**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Zrzut ekranu przedstawiający Eksplorator serwera pokazywanie ContosoAdsWebJob wybranych w menu rozwijanym i zaznaczono debuger.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
     Przeglądarka zostanie automatycznie otwarta na stronie głównej działającej na platformie Azure. Może być konieczne odczekanie 20 sekund lub tak, dopóki platforma Azure skonfiguruje serwer na potrzeby debugowania. To opóźnienie występuje tylko podczas pierwszego uruchomienia w trybie debugowania w aplikacji w ciągu 48 godzin. Po ponownym uruchomieniu debugowania w tym samym okresie nie ma opóźnienia.
 
@@ -340,11 +340,11 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
 1. Na pasku adresu okna przeglądarki Dodaj wartość *Trace. axd* do adresu URL, a następnie naciśnij klawisz ENTER (adres URL jest podobny do `http://localhost:53370/trace.axd` ).
 1. Na stronie **ślad aplikacji** kliknij pozycję **Wyświetl szczegóły** w pierwszym wierszu (nie w wierszu BrowserLink).
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Zrzut ekranu strony śledzenia aplikacji w przeglądarce internetowej pokazujący szczegóły widoku wybrane w pierwszym wierszu.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
     Zostanie wyświetlona strona **szczegóły żądania** , a w sekcji **Informacje o śledzeniu** są wyświetlane dane wyjściowe instrukcji Trace dodanych do `Index` metody.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Zrzut ekranu strony szczegóły żądania w przeglądarce sieci Web, w której wyświetlany jest komunikat wyróżniony w sekcji Informacje o śledzeniu.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
     Domyślnie program `trace.axd` jest dostępny tylko lokalnie. Jeśli chcesz udostępnić ją z poziomu aplikacji zdalnej, możesz dodać `localOnly="false"` do `trace` elementu w pliku *Web.config* , jak pokazano w następującym przykładzie:
 
@@ -361,40 +361,16 @@ Aby uzyskać informacje o sposobach tworzenia dzienników aplikacji w zadaniach 
     Po opublikowaniu aktualizacji przez program Visual Studio otwiera okno przeglądarki na stronie głównej (przy założeniu, że **docelowy adres URL** nie został wyczyszczony na karcie **połączenie** ).
 3. W **Eksplorator serwera**kliknij prawym przyciskiem myszy aplikację i wybierz polecenie **Wyświetl dzienniki przesyłania strumieniowego**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Zrzut ekranu przedstawiający Eksplorator serwera po kliknięciu prawym przyciskiem myszy aplikacji, z wyświetleniem dzienników przesyłania strumieniowego wybranych w nowym oknie.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
     Okno **dane wyjściowe** pokazuje, że nawiązano połączenie z usługą przesyłania strumieniowego dziennika i dodaje wiersz powiadomienia każdej minuty, która przechodzi bez dziennika do wyświetlenia.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Zrzut ekranu przedstawiający okno dane wyjściowe z przykładem połączenia z usługą przesyłania strumieniowego dzienników z wierszami powiadomień.":::
-
-4. W oknie przeglądarki, w którym wyświetlana jest Strona główna aplikacji, kliknij pozycję **kontakt**.
-
-    W ciągu kilku sekund dane wyjściowe z śladu poziomu błędu dodanego do `Contact` metody pojawią się w oknie **danych wyjściowych** .
-
-    ![Śledzenie błędów w oknie danych wyjściowych](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
-
-    Program Visual Studio wyświetla tylko ślady poziomu błędu, ponieważ jest to ustawienie domyślne po włączeniu usługi monitorowania dzienników. Podczas tworzenia nowej aplikacji App Service wszystkie rejestrowania są domyślnie wyłączone, ponieważ zostały one wcześniej otwarte na stronie Ustawienia:
-
-    ![Wylogowywanie aplikacji](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
-
-    Jednak po wybraniu **widoku Wyświetlanie dzienników przesyłania strumieniowego**program Visual Studio automatycznie zmienił **Rejestrowanie aplikacji (system plików)** do **błędu**, co oznacza, że raportowane są dzienniki na poziomie błędów. Aby wyświetlić wszystkie dzienniki śledzenia, można zmienić to ustawienie na **pełne**. Po wybraniu poziomu ważności niższej niż błąd, zgłaszane są również wszystkie dzienniki o wyższym poziomie ważności. Dlatego po wybraniu opcji pełne widoczne są również informacje, ostrzeżenie i dzienniki błędów.  
-
-5. W **Eksplorator serwera**kliknij prawym przyciskiem myszy aplikację, a następnie kliknij pozycję **Wyświetl ustawienia** jak wcześniej.
-6. Zmień **Rejestrowanie aplikacji (system plików)** na **pełne**, a następnie kliknij przycisk **Zapisz**.
-
-    ![Ustawianie poziomu śledzenia na pełne](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
-7. W oknie przeglądarki, które wyświetla się teraz na stronie **kontaktowej** , kliknij pozycję **Strona główna**, a następnie kliknij pozycję **informacje**, a następnie kliknij pozycję **kontakt**.
-
-    W ciągu kilku sekund okno **dane wyjściowe** zawiera wszystkie dane wyjściowe śledzenia.
-
-    ![Pełne dane wyjściowe śledzenia](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
-
-    W tej sekcji można włączyć i wyłączyć rejestrowanie przy użyciu ustawień aplikacji. Możesz również włączyć i wyłączyć detektory śledzenia, modyfikując plik Web.config. Jednak zmodyfikowanie pliku Web.config powoduje odtworzenie domeny aplikacji, podczas gdy włączenie rejestrowania za pomocą konfiguracji aplikacji nie wykonuje tego. Jeśli ten problem zajmuje dużo czasu na odtworzenie lub nieprzerwane, odtwarzanie domeny aplikacji może "naprawić" i wymusić odczekanie do momentu ponownego uruchomienia. Włączenie diagnostyki na platformie Azure umożliwia natychmiastowe rozpoczęcie przechwytywania informacji o błędach bez konieczności odtwarzania domeny aplikacji.
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web." i wymusić odczekanie do momentu ponownego uruchomienia. Włączenie diagnostyki na platformie Azure umożliwia natychmiastowe rozpoczęcie przechwytywania informacji o błędach bez konieczności odtwarzania domeny aplikacji.
 
 ### <a name="output-window-features"></a>Funkcje okna danych wyjściowych
 Karta **dzienniki Microsoft Azure** w oknie **danych wyjściowych** zawiera kilka przycisków i pole tekstowe:
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Zrzut ekranu przedstawiający przyciski i pole tekstowe karty Dzienniki Microsoft Azure w oknie danych wyjściowych.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
 Są to następujące funkcje:
 
@@ -458,15 +434,15 @@ Wszystkie dzienniki, które można monitorować w oknie **danych wyjściowych** 
 
 1. W oknie **dane wyjściowe** kliknij pozycję **Pobierz dzienniki przesyłania strumieniowego**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Zrzut ekranu przedstawiający okno dane wyjściowe z wyróżnionym przyciskiem Pobierz dzienniki przesyłania strumieniowego.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
     Eksplorator plików otwiera folder *pliki do pobrania* z wybranym pobranym plikiem.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Zrzut ekranu przedstawiający folder pliki do pobrania w Eksploratorze plików z wybranym pobranym plikiem.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
 2. Wyodrębnij plik *zip* i Wyświetl następującą strukturę folderów:
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Zrzut ekranu przedstawiający strukturę folderu pliku zip po wyodrębnieniu pliku.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Zrzut ekranu przedstawiający błąd serwera w aplikacji &quot;/&quot; w przeglądarce sieci Web.":::
 
    * Dzienniki śledzenia aplikacji znajdują się w plikach *txt* w folderze *LogFiles\Application* .
    * Dzienniki serwera sieci Web znajdują się w plikach *. log* w folderze *LogFiles\http\RawLogs* Do wyświetlania tych plików i manipulowania nimi można użyć narzędzia, takiego jak [parser dzienników](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) .
@@ -643,7 +619,7 @@ Jeśli aplikacja korzysta z internetowego interfejsu API platformy Azure lub Mob
 ### <a name="tracing-in-aspnet-applications"></a>Śledzenie w aplikacjach ASP.NET
 Nie istnieją szczegółowe i aktualne wprowadzenie do śledzenia ASP.NET dostępnego w Internecie. Najlepszym rozwiązaniem jest rozpoczęcie pracy ze starymi materiałami wstępnymi napisanymi dla formularzy sieci Web, ponieważ MVC jeszcze nie istniały i uzupełnienie tego programu o nowsze wpisy w blogu, które koncentrują się na określonych problemach. Oto kilka dobrych miejsc do uruchomienia są następujące zasoby:
 
-* [Monitorowanie i telemetria (Tworzenie rzeczywistych aplikacji w chmurze na platformie Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
+* [Monitorowanie i telemetria (kompilowanie Real-World aplikacji w chmurze przy użyciu platformy Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   Rozdział książki elektronicznej z zaleceniami dotyczącymi śledzenia w aplikacjach w chmurze platformy Azure.
 * [Śledzenie ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
   Stary, ale wciąż dobry zasób dla podstawowego wprowadzenia do tematu.

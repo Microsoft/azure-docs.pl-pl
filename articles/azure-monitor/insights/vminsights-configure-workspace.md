@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828561"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Skonfiguruj obszar roboczy Log Analytics dla Azure Monitor dla maszyn wirtualnych
@@ -38,9 +38,9 @@ Dostęp do Log Analytics obszarów roboczych w Azure Portal z menu **log Analyti
 Nowy obszar roboczy Log Analytics można utworzyć przy użyciu dowolnej z poniższych metod. Zapoznaj się z artykułem [projektowanie wdrożenia dzienników Azure monitor](../platform/design-logs-deployment.md) , aby uzyskać wskazówki dotyczące określania liczby obszarów roboczych, które powinny być używane w danym środowisku, oraz sposobu projektowania strategii dostępu.
 
 
-* [Witryna Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Interfejs wiersza polecenia platformy Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
+* [Program PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 ## <a name="supported-regions"></a>Obsługiwane regiony

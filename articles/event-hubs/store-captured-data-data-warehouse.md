@@ -6,10 +6,10 @@ ms.date: 06/23/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b2a35647422c91d6859e1889f906ae512ce41a56
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436616"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-azure-synapse-analytics-using-event-grid-and-azure-functions"></a>Samouczek: Migrowanie przechwyconych danych Event Hubs do usługi Azure Synapse Analytics przy użyciu Event Grid i Azure Functions
@@ -114,11 +114,11 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Publikowanie aplikacji funkcji](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Wybierz pozycję **Publikuj**.
+1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Kliknij pozycję **Opublikuj**.
 
    ![Docelowa aplikacja funkcji](./media/store-captured-data-data-warehouse/pick-target.png)
 
-1. Wybierz aplikację funkcji, która została wdrożona za pomocą szablonu. Kliknij przycisk **OK**.
+1. Wybierz aplikację funkcji, która została wdrożona za pomocą szablonu. Wybierz przycisk **OK**.
 
    ![Wybieranie aplikacji funkcji](./media/store-captured-data-data-warehouse/select-function-app.png)
 
@@ -143,7 +143,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia Captur
 
    ![Dodawanie subskrypcji](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz pozycję **Utwórz**.
+1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz przycisk **Utwórz**.
 
    ![Tworzenie subskrypcji](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 

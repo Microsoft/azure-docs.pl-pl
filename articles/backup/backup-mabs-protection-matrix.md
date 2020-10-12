@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje o wszystkich obciążeniach, typach
 ms.date: 03/19/2020
 ms.topic: conceptual
 ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88826841"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>SERWERA usługi MAB (Azure Backup Server) v3 UR1 Protection Matrix
@@ -44,7 +44,7 @@ Poniższe sekcje zawierają szczegółowe informacje na temat macierzy obsługi 
 | Serwery (64-bitowe)          | Windows Server 2008 R2 z dodatkiem SP1, Windows Server 2008 z dodatkiem SP2 (należy zainstalować [platformę Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)) | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V  <br><br>      Maszyna wirtualna VMware  <br><br>   Azure Stack | UR1 V3                            | Wolumin, udział, folder, plik, stan systemu/bez oprogramowania        |
 | SQL Server                | SQL Server 2019, 2017, 2016 i [obsługiwane](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016)przez program sps, 2014 i obsługiwane przez niego [SPS](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | Serwer fizyczny  <br><br>     Maszyna wirtualna z funkcją Hyper-V   <br><br>     Maszyna wirtualna VMware  <br><br>   Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)  <br><br>     Azure Stack | UR1 V3                            | Wszystkie scenariusze wdrażania: baza danych       <br><br>  SERWERA usługi MAB v3 UR1 obsługuje tworzenie kopii zapasowych baz danych SQL za pośrednictwem woluminów ReFS                  |
 | Exchange                   | Exchange 2019, 2016                                         | Serwer fizyczny   <br><br>   Maszyna wirtualna z funkcją Hyper-V  <br><br>      Maszyna wirtualna VMware  <br><br>   Azure Stack  <br><br>    Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure) | UR1 V3                            | Ochrona (wszystkie scenariusze wdrażania): autonomiczny serwer programu Exchange, baza danych w grupie dostępności bazy danych (DAG)  <br><br>    Odzyskiwanie (wszystkie scenariusze wdrażania): skrzynka pocztowa, bazy danych skrzynek pocztowych w grupie DAG    <br><br>  Tworzenie kopii zapasowej programu Exchange za pośrednictwem systemu plików ReFS jest obsługiwane z serwera usługi MAB v3 UR1 |
-| SharePoint                 | SharePoint 2019, 2016 z najnowszymi programem SPs                       | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V <br><br>    Maszyna wirtualna VMware  <br><br>   Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)   <br><br>   Azure Stack | UR1 V3                            | Ochrona (wszystkie scenariusze wdrażania): Farma, zawartość serwera frontonu sieci Web  <br><br>    Odzyskiwanie (wszystkie scenariusze wdrażania): Farma, baza danych, aplikacja sieci Web, plik lub element listy, wyszukiwanie programu SharePoint, serwer frontonu sieci Web  <br><br>    Ochrona farmy programu SharePoint korzystającej z funkcji AlwaysOn SQL Server 2012 dla baz danych zawartości nie jest obsługiwana. |
+| Sharepoint                 | SharePoint 2019, 2016 z najnowszymi programem SPs                       | Serwer fizyczny  <br><br>    Maszyna wirtualna z funkcją Hyper-V <br><br>    Maszyna wirtualna VMware  <br><br>   Maszyna wirtualna platformy Azure (gdy obciążenie działa jako maszyna wirtualna platformy Azure)   <br><br>   Azure Stack | UR1 V3                            | Ochrona (wszystkie scenariusze wdrażania): Farma, zawartość serwera frontonu sieci Web  <br><br>    Odzyskiwanie (wszystkie scenariusze wdrażania): Farma, baza danych, aplikacja sieci Web, plik lub element listy, wyszukiwanie programu SharePoint, serwer frontonu sieci Web  <br><br>    Ochrona farmy programu SharePoint korzystającej z funkcji AlwaysOn SQL Server 2012 dla baz danych zawartości nie jest obsługiwana. |
 
 ## <a name="vm-backup"></a>Kopia zapasowa maszyny wirtualnej
 

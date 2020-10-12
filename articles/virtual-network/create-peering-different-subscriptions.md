@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
 ms.openlocfilehash: 79062ae45f04b290f6e4120906b98590ce95dbe1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833270"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — Menedżer zasobów, różne subskrypcje i dzierżawy Azure Active Directory
@@ -305,13 +305,13 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    ```
 
 2. Wyloguj się z platformy Azure jako UserA i zaloguj się jako UserB.
-3. Uruchom następujące polecenie:
+3. Wykonaj następujące polecenie:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
    ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>Program PowerShell
 
 1. Zaloguj się do platformy Azure jako UserA i wykonaj następujące polecenie:
 
@@ -320,7 +320,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
    ```
 
 2. Wyloguj się z platformy Azure jako UserA i zaloguj się jako UserB.
-3. Uruchom następujące polecenie:
+3. Wykonaj następujące polecenie:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

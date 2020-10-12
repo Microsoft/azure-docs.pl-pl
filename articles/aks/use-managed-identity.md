@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
 ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397049"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
@@ -18,7 +18,7 @@ Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dosta
 
 *Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Rotacja poświadczeń dla mnie odbywa się automatycznie co 46 dni zgodnie z ustawieniami domyślnymi Azure Active Directory. AKS używa typów zarządzanych tożsamości przypisanych do systemu i przypisanych przez użytkownika. Te tożsamości są obecnie niezmienne. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Musisz mieć zainstalowany następujący zasób:
 
@@ -50,7 +50,7 @@ AKS używa kilku zarządzanych tożsamości dla wbudowanych usług i dodatków.
 | Dodatek | HTTPApplicationRouting | Zarządza wymaganymi zasobami sieciowymi | Rola czytnika dla grupy zasobów węzła, rola współautora dla strefy DNS | Nie
 | Dodatek | Brama aplikacji przychodzącej | Zarządza wymaganymi zasobami sieciowymi| Rola współautora dla grupy zasobów węzła | Nie
 | Dodatek | omsagent | Służy do wysyłania metryk AKS do Azure Monitor | Rola wydawcy metryk monitorowania | Nie
-| Dodatek | Węzeł wirtualny (ACIConnector) | Zarządza wymaganymi zasobami sieci dla Azure Container Instances (ACI) | Rola współautora dla grupy zasobów węzła | Nie
+| Dodatek | Virtual-Node (ACIConnector) | Zarządza wymaganymi zasobami sieci dla Azure Container Instances (ACI) | Rola współautora dla grupy zasobów węzła | Nie
 | Projekt OSS | AAD — pod — tożsamość | Umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze za pomocą usługi Azure Active Directory (AAD) | Nie dotyczy | Procedura przyznawania uprawnień w https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Tworzenie klastra AKS z tożsamościami zarządzanymi

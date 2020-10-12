@@ -13,10 +13,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441089"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copy Activity performance and tuning guide (Przewodnik dotyczący wydajności i dostosowywania działania kopiowania)
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono informacje o przepływności kopiowania w MB/s
 * W przypadku kopiowania hybrydowego między magazynami lokalnymi i w chmurze każdy węzeł bramy był uruchomiony na komputerze, który był oddzielony od lokalnego magazynu danych, zgodnie z poniższą specyfikacją. Gdy jedno działanie zostało uruchomione na bramie, operacja kopiowania zużywał tylko niewielką część procesora CPU, pamięci lub przepustowości sieci. Dowiedz się więcej na temat [Zarządzanie danymi Gateway](#considerations-for-data-management-gateway).
     <table>
     <tr>
-        <td>CPU</td>
+        <td>Procesor CPU</td>
         <td>32 rdzenie 2,20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
@@ -202,7 +202,7 @@ W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczani
 
 Obecnie nie można kopiować danych między dwoma lokalnymi magazynami danych przy użyciu magazynu przemieszczania. Oczekujemy, że ta opcja będzie dostępna wkrótce.
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 Skonfiguruj ustawienie **enableStaging** w działaniu Copy, aby określić, czy dane mają zostać przygotowane w magazynie obiektów BLOB przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na true, określ dodatkowe właściwości wymienione w następnej tabeli. Jeśli go nie masz, musisz również utworzyć usługę Azure Storage lub link dostępu współdzielonego do magazynu na potrzeby przemieszczania.
 
 | Właściwość | Opis | Wartość domyślna | Wymagane |
@@ -413,7 +413,7 @@ W takim przypadku kompresja danych bzip2 może spowalniać cały potok. Przełą
 
 ![Scenariusz 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Tematy pomocy
 Poniżej znajdują się informacje dotyczące monitorowania wydajności i dostrajania dla niektórych obsługiwanych magazynów danych:
 
 * Azure Blob Storage: [elementy docelowe skalowalności i wydajności dla magazynu obiektów BLOB](../../storage/blobs/scalability-targets.md) i [wydajności i skalowalności dla usługi BLOB Storage](../../storage/blobs/storage-performance-checklist.md).

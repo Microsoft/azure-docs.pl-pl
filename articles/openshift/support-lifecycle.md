@@ -7,13 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854497"
 ---
-# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cykl życia pomocy technicznej dla usługi Azure Red Hat OpenShift 4
+# <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Cykl życia wsparcia platformy Azure Red Hat OpenShift 4
 
 Red Hat zwalnia drobne wersje OpenShift kontenerów platformy Red Hat (OCP) co trzy miesiące. Te wersje obejmują nowe funkcje i ulepszenia. Wersje poprawek są częstsze (zazwyczaj cotygodniowo) i są przeznaczone tylko dla krytycznych poprawek błędów w wersji pomocniczej. Te wersje poprawek mogą zawierać poprawki dotyczące luk w zabezpieczeniach lub poważnych usterek.
 
@@ -104,7 +104,7 @@ Zapoznaj się z następującym przewodnikiem dotyczącym [historycznej wersji pl
 
 \*_Oczekiwanie na potwierdzenie daty wydania nadrzędnego._
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Co się stanie, gdy użytkownik uaktualnia klaster OpenShift z nieobsługiwaną wersją pomocniczą?**
 

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252117"
 ---
 # <a name="authentication-vs-authorization"></a>Uwierzytelnianie a autoryzacja
@@ -55,5 +55,5 @@ W przypadku innych tematów obejmujących podstawowe informacje dotyczące uwier
 * Aby dowiedzieć się więcej o przepływie logowania aplikacji sieci Web, komputerów stacjonarnych i aplikacji mobilnych na platformie tożsamości firmy Microsoft, zobacz temat rejestrowanie w usłudze [Flow](app-sign-in-flow.md) .
 
 * Aby dowiedzieć się więcej na temat protokołów wdrożonych przez platformę Microsoft Identity, zobacz [Protokoły protokołu OAuth 2,0 i OpenID Connect Connect na platformie tożsamości firmy Microsoft](active-directory-v2-protocols.md).
-* Zobacz [Protokół SAML logowania](single-sign-on-saml-protocol.md) jednokrotnego, aby uzyskać więcej informacji na temat obsługi rejestracji jednokrotnej przez platformę Microsoft Identity.
+* Aby uzyskać więcej informacji na temat obsługi rejestracji jednokrotnej, zobacz [single Sign-On SAML Protocol](single-sign-on-saml-protocol.md) .
 * Zobacz Logowanie jednokrotne [do aplikacji w Azure Active Directory](../manage-apps/what-is-single-sign-on.md) , aby uzyskać więcej informacji na temat różnych sposobów implementacji logowania jednokrotnego w aplikacji.

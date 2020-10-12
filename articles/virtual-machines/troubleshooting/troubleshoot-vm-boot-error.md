@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
 ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543286"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Rozruch maszyny wirtualnej z systemem Linux w usłudze grub
@@ -45,7 +45,7 @@ Postępuj zgodnie z poniższą procedurą zaradczą w zależności od otrzymaneg
 
     1. Upewnij się `/etc/default/grub` , że istnieją poprawne/odpowiednie ustawienia. Jeśli nie wiesz, które są ustawienia domyślne, możesz zaewidencjonować działającą maszynę wirtualną.
 
-    2. Następnie uruchom następujące polecenie, aby ponownie wygenerować jego konfigurację:`grub2-mkconfig -o /boot/grub2/grub.cfg`
+    2. Następnie uruchom następujące polecenie, aby ponownie wygenerować jego konfigurację: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
    * Jeśli brakuje pliku `/boot/grub/menu.lst` , ten błąd jest przeznaczony dla starszych wersji systemu operacyjnego (**RHEL 6. x**, **CentOS 6. x** i **Ubuntu 14,04**), aby polecenia mogły się różnić. Aby upewnić się, że zostaną podane poprawne polecenia, musisz uruchomić stary serwer i przetestować go.
 

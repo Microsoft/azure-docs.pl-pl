@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
 ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830550"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Korzystanie z narzędzi do automatyzacji infrastruktury z maszynami wirtualnymi na platformie Azure
@@ -57,7 +57,7 @@ Instrukcje:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) to powszechnie używana metoda dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego rozruchu. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Ponieważ usługa Cloud-init jest wywoływana podczas początkowego procesu rozruchu, nie ma dodatkowych kroków ani wymaganych agentów, aby zastosować konfigurację.  Aby uzyskać więcej informacji na temat prawidłowego formatowania `#cloud-config` plików, zobacz [witrynę dokumentacji Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowanymi w formacie base64.
+[Cloud-init](https://cloudinit.readthedocs.io) to powszechnie używana metoda dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego rozruchu. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Ponieważ usługa Cloud-init jest wywoływana podczas początkowego procesu rozruchu, nie ma dodatkowych kroków ani wymaganych agentów, aby zastosować konfigurację.  Aby uzyskać więcej informacji na temat prawidłowego formatowania `#cloud-config` plików, zobacz [witrynę dokumentacji Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` pliki są plikami tekstowymi zakodowanymi w formacie base64.
 
 Pakiet cloud-init działa również w różnych dystrybucjach. Przykładowo nie używa się poleceń **apt-get install** lub **yum install** do zainstalowania pakietu. Zamiast tego możesz zdefiniować listę pakietów do zainstalowania. Pakiet cloud-init automatycznie używa natywnego narzędzia do zarządzania pakietami dla wybranej dystrybucji.
 
@@ -124,7 +124,7 @@ Instrukcje:
 ## <a name="azure-devops-services"></a>Usługa Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) to pakiet narzędzi, które ułatwiają udostępnianie i śledzenie kodu, korzystanie z zautomatyzowanych kompilacji oraz tworzenie kompletnego potoku ciągłej integracji i tworzenia oprogramowania (Ci/CD). Azure DevOps Services integruje się z programem Visual Studio i innymi edytorami, aby uprościć użycie. Azure DevOps Services może również tworzyć i konfigurować maszyny wirtualne platformy Azure, a następnie wdrażać w nich kod.
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 - [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
@@ -138,7 +138,7 @@ Instrukcje:
 
 
 ## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/templates/overview.md) to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
+[Azure Resource Manager](../azure-resource-manager/templates/overview.md) to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i tagi, można zabezpieczyć oraz zorganizować zasoby po wdrożeniu.
 
 Instrukcje:
 

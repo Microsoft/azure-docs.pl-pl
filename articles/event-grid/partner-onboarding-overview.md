@@ -4,10 +4,10 @@ description: Dołącz jako typ tematu partnera Azure Event Grid. Poznaj model za
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87826793"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Dołącz do Azure Event Grid partnera
@@ -59,7 +59,7 @@ Tematy dotyczące partnerów umożliwiają publikowanie zdarzeń w celu Azure Ev
 Poniższy model zasobów jest przeznaczony dla tematów partnerskich.
 
 ### <a name="partner-registrations"></a>Rejestracje partnerów
-* Zasoby`partnerRegistrations`
+* Zasoby `partnerRegistrations`
 * Używane przez: Partnerzy
 * Opis: przechwytuje globalne metadane partnera "oprogramowanie jako usługa" (SaaS) (na przykład nazwę, nazwę wyświetlaną, opis, identyfikator URI Instalatora).
     
@@ -75,13 +75,13 @@ Poniższy model zasobów jest przeznaczony dla tematów partnerskich.
 * Zakres: przebywa w subskrypcji partnera.
 
 ### <a name="event-channel"></a>Kanał zdarzenia
-* Zasoby`partnerNamespaces/eventChannels`
+* Zasoby `partnerNamespaces/eventChannels`
 * Używane przez: Partnerzy
 * Opis: tunele zdarzeń stanowią duplikat tematu partnera klienta. Tworząc tunel zdarzeń i określając subskrypcję platformy Azure i grupę zasobów klienta w metadanych, należy zasygnalizować Event Grid, aby utworzyć temat partnera dla klienta. Event Grid wystawia połączenie ARM w celu utworzenia odpowiedniego partnerTopic w subskrypcji klienta. Temat partnera jest tworzony w stanie oczekiwania. Istnieje link jeden do jednego między każdym tunelem zdarzenia i tematem partnera.
 * Zakres: przebywa w subskrypcji partnera.
 
 ### <a name="partner-topics"></a>Tematy partnerów
-* Zasoby`partnerTopics`
+* Zasoby `partnerTopics`
 * Używane przez: klienci
 * Opis: Tematy dotyczące partnerów są podobne do tematów niestandardowych i tematów systemowych w Event Grid. Każdy temat partnera jest skojarzony z określonym źródłem (na przykład `Contoso:myaccount` ) i określonym typem tematu partnera (na przykład contoso). Klienci tworzą subskrypcje zdarzeń w temacie partnera, aby kierować zdarzenia do różnych programów obsługi zdarzeń.
 
@@ -89,9 +89,9 @@ Poniższy model zasobów jest przeznaczony dla tematów partnerskich.
 * Zakres: przebywa w subskrypcji klienta.
 
 ### <a name="partner-topic-types"></a>Typy tematów partnerów
-* Zasoby`partnerTopicTypes`
+* Zasoby `partnerTopicTypes`
 * Używane przez: klienci
-* Opis: typy tematów partnerskich to typy zasobów dla całej dzierżawy, które umożliwiają klientom odnajdywanie listy zatwierdzonych typów tematów partnerów. Adres URL wygląda następującohttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Opis: typy tematów partnerskich to typy zasobów dla całej dzierżawy, które umożliwiają klientom odnajdywanie listy zatwierdzonych typów tematów partnerów. Adres URL wygląda następująco https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Zakres: globalny
 
 ## <a name="publish-events-to-event-grid"></a>Publikuj zdarzenia do Event Grid
@@ -142,7 +142,7 @@ Publikuj zdarzenia do Azure Event Grid przy użyciu schematu CloudEvents 1,0. Ev
 
 Po opublikowaniu w punkcie końcowym partnerNamespace otrzymujesz odpowiedź. Odpowiedź jest standardowym kodem odpowiedzi HTTP. Niektóre typowe odpowiedzi to:
 
-| Wynik                             | Odpowiedź              |
+| Wynik                             | Reakcja              |
 |------------------------------------|-----------------------|
 | Powodzenie                            | 200 OK                |
 | Dane zdarzenia mają niepoprawny format    | 400 Nieprawidłowe żądanie       |
@@ -150,10 +150,10 @@ Po opublikowaniu w punkcie końcowym partnerNamespace otrzymujesz odpowiedź. Od
 | Nieprawidłowy punkt końcowy                 | 404 — Nie znaleziono         |
 | Tablica lub zdarzenie przekraczają limity rozmiaru | ładunek 413 zbyt duży |
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [Szablon ARM](/azure/templates/microsoft.eventgrid/allversions)
+  * [Szablon usługi ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schemat szablonu ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [Interfejsy API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [Rozszerzenie interfejsu wiersza polecenia](/cli/azure/ext/eventgrid/?view=azure-cli-latest)

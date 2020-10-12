@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5fc1b84e624828d7feb64bd53e8fe8ffff2a7ff
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054838"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD
@@ -45,7 +45,7 @@ Istnieją dwa kroki instalacji nienadzorowanej. Najpierw zainstaluj łącznik. N
 Wykonaj następujące kroki, aby zainstalować łącznik bez rejestracji:
 
 1. Otwórz wiersz polecenia.
-2. Uruchom następujące polecenie, w którym/q oznacza instalację cichą. W przypadku instalacji dyskretnej nie jest wyświetlany monit o zaakceptowanie umowy licencyjnej użytkownika oprogramowania.
+2. Uruchom następujące polecenie, w którym/q oznacza instalację cichą. W przypadku instalacji dyskretnej nie jest wyświetlany monit o zaakceptowanie umowy licencyjnej End-User.
 
    ```
    AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q

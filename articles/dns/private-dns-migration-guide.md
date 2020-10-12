@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
 ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699468"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrowanie starszych stref prywatnych Azure DNS do nowego modelu zasobów
@@ -27,7 +27,7 @@ az network dns zone list --query "[?zoneType=='Private']"
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Upewnij się, że zainstalowano najnowszą wersję Azure PowerShell. Aby uzyskać więcej informacji na temat Azure PowerShell (az) i sposobu instalowania gohttps://docs.microsoft.com/powershell/azure/new-azureps-module-az
+Upewnij się, że zainstalowano najnowszą wersję Azure PowerShell. Aby uzyskać więcej informacji na temat Azure PowerShell (az) i sposobu instalowania go https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
 Upewnij się, że zainstalowano moduł PrivateDns dla Azure PowerShell. Aby zainstalować ten moduł, Otwórz okno programu PowerShell z podwyższonym poziomem uprawnień (tryb administracyjny) i wprowadź następujące polecenie
 
@@ -50,7 +50,7 @@ Wprowadź "A" po wyświetleniu monitu o zainstalowanie skryptu
 
 ![Instalowanie skryptu](./media/private-dns-migration-guide/install-migration-script.png)
 
-Możesz również ręcznie uzyskać najnowszą wersję skryptu programu PowerShell na stroniehttps://www.powershellgallery.com/packages/PrivateDnsMigrationScript
+Możesz również ręcznie uzyskać najnowszą wersję skryptu programu PowerShell na stronie https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
 
 >[!IMPORTANT]
 >Skrypt migracji nie może być uruchamiany w usłudze Azure Cloud Shell i musi być wykonywany w maszynie wirtualnej lub na komputerze lokalnym połączonym z Internetem.

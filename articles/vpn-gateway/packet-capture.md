@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
 ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441599"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN

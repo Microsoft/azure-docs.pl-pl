@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87827286"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
-Jako administrator możesz chcieć zablokować subskrypcję, grupę zasobów lub zasób, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu kluczowych zasobów przez innych użytkowników w organizacji. Poziom blokady można ustawić na wartość **CanNotDelete** lub **ReadOnly**. W portalu blokady są nazywane odpowiednio **usuwaniem** i **tylko do odczytu** .
+Jako administrator możesz zablokować subskrypcję, grupę zasobów lub zasób, aby zapobiec przypadkowemu usunięciu lub zmodyfikowaniu kluczowych zasobów przez innych użytkowników w organizacji. Poziom blokady można ustawić na wartość **CanNotDelete** lub **ReadOnly**. W portalu blokady są nazywane odpowiednio **usuwaniem** i **tylko do odczytu** .
 
 * **CanNotDelete** oznacza, że autoryzowani użytkownicy nadal mogą odczytywać i modyfikować zasób, ale nie mogą usunąć tego zasobu.
 * **ReadOnly** oznacza, że autoryzowani użytkownicy mogą odczytywać zasoby, ale nie mogą usuwać ani aktualizować zasobu. Zastosowanie tej blokady jest podobne do ograniczenia wszystkich autoryzowanych użytkowników do uprawnień udzielonych przez rolę **czytelnika** .
@@ -76,13 +76,13 @@ W przypadku użycia szablonu Menedżer zasobów do wdrożenia blokady należy u�
 
 W przypadku zastosowania blokady do **zasobu**należy użyć następujących formatów:
 
-* Nazwij`{resourceName}/Microsoft.Authorization/{lockName}`
-* Wprowadź`{resourceProviderNamespace}/{resourceType}/providers/locks`
+* Nazwij `{resourceName}/Microsoft.Authorization/{lockName}`
+* Wprowadź `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 W przypadku stosowania blokady do **grupy zasobów** lub **subskrypcji**należy użyć następujących formatów:
 
-* Nazwij`{lockName}`
-* Wprowadź`Microsoft.Authorization/locks`
+* Nazwij `{lockName}`
+* Wprowadź `Microsoft.Authorization/locks`
 
 Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service, witrynę sieci Web i blokadę w witrynie sieci Web. Typ zasobu blokady to typ zasobu zasobu do zablokowania i **/providers/Locks**. Nazwa blokady jest tworzona przez połączenie nazwy zasobu z **/Microsoft.Authorization/** i nazwę blokady.
 
@@ -143,7 +143,7 @@ Poniższy przykład przedstawia szablon, który tworzy plan usługi App Service,
 
 Aby zapoznać się z przykładem ustawienia blokady grupy zasobów, zobacz [Tworzenie grupy zasobów i blokowanie jej](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Wdrożone zasoby można blokować za pomocą Azure PowerShell przy użyciu polecenia [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) .
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
 ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332733"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
@@ -107,7 +107,7 @@ Punkty odzyskiwania na dysku programu DPM/usługi MABS | 64 dla serwerów plikó
 
 ## <a name="support-for-file-level-restore"></a>Obsługa przywracania na poziomie plików
 
-**Przywróć** | **Obsługiwane**
+**Przywróć** | **Obsługiwał**
 --- | ---
 Przywracanie plików w różnych systemach operacyjnych | Można przywracać pliki na dowolnym komputerze, który ma ten sam (lub zgodny) system operacyjny, co maszyna wirtualna z kopią zapasową. Zobacz [tabelę zgodnych systemów operacyjnych](backup-azure-restore-files-from-vm.md#system-requirements).
 Przywracanie plików z szyfrowanych maszyn wirtualnych | Nieobsługiwane.
@@ -120,7 +120,7 @@ Przywracanie plików przy użyciu specjalnych ustawień sieci | Przywracanie nie
 
 Poniższa tabela zawiera podsumowanie obsługi kopii zapasowych podczas zadań zarządzania maszyną wirtualną, takich jak dodawanie lub zastępowanie dysków maszyn wirtualnych.
 
-**Przywróć** | **Obsługiwane**
+**Przywróć** | **Obsługiwał**
 --- | ---
 Przywróć w ramach subskrypcji/regionu/strefy. | Nieobsługiwane.
 Przywracanie do istniejącej maszyny wirtualnej | Użyj opcji Zamień dysk.
@@ -164,7 +164,7 @@ Dyski z włączonym akcelerator zapisu | Nieobsługiwane.<br/><br/> Azure Backup
 Tworzenie kopii zapasowej & przywracanie deduplikowanych maszyn wirtualnych/dysków | Azure Backup nie obsługuje deduplikacji. Aby uzyskać więcej informacji, zobacz ten [artykuł](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Azure Backup nie deduplikowania między maszynami wirtualnymi w magazynie Recovery Services <br/> <br/>  — Jeśli podczas przywracania istnieją maszyny wirtualne w stanie deduplikacji, nie można przywrócić plików, ponieważ magazyn nie rozumie tego formatu. Można jednak pomyślnie wykonać pełne przywracanie maszyny wirtualnej.
 Dodawanie dysku do chronionej maszyny wirtualnej | Obsługiwane.
 Zmień rozmiar dysku na chronionej maszynie wirtualnej | Obsługiwane.
-Magazyn udostępniony| Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu udostępniony wolumin klastra (CSV) lub Serwer plików skalowalny w poziomie nie jest obsługiwane. Podczas tworzenia kopii zapasowej mogą wystąpić błędy autorów woluminów. W przypadku przywracania dyski zawierające woluminy woluminów CSV mogą nie zostać dołączone.
+Magazyn udostępniony| Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu udostępniony wolumin klastra (CSV) lub Scale-Out serwera plików nie jest obsługiwane. Podczas tworzenia kopii zapasowej mogą wystąpić błędy autorów woluminów. W przypadku przywracania dyski zawierające woluminy woluminów CSV mogą nie zostać dołączone.
 [Dyski udostępnione](../virtual-machines/disks-shared-enable.md) | Nieobsługiwane.
 
 ## <a name="vm-network-support"></a>Obsługa sieci maszyn wirtualnych
@@ -180,7 +180,7 @@ Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej
 Statyczny adres IP | Nieobsługiwane.<br/><br/> Nowa maszyna wirtualna utworzona na podstawie punktu przywracania ma przypisany dynamiczny adres IP.<br/><br/> W przypadku klasycznych maszyn wirtualnych nie można utworzyć kopii zapasowej maszyny wirtualnej z zastrzeżonym adresem IP i bez zdefiniowanego punktu końcowego.
 Dynamiczny adres IP |Obsługiwane.<br/><br/> Jeśli karta sieciowa na źródłowej maszynie wirtualnej używa dynamicznego adresowania IP, domyślnie karta sieciowa na przywróconej maszynie wirtualnej będzie używać tego programu.
 Azure Traffic Manager| Obsługiwane.<br/><br/>Jeśli kopia zapasowa maszyny wirtualnej znajduje się w Traffic Manager, ręcznie Dodaj przywróconą maszynę wirtualną do tego samego wystąpienia Traffic Manager.
-System DNS platformy Azure |Obsługiwane.
+Azure DNS |Obsługiwane.
 Niestandardowe DNS |Obsługiwane.
 Łączność wychodząca za pośrednictwem serwera proxy HTTP | Obsługiwane.<br/><br/> Uwierzytelniony serwer proxy nie jest obsługiwany.
 Punkty końcowe usługi dla sieci wirtualnej| Obsługiwane.<br/><br/> Ustawienia zapory i konta magazynu sieci wirtualnej powinny zezwalać na dostęp ze wszystkich sieci.

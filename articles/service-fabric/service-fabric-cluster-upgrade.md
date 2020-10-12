@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
 ms.openlocfilehash: d92ac90e0e41d534231bafbe991a05764dbee07d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82789559"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Uaktualnianie i aktualizowanie klastra usługi Service Fabric na platformie Azure

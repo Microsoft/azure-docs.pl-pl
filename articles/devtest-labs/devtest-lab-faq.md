@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytan
 ms.topic: article
 ms.date: 07/17/2020
 ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289367"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
@@ -29,7 +29,7 @@ Obecnie pracujemy nad migrowaniem istniejących wpisów w blogu (z wyjątkiem ak
 Będziemy ogłaszać aktualizacje przestojów przy użyciu naszego uchwytu Twitter od razu. Zapoznaj się z nami w serwisie Twitter, aby uzyskać najnowsze aktualizacje dotyczące awarii i znanych usterek.
 
 ### <a name="twitter"></a>Twitter
-Nasz uchwyt usługi Twitter:[@azlabservices](https://twitter.com/azlabservices)
+Nasz uchwyt usługi Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>Ogólne
 ### <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
@@ -68,7 +68,7 @@ DevTest Labs to bezpłatna usługa. Tworzenie laboratoriów oraz Konfigurowanie 
 ## <a name="security"></a>Zabezpieczenia
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Jakie są różne poziomy zabezpieczeń w DevTest Labs?
-Dostęp zabezpieczeń jest określany przez Access Control oparte na rolach (RBAC). Aby dowiedzieć się, jak działa program Access, można poznać różnice między uprawnieniami, rolą i zakresem zdefiniowanym przez RBAC.
+Dostęp zabezpieczeń jest określany przez Role-Based Access Control (RBAC). Aby dowiedzieć się, jak działa program Access, można poznać różnice między uprawnieniami, rolą i zakresem zdefiniowanym przez RBAC.
 
 - **Uprawnienie**: uprawnienie jest zdefiniowany dostęp do konkretnej akcji. Na przykład uprawnienie może mieć dostęp do odczytu do wszystkich maszyn wirtualnych.
 - **Rola**: rola to zestaw uprawnień, które mogą być pogrupowane i przypisywane do użytkownika. Na przykład użytkownik z rolą właściciela subskrypcji ma dostęp do wszystkich zasobów w ramach subskrypcji.

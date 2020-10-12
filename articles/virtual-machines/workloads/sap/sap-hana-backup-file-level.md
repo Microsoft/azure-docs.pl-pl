@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833389"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>SAP HANA Azure Backup na poziomie pliku
@@ -43,7 +43,7 @@ Jeden z nich może umieścić dedykowane wirtualne dyski twarde dla SAP HANA kop
 
 ## <a name="azure-blobxfer-utility-details"></a>Szczegóły narzędzia Azure blobxfer
 
-Przechowywanie katalogów i plików w usłudze Azure Storage może być możliwe za pomocą interfejsu wiersza polecenia lub programu PowerShell lub opracowywania narzędzia przy użyciu jednego z [zestawów SDK platformy Azure](https://azure.microsoft.com/downloads/). Do kopiowania danych do usługi Azure Storage jest również dostępne gotowe do użycia narzędzie AzCopy. (zobacz [transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../../../storage/common/storage-use-azcopy-v10.md)).
+Przechowywanie katalogów i plików w usłudze Azure Storage może być możliwe za pomocą interfejsu wiersza polecenia lub programu PowerShell lub opracowywania narzędzia przy użyciu jednego z [zestawów SDK platformy Azure](https://azure.microsoft.com/downloads/). Do kopiowania danych do usługi Azure Storage jest również dostępne gotowe do użycia narzędzie AzCopy. (zobacz [transfer danych za pomocą narzędzia AzCopy Command-Line](../../../storage/common/storage-use-azcopy-v10.md)).
 
 W związku z tym blobxfer był używany do kopiowania plików kopii zapasowej SAP HANA. Jest to środowisko Open Source używane przez wielu klientów w środowiskach produkcyjnych i dostępne w serwisie [GitHub](https://github.com/Azure/blobxfer). To narzędzie umożliwia jednemu skopiowaniu danych bezpośrednio do usługi Azure Blob Storage lub udziału plików platformy Azure. Oferuje także szereg przydatnych funkcji, takich jak skrót MD5 lub automatyczna równoległość podczas kopiowania katalogów z wieloma plikami.
 

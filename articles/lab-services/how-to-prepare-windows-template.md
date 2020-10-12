@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396692"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Przewodnik konfigurowania komputera z szablonem systemu Windows w Azure Lab Services
@@ -216,7 +216,7 @@ System Windows 10 zawiera wiele wbudowanych aplikacji, które mogą nie być pot
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name
 ```
 
-Aby usunąć aplikację, należy użyć polecenia cmdlet Remove-APPX.  W poniższym przykładzie przedstawiono sposób usuwania wszystkich elementów związanych z konsolą XBox.
+Aby usunąć aplikację, należy użyć polecenia cmdlet Remove-Appx.  W poniższym przykładzie przedstawiono sposób usuwania wszystkich elementów związanych z konsolą XBox.
 
 ```powershell
 Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-AppxPackage $_} }

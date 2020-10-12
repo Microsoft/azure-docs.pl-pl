@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
 ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830533"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Linux
@@ -73,9 +73,9 @@ Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w prz
 
 | Rozmiar maszyny wirtualnej | Procesor CPU | Procesory wirtualne | Węzły NUMA | Pamięć (GiB) | Średni wynik | Odchylenie standardowe | Odchylenie standardowe% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standardowa_A1_v2 | Procesor Intel (R) Xeon (R) E5-2660 0 @ 2.20 GHz | 1 | 1 | 1.9 | 6 483 | 120 | 1,85% | 273 |
-| Standardowa_A1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1.9 | 6 059 | 208 | 3,43% | 217 |
-| Standardowa_A1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1.9 | 6 367 | 453 | 7,12% | 217 |
+| Standardowa_A1_v2 | Procesor Intel (R) Xeon (R) E5-2660 0 @ 2.20 GHz | 1 | 1 | 1,9 | 6 483 | 120 | 1,85% | 273 |
+| Standardowa_A1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1,9 | 6 059 | 208 | 3,43% | 217 |
+| Standardowa_A1_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1,9 | 6 367 | 453 | 7,12% | 217 |
 | Standardowa_A2_v2 | Procesor Intel (R) Xeon (R) E5-2660 0 @ 2.20 GHz | 2 | 1 | 3.9 | 13 161 | 194 | 1,48% | 266 |
 | Standardowa_A2_v2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 3.9 | 12 067 | 401 | 3,32% | 203 |
 | Standardowa_A2_v2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 3.9 | 12 527 | 797 | 6,37% | 238 |
@@ -103,10 +103,10 @@ Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w prz
 
 | Rozmiar maszyny wirtualnej | Procesor CPU | Procesory wirtualne | Węzły NUMA | Pamięć (GiB) | Średni wynik | Odchylenie standardowe | Odchylenie standardowe% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_B1ms | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1.9 | 13 593 | 307 | 2,26% | 28 |
-| Standard_B1ms | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1.9 | 14 069 | 495 | 3,52% | 672 |
-| Standard_B1s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 0.9 | 13 736 | 211 | 1,54% | 28 |
-| Standard_B1s | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 0.9 | 13 965 | 457 | 3,27% | 672 |
+| Standard_B1ms | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1,9 | 13 593 | 307 | 2,26% | 28 |
+| Standard_B1ms | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1,9 | 14 069 | 495 | 3,52% | 672 |
+| Standard_B1s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 0,9 | 13 736 | 211 | 1,54% | 28 |
+| Standard_B1s | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 0,9 | 13 965 | 457 | 3,27% | 672 |
 | Standard_B2ms | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 7,8 | 27 361 | 1 110 | 4,06% | 28 |
 | Standard_B2ms | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 7,8 | 27 432 | 771 | 2,81% | 672 |
 | Standard_B2s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 3.9 | 27 488 | 822 | 2,99% | 28 |
@@ -296,8 +296,8 @@ Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w prz
 
 | Rozmiar maszyny wirtualnej | Procesor CPU | Procesory wirtualne | Węzły NUMA | Pamięć (GiB) | Średni wynik | Odchylenie standardowe | Odchylenie standardowe% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standardowa_F1s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1.9 | 14 552 | 504 | 3,46% | 350 |
-| Standardowa_F1s | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1.9 | 14 784 | 858 | 5,80% | 357 |
+| Standardowa_F1s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1,9 | 14 552 | 504 | 3,46% | 350 |
+| Standardowa_F1s | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1,9 | 14 784 | 858 | 5,80% | 357 |
 | Standardowa_F2s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 3.9 | 28 664 | 895 | 3,12% | 245 |
 | Standardowa_F2s | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 3.9 | 29 188 | 1 228 | 4,21% | 455 |
 | Standardowa_F4s | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 4 | 1 | 7,8 | 57 192 | 1 700 | 2,97% | 259 |
@@ -313,8 +313,8 @@ Poniższe wyniki testu porównawczego przedstawiają wydajność obliczeń w prz
 
 | Rozmiar maszyny wirtualnej | Procesor CPU | Procesory wirtualne | Węzły NUMA | Pamięć (GiB) | Średni wynik | Odchylenie standardowe | Odchylenie standardowe% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standardowa_F1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1.9 | 14 937 | 593 | 3,97% | 350 |
-| Standardowa_F1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1.9 | 15 460 | 1 326 | 8,58% | 350 |
+| Standardowa_F1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 1 | 1 | 1,9 | 14 937 | 593 | 3,97% | 350 |
+| Standardowa_F1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 1 | 1 | 1,9 | 15 460 | 1 326 | 8,58% | 350 |
 | Standardowa_F2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 2 | 1 | 3.9 | 29 324 | 1 196 | 4,08% | 343 |
 | Standardowa_F2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 2 | 1 | 3.9 | 29 299 | 1 908 | 6,51% | 364 |
 | Standardowa_F4 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 4 | 1 | 7,8 | 58 314 | 1 245 | 2,14% | 364 |

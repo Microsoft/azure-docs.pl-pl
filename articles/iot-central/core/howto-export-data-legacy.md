@@ -8,10 +8,10 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974428"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych (starsza wersja)
@@ -131,7 +131,7 @@ W przypadku usługi BLOB Storage dane są eksportowane raz na minutę, przy czym
 
 Aby przeglądać wyeksportowane pliki w Azure Portal, przejdź do pliku i wybierz kartę **Edytuj obiekt BLOB** .
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetria
 
 W przypadku Event Hubs i Service Bus IoT Central wyeksportować nowy komunikat szybko po odebraniu komunikatu z urządzenia. Każdy wyeksportowany komunikat zawiera pełną wiadomość wysłaną przez urządzenie we właściwości Body w formacie JSON.
 

@@ -8,10 +8,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87531216"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Manage Azure Data Lake Analytics using the Azure portal (Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal)
@@ -91,9 +91,9 @@ Za pomocą **Kreatora dodawania użytkownika** można łatwo inicjować obsług�
 7. Przejrzyj wszystkie wybrane zmiany, a następnie kliknij przycisk **Uruchom**.
 8. Po zakończeniu pracy kreatora kliknij przycisk **gotowe**.
 
-## <a name="manage-role-based-access-control"></a>Zarządzanie Access Controlami opartymi na rolach
+## <a name="manage-role-based-access-control"></a>Zarządzanie Access Control Role-Based
 
-Podobnie jak w przypadku innych usług platformy Azure, można użyć Access Control opartej na rolach (RBAC) do kontrolowania sposobu, w jaki użytkownicy pracują z usługą.
+Podobnie jak w przypadku innych usług platformy Azure, można użyć Access Control Role-Based (RBAC) do kontrolowania sposobu, w jaki użytkownicy pracują z usługą.
 
 Standardowe role platformy Azure mają następujące możliwości:
 * **Właściciel**: może przesyłać zadania, monitorować zadania, anulować zadania z dowolnego użytkownika i konfigurować je.

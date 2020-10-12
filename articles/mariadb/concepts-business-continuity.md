@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252270"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Zrozumienie ciągłości działania w Azure Database for MariaDB
@@ -23,7 +23,7 @@ Azure Database for MariaDB zapewnia funkcje ciągłości biznesowej, które obej
 
 W poniższej tabeli porównano ERT i cel punktu odzyskiwania dla dostępnych funkcji:
 
-| **Funkcja** | **Podstawowa** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
+| **Funkcja** | **Podstawowe** | **Ogólnego przeznaczenia** | **Optymalizacja pod kątem pamięci** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Przywracanie do punktu w czasie z kopii zapasowej | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania | Dowolny punkt przywracania w okresie przechowywania |
 | Przywracanie geograficzne z kopii zapasowych replikowanych geograficznie | Nieobsługiwane | ERT < 12 h<br/>Cel punktu odzyskiwania < 1 h | ERT < 12 h<br/>Cel punktu odzyskiwania < 1 h |
@@ -52,7 +52,7 @@ Drugą opcją jest użycie funkcji przywracania geograficznego Azure Database fo
 
 Za pomocą replik odczytu między regionami można usprawnić planowanie ciągłości działania i odzyskiwania po awarii. Repliki odczytu są aktualizowane asynchronicznie za pomocą technologii replikacji dzienników binarnych MariaDB. Dowiedz się więcej na temat odczytywania replik, dostępnych regionów i sposobu przełączenia w tryb failover z [artykułu pojęć dotyczących replik](concepts-read-replicas.md). 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 ### <a name="where-does-azure-database-for-mariadb-store-customer-data"></a>Gdzie usługa Azure Database for MariaDB przechowywać dane klienta?
 Domyślnie Azure Database for MariaDB nie przenosi ani nie zapisuje danych klienta poza regionem, w którym jest wdrożony. Jednak klienci mogą opcjonalnie wybrać, aby włączyć [geograficznie nadmiarowe kopie zapasowe](concepts-backup.md#backup-redundancy-options) lub utworzyć [replikę odczytu między regionami](concepts-read-replicas.md#cross-region-replication) do przechowywania danych w innym regionie.
 

@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Wdrażanie obciążeń Azure IoT Edge
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.openlocfilehash: bfaa43a03ddd98616b22fc3fc7b4dccb4c38f44c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103980"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Wdrażanie obciążeń Azure IoT Edge (wersja zapoznawcza)
@@ -49,7 +49,7 @@ Użyj `az` rozszerzenia interfejsu wiersza polecenia, `connectedk8s` Aby połąc
 
 ## <a name="create-a-configuration-for-iot-edge"></a>Utwórz konfigurację dla IoT Edge
 
-Przykładowe repozytorium:https://github.com/veyalla/edgearc
+Przykładowe repozytorium: https://github.com/veyalla/edgearc
 
 To repozytorium wskazuje IoT Edge wykres Helm i odwołuje się do wpisu tajnego utworzonego w sekcji wymagania wstępne.
 

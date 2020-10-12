@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
 ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974411"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Eksportowanie danych IoT do miejsc docelowych w chmurze przy użyciu eksportu danych
@@ -132,7 +132,7 @@ Teraz, gdy masz miejsce docelowe eksportu danych do programu, skonfiguruj ekspor
 
     | Typ danych | Opis | Format danych |
     | :------------- | :---------- | :----------- |
-    |  Telemetry | Eksportowanie komunikatów telemetrycznych z urządzeń w czasie niemal rzeczywistym. Każdy wyeksportowany komunikat zawiera pełną zawartość oryginalnego komunikatu urządzenia, znormalizowany.   |  [Format wiadomości telemetrycznych](#telemetry-format)   |
+    |  Telemetria | Eksportowanie komunikatów telemetrycznych z urządzeń w czasie niemal rzeczywistym. Każdy wyeksportowany komunikat zawiera pełną zawartość oryginalnego komunikatu urządzenia, znormalizowany.   |  [Format wiadomości telemetrycznych](#telemetry-format)   |
     | Zmiany właściwości | Eksportuj zmiany do właściwości urządzenia i chmury w czasie niemal rzeczywistym. W przypadku właściwości urządzenia tylko do odczytu są eksportowane zmiany raportowanych wartości. Dla właściwości do odczytu i zapisu są eksportowane zarówno raportowane, jak i żądane wartości. | [Format komunikatu zmiany właściwości](#property-changes-format) |
 
 1. Opcjonalnie dodaj filtry, aby zmniejszyć ilość wyeksportowanych danych. Istnieją różne typy filtrów dostępne dla każdego typu eksportu danych:

@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317025"
 ---
-# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze praktyki dotyczące konfiguracji klastra (SQL Server na maszynach wirtualnych platformy Azure)
+# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze rozwiązania dotyczące konfiguracji klastra (SQL Server w usłudze Azure Virtual Machines)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Klaster jest używany w celu zapewnienia wysokiej dostępności i odzyskiwania po awarii (HADR cluster) z SQL Server na platformie Azure Virtual Machines. 
@@ -44,7 +44,7 @@ Poniższa tabela zawiera listę opcji kworum dostępnych w kolejności zalecanej
 
 ||[Monitor dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Monitor w chmurze](/windows-server/failover-clustering/deploy-cloud-witness)  |[Monitor udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Obsługiwane systemy operacyjne**| Wszystko |Windows Server 2016 +| Wszystko|
+|**Obsługiwane systemy operacyjne**| Wszystkie |Windows Server 2016 +| Wszystkie|
 
 
 
@@ -92,8 +92,8 @@ Poniższa tabela zawiera porównanie obsługi połączeń HADR cluster:
 
 | |**Nazwa sieci wirtualnej (VNN)**  |**Nazwa sieci rozproszonej (DNN)**  |
 |---------|---------|---------|
-|**Minimalna wersja systemu operacyjnego**| Wszystko | Wszystko |
-|**Minimalna wersja SQL Server** |Wszystko |SQL Server 2019 ZASTOSUJESZ pakietu CU2|
+|**Minimalna wersja systemu operacyjnego**| Wszystkie | Wszystkie |
+|**Minimalna wersja SQL Server** |Wszystkie |SQL Server 2019 ZASTOSUJESZ pakietu CU2|
 |**Obsługiwane rozwiązanie HADR Cluster** | Wystąpienie klastra trybu failover <br/> Grupa dostępności | Wystąpienie klastra trybu failover|
 
 

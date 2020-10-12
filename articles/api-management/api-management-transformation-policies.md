@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249607"
 ---
 # <a name="api-management-transformation-policies"></a>Zasady przekształcania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a>Zasady transformacji
+##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Zasady transformacji
 
 -   [Convert JSON do formatu XML](api-management-transformation-policies.md#ConvertJSONtoXML) — konwertuje treść żądania lub odpowiedzi z formatu JSON na XML.
 
@@ -44,7 +44,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   [Przekształcanie kodu XML przy użyciu XSLT](api-management-transformation-policies.md#XSLTransform) — stosuje transformację XSL do pliku XML w treści żądania lub odpowiedzi.
 
-##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Konwertuj kod JSON na format XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Konwertuj kod JSON na format XML
  `json-to-xml`Zasady konwertują treść żądania lub odpowiedzi z formatu JSON na XML.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -88,7 +88,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Konwertuj kod XML na format JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Konwertuj kod XML na format JSON
  `xml-to-json`Zasady konwertują treść żądania lub odpowiedzi z formatu XML na notację JSON. Za pomocą tych zasad można przeprowadzić modernizację interfejsów API opartych na usługach sieci Web zaplecza tylko w języku XML.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -132,7 +132,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Znajdź i Zamień ciąg w treści
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Znajdź i Zamień ciąg w treści
  `find-and-replace`Zasada znajduje podciąg żądania lub odpowiedzi i zastępuje go innym podciągiem.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -167,7 +167,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Maskowanie adresów URL w zawartości
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a> Maskowanie adresów URL w zawartości
  `redirect-content-urls`Linki do ponownego zapisu zasad (maski) w treści odpowiedzi, aby wskazywały odpowiedni link za pośrednictwem bramy. Użyj w sekcji wychodzącej, aby ponownie zapisać linki treści odpowiedzi, aby wskazywały na bramę. Użyj w sekcji ruchu przychodzącego, aby oddziałać odwrotnie.
 
 > [!NOTE]
@@ -198,7 +198,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Ustawianie usługi zaplecza
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a> Ustawianie usługi zaplecza
  Użyj `set-backend-service` zasad, aby przekierować żądanie przychodzące do innego zaplecza niż ten określony w ustawieniach interfejsu API dla tej operacji. Te zasady umożliwiają zmianę podstawowego adresu URL usługi wewnętrznej bazy danych żądania przychodzącego na określony w zasadach.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -242,7 +242,7 @@ Początkowo podstawowy adres URL usługi wewnętrznej bazy danych pochodzi z ust
 
 Gdy zostanie zastosowana [<wybierz \> ](api-management-advanced-policies.md#choose) instrukcję zasad, podstawowy adres URL usługi wewnętrznej bazy danych może zmienić się na `http://contoso.com/api/8.2` lub, w zależności od `http://contoso.com/api/9.1` wartości parametru zapytania o wersję. Na przykład, jeśli wartość jest `"2013-15"` końcowym adresem URL żądania `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef` .
 
-Jeśli pożądane jest dalsze przekształcenie żądania, można użyć innych [zasad przekształcania](api-management-transformation-policies.md#TransformationPolicies) . Na przykład, aby usunąć parametr zapytania wersji teraz, gdy żądanie jest kierowane do zaplecza specyficznego dla wersji, można użyć zasad [parametrów ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) , aby usunąć teraz nadmiarowy atrybut wersji.
+Jeśli pożądane jest dalsze przekształcenie żądania, można użyć innych [zasad przekształcania](api-management-transformation-policies.md#TransformationPolicies) . Na przykład, aby usunąć parametr zapytania wersji teraz, gdy żądanie jest kierowane do zaplecza specyficznego dla wersji, można użyć zasad  [parametrów ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) , aby usunąć teraz nadmiarowy atrybut wersji.
 
 ### <a name="example"></a>Przykład
 
@@ -283,7 +283,7 @@ W tym przykładzie zasady kierują żądanie do zaplecza usługi Service Fabric 
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-body"></a><a name="SetBody"></a>Ustaw treść
+##  <a name="set-body"></a><a name="SetBody"></a> Ustaw treść
  Użyj `set-body` zasad, aby ustawić treść komunikatu dla żądań przychodzących i wychodzących. Aby uzyskać dostęp do treści wiadomości, można użyć `context.Request.Body` właściwości lub, w zależności od tego `context.Response.Body` , czy zasady są w sekcji przychodzące lub wychodzące.
 
 > [!IMPORTANT]
@@ -453,7 +453,7 @@ OriginalUrl.
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Ustaw nagłówek HTTP
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a> Ustaw nagłówek HTTP
  `set-header`Zasada przypisuje wartość do istniejącej odpowiedzi i/lub nagłówka żądania lub dodaje nową odpowiedź i/lub nagłówek żądania.
 
  Wstawia listę nagłówków HTTP do wiadomości HTTP. Po umieszczeniu w potoku przychodzącym te zasady ustawiają nagłówki HTTP dla żądania przesyłanego do usługi docelowej. Po umieszczeniu w potoku wychodzącym te zasady ustawiają nagłówki HTTP dla odpowiedzi wysyłanej do klienta bramy.
@@ -497,14 +497,14 @@ OriginalUrl.
  Aby uzyskać więcej informacji, zobacz [wyrażenia zasad](api-management-policy-expressions.md) i [zmienna kontekstowa](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Wiele wartości nagłówka są połączone z ciągiem CSV, na przykład:`headerName: value1,value2,value3`
+> Wiele wartości nagłówka są połączone z ciągiem CSV, na przykład: `headerName: value1,value2,value3`
 >
 > Wyjątki zawierają standardowe nagłówki, które są wartościami:
 > - może zawierać przecinków ( `User-Agent` , `WWW-Authenticate` , `Proxy-Authenticate` ),
 > - może zawierać datę ( `Cookie` , `Set-Cookie` , `Warning` ),
 > - zawiera datę ( `Date` , `Expires` ,,, `If-Modified-Since` `If-Unmodified-Since` `Last-Modified` , `Retry-After` ).
 >
-> W przypadku tych wyjątków wiele wartości nagłówka nie będzie łączonych w jeden ciąg i zostanie przesłane jako oddzielne nagłówki, na przykład:`User-Agent: value1`
+> W przypadku tych wyjątków wiele wartości nagłówka nie będzie łączonych w jeden ciąg i zostanie przesłane jako oddzielne nagłówki, na przykład: `User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
@@ -513,7 +513,7 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |Set-header|Element główny.|Tak|
-|wartość|Określa wartość nagłówka, która ma zostać ustawiona. Dla wielu nagłówków o tej samej nazwie Dodaj dodatkowe `value` elementy.|Nie|
+|value|Określa wartość nagłówka, która ma zostać ustawiona. Dla wielu nagłówków o tej samej nazwie Dodaj dodatkowe `value` elementy.|Nie|
 
 ### <a name="properties"></a>Właściwości
 
@@ -529,7 +529,7 @@ OriginalUrl.
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Ustaw parametr ciągu zapytania
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Ustaw parametr ciągu zapytania
  `set-query-parameter`Zasady dodają, zamieniają wartość lub usuwają parametr ciągu zapytania żądania. Może służyć do przekazywania parametrów zapytania oczekiwanych przez usługę zaplecza, które są opcjonalne lub nigdy nie występują w żądaniu.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -568,7 +568,7 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |Set-Query-Parameter|Element główny.|Tak|
-|wartość|Określa wartość parametru zapytania, która ma zostać ustawiona. Dla wielu parametrów zapytania o tej samej nazwie Dodaj dodatkowe `value` elementy.|Tak|
+|value|Określa wartość parametru zapytania, która ma zostać ustawiona. Dla wielu parametrów zapytania o tej samej nazwie Dodaj dodatkowe `value` elementy.|Tak|
 
 ### <a name="properties"></a>Właściwości
 
@@ -584,12 +584,12 @@ OriginalUrl.
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Ponownie Napisz adres URL
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a> Ponownie Napisz adres URL
  `rewrite-uri`Zasady konwertują adres URL żądania z jego formularza publicznego na formularz oczekiwany przez usługę sieci Web, jak pokazano w poniższym przykładzie.
 
-- Publiczny adres URL —`http://api.example.com/storenumber/ordernumber`
+- Publiczny adres URL — `http://api.example.com/storenumber/ordernumber`
 
-- Adres URL żądania —`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Adres URL żądania — `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
   Tych zasad można używać w przypadku, gdy adres URL i/lub przyjazny dla przeglądarki powinien być przekształcony w format adresu URL oczekiwany przez usługę sieci Web. Te zasady muszą być stosowane tylko podczas ujawniania alternatywnego formatu adresu URL, na przykład czystych adresów URL, adresów URL RESTful, przyjaznych dla użytkownika adresów URL lub przyjaznych dla funkcji optymalizacji adresów URL, które nie zawierają ciągu zapytania, a zamiast tego zawierają tylko ścieżkę do zasobu (po schemacie i urzędzie). Jest to często wykonywane w celach estetycznych, użytecznych lub optymalizacji aparatu wyszukiwania (w przypadku funkcji optymalizacji).
 
@@ -662,7 +662,7 @@ OriginalUrl.
 
 -   **Zakresy zasad:** wszystkie zakresy
 
-##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Przekształcanie kodu XML przy użyciu XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Przekształcanie kodu XML przy użyciu XSLT
  `Transform XML using an XSLT`Zasady stosują transformację XSL do pliku XML w treści żądania lub odpowiedzi.
 
 ### <a name="policy-statement"></a>Instrukcja zasad

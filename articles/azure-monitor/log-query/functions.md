@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
 ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87511942"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Używanie funkcji w kwerendach dzienników Azure Monitor

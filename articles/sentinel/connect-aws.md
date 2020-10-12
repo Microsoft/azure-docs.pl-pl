@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
 ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563062"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Połącz wskaźnik platformy Azure z usługą AWS CloudTrail

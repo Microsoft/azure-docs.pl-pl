@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321840"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Elementy webhook dla alertów dziennika aktywności platformy Azure
@@ -262,14 +262,14 @@ Aby uzyskać szczegółowe informacje dotyczące schematu alertów dziennika akt
 | warunektype |Zawsze "zdarzenie". |
 | name |Nazwa reguły alertu. |
 | identyfikator |Identyfikator zasobu alertu. |
-| description (opis) |Opis alertu ustawiany podczas tworzenia alertu. |
+| description |Opis alertu ustawiany podczas tworzenia alertu. |
 | subscriptionId |Identyfikator subskrypcji platformy Azure. |
 | sygnatura czasowa |Godzina, o której zdarzenie zostało wygenerowane przez usługę platformy Azure, która przetworzyła żądanie. |
 | resourceId |Identyfikator zasobu zasobu, którego dotyczy problem. |
 | resourceGroupName |Nazwa grupy zasobów dla zasobu, którego dotyczy problem. |
 | properties |Zestaw `<Key, Value>` par (czyli `Dictionary<String, String>` ), który zawiera szczegółowe informacje o zdarzeniu. |
 | event |Element, który zawiera metadane dotyczące zdarzenia. |
-| autoryzacja |Właściwości Access Control oparte na rolach zdarzenia. Te właściwości zazwyczaj obejmują akcję, rolę i zakres. |
+| autoryzacja |Role-Based Access Control właściwości zdarzenia. Te właściwości zazwyczaj obejmują akcję, rolę i zakres. |
 | category |Kategoria zdarzenia. Obsługiwane wartości to: administracyjne, alert, zabezpieczenia, servicehealth i rekomendacja. |
 | Obiekt wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenie nazwy UPN lub oświadczenie SPN na podstawie dostępności. Może mieć wartość null w przypadku niektórych wywołań systemowych. |
 | correlationId |Zazwyczaj identyfikator GUID w formacie ciągu. Zdarzenia z identyfikatorem korelacji należy do tej samej większej akcji i zwykle współużytkują identyfikator korelacji. |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88826144"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania

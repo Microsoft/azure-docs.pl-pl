@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
 ms.openlocfilehash: 2c6495454e5ba2449d4b3c74a096681f74610813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84699366"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Zarządzanie klastrami usługi Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -90,7 +90,7 @@ az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --w
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób wykonywania różnych zadań administracyjnych klastra usługi HDInsight. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule przedstawiono sposób wykonywania różnych zadań administracyjnych klastra usługi HDInsight. Więcej informacji można znaleźć w następujących artykułach:
 
 * [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal](hdinsight-administer-use-portal-linux.md)
 * [Administrowanie usługą HDInsight przy użyciu Azure PowerShell](hdinsight-administer-use-powershell.md)

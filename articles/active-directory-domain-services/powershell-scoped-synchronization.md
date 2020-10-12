@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: iainfou
 ms.openlocfilehash: 197ae37b0c63b19ebe4dcdf2732169be0f357a07
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294230"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services przy użyciu programu Azure AD PowerShell

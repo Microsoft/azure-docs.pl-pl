@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440596"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
@@ -65,7 +65,7 @@ Możesz użyć działania kopiowania, aby skopiować pliki między dwoma magazyn
 
 Usługa, która umożliwia działanie kopiowania, jest dostępna globalnie w regionach i lokalizacje geograficzne na liście [lokalizacji w usłudze Azure Integration Runtime](concepts-integration-runtime.md#integration-runtime-location). Topologia dostępna globalnie zapewnia wydajne przenoszenie danych, które zwykle pozwala uniknąć przeskoków między regionami. Zobacz [produkty według regionów](https://azure.microsoft.com/regions/#services) , aby sprawdzić dostępność Data Factory i przenoszenia danych w określonym regionie.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90709014"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Rozwiązywanie problemów z replikacją między regionami
@@ -69,6 +69,6 @@ W tym artykule opisano komunikaty o błędach i rozwiązania, które mogą pomó
 * [Replikacja między regionami](cross-region-replication-introduction.md)
 * [Wymagania i zagadnienia dotyczące korzystania z replikacji między regionami](cross-region-replication-requirements-considerations.md)
 * [Tworzenie komunikacji równorzędnej replikacji](cross-region-replication-create-peering.md)
-* [Wyświetl stan kondycji relacji replikacji](cross-region-replication-display-health-status.md)
+* [Wyświetlanie stanu kondycji relacji replikacji](cross-region-replication-display-health-status.md)
 * [Zarządzanie odzyskiwaniem po awarii](cross-region-replication-manage-disaster-recovery.md)
 * [Rozwiązywanie problemów z replikacją między regionami](troubleshoot-cross-region-replication.md)

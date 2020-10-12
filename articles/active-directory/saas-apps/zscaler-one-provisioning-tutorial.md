@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545866"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler jeden dla automatycznej aprowizacji użytkowników
@@ -88,11 +88,11 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Łącze rozwiązania Zscaler 1 na liście aplikacji](common/all-applications.png)
 
-3. Wybierz kartę **aprowizacji** .
+3. Wybierz kartę **Aprowizacja**.
 
     ![Rozwiązania Zscaler jedno Inicjowanie obsługi administracyjnej](./media/zscaler-one-provisioning-tutorial/provisioning-tab.png)
 
-4. Ustaw **tryb aprowizacji** na **automatyczny**.
+4. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Rozwiązania Zscaler jeden tryb aprowizacji](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
@@ -106,7 +106,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Rozwiązania Zscaler jeden Konfigurowanie SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Wybierz pozycję **Włącz obsługę administracyjną na podstawie Standard scim** , aby pobrać ustawienia z **podstawowego adresu URL** i **tokenu okaziciela**. Następnie Zapisz ustawienia. Skopiuj ustawienie **podstawowego adresu URL** do **adresu URL dzierżawy** w Azure Portal. Skopiuj ustawienie **tokenu okaziciela** do **tokenu tajnego** w Azure Portal.
+    b. Wybierz pozycję **Włącz obsługę administracyjną SCIM-Based** , aby pobrać ustawienia z **podstawowego adresu URL** i **tokenu okaziciela**. Następnie Zapisz ustawienia. Skopiuj ustawienie **podstawowego adresu URL** do **adresu URL dzierżawy** w Azure Portal. Skopiuj ustawienie **tokenu okaziciela** do **tokenu tajnego** w Azure Portal.
 
 7. Po wypełnieniu pól przedstawionych w kroku 5 wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z usługą rozwiązania Zscaler. Jeśli połączenie nie powiedzie się, upewnij się, że rozwiązania Zscaler jedno konto ma uprawnienia administratora i spróbuj ponownie.
 
@@ -157,11 +157,11 @@ Aby uzyskać informacje na temat sposobu odczytywania dzienników aprowizacji us
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../active-directory-saas-provisioning-reporting.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png
