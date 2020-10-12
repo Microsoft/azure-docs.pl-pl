@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
 ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654858"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Usługa Azure HDInsight — przyspieszone zapisy dla oprogramowania Apache HBase
@@ -32,7 +32,7 @@ Jeśli **RegionServer** ulegnie awarii lub stanie się niedostępna przed opró�
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funkcja zapisu przyspieszonego w usłudze Azure HDInsight dla platformy Apache HBase
 
-Funkcja przyspieszone zapisy rozwiązuje problem z wyższymi opóźnieniami zapisu spowodowanymi przez użycie dzienników zapisu z wyprzedzeniem, które znajdują się w magazynie w chmurze.  Funkcja przyspieszone zapisy dla klastrów usługi HDInsight Apache HBase dołącza dyski zarządzane dysk SSD w warstwie Premium do każdego RegionServer (węzeł procesu roboczego). Dzienniki zapisu z wyprzedzeniem są następnie zapisywane w systemie plików Hadoop (HDFS) zainstalowanym na tych dyskach w warstwie Premium, a nie w magazynie w chmurze.  Dyski zarządzane w warstwie Premium używają dysków półprzewodnikowych (dysków SSD) i oferują doskonałą wydajność we/wy dzięki odporności na uszkodzenia.  W przeciwieństwie do dysków niezarządzanych, jeśli jedna Jednostka magazynowa ulegnie awarii, nie wpłynie to na inne jednostki magazynowe w tym samym zestawie dostępności.  W związku z tym dyski zarządzane zapewniają małe opóźnienia zapisu i lepszą odporność aplikacji. Aby dowiedzieć się więcej o dyskach zarządzanych przez platformę Azure, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
+Funkcja przyspieszone zapisy rozwiązuje problem z wyższymi opóźnieniami zapisu spowodowanymi przez użycie dzienników zapisu z wyprzedzeniem, które znajdują się w magazynie w chmurze.  Funkcja przyspieszone zapisy dla klastrów usługi HDInsight Apache HBase dołącza dyski zarządzane dysk SSD w warstwie Premium do każdego RegionServer (węzeł procesu roboczego). Dzienniki zapisu z wyprzedzeniem są następnie zapisywane w systemie plików Hadoop (HDFS) zainstalowanym na tych dyskach w warstwie Premium, a nie w magazynie w chmurze.  Dyski zarządzane w warstwie Premium używają Solid-State dysków (dysków SSD) i oferują doskonałą wydajność we/wy dzięki odporności na uszkodzenia.  W przeciwieństwie do dysków niezarządzanych, jeśli jedna Jednostka magazynowa ulegnie awarii, nie wpłynie to na inne jednostki magazynowe w tym samym zestawie dostępności.  W związku z tym dyski zarządzane zapewniają małe opóźnienia zapisu i lepszą odporność aplikacji. Aby dowiedzieć się więcej o dyskach zarządzanych przez platformę Azure, zobacz [wprowadzenie do usługi Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Jak włączyć przyspieszone zapisy dla HBase w usłudze HDInsight
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 73b6029dfe52a4b32c9a8ce092fcd284ac1ec0e7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85965053"
 ---
 # <a name="workbook-drop-down-parameters"></a>Parametry listy rozwijanej skoroszytu
@@ -28,11 +28,11 @@ Najprostszym sposobem określenia listy rozwijanej jest podawanie statycznej lis
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`Environment`
-    2. Typ parametru:`Drop down`
-    3. Wymagane:`checked`
-    4. Zezwalaj `multiple selection` :`unchecked`
-    5. Pobierz dane z:`JSON`
+    1. Nazwa parametru: `Environment`
+    2. Typ parametru: `Drop down`
+    3. Wymagane: `checked`
+    4. Zezwalaj `multiple selection` : `unchecked`
+    5. Pobierz dane z: `JSON`
 5. W bloku tekstu wejściowego JSON Wstaw ten fragment kodu JSON:
     ```json
     [
@@ -70,11 +70,11 @@ Jeśli wynik zapytania/JSON zawiera pole "Grupa", na liście rozwijanej zostaną
 2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
 3. Kliknij niebieski przycisk _Dodaj parametr_ .
 4. W okienku Nowy parametr, który jest podręczny ENTER:
-    1. Nazwa parametru:`RequestName`
-    2. Typ parametru:`Drop down`
-    3. Wymagane:`checked`
-    4. Zezwalaj `multiple selection` :`unchecked`
-    5. Pobierz dane z:`Query`
+    1. Nazwa parametru: `RequestName`
+    2. Typ parametru: `Drop down`
+    3. Wymagane: `checked`
+    4. Zezwalaj `multiple selection` : `unchecked`
+    5. Pobierz dane z: `Query`
 5. W bloku tekstu wejściowego JSON Wstaw ten fragment kodu JSON:
 
     ```kusto

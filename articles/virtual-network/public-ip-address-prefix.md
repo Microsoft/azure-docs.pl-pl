@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
 ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432577"
 ---
 # <a name="public-ip-address-prefix"></a>Prefiks publicznego adresu IP
@@ -63,7 +63,7 @@ Można skojarzyć następujące zasoby ze statycznym publicznym adresem IP z pre
 |Maszyny wirtualne| Skojarzenie publicznych adresów IP z prefiksu do maszyn wirtualnych na platformie Azure zmniejsza obciążenie związane z zarządzaniem w przypadku dodawania adresów IP do listy dozwolonych w zaporze. Można dodać cały prefiks z pojedynczą regułą zapory. W miarę skalowania maszyn wirtualnych na platformie Azure można kojarzyć adresy IP z tego samego prefiksu oszczędności, czasu i kosztów zarządzania.| Aby skojarzyć adresy IP z prefiksem do maszyny wirtualnej: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. [Skojarz adres IP z interfejsem sieciowym maszyny wirtualnej.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> Można także [skojarzyć adresy IP z zestawem skalowania maszyn wirtualnych](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Usługi równoważenia obciążenia w warstwie Standardowa | Skojarzenie publicznych adresów IP z prefiksu do konfiguracji adresu IP frontonu lub reguły ruchu wychodzącego modułu równoważenia obciążenia zapewnia uproszczenie publicznej przestrzeni adresów IP platformy Azure. Uprość ten scenariusz dzięki pielęgnacji połączeń wychodzących z zakresu sąsiadujących adresów IP. | Aby skojarzyć adresy IP z prefiksem do modułu równoważenia obciążenia: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas tworzenia modułu równoważenia obciążenia wybierz lub zaktualizuj adres IP utworzony w kroku 2 powyżej jako adres IP frontonu modułu równoważenia obciążenia. |
 | Azure Firewall | Możesz użyć publicznego adresu IP z prefiksu dla wychodzącego elementu Republic. Cały ruch wychodzący sieci wirtualnej jest tłumaczony na publiczny adres IP [zapory platformy Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . | Aby skojarzyć adres IP od prefiksu do zapory: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas [wdrażania zapory platformy Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)należy wybrać adres IP, który został wcześniej przekazany z prefiksu.|
-| Application Gateway v2 | Możesz użyć publicznego adresu IP z prefiksu do automatycznego skalowania i strefowo nadmiarowej bramy aplikacji w wersji 2. | Aby skojarzyć adres IP od prefiksu do bramy: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas [wdrażania Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)upewnij się, że wybrano adres IP, który został wcześniej przekazany z prefiksu.|
+| Application Gateway (wersja 2) | Możesz użyć publicznego adresu IP z prefiksu do automatycznego skalowania i strefowo nadmiarowej bramy aplikacji w wersji 2. | Aby skojarzyć adres IP od prefiksu do bramy: </br> 1. [Utwórz prefiks.](manage-public-ip-address-prefix.md) </br> 2. [Utwórz adres IP z prefiksu.](manage-public-ip-address-prefix.md) </br> 3. podczas [wdrażania Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)upewnij się, że wybrano adres IP, który został wcześniej przekazany z prefiksu.|
 
 ## <a name="constraints"></a>Ograniczenia
 

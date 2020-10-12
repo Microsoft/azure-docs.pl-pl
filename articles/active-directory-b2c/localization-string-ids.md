@@ -11,10 +11,10 @@ ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87428118"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
@@ -27,7 +27,7 @@ Element **Lokalizacja** umożliwia obsługę wielu ustawień regionalnych lub j�
 
 Następujące identyfikatory są używane dla definicji zawartości o IDENTYFIKATORze `api.signuporsignin` .
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **local_intro_email** | Zaloguj się przy użyciu istniejącego konta |
 | **logonIdentifier_email** | Adres e-mail |
@@ -54,7 +54,7 @@ Poniższy przykład pokazuje użycie niektórych elementów interfejsu użytkown
 
 ![Elementy środowiska użytkownika dotyczące rejestracji lub logowania](./media/localization-string-ids/localization-susi.png)
 
-Identyfikator dostawców tożsamości jest konfigurowany w elemencie **ClaimsExchange** podróży użytkownika. Aby zlokalizować tytuł dostawcy tożsamości, **ElementType** ma wartość `ClaimsProvider` , a **STRINGID** jest ustawiony na identyfikator `ClaimsExchange` .
+Identyfikator dostawców tożsamości jest konfigurowany w elemencie  **ClaimsExchange** podróży użytkownika. Aby zlokalizować tytuł dostawcy tożsamości, **ElementType** ma wartość `ClaimsProvider` , a **STRINGID** jest ustawiony na identyfikator `ClaimsExchange` .
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
@@ -81,7 +81,7 @@ Poniższy przykład lokalizuje dostawcę tożsamości w serwisie Facebook do ję
 
 ### <a name="sign-up-or-sign-in-error-messages"></a>Komunikaty o błędach rejestracji lub logowania
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Hasło jest niepoprawne. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Nie możemy znaleźć Twojego konta. |
@@ -95,7 +95,7 @@ Poniższy przykład lokalizuje dostawcę tożsamości w serwisie Facebook do ję
 
 Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORem `api.localaccountsignup` lub dowolną definicją zawartości, która rozpoczyna się od `api.selfasserted` , takich jak `api.selfasserted.profileupdate` i `api.localaccountpasswordreset` .
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **ver_sent** | Kod weryfikacyjny został wysłany do: |
 | **ver_but_default** | Domyślne |
@@ -104,11 +104,11 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 | **ver_but_send** | Wyślij kod weryfikacyjny |
 | **alert_yes** | Tak |
 | **error_fieldIncorrect** | Co najmniej jedno pole jest wypełniane nieprawidłowo. Sprawdź swoje wpisy i spróbuj ponownie. |
-| **czteroletniego** | Rok |
+| **czteroletniego** | Year (Rok) |
 | **verifying_blurb** | Zaczekaj na przetworzenie informacji. |
 | **button_cancel** | Anuluj |
 | **ver_fail_no_retry** | Wykonano zbyt wiele nieudanych prób. Spróbuj ponownie później. |
-| **bieżącym** | Miesiąc |
+| **bieżącym** | Month (Miesiąc) |
 | **ver_success_msg** | Zweryfikowano adres E-mail. Teraz można kontynuować. |
 | **months** | Styczeń, luty, Marzec, Kwiecień, maj, czerwiec, Lipiec, sierpień, wrzesień, październik, listopad, grudzień |
 | **ver_fail_server** | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Wprowadź prawidłowy adres e-mail i spróbuj ponownie. |
@@ -134,14 +134,14 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 
 ### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Komunikaty o błędach dotyczące rejestracji i niepotwierdzonych stron
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Użytkownik o określonym IDENTYFIKATORze już istnieje. Wybierz inną. |
-| **UserMessageIfClaimNotVerified** | Nie zweryfikowano zgłoszenia:{0} |
-| **UserMessageIfIncorrectPattern** | Nieprawidłowy wzorzec dla:{0} |
-| **UserMessageIfMissingRequiredElement** | Brak wymaganego elementu:{0} |
-| **UserMessageIfValidationError** | Błąd weryfikacji przez:{0} |
-| **UserMessageIfInvalidInput** | {0}ma nieprawidłowe dane wejściowe. |
+| **UserMessageIfClaimNotVerified** | Nie zweryfikowano zgłoszenia: {0} |
+| **UserMessageIfIncorrectPattern** | Nieprawidłowy wzorzec dla: {0} |
+| **UserMessageIfMissingRequiredElement** | Brak wymaganego elementu: {0} |
+| **UserMessageIfValidationError** | Błąd weryfikacji przez: {0} |
+| **UserMessageIfInvalidInput** | {0} ma nieprawidłowe dane wejściowe. |
 | **Brak ograniczenia** | W tej chwili jest zbyt wiele żądań. Poczekaj chwilę i spróbuj ponownie. |
 
 W poniższym przykładzie pokazano użycie niektórych elementów interfejsu użytkownika na stronie rejestracji:
@@ -157,7 +157,7 @@ Poniższy przykład pokazuje użycie niektórych elementów interfejsu użytkown
 
 Poniżej przedstawiono identyfikatory dla definicji zawartości o IDENTYFIKATORze `api.phonefactor` .
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 | **button_verify** | Zadzwoń do mnie |
 | **country_code_label** | Kod kraju |
@@ -207,7 +207,7 @@ Poniższy przykład pokazuje użycie niektórych elementów interfejsu użytkown
 
 Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacji](display-control-verification.md)
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 |verification_control_but_change_claims |Zmiana |
 |verification_control_fail_send_code |Nie można wysłać kodu, spróbuj ponownie później. |
@@ -237,12 +237,12 @@ Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacji](disp
 
 Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicznego usługi RESTful](restful-technical-profile.md) :
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Nie można nawiązać połączenia z punktem końcowym usługi RESTful. Adres URL usługi RESTful:{0} |
-|UserMessageIfCircuitOpen | {0}Adres URL usługi RESTful:{1} |
-|UserMessageIfDnsResolutionFailed | Nie można rozpoznać nazwy hosta punktu końcowego usługi RESTful. Adres URL usługi RESTful:{0} |
-|UserMessageIfRequestTimeout | Nie można nawiązać połączenia z punktem końcowym usługi RESTful w ramach limitu czasu w {0} sekundach. Adres URL usługi RESTful:{1} |
+|DefaultUserMessageIfRequestFailed | Nie można nawiązać połączenia z punktem końcowym usługi RESTful. Adres URL usługi RESTful: {0} |
+|UserMessageIfCircuitOpen | {0} Adres URL usługi RESTful: {1} |
+|UserMessageIfDnsResolutionFailed | Nie można rozpoznać nazwy hosta punktu końcowego usługi RESTful. Adres URL usługi RESTful: {0} |
+|UserMessageIfRequestTimeout | Nie można nawiązać połączenia z punktem końcowym usługi RESTful w ramach limitu czasu w {0} sekundach. Adres URL usługi RESTful: {1} |
 
 
 ### <a name="example"></a>Przykład
@@ -262,7 +262,7 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicz
 
 Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicznego usługi Azure MFA](multi-factor-auth-technical-profile.md) :
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 |UserMessageIfCouldntSendSms | Nie można wysłać wiadomości SMS na telefon, spróbuj użyć innego numeru telefonu. |
 |UserMessageIfInvalidFormat | Twój numer telefonu ma nieprawidłowy format, popraw go i spróbuj ponownie.|
@@ -290,7 +290,7 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicz
 
 Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicznego usługi Azure AD SSPR](aad-sspr-technical-profile.md) :
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 |UserMessageIfChallengeExpired | Kod wygasł.|
 |UserMessageIfInternalError | Usługa poczty e-mail napotkała błąd wewnętrzny, spróbuj ponownie później.|
@@ -317,7 +317,7 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicz
 
 Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicznego hasła jednorazowego](one-time-password-technical-profile.md)
 
-| ID | Wartość domyślna |
+| ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
 |UserMessageIfMaxRetryAttempted |Weryfikacja o jednym czasie z podaną hasłem przekroczyła maksymalną liczbę prób |
 |UserMessageIfSessionDoesNotExist |Sesja weryfikacji hasła jednorazowego wygasła |
@@ -343,7 +343,7 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicz
 
 Poniżej przedstawiono identyfikatory komunikatów o błędach przekształceń oświadczeń:
 
-| ID | Przekształcanie oświadczeń | Wartość domyślna |
+| ID (Identyfikator) | Przekształcanie oświadczeń | Wartość domyślna |
 | -- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Porównanie wartości wystąpienia logicznego nie powiodło się dla typu zgłoszenia "oświadczenie inputclaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Porównywanie wartości dla roszczeń nie powiodło się: podany lewy operand jest większy niż prawy operand.|

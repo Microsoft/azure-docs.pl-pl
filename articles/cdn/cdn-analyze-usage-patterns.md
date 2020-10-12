@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985532"
 ---
 # <a name="core-reports-from-verizon"></a>Raporty podstawowe z usługi Verizon
@@ -100,7 +100,7 @@ Aby zmniejszyć wygasłe trafienia pamięci podręcznej, należy ustawić zasób
 * TCP_MISS: ten stan wskazuje na to, że w punkcie POP najbliżej klienta nie znaleziono buforowanej wersji żądanego zasobu. Zasób jest żądany z serwera pochodzenia lub z serwera ochrony źródła. Jeśli serwer pierwotny lub serwer funkcji ochrony źródła zwraca element zawartości, jest on obsługiwany przez klienta i buforowany zarówno na kliencie, jak i na serwerze brzegowym. W przeciwnym razie zwracany jest kod stanu inny niż 200 (na przykład 403 zabroniony lub 404 nie został znaleziony).
 * TCP_EXPIRED_HIT: ten stan jest raportowany, gdy żądanie dotyczące elementu zawartości z wygasłym czasem wygaśnięcia zostało obsłużone bezpośrednio z punktu POP do klienta. Na przykład po wygaśnięciu maksymalnego wieku elementu zawartości. 
   
-   Wygasłe żądanie zwykle powoduje żądanie ponownej walidacji serwera pochodzenia. Aby stan TCP_EXPIRED_HIT miał miejsce, serwer pierwotny musi wskazywać, że nie istnieje nowsza wersja elementu zawartości. W tej sytuacji zwykle powstaje aktualizacja kontroli pamięci podręcznej i wygaśnie nagłówków elementu zawartości.
+   Wygasłe żądanie zwykle powoduje żądanie ponownej walidacji serwera pochodzenia. Aby stan TCP_EXPIRED_HIT miał miejsce, serwer pierwotny musi wskazywać, że nie istnieje nowsza wersja elementu zawartości. Ta sytuacja zazwyczaj powoduje aktualizację Cache-Control i wygasania nagłówków zasobów.
 * TCP_EXPIRED_MISS: ten stan jest raportowany, gdy w punkcie POP do klienta zostanie obsłużona nowsza wersja wygasłego, zbuforowanego elementu zawartości. Ten stan występuje, gdy wartość czasu wygaśnięcia w pamięci podręcznej wygasła (na przykład wygasła max-age), a serwer pierwotny zwraca nowszą wersję tego elementu zawartości. Ta nowa wersja elementu zawartości jest obsługiwana dla klienta, a nie w wersji zapisanej w pamięci podręcznej. Ponadto jest on buforowany na serwerze brzegowym i kliencie.
 * CONFIG_NOCACHE: ten stan wskazuje, że Konfiguracja specyficzna dla klienta w punkcie POP nie uniemożliwiła buforowania elementu zawartości.
 * Brak — ten stan wskazuje, że sprawdzanie Aktualności zawartości pamięci podręcznej nie zostało wykonane.

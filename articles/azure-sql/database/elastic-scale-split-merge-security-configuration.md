@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829438"
 ---
 # <a name="split-merge-security-configuration"></a>Konfiguracja zabezpieczeń Split-Merge
@@ -59,8 +59,8 @@ Certyfikat TLS/SSL jest wymagany do szyfrowania komunikacji i uwierzytelniania s
 
 ### <a name="create-a-new-self-signed-certificate"></a>Utwórz nowy certyfikat z podpisem własnym
 
-1. [Tworzenie certyfikatu z podpisem własnym](#create-a-self-signed-certificate)
-2. [Utwórz plik PFX dla certyfikatu TLS/SSL z podpisem własnym](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Tworzenie certyfikatu Self-Signed](#create-a-self-signed-certificate)
+2. [Utwórz plik PFX dla Self-Signed certyfikatu TLS/SSL](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Przekazywanie certyfikatu TLS/SSL do usługi w chmurze](#upload-tlsssl-certificate-to-cloud-service)
 4. [Aktualizowanie certyfikatu TLS/SSL w pliku konfiguracji usługi](#update-tlsssl-certificate-in-service-configuration-file)
 5. [Importowanie urzędu certyfikacji TLS/SSL](#import-tlsssl-certification-authority)
@@ -78,10 +78,10 @@ Certyfikat TLS/SSL jest wymagany do szyfrowania komunikacji i uwierzytelniania s
 Certyfikaty klienta są wymagane w celu uwierzytelnienia żądań do usługi. Wybierz najbardziej odpowiednie trzy scenariusze poniżej i wykonaj wszystkie kroki:
 
 ### <a name="turn-off-client-certificates"></a>Wyłącz certyfikaty klienta
-1. [Wyłączanie uwierzytelniania opartego na certyfikatach klienta](#turn-off-client-certificate-based-authentication)
+1. [Wyłącz uwierzytelnianie Certificate-Based klienta](#turn-off-client-certificate-based-authentication)
 
 ### <a name="issue-new-self-signed-client-certificates"></a>Wystaw nowe certyfikaty klienta z podpisem własnym
-1. [Tworzenie urzędu certyfikacji z podpisem własnym](#create-a-self-signed-certification-authority)
+1. [Tworzenie Self-Signed urzędu certyfikacji](#create-a-self-signed-certification-authority)
 2. [Przekaż certyfikat urzędu certyfikacji do usługi w chmurze](#upload-ca-certificate-to-cloud-service)
 3. [Aktualizuj certyfikat urzędu certyfikacji w pliku konfiguracji usługi](#update-ca-certificate-in-service-configuration-file)
 4. [Wystawianie certyfikatów klienta](#issue-client-certificates)
@@ -105,8 +105,8 @@ Dostęp do punktów końcowych usługi może być ograniczony do określonych za
 Do szyfrowania poświadczeń przechowywanych w magazynie metadanych wymagany jest certyfikat. Wybierz najbardziej odpowiednie trzy scenariusze poniżej i wykonaj wszystkie kroki:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Użyj nowego certyfikatu z podpisem własnym
-1. [Tworzenie certyfikatu z podpisem własnym](#create-a-self-signed-certificate)
-2. [Utwórz plik PFX dla certyfikatu szyfrowania z podpisem własnym](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Tworzenie certyfikatu Self-Signed](#create-a-self-signed-certificate)
+2. [Utwórz plik PFX dla certyfikatu szyfrowania Self-Signed](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Przekaż certyfikat szyfrowania do usługi w chmurze](#upload-encryption-certificate-to-cloud-service)
 4. [Aktualizuj certyfikat szyfrowania w pliku konfiguracji usługi](#update-encryption-certificate-in-service-configuration-file)
 
@@ -444,7 +444,7 @@ Wykonaj następujące kroki:
 3. wybierz opcję **Certyfikaty**.
 4. Kliknij pozycję **Dodaj**.
 5. Wybierz lokalizację magazynu certyfikatów.
-6. Kliknij przycisk **Zakończ**.
+6. Kliknij przycisk **Finish** (Zakończ).
 7. Kliknij przycisk **OK**.
 8. Rozwiń węzeł **Certyfikaty**.
 9. Rozwiń węzeł Magazyn certyfikatów.
@@ -464,7 +464,7 @@ W **Kreatorze eksportu certyfikatów**:
 8. Kliknij przycisk **Dalej**.
 9. Wpisz lub Przeglądaj nazwę pliku, w którym ma być przechowywany certyfikat (Użyj. Rozszerzenie PFX).
 10. Kliknij przycisk **Dalej**.
-11. Kliknij przycisk **Zakończ**.
+11. Kliknij przycisk **Finish** (Zakończ).
 12. Kliknij przycisk **OK**.
 
 ## <a name="import-certificate"></a>Importowanie certyfikatu
@@ -482,7 +482,7 @@ W Kreatorze importu certyfikatów:
 5. Wybierz pozycję "Umieść" certyfikatów w następującym magazynie
 6. Kliknij pozycję **Browse (Przeglądaj)**.
 7. Wybierz żądany magazyn.
-8. Kliknij przycisk **Zakończ**.
+8. Kliknij przycisk **Finish** (Zakończ).
    
    * Jeśli wybrano magazyn zaufanych głównych urzędów certyfikacji, kliknij przycisk **tak**.
 9. Kliknij przycisk **OK** we wszystkich oknach okna dialogowego.

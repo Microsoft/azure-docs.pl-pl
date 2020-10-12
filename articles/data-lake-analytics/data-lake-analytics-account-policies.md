@@ -8,10 +8,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: how-to
 ms.date: 04/30/2018
 ms.openlocfilehash: cf64424d1d422e599585b76fc068c940f9311b05
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127710"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Zarządzanie Azure Data Lake Analytics przy użyciu zasad konta
@@ -25,7 +25,7 @@ Aby zmienić liczbę jednostek dla konta Data Lake Analytics:
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **Maksymalna**wartość pola wyboru przesuń suwak, aby wybrać wartości, lub wprowadź wartość w polu tekstowym. 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
    > [!NOTE]
    > Jeśli potrzebujesz więcej niż domyślnego (250), w portalu kliknij pozycję **Pomoc i obsługa techniczna** , aby przesłać żądanie pomocy technicznej. Można zwiększyć liczbę elementów dostępnych w Twoim koncie Data Lake Analytics.
@@ -38,7 +38,7 @@ Aby zmienić liczbę zadań, które mogą być uruchamiane jednocześnie:
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **Maksymalna liczba uruchomionych zadań**przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym. 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
    > [!NOTE]
    > Jeśli potrzebujesz więcej niż domyślnej (20) liczby zadań, w portalu kliknij pozycję **Pomoc i obsługa techniczna** , aby przesłać żądanie pomocy technicznej. Można zwiększyć liczbę zadań, które mogą być uruchamiane jednocześnie na koncie Data Lake Analytics.
@@ -51,7 +51,7 @@ Aby zmienić czas przechowywania metadanych i zasobów zadania:
 1. W Azure Portal przejdź do swojego konta Data Lake Analytics.
 2. Kliknij pozycję **limity i zasady**.
 3. W obszarze **dni, aby zachować zapytania dotyczące zadań**, przesuń suwak, aby wybrać wartość, lub wprowadź wartość w polu tekstowym.  
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 ## <a name="job-level-policies"></a>Zasady na poziomie zadania
 

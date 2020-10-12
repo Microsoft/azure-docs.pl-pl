@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528999"
 ---
-# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikowanie maszyn z włączonymi dyskami zarządzanymi przez klienta (CMK)
+# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replikowanie maszyn z dyskami mającymi włączone klucze zarządzane przez klienta (CMK)
 
-W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z włączonymi kluczami zarządzanymi przez klienta (CMK) z jednego regionu świadczenia usługi Azure do innego.
+W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure z włączonymi kluczami Customer-Managed (CMK) z poziomu jednego regionu świadczenia usługi Azure do innego.
 
 ## <a name="prerequisite"></a>Wymaganie wstępne
 Aby włączyć replikację dla maszyn wirtualnych z dyskami zarządzanymi przy użyciu usługi CMK, należy utworzyć zestawy szyfrowania dysków w regionie docelowym dla subskrypcji docelowej.
@@ -70,7 +70,7 @@ Wykonaj następujące kroki, aby zmodyfikować domyślne ustawienia obiektu doce
 ![Włącz replikację dla maszyny z włączonymi dyskami CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
->Podczas replikacji początkowej stan może zająć trochę czasu, bez pozornego postępu. Kliknij przycisk **Odśwież** , aby pobrać najnowszy stan.
+>Podczas replikacji początkowej stan może zająć trochę czasu, bez pozornego postępu. Kliknij przycisk **Odśwież**  , aby pobrać najnowszy stan.
 
 ## <a name="faqs"></a>Często zadawane pytania
 

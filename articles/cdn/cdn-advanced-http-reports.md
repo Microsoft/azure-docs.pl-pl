@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84886055"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizowanie statystyk użycia przy użyciu zaawansowanych raportów HTTP usługi Azure CDN
@@ -199,7 +199,7 @@ Lewa strona grafu (oś y) wskazuje nazwę pliku dla każdego z pierwszych 10 ż�
 
 Bezpośrednio poniżej wykresu słupkowego zostaną wyświetlone następujące informacje dotyczące górnego 250 żądanych zasobów: ścieżki względnej (w tym nazwy pliku), liczby żądań, które spowodowały, że nie znaleziono kodu stanu 404, Łączna liczba przypadków, w których zażądano zasobu, oraz procent żądań, które 404 spowodowały, że nie znaleziono kodu stanu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)

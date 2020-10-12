@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
 ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87420230"
 ---
 # <a name="create-or-modify-an-offer"></a>Tworzenie lub modyfikowanie oferty
@@ -27,12 +27,12 @@ To wywołanie aktualizuje określoną ofertę w przestrzeni nazw wydawcy lub two
 
 |  **Nazwa**         |  **Opis**                      |  **Typ danych**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identyfikator wydawcy, na przykład`contoso` |   String |
-| offerId           |  Identyfikator oferty                     |   String        |
-| api-version       |  Najnowsza wersja interfejsu API            |   Data           |
+| publisherId       |  Identyfikator wydawcy, na przykład `contoso` |   Ciąg |
+| offerId           |  Identyfikator oferty                     |   Ciąg        |
+| api-version       |  Najnowsza wersja interfejsu API            |   Date           |
 |  |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 
 |  **Nazwa**        |  **Wartość**               |
 |  ---------       |  ----------              | 
@@ -138,7 +138,7 @@ Poniższy przykład tworzy ofertę z offerID `contosovirtualmachine` .
   }
 ```
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 ``` json
  {
@@ -293,7 +293,7 @@ Te kategorie i odpowiednie klucze mają zastosowanie do aplikacji platformy Azur
 | Dane big data | duże ilości danych | bigData | duże ilości danych |
 | Analiza predykcyjna | Analiza predykcyjna | Analiza predykcyjna | Analiza predykcyjna |
 | Analiza czasu rzeczywistego/przesyłania strumieniowego | przesyłanie strumieniowe — analiza w czasie rzeczywistym | przesyłanie strumieniowe — analiza w czasie rzeczywistym | przesyłanie strumieniowe — analiza w czasie rzeczywistym |
-| Inne | inne | inne — analiza | inne |
+| Inne | other | inne — analiza | other |
 | ***SI i uczenie maszynowe*** | ***ArtificialIntelligence*** | ***AI-Plus — Uczenie maszynowe*** | ***AI-Plus — Uczenie maszynowe*** |
 | Usługi bot Services | Bot — usługi | Bot — usługi | Bot — usługi |
 | Cognitive Services | poznawcze — usługi | poznawcze — usługi | poznawcze — usługi |
@@ -304,90 +304,90 @@ Te kategorie i odpowiednie klucze mają zastosowanie do aplikacji platformy Azur
 | Przygotowywanie danych | Przygotowywanie danych | Przygotowywanie danych | Przygotowywanie danych |
 | Wyszukiwanie merytoryczne | Baza wiedzy — wyszukiwanie | Baza wiedzy — wyszukiwanie | Baza wiedzy — wyszukiwanie |
 | Operacje ML | ml — operacje | ml — operacje | ml — operacje |
-| Inne | inne-AI-Plus — Uczenie maszynowe | inne | inne |
+| Inne | inne-AI-Plus — Uczenie maszynowe | other | other |
 | ***Łańcuch bloków*** | ***łańcucha bloków*** | ***łańcucha bloków*** | ***łańcucha bloków*** |
 | Akceleratory aplikacji | Akceleratory aplikacji | Akceleratory aplikacji | Akceleratory aplikacji |
 | Księga z jednym węzłem | Księga jednowęzłowa | Księga jednowęzłowa | Księga jednowęzłowa |
 | Księga wielowęzłowa | Księga wielowęzłowa | Księga wielowęzłowa | Księga wielowęzłowa |
-| narzędzia | tools | tools | tools |
-| Inne | inne | inne | inne |
+| Narzędzia | tools | tools | tools |
+| Inne | other | other | other |
 | ***Środowisko obliczeniowe*** | ***obliczenia — SaaS*** | ***obliczenia — Azure — aplikacje*** | ***obliczeniowych*** |
 | Infrastruktura aplikacji | appInfra | appInfrastructure | Infrastruktura aplikacji |
 | Systemy operacyjne | clientOS | clientOS | systemy operacyjne |
 | Pamięć podręczna | cache | cache | cache |
-| Inne | inne — obliczenia | inne — obliczenia | inne |
+| Inne | inne — obliczenia | inne — obliczenia | other |
 | ***Containers*** | ***opakowania*** | ***opakowania*** | ***opakowania*** |
 | Aplikacje kontenera | kontener — aplikacje | kontener — aplikacje | kontener — aplikacje |
 | Obrazy kontenerów | kontener — obrazy | kontener — obrazy | kontener — obrazy |
 | Wprowadzenie do kontenerów | Get-Started-with-Containers | Get-Started-with-Containers | Get-Started-with-Containers |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Bazy danych*** | ***bazy danych — SaaS*** | ***Database*** | ***6.5*** |
 | Bazy danych NoSQL | NoSQL — bazy danych | NoSQL — bazy danych | NoSQL — bazy danych |
 | Relacyjne bazy danych | relacyjne — bazy danych | relacyjne — bazy danych | relacyjne — bazy danych |
 | Bazy danych księgi/łańcucha bloków | Ledger-łańcucha bloków — bazy danych | Ledger-łańcucha bloków — bazy danych | Ledger-łańcucha bloków — bazy danych |
 | Jeziora dotyczące danych | dane — jeziora | dane — jeziora | dane — jeziora |
 | programu Operations Manager | Magazyn danych | Magazyn danych | Magazyn danych |
-| Inne | inne — bazy danych | inne — bazy danych | inne |
+| Inne | inne — bazy danych | inne — bazy danych | other |
 | ***Narzędzia deweloperskie*** | ***Developer Tools — SaaS*** | ***Developer-Tools-Azure — aplikacje*** | ***Narzędzia dla deweloperów*** |
-| narzędzia | Narzędzia — Developer Tools | Narzędzia — Developer Tools | Narzędzia — Developer Tools |
+| Narzędzia | Narzędzia — Developer Tools | Narzędzia — Developer Tools | Narzędzia — Developer Tools |
 | Skrypty | skrypty | skrypty | skrypty |
 | Usługa dla deweloperów | devService | devService | Deweloper — usługa |
-| Inne | Inne — narzędzia dla deweloperów | Inne — narzędzia dla deweloperów | inne |
+| Inne | Inne — narzędzia dla deweloperów | Inne — narzędzia dla deweloperów | other |
 | ***DevOps*** | ***DevOps*** | ***DevOps*** | ***DevOps*** |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Tożsamość*** | ***Identity*** | ***Identity*** | ***Identity*** |
 | Zarządzanie dostępem | Zarządzanie dostępem | Zarządzanie dostępem | Zarządzanie dostępem |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Integracja*** | ***Integration*** | ***Integration*** | ***Integration*** |
 | Obsługa komunikatów | przesyłanie | przesyłanie | przesyłanie |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Internet rzeczy*** | ***IoT*** | ***Internet-rzeczy — Azure — aplikacje*** | ***Internet-rzeczy*** |
-| Usługi IoT Core | Brak | IoT-Core-Services | IoT-Core-Services |
-| Moduły IoT Edge | Brak | IoT — moduły | IoT — moduły |
+| Usługi IoT Core | Nie dotyczy | IoT-Core-Services | IoT-Core-Services |
+| Moduły IoT Edge | Nie dotyczy | IoT — moduły | IoT — moduły |
 | Rozwiązania IoT | IoT — rozwiązania | IoT — rozwiązania | IoT — rozwiązania |
 | Wizualizacja & analizy danych | dane — analiza i wizualizacja | dane — analiza i wizualizacja | dane — analiza i wizualizacja |
 | Łączność IoT | IoT — łączność | IoT — łączność | IoT — łączność |
-| Inne | inne — Internet-rzeczy | inne — Internet-rzeczy | inne |
+| Inne | inne — Internet-rzeczy | inne — Internet-rzeczy | other |
 | ***Narzędzia do zarządzania & IT*** | ***ITandAdministration*** | ***IT-and-Management-Tools-Azure — aplikacje*** | ***narzędzia IT i Management Tools*** |
 | Rozwiązania do zarządzania | Zarządzanie — rozwiązania | Zarządzanie — rozwiązania | Zarządzanie — rozwiązania |
 | Aplikacje biznesowe | businessApplication | businessApplication | aplikacje biznesowe |
-| Inne | Inne — narzędzia do zarządzania | Inne — narzędzia do zarządzania | inne |
+| Inne | Inne — narzędzia do zarządzania | Inne — narzędzia do zarządzania | other |
 | ***Monitorowanie diagnostyki &*** | ***monitorowanie i Diagnostyka*** | ***monitorowanie i Diagnostyka*** | ***monitorowanie i Diagnostyka*** |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Media*** | ***multimedialny*** | ***multimedialny*** | ***multimedialny*** |
 | Media Services | media-services | media-services | media-services |
 | Content Protection | Ochrona zawartości | Ochrona zawartości | Ochrona zawartości |
 | Przesyłanie strumieniowe na żywo & na żądanie | przesyłanie strumieniowe na żywo i na żądanie | przesyłanie strumieniowe na żywo i na żądanie | przesyłanie strumieniowe na żywo i na żądanie |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Migracja*** | ***migracji*** | ***migracji*** | ***migracji*** |
 | Migrowanie danych | Migracja danych | Migracja danych | Migracja danych |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Rzeczywistość mieszana*** | ***rzeczywistość mieszana*** | ***rzeczywistość mieszana*** | ***rzeczywistość mieszana*** |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 | ***Sieć*** | ***sieci*** | ***sieci*** | ***sieci*** |
 | Menedżerowie urządzeń | urządzenie — menedżerowie | urządzenie — menedżerowie | urządzenie — menedżerowie |
 | Łączność | łączność | łączność | łączność |
 | Zapory | zapory | zapory | zapory |
 | Moduły równoważenia obciążenia | usługi równoważenia obciążenia | usługi równoważenia obciążenia | usługi równoważenia obciążenia |
-| Inne | inne | inne | inne |
-| ***Bezpieczeństwo*** | ***bezpieczeństw*** | ***bezpieczeństw*** | ***bezpieczeństw*** |
+| Inne | other | other | other |
+| ***Zabezpieczenia*** | ***bezpieczeństw*** | ***bezpieczeństw*** | ***bezpieczeństw*** |
 | Zarządzanie dostępem & tożsamości | Zarządzanie tożsamościami i dostępem | Zarządzanie tożsamościami i dostępem | Zarządzanie tożsamościami i dostępem |
 | Ochrona przed zagrożeniami | Ochrona przed zagrożeniami | Ochrona przed zagrożeniami | Ochrona przed zagrożeniami |
 | Information Protection | informacje — ochrona | informacje — ochrona | informacje — ochrona |
-| Inne | inne | inne | inne |
-| ***Magazyn*** | ***Magazyn — SaaS*** | ***Magazyn — Azure — aplikacje*** | ***Chowan*** |
+| Inne | other | other | other |
+| ***Storage*** | ***Magazyn — SaaS*** | ***Magazyn — Azure — aplikacje*** | ***Chowan*** |
 | Odzyskiwanie & kopii zapasowej | kopia zapasowa | kopia zapasowa | Tworzenie kopii zapasowych i odzyskiwanie |
 | Magazyn hybrydowy przedsiębiorstwa | przedsiębiorstwo — magazyn hybrydowy | przedsiębiorstwo — magazyn hybrydowy | przedsiębiorstwo — magazyn hybrydowy |
 | Udostępnianie plików | Udostępnianie plików | Udostępnianie plików | Udostępnianie plików |
 | Zarządzanie cyklem życia danych | cykl życia danych — zarządzanie | cykl życia danych — zarządzanie | cykl życia danych — zarządzanie |
-| Inne | inne magazyny | inne magazyny | inne |
+| Inne | inne magazyny | inne magazyny | other |
 | ***Sieć Web*** | ***witrynę*** | ***witrynę*** | ***witrynę*** |
 | Blogi & CMS | Blogi i CMS | Blogi i CMS | Blogi i CMS |
 | Web Apps Starter | Starter — aplikacje sieci Web | Starter — aplikacje sieci Web | Starter — aplikacje sieci Web |
 | Handlu elektronicznego | handlu elektronicznego | handlu elektronicznego | handlu elektronicznego |
 | Struktury Web Apps | aplikacje sieci Web — platformy | aplikacje sieci Web — platformy | aplikacje sieci Web — platformy |
 | Web Apps | aplikacje sieci Web | aplikacje sieci Web | aplikacje sieci Web |
-| Inne | inne | inne | inne |
+| Inne | other | other | other |
 ||||
 
 ### <a name="microsoft-appsource-categories"></a>Kategorie Microsoft AppSource
@@ -399,7 +399,7 @@ Te kategorie i ich odpowiednie klucze są stosowane do aplikacji SaaS, Power BI,
 | ***Analiza*** | ***wersję*** | ***Analiza*** | ***Analiza*** |
 | Analiza zaawansowana | Zaawansowane — analiza | Zaawansowane — analiza | Zaawansowane — analiza |
 | Wizualizacja & raporty | Wizualizacja — raportowanie | Wizualizacja — raportowanie | Wizualizacja — raportowanie |
-| Inne | inne | inne — analiza | inne — analiza |
+| Inne | other | inne — analiza | inne — analiza |
 | ***SI i uczenie maszynowe*** | ***ArtificialIntelligence*** | ***AI-Plus-Machine-Learning-Dynamics*** | ***AI-Plus-Machine-Learning-AppSource*** |
 | AI dla firm | AI — dla firm | AI — dla firm | AI — dla firm |
 | Aplikacje bot | Bot — aplikacje | Bot — aplikacje | Bot — aplikacje |
@@ -410,33 +410,33 @@ Te kategorie i ich odpowiednie klucze są stosowane do aplikacji SaaS, Power BI,
 | Zarządzanie & projektu lokacji | Lokacja-projektowanie — zarządzanie | Lokacja-projektowanie — zarządzanie | Lokacja-projektowanie i zarządzanie |
 | Zarządzanie projektem & zadań | zadanie — zarządzanie projektem | zadanie — zarządzanie projektem | Zarządzanie zadaniami i projektami |
 | Konferencje wideo & głosu | Voice-wideo — konferencje | Voice-wideo — konferencje | połączenia głosowe i wideo — konferencje |
-| Inne | inna współpraca | inna współpraca | inne |
+| Inne | inna współpraca | inna współpraca | other |
 | ***Zgodność & prawny*** | ***przepisów*** | ***przepisów*** | ***zgodność i prawa*** |
 | Inspekcja & podatkowych | podatek-Inspekcja | podatek-Inspekcja | podatki i inspekcja |
 | Informacje prawne | Informacje prawne | Informacje prawne | prawidłowe |
 | Dane, nadzór & prywatność | dane — nadzór — Ochrona prywatności | dane — nadzór — Ochrona prywatności | dane — nadzór i ochrona prywatności |
 | Kondycja & | Kondycja — bezpieczeństwo | Kondycja — bezpieczeństwo | Kondycja i bezpieczeństwo |
-| Inne | inne-zgodność — informacje prawne | inne-zgodność — informacje prawne | inne |
+| Inne | inne-zgodność — informacje prawne | inne-zgodność — informacje prawne | other |
 | ***Customer Service*** | ***CustomerService*** | ***CustomerService*** | ***Klient-usługa*** |
 | Centrum kontaktów | kontakt — centrum | kontakt — centrum | kontakt — centrum |
 | Usługa do rozpoznawania | Tworzenie i obsługa czołowa | Tworzenie i obsługa czołowa | Tworzenie i obsługa czołowa |
 | Zaplecze usługi Office & Employee | zaplecze — pracownik-usługa | zaplecze — pracownik-usługa | Obsługa zaplecza i pracowników |
 | Zarządzanie sprawami & wiedzy | przypadek wiedzy — zarządzanie | przypadek wiedzy — zarządzanie | znajomość i sprawa — zarządzanie |
 | Media społecznościowe & omnichannel Engagement | Social-Media-omnichannel — Engagement | Social-Media-omnichannel — Engagement | społecznościowe i omnichannel — zaangażowanie |
-| Inne | inne — klient — usługa | inne — klient — usługa | inne |
+| Inne | inne — klient — usługa | inne — klient — usługa | other |
 | ***Finanse*** | ***Finanse*** | ***Finanse*** | ***odsetek*** |
 | Księgowość | accounting | accounting | accounting |
 | Zarządzanie zasobami | Zarządzanie zasobami | Zarządzanie zasobami | Zarządzanie zasobami |
 | Analiza, konsolidacja & raportowanie | Analiza — konsolidacja — raportowanie | Analiza — konsolidacja — raportowanie | Analiza — Konsolidacja i raportowanie |
 | Kredyty &owe | Kredyty — Kolekcje | Kredyty — Kolekcje | kredyty i kolekcje |
 | Zgodność & zarządzanie ryzykiem | zgodność — zarządzanie ryzykiem | zgodność — zarządzanie ryzykiem | zgodność i zarządzanie ryzykiem |
-| Inne | inne — finanse | inne — finanse | inne |
+| Inne | inne — finanse | inne — finanse | other |
 | ***Human Resources*** | ***HumanResources*** | ***HumanResources*** | ***zasoby ludzkie*** |
 | Talent pozyskiwanie | talent — pozyskiwanie | talent — pozyskiwanie | talent — pozyskiwanie |
 | Talent Management | talent — zarządzanie | talent — zarządzanie | talent — zarządzanie |
 | Operacje na HR | HR — operacje | HR — operacje | HR — operacje |
 | Planowanie pracowników & Analytics | pracownicy — planowanie — analiza | pracownicy — planowanie — analiza | pracownicy — planowanie i analiza |
-| Inne | inne zasoby kadrowe | inne zasoby kadrowe | inne |
+| Inne | inne zasoby kadrowe | inne zasoby kadrowe | other |
 | ***Internet rzeczy*** | ***IoT*** | ***Internet-rzeczy — Dynamics*** | ***Internet-rzeczy — AppSource*** |
 | Operacje & zarządzania zasobami | Zarządzanie zasobami — operacje | Zarządzanie zasobami — operacje | Zarządzanie zasobami i operacje |
 | Połączone produkty | połączone produkty | połączone produkty | połączone produkty |
@@ -446,11 +446,11 @@ Te kategorie i ich odpowiednie klucze są stosowane do aplikacji SaaS, Power BI,
 | Bezpieczeństwo & zabezpieczenia | bezpieczeństwo — zabezpieczenia | bezpieczeństwo — zabezpieczenia | bezpieczeństwo i zabezpieczenia |
 | Infrastruktura inteligentna & zasoby | Infrastruktura inteligentna — zasoby | Infrastruktura inteligentna — zasoby | Inteligentne infrastruktury i zasoby |
 | Pojazdy & Mobility | Pojazdy — mobilność | Pojazdy — mobilność | pojazdy i mobilność |
-| Inne | inne — Internet-rzeczy | inne — Internet-rzeczy | inne |
+| Inne | inne — Internet-rzeczy | inne — Internet-rzeczy | other |
 | ***Narzędzia do zarządzania & IT*** | ***ITandAdministration*** | ***ITandAdministration*** | ***narzędzia IT i Management Tools*** |
 | Rozwiązania do zarządzania | Zarządzanie — rozwiązania | Zarządzanie — rozwiązania | Zarządzanie — rozwiązania |
 | Aplikacje biznesowe | businessApplication | businessApplication | aplikacje biznesowe |
-| Inne | Inne — narzędzia do zarządzania | Inne — narzędzia do zarządzania | inne |
+| Inne | Inne — narzędzia do zarządzania | Inne — narzędzia do zarządzania | other |
 | ***Marketing*** | ***Marketing*** | ***Marketing*** | ***rynkow*** |
 | Nagłówek | Nagłówek | Nagłówek | Nagłówek |
 | Analiza | Analiza — Marketing | Analiza — Marketing | Analiza — Marketing |
@@ -459,7 +459,7 @@ Te kategorie i ich odpowiednie klucze są stosowane do aplikacji SaaS, Power BI,
 | L2 — zdarzenia & zarządzanie zasobami | zdarzenia — zarządzanie zasobami | zdarzenia — zarządzanie zasobami | zdarzenia i zarządzanie zasobami |
 | Analiza & Research | badania — analiza | badania — analiza | badania i analiza |
 | Media społecznościowe | Media społecznościowe | Media społecznościowe | Media społecznościowe |
-| Inne | inne — Marketing | inne — Marketing | inne |
+| Inne | inne — Marketing | inne — Marketing | other |
 | ***Łańcuch dostaw & operacji*** | ***OperationsSupplyChain*** | ***OperationsSupplyChain*** | ***operacje — łańcuch i dostawy*** |
 | Zarządzanie zasobami & produkcji | zasób — zarządzanie produkcją | zasób — zarządzanie produkcją | Zarządzanie zasobami i produkcjami |
 | Prognozowanie popytu | prognozowanie popytu | prognozowanie popytu | prognozowanie popytu |
@@ -468,14 +468,14 @@ Te kategorie i ich odpowiednie klucze są stosowane do aplikacji SaaS, Power BI,
 | & zarządzanie usługami | jakość — Usługa — Zarządzanie | jakość — Usługa — Zarządzanie | jakość i Usługa — Zarządzanie |
 | Zarządzanie zamówieniami & sprzedaży | sprzedaż — Zarządzanie zamówieniami | sprzedaż — Zarządzanie zamówieniami | Sales-and-Order-Management |
 | Transport & Zarządzanie magazynem | Transport — Magazyn — Zarządzanie | Transport — Magazyn — Zarządzanie | Transport i Magazyn — Zarządzanie |
-| Inne | inne — łańcuch dostaw operacji | inne — łańcuch dostaw operacji | inne |
+| Inne | inne — łańcuch dostaw operacji | inne — łańcuch dostaw operacji | other |
 | ***Produktywność*** | ***Produktywność*** | ***Produktywność*** | ***zwiększając*** |
 | Tworzenie zawartości & zarządzanie | Tworzenie zawartości — zarządzanie | Tworzenie zawartości — zarządzanie | Tworzenie zawartości i zarządzanie nimi |
 | Tłumaczenie & języka | tłumaczenie języka | tłumaczenie języka | język i tłumaczenie |
 | Zarządzanie dokumentami | Zarządzanie dokumentami | Zarządzanie dokumentami | Zarządzanie dokumentami |
 | Zarządzanie pocztą e-mail | Zarządzanie pocztą e-mail | Zarządzanie pocztą e-mail | Zarządzanie pocztą e-mail |
 | Wyszukaj informacje & | Wyszukiwanie — odwołanie | Wyszukiwanie — odwołanie | Wyszukiwanie i odwołania |
-| Inne | inna produktywność | inna produktywność | inne |
+| Inne | inna produktywność | inna produktywność | other |
 | Grywalizacja | Grywalizacja | Grywalizacja | grywalizacji |
 | ***Sales*** | ***Sales*** | ***Sales*** | ***Sales*** |
 | Sprzedaż | sprzedaż | sprzedaż | sprzedaż |
@@ -505,7 +505,7 @@ Te branże i ich odpowiednie klucze mają zastosowanie do aplikacji SaaS, Power 
 | ***Dystrybucja*** | ***Dystrybucja*** | ***mieszczenie*** |
 | Handel hurtowy | Handel hurtowy | handel hurtowy |
 | Wysyłka pakietu & Parcel | ParcelAndPackageShipping | Pakowanie i paczka — wysyłka |
-| ***Education*** | ***Education*** | ***oświat*** |
+| ***Edukacja*** | ***Edukacja*** | ***oświat*** |
 | Szkolnictwo wyższe | HigherEducation | wyższe — Edukacja |
 | Podstawowe & szkolnictwa wtórnego/K-12 | PrimaryAndSecondaryEducationK12 | podstawowe i pomocnicze — Edukacja |
 | Biblioteki & muzea | LibrariesAndMuseums | biblioteki i muzea |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
 ms.openlocfilehash: dabb7b8cd8023fe88a8c8d6dc507a09623bd11dd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537684"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Utwórz potok predykcyjny przy użyciu Azure Machine Learning Studio (klasyczny) i Azure Data Factory
@@ -129,7 +129,7 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Ma
 | Właściwość          | Opis                              | Wymagane |
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nazwa działania w potoku     | Tak      |
-| opis       | Tekst opisujący działanie działania.  | Nie       |
+| description       | Tekst opisujący działanie działania.  | Nie       |
 | typ              | W przypadku Data Lake Analytics działania U-SQL typ działania to **AzureMLBatchExecution**. | Tak      |
 | linkedServiceName | Połączone usługi z połączoną usługą Azure Machine Learning Studio (klasyczną). Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
 | webServiceInputs  | Klucza, par wartości, Mapowanie nazw danych wejściowych usługi sieci Web Azure Machine Learning Studio (klasycznych). Klucz musi być zgodny z parametrami wejściowymi zdefiniowanymi w opublikowanej usłudze sieci Web Azure Machine Learning Studio (klasycznej). Wartość to para właściwości usług połączonych i FilePath usługi Azure Storage określających wejściowe lokalizacje obiektów BLOB. | Nie       |

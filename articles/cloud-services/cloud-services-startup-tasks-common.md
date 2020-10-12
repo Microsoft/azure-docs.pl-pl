@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85920070"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Typowe zadania uruchamiania usługi w chmurze
@@ -377,7 +377,7 @@ EXIT /B 0
 Poniżej przedstawiono niektóre najlepsze rozwiązania, które należy wykonać podczas konfigurowania zadania dla roli sieci Web lub procesu roboczego.
 
 ### <a name="always-log-startup-activities"></a>Zawsze Rejestruj działania uruchamiania
-Program Visual Studio nie oferuje debugera, który umożliwia przechodzenie do kolejnych plików wsadowych, dlatego warto uzyskać tyle danych na potrzeby operacji plików wsadowych, jak to możliwe. Rejestrowanie danych wyjściowych plików wsadowych, zarówno **stdout** , jak i **stderr**, może dać ważne informacje podczas próby debugowania i naprawiania plików wsadowych. Aby zalogować zarówno **stdout** , jak i **stderr** do pliku StartupLog.txt w katalogu wskazywanym przez zmienną środowiskową **% temp%** , należy dodać tekst `>>  "%TEMP%\\StartupLog.txt" 2>&1` na końcu określonych wierszy, które mają być rejestrowane. Na przykład, aby wykonać setup.exe w katalogu **% PathToApp1Install%** :`"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+Program Visual Studio nie oferuje debugera, który umożliwia przechodzenie do kolejnych plików wsadowych, dlatego warto uzyskać tyle danych na potrzeby operacji plików wsadowych, jak to możliwe. Rejestrowanie danych wyjściowych plików wsadowych, zarówno **stdout** , jak i **stderr**, może dać ważne informacje podczas próby debugowania i naprawiania plików wsadowych. Aby zalogować zarówno **stdout** , jak i **stderr** do pliku StartupLog.txt w katalogu wskazywanym przez zmienną środowiskową **% temp%** , należy dodać tekst `>>  "%TEMP%\\StartupLog.txt" 2>&1` na końcu określonych wierszy, które mają być rejestrowane. Na przykład, aby wykonać setup.exe w katalogu **% PathToApp1Install%** : `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 Aby uprościć kod XML, można utworzyć plik *cmd* otoki, który wywołuje wszystkie zadania uruchamiania programu wraz z rejestrowaniem i zapewnia, że każde zadanie podrzędne udostępnia te same zmienne środowiskowe.
 
@@ -506,7 +506,7 @@ Dowiedz się więcej na temat działania [zadań](cloud-services-startup-tasks.m
 [Zmienna]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Punktów końcowych]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Punkty końcowe]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

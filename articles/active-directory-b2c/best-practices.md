@@ -12,10 +12,10 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90084315"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Zalecenia i najlepsze rozwiązania dotyczące Azure Active Directory B2C
@@ -78,7 +78,7 @@ Zarządzaj środowiskiem Azure AD B2C.
 |--|--|
 | Tworzenie wielu środowisk | Aby ułatwić wykonywanie operacji i wdrażania, Utwórz osobne środowiska na potrzeby opracowywania, testowania, przedprodukcyjnego i produkcyjnego. Utwórz Azure AD B2C dzierżawców dla każdej z nich. |
 | Używanie kontroli wersji dla zasad niestandardowych | Należy rozważyć użycie usługi GitHub, Azure Repos lub innego systemu kontroli wersji opartej na chmurze dla zasad niestandardowych Azure AD B2C. |
-| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Przepływy użytkowników](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
+| Użyj interfejsu API Microsoft Graph, aby zautomatyzować zarządzanie dzierżawcami usługi B2C | Interfejsy API Microsoft Graph:<br/>Zarządzanie [platformą obsługi tożsamości](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (zasady niestandardowe)<br/>[Klucze](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Przepływy użytkownika](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integracja z usługą Azure DevOps | [Potok](deploy-custom-policies-devops.md) ciągłej integracji i ciągłego wdrażania umożliwia łatwe i szybkie przemieszczanie kodu między różnymi środowiskami.   |
 | Integracja z usługą Azure Monitor | [Zdarzenia dziennika inspekcji](view-audit-logs.md) są przechowywane tylko przez siedem dni. [Integracja z usługą Azure monitor](azure-monitor.md) w celu przechowywania dzienników do długoterminowego użytku lub integracji z narzędziami do zarządzania informacjami i zdarzeniami zabezpieczeń innych firm (Siem) w celu uzyskania szczegółowych informacji o środowisku. |
 | Skonfiguruj aktywne alerty i monitorowanie | [Śledź zachowanie użytkowników](active-directory-b2c-custom-guide-eventlogger-appins.md) w Azure AD B2C przy użyciu Application Insights. |
@@ -90,5 +90,5 @@ Bądź na bieżąco z stanem usługi i Znajdź opcje pomocy technicznej.
 | Najlepsze rozwiązanie | Opis |
 |--|--|
 | [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Bądź na bieżąco z Azure AD B2Cmi aktualizacjami i ogłoszeniami o produkcie. |
-| [Pomoc techniczna firmy Microsoft](support-options.md) | Prześlij żądanie pomocy technicznej dotyczące Azure AD B2C problemów technicznych. Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie. |
+| [pomoc techniczna firmy Microsoft](support-options.md) | Prześlij żądanie pomocy technicznej dotyczące Azure AD B2C problemów technicznych. Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie. |
 | [Stan platformy Azure](https://status.azure.com/status) | Wyświetl bieżący stan kondycji wszystkich usług platformy Azure. |

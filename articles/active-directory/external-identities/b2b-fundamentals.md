@@ -13,10 +13,10 @@ ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909687"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory najlepszych rozwiązań B2B
@@ -28,7 +28,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące współpracy 
 ## <a name="b2b-recommendations"></a>Zalecenia B2B
 | Zalecenie | Komentarze |
 | --- | --- |
-| Aby zapewnić optymalne środowisko logowania, sfederować się z dostawcami tożsamości | Zawsze, gdy to możliwe, sfederować bezpośrednio z dostawcami tożsamości, aby umożliwić zaproszonym użytkownikom zalogowanie się do udostępnionych aplikacji i zasobów bez konieczności tworzenia kont Microsoft (kont MSA) lub kont usługi Azure AD. Za pomocą [funkcji Google Federation](google-federation.md) można zezwolić użytkownikom gościa B2B na logowanie się przy użyciu konta Google. Można też użyć [funkcji bezpośrednie Federacji (wersja zapoznawcza)](direct-federation.md) w celu skonfigurowania bezpośredniej Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-Direction. |
+| Aby zapewnić optymalne środowisko logowania, sfederować się z dostawcami tożsamości | Zawsze, gdy to możliwe, sfederować bezpośrednio z dostawcami tożsamości, aby umożliwić zaproszonym użytkownikom zalogowanie się do udostępnionych aplikacji i zasobów bez konieczności tworzenia kont Microsoft (kont MSA) lub kont usługi Azure AD. Za pomocą [funkcji Google Federation](google-federation.md) można zezwolić użytkownikom gościa B2B na logowanie się przy użyciu konta Google. Można też użyć [funkcji bezpośredniego Federacji (wersja zapoznawcza)](direct-federation.md) , aby skonfigurować bezpośrednie Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-Fed. |
 | Użyj wiadomości E-mail jednorazowego kodu dostępu (wersja zapoznawcza) dla Gości B2B, którzy nie mogą uwierzytelniać się w inny sposób | Funkcja [jednorazowy kod dostępu wiadomości e-mail (wersja zapoznawcza)](one-time-passcode.md) umożliwia uwierzytelnianie użytkowników gościa B2B, gdy nie mogą być uwierzytelniane za pośrednictwem innych metod, takich jak Azure AD, konto Microsoft (MSA) lub Google Federation. Gdy użytkownik-Gość zrealizuje zaproszenie lub uzyskuje dostęp do zasobu udostępnionego, może zażądać kodu tymczasowego, który jest wysyłany na adres e-mail. Następnie wprowadzają ten kod, aby kontynuować logowanie. |
 | Dodawanie znakowania firmowego do strony logowania | Możesz dostosować swoją stronę logowania, aby była bardziej intuicyjna dla użytkowników gościa B2B. Zobacz temat jak [dodać znakowanie firmowe, aby się zalogować i panelu dostępu](../fundamentals/customize-branding.md). |
 | Dodawanie zasad zachowania poufności informacji do środowiska wykupu przez Gościa B2B | Adres URL zasad zachowania poufności informacji organizacji można dodać do procesu wykupu po raz pierwszy, aby zaproszony użytkownik musiał wyrazić zgodę na warunki zachowania poufności informacji, aby kontynuować. Zobacz [instrukcje: Dodawanie informacji o ochronie prywatności organizacji w Azure Active Directory](https://aka.ms/adprivacystatement). |

@@ -11,10 +11,10 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
 ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897520"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Zwiększ odporność Azure Machine Learning
@@ -53,7 +53,7 @@ W poniższej tabeli przedstawiono, które usługi platformy Azure są zarządzan
 | **Infrastruktura Azure Machine Learning** | Microsoft | |
 | **Skojarzone zasoby** |
 | Azure Storage | Ty | |
-| Key Vault | Ty | ✓ |
+| Usługa Key Vault | Ty | ✓ |
 | Container Registry | Ty | |
 | Application Insights | Ty | Nie dotyczy |
 | **Zasoby obliczeniowe** |

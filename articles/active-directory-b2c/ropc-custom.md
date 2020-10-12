@@ -12,10 +12,10 @@ ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bf8fe68c28457fd01704762e537fe259a96a6bce
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116236"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure Active Directory B2C przy użyciu zasad niestandardowych
@@ -326,7 +326,7 @@ Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 }
 ```
 
-## <a name="use-a-native-sdk-or-app-auth"></a>Korzystanie z natywnego zestawu SDK lub aplikacji — uwierzytelnianie
+## <a name="use-a-native-sdk-or-app-auth"></a>Użyj natywnego zestawu SDK lub App-Auth
 
 Azure AD B2C są zgodne ze standardami OAuth 2,0 dla poświadczeń hasła właściciela publicznego zasobu klienta i powinny być kompatybilne z większością zestawów SDK klienta. Najnowsze informacje znajdują się w temacie [Native App SDK for OAuth 2,0 i OpenID Connect Connect implementujące nowoczesne najlepsze rozwiązania](https://appauth.io/).
 

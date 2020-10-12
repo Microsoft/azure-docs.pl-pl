@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82692284"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
@@ -40,7 +40,7 @@ W poniższej tabeli przedstawiono sposób obsługi mechanizmów uwierzytelniania
 <i>* Kliknij symbol <b>✔ \* </b> . Jest to link.</i><br>
 <i>* * Uwierzytelnianie wieloskładnikowe oznacza usługi uwierzytelniania wieloskładnikowego</i>
 
-Aby uzyskać więcej informacji na temat używania Azure Active Directory do uwierzytelniania, zobacz [scenariusze uwierzytelniania dla Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
+Aby uzyskać więcej informacji na temat używania Azure Active Directory do uwierzytelniania, zobacz  [scenariusze uwierzytelniania dla Azure Active Directory](../active-directory/develop/authentication-scenarios.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

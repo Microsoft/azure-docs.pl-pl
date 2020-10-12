@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927570"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Często zadawane pytania dotyczące pul węzłów systemu Windows Server w AKS
@@ -58,7 +58,7 @@ Klastry AKS z pulami węzłów systemu Windows muszą używać modelu sieci usł
 
 W tej chwili [zachowywanie adresu IP źródła klienta][client-source-ip] nie jest obsługiwane w węzłach systemu Windows.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>Czy mogę zmienić wartość maksymalną. liczba zasobników na węzeł?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Czy mogę zmienić maksymalną liczbę zasobników na węzeł?
 
 Tak. Aby uzyskać dostępne implikacje i opcje, zobacz [maksymalną liczbę zasobników][maximum-number-of-pods].
 

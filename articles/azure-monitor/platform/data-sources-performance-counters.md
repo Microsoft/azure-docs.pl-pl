@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85955492"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Źródła danych wydajności systemów Windows i Linux w Azure Monitor
@@ -79,7 +79,7 @@ Parametry w tym elemencie są opisane w poniższej tabeli.
 |:--|:--|
 | \_Nazwa obiektu | Nazwa obiektu dla kolekcji. |
 | \_wyrażenie regularne wystąpienia |  *Wyrażenie regularne* definiujące, które wystąpienia mają być zbierane. Wartość: `.*` określa wszystkie wystąpienia. Aby zbierać metryki procesora tylko dla \_ wystąpienia całkowitego, można określić `_Total` . Aby zbierać metryki procesów tylko dla wystąpień z identyfikatorem "lub" SSHD, można określić: `(crond\|sshd)` . |
-| \_ \_ wyrażenie regularne nazwy licznika | *Wyrażenie regularne* definiujące, które liczniki (dla obiektu) mają być zbierane. Aby zebrać wszystkie liczniki dla obiektu, określ: `.*` . Aby zebrać tylko liczniki przestrzeni wymiany dla obiektu pamięci, można na przykład określić:`.+Swap.+` |
+| \_ \_ wyrażenie regularne nazwy licznika | *Wyrażenie regularne* definiujące, które liczniki (dla obiektu) mają być zbierane. Aby zebrać wszystkie liczniki dla obiektu, określ: `.*` . Aby zebrać tylko liczniki przestrzeni wymiany dla obiektu pamięci, można na przykład określić: `.+Swap.+` |
 | interval | Częstotliwość, z jaką są zbierane liczniki obiektu. |
 
 
@@ -98,17 +98,17 @@ W poniższej tabeli wymieniono obiekty i liczniki, które można określić w pl
 | Dysk logiczny | Zapisy dysku/s |
 | Dysk logiczny | Wolne megabajty |
 | Dysk logiczny | Bajty dysku logicznego/s |
-| Memory (Pamięć) | Dostępna pamięć (%) |
-| Memory (Pamięć) | Dostępny obszar wymiany (%) |
-| Memory (Pamięć) | Używana pamięć (%) |
-| Memory (Pamięć) | Używany obszar wymiany (%) |
-| Memory (Pamięć) | Dostępna pamięć (MB) |
-| Memory (Pamięć) | Dostępny obszar wymiany (MB) |
-| Memory (Pamięć) | Odczyty stron/s |
-| Memory (Pamięć) | Zapisy stron/s |
-| Memory (Pamięć) | Stron/s |
-| Memory (Pamięć) | Używany obszar wymiany (MB) |
-| Memory (Pamięć) | Używana pamięć (MB) |
+| Pamięć | Dostępna pamięć (%) |
+| Pamięć | Dostępny obszar wymiany (%) |
+| Pamięć | Używana pamięć (%) |
+| Pamięć | Używany obszar wymiany (%) |
+| Pamięć | Dostępna pamięć (MB) |
+| Pamięć | Dostępny obszar wymiany (MB) |
+| Pamięć | Odczyty stron/s |
+| Pamięć | Zapisy stron/s |
+| Pamięć | Stron/s |
+| Pamięć | Używany obszar wymiany (MB) |
+| Pamięć | Używana pamięć (MB) |
 | Sieć | Całkowita liczba przesłanych bajtów |
 | Sieć | Całkowita liczba odebranych bajtów |
 | Sieć | Łączna liczba bajtów |
@@ -138,7 +138,7 @@ W poniższej tabeli wymieniono obiekty i liczniki, które można określić w pl
 | System | Wolna pamięć wirtualna |
 | System | Procesy |
 | System | Rozmiar zapisany w plikach stronicowania |
-| System | Czas |
+| System | Czas pracy |
 | System | Użytkownicy |
 
 

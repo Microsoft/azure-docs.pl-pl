@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 2c8c094efdfa9f46c6e6c42e34fd4010e43fa972
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84051199"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Aplikacja SaaS bilety Wingtip
@@ -36,13 +36,13 @@ Dostępne są trzy wersje aplikacji; Każdy z nich eksploruje różne wzorce dzi
 
 Aplikacja autonomiczna na wzorzec dzierżawców korzysta z pojedynczej aplikacji dzierżawców z bazą danych dla każdej dzierżawy. Aplikacja każdej dzierżawy, w tym jej baza danych, jest wdrażana w osobnej grupie zasobów platformy Azure. Grupę zasobów można wdrożyć w ramach subskrypcji dostawcy usług lub subskrypcji dzierżawcy i zarządzanej przez dostawcę w imieniu dzierżawcy. Aplikacja autonomiczna na wzorzec dzierżawy zapewnia największą izolację dzierżawy, ale zazwyczaj jest najtańsze, ponieważ nie ma możliwości udostępniania zasobów między wieloma dzierżawcami.  Ten wzorzec jest dobrze dostosowany do aplikacji, które mogą być bardziej skomplikowane i które są wdrażane w mniejszych liczbach dzierżawców.  W przypadku wdrożeń autonomicznych można dostosować aplikację dla każdej dzierżawy łatwiej niż w innych wzorcach.  
 
-Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-sa] i kodem w serwisie GitHub [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-sa] i kodem w serwisie GitHub  [. ../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Wzorzec bazy danych na dzierżawcę
 
 Wzorzec bazy danych na dzierżawcę jest efektywny dla dostawców usług, którzy są zainteresowani izolacją dzierżawy i chcą uruchamiać scentralizowaną usługę, która umożliwia oszczędne wykorzystanie udostępnionych zasobów. Baza danych jest tworzona dla każdego miejsca lub dzierżawy, a wszystkie bazy danych są zarządzane centralnie. Bazy danych mogą być hostowane w pulach elastycznych, aby zapewnić wydajne i łatwe zarządzanie wydajnością, które wykorzystuje nieprzewidywalne wzorce obciążeń dzierżawców. Baza danych wykazu przechowuje mapowanie między dzierżawcami i ich bazami danych. To mapowanie jest zarządzane przy użyciu funkcji zarządzania mapami fragmentu w [bibliotece klienta Elastic Database](elastic-database-client-library.md), co zapewnia wydajne zarządzanie połączeniami z aplikacją.
 
-Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-dpt] i kodem w serwisie GitHub [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-dpt] i kodem w serwisie GitHub  [. ../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Wzorzec bazy danych podzielonej na fragmenty z wieloma dzierżawcami
 
@@ -50,7 +50,7 @@ Bazy danych z wieloma dzierżawcami są efektywne dla dostawców usług poszukuj
 
 Ten wzorzec umożliwia również model *hybrydowy* , w którym można zoptymalizować koszt z wieloma dzierżawcami w bazie danych, lub zoptymalizować pod kątem izolacji z jedną dzierżawą w swojej bazie danych. Wybór można przeprowadzić w przypadku dzierżawcy przez dzierżawcę, gdy dzierżawa jest inicjowana lub później, bez wpływu na aplikację.  Ten model może być używany efektywnie, gdy grupy dzierżawców muszą być traktowane inaczej. Na przykład dzierżawy o niskich kosztach mogą być przypisywane do udostępnionych baz danych, a dzierżawy w warstwie Premium można przypisywać do własnych baz danych. 
 
-Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-mt] i kodem w serwisie GitHub [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Zapoznaj się z [samouczkami][docs-tutorials-for-wingtip-mt] i kodem w serwisie GitHub  [. ../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Następne kroki
 

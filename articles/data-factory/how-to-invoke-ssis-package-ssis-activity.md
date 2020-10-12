@@ -15,10 +15,10 @@ manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077852"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Wykonaj pakiet SSIS w usłudze Azure Data Factory
@@ -251,7 +251,7 @@ Na karcie **Menedżer połączeń** w działaniu wykonaj pakiet SSIS wykonaj nas
 
       Na przykład bez modyfikowania oryginalnego pakietu w programie SSDT można przekształcić swoje lokalne przepływy danych działające w SQL Server na przepływy danych w chmurze działające w usłudze SSIS IR w usłudze ADF, zastępując wartości właściwości **ConnectByProxy**, **ConnectionString**i **ConnectUsingManagedIdentity** w istniejących menedżerach połączeń w czasie wykonywania.
       
-      Te zastąpienia w czasie wykonywania mogą włączać samodzielne środowisko IR (SHIR) jako serwer proxy dla usług SSIS IR podczas uzyskiwania dostępu do danych lokalnych, zobacz [Konfigurowanie SHIR jako proxy dla usług SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)i Azure SQL Database/połączenia wystąpienia zarządzanego przy użyciu najnowszego sterownika MSOLEDBSQL, który z kolei Włącza uwierzytelnianie usługi Azure Active Directory (AAD) za [pomocą tożsamości](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)zarządzanej usługi ADF.
+      Te zastąpienia w czasie wykonywania mogą włączyć Self-Hosted IR (SHIR) jako serwer proxy dla usług SSIS IR podczas uzyskiwania dostępu do danych lokalnych, zobacz [Konfigurowanie SHIR jako proxy dla usług SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)i Azure SQL Database/połączenia wystąpienia zarządzanego przy użyciu najnowszego sterownika MSOLEDBSQL, który z kolei umożliwia uwierzytelnianie za pomocą usługi Azure Active Directory (AAD) z tożsamością zarządzaną [przez](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication)usługę ADF.
 
       ![Ustawianie właściwości z SSDT na karcie menedżerów połączeń](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

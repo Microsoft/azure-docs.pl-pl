@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 714e4484c71b995bee186a2d94dc45c7ff82c50d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909206"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu (wersja zapoznawcza)
@@ -71,7 +71,7 @@ Wykonanie akcji zgody może potrwać kilka minut. Po tym czasie tylko nowo zapro
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
 2.  W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 3.  Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
-5.  W obszarze **Włączanie wiadomości E-mail jednorazowy kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **tak**.
+5.  W obszarze **Włączanie poczty e-mail One-Time kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **tak**.
  
 ### <a name="to-opt-in-using-powershell"></a>Aby wyrazić zgodę na korzystanie z programu PowerShell
 
@@ -137,7 +137,7 @@ Wykonanie akcji rezygnacji może potrwać kilka minut. Jeśli wyłączysz Podgl�
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
 2.  W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 3.  Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
-5.  W obszarze **Włączanie wiadomości E-mail jednorazowy kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **nie**.
+5.  W obszarze **Włączanie poczty e-mail One-Time kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **nie**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Aby wyłączyć podgląd przy użyciu programu PowerShell
 Zainstaluj najnowszą wersję modułu AzureADPreview, jeśli nie masz jej już (patrz [warunek wstępny: Zainstaluj najnowszy moduł AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) powyżej). Następnie sprawdź, czy zasady jednorazowego podglądu kodu dostępu są obecnie dostępne, wykonując następujące czynności:

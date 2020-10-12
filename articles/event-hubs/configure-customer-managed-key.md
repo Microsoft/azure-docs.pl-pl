@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania w
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537262"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure przechowywanych przy użyciu Azure Portal
@@ -26,7 +26,7 @@ Za pomocą Azure Key Vault można zarządzać kluczami i przeprowadzać inspekcj
 W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Użycie kluczy zarządzanych przez klienta w usłudze Azure Event Hubs wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to: **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+> Użycie kluczy zarządzanych przez klienta w usłudze Azure Event Hubs wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
 Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następujące kroki:
@@ -102,8 +102,8 @@ Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSO
 | resourceId | Identyfikator zasobu Azure Resource Manager |
 | keyVault | Pełna nazwa magazynu kluczy. |
 | key | Nazwa klucza służąca do szyfrowania przestrzeni nazw Event Hubs. |
-| version | Używana wersja klucza. |
-| operacje | Operacja wykonywana na kluczu w magazynie kluczy. Na przykład Wyłącz/Włącz klucz, Zawijaj lub Odpakuj |
+| Wersja | Używana wersja klucza. |
+| operation | Operacja wykonywana na kluczu w magazynie kluczy. Na przykład Wyłącz/Włącz klucz, Zawijaj lub Odpakuj |
 | kod | Kod, który jest skojarzony z operacją. Przykład: kod błędu, 404 oznacza, że nie znaleziono klucza. |
 | message | Dowolny komunikat o błędzie skojarzony z operacją |
 
@@ -223,9 +223,9 @@ W tej sekcji przedstawiono sposób tworzenia przestrzeni nazw platformy Azure Ev
 
     > [!NOTE]
     > Zastąp następujące wartości: 
-    > - `<EventHubsClusterName>`-Nazwa klastra Event Hubs    
-    > - `<EventHubsNamespaceName>`-Nazwa przestrzeni nazw Event Hubs
-    > - `<Location>`— Lokalizacja przestrzeni nazw Event Hubs
+    > - `<EventHubsClusterName>` -Nazwa klastra Event Hubs    
+    > - `<EventHubsNamespaceName>` -Nazwa przestrzeni nazw Event Hubs
+    > - `<Location>` — Lokalizacja przestrzeni nazw Event Hubs
 
     ```json
     {
@@ -360,11 +360,11 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Event Hubs przy użyciu inf
 
     > [!NOTE]
     > Zastąp następujące wartości: 
-    > - `<EventHubsClusterName>`— Nazwa klastra Event Hubs.        
-    > - `<EventHubsNamespaceName>`-Nazwa przestrzeni nazw Event Hubs
-    > - `<Location>`— Lokalizacja przestrzeni nazw Event Hubs
-    > - `<KeyVaultName>`— Nazwa magazynu kluczy
-    > - `<KeyName>`-Nazwa klucza w magazynie kluczy
+    > - `<EventHubsClusterName>` — Nazwa klastra Event Hubs.        
+    > - `<EventHubsNamespaceName>` -Nazwa przestrzeni nazw Event Hubs
+    > - `<Location>` — Lokalizacja przestrzeni nazw Event Hubs
+    > - `<KeyVaultName>` — Nazwa magazynu kluczy
+    > - `<KeyName>` -Nazwa klucza w magazynie kluczy
 
     ```json
     {

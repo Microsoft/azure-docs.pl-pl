@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87386048"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Korzystanie z usługi Azure API Management z wewnętrzną siecią wirtualną
@@ -80,7 +80,7 @@ Połączenie sieci wirtualnej można również włączyć za pomocą poleceń cm
 
 * Aktualizowanie istniejącego wdrożenia usługi API Management w sieci wirtualnej: Użyj polecenia cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) , aby przenieść istniejącą usługę API Management do sieci wirtualnej i skonfiguruj ją tak, aby korzystała z wewnętrznego typu sieci wirtualnej.
 
-## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Konfiguracja DNS
+## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Konfiguracja usługi DNS
 Gdy API Management jest w trybie zewnętrznej sieci wirtualnej, system DNS jest zarządzany przez platformę Azure. W przypadku wewnętrznego trybu sieci wirtualnej należy zarządzać własnym systemem DNS.
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Jeśli używasz niestandardowego serwera DNS w sieci wirtualnej, możesz równie
 * Adresy IP przypisane do publicznego i prywatnego dostępu mogą ulec zmianie, jeśli usługa zostanie usunięta z, a następnie dodana do sieci wirtualnej. W takim przypadku może być konieczne zaktualizowanie rejestracji DNS, reguł routingu i list ograniczeń adresów IP w ramach sieci wirtualnej.
 
 ## <a name="related-content"></a><a name="related-content"> </a>Powiązana zawartość
-Aby dowiedzieć się więcej, zobacz następujące artykuły:
+Więcej informacji można znaleźć w następujących artykułach:
 * [Typowe problemy z konfiguracją sieci podczas konfigurowania usługi Azure API Management w sieci wirtualnej][Common network configuration problems]
 * [Często zadawane pytania dotyczące sieci wirtualnej](../virtual-network/virtual-networks-faq.md)
 * [Tworzenie rekordu w systemie DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))

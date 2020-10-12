@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438959"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalowanie i konfigurowanie bramy danych lokalnych
@@ -54,7 +54,7 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 
 2. Wybierz pozycję **lokalna Brama danych**.
 
-   ![Wybierz pozycję](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![Wybierz](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. Wybierz lokalizację, zaakceptuj warunki, a następnie kliknij przycisk **Instaluj**.
 

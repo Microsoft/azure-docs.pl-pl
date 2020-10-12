@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171622"
 ---
 # <a name="delivery-and-retry"></a>Dostarczanie i ponawianie prób
@@ -25,7 +25,7 @@ Event Grid zapewnia trwałe dostarczanie. Próbuje dostarczyć każdy komunikat 
 
 W przypadku odpowiedzi po dostarczeniu komunikatu Event Grid czekaj do 60 sekund. Jeśli punkt końcowy subskrybenta nie potwierdzą odpowiedzi, komunikat zostanie przesunięty do kolejki w jednej z kolejek wycofania dla kolejnych ponownych prób.
 
-Istnieją dwie wstępnie skonfigurowane kolejki z przywróceniem z powrotem, które określają harmonogram, w którym zostanie podjęta próba ponowienia próby. Oto one:
+Istnieją dwie wstępnie skonfigurowane kolejki z przywróceniem z powrotem, które określają harmonogram, w którym zostanie podjęta próba ponowienia próby. Są to:
 
 | Zaplanuj | Opis |
 | ---------| ------------ |
@@ -41,7 +41,7 @@ Istnieją dwie wstępnie skonfigurowane kolejki z przywróceniem z powrotem, kt�
 
 ## <a name="retry-policy-limits"></a>Limity zasad ponawiania
 
-Istnieją dwie konfiguracje, które określają zasady ponawiania. Oto one:
+Istnieją dwie konfiguracje, które określają zasady ponawiania. Są to:
 
 * Maksymalna liczba prób
 * Czas wygaśnięcia zdarzenia (TTL)

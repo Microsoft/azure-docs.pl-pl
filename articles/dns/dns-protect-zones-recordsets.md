@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87920504"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Jak chronić strefy i rekordy DNS
@@ -162,8 +162,8 @@ Poniższy przykład przedstawia definicję roli niestandardowej do zarządzania 
 
 Właściwość Actions definiuje następujące uprawnienia specyficzne dla systemu DNS:
 
-* `Microsoft.Network/dnsZones/CNAME/*`przyznaje pełną kontrolę nad rekordami CNAME
-* `Microsoft.Network/dnsZones/read`przyznaje uprawnienia do odczytu stref DNS, ale nie zmodyfikuje ich, umożliwiając wyświetlenie strefy, w której jest tworzony rekord CNAME.
+* `Microsoft.Network/dnsZones/CNAME/*` przyznaje pełną kontrolę nad rekordami CNAME
+* `Microsoft.Network/dnsZones/read` przyznaje uprawnienia do odczytu stref DNS, ale nie zmodyfikuje ich, umożliwiając wyświetlenie strefy, w której jest tworzony rekord CNAME.
 
 Pozostałe akcje są kopiowane z [wbudowanej roli współautor strefy DNS](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 

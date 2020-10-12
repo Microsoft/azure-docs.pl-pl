@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
 ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964876"
 ---
 # <a name="rendering-applications"></a>Renderowanie aplikacji
@@ -29,9 +29,9 @@ Oprócz renderowania wbudowanych w 3ds Max, następujące moduły renderowania s
 
 ### <a name="task-command-line"></a>Wiersz polecenia zadania
 
-Wywołaj `3dsmaxcmdio.exe` aplikację, aby wykonać renderowanie wiersza polecenia w węźle puli.  Ta aplikacja znajduje się na ścieżce, gdy zadanie jest uruchomione. `3dsmaxcmdio.exe`Aplikacja ma te same parametry, `3dsmaxcmd.exe` które są opisane w [dokumentacji 3ds Max help](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderowanie | Sekcja renderowania wiersza polecenia).
+Wywołaj `3dsmaxcmdio.exe` aplikację, aby wykonać renderowanie wiersza polecenia w węźle puli.  Ta aplikacja znajduje się na ścieżce, gdy zadanie jest uruchomione. `3dsmaxcmdio.exe`Aplikacja ma takie same parametry `3dsmaxcmd.exe` , jak aplikacja, która jest udokumentowana w sekcji [3ds Max help](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderowanie | Command-Line renderowania).
 
-Przykład:
+Na przykład:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

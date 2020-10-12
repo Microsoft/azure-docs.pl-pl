@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117436"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>Rozwiązywanie problemów: Inspekcja danych na zweryfikowanej zmianie domeny 
@@ -39,7 +39,7 @@ Sprawdź dzienniki inspekcji usługi Azure AD i Zobacz wiele aktualizacji użytk
 
 #### <a name="what-does-userprincipalname-consistency-mean"></a>Co oznacza spójność UserPrincipalName? 
 
-W przypadku użytkowników tylko w chmurze spójność oznacza, że element **userPrincipalName** jest ustawiony na zweryfikowany sufiks domeny. Po przetworzeniu niespójnego elementu **userPrincipalName** **ProxyCalc** przekonwertuje go na domyślny sufiks onmicrosoft.com, na przykład:username@Contoso.onmicrosoft.com 
+W przypadku użytkowników tylko w chmurze spójność oznacza, że element **userPrincipalName** jest ustawiony na zweryfikowany sufiks domeny. Po przetworzeniu niespójnego elementu **userPrincipalName** **ProxyCalc** przekonwertuje go na domyślny sufiks onmicrosoft.com, na przykład: username@Contoso.onmicrosoft.com 
 
 W przypadku zsynchronizowanych użytkowników spójność oznacza, że element **userPrincipalName** jest ustawiony na zweryfikowany sufiks domeny i jest zgodny z lokalną wartością **userPrincipalName** (ShadowUserPrincipalName). W przypadku przetworzenia niespójnego elementu **userPrincipalName** **ProxyCalc** powróci do tej samej wartości co **ShadowUserPrincipalName** lub, w przypadku usunięcia sufiksu domeny z dzierżawy, przekonwertuje ją na domyślny sufiks domeny *. onmicrosoft.com. 
 
@@ -47,7 +47,7 @@ W przypadku zsynchronizowanych użytkowników spójność oznacza, że element *
 
 #### <a name="what-does-proxy-address-consistency-mean"></a>Co oznacza spójność adresów serwera proxy? 
 
-W przypadku użytkowników tylko w chmurze spójność oznacza, że adresy serwerów proxy są zgodne z zweryfikowanym sufiksem domeny. Gdy zostanie przetworzony niespójny adres serwera proxy, **ProxyCalc** przekonwertuje go na domyślny sufiks domeny *. onmicrosoft.com, na przykład:SMTP:username@Contoso.onmicrosoft.com 
+W przypadku użytkowników tylko w chmurze spójność oznacza, że adresy serwerów proxy są zgodne z zweryfikowanym sufiksem domeny. Gdy zostanie przetworzony niespójny adres serwera proxy, **ProxyCalc** przekonwertuje go na domyślny sufiks domeny *. onmicrosoft.com, na przykład: SMTP:username@Contoso.onmicrosoft.com 
 
 W przypadku zsynchronizowanych użytkowników spójność oznacza, że adresy serwerów proxy są zgodne z wartościami lokalnych adresów serwera proxy (tj. ShadowProxyAddresses). **ProxyAddresses** powinny być zsynchronizowane z **ShadowProxyAddresses**. Jeśli zsynchronizowany użytkownik ma przypisaną licencję programu Exchange, adresy serwerów proxy muszą być zgodne z wartościami lokalnych adresów serwera proxy i muszą być zgodne z zweryfikowanym sufiksem domeny. W tym scenariuszu **ProxyCalc** będzie oczyszczał niespójny adres serwera proxy z niezweryfikowanym sufiksem domeny i zostanie usunięty z obiektu w usłudze Azure AD. W przypadku zweryfikowania niezweryfikowanej domeny w późniejszym czasie program **ProxyCalc** będzie ponownie obliczał i dodać adres serwera proxy z **ShadowProxyAddresses** z powrotem do obiektu w usłudze Azure AD.  
 

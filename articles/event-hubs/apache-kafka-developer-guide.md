@@ -4,10 +4,10 @@ description: Ten artykuł zawiera linki do artykułów opisujących sposób inte
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061737"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Przewodnik dla deweloperów Apache Kafka dla platformy Azure Event Hubs
