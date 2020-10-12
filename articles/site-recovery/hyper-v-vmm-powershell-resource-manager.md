@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086221"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V w lokacji dodatkowej przy użyciu programu PowerShell (Menedżer zasobów)
@@ -23,7 +23,7 @@ W tym artykule przedstawiono sposób automatyzacji czynności związanych z repl
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Zapoznaj się ze [składnikami i architekturą scenariusza](hyper-v-vmm-architecture.md).
-- Zapoznaj się z [wymaganiami dotyczącymi obsługi](./vmware-physical-secondary-support-matrix.md) wszystkich składników.
+- Zapoznaj się z wymaganiami dotyczącymi [obsługi](./vmware-physical-secondary-support-matrix.md) wszystkich składników.
 - Upewnij się, że serwery Virtual Machine Manager i hosty funkcji Hyper-V są zgodne z wymaganiami dotyczącymi [obsługi](./vmware-physical-secondary-support-matrix.md).
 - Sprawdź, czy maszyny wirtualne, które chcesz replikować, są zgodne z [obsługą zreplikowanej maszyny](./vmware-physical-secondary-support-matrix.md).
 

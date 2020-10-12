@@ -6,10 +6,10 @@ ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
 ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973330"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Tworzenie i wdrażanie szablonów ARM przy użyciu POMYSŁu IntelliJ
@@ -70,7 +70,7 @@ Zamiast tworzyć szablon od podstaw, otwórz szablon z obszaru [Azure Quickstart
 
 1. Po zakończeniu wdrażania aktualizacji można sprawdzić, czy w portalu została zmieniona wartość utworzone konto magazynu `Standard_GRS` .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów. Można to zrobić za pomocą Azure Portal lub interfejsu wiersza polecenia platformy Azure. W Eksploratorze Azure z POMYSŁu IntelliJ kliknij prawym przyciskiem myszy utworzoną **grupę zasobów** i wybierz pozycję Usuń.
 

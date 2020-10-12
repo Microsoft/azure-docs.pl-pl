@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
 ms.openlocfilehash: 25b3c1a011e39adea651a6daa1d4ab9aa3a9d186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81253513"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Azure CDN z wyrażeń warunkowych aparatu reguł Verizon Premium
@@ -30,12 +30,12 @@ ELSE IF| Wyrażenie ELSE IF określa alternatywny warunek, który musi zostać s
 
  > [!TIP]
    > Kolejna reguła może zastąpić akcje określone przez poprzednią regułę.
-   > Przykład: reguła "catch-all" zabezpiecza wszystkie żądania za pośrednictwem uwierzytelniania opartego na tokenach. Inną regułę można utworzyć bezpośrednio poniżej, aby wykonać wyjątek dla niektórych typów żądań.
+   > Przykład: reguła "catch-all" zabezpiecza wszystkie żądania za pośrednictwem uwierzytelniania Token-Based. Inną regułę można utworzyć bezpośrednio poniżej, aby wykonać wyjątek dla niektórych typów żądań.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przegląd Azure CDN](cdn-overview.md)
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)
-- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Funkcje aparatu reguł](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-verizon-premium-rules-engine.md)

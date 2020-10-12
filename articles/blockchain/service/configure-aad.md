@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 337d01abc51d310d06aeea3427b770132be4824c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85208777"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Jak skonfigurować Azure Active Directory dostępu do usługi Azure łańcucha bloków Service
@@ -89,7 +89,7 @@ connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myCl
 
 | Parametr | Opis |
 |-----------|-------------|
-| Identyfikator dzierżawy | Domena usługi Azure AD, na przykład`yourdomain.onmicrosoft.com`
+| Identyfikator dzierżawy | Domena usługi Azure AD, na przykład `yourdomain.onmicrosoft.com`
 | Identyfikator klienta | Identyfikator klienta zarejestrowanej aplikacji w usłudze Azure AD
 | Klient-klucz tajny | Klucz tajny klienta zarejestrowanej aplikacji w usłudze Azure AD
 

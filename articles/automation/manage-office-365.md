@@ -5,10 +5,10 @@ services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91f5ac0c3adabf9880078d7a4d3703e2757cb97f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185317"
 ---
 # <a name="manage-office-365-services"></a>Zarządzanie usługami Office 365
@@ -21,7 +21,7 @@ Aby zarządzać usługami subskrypcji pakietu Office 365 w programie Azure Autom
 
 * Subskrypcja platformy Azure. Zobacz [Przewodnik po decyzji](/azure/cloud-adoption-framework/decision-guides/subscriptions/)dotyczącej subskrypcji.
 * Obiekt automatyzacji na platformie Azure do przechowywania poświadczeń konta użytkownika i elementów Runbook. Zapoznaj [się z wprowadzeniem do Azure Automation](./automation-intro.md).
-* Usługa Azure AD. Aby [uwierzytelnić się na platformie Azure, zobacz temat Korzystanie z usługi Azure AD w Azure Automation](automation-use-azure-ad.md).
+* Azure AD. Aby [uwierzytelnić się na platformie Azure, zobacz temat Korzystanie z usługi Azure AD w Azure Automation](automation-use-azure-ad.md).
 * Dzierżawa pakietu Office 365 z kontem. Zobacz [Konfigurowanie dzierżawy pakietu Office 365](/sharepoint/dev/spfx/set-up-your-developer-tenant).
 
 ## <a name="install-the-msonline-and-msonlineext-modules"></a>Instalowanie modułów MSOnline i MSOnlineExt
@@ -101,7 +101,7 @@ Możesz użyć skryptu w Azure Automation elemencie Runbook. Na przykład użyje
 3. Wybierz nowy element Runbook, a następnie kliknij przycisk **Edytuj**.
 4. Skopiuj skrypt i wklej go do edytora tekstu dla elementu Runbook.
 5. Wybierz pozycję **zasoby**, a następnie rozwiń pozycję **poświadczenia** i sprawdź, czy jest tam poświadczenie pakietu Office 365.
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 7. Wybierz pozycję **okienko testowania**, a następnie kliknij przycisk **Rozpocznij** , aby rozpocząć testowanie elementu Runbook. Zobacz [Zarządzanie elementami Runbook w Azure Automation](./manage-runbooks.md).
 8. Po zakończeniu testowania Wyjdź z okienka testowania.
 

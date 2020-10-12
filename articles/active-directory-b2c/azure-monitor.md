@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386219"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
@@ -193,7 +193,7 @@ Parameters              :
 
 Po wdrożeniu szablonu może upłynąć kilka minut, zanim będzie można wykonać projekcję zasobu. Może być konieczne odczekanie kilku minut (zazwyczaj nie więcej niż pięć) przed przejściem do następnej sekcji, aby wybrać subskrypcję.
 
-## <a name="select-your-subscription"></a>Wybieranie subskrypcji
+## <a name="select-your-subscription"></a>Wybierz swoją subskrypcję
 
 Po wdrożeniu szablonu i poczekaj kilka minut na ukończenie projekcji zasobów Skojarz swoją subskrypcję z katalogiem Azure AD B2C, wykonując poniższe kroki.
 
@@ -213,7 +213,7 @@ Ustawienia diagnostyczne definiują, gdzie należy wysyłać dzienniki i metryki
 
 - [Konto usługi Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md)
 - Rozwiązania [centrów zdarzeń](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
-- [Obszar roboczy usługi Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+- [Log Analytics obszar roboczy](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
 Jeśli jeszcze tego nie zrobiono, Utwórz wystąpienie wybranego typu docelowego w grupie zasobów określonej w [szablonie Azure Resource Manager](#create-an-azure-resource-manager-template).
 

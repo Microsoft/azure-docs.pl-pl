@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055167"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Udostępnianie kont za pomocą usługi Azure AD
@@ -69,7 +69,7 @@ Funkcje usługi Azure AD, które umożliwiają udostępnianie kont, obejmują:
 Aby używać usługi Azure AD do udostępniania konta, musisz:
 
 * Dodawanie [galerii](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) aplikacji aplikacji lub [aplikacji niestandardowej](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
-* Konfigurowanie aplikacji do logowania jednokrotnego (SSO) hasła
+* Skonfiguruj aplikację pod kątem hasła pojedynczego Sign-On (SSO)
 * Użyj [przypisania opartego na grupach](groups-saasapps.md) i wybierz opcję, aby wprowadzić poświadczenia udostępnione
 
 Możesz również zwiększyć bezpieczeństwo konta współużytkowanego za pomocą Multi-Factor Authentication (MFA) (Dowiedz się więcej o [zabezpieczaniu aplikacji za pomocą usługi Azure AD](../authentication/concept-mfa-howitworks.md)) i można delegować możliwość zarządzania dostępem do aplikacji za pomocą samoobsługowego zarządzania grupami w usłudze [Azure AD](groups-self-service-management.md) .

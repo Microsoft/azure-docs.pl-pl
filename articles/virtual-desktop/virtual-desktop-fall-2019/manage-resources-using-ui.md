@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462585"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu szablonu Azure Resource Manager
@@ -20,7 +20,7 @@ ms.locfileid: "89462585"
 
 Instrukcje zawarte w tym artykule przedstawiają sposób wdrażania interfejsu użytkownika przy użyciu szablonu Azure Resource Manager.
 
-## <a name="important-considerations"></a>Ważne zagadnienia
+## <a name="important-considerations"></a>Istotne zagadnienia
 
 Ponieważ aplikacja wymaga zgody na współdziałanie z pulpitem wirtualnym systemu Windows, to narzędzie nie obsługuje scenariuszy biznes-to-Business (B2B). Każda subskrypcja dzierżawy usługi Azure Active Directory (AAD) będzie potrzebować oddzielnego wdrożenia narzędzia do zarządzania.
 
@@ -48,7 +48,7 @@ Przed rozpoczęciem upewnij się, że aplikacje serwera i klienta mają zgodę, 
 
 Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć szablon usługi Azure Resource Management:
 
-1. Przejdź do [strony usługi GitHub Azure RDS-templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
+1. Przejdź do [strony usługi GitHub Azure RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Wdróż szablon na platformie Azure.
     - Jeśli wdrażasz w ramach subskrypcji przedsiębiorstwa, przewiń w dół i wybierz pozycję **Wdróż na platformie Azure**.
     - Jeśli wdrażasz w ramach subskrypcji dostawcy rozwiązań w chmurze, postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć platformę Azure:

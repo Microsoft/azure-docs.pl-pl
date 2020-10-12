@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590119"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
@@ -25,7 +25,7 @@ W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego d
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Przejdź do konta magazynu i wybierz pozycję **usuwanie nietrwałe** w obszarze **Usługa plików**.
 1. Wybierz opcję **włączone** dla **trwałego usunięcia udziału plików**.
 1. Wybierz **okres przechowywania udziału plików w dniach** i wprowadź wybraną liczbę.
@@ -68,13 +68,13 @@ Aby przywrócić nietrwały, usunięty udział plików:
 
     Spowoduje to wyświetlenie wszystkich udziałów w stanie **usunięte** .
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="W kolumnie Stan kolumna obok kolumny Nazwa jest ustawiona na wartość usunięte, a następnie udział plików jest w stanie nietrwałego usunięcia. I zostaną trwale usunięte po upływie określonego okresu przechowywania.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Zrzut ekranu przedstawiający okienko ustawień usuwania nietrwałego konta magazynu. Wyróżnianie sekcji udziały plików, Włączanie przełącznika, Ustawianie okresu przechowywania i zapisywanie. Spowoduje to włączenie usuwania nietrwałego dla wszystkich udziałów plików na koncie magazynu.":::
 
 1. Wybierz udział i wybierz pozycję **Cofnij usunięcie**. spowoduje to przywrócenie udziału.
 
     Można potwierdzić, że udział zostanie przywrócony, ponieważ jego stan zmieni się na **aktywny**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Jeśli kolumna stan, kolumna obok kolumny Nazwa, jest ustawiona na aktywny, udział plików został przywrócony.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Zrzut ekranu przedstawiający okienko ustawień usuwania nietrwałego konta magazynu. Wyróżnianie sekcji udziały plików, Włączanie przełącznika, Ustawianie okresu przechowywania i zapisywanie. Spowoduje to włączenie usuwania nietrwałego dla wszystkich udziałów plików na koncie magazynu.":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -95,7 +95,7 @@ Jeśli chcesz zatrzymać korzystanie z funkcji usuwania nietrwałego lub trwale 
 1. W obszarze **udziały plików** wybierz pozycję **wyłączone** dla opcji **Usuń nietrwałe dla udziałów plików**.
 1. Wybierz pozycję **Zapisz** , aby potwierdzić ustawienia przechowywania danych.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Wyłączenie usuwania nietrwałego umożliwi natychmiastowe i trwałe usunięcie wszystkich udziałów plików na koncie magazynu.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Zrzut ekranu przedstawiający okienko ustawień usuwania nietrwałego konta magazynu. Wyróżnianie sekcji udziały plików, Włączanie przełącznika, Ustawianie okresu przechowywania i zapisywanie. Spowoduje to włączenie usuwania nietrwałego dla wszystkich udziałów plików na koncie magazynu.":::
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

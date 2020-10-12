@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310312"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Obsługa języka dla interfejsu API Content Moderator
@@ -40,7 +40,7 @@ ms.locfileid: "84310312"
 | Czeski |  Białoruski | Grecki (nowoczesny)         | Polski |
 | Dhivehi | Bośniacki (cyrylica) | Węgierski      | Portugalski |
 | Niderlandzki | Bośniacki — łaciński | Włoski             | Rumuński |
-| Angielski (haitański) | Bretoński [GeoPol] | Japoński  | Rosyjski |
+| Angielski (haitański) | Bretoński [GeoPol] | japoński  | Rosyjski |
 | Perski | Bułgarski | Koreański                        | Słowacki |
 | Francuski | Kataloński | Norweski                        | Hiszpański |
 | Niemiecki | Kurdyjski centralny | Polski        | Turecki |
@@ -51,7 +51,7 @@ ms.locfileid: "84310312"
 | Hmong | Chorwacki | Serbski (łaciński) | |
 | Węgierski | Czeski | Słowacki | |
 | Włoski | Duński | Hiszpański | |
-| Japoński | Dari | Szwedzki | |
+| japoński | Dari | Szwedzki | |
 | Koreański | Niderlandzki | Turecki | |
 | Kurdyjski (arabski) | Angielski | | |
 | Kurdyjski (łaciński) | Estoński | | |
@@ -75,7 +75,7 @@ ms.locfileid: "84310312"
 | Sasak | isiXhosa | | |
 | Saurashtra | isiZulu | | |
 | Serbski (cyrylica) | Włoski | | |
-| Serbski (łaciński) | Japoński | | |
+| Serbski (łaciński) | japoński | | |
 | Syngaleski | Kannada | | |
 | Słoweński | Kazachski | | |
 | Hiszpański | Khmerski | | |

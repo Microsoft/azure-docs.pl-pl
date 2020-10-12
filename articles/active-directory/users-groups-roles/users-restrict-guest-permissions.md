@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055218"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Ogranicz uprawnienia dostępu gościa (wersja zapoznawcza) w Azure Active Directory
@@ -103,7 +103,7 @@ Przykładowa odpowiedź:
 
 Dzięki tej funkcji dodaliśmy możliwość skonfigurowania ograniczonych uprawnień za pośrednictwem poleceń cmdlet programu PowerShell w wersji 2. Polecenia cmdlet programu PowerShell Get i Set zostały opublikowane w wersji 2.0.2.85.
 
-### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Get — polecenie: Get-AzureADMSAuthorizationPolicy
+### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Pobierz polecenie: Get-AzureADMSAuthorizationPolicy
 
 Przykład:
 
@@ -147,7 +147,7 @@ Usługa bez bieżącej obsługi może mieć problemy ze zgodnością z nowym ust
 - Formularze
 - Planista w zespołach
 - Aplikacja planisty
-- Project
+- Projekt
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania

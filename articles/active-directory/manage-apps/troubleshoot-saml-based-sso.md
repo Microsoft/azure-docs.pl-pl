@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463643"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Rozwiązywanie problemów z logowaniem jednokrotnym opartym na protokole SAML w Azure Active Directory
@@ -46,14 +46,14 @@ Aby poznać wzorce, które zostały wstępnie skonfigurowane dla aplikacji:
     * Jeśli wzorzec nie jest obsługiwany, zobaczysz czerwony wykrzyknik przy próbie wprowadzenia wartości w polu tekstowym. Jeśli umieścisz wskaźnik myszy nad czerwonym wykrzyknikiem, zobaczysz obsługiwane wzorce.
     * W samouczku dotyczącym aplikacji można także uzyskać informacje o obsługiwanych wzorcach. W sekcji Konfigurowanie logowania jednokrotnego w **usłudze Azure AD** . Przejdź do kroku, aby skonfigurować wartości w sekcji **domen i adresów URL** .
 
-Jeśli wartości nie są zgodne ze wzorcami wstępnie skonfigurowanymi w usłudze Azure AD. Można:
+Jeśli wartości nie są zgodne ze wzorcami wstępnie skonfigurowanymi w usłudze Azure AD. Dostępne możliwości:
 -   Współpraca z dostawcą aplikacji w celu uzyskania wartości zgodnych ze wzorcem wstępnie skonfigurowanym w usłudze Azure AD
 -   Możesz też skontaktować się z zespołem usługi Azure AD lub <aadapprequest@microsoft.com> pozostawić komentarz w samouczku, aby zażądać aktualizacji obsługiwanych wzorców dla aplikacji
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Gdzie ustawić format EntityID (identyfikator użytkownika)
 Nie będzie można wybrać formatu EntityID (identyfikator użytkownika), który usługa Azure AD wysyła do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
 
-Usługa Azure AD wybierz format atrybutu NameID (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zapoznaj się z artykułem Logowanie jednokrotne logowania jednokrotnego [protokołu SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy.
+Usługa Azure AD wybierz format atrybutu NameID (identyfikator użytkownika) w oparciu o wybraną wartość lub format żądany przez aplikację w elemencie SAML AuthRequest. Aby uzyskać więcej informacji, zapoznaj się z artykułem [Single Sign-On protokołu SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy,
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Nie można znaleźć metadanych usługi Azure AD w celu ukończenia konfiguracji w aplikacji
 Aby pobrać metadane aplikacji lub certyfikat z usługi Azure AD, wykonaj następujące kroki:

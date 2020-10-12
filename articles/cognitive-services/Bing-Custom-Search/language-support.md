@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310584"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania niestandardowego Bing
@@ -44,7 +44,7 @@ Możesz określić kraj/region przy użyciu `cc` parametru zapytania. W przypadk
 |Niemcy|DE|
 |SRA Hongkong|HK|
 |Indie|IN|
-|Indonezja|ID|
+|Indonezja|ID (Identyfikator)|
 |Włochy|IT|
 |Japonia|JP|
 |Korea|KR|
@@ -90,7 +90,7 @@ Możesz określić kraj/region przy użyciu `cc` parametru zapytania. W przypadk
 |Indie|Angielski|dodatek EN-IN|
 |Indonezja|Angielski|pl-ID|
 |Włochy|Włoski|it-IT|
-|Japonia|Japoński|ja-JP|
+|Japonia|japoński|ja-JP|
 |Korea|Koreański|ko-KR|
 |Malezja|Angielski|pl — MY|
 |Meksyk|Hiszpański|es — MX|

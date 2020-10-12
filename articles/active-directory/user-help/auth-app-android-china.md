@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
 ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323029"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator dla systemu Android w chmurze publicznej w Chinach
@@ -44,7 +44,7 @@ Jeśli użytkownik wcześniej zarządzał konfigurowaniem logowania za pomocą t
 
 ## <a name="multi-factor-authentication-workaround"></a>Obejście usługi uwierzytelnianie wieloskładnikowe
 
-Zamiast używać powiadomień wypychanych do uwierzytelniania wieloskładnikowego, użytkownicy mogą [konfigurować swoją aplikację uwierzytelniania, aby otrzymywać kody weryfikacyjne](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) na urządzeniu, które mogą być używane przez usługę MFA do weryfikacji tożsamości. Te kody weryfikacyjne są ważne przez 30 sekund i ich używanie, Administratorzy muszą umożliwić swoim dzierżawcom przeprowadzanie weryfikacji przy użyciu kodów weryfikacyjnych hasła jednorazowego (TOTP) opartych na czasie.
+Zamiast używać powiadomień wypychanych do uwierzytelniania wieloskładnikowego, użytkownicy mogą [konfigurować swoją aplikację uwierzytelniania, aby otrzymywać kody weryfikacyjne](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) na urządzeniu, które mogą być używane przez usługę MFA do weryfikacji tożsamości. Te kody weryfikacyjne są ważne przez 30 sekund i mogą być używane, Administratorzy muszą umożliwić swoim dzierżawcom przeprowadzenie weryfikacji przy użyciu kodów weryfikacyjnych opartych na czasie One-Time hasła (TOTP).
 
 ## <a name="availability"></a>Dostępność
 

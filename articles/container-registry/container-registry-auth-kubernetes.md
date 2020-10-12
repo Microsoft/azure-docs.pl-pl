@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84309819"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Ściąganie obrazów z usługi Azure Container Registry do klastra Kubernetes
@@ -57,7 +57,7 @@ gdzie:
 
 ## <a name="use-the-image-pull-secret"></a>Korzystanie z klucza tajnego ściągania obrazu
 
-Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego w `imagePullSecrets` pliku wdrożenia. Przykład:
+Po utworzeniu wpisu tajnego obrazu można go użyć do utworzenia Kubernetes i wdrożeń. Podaj nazwę wpisu tajnego w `imagePullSecrets` pliku wdrożenia. Na przykład:
 
 ```yaml
 apiVersion: v1
@@ -74,7 +74,7 @@ spec:
     - name: acr-secret
 ```
 
-W poprzednim przykładzie `my-awesome-app:v1` jest nazwą obrazu, który ma zostać pobrany z usługi Azure Container Registry, a `acr-secret` to nazwa klucza tajnego ściągnięcia utworzonego w celu uzyskania dostępu do rejestru. Po wdrożeniu programu pod warunkiem program Kubernetes automatycznie pobiera obraz z rejestru, jeśli nie jest jeszcze obecny w klastrze.
+W poprzednim przykładzie `my-awesome-app:v1` jest nazwą obrazu, który ma zostać pobrany z usługi Azure Container Registry, a  `acr-secret` to nazwa klucza tajnego ściągnięcia utworzonego w celu uzyskania dostępu do rejestru. Po wdrożeniu programu pod warunkiem program Kubernetes automatycznie pobiera obraz z rejestru, jeśli nie jest jeszcze obecny w klastrze.
 
 
 ## <a name="next-steps"></a>Następne kroki

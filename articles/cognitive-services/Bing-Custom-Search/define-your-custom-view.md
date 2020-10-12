@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86183209"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Skonfiguruj środowisko wyszukiwanie niestandardowe Bing
@@ -28,7 +28,7 @@ Podczas definiowania wycinków sieci Web należy użyć następujących element�
 | Nazwa wycinka | Opis                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Obszar     | Wycinek domeny obejmuje całą zawartość znajdującą się w domenie internetowej. Na przykład `www.microsoft.com`. Pominięcie `www.` powoduje, że Bing również przeszukać domeny podrzędne domeny. Na przykład, jeśli określisz `microsoft.com` , Bing zwróci również wyniki z `support.microsoft.com` lub `technet.microsoft.com` . |
-| Podstrony    | Wycinek podstrony obejmuje całą zawartość znajdującą się na podstronie i ścieżkach poniżej. W ścieżce można określić maksymalnie dwa podstrony. Na przykład: `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Podstrony    | Wycinek podstrony obejmuje całą zawartość znajdującą się na podstronie i ścieżkach poniżej. W ścieżce można określić maksymalnie dwa podstrony. Na przykład `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Stron    | Wycinek strony sieci Web może zawierać tylko Tę stronę sieci Web w wyszukiwaniu niestandardowym. Opcjonalnie można określić, czy mają być dołączane podstrony.                                                                                                                                                                                  |
 
 > [!IMPORTANT]

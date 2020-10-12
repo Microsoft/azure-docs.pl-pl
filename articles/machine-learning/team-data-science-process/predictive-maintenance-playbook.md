@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84267972"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Przewodnik po platformie Azure dla rozwiązań do konserwacji predykcyjnej
@@ -43,7 +43,7 @@ Zawartość BDM nie oczekuje, aby czytelnik miał wcześniej wiedzę o nauce dan
 
 Firmy wymagają, aby sprzęt krytyczny działał z najwyższą wydajnością i wykorzystaniem, aby zrealizować zwroty z inwestycji kapitałowych. Te zasoby mogą być takie same jak silniki samolotów, turbiny, windy lub urządzenia chłodnicze, które umożliwiają obniżenie kosztów do codziennych urządzeń, takich jak kopiarki, urządzenia kawowe lub chłodnie wodne.
 - Domyślnie większość firm korzysta z _konserwacji naprawczej_, w której części są zastępowane jako i po ich niepowodzeniu. Konserwacja naprawcza gwarantuje całkowite użycie części (w związku z tym nie powoduje marnowania okresu istnienia składników), ale koszt działalności w przypadku przestojów, robocizny i nieplanowanych wymagań konserwacyjnych (poza godzinami lub niewygodnymi lokalizacjami).
-- Na następnym poziomie firmy przeprowadzają _konserwację zapobiegawczą_, gdzie określają przydatną cykl życia częściową i utrzymują lub zastępują przed awarią. Konserwacja zapobiegawcza pozwala uniknąć nieplanowanych i katastrofalnych błędów. Jednak wysokie koszty zaplanowanego przestoju, pod względem użycia składnika w trakcie jego okresu istnienia i robocizny nadal pozostają.
+- Na następnym poziomie firmy przeprowadzają  _konserwację zapobiegawczą_, gdzie określają przydatną cykl życia częściową i utrzymują lub zastępują przed awarią. Konserwacja zapobiegawcza pozwala uniknąć nieplanowanych i katastrofalnych błędów. Jednak wysokie koszty zaplanowanego przestoju, pod względem użycia składnika w trakcie jego okresu istnienia i robocizny nadal pozostają.
 - Celem _konserwacji predykcyjnej_ jest zoptymalizowanie równowagi między konserwacją naprawczą i zapobiegawczą przez włączenie _just in Time_ składników. Takie podejście zastępuje te składniki tylko wtedy, gdy znajdują się w pobliżu błędu. Przez rozszerzenie lifespans składników (w porównaniu do konserwacji zapobiegawczej) i zmniejszenie nieplanowanych kosztów konserwacji i robocizny (dzięki obsłudze naprawczej) firmy mogą uzyskać oszczędności i konkurencyjne korzyści.
 
 ## <a name="business-problems-in-pdm"></a>Problemy biznesowe w programie PdM
@@ -114,7 +114,7 @@ Sukces uczenia się zależy od (a) jakości, w jaki sposób uczy się i (b) umie
 
 ### <a name="relevant-data"></a>Odpowiednie dane
 
-Najpierw dane powinny być _istotne dla danego problemu_. Rozważ przypadek użycia _koła_ z opisem powyżej — dane szkoleniowe powinny zawierać funkcje związane z operacjami pokrętła. Jeśli problem był przewidywany w przypadku awarii _systemu trakcyjnego_, dane szkoleniowe mają obejmować wszystkie różne składniki systemu trakcyjnego. Pierwszy przypadek odwołuje się do określonego składnika, podczas gdy drugi przypadek wskazuje na awarię większego podsystemu. Ogólnym zaleceniem jest zaprojektowanie systemów predykcyjnych dotyczących określonych składników, a nie większych podsystemów, ponieważ ta ostatnia będzie zawierać bardziej rozproszone dane. Ekspert domeny (zobacz [problemy uprawniające do konserwacji predykcyjnej](#qualifying-problems-for-predictive-maintenance)) powinien pomóc w wyborze najbardziej odpowiednich podzbiorów danych do analizy. Odpowiednie źródła danych zostały omówione bardziej szczegółowo w temacie [przygotowanie danych do konserwacji predykcyjnej](#data-preparation-for-predictive-maintenance).
+Najpierw dane powinny być _istotne dla danego problemu_. Rozważ przypadek użycia _koła_ z opisem powyżej — dane szkoleniowe powinny zawierać funkcje związane z operacjami pokrętła. Jeśli problem był przewidywany w przypadku awarii  _systemu trakcyjnego_, dane szkoleniowe mają obejmować wszystkie różne składniki systemu trakcyjnego. Pierwszy przypadek odwołuje się do określonego składnika, podczas gdy drugi przypadek wskazuje na awarię większego podsystemu. Ogólnym zaleceniem jest zaprojektowanie systemów predykcyjnych dotyczących określonych składników, a nie większych podsystemów, ponieważ ta ostatnia będzie zawierać bardziej rozproszone dane. Ekspert domeny (zobacz [problemy uprawniające do konserwacji predykcyjnej](#qualifying-problems-for-predictive-maintenance)) powinien pomóc w wyborze najbardziej odpowiednich podzbiorów danych do analizy. Odpowiednie źródła danych zostały omówione bardziej szczegółowo w temacie [przygotowanie danych do konserwacji predykcyjnej](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Wystarczające dane
 Dwa pytania są często zadawane w odniesieniu do danych historii błędów: (1) "ile zdarzeń awarii jest wymaganych do uczenia modelu?". (2) "ile rekordów jest traktowanych jako" wystarczające "? Brak ostatecznych odpowiedzi, ale tylko reguły elementu kciuk. Dla (1), większa liczba zdarzeń błędów, lepszy model. Dla (2) i dokładna liczba zdarzeń niepowodzeń zależy od danych i kontekstu rozwiązywania problemu. Jednak po stronie odwracania, jeśli maszyna ulegnie awarii zbyt często, firma zamieni ją, co spowoduje zredukowanie wystąpienia awarii. W tym miejscu wskazówki dotyczące eksperta domeny są ważne. Istnieją jednak metody pozwalające sprostać problemom _rzadkich zdarzeń_. Są one omówione w sekcji [Obsługa niezrównoważonych danych](#handling-imbalanced-data).
@@ -188,7 +188,7 @@ Inne kroki przetwarzania przed przetwarzaniem danych obejmują _obsługę brakuj
 
 W przypadku powyższego wstępnie przetworzonego źródła danych, końcowa transformacja przed funkcją inżynierii funkcji polega na przyłączeniu powyższych tabel na podstawie identyfikatora zasobu i sygnatury czasowej. Ta tabela będzie miała wartości null dla kolumny Failure, gdy maszyna jest w normalnej operacji. Te wartości null mogą być przypisane przez wskaźnik dla normalnej operacji. Ta kolumna niepowodzeń służy do tworzenia _etykiet dla modelu predykcyjnego_. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [technik modelowania do konserwacji predykcyjnej](#modeling-techniques-for-predictive-maintenance).
 
-## <a name="feature-engineering"></a>Inżynieria funkcji
+## <a name="feature-engineering"></a>Inżynieria cech
 Inżynieria funkcji to pierwszy krok przed modelem danych. Jej rola w procesie nauki o danych [została opisana tutaj](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). _Funkcja_ jest atrybutem predykcyjnym dla modelu — takim jak temperatura, ciśnienie, wibracje i tak dalej. W przypadku usługi PdM funkcja inżynierii obejmuje abstrakcyjną kondycję maszyny przez dane historyczne zebrane w czasie trwania o zmiennym rozmiarze. W tym sensie różni się od jego elementów równorzędnych, takich jak zdalne monitorowanie, wykrywanie anomalii i wykrywanie awarii. 
 
 ### <a name="time-windows"></a>Okna czasu
@@ -361,8 +361,8 @@ W przypadku problemów z klasyfikacją, jeśli istnieje więcej przykładów jed
 Wiele PdMych problemów odzwierciedla takie niezrównoważone zestawy danych, w których jedna klasa jest poważnie niereprezentowana w porównaniu z inną klasą lub klasami. W niektórych sytuacjach Klasa mniejszości może stanowić tylko 0,001% całkowitej liczby punktów danych. Nierównoważność klasy nie jest unikatowa dla PdM. Inne domeny, w których awarie i anomalie są rzadkimi wystąpieniami, na przykład takie jak wykrywanie oszustw i wtargnięcie sieci. Te błędy składają się na przykłady klas mniejszości.
 
 Ze względu na niezrównoważone dane wydajność większości standardowych algorytmów nauki jest zagrożona, ponieważ chcą zminimalizować ogólną częstotliwość błędów. W przypadku zestawu danych z 99% negatywnych i 1% pozytywnych przykładów model może być pokazywany w taki sposób, aby mieć 99% dokładności przez etykietowanie wszystkich wystąpień jako wartości ujemnych. Ale model będzie źle klasyfikować wszystkie pozytywne przykłady; Dlatego nawet jeśli jego dokładność jest wysoka, algorytm nie jest użyteczny. W związku z tym konwencjonalne metryki oceny, takie jak _ogólna dokładność dla współczynnika błędów_ , są niewystarczające do uczenia się niezrównoważonym. Po obliczeniu niezrównoważonych zestawów danych inne metryki są używane do oceny modelu:
-- Dokładność
-- Kompletność
+- Precyzja
+- Recall
 - Wyniki F1
 - Skorygowany koszt ROC (Charakterystyka działania odbiornika)
 
@@ -426,7 +426,7 @@ Ostatnia sekcja tego przewodnika zawiera listę szablonów rozwiązań PdM, samo
 | # | Tytuł | Opis |
 |--:|:------|-------------|
 | 2 | [Szablon rozwiązania do konserwacji predykcyjnej platformy Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Szablon rozwiązania typu "open source", który demonstruje modelowanie Azure ML i kompletną infrastrukturę platformy Azure, która może obsługiwać scenariusze konserwacji predykcyjnej w kontekście monitorowania zdalnego usługi IoT. |
-| 3 | [Uczenie głębokie dla konserwacji predykcyjnej](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notes platformy Azure z rozwiązaniem demonstracyjnym dotyczącym korzystania z sieci LSTM (Long Short-Term Memory) (klasy reneuronowychych sieci) do konserwacji predykcyjnej z [wpisem w blogu w tym przykładzie](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
+| 3 | [Uczenie głębokie dla konserwacji predykcyjnej](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notes platformy Azure z rozwiązaniem demonstracyjnym dotyczącym korzystania z sieci LSTM (Long Short-Term Memory) (klasy reneuronowychych sieci) do konserwacji predykcyjnej z [wpisem w blogu tego przykładu](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Konserwacja predykcyjna na platformie Azure dla platformy Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Jeden z pierwszych szablonów rozwiązań PdM w oparciu o konserwację platformy Azure w wersji 1.0. Ten przewodnik pochodzi z tego projektu. |
 | 5 | [Zestaw narzędzi platformy Azure AI dla IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI w IoT Edge przy użyciu TensorFlow; Pakiet Toolkit udostępnia modele uczenia głębokiego w Azure IoT Edge zgodnych kontenerach platformy Docker i uwidacznia te modele jako interfejsy API REST.
 | 6 | [Konserwacja predykcyjna usługi Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite komputerów — wstępnie skonfigurowane rozwiązanie. Szablon PdM konserwacji samolotów z IoT Suite. [Inny dokument](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) i [Przewodnik](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) dotyczący tego samego projektu. |

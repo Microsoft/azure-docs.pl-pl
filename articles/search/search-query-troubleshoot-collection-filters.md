@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 3050f701c11773207aa6054d4d08d908d87b2ce7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932070"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Rozwiązywanie problemów z filtrami kolekcji OData na platformie Azure Wyszukiwanie poznawcze
@@ -171,10 +171,10 @@ Istnieją jednak ograniczenia dotyczące sposobu łączenia takich wyrażeń por
 
     Chociaż to wyrażenie jest dozwolone, nie jest przydatne, ponieważ warunki nakładają się na siebie:
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - Proste wyrażenia porównania obejmujące `eq` , `lt` , `le` , `gt` lub `ge` mogą być łączone z `and` / `or` . Przykład:
+  - Proste wyrażenia porównania obejmujące `eq` , `lt` , `le` , `gt` lub `ge` mogą być łączone z `and` / `or` . Na przykład:
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - Wyrażenia porównania połączone z `and` (połączeniami) można również łączyć za pomocą polecenia `or` . Ten formularz jest znany w logice logicznej jako "[disjunctive Normal](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Przykład:
+  - Wyrażenia porównania połączone z `and` (połączeniami) można również łączyć za pomocą polecenia `or` . Ten formularz jest znany w logice logicznej jako "[disjunctive Normal](https://en.wikipedia.org/wiki/Disjunctive_normal_form)" (DNF). Na przykład:
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
 - Reguły dla `all` :
   - Proste wyrażenia równości nie mogą być przydatne w połączeniu z innymi wyrażeniami. Na przykład to wyrażenie jest dozwolone:
@@ -185,10 +185,10 @@ Istnieją jednak ograniczenia dotyczące sposobu łączenia takich wyrażeń por
 
     Chociaż to wyrażenie jest dozwolone, nie jest przydatne, ponieważ warunki nakładają się na siebie:
     - `ratings/all(r: r eq 5 and r le 7)`
-  - Proste wyrażenia porównania obejmujące `ne` , `lt` , `le` , `gt` lub `ge` mogą być łączone z `and` / `or` . Przykład:
+  - Proste wyrażenia porównania obejmujące `ne` , `lt` , `le` , `gt` lub `ge` mogą być łączone z `and` / `or` . Na przykład:
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - Wyrażenia porównania połączone z (rozłączenia `or` ) można również łączyć za pomocą polecenia `and` . Ten formularz jest znany w logice logicznej jako "[conjunctive Normal](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Przykład:
+  - Wyrażenia porównania połączone z (rozłączenia `or` ) można również łączyć za pomocą polecenia `and` . Ten formularz jest znany w logice logicznej jako "[conjunctive Normal](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (CNF). Na przykład:
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>

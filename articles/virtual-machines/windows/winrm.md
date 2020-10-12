@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/16/2016
 ms.author: mimckitt
 ms.openlocfilehash: ac6fad8995d409c14008b8345e9e576b2403c799
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131688"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Konfigurowanie dostępu do usługi WinRM dla Virtual Machines w Azure Resource Manager
@@ -85,7 +85,7 @@ Możesz uzyskać link do adresu URL w szablonie przy użyciu poniższego kodu
 "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 ```
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 Ten adres URL można uzyskać przy użyciu poniższego polecenia programu PowerShell
 
 ```azurepowershell
@@ -93,7 +93,7 @@ $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name
 ```
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Krok 5. odwoływanie się do adresu URL certyfikatów z podpisem własnym podczas tworzenia maszyny wirtualnej
-#### <a name="azure-resource-manager-templates"></a>Szablony Azure Resource Manager
+#### <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
 Podczas tworzenia maszyny wirtualnej za pomocą szablonów do certyfikatu jest przywoływana sekcja wpisy tajne i usługa winRM w następujący sposób:
 
 ```json
@@ -134,7 +134,7 @@ Przykładowy szablon dla powyższych można znaleźć w tym miejscu na stronie [
 
 Kod źródłowy tego szablonu można znaleźć w witrynie [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 ```azurepowershell
 $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
 $credential = Get-Credential
@@ -153,7 +153,7 @@ Enable-PSRemoting -Force
 ```
 
 > [!NOTE]
-> Może być konieczne upewnienie się, że usługa WinRM działa, jeśli powyższe nie działa. Można to zrobić za pomocą polecenia`Get-Service WinRM`
+> Może być konieczne upewnienie się, że usługa WinRM działa, jeśli powyższe nie działa. Można to zrobić za pomocą polecenia `Get-Service WinRM`
 > 
 > 
 

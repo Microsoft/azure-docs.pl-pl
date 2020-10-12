@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85361908"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról platformy Azure dla użytkowników zewnętrznych Gości przy użyciu Azure Portal
@@ -31,7 +31,7 @@ ms.locfileid: "85361908"
 
 Aby dodać lub usunąć przypisania ról, musisz mieć:
 
-- `Microsoft.Authorization/roleAssignments/write`i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
 
 ## <a name="when-would-you-invite-guest-users"></a>Kiedy zapraszasz użytkowników-Gości?
 
@@ -79,7 +79,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy przypisać rolę. Aby d
 
 1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
-    Poniższy zrzut ekranu przedstawia przykład bloku kontroli dostępu (IAM) dla grupy zasobów. Jeśli w tym miejscu wprowadzisz jakiekolwiek zmiany kontroli dostępu, zostaną one zastosowane tylko do grupy zasobów.
+    Na poniższym zrzucie ekranu przedstawiono przykład bloku Kontrola dostępu (zarządzanie dostępem i tożsamościami) dla grupy zasobów. Jeśli w tym miejscu wprowadzisz jakiekolwiek zmiany kontroli dostępu, zostaną one zastosowane tylko do grupy zasobów.
 
     ![Blok kontroli dostępu (IAM) dla grupy zasobów](./media/role-assignments-external-users/access-control-resource-group.png)
 
@@ -159,7 +159,7 @@ Przed usunięciem użytkownika-gościa z katalogu należy najpierw usunąć wszy
 
    ![Usuń przypisanie roli](./media/role-assignments-external-users/remove-role-assignment-select.png)
 
-1. Kliknij pozycję **Usuń**.
+1. Kliknij przycisk **Usuń**.
 
    ![Komunikat dotyczący usuwania przypisania roli](./media/role-assignments-external-users/remove-role-assignment.png)
 

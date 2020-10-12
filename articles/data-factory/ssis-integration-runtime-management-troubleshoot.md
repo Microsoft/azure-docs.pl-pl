@@ -12,10 +12,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86172030"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Rozwiązywanie problemów z usługą SSIS Integration Runtime Management w programie Azure Data Factory
@@ -78,7 +78,7 @@ W przypadku innych problemów sprawdź komunikat o wyjątku SQL i rozwiąż prob
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Ten rodzaj komunikatu o błędzie wygląda następująco: "Nieprawidłowa nazwa obiektu wykazu. catalog_properties". " W takiej sytuacji masz już bazę danych o nazwie SSISDB, ale nie została ona utworzona przez program SSIS IR lub baza danych znajduje się w nieprawidłowym stanie spowodowanym błędami w ostatniej aprowizacji programu SSIS IR. Możesz usunąć istniejącą bazę danych o nazwie SSISDB lub skonfigurować nowe SQL Database lub wystąpienie zarządzane SQL dla środowiska IR.
+Ten rodzaj komunikatu o błędzie wygląda następująco: "Nieprawidłowa nazwa obiektu" catalog.catalog_properties "." W takiej sytuacji masz już bazę danych o nazwie SSISDB, ale nie została ona utworzona przez program SSIS IR lub baza danych znajduje się w nieprawidłowym stanie spowodowanym błędami w ostatniej aprowizacji programu SSIS IR. Możesz usunąć istniejącą bazę danych o nazwie SSISDB lub skonfigurować nowe SQL Database lub wystąpienie zarządzane SQL dla środowiska IR.
 
 ## <a name="custom-setup-issues"></a>Problemy z instalacją niestandardową
 
@@ -192,4 +192,4 @@ Azure-SSIS IR jest regularnie aktualizowana automatycznie. Podczas uaktualniania
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-Jeśli chcesz wprowadzić własne statyczne publiczne adresy IP, należy podać dwa publiczne adresy IP. Jeden z nich zostanie użyty do natychmiastowego utworzenia węzłów podczerwieni, a drugi zostanie użyty podczas uaktualniania środowiska IR. Ten błąd może wystąpić, gdy inny publiczny adres IP nie nadaje się do użycia podczas uaktualniania. Zapoznaj się z [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) , aby uzyskać możliwe przyczyny.
+Jeśli chcesz wprowadzić własne statyczne publiczne adresy IP, należy podać dwa publiczne adresy IP. Jeden z nich zostanie użyty do natychmiastowego utworzenia węzłów podczerwieni, a drugi zostanie użyty podczas uaktualniania środowiska IR. Ten błąd może wystąpić, gdy inny publiczny adres IP nie nadaje się do użycia podczas uaktualniania. Zapoznaj się z  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) , aby uzyskać możliwe przyczyny.

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025269"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurowanie połączenia o wysokiej dostępności z poziomu lokalnego z bramą sieci VPN CloudSimple
@@ -44,7 +44,7 @@ Aby włączyć fazę 1 (IKEv1) w interfejsie zewnętrznym, wprowadź następują
 
 ### <a name="2-create-an-ikev1-policy"></a>2. Utwórz zasady protokołu IKEv1
 
-Utwórz zasady protokołu IKEv1 definiujące algorytmy i metody, które mają być używane na potrzeby tworzenia skrótów, uwierzytelniania, grupy Diffie-Hellmana, okresu istnienia i szyfrowania.
+Utwórz zasady protokołu IKEv1 definiujące algorytmy i metody, które mają być używane na potrzeby tworzenia skrótów, uwierzytelniania, Diffie-Hellman grupy, okresu istnienia i szyfrowania.
 
 ```
 crypto ikev1 policy 1
@@ -141,7 +141,7 @@ Wyjście fazy 2:
 
 ## <a name="configure-on-premises-palo-alto-networks-firewall"></a>Skonfiguruj zaporę lokalnej Palo Alto Networks
 
-Instrukcje w tej sekcji dotyczą Palo Alto Networks w wersji 7,1 lub nowszej. W tym przykładzie konfiguracji wdrożono i skonfigurowano w trybie IKEv1 Palo Alto sieci maszyn wirtualnych w wersji 8.1.0.
+Instrukcje w tej sekcji dotyczą Palo Alto Networks w wersji 7,1 lub nowszej. W tym przykładzie konfiguracji Palo Alto Networks VM-Series Software Version 8.1.0 jest wdrażany i konfigurowany w trybie protokołu IKEv1.
 
 Aby sieć VPN typu lokacja-lokacja działała, należy zezwolić na ruch wychodzący UDP 500/4500 i ESP (protokół IP 50) z podstawowego i pomocniczego publicznego adresu IP (peer IP) CloudSimple w interfejsie zewnętrznym bramy Palo Alto Networks.
 

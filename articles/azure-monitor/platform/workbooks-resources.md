@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972850"
 ---
 # <a name="workbook-resource-parameters"></a>Parametry zasobów skoroszytu
@@ -102,9 +102,9 @@ Wartości z funkcji wyboru zasobów mogą pochodzić z kontekstu skoroszytu, lis
 ## <a name="resource-parameter-options"></a>Opcje parametrów zasobu
 | Parametr | Objaśnienie | Przykład |
 | ------------- |:-------------|:-------------|
-| `{Applications}` | Wybrany identyfikator zasobu | _Identyfikator podrzędny/subscriptions/<> <grupy zasobów>/Providers/<typ zasobu>/acmeauthentication_ |
+| `{Applications}` | Wybrany identyfikator zasobu | _Identyfikator podrzędny/subscriptions/<><grupy zasobów>/Providers/<typ zasobu>/acmeauthentication_ |
 | `{Applications:label}` | Etykieta wybranego zasobu | `acmefrontend` |
-| `{Applications:value}` | Wartość wybranego zasobu | _"/subscriptions/<identyfikator podrzędny> <grupy zasobów>/Providers/<typ zasobu>/acmeauthentication"_ |
+| `{Applications:value}` | Wartość wybranego zasobu | _"/subscriptions/<identyfikator podrzędny><grupy zasobów>/Providers/<typ zasobu>/acmeauthentication"_ |
 | `{Applications:name}` | Nazwa wybranego zasobu | `acmefrontend` |
 | `{Applications:resourceGroup}` | Grupa zasobów wybranego zasobu | `acmegroup` |
 | `{Applications:resourceType}` | Typ wybranego zasobu | _Microsoft. Insights/składniki_ |

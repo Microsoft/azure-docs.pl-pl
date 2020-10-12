@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77111771"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Korzystanie z tożsamości zarządzanej przez platformę Azure w zadaniach ACR 
@@ -84,7 +84,7 @@ Identyfikator zasobu tożsamości można uzyskać, uruchamiając polecenie [AZ I
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure
 
-W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady obejmują:
+W zależności od wymagań zadania Przyznaj tożsamości uprawnienia dostępu do innych zasobów platformy Azure. Przykłady:
 
 * Przypisywanie tożsamości zarządzanej roli za pomocą ściągania, wypychania i ściągania lub innych uprawnień do rejestru kontenerów docelowych na platformie Azure. Pełną listę ról rejestru można znaleźć w temacie [Azure Container Registry role i uprawnienia](container-registry-roles.md). 
 * Przypisanie tożsamości zarządzanej roli do odczytu wpisów tajnych w magazynie kluczy platformy Azure.
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Aby dodać poświadczenia dla tożsamości przypisanej do użytkownika w celu uwierzytelnienia za pomocą rejestru *targetregistry*, Przekaż `use-identity` wartość *identyfikatora klienta* tożsamości. Przykład:
+Aby dodać poświadczenia dla tożsamości przypisanej do użytkownika w celu uwierzytelnienia za pomocą rejestru *targetregistry*, Przekaż `use-identity` wartość *identyfikatora klienta* tożsamości. Na przykład:
 
 ```azurecli
 az acr task credential add \

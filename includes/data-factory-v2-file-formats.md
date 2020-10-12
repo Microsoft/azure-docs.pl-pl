@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 54487cc8992149e6d8b599bb2a4b35e2c252404d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86522446"
 ---
 <!--
@@ -24,4 +24,4 @@ Azure Data Factory obsługuje następujące formaty plików. Zapoznaj się z ka�
 - [Format JSON](../articles/data-factory/format-json.md)
 - [Format ORC](../articles/data-factory/format-orc.md)
 - [Format Parquet](../articles/data-factory/format-parquet.md)
-- [XML format](../articles/data-factory/format-xml.md)
+- [Format XML](../articles/data-factory/format-xml.md)
