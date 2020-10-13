@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
 ms.openlocfilehash: eedfe4f24797a9b564479b2f8d3f4d04b0751272
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779816"
 ---
 > [!NOTE]
@@ -34,7 +34,7 @@ Następujące kategorie jednostek są zwracane podczas wysyłania żądań do `/
 | Organizacja | Sports | Organizacje dotyczące sportu. | `2020-04-01` |  |
 | Adres | Nie dotyczy | Pełne adresy wysyłkowe.  | `2020-04-01` | Zwracany także przez `domain=phi` . |
 | Współrzędne GPS w Unii Europejskiej | Nie dotyczy | Współrzędne GPS dla lokalizacji w Unii Europejskiej.  | `2019-10-01` |  |
-| E-mail | Nie dotyczy | Adresy e-mail. | `2019-10-01` | Zwracany także przez `domain=phi` .   |
+| Poczta e-mail | Nie dotyczy | Adresy e-mail. | `2019-10-01` | Zwracany także przez `domain=phi` .   |
 | Adres URL | Nie dotyczy | Adresy URL do witryn sieci Web. | `2019-10-01` | Zwracany także przez `domain=phi` . |
 | Adres IP | Nie dotyczy | Adresy IP sieci. | `2019-10-01` | Zwracany także przez `domain=phi` . |
 | DateTime | Nie dotyczy | Daty i godziny dnia. | `2019-10-01` |  | 

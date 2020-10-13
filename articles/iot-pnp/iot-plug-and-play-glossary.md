@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577343"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play"></a>Słownik terminów dotyczących usługi IoT Plug and Play
@@ -81,7 +81,7 @@ Konstruktor urządzeń korzysta z [modelu](#device-model) i [interfejsów](#inte
 
 Cyfrowa przędza to model [urządzenia IoT Plug and Play](#iot-plug-and-play-device). Dwucyfrowy model jest modelowany przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language](#digital-twins-definition-language). Za pomocą [zestawów SDK urządzeń usługi Azure IoT](#azure-iot-device-sdk) można korzystać z bliźniaczych reprezentacji cyfrowych w czasie wykonywania. Na przykład możesz ustawić wartość właściwości w postaci cyfrowej sznurka na urządzeniu, a zestaw SDK przekaże tę zmianę do rozwiązania IoT w chmurze.
 
-## <a name="digital-twin-change-events"></a>Wielocyfrowe zdarzenia zmiany
+## <a name="digital-twin-change-events"></a>Zdarzenia zmiany cyfrowej reprezentacji bliźniaczej
 
 Gdy [urządzenie Plug and Play IoT](#iot-plug-and-play-device) jest połączone z [Centrum IoT](#azure-iot-hub), centrum może korzystać z funkcji routingu do wysyłania powiadomień o zmianach dwuosiowych. Na przykład za każdym razem, gdy wartość [Właściwości](#properties) zostanie zmieniona na urządzeniu, IoT Hub może wysłać powiadomienie do punktu końcowego, takiego jak centrum zdarzeń.
 
@@ -101,7 +101,7 @@ Interfejs opisuje powiązane funkcje, które są implementowane przez [urządzen
 
 Język zapytań IoT Hub jest używany w wielu celach. Można na przykład użyć języka do wyszukania urządzeń zarejestrowanych w centrum IoT Hub lub zawęzić zachowanie [routingu cyfrowego przędzy](#digital-twin-route) .
 
-## <a name="iot-plug-and-play-bridge"></a>Mostek Plug and Play IoT
+## <a name="iot-plug-and-play-bridge"></a>Mostek IoT Plug and Play
 
 IoT Plug and Play Bridge to aplikacja Open Source, która umożliwia istniejące czujniki i urządzenia peryferyjne podłączone do bram systemu Windows lub Linux do łączenia się z [urządzeniami Plug and Play IoT](#iot-plug-and-play-device).
 

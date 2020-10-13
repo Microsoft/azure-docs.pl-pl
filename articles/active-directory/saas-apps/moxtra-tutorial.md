@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544047"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Moxtra
 
@@ -156,11 +156,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Na pasku narzędzi po lewej stronie kliknij kolejno pozycje **Konsola administracyjna > protokół SAML logowanie**jednokrotne, a następnie kliknij pozycję **Nowy**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Zrzut ekranu przedstawia stronę rejestracji jednokrotnej protokołu SAML z opcją tworzenia nowego logowania jednokrotnego SAML.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. Na stronie **SAML** wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Zrzut ekranu przedstawia stronę SAML, na której można wprowadzić podane wartości.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. W polu tekstowym **Nazwa** wpisz nazwę konfiguracji (np.: *SAML*). 
   
@@ -191,7 +191,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w Moxtra.
 
 1. Na pasku narzędzi po lewej stronie kliknij pozycję **Konsola administracyjna > zarządzanie użytkownikami**, a następnie **Dodaj użytkownika**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Zrzut ekranu przedstawia stronę Zarządzanie użytkownikami z wybraną pozycją Dodaj użytkownika.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. W oknie dialogowym **Add User** (Dodawanie użytkownika) wykonaj następujące kroki:
   

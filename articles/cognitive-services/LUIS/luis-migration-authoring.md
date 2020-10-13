@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536051"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrowanie do klucza tworzenia zasobów platformy Azure
@@ -77,7 +77,7 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
    > [!div class="mx-imgBorder"]
    > ![Pierwsze okno podręczne w procesie migracji, w którym można wybrać pozycję Migruj teraz](./media/migrate-authoring-key/prompt-when-migrating-2.png)
 
-3. Jeśli dowolna z aplikacji ma współpracowników, zostanie wyświetlony monit o wysłanie do nich wiadomości e-mail z informacją o migracji. Jest to opcjonalny krok.
+3. Jeśli dowolna z aplikacji ma współpracowników, zostanie wyświetlony monit o wysłanie do nich wiadomości e-mail z informacją o migracji. Ten krok jest opcjonalny.
 
    Dla każdego współpracownika i aplikacji zostanie otwarta domyślna aplikacja poczty e-mail z lekko sformatowaną wiadomością e-mail. Wiadomość e-mail można edytować przed jej wysłaniem. Szablon wiadomości e-mail zawiera dokładny identyfikator aplikacji i nazwę aplikacji.
 
@@ -95,7 +95,7 @@ Należy przeprowadzić migrację z portalu LUIS. Jeśli tworzysz klucze tworzeni
    > [!Note]
    > Po przeprowadzeniu migracji konta na platformę Azure aplikacje nie będą już dostępne dla współpracowników.
 
-4. Jeśli jesteś współpracownikiem z dowolnej aplikacji, zostanie wyświetlony monit o wyeksportowanie kopii aplikacji przez wybranie tej opcji podczas przepływu migracji. Jest to opcjonalny krok.
+4. Jeśli jesteś współpracownikiem z dowolnej aplikacji, zostanie wyświetlony monit o wyeksportowanie kopii aplikacji przez wybranie tej opcji podczas przepływu migracji. Ten krok jest opcjonalny.
 
    W przypadku wybrania opcji zostanie wyświetlona następująca strona. Wybierz przyciski pobierania po lewej stronie, aby wyeksportować wybrane aplikacje. Te aplikacje można zaimportować z powrotem po migracji, ponieważ nie będą one automatycznie migrowane.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: c14a519be112e61ed7055debe7a1a454e465bd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c006e38d30e4e32645024a8c307a18767e8a1090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549096"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941062"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-personal-portal"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z portalem osobistym Mimecast
 
@@ -155,23 +155,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do **Administration**  >  **Services**  >  **aplikacji**usług administracyjnych.
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/services.png)
+    ![Zrzut ekranu przedstawia okno Mimecast z wybranymi aplikacjami.](./media/mimecast-personal-portal-tutorial/services.png)
 
 1. Kliknij kartę **Profile uwierzytelniania** .
     
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
+    ![Zrzut ekranu przedstawia kartę aplikacja z wybranymi profilami uwierzytelniania.](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
 
 1. Kliknij przycisk **Nowa karta Profil uwierzytelniania** .
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
+    ![Zrzut ekranu przedstawia wybrany nowy profil uwierzytelniania.](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
 
 1. Podaj prawidłowy opis w polu tekstowym **Opis** i zaznacz pole wyboru **Wymuszaj uwierzytelnianie SAML dla usługi Mimecast Personal Portal** .
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
+    ![Zrzut ekranu przedstawia wybrany nowy profil uwierzytelniania.](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
 
 1. Na stronie **Konfiguracja SAML portalu osobistego Mimecast** wykonaj następujące czynności:
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/sso-settings.png)
+    ![Zrzut ekranu pokazuje, gdzie zaznaczyć opcję Wymuś uwierzytelnianie SAML dla konsoli administracyjnej.](./media/mimecast-personal-portal-tutorial/sso-settings.png)
 
     a. W obszarze **dostawca**wybierz pozycję **Azure Active Directory** z listy rozwijanej.
 
@@ -189,19 +189,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do katalogu **Administracja**  >  **Directories**  >  **katalogi wewnętrzne**.
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/internal-directories.png)
+    ![Zrzut ekranu przedstawia konfigurację języka SAML dla portalu osobistego Mimecast, w którym można wprowadzić podane wartości.](./media/mimecast-personal-portal-tutorial/internal-directories.png)
 
 1. Wybierz domenę, jeśli domena jest wymieniona poniżej. w przeciwnym razie Utwórz nową domenę, klikając **nową domenę**.
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/domain-name.png)
+    ![Zrzut ekranu przedstawia okno Mimecast z wybranymi katalogami wewnętrznymi.](./media/mimecast-personal-portal-tutorial/domain-name.png)
 
 1. Kliknij przycisk **Nowa karta adres** .
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/new-address.png)
+    ![Zrzut ekranu przedstawia wybraną domenę.](./media/mimecast-personal-portal-tutorial/new-address.png)
 
 1. Podaj wymagane informacje o użytkowniku na następującej stronie:
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/user-information.png)
+    ![Zrzut ekranu przedstawia stronę, na której można wprowadzić podane wartości.](./media/mimecast-personal-portal-tutorial/user-information.png)
 
     a. W polu tekstowym **adres e-mail** wprowadź adres e-mail użytkownika `B.Simon@yourdomainname.com` .
 
@@ -215,7 +215,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. Aby przypisać role do użytkownika, kliknij pozycję **rola Edytuj** i przypisz wymagane role do użytkownika zgodnie z wymaganiami organizacji.
 
-    ![Konfiguracja portalu osobistego Mimecast](./media/mimecast-personal-portal-tutorial/assign-role.png)
+    ![Zrzut ekranu przedstawia ustawienia adresów, w których można wybrać opcję Edytuj rolę.](./media/mimecast-personal-portal-tutorial/assign-role.png)
 
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 

@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Tworzenie definicji zasad niestandardowych'
 description: W tym samouczku utworzysz niestandardową definicję zasad Azure Policy, aby wymusić niestandardowe reguły biznesowe dla zasobów platformy Azure.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89649823"
+ms.locfileid: "91876298"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych
 
@@ -66,12 +66,15 @@ Istnieje wiele sposobów określania właściwości zasobu platformy Azure. Omó
 
 ### <a name="arm-templates"></a>Szablony usługi ARM
 
-[Szablon usługi Resource Manager](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) zawierający szukaną właściwość w celu zarządzania nią można sprawdzić na kilka sposobów.
+Istnieje kilka sposobów, aby zapoznać się z [platformą](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md) , która zawiera właściwość, którą chcesz zarządzać.
 
 #### <a name="existing-resource-in-the-portal"></a>Istniejący zasób w portalu
 
 Najprostszym sposobem na znalezienie właściwości jest przyjrzenie się istniejącemu zasobowi tego samego typu. Zasoby już skonfigurowane za pomocą ustawienia, które ma być wymuszane, służą także do porównywania wartości.
 Przyjrzyj się stronie **Eksportuj szablon** (w obszarze **ustawienia**) w Azure Portal dla tego konkretnego zasobu.
+
+> [!WARNING]
+> Szablon ARM wyeksportowany przez Azure Portal nie może być podłączony bezpośrednio do `deployment` Właściwości szablonu ARM w definicji zasad [deployIfNotExists](../concepts/effects.md#deployifnotexists) .
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Zrzut ekranu przedstawiający stronę Eksportuj szablon w istniejącym zasobie w Azure Portal." border="false":::
 

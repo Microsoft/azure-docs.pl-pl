@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894569"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945752"
 ---
 # <a name="working-with-security-policies"></a>Praca z zasadami zabezpieczeń
 
@@ -46,7 +46,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
 1. Na pulpicie nawigacyjnym **Security Center** wybierz pozycję **zasady zabezpieczeń**.
 
-    ![Okienko Zarządzanie zasadami](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Strona Zarządzanie zasadami&quot;:::
 
    Na ekranie **Zarządzanie zasadami** można zobaczyć liczbę grup zarządzania, subskrypcji i obszarów roboczych, a także strukturę grupy zarządzania.
 
@@ -57,7 +57,7 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
    ![Strona zasad](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Jeśli istnieje etykieta "MG odziedziczona" wraz z zasadami domyślnymi, oznacza to, że zasady zostały przypisane do grupy zarządzania i są dziedziczone przez przeglądaną subskrypcję.
+    > Jeśli istnieje etykieta &quot;MG odziedziczona" wraz z zasadami domyślnymi, oznacza to, że zasady zostały przypisane do grupy zarządzania i są dziedziczone przez przeglądaną subskrypcję.
 
 
 1. Wybierz spośród dostępnych opcji na tej stronie:
@@ -68,8 +68,19 @@ Aby wyświetlić zasady zabezpieczeń w usłudze Security Center:
 
     1. Aby wyświetlić i edytować zasady domyślne, wybierz pozycję **Wyświetl czynne zasady** i postępuj zgodnie z poniższym opisem. 
 
-       ![ekran zasad](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Strona Zarządzanie zasadami&quot;:::
+
+   Na ekranie **Zarządzanie zasadami** można zobaczyć liczbę grup zarządzania, subskrypcji i obszarów roboczych, a także strukturę grupy zarządzania.
+
+1. Wybierz subskrypcję lub grupę zarządzania, której zasady chcesz wyświetlić.
+
+1. Zostanie wyświetlona strona zasady zabezpieczeń dla tej subskrypcji lub grupy zarządzania. Są w nim wyświetlane zasady dostępne i przypisane.
+
+   ![Strona zasad](./media/tutorial-security-policy/security-policy-page.png)
+
+    > [!NOTE]
+    > Jeśli istnieje etykieta &quot;MG odziedziczona":::
+
        Ten ekran **zasad zabezpieczeń** odzwierciedla akcję podejmowaną przez zasady przypisane do wybranej subskrypcji lub grupy zarządzania.
        
        * Użyj linków w górnej części strony, aby otworzyć **przypisanie** zasad, które ma zastosowanie do subskrypcji lub grupy zarządzania. Te linki umożliwiają dostęp do przypisania i edytowanie lub wyłączanie zasad. Jeśli na przykład widzisz, że określone przypisanie zasad skutecznie odmawia ochrony punktu końcowego, Użyj linku do edytowania lub wyłączania zasad.
@@ -131,8 +142,7 @@ Aby uzyskać więcej informacji na temat zaleceń, zobacz [Zarządzanie zaleceni
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule wyjaśniono zasady zabezpieczeń. Aby uzyskać powiązane informacje, zobacz następujące artykuły:
 
-* Aby uzyskać instrukcje dotyczące sposobu ustawiania zasad przy użyciu programu PowerShell, zobacz [Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu modułu Azure PowerShell](../governance/policy/assign-policy-powershell.md)
-
-* Aby uzyskać instrukcje dotyczące edytowania zasad zabezpieczeń w programie Azure Policy, zobacz [Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md).
-
-* Aby uzyskać instrukcje dotyczące sposobu ustawiania zasad w ramach subskrypcji lub grup zarządzania przy użyciu Azure Policy, zobacz [co to jest Azure Policy?](../governance/policy/overview.md)
+- [Dowiedz się, jak ustawiać zasady przy użyciu programu PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Dowiedz się, jak edytować zasady zabezpieczeń w Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
+- [Dowiedz się, jak ustawić zasady w ramach subskrypcji lub grup zarządzania przy użyciu Azure Policy](../governance/policy/overview.md).
+- [Dowiedz się, jak włączyć Security Center we wszystkich subskrypcjach w grupie zarządzania](onboard-management-group.md)

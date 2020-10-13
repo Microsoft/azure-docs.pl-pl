@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
 ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295718"
 ---
 # <a name="server-group-size"></a>Rozmiar grupy serwerów
@@ -22,13 +22,13 @@ Opcja wdrożenia Citus) używa współpracujących serwerów baz danych, aby zr�
 
 Rozmiar grupy serwerów, w sensie liczby węzłów i ich pojemności sprzętowej, można łatwo zmienić ([patrz poniżej](#scale-a-hyperscale-citus-server-group)). Jednak nadal trzeba wybrać rozmiar początkowy nowej grupy serwerów. Poniżej przedstawiono niektóre wskazówki dotyczące rozsądnego wyboru.
 
-### <a name="multi-tenant-saas-use-case"></a>SaaS użycia wielu dzierżawców
+### <a name="multi-tenant-saas-use-case"></a>Wielodostępne Use-Case SaaS
 
 W przypadku migracji do Citus z istniejącego wystąpienia bazy danych z jednym węzłem PostgreSQL zaleca się wybranie klastra, w którym liczba rdzeni wirtualnych procesów roboczych i pamięć RAM łącznie jest równa pierwotnemu wystąpieniu. W takich scenariuszach pojawiły się następujące udoskonalenia wydajności, ponieważ fragmentowania zwiększa wykorzystanie zasobów, co pozwala na mniejsze indeksy itd.
 
 Liczba rdzeni wirtualnych wymaganych przez węzeł koordynatora zależy od istniejącego obciążenia (przepływność zapisu/odczytu). Węzeł koordynatora nie wymaga tak dużej ilości pamięci RAM jako węzłów procesu roboczego, ale alokacja pamięci RAM jest określana na podstawie liczby rdzeń wirtualny (zgodnie z opisem w [opcjach konfiguracji Citus)](concepts-hyperscale-configuration-options.md), więc liczba rdzeń wirtualny jest zasadniczo rzeczywistą decyzją.
 
-### <a name="real-time-analytics-use-case"></a>Przypadek użycia analizy w czasie rzeczywistym
+### <a name="real-time-analytics-use-case"></a>Use-Case Real-Time Analytics
 
 Łącznie rdzeni wirtualnych: gdy praca danych mieści się w pamięci RAM, można spodziewać się liniowe zwiększenie wydajności na potrzeby skalowania (Citus) proporcjonalnie do liczby rdzeni roboczych. Aby określić odpowiednią liczbę rdzeni wirtualnych dla potrzeb, należy wziąć pod uwagę bieżące opóźnienie dla zapytań w bazie danych z jednym węzłem i wymagane opóźnienie w ramach funkcji (Citus). Podziel bieżące opóźnienie przez żądane opóźnienie i zaokrąglij wynik.
 

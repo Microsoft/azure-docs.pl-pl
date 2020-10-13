@@ -1,16 +1,14 @@
 ---
 title: Migrowanie Azure Monitor Application Insights zasobów klasycznych do zasobów opartych na obszarze roboczym | Microsoft Docs
 description: Informacje o krokach wymaganych do uaktualnienia Azure Monitor Application Insights zasobów klasycznych do nowego modelu opartego na obszarze roboczym.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333345"
+ms.locfileid: "91930581"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrowanie do zasobów Application Insights opartych na obszarze roboczym
 

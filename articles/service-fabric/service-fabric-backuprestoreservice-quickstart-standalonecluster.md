@@ -4,10 +4,10 @@ description: Funkcja okresowa i przywracanie kopii zapasowej autonomicznej Servi
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538589"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Okresowe tworzenie kopii zapasowych i przywracanie w autonomicznej Service Fabric

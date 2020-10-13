@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570360"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
@@ -177,7 +177,7 @@ Interfejs API SQL obsługuje agregację o małym opóźnieniu w dowolnej skali z
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Jak interfejs API SQL udostępnia współbieżność?
 
-Interfejs API SQL obsługuje optymistyczną kontrolę współbieżności (OCC) za pośrednictwem tagów jednostek HTTP lub elementów ETag. Każdy zasób interfejsu API SQL ma element ETag, a element ETag jest ustawiany na serwerze za każdym razem, gdy dokument zostanie zaktualizowany. Nagłówek ETag i bieżąca wartość są uwzględniane we wszystkich komunikatach odpowiedzi. Elementy ETag mogą być używane z nagłówkiem if-Match, aby umożliwić serwerowi podjęcie decyzji o tym, czy zasób powinien zostać zaktualizowany. Wartość if-Match jest wartością ETag, która ma zostać sprawdzona. Jeśli wartość ETag jest zgodna z wartością ETag serwera, zasób zostanie zaktualizowany. Jeśli element ETag nie jest już aktualny, serwer odrzuca operację z kodem odpowiedzi "HTTP 412 niepowodzenie warunku wstępnego". Klient ponownie pobierze zasób, aby uzyskać bieżącą wartość ETag dla zasobu. Ponadto elementy ETag mogą być używane z nagłówkiem If-None-Match, aby określić, czy konieczne jest ponowne pobranie zasobu.
+Interfejs API SQL obsługuje optymistyczną kontrolę współbieżności (OCC) za pośrednictwem tagów jednostek HTTP lub elementów ETag. Każdy zasób interfejsu API SQL ma element ETag, a element ETag jest ustawiany na serwerze za każdym razem, gdy dokument zostanie zaktualizowany. Nagłówek ETag i bieżąca wartość są uwzględniane we wszystkich komunikatach odpowiedzi. Elementy ETag mogą być używane z nagłówkiem If-Match, aby umożliwić serwerowi podjęcie decyzji o tym, czy zasób powinien zostać zaktualizowany. Wartość If-Match jest wartością ETag, która ma zostać sprawdzona. Jeśli wartość ETag jest zgodna z wartością ETag serwera, zasób zostanie zaktualizowany. Jeśli element ETag nie jest już aktualny, serwer odrzuca operację z kodem odpowiedzi "HTTP 412 niepowodzenie warunku wstępnego". Klient ponownie pobierze zasób, aby uzyskać bieżącą wartość ETag dla zasobu. Ponadto elementy ETag mogą być używane z nagłówkiem If-None-Match, aby określić, czy konieczne jest ponowne pobranie zasobu.
 
 Aby użyć optymistycznej współbieżności w programie .NET, należy użyć klasy [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Aby zapoznać się z przykładem platformy .NET, zobacz [program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) w przykładzie DocumentManagement w witrynie GitHub.
 

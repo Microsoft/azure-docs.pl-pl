@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować odzyskiwanie po awarii na platform
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448969"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikowanie maszyn wirtualnych usługi Azure Stack na platformie Azure
@@ -97,9 +97,9 @@ Dla każdej maszyny wirtualnej, która ma zostać zreplikowana, musi być zainst
     - To konto należy określić podczas konfigurowania Site Recovery. Następnie serwer przetwarzania korzysta z tego konta, aby zainstalować usługę mobilności po włączeniu replikacji.
     - To konto będzie używane tylko przez Site Recovery do instalacji wypychanej oraz do aktualizowania usługi mobilności.
     - Jeśli nie korzystasz z konta domeny, musisz wyłączyć kontrolę dostępu użytkowników zdalnych na maszynie wirtualnej:
-        - W rejestrze utwórz wartość DWORD **LocalAccountTokenFilterPolicy** w obszarze HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system.
+        - W rejestrze utwórz wartość DWORD **LocalAccountTokenFilterPolicy** w obszarze HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
         - Jako wartość wpisz 1.
-        - Aby to zrobić, w wierszu polecenia wpisz następujące polecenie: **REG ADD HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system/V LocalAccountTokenFilterPolicy/t REG_DWORD/d 1**.
+        - W tym celu w wierszu polecenia wpisz następujące polecenie: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System/V LocalAccountTokenFilterPolicy/t REG_DWORD/d 1**.
 - W zaporze systemu Windows na maszynie wirtualnej, którą chcesz replikować, Zezwól na udostępnianie plików i drukarek oraz usługę WMI.
     - Aby to zrobić, uruchom program **WF. msc** , aby otworzyć konsolę zapory systemu Windows. Kliknij prawym przyciskiem myszy pozycję **reguły ruchu przychodzącego**  >  **Nowa reguła**. Wybierz pozycję **wstępnie zdefiniowane**, a następnie z listy wybierz pozycję **udostępnianie plików i drukarek** . Ukończ pracę kreatora, wybierając opcję zezwalania > na **zakończenie**połączenia.
     - W przypadku komputerów z domeną można użyć obiektu zasad grupy.

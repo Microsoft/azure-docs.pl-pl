@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627571"
+ms.locfileid: "91876553"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -93,11 +93,9 @@ W wierszu polecenia wprowadź hasło dla konta użytkownika.
 
 ## <a name="monitor-replication"></a>Monitorowanie replikacji
 
-Azure Database for MySQL zapewnia wartość **opóźnienia replikacji w sekundach** w Azure monitor. Ta Metryka jest dostępna tylko dla replik.
+Azure Database for MySQL zapewnia wartość **opóźnienia replikacji w sekundach** w Azure monitor. Ta Metryka jest dostępna tylko dla replik. Ta Metryka jest obliczana przy użyciu `seconds_behind_master` metryki dostępnej w `SHOW SLAVE STATUS` poleceniu programu MySQL. Ustaw Alert, aby poinformować Cię, gdy zwłoka replikacji osiągnie wartość, która nie jest akceptowalna dla obciążenia.
 
-Ta Metryka jest obliczana przy użyciu `seconds_behind_master` metryki dostępnej w `SHOW SLAVE STATUS` poleceniu programu MySQL.
-
-Ustaw Alert, aby poinformować Cię, gdy zwłoka replikacji osiągnie wartość, która nie jest akceptowalna dla obciążenia.
+Jeśli widzisz zwiększone opóźnienia replikacji, zapoznaj się z tematem [opóźnienie replikacji](howto-troubleshoot-replication-latency.md) , aby rozwiązać problemy i zrozumieć możliwe przyczyny.
 
 ## <a name="stop-replication"></a>Zatrzymywanie replikacji
 

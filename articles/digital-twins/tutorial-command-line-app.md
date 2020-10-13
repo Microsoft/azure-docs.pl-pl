@@ -8,10 +8,10 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297672"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
@@ -85,18 +85,18 @@ Pamiętaj, aby zapisać plik przed przechodzeniem.
 
 Po zdefiniowaniu modelu pozostałe kroki obejmują korzystanie z przykładowej aplikacji w celu współdziałania z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Uruchom projekt przy użyciu tego przycisku na pasku narzędzi:
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Przycisk Start programu Visual Studio (projekt SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 Otworzy się okno konsoli, przeprowadzisz uwierzytelnianie i poczekasz na polecenie. 
 * Uwierzytelnianie jest obsługiwane w przeglądarce: domyślna przeglądarka sieci Web zostanie otwarta z monitem o uwierzytelnienie. Użyj tego monitu, aby zalogować się przy użyciu poświadczeń platformy Azure. Następnie można zamknąć kartę lub okno przeglądarki.
 
 Poniżej znajduje się zrzut ekranu przedstawiający wygląd konsoli projektu:
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Komunikat powitalny z aplikacji wiersza polecenia":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 > [!TIP]
 > Aby uzyskać listę wszystkich możliwych poleceń, których można użyć z tym projektem, wprowadź `help` w konsoli projektu i naciśnij przycisk Return.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Dane wyjściowe polecenia pomocy":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 Pozostaw uruchomioną konsolę projektu dla pozostałej części kroków tego samouczka.
 
@@ -117,9 +117,9 @@ Dane wyjściowe powinny wskazywać, że modele zostały utworzone pomyślnie.
 
 Sprawdź, czy modele zostały utworzone przez uruchomienie polecenia `GetModels true` . Spowoduje to wysłanie zapytania do wystąpienia usługi Azure Digital bliźniaczych reprezentacji dla wszystkich przekazanych modeli i wydrukowanie ich pełnych informacji. Poszukaj edytowanego modelu *pokoju* w wynikach:
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Wyniki GetModels, pokazując zaktualizowany model pokoju":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
-#### <a name="errors"></a>błędy
+#### <a name="errors"></a>Errors
 
 Przykładowa aplikacja obsługuje także błędy usługi. 
 
@@ -165,7 +165,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 Dane wyjściowe tych poleceń powinny wskazywać, że bliźniaczych reprezentacji zostały utworzone pomyślnie. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Fragment z wyników poleceń CreateDigitalTwin, pokazujący floor0, floor1, room0 i room1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 Możesz również sprawdzić, czy bliźniaczych reprezentacji zostały utworzone przez uruchomienie `Query` polecenia. To polecenie powoduje wysłanie zapytania do wystąpienia usługi Azure Digital bliźniaczych reprezentacji dla wszystkich bliźniaczych reprezentacji, które zawiera. W wynikach Szukaj *floor0*, *floor1*, *room0*i *room1* bliźniaczych reprezentacji.
 
@@ -205,7 +205,7 @@ CreateRelationship floor1 contains room1 relationship1
 
 Dane wyjściowe tych poleceń potwierdzają, że relacje zostały utworzone pomyślnie:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Fragment z wyników poleceń elementu webrelationship, pokazujących relationship0 i relationship1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 Możesz również sprawdzić relacje z dowolnym z poniższych poleceń, które wykonują zapytania dotyczące relacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 * Aby wyświetlić wszystkie relacje wychodzące z każdego piętra (wyświetlanie relacji z jednej strony),
@@ -225,7 +225,7 @@ Możesz również sprawdzić relacje z dowolnym z poniższych poleceń, które w
 
 Bliźniaczych reprezentacji i relacje, które zostały skonfigurowane w tym samouczku, tworzą następujący wykres koncepcyjny:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Wykres przedstawiający floor0 połączony za pośrednictwem relationship0 do room0 oraz floor1 podłączony przez relationship1 do room1" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Zbadaj Graf bliźniaczy, aby odpowiedzieć na pytania dotyczące środowiska
 
@@ -239,7 +239,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     Pozwala to na błyskawiczne przejęcie zasobów w środowisku i upewnienie się, że wszystko jest reprezentowane, tak jak w przypadku usługi Azure Digital bliźniaczych reprezentacji. Wynikiem tego jest dane wyjściowe zawierające każdą z nich. Oto fragment:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Częściowe wyniki zapytania bliźniaczyego, pokazujące room0 i floor1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
     >[!NOTE]
     >W przykładowym projekcie polecenie `Query` bez żadnych dodatkowych argumentów jest równoważne `Query SELECT * FROM DIGITALTWINS` . Aby wykonać zapytanie dotyczące wszystkich bliźniaczych reprezentacji w wystąpieniu przy użyciu [interfejsów API zapytań](how-to-use-apis-sdks.md) lub [poleceń interfejsu wiersza polecenia](how-to-use-cli.md), użyj dłuższego (kompletnego) zapytania.
@@ -252,7 +252,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     Możesz ograniczyć zapytanie do bliźniaczych reprezentacji pewnego typu, aby uzyskać bardziej szczegółowe informacje na temat tego, co zostało reprezentowane. W wyniku tego są wyświetlane *room0* i *room1*, **ale nie są** wyświetlane *floor0* ani *floor1* (ponieważ są to piętra, a nie pokoje).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Wyniki zapytania modelu, zawierające tylko room0 i room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 * **Jakie są wszystkie pokoje w witrynie *floor0*?** (zapytanie według relacji)
 
@@ -262,7 +262,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     Możesz wykonywać zapytania na podstawie relacji w grafie, aby uzyskać informacje na temat sposobu połączenia bliźniaczych reprezentacji lub ograniczenia zapytania do określonego obszaru. Tylko *room0* jest na *floor0*, więc jest to jedyne miejsce w wyniku.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Wyniki zapytania relacji, pokazujące room0":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 * **Co to jest wszystkie bliźniaczych reprezentacji w moim środowisku z temperaturą powyżej 75?** (zapytanie według właściwości)
 
@@ -272,7 +272,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     Możesz wysyłać zapytania do grafu na podstawie właściwości, aby odpowiedzieć na różne pytania, w tym Znajdowanie wartości odstających w środowisku, które mogą wymagać uwagi. Obsługiwane są również inne operatory porównania ( *<* , *>* ,, *=* lub *! =*). w tym miejscu *room1* pojawia się w wynikach, ponieważ ma temperaturę 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Wyniki zapytania właściwości, zawierające tylko room1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 * **Jakie są wszystkie pokoje *floor0* z temperaturą powyżej 75?** (zapytanie złożone)
 
@@ -282,7 +282,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     Możesz również połączyć wcześniejsze zapytania, takie jak w przypadku języka SQL, przy użyciu operatorów kombinacji takich jak `AND` , `OR` , `NOT` . To zapytanie używa `AND` do powyższej kwerendy dotyczącej pozostałej liczby pozostałych temperatur. Teraz wynik obejmuje tylko pokoje z temperaturą powyżej 75, które znajdują się w *floor0*— w tym przypadku nie ma żadnego z nich. Zestaw wyników jest pusty.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

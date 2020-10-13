@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554281"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Samouczek: integracja Azure Active Directory z połączeniem SAML środowiska wirtualnego ON24
 
@@ -147,7 +147,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą połączeni
 
 5.  Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , wykonaj następujące czynności:
 
-    ![ON24 wirtualne połączenia SAML domeny i adresów URL Logowanie jednokrotne](common/both-signonurl.png)
+    ![Zrzut ekranu pokazujący, że sekcja "Ustaw dodatkową U R ls" z wyróżnionym polem tekstowym "Zaloguj się U R L".](common/both-signonurl.png)
 
     W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 
@@ -195,7 +195,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893618"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945599"
 ---
 # <a name="select-columns-transform"></a>Wybieranie przekształcenia kolumn
 
@@ -46,8 +46,14 @@ W tym scenariuszu przyjęto założenie, że chcesz użyć wyboru funkcji do wyg
 
    *Nie łącz wejściowego zestawu danych.* Zamiast tego należy dodać moduł [przekształcenia](apply-transformation.md) i połączyć dane wyjściowe transformacji wyboru funkcji.
 
+   Struktura potoku powinna wyglądać następująco:
+
+   > [!div class="mx-imgBorder"]
+   > ![Przykładowy potok](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Nie można oczekiwać, aby zastosować [wybór funkcji oparty na filtrach](filter-based-feature-selection.md) do zestawu danych oceniania i uzyskać te same wyniki. Ponieważ wybór funkcji jest oparty na wartościach, może wybrać inny zestaw kolumn, co spowoduje niepowodzenie operacji oceniania.
+    
 7. Prześlij potok.
 
 Ten proces zapisywania i stosowania wybranej kolumny zapewnia, że ten sam schemat danych jest dostępny do szkolenia i oceniania.

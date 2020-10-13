@@ -15,10 +15,10 @@ ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293377"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Zmiana w miejscu dotycząca wersji programu SQL Server na maszynie wirtualnej platformy Azure
@@ -31,7 +31,7 @@ W tym artykule opisano sposób zmiany wersji Microsoft SQL Server na maszynie wi
 
 Aby wykonać uaktualnienie w miejscu SQL Server, mają zastosowanie następujące warunki:
 
-- Wymagany jest nośnik instalacyjny żądanej wersji SQL Server. Klienci posiadający [program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) mogą uzyskać nośnik instalacyjny z [centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej z nowszą wersją SQL Server (zazwyczaj znajdującą się w C:\SQLServerFull).
+- Wymagany jest nośnik instalacyjny żądanej wersji SQL Server. Klienci, którzy biorą udział w programie [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default), mogą uzyskać nośnik instalacyjny z [Centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z witryny Azure Marketplace SQL Server obrazu maszyny wirtualnej z nowszą wersją SQL Server (zazwyczaj znajdującą się w C:\SQLServerFull).
 - Uaktualnienia wersji powinny być zgodne ze [ścieżkami uaktualnienia obsługi](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15).
 
 ## <a name="planning-for-version-change"></a>Planowanie zmiany wersji
@@ -69,11 +69,11 @@ Aby uaktualnić wersję programu SQL Server, uzyskaj nośnik instalacyjny SQL Se
 1. Na stronie **klucz produktu** wybierz opcję, aby wskazać, czy przeprowadzasz uaktualnienie do bezpłatnej wersji SQL Server, czy masz klucz PID dla wersji produkcyjnej produktu. Aby uzyskać więcej informacji, zobacz [wersje i obsługiwane funkcje programu SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) oraz [obsługiwane uaktualnienia wersji i wydania (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
 1. Wybierz pozycję **dalej** do momentu uzyskania dostępu **do strony gotowy do uaktualnienia** , a następnie wybierz pozycję **Uaktualnij**. Okno instalatora może przestać odpowiadać przez kilka minut, gdy zmiana zacznie obowiązywać. **Pełna** Strona potwierdzi, że uaktualnienie zostało ukończone. Aby zapoznać się z procedurą krok po kroku dotyczącą uaktualniania, zobacz [kompletną procedurę](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Pełna Strona":::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Wybór do uaktualnienia wersji SQL Server":::
 
 Jeśli została zmieniona wersja SQL Server oprócz zmiany wersji, należy również zaktualizować wersję i zapoznać się z sekcją **Sprawdź wersję i wydanie w portalu** , aby zmienić wystąpienie maszyny wirtualnej SQL.
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Zmień metadane wersji":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Wybór do uaktualnienia wersji SQL Server":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>Obniżenie wersji SQL Server
 
@@ -91,7 +91,7 @@ Wersję SQL Server można obniżyć, wykonując następujące czynności:
 
    Upewnij się, że wybrano prawidłowe opcje podczas skryptowania takich elementów jako wersji docelowej, obiektów zależnych i opcji zaawansowanych.
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Opcje obsługi skryptów":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Wybór do uaktualnienia wersji SQL Server":::
 
 1. Całkowicie Odinstaluj SQL Server i wszystkie skojarzone usługi.
 1. Uruchom ponownie maszynę wirtualną.
@@ -104,7 +104,7 @@ Wersję SQL Server można obniżyć, wykonując następujące czynności:
 
 Po zmianie wersji SQL Server należy ponownie zarejestrować maszynę wirtualną SQL Server z [dostawcą zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md) , aby można było używać Azure Portal do wyświetlania wersji SQL Server. Wymieniony numer wersji powinien teraz odzwierciedlać nowo uaktualnioną wersję i edycję instalacji SQL Server.
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Weryfikuj wersję":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Wybór do uaktualnienia wersji SQL Server":::
 
 > [!NOTE]
 > Jeśli zarejestrowano już dostawcę zasobów maszyny wirtualnej SQL, [Wyrejestruj z jednostki uzależnionej](sql-vm-resource-provider-register.md#unregister-from-rp) , a następnie ponownie [zarejestruj zasób maszyny wirtualnej SQL](sql-vm-resource-provider-register.md#register-with-rp) , aby wykryje poprawną wersję i wydanie SQL Server zainstalowanej na maszynie wirtualnej. Spowoduje to zaktualizowanie informacji o metadanych i rozliczeniach skojarzonych z tą maszyną wirtualną.

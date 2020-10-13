@@ -8,10 +8,10 @@ ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018598"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
@@ -195,7 +195,7 @@ Na serwerze, który jest wyświetlany jako "pojawia się w trybie offline" w por
 - Jeśli **GetNextJob zostało zakończone ze stanem:-2134347756** jest rejestrowane, serwer nie może komunikować się z usługą Azure File Sync z powodu zapory lub serwera proxy. 
     - Jeśli serwer znajduje się za zaporą, sprawdź, czy ruch wychodzący na port 443 jest dozwolony. Jeśli Zapora ogranicza ruch do określonych domen, upewnij się, że domeny wymienione w [dokumentacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) zapory są dostępne.
     - Jeśli serwer znajduje się za serwerem proxy, skonfiguruj ustawienia serwera proxy dotyczące całego komputera lub aplikacji, wykonując czynności opisane w [dokumentacji](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)serwera proxy.
-    - Za pomocą polecenia cmdlet Test-StorageSyncNetworkConnectivity sprawdź łączność sieciową z punktami końcowymi usługi. Aby dowiedzieć się więcej, zobacz [test łączności sieciowej z punktami końcowymi usługi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
+    - Użyj polecenia cmdlet Test-StorageSyncNetworkConnectivity, aby sprawdzić łączność sieciową z punktami końcowymi usługi. Aby dowiedzieć się więcej, zobacz [test łączności sieciowej z punktami końcowymi usługi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - Jeśli **GetNextJob zakończyła się stanem:-2134347764** jest rejestrowane, serwer nie może komunikować się z usługą Azure File Sync ze względu na certyfikat wygasły lub usunięty.  
     - Uruchom następujące polecenie programu PowerShell na serwerze, aby zresetować certyfikat używany do uwierzytelniania:
@@ -1146,7 +1146,7 @@ Jeśli nie można odwołać plików:
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Nie można odwołać pliku, ponieważ udział plików platformy Azure jest niedostępny. | Sprawdź, czy udział plików istnieje i jest dostępny. Jeśli udział plików został usunięty i ponownie utworzony, wykonaj kroki opisane w sekcji [Synchronizacja nie powiodła się, ponieważ udział plików platformy Azure został usunięty i ponownie utworzony](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) , aby usunąć i ponownie utworzyć grupę synchronizacji. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Nie można odwołać pliku z powodu niewystarczających zasobów systemowych. | Jeśli błąd będzie się powtarzał, sprawdź, która aplikacja lub sterownik trybu jądra wyczerpuje zasoby systemowe. |
 | 0x8007000E | -2147024882 | ERROR_OUTOFMEMORY | Nie można odwołać pliku z powodu niewystarczającej ilości pamięci. | Jeśli błąd będzie się powtarzał, sprawdź, która aplikacja lub sterownik trybu jądra powoduje wystąpienie niskiej ilości pamięci. |
-| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Nie można odwołać pliku z powodu niewystarczającej ilości miejsca na dysku. | Aby rozwiązać ten problem, zwolnij miejsce na woluminie przez przeniesienie plików na inny wolumin, zwiększenie rozmiaru woluminu lub wymuszenie plików do warstwy przy użyciu polecenia cmdlet Invoke-StorageSyncCloudTiering. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Nie można odwołać pliku z powodu niewystarczającej ilości miejsca na dysku. | Aby rozwiązać ten problem, zwolnij miejsce na woluminie przez przeniesienie plików na inny wolumin, zwiększenie rozmiaru woluminu lub wymuszenie plików do warstwy za pomocą polecenia cmdlet Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Pliki wielowarstwowe są niedostępne na serwerze po usunięciu punktu końcowego serwera
 Pliki warstwowe na serwerze staną się niedostępne, jeśli nie zostaną one wywołane przed usunięciem punktu końcowego serwera.
@@ -1274,7 +1274,7 @@ Aby uruchomić AFSDiag, wykonaj następujące czynności:
 5. Odtwórz problem. Po zakończeniu wprowadź **D**.
 6. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Monitorowanie usługi Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów z usługą Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)

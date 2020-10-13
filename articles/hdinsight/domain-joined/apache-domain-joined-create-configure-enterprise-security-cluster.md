@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536073"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Tworzenie i konfigurowanie klastrów pakiet Enterprise Security w usłudze Azure HDInsight
@@ -122,7 +122,7 @@ Użytkownicy będą synchronizowani z usługą Azure AD.
 1. Wybierz pozycję **Utwórz zasób** i wpisz `directory` . Wybierz pozycję **Azure Active Directory**  >  **Utwórz**.
 1. W obszarze **Nazwa organizacji**wpisz `HDIFabrikam` .
 1. W polu **początkowa nazwa domeny**wprowadź `HDIFabrikamoutlook` .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     ![Tworzenie katalogu usługi Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
@@ -140,7 +140,7 @@ Użytkownicy będą synchronizowani z usługą Azure AD.
 1. Z nowego **Azure Active Directory**w obszarze **Zarządzaj**wybierz pozycję **grupy**.
 1. Wybierz pozycję **+ Nowa grupa**.
 1. W polu tekstowym **Nazwa grupy** wprowadź `AAD DC Administrators` .
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="configure-your-azure-ad-tenant"></a>Konfigurowanie dzierżawy usługi Azure AD
 
@@ -176,7 +176,7 @@ Utwórz Active Directory administratora dzierżawy.
 
     ![Okno dialogowe Rola usługi Azure AD](./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Następnie nowy użytkownik może zalogować się do Azure Portal, w którym zostanie wyświetlony monit o zmianę hasła. Należy to zrobić przed skonfigurowaniem Microsoft Azure Active Directory Connect.
 
@@ -221,7 +221,7 @@ Tworzenie tożsamości zarządzanej przypisanej przez użytkownika, której moż
 1. Wybierz subskrypcję.
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową** i wprowadź `HDIFabrikam-CentralUS` .
 1. W obszarze **Lokalizacja**wybierz pozycję **środkowe stany USA**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ![Tworzenie nowej tożsamości zarządzanej przypisanej przez użytkownika](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
@@ -407,7 +407,7 @@ Ten krok wymaga następujących wymagań wstępnych:
 
             ![Wybierz grupę dostępu do klastra HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
-    1. Wykonaj pozostałe kroki konfiguracji klastra i sprawdź szczegóły dotyczące **podsumowania klastra**. Wybierz pozycję **Utwórz**.
+    1. Wykonaj pozostałe kroki konfiguracji klastra i sprawdź szczegóły dotyczące **podsumowania klastra**. Wybierz przycisk **Utwórz**.
 
 1. Zaloguj się do interfejsu użytkownika Ambari dla nowo utworzonego klastra pod adresem `https://CLUSTERNAME.azurehdinsight.net` . Użyj nazwy użytkownika `hdiadmin@hdifabrikam.com` i hasła administratora.
 

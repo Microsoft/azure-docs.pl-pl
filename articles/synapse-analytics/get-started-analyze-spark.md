@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03f98a1a1f36900d65e132a3420ac037214aaff
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017918"
+ms.locfileid: "91893544"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizowanie za pomocą Apache Spark
 
@@ -22,7 +22,7 @@ ms.locfileid: "90017918"
 
 W tym samouczku przedstawiono podstawowe kroki służące do ładowania i analizowania danych za pomocą Apache Spark dla usługi Azure Synapse.
 
-1. W obszarze **połączone**centrum **danych** kliknij prawym przyciskiem myszy pozycję **Azure Blob Storage > przykładowe zestawy danych > Nyc_tlc_yellow** i wybierz pozycję **Wybierz nowy Notes**
+1. W centrum **danych** kliknij pozycję **Dodaj nowy zasób**(plus przycisk powyżej **połączone**)  >> **Przeglądaj przykłady**. Znajdź **NYCe taksówki & Limousine z Komisją** i kliknij ją. W dolnej części strony naciśnij pozycję **Kontynuuj** i po tym, aby **dodać zestaw danych**. Teraz w centrum **danych** w obszarze **połączone** wybierz kliknij prawym przyciskiem myszy pozycję **Azure Blob Storage >> przykładowe zestawy danych >> nyc_tlc_yellow** i wybierz pozycję **Nowy Notes**
 1. Spowoduje to utworzenie nowego notesu o następującym kodzie:
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -119,6 +119,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Analizowanie danych w magazynie](get-started-analyze-storage.md)
+> [Analizowanie danych za pomocą programu SQL na żądanie](get-started-analyze-sql-on-demand.md)
 
 

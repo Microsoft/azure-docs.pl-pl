@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801328"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
@@ -58,9 +58,9 @@ Jak pokazano w poniższej tabeli, w zależności od wyboru interfejsu API, możn
 |----|----|----|
 |Interfejs API SQL|baza danych|Kontener|
 |Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB|baza danych|Kolekcja|
-|Interfejs API rozwiązania Cassandra|Przestrzeń kluczy|tabela|
+|Interfejs API rozwiązania Cassandra|Przestrzeń kluczy|Tabela|
 |Interfejs API języka Gremlin|Konto bazy danych|Graph|
-|Interfejs API tabel|Konto bazy danych|tabela|
+|Interfejs API tabel|Konto bazy danych|Tabela|
 
 Dzięki aprowizacji przepływności na różnych poziomach można zoptymalizować koszty na podstawie charakterystyki obciążenia. Jak wspomniano wcześniej, można programowo i w dowolnym momencie zwiększyć lub zmniejszyć zainicjowaną przepływność dla poszczególnych kontenerów lub zbiorowo w zestawie kontenerów. Elastycznie skalowanie przepływności w miarę zmian obciążenia oznacza płatność wyłącznie za skonfigurowane przepływność. Jeśli kontener lub zbiór kontenerów są dystrybuowane w wielu regionach, to przepływność skonfigurowana na kontenerze lub zestaw kontenerów jest gwarantowany do udostępnienia we wszystkich regionach.
 

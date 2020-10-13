@@ -4,12 +4,12 @@ description: Dowiedz się, jak zaimplementować trwałe czasomierze w rozszerzen
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056224"
+ms.locfileid: "91876451"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Czasomierze w Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Aby utworzyć trwały czasomierz, należy wywołać `CreateTimer` metodę (.NET)
 Podczas tworzenia czasomierza, który wygaśnie o 4:30 PM, podstawowa infrastruktura zadań trwałych enqueues komunikat, który zostanie widoczny tylko na 4:30 PM. Po uruchomieniu w planie zużycia Azure Functions, nowo widoczny komunikat czasomierza zapewni, że aplikacja funkcji zostanie aktywowana na odpowiedniej maszynie wirtualnej.
 
 > [!NOTE]
-> * Trwałe czasomierze są obecnie ograniczone do 7 dni. Jeśli są potrzebne dłuższe opóźnienia, można je symulowane przy użyciu interfejsów API czasomierzy w `while` pętli.
+> * Począwszy od [wersji 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) trwałego rozszerzenia, trwałe czasomierze są nieograniczone. We wcześniejszych wersjach rozszerzenia trwałe czasomierze są ograniczone do siedmiu dni. Jeśli używasz starszej wersji i potrzebujesz opóźnienia dłuższego niż siedem dni, Użyj interfejsów API czasomierzy w pętli, `while` Aby symulować to opóźnienie.
 > * Zawsze używaj `CurrentUtcDateTime` zamiast programu `DateTime.UtcNow` .NET lub `currentUtcDateTime` zamiast `Date.now` lub `Date.UTC` w języku JavaScript podczas obliczania czasu ognia dla trwałych czasomierzy. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [ograniczeń kodu funkcji programu Orchestrator](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Użycie opóźnienia

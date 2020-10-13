@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: plik dołączany
+description: plik dołączany
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91859606"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936075"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limity sieci — Azure Resource Manager
 Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych za pomocą **Azure Resource Manager** na region na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
@@ -75,6 +75,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Zasoby zaplecza na Load Balancer <sup> 1<sup> | 150                   |
 | Porty wysokiej dostępności                 | 1 na wewnętrzny fronton       |
 | Reguły ruchu wychodzącego na Load Balancer        | 600                           |
+| Moduły równoważenia obciążenia na maszynę wirtualną                   | 2 (1 publiczny i 1 wewnętrzny)   |
 
 <sup>1</sup> Limit wynosi do 150 zasobów w dowolnej kombinacji autonomicznych zasobów maszyny wirtualnej, zasobów zestawu dostępności i grup umieszczania w zestawie skalowania maszyn wirtualnych.
 
@@ -88,6 +89,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Konfiguracje adresów IP frontonu              | 200                          |
 | Rozmiar puli zaplecza                       | Konfiguracje protokołu IP 300, zestaw o pojedynczej dostępności |
 | Zestawy dostępności na Load Balancer     | 1                            |
+| Moduły równoważenia obciążenia na maszynę wirtualną                   | 2 (1 publiczny i 1 wewnętrzny)  |
 
 <a name="virtual-networking-limits-classic"></a>Poniższe limity mają zastosowanie tylko w przypadku zasobów sieciowych zarządzanych przy użyciu **klasycznego** modelu wdrażania na subskrypcję. Dowiedz się, jak [wyświetlić bieżące użycie zasobów względem limitów subskrypcji](../articles/networking/check-usage-against-limits.md).
 

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
 ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321153"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitorowanie metryk i nieprzetworzonych dzienników dla Azure CDN firmy Microsoft
@@ -61,7 +61,7 @@ Aby skonfigurować dzienniki pierwotne dla Azure CDN z profilu Microsoft:
     * **Przesyłanie strumieniowe do centrum zdarzeń**
         * Wybierz **subskrypcję**, **przestrzeń nazw centrum zdarzeń**, **nazwę centrum zdarzeń (opcjonalnie)** i **nazwę zasad centrum zdarzeń**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Skonfiguruj miejsce docelowe dla ustawień dziennika." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 7. Wybierz pozycję **Zapisz**.
 
@@ -235,23 +235,23 @@ Scenariusze wykluczone ze współczynnika trafień w bajtach:
 
 2. W obszarze **monitorowanie**wybierz pozycję **metryki**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metryki dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 3. Wybierz pozycję **Dodaj metrykę**, wybierz metrykę do dodania:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Dodaj i wybierz metrykę dla profilu CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 4. Wybierz pozycję **Dodaj filtr** , aby dodać filtr:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Zastosuj filtr do metryki." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 5. Wybierz pozycję **Zastosuj** podział, aby zobaczyć trend według różnych wymiarów:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Zastosuj podział do metryki." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 6. Wybierz pozycję **Nowy wykres** , aby dodać nowy wykres:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Dodaj nowy wykres do widoku metryki." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 ### <a name="alerts"></a>Alerty
 
@@ -259,7 +259,7 @@ Alerty można skonfigurować w usłudze Microsoft CDN, wybierając pozycję **mo
 
 Wybierz **nową regułę alertu** dla metryk wymienionych w sekcji metryki:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Skonfiguruj alerty dla punktu końcowego usługi CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::
 
 Opłata zostanie naliczona na podstawie Azure Monitor. Aby uzyskać więcej informacji na temat alertów, zobacz [Azure monitor alertów](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
@@ -270,21 +270,21 @@ Dodatkowe metryki można włączyć za pomocą usługi Azure Log Analytics i dzi
 
 2. Wybierz utworzony obszar roboczy Log Analytics:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Wybieranie obszaru roboczego usługi log Analytics" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
 
 3. Wybierz pozycję **dzienniki** w obszarze **Ogólne** w obszarze roboczym usługi log Analytics.  Następnie wybierz **pozycję Wprowadzenie:**
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Obszar roboczy zasobów usługi log Analytics." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
  
 4. Wybierz pozycję **Profile sieci CDN**.  Wybierz przykładowe zapytanie do uruchomienia lub Zamknij Przykładowy ekran, aby wprowadzić zapytanie niestandardowe:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Przykładowy ekran zapytania." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Wykonywanie zapytania." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true":::   
 
 4. Aby wyświetlić dane według wykresu, wybierz pozycję **Wykres**.  Wybierz pozycję **Przypnij do pulpitu nawigacyjnego** , aby przypiąć wykres do pulpitu nawigacyjnego platformy Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Przypnij wykres do pulpitu nawigacyjnego." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Dodaj ustawienie diagnostyczne dla profilu CDN." border="true"::: 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule włączono dzienniki RAW protokołu HTTP dla usługi Microsoft CDN.

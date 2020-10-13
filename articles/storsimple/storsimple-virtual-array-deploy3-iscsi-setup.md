@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742421"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Wdróż macierz wirtualną StorSimple — Skonfiguruj jako serwer iSCSI za pośrednictwem Azure Portal
@@ -77,7 +77,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
 5. Serwery DNS są wymagane, ponieważ są używane, gdy urządzenie próbuje skontaktować się z dostawcami usług magazynu w chmurze lub rozpoznać urządzenie według nazwy, jeśli jest ono skonfigurowane jako serwer plików. Na stronie **Ustawienia sieciowe** w obszarze **serwery DNS**:
    
    1. Podstawowy i pomocniczy serwer DNS zostaną automatycznie skonfigurowane. Jeśli zdecydujesz się skonfigurować statyczne adresy IP, możesz określić serwery DNS. Aby zapewnić wysoką dostępność, zalecamy skonfigurowanie podstawowego i pomocniczego serwera DNS.
-   2. Kliknij przycisk **Zastosuj**. Spowoduje to zastosowanie i zweryfikowanie ustawień sieci.
+   2. Kliknij pozycję **Zastosuj**. Spowoduje to zastosowanie i zweryfikowanie ustawień sieci.
 6. Na stronie **Ustawienia urządzenia** :
    
    1. Przypisz unikatową **nazwę** do urządzenia. Nazwa może składać się z 1-15 znaków i może zawierać litery, cyfry i łączniki.
@@ -93,7 +93,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    4. Zostanie wyświetlone okno dialogowe. Wprowadź poświadczenia domeny w określonym formacie. Kliknij ikonę znacznika wyboru, ![ikona znacznika wyboru](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Poświadczenia domeny zostaną zweryfikowane. Jeśli poświadczenia są nieprawidłowe, zostanie wyświetlony komunikat o błędzie.
       
        ![poświadczenia](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Kliknij przycisk **Zastosuj**. Spowoduje to zastosowanie i zweryfikowanie ustawień urządzenia.
+   5. Kliknij pozycję **Zastosuj**. Spowoduje to zastosowanie i zweryfikowanie ustawień urządzenia.
 7. (Opcjonalnie) skonfiguruj serwer proxy sieci Web. Konfiguracja serwera proxy sieci Web jest opcjonalna, jednak warto wiedzieć, że w przypadku korzystania z serwera proxy sieci Web można go skonfigurować tylko w tym miejscu.
    
     ![Konfigurowanie serwera proxy sieci Web](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
@@ -103,7 +103,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    1. Podaj **adres URL serwera proxy sieci Web** w tym formacie: *http: \/ /host-IP adres* lub *FQDN: numer portu*. Należy zauważyć, że adresy URL HTTPS nie są obsługiwane.
    2. Określ **uwierzytelnianie** jako **podstawowa** lub **Brak**.
    3. W przypadku korzystania z uwierzytelniania należy również podać **nazwę użytkownika** i **hasło**.
-   4. Kliknij przycisk **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień serwera proxy sieci Web.
+   4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień serwera proxy sieci Web.
 8. (Opcjonalnie) skonfiguruj ustawienia czasu dla urządzenia, takie jak strefa czasowa i serwery NTP serwerów głównych i dodatkowych. Serwery NTP są wymagane, ponieważ urządzenie musi synchronizować czas, aby można było uwierzytelnić się z dostawcami usług w chmurze.
    
     ![Ustawienia czasu](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
@@ -113,7 +113,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
    1. Z listy rozwijanej wybierz **strefę czasową** na podstawie lokalizacji geograficznej, w której jest wdrażane urządzenie. Domyślna strefa czasowa urządzenia to PST. Wszystkie zaplanowane operacje urządzenia będą wykonywane w ramach tej strefy czasowej.
    2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną Time.Windows.com. Upewnij się, że sieć zezwala na ruch NTP z centrum danych do Internetu.
    3. Opcjonalnie można określić **pomocniczy serwer NTP** dla urządzenia.
-   4. Kliknij przycisk **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień czasu.
+   4. Kliknij pozycję **Zastosuj**. Spowoduje to zweryfikowanie i zastosowanie skonfigurowanych ustawień czasu.
 9. Skonfiguruj ustawienia chmury dla urządzenia. W tym kroku zakończysz konfigurację urządzenia lokalnego, a następnie zarejestrujesz urządzenie w usłudze StorSimple Menedżer urządzeń.
    
    1. Wprowadź **klucz rejestracji usługi** uzyskany w **kroku 2. Pobieranie klucza rejestracji usługi** w temacie [wdrażanie StorSimple Virtual Array — przygotowanie portalu](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).

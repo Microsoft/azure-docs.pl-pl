@@ -10,10 +10,10 @@ ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757599"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
@@ -243,7 +243,7 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
 | Boolean (wartość logiczna) | bit |
-| Integer | bigint |
+| Liczba całkowita | bigint |
 | Liczba dziesiętna | float |
 | Ciąg | varchar (sortowanie bazy danych UTF8) |
 | Data i godzina (ciąg w formacie ISO) | varchar (30) |

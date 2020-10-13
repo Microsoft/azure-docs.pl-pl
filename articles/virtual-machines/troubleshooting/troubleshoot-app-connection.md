@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec5aeaac6f39a106899094e674864d3bd10dc02
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036441"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966342"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Rozwiązywanie problemów z łącznością aplikacji na maszynach wirtualnych platformy Azure
 
@@ -122,7 +122,7 @@ Jeśli nie możesz uzyskać dostępu do aplikacji, sprawdź następujące ustawi
   
   * Sprawdź, czy konfiguracja reguły NAT dla ruchu przychodzącego dla maszyny wirtualnej zezwala na ruch przychodzący, w szczególności protokół (TCP lub UDP) i numery portów Public i Private.
   * Sprawdź, czy sieciowe grupy zabezpieczeń zezwalają na ruch przychodzący i przychodzącej odpowiedzi.
-  * Aby uzyskać więcej informacji, zobacz [co to jest sieciowa Grupa zabezpieczeń?](../../virtual-network/security-overview.md)
+  * Aby uzyskać więcej informacji, zobacz [co to jest sieciowa Grupa zabezpieczeń?](../../virtual-network/network-security-groups-overview.md)
 
 Jeśli maszyna wirtualna lub punkt końcowy jest członkiem zestawu o zrównoważonym obciążeniu:
 
@@ -140,7 +140,7 @@ Jeśli masz dostęp do aplikacji, upewnij się, że urządzenie z internetową g
 
 Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania sieci platformy Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 [Rozwiązywanie problemów z połączeniami Pulpit zdalny z maszyną wirtualną platformy Azure z systemem Windows](troubleshoot-rdp-connection.md)
 
 [Rozwiązywanie problemów z połączeniami Secure Shell (SSH) z maszyną wirtualną platformy Azure opartą na systemie Linux](troubleshoot-ssh-connection.md)

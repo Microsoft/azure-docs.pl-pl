@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 3ee0a376b28676e3f74ac2e53010c2c953ad9d7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317824"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Ramka zabezpieczeń: dane poufne | Środki zaradcze 
@@ -34,7 +34,7 @@ ms.locfileid: "91317824"
 | **Granica zaufania maszyny wirtualnej usługi Azure IaaS** | <ul><li>[Użyj Azure Disk Encryption do szyfrowania dysków używanych przez Virtual Machines](#disk-vm)</li></ul> | 
 | **Service Fabric granic zaufania** | <ul><li>[Szyfruj wpisy tajne w aplikacjach Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Przeprowadzenie modelowania zabezpieczeń i użycie jednostek handlowych/zespołów, gdy jest to wymagane](#modeling-teams)</li><li>[Minimalizuj dostęp do funkcji udostępniania na jednostkach krytycznych](#entities)</li><li>[Uczenie użytkowników o ryzyku związanym z funkcją udziału Dynamics CRM i dobrą praktyką w zakresie zabezpieczeń](#good-practices)</li><li>[Uwzględnij reguły proscribing dla deweloperów przedstawiające szczegóły konfiguracji w zarządzaniu wyjątkami](#exception-mgmt)</li></ul> | 
-| **Azure Storage** | <ul><li>[Użyj usługi Azure szyfrowanie usługi Storage (SSE) dla danych przechowywanych w spoczynku (wersja zapoznawcza)](#sse-preview)</li><li>[Przechowywanie poufnych danych w usłudze Azure Storage przy użyciu szyfrowania po stronie klienta](#client-storage)</li></ul> | 
+| **Azure Storage** | <ul><li>[Użyj usługi Azure szyfrowanie usługi Storage (SSE) dla danych przechowywanych w spoczynku (wersja zapoznawcza)](#sse-preview)</li><li>[Używanie szyfrowania Client-Side do przechowywania danych poufnych w usłudze Azure Storage](#client-storage)</li></ul> | 
 | **Klient mobilny** | <ul><li>[Szyfruj poufne lub dane OSOBowe zapisywane w lokalnym magazynie telefonów](#pii-phones)</li><li>[Zaciemniaj wygenerowane pliki binarne przed dystrybucją do użytkowników końcowych](#binaries-end)</li></ul> | 
 | **WCF** | <ul><li>[Ustaw wartość clientCredentialtype na certyfikat lub Windows](#cert)</li><li>[WCF — tryb zabezpieczeń nie jest włączony](#security)</li></ul> | 
 
@@ -332,7 +332,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Odwołania**              | [Szyfrowanie usługi Storage platformy Azure dla danych przechowywanych w spoczynku (wersja zapoznawcza)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
 | **Kroki** | <p>Usługa Azure szyfrowanie usługi Storage (SSE) dla danych przechowywanych w czasie spoczynku ułatwia ochronę i ochronę danych w celu spełnienia wymagań w zakresie zabezpieczeń i bezpieczeństwa organizacji. Przy użyciu tej funkcji usługa Azure Storage automatycznie szyfruje dane przed trwałym wprowadzeniem ich do magazynu i odszyfrowuje je przed pobraniem. Szyfrowanie, odszyfrowywanie i zarządzanie kluczami jest całkowicie niewidoczne dla użytkowników. SSE stosuje się tylko do blokowych obiektów blob, stronicowych obiektów blob i dołączania obiektów BLOB. Inne typy danych, w tym tabele, kolejki i pliki, nie będą szyfrowane.</p><p>Przepływ pracy szyfrowania i odszyfrowywania:</p><ul><li>Klient włącza szyfrowanie na koncie magazynu</li><li>Gdy klient zapisuje nowe dane (PUT obiekt BLOB, UMIEŚCI blok, PUT stronę itp.) do magazynu obiektów BLOB. Każdy zapis jest szyfrowany przy użyciu 256-bitowego szyfrowania AES, jednego z najsilniejszych szyfrów blokowych</li><li>Gdy klient potrzebuje dostępu do danych (GET BLOB itp.), dane są automatycznie odszyfrowywane przed zwróceniem do użytkownika</li><li>Jeśli szyfrowanie jest wyłączone, nowe zapisy nie będą już szyfrowane i istniejące zaszyfrowane dane pozostają zaszyfrowane do momentu zapisania go przez użytkownika. Gdy szyfrowanie jest włączone, operacje zapisu w magazynie obiektów BLOB będą szyfrowane. Stan danych nie zmienia się w przypadku przełączania użytkownika o włączenie/wyłączenie szyfrowania dla konta magazynu</li><li>Wszystkie klucze szyfrowania są przechowywane, szyfrowane i zarządzane przez firmę Microsoft</li></ul><p>Należy pamiętać, że w tym momencie klucze używane do szyfrowania są zarządzane przez firmę Microsoft. Firma Microsoft generuje klucze pierwotnie i zarządza bezpiecznym magazynem kluczy, a także regularnym rotacją zgodnie z zasadami wewnętrznymi firmy Microsoft. W przyszłości klienci będą mogli zarządzać własnymi kluczami szyfrowania >i udostępniać ścieżki migracji z kluczy zarządzanych przez firmę Microsoft do kluczy zarządzanych przez klienta.</p>| 
 
-## <a name="use-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Przechowywanie poufnych danych w usłudze Azure Storage przy użyciu szyfrowania po stronie klienta
+## <a name="use-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Używanie szyfrowania Client-Side do przechowywania danych poufnych w usłudze Azure Storage
 
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
