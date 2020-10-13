@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
 ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649579"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 i Esv3
@@ -24,7 +24,7 @@ Wystąpienia serii EV3 są uruchamiane na Intel® Xeon® Platinum 8272CL (Kaskad
 
 Opłaty za magazyn dysków danych są naliczane oddzielnie od opłat za maszyny wirtualne. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów ESv3. Liczniki cen i rozliczeń dla rozmiarów ESv3 są takie same jak dla serii Ev3.
 
-Funkcja Hyper-Threading maszyny wirtualnej z serii EV3 firmy Intel®.
+Technologia technologii EV3 firmy Intel® Hyper-Threading.
 
 [ACU](acu.md): 160 – 190<br>
 [Premium Storage](premium-storage-performance.md): nieobsługiwane<br>
@@ -54,7 +54,7 @@ dostępne są <sup>1</sup> ograniczone rozmiary rdzeni.
 
 Wystąpienia serii Esv3 są uruchamiane na procesorach Intel® Xeon® Platinum 8272CL (Kaskada Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) lub Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), funkcja firmy Intel Turbo zwiększa technologię 2,0 i korzysta z magazynu Premium Storage. Wystąpienia serii Esv3 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci.
 
-Funkcja Hyper-Threading maszyny wirtualnej z serii Esv3 firmy Intel®.
+Technologia technologii Esv3 firmy Intel® Hyper-Threading.
 
 [ACU](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): obsługiwane<br>

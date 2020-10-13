@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.openlocfilehash: f1ad698ccacc2fee94c797a20a43744d4cafba76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91305684"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Dropbox dla firm na potrzeby automatycznego aprowizacji użytkowników
@@ -99,7 +99,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 5. W sekcji **Poświadczenia administratora** kliknij pozycję **Autoryzuj**. Otwiera okno dialogowe logowania do usługi Dropbox dla firm w nowym oknie przeglądarki.
 
-    ![Aprowizowanie ](common/provisioning-oauth.png)
+    ![Inicjowanie obsługi ](common/provisioning-oauth.png)
 
 6. Zaloguj się do dzierżawy **usługi Azure AD w usłudze Dropbox dla firm** i sprawdź swoją tożsamość.
 
@@ -113,7 +113,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-9. Kliknij pozycję **Zapisz**.
+9. Kliknij przycisk **Zapisz**.
 
 10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy do usługi Dropbox**.
 

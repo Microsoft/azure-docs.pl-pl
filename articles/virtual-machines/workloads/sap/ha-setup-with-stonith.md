@@ -14,10 +14,10 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0967c5e354c3b0e433753cf89d830dc2101741af
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91363124"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Konfigurowanie wysokiej dostępności w systemie SUSE przy użyciu urządzenia STONITH
@@ -75,7 +75,7 @@ Usługa Microsoft Service Management udostępnia ten ciąg. Zmodyfikuj plik w **
 
 ![Zrzut ekranu przedstawia plik inicjatora z wartościami Inicjatorname dla węzła.](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1,2 Modify */etc/iSCSI/iscsid.conf*: Ustaw *Node. Session. Timeo. replacement_timeout = 5* i *Node. Startup = Automatic*. Zmodyfikuj plik w **obu** węzłach.
+1,2 Modyfikuj */etc/iSCSI/iscsid.conf*: Ustaw *Node.Session.Timeo.replacement_timeout = 5* i *Node. Startup = automatyczny*. Zmodyfikuj plik w **obu** węzłach.
 
 1,3 wykonanie polecenia odnajdywania pokazuje cztery sesje. Uruchom ją na obu węzłach.
 
@@ -404,7 +404,7 @@ Kliknij przycisk Dalej
 
 ![Zrzut ekranu przedstawia okno konsoli z komunikatem o powodzeniu.](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
-Kliknij przycisk Zakończ
+Kliknij przycisk Zakończ.
 
 Należy również zainstalować pakiety libqt4 i libyui-QT.
 ```

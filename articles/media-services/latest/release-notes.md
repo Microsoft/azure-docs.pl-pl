@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651194"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
@@ -94,7 +94,7 @@ Media Services GA'ed w następujących Azure Government regionach: *USGov Arizon
 
 ## <a name="december-2019"></a>Grudzień 2019 r.
 
-Dodano obsługę usługi CDN dla nagłówków *pochodzenie z wyprzedzeniem* w przypadku przesyłania strumieniowego na żywo i wideo na żądanie; dostępne dla klientów z bezpośrednią umową z usługą Akamai CDN. Funkcja pochodzenie do usługi CDN — pobieranie z wyprzedzeniem obejmuje następujące wymiany z nagłówka HTTP między Akamai CDN i pochodzeniem Azure Media Services:
+Dodano obsługę usługi CDN dla nagłówków *pochodzenie z wyprzedzeniem* w przypadku przesyłania strumieniowego na żywo i wideo na żądanie; dostępne dla klientów z bezpośrednią umową z usługą Akamai CDN. Funkcja Origin-Assist CDN-Prefetch obejmuje następujące wymiany w nagłówku HTTP między Akamai CDN i Azure Media Services pochodzenie:
 
 |Nagłówek HTTP|Wartości|Nadawca|Odbiornik|Przeznaczenie|
 | ---- | ---- | ---- | ---- | ----- |
@@ -218,7 +218,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Ulepszenia wydajności
+### <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -337,7 +337,7 @@ Nowy obiekt **transformacji** upraszcza model kodowania. Nowy obiekt ułatwia tw
 
 #### <a name="azure-active-directory-authentication-and-rbac"></a>Uwierzytelnianie Azure Active Directory i kontrola RBAC
 
-Uwierzytelnianie usługi Azure AD i Access Control oparte na rolach (RBAC) umożliwiają bezpieczne transformacje, LiveEvents, Zasady kluczy zawartości lub zasoby według roli lub użytkowników w usłudze Azure AD.
+Uwierzytelnianie usługi Azure AD i Access Control Role-Based (RBAC) umożliwiają włączenie bezpiecznych przekształceń, LiveEvents, zasad kluczy zawartości lub zasobów według roli lub użytkowników w usłudze Azure AD.
 
 #### <a name="client-sdks"></a>Zestawy SDK klienta  
 
@@ -366,7 +366,7 @@ Można wyświetlić następujące ulepszenia Event Grid wsparcia:
 
 Obsługa szyfrowania CMAF i "cbcs" dla odtwarzaczy Apple HLS (iOS 11 +) i MPEG-PAUZ, które obsługują CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Indeksator wideo
 
 Video Indexer wersja GA została ogłoszona w sierpniu. Aby uzyskać nowe informacje o aktualnie obsługiwanych funkcjach, zobacz [co to jest Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 
@@ -403,7 +403,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

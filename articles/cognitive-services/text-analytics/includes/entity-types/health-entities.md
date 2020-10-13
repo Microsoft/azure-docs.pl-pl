@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
 ms.openlocfilehash: 44bce7c6dd2443ea0ed1851325a5b84f325f5fae
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779917"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Analiza tekstu kategorii kondycji, jednostek i atrybutów

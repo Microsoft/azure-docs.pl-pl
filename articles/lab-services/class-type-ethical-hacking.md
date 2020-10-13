@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować laboratorium przy użyciu Azure La
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631685"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurowanie laboratorium do uczenia się klasy działanie hakerskie etycznych 
@@ -22,7 +22,7 @@ Aby skonfigurować to laboratorium, musisz mieć subskrypcję platformy Azure, a
 
 Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utworzyć nowe laboratorium, a następnie Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Image (Obraz) |
+| Rozmiar maszyny wirtualnej | Obraz |
 | -------------------- | ----- | 
 | Średni (Wirtualizacja zagnieżdżona) | Windows Server 2019 Datacenter |
 
@@ -114,7 +114,7 @@ Obraz Rapid7 Metasploitable to obraz skonfigurowany do celów z lukami w zabezpi
 Szablon jest teraz aktualizowany i zawiera obrazy potrzebne do testowania działanie hakerskiej penetracji etycznej, obrazu z narzędziami do testowania penetracji i innego obrazu z lukami w zabezpieczeniach do odnalezienia. Obraz szablonu można teraz opublikować w klasie. Wybierz przycisk **Publikuj** na stronie szablon, aby opublikować szablon w laboratorium.
   
 
-## <a name="cost"></a>Cost (Koszt)  
+## <a name="cost"></a>Koszty  
 Jeśli chcesz oszacować koszt tego laboratorium, możesz użyć poniższego przykładu: 
  
 W przypadku klasy 25 studentów z upływem 20 godzin planowanego czasu zajęć i 10 godzin przydziału dla prac domowych lub przydziałów, Cena za laboratorium to: 
