@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440528"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951092"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -40,7 +40,7 @@ Obecnie wskazówki dotyczące dostrajania wydajności udostępniają sugestie do
 | Specyficzne dla magazynu danych   | Ładowanie danych do **usługi Azure Synpase Analytics (dawniej SQL DW)**: Sugeruj przy użyciu instrukcji Base lub Copy, jeśli nie jest używana. |
 | &nbsp;                | Kopiowanie danych z/do **Azure SQL Database**: gdy jednostka DTU jest w wysokim obciążeniu, Sugeruj uaktualnienie do wyższej warstwy. |
 | &nbsp;                | Kopiowanie danych z/do **Azure Cosmos DB**: gdy ru jest w wysokim wykorzystaniu, Sugeruj uaktualnienie do większej wartości ru. |
-|                       | Kopiowanie danych z **tabeli SAP**: podczas kopiowania dużej ilości danych Sugeruj opcję partycji łącznika SAP, aby włączyć równoległe ładowanie i zwiększyć maksymalną liczbę partycji. |
+|                       | Kopiowanie danych z **tabeli SAP**: podczas kopiowania dużej ilości danych, Sugeruj opcję partycji łącznika SAP, aby włączyć równoległe ładowanie i zwiększyć maksymalną liczbę partycji. |
 | &nbsp;                | Pozyskiwanie danych z **Amazon RedShift**: SUGERUJ użycie Unload, jeśli nie jest używany. |
 | Ograniczanie magazynu danych | Jeśli liczba operacji odczytu/zapisu jest ograniczona przez magazyn danych podczas kopiowania, Sugeruj sprawdzanie i Zwiększ liczbę dozwolonych żądań dla magazynu danych lub Zmniejsz obciążenie współbieżne. |
 | Środowisko Integration Runtime  | W przypadku korzystania z samodzielnej obsługi **Integration Runtime (IR)** i działania kopiowania czekają na ukończenie kolejki do momentu, w którym środowisko IR będzie dostępne, Sugeruj skalowanie w górę/w górę dla środowiska IR. |
@@ -74,7 +74,7 @@ Gdy wydajność działania kopiowania nie spełnia oczekiwań, aby rozwiązywać
 
     - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.
 
-    - Sprawdź, czy zamiast tego można użyć natywnego filtru magazynu danych, w tym "**prefiks**" dla Amazon S3 i Azure Blob. Filtr prefiksu to filtr po stronie serwera magazynu danych i ma znacznie lepszą wydajność.
+    - Sprawdź, czy możesz zamiast tego użyć filtru natywnego magazynu danych, w tym "**prefiks**" dla usługi Amazon S3/Azure Blob/Azure File Storage i "**listAfter/listBefore**" ADLS Gen1. Te filtry to filtr po stronie serwera magazynu danych i ma znacznie lepszą wydajność.
 
     - Rozważ podzielenie pojedynczych dużych ilości danych na kilka mniejszych zestawów danych i umożliwienie wykonywania tych zadań kopiowania współbieżnie każdej części danych. Można to zrobić za pomocą metody Lookup/GetMetadata + ForEach + Copy. Zapoznaj się z tematem [Kopiowanie plików z wielu kontenerów](solution-template-copy-files-multiple-containers.md) lub [Migrowanie danych z usługi Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md) szablonów rozwiązań jako ogólnego przykładu.
 
@@ -128,7 +128,7 @@ Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z
 
     - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.
 
-    - Sprawdź, czy zamiast tego można użyć natywnego filtru magazynu danych, w tym "**prefiks**" dla Amazon S3 i Azure Blob. Filtr prefiksu to filtr po stronie serwera magazynu danych i ma znacznie lepszą wydajność.
+    - Sprawdź, czy możesz zamiast tego użyć filtru natywnego magazynu danych, w tym "**prefiks**" dla usługi Amazon S3/Azure Blob/Azure File Storage i "**listAfter/listBefore**" ADLS Gen1. Te filtry to filtr po stronie serwera magazynu danych i ma znacznie lepszą wydajność.
 
     - Rozważ podzielenie pojedynczych dużych ilości danych na kilka mniejszych zestawów danych i umożliwienie wykonywania tych zadań kopiowania współbieżnie każdej części danych. Można to zrobić za pomocą metody Lookup/GetMetadata + ForEach + Copy. Zapoznaj się z tematem [Kopiowanie plików z wielu kontenerów](solution-template-copy-files-multiple-containers.md) lub [Migrowanie danych z usługi Amazon S3 do ADLS Gen2](solution-template-migration-s3-azure.md) szablonów rozwiązań jako ogólnego przykładu.
 

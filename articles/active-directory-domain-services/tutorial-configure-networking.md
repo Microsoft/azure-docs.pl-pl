@@ -1,20 +1,20 @@
 ---
 title: Samouczek — Konfigurowanie sieci wirtualnych dla Azure AD Domain Services | Microsoft Docs
 description: W tym samouczku dowiesz się, jak utworzyć i skonfigurować podsieć lub komunikację równorzędną sieci wirtualnej platformy Azure dla domeny zarządzanej Azure Active Directory Domain Services przy użyciu Azure Portal.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 33beb0767ef1f21d4fb3d08c9072d7c8479d2cb1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024778"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967413"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie sieci wirtualnej dla Azure Active Directory Domain Services domeny zarządzanej
 
@@ -24,7 +24,7 @@ Podczas tworzenia własnych maszyn wirtualnych i aplikacji nie należy ich wdra�
 
 W tym samouczku pokazano, jak utworzyć i skonfigurować dedykowaną podsieć sieci wirtualnej lub sposób komunikacji równorzędnej innej sieci z siecią wirtualną domeny zarządzanej platformy Azure AD DS.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Informacje o opcjach łączności sieci wirtualnej dla zasobów przyłączonych do domeny na platformie Azure AD DS

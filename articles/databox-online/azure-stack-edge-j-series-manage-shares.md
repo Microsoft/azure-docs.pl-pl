@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904684"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952271"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack Edge
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Użyj Azure Portal, aby zarządzać udziałami na Azure Stack brzegowej Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -41,7 +41,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
     
     Nazwy udziałów mogą zawierać tylko cyfry, małe litery i łączniki. Nazwa udziału musi mieć długość od 3 do 63 znaków i rozpoczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik.
 
-3. Wybierz **Typ** dla udziału. Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
+3. Wybierz **Typ** udziału. Typ może być typu **SMB** lub **NFS**z domyślnym protokołem SMB. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
 
 4. Podaj **konto magazynu**, w którym znajduje się udział. Na koncie magazynu zostanie utworzony kontener z nazwą udziału (jeśli jeszcze nie istnieje). Jeśli kontener już istnieje, zostanie użyty istniejący kontener.
 
@@ -59,19 +59,19 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 7. Aby łatwo uzyskać dostęp do udziałów z modułów obliczeniowych Edge, Użyj lokalnego punktu instalacji. Wybierz pozycję **Użyj udziału przy użyciu obliczeń brzegowych** , aby udział został automatycznie zainstalowany po utworzeniu. Po wybraniu tej opcji moduł Edge może również używać obliczeń z lokalnym punktem instalacji.
 
-8. Kliknij pozycję **Utwórz**, aby utworzyć udział. Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału. Po utworzeniu udziału z określonymi ustawieniami blok **Udziały** zostanie zaktualizowany, aby odzwierciedlić nowy udział.
+8. Kliknij przycisk **Utwórz** , aby utworzyć udział. Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału. Po utworzeniu udziału przy użyciu określonych ustawień blok **udziały** jest aktualizowany w celu odzwierciedlenia nowego udziału.
 
 ## <a name="add-a-local-share"></a>Dodawanie udziału lokalnego
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**. Wybierz pozycję **+ Dodaj udział** na pasku poleceń.
 
-    ![Wybierz pozycję Dodaj udział](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
+    ![Wybierz pozycję Dodaj udział 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
 2. W obszarze **Dodawanie udziału** określ ustawienia udziału. Podaj unikatową nazwę udziału.
     
     Nazwy udziałów mogą zawierać tylko cyfry, małe litery i wielkie liter oraz łączniki. Nazwa udziału musi mieć długość od 3 do 63 znaków i rozpoczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik.
 
-3. Wybierz **Typ** dla udziału. Dostępne są dwa typy — **SMB** i **NFS** — przy czym typ SMB jest domyślny. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
+3. Wybierz **Typ** udziału. Typ może być typu **SMB** lub **NFS**z domyślnym protokołem SMB. Typ SMB jest standardem dla klientów systemu Windows, natomiast typ NFS jest używany dla klientów systemu Linux. W zależności od tego, czy wybrano udział SMB czy NFS, wyświetlone opcje są nieco inne.
 
    > [!IMPORTANT]
    > Upewnij się, że konto usługi Azure Storage, którego używasz, nie ma ustawionych zasad niezmiennościymi, jeśli są używane z urządzeniem Azure Stack EDGE Pro lub Data Box Gateway. Aby uzyskać więcej informacji, zobacz [Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
@@ -82,11 +82,11 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby utworzyć udział.
 
 6. W polu **użytkownik lokalny wszystkie uprawnienia** wybierz opcję **Utwórz nowe** lub **Użyj istniejącej**.
 
-7. Wybierz przycisk **Utwórz**. 
+7. Wybierz pozycję **Utwórz**. 
 
     ![Utwórz udział lokalny](media/azure-stack-edge-j-series-manage-shares/add-local-share-2.png)
 
-    Zobaczysz powiadomienie o tym, że tworzenie udziału jest w toku. Po utworzeniu udziału z określonymi ustawieniami blok **Udziały** zostanie zaktualizowany, aby odzwierciedlić nowy udział.
+    Zobaczysz powiadomienie o tym, że tworzenie udziału jest w toku. Po utworzeniu udziału przy użyciu określonych ustawień blok **udziały** jest aktualizowany w celu odzwierciedlenia nowego udziału.
 
     ![Widok widoku udziałów aktualizacji](media/azure-stack-edge-j-series-manage-shares/add-local-share-3.png)
     
@@ -125,7 +125,7 @@ Aby odinstalować udział, wykonaj następujące czynności w Azure Portal.
 
 1. W Azure Portal przejdź do zasobu Azure Stack Edge, a następnie przejdź do pozycji **brama > udziały**.
 
-    ![Wybieranie udziału](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
+    ![Wybierz udział 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
 2. Z listy udziałów wybierz udział, który chcesz odinstalować. Należy upewnić się, że odinstalowany udział nie jest używany przez żadne moduły. Jeśli udział jest używany przez moduł, zobaczysz problemy z odpowiednim modułem. Wybierz pozycję **Odinstaluj**.
 
@@ -145,7 +145,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby usunąć udział.
 
 1. Na liście udziałów kliknij udział, który chcesz usunąć.
 
-    ![Wybieranie udziału](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
+    ![Wybierz pozycję Udostępnij 3](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
 
 2. Kliknij polecenie **Usuń**.
 
@@ -169,7 +169,7 @@ Wykonaj następujące czynności w witrynie Azure Portal, aby odświeżyć udzia
 
 1.  W witrynie Azure Portal przejdź do sekcji **Udziały**. Kliknij udział, który chcesz odświeżyć.
 
-    ![Wybieranie udziału](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
+    ![Wybierz pozycję Udostępnij 4](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
 2.  Kliknij przycisk **Odśwież**. 
 

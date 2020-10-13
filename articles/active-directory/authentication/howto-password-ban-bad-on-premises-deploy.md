@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003545"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968603"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -42,7 +42,7 @@ Na etapie inspekcji wiele organizacji stwierdzi, że mają zastosowanie następu
 * Użytkownicy często używają niezabezpieczonych haseł.
 * Muszą oni informować użytkowników o nadchodzącej zmianie wymuszania zabezpieczeń, możliwym wpływie na nie i sposobach wybierania bezpiecznych haseł.
 
-Istnieje również możliwość, że sprawdzanie poprawności hasła ma wpływ na istniejące Active Directory Automatyzacja wdrożenia kontrolera domeny. Zaleca się, aby podczas oceny okresu inspekcji, co najmniej jedna podwyższanie poziomu kontrolera domeny i jedno obniżenie kontrolera domeny było możliwe, aby pomóc w odwróceniu takich problemów. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Istnieje również możliwość, że sprawdzanie poprawności hasła ma wpływ na istniejące Active Directory Automatyzacja wdrożenia kontrolera domeny. Zaleca się, aby podczas oceny okresu inspekcji, co najmniej jedna podwyższanie poziomu kontrolera domeny i jedno obniżenie kontrolera domeny było możliwe, aby pomóc w odwróceniu takich problemów. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Ntdsutil.exe nie może ustawić słabego hasła trybu naprawy usług katalogowych](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [Podwyższanie poziomu repliki kontrolera domeny kończy się niepowodzeniem z powodu słabego hasła trybu naprawy usług katalogowych](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)

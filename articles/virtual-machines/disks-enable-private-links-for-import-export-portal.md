@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4387bf8067b399165b32ab1cdbb9e6ce55ab5f59
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816358"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979057"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Użyj Azure Portal, aby ograniczyć dostęp do usługi Import/Export dla dysków zarządzanych przy użyciu linków prywatnych
 
@@ -40,7 +40,7 @@ Właściwość NetworkAccessPolicy można ustawić tak, aby `DenyAll` uniemożli
 
 1. Wybierz pozycję **+ Dodaj** , aby utworzyć nowy zasób dostępu do dysku.
 1. W bloku Tworzenie wybierz swoją subskrypcję, grupę zasobów, wprowadź nazwę i wybierz region.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-create-basics.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
@@ -77,7 +77,7 @@ Teraz, gdy masz zasób dostępu do dysku, możesz go użyć, aby obsługiwać do
     > Jeśli dla wybranej podsieci jest włączona Grupa zabezpieczeń sieci, zostanie ona wyłączona tylko dla prywatnych punktów końcowych w tej podsieci. Inne zasoby w tej podsieci nadal będą mieć wymuszanie sieciowej grupy zabezpieczeń.
 
 1. Wybierz odpowiednią podsieć
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Zrzut ekranu bloku tworzenia dostępu do dysku. Wypełnij odpowiednią nazwę, wybierz region, wybierz grupę zasobów i wykonaj operację":::
 
@@ -95,4 +95,4 @@ Ukończono Konfigurowanie linków prywatnych, których można użyć podczas imp
 ## <a name="next-steps"></a>Następne kroki
 
 - [Często zadawane pytania dotyczące linków prywatnych](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu programu PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Eksportowanie/kopiowanie zarządzanych migawek jako dysku VHD do konta magazynu w innym regionie przy użyciu programu PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

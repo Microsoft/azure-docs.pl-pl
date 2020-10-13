@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25e3a9cb363ae4e64b953aeb7a6da4e2e66c9fc7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306875"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977103"
 ---
 # <a name="azure-serial-console-for-linux"></a>Konsola szeregowa platformy Azure dla systemu Linux
 
@@ -73,7 +73,7 @@ Oracle Linux        | Konsola szeregowa dostęp domyślnie włączony.
 ### <a name="custom-linux-images"></a>Niestandardowe obrazy systemu Linux
 Aby włączyć konsolę szeregową dla niestandardowego obrazu maszyny wirtualnej z systemem Linux, Włącz dostęp do konsoli w pliku */etc/inittab* , aby uruchomić terminal w `ttyS0` . Przykład: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Może być również konieczne zduplikowanie Getty na ttyS0. Można to zrobić za pomocą `systemctl start serial-getty@ttyS0.service` .
 
-Warto również dodać ttyS0 jako lokalizację docelową dla danych wyjściowych seryjnych. Aby uzyskać więcej informacji na temat konfigurowania niestandardowego obrazu do pracy z konsolą szeregową, zobacz Ogólne wymagania systemowe na stronie [Tworzenie i przekazywanie wirtualnego dysku twardego systemu Linux na platformie Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+Warto również dodać ttyS0 jako lokalizację docelową dla danych wyjściowych seryjnych. Aby uzyskać więcej informacji na temat konfigurowania niestandardowego obrazu do pracy z konsolą szeregową, zobacz Ogólne wymagania systemowe na stronie [Tworzenie i przekazywanie wirtualnego dysku twardego systemu Linux na platformie Azure](../linux/create-upload-generic.md#general-linux-system-requirements).
 
 Jeśli tworzysz jądro niestandardowe, rozważ włączenie tych flag jądra: `CONFIG_SERIAL_8250=y` i `CONFIG_MAGIC_SYSRQ_SERIAL=y` . Plik konfiguracji zazwyczaj znajduje się w ścieżce */Boot/* .
 
@@ -114,7 +114,7 @@ Jeśli użytkownik jest połączony z konsolą szeregową, a inny użytkownik po
 ## <a name="accessibility"></a>Ułatwienia dostępu
 Ułatwienia dostępu to kluczowy fokus dla konsoli szeregowej platformy Azure. W tym celu upewnij się, że konsola szeregowa jest w pełni dostępna.
 
-### <a name="keyboard-navigation"></a>Nawigacja za pomocą klawiatury
+### <a name="keyboard-navigation"></a>Nawigacja przy użyciu klawiatury
 Użyj klawisza **Tab** na klawiaturze, aby przejść do interfejsu konsoli szeregowej z Azure Portal. Twoja lokalizacja zostanie wyróżniona na ekranie. Aby opuścić fokus okna konsoli szeregowej, naciśnij klawisz **Ctrl** + **F6** na klawiaturze.
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Korzystanie z konsoli szeregowej z czytnikiem ekranu
@@ -128,7 +128,7 @@ Problem                           |   Ograniczanie ryzyka
 Naciśnięcie klawisza **Enter** po banerze połączenia nie spowoduje wyświetlenia monitu logowania. | GRUB może nie być poprawnie skonfigurowana. Uruchom następujące polecenia: `grub2-mkconfig -o /etc/grub2-efi.cfg` i/lub `grub2-mkconfig -o /etc/grub2.cfg` . Aby uzyskać więcej informacji, zobacz [naciśnięcie klawisza ENTER nic nie robi](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Ten problem może wystąpić, jeśli używasz niestandardowej maszyny wirtualnej, urządzenia z ograniczeniami lub konfiguracji GRUB, która powoduje, że system Linux nie może nawiązać połączenia z portem szeregowym.
 Konsola szeregowa tekst pobiera tylko część rozmiaru ekranu (często po użyciu edytora tekstów). | Konsole szeregowe nie obsługują negocjowania rozmiaru okna o rozmiarze ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), co oznacza, że sygnał SIGWINCH nie zostanie wysłany do aktualizacji rozmiaru ekranu, a maszyna wirtualna nie będzie miała informacji o rozmiarze terminalu. Zainstaluj xterm lub podobne narzędzie, aby udostępnić `resize` polecenie, a następnie uruchom `resize` .
 Wklejanie długich ciągów nie działa. | Konsola szeregowa ogranicza długość ciągów wklejonych do terminalu do 2048 znaków, aby zapobiec przeciążeniu przepustowości portu szeregowego.
-Błędne dane wejściowe klawiatury w obrazach SLES BYOS. Dane wejściowe z klawiatury są tylko sporadycznie rozpoznawane. | Jest to problem z pakietem Plymouth. Nie należy uruchamiać Plymouth na platformie Azure, ponieważ nie jest potrzebny ekran powitalny, a Plymouth zakłóca możliwości platformy do korzystania z konsoli szeregowej. Usuń Plymouth z `sudo zypper remove plymouth` , a następnie uruchom ponownie. Alternatywnie możesz zmodyfikować wiersz jądra konfiguracji GRUB, dołączając `plymouth.enable=0` do końca wiersza. Można to zrobić, [edytując wpis rozruchu w czasie rozruchu](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)lub edytując wiersz GRUB_CMDLINE_LINUX w programie `/etc/default/grub` , przebudować grub z `grub2-mkconfig -o /boot/grub2/grub.cfg` , a następnie ponownie uruchomić.
+Błędne dane wejściowe klawiatury w obrazach SLES BYOS. Dane wejściowe z klawiatury są tylko sporadycznie rozpoznawane. | Jest to problem z pakietem Plymouth. Nie należy uruchamiać Plymouth na platformie Azure, ponieważ nie jest potrzebny ekran powitalny, a Plymouth zakłóca możliwości platformy do korzystania z konsoli szeregowej. Usuń Plymouth z `sudo zypper remove plymouth` , a następnie uruchom ponownie. Alternatywnie możesz zmodyfikować wiersz jądra konfiguracji GRUB, dołączając `plymouth.enable=0` do końca wiersza. Można to zrobić, [edytując wpis rozruchu w czasie rozruchu](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles)lub edytując wiersz GRUB_CMDLINE_LINUX w programie `/etc/default/grub` , przebudować grub z `grub2-mkconfig -o /boot/grub2/grub.cfg` , a następnie ponownie uruchomić.
 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania

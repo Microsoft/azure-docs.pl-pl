@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794486"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977939"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Windows
 
@@ -262,7 +262,7 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Szyfrowanie współużytkowanych/rozproszonych systemów plików, takich jak (ale nie ograniczone do) systemu plików DFS, GFS, DRDB i CephFS.
 - Przeniesienie szyfrowanych maszyn wirtualnych do innej subskrypcji lub regionu.
 - Tworzenie obrazu lub migawki zaszyfrowanej maszyny wirtualnej i używanie jej do wdrażania dodatkowych maszyn wirtualnych.
-- Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Maszyny wirtualne serii M z dyskami akcelerator zapisu.
 - Zastosowanie elementu ADE do maszyny wirtualnej z dyskami zaszyfrowanymi za pomocą [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md) (SSE + CMK). Stosowanie instrukcji SSE i CMK do dysku danych na maszynie wirtualnej zaszyfrowanej przy użyciu programu ADE jest również nieobsługiwanym scenariuszem.
 - Migrowanie maszyny wirtualnej, która jest zaszyfrowana przy użyciu programu ADE lub **kiedykolwiek** została zaszyfrowana za pomocą programu ADE, do [szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez klienta](disk-encryption.md).

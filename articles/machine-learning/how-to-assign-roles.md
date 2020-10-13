@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: ab94af9ec172a3e88d523024c1e00d3a0d944798
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873085"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966410"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 
@@ -66,6 +66,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 ## <a name="azure-machine-learning-operations"></a>Operacje Azure Machine Learning
 
 Azure Machine Learning wbudowane akcje dla wielu operacji i zadań. Aby uzyskać pełną listę, zobacz [operacje związane z dostawcą zasobów platformy Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+## <a name="mlflow-operations-in-azure-machine-learning"></a>MLflow operacji w usłudze Azure Machine Learning
+
+W tej tabeli opisano zakres uprawnień, który należy dodać do akcji w roli niestandardowej utworzonej w celu wykonywania operacji MLflow.
+
+| MLflow, operacja | Zakres |
+| --- | --- |
+| Wyświetl listę wszystkich eksperymentów w magazynie śledzenia obszarów roboczych, uzyskaj eksperyment według identyfikatora, uzyskaj eksperyment według nazwy | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/odczyt |
+| Utwórz eksperyment z nazwą, ustaw tag na eksperymentie, Przywróć eksperyment oznaczony do usunięcia| Microsoft. MachineLearningServices/obszary robocze/eksperymenty/zapis | 
+| Usuwanie eksperymentu | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/usuwanie |
+| Pobierz dane dotyczące uruchamiania i pokrewnych metadanych, Pobierz listę wszystkich wartości dla określonej metryki dla danego przebiegu, Lista artefaktów do uruchomienia | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/uruchomienia/odczyt |
+| Tworzenie nowego przebiegu w ramach eksperymentu, usuwanie przebiegów, Przywracanie usuniętych przebiegów, rejestrowanie metryk w bieżącym przebiegu, Ustawianie tagów w przebiegu, Usuwanie tagów w przebiegu, parametry dziennika (para klucz-wartość) używanych do uruchomienia, rejestrowanie partii metryk, parametrów i tagów dla przebiegu, stan przebiegu aktualizacji | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/uruchomienia/zapisu |
+| Pobierz zarejestrowany model według nazwy, Pobierz listę wszystkich zarejestrowanych modeli w rejestrze, Wyszukaj zarejestrowane modele, najnowsze modele wersji dla każdego etapu żądania, uzyskaj wersję zarejestrowanego modelu, wersje modeli wyszukiwania, Uzyskaj identyfikator URI, w którym są przechowywane artefakty wersji modelu, Wyszukaj uruchomienia według identyfikatorów eksperymentów | Microsoft. MachineLearningServices/obszary robocze/modele/odczyt |
+| Utwórz nowy zarejestrowany model, zaktualizuj nazwę/opis zarejestrowanego modelu, Zmień nazwę istniejącego zarejestrowanego modelu, Utwórz nową wersję modelu, zaktualizuj Opis wersji modelu i przeniesie zarejestrowany model na jeden z etapów | Microsoft. MachineLearningServices/obszary robocze/modele/zapis |
+| Usuwanie zarejestrowanego modelu wraz ze wszystkimi jego wersjami, usuwanie określonych wersji zarejestrowanego modelu | Microsoft. MachineLearningServices/obszary robocze/modele/usuwanie |
+
 
 ## <a name="create-custom-role"></a>Tworzenie roli niestandardowej
 
@@ -253,6 +269,46 @@ Tak tutaj są niektóre typowe scenariusze z niestandardowymi, proponowanymi def
         ]
     }
     ```
+     
+* __Niestandardowa Analityka danych MLflow__: umożliwia analitykowi danych wykonywanie wszystkich operacji obsługiwanych przez analityka MLflow, **z wyjątkiem**:
+
+   * Tworzenie obliczeń
+   * Wdrażanie modeli w środowisku produkcyjnym AKS
+   * Wdrażanie punktu końcowego potoku w środowisku produkcyjnym
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/experiments/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps niestandardowy__: umożliwia przypisanie roli do jednostki usługi i używanie jej do automatyzowania potoków MLOps. Na przykład, aby przesłać przebiegi z już opublikowanym potokiem:
 

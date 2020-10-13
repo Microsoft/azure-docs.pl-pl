@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903695"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951795"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro dla zaawansowanego przepływu wdrażania
 
@@ -31,7 +31,7 @@ Obliczenia można skonfigurować dla prostego lub zaawansowanego przepływu wdra
 
 Wykonanie tej procedury może potrwać od 20 do 30 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -58,21 +58,21 @@ W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hu
 
 2. Na kafelku **Konfigurowanie obliczeń krawędzi** wybierz pozycję **Konfiguruj obliczenia**.
 
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
+    ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
 3. W bloku **Konfigurowanie obliczeń krawędzi** wprowadź następujące dane:
 
    
     |Pole  |Wartość  |
     |---------|---------|
-    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
     |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
+    ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, konfiguracja kafelka **obliczenia krawędzi** zostanie zaktualizowana tak, aby pokazywać konfigurację obliczeniową. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia** .
+4. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, konfiguracja kafelka **obliczenia krawędzi** zostanie zaktualizowana tak, aby pokazywać konfigurację obliczeniową. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl konfigurację** na kafelku **Konfiguruj obliczenia** .
     
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
+    ![Wprowadzenie do obliczeń obliczeniowych 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
 
     Po skonfigurowaniu roli funkcji obliczeniowej Edge na urządzeniu Edge tworzone są dwa urządzenia: urządzenie IoT i urządzenie IoT Edge. Oba urządzenia można wyświetlić w zasobie usługi IoT Hub. Środowisko uruchomieniowe IoT Edge jest również uruchomione na tym urządzeniu IoT Edge.
 
@@ -136,17 +136,17 @@ W przypadku wdrożenia zaawansowanego w tym samouczku potrzebne są dwa udziały
     |Typ wyzwalacza     | Wybierz pozycję wyzwalacz **pliku** . Wyzwalacz pliku jest uruchamiany za każdym razem, gdy występuje zdarzenie pliku, takie jak zapisanie pliku w udziale wejściowym. Zaplanowany wyzwalacz z drugiej strony jest uruchamiany zgodnie z harmonogramem zdefiniowanym przez użytkownika. W tym przykładzie potrzebny jest wyzwalacz pliku.    |
     |Udział wejściowy     | Wybierz udział wejściowy. Udział lokalny krawędzi jest w tym przypadku udziałem wejściowym. Używany tutaj moduł przenosi pliki z udziału lokalnego Edge do udziału granicznego, w którym są przekazywane do chmury.        |
 
-    ![Dodawanie wyzwalacza](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
+    ![Dodaj wyzwalacz 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
 
 3. Po utworzeniu wyzwalacza otrzymasz powiadomienie. Lista wyzwalaczy została zaktualizowana w celu wyświetlenia nowo utworzonego wyzwalacza. Wybierz wyzwalacz, który został właśnie utworzony.
 
-    ![Dodawanie wyzwalacza](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
+    ![Dodaj wyzwalacz 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-3.png)
 
 4. Skopiuj i Zapisz przykładową trasę. Ta Przykładowa trasa zostanie zmodyfikowana i będzie używana później w IoT Hub.
 
     `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
-    ![Dodawanie wyzwalacza](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
+    ![Dodaj wyzwalacz 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
 ## <a name="add-a-module"></a>Dodawanie modułu
 
@@ -213,13 +213,13 @@ W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT E
  
     4. Jeśli to konieczne, skonfiguruj zaawansowane ustawienia środowiska uruchomieniowego Edge, a następnie kliknij pozycję **Dalej**.
 
-        ![Dodawanie modułu niestandardowego](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Dodawanie modułu niestandardowego 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. W obszarze **Określ trasy**Ustaw trasy między modułami.  
    
    ![Określanie tras](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-7.png)
 
-    Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz opcję **Dalej**.
+    Możesz zamienić *trasę* na następujący wcześniej skopiowany ciąg trasy. W tym przykładzie podaj nazwę udziału lokalnego, który wypchnie dane do udziału chmurowego. Zamień na `modulename` nazwę modułu. Wybierz pozycję **Dalej**.
         
     ```
     "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
@@ -229,11 +229,11 @@ W tej sekcji dowiesz się, jak dodać niestandardowy moduł do urządzenia IoT E
 
 6. W obszarze **Przejrzyj wdrożenie** sprawdź wszystkie ustawienia, a następnie wybierz pozycję **Prześlij**, aby przesłać moduł do wdrożenia.
 
-   ![Strona Ustawianie modułów](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![Strona Ustawianie modułów 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     Ta akcja uruchamia wdrożenie modułu. Po zakończeniu wdrażania **stan środowiska uruchomieniowego** modułu jest **uruchomiony**.
 
-    ![Dodawanie modułu niestandardowego](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Dodaj moduł niestandardowy 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## <a name="verify-data-transform-transfer"></a>Weryfikowanie transformacji danych, transfer
 
@@ -247,15 +247,15 @@ Wykonaj następujące kroki, aby zweryfikować transformację i transfer danych 
  
 1. Dodaj dane do udziału lokalnego.
 
-   ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
+   ![Weryfikowanie przekształcenia danych 2](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
     Dane zostaną przeniesione do udziału chmurowego.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
+    ![Weryfikowanie przekształcenia danych 3](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
     Następnie dane zostaną wypchnięte z udziału chmurowego na konto magazynu. Aby wyświetlić dane, przejdź do swojego konta magazynu, a następnie wybierz pozycję **Eksplorator usługi Storage**. Przekazane dane można wyświetlić na koncie magazynu.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
+    ![Weryfikowanie przekształcenia danych 4](./media/azure-stack-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 Ukończono proces walidacji.
 

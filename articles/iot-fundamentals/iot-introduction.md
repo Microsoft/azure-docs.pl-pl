@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81729006"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978904"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Co to jest usługa Azure Internet of Things (IoT)?
 
@@ -74,6 +74,8 @@ Na przykład w rozwiązaniu do zdalnego monitorowania stacji dokującej, zaplecz
 
 Aby zapoznać się z przykładami dotyczącymi sposobu korzystania z usługi Azure IoT przez organizacje, zobacz [techniczne analizy przypadków firmy Microsoft dla IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+Szczegółowe omówienie architektury IoT można znaleźć w temacie [Architektura referencyjna IoT platformy Microsoft Azure](https://aka.ms/iotrefarchitecture).
+
 ## <a name="next-steps"></a>Następne kroki
 
 Rzeczywiste przypadki zastosowań biznesowych i opisy używanej architektury można znaleźć na stronie [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured) (Techniczne analizy przypadków usługi Microsoft Azure IoT).
@@ -81,5 +83,3 @@ Rzeczywiste przypadki zastosowań biznesowych i opisy używanej architektury mo�
 W [katalogu projektów IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) można znaleźć kilka przykładowych projektów do wypróbowania z układem IoT DevKit. 
 
 Aby uzyskać bardziej szczegółowy opis różnych usług i sposobu ich używania, zobacz [usługi i technologie Azure IoT](iot-services-and-technologies.md).
-
-Szczegółowe omówienie architektury IoT można znaleźć w temacie [Architektura referencyjna IoT platformy Microsoft Azure](https://aka.ms/iotrefarchitecture).

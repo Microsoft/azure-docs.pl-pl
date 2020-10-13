@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b08a7d6ab271c266ba850d72d5a8b23a06dc5a3f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87052111"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977667"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Obciążenia Red Hat na platformie Azure
 
@@ -41,11 +41,11 @@ Platforma Azure oferuje również obrazy Red Hat Gold ( `rhel-byos` ). Te obrazy
 * Dowiedz się [, jak znaleźć obrazy Red Hat Gold w Azure Portal, interfejsie wiersza polecenia platformy Azure lub w poleceniu cmdlet programu PowerShell](./byos.md).
 
 > [!NOTE]
-> Podwójne rozliczenie jest naliczane, gdy użytkownik płaci dwa razy w przypadku subskrypcji RHEL. Ten scenariusz zwykle występuje, gdy klient korzysta z programu Red Hat Subscription-Manager w celu dołączenia uprawnień do maszyny wirtualnej z płatnością zgodnie z rzeczywistym użyciem. Na przykład klient używający usługi Subscription Manager do dołączania uprawnień do pakietów SAP na RHEL obraz z płatnością zgodnie z rzeczywistym użyciem jest pośrednio podwójnie rozliczany, ponieważ płacą dwa razy dla RHEL. Są one płatne jednokrotnie przy użyciu opłaty za usługę płatność zgodnie z rzeczywistym użyciem oraz za pomocą ich subskrypcji SAP. Ten scenariusz nie ma na celu BYOS użytkowników obrazu.
+> Podwójne rozliczenie jest naliczane, gdy użytkownik płaci dwa razy w przypadku subskrypcji RHEL. Ten scenariusz zwykle ma miejsce, gdy klient korzysta z rozwiązania Red Hat Subscription-Manager w celu dołączenia uprawnień do maszyny wirtualnej z płatnością zgodnie z rzeczywistym użyciem. Na przykład klient używający Subscription-Manager do dołączania uprawnień do pakietów SAP na RHEL obraz z płatnością zgodnie z rzeczywistym użyciem jest bezpośrednio rozliczany, ponieważ płacą dwa razy dla RHEL. Są one płatne jednokrotnie przy użyciu opłaty za usługę płatność zgodnie z rzeczywistym użyciem oraz za pomocą ich subskrypcji SAP. Ten scenariusz nie ma na celu BYOS użytkowników obrazu.
 
 ### <a name="generation-2-images"></a>Obrazy generacji 2
 
-Maszyny wirtualne generacji 2 zapewniają nowe funkcje w porównaniu z maszynami wirtualnymi generacji 1. Aby uzyskać więcej informacji, zobacz [dokumentację generacji 2](../../linux/generation-2.md). Różnica klucza z perspektywy obrazu RHEL polega na tym, że maszyny wirtualne 2. generacji używają interfejsu UEFI zamiast systemu BIOS. Używają one również tabeli partycji GUID (GPT) zamiast głównego rekordu rozruchowego (MBR) w czasie rozruchu. Użycie GPT pozwala na, między innymi, rozmiary dysków systemu operacyjnego o rozmiarze większym niż 2 TB. Ponadto [maszyny wirtualne z serii Mv2](../../mv2-series.md) są uruchamiane tylko na obrazach generacji 2.
+Maszyny wirtualne generacji 2 zapewniają nowe funkcje w porównaniu z maszynami wirtualnymi generacji 1. Aby uzyskać więcej informacji, zobacz [dokumentację generacji 2](../../generation-2.md). Różnica klucza z perspektywy obrazu RHEL polega na tym, że maszyny wirtualne 2. generacji używają interfejsu UEFI zamiast systemu BIOS. Używają one również tabeli partycji GUID (GPT) zamiast głównego rekordu rozruchowego (MBR) w czasie rozruchu. Użycie GPT pozwala na, między innymi, rozmiary dysków systemu operacyjnego o rozmiarze większym niż 2 TB. Ponadto [maszyny wirtualne z serii Mv2](../../mv2-series.md) są uruchamiane tylko na obrazach generacji 2.
 
 Obrazy generacji RHEL 2 są dostępne w portalu Azure Marketplace. Poszukaj "Gen2" w jednostce SKU obrazu na liście wszystkich obrazów, które są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure. Przejdź do karty **Zaawansowane** w procesie wdrażania maszyny wirtualnej, aby wdrożyć maszynę wirtualną generacji 2.
 

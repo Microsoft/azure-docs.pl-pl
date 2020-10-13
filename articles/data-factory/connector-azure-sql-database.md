@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 7cfb47ad4cad600f06aba2039f4b6a4b04722085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7072adfcfd276d6420d8ffd7331c59ead7edd288
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332138"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952050"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -44,6 +44,8 @@ W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje na
 - Jako źródło, pobieranie danych przy użyciu zapytania SQL lub procedury składowanej. Możesz również wybrać opcję kopiowania równoległego ze źródła Azure SQL Database, aby uzyskać szczegółowe informacje, zobacz sekcję [Kopiowanie równoległe z bazy danych SQL](#parallel-copy-from-sql-database) .
 - Jako ujścia, automatyczne tworzenie tabeli docelowej, jeśli nie istnieje, na podstawie schematu źródłowego; Dołączanie danych do tabeli lub wywoływanie procedury składowanej z logiką niestandardową podczas kopiowania.
 
+W przypadku korzystania z Azure SQL Database [warstwa bezserwerowa](../azure-sql/database/serverless-tier-overview.md)należy pamiętać, że gdy serwer jest wstrzymany, uruchomienie działania nie powiedzie się, a nie oczekuje na gotowość autowznawiania. Możesz dodać ponowienie działania lub utworzyć łańcuch dodatkowych działań, aby upewnić się, że serwer jest aktywny po rzeczywistym wykonaniu.
+
 >[!NOTE]
 > [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) Azure SQL Database nie jest teraz obsługiwana przez ten łącznik. Aby obejść ten krok, można użyć [ogólnego łącznika ODBC](connector-odbc.md) i sterownika SQL Server ODBC za pośrednictwem własnego środowiska Integration Runtime. Dowiedz się więcej z sekcji [używanie Always Encrypted](#using-always-encrypted) . 
 
@@ -51,7 +53,7 @@ W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje na
 > W przypadku kopiowania danych przy użyciu środowiska Azure Integration Runtime Skonfiguruj [regułę zapory na poziomie serwera](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) tak, aby usługi platformy Azure mogły uzyskiwać dostęp do serwera.
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z Azure SQL Database.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -691,7 +693,7 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 | binarny |Byte [] |
 | bit |Boolean (wartość logiczna) |
 | char |String, Char [] |
-| date |DateTime |
+| data |DateTime |
 | Datetime (data/godzina) |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
@@ -718,7 +720,7 @@ Gdy dane są kopiowane z lub do Azure SQL Database, następujące mapowania są 
 | uniqueidentifier |Guid (identyfikator GUID) |
 | varbinary |Byte [] |
 | varchar |String, Char [] |
-| xml |Ciąg |
+| xml |String |
 
 >[!NOTE]
 > W przypadku typów danych, które są mapowane na typ pośredni dziesiętnego, obecnie działanie kopiowania obsługuje dokładność do 28. Jeśli masz dane o dokładności większej niż 28, Rozważ przekonwertowanie na ciąg w kwerendzie SQL.

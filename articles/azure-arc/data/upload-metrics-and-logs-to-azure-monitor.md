@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757473"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952254"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Przekazywanie danych użycia, metryk i dzienników do Azure Monitor
 
 Okresowo można wyeksportować informacje o użyciu dotyczące rozliczeń, metryk monitorowania i dzienników, a następnie przekazać je na platformę Azure.  Eksportowanie i przekazywanie dowolnych z tych trzech typów danych spowoduje również utworzenie i zaktualizowanie zasobów grupy serwerów, wystąpienia zarządzanego SQL i PostgreSQL na platformie Azure.
 
 > [!NOTE] 
-W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc.
+> W okresie zapoznawczym nie ma kosztu korzystania z usług danych z obsługą usługi Azure Arc.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -77,7 +77,7 @@ Wysyłanie danych do Azure Monitor umożliwia także przechowywanie danych monit
 
 Jeśli masz wiele witryn z usługą Azure Arc Data Services, możesz użyć Azure Monitor jako centralnej lokalizacji, aby zebrać wszystkie dzienniki i metryki w witrynach.
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Istnieje kilka jednorazowych kroków konfiguracji wymaganych do włączenia scenariuszy przesyłania dzienników i metryk:
 

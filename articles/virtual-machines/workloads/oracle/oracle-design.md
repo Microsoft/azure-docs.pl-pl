@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84d97a86dd1dc912964b78d488c460faa744dd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977344"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projektowanie i implementowanie bazy danych Oracle na platformie Azure
 
@@ -49,7 +49,7 @@ W poniższej tabeli wymieniono niektóre różnice między implementacją lokaln
 | **Sieć** |LAN/WAN  |SDN (sieć zdefiniowana przez oprogramowanie)|
 | **Grupa zabezpieczeń** |Narzędzia ograniczeń adresów IP/portów |[Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Odporności** |MTBF (średni czas między niepowodzeńmi) |MTTR (średni czas odzyskiwania)|
-| **Planowana konserwacja** |Poprawki/uaktualnienia|[Zestawy dostępności](../../windows/infrastructure-example.md) (poprawki/uaktualnienia zarządzane przez platformę Azure) |
+| **Planowana konserwacja** |Poprawki/uaktualnienia|[Zestawy dostępności](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (poprawki/uaktualnienia zarządzane przez platformę Azure) |
 | **Zasób** |Dedykowane  |Współużytkowane z innymi klientami|
 | **Regiony** |Centra danych |[Pary regionów](../../regions.md#region-pairs)|
 | **Storage** |SAN/dyski fizyczne |[Magazyn zarządzany przez platformę Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -230,7 +230,7 @@ Po skonfigurowaniu i skonfigurowaniu środowiska platformy Azure następnym krok
 - [Konfigurowanie programu Oracle ASM](configure-oracle-asm.md)
 - [Konfigurowanie środowiska Oracle Data Guard](configure-oracle-dataguard.md)
 - [Konfigurowanie firmy Oracle — Złotej Bramy](configure-oracle-golden-gate.md)
-- [Kopia zapasowa Oracle i odzyskiwanie](oracle-backup-recovery.md)
+- [Kopia zapasowa Oracle i odzyskiwanie](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

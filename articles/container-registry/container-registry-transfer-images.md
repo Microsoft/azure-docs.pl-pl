@@ -2,14 +2,14 @@
 title: Przenieś artefakty
 description: Przenoszenie kolekcji obrazów lub innych artefaktów z jednego rejestru kontenerów do innego rejestru przez utworzenie potoku transferu przy użyciu kont usługi Azure Storage
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253415"
+ms.locfileid: "91932604"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Przenoszenie artefaktów do innego rejestru
 
@@ -21,7 +21,7 @@ Aby przenieść artefakty, tworzysz *potok transferu* , który replikuje artefak
 * Obiekt BLOB jest kopiowany z konta magazynu źródłowego na docelowe konto magazynu
 * Obiekt BLOB na docelowym koncie magazynu zostanie zaimportowany jako artefakty w rejestrze docelowym. Można skonfigurować potok importowania do wyzwalania za każdym razem, gdy obiekt BLOB artefaktu zostanie zaktualizowany w magazynie docelowym.
 
-Transfer jest idealny do kopiowania zawartości między dwoma rejestrami kontenerów platformy Azure w chmurach fizycznie odłączonych, korygowanych przez konta magazynu w poszczególnych chmurach. W przypadku kopiowania obrazów z rejestrów kontenerów w połączonych chmurach, w tym w przypadku usługi Docker Hub i innych dostawców chmury, zaleca się [Importowanie obrazów](container-registry-import-images.md) .
+Transfer jest idealny do kopiowania zawartości między dwoma rejestrami kontenerów platformy Azure w chmurach fizycznie odłączonych, korygowanych przez konta magazynu w poszczególnych chmurach. Jeśli zamiast tego chcesz kopiować obrazy z rejestrów kontenerów w połączonych chmurach, w tym w przypadku usługi Docker Hub i innych dostawców chmury, zaleca się [Importowanie obrazów](container-registry-import-images.md) .
 
 W tym artykule opisano tworzenie i uruchamianie potoku transferu przy użyciu wdrożeń szablonów Azure Resource Manager. Interfejs wiersza polecenia platformy Azure służy do udostępniania skojarzonych zasobów, takich jak wpisy tajne magazynu. Zalecany jest interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Jeśli konieczna będzie instalacja interfejsu wiersza polecenia lub jego uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
@@ -32,11 +32,18 @@ Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyska�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Rejestry **kontenerów** — należy dysponować istniejącym rejestrem źródłowym z artefaktami do przetransferowania oraz rejestrem docelowym. Transfer ACR jest przeznaczony do przenoszenia w chmurach fizycznie odłączonych. Do testowania rejestr źródłowy i docelowy mogą znajdować się w tej samej lub innej subskrypcji platformy Azure, w Active Directory dzierżawie lub w chmurze. Jeśli musisz utworzyć rejestr, zobacz [Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). 
-* **Konta magazynu** — Utwórz źródłowe i docelowe konta magazynu w wybranej subskrypcji i lokalizacji. Do celów testowych możesz użyć tej samej subskrypcji lub subskrypcji jako rejestrów źródłowych i docelowych. W przypadku scenariuszy obejmujących wiele chmur zazwyczaj tworzysz oddzielne konto magazynu w każdej chmurze. W razie konieczności Utwórz konta magazynu za pomocą [interfejsu wiersza polecenia platformy Azure](../storage/common/storage-account-create.md?tabs=azure-cli) lub innych narzędzi. 
+* Rejestry **kontenerów** — należy dysponować istniejącym rejestrem źródłowym z artefaktami do przetransferowania oraz rejestrem docelowym. Transfer ACR jest przeznaczony do przenoszenia w chmurach fizycznie odłączonych. Do testowania rejestr źródłowy i docelowy mogą znajdować się w tej samej lub innej subskrypcji platformy Azure, w Active Directory dzierżawie lub w chmurze. 
+
+   Jeśli musisz utworzyć rejestr, zobacz [Szybki Start: Tworzenie prywatnego rejestru kontenerów za pomocą interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). 
+* **Konta magazynu** — Utwórz źródłowe i docelowe konta magazynu w wybranej subskrypcji i lokalizacji. Do celów testowych możesz użyć tej samej subskrypcji lub subskrypcji jako rejestrów źródłowych i docelowych. W przypadku scenariuszy obejmujących wiele chmur zazwyczaj tworzysz oddzielne konto magazynu w każdej chmurze. 
+
+  W razie konieczności Utwórz konta magazynu za pomocą [interfejsu wiersza polecenia platformy Azure](../storage/common/storage-account-create.md?tabs=azure-cli) lub innych narzędzi. 
 
   Utwórz kontener obiektów BLOB na potrzeby transferu artefaktów na każdym koncie. Na przykład utwórz kontener o nazwie *transfer*. Dwa lub więcej potoków transferu mogą współużytkować to samo konto magazynu, ale należy używać różnych zakresów kontenera magazynu.
-* **Magazyny kluczy** — magazyny kluczy są konieczne do przechowywania wpisów tajnych tokenów SAS używanych do uzyskiwania dostępu do źródłowych i docelowych kont magazynu. Utwórz źródłowe i docelowe magazyny kluczy w tej samej subskrypcji lub subskrypcjach platformy Azure jako rejestry źródłowe i docelowe. W razie konieczności Utwórz magazyny kluczy za pomocą [interfejsu wiersza polecenia platformy Azure](../key-vault/secrets/quick-create-cli.md) lub innych narzędzi.
+* **Magazyny kluczy** — magazyny kluczy są konieczne do przechowywania wpisów tajnych tokenów SAS używanych do uzyskiwania dostępu do źródłowych i docelowych kont magazynu. Utwórz źródłowe i docelowe magazyny kluczy w tej samej subskrypcji lub subskrypcjach platformy Azure jako rejestry źródłowe i docelowe. W celach demonstracyjnych szablony i polecenia używane w tym artykule zakładają również, że źródłowe i docelowe magazyny kluczy znajdują się w tych samych grupach zasobów co rejestr źródłowy i docelowy. Użycie wspólnych grup zasobów nie jest wymagane, ale upraszcza szablony i polecenia używane w tym artykule.
+
+   W razie konieczności Utwórz magazyny kluczy za pomocą [interfejsu wiersza polecenia platformy Azure](../key-vault/secrets/quick-create-cli.md) lub innych narzędzi.
+
 * **Zmienne środowiskowe** — w przypadku przykładowych poleceń w tym artykule ustaw następujące zmienne środowiskowe dla środowiska źródłowego i docelowego. Wszystkie przykłady są sformatowane dla powłoki bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -62,7 +69,7 @@ Uwierzytelnianie magazynu używa tokenów SAS zarządzanych jako wpisy tajne w m
 
 ### <a name="things-to-know"></a>Co należy wiedzieć
 * ExportPipeline i ImportPipeline są zwykle w różnych dzierżawach Active Directory skojarzonych z chmurami źródłową i docelową. Ten scenariusz wymaga oddzielnych tożsamości zarządzanych i magazynów kluczy do zasobów eksportu i importu. Do celów testowych te zasoby mogą być umieszczane w tej samej chmurze i udostępniane tożsamości.
-* Przykłady potoku tworzą tożsamości zarządzane przypisane do systemu, aby uzyskać dostęp do wpisów tajnych magazynu kluczy. ExportPipelines i ImportPipelines obsługują również tożsamości przypisane przez użytkownika. W takim przypadku należy skonfigurować magazyny kluczy za pomocą zasad dostępu dla tożsamości. 
+* Domyślnie szablony ExportPipeline i ImportPipeline umożliwiają zarządzanie tożsamościami zarządzanymi przez system w celu uzyskania dostępu do wpisów tajnych magazynu kluczy. Szablony ExportPipeline i ImportPipeline obsługują również tożsamość przypisaną przez użytkownika. 
 
 ## <a name="create-and-store-sas-keys"></a>Tworzenie i przechowywanie kluczy SAS
 
@@ -152,7 +159,13 @@ Wprowadź następujące wartości parametrów w pliku `azuredeploy.parameters.js
 
 ### <a name="create-the-resource"></a>Tworzenie zasobu
 
-Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób. Poniższy przykład nazywa *exportPipeline*wdrożenia.
+Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób o nazwie *exportPipeline* , jak pokazano w poniższych przykładach. Domyślnie przy pierwszej opcji przykładowy szablon włącza tożsamość przypisaną przez system w zasobie ExportPipeline. 
+
+Za pomocą drugiej opcji można dostarczyć zasób z tożsamością przypisaną przez użytkownika. (Utworzenie tożsamości przypisanej przez użytkownika nie jest pokazane).
+
+Za pomocą dowolnej z tych opcji szablon konfiguruje tożsamość, aby uzyskać dostęp do tokenu sygnatury dostępu współdzielonego w magazynie kluczy eksportu. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Opcja 1. Tworzenie zasobu i włączanie tożsamości przypisanej do systemu
 
 ```azurecli
 az deployment group create \
@@ -162,10 +175,23 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Opcja 2: Tworzenie zasobu i udostępnianie tożsamości przypisanej przez użytkownika
+
+W tym poleceniu podaj identyfikator zasobu tożsamości przypisanej do użytkownika jako dodatkowy parametr.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 W danych wyjściowych polecenia Zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Na przykład:
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
@@ -198,20 +224,39 @@ Parametr  |Wartość  |
 
 ### <a name="create-the-resource"></a>Tworzenie zasobu
 
-Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób.
+Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby utworzyć zasób o nazwie *importPipeline* , jak pokazano w poniższych przykładach. Domyślnie przy pierwszej opcji przykładowy szablon włącza tożsamość przypisaną przez system w zasobie ImportPipeline. 
+
+Za pomocą drugiej opcji można dostarczyć zasób z tożsamością przypisaną przez użytkownika. (Utworzenie tożsamości przypisanej przez użytkownika nie jest pokazane).
+
+Przy użyciu dowolnej opcji szablon konfiguruje tożsamość w celu uzyskania dostępu do tokenu SAS w magazynie kluczy importu. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Opcja 1. Tworzenie zasobu i włączanie tożsamości przypisanej do systemu
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia, uruchamiając [AZ Deployment Group Show][az-deployment-group-show]. Na przykład:
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Opcja 2: Tworzenie zasobu i udostępnianie tożsamości przypisanej przez użytkownika
+
+W tym poleceniu podaj identyfikator zasobu tożsamości przypisanej do użytkownika jako dodatkowy parametr.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+Jeśli planujesz uruchamianie importu ręcznie, zanotuj identyfikator zasobu ( `id` ) potoku. Tę wartość można zapisać w zmiennej środowiskowej w celu późniejszego użycia przez uruchomienie polecenia [AZ Deployment Group Show][az-deployment-group-show] . Na przykład:
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
@@ -246,12 +291,22 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+W celu późniejszego użycia Zapisz identyfikator zasobu dla uruchomienia potoku w zmiennej środowiskowej:
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 Eksportowanie artefaktów może potrwać kilka minut. Po pomyślnym zakończeniu wdrożenia Sprawdź pozycję Eksportuj artefakty, wyświetlając wyeksportowany obiekt BLOB w kontenerze *transfer* na źródłowym koncie magazynu. Na przykład uruchom polecenie [AZ Storage BLOB list][az-storage-blob-list] :
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
@@ -300,11 +355,21 @@ Uruchom [AZ Deployment Group Create][az-deployment-group-create] , aby uruchomi�
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
 
-Po pomyślnym zakończeniu wdrożenia Sprawdź, czy zaimportowano artefakty, wyświetlając listę repozytoriów w docelowym rejestrze kontenerów. Na przykład uruchom [AZ ACR Repository list][az-acr-repository-list]:
+W celu późniejszego użycia Zapisz identyfikator zasobu dla uruchomienia potoku w zmiennej środowiskowej:
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+
+When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -329,20 +394,20 @@ az deployment group create \
 
 ## <a name="delete-pipeline-resources"></a>Usuwanie zasobów potoku
 
-Aby usunąć zasób potoku, usuń jego wdrożenie Menedżer zasobów za pomocą polecenia [AZ Deployment Group Delete][az-deployment-group-delete] . Poniższe przykłady usuwają zasoby potoku utworzone w tym artykule:
+W następujących przykładowych poleceń użyto polecenia [AZ Resource Delete][az-resource-delete] do usuwania zasobów potoku utworzonych w tym artykule. Identyfikatory zasobów były wcześniej przechowywane w zmiennych środowiskowych.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -374,8 +439,6 @@ Aby zaimportować pojedyncze obrazy kontenera do usługi Azure Container Registr
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
@@ -387,3 +450,4 @@ Aby zaimportować pojedyncze obrazy kontenera do usługi Azure Container Registr
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

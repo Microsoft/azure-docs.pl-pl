@@ -2,13 +2,13 @@
 title: Funkcje szablonu — logiczne
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager, aby określić wartości logiczne.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677393"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978513"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funkcje logiczne dla szablonów ARM
 
@@ -16,9 +16,11 @@ Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porówn
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [niemożliwe](#not)
-* [lub](#or)
+* [oraz](#or)
+* [oznacza](#true)
 
 ## <a name="and"></a>oraz
 
@@ -85,7 +87,12 @@ Konwertuje parametr na wartość logiczną.
 | arg1 |Tak |ciąg lub int |Wartość do przekonwertowania na wartość logiczną. |
 
 ### <a name="return-value"></a>Wartość zwracana
+
 Wartość logiczna przekonwertowanej wartości.
+
+### <a name="remarks"></a>Uwagi
+
+Można również użyć wartości [true ()](#true) i [false ()](#false) , aby uzyskać wartość logiczną.
 
 ### <a name="examples"></a>Przykłady
 
@@ -125,6 +132,44 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | falseString | Wartość logiczna | Fałsz |
 | trueInt | Wartość logiczna | Prawda |
 | falseInt | Wartość logiczna | Fałsz |
+
+## <a name="false"></a>fałsz
+
+`false()`
+
+Zwraca wartość false.
+
+### <a name="parameters"></a>Parametry
+
+Funkcja false nie akceptuje żadnych parametrów.
+
+### <a name="return-value"></a>Wartość zwracana
+
+Wartość logiczna, która ma zawsze wartość false.
+
+### <a name="example"></a>Przykład
+
+Poniższy przykład zwraca wartość false.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+Dane wyjściowe z poprzedniego przykładu to:
+
+| Nazwa | Typ | Wartość |
+| ---- | ---- | ----- |
+| falseOutput | Wartość logiczna | Fałsz |
 
 ## <a name="if"></a>if
 
@@ -179,8 +224,8 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| yesOutput | Ciąg | tak |
-| NoOutput | Ciąg | nie |
+| yesOutput | String | tak |
+| NoOutput | String | nie |
 | objectOutput | Obiekt | {"test": "wartość1"} |
 
 Poniższy [przykładowy szablon](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) pokazuje, jak używać tej funkcji z wyrażeniami, które są warunkowo prawidłowe.
@@ -355,6 +400,44 @@ Dane wyjściowe z poprzedniego przykładu to:
 | andExampleOutput | Wartość logiczna | Fałsz |
 | orExampleOutput | Wartość logiczna | Prawda |
 | notExampleOutput | Wartość logiczna | Fałsz |
+
+## <a name="true"></a>true
+
+`true()`
+
+Zwraca wartość true.
+
+### <a name="parameters"></a>Parametry
+
+Funkcja true nie akceptuje żadnych parametrów.
+
+### <a name="return-value"></a>Wartość zwracana
+
+Wartość logiczna, która zawsze ma wartość true.
+
+### <a name="example"></a>Przykład
+
+Poniższy przykład zwraca wartość true.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+Dane wyjściowe z poprzedniego przykładu to:
+
+| Nazwa | Typ | Wartość |
+| ---- | ---- | ----- |
+| trueOutput | Wartość logiczna | Prawda |
 
 ## <a name="next-steps"></a>Następne kroki
 

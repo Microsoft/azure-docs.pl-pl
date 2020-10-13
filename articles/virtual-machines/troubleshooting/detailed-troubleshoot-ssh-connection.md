@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069170"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975675"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Szczegółowe procedury rozwiązywania problemów dotyczących połączenia SSH z maszyną wirtualną z systemem Linux na platformie Azure
 Istnieje wiele możliwych powodów, dla których klient SSH może nie mieć dostępu do usługi SSH na maszynie wirtualnej. Jeśli po wykonaniu bardziej [ogólnych kroków związanych z rozwiązywaniem problemów](troubleshoot-ssh-connection.md)z PROTOKOŁem SSH należy jeszcze bardziej rozwiązać problem z połączeniem. W tym artykule szczegółowo opisano kroki rozwiązywania problemów w celu ustalenia, gdzie połączenie SSH kończy się niepowodzeniem i jak rozwiązać ten problem.
@@ -39,7 +39,7 @@ Poniższe kroki ułatwiają wyizolowanie źródła awarii i ustalenie rozwiąza�
 
 2. Wybierz pozycję **Ustawienia** , aby przejrzeć punkty końcowe, adresy IP, sieciowe grupy zabezpieczeń i inne ustawienia.
 
-   Maszyna wirtualna powinna mieć punkt końcowy zdefiniowany dla ruchu SSH, który można wyświetlić w **punktach końcowych** lub **[sieciowej grupie zabezpieczeń](../../virtual-network/security-overview.md)**. Punkty końcowe na maszynach wirtualnych, które zostały utworzone przy użyciu Menedżer zasobów są przechowywane w sieciowej grupie zabezpieczeń. Upewnij się, że reguły zostały zastosowane do sieciowej grupy zabezpieczeń i są przywoływane w podsieci.
+   Maszyna wirtualna powinna mieć punkt końcowy zdefiniowany dla ruchu SSH, który można wyświetlić w **punktach końcowych** lub **[sieciowej grupie zabezpieczeń](../../virtual-network/network-security-groups-overview.md)**. Punkty końcowe na maszynach wirtualnych, które zostały utworzone przy użyciu Menedżer zasobów są przechowywane w sieciowej grupie zabezpieczeń. Upewnij się, że reguły zostały zastosowane do sieciowej grupy zabezpieczeń i są przywoływane w podsieci.
 
 Aby sprawdzić łączność sieciową, sprawdź skonfigurowane punkty końcowe i sprawdź, czy można nawiązać połączenie z maszyną wirtualną za pośrednictwem innego protokołu, takiego jak HTTP lub inna usługa.
 
@@ -114,7 +114,7 @@ Aby wyeliminować punkt końcowy jako źródło problemu, Usuń bieżący punkt 
 
 ## <a name="source-4-network-security-groups"></a>Źródło 4: sieciowe grupy zabezpieczeń
 Sieciowe grupy zabezpieczeń umożliwiają bardziej szczegółową kontrolę nad dozwolonym ruchem przychodzącym i wychodzącym. Można tworzyć reguły obejmujące podsieci i usługi w chmurze w sieci wirtualnej platformy Azure. Sprawdź reguły sieciowej grupy zabezpieczeń, aby upewnić się, że ruch SSH do i z Internetu jest dozwolony.
-Aby uzyskać więcej informacji, zobacz [Informacje o sieciowych grupach zabezpieczeń](../../virtual-network/security-overview.md).
+Aby uzyskać więcej informacji, zobacz [Informacje o sieciowych grupach zabezpieczeń](../../virtual-network/network-security-groups-overview.md).
 
 Możesz również użyć weryfikacji adresu IP, aby sprawdzić poprawność konfiguracji sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania sieci platformy Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 
@@ -132,5 +132,5 @@ Spróbuj ponownie nawiązać połączenie z komputera. Jeśli nadal nie powiedzi
 * Lokalna Zapora na docelowej maszynie wirtualnej ma reguły uniemożliwiające ruch w ruchu SSH lub wychodzącym.
 * Wykrywanie intruza lub oprogramowanie do monitorowania sieci działające na maszynie wirtualnej platformy Azure uniemożliwia połączenia SSH.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 Aby uzyskać więcej informacji na temat rozwiązywania problemów z dostępem do aplikacji, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie wirtualnej platformy Azure](./troubleshoot-app-connection.md)

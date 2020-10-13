@@ -1,20 +1,20 @@
 ---
 title: Migrowanie Azure AD Domain Services z klasycznej sieci wirtualnej | Microsoft Docs
 description: Dowiedz się, jak przeprowadzić migrację istniejącej Azure AD Domain Services domeny zarządzanej z modelu klasycznej sieci wirtualnej do sieci wirtualnej opartej na Menedżer zasobów.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: iainfou
-ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.author: joflore
+ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266908"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968178"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure Active Directory Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
@@ -154,8 +154,8 @@ Migracja do modelu wdrażania Menedżer zasobów i sieci wirtualnej jest podziel
 | Krok    | Wykonywane przez  | Szacowany czas  | Downtime (Przestoje)  | Czy wycofać/przywrócić? |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Krok 1 — aktualizowanie i lokalizowanie nowej sieci wirtualnej](#update-and-verify-virtual-network-settings) | Azure Portal | 15 minut | Brak wymaganego przestoju | Nie dotyczy |
-| [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
-| [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
+| [Krok 2. Przygotowanie domeny zarządzanej do migracji](#prepare-the-managed-domain-for-migration) | Program PowerShell | średnio 15 – 30 minut | Czas przestoju AD DS platformy Azure zostanie uruchomiony po zakończeniu tego polecenia. | Wycofaj i Przywróć dostępne. |
+| [Krok 3. przeniesienie domeny zarządzanej do istniejącej sieci wirtualnej](#migrate-the-managed-domain) | Program PowerShell | 1 – 3 godziny średnio | Po zakończeniu tego polecenia jest dostępny jeden kontroler domeny, przestoje zakończy się. | W przypadku niepowodzenia dostępne są zarówno wycofywanie (samoobsługowe) i przywracanie. |
 | [Krok 4. testowanie i oczekiwanie na replikę kontrolera domeny](#test-and-verify-connectivity-after-the-migration)| PowerShell i Azure Portal | 1 godzina lub więcej, w zależności od liczby testów | Oba kontrolery domeny są dostępne i powinny działać normalnie. | Nie dotyczy. Po pomyślnym przeprowadzeniu migracji pierwszej maszyny wirtualnej nie jest dostępna opcja wycofywania ani przywracania. |
 | [Krok 5 — opcjonalne kroki konfiguracji](#optional-post-migration-configuration-steps) | Azure Portal i maszyny wirtualne | Nie dotyczy | Brak wymaganego przestoju | Nie dotyczy |
 

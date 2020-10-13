@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904583"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951625"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack EDGE Pro
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Samouczek: Przekształcanie danych przy użyciu Azure Stack EDGE Pro
 
 W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu z systemem Azure Stack Edge w wersji Pro. Po skonfigurowaniu roli obliczeniowej Azure Stack EDGE Pro może przekształcić dane przed wysłaniem ich do platformy Azure.
 
 Wykonanie tej procedury może potrwać około 10 do 15 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -52,14 +52,14 @@ W celu skonfigurowania obliczeń na Azure Stack EDGE Pro utworzysz zasób IoT Hu
    
     |Pole  |Wartość  |
     |---------|---------|
-    |Usługa IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
+    |IoT Hub     | Wybierz pozycję **Nowy** lub **istniejący**. <br> Domyślnie warstwa standardowa (S1) jest używana do tworzenia zasobu IoT. Aby użyć zasobu IoT warstwy Bezpłatna, utwórz go, a następnie wybierz istniejący zasób. <br> W każdym przypadku zasób IoT Hub używa tej samej subskrypcji i grupy zasobów, która jest używana przez zasób Azure Stack Edge.     |
     |Nazwa     |Wprowadź nazwę dla zasobu IoT Hub.         |
 
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Wprowadzenie do obliczeń obliczeniowych 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
-4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
+4. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
     
-    ![Wprowadzenie do obliczeń](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Wprowadzenie do obliczeń obliczeniowych 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
     > Jeśli okno dialogowe **Konfigurowanie obliczeń** zostanie zamknięte przed skojarzeniem IoT Hub z urządzeniem z programem Azure Stack EDGE Pro, IoT Hub zostanie utworzona, ale nie zostanie pokazany w konfiguracji obliczeniowej. 
@@ -138,19 +138,19 @@ Wykonaj poniższe kroki, aby sprawdzić, czy moduł jest uruchomiony:
  
 1. W Eksploratorze plików Połącz się z utworzonymi wcześniej udziałami lokalnymi i krawędziami krawędzi.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
+    ![Weryfikowanie przekształcenia danych 2](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
 1. Dodaj dane do udziału lokalnego.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
+    ![Weryfikowanie przekształcenia danych 3](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
     Dane zostaną przeniesione do udziału chmurowego.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
+    ![Weryfikowanie przekształcenia danych 4](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
 
     Następnie dane zostaną wypchnięte z udziału chmurowego na konto magazynu. Aby wyświetlić dane, przejdź do Eksploratora usługi Storage.
 
-    ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
+    ![Weryfikowanie przekształcenia danych 5](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
  
 Ukończono proces walidacji.
 

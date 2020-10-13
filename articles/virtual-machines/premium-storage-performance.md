@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6519f9d549c513e03400366447812a170f9ab41c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776157"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978666"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -130,7 +130,7 @@ Liczniki Monitora wydajności są dostępne dla procesora, pamięci i każdego d
 | **Maks. pamięć** |Ilość pamięci wymaganej do bezproblemowego uruchamiania aplikacji |Zadeklarowane bajty w użyciu (%) |Użyj vmstat |
 | **Max. CPU** |Ilość czasu wymagana do bezproblemowego uruchamiania aplikacji |Czas procesora (%) |% util |
 
-Dowiedz się więcej na temat [iostat](https://linux.die.net/man/1/iostat) i [monitora wydajności](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
+Dowiedz się więcej na temat [iostat](https://linux.die.net/man/1/iostat) i [monitora wydajności](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -222,7 +222,7 @@ Jeśli jednak ta sama aplikacja jest hostowana na Premium Storage, potrzebny bę
 
 W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardów i Premium Storage.
 
-| &nbsp; | **Standardowa** | **Premium** |
+| &nbsp; | **Standardowy** | **Premium** |
 | --- | --- | --- |
 | **Koszt maszyny wirtualnej miesięcznie** |$1 570,58 (standardowa \_ D14) |$1 003,66 (standardowa \_ DS13) |
 | **Koszt dysków miesięcznie** |$1 638,40 (32 x 1 TB dysków) |$544,34 (4 x P30 dysków) |
@@ -343,7 +343,7 @@ Istnieją ustawienia konfiguracji, które można zmienić w celu wywierania wpł
 
 Załóżmy na przykład, że aplikacja używa SQL Server wykonuje duże zapytania i operację indeksowania w tym samym czasie. Załóżmy, że chcemy, aby Operacja indeksowania była większa niż w przypadku dużego zapytania. W takim przypadku można ustawić wartość MAXDOP operacji indeksu na wyższą niż wartość MAXDOP zapytania. W ten sposób SQL Server ma więcej procesorów, których może używać dla operacji indeksu w porównaniu z liczbą procesorów, które mogą być dedykowane dla dużego zapytania. Pamiętaj, że nie kontrolujesz liczby wątków, SQL Server będą używane dla każdej operacji. Można kontrolować maksymalną liczbę procesorów dedykowanych dla wielu wątków.
 
-Dowiedz się więcej o [stopniach równoległości](https://technet.microsoft.com/library/ms188611.aspx) w SQL Server. Dowiedz się, jakie ustawienia mają wpływ na wiele wątków w aplikacji i ich konfiguracje w celu zoptymalizowania wydajności.
+Dowiedz się więcej o [stopniach równoległości](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) w SQL Server. Dowiedz się, jakie ustawienia mają wpływ na wiele wątków w aplikacji i ich konfiguracje w celu zoptymalizowania wydajności.
 
 ## <a name="queue-depth"></a>Głębokość kolejki
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 7857a037d8e48c8c6ae8d44cf77c863bec91d9d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 69d34b6c50d5a4be728453a34c1c092c63c7b6be
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510651"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977327"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu Azure Portal
 
@@ -39,7 +39,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
     > [!WARNING]
-    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](../managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
@@ -48,7 +48,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
     > [!WARNING]
-    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](../managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
@@ -69,7 +69,7 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Po zakończeniu wdrażania prz
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
     > [!WARNING]
-    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](../managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
@@ -81,7 +81,7 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Po zakończeniu wdrażania prz
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
     > [!WARNING]
-    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](../managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
@@ -95,13 +95,13 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Po zakończeniu wdrażania prz
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Windows&quot;:::
 
     > [!WARNING]
-    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania&quot; w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](../managed-disks-overview.md) i CMK, a nie Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
 1. Wybierz kartę Zarządzanie i sprawdź, czy masz konto magazynu diagnostyki. Jeśli nie masz żadnych kont magazynu, wybierz pozycję &quot;Utwórz nowe&quot;, Nadaj nowemu kontu nazwę i wybierz pozycję &quot;OK":::
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.  
+1. Wybierz pozycję **Przejrzyj i utwórz**.  
 1. Po przekazaniu walidacji magazynu kluczy wybierz pozycję **Utwórz**. Spowoduje to powrót do ekranu **wyboru z Azure Key Vault** .
 1. Pozostaw pole **klucza** puste i wybierz **pozycję Wybierz**.
 1. W górnej części ekranu szyfrowania kliknij przycisk **Zapisz**. W oknie podręcznym zostanie wyświetlone ostrzeżenie o ponownym uruchomieniu maszyny wirtualnej. Kliknij przycisk **Yes** (Tak).

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f389581d8fbeb912507b303c46109dd08fcab8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871520"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978496"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Przygotowanie infrastruktury platformy Azure dla oprogramowania SAP HA przy użyciu klastra trybu failover systemu Windows i dysku udostępnionego dla oprogramowania SAP ASCS/SCS
 
@@ -165,10 +165,10 @@ ms.locfileid: "88871520"
 W tym artykule opisano kroki, które należy wykonać, aby przygotować infrastrukturę platformy Azure do instalowania i konfigurowania wystąpienia usługi SAP ASCS/SCS o wysokiej dostępności w klastrze trybu failover systemu Windows przy użyciu *udostępnionego dysku klastra* jako opcji klastrowania wystąpienia SAP ASCS.
 W dokumentacji przedstawiono dwa alternatywy dla *udostępnionego dysku klastra* :
 
-- [Dyski udostępnione platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Dyski udostępnione platformy Azure](../../windows/disks-shared.md)
 - Tworzenie dublowanego magazynu przy użyciu [oprogramowanie SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) 
 
-Poprzednia konfiguracja jest zależna od [grup rozmieszczenia usługi Azure zbliżeniowe (PPG)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) w celu uzyskania optymalnego opóźnienia sieci dla obciążeń SAP. Dokumentacja nie obejmuje warstwy bazy danych.  
+Poprzednia konfiguracja jest zależna od [grup rozmieszczenia usługi Azure zbliżeniowe (PPG)](./sap-proximity-placement-scenarios.md) w celu uzyskania optymalnego opóźnienia sieci dla obciążeń SAP. Dokumentacja nie obejmuje warstwy bazy danych.  
 
 > [!NOTE]
 > Grupy umieszczania w usłudze Azure — wymagania wstępne są wymagane do korzystania z dysku udostępnionego platformy Azure.
@@ -199,7 +199,7 @@ Nazwy hostów i adresy IP dla prezentowanego scenariusza są następujące:
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Tworzenie wewnętrznego modułu równoważenia obciążenia platformy Azure
 
-SAP ASCS, SAP SCS i New SAP ERS2, użyj wirtualnej nazwy hosta i wirtualnych adresów IP. W przypadku korzystania z wirtualnego adresu IP na platformie Azure wymagany jest [moduł równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) . Zdecydowanie zalecamy użycie usługi [równoważenia obciążenia w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
+SAP ASCS, SAP SCS i New SAP ERS2, użyj wirtualnej nazwy hosta i wirtualnych adresów IP. W przypadku korzystania z wirtualnego adresu IP na platformie Azure wymagany jest [moduł równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md) . Zdecydowanie zalecamy użycie usługi [równoważenia obciążenia w warstwie Standardowa](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 
 Na poniższej liście przedstawiono konfigurację modułu równoważenia obciążenia (A) SCS/wykres WYWOŁUJĄCYCH. Konfiguracja programów SAP ASCS i ERS2 w ramach tego samego modułu równoważenia obciążenia platformy Azure.  
@@ -263,8 +263,8 @@ Następujące wpisy rejestru należy zmienić w obu węzłach klastra:
 
 | Ścieżka| Nazwa zmiennej | Typ zmiennej  | Wartość | Dokumentacja |
 | --- | --- | --- |---| ---|
-| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (liczba dziesiętna) |120000 |[KeepAliveTime](https://technet.microsoft.com/library/cc957549.aspx) |
-| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (liczba dziesiętna) |120000 |[KeepAliveInterval](https://technet.microsoft.com/library/cc957548.aspx) |
+| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (liczba dziesiętna) |120000 |[KeepAliveTime](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
+| HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (liczba dziesiętna) |120000 |[KeepAliveInterval](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 
 Aby zastosować zmiany, uruchom ponownie oba węzły klastra.
@@ -325,7 +325,7 @@ Aby uzyskać więcej informacji, zobacz [Klastry trybu failover w systemie Windo
    ```
 
 ### <a name="configure-cluster-cloud-quorum"></a>Konfigurowanie kworum w chmurze klastra
-W przypadku korzystania z systemu Windows Server 2016 lub 2019 zalecamy skonfigurowanie [monitora chmury platformy Azure](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)jako kworum klastra.
+W przypadku korzystania z systemu Windows Server 2016 lub 2019 zalecamy skonfigurowanie [monitora chmury platformy Azure](/windows-server/failover-clustering/deploy-cloud-witness)jako kworum klastra.
 
 Uruchom to polecenie na jednym z węzłów klastra:
 

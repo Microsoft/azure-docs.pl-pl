@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 4a814d575e0879daec64ebfdabc1539219bea250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368944"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968790"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Zatrzymywanie i uruchamianie klastra usługi Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
@@ -18,7 +18,7 @@ Obciążenia AKS mogą nie być wykonywane w sposób ciągły, na przykład w pr
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -30,6 +30,7 @@ W przypadku korzystania z funkcji uruchamiania/zatrzymywania klastra obowiązuj�
 - Ta funkcja jest obsługiwana tylko w przypadku Virtual Machine Scale Sets klastrów.
 - W trakcie okresu zapoznawczego ta funkcja nie jest obsługiwana w przypadku klastrów prywatnych.
 - Stan klastra zatrzymanego klastra AKS jest zachowywany przez maksymalnie 12 miesięcy. Jeśli klaster jest zatrzymany przez ponad 12 miesięcy, nie można odzyskać stanu klastra. Aby uzyskać więcej informacji, zobacz [zasady pomocy technicznej AKS](support-policies.md).
+- W trakcie okresu zapoznawczego należy zatrzymać automatyczne skalowanie klastra (CA) przed podjęciem próby zatrzymania klastra.
 - Można uruchomić lub usunąć zatrzymany klaster AKS. Aby wykonać dowolną operację, taką jak skalowanie lub uaktualnianie, najpierw należy uruchomić klaster.
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Instalowanie `aks-preview` interfejsu wiersza polecenia platformy Azure 

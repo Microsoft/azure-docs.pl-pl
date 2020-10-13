@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d9c3c8e795b6651595a17d540aafa849ce81471
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c24a50926fe028dcbf42d3642ae3ec5c9ae84f5b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91401081"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977853"
 ---
 <a name="HOLTop"></a>
 
@@ -147,6 +147,7 @@ Obiekt Response jest listą zawierającą informacje o analizie dla każdego dok
 
 * [Uwierzytelnianie klienta](#client-authentication)
 * [Analiza tonacji](#sentiment-analysis) 
+* [Wyszukiwanie opinii](#opinion-mining)
 * [Wykrywanie języka](#language-detection)
 * [Rozpoznawanie jednostek nazwanych](#named-entity-recognition-ner)
 * [Łączenie jednostek](#entity-linking)

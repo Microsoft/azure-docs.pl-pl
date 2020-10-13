@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da9a0fe30721a2f55db2c4771f54716868f9972f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055077"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964472"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure Multi-Factor Authentication
 
@@ -238,10 +238,10 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
 1. W obszarze **Użytkownicy i grupy**:
    * Na karcie **Dołącz** wybierz przycisk radiowy **Wszyscy użytkownicy**
    * Na karcie **Wyklucz** , zaznacz pole wyboru **Użytkownicy i grupy** , a następnie wybierz swoje konta dostępu awaryjnego.
-   * Kliknij przycisk **Gotowe**.
+   * Kliknij pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze**wybierz przycisk radiowy **wszystkie aplikacje w chmurze** .
    * Opcjonalnie: na karcie **Wyklucz** wybierz pozycję aplikacje w chmurze, dla których Twoja organizacja nie wymaga uwierzytelniania wieloskładnikowego.
-   * Kliknij przycisk **Gotowe**.
+   * Kliknij pozycję **Gotowe**.
 1. W sekcji **warunki** :
    * Opcjonalnie: Jeśli włączono usługę Azure Identity Protection, możesz zdecydować się na ocenę ryzyka związanego z logowaniem w ramach zasad.
    * Opcjonalnie: Jeśli skonfigurowano Zaufane lokalizacje lub nazwane lokalizacje, można określić, czy te lokalizacje mają zostać dołączone lub wykluczone z zasad.
@@ -250,7 +250,7 @@ Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD
     * Kliknij pozycję **Wybierz**.
 1. Pomiń sekcję **sesji** .
 1. Ustaw przełącznik **Włącz zasady** na wartość **włączone**.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planowanie integracji z systemami lokalnymi
 

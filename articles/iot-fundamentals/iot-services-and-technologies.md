@@ -4,17 +4,17 @@ description: Opisuje zbiór technologii i usług, za pomocą których można utw
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578187"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977565"
 ---
-# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Technologie i usługi platformy Azure służące do tworzenia rozwiązań IoT
+# <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Jakie technologie i usługi platformy Azure mogą służyć do tworzenia rozwiązań IoT?
 
 Technologie i usługi Azure IoT umożliwiają tworzenie różnorodnych rozwiązań IoT, które umożliwiają transformację cyfrową w organizacji. Możesz na przykład:
 

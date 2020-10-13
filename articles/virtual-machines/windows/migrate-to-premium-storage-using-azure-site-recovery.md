@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58d4459e1869a9d1f7ccb8234c0356ac486a950c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320102"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975556"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery
 
-[Usługa Azure Premium dysków SSD](disks-types.md) zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają duże obciążenia we/wy. Ten przewodnik ułatwia Migrowanie dysków maszyn wirtualnych z konta magazynu w warstwie Standardowa do konta magazynu w warstwie Premium przy użyciu [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+[Usługa Azure Premium dysków SSD](../disks-types.md) zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych, na których działają duże obciążenia we/wy. Ten przewodnik ułatwia Migrowanie dysków maszyn wirtualnych z konta magazynu w warstwie Standardowa do konta magazynu w warstwie Premium przy użyciu [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Site Recovery to usługa platformy Azure, która przyczynia się do strategii zapewniania ciągłości działalności biznesowej i odzyskiwania po awarii przez organizowanie replikacji lokalnych serwerów fizycznych i maszyn wirtualnych do chmury (Azure) lub dodatkowego centrum danych. Gdy wystąpi awaria w lokalizacji głównej, nastąpi przełączenie w tryb failover do lokalizacji dodatkowej, aby zachować dostęp do aplikacji i obciążeń. Powrót po awarii do lokalizacji podstawowej powraca do normalnego działania. 
 
@@ -167,7 +167,7 @@ Aby sprawdzić, czy serwer konfiguracji został pomyślnie skojarzony z zasadami
 
    ![Włącz okienko replikacji z wybranym źródłem][13]
 
-Podczas projektowania środowiska usługi Azure Storage zalecamy używanie osobnych kont magazynu dla każdej maszyny wirtualnej w zestawie dostępności. Zalecamy przestrzeganie najlepszych rozwiązań z warstwy magazynowania w celu [użycia wielu kont magazynu dla każdego zestawu dostępności](../linux/manage-availability.md). Dystrybuowanie dysków maszyn wirtualnych do wielu kont magazynu pomaga w zwiększeniu dostępności magazynu i rozproszeniu we/wy między infrastrukturą usługi Azure Storage.
+Podczas projektowania środowiska usługi Azure Storage zalecamy używanie osobnych kont magazynu dla każdej maszyny wirtualnej w zestawie dostępności. Zalecamy przestrzeganie najlepszych rozwiązań z warstwy magazynowania w celu [użycia wielu kont magazynu dla każdego zestawu dostępności](../manage-availability.md). Dystrybuowanie dysków maszyn wirtualnych do wielu kont magazynu pomaga w zwiększeniu dostępności magazynu i rozproszeniu we/wy między infrastrukturą usługi Azure Storage.
 
 Jeśli maszyny wirtualne znajdują się w zestawie dostępności, a nie replikowania dysków wszystkich maszyn wirtualnych na jedno konto magazynu, zdecydowanie zalecamy Migrowanie wielu maszyn wirtualnych wiele razy. Dzięki temu maszyny wirtualne w tym samym zestawie dostępności nie współużytkują jednego konta magazynu. Za pomocą okienka **Włączanie replikacji** można skonfigurować docelowe konto magazynu dla każdej maszyny wirtualnej, po jednej naraz.
  

@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370203"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975285"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
  
 
-W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
+W tym artykule opisano sposób tworzenia [dedykowanego hosta](../dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
 Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz że zalogowano się na koncie platformy Azure przy użyciu programu `az login` . 
 
@@ -319,8 +319,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, zobacz Omówienie [dedykowanych hostów](dedicated-hosts.md) .
+- Aby uzyskać więcej informacji, zobacz Omówienie [dedykowanych hostów](../dedicated-hosts.md) .
 
-- Możesz również utworzyć dedykowane hosty przy użyciu [Azure Portal](dedicated-hosts-portal.md).
+- Możesz również utworzyć dedykowane hosty przy użyciu [Azure Portal](../dedicated-hosts-portal.md).
 
 - Istnieje przykładowy szablon, który znajduje się w [tym miejscu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), który używa stref i domen błędów w celu uzyskania maksymalnej odporności w regionie.

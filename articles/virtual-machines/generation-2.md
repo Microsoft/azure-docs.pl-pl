@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322972"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977599"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -89,7 +89,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
-| Rozmiary maszyn wirtualnych         | Wszystkie rozmiary maszyn wirtualnych | [Zobacz dostępne rozmiary](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
+| Rozmiary maszyn wirtualnych         | Wszystkie rozmiary maszyn wirtualnych | [Zobacz dostępne rozmiary](#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Możliwości generacji 1 a generacja 2
 
@@ -117,7 +117,7 @@ Poniżej przedstawiono procedurę tworzenia maszyny wirtualnej generacji 2 (Gen2
 1. Wybierz pozycję **Utwórz zasób**.
 1. Po lewej stronie kliknij pozycję **Zobacz wszystko** w witrynie Azure Marketplace.
 1. Wybierz obraz, który obsługuje Gen2.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Na karcie **Zaawansowane** w sekcji **generacja maszyny wirtualnej** wybierz opcję **generacji 2** .
 1. Na karcie **podstawowe** w obszarze **szczegóły wystąpienia**przejdź do pozycji **rozmiar** i Otwórz blok **Wybieranie rozmiaru maszyny wirtualnej** .
 1. Wybierz [obsługiwaną maszynę wirtualną generacji 2](#generation-2-vm-sizes).
@@ -222,4 +222,3 @@ Można również tworzyć maszyny wirtualne 2. generacji przy użyciu zestawów 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o [maszynach wirtualnych 2. generacji w funkcji Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
-

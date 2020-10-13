@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319529"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977018"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Przypisywanie lub usuwanie licencji w portalu Azure Active Directory
 
@@ -102,11 +102,11 @@ Upewnij się, że każda osoba, która chce korzystać z licencjonowanej usługi
 
 1. Na stronie **przypisywanie** wybierz pozycję **Użytkownicy i grupy**, a następnie wyszukaj i wybierz grupę, do której jest przypisana licencja.
 
-    ![Strona Przypisywanie licencji z wyróżnionym wyszukiwaniem i wybieraniem opcji](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Strona Przypisywanie licencji z wyróżnionym wyszukiwaniem i wybieraniem opcji 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Wybierz **Opcje przypisania**, upewnij się, że masz włączone odpowiednie opcje licencji, a następnie wybierz przycisk **OK**.
 
-    ![Strona opcji licencji z wszystkimi opcjami dostępnymi w planie licencji](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Strona opcji licencji z wszystkimi opcjami dostępnymi w planie licencji 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     Na stronie **Przypisz licencję** są aktualizowane aktualizacje pokazujące, że wybrano użytkownika i skonfigurowano przypisania.
 
@@ -135,7 +135,7 @@ Licencję można usunąć ze strony użytkownika usługi Azure AD użytkownika, 
 
 1. Wybierz pozycję **Usuń licencję**.
 
-    ![Strona licencjonowane grupy z wyróżnioną opcją Usuń licencję](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Strona licencjonowane grupy z wyróżnioną opcją Usuń licencję 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > Jeśli konto użytkownika lokalnego zsynchronizowane z usługą Azure AD wykracza poza zakres synchronizacji lub gdy synchronizacja zostanie usunięta, użytkownik zostanie usunięty w usłudze Azure AD. W takim przypadku licencje przypisane do użytkownika bezpośrednio lub za pośrednictwem licencjonowania opartego na grupach zostaną oznaczone jako **zawieszone** , a nie **usunięte**.

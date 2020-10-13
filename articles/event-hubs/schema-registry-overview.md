@@ -4,12 +4,12 @@ description: Ten artykuł zawiera omówienie obsługi rejestru schematu w usłud
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1da59d7757a7f78235ab3ef7ab18ca78e419b761
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812424"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938801"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Rejestr schematów platformy Azure w usłudze Event Hubs (wersja zapoznawcza)
 W wielu scenariuszach przesyłania strumieniowego zdarzeń i przesyłania komunikatów zdarzenie lub komunikat zawiera dane strukturalne, które są serializowane lub deserializowane przy użyciu formatu opartego na schemacie, takiego jak Apache Avro. Zarówno nadawcy, jak i odbiorcy mogą chcieć sprawdzić integralność danych za pomocą dokumentu schematu, jak w schemacie JSON. W przypadku formatów opartych na schemacie udostępnianie schematu dla konsumenta wiadomości jest wymagane przez odbiorcę do deserializacji danych. 
@@ -70,4 +70,4 @@ Aby uzyskać instrukcje dotyczące tworzenia rejestrowania aplikacji przy użyci
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )
     - [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer/samples )
-    - [Kafka Avro, integracja z usługą Azure Schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/avro/samples)
+    - [Kafka Avro, integracja z usługą Azure Schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)

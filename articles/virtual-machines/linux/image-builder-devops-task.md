@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068275"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968671"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Zadanie DevOps usługi Azure Image Builder
 
@@ -31,8 +31,8 @@ Istnieją dwa zadania usługi Azure VM Image Builder (AIB) DevOps:
 * Zainstaluj [stabilne zadanie DevOps z Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * Musisz mieć konto VSTS DevOps i utworzyć potok kompilacji
 * Zarejestruj i Włącz wymagania funkcji konstruktora obrazów w subskrypcji używanej przez potoki:
-    * [AZ PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#register-features)
-    * [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder#register-the-features)
+    * [AZ PowerShell](../windows/image-builder-powershell.md#register-features)
+    * [AZ CLI](../windows/image-builder.md#register-the-features)
     
 * Tworzenie standardowego konta usługi Azure Storage w grupie zasobów obrazu źródłowego, można użyć innych kont grupy zasobów/magazynu. Konto magazynu służy do przenoszenia artefaktów kompilacji z zadania DevOps do obrazu.
 
@@ -65,20 +65,20 @@ Ustaw następujące właściwości zadania:
 
 Z menu rozwijanego wybierz subskrypcję, która ma być uruchamiana przez program Image Builder. Użyj tej samej subskrypcji, w której znajdują się obrazy źródłowe, i lokalizację, w której mają być dystrybuowane obrazy. Musisz autoryzować dostęp współautora konstruktora obrazów do subskrypcji lub grupy zasobów.
 
-### <a name="resource-group"></a>Grupa zasobów
+### <a name="resource-group"></a>Resource Group
 
 Użyj grupy zasobów, w której będzie przechowywany artefakt szablonu obrazu tymczasowego. Podczas tworzenia artefaktu szablonu tworzona jest dodatkowa grupa zasobów konstruktora obrazów tymczasowych `IT_<DestinationResourceGroup>_<TemplateName>_guid` . Tymczasowa Grupa zasobów przechowuje metadane obrazu, takie jak skrypty. Na końcu zadania jest usuwany artefakt szablonu obrazu i Grupa zasobów programu Temporary Image Builder.
  
 ### <a name="location"></a>Lokalizacja
 
-Lokalizacja to region, w którym zostanie uruchomiony Konstruktor obrazów. Obsługiwane są tylko zestawy [regionów](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) . Obrazy źródłowe muszą znajdować się w tej lokalizacji. Na przykład jeśli używasz galerii obrazów udostępnionych, replika musi znajdować się w tym regionie.
+Lokalizacja to region, w którym zostanie uruchomiony Konstruktor obrazów. Obsługiwane są tylko zestawy [regionów](../windows/image-builder-overview.md#regions) . Obrazy źródłowe muszą znajdować się w tej lokalizacji. Na przykład jeśli używasz galerii obrazów udostępnionych, replika musi znajdować się w tym regionie.
 
 ### <a name="managed-identity-required"></a>Tożsamość zarządzana (wymagana)
-Konstruktor obrazów wymaga tożsamości zarządzanej, która używa do odczytywania źródłowych obrazów niestandardowych, łączenia się z usługą Azure Storage i tworzenia obrazów niestandardowych. Więcej informacji można znaleźć [tutaj](https://aka.ms/azvmimagebuilder#permissions).
+Konstruktor obrazów wymaga tożsamości zarządzanej, która używa do odczytywania źródłowych obrazów niestandardowych, łączenia się z usługą Azure Storage i tworzenia obrazów niestandardowych. Więcej informacji można znaleźć [tutaj](./image-builder-overview.md#permissions).
 
 ### <a name="vnet-support"></a>Obsługa sieci wirtualnej
 
-Obecnie zadanie DevOps nie obsługuje określania istniejącej podsieci, ale jest to zaplanowanie, ale jeśli chcesz używać istniejącej sieci wirtualnej, możesz użyć szablonu ARM z szablonem konstruktora obrazów zagnieżdżonym w programie, zobacz przykłady szablonów konstruktora obrazów systemu Windows na tym, jak to możliwe, lub użyj polecenia [AZ AIB PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell).
+Obecnie zadanie DevOps nie obsługuje określania istniejącej podsieci, ale jest to zaplanowanie, ale jeśli chcesz używać istniejącej sieci wirtualnej, możesz użyć szablonu ARM z szablonem konstruktora obrazów zagnieżdżonym w programie, zobacz przykłady szablonów konstruktora obrazów systemu Windows na tym, jak to możliwe, lub użyj polecenia [AZ AIB PowerShell](../windows/image-builder-powershell.md).
 
 ### <a name="source"></a>Element źródłowy
 
@@ -194,7 +194,7 @@ W poniższym przykładzie wyjaśniono, jak to działa:
     
 #### <a name="total-length-of-image-build"></a>Łączna długość kompilacji obrazu
 
-Nie można jeszcze zmienić długości łącznej w zadaniu potoku DevOps. Używa domyślnie 240 minut. Jeśli chcesz zwiększyć [buildTimeoutInMinutes](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#properties-buildtimeoutinminutes), możesz użyć polecenia AZ CLI w potoku wydania. Skonfiguruj zadanie, aby skopiować szablon i przesłać go. Aby zapoznać się z przykładem, zobacz to [rozwiązanie](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)lub użyj polecenia AZ PowerShell.
+Nie można jeszcze zmienić długości łącznej w zadaniu potoku DevOps. Używa domyślnie 240 minut. Jeśli chcesz zwiększyć [buildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes), możesz użyć polecenia AZ CLI w potoku wydania. Skonfiguruj zadanie, aby skopiować szablon i przesłać go. Aby zapoznać się z przykładem, zobacz to [rozwiązanie](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)lub użyj polecenia AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Konto magazynu
@@ -298,7 +298,7 @@ Zapisana/oferta/jednostka SKU/wersja obrazu źródłowej witryny Marketplace:
 URI obrazu — identyfikator zasobu rozproszonego obrazu:
 * $ (imageUri)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="can-i-use-an-existing-image-template-i-have-already-created-outside-of-devops"></a>Czy mogę użyć istniejącego szablonu obrazu, który został już utworzony, poza DevOps?
 

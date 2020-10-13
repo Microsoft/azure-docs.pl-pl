@@ -5,16 +5,16 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: ea4ecbbeaa4ad016e32aa9301d6f6ac49a6d342e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23381a45d045e8f96e989bce9f52d627f5a88255
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330183"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979074"
 ---
-# <a name="azure-iot-support-and-help-options"></a>Opcje wsparcia technicznego i pomocy usługi Azure IoT
+# <a name="what-are-the-azure-iot-support-and-help-options"></a>Co to jest pomoc techniczna i opcje pomocy usługi Azure IoT?
 
 Poniżej znajdują się sugestie dotyczące lokalizacji, w których można uzyskać pomoc podczas opracowywania rozwiązań usługi Azure IoT.
 
@@ -101,5 +101,4 @@ Ponadto Podziel się doświadczeniami z ekspertami w [Internet rzeczy społeczno
 
 ## <a name="next-steps"></a>Następne kroki
 
-> [!div class="nextstepaction"]
-> [Co to jest usługa Azure IoT?](iot-introduction.md)
+[Co to jest usługa Azure IoT?](iot-introduction.md)

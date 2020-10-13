@@ -1,20 +1,20 @@
 ---
 title: Samouczek — Konfigurowanie LDAPs dla Azure Active Directory Domain Services | Microsoft Docs
 description: W ramach tego samouczka nauczysz się konfigurować protokół Secure Lightweight Directory Access Protocol (LDAPs) dla domeny zarządzanej Azure Active Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: f5ebe594f1f50c7b7490e5ead8cb3fe7636f0ce7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88054344"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967481"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Samouczek: Konfigurowanie bezpiecznego protokołu LDAP dla domeny zarządzanej Azure Active Directory Domain Services
 
@@ -24,7 +24,7 @@ Za pomocą usługi Azure AD DS można skonfigurować domenę zarządzaną w taki
 
 W tym samouczku pokazano, jak skonfigurować LDAPs dla domeny zarządzanej AD DS platformy Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie certyfikatu cyfrowego do użycia z platformą Azure AD DS

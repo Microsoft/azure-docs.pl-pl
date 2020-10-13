@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: c6e15795d3dde6b87125de30616136140218fe5a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4563fc915b76e36b4087e365e31a4e234edb55dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262590"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977086"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
@@ -57,7 +57,7 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v3.0/generateThumbnail";
+        var uriBase = endpoint + "vision/v3.1/generateThumbnail";
 
         // Request parameters.
         var params = "?width=100&height=150&smartCropping=true";

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299528"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977956"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>Maszyna wirtualna nie odpowiada podczas stosowania zasad konfiguracji zasad inspekcji
 
@@ -27,7 +27,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów, w których maszyna wirtual
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat zrzut ekranu przedstawiający, że system operacyjny (OS) nie odpowiadał podczas rozruchu z **zastosowaniem zasad konfiguracji zasad inspekcji**.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat zrzut ekranu przedstawiający, że system operacyjny (OS) nie odpowiadał podczas rozruchu z **zastosowaniem zasad konfiguracji zasad inspekcji**.
 
   ![Rozruch systemu operacyjnego z komunikatem: "stosowanie zasad konfiguracji zasad inspekcji"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ Poniżej przedstawiono zasady problematyczne: *komputery szablony, \ System/uży
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 1. Korzystając z Podłączanie pulpitu zdalnego, Połącz się z maszyną wirtualną naprawy.
 
 ### <a name="disable-the-policy"></a>Wyłączanie zasad
@@ -153,7 +153,7 @@ Poniżej przedstawiono zasady problematyczne: *komputery szablony, \ System/uży
    
 ### <a name="rebuild-the-virtual-machine"></a>Kompiluj ponownie maszynę wirtualną
 
-1. Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+1. Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .
 
 1. Sprawdź, czy maszyna wirtualna uruchamia się normalnie, aby sprawdzić, czy problem został rozwiązany.
 
@@ -175,11 +175,11 @@ Aby rozwiązać ten problem, należy najpierw zebrać plik zrzutu pamięci dla a
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Dołącz dysk systemu operacyjnego do nowej maszyny wirtualnej naprawy
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować nową maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować nową maszynę wirtualną naprawy.
 1. Korzystanie z Podłączanie pulpitu zdalnego łączenia się z maszyną wirtualną naprawy.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Lokalizowanie pliku zrzutu i przesyłanie biletu pomocy technicznej
 
 1. Na stronie napraw maszynę wirtualną przejdź do folderu systemu Windows na dołączonym dysku systemu operacyjnego. Jeśli litera sterownika przypisana do dołączonego dysku systemu operacyjnego jest oznaczona jako *F*, należy przejść do `F:\Windows` .
 1. Znajdź `memory.dmp` plik, a następnie [Prześlij bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) z plikiem zrzutu pamięci.
-1. Jeśli masz problemy z lokalizowaniem `memory.dmp` pliku, zamiast tego użyj [wywołań przerwań, które nie są MASKOWANE (NMI) w konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) . Postępuj zgodnie z przewodnikiem, aby [wygenerować plik zrzutu awaryjnego za pomocą wywołań NMI w tym miejscu](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Jeśli masz problemy z lokalizowaniem `memory.dmp` pliku, zamiast tego użyj [wywołań przerwań, które nie są MASKOWANE (NMI) w konsoli szeregowej](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) . Postępuj zgodnie z przewodnikiem, aby [wygenerować plik zrzutu awaryjnego za pomocą wywołań NMI w tym miejscu](/windows/client-management/generate-kernel-or-complete-crash-dump).

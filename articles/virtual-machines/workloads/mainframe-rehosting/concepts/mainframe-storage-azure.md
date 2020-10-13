@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88652852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977276"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Przenoszenie magazynu mainframe na platformę Azure
 
@@ -51,13 +51,13 @@ Usługa Azure Storage jest dostępna jako Azure [disks](../../../managed-disks-o
 
 <table>
 <thead>
-    <tr><th>Type</th><th>Opis</th><th>Użyj, gdy chcesz:</th></tr>
+    <tr><th>Typ</th><th>Opis</th><th>Użyj, gdy chcesz:</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure Files
 </td>
 <td>
-Udostępnia interfejs SMB, biblioteki klienta i interfejs <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">rest</a> , który umożliwia dostęp z dowolnego miejsca do przechowywanych plików.
+Udostępnia interfejs SMB, biblioteki klienta i interfejs <a href="/rest/api/storageservices/file-service-rest-api">rest</a> , który umożliwia dostęp z dowolnego miejsca do przechowywanych plików.
 </td>
 <td><ul>
 <li>Podnieś i przenieś aplikację do chmury, gdy aplikacja używa natywnych interfejsów API systemu plików do udostępniania danych między nimi a innymi aplikacjami uruchomionymi na platformie Azure.</li>
@@ -67,7 +67,7 @@ Udostępnia interfejs SMB, biblioteki klienta i interfejs <a href="https://docs.
 </tr>
 <tr><td>Obiekty blob platformy Azure
 </td>
-<td>Zapewnia biblioteki klienckie i interfejs <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">rest</a> , który umożliwia przechowywanie i dostęp do danych bez struktury w dużej skali w blokowych obiektach Blob. Program obsługuje również <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie.
+<td>Zapewnia biblioteki klienckie i interfejs <a href="/rest/api/storageservices/blob-service-rest-api">rest</a> , który umożliwia przechowywanie i dostęp do danych bez struktury w dużej skali w blokowych obiektach Blob. Program obsługuje również <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> w przypadku rozwiązań do analizy danych Big Data w przedsiębiorstwie.
 </td>
 <td><ul>
 <li>Obsługuje scenariusze przesyłania strumieniowego i dostępu swobodnego w aplikacji.</li>
@@ -77,7 +77,7 @@ Udostępnia interfejs SMB, biblioteki klienta i interfejs <a href="https://docs.
 </tr>
 <tr><td>Azure Disks
 </td>
-<td>Zapewnia biblioteki klienckie i interfejs <a href="https://docs.microsoft.com/rest/api/compute/disks">rest</a> , który umożliwia trwałe przechowywanie danych i uzyskiwanie do nich dostępu z dołączonego wirtualnego dysku twardego.
+<td>Zapewnia biblioteki klienckie i interfejs <a href="/rest/api/compute/disks">rest</a> , który umożliwia trwałe przechowywanie danych i uzyskiwanie do nich dostępu z dołączonego wirtualnego dysku twardego.
 </td>
 <td><ul>
 <li>Podnieś i Przenieś aplikacje, które używają natywnych interfejsów API systemu plików do odczytu i zapisu danych na dyskach trwałych.</li>
@@ -94,7 +94,7 @@ Typ magazynu dla danego systemu zależy od wymagań systemu, w tym rozmiaru maga
 
 Dysków SSD zapewniają najwyższą wydajność magazynu na platformie Azure. Dostępne są następujące opcje (w przypadku pisania tego dokumentu):
 
-| Type         | Rozmiar           | Liczba operacji we/wy na sekundę                  |
+| Typ         | Rozmiar           | Liczba operacji we/wy na sekundę                  |
 |--------------|----------------|-----------------------|
 | Dysk SSD w warstwie Ultra    | 4 GB do 64 TB  | 1 200 do 160 000 operacji we/wy |
 | Dysk SSD w warstwie Premium  | 32 GB do 32 TB | od 12 do 15 000 operacji we/wy     |

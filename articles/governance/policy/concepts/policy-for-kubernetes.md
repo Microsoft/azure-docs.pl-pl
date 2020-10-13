@@ -3,12 +3,12 @@ title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540255"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951540"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis usługi Azure Policy dla klastrów Kubernetes
 
@@ -57,6 +57,7 @@ Następujące ograniczenia ogólne mają zastosowanie do Azure Policy dodatku dl
 - Instalacje strażnika poza dodatkiem Azure Policy nie są obsługiwane. Przed włączeniem dodatku Azure Policy Odinstaluj wszystkie składniki zainstalowane przez poprzednią instalację strażnika.
 - [Przyczyny niezgodności](../how-to/determine-non-compliance.md#compliance-reasons) nie są dostępne dla `Microsoft.Kubernetes.Data` 
    [trybu dostawcy zasobów](./definition-structure.md#resource-provider-modes). Użyj [szczegółów składnika](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Wykluczenia](./exemption-structure.md) nie są obsługiwane w przypadku [trybów dostawcy zasobów](./definition-structure.md#resource-provider-modes).
 
 Następujące ograniczenia mają zastosowanie tylko do Azure Policy dodatku dla AKS:
 
@@ -404,13 +405,13 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - **Wyłączone** — nie Wymuszaj zasad w klastrze. Żądania odmowy Kubernetes z naruszeniami nie są odrzucane. Wyniki oceny zgodności są nadal dostępne. Podczas wdrażania nowych definicji zasad do uruchamiania klastrów, opcja _wyłączone_ jest przydatna do testowania definicji zasad, ponieważ żądania dopuszczenia z naruszeniami nie są odrzucane.
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Ustaw **wartości parametrów**
 
    - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw**parametrów. Zaleca się wykluczenie: _polecenia-system_, _strażnik-system_i _Azure-Arc_.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 Alternatywnie możesz znaleźć i przypisać zasady Kubernetes przy użyciu [przystawki przypisywanie zasad —](../assign-policy-portal.md) szybki start dla portalu. Wyszukaj definicję zasad Kubernetes zamiast przykładu "Inspekcja maszyn wirtualnych".
 

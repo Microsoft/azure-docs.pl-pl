@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d64ebb053ef01e375edd52ad0bf2c1f424f1b837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b7490723d3930a151abf1d3f72bb957e02e5988
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660822"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975505"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do Managed Disks na platformie Azure
 
 Usługa Azure Managed Disks upraszcza zarządzanie magazynem, eliminując konieczność osobnego zarządzania kontami magazynu.  Możesz również migrować istniejące maszyny wirtualne platformy Azure, aby Managed Disks korzyści z lepszej niezawodności maszyn wirtualnych w zestawie dostępności. Gwarantuje to, że dyski różnych maszyn wirtualnych w zestawie dostępności są wystarczająco odizolowane od siebie, aby uniknąć pojedynczego punktu awarii. Automatycznie umieszcza dyski różnych maszyn wirtualnych w zestawie dostępności w różnych jednostkach skalowania magazynu (sygnatury), które ograniczają wpływ awarii jednostek skalowania pojedynczego magazynu spowodowanych awariami sprzętu i oprogramowania.
-Na podstawie Twoich potrzeb można wybierać spośród czterech typów opcji magazynu. Aby dowiedzieć się więcej o dostępnych typach dysków, zapoznaj się z artykułem [Wybieranie typu dysku](disks-types.md)
+Na podstawie Twoich potrzeb można wybierać spośród czterech typów opcji magazynu. Aby dowiedzieć się więcej o dostępnych typach dysków, zapoznaj się z artykułem [Wybieranie typu dysku](../disks-types.md)
 
 ## <a name="migration-scenarios"></a>Scenariusze migracji
 
@@ -34,5 +34,5 @@ Można migrować do Managed Disks w następujących scenariuszach:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [Managed disks](managed-disks-overview.md)
+- Dowiedz się więcej o [Managed disks](../managed-disks-overview.md)
 - Zapoznaj się z [cennikiem Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).

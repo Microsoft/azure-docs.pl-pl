@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5e5e6cc77c7fe1d32f0834831ef1b930ee834d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500372"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966172"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configure an IoT Edge device to communicate through a proxy server (Konfigurowanie urządzenia usługi IoT Edge pod kątem komunikacji za pośrednictwem serwera proxy)
 
@@ -25,7 +25,7 @@ W tym artykule omówiono następujące cztery kroki konfigurowania urządzenia I
 
 1. [**Zainstaluj środowisko uruchomieniowe IoT Edge na urządzeniu**](#install-the-runtime-through-a-proxy)
 
-   Program IoT Edge tworzy skrypty ściągania pakietów i plików z Internetu, dzięki czemu urządzenie musi się komunikować za pośrednictwem serwera proxy, aby wykonać te żądania. W przypadku urządzeń z systemem Windows skrypt instalacji udostępnia również opcję [instalacji w trybie offline](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) .
+   Program IoT Edge tworzy skrypty ściągania pakietów i plików z Internetu, dzięki czemu urządzenie musi się komunikować za pośrednictwem serwera proxy, aby wykonać te żądania. W przypadku urządzeń z systemem Windows skrypt instalacji udostępnia również opcję instalacji w trybie offline.
 
    Ten krok to jednorazowy proces konfigurowania IoT Edge urządzenia podczas jego pierwszego skonfigurowania. Te same połączenia są również wymagane w przypadku aktualizowania środowiska uruchomieniowego IoT Edge.
 
@@ -65,7 +65,7 @@ Niezależnie od tego, czy urządzenie IoT Edge działa w systemie Windows, czy L
 
 ### <a name="linux-devices"></a>Urządzenia z systemem Linux
 
-Jeśli instalujesz środowisko uruchomieniowe IoT Edge na urządzeniu z systemem Linux, Skonfiguruj Menedżera pakietów, aby przeszedł serwer proxy w celu uzyskania dostępu do pakietu instalacyjnego. Na przykład [Skonfiguruj apt-get do korzystania z protokołu HTTP-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Po skonfigurowaniu Menedżera pakietów postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](how-to-install-iot-edge-linux.md) w zwykły sposób.
+Jeśli instalujesz środowisko uruchomieniowe IoT Edge na urządzeniu z systemem Linux, Skonfiguruj Menedżera pakietów, aby przeszedł serwer proxy w celu uzyskania dostępu do pakietu instalacyjnego. Na przykład [Skonfiguruj apt-get do korzystania z protokołu HTTP-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Po skonfigurowaniu Menedżera pakietów postępuj zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime](how-to-install-iot-edge.md) w zwykły sposób.
 
 ### <a name="windows-devices"></a>Urządzenia z systemem Windows
 
@@ -93,7 +93,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Aby uzyskać więcej informacji na temat parametrów serwera proxy, zobacz [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Aby uzyskać więcej informacji o opcjach instalacji systemu Windows, w tym o instalacji w trybie offline, zobacz [Instalowanie programu Azure IoT Edge Runtime w systemie Windows](how-to-install-iot-edge-windows.md).
+Aby uzyskać więcej informacji na temat parametrów serwera proxy, zobacz [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Aby uzyskać więcej informacji na temat parametrów instalacji systemu Windows, zobacz [skrypty programu PowerShell dla IoT Edge w systemie Windows](reference-windows-scripts.md).
 
 ## <a name="configure-the-daemons"></a>Konfigurowanie demonów
 

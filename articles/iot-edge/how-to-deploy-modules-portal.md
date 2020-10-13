@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c7c71e1f1f3eb9e76aa4938cb4a0a15ca405c8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82133915"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978802"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Wdróż moduły Azure IoT Edge z Azure Portal
 
@@ -25,7 +25,9 @@ W tym artykule pokazano, jak Azure Portal prowadzi użytkownika przez proces two
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Centrum IoT](../iot-hub/iot-hub-create-through-portal.md) w ramach subskrypcji platformy Azure.
-* [Urządzenie IoT Edge](how-to-register-device.md#register-in-the-azure-portal) z zainstalowanym IoT Edge środowiska uruchomieniowego.
+* Urządzenie IoT Edge.
+
+  Jeśli nie masz skonfigurowanego urządzenia IoT Edge, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w jednym z artykułów z przewodnikiem Szybki Start, aby [utworzyć wirtualne urządzenie](quickstart-linux.md) z systemem Linux lub [utworzyć wirtualne urządzenie systemu Windows](quickstart.md).
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurowanie manifestu wdrożenia
 

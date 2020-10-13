@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 642012a638100a3ad1cb8d9334f5af01adb6ad7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979176"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Samouczek: wykrywanie anomalii na danych przesyłanych strumieniowo przy użyciu Azure Databricks
 
@@ -63,7 +63,7 @@ W tej sekcji utworzysz obszar roboczy Azure Databricks przy użyciu [Azure Porta
 
 1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks**analizy zasobów.
 
-    ![Datakostki na Azure Portal](../media/tutorials/azure-databricks-on-portal.png "Datakostki na Azure Portal")
+    ![Azure Databricks w portalu](../media/tutorials/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
 3. W obszarze **Usługa Azure Databricks** podaj następujące wartości, aby utworzyć obszar roboczy usługi Databricks:
 
@@ -115,7 +115,7 @@ Aby otrzymywać strumień tweetów, musisz utworzyć aplikację w usłudze Twitt
 
 3. Na stronie aplikacji wybierz kartę **Keys and Access Tokens (Klucze i tokeny dostępu)**, a następnie skopiuj wartości pól **Consumer Key (Klucz klienta)** i **Consumer Secret (Wpis tajny klienta)**. Zaznacz również pole **Create my access token (Utwórz mój token dostępu)**, aby wygenerować tokeny dostępu. Skopiuj wartości pól **Access Token (Token dostępu)** i **Access Token Secret (Klucz tajny tokenu dostępu)**.
 
-    ![Szczegóły aplikacji usługi Twitter](../media/tutorials/twitter-app-key-secret.png "Szczegóły aplikacji usługi Twitter")
+    ![Szczegóły aplikacji usługi Twitter 2](../media/tutorials/twitter-app-key-secret.png "Szczegóły aplikacji usługi Twitter")
 
 Zapisz wartości dotyczące aplikacji usługi Twitter. Będą one potrzebne w dalszej części tego samouczka.
 
@@ -134,7 +134,7 @@ W tym samouczku tweety są wysyłane do usługi Event Hubs za pomocą interfejs�
 
      ![Podaj współrzędne Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Podaj współrzędne Maven")
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
 4. Wybierz folder, do którego dodano bibliotekę, a następnie wybierz nazwę biblioteki.
 
@@ -170,7 +170,7 @@ W tym samouczku użyjesz [interfejsów API wykrywania anomalii w usłudze Azure 
     |Grupa zasobów     | Określ, czy chcesz utworzyć nową grupę zasobów, czy wybrać istniejącą grupę.        |
 
 
-     Wybierz przycisk **Utwórz**.
+     Wybierz pozycję **Utwórz**.
 
 5. Po utworzeniu zasobu na karcie **Przegląd** skopiuj i Zapisz adres URL **punktu końcowego** , jak pokazano na zrzucie ekranu. Następnie wybierz pozycję **Pokaż klucze dostępu**.
 
@@ -193,9 +193,9 @@ W tej sekcji w obszarze roboczym usługi Databricks zostaną utworzone dwa notes
 
 2. W oknie dialogowym **Tworzenie notesu** wprowadź **SendTweetsToEventHub** jako nazwę, wybierz pozycję **Scala** jako język i wybierz utworzony wcześniej klaster Spark.
 
-    ![Tworzenie notesu w kostkach](../media/tutorials/databricks-notebook-details.png "Tworzenie notesu w kostkach")
+    ![Szczegóły notesu](../media/tutorials/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
-    Wybierz przycisk **Utwórz**.
+    Wybierz pozycję **Utwórz**.
 
 3. Powtórz te kroki, aby utworzyć notes **AnalyzeTweetsFromEventHub**.
 

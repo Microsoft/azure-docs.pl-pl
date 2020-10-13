@@ -2,20 +2,20 @@
 title: Synchronizacja w zakresie przy użyciu programu PowerShell dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować synchronizację z zakresem z usługi Azure AD do domeny zarządzanej Azure Active Directory Domain Services przy użyciu programu Azure AD PowerShell
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: iainfou
-ms.openlocfilehash: 197ae37b0c63b19ebe4dcdf2732169be0f357a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294230"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967887"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Konfigurowanie synchronizacji z zakresem z usługi Azure AD do Azure Active Directory Domain Services przy użyciu programu Azure AD PowerShell
 
@@ -25,7 +25,7 @@ Domyślnie wszyscy użytkownicy i grupy z katalogu usługi Azure AD są synchron
 
 W tym artykule opisano sposób tworzenia domeny zarządzanej, która używa synchronizacji w zakresie, a następnie zmieniania lub wyłączania zestawu użytkowników z zakresem przy użyciu programu Azure AD PowerShell. [Te kroki można również wykonać przy użyciu Azure Portal][scoped-sync].
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

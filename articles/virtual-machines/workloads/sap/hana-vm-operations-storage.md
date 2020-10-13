@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449384"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978258"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -229,7 +229,7 @@ Niezwykle dysk daje możliwość zdefiniowania jednego dysku, który spełnia ro
 Inne zalety korzystania z programu Ultra Disk mogą być lepszym opóźnieniem odczytu w porównaniu do magazynu w warstwie Premium. Szybsze odczyty mogą mieć zalety, gdy chcesz zmniejszyć czasy uruchamiania platformy HANA i kolejne obciążenie danymi do pamięci. Zalety magazynu Ultra Disk można również wypróbować, gdy HANA zapisuje punktów zapisu. 
 
 > [!NOTE]
-> Niezwykle dysk nie jest jeszcze obecny we wszystkich regionach świadczenia usługi Azure i nie obsługuje jeszcze wszystkich typów maszyn wirtualnych wymienionych poniżej. Aby uzyskać szczegółowe informacje o tym, gdzie jest dostępna funkcja Ultra Disk i które rodziny maszyn wirtualnych są obsługiwane, zobacz artykuł [jakie typy dysków są dostępne na platformie Azure?](../../windows/disks-types.md#ultra-disk).
+> Niezwykle dysk nie jest jeszcze obecny we wszystkich regionach świadczenia usługi Azure i nie obsługuje jeszcze wszystkich typów maszyn wirtualnych wymienionych poniżej. Aby uzyskać szczegółowe informacje o tym, gdzie jest dostępna funkcja Ultra Disk i które rodziny maszyn wirtualnych są obsługiwane, zobacz artykuł [jakie typy dysków są dostępne na platformie Azure?](../../disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Zalecane rozwiązanie do produkcji magazynu z czystym konfiguracją Ultra Disk
 W tej konfiguracji należy osobno przechowywać woluminy **/Hana/Data** i **/Hana/log** . Sugerowane wartości są wyprowadzane z kluczowych wskaźników wydajności, które SAP muszą certyfikowanie typów maszyn wirtualnych dla konfiguracji SAP HANA i magazynu zgodnie z zaleceniami w [dokumentacji magazynu SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
@@ -272,7 +272,7 @@ Aby uzyskać szczegółowe informacje na temat ANF for HANA, Przeczytaj [wolumin
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Ekonomiczne rozwiązanie dzięki usłudze Azure Premium Storage
-Do tej pory rozwiązanie Azure Premium Storage opisane w tym dokumencie znajduje się w sekcji [rozwiązania z magazynem w warstwie Premium i usługą azure akcelerator zapisu dla maszyn wirtualnych z serii M dla systemu Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) przeznaczone dla SAP HANA obsługiwanych scenariuszy produkcyjnych. Jedną z cech konfiguracji obsługiwanych przez produkcyjną jest rozdzielenie woluminów dla SAP HANA danych i ponowne zalogowanie się do dwóch różnych woluminów. Przyczyną takiego oddzielenia jest fakt, że charakterystyki obciążenia woluminów są różne. Ponadto w przypadku sugerowanych konfiguracji produkcyjnych istnieje różne typy buforowania, a nawet różne rodzaje magazynu blokowego platformy Azure. Obsługiwane konfiguracje produkcyjne usługi Azure Block Storage są również zgodne z umową [SLA dla jednej maszyny wirtualnej dla usługi azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  W przypadku scenariuszy innych niż produkcyjne niektóre zagadnienia związane z systemami produkcyjnymi mogą nie dotyczyć bardziej małych systemów nieprodukcyjnych. W związku z tym można połączyć dane i wolumin dziennika platformy HANA. Mimo że niektóre culprits, takie jak ostatecznie nie spełniają wymagań dotyczących przepływności lub wskaźników czasu oczekiwania, które są wymagane dla systemów produkcyjnych. Innym aspektem obniżenia kosztów w takich środowiskach może być użycie [usługi Azure SSD w warstwie Standardowa Storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Chociaż wybór, który unieważnia umowę [SLA jednej maszyny wirtualnej dla usługi Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Do tej pory rozwiązanie Azure Premium Storage opisane w tym dokumencie znajduje się w sekcji [rozwiązania z magazynem w warstwie Premium i usługą azure akcelerator zapisu dla maszyn wirtualnych z serii M dla systemu Azure](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) przeznaczone dla SAP HANA obsługiwanych scenariuszy produkcyjnych. Jedną z cech konfiguracji obsługiwanych przez produkcyjną jest rozdzielenie woluminów dla SAP HANA danych i ponowne zalogowanie się do dwóch różnych woluminów. Przyczyną takiego oddzielenia jest fakt, że charakterystyki obciążenia woluminów są różne. Ponadto w przypadku sugerowanych konfiguracji produkcyjnych istnieje różne typy buforowania, a nawet różne rodzaje magazynu blokowego platformy Azure. Obsługiwane konfiguracje produkcyjne usługi Azure Block Storage są również zgodne z umową [SLA dla jednej maszyny wirtualnej dla usługi azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  W przypadku scenariuszy innych niż produkcyjne niektóre zagadnienia związane z systemami produkcyjnymi mogą nie dotyczyć bardziej małych systemów nieprodukcyjnych. W związku z tym można połączyć dane i wolumin dziennika platformy HANA. Mimo że niektóre culprits, takie jak ostatecznie nie spełniają wymagań dotyczących przepływności lub wskaźników czasu oczekiwania, które są wymagane dla systemów produkcyjnych. Innym aspektem obniżenia kosztów w takich środowiskach może być użycie [usługi Azure SSD w warstwie Standardowa Storage](./planning-guide-storage.md#azure-standard-ssd-storage). Chociaż wybór, który unieważnia umowę [SLA jednej maszyny wirtualnej dla usługi Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
 Mniej kosztowna alternatywa dla takich konfiguracji może wyglądać następująco:
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829088"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977378"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Rozszerzenia i funkcje maszyny wirtualnej dla systemu Windows
 
@@ -70,7 +70,7 @@ Pakiety rozszerzeń są pobierane z repozytorium rozszerzeń usługi Azure Stora
 > [!IMPORTANT]
 > Jeśli zablokowano dostęp do usługi *168.63.129.16* za pomocą zapory gościa lub serwera proxy, rozszerzenia nie powiodą się od powyższych. Porty 80, 443 i 32526 są wymagane.
 
-Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage lub Azure Active Directory, można zezwolić na dostęp za pomocą [tagów usługi Azure sieciowej grupy zabezpieczeń](../../virtual-network/security-overview.md#service-tags) do magazynu lub usługi azureactivedirectory.
+Agentów można używać tylko do pobierania pakietów rozszerzeń i stanu raportowania. Jeśli na przykład instalacja rozszerzenia wymaga pobrania skryptu z witryny GitHub (skrypt niestandardowy) lub wymaga dostępu do usługi Azure Storage (Azure Backup), wówczas konieczne będzie otwarcie dodatkowej zapory/portów sieciowych grup zabezpieczeń. Różne rozszerzenia mają różne wymagania, ponieważ są one aplikacjami w ich własnym zakresie. W przypadku rozszerzeń, które wymagają dostępu do usługi Azure Storage lub Azure Active Directory, można zezwolić na dostęp za pomocą [tagów usługi Azure sieciowej grupy zabezpieczeń](../../virtual-network/network-security-groups-overview.md#service-tags) do magazynu lub usługi azureactivedirectory.
 
 Agent gościa systemu Windows nie ma obsługi serwera proxy, aby przekierowywać żądania ruchu agenta przez, co oznacza, że Agent gościa systemu Windows będzie zależeć od niestandardowego serwera proxy (jeśli istnieje), aby uzyskać dostęp do zasobów w Internecie lub na hoście za pośrednictwem protokołu IP 168.63.129.16.
 
