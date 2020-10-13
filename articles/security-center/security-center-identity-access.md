@@ -11,59 +11,83 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2020
+ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894564"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946228"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorowanie tożsamość i dostępu
 
-> [!TIP]
-> Od marca 2020 zalecenia dotyczące tożsamości i dostępu Azure Security Center są zawarte we wszystkich subskrypcjach w warstwie cenowej bezpłatna. Jeśli masz subskrypcje w warstwie Bezpłatna, ich bezpieczny wynik będzie miał oddziaływać na to, co nie oceniono wcześniej pod kątem ich tożsamości i zabezpieczeń dostępu. 
+Obwód zabezpieczeń został rozwijający się od obwodu sieci do obwodu tożsamości. W przypadku tego rozwoju zabezpieczenia są mniej związane z obroną sieci oraz więcej informacji na temat zarządzania zabezpieczeniami aplikacji, danych i użytkowników.
 
-Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia, które przeprowadzą Cię przez proces konfigurowania wymaganych kontrolek do zabezpieczania i zabezpieczania zasobów.
+Monitorując działania i ustawienia konfiguracji związane z tożsamością, możesz podejmować aktywne akcje przed wystąpieniem zdarzenia lub ponownie uaktywnić akcje, aby przerwać próby ataków.
 
-Obwód zabezpieczeń został rozwijający się od obwodu sieci do obwodu tożsamości. Zabezpieczenia są mniej dotyczące obrony sieci i więcej informacji na temat obrony danych, a także do zarządzania zabezpieczeniami aplikacji i użytkowników. Dzisiaj, w związku z przeniesieniem większej ilości danych i aplikacji do chmury, tożsamość staje się nową strefą.
+## <a name="what-identity-and-access-safeguards-does-security-center-provide"></a>Jakie zabezpieczenia dotyczące tożsamości i dostępu zapewniają Security Center? 
 
-Monitorując działania związane z tożsamościami, możesz podejmować aktywne akcje przed wystąpieniem zdarzenia lub ponownie uaktywnić akcje, aby przerwać próbę ataku. Na przykład Security Center mogą oflagować przestarzałe konta (konta, które nie są już potrzebne, i zablokować możliwość logowania się przez Azure Active Directory) do usunięcia. 
+Azure Security Center ma dwie dedykowane mechanizmy kontroli zabezpieczeń, aby upewnić się, że spełniasz wymagania dotyczące tożsamości i zabezpieczeń organizacji: 
 
-Przykłady zaleceń, które mogą być widoczne w sekcji zabezpieczenia dotyczące **tożsamości i dostępu do** zasobów Azure Security Center obejmują:
+ - **Zarządzanie dostępem i uprawnieniami** — zachęcamy do zastosowania [modelu dostępu o najniższym poziomie uprawnień](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) i upewnienia się, że użytkownicy będą mieli tylko dostęp niezbędny do wykonywania swoich zadań. Ta kontrolka zawiera również zalecenia dotyczące implementowania [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/overview.md) w celu kontrolowania dostępu do zasobów.
+ 
+ - **Włączenie uwierzytelniania wieloskładnikowego** — z włączoną funkcją [MFA](https://www.microsoft.com/security/business/identity/mfa) konta są bezpieczniejsze, a użytkownicy nadal mogą uwierzytelniać się w prawie każdej aplikacji z logowaniem jednokrotnym.
+
+### <a name="example-recommendations-for-identity-and-access"></a>Przykładowe zalecenia dotyczące tożsamości i dostępu
+
+Przykłady zaleceń, które mogą pojawić się w tych dwóch kontrolkach na stronie **zalecenia** dotyczące Security Center:
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
 - Dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli
 - Konta zewnętrzne z uprawnieniami do odczytu powinny zostać usunięte z subskrypcji
-- Przestarzałe konta powinny zostać usunięte z subskrypcji
+- Przestarzałe konta należy usunąć z subskrypcji (konta przestarzałe to konta, które nie są już potrzebne, i zablokowany do logowania się przez Azure Active Directory)
 
-Aby uzyskać więcej informacji na temat tych zaleceń, a także pełną listę zaleceń, które mogą pojawić się w tym miejscu, zobacz [zalecenia dotyczące tożsamości i dostępu](recommendations-reference.md#recs-identity).
+> [!TIP]
+> Aby uzyskać więcej informacji na temat tych zaleceń i innych osób, które mogą się pojawić w tych kontrolkach, zobacz [zalecenia dotyczące tożsamości i dostępu](recommendations-reference.md#recs-identity).
 
-> [!NOTE]
-> Jeśli subskrypcja ma więcej niż 600 kont, Security Center nie może uruchomić zaleceń dotyczących tożsamości dla subskrypcji. Zalecenia, które nie są uruchamiane, znajdują się w obszarze "oceny niedostępne" poniżej.
-Security Center nie może uruchomić zaleceń dotyczących tożsamości dla agentów administratora dostawcy rozwiązań w chmurze (CSP).
->
+### <a name="limitations"></a>Ograniczenia
 
+Istnieją pewne ograniczenia dotyczące tożsamości i ochrony dostępu Security Center:
 
-Wszystkie zalecenia dotyczące tożsamości i dostępu są dostępne w ramach dwóch kontrolek zabezpieczeń na stronie **zalecenia** :
+- Zalecenia dotyczące tożsamości nie są dostępne dla subskrypcji mających więcej niż 600 kont. W takich przypadkach te zalecenia będą wyświetlane w obszarze "niedostępne oceny".
+- Zalecenia dotyczące tożsamości nie są dostępne dla agentów administratora dostawcy rozwiązań w chmurze (CSP).
+- Zalecenia dotyczące tożsamości nie identyfikują kont zarządzanych przy użyciu systemu Privileged Identity Management (PIM). Jeśli używasz narzędzia PIM, możesz zobaczyć niedokładne wyniki w formancie **Zarządzanie dostępem i uprawnieniami** .
 
-- Zarządzanie dostępem i uprawnieniami 
-- Włączanie usługi MFA
+## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Uwierzytelnianie wieloskładnikowe (MFA) i Azure Active Directory 
 
-![Dwie kontrole zabezpieczeń z zaleceniami dotyczącymi tożsamości i dostępu](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
-
-
-## <a name="enable-multi-factor-authentication-mfa"></a>Włączanie uwierzytelniania wieloskładnikowego (MFA)
-
-Włączenie usługi MFA wymaga [uprawnień dzierżawy Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Włączenie usługi MFA wymaga [uprawnień dzierżawy Azure Active Directory (AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 - Jeśli masz wersję Premium usługi AD, Włącz uwierzytelnianie wieloskładnikowe przy użyciu [dostępu warunkowego](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- Jeśli używasz bezpłatnej wersji usługi AD, Włącz **domyślne ustawienia zabezpieczeń** zgodnie z opisem w [dokumentacji Azure Active Directory](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
-- Jeśli używasz bezpłatnej wersji usługi AD, Włącz **domyślne ustawienia zabezpieczeń** w Azure Active Directory zgodnie z opisem w [dokumentacji usługi AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+## <a name="identify-accounts-without-multi-factor-authentication-mfa-enabled"></a>Identyfikuj konta bez włączonej usługi uwierzytelniania wieloskładnikowego (MFA)
+
+Aby sprawdzić, które konta nie mają włączonej usługi MFA, użyj następującego zapytania do wykresu zasobów platformy Azure. Zapytanie zwraca wszystkie zasoby o złej kondycji — konta — zalecenie "MFA należy włączyć na kontach z uprawnieniami właściciela w Twojej subskrypcji". 
+
+1. Otwórz **Eksploratora Azure Resource Graph**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Uruchamianie Eksploratora Azure Resource Graph * * zalecenie" :::
+
+1. Wprowadź następujące zapytanie i wybierz polecenie **Uruchom zapytanie**.
+
+    ```kusto
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
+
+1. `additionalData`Właściwość pokazuje listę identyfikatorów obiektów kont dla kont, które nie mają wymuszonego uwierzytelniania wieloskładnikowego. 
+
+    > [!NOTE]
+    > Konta są wyświetlane jako identyfikatory obiektów zamiast nazw kont w celu ochrony prywatności posiadaczy kont.
+
+> [!TIP]
+> Alternatywnie można użyć oceny metody interfejsu API REST Security Center [— Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o zaleceniach dotyczących innych typów zasobów platformy Azure, zobacz następujące artykuły:
+Aby dowiedzieć się więcej o zaleceniach dotyczących innych typów zasobów platformy Azure, zobacz następujący artykuł:
 
 - [Ochrona sieci w usłudze Azure Security Center](security-center-network-recommendations.md)

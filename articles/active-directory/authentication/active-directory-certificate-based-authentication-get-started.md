@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f1e3983f3c093cdf643e7674221b04631eeabd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965628"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Wprowadzenie do uwierzytelniania opartego na certyfikacie w usłudze Azure Active Directory
 
@@ -104,7 +104,7 @@ Konfiguracja programu umożliwia korzystanie z programu [Azure Active Directory 
 
 Jako pierwszy krok konfiguracji należy nawiązać połączenie z dzierżawcą. Gdy tylko połączenie z dzierżawcą istnieje, możesz przejrzeć, dodać, usunąć i zmodyfikować zaufane urzędy certyfikacji, które są zdefiniowane w Twoim katalogu.
 
-### <a name="connect"></a>Connect
+### <a name="connect"></a>Połącz
 
 Aby nawiązać połączenie z dzierżawcą, użyj polecenia cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) :
 

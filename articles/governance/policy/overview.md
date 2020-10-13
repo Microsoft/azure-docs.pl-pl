@@ -1,14 +1,14 @@
 ---
 title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91538960"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873918"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
@@ -72,16 +72,16 @@ Usługa Azure Policy ma kilka uprawnień, znanych jako operacje, w ramach dwóch
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft. PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Wiele wbudowanych ról udziela uprawnień zasobom usługi Azure Policy. Rola **współautor zasad zasobów** obejmuje większość operacji Azure Policy. **Właściciel** ma pełne uprawnienia. Zarówno **współautor** , jak i **czytelnik** mają dostęp do wszystkich operacji _odczytu_ Azure Policy. **Współautor** może wyzwolić korygowanie zasobów, ale nie może _tworzyć_ definicji ani przypisań.
+Wiele wbudowanych ról udziela uprawnień zasobom usługi Azure Policy. Rola **współautor zasad zasobów** obejmuje większość operacji Azure Policy. **Właściciel** ma pełne uprawnienia. Zarówno **współautor** , jak i **czytelnik** mają dostęp do wszystkich operacji _odczytu_ Azure Policy. **Współautor** może wyzwolić korygowanie zasobów, ale nie może _tworzyć_ definicji ani przypisań. **Administrator dostępu użytkowników** jest wymagany do udzielenia tożsamości zarządzanej na **deployIfNotExists** lub **zmodyfikowania** przypisań wymaganych uprawnień.
 
 Jeśli żadna z wbudowanych ról nie ma wymaganych uprawnień, należy utworzyć [rolę niestandardową](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Zarządzana tożsamość przypisywania zasad **deployIfNotExists** musi mieć wystarczające uprawnienia do tworzenia lub aktualizowania zasobów zawartych w szablonie. Aby uzyskać więcej informacji, zobacz [Konfigurowanie definicji zasad na potrzeby korygowania](./how-to/remediate-resources.md#configure-policy-definition).
+> Zarządzana tożsamość **deployIfNotExists** lub **Modyfikowanie** przypisania zasad wymaga wystarczających uprawnień do tworzenia lub aktualizowania zasobów docelowe. Aby uzyskać więcej informacji, zobacz [Konfigurowanie definicji zasad na potrzeby korygowania](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### <a name="resources-covered-by-azure-policy"></a>Zasoby objęte Azure Policy
 
-Azure Policy szacuje wszystkie zasoby na platformie Azure. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/general/overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
+Azure Policy szacuje wszystkie zasoby na platformie Azure i w zasobach z włączonym łukiem. W przypadku niektórych dostawców zasobów, takich jak [Konfiguracja gościa](./concepts/guest-configuration.md), [usługa Azure Kubernetes](../../aks/intro-kubernetes.md)i [Azure Key Vault](../../key-vault/general/overview.md), istnieje dokładniejsza integracja z zarządzaniem ustawieniami i obiektami. Aby dowiedzieć się więcej, zobacz [tryby dostawcy zasobów](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Zalecenia dotyczące zarządzania zasadami
 
@@ -112,7 +112,6 @@ Usługa Azure Policy oferuje kilka wbudowanych zasad, które są domyślnie dost
 - **Dozwolone lokalizacje** (Odmów): ogranicza dostępne lokalizacje dla nowych zasobów. Jej efekt jest używany do wymuszania wymagań dotyczących zgodności obszarów geograficznych.
 - **Dozwolone jednostki SKU maszyny wirtualnej** (Odmów): określa zestaw jednostek SKU maszyn wirtualnych, które można wdrożyć.
 - **Dodaj tag do zasobów** (Modyfikuj): stosuje wymagany tag i jego wartość domyślną, jeśli nie jest określony przez żądanie wdrożenia.
-- **Dołącz tag i jego wartość domyślną** (append): wymusza wymagany tag i jego wartość do zasobu.
 - **Niedozwolone typy zasobów** (Odmów): uniemożliwiają wdrożenie listy typów zasobów.
 
 Aby móc zaimplementować te definicje zasad (wbudowane i niestandardowe), musisz je przypisać. Dowolną z tych zasad można przypisać za pośrednictwem witryny Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.

@@ -4,12 +4,12 @@ description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usł
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261065"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946199"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
@@ -134,7 +134,7 @@ Koncepcja tworzenia bezpiecznych klastrów jest taka sama, niezależnie od tego,
 
 ### <a name="client-authentication-certificates-optional"></a>Certyfikaty uwierzytelniania klienta (opcjonalnie)
 
-Dla operacji administratora lub użytkownika można określić dowolną liczbę dodatkowych certyfikatów. Klient może użyć tego certyfikatu, jeśli wymagane jest wzajemne uwierzytelnianie. Certyfikaty klienta zwykle nie są wystawiane przez urząd certyfikacji innej firmy. Zamiast tego magazyn osobisty bieżącej lokalizacji użytkownika zwykle zawiera certyfikaty klienta umieszczone w ramach głównego urzędu certyfikacji. Certyfikat powinien mieć **zamierzoną** wartość w polu **uwierzytelnianie klienta**.  
+Dla operacji administratora lub użytkownika można określić dowolną liczbę dodatkowych certyfikatów. Klient może używać tych certyfikatów, gdy wymagane jest wzajemne uwierzytelnianie. Certyfikaty klienta zwykle nie są wystawiane przez urząd certyfikacji innej firmy. Zamiast tego magazyn osobisty bieżącej lokalizacji użytkownika zwykle zawiera certyfikaty klienta umieszczone w ramach głównego urzędu certyfikacji. Certyfikat powinien mieć **zamierzoną** wartość w polu **uwierzytelnianie klienta**.  
 
 Domyślnie certyfikat klastra ma uprawnienia administratora. Te dodatkowe certyfikaty klienta nie powinny być zainstalowane w klastrze, ale są określone jako dozwolone w konfiguracji klastra.  Należy jednak zainstalować certyfikaty klienta na komputerach klienckich, aby połączyć się z klastrem i wykonać wszelkie operacje.
 

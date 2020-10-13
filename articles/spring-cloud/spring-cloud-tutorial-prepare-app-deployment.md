@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906834"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945451"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji do wdrożenia w chmurze Azure wiosennej
 
@@ -210,6 +210,8 @@ Jeśli używasz sieci z rozruchem sprężynowym 2,1, Dołącz następujący depe
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> Nie określaj `server.port` w konfiguracji. Chmura sprężynowa platformy Azure będzie overide to ustawienie na stały numer portu. Należy również przestrzegać tego ustawienia i nie określać portu serwera w kodzie.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Inne Zalecane zależności dotyczące włączania funkcji chmury wiosennej platformy Azure
 
@@ -227,6 +229,7 @@ Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy uwzgl�
 ```
 
 Punkt końcowy serwera rejestru usługi jest automatycznie wprowadzany jako zmienne środowiskowe w aplikacji. Aplikacje mogą zarejestrować się na serwerze rejestru usługi i odnajdywać inne zależne mikrousługi.
+
 
 #### <a name="enablediscoveryclient-annotation"></a>Adnotacja EnableDiscoveryClient
 

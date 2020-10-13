@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e70586fc2000e90b00d06d16bf5ba8df0bf5442f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761332"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944986"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Java)
 
@@ -76,7 +76,7 @@ W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki
 W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT, które zostało zapisanie w języku Java, aby można było korzystać z właśnie skonfigurowanego przykładowego urządzenia.
 
 > [!NOTE]
-> Ten przykład używa przestrzeni nazw **com. Microsoft. Azure. Sdk. IoT. Service. *;** z **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat pobierania identyfikatora modelu, zobacz [przewodnik dewelopera](concepts-developer-guide-service.md).
+> Ten przykład używa przestrzeni nazw **com. Microsoft. Azure. Sdk. IoT. Service** z **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
 
 1. Otwórz inne okno terminalu, które ma być używane jako terminal **usługi** .
 
@@ -88,7 +88,7 @@ W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT, które 
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### <a name="get-digital-twin"></a>Uzyskaj wieloosiową cyfrę
+### <a name="get-device-twin"></a>Pobierz sznurki urządzenia
 
 Poniższy fragment kodu przedstawia sposób pobierania sznurka urządzenia w usłudze:
 
@@ -99,9 +99,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### <a name="update-a-digital-twin"></a>Aktualizowanie wieloosiowej cyfrowej
+### <a name="update-a-device-twin"></a>Aktualizowanie sznurka urządzenia
 
-Poniższy fragment kodu pokazuje, jak używać *poprawki* do aktualizowania właściwości za pomocą dwucyfrowej sieci:
+Poniższy fragment kodu przedstawia sposób używania *poprawki* do aktualizowania właściwości za pomocą sznurka urządzenia:
 
 ```java
 String propertyName = "targetTemperature";

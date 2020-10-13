@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ce5572c4c5aca6f48496250c942d50b90551f36f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6742253ad815ab8058a9c05d82200e77d9d18a43
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546945"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Samouczek: integracja Azure Active Directory z logowaniem jednokrotnym w usłudze Kantega dla FishEye/tygla
 
@@ -99,7 +99,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Kantega Logowanie jednokrotne w przypadku domen FishEye/tygiel i adresów URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący sekcję "podstawowa S A M" konfiguracji z wyróżnionym polem tekstowym "identifier" i "reply U R L" i wybranym przyciskiem "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -134,43 +134,43 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 1. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
+    ![Zrzut ekranu pokazujący ikonę "koło zębate" i wybrane "Dodatki".](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
 1. W sekcji Ustawienia systemu kliknij przycisk **Znajdź nowe dodatki**. 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
+    ![Zrzut ekranu przedstawiający sekcję "Ustawienia systemowe" z wybraną pozycją "Znajdź nowe dodatki".](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
 1. Wyszukaj **Kantega Logowanie jednokrotne dla tygla** i kliknij przycisk **Instaluj** , aby zainstalować nową wtyczkę SAML.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
+    ![Zrzut ekranu przedstawiający stronę "Attlasian Marketplace for FishEye" z "Kantega S S O dla tygla" w polu wyszukiwania i wybranym przyciskiem "Zainstaluj".](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
 1. Rozpocznie się instalacja wtyczki. 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Instalowanie" dla wtyczki.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
 1. Po zakończeniu instalacji. Kliknij przycisk **Zamknij**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "zainstalowane i gotowe do użycia" oraz wybrany przycisk "Zamknij".](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
 1.  Kliknij pozycję **Zarządzaj**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
+    ![Zrzut ekranu przedstawiający stronę aplikacji "Kantega S S for tygiel S A M L & Kerberos" i wybraną przycisk "Zarządzaj".](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
 1. Kliknij pozycję **Configure** (Konfiguruj), aby skonfigurować nową wtyczkę. 
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
+    ![Zrzut ekranu przedstawiający stronę "dodatki zainstalowane przez użytkownika" i wybraną przycisk "Konfiguruj".](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
 1. W sekcji **SAML** . Wybierz pozycję **Azure Active Directory (Azure AD)** z listy rozwijanej **Dodaj dostawcę tożsamości** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
+    ![Zrzut ekranu przedstawiający stronę "Dodatki-Kantega — Logowanie jednokrotne" z listą rozwijaną "Dodaj dostawcę tożsamości" i "Azure Active Directory (Azure AD)" wybrana. ](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
 1. Wybierz poziom subskrypcji jako **podstawowy**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
+    ![Zrzut ekranu przedstawiający sekcję "Przygotowywanie platformy Azure A D" z wybraną pozycją "podstawowa".](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
 1. W sekcji **właściwości aplikacji** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
+    ![Zrzut ekranu przedstawiający sekcję "właściwości aplikacji" z polem tekstowym "App I D U R i", które zostało zaznaczone.](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
     a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i użyj jej jako **identyfikatora, adresu URL odpowiedzi i adresu URL Sign-On** w sekcji **podstawowa konfiguracja SAML** w programie Azure Portal.
 
@@ -178,7 +178,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 1. W sekcji **Importowanie metadanych** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
+    ![Zrzut ekranu przedstawiający sekcję "import metadanych" z wybraną pozycją "plik metadanych na moim komputerze".](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
     a. Wybierz pozycję **plik metadanych na komputerze**i Przekaż plik metadanych, który został pobrany z Azure Portal.
 
@@ -186,7 +186,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 1. W sekcji **Nazwa i lokalizacja logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
+    ![Zrzut ekranu pokazujący lokalizację "Nazwa i S" z wyróżnioną polem tekstowym "Nazwa dostawcy tożsamości" i wybranym przyciskiem "dalej".](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
     a. Dodaj nazwę dostawcy tożsamości w polu tekstowym **Nazwa dostawcy tożsamości** (np. Azure AD).
 
@@ -194,11 +194,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 1. Sprawdź certyfikat podpisywania i kliknij przycisk **dalej**.   
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
+    ![Zrzut ekranu pokazujący informacje o sekcji "Weryfikacja podpisu" oraz wybrany przycisk "dalej".](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
 1. W sekcji **konta użytkowników fisheye** wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
+    ![Zrzut ekranu przedstawiający sekcję "konta użytkowników FishEye" z opcją "Utwórz użytkowników w katalogu wewnętrznym FishEye w razie konieczności" i wybranym przyciskiem "dalej".](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
     a. **W razie potrzeby wybierz opcję Utwórz użytkowników w katalogu wewnętrznym fisheye** i wprowadź odpowiednią nazwę grupy dla użytkowników (może to być wiele nie. grup oddzielonych przecinkami).
 
@@ -206,11 +206,11 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
 
 1. Kliknij przycisk **Finish** (Zakończ).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
+    ![Zrzut ekranu pokazujący sekcję "Podsumowanie" z wybranym przyciskiem "Zakończ".](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
 1. W sekcji **znane domeny dla usługi Azure AD** wykonaj następujące czynności:  
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
+    ![Zrzut ekranu przedstawiający sekcję "znane domeny dla platformy Azure A D" z wybranym przyciskiem "Zapisz".](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
     a. Wybierz opcję **znane domeny** w lewym panelu strony.
 
@@ -240,7 +240,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -278,11 +278,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do FishEye/tygiel,
 
 1. Umieść kursor na koło zębate, a następnie kliknij pozycję **Użytkownicy**.
 
-    ![Dodawanie pracownika](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
+    ![Zrzut ekranu pokazujący wybraną ikonę "koło zębate" i "Użytkownicy" wybraną z listy rozwijanej.](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
 
 1. W obszarze Karta **Użytkownicy** kliknij przycisk **Dodaj użytkownika**.
 
-    ![Dodawanie pracownika](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+    ![Zrzut ekranu pokazujący sekcję "Użytkownicy" z wybranym przyciskiem "Dodaj użytkownika".](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 1. Na stronie **Dodaj nowego użytkownika** wykonaj następujące czynności:
 

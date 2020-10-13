@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7f6c0f2a311590219fb59bfe1ec63831c03e8af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314440"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945565"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
 
-> [!NOTE]
-> Informacje na temat usługi przedstawiono w tym dokumencie za pomocą przykładowego wdrożenia.  Ten dokument nie jest przewodnikiem krok po kroku.
->
 
 ## <a name="what-are-security-recommendations"></a>Co to są zalecenia dotyczące zabezpieczeń?
 
@@ -35,39 +32,36 @@ Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure w
 
 Każde zalecenie oferuje następujące informacje:
 
-- Krótki opis problemu.
-- Kroki korygowania, które należy wykonać w celu wdrożenia zalecenia.
-- Zasoby, których to dotyczy.
+- Krótki opis problemu
+- Czynności zaradcze, które należy wykonać w celu wdrożenia zalecenia
+- Zasoby, których to dotyczy
 
 ## <a name="monitor-recommendations"></a>Zalecenia dotyczące monitorowania <a name="monitor-recommendations"></a>
 
-Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potencjalne luki w zabezpieczeniach. Kafelek **zalecenia** w obszarze **Przegląd** przedstawia łączną liczbę zaleceń identyfikowanych przez Security Center.
+Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potencjalne luki w zabezpieczeniach. 
 
-![Omówienie usługi Security Center](./media/security-center-recommendations/asc-overview.png)
-
-1. Wybierz **kafelek rekomendacje** w obszarze **Przegląd**. Zostanie otwarta lista **rekomendacje** .
-
-1. Zalecenia są pogrupowane w zabezpieczeniach.
+1. W menu Security Center Otwórz stronę **zalecenia** , aby zobaczyć zalecenia dotyczące danego środowiska. Zalecenia są pogrupowane w zabezpieczeniach.
 
       ![Zalecenia pogrupowane według kontroli zabezpieczeń](./media/security-center-recommendations/view-recommendations.png)
 
-1. Rozwiń formant i wybierz określone zalecenie, aby wyświetlić stronę rekomendacja.
+1. Rozwiń formant i wybierz konkretne zalecenie, aby wyświetlić stronę szczegóły rekomendacji.
 
     :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Strona szczegółów rekomendacji." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
     Strona zawiera następujące:
 
-    - Przyciski **Wymuś** i **Odmów** w przypadku obsługiwanych zaleceń (zobacz zapobieganie błędom [konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md))
-    - **Wskaźnik ważności**
-    - **Interwał Aktualności**  (jeśli dotyczy) 
-    - **Opis** — Krótki opis problemu
-    - **Kroki zaradcze** — opis ręcznych kroków wymaganych do skorygowania problemu z zabezpieczeniami odpowiednich zasobów. W przypadku rekomendacji z opcją "szybkie rozwiązanie" można wybrać opcję **Wyświetl logikę korygowania** przed zastosowaniem sugerowanej poprawki do zasobów. 
-    - **Zasoby, których to dotyczy** — zasoby są pogrupowane na karty:
+    1. Przyciski **Wymuś** i **Odmów** w przypadku obsługiwanych zaleceń (zobacz zapobieganie błędom [konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md))
+    1. **Wskaźnik ważności**
+    1. **Interwał Aktualności**  (jeśli dotyczy) 
+    1. **Opis** — Krótki opis problemu
+    1. **Kroki zaradcze** — opis ręcznych kroków wymaganych do skorygowania problemu z zabezpieczeniami odpowiednich zasobów. W przypadku rekomendacji z opcją "szybkie rozwiązanie" można wybrać opcję **Wyświetl logikę korygowania** przed zastosowaniem sugerowanej poprawki do zasobów. 
+    1. **Zasoby, których to dotyczy** — zasoby są pogrupowane na karty:
         - **Zasoby w dobrej kondycji** — odpowiednie zasoby, na które nie ma wpływu lub na które rozwiązanie problemu zostało już skorygowane.
         - **Zasoby w złej kondycji** — zasoby, na które nadal mają wpływ zidentyfikowane problemy.
         - **Nie dotyczy zasobów** — zasoby, dla których zalecenie nie może udzielić ostatecznej odpowiedzi. Karta nie dotyczy również zawiera przyczyny dla każdego zasobu. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Strona szczegółów rekomendacji.":::
+    1. Przyciski akcji do korygowania zalecenia lub wyzwalania aplikacji logiki.
 
 ## <a name="preview-recommendations"></a>Zalecenia dotyczące wersji zapoznawczej
 

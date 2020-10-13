@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541173"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946097"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
@@ -29,28 +29,32 @@ Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Az
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Ogólnie dostępna (GA)|
-|Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
+|Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md).<br>KOD FIM przekazuje dane do obszaru roboczego Log Analytics. Opłaty za dane są stosowane w oparciu o ilość przekazywanych danych. Aby dowiedzieć się więcej, zobacz [cennik log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) .|
 |Wymagane role i uprawnienia:|**Właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Czytelnik** może wyświetlać wyniki.|
-|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking.md) |
+|Połączeń|![Tak ](./media/icons/yes-icon.png) chmury komercyjne<br>![Tak ](./media/icons/yes-icon.png) US gov<br>![Brak ](./media/icons/no-icon.png) Chin gov, inne gov<br>Obsługiwane tylko w regionach, w których jest dostępne Azure Automation rozwiązanie do śledzenia zmian.<br>Zobacz sekcję [Obsługiwane regiony dla połączonego obszaru roboczego log Analytics](../automation/how-to/region-mappings.md).<br>[Dowiedz się więcej o śledzeniu zmian](../automation/change-tracking.md).|
 |||
 
-
-
-
-
 ## <a name="what-is-fim-in-security-center"></a>Co to jest FIM w Security Center?
-Monitorowanie integralności plików (FIM), znane także jako monitorowanie zmian, bada pliki i rejestry systemu operacyjnego, oprogramowania aplikacji i innych osób, które mogą wskazywać na atak. Metoda porównania służy do określenia, czy bieżący stan pliku różni się od ostatniego skanowania pliku. Możesz użyć tego porównania, aby określić, czy w plikach wprowadzono prawidłowe lub podejrzane modyfikacje.
+Monitorowanie integralności plików (FIM), znane także jako monitorowanie zmian, bada pliki systemu operacyjnego, rejestry systemu Windows, oprogramowanie aplikacji, pliki systemu Linux i nie tylko, w przypadku zmian, które mogą wskazywać na atak. 
 
-Monitorowanie integralności plików Security Center sprawdza integralność plików systemu Windows, rejestru systemu Windows i plików Linux. Należy wybrać pliki, które mają być monitorowane, włączając program FIM. Security Center monitoruje pliki z włączoną obsługą programu FIM dla działania takiego jak:
+Security Center zalecane jednostki do monitorowania przy użyciu programu FIM i można także definiować własne zasady lub jednostki programu FIM do monitorowania. W programie FIM są wyświetlane powiadomienia o podejrzanych działaniach, takich jak:
 
-- Tworzenie i usuwanie plików i rejestrów
+- Tworzenie lub usuwanie klucza pliku i rejestru
 - Modyfikacje plików (zmiany rozmiaru pliku, list kontroli dostępu i wartości skrótu zawartości)
 - Modyfikacje rejestru (zmiany rozmiaru, list kontroli dostępu, typu i zawartości)
 
-Security Center zalecamy monitorowanie jednostek, które można łatwo włączyć w programie FIM. Można także definiować własne zasady lub jednostki programu FIM do monitorowania. W tym instruktażu pokazano, jak to zrobić.
+Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-> [!NOTE]
-> Funkcja monitorowania integralności plików działa w przypadku komputerów z systemem Windows i Linux oraz maszyn wirtualnych i jest dostępna tylko wtedy, gdy jest włączona **usługa Azure Defender dla serwerów** . Aby dowiedzieć się więcej, zobacz [Cennik](security-center-pricing.md) . KOD FIM przekazuje dane do obszaru roboczego Log Analytics. Opłaty za dane są stosowane w oparciu o ilość przekazywanych danych. Aby dowiedzieć się więcej, zobacz [cennik log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) .
+> [!div class="checklist"]
+> * Przejrzyj listę sugerowanych jednostek do monitorowania przy użyciu programu FIM
+> * Definiowanie własnych, niestandardowych reguł programu FIM
+> * Inspekcja zmian monitorowanych jednostek
+> * Użyj symboli wieloznacznych, aby uprościć śledzenie w katalogach
+
+
+## <a name="how-does-fim-work"></a>Jak działa program FIM?
+
+Porównując bieżący stan tych elementów ze stanem podczas poprzedniego skanowania, program FIM ostrzega o tym, czy zostały wprowadzone podejrzane modyfikacje.
 
 Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i identyfikowania zmian w środowisku. Po włączeniu monitorowania integralności plików istnieje zasób **Change Tracking** typu **rozwiązanie**. Aby uzyskać szczegółowe informacje o częstotliwości zbierania danych, zobacz [Szczegółowe informacje dotyczące zbierania danych przez usługę Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) dla usługi Azure Change Tracking.
 
@@ -58,11 +62,11 @@ Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i 
 > W przypadku usunięcia zasobu **Change Tracking** należy również wyłączyć funkcję monitorowania integralności plików w programie Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>Które pliki należy monitorować?
-W przypadku wybrania plików do monitorowania należy wziąć pod uwagę informacje o plikach, które są krytyczne dla systemu i aplikacji. Rozważ wybranie plików, których nie można zmienić bez planowania. Wybór plików, które są często zmieniane przez aplikacje lub system operacyjny (na przykład pliki dziennika i pliki tekstowe), tworzy wiele szumów, co utrudnia zidentyfikowanie ataku.
+Podczas wybierania plików do monitorowania należy wziąć pod uwagę, które pliki mają kluczowe znaczenie dla systemu i aplikacji. Monitoruj pliki, których nie można zmienić bez planowania. W przypadku wybrania plików, które są często zmieniane przez aplikacje lub system operacyjny (na przykład pliki dziennika i pliki tekstowe), utworzy wiele szumów, co utrudnia zidentyfikowanie ataku.
 
-Security Center zawiera poniższą listę zalecanych elementów do monitorowania na podstawie znanych wzorców ataków. Obejmują one pliki i klucze rejestru systemu Windows. Wszystkie klucze są w obszarze HKEY_LOCAL_MACHINE ("HKLM" w tabeli).
+Security Center zawiera poniższą listę zalecanych elementów do monitorowania na podstawie znanych wzorców ataków.
 
-|**Pliki systemu Linux**|**Pliki systemu Windows**|**Klucze rejestru systemu Windows**|
+|Pliki systemu Linux|Pliki systemu Windows|Klucze rejestru systemu Windows (HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
 |/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
 |/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
@@ -96,6 +100,8 @@ Security Center zawiera poniższą listę zalecanych elementów do monitorowania
 
 
 ## <a name="enable-file-integrity-monitoring"></a>Włącz monitorowanie integralności plików 
+
+KOD FIM jest dostępny tylko w Azure Portal stronach Security Center. Obecnie nie ma interfejsu API REST do pracy z programem FIM.
 
 1. W obszarze **zaawansowanej ochrony** pulpitu nawigacyjnego **usługi Azure Defender** wybierz pozycję **monitorowanie integralności plików**.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893793"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945706"
 ---
 # <a name="filter-based-feature-selection"></a>Wybór funkcji oparty na filtrze
 
@@ -90,8 +90,14 @@ Wybierasz standardową metrykę statystyczną. Moduł oblicza korelację między
 
     - Jeśli określisz mniejszą liczbę kolumn wyników niż kolumny funkcji, funkcje są klasyfikowane według malejącego wyniku. Tylko najważniejsze funkcje są zwracane. 
 
-7.  Prześlij potok lub wybierz moduł wyboru funkcji oparty na filtrze, a następnie wybierz pozycję **Uruchom wybrane**.
+7.  Prześlij potok.
 
+> [!IMPORTANT]
+> Jeśli zamierzasz używać **wyboru funkcji opartej na filtrach** w wnioskach, musisz użyć [opcji Przekształć kolumny](./select-columns-transform.md) do przechowywania wybranej funkcji i [zastosować transformację](./apply-transformation.md) , aby zastosować wybraną funkcję transformacji do zestawu danych oceniania.
+>
+> Zapoznaj się z poniższym zrzutem ekranu, aby utworzyć potok, aby upewnić się, że wybrane kolumny są takie same dla procesu oceniania.
+> [!div class="mx-imgBorder"]
+> ![Przykładowy potok](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Wyniki
 

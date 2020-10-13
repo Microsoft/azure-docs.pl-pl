@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650905"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Wykonywanie zapytania dotyczącego danych z Azure Time Series Insights Gen2
@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2 umożliwia wykonywanie zapytań dotyczących dan
 Trzy podstawowe kategorie interfejsu API są dostępne w Azure Time Series Insights Gen2:
 
 * **Interfejsy API środowiska**: te interfejsy API umożliwiają zapytania dotyczące środowiska Azure Time Series Insights Gen2. Mogą one służyć do zbierania listy środowisk, do których obiekt wywołujący ma dostęp i metadanych środowiska.
-* **Interfejs szeregów czasowych (TSM-Q) API**: umożliwia tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) operacji na metadanych przechowywanych w modelu szeregów czasowych środowiska. Mogą one służyć do uzyskiwania dostępu do wystąpień, typów i hierarchii oraz do ich edycji.
+* **Interfejsy api Model-Query (TSM-Q)**: włącza operacje tworzenia, odczytu, aktualizacji i usuwania (CRUD) dla metadanych przechowywanych w modelu szeregów czasowych środowiska. Mogą one służyć do uzyskiwania dostępu do wystąpień, typów i hierarchii oraz do ich edycji.
 * **Interfejsy API kwerendy szeregów czasowych (TSQ)**: umożliwiają pobieranie danych telemetrycznych lub zdarzeń, które są rejestrowane przez dostawcę źródłowego i umożliwiają wykonywanie obliczeń i agregacji danych przy użyciu zaawansowanych funkcji skalarnych i agregujących.
 
 Azure Time Series Insights Gen2 korzysta z zaawansowanego, opartego na ciągach języka wyrażeń, [wyrażenia szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax), do obliczeń wyrażających w [zmiennych szeregów czasowych](./concepts-variables.md).
@@ -41,7 +41,7 @@ Obsługiwane są następujące podstawowe interfejsy API.
 * [Pobierz interfejs API dostępności środowisk](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Zwraca rozkład liczby zdarzeń przez sygnaturę czasową zdarzenia `$ts` . Ten interfejs API pomaga ustalić, czy w środowisku znajdują się jakieś zdarzenia, zwracając liczbę zdarzeń, które zostały podzielone na przedziały czasu (jeśli istnieją).
 * [Pobierz interfejs API schematu zdarzeń](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): zwraca metadane schematu zdarzenia dla danego zakresu wyszukiwania. Ten interfejs API pomaga pobrać wszystkie metadane i właściwości dostępne w schemacie dla danego przedziału wyszukiwania.
 
-## <a name="time-series-model-query-tsm-q-apis"></a>Model szeregów czasowych — interfejsy API zapytań (TSM-Q)
+## <a name="time-series-model-query-tsm-q-apis"></a>Interfejsy API Model-Query (TSM-Q) dla szeregów czasowych
 
 Większość z tych interfejsów API obsługuje operację wykonywania wsadowego, aby włączyć operacje wsadowe CRUD na wielu jednostkach modelu szeregów czasowych:
 

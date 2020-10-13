@@ -127,6 +127,8 @@
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure Resource Manager
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+            - name: Zasady wbudowane
+              href: nsg-flow-logs-policy-portal.md
         - name: Usuwanie obiektów blob magazynu dziennika przepływu sieciowej grupy zabezpieczeń
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analizowanie dzienników przepływu sieciowych grup zabezpieczeń

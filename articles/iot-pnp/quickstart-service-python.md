@@ -3,17 +3,17 @@ title: Korzystanie z urządzenia Plug and Play IoT połączonego z rozwiązaniem
 description: Użyj języka Python, aby nawiązać połączenie z urządzeniem IoT Plug and Play i korzystać z niego, które jest połączone z rozwiązaniem usługi Azure IoT.
 author: elhorton
 ms.author: elhorton
-ms.date: 7/13/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: be5ff3e863752dfc187bd91257425af5e8de85c4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574974"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946080"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Szybki Start: współdziałanie z urządzeniem IoT Plug and Play, które jest połączone z rozwiązaniem (Python)
 
@@ -73,13 +73,16 @@ W tym przewodniku szybki start użyjesz przykładowego urządzenia z termostatem
 
 W tym przewodniku szybki start użyjesz przykładowego rozwiązania IoT w języku Python, aby można było korzystać z właśnie skonfigurowanego przykładowego urządzenia.
 
-1. Otwórz inne okno terminalu, które ma być używane jako terminal **usługi** . 
+1. Otwórz inne okno terminalu, które ma być używane jako terminal **usługi** .
 
 1. Przejdź do folderu */Azure-IoT-SDK-Python/Azure-IoT-Hub/Samples* sklonowanego REPOZYTORIUM zestawu SDK języka Python.
 
-1. W folderze Samples znajdują się cztery przykładowe pliki demonstrujące operacje za pomocą klasy Menedżer cyfrowych sznurów: *get_digital_twin_sample. PR, update_digitial_twin_sample. PR, invoke_command_sample. PR i invoke_component_command_sample-. PR*.  W poniższych przykładach pokazano, jak używać poszczególnych interfejsów API do współpracy z urządzeniami Plug and Play IoT:
+1. Otwórz plik *registry_manager_pnp_sample. PR* i Przejrzyj kod. Ten przykład pokazuje, jak używać klasy **IoTHubRegistryManager** w celu współdziałania z urządzeniem IoT Plug and Play.
 
-### <a name="get-digital-twin"></a>Uzyskaj wieloosiową cyfrę
+> [!NOTE]
+> Te przykłady usługi używają klasy **IoTHubRegistryManager** z poziomu **klienta usługi IoT Hub**. Aby dowiedzieć się więcej na temat interfejsów API, w tym Digital bliźniaczych reprezentacji API, zobacz [Przewodnik dla deweloperów usług](concepts-developer-guide-service.md).
+
+### <a name="get-the-device-twin"></a>Pobieranie sznurka urządzenia
 
 W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki Szybki Start i samouczki](set-up-environment.md) zostały utworzone dwie zmienne środowiskowe w celu skonfigurowania przykładu w celu połączenia z Centrum IoT i urządzeniem:
 
@@ -89,79 +92,77 @@ W obszarze [Konfigurowanie środowiska dla usługi IoT Plug and Play Przewodniki
 Aby uruchomić ten przykład, użyj następującego polecenia w terminalu **usługi** :
 
 ```cmd/sh
-python get_digital_twin_sample.py
+set IOTHUB_METHOD_NAME="getMaxMinReport"
+set IOTHUB_METHOD_PAYLOAD="hello world"
+python registry_manager_pnp_sample.py
 ```
 
-Dane wyjściowe przedstawiają cyfrowy dwuosiowy urządzenia i drukują swój identyfikator modelu:
+> [!NOTE]
+> Jeśli używasz tego przykładu w systemie Linux, użyj `export` zamiast `set` .
+
+Dane wyjściowe przedstawiają sznurki urządzenia i drukują swój identyfikator modelu:
 
 ```cmd/sh
-{'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
-Model Id: dtmi:com:example:Thermostat;1
+The Model ID for this device is:
+dtmi:com:example:Thermostat;1
 ```
 
-Poniższy fragment kodu przedstawia przykładowy kod z *get_digital_twin_sample. PR*:
+Poniższy fragment kodu przedstawia przykładowy kod z *registry_manager_pnp_sample. PR*:
 
 ```python
-    # Get digital twin and retrieve the modelId from it
-    digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
-    if digital_twin:
-        print(digital_twin)
-        print("Model Id: " + digital_twin["$metadata"]["$model"])
-    else:
-        print("No digital_twin found")
+    # Create IoTHubRegistryManager
+    iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
+
+    # Get device twin
+    twin = iothub_registry_manager.get_twin(device_id)
+    print("The device twin is: ")
+    print("")
+    print(twin)
+    print("")
+
+    # Print the device's model ID
+    additional_props = twin.additional_properties
+    if "modelId" in additional_props:
+        print("The Model ID for this device is:")
+        print(additional_props["modelId"])
+        print("")
 ```
 
-### <a name="update-a-digital-twin"></a>Aktualizowanie wieloosiowej cyfrowej
+### <a name="update-a-device-twin"></a>Aktualizowanie sznurka urządzenia
 
-Ten przykład pokazuje, w jaki sposób używać *poprawki* do aktualizowania właściwości za pomocą wielocyfrowego wielosieciowego urządzenia. Poniższy fragment kodu z *update_digital_twin_sample. PR* pokazuje, jak utworzyć poprawkę:
+W tym przykładzie przedstawiono sposób aktualizowania `targetTemperature` Właściwości zapisywalnej na urządzeniu:
 
 ```python
-# If you already have a component thermostat1:
-# patch = [{"op": "replace", "path": "/thermostat1/targetTemperature", "value": 42}]
-patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
-iothub_digital_twin_manager.update_digital_twin(device_id, patch)
-print("Patch has been succesfully applied")
-```
-
-Aby uruchomić ten przykład, użyj następującego polecenia w terminalu **usługi** :
-
-```cmd/sh
-python update_digital_twin_sample.py
+    # Update twin
+    twin_patch = Twin()
+    twin_patch.properties = TwinProperties(
+        desired={"targetTemperature": 42}
+    )  # this is relevant for the thermostat device sample
+    updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
+    print("The twin patch has been successfully applied")
+    print("")
 ```
 
 Aby sprawdzić, czy aktualizacja została zastosowana w terminalu **urządzenia** , można wyświetlić następujące dane wyjściowe:
 
 ```cmd/sh
 the data in the desired properties patch was: {'targetTemperature': 42, '$version': 2}
-previous values
-42
 ```
 
 Terminal **usługi** potwierdza, że poprawka zakończyła się pomyślnie:
 
 ```cmd/sh
-Patch has been successfully applied
+The twin patch has been successfully applied
 ```
 
 ### <a name="invoke-a-command"></a>Wywołaj polecenie
 
-Aby wywołać polecenie, uruchom przykład *invoke_command_sample. PR* . Ten przykład pokazuje, jak wywołać polecenie w prostym termostatie. Przed uruchomieniem tego przykładu Ustaw `IOTHUB_COMMAND_NAME` `IOTHUB_COMMAND_PAYLOAD` zmienne środowiskowe i w terminalu **usługi** :
-
-```cmd/sh
-set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
-set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
-```
-
-W terminalu **usługi** Użyj następującego polecenia, aby uruchomić przykład:
-  
-```cmd/sh
-python invoke_command_sample.py
-```
+Następnie próbka wywołuje polecenie:
 
 Terminal **usługi** pokazuje komunikat z potwierdzeniem z urządzenia:
 
 ```cmd/sh
-{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+The device method has been successfully invoked
 ```
 
 W terminalu **urządzenia** zostanie wyświetlone następujące polecenie:
@@ -172,7 +173,6 @@ hello world
 Will return the max, min and average temperature from the specified time hello to the current time
 Done generating
 {"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
-Sent message
 ```
 
 ## <a name="next-steps"></a>Następne kroki

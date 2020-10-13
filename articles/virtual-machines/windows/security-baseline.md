@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400385"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978024"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Podstawa zabezpieczeń platformy Azure dla Windows Virtual Machines
 
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 Alternatywnie, jeśli masz określony przypadek użycia dla centralnej zapory, można również użyć zapory platformy Azure do spełnienia wymagań.
 
-* [Sieci wirtualne i maszyny wirtualne na platformie Azure](./network-overview.md)
+* [Sieci wirtualne i maszyny wirtualne na platformie Azure](../network-overview.md)
 
 * [Jak utworzyć Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Możesz użyć Azure Security Center dostęp do sieci w czasie, aby ograniczyć 
 
 * [Jak wdrożyć zaporę platformy Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../../security-center/threat-protection.md)
+* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../../security-center/azure-defender.md)
 
 * [Informacje o Azure Security Center adaptacyjnej ograniczania przepustowości sieci](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Możesz użyć Azure Security Center dostęp do sieci w czasie, aby ograniczyć 
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Przykłady Azure Policy dla sieci](/azure/governance/policy/samples/#network)
+* [Przykłady Azure Policy dla sieci](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Jak utworzyć Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Użyj Azure Policy, aby zweryfikować konfiguracje (i/lub skorygować) dla zasob
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Przykłady Azure Policy dla sieci](/azure/governance/policy/samples/#network)
+* [Przykłady Azure Policy dla sieci](../../governance/policy/samples/built-in-policies.md#network)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -252,7 +252,7 @@ Jeśli organizacja chce zachować dane dziennika zdarzeń zabezpieczeń z maszyn
 
 **Wskazówki**: Upewnij się, że wszystkie konta magazynów lub log Analytics obszary robocze używane do przechowywania dzienników maszyn wirtualnych mają ustawiony okres przechowywania dziennika zgodnie z przepisami obowiązującymi w organizacji.
 
-* [Jak monitorować maszyny wirtualne na platformie Azure](./monitor.md)
+* [Jak monitorować maszyny wirtualne na platformie Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Jak skonfigurować okres przechowywania obszaru roboczego Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -458,7 +458,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak wykonywać niestandardowe zapytania w Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Jak monitorować maszyny wirtualne na platformie Azure](./monitor.md)
+* [Jak monitorować maszyny wirtualne na platformie Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitorowanie Azure Security Center**: niedostępne
 
@@ -508,7 +508,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](../../governance/management-groups/create.md)
+* [Jak utworzyć Grupy zarządzania](../../governance/management-groups/create-management-group-portal.md)
 
 * [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: Postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach na platformie Azure Virtual Machines. Skorzystaj z rozwiązań zabezpieczeń platformy Azure lub rozwiązania innych firm, aby przeprowadzać oceny luk w zabezpieczeniach dla maszyn wirtualnych.
 
-* [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Jak zaimplementować zalecenia dotyczące oceny luk w zabezpieczeniach Azure Security Center](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -692,7 +692,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](../../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](../../governance/management-groups/create.md)
+* [Jak utworzyć Grupy zarządzania](../../governance/management-groups/create-management-group-portal.md)
 
 * [Tworzenie i używanie tagów](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Oprócz używania Change Tracking do monitorowania aplikacji programowych, adapt
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../../governance/policy/samples/index.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -817,13 +817,13 @@ Oprócz używania Change Tracking do monitorowania aplikacji programowych, adapt
 
 **Wskazówki**: aplikacje o wysokim ryzyku wdrożone w środowisku platformy Azure mogą być izolowane przy użyciu sieci wirtualnej, podsieci, subskrypcji, grup zarządzania itp. i dostatecznie zabezpieczone za pomocą zapory platformy Azure, zapory aplikacji sieci Web (WAF) lub sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń).
 
-* [Sieci wirtualne i maszyny wirtualne na platformie Azure](./network-overview.md)
+* [Sieci wirtualne i maszyny wirtualne na platformie Azure](../network-overview.md)
 
 * [Omówienie Zapory platformy Azure](../../firewall/overview.md)
 
 * [Omówienie zapory aplikacji sieci Web](../../web-application-firewall/overview.md)
 
-* [Omówienie zabezpieczeń sieci](../../virtual-network/security-overview.md)
+* [Omówienie zabezpieczeń sieci](../../virtual-network/network-security-groups-overview.md)
 
 * [Omówienie usługi Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)
 

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370882"
+ms.locfileid: "91874836"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -260,6 +260,10 @@ Jeśli używasz wartości literału w warunkach sprzężenia lub jeśli masz wie
 #### <a name="sorting-before-joins"></a>Sortowanie przed sprzężeniami
 
 W przeciwieństwie do łączenia scalania w narzędziach takich jak SSIS, transformacja sprzężenia nie jest obowiązkową operacją scalania sprzężenia. Klucze sprzężenia nie wymagają sortowania przed przekształceniem. Zespół Azure Data Factory nie zaleca używania transformacji sortowania w mapowaniu przepływów danych.
+
+### <a name="window-transformation-performance"></a>Wydajność transformacji okna
+
+[Transformacja okna](data-flow-window.md) dzieli dane według wartości w kolumnach, które są wybierane jako część ```over()``` klauzuli w ustawieniach transformacji. Istnieje wiele popularnych funkcji agregujących i analitycznych, które są dostępne w transformacji systemu Windows. Jeśli jednak przypadek użycia to Generowanie okna dla całego zestawu danych na potrzeby rankingu ```rank()``` lub numeru wiersza ```rowNumber()``` , zaleca się użycie [transformacji rangi](data-flow-rank.md) i [przekształcenia klucza zastępczego](data-flow-surrogate-key.md). Te przekształcenia będą wykonywały lepsze operacje pełnego zestawu danych przy użyciu tych funkcji.
 
 ### <a name="repartitioning-skewed-data"></a>Ponowne partycjonowanie pochylonych danych
 

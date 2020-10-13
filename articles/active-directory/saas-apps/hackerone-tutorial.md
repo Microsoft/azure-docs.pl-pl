@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d72e6c6a606a199bd8b0ada601479267e0d728d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544200"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Samouczek: integracja Azure Active Directory z usługą HackerOne
 
@@ -126,11 +126,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji HackerOne,
 
 2. W menu u góry kliknij pozycję **Settings** (Ustawienia).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Zrzut ekranu pokazujący ustawienia wybrane w menu.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Przejdź do sekcji **Authentication** (Uwierzytelnianie) i kliknij pozycję **Add SAML settings** (Dodaj ustawienia SAML).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Zrzut ekranu przedstawiający stronę "ustawienia uwierzytelniania" z wybranym przyciskiem "Dodaj A M L ustawienia".](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. W oknie dialogowym **SAML Settings** (Ustawienia SAML) wykonaj następujące czynności:
 
@@ -146,7 +146,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji HackerOne,
 
 5. W oknie dialogowym Authentication Settings (Ustawienia uwierzytelniania) wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "ustawienia uwierzytelniania" z wybranym przyciskiem "Uruchom test".](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Kliknij pozycję **Run test** (Uruchom test).
 
@@ -181,7 +181,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

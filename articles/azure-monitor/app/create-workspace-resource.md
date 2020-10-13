@@ -2,13 +2,13 @@
 title: Tworzenie nowego Azure Monitor Application Insights zasobów opartych na obszarze roboczym | Microsoft Docs
 description: Dowiedz się więcej na temat kroków wymaganych do włączenia nowych Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 29fa9f1dc401ac4132d9c6c0d8c054b3f4a154ac
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 10/06/2020
+ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932434"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945417"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Zasoby Application Insights oparte na obszarze roboczym
 
@@ -204,6 +204,10 @@ W okienku zasobów Application Insights wybierz pozycję **Właściwości**  >  
 ## <a name="export-telemetry"></a>Eksportuj dane telemetryczne
 
 Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów opartych na obszarze roboczym. Zamiast tego wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne** z poziomu zasobu Application Insights. Można wybrać wszystkie tabele lub podzbiór tabel do zarchiwizowania na koncie magazynu lub do przesyłania strumieniowego do centrum zdarzeń platformy Azure.
+
+> [!NOTE]
+> Nie są obecnie naliczane dodatkowe opłaty za eksport danych telemetrycznych. Informacje o cenach dla tej funkcji będą dostępne na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).  Przed rozpoczęciem rozliczania będą wysyłane powiadomienia. Jeśli zdecydujesz się nadal korzystać z usługi po upływie <feature name> okresu wypowiedzenia, opłaty zostaną naliczone według odpowiedniej stawki. 
+ 
 
 ## <a name="next-steps"></a>Następne kroki
 

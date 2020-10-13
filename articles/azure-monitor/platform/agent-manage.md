@@ -6,11 +6,11 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79275102"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871902"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Managing and maintaining the Log Analytics agent for Windows and Linux (Konserwacja agenta usługi Log Analytics dla systemów Windows i Linux oraz zarządzanie nim)
 
@@ -284,11 +284,11 @@ Wykonaj następujące kroki, aby skonfigurować agenta Log Analytics dla systemu
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-1. Edytuj plik`/etc/opt/omi/conf/omiserver.conf`
+1. Edytuj plik `/etc/opt/omi/conf/omiserver.conf`
 
-2. Upewnij się, że wiersz zaczynający się od `httpsport=` definiuje port 1270. Takie jak:`httpsport=1270`
+2. Upewnij się, że wiersz zaczynający się od `httpsport=` definiuje port 1270. Takie jak: `httpsport=1270`
 
-3. Uruchom ponownie serwer OMI:`sudo /opt/omi/bin/service_control restart`
+3. Uruchom ponownie serwer OMI: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Następne kroki
 
