@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
 ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91363175"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Samouczek: Migrowanie bazy danych Oracle do Azure Database for PostgreSQL online przy użyciu usługi DMS (wersja zapoznawcza)
@@ -243,8 +243,8 @@ Aby rozpocząć:
 
     | Źródłowy schemat programu Oracle | Docelowa baza danych PostgreSQL. schemat | Usługa DMS utworzyła schemat. tabela. kolumna |
     | ------------- | ------------- | ------------- |
-    | HR | targetHR. Public | Public. kraje. country_id |
-    | HR | targetHR.trgthr | trgthr. kraje. country_id |
+    | HR | targetHR. Public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
     | HR | targetHR.TARGETHR | "TARGETHR"." KRAJE "." COUNTRY_ID " |
     | HR | targetHR.HR | "HR". " KRAJE "." COUNTRY_ID " |
     | HR | targetHR.Hr | * Nie można zmapować przypadków mieszanych |

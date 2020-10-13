@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300378"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Przygotuj środowisko deweloperskie i testowe dla IoT Edge
@@ -56,11 +56,11 @@ Szablony modułów dla niektórych języków i usług mają wymagania wstępne, 
 | Szablon modułu | Wymaganie wstępne |
 | --------------- | ------------ |
 | Azure Functions | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
-| C | [Narzędzia](https://git-scm.com/) |
+| C | [Git](https://git-scm.com/) |
 | C# | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ustaw zmienną środowiskową JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Narzędzia Yeoman](https://www.npmjs.com/package/yo) <li> [Generator modułów Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Narzędzia](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Rozszerzenie programu Visual Studio 2017/2019
 

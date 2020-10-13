@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852484"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977752"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Zabezpieczanie maszyn wirtualnych platformy Azure i stosowanie zasad
 
@@ -25,7 +25,7 @@ Nowoczesne zagrożenie w środowiskach chmury jest dynamiczne, zwiększając nac
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie na maszynach wirtualnych. Security Center zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne i współpracować z szeroką ekosystemem rozwiązań zabezpieczających.
+[Azure Security Center](../security-center/security-center-introduction.md) pomaga zapobiegać zagrożeniom, wykrywać je i reagować na nie na maszynach wirtualnych. Security Center zapewnia zintegrowane monitorowanie zabezpieczeń i zarządzanie zasadami w ramach subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które w przeciwnym razie mogą być niezauważalne i współpracować z szeroką ekosystemem rozwiązań zabezpieczających.
 
 Dostęp w czasie just in Time do Security Center można zastosować w ramach wdrożenia maszyny wirtualnej w celu zablokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, co pozwala ograniczyć narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby. Gdy jest włączona funkcja just in Time i użytkownik zażąda dostępu do maszyny wirtualnej, Security Center sprawdza, jakie uprawnienia użytkownik ma dla maszyny wirtualnej. Jeśli mają odpowiednie uprawnienia, żądanie zostanie zatwierdzone, a Security Center automatycznie skonfiguruje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń), aby zezwalały na ruch przychodzący do wybranych portów przez ograniczony czas. Po upływie tego czasu program Security Center Przywraca poprzedni stan sieciowych grup zabezpieczeń. 
 
@@ -69,9 +69,8 @@ Funkcja tożsamości zarządzanych dla platformy Azure w usłudze Azure Active D
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Za pomocą [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/overview.md)można rozdzielić cła w ramach zespołu i przyznać dostęp tylko użytkownikom na maszynie wirtualnej, którzy potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w [Azure Portal](../role-based-access-control/role-assignments-portal.md)przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/role)lub[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Za pomocą [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/overview.md)można rozdzielić cła w ramach zespołu i przyznać dostęp tylko użytkownikom na maszynie wirtualnej, którzy potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w [Azure Portal](../role-based-access-control/role-assignments-portal.md)przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/role)lub[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 - Zapoznaj się z instrukcjami dotyczącymi monitorowania zabezpieczeń maszyn wirtualnych przy użyciu Azure Security Center dla [systemu](windows/tutorial-azure-security.md) [Linux](../security/fundamentals/overview.md) lub Windows.
-

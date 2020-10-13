@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369913"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Często zadawane pytania dotyczące przechodzenia z portal Cloud Partner do Centrum partnerskiego
@@ -22,7 +22,7 @@ Portal Cloud Partner przeszedł do Centrum partnerskiego. Centrum partnerskie of
 
 Możesz kontynuować działalność w centrum partnerskim:
 
-| Obszar<img src="" width=200px> | Zmiany |
+| Warstwowy<img src="" width=200px> | Zmiany |
 | --- | --- |
 | Konto | Nie ma potrzeby tworzenia nowego konta Centrum partnerskiego; Możesz użyć istniejących poświadczeń portal Cloud Partner, aby zalogować się do Centrum partnerskiego, w którym będziesz teraz zarządzać kontem, użytkownikami, uprawnieniami i rozliczeniami. Informacje o umowie dotyczące publikowania i profilu firmy są migrowane do nowego konta Centrum partnerskiego wraz z informacjami o profilu wypłaty, kontami użytkowników i uprawnieniami oraz aktywnymi ofertami. Dowiedz się więcej na temat [zarządzania kontem komercyjnej witryny Marketplace w centrum partnerskim](partner-center-portal/manage-account.md). |
 | Oferowanie funkcji publikowania i zarządzania ofertami | Twoje dane oferty zostały przeniesione z portal Cloud Partner do Centrum partnerskiego. Teraz będziesz uzyskiwać dostęp do ofert w centrum partnerskim, które oferują Ulepszone środowisko użytkownika i intuicyjny interfejs. Dowiedz się [, jak zaktualizować istniejącą ofertę w komercyjnej witrynie Marketplace](partner-center-portal/update-existing-offer.md). |

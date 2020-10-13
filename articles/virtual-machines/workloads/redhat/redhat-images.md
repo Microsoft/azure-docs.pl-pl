@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07444e32d1808f928de418dd898aa1fa30703c90
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87439474"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977633"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
 
@@ -108,7 +108,7 @@ Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 |Publisher | Oferta | Wartość jednostki SKU | Wersja | Szczegóły
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191023) | Są to obrazy z RHEL 8 LVM na partycje połączone z standardowymi repozytoriami Red Hat.
-|RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../../linux/generation-2.md).
+|RedHat | RHEL | 8 — Gen2 | Połączone wartości RHEL wersja pomocnicza i Data opublikowania (na przykład 8.0.20191024) | Są to obrazy z funkcją Hyper-V Generation 2 RHEL 8 LVM z obrazami podłączonymi do standardowych repozytoriów Red Hat. Aby uzyskać więcej informacji na temat maszyn wirtualnych 2. generacji na platformie Azure, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../../generation-2.md).
 
 ## <a name="rhel-longer-support-add-ons"></a>RHEL dłużej obsługiwać Dodatki
 
@@ -116,7 +116,7 @@ Szczegóły dotyczące typów obrazów RHEL 8 są poniżej.
 
 Od kwietnia 2019 obrazy RHEL są dostępne, które są domyślnie dołączone do repozytoriów EUS. Więcej informacji na temat RHEL EUS jest dostępnych w [dokumentacji Red Hat](https://access.redhat.com/articles/rhel-eus).
 
-Możliwe jest przełączenie do repozytoriów EUS i jest ono obsługiwane. Aby uzyskać instrukcje dotyczące sposobu przełączenia maszyny wirtualnej do EUS i więcej informacji na temat EUS pomoc techniczną, zobacz [RHEL EUS i blokowanie wersji RHEL maszyny wirtualne](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+Możliwe jest przełączenie do repozytoriów EUS i jest ono obsługiwane. Aby uzyskać instrukcje dotyczące sposobu przełączenia maszyny wirtualnej do EUS i więcej informacji na temat EUS pomoc techniczną, zobacz [RHEL EUS i blokowanie wersji RHEL maszyny wirtualne](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
 > EUS nie są obsługiwane w dodatkach RHEL. Oznacza to, że w przypadku instalowania pakietu, który jest zazwyczaj dostępny w kanale RHEL Extras, nie będzie można wykonać tego działania w EUS. Aby uzyskać więcej informacji na temat cyklu życia produktu Red Hat, zobacz [Red Hat Enterprise Linux cykl życia usługi Extras](https://access.redhat.com/support/policy/updates/extras/).
@@ -183,6 +183,6 @@ Bieżące zasady mają na celu zachowanie wszystkich opublikowanych obrazów. Fi
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby wyświetlić pełną listę obrazów RHEL na platformie Azure, zobacz [obrazy Red Hat Enterprise Linux (RHEL) dostępne na platformie Azure](./redhat-imagelist.md).
-* Aby dowiedzieć się więcej na temat infrastruktury aktualizacji Red Hat platformy Azure, zobacz temat [infrastruktura aktualizacji Red Hat dla maszyn wirtualnych RHEL na żądanie na platformie Azure](https://aka.ms/rhui-update).
+* Aby dowiedzieć się więcej na temat infrastruktury aktualizacji Red Hat platformy Azure, zobacz temat [infrastruktura aktualizacji Red Hat dla maszyn wirtualnych RHEL na żądanie na platformie Azure](./redhat-rhui.md).
 * Aby dowiedzieć się więcej o ofercie RHEL BYOS, zobacz [Red Hat Enterprise Linux przenoszenie własnych subskrypcji na platformie Azure](./byos.md).
 * Aby uzyskać informacje na temat zasad pomocy technicznej systemu Red Hat dla wszystkich wersji programu RHEL, zobacz [Red Hat Enterprise Linux cyklu życia](https://access.redhat.com/support/policy/updates/errata).

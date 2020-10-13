@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056595"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977735"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -36,6 +36,7 @@ ms.locfileid: "90056595"
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
+| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
