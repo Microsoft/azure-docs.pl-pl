@@ -13,10 +13,10 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: c64c40e96c0ff5864e5b9c9d34bad896c0b03d91
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441701"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Działanie procedury składowanej SQL Server
@@ -68,7 +68,7 @@ Poniższy przewodnik używa działania procedury składowanej w potoku do wywoł
     ```
     Identyfikator jest unikatowym zidentyfikowanym, a kolumna znacznikdatygodziny to data i godzina wygenerowania odpowiedniego identyfikatora.
     
-    ![Dane przykładowe](./media/data-factory-stored-proc-activity/sample-data.png)
+    ![Przykładowe dane](./media/data-factory-stored-proc-activity/sample-data.png)
 
     W tym przykładzie procedura składowana znajduje się w Azure SQL Database. Jeśli procedura składowana znajduje się w usłudze Azure Synapse Analytics i bazie danych SQL Server, podejście jest podobne. W przypadku bazy danych SQL Server należy zainstalować [bramę zarządzanie danymi](data-factory-data-management-gateway.md).
 2. Utwórz następującą **procedurę składowaną** , która wstawia dane do **próbki**.

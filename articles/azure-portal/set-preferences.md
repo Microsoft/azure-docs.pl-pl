@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 20ed84a87486f1095a90e012368b1f56d6426c8e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205702"
 ---
-# <a name="manage-azure-portal-settings-and-preferences"></a>Zarządzanie ustawieniami Azure Portal i preferencjami
+# <a name="manage-azure-portal-settings-and-preferences"></a>Zarządzanie ustawieniami i preferencjami witryny Azure Portal
 
 Ustawienia domyślne Azure Portal można zmienić, aby spełniały własne preferencje. Większość ustawień jest dostępnych w menu **Ustawienia** w nagłówku strony globalnej.
 
@@ -33,7 +33,7 @@ Możesz zmienić subskrypcję, która jest otwierana domyślnie po zalogowaniu s
 
 1. Wybierz subskrypcje, które mają być domyślne podczas uruchamiania portalu. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Wybierz subskrypcje, które mają być domyślne podczas uruchamiania portalu."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Filtruj listę zasobów według subskrypcji."::: 
 
 
 ## <a name="choose-your-default-view"></a>Wybierz widok domyślny 

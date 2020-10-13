@@ -13,10 +13,10 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433657"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
@@ -29,7 +29,7 @@ W tym artykule przyjęto założenie, że [skonfigurowano urządzenia hybrydowe 
 
 - Dostęp warunkowy oparty na urządzeniach
 - [Roaming ustawień przedsiębiorstwa](./enterprise-state-roaming-overview.md)
-- [Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Ten dokument zawiera wskazówki dotyczące rozwiązywania problemów w celu rozwiązania potencjalnych problemów.
 
@@ -246,7 +246,7 @@ Dotyczy tylko kont domeny federacyjnej.
 Przyczyny niepowodzenia:
 
 - Nie można uzyskać tokenu dostępu w trybie dyskretnym dla zasobu DRS.
-   - Urządzenia z systemem Windows 10 uzyskują token uwierzytelniania z usługi federacyjnej przy użyciu zintegrowanego uwierzytelniania systemu Windows w aktywnym punkcie końcowym usługi WS-Trust. Szczegóły: [konfiguracja usługa federacyjna](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
+   - Urządzenia z systemem Windows 10 uzyskują token uwierzytelniania z usługi federacyjnej przy użyciu zintegrowanego uwierzytelniania systemu Windows w aktywnym punkcie końcowym WS-Trust. Szczegóły: [konfiguracja usługa federacyjna](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Typowe kody błędów:**
 
@@ -261,13 +261,13 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Przyczyna: protokół uwierzytelniania nie jest protokołem WS-Trust.
-   - Rozwiązanie: lokalny dostawca tożsamości musi obsługiwać usługę WS-Trust
+   - Rozwiązanie: lokalny dostawca tożsamości musi obsługiwać WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Przyczyna: lokalna usługa federacyjna nie zwróciła odpowiedzi XML.
    - Rozwiązanie: Upewnij się, że punkt końcowy MEX zwraca prawidłowy kod XML. Upewnij się, że serwer proxy nie zakłóca i nie zwraca odpowiedzi z nieprawidłowym kodem XML.
 - **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
    - Przyczyna: nie można odnaleźć punktu końcowego na potrzeby uwierzytelniania nazwy użytkownika/hasła.
-   - Rozwiązanie: Sprawdź ustawienia lokalnego dostawcy tożsamości. Upewnij się, że punkty końcowe protokołu WS-Trust są włączone i upewnij się, że odpowiedź MEX zawiera te poprawne punkty końcowe.
+   - Rozwiązanie: Sprawdź ustawienia lokalnego dostawcy tożsamości. Upewnij się, że WS-Trust punkty końcowe są włączone i upewnij się, że odpowiedź MEX zawiera te poprawne punkty końcowe.
 
 ##### <a name="network-errors"></a>Błędy sieci
 
@@ -290,7 +290,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
    - Przyczyna: token SAML pochodzący od lokalnego dostawcy tożsamości nie został zaakceptowany przez usługę Azure AD.
    - Rozwiązanie: Sprawdź ustawienia serwera federacyjnego. Wyszukaj kod błędu serwera w dziennikach uwierzytelniania.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - Przyczyna: serwer WS-Trust odpowiedzi zgłosił wyjątek błędu i nie powiodło się uzyskanie potwierdzenia
+   - Przyczyna: Wystąpił wyjątek błędu serwera WS-Trust odpowiedzi i nie powiodło się uzyskanie potwierdzenia
    - Rozwiązanie: Sprawdź ustawienia serwera federacyjnego. Wyszukaj kod błędu serwera w dziennikach uwierzytelniania.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Przyczyna: Wystąpił błąd podczas próby pobrania tokenu dostępu z punktu końcowego tokenu.

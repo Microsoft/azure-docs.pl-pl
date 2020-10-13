@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210352"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Korzystanie z usług zewnętrznych z usługi Azure API Management
@@ -65,7 +65,7 @@ Zapasowy element ma koncepcję przychodzących elementów sieci Web. Podczas kon
 ### <a name="is-fire-and-forget-good-enough"></a>Czy jest to dobre i zapomniane?
 W przypadku korzystania z stylu żądania "Uruchom i zapomnij" istnieją pewne kompromisy. Jeśli z jakiegoś powodu żądanie nie powiedzie się, błąd nie zostanie zgłoszony. W tej sytuacji złożoność posiadania dodatkowego systemu raportowania awarii i dodatkowego kosztu wydajności oczekiwania na odpowiedź nie jest uzasadnione. W przypadku scenariuszy, w których konieczna jest kontrola odpowiedzi, zasady [wysyłania żądań](./api-management-advanced-policies.md#SendRequest) są lepszym rozwiązaniem.
 
-## <a name="send-request"></a>Wyślij żądanie
+## <a name="send-request"></a>Send-Request
 `send-request`Zasady umożliwiają użycie usługi zewnętrznej do wykonywania złożonych funkcji przetwarzania i zwracania danych do usługi API Management, która może być używana do dalszej przetwarzania zasad.
 
 ### <a name="authorizing-reference-tokens"></a>Autoryzowanie tokenów odwołania
@@ -123,7 +123,7 @@ Zasad można użyć `<choose>` do wykrycia, czy token jest nieprawidłowy, a je�
 </choose>
 ```
 
-Zgodnie z opisem w [dokumencie RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) , który opisuje sposób `bearer` używania tokenów, API Management zwraca również `WWW-Authenticate` nagłówek z odpowiedzią 401. Usługa WWW-Authenticate służy do nakazuje klientowi utworzenie prawidłowo autoryzowanego żądania. Ze względu na szeroką gamę metod OAuth2 Framework trudno jest komunikować się ze wszystkimi wymaganymi informacjami. Na szczęście istnieją wysiłki, aby pomóc [klientom w ustaleniu, jak prawidłowo autoryzować żądania do serwera zasobów](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Zgodnie z opisem w [dokumencie RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) , który opisuje sposób `bearer` używania tokenów, API Management zwraca również `WWW-Authenticate` nagłówek z odpowiedzią 401. WWW-Authenticate jest przeznaczony do nakazuje klientowi utworzenie prawidłowo autoryzowanego żądania. Ze względu na szeroką gamę metod OAuth2 Framework trudno jest komunikować się ze wszystkimi wymaganymi informacjami. Na szczęście istnieją wysiłki, aby pomóc [klientom w ustaleniu, jak prawidłowo autoryzować żądania do serwera zasobów](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Ostateczne rozwiązanie
 Na końcu uzyskasz następujące zasady:

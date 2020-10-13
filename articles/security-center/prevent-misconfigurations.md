@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906387"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Zapobiegaj błędom konfiguracji z zaleceń Wymuszaj/Odmów
@@ -41,18 +41,18 @@ Można to znaleźć w górnej części strony Szczegóły zasobów dla wybranych
     > [!TIP]
     > Możesz użyć trzech kropek na końcu wiersza, aby zmienić jedną subskrypcję, lub użyć pól wyboru, aby wybrać wiele subskrypcji lub grup, a następnie wybrać pozycję **Zmień na Odmów**.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Ustawianie zakresu dla Azure Policy Odmów":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Strona rekomendacja z wyróżnionym przyciskiem Odmów":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>Wymuś bezpieczną konfigurację
 
 1. Otwórz zalecenie wdrożenia szablonu, jeśli nowe zasoby nie spełnią go, a następnie wybierz przycisk **Wymuszaj** w górnej części strony.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Strona rekomendacja z wyróżnionym przyciskiem Wymuszaj":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Strona rekomendacja z wyróżnionym przyciskiem Odmów":::
 
     Zostanie otwarte okienko Konfiguracja ze wszystkimi opcjami konfiguracji zasad. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Wymuszaj opcje konfiguracji":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Strona rekomendacja z wyróżnionym przyciskiem Odmów":::
 
 1. Ustaw zakres, nazwę przypisania i inne odpowiednie opcje.
 

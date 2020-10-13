@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777024"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Najlepsze rozwiązania dotyczące QnA Maker bazy wiedzy
@@ -48,7 +48,7 @@ Najlepszym odpowiedziami są proste odpowiedzi, ale nie są one zbyt proste. Nie
 |Wyłącz komputer przenośny przy użyciu przycisku energia na klawiaturze.|* Kombinację klawiszy do uśpienia, wyłączenia i ponownego uruchomienia.<br>* Jak wypróbować twardy laptop powierzchniowy<br>* Jak zmienić system BIOS dla komputera przenośnego<br>* Różnice między uśpieniem, wyłączaniem i ponownym uruchomieniem|
 |Usługa klienta jest dostępna za pośrednictwem telefonu, Skype'a i wiadomości SMS przez 24 godziny dziennie.|* Informacje kontaktowe dotyczące sprzedaży.<br> * Lokalizacje biur i sklepów oraz godziny dla osób odwiedzających.<br> * Akcesoria dla komputera przenośnego.|
 
-## <a name="chit-chat"></a>Chit — rozmowa
+## <a name="chit-chat"></a>Chit-Chat
 Dodaj czat Chit-Chat do bot, aby zwiększyć swoją botą konwersację i atrakcyjność przy małym wysiłku. Zestawy danych chit-chat można łatwo dodawać ze wstępnie zdefiniowanych osób prywatnych podczas tworzenia bazy wiedzy i zmieniać je w dowolnym momencie. Dowiedz się, jak [dodać czat Chit do swojej bazy wiedzy](../How-To/chit-chat-knowledge-base.md).
 
 Chit — rozmowa jest obsługiwana w [wielu językach](../how-to/chit-chat-knowledge-base.md#language-support).

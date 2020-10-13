@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086763"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
@@ -30,7 +30,7 @@ Aby zastosować Tagi do zasobu, musisz mieć dostęp do zapisu dla typu zasobu *
 
 Rola [współautor](../../role-based-access-control/built-in-roles.md#contributor) przyznaje również wymagany dostęp do stosowania tagów do dowolnej jednostki. Aby zastosować Tagi tylko do jednego typu zasobu, należy użyć roli współautor dla tego zasobu. Aby na przykład zastosować Tagi do maszyn wirtualnych, użyj [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 ### <a name="apply-tags"></a>Zastosuj Tagi
 

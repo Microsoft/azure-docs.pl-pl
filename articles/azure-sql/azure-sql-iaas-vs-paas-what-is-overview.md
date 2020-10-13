@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
 ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618271"
 ---
 # <a name="what-is-azure-sql"></a>Co to jest usługa Azure SQL? 
@@ -114,12 +114,12 @@ Ogólnie rzecz biorąc, SQL Database i wystąpienie zarządzane SQL mogą znacz�
 | Azure SQL Database | Wystąpienie zarządzane Azure SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
 | :--- | :--- | :--- |
 |Obsługa większości lokalnych możliwości na poziomie bazy danych. Dostępne są najczęściej używane funkcje SQL Server.<br/>dostępność na 99,995%.<br/>Wbudowane kopie zapasowe, poprawki, odzyskiwanie.<br/>Najnowsza stabilna wersja aparatu bazy danych.<br/>Możliwość przypisywania niezbędnych zasobów (procesor CPU/magazyn) do poszczególnych baz danych.<br/>Wbudowana Zaawansowana analiza i zabezpieczenia.<br/>Online zmiana zasobów (procesor CPU/magazyn).| Obsługuje niemal wszystkie funkcje na poziomie wystąpienia lokalnego i na poziomie bazy danych. Wysoka zgodność z SQL Server.<br/>dostępność na 99,99%.<br/>Wbudowane kopie zapasowe, poprawki, odzyskiwanie.<br/>Najnowsza stabilna wersja aparatu bazy danych.<br/>Łatwa migracja z SQL Server.<br/>Prywatny adres IP w usłudze Azure Virtual Network.<br/>Wbudowana Zaawansowana analiza i zabezpieczenia.<br/>Online zmiana zasobów (procesor CPU/magazyn).| Masz pełną kontrolę nad aparatem SQL Server. Obsługuje wszystkie możliwości lokalne.<br/>Do 99,99% czasu dostępności.<br/>Pełna zgodność ze zgodną wersją SQL Server lokalnego.<br/>Stała, dobrze znana wersja aparatu bazy danych.<br/>Łatwa migracja z SQL Server.<br/>Prywatny adres IP w usłudze Azure Virtual Network.<br/>Można wdrożyć aplikacje lub usługi na hoście, na którym znajduje się SQL Server.|
-|Migracja z SQL Server może być trudne.<br/>Niektóre funkcje SQL Server są niedostępne.<br/>Bez gwarantowanego dokładnego czasu konserwacji (ale niemal przezroczyste).<br/>Zgodność z wersją SQL Server można uzyskać tylko przy użyciu poziomów zgodności bazy danych.<br/>Obsługa prywatnego adresu IP za pomocą [prywatnego linku platformy Azure](database/private-endpoint-overview.md).|Nadal istnieje pewna minimalna liczba funkcji SQL Server, które nie są dostępne.<br/>Bez gwarantowanego dokładnego czasu konserwacji (ale niemal przezroczyste).<br/>Zgodność z wersją SQL Server można uzyskać tylko przy użyciu poziomów zgodności bazy danych.|Musisz zarządzać kopiami zapasowymi i poprawkami.<br>Musisz zaimplementować własne rozwiązanie wysokiej dostępności.<br/>Podczas zmiany zasobów (procesor CPU/magazyn) występuje przestój|
+|Migracja z SQL Server może być trudne.<br/>Niektóre funkcje SQL Server są niedostępne.<br/>Bez gwarantowanego dokładnego czasu konserwacji (ale niemal przezroczyste).<br/>Zgodność z wersją SQL Server można uzyskać tylko przy użyciu poziomów zgodności bazy danych.<br/>Obsługa prywatnego adresu IP za pomocą [prywatnego linku platformy Azure](database/private-endpoint-overview.md).|Nadal istnieje pewna minimalna liczba funkcji SQL Server, które nie są dostępne.<br/>Bez gwarantowanego dokładnego czasu konserwacji (ale niemal przezroczyste).<br/>Zgodność z wersją SQL Server można uzyskać tylko przy użyciu poziomów zgodności bazy danych.|Musisz zarządzać kopiami zapasowymi i poprawkami.<br>Musisz zaimplementować własne rozwiązanie High-Availability.<br/>Podczas zmiany zasobów (procesor CPU/magazyn) występuje przestój|
 | Bazy danych o pojemności do 100 TB. | Do 8 TB. | SQL Server wystąpienia o pojemności do 256 TB magazynu. Wystąpienie może obsługiwać dowolną liczbę baz danych zależnie od potrzeb. |
 | Aplikacja lokalna może uzyskać dostęp do danych w Azure SQL Database. | [Implementacja natywnej sieci wirtualnej](managed-instance/vnet-existing-add-subnet.md) i łączność ze środowiskiem lokalnym za pomocą usługi Azure Express Route lub VPN Gateway. | W przypadku maszyn wirtualnych SQL można korzystać z aplikacji, które działają częściowo w chmurze i częściowo lokalnie. Można na przykład rozszerzyć sieć lokalną i domenę usługi Active Directory do chmury za pośrednictwem usługi [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Aby uzyskać więcej informacji na temat rozwiązań w chmurze hybrydowej, zobacz [rozszerzanie lokalnych rozwiązań danych do chmury](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
-## <a name="cost"></a>Cost (Koszt)
+## <a name="cost"></a>Koszty
 
 Niezależnie od tego, czy jesteś pewien, że jest to strapped dla środków pieniężnych, czy zespół w firmie, który działa pod kątem ścisłych ograniczeń budżetowych, ograniczone finansowanie jest często podstawowym sterownikiem podczas decydowania o sposobie hostowania baz danych. W tej sekcji omówiono podstawowe informacje dotyczące rozliczeń i licencjonowania na platformie Azure skojarzone z rodziną usług Azure SQL.  Poznasz również sposób obliczania całkowitego kosztu aplikacji.
 

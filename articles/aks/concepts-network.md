@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88243908"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące sieci dla aplikacji w usłudze Azure Kubernetes Service (AKS)
@@ -19,7 +19,7 @@ W tym artykule przedstawiono podstawowe koncepcje zapewniające obsługę sieci 
 
 - [Usługi](#services)
 - [Sieci wirtualne platformy Azure](#azure-virtual-networks)
-- [Kontrolery transferu danych przychodzących](#ingress-controllers)
+- [Kontrolery ruchu przychodzącego](#ingress-controllers)
 - [Zasady sieciowe](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Podstawy platformy Kubernetes
@@ -116,12 +116,12 @@ Niezależnie od modelu sieci, z którego korzystasz, zarówno korzystającą wty
 * Platforma Azure może automatycznie tworzyć i konfigurować zasoby sieci wirtualnej podczas tworzenia klastra AKS.
 * Możesz ręcznie utworzyć i skonfigurować zasoby sieci wirtualnej i dołączyć je do tych zasobów podczas tworzenia klastra AKS.
 
-Mimo że funkcje, takie jak punkty końcowe usługi lub UDR, są obsługiwane zarówno w korzystającą wtyczki kubenet, jak i na platformie Azure CNI, [zasady pomocy technicznej dla AKS][support-policies] określają, jakie zmiany można wprowadzić. Przykład:
+Mimo że funkcje, takie jak punkty końcowe usługi lub UDR, są obsługiwane zarówno w korzystającą wtyczki kubenet, jak i na platformie Azure CNI, [zasady pomocy technicznej dla AKS][support-policies] określają, jakie zmiany można wprowadzić. Na przykład:
 
 * Jeśli ręcznie utworzysz zasoby sieci wirtualnej dla klastra AKS, jest ono obsługiwane podczas konfigurowania własnych UDR lub punktów końcowych usługi.
 * Jeśli platforma Azure automatycznie tworzy zasoby sieci wirtualnej dla klastra AKS, nie jest obsługiwane ręczne zmienianie tych zasobów zarządzanych przez AKS w celu skonfigurowania własnych UDR lub punktów końcowych usługi.
 
-## <a name="ingress-controllers"></a>Kontrolery transferu danych przychodzących
+## <a name="ingress-controllers"></a>Kontrolery ruchu przychodzącego
 
 Podczas tworzenia usługi typu modułu równoważenia obciążenia tworzony jest podstawowy zasób usługi Azure load module. Moduł równoważenia obciążenia jest skonfigurowany do dystrybucji ruchu do zasobników w usłudze na dany port. Moduł równoważenia obciążenia działa tylko w warstwie 4 — usługa nie rozpoznaje rzeczywistych aplikacji i nie może dokonywać żadnych dodatkowych zagadnień związanych z routingiem.
 

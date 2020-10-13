@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
 ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245856"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
@@ -23,9 +23,9 @@ Ten artykuł zawiera informacje na temat wdrażania maszyn wirtualnych w systemi
 
 Poufne maszyny wirtualne platformy Azure są przeznaczone do ochrony poufności i integralności danych i kodu podczas przetwarzania w chmurze. 
 
-[Seria DCsv2](../virtual-machines/dcv2-series.md) Maszyny wirtualne to najnowsza i Najnowsza rodzina rozmiarów informacji poufnych. Te maszyny wirtualne obsługują większy zakres możliwości wdrażania, mają 2. enklawy strony pamięci podręcznej (EPC) i większy wybór rozmiarów w porównaniu z naszymi maszynami wirtualnymi z serii DC. Maszyny wirtualne z [serii DC](../virtual-machines/sizes-previous-gen.md#preview-dc-series) są obecnie w wersji zapoznawczej i będą przestarzałe i nieuwzględnione w ogólnej dostępności.
+[Seria DCsv2](../virtual-machines/dcv2-series.md) Maszyny wirtualne to najnowsza i Najnowsza rodzina rozmiarów informacji poufnych. Te maszyny wirtualne obsługują większy zakres możliwości wdrażania, mają 2. enklawy stronę sieci Web (EPC) i większy wybór rozmiarów w porównaniu z naszymi DC-Series maszynami wirtualnymi. Maszyny wirtualne z [serii DC](../virtual-machines/sizes-previous-gen.md#preview-dc-series) są obecnie w wersji zapoznawczej i będą przestarzałe i nieuwzględnione w ogólnej dostępności.
 
-Zacznij wdrożyć maszynę wirtualną z serii DCsv2 za pośrednictwem komercyjnego portalu Microsoft Marketplace, postępując zgodnie z [samouczkiem szybki start](quick-create-marketplace.md).
+Zacznij wdrożyć maszynę wirtualną DCsv2-Series za pośrednictwem komercyjnej witryny Marketplace firmy Microsoft, postępując zgodnie z [samouczkiem szybki start](quick-create-marketplace.md).
 
 ### <a name="current-available-sizes-and-regions"></a>Bieżące dostępne rozmiary i regiony
 
@@ -47,16 +47,16 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Wymagania dedykowanego hosta
-Wdrożenie **Standard_DC8_v2** rozmiaru maszyny wirtualnej w rodzinie maszyn wirtualnych z serii DCSv2 zajmie pełny Host i nie będzie współużytkowane z innymi dzierżawcami lub subskrypcjami. Ta rodzina SKU maszyn wirtualnych zapewnia izolację, którą może być potrzebna w celu spełnienia wymagań prawnych dotyczących zgodności i zabezpieczeń, które zwykle są spełnione przez posiadanie dedykowanej usługi hosta. W przypadku wybrania **Standard_DC8_v2** jednostki SKU fizyczny serwer hosta przydzieli wszystkie dostępne zasoby sprzętowe, w tym tylko pamięć sygnatury EPC dla maszyny wirtualnej. Należy pamiętać, że ta funkcja istnieje w ramach projektu infrastruktury i wszystkie funkcje **Standard_DC8_v2** będą obsługiwane. To wdrożenie nie jest takie samo jak [dedykowana usługa hosta platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) dostarczana przez inne rodziny maszyn wirtualnych platformy Azure.
+Wdrożenie **Standard_DC8_v2** rozmiaru maszyny wirtualnej w rodzinie DCSv2-Series VM zajmie pełny Host i nie będzie współużytkowane z innymi dzierżawcami lub subskrypcjami. Ta rodzina SKU maszyn wirtualnych zapewnia izolację, którą może być potrzebna w celu spełnienia wymagań prawnych dotyczących zgodności i zabezpieczeń, które zwykle są spełnione przez posiadanie dedykowanej usługi hosta. W przypadku wybrania **Standard_DC8_v2** jednostki SKU fizyczny serwer hosta przydzieli wszystkie dostępne zasoby sprzętowe, w tym tylko pamięć sygnatury EPC dla maszyny wirtualnej. Należy pamiętać, że ta funkcja istnieje w ramach projektu infrastruktury i wszystkie funkcje **Standard_DC8_v2** będą obsługiwane. To wdrożenie nie jest takie samo jak [dedykowana usługa hosta platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) dostarczana przez inne rodziny maszyn wirtualnych platformy Azure.
 
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 
-Postępuj zgodnie z samouczkiem szybkiego startu, aby wdrożyć maszynę wirtualną z serii DCsv2 w mniej niż 10 minut. 
+Postępuj zgodnie z samouczkiem szybkiego startu, aby wdrożyć maszynę wirtualną DCsv2-Series w mniej niż 10 minut. 
 
 - **Subskrypcja platformy Azure** — aby wdrożyć poufne wystąpienie maszyny wirtualnej, weź pod uwagę subskrypcję z płatność zgodnie z rzeczywistym użyciem lub inną opcję zakupu. Jeśli używasz [bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/), nie masz przydziału dla odpowiedniej ilości rdzeni obliczeniowych platformy Azure.
 
-- **Cennik i dostępność regionalna** — Znajdź Cennik dla maszyn wirtualnych z serii DCsv2 na [stronie cennika maszyny wirtualnej](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Sprawdź dostępność [produktów według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) w regionach świadczenia usługi Azure.
+- **Cennik i dostępność regionalna** — znajdź Cennik DCsv2-Series maszyn wirtualnych na [stronie cennika maszyny wirtualnej](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Sprawdź dostępność [produktów według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) w regionach świadczenia usługi Azure.
 
 
 - **Przydział rdzeni** — może być konieczne zwiększenie limitu przydziału rdzeni w ramach subskrypcji platformy Azure z wartości domyślnej. Twoja subskrypcja może również ograniczyć liczbę rdzeni, które można wdrożyć w niektórych rodzinach rozmiarów maszyn wirtualnych, w tym serii DCsv2. Aby zażądać zwiększenia limitu przydziału, [Otwórz bezpłatnie żądanie pomocy technicznej w trybie online](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) . Uwaga, limity domyślne mogą się różnić w zależności od kategorii subskrypcji.
@@ -84,7 +84,7 @@ Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platform
 
 Aby dowiedzieć się więcej na temat szablonów ARM, zobacz [Template Deployment Omówienie](../azure-resource-manager/templates/overview.md).
 
-Aby wdrożyć maszynę wirtualną z serii DCsv2 w szablonie ARM, użyjesz [zasobu maszyny wirtualnej](../virtual-machines/windows/template-description.md). Upewnij się, że określono poprawne właściwości **vmSize** i **elementu imagereference**.
+Aby wdrożyć maszynę wirtualną DCsv2-Series w szablonie ARM, użyjesz [zasobu maszyny wirtualnej](../virtual-machines/windows/template-description.md). Upewnij się, że określono poprawne właściwości **vmSize** i **elementu imagereference**.
 
 ### <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 
@@ -132,7 +132,7 @@ W obszarze **Właściwości**należy również odwoływać się do obrazu w obsz
 
 ## <a name="next-steps"></a>Następne kroki 
 
-W tym artykule omówiono kwalifikacje i konfiguracje potrzebne podczas tworzenia poufnej maszyny wirtualnej. Teraz możesz przejść do Microsoft Azure Marketplace, aby wdrożyć maszynę wirtualną z serii DCsv2.
+W tym artykule omówiono kwalifikacje i konfiguracje potrzebne podczas tworzenia poufnej maszyny wirtualnej. Teraz możesz przejść do Microsoft Azure Marketplace, aby wdrożyć maszynę wirtualną DCsv2-Series.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie maszyny wirtualnej z serii DCsv2 w portalu Azure Marketplace](quick-create-marketplace.md)
+> [Wdrażanie DCsv2-Series maszyny wirtualnej w portalu Azure Marketplace](quick-create-marketplace.md)

@@ -17,15 +17,15 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cfbca2e7542315b59d741a9e8f6f9eb92af6ebf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84760222"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Jak skonfigurować aplikację serwera proxy aplikacji tak, aby korzystała z PingAccess
 
-Nasza współpraca z usługą PingAccess umożliwia teraz zwiększenie korzyści serwera proxy aplikacji przy użyciu uwierzytelniania opartego na nagłówkach. Jeśli aplikacje nie używają nagłówków, zapoznaj się z [dokumentacją logowania jednokrotnego](application-proxy-configure-single-sign-on-with-kcd.md) , aby uzyskać szczegółowe informacje na temat innych opcji.
+Nasza współpraca z usługą PingAccess umożliwia teraz zwiększenie korzyści serwera proxy aplikacji przy użyciu uwierzytelniania opartego na nagłówkach. Jeśli aplikacje nie używają nagłówków, zapoznaj się z [dokumentacją dotyczącą jednej Sign-On](application-proxy-configure-single-sign-on-with-kcd.md) , aby uzyskać szczegółowe informacje na temat innych opcji.
 
 ## <a name="overview-of-steps-and-recommended-documents"></a>Przegląd kroków i zalecanych dokumentów
 
@@ -39,4 +39,4 @@ Aby skonfigurować aplikację z PingAccess, należy wykonać cztery kroki:
 
 4.  Konfigurowanie aplikacji w PingAccess
 
-Aby uzyskać szczegółowe informacje na temat każdego z tych kroków, zobacz nasze Logowanie jednokrotne [z dokumentacją z nagłówkami](application-proxy-configure-single-sign-on-with-ping-access.md).
+Aby uzyskać szczegółowe informacje na temat każdego z tych kroków, zobacz nasze [pojedyncze Sign-On z dokumentacją z nagłówkami](application-proxy-configure-single-sign-on-with-ping-access.md).

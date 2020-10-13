@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437942"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
@@ -30,7 +30,7 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 **Wskazówki**: podczas tworzenia Azure-SSIS Integration Runtime (IR) można przyłączyć ją do sieci wirtualnej. Dzięki temu Azure Data Factory mogą tworzyć pewne zasoby sieciowe, takie jak sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) i moduł równoważenia obciążenia. Istnieje również możliwość udostępnienia własnego statycznego publicznego adresu IP lub utworzenia Azure Data Factory. Na sieciowej grupy zabezpieczeń, który jest automatycznie tworzony przez Azure Data Factory, Port 3389 jest domyślnie otwarty dla całego ruchu. Zablokuj tę możliwość, aby upewnić się, że tylko Administratorzy mają dostęp.
 
-Samoobsługowe urzędy skarbowe można wdrożyć na maszynie lokalnej lub maszynie wirtualnej platformy Azure wewnątrz sieci wirtualnej. Upewnij się, że wdrożenie podsieci sieci wirtualnej ma sieciowej grupy zabezpieczeń skonfigurowany pod kątem zezwalania tylko na dostęp administracyjny. Azure-SSIS IR nie zezwolił na ruch wychodzący portu 3389 domyślnie w regule zapory systemu Windows w każdym węźle IR do ochrony. Możesz zabezpieczyć zasoby skonfigurowane przez sieć wirtualną, kojarząc sieciowej grupy zabezpieczeń z podsiecią i ustawiając rygorystyczne reguły.
+Self-Hosted urząd skarbowy można wdrożyć na maszynie lokalnej lub na maszynie wirtualnej platformy Azure wewnątrz sieci wirtualnej. Upewnij się, że wdrożenie podsieci sieci wirtualnej ma sieciowej grupy zabezpieczeń skonfigurowany pod kątem zezwalania tylko na dostęp administracyjny. Azure-SSIS IR nie zezwolił na ruch wychodzący portu 3389 domyślnie w regule zapory systemu Windows w każdym węźle IR do ochrony. Możesz zabezpieczyć zasoby skonfigurowane przez sieć wirtualną, kojarząc sieciowej grupy zabezpieczeń z podsiecią i ustawiając rygorystyczne reguły.
 
 W przypadku udostępnienia linku prywatnego Użyj prywatnych punktów końcowych, aby zabezpieczyć wszystkie zasoby połączone z potokiem Azure Data Factory, na przykład Azure SQL Server. Połączenie prywatne polega na tym, że ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
@@ -1172,7 +1172,7 @@ W przypadku wszystkich magazynów danych zapoznaj się z planem zabezpieczeń te
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure i wrócisz do niej za pomocą Azure Backup, maszyna wirtualna będzie szyfrowana przy użyciu szyfrowanie usługi Storage (SSE). Azure Backup może również tworzyć kopie zapasowe maszyn wirtualnych platformy Azure, które są szyfrowane przy użyciu Azure Disk Encryption. Azure Disk Encryption integruje się z kluczami szyfrowania funkcji BitLocker (BEKs), które są chronione w magazynie kluczy jako wpisy tajne. Azure Disk Encryption integruje się również z kluczami szyfrowania klucza Azure Key Vault (KEKs). Włącz nietrwałe usuwanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
+**Wskazówki**: jeśli używasz Integration Runtime na maszynie wirtualnej platformy Azure i wrócisz do niej za pomocą Azure Backup, maszyna wirtualna będzie szyfrowana przy użyciu szyfrowanie usługi Storage (SSE). Azure Backup może również tworzyć kopie zapasowe maszyn wirtualnych platformy Azure, które są szyfrowane przy użyciu Azure Disk Encryption. Azure Disk Encryption integruje się z kluczami szyfrowania funkcji BitLocker (BEKs), które są chronione w magazynie kluczy jako wpisy tajne. Azure Disk Encryption integruje się również z kluczami szyfrowania klucza Azure Key Vault (KEKs). Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
 * [Usuwanie nietrwałe dla maszyn wirtualnych](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete)
 
