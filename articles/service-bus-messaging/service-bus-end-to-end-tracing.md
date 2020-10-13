@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b46f85e16370d15e3a8def98cdcdf8b3878208d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021633"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Śledzenie rozproszone i korelacja za poorednictwem Service Bus Messaging
@@ -23,8 +23,8 @@ Protokół jest oparty na [protokole korelacji http](https://github.com/dotnet/r
 
 | Nazwa właściwości        | Opis                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Identyfikator diagnostyki       | Unikatowy identyfikator wywołania zewnętrznego od producenta do kolejki. Zapoznaj się z [identyfikatorem żądania w protokole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) , aby uzyskać racjonalne informacje, zagadnienia i format |
-|  Korelacja — kontekst | Kontekst operacji, który jest propagowany dla wszystkich usług, które są objęte przetwarzaniem operacji. Aby uzyskać więcej informacji, zobacz temat [korelacja w protokole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
+|  Diagnostic-Id       | Unikatowy identyfikator wywołania zewnętrznego od producenta do kolejki. Zapoznaj się z [identyfikatorem żądania w protokole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) , aby uzyskać racjonalne informacje, zagadnienia i format |
+|  Correlation-Context | Kontekst operacji, który jest propagowany dla wszystkich usług, które są objęte przetwarzaniem operacji. Aby uzyskać więcej informacji, zobacz temat [korelacja w protokole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
 ## <a name="service-bus-net-client-autotracing"></a>Service Bus autośledzenie klienta platformy .NET
 
@@ -222,7 +222,7 @@ Można użyć `IsEnabled` również strategii próbkowania. Próbkowanie oparte 
 
 W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarcza tylko jeden odbiornik do zaakceptowania zdarzenia, więc `IsEnabled` nie ma gwarancji, że jest on wywoływany,
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Application Insights korelacji](../azure-monitor/app/correlation.md)
 * [Application Insights Monitoruj zależności](../azure-monitor/app/asp-net-dependencies.md) , aby zobaczyć, czy REST, SQL lub inne zasoby zewnętrzne spowalniają pracę.

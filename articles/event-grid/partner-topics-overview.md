@@ -4,10 +4,10 @@ description: Wysyłaj zdarzenia z partnerów Event Grid SaaS i PaaS bezpośredni
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831910"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Tematy dotyczące partnerów w Azure Event Grid (wersja zapoznawcza)

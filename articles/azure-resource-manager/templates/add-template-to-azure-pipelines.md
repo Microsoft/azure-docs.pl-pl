@@ -4,13 +4,13 @@ description: Opisuje sposób konfigurowania ciągłej integracji w programie Azu
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653404"
 ---
-# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów ARM z Azure Pipelines
+# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrowanie szablonów usługi ARM z usługą Azure Pipelines
 
 Szablony Azure Resource Manager (szablony ARM) można zintegrować z Azure Pipelines na potrzeby ciągłej integracji i ciągłego wdrażania (CI/CD). Samouczek [ciągła integracja szablonów ARM z Azure Pipelines](deployment-tutorial-pipeline.md) pokazuje, jak za pomocą [zadania wdrażania szablonu ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) wdrożyć szablon z repozytorium GitHub. To podejście działa, gdy chcesz wdrożyć szablon bezpośrednio z repozytorium.
 

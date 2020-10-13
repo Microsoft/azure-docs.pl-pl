@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/10/2020
 ms.author: kumud
 ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020460"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Dostosowywanie modelu języka za pomocą witryny sieci Web Video Indexer
@@ -152,6 +152,6 @@ Video Indexer obsługuje automatyczne dostosowywanie modeli języka na podstawie
 
     ![Z edycji transkrypcji — Video Indexer](./media/customize-language-model/from-transcript-edits.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Dostosowywanie modelu języka przy użyciu interfejsów API](customize-language-model-with-api.md)

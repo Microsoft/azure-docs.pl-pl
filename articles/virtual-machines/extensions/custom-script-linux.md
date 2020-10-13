@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3c3dac8c8798b9c56b746a2e4e232f43ef967ebe
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818810"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960307"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Używanie rozszerzenia niestandardowego skryptu platformy Azure w wersji 2 z maszynami wirtualnymi z systemem Linux
 Rozszerzenie skryptu niestandardowego wersja 2 pobiera i uruchamia skrypty na maszynach wirtualnych platformy Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalacji oprogramowania lub innych zadań związanych z konfiguracją/zarządzaniem. Skrypty można pobrać z usługi Azure Storage lub innej dostępnej lokalizacji w Internecie lub można je udostępnić do środowiska uruchomieniowego rozszerzenia. 
@@ -45,7 +45,7 @@ Rozszerzenie niestandardowego skryptu dla systemu Linux zostanie uruchomione na 
 Możesz użyć rozszerzenia, aby użyć poświadczeń usługi Azure Blob Storage w celu uzyskania dostępu do usługi Azure Blob Storage. Alternatywnie lokalizacja skryptu może być dowolna, w której maszyna wirtualna może kierować do tego punktu końcowego, na przykład w usłudze GitHub, na wewnętrznym serwerze plików itp.
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
-Jeśli musisz pobrać skrypt zewnętrzny, taki jak GitHub lub Azure Storage, należy otworzyć dodatkową zaporę/porty sieciowej grupy zabezpieczeń. Jeśli na przykład skrypt znajduje się w usłudze Azure Storage, możesz zezwolić na dostęp za pomocą tagów usługi Azure sieciowej grupy zabezpieczeń dla [magazynu](../../virtual-network/security-overview.md#service-tags).
+Jeśli musisz pobrać skrypt zewnętrzny, taki jak GitHub lub Azure Storage, należy otworzyć dodatkową zaporę/porty sieciowej grupy zabezpieczeń. Jeśli na przykład skrypt znajduje się w usłudze Azure Storage, możesz zezwolić na dostęp za pomocą tagów usługi Azure sieciowej grupy zabezpieczeń dla [magazynu](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Jeśli skrypt znajduje się na serwerze lokalnym, może być konieczne otwarcie dodatkowych portów zapory/sieciowych grup zabezpieczeń.
 
@@ -114,7 +114,7 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
+| apiVersion | 2019-03-01 | data |
 | publisher | Microsoft. COMPUTE. Extensions | ciąg |
 | typ | CustomScript | ciąg |
 | typeHandlerVersion | 2.1 | int |

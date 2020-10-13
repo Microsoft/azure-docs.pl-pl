@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób zarządzania serwerem DHCP w rozwią
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332835"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Tworzenie i zarządzanie serwerem DHCP w rozwiązaniu VMWare platformy Azure
@@ -26,15 +26,15 @@ W programie NSX Manager przejdź do karty **Sieć** , a następnie wybierz pozyc
 
 1. Wybierz pozycję **bramy warstwy 1**, bramę, a następnie wybierz pozycję **Edytuj** .
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Wybierz bramę do użycia" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Dodaj podsieć, wybierając pozycję **Brak zestawu alokacji adresów IP**
 
-   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Dodawanie podsieci" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Na następnym ekranie wybierz pozycję **serwer lokalny DHCP** z listy rozwijanej **Typ** . W obszarze **serwer DHCP**wybierz opcję **domyślny serwer DHCP** , a następnie wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="./media/manage-dhcp/set-ip-address-management.png" alt-text="Wybieranie opcji serwera DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/set-ip-address-management.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. W oknie **brama warstwy 1** wybierz pozycję **Zapisz**. Na następnym ekranie zobaczysz **zmiany zapisane**, wybierz pozycję **Zamknij edytowanie** , aby zakończyć.
 
@@ -44,33 +44,33 @@ Po utworzeniu serwera DHCP należy dodać do niego segmenty sieci.
 
 1. W NSX-T wybierz kartę **Sieć** i wybierz **segmenty** w obszarze **łączność**. Wybierz pozycję **Dodaj segment**. Nazwij segment i połączenie z bramą warstwy 1. Następnie wybierz pozycję **Ustaw podsieci** , aby skonfigurować nową podsieć. 
 
-   :::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="Dodaj nowy segment sieci" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. W oknie **Ustawianie podsieci** wybierz pozycję **Dodaj podsieć**. Wprowadź adres IP bramy i zakres DHCP, a następnie wybierz pozycję **Dodaj** , a następnie **Zastosuj**
 
-   :::image type="content" source="./media/manage-dhcp/add-subnet-segment.png" alt-text="Dodaj segment sieci" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet-segment.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Po zakończeniu wybierz pozycję **Zapisz** , aby zakończyć dodawanie segmentu sieci.
 
-   :::image type="content" source="./media/manage-dhcp/segments-complete.png" alt-text="kompletne segmenty" border="true":::
+   :::image type="content" source="./media/manage-dhcp/segments-complete.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 ## <a name="create-dhcp-relay-service"></a>Tworzenie usługi przekaźnika DHCP
 
 1. W oknie NXT-T wybierz kartę **Sieć** , a następnie w obszarze **Zarządzanie IP**wybierz pozycję **DHCP**. Wybierz pozycję **Dodaj serwer**. W polu **Typ serwera** wybierz opcję przekaźnik DHCP, a następnie wprowadź nazwę serwera i adres IP serwera przekazywania. Wybierz przycisk **Zapisz**, aby zapisać zmiany.
 
-   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Utwórz serwer przekazywania DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Wybierz pozycję **bramy warstwy 1** w obszarze **łączność**. Wybierz wielokropek pionowy w bramie warstwy 1 i wybierz pozycję **Edytuj**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Edytuj bramę warstwy 1" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Wybierz pozycję **Brak zestawu alokacji adresów IP** , aby zdefiniować alokację adresów IP.
 
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Edytuj alokację adresów IP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. W oknie dialogowym, w polu **Typ**wybierz opcję **serwer przekaźnika DHCP**. Na liście rozwijanej **przekaźnik DHCP** wybierz serwer przekaźnika DHCP. Po zakończeniu wybierz pozycję **Zapisz** .
 
-   :::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.png" alt-text="Ustawianie zarządzania adresami IP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 ## <a name="specify-a-dhcp-range-ip-on-segment"></a>Określ adres IP zakresu DHCP dla segmentu
 
@@ -79,16 +79,16 @@ Po utworzeniu serwera DHCP należy dodać do niego segmenty sieci.
 
 1. W obszarze **łączność**wybierz pozycję **segmenty**. Wybierz wielokropek pionowy i wybierz pozycję **Edytuj**. Zamiast tego, jeśli chcesz dodać nowy segment, możesz wybrać pozycję **Dodaj segment** , aby utworzyć nowy segment.
 
-   :::image type="content" source="./media/manage-dhcp/edit-segments.png" alt-text="Edytowanie podsieci sieciowej" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-segments.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Dodaj szczegóły dotyczące segmentu. Wybierz wartość w obszarze **podsieci** lub **Ustaw podsieci** , aby dodać lub zmodyfikować podsieć.
 
-   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="segmenty sieci" border="true":::
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Wybierz wielokropek pionowy i wybierz pozycję **Edytuj**. Jeśli musisz utworzyć nową podsieć, wybierz pozycję **Dodaj podsieć** , aby utworzyć bramę i skonfigurować zakres DHCP. Podaj zakres puli adresów IP i wybierz pozycję **Zastosuj**, a następnie wybierz pozycję **Zapisz** .
 
-   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Edytowanie podsieci" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Dodaj serwer DHCP" border="true":::
 
 1. Teraz Pula serwerów DHCP jest przypisana do segmentu.
 
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Pula serwerów DHCP przypisana do segmentu" border="true":::
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Dodaj serwer DHCP" border="true":::

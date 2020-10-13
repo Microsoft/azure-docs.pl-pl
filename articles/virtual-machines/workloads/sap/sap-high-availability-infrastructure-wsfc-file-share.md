@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855366"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Przygotowanie infrastruktury platformy Azure pod kątem wysokiej dostępności SAP przy użyciu klastra trybu failover systemu Windows i udziału plików dla wystąpień oprogramowania SAP ASCS/SCS
@@ -239,7 +239,7 @@ Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 | Nazwa sieci klastra | SOFS — CL | 10.0.6.13 | nie dotyczy |
 | Nazwa hosta globalnego SAP | sapglobal | Używaj adresów IP wszystkich węzłów klastra | nie dotyczy |
 
-**Tabela 3**: klaster serwer plików skalowalny w poziomie
+**Tabela 3**: klaster serwera plików Scale-Out
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Wdrażanie maszyn wirtualnych dla klastra SAP ASCS/SCS, klastra systemu zarządzania bazami danych (DBMS) i wystąpień serwera aplikacji SAP
@@ -259,9 +259,9 @@ Aby przygotować infrastrukturę platformy Azure, wykonaj następujące czynnoś
 * W przypadku korzystania z systemu Windows Server 2016 zalecamy skonfigurowanie [monitora chmury platformy Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Wdróż ręcznie klaster Serwer plików skalowalny w poziomie 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Wdróż ręcznie klaster serwera plików Scale-Out 
 
-Klaster Serwer plików skalowalny w poziomie firmy Microsoft można wdrożyć ręcznie, zgodnie z opisem w blogu [bezpośrednie miejsca do magazynowania na platformie Azure][ms-blog-s2d-in-azure], wykonując następujący kod:  
+Klaster serwera plików Scale-Out firmy Microsoft można wdrożyć ręcznie, zgodnie z opisem w blogu [bezpośrednie miejsca do magazynowania na platformie Azure][ms-blog-s2d-in-azure], wykonując następujący kod:  
 
 
 ```powershell
@@ -294,25 +294,25 @@ $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-## <a name="deploy-scale-out-file-server-automatically"></a>Wdróż Serwer plików skalowalny w poziomie automatycznie
+## <a name="deploy-scale-out-file-server-automatically"></a>Automatyczne wdrażanie Scale-Out serwera plików
 
-Wdrożenie Serwer plików skalowalny w poziomie można także zautomatyzować, używając Azure Resource Manager szablonów w istniejącej sieci wirtualnej i środowiska Active Directory.
+Wdrożenie Scale-Out serwera plików można również zautomatyzować, używając Azure Resource Manager szablonów w istniejącej sieci wirtualnej i środowiska Active Directory.
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca, aby dla Serwer plików skalowalny w poziomie ze dublowaniem trójwymiarowym mieć co najmniej trzy węzły klastra.
+> Zalecamy, aby co najmniej trzy węzły klastra dla serwera plików Scale-Out z funkcją dublowania trójwymiarowego.
 >
-> W interfejsie użytkownika Serwer plików skalowalny w poziomie szablonu Menedżer zasobów należy określić liczbę maszyn wirtualnych.
+> W interfejsie użytkownika szablonu Menedżer zasobów Scale-Out serwera plików należy określić liczbę maszyn wirtualnych.
 >
 
 ### <a name="use-managed-disks"></a>Korzystanie z dysków zarządzanych
 
-Szablon Azure Resource Manager wdrażania Serwer plików skalowalny w poziomie za pomocą Bezpośrednie miejsca do magazynowania i platformy Azure Managed Disks jest dostępny w witrynie [GitHub][arm-sofs-s2d-managed-disks].
+Azure Resource Manager szablon służący do wdrażania Scale-Out serwera plików z usługami Bezpośrednie miejsca do magazynowania i Azure Managed Disks jest dostępny w witrynie [GitHub][arm-sofs-s2d-managed-disks].
 
 Zalecamy używanie Managed Disks.
 
-![Rysunek 1: ekran interfejsu użytkownika dla szablonu Serwer plików skalowalny w poziomie Menedżer zasobów z dyskami zarządzanymi][sap-ha-guide-figure-8010]
+![Rysunek 1: ekran UI dla Scale-Out serwera plików Menedżer zasobów szablon z dyskami zarządzanymi][sap-ha-guide-figure-8010]
 
-_**Rysunek 1**: ekran interfejsu użytkownika dla szablonu serwer plików skalowalny w poziomie Menedżer zasobów z dyskami zarządzanymi_
+_**Rysunek 1**: ekran UI dla Scale-Out serwera plików Menedżer zasobów szablon z dyskami zarządzanymi_
 
 W szablonie wykonaj następujące czynności:
 1. W polu **Liczba maszyn wirtualnych** wprowadź minimalną liczbę wynoszącą **2**.
@@ -322,17 +322,17 @@ W szablonie wykonaj następujące czynności:
 
 ### <a name="use-unmanaged-disks"></a>Korzystanie z dysków niezarządzanych
 
-Szablon Azure Resource Manager wdrażania Serwer plików skalowalny w poziomie za pomocą Bezpośrednie miejsca do magazynowania i dysków niezarządzanych platformy Azure jest dostępny w witrynie [GitHub][arm-sofs-s2d-non-managed-disks].
+Azure Resource Manager szablon służący do wdrażania Scale-Out serwera plików Bezpośrednie miejsca do magazynowania z dyskami niezarządzanymi platformy Azure jest dostępny w witrynie [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Rysunek 2: ekran interfejsu użytkownika dla szablonu Serwer plików skalowalny w poziomie Azure Resource Manager bez dysków zarządzanych][sap-ha-guide-figure-8011]
+![Rysunek 2: ekran UI dla Scale-Out serwera plików Azure Resource Manager szablon bez dysków zarządzanych][sap-ha-guide-figure-8011]
 
-_**Rysunek 2**: ekran interfejsu użytkownika dla szablonu serwer plików skalowalny w poziomie Azure Resource Manager bez dysków zarządzanych_
+_**Rysunek 2**: ekran UI dla Scale-Out serwera plików Azure Resource Manager szablon bez dysków zarządzanych_
 
 W polu **Typ konta magazynu** wybierz pozycję **Premium Storage**. Wszystkie inne ustawienia są takie same jak ustawienia dla dysków zarządzanych.
 
 ## <a name="adjust-cluster-timeout-settings"></a>Dostosuj ustawienia limitu czasu klastra
 
-Po pomyślnym zainstalowaniu klastra Windows Serwer plików skalowalny w poziomie należy dostosować progi limitu czasu dla wykrywania trybu failover do warunków na platformie Azure. Parametry, które mają zostać zmienione, są udokumentowane w obszarze [progi sieci klastra trybu failover dostrajania][tuning-failover-cluster-network-thresholds]. Przy założeniu, że klastrowane maszyny wirtualne znajdują się w tej samej podsieci, Zmień następujące parametry na te wartości:
+Po pomyślnym zainstalowaniu klastra serwera plików Scale-Out systemu Windows należy dostosować progi limitu czasu dla wykrywania trybu failover do warunków na platformie Azure. Parametry, które mają zostać zmienione, są udokumentowane w obszarze [progi sieci klastra trybu failover dostrajania][tuning-failover-cluster-network-thresholds]. Przy założeniu, że klastrowane maszyny wirtualne znajdują się w tej samej podsieci, Zmień następujące parametry na te wartości:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

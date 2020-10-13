@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439779"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
@@ -65,7 +65,7 @@ Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest t
 
 |Warstwa usługi|Okres przechowywania w dniach|
 |---|:---:|
-|Podstawowe|7|
+|Podstawowy|7|
 |Standardowa|35|
 |Premium|35|
 |||
@@ -127,7 +127,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Firewall
+#### <a name="firewall"></a>Zapora
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 
@@ -223,7 +223,7 @@ ExpressRoute umożliwia również przekroczenie limitu liczby przydziałów prze
 
 - [Wprowadzenie do trasy Express](../../expressroute/expressroute-introduction.md)
 - [Wymagania wstępne](../../expressroute/expressroute-prerequisites.md)
-- [Przepływy pracy](../../expressroute/expressroute-workflows.md)
+- [Przepływy](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Jest SQL Database zgodne z wymaganiami prawnymi i w jaki sposób pomaga w zakresie zgodności z moją organizacją
 
@@ -273,7 +273,7 @@ Na tym wykresie można także skonfigurować alerty według zasobu. Te alerty um
 
 #### <a name="dynamic-management-views"></a>Dynamiczne widoki zarządzania
 
-Można wykonać zapytanie dotyczące widoku dynamicznego zarządzania [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) , aby przywrócić historię statystyk zużycia zasobów z ostatniej godziny i widoku wykazu systemu [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) w celu zwrócenia historii dla ostatnich 14 dni.
+Można wysłać zapytanie do [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamicznego widoku zarządzania, aby przywrócić historię statystyk zużycia zasobów z ostatniej godziny i widoku wykazu systemu [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , aby zwracała historię dla ostatnich 14 dni.
 
 #### <a name="query-performance-insight"></a>Szczegółowe informacje o wydajności zapytań
 
@@ -293,7 +293,7 @@ Twoje podejście do rozwiązywania problemów z wydajnością może znacząco ko
 
 W przypadku rozwiązywania problemów z wydajnością ważne jest, aby określić, czy jest to tylko aplikacja, czy baza danych, która ma wpływ na wydajność aplikacji. Często problem z wydajnością znajduje się w warstwie aplikacji. Może to być architektura lub wzorzec dostępu do danych. Rozważmy na przykład, że masz aplikację rozmawiania, która jest wrażliwa na opóźnienia sieci. W takim przypadku aplikacja pogorszy się, ponieważ wystąpi wiele krótkich żądań przechodzących ("rozmawiających") między aplikacją a serwerem i w sieci o przeciążonym obciążeniu. Aby poprawić wydajność w tym przypadku, można użyć [zapytań wsadowych](performance-guidance.md#batch-queries). Korzystanie z partii pomaga w nieznacznie, ponieważ teraz Twoje żądania są przetwarzane w partii. w ten sposób można w ten sposób skrócić czas oczekiwania na rozbicie i poprawić wydajność aplikacji.
 
-Ponadto, jeśli zauważysz spadek ogólnej wydajności bazy danych, możesz monitorować [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiczne widoki zarządzania w celu zrozumienia zużycia procesora CPU, operacji we/wy i pamięci. Może to mieć wpływ na wydajność, ponieważ baza danych jest Starved zasobów. Może być konieczna zmiana rozmiaru i/lub warstwy usługi na podstawie rosnących i zmniejszających się wymagań dotyczących obciążenia.
+Ponadto, jeśli zauważysz spadek ogólnej wydajności bazy danych, możesz monitorować [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamiczne widoki zarządzania, aby zrozumieć użycie procesora CPU, operacji we/wy i pamięci. Może to mieć wpływ na wydajność, ponieważ baza danych jest Starved zasobów. Może być konieczna zmiana rozmiaru i/lub warstwy usługi na podstawie rosnących i zmniejszających się wymagań dotyczących obciążenia.
 
 Aby uzyskać kompleksowy zestaw zaleceń dotyczących dostrajania problemów z wydajnością, zobacz: [dostrajanie bazy danych](performance-guidance.md#tune-your-database).
 
@@ -303,7 +303,7 @@ SQL Database oferuje różne warstwy usług w warstwach Podstawowa, standardowa 
 
 |**Warstwa usługi**|**Typowe scenariusze przypadków użycia**|
 |---|---|
-|**Podstawowa**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
+|**Podstawowe**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
 |**Standardowa**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
 |**Premium**|Aplikacje z dużą liczbą równoczesnych użytkowników, dużym procesorem CPU/pamięci i wysokimi wymaganiami we/wy. Duże współbieżność, Wysoka przepływność i wrażliwe na opóźnienia aplikacje mogą korzystać z poziomu Premium. |
 |||

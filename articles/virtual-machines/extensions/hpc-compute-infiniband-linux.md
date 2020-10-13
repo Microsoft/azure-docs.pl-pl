@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829054"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Rozszerzenie sterownika InfiniBand dla systemu Linux
@@ -74,7 +74,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft. HpcCompute | ciąg |
 | typ | InfiniBandDriverLinux | ciąg |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1,1 | int |
 
 
 

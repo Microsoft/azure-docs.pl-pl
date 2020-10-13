@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89276188"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
@@ -74,9 +74,9 @@ Jeśli używasz uwierzytelniania przekazywanego jako metody logowania, nie jest 
 
   W przeciwnym razie Zezwól na dostęp do zakresów adresów IP centrum danych platformy Azure, które są aktualizowane co tydzień. To wymaganie wstępne ma zastosowanie tylko po włączeniu tej funkcji. Nie jest to wymagane w przypadku rzeczywistych logowania użytkowników.
 
-### <a name="roll-out-seamless-single-sign-on"></a>Wycofaj bezproblemowe logowanie jednokrotne
+### <a name="roll-out-seamless-single-sign-on"></a>Płynne rozwinięcie pojedynczej Sign-On
 
-Możesz stopniowo wdrażać bezproblemowe logowanie jednokrotne w usłudze Azure AD dla użytkowników, wykonując poniższe instrukcje. Zacznij od dodania adresu URL usługi Azure AD `https://autologon.microsoft.us` do wszystkich ustawień strefy intranetowej lub wybranych użytkowników za pomocą zasady grupy w Active Directory.
+Możesz stopniowo wdrażać bezproblemowo pojedyncze Sign-On w usłudze Azure AD, wykonując poniższe instrukcje. Zacznij od dodania adresu URL usługi Azure AD `https://autologon.microsoft.us` do wszystkich ustawień strefy intranetowej lub wybranych użytkowników za pomocą zasady grupy w Active Directory.
 
 Należy również włączyć ustawienie zasad strefy intranet **Zezwalaj na aktualizacje paska stanu za pośrednictwem skryptu za pośrednictwem zasady grupy**.
 

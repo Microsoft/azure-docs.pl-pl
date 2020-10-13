@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
 ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823411"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Bezpieczne zarządzanie środowiskiem Python w usłudze Azure HDInsight za pomocą akcji skryptu
@@ -46,8 +46,8 @@ Klaster usługi HDInsight Spark jest tworzony z instalacją Anaconda. W klastrze
 |Ustawienie |Python 2,7|Python 3,5|
 |----|----|----|
 |Ścieżka|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Wersja platformy Spark|Domyślnie ustawiona na 2,7|Brak|
-|Wersja usługi Livy|Domyślnie ustawiona na 2,7|Brak|
+|Wersja platformy Spark|Domyślnie ustawiona na 2,7|Nie dotyczy|
+|Wersja usługi Livy|Domyślnie ustawiona na 2,7|Nie dotyczy|
 |Jupyter|Jądro PySpark|Jądro PySpark3|
 
 ## <a name="safely-install-external-python-packages"></a>Bezpieczne Instalowanie zewnętrznych pakietów języka Python

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89594819"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure Portal
@@ -145,7 +145,7 @@ W tym przykładzie utworzysz zestaw skalowania maszyn wirtualnych, aby zapewnić
 12. W obszarze **Sieć**upewnij się, że opcja **Opcje równoważenia obciążenia** jest ustawiona na **Application Gateway**.
 13. Upewnij się, że **Brama aplikacji** jest ustawiona na **myAppGateway**.
 14. Upewnij się, że **podsieć** jest ustawiona na **myBackendSubnet**.
-15. Wybierz pozycję **Utwórz**.
+15. Wybierz przycisk **Utwórz**.
 
 ### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Kojarzenie zestawu skalowania z odpowiednią pulą zaplecza
 

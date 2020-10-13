@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068245"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969641"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Opcje sieci usługi Azure Image Builder
 
@@ -33,7 +33,7 @@ Aby uzyskać więcej informacji, zobacz jeden z następujących przykładów:
 
 ### <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure?
 
-Link prywatny platformy Azure zapewnia prywatne połączenie z sieci wirtualnej z usługą Azure Platform as a Service (PaaS), własnością klienta lub usługami partnerskimi firmy Microsoft. Upraszcza to architekturę sieci i zabezpiecza połączenie między punktami końcowymi na platformie Azure, eliminując narażenie danych na publiczny Internet. Aby uzyskać więcej informacji, zobacz [dokumentację linku prywatnego](https://docs.microsoft.com/azure/private-link).
+Link prywatny platformy Azure zapewnia prywatne połączenie z sieci wirtualnej z usługą Azure Platform as a Service (PaaS), własnością klienta lub usługami partnerskimi firmy Microsoft. Upraszcza to architekturę sieci i zabezpiecza połączenie między punktami końcowymi na platformie Azure, eliminując narażenie danych na publiczny Internet. Aby uzyskać więcej informacji, zobacz [dokumentację linku prywatnego](../../private-link/index.yml).
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>Wymagane uprawnienia dla istniejącej sieci wirtualnej
 
@@ -68,7 +68,7 @@ Rozmiar wdrożonej maszyny wirtualnej serwera proxy to standardowy A1_v2 oprócz
 | subnetName | Nazwa podsieci w określonej sieci wirtualnej. Musi być określony, jeśli i tylko wtedy, gdy *Nazwa* jest określona. |
 | resourceGroupName | Nazwa grupy zasobów zawierającej określoną sieć wirtualną. Musi być określony, jeśli i tylko wtedy, gdy *Nazwa* jest określona. |
 
-Usługa link prywatny wymaga adresu IP z danej sieci wirtualnej i podsieci. Obecnie platforma Azure nie obsługuje zasad sieciowych dla tych adresów IP. W związku z tym należy wyłączyć zasady sieciowe w podsieci. Aby uzyskać więcej informacji, zobacz [dokumentację linku prywatnego](https://docs.microsoft.com/azure/private-link).
+Usługa link prywatny wymaga adresu IP z danej sieci wirtualnej i podsieci. Obecnie platforma Azure nie obsługuje zasad sieciowych dla tych adresów IP. W związku z tym należy wyłączyć zasady sieciowe w podsieci. Aby uzyskać więcej informacji, zobacz [dokumentację linku prywatnego](../../private-link/index.yml).
 
 ### <a name="checklist-for-using-your-vnet"></a>Lista kontrolna dotycząca korzystania z sieci wirtualnej
 

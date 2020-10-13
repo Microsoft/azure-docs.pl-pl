@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869426"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics dane wyjściowe do Azure SQL Database
@@ -39,7 +39,7 @@ Poniżej przedstawiono konfiguracje w ramach każdej usługi, która może pomó
 
 - **Unikaj unikatowych naruszeń klucza** — Jeśli w dzienniku aktywności Azure Stream Analytics występuje [wiele komunikatów ostrzegawczych naruszenia klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) , upewnij się, że na zadaniu nie ma wpływu unikatowe naruszenia ograniczenia, które prawdopodobnie wystąpią w przypadku przypadków odzyskiwania. Można to uniknąć przez ustawienie opcji [Ignoruj \_ DUP \_ klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) w indeksach.
 
-## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory i tabele w pamięci
+## <a name="azure-data-factory-and-in-memory-tables"></a>Tabele Azure Data Factory i In-Memory
 
 - **Tabela w pamięci jako tabela tymczasowa** — [tabele w pamięci](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) umożliwiają korzystanie z bardzo dużych ilości danych, ale dane muszą być dopasowane do pamięci. Testy porównawcze pokazują zbiorcze ładowanie z tabeli w pamięci do tabeli opartej na dyskach — około 10 razy szybciej niż bezpośrednio, wstawiając przy użyciu jednego składnika zapisywania do tabeli opartej na dyskach z kolumną tożsamości i indeksem klastrowanym. Aby skorzystać z tej zbiorczej wydajności wstawiania, skonfiguruj [zadanie kopiowania przy użyciu Azure Data Factory](../data-factory/connector-azure-sql-database.md) , które kopiuje dane z tabeli w pamięci do tabeli opartej na dyskach.
 
@@ -48,10 +48,10 @@ Zbiorcze Wstawianie danych jest znacznie szybsze niż ładowanie danych przy uż
 
 Jeśli częstotliwość zdarzeń przychodzących jest niska, można łatwo utworzyć rozmiary partii mniejsze niż 100 wierszy, co sprawia, że zbiorcze Wstawianie jest niewydajne i zużywa zbyt dużo miejsca na dysku. Aby obejść to ograniczenie, można wykonać jedną z następujących czynności:
 * Utwórz [wyzwalacz](/sql/t-sql/statements/create-trigger-transact-sql) instead of, aby użyć prostej instrukcji INSERT dla każdego wiersza.
-* Użyj tabeli tymczasowej w pamięci, zgodnie z opisem w poprzedniej sekcji.
+* Użyj tabeli tymczasowej In-Memory, zgodnie z opisem w poprzedniej sekcji.
 
 Innym scenariuszem jest zapisanie w nieklastrowanym indeksie magazynu kolumn (NCCI), gdzie mniejsze operacje wstawiania zbiorczego mogą utworzyć zbyt wiele segmentów, co może spowodować awarię indeksu. W takim przypadku zalecane jest użycie klastrowanego indeksu magazynu kolumn.
 
 ## <a name="summary"></a>Podsumowanie
 
-Podsumowując, z funkcją danych wyjściowych partycjonowaną w Azure Stream Analytics dla danych wyjściowych SQL, wyrównany przetwarzanie równoległe zadania z partycjonowaną tabelą w usłudze SQL Azure powinien zapewnić znaczną poprawę przepływności. Wykorzystanie Azure Data Factory do organizowania przenoszenia danych z tabeli znajdującej się w pamięci w tabelach opartych na dyskach może powodować wzrostność przepływności. Jeśli to możliwe, zwiększenie gęstości komunikatów może być również głównym czynnikiem zwiększającym ogólną przepływność.
+Podsumowując, z funkcją danych wyjściowych partycjonowaną w Azure Stream Analytics dla danych wyjściowych SQL, wyrównany przetwarzanie równoległe zadania z partycjonowaną tabelą w usłudze SQL Azure powinien zapewnić znaczną poprawę przepływności. Wykorzystanie Azure Data Factory do organizowania przenoszenia danych z tabeli In-Memory w tabelach opartych na dyskach może dać w wyniku wzrost wydajności przepływności. Jeśli to możliwe, zwiększenie gęstości komunikatów może być również głównym czynnikiem zwiększającym ogólną przepływność.

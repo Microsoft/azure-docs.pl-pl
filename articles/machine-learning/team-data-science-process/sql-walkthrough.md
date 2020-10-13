@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331900"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proces nauki danych zespołu w działaniu: używanie SQL Server
@@ -431,7 +431,7 @@ plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
 ![#8 wykresu][8]
 
-### <a name="sub-sampling-the-data-in-sql"></a>Próbkowanie podrzędne danych w SQL
+### <a name="sub-sampling-the-data-in-sql"></a>Sub-Sampling danych w SQL
 Podczas przygotowywania danych do kompilowania modeli w [Azure Machine Learning Studio](https://studio.azureml.net)można zdecydować, czy **zapytanie SQL ma być używane bezpośrednio w module Importuj dane** , czy utrwalać przetworzone i próbkowane dane w nowej tabeli, której można użyć w module [Import danych][import-data] z prostym **SELECT * FROM <\_ nową \_ \_ nazwą tabeli>**.
 
 W tej sekcji utworzymy nową tabelę do przechowywania danych próbkowanych i przetworzonych. Przykład bezpośredniej kwerendy SQL na potrzeby konstruowania modelu znajduje się w sekcji [Eksploracja danych i inżynieria funkcji w SQL Server](#dbexplore) .

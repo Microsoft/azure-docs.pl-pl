@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: sharrai
 ms.openlocfilehash: 5860928d71c0e7431190908d5df5d7496e8ffb17
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426320"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Przestarzałe funkcje szyfrowania danych Site Recovery

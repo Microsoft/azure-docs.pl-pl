@@ -4,10 +4,10 @@ description: Automatyzowanie konfigurowania Diagnostyka Azure do danych potoku d
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320361"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurowanie Application Insights na platformie Azure za pomocą programu PowerShell Cloud Services
@@ -37,7 +37,7 @@ Jeśli aplikacja internetowa działa na platformie Azure, a zasoby zostały utwo
 ``` 
 
 * `nameOfAIAppResource` — nazwa zasobu usługi Application Insights
-* `myWebAppName`— Identyfikator aplikacji sieci Web
+* `myWebAppName` — Identyfikator aplikacji sieci Web
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Włączanie rozszerzenia diagnostyki w ramach wdrażania usługi Cloud Service
 Polecenie cmdlet `New-AzureDeployment` ma parametr `ExtensionConfiguration`, który przyjmuje tablicę konfiguracji diagnostycznych. Można ją utworzyć za pomocą polecenia cmdlet `New-AzureServiceDiagnosticsExtensionConfig`. Na przykład:
@@ -123,7 +123,7 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Monitorowanie aplikacji usług Azure Cloud Services za pomocą usługi Application Insights](./cloudservices.md)
 * [Wysyłanie Diagnostyki Azure do usługi Application Insights](../platform/diagnostics-extension-to-application-insights.md)
 * [Automatyzowanie konfigurowania alertów](powershell-alerts.md)

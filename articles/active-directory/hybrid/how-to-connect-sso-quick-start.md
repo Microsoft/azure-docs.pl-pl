@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: bezproblemowe logowanie jednokrotne — Szybki Start | Microsoft Docs'
-description: W tym artykule opisano, jak zacząć korzystać z Azure Active Directory bezproblemowego logowania jednokrotnego
+title: 'Azure AD Connect: bezproblemowe pojedyncze Sign-On — Szybki Start | Microsoft Docs'
+description: W tym artykule opisano sposób rozpoczynania pracy z Azure Active Directory bezproblemowe pojedyncze Sign-On
 services: active-directory
 keywords: Co to jest Azure AD Connect, zainstaluj Active Directory, wymagane składniki usługi Azure AD, logowania jednokrotnego, rejestracji jednokrotnej
 documentationcenter: ''
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295026"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
-## <a name="deploy-seamless-single-sign-on"></a>Wdróż bezproblemowe logowanie jednokrotne
+## <a name="deploy-seamless-single-sign-on"></a>Wdróż bezproblemowe pojedyncze Sign-On
 
-Azure Active Directory (usługa Azure AD) bezproblemowe logowanie jednokrotne (bezproblemowe logowanie jednokrotne) użytkowników, gdy znajdują się na swoich komputerach firmowych, które są połączone z siecią firmową. Bezproblemowe logowanie jednokrotne zapewnia użytkownikom łatwy dostęp do aplikacji opartych na chmurze bez konieczności używania dodatkowych składników lokalnych.
+Azure Active Directory (usługa Azure AD) bezproblemowo pojedyncze Sign-On (bezproblemowe logowanie jednokrotne) automatycznie loguje się do użytkowników, gdy znajdują się na swoich komputerach firmowych, które są połączone z siecią firmową. Bezproblemowe logowanie jednokrotne zapewnia użytkownikom łatwy dostęp do aplikacji opartych na chmurze bez konieczności używania dodatkowych składników lokalnych.
 
 Aby wdrożyć bezproblemową rejestrację jednokrotną, wykonaj następujące kroki.
 
@@ -236,7 +236,7 @@ Aby uzyskać instrukcje dotyczące sposobu wycofywania kluczy, zobacz [Azure Act
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Głębokie szczegółowe](how-to-connect-sso-how-it-works.md): zrozumienie, jak działa bezproblemowe logowanie jednokrotne.
+- [Głębokie szczegółowe](how-to-connect-sso-how-it-works.md): zrozumienie, jak działa bezproblemowa funkcja pojedynczej Sign-On.
 - [Często zadawane pytania](how-to-connect-sso-faq.md): Uzyskaj odpowiedzi na często zadawane pytania dotyczące bezproblemowego logowania jednokrotnego.
-- [Rozwiązywanie problemów](tshoot-connect-sso.md): informacje na temat rozwiązywania typowych problemów z funkcją bezproblemowego logowania jednokrotnego.
+- [Rozwiązywanie problemów](tshoot-connect-sso.md): informacje na temat rozwiązywania typowych problemów z bezproblemową funkcją pojedynczej Sign-On.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): użyj forum Azure Active Directory, aby obsłużyć nowe żądania funkcji.

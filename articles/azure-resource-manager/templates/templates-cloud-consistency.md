@@ -7,10 +7,10 @@ ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
 ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356889"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
@@ -55,7 +55,7 @@ Funkcje Azure Resource Manager są zawsze wprowadzane do globalnej platformy Azu
 
 1. Po utworzeniu lokalnego klona repozytorium, Połącz się z Azure Resource Managerm docelowym przy użyciu programu PowerShell.
 
-1. Zaimportuj moduł PSM1 i wykonaj polecenie cmdlet Test-AzureRmTemplateFunctions:
+1. Zaimportuj moduł PSM1 i wykonaj Test-AzureRmTemplateFunctions polecenie cmdlet:
 
    ```powershell
    # Import the module

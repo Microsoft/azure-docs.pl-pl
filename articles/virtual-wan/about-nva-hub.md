@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313777"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informacje o urządzeniu wirtualnym sieci w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
@@ -50,7 +50,7 @@ Partnerzy urządzenie WUS mogą tworzyć różne zasoby w zależności od wdroż
 * **Grupa zasobów klienta** — będzie zawierać symbol zastępczy aplikacji zarządzanej. Partnerzy mogą korzystać z tej opcji, aby ujawnić dowolne właściwości klienta, które wybierzemy tutaj.
 * **Grupa zasobów zarządzanych** — klienci nie mogą bezpośrednio konfigurować ani zmieniać zasobów w tej grupie zasobów, ponieważ są one kontrolowane przez wydawcę zarządzanej aplikacji. Ta grupa zasobów będzie zawierać zasób **NetworkVirtualAppliances** .
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Grupy zasobów aplikacji zarządzanej":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Przegląd procesu":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Jednostki infrastruktury urządzenie WUS
 
@@ -85,7 +85,7 @@ URZĄDZENIE WUS w koncentratorze wirtualnym jest dostępny w wersji zapoznawczej
 | Azja | Japan East |
 | Australia | Australia Wschodnia |
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 ### <a name="i-am-a-network-appliance-partner-and-want-to-get-our-nva-in-the-hub--can-i-join-this-partner-program"></a>Jestem partnerem urządzenia sieciowego i chcesz uzyskać nasze urządzenie WUS w centrum.  Czy mogę dołączyć do tego programu partnerskiego?
 

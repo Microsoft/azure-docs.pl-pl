@@ -6,10 +6,10 @@ author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
 ms.openlocfilehash: 3cd43963175594fcdc1c3c67d6b2493ce1ccd313
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321925"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Zero monitorowanie aplikacji Instrumentacji dla aplikacji hostowanych Kubernetes z Istio — PRZESTARZAŁe
@@ -126,7 +126,7 @@ Poniżej znajduje się przepływ rozwiązywania problemów, który ma być używ
    ```
    Poszukaj błędów, szczególnie związanych z komunikacją z kartą *applicationinsightsadapter* .
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 Aby uzyskać najnowsze informacje o postępie tego projektu, odwiedź [kartę Application Insightsową usługi GitHub projektu Istio](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

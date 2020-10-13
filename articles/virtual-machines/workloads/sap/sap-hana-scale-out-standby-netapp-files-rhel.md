@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
 ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893174"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux 
@@ -80,9 +80,9 @@ Przed rozpoczęciem zapoznaj się z następującymi informacjami i dokumentami S
 * [Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP w systemie Linux][deployment-guide]
 * [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
 * Ogólna dokumentacja RHEL
-  * [Omówienie dodatku wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administracja dodatkiem wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Dodatkowe informacje o wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administracja Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Informacje o wysokiej dostępności Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Przewodnik po sieci Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
 * Dokumentacja RHEL specyficzna dla platformy Azure:
   * [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użycia w Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
@@ -153,7 +153,7 @@ W poniższych instrukcjach przyjęto założenie, że [usługa Azure Virtual Net
    
    W tym przykładzie użyto oddzielnego woluminu Azure NetApp Files dla każdego woluminu danych i dziennika platformy HANA. Aby uzyskać bardziej zoptymalizowaną pod względem kosztów konfigurację w mniejszych lub nieproduktywnych systemach, można umieścić wszystkie instalacje danych na pojedynczym woluminie, a wszystkie dzienniki są instalowane na innym pojedynczym woluminie.  
 
-### <a name="important-considerations"></a>Ważne zagadnienia
+### <a name="important-considerations"></a>Istotne zagadnienia
 
 W miarę tworzenia SAP HANA Azure NetApp Files skalowanie w poziomie za pomocą scenariusza rozwiązaniu z węzłami należy pamiętać o następujących kwestiach:
 
@@ -708,8 +708,8 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
 6. Aby zoptymalizować SAP HANA dla magazynu bazowego Azure NetApp Files, ustaw następujące parametry SAP HANA:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit`**na**
-   - `async_write_submit_active`**na**
+   - `async_read_submit` **on**
+   - `async_write_submit_active` **on**
    - `async_write_submit_blocks`**wszystkie**
 
    Aby uzyskać więcej informacji, zobacz [NetApp aplikacji SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]. 

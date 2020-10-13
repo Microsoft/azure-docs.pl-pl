@@ -14,10 +14,10 @@ ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: fe3401354d4853b875cdd001d5074ebdf0d3377b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019542"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Kopiowanie danych do i z Data Lake Storage Gen1 przy użyciu Data Factory
@@ -49,7 +49,7 @@ Dane z następujących magazynów danych można kopiować **do Azure Data Lake S
 
 Zalecamy używanie uwierzytelniania nazwy głównej usługi, szczególnie w przypadku zaplanowanego kopiowania danych. Zachowanie wygaśnięcia tokenu może wystąpić z uwierzytelnianiem poświadczeń użytkownika. Aby uzyskać szczegółowe informacje dotyczące konfiguracji, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) .
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 Można utworzyć potok z działaniem kopiowania, które przenosi dane do/z Azure Data Lake Store przy użyciu różnych narzędzi/interfejsów API.
 
 Najprostszym sposobem utworzenia potoku w celu skopiowania danych jest użycie **Kreatora kopiowania**. Aby zapoznać się z samouczkiem dotyczącym tworzenia potoku przy użyciu Kreatora kopiowania, zobacz [Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
