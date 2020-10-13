@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
 ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590540"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Pomoc techniczna dotycząca platformy Azure Cognitive Services i opcje opinii
@@ -47,9 +47,9 @@ W celu uzyskania szybszych wyników wykonaj wyszukiwanie w odpowiednich witrynac
 
 Gdzie `{search keywords}` jest kontekst wyszukiwania. Rozważ użycie tych przeszukiwanych zakresów odpowiednio:
 
- - Stack Overflow:`site:stackoverflow.com`
- - Microsoft Docs:`site:docs.microsoft.com`
- - Przykłady w witrynie GitHub:`site:github.com/azure-samples`
+ - Stack Overflow: `site:stackoverflow.com`
+ - Microsoft Docs: `site:docs.microsoft.com`
+ - Przykłady w witrynie GitHub: `site:github.com/azure-samples`
 
 ### <a name="post-a-question-on-stack-overflow"></a>Opublikuj pytanie na Stack Overflow
 
@@ -70,7 +70,7 @@ Jeśli nie możesz znaleźć odpowiedzi na problem z polem wyszukiwania na Stack
 
 Zapoznaj się z informacjami na temat funkcji w nowej wersji lub wiadomościach w blogu platformy Azure, które mogą pomóc w znalezieniu różnicy między błędami programowania, usterką usługi lub funkcją, która nie jest jeszcze dostępna w Cognitive Services.
 
-### <a name="release-notes"></a>Uwagi do wersji
+### <a name="release-notes"></a>Informacje o wersji
 
 <div class='icon is-large'>
     <img alt='Release notes' src='https://docs.microsoft.com/media/common/i_learn-about.svg'>
@@ -78,13 +78,13 @@ Zapoznaj się z informacjami na temat funkcji w nowej wersji lub wiadomościach 
 
 Informacje o wersji Cognitive Services są aktualizowane w miarę udostępnienia nowych wersji. Notatki zawierają informacje dotyczące nowych funkcji, ulepszeń i poprawek błędów.
 
- - [Niestandardowe przetwarzanie obrazów](custom-vision-service/release-notes.md)
+ - [Custom Vision](custom-vision-service/release-notes.md)
  - [Rozpoznawanie twarzy](face/releasenotes.md)
  - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Usługi mowy](speech-service/releasenotes.md)
  - [Zestaw SDK usługi Speech Services](speech-service/devices-sdk-release-notes.md)
  - [Analiza tekstu](text-analytics/whats-new.md)
- - [Video Indexer](../media-services/video-indexer/release-notes.md)
+ - [Indeksator wideo](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blog platformy Azure
 
@@ -133,7 +133,7 @@ Aby zażądać nowych funkcji, Opublikuj je w usłudze UserVoice. Podziel się s
 | Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
 | Analiza tekstu                | https://cognitive.uservoice.com/forums/555922-text-analytics |
 | Translator               | https://cognitive.uservoice.com/forums/558796-translator |
-| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Indeksator wideo                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Zgłoś błędy
 
@@ -156,7 +156,7 @@ Poniżej znajduje się lista Cognitive Services szybkiego startu i przykładoweg
 * [Cognitive Services: dotnet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 * [Cognitive Services: Przejdź](https://github.com/Azure-Samples/azure-sdk-for-go-samples)
 * [Cognitive Services: Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Cognitive Services: Node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Cognitive Services: Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Cognitive Services: Python](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
 #### <a name="cognitive-services-sdk-source-code"></a>Kod źródłowy Cognitive Services SDK

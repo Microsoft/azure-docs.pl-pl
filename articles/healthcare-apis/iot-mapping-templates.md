@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553651"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT for FHIR (wersja zapoznawcza)
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Szablony mapowania łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 W tym artykule szczegółowo opisano sposób konfigurowania łącznika usługi Azure IoT dla FHIR * przy użyciu szablonów mapowania.
 
 Łącznik usługi Azure IoT dla FHIR wymaga dwóch typów szablonów mapowania opartych na notacji JSON. Pierwszy typ, **Mapowanie urządzenia**, jest odpowiedzialny za mapowanie ładunków urządzeń wysyłanych do `devicedata` punktu końcowego centrum zdarzeń platformy Azure. Wyodrębnia typy, identyfikatory urządzeń, Data i czas pomiaru oraz wartości miary. Drugim typem, **Mapowanie FHIR**, steruje mapowaniem zasobu FHIR. Umożliwia ona konfigurację długości okresu obserwacji, FHIR typ danych służący do przechowywania wartości oraz kodów terminologii. 
@@ -32,14 +32,14 @@ Mapowanie urządzeń udostępnia funkcje mapowania umożliwiające Wyodrębnieni
 | - | - |
 |**Typ**|Nazwa/Typ do klasyfikowania miary. Ta wartość jest używana do powiązania z wymaganym szablonem mapowania FHIR.  Wiele szablonów można wyprowadzić do tego samego typu, co pozwala na mapowanie różnych reprezentacji na wiele urządzeń do jednego wspólnego danych wyjściowych.|
 |**OccurenceTimeUtc**|Czas wystąpienia pomiaru.|
-|**Identyfikator**|Identyfikator urządzenia. Ta wartość powinna być zgodna z identyfikatorem zasobu urządzenia, który istnieje na serwerze docelowym FHIR.|
+|**DeviceId**|Identyfikator urządzenia. Ta wartość powinna być zgodna z identyfikatorem zasobu urządzenia, który istnieje na serwerze docelowym FHIR.|
  |**Właściwości**|Wyodrębnij co najmniej jedną właściwość, aby można było zapisać wartość w tworzonym zasobie.  Właściwości są kolekcją par wartości klucza wyodrębnionych podczas normalizacji.|
 
 Poniżej znajduje się przykład koncepcji, co dzieje się podczas normalizacji.
 
 ![Przykład normalizacji](media/concepts-iot-mapping-templates/normalization-example.png)
 
-Sam ładunek zawartości jest komunikatem centrum zdarzeń platformy Azure, który składa się z trzech części: Body, Properties i SystemProperties. `Body`Jest tablicą bajtów reprezentującą ciąg zakodowany w formacie UTF-8. Podczas obliczania szablonu tablica bajtów jest automatycznie konwertowana na wartość ciągu. `Properties`jest kolekcją wartości klucza do użycia przez twórcę wiadomości. `SystemProperties`jest również kolekcją wartości klucza zarezerwowaną przez platformę centrum zdarzeń platformy Azure z wpisami, które są automatycznie wypełniane przez program.
+Sam ładunek zawartości jest komunikatem centrum zdarzeń platformy Azure, który składa się z trzech części: Body, Properties i SystemProperties. `Body`Jest tablicą bajtów reprezentującą ciąg zakodowany w formacie UTF-8. Podczas obliczania szablonu tablica bajtów jest automatycznie konwertowana na wartość ciągu. `Properties` jest kolekcją wartości klucza do użycia przez twórcę wiadomości. `SystemProperties` jest również kolekcją wartości klucza zarezerwowaną przez platformę centrum zdarzeń platformy Azure z wpisami, które są automatycznie wypełniane przez program.
 
 ```json
 {
@@ -352,7 +352,7 @@ CodeValueFhirTemplate jest obecnie jedynym szablonem obsługiwanym w mapowaniu F
 |**Składniki []. Kody**|Co najmniej jeden [kod](http://hl7.org/fhir/datatypes-definitions.html#coding) , który ma zostać zastosowany do składnika.
 |**Składniki []. Wartościami**|Wartość do wyodrębnienia i reprezentowania w składniku. Aby uzyskać więcej informacji, zobacz [Szablony typów wartości](#valuetypes).
 
-### <a name="value-type-templates"></a>Szablony typów wartości<a name="valuetypes"></a>
+### <a name="value-type-templates"></a>Szablony typów wartości <a name="valuetypes"></a>
 Poniżej znajdują się obecnie obsługiwane szablony typów wartości. W przyszłości można dodać kolejne szablony.
 #### <a name="sampleddata"></a>SampledData
 Reprezentuje typ danych [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR. Pomiary obserwacyjne są zapisywane w strumieniu wartości, rozpoczynając od punktu w czasie i zwiększają się w przód przy użyciu zdefiniowanego okresu. Jeśli wartość nie jest obecna, `E` nastąpi zapis do strumienia danych. Jeśli okres jest taki, że dwie więcej wartości zajmują tę samą pozycję w strumieniu danych, używana jest najnowsza wartość. Ta sama logika jest stosowana podczas aktualizowania obserwacji przy użyciu SampledData.

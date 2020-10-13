@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997448"
 ---
 # <a name="voice-assistants-on-windows"></a>Asystenci głosu w systemie Windows
@@ -47,7 +47,7 @@ Po odebraniu żądania od AAR usługa w tle uruchamia aplikację. Aplikacja otrz
 
 Jeśli aplikacja pomyślnie sprawdzi słowo kluczowe, może to spowodować, że żądanie będzie widoczne na pierwszym planie. Gdy to żądanie zakończy się pomyślnie, aplikacja wyświetli interfejs użytkownika i kontynuuje interakcję z użytkownikiem.
 
-AAR nadal sygnalizuje aktywne aplikacje, gdy słowo kluczowe jest wymawiane. Zamiast sygnalizowania przez metodę cyklu życiowego w `App.xaml.cs`, chociaż sygnalizuje to zdarzenie w interfejsach API ConversationalAgent.
+AAR nadal sygnalizuje aktywne aplikacje, gdy słowo kluczowe jest wymawiane. Zamiast sygnalizowania przez metodę cyklu życiowego w `App.xaml.cs` , chociaż sygnalizuje to zdarzenie w interfejsach API ConversationalAgent.
 
 ### <a name="keyword-verification"></a>Weryfikacja słowa kluczowego
 

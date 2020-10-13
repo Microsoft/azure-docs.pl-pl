@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122276"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Zarządzanie środowiskami hybrydowymi przy użyciu programu PowerShell w Azure Functions i App Service Połączenia hybrydowe
@@ -50,7 +50,7 @@ cmd.exe /C $Cmd
 
 Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w warstwach Podstawowa, standardowa i izolowana. Podczas tworzenia aplikacji funkcji przy użyciu programu PowerShell Utwórz lub wybierz jeden z tych planów.
 
-1. W menu Azure Portal lub stronie **głównej** wybierz pozycję **Utwórz zasób**.
+1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
 1. Na stronie **Nowy** wybierz pozycję **obliczeniowe**  >  **aplikacja funkcji**.
 
@@ -60,11 +60,11 @@ Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w 
     | ------------ | ---------------- | ----------- |
     | **Subskrypcja** | Twoja subskrypcja | Subskrypcja, w ramach której jest tworzona ta nowa aplikacja funkcji. |
     | **[Grupa zasobów](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nazwa nowej grupy zasobów, w której ma zostać utworzona aplikacja funkcji. |
-    | **Nazwa aplikacja funkcji** | Nazwa unikatowa w skali globalnej | Nazwa identyfikująca nową aplikację funkcji. Prawidłowe znaki to `a-z` (bez uwzględniania wielkości liter), `0-9` i `-` .  |
+    | **Nazwa aplikacji funkcji** | Nazwa unikatowa w skali globalnej | Nazwa identyfikująca nową aplikację funkcji. Prawidłowe znaki to `a-z` (bez uwzględniania wielkości liter), `0-9`i `-`.  |
     |**Publikowanie**| Kod | Opcja publikowania plików kodu lub kontenera Docker. |
     | **Stos środowiska uruchomieniowego** | Preferowany język | Wybierz pozycję PowerShell Core. |
     |**Wersja**| Numer wersji | Wybierz wersję zainstalowanego środowiska uruchomieniowego.  |
-    |**Okolicy**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) w swojej okolicy lub w pobliżu innych usług, do których Twoje funkcje uzyskują dostęp. |
+    |**Region**| Preferowany region | Wybierz [region](https://azure.microsoft.com/regions/) znajdujący się w sąsiedztwie lub w najbliższej usłudze dostęp do funkcji. |
 
     :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-basics.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
@@ -76,7 +76,7 @@ Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w 
     |**System operacyjny**| Preferowany system operacyjny | System operacyjny jest wstępnie wybrany na podstawie wybranego stosu środowiska uruchomieniowego, ale w razie potrzeby można zmienić to ustawienie. |
     | **[Typ planu](../azure-functions/functions-scale.md)** | **Plan usługi App Service** | Wybierz **plan usługi App Service**. W przypadku uruchomienia w ramach planu usługi App Service musisz zarządzać [skalowaniem aplikacji funkcji](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="Utwórz funkcję hostingu aplikacji." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Wybierz kolejno pozycje **Dalej: monitorowanie**. Na stronie **monitorowanie** wprowadź następujące ustawienia.
 
@@ -84,7 +84,7 @@ Funkcja Połączenia hybrydowe App Service jest dostępna tylko w planach cen w 
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | Domyślne | Tworzy zasób Application Insights o tej samej *nazwie aplikacji* w najbliższym obsługiwanym regionie. Rozszerzając to ustawienie lub wybierając pozycję **Utwórz nowe**, możesz zmienić nazwę Application Insights lub wybrać inny region w obszarze [geograficznym platformy Azure](https://azure.microsoft.com/global-infrastructure/geographies/) , w którym chcesz przechowywać dane. |
 
-    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Tworzenie aplikacji funkcji — monitorowanie." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć wybrane opcje konfiguracji aplikacji.
 
@@ -101,15 +101,15 @@ Połączenia hybrydowe są konfigurowane z poziomu sekcji sieci aplikacji funkcj
 1. W obszarze **Ustawienia** w aplikacji funkcji, która została właśnie utworzona, wybierz pozycję **Sieć**. 
 1. Wybierz pozycję **Konfiguruj punkty końcowe połączeń hybrydowych**.
    
-    :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="Skonfiguruj punkty końcowe połączenia hybrydowego." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Wybierz pozycję **Dodaj połączenie hybrydowe**.
    
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Dodaj połączenie hybrydowe." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Wprowadź informacje o połączeniu hybrydowym, jak pokazano bezpośrednio po poniższym zrzucie ekranu. Istnieje możliwość ustawienia **hosta punktu końcowego** zgodnego z nazwą hosta serwera lokalnego w celu łatwiejszego zapamiętania serwera podczas wykonywania poleceń zdalnych. Port jest zgodny z domyślnym portem usługi zdalnego zarządzania systemu Windows, który został zdefiniowany na serwerze wcześniej.
   
-      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Dodaj połączenie hybrydowe." border="true":::
+      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
     | Ustawienie      | Sugerowana wartość  |
     | ------------ | ---------------- |
@@ -126,24 +126,24 @@ Połączenia hybrydowe są konfigurowane z poziomu sekcji sieci aplikacji funkcj
 
 1. Wybierz pozycję **Pobierz Menedżera połączeń** , aby zapisać plik *MSI* lokalnie na komputerze.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Pobierz instalatora." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Skopiuj plik *MSI* z komputera lokalnego na serwer lokalny.
 1. Uruchom Instalatora Menedżer połączeń hybrydowych, aby zainstalować usługę na serwerze lokalnym.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-installation.png" alt-text="Zainstaluj połączenie hybrydowe." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-installation.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. W portalu Otwórz połączenie hybrydowe, a następnie skopiuj parametry połączenia bramy do Schowka.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/copy-hybrid-connection.png" alt-text="Skopiuj parametry połączenia hybrydowego." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/copy-hybrid-connection.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Otwórz interfejs użytkownika Menedżer połączeń hybrydowych na serwerze lokalnym.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Otwórz interfejs użytkownika połączenia hybrydowego." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Wybierz pozycję **wprowadź ręcznie** i wklej parametry połączenia ze schowka.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Wklej połączenie hybrydowe." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Uruchom ponownie Menedżer połączeń hybrydowych z programu PowerShell, jeśli nie jest wyświetlany jako połączony.
     ```powershell
@@ -155,26 +155,26 @@ Połączenia hybrydowe są konfigurowane z poziomu sekcji sieci aplikacji funkcj
 1. W obszarze **Ustawienia** aplikacji funkcji wybierz pozycję **Konfiguracja**. 
 1. Wybierz pozycję **+ nowe ustawienie aplikacji**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Skonfiguruj hasło dla konta administratora." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
-1. Nazwij ustawienie **ContosoUserPassword**, a następnie wprowadź hasło. Wybierz przycisk **OK**.
+1. Nazwij ustawienie **ContosoUserPassword**, a następnie wprowadź hasło. Kliknij przycisk **OK**.
 1. Wybierz pozycję **Zapisz** , aby zapisać hasło w aplikacji funkcji.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Zapisz hasło dla konta administratora." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 ## <a name="create-a-function-http-trigger"></a>Tworzenie wyzwalacza HTTP funkcji
 
 1. W aplikacji funkcji wybierz pozycję **funkcje**, a następnie wybierz pozycję **+ Dodaj**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Utwórz nowy wyzwalacz HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Wybierz szablon **wyzwalacza http** .
 
-    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Wybierz szablon wyzwalacza HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 1. Nazwij nową funkcję i wybierz pozycję **Utwórz funkcję**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Nadaj nazwę i Utwórz nową funkcję wyzwalacza HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
@@ -215,11 +215,11 @@ Połączenia hybrydowe są konfigurowane z poziomu sekcji sieci aplikacji funkcj
 
 1. Wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Zmień kod programu PowerShell i Zapisz funkcję wyzwalacza HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
  1. Wybierz pozycję **test**, a następnie wybierz pozycję **Uruchom** , aby przetestować funkcję. Przejrzyj dzienniki, aby sprawdzić, czy test zakończył się pomyślnie.
 
-     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Testuj funkcję wyzwalacza HTTP." border="true":::
+     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Tworzenie aplikacji funkcji — podstawy." border="true":::
 
 ## <a name="managing-other-systems-on-premises"></a>Zarządzanie innymi systemami lokalnymi
 

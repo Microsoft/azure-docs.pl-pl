@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562523"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Wdrażanie rozwiązania równoważenia obciążenia dostępnego z Internetu za pomocą protokołu IPv6 przy użyciu szablonu
@@ -103,7 +103,7 @@ Po pomyślnym wdrożeniu szablonu można sprawdzić poprawność łączności, w
 4. Z każdej maszyny wirtualnej Zainicjuj połączenie wychodzące z urządzeniem internetowym połączonym z protokołem IPv6 lub IPv4. W obu przypadkach źródłowy adres IP widziany przez urządzenie docelowe jest publicznym adresem IPv4 lub IPv6 modułu równoważenia obciążenia.
 
 > [!NOTE]
-> Protokół ICMP dla protokołów IPv4 i IPv6 jest blokowany w sieci platformy Azure. W efekcie narzędzia ICMP, takie jak ping, zawsze kończą się niepowodzeniem. Aby przetestować łączność, użyj alternatywnej metody TCP, takiej jak TCPing lub polecenia cmdlet Test-NetConnection programu PowerShell. Należy zauważyć, że adresy IP wyświetlane na diagramie są przykładami wartości, które mogą zostać wyświetlone. Adresy IPv6 są przypisywane dynamicznie, a otrzymane adresy różnią się w zależności od regionu. Ponadto jest często stosowany dla publicznego adresu IPv6 w module równoważenia obciążenia, aby można było rozpocząć od innego prefiksu niż prywatne adresy IPv6 w puli zaplecza.
+> Protokół ICMP dla protokołów IPv4 i IPv6 jest blokowany w sieci platformy Azure. W efekcie narzędzia ICMP, takie jak ping, zawsze kończą się niepowodzeniem. Aby przetestować łączność, użyj alternatywnej metody TCP, takiej jak TCPing, lub polecenia cmdlet programu PowerShell Test-NetConnection. Należy zauważyć, że adresy IP wyświetlane na diagramie są przykładami wartości, które mogą zostać wyświetlone. Adresy IPv6 są przypisywane dynamicznie, a otrzymane adresy różnią się w zależności od regionu. Ponadto jest często stosowany dla publicznego adresu IPv6 w module równoważenia obciążenia, aby można było rozpocząć od innego prefiksu niż prywatne adresy IPv6 w puli zaplecza.
 
 ## <a name="template-parameters-and-variables"></a>Parametry szablonu i zmienne
 

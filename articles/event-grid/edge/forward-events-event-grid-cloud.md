@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171605"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Samouczek: Przekazywanie zdarzeń do Event Grid chmury
@@ -36,8 +36,8 @@ Utwórz temat i subskrypcję usługi Event Grid w chmurze, wykonując czynności
 
 Jeśli na przykład został utworzony temat o nazwie `testegcloudtopic` w regionie zachodnie stany USA, wartości będą wyglądać następująco:
 
-* **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **Temat**:`testegcloudtopic`
+* **TopicUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
+* **Temat**: `testegcloudtopic`
 * **SasKey**: dostępne pod **AccessKeyem** tematu. Użyj **Klucz1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Tworzenie tematu siatki zdarzeń na krawędzi

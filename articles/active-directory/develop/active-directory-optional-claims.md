@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436854"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
@@ -206,7 +206,7 @@ Jeśli jest to obsługiwane przez określone zgłoszenie, można również zmody
 
 Oprócz standardowego opcjonalnego zestawu oświadczeń można także skonfigurować tokeny do dołączania rozszerzeń. Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą Microsoft Graph extensionProperty](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
 
-Rozszerzenia schematu i otwarte nie są obsługiwane przez oświadczenia opcjonalne, tylko rozszerzenia katalogu stylów usługi AAD-Graph. Ta funkcja jest przydatna do dołączania dodatkowych informacji o użytkownikach, które mogą być używane przez aplikację — na przykład dodatkowego identyfikatora lub ważnej opcji konfiguracji ustawionej przez użytkownika. Przykład znajduje się na końcu tej strony.
+Rozszerzenia schematu i otwarte nie są obsługiwane przez oświadczenia opcjonalne, tylko rozszerzenia katalogu stylów AAD-Graph. Ta funkcja jest przydatna do dołączania dodatkowych informacji o użytkownikach, które mogą być używane przez aplikację — na przykład dodatkowego identyfikatora lub ważnej opcji konfiguracji ustawionej przez użytkownika. Przykład znajduje się na końcu tej strony.
 
 > [!NOTE]
 > Rozszerzenia schematu katalogu są funkcją tylko usługi Azure AD. Jeśli manifest aplikacji żąda rozszerzenia niestandardowego, a użytkownik MSA zaloguje się do aplikacji, te rozszerzenia nie zostaną zwrócone.

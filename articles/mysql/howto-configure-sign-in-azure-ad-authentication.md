@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799842"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
@@ -126,7 +126,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 Ważne zagadnienia dotyczące nawiązywania połączenia:
 
-* `user@tenant.onmicrosoft.com`jest nazwą użytkownika lub grupy usługi Azure AD, z którą próbujesz nawiązać połączenie
+* `user@tenant.onmicrosoft.com` jest nazwą użytkownika lub grupy usługi Azure AD, z którą próbujesz nawiązać połączenie
 * Zawsze dołączaj nazwę serwera po nazwie użytkownika/grupy usługi Azure AD (np. `@mydb` )
 * Upewnij się, że używasz dokładnego sposobu, w jaki nazwa użytkownika lub grupy usługi Azure AD jest wpisana
 * Nazwy użytkowników i grup usługi Azure AD uwzględniają wielkość liter
@@ -202,7 +202,7 @@ Większość sterowników jest obsługiwanych, jednak Pamiętaj, aby użyć usta
 * Node.js
   * mysqljs: nieobsługiwane (nie wysyłaj tokenu w postaci zwykłego tekstu bez poprawki)
   * Node-mysql2: obsługiwane
-* Języku
+* Perl
   * DBD:: MySQL: obsługiwane
   * NET:: MySQL: nieobsługiwane
 * Przejdź

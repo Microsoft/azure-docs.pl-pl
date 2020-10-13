@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
 ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291640"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Zewnętrzna zawartość społeczności & dla usługi analiza tekstu poznawczej
@@ -39,7 +39,7 @@ ms.locfileid: "87291640"
 
 
 
-## <a name="videos"></a>Filmy wideo
+## <a name="videos"></a>Wideo
 
 + [Aplikacja logiki do wykrywania tonacji i wyodrębniania kluczowych fraz z tekstu](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
@@ -51,7 +51,7 @@ ms.locfileid: "87291640"
 
 Szukasz informacji o funkcji lub przypadku użycia, których nie obejmuje? Rozważ zażądanie lub odgłosowanie w usłudze [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [StackOverflow: Azure interfejs API analizy tekstu](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

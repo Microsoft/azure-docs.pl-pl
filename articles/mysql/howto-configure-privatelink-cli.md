@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8948ed51a9cda3d308046f3b85b6ce338462e82c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87826198"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu interfejsu wiersza polecenia i zarządzanie nim
@@ -128,11 +128,11 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
-1. Na pasku wyszukiwania portalu wprowadź *myVm*.
+1. Na pasku wyszukiwania portalu wpisz *myVm*.
 
 1. Wybierz przycisk **Połącz**. Po wybraniu przycisku **Połącz** zostanie otwarta strona **Łączenie z maszyną wirtualną**.
 
-1. Wybierz pozycję **Pobierz plik RDP**. Na platformie Azure zostanie utworzony plik Remote Desktop Protocol (*rdp*), który zostanie pobrany na komputer.
+1. Wybierz pozycję **Pobierz plik RDP**. Platforma Azure tworzy plik Remote Desktop Protocol (*RDP*) i pobiera go na komputer.
 
 1. Otwórz *pobrany plik RDP* .
 
@@ -143,7 +143,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
         > [!NOTE]
         > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję **Tak** lub **Kontynuuj**.
 
@@ -172,7 +172,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa połączenia| Wybierz wybraną nazwę połączenia.|
-    | Nazwa hosta | Wybierz *mydemoserver.privatelink.MySQL.Database.Azure.com* |
+    | Hostname (Nazwa hosta) | Wybierz *mydemoserver.privatelink.MySQL.Database.Azure.com* |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika, *username@servername* która jest dostępna podczas tworzenia serwera MySQL. |
     | Hasło | Wprowadź hasło podane podczas tworzenia serwera MySQL. |
     ||
@@ -185,7 +185,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
 
 8. Zamknij połączenie pulpitu zdalnego z myVm.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 Gdy nie jest już potrzebne, można użyć polecenie AZ Group Delete, aby usunąć grupę zasobów i wszystkie jej zasoby: 
 
 ```azurecli-interactive

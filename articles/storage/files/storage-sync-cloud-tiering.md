@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538184"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939157"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -48,9 +48,9 @@ W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536) i większych    | 128 KB  |
+|64 KB (65536)    | 128 KB  |
 
-W przypadku systemu Windows Server 2019 i agenta Azure File Sync w wersji 12 (przyszła wersja agenta) obsługiwane są również rozmiary klastrów o rozmiarze do 2 MB, a warstwa dla większych rozmiarów klastrów działa w ten sam sposób. Starsze wersje systemów operacyjnych i agentów obsługują rozmiary klastrów nawet do 64 KB, ale nie działają.
+Rozmiary klastrów o rozmiarze do 64 KB są obecnie obsługiwane, ale w przypadku większych rozmiarów Obsługa warstw w chmurze nie działa.
 
 Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Gdy rozmiary plików nie są dostępne nawet dla wielu rozmiarów klastra, należy użyć dodatkowego miejsca do przechowywania plików do kolejnej wielokrotności rozmiaru klastra.
 

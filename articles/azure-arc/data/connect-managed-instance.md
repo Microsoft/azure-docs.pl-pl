@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939196"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Połącz z wystąpieniem zarządzanym SQL z włączonym usługą Azure Arc
@@ -49,7 +49,7 @@ Nawiązywanie połączenia z Azure Data Studio, SQL Server Management Studio lub
 
 Otwórz Azure Data Studio i nawiąż połączenie z wystąpieniem z zewnętrznym adresem IP i numerem portu punktu końcowego. W przypadku korzystania z maszyny wirtualnej platformy Azure potrzebny jest _publiczny_ adres IP, który jest identyfikowany za pomocą [specjalnej uwagi na temat wdrożeń maszyn wirtualnych platformy Azure](#special-note-about-azure-virtual-machine-deployments).
 
-Przykład:
+Na przykład:
 
 - Serwer: 52.229.9.30, 30913
 - Nazwa użytkownika: sa
@@ -82,7 +82,7 @@ Aby ustawić regułę, należy znać nazwę sieciowej grupy zabezpieczeń, któr
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
-Po utworzeniu nazwy sieciowej grupy zabezpieczeń można dodać regułę zapory za pomocą następującego polecenia. Przykładowe wartości w tym miejscu tworzą regułę sieciowej grupy zabezpieczeń dla portu 30913 i umożliwia połączenie z **dowolnego** źródłowego adresu IP.  Nie jest to najlepsze rozwiązanie w zakresie zabezpieczeń.  Można zablokować lepsze działania, określając wartość-Source-Address-prefix, która jest specyficzna dla adresu IP klienta lub zakresu adresów IP, który obejmuje adresy IP Twojego zespołu lub organizacji.
+Po utworzeniu nazwy sieciowej grupy zabezpieczeń można dodać regułę zapory za pomocą następującego polecenia. Przykładowe wartości w tym miejscu tworzą regułę sieciowej grupy zabezpieczeń dla portu 30913 i umożliwia połączenie z **dowolnego** źródłowego adresu IP.  Nie jest to najlepsze rozwiązanie w zakresie zabezpieczeń.  Można zablokować wszystko lepiej, określając wartość -source-address-prefixes, która jest specyficzna dla adresu IP klienta, lub zakres adresów IP obejmujący adresy IP Twojego zespołu lub Twojej organizacji.
 
 Zastąp wartość `--destination-port-ranges` parametru poniżej numerem portu uzyskanym z `azdata sql instance list` powyższego polecenia F.
 

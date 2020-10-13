@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307105"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Optymalizacja wydajności na maszynach wirtualnych z serii Lsv2 z systemem Linux
@@ -97,7 +97,7 @@ Aby dowiedzieć się więcej na temat opcji tworzenia kopii zapasowych danych w 
    Ustawienie rq_affinity to niewielkie dopasowanie w przypadku używania bezwzględnych maksymalnej liczby operacji wejścia/wyjścia na sekundę (IOPS). Gdy wszystko inne działa prawidłowo, spróbuj ustawić rq_affinity na 0, aby sprawdzić, czy ma ona różnicę.
 
 * **Czy muszę zmienić ustawienia blk_mq?**  
-   RHEL/CentOS 7. x automatycznie używa BLK-MQ dla urządzeń interfejsu NVMe. Nie są wymagane żadne zmiany ani ustawienia konfiguracji. Ustawienie scsi_mod. use_blk_mq dotyczy tylko interfejsu SCSI i zostało użyte podczas korzystania z wersji zapoznawczej Lsv2, ponieważ urządzenia interfejsu NVMe były widoczne na maszynach wirtualnych gościa jako urządzenia SCSI. Obecnie urządzenia interfejsu NVMe są widoczne jako urządzenia interfejsu NVMe, więc ustawienie SCSI BLK-MQ jest nieistotne.
+   RHEL/CentOS 7. x automatycznie używa BLK-MQ dla urządzeń interfejsu NVMe. Nie są wymagane żadne zmiany ani ustawienia konfiguracji. Ustawienie scsi_mod. use _blk_mq dotyczy tylko interfejsu SCSI i zostało użyte podczas Lsv2 wersji zapoznawczej, ponieważ urządzenia interfejsu NVMe były widoczne na maszynach wirtualnych gościa jako urządzenia SCSI. Obecnie urządzenia interfejsu NVMe są widoczne jako urządzenia interfejsu NVMe, więc ustawienie SCSI BLK-MQ jest nieistotne.
 
 * **Czy muszę zmienić "Fio"?**  
    Aby uzyskać maksymalną liczbę operacji we/wy z użyciem narzędzia do mierzenia wydajności, takiego jak "Fio" w rozmiarach maszyn wirtualnych L64v2 i L80v2, ustaw wartość "rq_affinity" na 0 na każdym urządzeniu interfejsu NVMe.  Na przykład ten wiersz polecenia ustawi wartość "rq_affinity" na zero dla wszystkich 10 urządzeń interfejsu NVMe na maszynie wirtualnej L80v2:

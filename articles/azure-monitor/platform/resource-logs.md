@@ -8,10 +8,10 @@ ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87800504"
 ---
 # <a name="azure-resource-logs"></a>Dzienniki zasobów platformy Azure
@@ -54,7 +54,7 @@ Tabela AzureDiagnostics będzie wyglądać następująco:
 | ... |
 
 ### <a name="resource-specific"></a>Specyficzne dla zasobów
-W tym trybie poszczególne tabele w wybranym obszarze roboczym są tworzone dla każdej kategorii wybranej w ustawieniu diagnostyki. Ta metoda jest zalecana, ponieważ znacznie ułatwia pracę z danymi w dziennikach zapytań, zapewnia lepszą wykrywalność schematów i ich strukturę, zwiększa wydajność zarówno opóźnienia pozyskiwania, jak i czasy wykonywania zapytań oraz możliwość udzielania praw RBAC w określonej tabeli. Wszystkie usługi platformy Azure zostaną ostatecznie przemigrowane do trybu specyficznego dla zasobów. 
+W tym trybie poszczególne tabele w wybranym obszarze roboczym są tworzone dla każdej kategorii wybranej w ustawieniu diagnostyki. Ta metoda jest zalecana, ponieważ znacznie ułatwia pracę z danymi w dziennikach zapytań, zapewnia lepszą wykrywalność schematów i ich strukturę, zwiększa wydajność zarówno opóźnienia pozyskiwania, jak i czasy wykonywania zapytań oraz możliwość udzielania praw RBAC w określonej tabeli. Wszystkie usługi platformy Azure zostaną ostatecznie przemigrowane do trybu Resource-Specific. 
 
 W powyższym przykładzie powstaje trzy tabele:
  
@@ -85,7 +85,7 @@ W powyższym przykładzie powstaje trzy tabele:
 
 
 ### <a name="select-the-collection-mode"></a>Wybierz tryb kolekcji
-Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczym w trybie **diagnostycznym platformy Azure** lub na **konkretnym poziomie zasobów** bez konieczności wyboru. Zapoznaj się z [dokumentacją dla każdej usługi](./resource-logs-schema.md) , aby uzyskać szczegółowe informacje na temat używanego trybu. Wszystkie usługi platformy Azure ostatecznie będą korzystać z trybu specyficznego dla zasobów. W ramach tego przejścia niektóre zasoby umożliwią wybranie trybu w ustawieniu diagnostyki. Określ tryb specyficzny dla zasobów dla nowych ustawień diagnostycznych, ponieważ ułatwia to zarządzanie danymi i może ułatwić uniknięcie złożonych migracji w późniejszym czasie.
+Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczym w trybie **diagnostycznym platformy Azure** lub na **konkretnym poziomie zasobów** bez konieczności wyboru. Zapoznaj się z [dokumentacją dla każdej usługi](./resource-logs-schema.md) , aby uzyskać szczegółowe informacje na temat używanego trybu. Wszystkie usługi platformy Azure ostatecznie będą korzystać z Resource-Specific trybie. W ramach tego przejścia niektóre zasoby umożliwią wybranie trybu w ustawieniu diagnostyki. Określ tryb specyficzny dla zasobów dla nowych ustawień diagnostycznych, ponieważ ułatwia to zarządzanie danymi i może ułatwić uniknięcie złożonych migracji w późniejszym czasie.
   
    ![Selektor trybu ustawień diagnostycznych](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
@@ -95,7 +95,7 @@ Większość zasobów platformy Azure będzie zapisywać dane w obszarze roboczy
 
 Istniejące ustawienie diagnostyczne można zmodyfikować z trybem specyficznym dla zasobów. W takim przypadku dane, które zostały już zebrane, pozostaną w tabeli _AzureDiagnostics_ , dopóki nie zostanie usunięte zgodnie z ustawieniami przechowywania dla obszaru roboczego. Nowe dane zostaną zebrane w dedykowanej tabeli. Użyj operatora [Union](/azure/kusto/query/unionoperator) do wykonywania zapytań dotyczących danych w obu tabelach.
 
-Przejdź do blogu [aktualizacji platformy Azure](https://azure.microsoft.com/updates/) , aby poznać anonse dotyczące usług platformy Azure obsługujących tryb specyficzny dla zasobów.
+Przejdź do blogu [aktualizacji platformy Azure](https://azure.microsoft.com/updates/) , aby poznać anonse dotyczące usług platformy Azure, które obsługują tryb Resource-Specific.
 
 ### <a name="column-limit-in-azurediagnostics"></a>Limit kolumn w AzureDiagnostics
 Dla każdej tabeli w dziennikach Azure Monitor istnieje limit właściwości 500. Po osiągnięciu tego limitu wszystkie wiersze zawierające dane z właściwości spoza pierwszej 500 zostaną porzucone w czasie pozyskiwania. Tabela *AzureDiagnostics* jest szczególnie podatna na ten limit, ponieważ obejmuje ona właściwości wszystkich usług platformy Azure, które są w niej zapisywane.

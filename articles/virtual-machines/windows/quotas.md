@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: b00d84e1c2dc8f104046fe24360d79e6952dfacc
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950293"
 ---
 # <a name="check-vcpu-quotas-using-azure-powershell"></a>Sprawdź przydziały vCPU przy użyciu Azure PowerShell
@@ -78,6 +78,6 @@ Wystąpienia zarezerwowane maszyn wirtualnych, które są objęte zakresem pojed
 
 Jeśli do zakupu pojedynczej subskrypcji RI wymagane jest zwiększenie limitu przydziału, można [zażądać zwiększenia limitu przydziału](../../azure-portal/supportability/resource-manager-core-quotas-request.md) w ramach subskrypcji.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat rozliczeń i przydziałów, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json).

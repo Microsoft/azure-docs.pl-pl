@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86112116"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupy komputerów w zapytaniach dziennika Azure Monitor
@@ -25,7 +25,7 @@ Grupę komputerów można utworzyć w Azure Monitor przy użyciu dowolnej metody
 |:--- |:--- |
 | Zapytanie dziennika |Utwórz zapytanie dziennika, które zwraca listę komputerów. |
 | Interfejs API wyszukiwania w dzienniku |Użyj interfejsu API przeszukiwania dzienników, aby programowo utworzyć grupę komputerów na podstawie wyników zapytania dziennika. |
-| Usługa Active Directory |Automatycznie Skanuj członkostwo w grupie wszystkich komputerów agentów, które są członkami domeny Active Directory i Utwórz grupę w Azure Monitor dla każdej grupy zabezpieczeń. (Tylko komputery z systemem Windows)|
+| Active Directory |Automatycznie Skanuj członkostwo w grupie wszystkich komputerów agentów, które są członkami domeny Active Directory i Utwórz grupę w Azure Monitor dla każdej grupy zabezpieczeń. (Tylko komputery z systemem Windows)|
 | Configuration Manager | Zaimportuj kolekcje z programu Microsoft Endpoint Configuration Manager i Utwórz grupę w Azure Monitor dla każdej z nich. |
 | Program Windows Server Update Services |Automatycznie Skanuj serwery lub klientów programu WSUS pod kątem grup docelowych i Utwórz grupę w Azure Monitor dla każdej z nich. |
 
@@ -55,7 +55,7 @@ W poniższej tabeli opisano właściwości, które definiują grupę komputerów
 | Kategoria       | Kategoria do organizowania zapytań w portalu. |
 
 
-### <a name="active-directory"></a>Usługa Active Directory
+### <a name="active-directory"></a>Active Directory
 W przypadku skonfigurowania Azure Monitor w celu zaimportowania członkostw w grupie Active Directory, analizuje ona członkostwo w grupie wszystkich komputerów przyłączonych do domeny systemu Windows z agentem Log Analytics.  Grupa komputerów jest tworzona w Azure Monitor dla każdej grupy zabezpieczeń w Active Directory, a każdy komputer z systemem Windows jest dodawany do grup komputerów odpowiadających grupom zabezpieczeń, do których są członkami.  To członkostwo jest stale aktualizowane co 4 godziny.  
 
 > [!NOTE]

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 93e5123e5b61c9013177f7f3c908578b68da52d6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962931"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Kontrolki zabezpieczeń dla Azure App Service
@@ -48,8 +48,8 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure App Service.
 |---|---|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Zawartość pliku witryny sieci Web jest przechowywana w usłudze Azure Storage, która automatycznie szyfruje zawartość w stanie spoczynku. <br><br>Klucze tajne dostarczone przez klienta są szyfrowane w stanie spoczynku. Wpisy tajne są szyfrowane w stanie spoczynku, podczas gdy są przechowywane w App Service bazach danych konfiguracji.<br><br>Opcjonalnie dyski dołączone lokalnie mogą być używane jako magazyn tymczasowy przez witryny sieci Web (D:\Local i% TMP%). Dyski dołączone lokalnie nie są szyfrowane w stanie spoczynku. | [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md)
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Klienci mogą wybrać przechowywanie wpisów tajnych aplikacji w Key Vault i pobrać je w czasie wykonywania. | [Użyj Key Vault odwołań dla App Service i Azure Functions (wersja zapoznawcza)](app-service-key-vault-references.md)
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak | |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Klienci mogą konfigurować witryny sieci Web tak, aby wymagały protokołu HTTPS i używać go do obsługi ruchu przychodzącego.  | [Jak utworzyć tylko Azure App Service https](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (wpis w blogu)
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy | |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Klienci mogą konfigurować witryny sieci Web tak, aby wymagały protokołu HTTPS i używać go do obsługi ruchu przychodzącego.  | [Jak utworzyć tylko Azure App Service https](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (wpis w blogu)
 | Wywołania interfejsu API są szyfrowane| Tak | Wywołania zarządzania w celu skonfigurowania App Service występują za pośrednictwem [Azure Resource Manager](../azure-resource-manager/index.yml) wywołań za pośrednictwem protokołu HTTPS. |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją

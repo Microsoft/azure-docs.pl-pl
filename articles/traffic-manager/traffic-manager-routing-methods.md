@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401660"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metody routingu w usłudze Traffic Manager
@@ -103,7 +103,7 @@ Jeśli profil jest skonfigurowany pod kątem routingu geograficznego, każdy pun
 - World — dowolny region
 - Grupowanie regionalne — na przykład Afryka, Bliski Wschód, Australia/Pacyfik itp. 
 - Kraj/region — na przykład Irlandia, Peru, Hongkong SAR itp. 
-- Województwo — na przykład USA-Kalifornia, Australia-Queensland, Kanada-Alberta itp. (Uwaga: ten poziom szczegółowości jest obsługiwany tylko w przypadku Stanów/prowincji w Australii, Kanadzie i USA).
+- Województwo — na przykład stan USA-Kalifornia, Australia-Queensland, Canada-Alberta itd. (Uwaga: ten poziom szczegółowości jest obsługiwany tylko w przypadku Stanów/prowincji w Australii, Kanadzie i USA).
 
 Po przypisaniu regionu lub zestawu regionów do punktu końcowego wszystkie żądania z tych regionów są kierowane tylko do tego punktu końcowego. Traffic Manager używa źródłowego adresu IP zapytania DNS w celu ustalenia regionu, z którego pochodzi użytkownik — zwykle jest to adres IP lokalnego programu rozpoznawania nazw DNS wykonującego zapytanie w imieniu użytkownika.  
 

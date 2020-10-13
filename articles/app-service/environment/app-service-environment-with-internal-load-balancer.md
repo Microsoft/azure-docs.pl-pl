@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962557"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Używanie wewnętrznego Load Balancer z App Service Environment
@@ -68,7 +68,7 @@ Tworzenie aplikacji w środowisku ILB ASE jest takie samo jak w przypadku normal
 3. Wybierz subskrypcję.
 4. Wybierz lub utwórz grupę zasobów.
 5. Wybierz lub Utwórz plan App Service (ASP). W przypadku tworzenia nowego środowiska ASP Wybierz środowisko ASE jako lokalizację i wybierz pulę procesów roboczych, w której ma zostać utworzona wartość ASP. Podczas tworzenia środowiska ASP należy wybrać środowisko ASE jako lokalizację i pulę procesów roboczych. Po określeniu nazwy aplikacji zobaczysz, że poddomena w ramach nazwy aplikacji jest zastępowana poddomeną dla środowiska ASE. 
-6. Wybierz pozycję **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
+6. Wybierz przycisk **Utwórz**. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** , jeśli chcesz, aby aplikacja była wyświetlana na pulpicie nawigacyjnym. 
 
 ![Pokazuje, jak utworzyć aplikację w ILB ASE w Azure Portal.][2]
 

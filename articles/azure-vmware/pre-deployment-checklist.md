@@ -4,10 +4,10 @@ description: Użyj tej listy kontrolnej w ramach procesu planowania przed wdroż
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 51480f72d6de6b1f49aa753e006c4683bbd48cc7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580023"
 ---
 # <a name="azure-vmware-solution-pre-deployment-checklist"></a>Lista kontrolna przed wdrożeniem rozwiązań VMware platformy Azure

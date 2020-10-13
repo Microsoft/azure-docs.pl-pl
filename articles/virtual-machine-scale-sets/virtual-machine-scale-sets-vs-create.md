@@ -10,10 +10,10 @@ ms.date: 09/09/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 2db281f1b3278e37deca8486971a7f7a83f85ccf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86503085"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Jak utworzyć zestaw skalowania maszyn wirtualnych za pomocą programu Visual Studio
@@ -34,7 +34,7 @@ Aby rozpocząć wdrażanie Virtual Machine Scale Sets w programie Visual Studio,
 >[!NOTE]
 >W tym artykule jest wykorzystywany program Visual Studio 2019 z [zestawem Azure SDK 2,8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## <a name="create-a-project"></a>Tworzenie projektu<a name="creating-a-project"></a> 
+## <a name="create-a-project"></a>Tworzenie projektu <a name="creating-a-project"></a> 
 
 1. Otwórz program Visual Studio i wybierz pozycję **Utwórz nowy projekt**.
 
@@ -44,7 +44,7 @@ Aby rozpocząć wdrażanie Virtual Machine Scale Sets w programie Visual Studio,
 
     ![Nazwa i tworzenie projektu](media/virtual-machine-scale-sets-vs-create/configure-azure-resource-group.png)
 
-1. Z listy szablonów wybierz opcję **zestaw skalowania maszyn wirtualnych z systemem Windows** lub szablon **zestawu skalowania maszyn wirtualnych** z systemem Linux. Wybierz przycisk **OK**.
+1. Z listy szablonów wybierz opcję **zestaw skalowania maszyn wirtualnych z systemem Windows** lub szablon **zestawu skalowania maszyn wirtualnych** z systemem Linux. Kliknij przycisk **OK**.
 
    ![Wybierz szablon maszyny wirtualnej](media/virtual-machine-scale-sets-vs-create/select-vm-template.png)
 
@@ -82,7 +82,7 @@ Wdróż szablon Azure Resource Manager, aby utworzyć zasób zestawu skalowania 
 
    ![Dane wyjściowe pokazują wyniki](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
 
-## <a name="explore-your-virtual-machine-scale-set"></a>Eksplorowanie zestawu skalowania maszyn wirtualnych<a name="exploring-your-virtual-machine-scale-set"></a>
+## <a name="explore-your-virtual-machine-scale-set"></a>Eksplorowanie zestawu skalowania maszyn wirtualnych <a name="exploring-your-virtual-machine-scale-set"></a>
 
 Wybierz pozycję **Wyświetl**program  >  **Cloud Explorer** , aby wyświetlić nowy zestaw skalowania maszyn wirtualnych. W razie potrzeby użyj **Odśwież wszystko**.
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
 ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052173"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux Przenieś własne obrazy z subskrypcji na platformę Azure
@@ -34,7 +34,7 @@ Obrazy Red Hat Enterprise Linux (RHEL) są dostępne na platformie Azure za poś
 - Obrazy są zgodne z bieżącymi zasadami opisanymi w [Red Hat Enterprise Linux obrazów na platformie Azure](./redhat-images.md).
 - Standardowe zasady pomocy technicznej mają zastosowanie do maszyn wirtualnych utworzonych na podstawie tych obrazów.
 - Maszyny wirtualne obsługiwane z obrazów Red Hat Gold nie mają opłat RHEL związanych z obrazami z opcją płatność zgodnie z rzeczywistym użyciem.
-- Obrazy są nieuprawnione. Musisz użyć Red Hat Subscription-Manager, aby zarejestrować maszyny wirtualne i subskrybować je, aby uzyskać aktualizacje z rozwiązania Red Hat bezpośrednio.
+- Obrazy są nieuprawnione. Aby rejestrować i subskrybować maszyny wirtualne w celu uzyskania aktualizacji z firmy Red Hat, należy użyć narzędzia Red Hat Subscription-Manager.
 - Obecnie nie można dynamicznie przełączać modeli rozliczeń BYOS i płatność zgodnie z rzeczywistym użyciem dla obrazów systemu Linux. Aby przełączyć model rozliczeń, należy ponownie wdrożyć maszynę wirtualną z odpowiedniego obrazu.
 
 >[!NOTE]
@@ -120,7 +120,7 @@ Poniższe instrukcje przeprowadzą Cię przez proces wdrażania wstępnego dla m
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. Sprawdź, czy masz nieuprawniony obraz do maszyny wirtualnej. Aby wykonać ten krok, uruchom polecenie `sudo yum repolist` . W przypadku RHEL 8 Użyj `sudo dnf repolist` . W danych wyjściowych zostanie wyświetlony monit o zarejestrowanie maszyny wirtualnej przy użyciu Menedżera subskrypcji Red Hat.
+1. Sprawdź, czy masz nieuprawniony obraz do maszyny wirtualnej. Aby wykonać ten krok, uruchom polecenie `sudo yum repolist` . W przypadku RHEL 8 Użyj `sudo dnf repolist` . W danych wyjściowych zostanie wyświetlony monit o zarejestrowanie maszyny wirtualnej z systemem Red Hat przy użyciu Subscription-Manager.
 
 >[!NOTE]
 >W RHEL 8 `dnf` i `yum` są zamienne. Aby uzyskać więcej informacji, zobacz [Przewodnik administratora programu RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).

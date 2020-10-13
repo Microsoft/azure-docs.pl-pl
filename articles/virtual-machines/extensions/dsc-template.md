@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: bobbytreed
 manager: carmonm
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511164"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Rozszerzenie konfiguracji żądanego stanu z szablonami Azure Resource Manager
@@ -177,7 +177,7 @@ Aby uzyskać listę argumentów dostępnych dla domyślnego skryptu konfiguracji
 
 ## <a name="details"></a>Szczegóły
 
-| Nazwa właściwości | Typ | Opis |
+| Nazwa właściwości | Type | Opis |
 | --- | --- | --- |
 | Settings. wmfVersion |ciąg |Określa wersję programu Windows Management Framework (WMF), która powinna zostać zainstalowana na maszynie wirtualnej. Ustawienie tej właściwości na **Najnowsza** spowoduje zainstalowanie najnowszej wersji programu WMF. Obecnie jedyne możliwe wartości tej właściwości to **4,0**, **5,0**, **5,1**i **najnowsze**. Te możliwe wartości podlegają aktualizacjom. Wartość domyślna to **Najnowsza**. |
 | settings.configwersja. URL |ciąg |Określa lokalizację adresu URL, z którego ma zostać pobrany plik konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu współdzielonego, ustaw właściwość **protectedSettings.configurationUrlSasToken** na wartość tokenu SAS. Ta właściwość jest wymagana, jeśli **settings.configwersja. Script** lub **settings.configwersja. Function** . Jeśli dla tych właściwości nie podano wartości, rozszerzenie wywoła domyślny skrypt konfiguracji w celu skonfigurowania metadanych lokalizacji Configuration Manager (LCM) i należy podać argumenty. |
@@ -189,14 +189,14 @@ Aby uzyskać listę argumentów dostępnych dla domyślnego skryptu konfiguracji
 | Settings. advancedOptions. downloadMappings |Kolekcja |Definiuje alternatywne lokalizacje, z których ma zostać pobrane WMF. Aby uzyskać więcej informacji, zobacz [rozszerzenie Azure DSC 2,8 i sposób mapowania pobierania zależności rozszerzeń do własnej lokalizacji](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | protectedSettings.configurationArguments |Kolekcja |Definiuje wszystkie parametry, które mają zostać przekazane do konfiguracji DSC. Ta właściwość jest zaszyfrowana. |
 | protectedSettings.configurationUrlSasToken |ciąg |Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL, który **settings.configwersja. URL** definiuje. Ta właściwość jest zaszyfrowana. |
-| protectedSettings.configurationDataUrlSasToken |ciąg |Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL, który **settings.configurationData. URL** definiuje. Ta właściwość jest zaszyfrowana. |
+| protectedSettings.configurationDataUrlSasToken |ciąg |Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL, który  **settings.configurationData. URL** definiuje. Ta właściwość jest zaszyfrowana. |
 
 ## <a name="default-configuration-script"></a>Domyślny skrypt konfiguracji
 
 Aby uzyskać więcej informacji na temat następujących wartości, zobacz [Local Configuration Manager — ustawienia podstawowe](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 Możesz użyć domyślnego skryptu konfiguracji rozszerzenia DSC, aby skonfigurować tylko właściwości LCM wymienione w poniższej tabeli.
 
-| Nazwa właściwości | Typ | Opis |
+| Nazwa właściwości | Type | Opis |
 | --- | --- | --- |
 | protectedSettings.configurationArguments. RegistrationKey |PSCredential |Wymagana właściwość. Określa klucz używany przez węzeł do zarejestrowania się w usłudze Azure Automation jako hasło obiektu poświadczeń programu PowerShell. Tę wartość można automatycznie wykryć przy użyciu metody **ListKeys** na koncie usługi Automation.  Zapoznaj się z [przykładem](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments. RegistrationUrl |ciąg |Wymagana właściwość. Określa adres URL punktu końcowego automatyzacji, gdzie węzeł próbuje zarejestrować. Tę wartość można automatycznie wykryć przy użyciu metody **referencyjnej** względem konta usługi Automation. |
@@ -275,7 +275,7 @@ W szablonie Menedżer zasobów następujący kod instruuje maszynę wirtualną, 
 
 ## <a name="example-using-referenced-azure-automation-registration-values"></a>Przykład użycia przywoływanych wartości rejestracji Azure Automation
 
-Poniższy przykład pobiera **RegistrationUrl** i **RegistrationKey** , odwołując się do właściwości konta Azure Automation i przy użyciu metody **ListKeys** w celu pobrania klucza podstawowego (0).  W tym przykładzie parametry **automationAccountName** i **NodeConfigName** zostały przekazane do szablonu.
+Poniższy przykład pobiera **RegistrationUrl** i **RegistrationKey** , odwołując się do właściwości konta Azure Automation i przy użyciu metody  **ListKeys** w celu pobrania klucza podstawowego (0).  W tym przykładzie parametry **automationAccountName** i **NodeConfigName** zostały przekazane do szablonu.
 
 ```json
 "settings": {

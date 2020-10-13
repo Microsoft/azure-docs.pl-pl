@@ -13,10 +13,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
 ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86495742"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizowanie danych przy użyciu usługi Azure Machine Learning
@@ -90,7 +90,7 @@ Następnie wykonaj kroki opisane poniżej, aby skonfigurować projektanta:
 
 1. Przeciągnij utworzony wcześniej zestaw danych na kanwę.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Zrzut ekranu modułu DataSet na kanwie.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
 ## <a name="clean-the-data"></a>Czyszczenie danych
 
@@ -100,13 +100,13 @@ Aby wyczyścić dane, Porzuć kolumny, które nie są istotne dla modelu. Wykona
 
 1. Przeciągnij **pozycję Wybierz kolumny w zestawie danych** w obszarze **przekształcanie danych < manipulowanie** na kanwę. Połącz ten moduł z modułem **DataSet** .
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Zrzut ekranu modułu wyboru kolumny na kanwie." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Kliknij moduł, aby otworzyć okienko właściwości. Kliknij pozycję Edytuj kolumnę, aby określić kolumny, które chcesz usunąć.
 
 1. Wyklucz dwie kolumny: CustomerAlternateKey i GeographyKey. Kliknij pozycję **Zapisz**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Zrzut ekranu przedstawiający kolumny, które zostały porzucone.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
 ## <a name="build-the-model"></a>Tworzenie modelu
 
@@ -116,7 +116,7 @@ Dane są podzielone na 80-20:80%, aby szkolić model uczenia maszynowego i 20% d
 
 1. W okienku właściwości wprowadź 0,8 dla **części wierszy w pierwszym wyjściowym zestawie danych**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Zrzut ekranu przedstawiający współczynnik podziału 0,8.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
 1. Przeciągnij moduł **Two-Class Boosted Decision Tree** (Dwuklasowe wzmocnione drzewo decyzyjne) na kanwę.
 
@@ -124,17 +124,17 @@ Dane są podzielone na 80-20:80%, aby szkolić model uczenia maszynowego i 20% d
 
 1. W przypadku modelu uczenia model, w opcji **kolumna etykiety** w okienku właściwości wybierz pozycję Edytuj kolumnę. Wybierz kolumnę **BikeBuyer** jako kolumnę do przewidywania i wybierz pozycję **Zapisz**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Zrzut ekranu przedstawiający kolumnę Label, BikeBuyer, Selected.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Zrzut ekranu przedstawiający moduł uczenia modelu połączony z dwuklasowym drzewem decyzyjnym i podziałem modułów danych.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
-## <a name="score-the-model"></a>Ocena modelu
+## <a name="score-the-model"></a>Ocenianie modelu
 
 Teraz Przetestuj, jak model wykonuje na danych testowych. Dwa różne algorytmy zostaną porównane, aby zobaczyć, który z nich wykonuje lepsze. Wykonaj następujące czynności:
 
 1. Przeciągnij moduł **modelu oceny** na kanwę i połącz go, aby **nauczyć model** i **podzielić moduły danych** .
 
-1. Przeciągnij **średnią bayesaą Perceptron** do kanwy eksperymentu. Porównano sposób wykonywania tego algorytmu w porównaniu z dwuklasowym drzewem decyzyjnym.
+1. Przeciągnij **średnią bayesaą Perceptron** do kanwy eksperymentu. Porównano, jak ten algorytm wykonuje w porównaniu do Two-Classego drzewa decyzyjnego.
 
 1. Skopiuj i wklej **model uczenia** modułów i **model oceny** na kanwie.
 
@@ -142,11 +142,11 @@ Teraz Przetestuj, jak model wykonuje na danych testowych. Dwa różne algorytmy 
 
 1. Kliknij pozycję **Prześlij** , aby skonfigurować uruchomienie potoku.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Zrzut ekranu przedstawiający wszystkie pozostałe moduły na kanwie." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. Po zakończeniu przebiegu kliknij prawym przyciskiem myszy moduł **oceny modelu** i kliknij polecenie **Wizualizuj wyniki oceny**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Zrzut ekranu przedstawiający wyniki.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Zrzut ekranu przedstawiający lewe okienko interfejsu Azure Machine Learning":::
 
 Dostarczone metryki to krzywa ROC, diagram odwołań dokładności i krzywa podnoszenia. Przyjrzyj się tym metrykom, aby zobaczyć, że pierwszy model działa lepiej niż drugi. Aby dowiedzieć się, jaki jest pierwszy model przewidywany, kliknij prawym przyciskiem myszy moduł model oceny i kliknij polecenie Wizualizuj wynikowy zestaw danych, aby zobaczyć przewidywane wyniki.
 

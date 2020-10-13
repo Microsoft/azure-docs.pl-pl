@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328647"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
@@ -49,11 +49,13 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
  
 2. Na pasku ikon Cloud Shell upewnij się, że Cloud Shell jest ustawiony do uruchamiania wersji programu PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
 
-1. Wybierz ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
+1. Wybierz ikonę &quot;przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór ikony przekazywania":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
+
+1. Wybierz ikonę &quot;przekazywanie/pobieranie plików":::
 
     Przejdź do pliku _**deploy.ps1**_ na komputerze (w _Azure_Digital_Twins_samples > skrypty > **deploy.ps1** _) i naciśnij klawisz "Otwórz". Spowoduje to przekazanie pliku do Cloud Shell, aby można było uruchomić go w oknie Cloud Shell.
 
@@ -82,7 +84,9 @@ Skrypt utworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji, p
 
 Poniżej znajduje się fragment dziennika danych wyjściowych ze skryptu:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Okno Cloud Shell pokazujące dziennik danych wejściowych i wyjściowych za pomocą uruchomienia skryptu wdrażania" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
+
+1. Wybierz ikonę &quot;przekazywanie/pobieranie plików" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Jeśli skrypt zakończy się pomyślnie, zostanie wyświetlony końcowy wydruk `Deployment completed successfully` . W przeciwnym razie należy rozwiązać ten problem, a następnie uruchomić skrypt. Spowoduje to pominięcie czynności, które zostały już wykonane, i ponowne zażądanie danych wejściowych w miejscu, w którym zostało przerwane.
 
@@ -103,7 +107,9 @@ W [Azure Portal](https://portal.azure.com)Znajdź wystąpienie usługi Azure Dig
 
 Wybranie tej opcji spowoduje otwarcie strony *przeglądowej* wystąpienia. Zanotuj jego *nazwę*, *grupę zasobów*i *nazwę hosta*. Może być potrzebne później do zidentyfikowania wystąpienia i nawiązania z nim połączenia.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Wyróżnianie ważnych wartości na stronie przeglądowej wystąpienia":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
+
+1. Wybierz ikonę &quot;przekazywanie/pobieranie plików":::
 
 ### <a name="collect-app-registration-values"></a>Zbieranie wartości rejestracji aplikacji 
 
@@ -113,7 +119,9 @@ Aby je znaleźć, Skorzystaj z [tego linku](https://portal.azure.com/#blade/Micr
 
 Powinna zostać wyświetlona właśnie utworzona Rejestracja aplikacji na tej liście. Wybierz go, aby otworzyć jego szczegóły:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Widok portalu ważnych wartości rejestracji aplikacji":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Okno Cloud Shell pokazujące wybór wersji programu PowerShell&quot;:::
+
+1. Wybierz ikonę &quot;przekazywanie/pobieranie plików":::
 
 Zanotuj *Identyfikator* *aplikacji (klienta)* na stronie **użytkownika** . Jeśli nie jesteś osobą, która będzie pisać kod dla aplikacji klienckich, musisz udostępnić te wartości osobie, która będzie.
 

@@ -4,10 +4,10 @@ description: Informacje o rozwiązywaniu problemów występujących podczas stos
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483197"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Rozwiązywanie problemów występujących podczas stosowania artefaktów w Azure DevTest Labs maszynie wirtualnej
@@ -58,7 +58,7 @@ Gdy artefakt zostanie rozsunięty, należy najpierw określić, gdzie jest zablo
     - Możesz uzyskać dostęp do dziennika aktywności z poziomu paska nawigacyjnego na stronie maszyny wirtualnej laboratorium. Po wybraniu tej opcji zobaczysz wpis dotyczący **zastosowania artefaktów do maszyny wirtualnej** (jeśli operacja Zastosuj artefakty została wyzwolona bezpośrednio) lub **Dodaj lub zmodyfikuj maszyny wirtualne** (jeśli operacja zastosowania artefaktów była częścią procesu tworzenia maszyny wirtualnej).
     - Wyszukaj błędy w ramach tych wpisów. Czasami błąd nie zostanie odpowiednio oznakowany i konieczne będzie zbadanie każdego wpisu.
     - Badając szczegóły dotyczące poszczególnych wpisów, należy sprawdzić zawartość ładunku JSON. W dolnej części tego dokumentu może zostać wyświetlony komunikat o błędzie.
-- **Podczas próby wykonania artefaktu**. Może to być spowodowane problemami z siecią lub magazynem. Aby uzyskać szczegółowe informacje, zobacz odpowiednią sekcję w dalszej części tego artykułu. Przyczyną może być również sposób tworzenia skryptu. Przykład:
+- **Podczas próby wykonania artefaktu**. Może to być spowodowane problemami z siecią lub magazynem. Aby uzyskać szczegółowe informacje, zobacz odpowiednią sekcję w dalszej części tego artykułu. Przyczyną może być również sposób tworzenia skryptu. Na przykład:
     - Skrypt programu PowerShell ma **obowiązkowe parametry**, ale jeden z nich nie przeszedł do niego wartości, ponieważ zezwalasz użytkownikowi na pozostawienie pustego elementu lub nie masz wartości domyślnej właściwości w artifactfile.jsw pliku definicji. Skrypt przestanie odpowiadać, ponieważ oczekuje na dane wejściowe użytkownika.
     - Skrypt programu PowerShell **wymaga wprowadzenia danych przez użytkownika** w ramach wykonywania. Skrypty muszą być zapisane w taki sposób, aby działały w sposób cichy bez konieczności interwencji użytkownika.
 - **Agent maszyny wirtualnej trwa zbyt długo**. Gdy maszyna wirtualna jest uruchomiona po raz pierwszy lub gdy rozszerzenie niestandardowego skryptu zostanie zainstalowane w celu obsłużynia żądania zastosowania artefaktów, maszyna wirtualna może wymagać uaktualnienia agenta maszyny wirtualnej lub zaczekać na zainicjowanie agenta maszyny wirtualnej. Mogą istnieć usługi, od których zależy Agent maszyny wirtualnej, który zajmuje dużo czasu na zainicjowanie. W takich przypadkach zobacz [Omówienie agenta maszyny wirtualnej platformy Azure](../virtual-machines/extensions/agent-windows.md) , aby uzyskać dalsze Rozwiązywanie problemów.

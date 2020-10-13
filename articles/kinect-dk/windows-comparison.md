@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Urządzenia Kinect, Windows, v2, Azure urządzenia Kinect, porównanie, zestaw SDK, różnice, sprzęt, oprogramowanie
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87031579"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Porównanie usług Azure urządzenia Kinect i urządzenia Kinect systemu Windows v2
@@ -22,16 +22,16 @@ Zestawy SDK sprzętu i oprogramowania platformy Azure urządzenia Kinect w wersj
 
 W poniższej tabeli wymieniono ogólne różnice między zestawem Azure urządzenia Kinect Development Kit a urządzenia Kinect dla systemu Windows v2.
 
-| Cechy | Typ | Azure Kinect DK | Urządzenia Kinect dla systemu Windows w wersji 2 |
+| Cecha | Type | Azure Kinect DK | Urządzenia Kinect dla systemu Windows w wersji 2 |
 | ------- | ---- | --------------- | --------------------- |
-| **Audio** | Szczegóły  | 7 — macierz cykliczna z użyciem mikrofonu | 4-MIC liniowy — macierz fazowy |
+| **Dźwięk** | Szczegóły  | 7 — macierz cykliczna z użyciem mikrofonu | 4-MIC liniowy — macierz fazowy |
 | **Czujnik ruchu** | Szczegóły | 3-osiowy przyspieszeniomierz 3-osiowy Gyro | przyspieszeniomierz 3-osiowy |
 | **Aparat RGB**    | Szczegóły | 3840 x 2160 piks. @30 fps | 1920 x 1080 piks. @30 fps |
 | **Aparat głębokości**  | Metoda   | Czas trwania lotu | Czas trwania lotu |
 |                   | Rozwiązanie | 640 x 576 piks. @30 fps | 512 x 424 piks. 30 fps |
 |                   |            | 512 x 512 piks. @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
-| **Połączenia** | Dane | USB 3.1 Gen 1 i Type USB-C  | USB 3,1 Gen 1|
+| **Łączność** | Dane | USB 3.1 Gen 1 i Type USB-C  | USB 3,1 Gen 1|
 |  | Zasilanie | Zewnętrzna PSU lub USB-C | Zewnętrzna PSU |
 |  | Synchronizacja | Tryb RGB & wewnętrzne, zewnętrzne urządzenie do urządzenia| Tylko & RGB głębokości |
 | **Układ** | Wymiary | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
@@ -49,7 +49,7 @@ W poniższej tabeli przedstawiono porównanie możliwości dostępu czujnika urz
 | **Ścisł** | ✔️ | ✔️ |    |   |
 | **IR** | ✔️ | ✔️ |  |
 | **Kolor** | ✔️ | ✔️ | Format koloru obsługuje różnice, usługa Azure urządzenia Kinect DK obsługuje następujące kontrolki aparatu: ekspozycja, biały balans, jasność, kontrast, nasycenie, ostrość i kontrola wzmocnienia |
-| **Audio** | ✔️ | ✔️ | Dostęp do usługi Azure urządzenia Kinect DK MICS odbywa się za pośrednictwem zestawu Speech SDK lub natywnego interfejsu API systemu Windows |
+| **Dźwięk** | ✔️ | ✔️ | Dostęp do usługi Azure urządzenia Kinect DK MICS odbywa się za pośrednictwem zestawu Speech SDK lub natywnego interfejsu API systemu Windows |
 | **Moduł IMU** | ✔️ |  | Usługa Azure urządzenia Kinect DK ma pełną 6-osiową IMU i urządzenia Kinect dla systemu Windows, która zawiera tylko 1 oś |
 | **Dane kalibracji** | ✔️ | ✔️ | Kalibracja zgodna z modelem aparatu fotograficznego OpenCV |
 | **Głębokość — wewnętrzna synchronizacja RGB** | ✔️ | ✔️ |  |

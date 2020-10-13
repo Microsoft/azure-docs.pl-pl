@@ -4,13 +4,13 @@ description: W tym artykule opisano sposób wdrażania aplikacji Service Fabric 
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260087"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej przypisanej przez użytkownika
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Wdrażanie aplikacji Service Fabric przy użyciu tożsamości zarządzanej User-Assigned
 
 Aby wdrożyć aplikację Service Fabric z tożsamością zarządzaną, aplikacja musi zostać wdrożona za pomocą Azure Resource Manager, zazwyczaj z szablonem Azure Resource Manager. Aby uzyskać więcej informacji na temat wdrażania Service Fabric aplikacji za poorednictwem Azure Resource Manager, zobacz [Zarządzanie aplikacjami i usługami jako Azure Resource Manager zasobami](service-fabric-application-arm-resource.md).
 
@@ -21,9 +21,9 @@ Aby wdrożyć aplikację Service Fabric z tożsamością zarządzaną, aplikacja
 > Wdrożenie aplikacji Service Fabric z tożsamością zarządzaną jest obsługiwane w wersji interfejsu API `"2019-06-01-preview"` . Możesz także użyć tej samej wersji interfejsu API dla typu aplikacji, wersji typu aplikacji i zasobów usługi.
 >
 
-## <a name="user-assigned-identity"></a>Tożsamość przypisana przez użytkownika
+## <a name="user-assigned-identity"></a>User-Assigned tożsamość
 
-Aby włączyć aplikację z tożsamością przypisaną przez użytkownika, należy najpierw dodać właściwość **Identity** do zasobu aplikacji z typem **userAssigned** i PRZYWOŁYWANYMI tożsamościami przypisanymi przez użytkownika. Następnie Dodaj sekcję **managedIdentities** w sekcji **Właściwości** zasobu **aplikacji** , która zawiera listę przyjaznych nazw mapowania principalId dla każdej tożsamości przypisanej do użytkownika. Aby uzyskać więcej informacji na temat tożsamości przypisanych przez użytkownika [, zobacz Tworzenie, wyświetlanie listy lub usuwanie tożsamości zarządzanej przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+Aby włączyć aplikację z tożsamością User-Assigned, należy najpierw dodać właściwość **Identity** do zasobu aplikacji z typem **userAssigned** i PRZYWOŁYWANYMI tożsamościami przypisanymi przez użytkownika. Następnie Dodaj sekcję **managedIdentities** w sekcji **Właściwości** zasobu **aplikacji** , która zawiera listę przyjaznych nazw mapowania principalId dla każdej tożsamości przypisanej do użytkownika. Aby uzyskać więcej informacji na temat tożsamości przypisanych przez użytkownika [, zobacz Tworzenie, wyświetlanie listy lub usuwanie tożsamości zarządzanej przypisanej przez użytkownika](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 ### <a name="application-template"></a>Szablon aplikacji
 

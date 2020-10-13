@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: 4ea2f88b02738645af3f8fc32d5fdb99168a1122
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997382"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Wprowadzenie do asystentów głosowych w systemie Windows
@@ -25,8 +25,8 @@ Ten przewodnik przeprowadzi Cię przez kroki umożliwiające rozpoczęcie tworze
 
 Aby rozpocząć tworzenie asystenta głosowego dla systemu Windows, musisz upewnić się, że masz odpowiednie środowisko programistyczne.
 
-- **Visual Studio:** konieczne będzie zainstalowanie [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), wersja Community lub nowsza
-- **Wersja systemu Windows**: komputer z kompilacją szybkiego pierścienia z niejawnym testerem systemu Windows i wersjami niejawnego programu testów systemu Windows Windows SDK.Ten przykładowy kod jest weryfikowany jako praca nad kompilacją niejawnego programu testów systemu Windows 19025. vb_release_analog .191112-1600 przy użyciu Windows SDK 19018.Wszystkie kompilacje lub zestawy SDK powyżej określonych wersji powinny być zgodne.
+- **Program Visual Studio:**   Konieczne będzie zainstalowanie [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), wersja Community lub nowsza
+- **Wersja systemu Windows**: komputer z kompilacją szybkiego pierścienia z niejawnym testerem systemu Windows i wersjami niejawnego programu testów systemu Windows Windows SDK.Ten przykładowy kod jest weryfikowany jako praca z kompilacjami niejawnego testera systemu Windows 19025.vb_release_analog .191112-1600 przy użyciu Windows SDK 19018.Wszystkie kompilacje lub zestawy SDK powyżej określonych wersji powinny być zgodne.
 - **Platformy UWP Development Tools**: obciążenie programowanie platforma uniwersalna systemu Windows w programie Visual Studio.Zapoznaj się ze stroną platformy UWP [Get Up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) , aby przygotować maszynę do tworzenia aplikacji platformy UWP.
 - **Działający mikrofon i wyjście audio**
 
@@ -34,7 +34,7 @@ Aby rozpocząć tworzenie asystenta głosowego dla systemu Windows, musisz upewn
 
 Niektóre zasoby wymagane przez całkowicie dostosowany agenta głosu w systemie Windows będą wymagały zasobów od firmy Microsoft. [Przykład asystenta głosowego platformy UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) zawiera przykładowe wersje tych zasobów na potrzeby wstępnego tworzenia i testowania, dlatego ta sekcja nie jest konieczna do tworzenia początkowego.
 
-- **Model słów kluczowych:** Aktywacja głosowa wymaga modelu słowo kluczowe od firmy Microsoft w postaci pliku bin. Plik bin podany w próbce asystenta głosowego platformy UWP jest szkolony na słowie kluczowym "contoso".
+- **Model słów kluczowych:**   Aktywacja głosowa wymaga modelu słowo kluczowe od firmy Microsoft w postaci pliku bin. Plik bin podany w próbce asystenta głosowego platformy UWP jest szkolony na słowie kluczowym "contoso".
 - **Token funkcji ograniczonego dostępu:** Ponieważ interfejsy API ConversationalAgent zapewniają dostęp do dźwięku mikrofonu, są one chronione w ramach ograniczeń funkcji ograniczonego dostępu.Aby można było korzystać z funkcji ograniczonego dostępu, należy uzyskać token funkcji ograniczonego dostępu połączonego z tożsamością pakietu aplikacji od firmy Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Ustanów usługę okna dialogowego

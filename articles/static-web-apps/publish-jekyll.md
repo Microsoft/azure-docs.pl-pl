@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
 ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797704"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Jekyll w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Jekyll](https://jekyllrb.com/) w usłudze [Azure static Web Apps](overview.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -118,7 +118,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Dla _gałęzi_ wybierz gałąź **główna**.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Szczegóły wypełnione":::
 
 ### <a name="build"></a>Kompilacja
 
@@ -174,7 +174,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. W oknie _przegląd_ Azure Portal kliknij link _adresu URL_ , aby otworzyć wdrożoną aplikację.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Wdrożona aplikacja":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Szczegóły wypełnione":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

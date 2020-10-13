@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: cdd93cf8751ce2e46f06020b1d18d42416f793d4
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166112"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrowanie aplikacji do MSAL.NET
@@ -57,9 +57,9 @@ Możliwe jest również, że w MSAL.NET dostęp do zasobów w wersji 1.0. Zobacz
 
 ### <a name="core-classes"></a>Klasy podstawowe
 
-- ADAL.NET używa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) jako reprezentacji połączenia z usługą tokenu zabezpieczającego (STS) lub serwerem autoryzacji za pośrednictwem urzędu. W przeciwieństwie do MSAL.NET jest przeznaczony dla [aplikacji klienckich](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Oferuje dwie osobne klasy: `PublicClientApplication` i`ConfidentialClientApplication`
+- ADAL.NET używa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) jako reprezentacji połączenia z usługą tokenu zabezpieczającego (STS) lub serwerem autoryzacji za pośrednictwem urzędu. W przeciwieństwie do MSAL.NET jest przeznaczony dla [aplikacji klienckich](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Oferuje dwie osobne klasy: `PublicClientApplication` i `ConfidentialClientApplication`
 
-- Uzyskiwanie tokenów: ADAL.NET i MSAL.NET mają takie same wywołania uwierzytelniania ( `AcquireTokenAsync` oraz `AcquireTokenSilentAsync` dla ADAL.NET, i `AcquireTokenInteractive` i `AcquireTokenSilent` w MSAL.NET), ale z innymi wymaganymi parametrami. Jedną z różnic jest fakt, że w MSAL.NET nie jest już konieczne przekazywanie `ClientID` aplikacji w każdym AcquireTokenXXym wywołaniu. Rzeczywiście, `ClientID` jest ustawiana tylko raz podczas kompilowania ( `IPublicClientApplication` lub `IConfidentialClientApplication` ).
+- Uzyskiwanie tokenów: ADAL.NET i MSAL.NET mają takie same wywołania uwierzytelniania ( `AcquireTokenAsync` oraz  `AcquireTokenSilentAsync` dla ADAL.NET, i `AcquireTokenInteractive` i `AcquireTokenSilent` w MSAL.NET), ale z innymi wymaganymi parametrami. Jedną z różnic jest fakt, że w MSAL.NET nie jest już konieczne przekazywanie `ClientID` aplikacji w każdym AcquireTokenXXym wywołaniu. Rzeczywiście, `ClientID` jest ustawiana tylko raz podczas kompilowania ( `IPublicClientApplication` lub `IConfidentialClientApplication` ).
 
 ### <a name="iaccount-not-iuser"></a>IAccount nie IUser
 
@@ -101,7 +101,7 @@ catch(MsalUiRequiredException exception)
 
 W programie ADAL.NET wyjątki żądania roszczeń są obsługiwane w następujący sposób:
 
-- `AdalClaimChallengeException`to wyjątek (pochodzący z `AdalServiceException` ) zgłoszony przez usługę w przypadku, gdy zasób wymaga większej liczby oświadczeń od użytkownika (na przykład uwierzytelnianie dwuskładnikowe). `Claims`Element członkowski zawiera fragment JSON z oświadczeniami, które są oczekiwane.
+- `AdalClaimChallengeException` to wyjątek (pochodzący z `AdalServiceException` ) zgłoszony przez usługę w przypadku, gdy zasób wymaga większej liczby oświadczeń od użytkownika (na przykład uwierzytelnianie dwuskładnikowe). `Claims`Element członkowski zawiera fragment JSON z oświadczeniami, które są oczekiwane.
 - Nadal w ADAL.NET, publiczna aplikacja kliencka, która otrzymuje ten wyjątek, musi wywołać `AcquireTokenInteractive` zastąpienie z parametrem oświadczenia. To przesłonięcie `AcquireTokenInteractive` nie nawet próbuje trafić pamięci podręcznej, ponieważ nie jest to konieczne. Przyczyną jest to, że token w pamięci podręcznej nie ma odpowiednich oświadczeń (w przeciwnym razie `AdalClaimChallengeException` nie zostało zgłoszone). W związku z tym nie ma potrzeby wyszukiwania w pamięci podręcznej. Należy pamiętać, że `ClaimChallengeException` może zostać odebrane w WebAPI OBO, a w przeciwnym razie `AcquireTokenInteractive` musi być wywoływana w publicznej aplikacji klienckiej wywołującej ten internetowy interfejs API.
 - Aby uzyskać szczegółowe informacje, w tym przykłady obsługi [AdalClaimChallengeException](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Exceptions-in-ADAL.NET#handling-adalclaimchallengeexception)
 
@@ -241,7 +241,7 @@ Za pomocą tej metody można podać poprzednio używany token odświeżania wraz
 
 Ponieważ ta metoda jest przeznaczona dla scenariuszy, które nie są typowe, nie jest łatwo dostępna przy użyciu `IConfidentialClientApplication` bez uprzedniego rzutowania na `IByRefreshToken` .
 
-Ten fragment kodu przedstawia kod migracji w poufnej aplikacji klienckiej. `GetCachedRefreshTokenForSignedInUser`Pobierz token odświeżania, który był przechowywany w niektórych magazynach przez poprzednią wersję aplikacji, która była używana do korzystania z biblioteki ADAL 2. x. `GetTokenCacheForSignedInUser`deserializacji pamięci podręcznej zalogowanego użytkownika (jako poufne aplikacje klienckie powinny mieć jedną pamięć podręczną na użytkownika).
+Ten fragment kodu przedstawia kod migracji w poufnej aplikacji klienckiej. `GetCachedRefreshTokenForSignedInUser` Pobierz token odświeżania, który był przechowywany w niektórych magazynach przez poprzednią wersję aplikacji, która była używana do korzystania z biblioteki ADAL 2. x. `GetTokenCacheForSignedInUser` deserializacji pamięci podręcznej zalogowanego użytkownika (jako poufne aplikacje klienckie powinny mieć jedną pamięć podręczną na użytkownika).
 
 ```csharp
 TokenCache userCache = GetTokenCacheForSignedInUser();

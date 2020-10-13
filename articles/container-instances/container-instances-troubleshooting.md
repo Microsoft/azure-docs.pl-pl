@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260754"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Rozwiązywanie typowych problemów w usłudze Azure Container Instances
@@ -25,7 +25,7 @@ Podczas definiowania specyfikacji kontenera niektóre parametry wymagają przest
 | Zakres | Długość | Wielkość liter | Prawidłowe znaki | Sugerowany wzorzec | Przykład |
 | --- | --- | --- | --- | --- | --- |
 | Nazwa kontenera<sup>1</sup> | 1-63 |Małe litery | Alfanumeryczne i łącznik wszędzie z wyjątkiem pierwszego lub ostatniego znaku |`<name>-<role>-container<number>` |`web-batch-container1` |
-| Porty kontenerów | Od 1 do 65535 |Integer |Liczba całkowita z zakresu od 1 do 65535 |`<port-number>` |`443` |
+| Porty kontenerów | Od 1 do 65535 |Liczba całkowita |Liczba całkowita z zakresu od 1 do 65535 |`<port-number>` |`443` |
 | Etykieta nazwy DNS | 5-63 |Bez uwzględniania wielkości liter |Alfanumeryczne i łącznik wszędzie z wyjątkiem pierwszego lub ostatniego znaku |`<name>` |`frontend-site1` |
 | Zmienna środowiskowa | 1-63 |Bez uwzględniania wielkości liter |Znaki alfanumeryczne i znaki podkreślenia (_) wszędzie z wyjątkiem pierwszego lub ostatniego znaku |`<name>` |`MY_VARIABLE` |
 | Nazwa woluminu | 5-63 |Małe litery |Alfanumeryczne i łączniki wszędzie z wyjątkiem pierwszego lub ostatniego znaku. Nie może zawierać dwóch kolejnych łączników. |`<name>` |`batch-output-volume` |
@@ -45,7 +45,7 @@ Jeśli określisz obraz, który Azure Container Instances nie obsługuje, `OsVer
 }
 ```
 
-Ten błąd jest najczęściej spotykany podczas wdrażania obrazów systemu Windows opartych na półrocze w wersji 1709 lub 1803, które nie są obsługiwane. Aby uzyskać obsługiwane obrazy systemu Windows w Azure Container Instances, zobacz [często zadawane pytania](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Ten błąd jest najczęściej spotykany podczas wdrażania obrazów systemu Windows na podstawie Semi-Annual kanału w wersji 1709 lub 1803, które nie są obsługiwane. Aby uzyskać obsługiwane obrazy systemu Windows w Azure Container Instances, zobacz [często zadawane pytania](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>Nie można ściągnąć obrazu
 
@@ -204,7 +204,7 @@ Azure Container Instances nie ujawnia bezpośredniego dostępu do podstawowej in
 
 Azure Container Instances nie obsługuje jeszcze mapowania portów, takiego jak zwykła konfiguracja platformy Docker. Jeśli okaże się, że adres IP grupy kontenerów nie jest dostępny, jeśli uważasz, że jest to konieczne, upewnij się, że skonfigurowano obraz kontenera do nasłuchiwania na tych samych portach, które zostały ujawnione w grupie kontenerów z `ports` właściwością.
 
-Jeśli chcesz potwierdzić, że Azure Container Instances może nasłuchiwać na porcie skonfigurowanym w obrazie kontenera, przetestuj wdrożenie `aci-helloworld` obrazu, który udostępnia port. Uruchom również `aci-helloworld` aplikację, aby nasłuchiwać na porcie. `aci-helloworld`akceptuje opcjonalną zmienną środowiskową `PORT` , aby zastąpić domyślny port 80, na którym nasłuchuje. Na przykład aby przetestować port 9000, należy ustawić [zmienną środowiskową](container-instances-environment-variables.md) podczas tworzenia grupy kontenerów:
+Jeśli chcesz potwierdzić, że Azure Container Instances może nasłuchiwać na porcie skonfigurowanym w obrazie kontenera, przetestuj wdrożenie `aci-helloworld` obrazu, który udostępnia port. Uruchom również `aci-helloworld` aplikację, aby nasłuchiwać na porcie. `aci-helloworld` akceptuje opcjonalną zmienną środowiskową `PORT` , aby zastąpić domyślny port 80, na którym nasłuchuje. Na przykład aby przetestować port 9000, należy ustawić [zmienną środowiskową](container-instances-environment-variables.md) podczas tworzenia grupy kontenerów:
 
 1. Skonfiguruj grupę kontenerów, aby udostępnić port 9000 i przekazać numer portu jako wartość zmiennej środowiskowej. Przykład jest sformatowany dla powłoki bash. Jeśli wolisz innej powłoki, takiej jak PowerShell lub wiersz polecenia, musisz odpowiednio dostosować przypisanie zmiennej.
     ```azurecli

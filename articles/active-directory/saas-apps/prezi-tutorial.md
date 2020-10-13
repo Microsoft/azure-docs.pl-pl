@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658943"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą Prezi
@@ -76,7 +76,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Prezi** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **edycji** , aby edytować ustawienia w **podstawowej konfiguracji SAML**.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę **edycji** , aby edytować ustawienia w **podstawowej konfiguracji protokołu SAML**.
 
    ![Edytuj podstawowe ustawienia konfiguracji SAML](common/edit-urls.png)
 
@@ -99,7 +99,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
     | given_name | user.givenname |
     | family_name | user.surname |
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
@@ -117,7 +117,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość **B. Simon**.
    1. W polu **Nazwa użytkownika** wprowadź `username@companydomain.extension` na przykład `B.Simon@contoso.com` .
    1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość, która pojawia się w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -145,9 +145,9 @@ W tej sekcji należy włączyć usługę B. Simon, aby korzystać z logowania je
 
     ![Karta Ustawienia](./media/prezi-tutorial/settings-image.png)
 
-1. Przejdź do sekcji Logowanie jednokrotne **(SSO)** i włącz przełącznik, aby włączyć logowanie jednokrotne.
+1. Przejdź do sekcji **Single Sign-On (SSO)** i włącz przełącznik, aby włączyć logowanie jednokrotne.
     
-    ![Przełącznik logowania jednokrotnego (SSO)](./media/prezi-tutorial/single-signon.png)
+    ![Przełącznik pojedynczego Sign-On (SSO)](./media/prezi-tutorial/single-signon.png)
 
 1. W sekcji Logowanie jednokrotne **(SSO)** wykonaj następujące kroki:
 
@@ -171,10 +171,10 @@ W tej sekcji przetestujesz konfigurację rejestracji jednokrotnej usługi Azure 
 
 Po wybraniu kafelka Prezi w panelu dostępu należy automatycznie zalogować się do konta Prezi, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Wypróbuj Prezi z usługą Azure AD](https://aad.portal.azure.com/)
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

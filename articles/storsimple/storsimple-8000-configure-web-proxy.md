@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514280"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurowanie serwera proxy sieci Web dla urządzenia StorSimple
@@ -143,7 +143,7 @@ Jeśli ustawienia serwera proxy sieci Web są nieprawidłowo skonfigurowane, kom
 |:--- |:--- |:--- |:--- |
 | 1. |0x80070001 |Polecenie jest uruchamiane z kontrolera pasywnego i nie może komunikować się z aktywnym kontrolerem. |Uruchom polecenie na aktywnym kontrolerze. Aby uruchomić polecenie z kontrolera pasywnego, należy nawiązać połączenie z pasywnym kontrolerem aktywnym. Jeśli ta łączność zostanie przerwana, należy nawiązać pomoc techniczna firmy Microsoft. |
 | 2. |0x800710dd — Identyfikator operacji jest nieprawidłowy |Ustawienia serwera proxy nie są obsługiwane na urządzeniu w chmurze StorSimple. |Ustawienia serwera proxy nie są obsługiwane na urządzeniu w chmurze StorSimple. Można je skonfigurować tylko na urządzeniu fizycznym StorSimple. |
-| 3. |0x80070057 — nieprawidłowy parametr |Jeden z parametrów podanych dla ustawień serwera proxy jest nieprawidłowy. |Identyfikator URI nie ma poprawnego formatu. Użyj następującego formatu:`http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
+| 3. |0x80070057 — nieprawidłowy parametr |Jeden z parametrów podanych dla ustawień serwera proxy jest nieprawidłowy. |Identyfikator URI nie ma poprawnego formatu. Użyj następującego formatu: `http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
 | 4. |0x800706ba — serwer RPC niedostępny |Główna przyczyna jest jedną z następujących czynności:</br></br>Klaster nie działa. </br></br>Usługa datapath nie jest uruchomiona.</br></br>Polecenie jest uruchamiane z kontrolera pasywnego i nie może komunikować się z aktywnym kontrolerem. |Zaangażuj pomoc techniczna firmy Microsoft, aby upewnić się, że klaster działa i usługa datapath jest uruchomiona.</br></br>Uruchom polecenie z poziomu aktywnego kontrolera. Aby uruchomić polecenie z kontrolera pasywnego, należy się upewnić, że kontroler pasywny może komunikować się z aktywnym kontrolerem. Jeśli ta łączność zostanie przerwana, należy nawiązać pomoc techniczna firmy Microsoft. |
 | 5. |0X800706be — wywołanie RPC nie powiodło się |Klaster nie działa. |Zaangażuj pomoc techniczna firmy Microsoft, aby upewnić się, że klaster działa. |
 | 6. |0x8007138f — nie znaleziono zasobu klastra |Nie znaleziono zasobu klastra usługi platformy. Taka sytuacja może wystąpić, jeśli instalacja nie była właściwa. |Może być konieczne przeprowadzenie resetowania do ustawień fabrycznych na urządzeniu. Może być konieczne utworzenie zasobu platformy. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać informacje o kolejnych krokach. |
