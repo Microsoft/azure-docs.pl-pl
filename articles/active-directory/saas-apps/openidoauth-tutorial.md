@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705626"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996611"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurowanie aplikacji uwierzytelniania OpenID/OAuth z galerii aplikacji usługi Azure AD
 
@@ -99,19 +99,19 @@ Poniższe kroki pokazują, jak środowisko wyrażania zgody działa dla dewelope
 
     a. Kliknij **rejestracje aplikacji** z lewej strony menu i Otwórz aplikację, wpisując nazwę aplikacji w polu wyszukiwania.
 
-    ![Interfejs API programu Graph](./media/openidoauth-tutorial/application.png)
+    ![Zrzut ekranu pokazujący, że wybrano "Rejestracje aplikacji" z menu po lewej stronie i wyróżniono pole wyszukiwania "aplikacja I D".](./media/openidoauth-tutorial/application.png)
 
     b. Kliknij pozycję **Wyświetl uprawnienia interfejsu API**.
 
-    ![Interfejs API programu Graph](./media/openidoauth-tutorial/api-permission.png)
+    ![Zrzut ekranu przedstawiający stronę "Call A P" z wybranym przyciskiem "Wyświetl A P A".](./media/openidoauth-tutorial/api-permission.png)
 
     c. Kliknij pozycję **Dodaj uprawnienie**.
 
-    ![Interfejs API programu Graph](./media/openidoauth-tutorial/add-permission.png)
+    ![Zrzut ekranu przedstawiający sekcję "uprawnienia P I" z wybranym przyciskiem "Dodaj uprawnienie".](./media/openidoauth-tutorial/add-permission.png)
 
     d. Kliknij **Microsoft Graph**.
 
-    ![Interfejs API programu Graph](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Zrzut ekranu przedstawiający stronę "Żądaj uprawnień P I" z wybraną pozycją "Microsoft A P i" i "Microsoft Graph".](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Wybierz wymagane opcje z uprawnień **delegowanych** i **uprawnień aplikacji**.
 

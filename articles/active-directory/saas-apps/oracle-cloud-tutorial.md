@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543843"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996542"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Samouczek: Integrowanie konsoli infrastruktury chmurowej Oracle z Azure Active Directory
 
@@ -101,7 +101,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja konsolowa usługi Oracle Cloud Infrastructure oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe Atrybuty użytkownika.
 
-   ![image (obraz)](common/edit-attribute.png)
+   ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z ikoną "Edytuj" w prawym górnym rogu.](common/edit-attribute.png)
 
 1. Oprócz powyższych, Aplikacja konsolowa infrastruktury w chmurze firmy Oracle oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **atrybuty użytkownika & oświadczenia** w oknie dialogowym **oświadczenia grupy (wersja zapoznawcza)** wykonaj następujące czynności:
 
@@ -109,11 +109,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. Wybierz pozycję **trwały** jako **Wybierz format identyfikatora nazwy**.
  
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
 
-      ![image (obraz)](./media/oracle-cloud-tutorial/config07.png)
+      ![Zrzut ekranu przedstawiający sekcję "atrybuty użytkownika & oświadczenia" z ikonami "Edytuj" dla pozycji "wartość identyfikatora nazwy" i "grupy zwrócone w ramach oświadczenia".](./media/oracle-cloud-tutorial/config07.png)
     
-      ![image (obraz)](./media/oracle-cloud-tutorial/config11.png)
+      ![Zrzut ekranu przedstawiający okno dialogowe "Zarządzanie oświadczeniami użytkowników" z wybraną opcją "trwałe" i wybranym przyciskiem "Zapisz".](./media/oracle-cloud-tutorial/config11.png)
 
    1. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
@@ -127,7 +127,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    1. W polu tekstowym **przestrzeń nazw (opcjonalnie)** wpisz polecenie `https://auth.oraclecloud.com/saml/claims` .
 
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
 
       ![image (obraz)](./media/oracle-cloud-tutorial/config08.png)
 
@@ -147,7 +147,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B. Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B. Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -173,15 +173,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij po lewej stronie menu i kliknij pozycję **tożsamość** , a następnie przejdź do **Federacji**.
 
-   ![Konfiguracja](./media/oracle-cloud-tutorial/config01.png)
+   ![Zrzut ekranu pokazujący "konsolę infrastruktury w chmurze firmy Oracle" z opcją "tożsamość" i "Federacja" wybraną z menu w lewym górnym rogu.](./media/oracle-cloud-tutorial/config01.png)
 
 1. Zapisz **plik metadanych dostawcy usług** , klikając link **Pobierz ten dokument** i przekaż go do sekcji **Podstawowa konfiguracja SAML** w Azure Portal a następnie kliknij pozycję **Dodaj dostawcę tożsamości**.
 
-   ![Konfiguracja](./media/oracle-cloud-tutorial/config02.png)
+   ![Zrzut ekranu pokazujący, że wybrano "Federacja" z menu po lewej stronie i przycisk "Dodaj dostawcę tożsamości" i wybierz akcję "Pobierz ten dokument".](./media/oracle-cloud-tutorial/config02.png)
 
 1. W oknie podręcznym **Dodawanie dostawcy tożsamości** wykonaj następujące czynności:
 
-   ![Konfiguracja](./media/oracle-cloud-tutorial/config03.png)
+   ![Zrzut ekranu przedstawiający okno podręczne Dodawanie dostawcy tożsamości.](./media/oracle-cloud-tutorial/config03.png)
 
    1. W polu tekstowym **Nazwa** wprowadź swoją nazwę.
 
@@ -193,7 +193,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
    1. Kliknij przycisk **Kontynuuj** i w sekcji **Edytuj dostawcę tożsamości** wykonaj następujące czynności:
 
-      ![Konfiguracja](./media/oracle-cloud-tutorial/config09.png)
+      ![Zrzut ekranu przedstawiający sekcję "Edytuj dostawcę tożsamości" z "grupą dostawców tożsamości", "O grupy C I", "Dodaj mapowanie" i wyróżniony przycisk "Prześlij".](./media/oracle-cloud-tutorial/config09.png)
 
    1. **Grupa dostawców tożsamości** powinna być wybrana jako Grupa niestandardowa. Grupa musi być IDENTYFIKATORem GUID grupy z Azure Active Directory. Grupa musi być zamapowana z odpowiednią grupą w polu **Grupa OCI** .
 
@@ -211,7 +211,7 @@ Po wybraniu kafelka konsola infrastruktury w chmurze Oracle w panelu dostępu na
 
 ![Konfiguracja](./media/oracle-cloud-tutorial/config10.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543792"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Samouczek: integracja Azure Active Directory z usługą origami
 
@@ -126,11 +126,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą origami, wy
 
 2. W menu u góry kliknij pozycję **Admin** (Administrator).
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Zrzut ekranu pokazujący stronę główną origami z wybranym przez administratora.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Na stronie Konfiguracja logowania jednokrotnego wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Zrzut ekranu przedstawiający stronę "Konfiguracja logowania jednokrotnego" z wybraną opcją "Włącz logowanie jednokrotne" i pola tekstowe wyróżnione.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Wybierz pozycję **Włącz logowanie jednokrotne**.
 
@@ -165,7 +165,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -201,19 +201,19 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Origami.
 
 2. W menu u góry kliknij pozycję **Admin** (Administrator).
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Zrzut ekranu przedstawiający stronę główną konta origami z wybranym przez administratora.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. W oknie dialogowym **Użytkownicy i zabezpieczenia** kliknij pozycję **Użytkownicy**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Użytkownicy i zabezpieczenia" z wybranymi użytkownikami.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Kliknij pozycję **Dodaj nowego użytkownika**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Dodaj nowego użytkownika".](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. W oknie dialogowym Dodawanie nowego użytkownika wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Dodawanie nowego użytkownika" z wyróżnionymi polami tekstowymi "Nazwa użytkownika", "imię" i "nazwisko".](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. W polu tekstowym **Nazwa użytkownika** wprowadź adres e-mail użytkownika, np. **brittasimon \@ contoso.com**.
 
@@ -225,9 +225,9 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Origami.
 
     e. W polu **tekstowym nazwisko wpisz nazwisko użytkownika** , np. **Simon**.
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Zrzut ekranu pokazujący wybrany przycisk "Zapisz".](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Przypisywanie **ról użytkownika** i **dostępu klienta** do użytkownika. 
    

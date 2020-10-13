@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 99c8ee79c51205c33d14328530f527ad8e3ff7b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86f687bd4fd8be93efbf77c883c723046c2c96d8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085468"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997916"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Obsługiwane dystrybucje i sterowniki
 
@@ -33,7 +33,7 @@ Sterowniki siatki rozpowszechniane przez platformę Azure nie działają na masz
 
 | Dystrybucja | Sterownik |
 | --- | -- |
-|Ubuntu 18,04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 do 7,8, 8,0, 8,1<br/><br/>CentOS-based 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 z dodatkiem SP2 | NVIDIA GRID 11, gałąź sterownika R450|
+|Ubuntu 18,04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7,6 do 7,8, 8,0, 8,1<br/><br/>CentOS-based 7,6, 7,7, 8,0, 8 (1911)<br/><br/>SUSE Linux Enterprise Server 12 z dodatkiem SP2 | NVIDIA GRID 11,1, rozgałęzienie sterownika [R450](https://go.microsoft.com/fwlink/?linkid=874272)(. exe)|
 
 > [!WARNING] 
 > Instalacja oprogramowania innych firm na produktach systemu Red Hat może wpłynąć na warunki wsparcia systemu Red Hat. Zobacz [artykuł bazy wiedzy systemu Red Hat](https://access.redhat.com/articles/1067).

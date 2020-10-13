@@ -3,12 +3,12 @@ title: Jak wykonywać zapytania dotyczące dzienników z Azure Monitor kontener�
 description: Azure Monitor dla kontenerów zbiera dane dotyczące metryk i dzienników, a w tym artykule opisano rekordy i zawiera przykładowe zapytania.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254894"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994025"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla kontenerów
 
@@ -110,5 +110,4 @@ Dane wyjściowe pokazują wyniki podobne do następującego przykładu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Azure Monitor kontenerów nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą Azure monitor dla kontenerów](container-insights-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci, aby zapewnić obsługę procesów i procedur operacyjnych DevOps. 
-
+Azure Monitor kontenerów nie zawiera wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dotyczących wydajności za pomocą Azure monitor dla kontenerów](./container-insights-log-alerts.md) , aby dowiedzieć się, jak utworzyć zalecane alerty dotyczące wysokiego użycia procesora i pamięci, aby zapewnić obsługę procesów i procedur operacyjnych DevOps.

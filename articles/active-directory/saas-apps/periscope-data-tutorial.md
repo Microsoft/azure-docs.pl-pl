@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553921"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Samouczek: integracja Azure Active Directory z danymi Periscope
 
@@ -123,7 +123,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
 2. Otwórz menu koła zębatego w lewym dolnym rogu i otwórz menu zabezpieczenia **rozliczeń**  >  **Security** i wykonaj następujące czynności. Tylko administratorzy mają dostęp do tych ustawień.
 
-    ![Informacje na temat konfigurowania aplikacji Periscope Data](./media/periscope-data-tutorial/configure01.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "zabezpieczenia" z wybranymi ustawieniami.](./media/periscope-data-tutorial/configure01.png)
 
     a. Skopiuj **adres URL metadanych federacji aplikacji** z kroku 5. **Certyfikat podpisywania SAML** i otwórz go w przeglądarce. Spowoduje to otwarcie dokumentu XML.
 
@@ -143,7 +143,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Periscope
 
     i. Na koniec kliknij polecenie **Save** (Zapisz) i **potwierdź** zmianę ustawień logowania jednokrotnego, wpisując **Logout** (Wyloguj).
 
-    ![Informacje na temat konfigurowania aplikacji Periscope Data](./media/periscope-data-tutorial/configure02.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "aktualizacja konfiguracji S" z wylogowaniem, które zostało wpisane w polu tekstowym i wybranym przycisku "Potwierdź".](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -168,7 +168,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -206,7 +206,7 @@ Użytkownicy usługi Azure AD mogą logować się w aplikacji Periscope Data po 
 
 2. Kliknij ikonę **Settings** (Ustawienia) w lewym dolnym rogu menu i przejdź do pozycji **Permissions** (Uprawnienia).
 
-    ![Informacje na temat konfigurowania aplikacji Periscope Data](./media/periscope-data-tutorial/configure03.png)
+    ![Zrzut ekranu pokazujący menu "Ustawienia" z wybranymi przyciskami "uprawnienia".](./media/periscope-data-tutorial/configure03.png)
 
 3. Kliknij pozycję **ADD USER** (Dodaj użytkownika) i wykonaj następujące czynności:
 

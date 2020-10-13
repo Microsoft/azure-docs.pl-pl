@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fcd0315afcbf38af2b8175deda748522cb335ec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649800"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996863"
 ---
 # <a name="outbound-connections"></a>Połączenia wychodzące
 
@@ -136,7 +136,7 @@ Reguły ruchu wychodzącego umożliwiają sterowanie:
 - Które maszyny wirtualne powinny być tłumaczone na które publiczne adresy IP.
 - Jak należy określić porty wychodzącego ruchu [źródłowego](#snat) .
 - Protokoły, dla których ma zostać przewidziane tłumaczenie wychodzące.
-- Czas trwania okresu bezczynności połączenia wychodzącego (4-120 minut).
+- Czas trwania okresu bezczynności połączenia wychodzącego (4-100 minut).
 - Czy należy wysyłać Resetowanie protokołu TCP po upływie limitu czasu bezczynności
 - Protokoły transportowe TCP i UDP z pojedynczą regułą
 

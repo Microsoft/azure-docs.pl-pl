@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć monitorowanie klastra usługi Azure Ku
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: e3b4bd007ec2f4315ccd7d8581113e116db693ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068431"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994508"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Włącz monitorowanie już wdrożonego klastra usługi Azure Kubernetes Service (AKS)
 
@@ -160,7 +160,7 @@ Ta metoda obejmuje dwa szablony JSON. Jeden szablon określa konfigurację umoż
 >Szablon musi zostać wdrożony w tej samej grupie zasobów co klaster.
 >
 
-Aby można było włączyć monitorowanie za pomocą Azure PowerShell lub interfejsu wiersza polecenia, należy utworzyć obszar roboczy Log Analytics. Aby utworzyć obszar roboczy, można go skonfigurować za pomocą [Azure Resource Manager](../platform/template-workspace-configuration.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md).
+Aby można było włączyć monitorowanie za pomocą Azure PowerShell lub interfejsu wiersza polecenia, należy utworzyć obszar roboczy Log Analytics. Aby utworzyć obszar roboczy, można go skonfigurować za pomocą [Azure Resource Manager](../samples/resource-manager-workspace.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md).
 
 Jeśli nie znasz koncepcji wdrażania zasobów przy użyciu szablonu, zobacz:
 
@@ -383,4 +383,3 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje w formacie JS
 * Jeśli wystąpią problemy podczas próby dołączenia rozwiązania, zapoznaj się z [przewodnikiem rozwiązywania problemów](container-insights-troubleshoot.md)
 
 * Po włączeniu monitorowania w celu zbierania danych o kondycji i użyciu zasobów klastra AKS oraz obciążeń na nich uruchomionych należy dowiedzieć się, [jak używać](container-insights-analyze.md) Azure monitor do kontenerów.
-

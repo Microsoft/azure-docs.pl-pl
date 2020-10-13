@@ -1,21 +1,21 @@
 ---
 title: Opis usługi Azure IoT Hub module bliźniaczych reprezentacji | Microsoft Docs
 description: Przewodnik dla deweloperów — Używanie modułu bliźniaczych reprezentacji do synchronizowania danych stanu i konfiguracji między IoT Hub i urządzeniami
-author: ash2017
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.author: asrastog
+ms.date: 09/29/2020
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323013"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996470"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Zrozumienie i Używanie modułu bliźniaczych reprezentacji w IoT Hub
 
@@ -241,7 +241,7 @@ Tagi, żądane właściwości i raportowane właściwości są obiektami JSON z 
 
 * **Klucze**: wszystkie klucze w obiektach JSON są zakodowane w formacie UTF-8, z uwzględnieniem wielkości liter i do 1 KB. Dozwolone znaki wykluczają znaki kontrolne UNICODE (segmenty C0 i C1), oraz `.` , `$` i Sp.
 
-* **Wartości**: wszystkie wartości w obiektach JSON mogą mieć następujące typy JSON: Boolean, Number, String, Object. Tablice są niedozwolone.
+* **Wartości**: wszystkie wartości w obiektach JSON mogą mieć następujące typy JSON: Boolean, Number, String, Object. Tablice są również obsługiwane.
 
     * Liczby całkowite mogą mieć minimalną wartość-4503599627370496 i maksymalną wartość 4503599627370495.
 

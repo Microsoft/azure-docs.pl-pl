@@ -1,25 +1,18 @@
 ---
 title: Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux | Microsoft Docs
 description: Szybko Uzyskaj funkcję ochrony danych firmy Oracle w środowisku platformy Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 4182b983b976949103d4eae7dbbf6b08bc164c53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: cynthn
+ms.openlocfilehash: b56fc172aa9fa4e88f03f488bdd1ac567708fe91
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979006"
+ms.locfileid: "91996696"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementowanie funkcji Oracle Data Guard na maszynie wirtualnej platformy Azure z systemem Linux 
 

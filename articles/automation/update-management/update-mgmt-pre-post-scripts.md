@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 32a8214a5bd6844c9177c7af159a453bc3673efc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed3a8909bc0d5ac135023b55178cec606344353b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450485"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996769"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
@@ -137,7 +137,7 @@ foreach($summary in $finalStatus)
 
 ## <a name="interact-with-machines"></a>Korzystanie z maszyn
 
-Wstępnie skrypty i zadania są uruchamiane jako elementy Runbook na koncie usługi Automation, a nie bezpośrednio na maszynach we wdrożeniu. Zadania i zadania podrzędne są również uruchamiane w kontekście platformy Azure i nie mają dostępu do maszyn spoza platformy Azure. W poniższych sekcjach pokazano, jak można bezpośrednio korzystać z maszyn, niezależnie od tego, czy są to maszyny wirtualne platformy Azure, czy na maszynach spoza platformy Azure.
+Skrypty wstępne i skrypty są uruchamiane jako elementy Runbook na koncie usługi Automation, a nie bezpośrednio na maszynach we wdrożeniu. Zadania i zadania podrzędne są również uruchamiane w kontekście platformy Azure i nie mają dostępu do maszyn spoza platformy Azure. W poniższych sekcjach pokazano, jak można bezpośrednio korzystać z maszyn, niezależnie od tego, czy są to maszyny wirtualne platformy Azure, czy na maszynach spoza platformy Azure.
 
 ### <a name="interact-with-azure-machines"></a>Korzystanie z maszyn platformy Azure
 

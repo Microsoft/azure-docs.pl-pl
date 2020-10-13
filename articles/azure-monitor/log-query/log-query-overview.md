@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55463f6af47ef8eda712b1787a89a710c08c1fe6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033170"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995203"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Przegląd zapytań dzienników w Azure Monitor
 Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w [dziennikach Azure monitor](../platform/data-platform-logs.md). Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie.
@@ -38,7 +38,7 @@ Zobacz Rozpoczynanie [pracy z dziennikami w Azure monitor](get-started-queries.m
 Zapoznaj się z tematem [różnice w języku zapytań dzienników Azure monitor](data-explorer-difference.md) , aby uzyskać drobne różnice w wersji KQL używanej przez Azure monitor.
 
 ## <a name="what-data-is-available-to-log-queries"></a>Jakie dane są dostępne do rejestrowania zapytań?
-Wszystkie dane zbierane w dziennikach Azure Monitor są dostępne do pobierania i analizowania zapytań dzienników. Różne źródła danych zapisują swoje dane w różnych tabelach, ale można dołączyć wiele tabel w jednym zapytaniu, aby analizować dane w wielu źródłach. Podczas tworzenia zapytania należy zacząć od określenia, które tabele mają szukane dane. Zobacz [strukturę dzienników Azure monitor](logs-structure.md) , aby dowiedzieć się, jak dane są strukturalne.
+Wszystkie dane zbierane w dziennikach Azure Monitor są dostępne do pobierania i analizowania zapytań dzienników. Różne źródła danych zapisują swoje dane w różnych tabelach, ale można dołączyć wiele tabel w jednym zapytaniu, aby analizować dane w wielu źródłach. Podczas tworzenia zapytania należy zacząć od określenia, które tabele mają szukane dane. Zobacz [strukturę dzienników Azure monitor](../platform/data-platform-logs.md) , aby dowiedzieć się, jak dane są strukturalne.
 
 ## <a name="what-does-a-log-query-look-like"></a>Jak wygląda zapytanie dziennika?
 Zapytanie może być proste jako nazwa pojedynczej tabeli do pobrania wszystkich rekordów z tej tabeli:

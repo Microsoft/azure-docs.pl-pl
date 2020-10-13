@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f23e2c58ae25fefb8508474921e476163b33e79
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978428"
+ms.locfileid: "91996483"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -108,8 +108,8 @@ Upewnij się, że ustawienia/etc/fstab są prawidłowo skonfigurowane do zainsta
 Poniżej przedstawiono przykładowe polecenia służące do instalowania dysków danych i tworzenia niezbędnych wpisów/etc/fstab:
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab

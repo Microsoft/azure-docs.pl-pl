@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554008"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Samouczek: integracja Azure Active Directory z usługą Percolate
 
@@ -103,7 +103,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Percolate, 
 
 5. Jeśli chcesz skonfigurować aplikację w trybie inicjowania programu SP, wybierz opcję **Ustaw dodatkowe adresy URL** i w polu **adres URL logowania** wpisz **https://percolate.com/app/login** :
 
-   ![Percolate domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+   ![Zrzut ekranu pokazujący, że wybrano przycisk "Ustaw dodatkowy U R ls" z wyróżnionym polem tekstowym "Zaloguj się U R L".](common/metadata-upload-additional-signon.png)
 6. Na stronie **Konfigurowanie pojedynczego Sign-On za pomocą języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz ikonę **kopiowania** , aby skopiować **adres URL metadanych federacji aplikacji**. Zapisz ten adres URL.
 
     ![Skopiuj adres URL metadanych federacji aplikacji](common/copy-metadataurl.png)
@@ -168,7 +168,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w Azure Port
 
     1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość znajdującą się w polu **hasło** .
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -184,7 +184,7 @@ W tej sekcji włączysz usługę Britta Simon do korzystania z logowania jednokr
 
 3. W lewym okienku wybierz pozycję **Użytkownicy i grupy**:
 
-    ![Wybieranie pozycji Użytkownicy i grupy](common/users-groups-blade.png)
+    ![Zrzut ekranu pokazujący "Użytkownicy i grupy" wybrane z okienka po lewej stronie.](common/users-groups-blade.png)
 
 4. Wybierz pozycję **Dodaj użytkownika**, a następnie **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
@@ -224,7 +224,7 @@ Teraz musisz przetestować konfigurację logowania jednokrotnego usługi Azure A
 
 Po wybraniu kafelka Percolate w panelu dostępu należy automatycznie zalogować się do wystąpienia Percolate, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

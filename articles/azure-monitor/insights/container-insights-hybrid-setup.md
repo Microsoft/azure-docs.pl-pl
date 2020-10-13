@@ -3,12 +3,12 @@ title: Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor 
 description: W tym artykule opisano sposób konfigurowania Azure Monitor kontenerów do monitorowania klastrów Kubernetes hostowanych w Azure Stack lub innym środowisku.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398385"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994437"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -40,7 +40,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 - [Obszar roboczy usługi Log Analytics](../platform/design-logs-deployment.md).
 
-    Azure Monitor dla kontenerów obsługuje obszar roboczy Log Analytics w regionach wymienionych w produktach platformy Azure [według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Aby utworzyć własny obszar roboczy, można go utworzyć za pomocą [Azure Resource Manager](../platform/template-workspace-configuration.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md).
+    Azure Monitor dla kontenerów obsługuje obszar roboczy Log Analytics w regionach wymienionych w produktach platformy Azure [według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Aby utworzyć własny obszar roboczy, można go utworzyć za pomocą [Azure Resource Manager](../samples/resource-manager-workspace.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md).
 
     >[!NOTE]
     >Włącz monitorowanie wielu klastrów o tej samej nazwie klastra w tym samym obszarze roboczym Log Analytics nie jest obsługiwane. Nazwy klastrów muszą być unikatowe.

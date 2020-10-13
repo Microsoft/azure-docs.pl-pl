@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e7b09c13cd27bd8197f6b65a1213d3154db6ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553840"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Samouczek: integracja Azure Active Directory z usługą Pingboard
 
@@ -101,7 +101,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Pingboard, 
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , w sekcji **Podstawowa konfiguracja SAML** wykonaj następujące czynności:
 
-    ![Pingboard domenę i adresy URL Logowanie jednokrotne](common/idp-intiated.png)
+    ![Zrzut ekranu pokazujący konfigurację "podstawowa S A M L" z wyróżnionymi polami tekstowymi "identifier" i "reply U R L" oraz wybranym przyciskiem "Zapisz".](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL: `http://app.pingboard.com/sp`
 
@@ -174,7 +174,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

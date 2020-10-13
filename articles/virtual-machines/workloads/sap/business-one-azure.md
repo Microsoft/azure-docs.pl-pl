@@ -1,26 +1,18 @@
 ---
 title: Oprogramowanie SAP Business One na platformie Azure Virtual Machines | Microsoft Docs
 description: SAP Business One na platformie Azure.
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ea10ee5b6fb14558e6bb93b83da0d5c46cff330
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: cynthn
+ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977650"
+ms.locfileid: "91994109"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One na maszynach wirtualnych platformy Azure
 Ten dokument zawiera wskazówki dotyczące wdrażania oprogramowania SAP Business One na platformie Azure Virtual Machines. Dokumentacja programu nie zastępuje dokumentacji dotyczącej instalacji dla oprogramowania SAP. Dokumentacja powinna obejmować podstawowe wytyczne dotyczące planowania i wdrażania infrastruktury platformy Azure w celu uruchamiania aplikacji firmowych.

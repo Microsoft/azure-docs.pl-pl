@@ -1,26 +1,18 @@
 ---
 title: Azure Monitor dla dostawców rozwiązań SAP | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure monitor dla dostawców rozwiązań SAP.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: e18d0b84e987e6c36f3f3b4215743025cac76d45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 235572cc4d697e7488765c464b12f9349c1e012b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987259"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994173"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Usługa Azure monitor dla dostawców rozwiązań SAP (wersja zapoznawcza)
 

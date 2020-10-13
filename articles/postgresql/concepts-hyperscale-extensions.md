@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314882"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996453"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Rozszerzenia PostgreSQL w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -41,6 +41,7 @@ W poniższej tabeli wymieniono standardowe rozszerzenia PostgreSQL, które są o
 > | [Lo](https://www.postgresql.org/docs/current/lo.html) | Konserwacja dużego obiektu. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Dostarcza typ danych dla hierarchicznych struktur przypominających drzewa. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Typ danych służący do reprezentowania segmentów linii lub interwałów zmiennoprzecinkowych. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Typ danych na potrzeby akumulacji w wierszu statystyk opartych na rankingu, takich jak quantiles i przyciętych metod. |
 > | [TopN](https://github.com/citusdata/postgresql-topn/) | Wpisz dla elementu Top-n JSONB. |
 
 ### <a name="full-text-search-extensions"></a>Rozszerzenia wyszukiwania pełnotekstowego

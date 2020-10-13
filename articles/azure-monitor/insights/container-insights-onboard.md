@@ -3,12 +3,12 @@ title: Włącz Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320310"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994065"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
 
@@ -43,7 +43,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
    Można utworzyć obszar roboczy po włączeniu monitorowania dla nowego klastra usługi AKS lub można pozwolić, aby środowisko dołączania utworzyło domyślny obszar roboczy w domyślnej grupie zasobów subskrypcji klastra AKS. 
    
    Jeśli zdecydujesz się utworzyć obszar roboczy samodzielnie, możesz go utworzyć za pomocą: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [Program PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Witryna Azure Portal](../learn/quick-create-workspace.md) 
    
@@ -131,4 +131,3 @@ Aby włączyć Azure Monitor dla kontenerów, należy użyć jednej z metod opis
 ## <a name="next-steps"></a>Następne kroki
 
 Po włączeniu monitorowania można rozpocząć analizowanie wydajności klastrów Kubernetes, które są hostowane w usłudze Azure Kubernetes Service (AKS), Azure Stack lub innym środowisku. Aby dowiedzieć się, jak używać Azure Monitor kontenerów, zobacz [Wyświetlanie wydajności klastra Kubernetes](container-insights-analyze.md).
-

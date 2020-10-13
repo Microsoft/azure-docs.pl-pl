@@ -3,12 +3,12 @@ title: Kubernetes monitorowanie za pomocą Azure Monitor dla kontenerów | Micro
 description: W tym artykule opisano sposób wyświetlania i analizowania wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988123"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994773"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorowanie wydajności klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -93,7 +93,7 @@ Dostęp do Azure monitor dla kontenerów jest dostępny bezpośrednio w klastrze
 - Klaster
 - Węzły
 - Kontrolery
-- Containers
+- Kontenery
 
 >[!NOTE]
 >Środowisko opisane w dalszej części tego artykułu dotyczy również wyświetlania stanu wydajności i kondycji klastrów Kubernetes hostowanych w Azure Stack lub innym środowisku w przypadku wybrania z widoku wiele klastrów.
@@ -195,7 +195,7 @@ Informacje przedstawione podczas wyświetlania karty **węzły** są opisane w p
 | Stan | Widok Kubernetes stanu węzła. |
 | Minimum &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;%  | Średni procent węzła w oparciu o percentyl w wybranym czasie. |
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max | Średnia wartość rzeczywista węzłów oparta na percentylu podczas wybranego czasu trwania. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla węzła. W przypadku zasobników i kontenerów jest to średnia wartość raportowana przez hosta. |
-| Containers | Liczba kontenerów. |
+| Kontenery | Liczba kontenerów. |
 | Czas pracy | Przedstawia czas od momentu uruchomienia lub ponownego uruchomienia węzła. |
 | Kontroler | Tylko dla kontenerów i zasobników. Pokazuje, który kontroler znajduje się w. Nie wszystkie zasobniki znajdują się w kontrolerze, dlatego niektóre mogą wyświetlać **N/a**. |
 | Minimum trendu &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;% | Trend wykresu słupkowego reprezentuje procentową metrykę percentylości kontrolera. |
@@ -238,7 +238,7 @@ Informacje wyświetlane podczas przeglądania kontrolerów są opisane w poniżs
 | Stan | Stan zbiorczy kontenerów po zakończeniu działania z stanem takim jak *OK*, *przerwany*, *Niepowodzenie*, *zatrzymano*lub *wstrzymano*. Jeśli kontener jest uruchomiony, ale stan nie był prawidłowo wyświetlany lub nie został pobrany przez agenta i nie odpowiedział przez dłużej niż 30 minut, stan jest *nieznany*. Dodatkowe szczegóły ikony stanu znajdują się w poniższej tabeli.|
 | Minimum &nbsp; %, średnia &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, używany 95. &nbsp; %, maksimum&nbsp;%| Średnia Zbiorcza średniej wartości procentowej każdej jednostki dla wybranej metryki i percentylu. |
 | Minimum, AVG, pięćdziesiąt, 90, używany 95., Max  | Rzutowanie średniej millicore procesora CPU lub wydajności pamięci kontenera dla wybranego percentylu. Średnia wartość jest mierzona na podstawie limitu procesora CPU/pamięci ustawionego dla elementu. |
-| Containers | Łączna liczba kontenerów dla kontrolera lub pod. |
+| Kontenery | Łączna liczba kontenerów dla kontrolera lub pod. |
 | Uruchamiania | Zestawienie liczby ponownych uruchomień z kontenerów. |
 | Czas pracy | Przedstawia czas od momentu rozpoczęcia kontenera. |
 | Węzeł | Tylko dla kontenerów i zasobników. Pokazuje, który kontroler znajduje się w. |
@@ -293,7 +293,7 @@ Ikony w polu Stan wskazują stan online, zgodnie z opisem w poniższej tabeli.
 
 ## <a name="workbooks"></a>Skoroszyty
 
-Skoroszyty łączą tekst, [kwerendy dzienników](../log-query/query-language.md), [metryki](../platform/data-platform-metrics.md)i parametry w rozbudowanych raportach interaktywnych. Skoroszyty mogą być edytowane przez innych członków zespołu, którzy mają dostęp do tych samych zasobów platformy Azure.
+Skoroszyty łączą tekst, [kwerendy dzienników](/azure/data-explorer/kusto/query/), [metryki](../platform/data-platform-metrics.md)i parametry w rozbudowanych raportach interaktywnych. Skoroszyty mogą być edytowane przez innych członków zespołu, którzy mają dostęp do tych samych zasobów platformy Azure.
 
 Azure Monitor kontenerów zawiera cztery skoroszyty umożliwiające rozpoczęcie pracy:
 
@@ -321,8 +321,8 @@ Możesz uzyskać dostęp do tych skoroszytów, wybierając je z listy rozwijanej
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z tematem [tworzenie alertów wydajności za pomocą Azure monitor dla kontenerów](container-insights-alerts.md) , aby dowiedzieć się, jak tworzyć alerty dotyczące wysokiego użycia procesora i pamięci w celu obsługi procesów i procedur operacyjnych DevOps.
+- Zapoznaj się z tematem [tworzenie alertów wydajności za pomocą Azure monitor dla kontenerów](./container-insights-log-alerts.md) , aby dowiedzieć się, jak tworzyć alerty dotyczące wysokiego użycia procesora i pamięci w celu obsługi procesów i procedur operacyjnych DevOps.
 
 - Wyświetl [przykłady zapytań dotyczących dzienników](container-insights-log-search.md#search-logs-to-analyze-data) , aby wyświetlić wstępnie zdefiniowane zapytania i przykłady do oszacowania lub dostosowania do alertów, wizualizacji lub analizowania klastrów.
 
-- Wyświetl [monitorowanie kondycji klastra](container-insights-health.md) , aby dowiedzieć się więcej na temat wyświetlania stanu kondycji klastra Kubernetes.
+- Wyświetl [monitorowanie kondycji klastra](./container-insights-overview.md) , aby dowiedzieć się więcej na temat wyświetlania stanu kondycji klastra Kubernetes.

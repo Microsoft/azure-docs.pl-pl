@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b36f4e292eb4bcae424d463f76e8a69eefd2968
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567999"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995530"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -116,7 +116,7 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Usługa Azure Synapse link jest obsługiwana Azure Cosmos DB dla interfejsu API SQL (Core) i interfejsu API Azure Cosmos DB dla MongoDB.
+* Dzisiejsze łącze platformy Azure Synapse dla Azure Cosmos DB jest obsługiwane w przypadku interfejsu API SQL i interfejsu API Azure Cosmos DB dla MongoDB. Nie jest obsługiwana w przypadku interfejsu API Gremlin i interfejs API tabel. Pomoc techniczna dla interfejs API Cassandra jest w prywatnej wersji zapoznawczej. Aby uzyskać więcej informacji, skontaktuj się z zespołem usługi Azure Synapse cosmosdbsynapselink@microsoft.com .  
 
 * Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
 

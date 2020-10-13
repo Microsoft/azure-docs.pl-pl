@@ -1,24 +1,18 @@
 ---
 title: Omówienie maszyn wirtualnych z serii HC — Azure Virtual Machines | Microsoft Docs
 description: Dowiedz się więcej o obsłudze wersji zapoznawczej rozmiaru maszyny wirtualnej z serii HC na platformie Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: de6051e8880bbe3df42031a0d0d7b60abc27d2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97e0ae9ea4914cda5d92f5180199a740c02ecdf4
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689803"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994372"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Omówienie maszyny wirtualnej z serii HC
 
