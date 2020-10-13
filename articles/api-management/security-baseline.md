@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713777"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Podstawa zabezpieczeń platformy Azure dla API Management
@@ -367,7 +367,7 @@ Opcjonalnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej
 
 **Wskazówki**: obsługa spisu kont, które mają dostęp administracyjny do płaszczyzny kontroli API Management platformy Azure (Azure Portal).
 
-Azure Active Directory (AD) ma wbudowane role, które muszą być jawnie przypisane i queryable. API Management opiera się na tych rolach i Access Control opartych na rolach, aby umożliwić precyzyjne zarządzanie dostępem dla usług i usługi API Management.
+Azure Active Directory (AD) ma wbudowane role, które muszą być jawnie przypisane i queryable. API Management opiera się na tych rolach i Role-Based Access Control w celu umożliwienia szczegółowego zarządzania dostępem dla usług i usługi API Management.
 
 Ponadto API Management zawiera wbudowaną grupę Administratorzy w systemie API Management użytkownika. Grupy w API Management kontrolują widoczność interfejsów API w portalu dla deweloperów, a członkowie grupy Administratorzy mogą zobaczyć wszystkie interfejsy API.
 
@@ -1112,9 +1112,9 @@ Tożsamości zarządzane mogą służyć do uzyskiwania certyfikatów z Azure Ke
 
 * [Zalecenie dotyczące zabezpieczeń usługi BLOB Storage](../storage/blobs/security-recommendations.md)
 
-Włącz nietrwałe usuwanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
+Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
-* [Jak włączyć usuwanie nietrwałe w Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Jak włączyć Soft-Delete w Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

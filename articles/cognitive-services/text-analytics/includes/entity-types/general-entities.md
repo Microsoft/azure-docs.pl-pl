@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 630f04bf2cc9e7de6331f9d25754a20fe2327d76
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779575"
 ---
 Następujące kategorie jednostek są zwracane podczas wysyłania żądań do `/entities/recognition/general` punktu końcowego.
@@ -39,7 +39,7 @@ Następujące kategorie jednostek są zwracane podczas wysyłania żądań do `/
 | Czy | Nie dotyczy | Możliwość, umiejętność lub doświadczenie. | `2020-02-01` |  |
 | Adres | Nie dotyczy | Pełne adresy wysyłkowe.  | `2020-04-01` |  |
 | PhoneNumber | Nie dotyczy | Numery telefonów (tylko numery telefonów USA i UE). | `2019-10-01` | Zwrócone także przez NER v 2.1 |
-| E-mail | Nie dotyczy | Adresy e-mail. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Poczta e-mail | Nie dotyczy | Adresy e-mail. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
 | Adres URL | Nie dotyczy | Adresy URL do witryn sieci Web. | `2019-10-01` | Zwrócone także przez NER v 2.1  |
 | Adres IP | Nie dotyczy | Adresy IP sieci. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
 | DateTime | Nie dotyczy | Daty i godziny dnia. | `2019-10-01` | Zwrócone także przez NER v 2.1 | 

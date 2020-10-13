@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202300"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961361"
 ---
 # <a name="display-controls"></a>Kontrolki wyświetlania
 
@@ -55,9 +55,9 @@ Element **DisplayControl** zawiera następujące elementy:
 
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** są używane do wstępnego wypełniania wartości oświadczeń, które mają być zbierane od użytkownika. |
-| DisplayClaims | 0:1 | **DisplayClaims** są używane do reprezentowania oświadczeń, które mają być zbierane od użytkownika. |
-| OutputClaims | 0:1 | **OutputClaims** są używane do reprezentowania oświadczeń do tymczasowego zapisania dla tego elementu **DisplayControl**. |
+| InputClaims | 0:1 | **InputClaims** są używane do wstępnego wypełniania wartości oświadczeń, które mają być zbierane od użytkownika. Aby uzyskać więcej informacji, zobacz [InputClaims](technicalprofiles.md#inputclaims) element. |
+| DisplayClaims | 0:1 | **DisplayClaims** są używane do reprezentowania oświadczeń, które mają być zbierane od użytkownika. Aby uzyskać więcej informacji, zobacz [DisplayClaim](technicalprofiles.md#displayclaim) element.|
+| OutputClaims | 0:1 | **OutputClaims** są używane do reprezentowania oświadczeń do tymczasowego zapisania dla tego elementu **DisplayControl**. Aby uzyskać więcej informacji, zobacz [OutputClaims](technicalprofiles.md#outputclaims) element.|
 | Akcje | 0:1 | **Akcje** są używane do wyświetlania listy profilów technicznych walidacji, które mają być wywoływane w przypadku akcji użytkownika na frontonie. |
 
 ### <a name="input-claims"></a>Oświadczenia wejściowe
@@ -98,7 +98,90 @@ Aby wyrównać dane wyjściowe oświadczeń do kolejnego kroku aranżacji, nale�
 
 Akcja definiuje listę **profilów technicznych weryfikacji**. Są one używane do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyświetlania kontrolki wyświetlania. Profil techniczny weryfikacji sprawdza poprawność danych wejściowych użytkownika i może zwrócić błąd użytkownika. Możesz użyć **ContinueOnError**, **ContinueOnSuccess**i **warunków** wstępnych w akcji kontrolki Display podobnie jak w przypadku, gdy są one używane w profilach technicznych w ramach [weryfikacji](validation-technical-profile.md) w niepotwierdzonym profilu technicznym.
 
-W poniższym przykładzie kod jest wysyłany w wiadomości e-mail lub wiadomości SMS na podstawie wybranego przez użytkownika żądania **mfaType** .
+#### <a name="actions"></a>Akcje
+
+Element **Actions** zawiera następujący element:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| Akcja | 1: n | Lista akcji do wykonania. |
+
+#### <a name="action"></a>Akcja
+
+Element **Action** zawiera następujący atrybut:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| Id | Tak | Typ operacji. Możliwe wartości: `SendCode` lub `VerifyCode` . `SendCode`Wartość wysyła kod do użytkownika. Ta akcja może zawierać dwie profile techniczne weryfikacji: jeden do wygenerowania kodu i jeden do jego wysłania. `VerifyCode`Wartość weryfikuje kod wprowadzony przez użytkownika w wejściowym polu tekstowym. |
+
+Element **Action** zawiera następujący element:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| ValidationClaimsExchange | 1:1 | Identyfikatory profilów technicznych, które są używane do weryfikowania niektórych lub wszystkich oświadczeń wyświetlania w profilu technicznym, do którego się odwołuje. Wszystkie oświadczenia wejściowe w profilu technicznym, do którego się odwołuje, muszą pojawić się w oświadczeniach o podanym profilu technicznym. |
+
+#### <a name="validationclaimsexchange"></a>ValidationClaimsExchange
+
+Element **ValidationClaimsExchange** zawiera następujący element:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1: n | Profil techniczny, który będzie używany do sprawdzania poprawności niektórych lub wszystkich oświadczeń wyświetlania w profilu technicznym, do którego się odwołuje. |
+
+Element **ValidationTechnicalProfile** zawiera następujące atrybuty:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| Identyfikator odwołania | Tak | Identyfikator profilu technicznego jest już zdefiniowany w zasadach lub zasadach nadrzędnych. |
+|ContinueOnError|Nie| Wskazuje, czy sprawdzanie poprawności wszelkich kolejnych weryfikacji profilów technicznych powinno być kontynuowane, jeśli ten profil techniczny tego sprawdzania poprawności zgłasza błąd. Możliwe wartości: `true` lub `false` (domyślnie przetwarzanie dalszych profilów weryfikacyjnych zostanie zatrzymane i zostanie zwrócony błąd). |
+|ContinueOnSuccess | Nie | Wskazuje, czy sprawdzanie poprawności wszelkich kolejnych profilów weryfikacji powinno być kontynuowane, jeśli ten profil techniczny zostanie pomyślnie zakończony. Możliwe wartości: `true` lub `false` . Wartość domyślna to `true` , co oznacza, że przetwarzanie dalszych profilów weryfikacji będzie kontynuowane. |
+
+Element **ValidationTechnicalProfile** zawiera następujący element:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| Warunki wstępne | 0:1 | Lista warunków wstępnych, które muszą być spełnione, aby można było wykonać walidację profilu technicznego. |
+
+Element **Conditional** zawiera następujące atrybuty:
+
+| Atrybut | Wymagane | Opis |
+| --------- | -------- | ----------- |
+| `Type` | Tak | Typ sprawdzenia lub zapytania do wykonania dla warunku wstępnego. Możliwe wartości: `ClaimsExist` lub `ClaimEquals` . `ClaimsExist` Określa, czy akcje mają być wykonywane, jeśli określone oświadczenia istnieją w bieżącym zestawie oświadczeń użytkownika. `ClaimEquals` Określa, że akcje należy wykonać, jeśli istnieje określone zastrzeżenie i jego wartość jest równa określonej wartości. |
+| `ExecuteActionsIf` | Tak | Wskazuje, czy akcje w warunku wstępnym mają być wykonywane, jeśli test ma wartość true lub false. |
+
+Element **Conditional** zawiera następujące elementy:
+
+| Element | Wystąpień | Opis |
+| ------- | ----------- | ----------- |
+| Wartość | 1: n | Dane, które są używane przez sprawdzanie. Jeśli typ tego sprawdzenia to `ClaimsExist` , to pole określa ClaimTypeReferenceId do zapytania. Jeśli typ sprawdzenia to `ClaimEquals` , to pole określa ClaimTypeReferenceId do zapytania. Określ wartość do sprawdzenia w innym elemencie wartości.|
+| Akcja | 1:1 | Akcja, która powinna zostać podjęta, jeśli sprawdzanie warunków wstępnych w ramach kroku aranżacji ma wartość true. Wartość **akcji** jest ustawiona na `SkipThisValidationTechnicalProfile` , która określa, że skojarzony profil techniczny weryfikacji nie powinien być wykonywany. |
+
+Poniższy przykład wysyła i weryfikuje adres e-mail przy użyciu [profilu technicznego usługi Azure AD SSPR](aad-sspr-technical-profile.md).
+
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+W poniższym przykładzie kod jest wysyłany w wiadomości e-mail lub wiadomości SMS na podstawie wybranych przez użytkownika roszczeń **mfaType** z warunkami wstępnymi.
 
 ```xml
 <Action Id="SendCode">
@@ -141,3 +224,10 @@ Na przykład:
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## <a name="next-steps"></a>Następne kroki
+
+Przykłady korzystania z kontrolki Display można znaleźć w temacie: 
+
+- [Niestandardowa Weryfikacja poczty e-mail za pomocą Mailjet](custom-email-mailjet.md)
+- [Niestandardowa Weryfikacja poczty e-mail za pomocą SendGrid](custom-email-sendgrid.md)

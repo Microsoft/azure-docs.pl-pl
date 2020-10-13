@@ -6,34 +6,39 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e5c9540bed34de3cad5c74c7041c8d7e06aef9ca
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447217"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946063"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
 
-Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualizacje, nieprawidłowej konfiguracji ustawień zabezpieczeń systemu operacyjnego, stanu programu Endpoint Protection oraz ochrony kondycji i zagrożeń. 
+Zbieranie danych jest wymagane w celu zapewnienia wglądu w brakujące aktualizacje, nieprawidłowej konfiguracji ustawień zabezpieczeń systemu operacyjnego, stanu programu Endpoint Protection oraz ochrony kondycji i zagrożeń. Zbieranie danych jest wymagana tylko w przypadku zasobów obliczeniowych (maszyn wirtualnych, zestawów skalowania maszyn wirtualnych, kontenerów IaaS i komputerów spoza platformy Azure). Możesz skorzystać z Azure Security Center, nawet jeśli nie zainicjujesz agentów. jednak będziesz mieć ograniczone zabezpieczenia i możliwości wymienione powyżej nie są obsługiwane.  
 
-W tym artykule opisano sposób instalowania agenta Log Analytics i ustawiania obszaru roboczego Log Analytics, w którym będą przechowywane zebrane dane. Obie operacje są wymagane do włączenia zbierania danych. 
+W tym artykule opisano sposób instalowania agenta Log Analytics i ustawiania obszaru roboczego Log Analytics, w którym będą przechowywane zebrane dane. Obie operacje są wymagane do włączenia zbierania danych. Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nawiązać dodatkowe opłaty za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!NOTE]
-> - Zbieranie danych jest wymagana tylko w przypadku zasobów obliczeniowych (maszyn wirtualnych, zestawów skalowania maszyn wirtualnych, kontenerów IaaS i komputerów spoza platformy Azure). Możesz skorzystać z Azure Security Center, nawet jeśli nie zainicjujesz agentów. jednak będziesz mieć ograniczone zabezpieczenia i możliwości wymienione powyżej nie są obsługiwane.  
-> - Listę obsługiwanych platform można znaleźć [w temacie obsługiwane platformy w Azure Security Center](security-center-os-coverage.md).
-> - Przechowywanie danych w Log Analytics, bez względu na to, czy używasz nowego, czy istniejącego obszaru roboczego, może nawiązać dodatkowe opłaty za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
+> [!TIP]
+> Listę obsługiwanych platform można znaleźć [w temacie obsługiwane platformy w Azure Security Center](security-center-os-coverage.md).
 
 ## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Włącz automatyczną obsługę administracyjną agenta Log Analytics <a name="auto-provision-mma"></a>
+
+> [!NOTE]
+> Użytkownicy platformy Azure — należy pamiętać, że zbieranie zdarzeń zabezpieczeń w kontekście jednego obszaru roboczego można skonfigurować z poziomu Azure Security Center lub platformy Azure, ale nie obu. Jeśli planujesz dodać wskaźnik platformy Azure do obszaru roboczego, który już otrzymuje alerty usługi Azure Defender z Azure Security Center i jest ustawiony na zbieranie zdarzeń zabezpieczeń, masz dwie opcje:
+> - Pozostaw zbieranie zdarzeń zabezpieczeń w Azure Security Center. Będzie można wykonywać zapytania i analizować te zdarzenia na platformie Azure, a także w usłudze Azure Defender. Nie będzie jednak można monitorować stanu łączności łącznika ani zmieniać jego konfiguracji na platformie Azure — wskaźnik. Jeśli jest to ważne dla Ciebie, weź pod uwagę drugą opcję.
+>
+> - [Wyłącz zbieranie zdarzeń zabezpieczeń](#data-collection-tier) w Azure Security Center, a następnie Dodaj łącznik zdarzeń zabezpieczeń na platformie Azure. Podobnie jak w przypadku pierwszej opcji, można wysyłać zapytania i analizować zdarzenia zarówno z platformy Azure, jak i usługi Azure Defender/ASC, ale teraz będzie można monitorować stan łączności łącznika lub zmieniać jego konfigurację w systemach i tylko na platformie Azure.
+
 
 Aby zebrać dane z maszyn, należy zainstalować agenta Log Analytics. Instalację agenta można wykonać automatycznie (zalecane) lub ręcznie zainstalować agenta. Automatyczne Inicjowanie obsługi jest domyślnie wyłączone.
 
 Gdy automatyczne Inicjowanie obsługi jest włączone, Security Center wdraża agenta Log Analytics na wszystkich obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych. Zalecana jest Automatyczna obsługa administracyjna, ale w razie potrzeby można zainstalować agenta ręcznie (zobacz [Ręczne instalowanie agenta log Analytics](#manual-agent)).
 
-
+Dzięki agentowi wdrożonemu na maszynach Security Center mogą zapewnić dodatkowe zalecenia dotyczące stanu aktualizacji systemu, konfiguracji zabezpieczeń systemu operacyjnego, programu Endpoint Protection, a także generować dodatkowe alerty zabezpieczeń.
 
 Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
 
@@ -44,20 +49,9 @@ Aby włączyć automatyczną obsługę administracyjną agenta Log Analytics:
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics":::
 
->[!TIP]
-> Jeśli konieczne jest zainicjowanie obszaru roboczego, Instalacja agenta może trwać do 25 minut.
+    >[!TIP]
+    > Jeśli konieczne jest zainicjowanie obszaru roboczego, Instalacja agenta może trwać do 25 minut.
 
-Dzięki agentowi wdrożonemu na maszynach Security Center mogą zapewnić dodatkowe zalecenia dotyczące stanu aktualizacji systemu, konfiguracji zabezpieczeń systemu operacyjnego, programu Endpoint Protection, a także generować dodatkowe alerty zabezpieczeń.
-
->[!NOTE]
-> Ustawienie opcji autozastrzeganie na **wyłączone** nie powoduje usunięcia agenta log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został już zainicjowany. Wyłączenie automatycznej aprowizacji powoduje ograniczenie monitorowania zabezpieczeń dla zasobów.
-
->[!NOTE]
-> - Aby uzyskać instrukcje dotyczące inicjowania obsługi istniejącej instalacji, zobacz [Automatyczne Inicjowanie obsługi w przypadku istniejącej instalacji agenta](#preexisting).
-> - Aby uzyskać instrukcje dotyczące ręcznego inicjowania obsługi, zobacz [Ręczne instalowanie rozszerzenia agenta log Analytics](#manual-agent).
-> - Aby uzyskać instrukcje dotyczące wyłączania automatycznej aprowizacji, zobacz [wyłączanie automatycznej aprowizacji](#offprovisioning).
-> - Aby uzyskać instrukcje na temat sposobu dołączania Security Center przy użyciu programu PowerShell, zobacz Automatyzowanie dołączania [Azure Security Center przy użyciu programu PowerShell](security-center-powershell-onboarding.md).
->
 
 ## <a name="workspace-configuration"></a>Konfiguracja obszaru roboczego
 Dane zebrane przez usługę Security Center są przechowywane w obszarach roboczych usługi Log Analytics. Dane można zbierać z maszyn wirtualnych platformy Azure przechowywanych w obszarach roboczych utworzonych przez Security Center lub w istniejącym utworzonym obszarze roboczym. 
@@ -73,7 +67,7 @@ Aby wybrać obszar roboczy utworzony przez Security Center:
 1. W obszarze **Domyślna konfiguracja obszaru roboczego**wybierz pozycję Użyj obszarów roboczych utworzonych przez Centrum zabezpieczeń.
     :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Włączanie obsługi administracyjnej agenta Log Analytics"::: 
 
-1. Kliknij pozycję **Zapisz**.<br>
+1. Kliknij przycisk **Zapisz**.<br>
     Security Center tworzy nową grupę zasobów i domyślny obszar roboczy w tej geolokalizacji i łączy agenta z tym obszarem roboczym. Konwencja nazewnictwa obszaru roboczego i grupy zasobów to:<br>
    **Obszar roboczy: DefaultWorkspace-[Identyfikator subskrypcji]-[geograficzna] <br> Grupa zasobów: DefaultResourceGroup-[Geo]**
 
@@ -147,20 +141,16 @@ Po wybraniu obszaru roboczego, w którym będą przechowywane dane, są dostępn
 Wybranie warstwy zbierania danych w usłudze Azure Security Center ma wpływ tylko na przechowywanie zdarzeń zabezpieczeń w obszarze roboczym usługi Log Analytics. Agent Log Analytics będzie nadal zbierać i analizować zdarzenia zabezpieczeń wymagane do ochrony przed zagrożeniami Azure Security Center, niezależnie od tego, która warstwa zdarzeń zabezpieczeń została wybrana do przechowywania w obszarze roboczym Log Analytics (jeśli istnieje). Jeśli postanowisz przechowywać zdarzenia zabezpieczeń w obszarze roboczym, spowoduje to aktywowanie badania, wyszukiwania i inspekcji tych zdarzeń w obszarze roboczym. 
 > [!NOTE]
 > Przechowywanie danych w usłudze log Analytics może wiązać się z dodatkowymi opłatami za przechowywanie danych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> Można wybrać odpowiednie zasady filtrowania dla subskrypcji i obszarów roboczych z czterech zestawów zdarzeń, które mają być przechowywane w obszarze roboczym: 
 
+Można wybrać odpowiednie zasady filtrowania dla subskrypcji i obszarów roboczych z czterech zestawów zdarzeń, które mają być przechowywane w obszarze roboczym: 
 - **Brak** — Wyłącz magazyn zdarzeń zabezpieczeń. Jest to ustawienie domyślne.
 - **Minimalny** — mniejszy zestaw zdarzeń dla klientów, którzy chcą zminimalizować wolumin zdarzeń.
 - **Wspólne** — jest to zestaw zdarzeń, które spełniają większość klientów i umożliwiają im pełny dziennik inspekcji.
 - **Wszystkie zdarzenia** — dla klientów, którzy chcą mieć pewność, że wszystkie zdarzenia są przechowywane.
 
+Te zestawy zdarzeń zabezpieczeń są dostępne tylko w usłudze Azure Defender. Zobacz [cennik](security-center-pricing.md), aby dowiedzieć się więcej na temat warstw cenowych usługi Security Center.
 
-> [!NOTE]
-> Te zestawy zdarzeń zabezpieczeń są dostępne tylko w usłudze Azure Defender. Zobacz [cennik](security-center-pricing.md), aby dowiedzieć się więcej na temat warstw cenowych usługi Security Center.
 Te zestawy zostały zaprojektowane w celu rozwiązywania typowych scenariuszy. Upewnij się, że należy obliczyć, który z nich odpowiada Twoim potrzebom przed wdrożeniem.
->
->
 
 Aby określić zdarzenia, które będą należeć do **wspólnych** i **minimalnych** zestawów zdarzeń, firma Microsoft współpracuje z klientami i standardami branżowymi, aby dowiedzieć się więcej o niefiltrowanej częstotliwości poszczególnych zdarzeń i ich użyciu. W tym procesie użyto następujących wytycznych:
 
@@ -264,9 +254,8 @@ Można ręcznie zainstalować agenta Log Analytics, aby Security Center mógł z
 
 1. Jeśli chcesz wdrożyć agentów na nowych maszynach wirtualnych przy użyciu szablonu Menedżer zasobów, Zainstaluj agenta Log Analytics:
 
-   a.  [Zainstaluj agenta Log Analytics dla systemu Windows](../virtual-machines/extensions/oms-windows.md)
-    
-   b.  [Zainstaluj agenta Log Analytics dla systemu Linux](../virtual-machines/extensions/oms-linux.md)
+   - [Zainstaluj agenta Log Analytics dla systemu Windows](../virtual-machines/extensions/oms-windows.md)
+   - [Zainstaluj agenta Log Analytics dla systemu Linux](../virtual-machines/extensions/oms-linux.md)
 
 1. Aby wdrożyć rozszerzenia na istniejących maszynach wirtualnych, postępuj zgodnie z instrukcjami w [temacie zbieranie danych o platformie Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
@@ -277,7 +266,6 @@ Można ręcznie zainstalować agenta Log Analytics, aby Security Center mógł z
 1. Aby wdrożyć rozszerzenie przy użyciu programu PowerShell, Skorzystaj z instrukcji z dokumentacji dotyczącej maszyn wirtualnych:
 
     - [Dla maszyn z systemem Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-
     - [Dla maszyn z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
 
 
@@ -302,8 +290,8 @@ Można ręcznie zainstalować agenta Log Analytics, aby Security Center mógł z
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule pokazano, jak działa zbieranie danych i automatyczne Inicjowanie obsługi w Security Center. Aby dowiedzieć się więcej na temat Security Center, zobacz następujące strony:
 
-* [Centrum zabezpieczeń Azure — często zadawane pytania](faq-general.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
-* [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
+- [Centrum zabezpieczeń Azure — często zadawane pytania](faq-general.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
+- [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
 
 
 

@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 52a2b5e27cd5857416343e559237d08ea9a591be
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813240"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972394"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostyka rozruchu platformy Azure
 
@@ -39,9 +39,9 @@ W bloku maszyna wirtualna opcja Diagnostyka rozruchu znajduje się w sekcji *Pom
 - Diagnostyka rozruchu jest dostępna tylko dla maszyn wirtualnych Azure Resource Manager. 
 - Diagnostyka rozruchu nie obsługuje kont usługi Premium Storage, jeśli konto magazynu w warstwie Premium jest używane na potrzeby diagnostyki rozruchu, `StorageAccountTypeNotSupported` podczas uruchamiania maszyny wirtualnej wystąpi błąd. 
 - Zarządzane konta magazynu są obsługiwane w Menedżer zasobów interfejsie API w wersji "2020-06-01" i nowszych.
-- Usługa Azure serial Console jest obecnie niezgodna z zarządzanym kontem magazynu na potrzeby diagnostyki rozruchu. Dowiedz się więcej o [usłudze Azure serial Console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- Usługa Azure serial Console jest obecnie niezgodna z zarządzanym kontem magazynu na potrzeby diagnostyki rozruchu. Dowiedz się więcej o [usłudze Azure serial Console](./troubleshooting/serial-console-overview.md).
 - Diagnostyka rozruchu przy użyciu konta zarządzania magazynu może być obecnie stosowana tylko w Azure Portal. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [konsoli szeregowej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview) i sposobach [rozwiązywania problemów z maszynami wirtualnymi na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics)przy użyciu diagnostyki rozruchu.
+Dowiedz się więcej o [konsoli szeregowej platformy Azure](./troubleshooting/serial-console-overview.md) i sposobach [rozwiązywania problemów z maszynami wirtualnymi na platformie Azure](./troubleshooting/boot-diagnostics.md)przy użyciu diagnostyki rozruchu.

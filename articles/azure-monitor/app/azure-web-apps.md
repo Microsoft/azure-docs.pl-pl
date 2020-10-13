@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji dla usług Azure App Services. 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759462"
+ms.locfileid: "91875612"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -75,7 +75,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Obsługiwane są następujące wersje programu .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
+Obsługiwane są następujące wersje programu .NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
 
 Kierowanie całego środowiska z platformy .NET Core, samodzielnego wdrażania i aplikacji opartych na systemie Linux nie jest obecnie **obsługiwane** w przypadku monitorowania opartego na agentach/rozszerzeniach. ([Instrumentacja ręczna](./asp-net-core.md) za pośrednictwem kodu będzie działała we wszystkich poprzednich scenariuszach).
 
@@ -90,7 +90,7 @@ Kierowanie całego środowiska z platformy .NET Core, samodzielnego wdrażania i
 
      ![Instrumentacja aplikacji internetowej](./media/azure-web-apps/create-resource-01.png)
 
-2. Po określeniu zasobu, który ma być używany, można wybrać, w jaki sposób Application Insights zbierać dane na platformę dla aplikacji. Program .NET Core oferuje **zalecaną kolekcję** lub **wyłączony** dla programów .net Core 2,0, 2,1, 2,2 i 3,0.
+2. Po określeniu zasobu, który ma być używany, można wybrać, w jaki sposób Application Insights zbierać dane na platformę dla aplikacji. Program .NET Core oferuje **zalecaną kolekcję** lub **wyłączony** dla ASP.NET Core 2,1, 2,2, 3,0 i 3,1.
 
     ![Wybierz opcje na platformę](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ Poniżej przedstawiono Przewodnik rozwiązywania problemów krok po kroku dotycz
 
     ![Zrzut ekranu przedstawiający https://yoursitename.scm.azurewebsites/applicationinsights stronę wyników](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Upewnij się, że `Application Insights Extension Status` jest `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Jeśli nie jest uruchomiona, postępuj zgodnie z [instrukcjami dotyczącymi włączania monitorowania Application Insights](#enable-application-insights)
+    * Upewnij się, że `Application Insights Extension Status` jest `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * Jeśli nie jest uruchomiona, postępuj zgodnie z [instrukcjami dotyczącymi włączania monitorowania Application Insights](#enable-application-insights)
 
     * Upewnij się, że źródło stanu istnieje i wygląda następująco: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Jeśli podobna wartość nie jest obecna, oznacza to, że aplikacja nie jest aktualnie uruchomiona lub nie jest obsługiwana. Aby upewnić się, że aplikacja jest uruchomiona, spróbuj ręcznie odwiedzać adresy URL i punkty końcowe aplikacji, co umożliwi udostępnienie informacji o środowisku uruchomieniowym.
@@ -406,6 +406,10 @@ Witryny PHP i WordPress nie są obsługiwane. Obecnie nie ma oficjalnie obsługi
 ### <a name="connection-string-and-instrumentation-key"></a>Parametry połączenia i klucz Instrumentacji
 
 Gdy jest używane monitorowanie bez kodu, wymagane są tylko parametry połączenia. Mimo że nadal zalecamy ustawienie klucza Instrumentacji w celu zachowania zgodności z poprzednimi wersjami w przypadku wykonywania Instrumentacji ręcznej.
+
+## <a name="release-notes"></a>Informacje o wersji
+
+Aby zapoznać się z najnowszymi aktualizacjami i poprawkami błędów [, zapoznaj się z informacjami o wersji](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Uruchom profilera aplikacji na żywo](./profiler.md).
