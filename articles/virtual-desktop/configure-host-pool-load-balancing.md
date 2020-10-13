@@ -3,15 +3,15 @@ title: Konfigurowanie równoważenia obciążenia systemu Windows Virtual Deskto
 description: Jak skonfigurować metodę równoważenia obciążenia dla środowiska pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010110"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951659"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurowanie metody równoważenia obciążenia usługi Windows Virtual Desktop
 
@@ -51,13 +51,19 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## <a name="configure-depth-first-load-balancing"></a>Konfigurowanie pierwszej równoważenia obciążenia
 
-Usługa Równoważenie obciążenia po raz pierwszy dystrybuuje nowe sesje użytkowników do dostępnego hosta sesji o największej liczbie połączeń, ale nie osiągnął progu limitu liczby sesji. Podczas konfigurowania równoważenia obciążenia najpierw należy ustawić maksymalny limit sesji dla każdego hosta sesji w puli hostów.
+Usługa Równoważenie obciążenia po raz pierwszy dystrybuuje nowe sesje użytkowników do dostępnego hosta sesji o największej liczbie połączeń, ale nie osiągnął progu limitu liczby sesji.
+
+>[!IMPORTANT]
+>Podczas konfigurowania równoważenia obciążenia najpierw należy ustawić maksymalny limit sesji dla każdego hosta sesji w puli hostów.
 
 Aby skonfigurować pulę hostów do wykonywania równoważenia obciążenia w pierwszej kolejności, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ###
 ```
+
+>[!NOTE]
+> Algorytm równoważenia obciążenia pierwszego (głębokość) dystrybuuje sesje do hostów sesji na podstawie maksymalnego limitu hosta sesji ( `-MaxSessionLimit` ). Wartość domyślna tego parametru to `999999` , który jest również największą możliwą liczbą, na którą można ustawić tę zmienną. Ten parametr jest wymagany w przypadku użycia algorytmu równoważenia obciążenia pierwszego numeru. W celu uzyskania najlepszego możliwego środowiska użytkownika należy zmienić parametr limitu maksymalnej liczby hostów sesji na numer, który najlepiej odpowiada Twojemu środowisku.
 
 Aby upewnić się, że to ustawienie zostało zaktualizowane, uruchom następujące polecenie cmdlet:
 

@@ -9,15 +9,15 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577649"
 ---
-# <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak zatwierdzić urządzenia Plug and Play IoT
+# <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak przeprowadzić certyfikację urządzenia IoT Plug and Play
 
-Program certyfikacji urządzenia Plug and Play IoT zawiera narzędzia do sprawdzenia, czy urządzenie spełnia wymagania certyfikacji Plug and Play IoT. Narzędzia ułatwiają również organizacjom Rozwiązywanie problemów z dostępnością urządzeń Plug and Play IoT. Te certyfikowane urządzenia są dostosowane do rozwiązań IoT i pomagają w skróceniu czasu wprowadzenia na rynek.
+Program certyfikacji urządzenia IoT Plug and Play zawiera narzędzia do sprawdzania, czy urządzenie spełnia wymagania certyfikacji IoT Plug and Play. Narzędzia ułatwiają również organizacjom Rozwiązywanie problemów z dostępnością urządzeń Plug and Play IoT. Te certyfikowane urządzenia są dostosowane do rozwiązań IoT i pomagają w skróceniu czasu wprowadzenia na rynek.
 
 W tym artykule wyjaśniono, jak:
 
@@ -45,7 +45,7 @@ Aby spełnić wymagania dotyczące certyfikacji, urządzenie musi:
 - Wyślij Identyfikator modelu podczas rejestracji w usłudze [DPS](concepts-developer-guide-device-csharp.md#dps-payload) w ładunku aprowizacji.
 - Ogłoś Identyfikator modelu podczas połączenia usługi [MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
-## <a name="test-with-the-azure-iot-extension-cli"></a>Testowanie przy użyciu interfejsu wiersza polecenia usługi Azure IoT Extension
+## <a name="test-with-the-azure-iot-extension-cli"></a>Testowanie przy użyciu rozszerzenia interfejsu wiersza polecenia usługi Azure IoT
 
 [Rozszerzenie interfejsu wiersza polecenia usługi Azure IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) pozwala sprawdzić, czy implementacja urządzenia jest zgodna z modelem przed przesłaniem urządzenia do certyfikacji za pomocą portalu certyfikowanego urządzenia platformy Azure.
 
@@ -162,7 +162,7 @@ Przykładowe dane wyjściowe przebiegu testu
             },
 ```
 
-## <a name="test-using-the-azure-certified-device-portal"></a>Testowanie przy użyciu portalu certyfikowanego urządzenia platformy Azure
+## <a name="test-using-the-azure-certified-device-portal"></a>Testowanie przy użyciu portalu Azure Certified Device
 
 Poniższe kroki pokazują, jak korzystać z [portalu urządzenia z certyfikatem platformy Azure](https://aka.ms/acdp) do dołączenia, zarejestrować szczegóły produktu, przesłać Przewodnik wprowadzający, a następnie uruchomić testy certyfikacji.
 
@@ -199,7 +199,7 @@ Należy wykonać trzy czynności:
 
 1. Łączenie i odnajdowanie interfejsów. Urządzenie musi nawiązać połączenie z usługą certyfikacji Azure IoT za pomocą usługi DPS. Wybierz metodę uwierzytelniania (certyfikat X. 509, klucze symetryczne lub moduł zaufanej platformy), aby użyć i zaktualizować aplikację urządzenia za pomocą informacji DPS.
 1. Przejrzyj interfejsy. Sprawdź interfejs i upewnij się, że każdy z nich ma dane wejściowe ładunku, które mają sens dla testowania.
-1. Badan. System sprawdza każdy model urządzenia, aby sprawdzić, czy dane telemetryczne, właściwości i polecenia opisane w modelu są zgodne z konwencjami Plug and Play IoT. Po zakończeniu testu wybierz łącze **Wyświetl dzienniki** , aby wyświetlić dane telemetryczne z urządzenia, a następnie nieprzetworzonych danych wysyłanych do IoT Hub właściwości bliźniaczych urządzeń.
+1. Test. System sprawdza każdy model urządzenia, aby sprawdzić, czy dane telemetryczne, właściwości i polecenia opisane w modelu są zgodne z konwencjami Plug and Play IoT. Po zakończeniu testu wybierz łącze **Wyświetl dzienniki** , aby wyświetlić dane telemetryczne z urządzenia, a następnie nieprzetworzonych danych wysyłanych do IoT Hub właściwości bliźniaczych urządzeń.
 
 ### <a name="submit-and-publish"></a>Prześlij i Opublikuj
 

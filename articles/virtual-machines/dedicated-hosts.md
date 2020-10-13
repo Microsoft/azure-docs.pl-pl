@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373128"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979023"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedykowane hosty platformy Azure
 
@@ -122,7 +122,7 @@ Infrastruktura obsługująca maszyny wirtualne może być czasami aktualizowana 
 
 **Kontrola konserwacji** udostępnia klientom opcję pomijania regularnych aktualizacji platformy zaplanowanych na ich dedykowanych hostach, a następnie zastosuje ją w wybranym momencie w 35 dziennym oknie.
 
-Aby uzyskać więcej informacji, zobacz [Zarządzanie aktualizacjami platform przy użyciu sterowania konserwacją](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+Aby uzyskać więcej informacji, zobacz [Zarządzanie aktualizacjami platform przy użyciu sterowania konserwacją](./maintenance-control.md).
 
 ## <a name="capacity-considerations"></a>Zagadnienia dotyczące pojemności
 
@@ -142,7 +142,7 @@ Udostępnienie dedykowanego hosta będzie wymagało użycia dedykowanego vCPU ho
 
 ![Zrzut ekranu strony użycie i przydziały w portalu](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-Aby uzyskać więcej informacji, zobacz [przydziały maszyn wirtualnych vCPU](/azure/virtual-machines/windows/quotas).
+Aby uzyskać więcej informacji, zobacz [przydziały maszyn wirtualnych vCPU](./windows/quotas.md).
 
 Bezpłatna wersja próbna i subskrypcje MSDN nie mają przydziału dla dedykowanych hostów platformy Azure.
 
@@ -182,7 +182,7 @@ Platforma Azure monitoruje stan kondycji hostów i zarządza nim. Podczas wykony
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dedykowany Host można wdrożyć przy użyciu [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [portalu](./windows/dedicated-hosts-portal.md)i [interfejsu wiersza polecenia platformy Azure](./linux/dedicated-hosts-cli.md).
+- Dedykowany Host można wdrożyć przy użyciu [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [portalu](./dedicated-hosts-portal.md)i [interfejsu wiersza polecenia platformy Azure](./linux/dedicated-hosts-cli.md).
 
 - Istnieje przykładowy szablon, który znajduje się w [tym miejscu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), który używa stref i domen błędów w celu uzyskania maksymalnej odporności w regionie.
 

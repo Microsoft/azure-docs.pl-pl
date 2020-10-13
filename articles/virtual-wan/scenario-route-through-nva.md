@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976252"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
@@ -71,8 +71,8 @@ Dzięki temu trasy statyczne, które są potrzebne w tabeli domyślnej do wysył
 
 | Opis | Tabela tras | Trasa statyczna              |
 | ----------- | ----------- | ------------------------- |
-| Sieć wirtualna 2       | Domyślny     | 10.2.0.0/16 — > eastusconn |
-| Sieć wirtualna 4       | Domyślny     | 10.4.0.0/16 — > weconn     |
+| Sieć wirtualna 2       | Domyślne     | 10.2.0.0/16 — > eastusconn |
+| Sieć wirtualna 4       | Domyślne     | 10.4.0.0/16 — > weconn     |
 
 Teraz wirtualna sieć WAN wie, z którym połączeniem należy wysyłać pakiety, ale połączenie musi wiedzieć, co należy zrobić podczas otrzymywania tych pakietów: jest to miejsce, w którym są używane tabele tras połączeń. W tym miejscu będziemy używać krótszych prefiksów (/24 zamiast dłużej/16), aby upewnić się, że te trasy mają preferencję dotyczącą tras importowanych z urządzenie WUS sieci wirtualnych (Sieć wirtualna 2 i Sieć wirtualna 4):
 
@@ -99,7 +99,7 @@ Na **rysunku 2**znajdują się dwa centra: **Hub1** i **Hub2**.
 
 **Rysunek 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Rysunek 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Rysunek 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Przepływ pracy scenariusza
 
@@ -117,7 +117,7 @@ Wirtualna sieć WAN nie obsługuje scenariusza, w którym sieci wirtualnych 5, 6
 
 2. Dodaj zagregowany wpis trasy statycznej dla sieci wirtualnych 2, 5, 6 do domyślnej tabeli tras centrum 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Przykład":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Rysunek 1":::
 
 3. Skonfiguruj trasę statyczną dla sieci wirtualnych 5, 6 w połączeniu z siecią wirtualną sieci wirtualnej 2. Aby skonfigurować konfigurację routingu dla połączenia sieci wirtualnej, zobacz [Routing koncentratora wirtualnego](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Spowoduje to zmianę konfiguracji routingu, jak pokazano na **rysunku 3**poniże
 
 **Rysunek 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Rysunek 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Rysunek 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,20 +1,20 @@
 ---
 title: Użyj Azure Monitor skoroszytów z Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak za pomocą skoroszytów Azure Monitor przejrzeć inspekcje zabezpieczeń i poznać problemy w Azure Active Directory Domain Servicesej domenie zarządzanej.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 280b7e051c4c9d87c504c1abf6aca0b04bfa1b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 02c4679016ea80a4ac8bb53b502292945cbe9d7b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704603"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967073"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure Active Directory Domain Services przy użyciu skoroszytów Azure Monitor
 
@@ -22,7 +22,7 @@ Aby ułatwić zrozumienie stanu domeny zarządzanej Azure Active Directory Domai
 
 W tym artykule pokazano, jak używać skoroszytów Azure Monitor do przeglądania zdarzeń inspekcji zabezpieczeń w usłudze Azure AD DS.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f23e2c58ae25fefb8508474921e476163b33e79
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830448"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978428"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -26,7 +26,7 @@ Jeśli używasz [Azure Security Center](../../security-center/index.yml), zostan
 > [!WARNING]
 > - Jeśli w celu zaszyfrowania maszyny wirtualnej użyto wcześniej Azure Disk Encryption z usługą Azure AD, musisz użyć tej opcji, aby zaszyfrować maszynę wirtualną. Aby uzyskać szczegółowe informacje, zobacz [Azure Disk Encryption w usłudze Azure AD (w poprzedniej wersji)](disk-encryption-overview-aad.md) . 
 > - Niektóre zalecenia mogą zwiększyć użycie zasobów, sieci lub obliczeń, co skutkuje dodatkowymi kosztami licencji lub subskrypcji. Aby tworzyć zasoby na platformie Azure w obsługiwanych regionach, musisz mieć prawidłową aktywną subskrypcję platformy Azure.
-> - Obecnie maszyny wirtualne generacji 2 nie obsługują Azure Disk Encryption. Aby uzyskać szczegółowe informacje, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../windows/generation-2.md) .
+> - Obecnie maszyny wirtualne generacji 2 nie obsługują Azure Disk Encryption. Aby uzyskać szczegółowe informacje, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](../generation-2.md) .
 
 Podstawowe informacje o Azure Disk Encryption dla systemu Linux można uzyskać w ciągu kilku minut od [utworzenia i zaszyfrowania maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure — szybki start](disk-encryption-cli-quickstart.md) lub [Tworzenie i szyfrowanie maszyny wirtualnej z systemem linux przy użyciu Azure PowerShell przewodnika Szybki Start](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,7 @@ Po zakończeniu procesu szyfrowania dysku systemu operacyjnego na maszynach wirt
 
 Azure Disk Encryption jest również dostępna dla maszyn wirtualnych z magazynem w warstwie Premium.
 
-Azure Disk Encryption nie jest dostępna w przypadku [maszyn wirtualnych 2. generacji](generation-2.md#generation-1-vs-generation-2-capabilities)) i [maszyn wirtualnych z serii Lsv2](../lsv2-series.md)). Aby uzyskać więcej wyjątków, zobacz [Azure Disk Encryption: scenariusze nieobsługiwane](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption nie jest dostępna w przypadku [maszyn wirtualnych 2. generacji](../generation-2.md#generation-1-vs-generation-2-capabilities) i [maszyn wirtualnych z serii Lsv2](../lsv2-series.md). Aby uzyskać więcej wyjątków, zobacz [Azure Disk Encryption: scenariusze nieobsługiwane](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 

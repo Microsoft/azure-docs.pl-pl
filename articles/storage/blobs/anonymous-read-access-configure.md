@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087358"
+ms.locfileid: "91931074"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurowanie anonimowego publicznego dostępu do odczytu dla kontenerów i obiektów BLOB
 
@@ -56,7 +56,7 @@ Aby zezwolić na dostęp publiczny do konta magazynu lub go uniemożliwić, skon
 > [!NOTE]
 > Właściwość **AllowBlobPublicAccess** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na dostęp publiczny, gdy wartość właściwości jest **równa null** lub jeśli jest **prawdziwa**.
 >
-> Właściwość **AllowBlobPublicAccess** jest obecnie dostępna tylko dla kont magazynu w chmurze publicznej platformy Azure.
+> Właściwość **AllowBlobPublicAccess** jest dostępna dla wszystkich kont magazynu w chmurze publicznej platformy Azure i w chmurach Azure Government.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 

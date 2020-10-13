@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650310"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964540"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Zaloguj się, aby Azure Active Directory przy użyciu poczty e-mail jako alternatywnego identyfikatora logowania (wersja zapoznawcza)
 
@@ -65,7 +65,7 @@ W bieżącym stanie wersji zapoznawczej następujące ograniczenia są stosowane
 
 Tradycyjne Active Directory Domain Services (AD DS) lub Active Directory Federation Services (AD FS) uwierzytelnianie odbywa się bezpośrednio w sieci i jest obsługiwane przez infrastrukturę AD DS. W przypadku uwierzytelniania hybrydowego użytkownicy mogą rejestrować się bezpośrednio w usłudze Azure AD.
 
-Aby obsłużyć to podejście do uwierzytelniania hybrydowego, należy synchronizować lokalne środowisko AD DS do usługi Azure AD przy użyciu [Azure AD Connect][azure-ad-connect] i skonfigurować je do używania funkcji synchronizacji skrótów haseł (PHS) lub uwierzytelniania przekazywanego (PTA).
+Aby obsłużyć to podejście do uwierzytelniania hybrydowego, zsynchronizuj lokalne środowisko AD DS z usługą Azure AD przy użyciu [Azure AD Connect][azure-ad-connect] i skonfiguruj je tak, aby korzystało z funkcji synchronizacji skrótów haseł (PHS) lub uwierzytelniania Pass-Through (PTA).
 
 W obu opcjach konfiguracji użytkownik przesyła swoją nazwę użytkownika i hasło do usługi Azure AD, która sprawdza poprawność poświadczeń i wystawia bilet. Gdy użytkownicy logują się do usługi Azure AD, eliminuje konieczność, aby Twoja organizacja mogła hostować infrastrukturę AD FS i zarządzać nią.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568535"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Rozgałęzianie działań i łączenie łańcuchów w potoku Azure Data Factory przy użyciu Azure Portal
@@ -151,7 +151,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Wybierz opcję **V2** w obszarze **Wersja**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-7. Kliknij pozycję **Utwórz**.      
+7. Kliknij przycisk **Utwórz**.      
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**.
 
     ![kafelek Wdrażanie fabryki danych](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -198,7 +198,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
 
     1. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.
     2. Wybierz swoje konto usługi Azure Storage w polu **Nazwa konta magazynu**.
-    3. Kliknij pozycję **Zapisz**.
+    3. Kliknij przycisk **Zapisz**.
 
    ![Nowa połączona usługa Azure Storage](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Wprowadź wartość `@pipeline().parameters.sourceBlobContainer` jako folder oraz `emp.txt` jako nazwę pliku. Parametr potoku sourceBlobContainer umożliwia ustawienie ścieżki folderu dla zestawu danych.
@@ -293,7 +293,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
     1. Wprowadź wartość **adftutorial/adfv2branch/input** dla parametru **sourceBlobContainer**.
     2. Wprowadź wartość **adftutorial/adfv2branch/output** dla parametru **sinkBlobContainer**.
     3. Wprowadź **adres e-mail** dla parametru **receiver**.
-    4. Kliknij przycisk **Zakończ**
+    4. Kliknij przycisk **Zakończ** .
 
         ![Parametry uruchomienia potoku](./media/tutorial-control-flow-portal/pipeline-run-parameters.png)
 
@@ -314,7 +314,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
     1. Wprowadź wartość **adftutorial/dummy/input** dla parametru **sourceBlobContainer**. Upewnij się, że folder „dummy” nie istnieje w kontenerze adftutorial.
     2. Wprowadź wartość **adftutorial/dummy/output** dla parametru **sinkBlobContainer**.
     3. Wprowadź **adres e-mail** dla parametru **receiver**.
-    4. Kliknij przycisk **Zakończ**.
+    4. Kliknij przycisk **Finish** (Zakończ).
 
 ## <a name="monitor-the-failed-pipeline-run"></a>Monitorowanie zakończonego niepowodzeniem uruchomienia potoku
 

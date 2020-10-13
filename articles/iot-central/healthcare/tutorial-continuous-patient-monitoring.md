@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531274"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Samouczek: wdrażanie i Instruktaż szablonu aplikacji do monitorowania ciągłego pacjenta
@@ -61,11 +61,11 @@ Po wdrożeniu szablonu aplikacji należy najpierw **obstawić pulpit nawigacyjny
 
 * Zmień **stan pacjenta** urządzenia, aby wskazać, czy urządzenie jest używane dla pacjenta lub zdalnego scenariusza.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Stan w pacjentów":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Szablon aplikacji Healthcre":::
 
 Możesz również wybrać pozycję **Przejdź do pulpitu nawigacyjnego zdalnego pacjenta** , aby wyświetlić pulpit nawigacyjny operatora Burkville szpital. Ten pulpit nawigacyjny zawiera podobny zestaw akcji, telemetrii i informacji. Można także zobaczyć wiele urządzeń w użyciu i wybrać **aktualizację oprogramowania układowego** na każdym z nich.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Pulpit nawigacyjny operatora zdalnego":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Szablon aplikacji Healthcre":::
 
 ### <a name="device-templates"></a>Szablony urządzeń
 
@@ -75,7 +75,7 @@ Jeśli wybierzesz pozycję **Szablony urządzeń**, zobaczysz dwa typy urządze�
 
 * **Inteligentne nawiasy klamrowe**: to urządzenie reprezentuje nawiasy klamrowe używane podczas odzyskiwania z chirurgu do zastępowania kolan. Jeśli wybierzesz ten szablon, zobaczysz możliwości, takie jak dane urządzenia, zakres ruchu i przyspieszenie.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Szablon poprawki inteligentnej":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Szablon aplikacji Healthcre":::
 
 ### <a name="device-groups"></a>Grupy urządzeń
 
@@ -93,7 +93,7 @@ Jeśli wybierzesz pozycję **reguły**, zobaczysz trzy reguły w szablonie:
 
 * **Niski poziom baterii poprawek**: Ta reguła jest wyzwalana, gdy poziom baterii urządzenia spadnie poniżej 10%. Użyj tej reguły, aby wyzwolić powiadomienie dla pacjenta o naliczeniu urządzenia.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Przepisy":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Szablon aplikacji Healthcre":::
 
 ### <a name="jobs"></a>Stanowiska
 
@@ -113,7 +113,7 @@ Karta **Właściwości** umożliwia edytowanie właściwości chmury i właściw
 
 Karta **polecenia** umożliwia uruchamianie poleceń na urządzeniu.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Pulpit nawigacyjny kolana":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Szablon aplikacji Healthcre":::
 
 ### <a name="data-export"></a>Eksportowanie danych
 
@@ -123,7 +123,7 @@ Eksport danych umożliwia ciągłe eksportowanie danych urządzenia do innych us
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń aplikację, odwiedzając pozycję **administracja > ustawienia aplikacji** , a następnie kliknij przycisk **Usuń**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Zasoby uporządkowanego":::
+:::image type="content" source="media/admin-delete.png" alt-text="Szablon aplikacji Healthcre":::
 
 ## <a name="next-steps"></a>Następne kroki
 

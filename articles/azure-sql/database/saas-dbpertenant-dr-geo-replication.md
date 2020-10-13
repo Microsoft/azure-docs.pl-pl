@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619155"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Odzyskiwanie po awarii dla wielodostępnej aplikacji SaaS przy użyciu replikacji geograficznej bazy danych
@@ -142,7 +142,7 @@ W tym momencie aplikacja działa normalnie w oryginalnym regionie i jest teraz c
 
 2. Eksplorowanie zasobów w grupie zasobów odzyskiwania.  
 
-3. Kliknij bazę danych korytarze contoso wspólnie na serwerze _tenants1-DPT- &lt; User &gt; -Recovery_ .  Po lewej stronie kliknij pozycję replikacja geograficzna. 
+3. Kliknij bazę danych korytarze contoso wspólnie na serwerze _tenants1-DPT- &lt; User &gt; -Recovery_ .  Kliknij pozycję Geo-Replication po lewej stronie. 
 
     ![Link do replikacji geograficznej firmy Contoso](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -245,7 +245,7 @@ Po zakończeniu procesu odzyskiwania aplikacja i wszystkie dzierżawy są w peł
     
 4. Otwórz program SQL Server _tenants2-DPT- &lt; User &gt; -Recovery_ .  Zwróć uwagę, że zawiera _hawthornhall_ bazy danych i pulę elastyczną, _Pool1_.  Baza danych _hawthornhall_ jest konfigurowana jako Elastyczna baza danych w elastycznej puli _Pool1_ .
 
-5. Przejdź z powrotem do grupy zasobów i kliknij bazę danych korytarze contoso wspólnie na serwerze _tenants1-DPT- &lt; User &gt; -Recovery_ . Po lewej stronie kliknij pozycję replikacja geograficzna.
+5. Przejdź z powrotem do grupy zasobów i kliknij bazę danych korytarze contoso wspólnie na serwerze _tenants1-DPT- &lt; User &gt; -Recovery_ . Kliknij pozycję Geo-Replication po lewej stronie.
     
     ![Baza danych firmy Contoso po zakończeniu pracy w trybie failover](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 
@@ -314,6 +314,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Więcej informacji na temat technologii Azure SQL Database zapewnia możliwość zapewnienia ciągłości działania w dokumentacji usługi [Przegląd ciągłości biznesowej](business-continuity-high-availability-disaster-recover-hadr-overview.md) .
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Dodatkowe samouczki, które kompilują się po aplikacji Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

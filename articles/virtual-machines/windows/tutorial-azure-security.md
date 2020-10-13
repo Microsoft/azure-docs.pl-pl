@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eed237b1dd4d6bf6f2903b91c80847d615fe7a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984582"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978292"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Windows za pomocą usługi Azure Security Center
 
@@ -66,7 +66,7 @@ Aby skonfigurować zasady zabezpieczeń dla całej subskrypcji:
 
 ## <a name="view-vm-configuration-health"></a>Wyświetlanie kondycji konfiguracji maszyny wirtualnej
 
-Po włączeniu zbierania danych i ustawieniu zasad zabezpieczeń usługa Security Center zacznie udostępniać alerty i zalecenia. Gdy maszyny wirtualne są wdrażane, instalowany jest agent zbierania danych. Usługa Security Center jest następnie wypełniana danymi dotyczącymi nowych maszyn wirtualnych. Aby uzyskać szczegółowe informacje o kondycji konfiguracji maszyny wirtualnej, zobacz [Ochrona maszyn wirtualnych w usłudze Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+Po włączeniu zbierania danych i ustawieniu zasad zabezpieczeń usługa Security Center zacznie udostępniać alerty i zalecenia. Gdy maszyny wirtualne są wdrażane, instalowany jest agent zbierania danych. Usługa Security Center jest następnie wypełniana danymi dotyczącymi nowych maszyn wirtualnych. Aby uzyskać szczegółowe informacje o kondycji konfiguracji maszyny wirtualnej, zobacz [Ochrona maszyn wirtualnych w usłudze Security Center](../../security-center/asset-inventory.md). 
 
 W miarę gromadzenia danych agregowana jest kondycja zasobu dla każdej maszyny wirtualnej i powiązanego zasobu platformy Azure. Informacje są pokazywane na czytelnym wykresie. 
 

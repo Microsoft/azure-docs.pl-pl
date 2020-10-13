@@ -8,18 +8,20 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629084"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975913"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Zarejestruj publiczną aplikację kliencką w Azure Active Directory
 
 W tym artykule dowiesz się, jak zarejestrować aplikację publiczną w Azure Active Directory.  
 
 Rejestracje aplikacji klienckich są Azure Active Directory reprezentacje aplikacji, które mogą uwierzytelniać i żądać uprawnień interfejsu API w imieniu użytkownika. Klienci publiczni są aplikacjami, takimi jak aplikacje mobilne i aplikacje JavaScript jednostronicowe, które nie mogą zachować tajemnicy tajnych. Ta procedura jest podobna do [rejestracji klienta poufnego](register-confidential-azure-ad-client-app.md), ale ponieważ klienci publiczni nie mogą być Zaufani do przechowywania klucza tajnego aplikacji, nie ma potrzeby dodawania go.
+
+Przewodnik Szybki Start zawiera ogólne informacje dotyczące sposobu [rejestrowania aplikacji na platformie tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## <a name="app-registrations-in-azure-portal"></a>Rejestracje aplikacji w Azure Portal
 
@@ -38,6 +40,18 @@ Rejestracje aplikacji klienckich są Azure Active Directory reprezentacje aplika
 2. Podaj adres URL odpowiedzi. Adres URL odpowiedzi to miejsce, w którym kody uwierzytelniania zostaną zwrócone do aplikacji klienckiej. Możesz dodać więcej adresów URL odpowiedzi i edytować je później.
 
     ![Azure Portal. Nowa rejestracja aplikacji publicznej.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+
+
+Aby skonfigurować aplikację [klasyczną](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [mobilną](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) lub [jednostronicową](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) jako aplikację publiczną:
+
+1. W [Azure Portal](https://portal.azure.com), w **rejestracje aplikacji**, wybierz aplikację, a następnie wybierz pozycję **uwierzytelnianie**.
+
+2. Wybierz pozycję **Ustawienia zaawansowane**  >  **domyślny typ klienta**. W przypadku **aplikacji traktowanych jako klient publiczny**wybierz pozycję **tak**.
+
+3. W przypadku aplikacji jednostronicowej wybierz pozycję **tokeny dostępu** i **tokeny identyfikatora** , aby włączyć niejawny przepływ.
+
+   - Jeśli aplikacja loguje się do użytkowników, wybierz pozycję **identyfikatory tokenów**.
+   - Jeśli aplikacja wymaga również wywołania chronionego internetowego interfejsu API, wybierz pozycję **tokeny dostępu**.
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 

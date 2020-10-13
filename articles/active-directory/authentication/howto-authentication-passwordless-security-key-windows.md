@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 01/30/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526990"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964744"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Włącz logowanie za pomocą klucza zabezpieczeń bez hasła na urządzeniach z systemem Windows 10 z Azure Active Directory (wersja zapoznawcza)
 
@@ -91,12 +91,12 @@ Aby włączyć dostawcę poświadczeń dla określonych grup urządzeń, użyj n
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do **Microsoft Intune**  >  **profil konfiguracji urządzeń**  >  **Profiles**  >  **Utwórz profil**.
 1. Skonfiguruj nowy profil przy użyciu następujących ustawień:
-   - Name: klucze zabezpieczeń logowania systemu Windows
+   - Name: klucze zabezpieczeń dla systemu Windows Sign-In
    - Opis: włącza klucze zabezpieczeń FIDO, które mają być używane podczas logowania do systemu Windows
    - Platforma: Windows 10 lub nowszym
    - Typ profilu: niestandardowy
    - Niestandardowe ustawienia OMA-URI:
-      - Nazwa: Włącz klucze zabezpieczeń FIDO dla logowania do systemu Windows
+      - Nazwa: Włącz klucze zabezpieczeń FIDO dla systemu Windows Sign-In
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Typ danych: liczba całkowita
       - Wartość: 1

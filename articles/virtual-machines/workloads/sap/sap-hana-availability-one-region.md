@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833321"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978207"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA dostępność w ramach jednego regionu świadczenia usługi Azure
 W tym artykule opisano kilka scenariuszy dostępności w ramach jednego regionu świadczenia usługi Azure. Platforma Azure ma wiele regionów, rozmieszczonych na całym świecie. Aby zapoznać się z listą regionów świadczenia usługi Azure, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/). Do wdrażania SAP HANA na maszynach wirtualnych w ramach jednego regionu świadczenia usługi Azure firma Microsoft oferuje wdrożenie pojedynczej maszyny wirtualnej z wystąpieniem platformy HANA. Aby zwiększyć dostępność, można wdrożyć dwie maszyny wirtualne z dwoma wystąpieniami HANA w ramach [zestawu dostępności platformy Azure](../../windows/tutorial-availability-sets.md) korzystającego z replikacji systemu Hana w celu zapewnienia dostępności. 
@@ -29,7 +29,7 @@ Obecnie platforma Azure oferuje [strefy dostępności platformy Azure](../../../
 
 Regiony platformy Azure, w których Strefy dostępności są oferowane, mają wiele centrów danych. Centra danych są niezależne w dostawie źródła, chłodzenia i sieci elektrycznej. Powodem oferowania różnych stref w ramach jednego regionu świadczenia usługi Azure jest wdrożenie aplikacji na dwóch lub trzech oferowanych Strefy dostępności. Wdrożenie między strefami, problemy związane z obsługą i siecią wpływające na tylko jedną infrastrukturę strefy dostępności platformy Azure, wdrożenie aplikacji w regionie świadczenia usługi Azure jest nadal funkcjonalne. Może dojść do mniejszej pojemności. Na przykład maszyny wirtualne w jednej strefie mogą zostać utracone, ale maszyny wirtualne w pozostałych dwóch strefach nadal będą działać. 
  
-Zestaw dostępności platformy Azure to logiczna funkcja grupowania, która pomaga zapewnić, że zasoby maszyn wirtualnych znajdujące się w zestawie dostępności są odizolowane od siebie, gdy zostaną wdrożone w centrum danych platformy Azure. Maszyny wirtualne platformy Azure umieszczone w zestawie dostępności korzystają z wielu serwerów fizycznych, regałów obliczeniowych, jednostek magazynowych i przełączników sieciowych. W niektórych dokumentacji platformy Azure ta konfiguracja jest określana jako umieszczenie w różnych [domenach aktualizacji i błędów](../../windows/manage-availability.md). Te miejsca zwykle znajdują się w centrum danych platformy Azure. Przy założeniu, że problemy ze źródłem mocy i sieci wpłyną na wdrażane centrum danych, będzie to miało wpływ na wszystkie możliwości w jednym regionie świadczenia usługi Azure.
+Zestaw dostępności platformy Azure to logiczna funkcja grupowania, która pomaga zapewnić, że zasoby maszyn wirtualnych znajdujące się w zestawie dostępności są odizolowane od siebie, gdy zostaną wdrożone w centrum danych platformy Azure. Maszyny wirtualne platformy Azure umieszczone w zestawie dostępności korzystają z wielu serwerów fizycznych, regałów obliczeniowych, jednostek magazynowych i przełączników sieciowych. W niektórych dokumentacji platformy Azure ta konfiguracja jest określana jako umieszczenie w różnych [domenach aktualizacji i błędów](../../manage-availability.md). Te miejsca zwykle znajdują się w centrum danych platformy Azure. Przy założeniu, że problemy ze źródłem mocy i sieci wpłyną na wdrażane centrum danych, będzie to miało wpływ na wszystkie możliwości w jednym regionie świadczenia usługi Azure.
 
 Rozmieszczenie centrów danych, które reprezentują Strefy dostępności platformy Azure, stanowi kompromis między zapewnieniem akceptowalnego opóźnienia sieci między usługami wdrożonymi w różnych strefach i odległości między centrami danych. Naturalny awarią idealnie nie wpływa na zasilanie, dostarczenie sieci i infrastrukturę dla wszystkich Strefy dostępności w tym regionie. Jednakże, podobnie jak ogromne Natural awarią, Strefy dostępności może nie zapewniać dostępności w obrębie jednego regionu. Pomyśl o huragan Maria, który trafił na wyspa Portoryko 20 września 2017. Huragan zasadniczo spowodowało niemal 100 procent niedostępności na wyspach o szerokości 90-milowej.
 
@@ -127,4 +127,4 @@ Aby uzyskać wskazówki krok po kroku dotyczące konfigurowania tych konfiguracj
 
 Aby uzyskać więcej informacji na temat dostępności SAP HANA w regionach platformy Azure, zobacz:
 
-- [Dostępność SAP HANA w różnych regionach świadczenia usługi Azure](./sap-hana-availability-across-regions.md) 
+- [Dostępność SAP HANA w różnych regionach świadczenia usługi Azure](./sap-hana-availability-across-regions.md)

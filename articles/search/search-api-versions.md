@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 71862bedc009d560adc8131eacc37c0afba25d81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fab49c4242afc2e4f2d0595e2aa95f19f3d976f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761723"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951583"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Wersje interfejsu API na platformie Azure Wyszukiwanie poznawcze
 
@@ -41,7 +41,7 @@ Ponadto wersje zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET
 
 Po tej dacie aplikacje używające dowolnego przestarzałego interfejsu API REST lub wersji zestawu SDK przestaną działać i muszą zostać uaktualnione. Podobnie jak w przypadku każdej zmiany tego typu, firma Microsoft może uzyskać odpowiedni czas na dostosowanie.
 
-Aby nadal korzystać z usługi Azure Wyszukiwanie poznawcze, należy przeprowadzić migrację istniejącego kodu przeznaczonego dla [interfejsu API REST](search-api-migration.md) do [interfejsu API rest w wersji 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) lub do nowszego zestawu SDK do 15 października 2020.  Jeśli masz pytania dotyczące aktualizowania do najnowszej wersji, Wyślij wiadomość e-mail do azuresearch_contact@microsoft.com 15 maja 2020, aby upewnić się, że masz wystarczająco dużo czasu na zaktualizowanie kodu.
+Aby nadal korzystać z usługi Azure Wyszukiwanie poznawcze, należy przeprowadzić migrację istniejącego kodu przeznaczonego dla [interfejsu API REST](search-api-migration.md) do [interfejsu API rest w wersji 2020-06-30](/rest/api/searchservice/) lub do nowszego zestawu SDK do 15 października 2020.  Jeśli masz pytania dotyczące aktualizowania do najnowszej wersji, Wyślij wiadomość e-mail do azuresearch_contact@microsoft.com 15 maja 2020, aby upewnić się, że masz wystarczająco dużo czasu na zaktualizowanie kodu.
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
@@ -74,8 +74,8 @@ Utwórz i skonfiguruj usługę wyszukiwania oraz Zarządzaj kluczami interfejsu 
 
 | Wersja&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Stan | Opis |
 |-------------------------|--------|------------------------------|
-| [Zarządzanie 2020-08-01](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | Najnowsza stabilna wersja interfejsów API REST zarządzania. Dodaje ogólnie dostępną obsługę zasobów udostępnionych linków prywatnych dla wszystkich wychodzących zasobów, z wyjątkiem tych zanotowanych w wersji zapoznawczej |
-| [Zarządzanie 2020-08-01 — wersja zapoznawcza](https://docs.microsoft.com/rest/api/searchmanagement/index-preview) | Wersja zapoznawcza  | Obecnie w wersji zapoznawczej: obsługa udostępnionych zasobów linków prywatnych dla Azure Functions i Azure Database for MySQL. |
+| [Zarządzanie 2020-08-01](/rest/api/searchmanagement/) | Stable | Najnowsza stabilna wersja interfejsów API REST zarządzania. Dodaje ogólnie dostępną obsługę zasobów udostępnionych linków prywatnych dla wszystkich wychodzących zasobów, z wyjątkiem tych zanotowanych w wersji zapoznawczej |
+| [Zarządzanie 2020-08-01 — wersja zapoznawcza](/rest/api/searchmanagement/index-preview) | Wersja zapoznawcza  | Obecnie w wersji zapoznawczej: obsługa udostępnionych zasobów linków prywatnych dla Azure Functions i Azure Database for MySQL. |
 | Zarządzanie 2020-03-13  | Stable | Dodaje [prywatny punkt końcowy](service-create-private-endpoint.md) za poorednictwem prywatnego linku i [reguły protokołu IP sieci](service-configure-firewall.md) dla nowych usług. Aby uzyskać więcej informacji, zapoznaj się z tą [specyfikacją Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Zarządzanie 2019-10-01-Preview | Wersja zapoznawcza  | Na tej liście nie wprowadzono żadnych funkcji w wersji zapoznawczej. Ta wersja zapoznawcza jest funkcjonalnie równoważna z 2020-03-13. Aby uzyskać więcej informacji, zapoznaj się z tą [specyfikacją Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Zarządzanie 2015-08-19  | Stable | Pierwsza ogólnie dostępna wersja interfejsów API REST zarządzania. Zapewnia obsługę administracyjną, skalowanie w górę i zarządzanie kluczami interfejsu API. Aby uzyskać więcej informacji, zapoznaj się z tą [specyfikacją Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |

@@ -12,7 +12,7 @@ ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856232"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodawanie dodatkowych kont magazynu do usługi HDInsight
@@ -65,7 +65,7 @@ Podczas wyświetlania klastra usługi HDInsight w Azure Portal wybranie pozycji 
 
 Aby sprawdzić, czy magazyn dodatkowy wykorzystuje jedną z metod przedstawionych poniżej:
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Skrypt zwróci nazwy kont magazynu skojarzone z danym klastrem. Zamień na `CLUSTERNAME` rzeczywistą nazwę klastra, a następnie uruchom skrypt.
 

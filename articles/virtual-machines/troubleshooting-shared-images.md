@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328067"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978547"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Rozwiązywanie problemów z udostępnionymi galeriami obrazów na platformie Azure
 
@@ -79,7 +79,7 @@ Możliwe przyczyny:
 
 *Użytkownik próbujący utworzyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych nie ma dostępu do odczytu do wersji obrazu.*
 
-Skontaktuj się z właścicielem subskrypcji i poproś o przyznanie dostępu do odczytu do wersji obrazu lub zasobów nadrzędnych (takich jak Galeria obrazów udostępnionych lub definicja obrazu) za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Skontaktuj się z właścicielem subskrypcji i poproś o przyznanie dostępu do odczytu do wersji obrazu lub zasobów nadrzędnych (takich jak Galeria obrazów udostępnionych lub definicja obrazu) za pośrednictwem [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *Nie znaleziono wersji obrazu.*
 
@@ -91,7 +91,7 @@ Sprawdź, czy **OSType** wersji obrazu, z której próbujesz utworzyć maszynę 
 
 ## <a name="unable-to-share-resources"></a>Nie można udostępnić zasobów
 
-Funkcja [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)na platformie Azure umożliwia udostępnianie galerii obrazów udostępnionych, definicji obrazu oraz zasobów wersji obrazu w różnych subskrypcjach. 
+Funkcja [kontroli dostępu opartej na rolach (RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md)na platformie Azure umożliwia udostępnianie galerii obrazów udostępnionych, definicji obrazu oraz zasobów wersji obrazu w różnych subskrypcjach. 
 
 ## <a name="replication-is-slow"></a>Replikacja jest powolna
 
@@ -99,7 +99,7 @@ Użyj flagi **--expand ReplicationStatus** , aby sprawdzić, czy replikacja do w
 
 ## <a name="azure-limits-and-quotas"></a>Limity przydziału i ograniczenia platformy Azure 
 
-[Ograniczenia i limity platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) mają zastosowanie do całej galerii obrazów udostępnionych, definicji obrazu i zasobów wersji obrazu. Upewnij się, że jesteś w ramach limitów subskrypcji. 
+[Ograniczenia i limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) mają zastosowanie do całej galerii obrazów udostępnionych, definicji obrazu i zasobów wersji obrazu. Upewnij się, że jesteś w ramach limitów subskrypcji. 
 
 
 ## <a name="next-steps"></a>Następne kroki

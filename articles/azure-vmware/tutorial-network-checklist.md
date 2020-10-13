@@ -3,12 +3,12 @@ title: Samouczek — Lista kontrolna planowania sieci
 description: Więcej informacji na temat wymagań wstępnych dotyczących sieci i szczegółów dotyczących łączności sieciowej i portów sieciowych dla rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576681"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948208"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista kontrolna planowania sieci dla rozwiązań VMware platformy Azure 
 
@@ -36,6 +36,9 @@ Sieci logiczne w chmurze prywatnej są dostarczane ze wstępnie zainicjowaną NS
 Chmura prywatna automatycznej synchronizacji jest połączona z siecią wirtualną platformy Azure przy użyciu połączenia usługi Azure ExpressRoute. Ta wysoka przepustowość, połączenie o małym opóźnieniu pozwala uzyskiwać dostęp do usług uruchomionych w ramach subskrypcji platformy Azure w środowisku chmury prywatnej. Routing jest oparty na Border Gateway Protocol (BGP), automatycznie inicjowany i domyślnie włączony dla każdego wdrożenia chmury prywatnej. 
 
 Automatyczna synchronizacja chmur prywatnych wymaga co najmniej `/22` bloku adresów sieciowych CIDR dla podsieci, jak pokazano poniżej. Ta sieć uzupełnia sieci lokalne. Blok adresów nie powinien nakładać się na bloki adresów używane w innych sieciach wirtualnych w ramach subskrypcji i sieci lokalnych. W ramach tego bloku adresów, zarządzania, aprowizacji i sieci vMotion są automatycznie obsługiwane.
+
+>[!NOTE]
+>Dozwolone zakresy dla bloku adresów to prywatne przestrzenie adresowe RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), z wyjątkiem 172.17.0.0/16.
 
 Przykładowy `/22` blok adresów sieciowych CIDR:  `10.10.0.0/22`
 

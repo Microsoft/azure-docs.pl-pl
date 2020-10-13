@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904432"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952152"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Zarządzanie obliczeniami na Azure Stack Edge
 
@@ -107,7 +107,7 @@ Wykonaj następujące kroki w Azure Portal, aby usunąć istniejącą konfigurac
 
 2. W przypadku usunięcia konfiguracji obliczeniowej należy ponownie skonfigurować urządzenie, jeśli będzie konieczne ponowne użycie obliczeń. Po wyświetleniu monitu o potwierdzenie wybierz pozycję **tak**.
 
-    ![Wybierz pozycję Usuń obliczenia](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Wybierz pozycję Usuń obliczenie 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchronizowanie urządzeń IoT i IoT Edge kluczy dostępu do urządzeń
 

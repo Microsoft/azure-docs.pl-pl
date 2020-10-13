@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142540"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951914"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box w Azure Portal
 
@@ -41,7 +41,7 @@ Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję samodziel
 2. Po wybraniu opcji Typ wysyłki wybierz opcję **wysyłka samozarządzana** . Ta opcja jest dostępna tylko wtedy, gdy jesteś w obsługiwanym regionie, zgodnie z opisem w sekcji wymagania wstępne.
 
 3. Po podaniu adresu wysyłkowego musisz sprawdzić jego poprawność i zakończyć zamówienie.
-   ![Samodzielna wysyłka](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Wysyłka samoobsługowa 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Gdy urządzenie zostanie przygotowane i otrzymasz na niego powiadomienie e-mail, możesz zaplanować odbiór.
 
@@ -78,7 +78,7 @@ Po umieszczeniu zamówienia urządzenie Data Box można wybrać opcję samodziel
 
 9. Jeśli otrzymałeś termin do odwinięcia, zamówienie powinno być w stanie **gotowe do odebrania w centrum danych platformy Azure** w Azure Portal. Postępuj zgodnie z instrukcjami w obszarze **Zaplanuj** , aby zwrócić urządzenie.
 
-   ![Wyświetlanie kodu autoryzacji](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Wyświetlanie kodu autoryzacji 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Po zweryfikowaniu identyfikatora i kodu autoryzacji i usunięciu urządzenia w centrum danych należy **otrzymać**stan zamówienia.
 
