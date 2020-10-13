@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836126"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961480"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Publiczna łączność z punktem końcowym dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP
 
@@ -67,12 +67,12 @@ Przeczytaj najpierw następujące dokumenty:
   * [Omówienie Zapory platformy Azure](../../../firewall/overview.md)— Omówienie Zapory platformy Azure
   * [Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure](../../../firewall/tutorial-firewall-deploy-portal.md) — instrukcje dotyczące konfigurowania zapory platformy Azure za pośrednictwem Azure Portal
 * [Sieci wirtualne — reguły zdefiniowane przez użytkownika](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) — koncepcje i reguły routingu platformy Azure  
-* [Tagi usługi grup zabezpieczeń](../../../virtual-network/security-overview.md#service-tags) — jak uprościć sieciowe grupy zabezpieczeń i konfigurację zapory za pomocą tagów usługi
+* [Tagi usługi grup zabezpieczeń](../../../virtual-network/network-security-groups-overview.md#service-tags) — jak uprościć sieciowe grupy zabezpieczeń i konfigurację zapory za pomocą tagów usługi
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Dodatkowe zewnętrzne usługa Load Balancer w warstwie Standardowa platformy Azure dla połączeń wychodzących z Internetem
 
 Jedną z opcji zapewnienia łączności wychodzącej z publicznymi punktami końcowymi, bez zezwalania na połączenia przychodzące z maszyną wirtualną z publicznego punktu końcowego, jest utworzenie drugiego modułu równoważenia obciążenia z publicznym adresem IP, dodanie maszyn wirtualnych do puli zaplecza drugiego modułu równoważenia obciążenia i zdefiniowanie tylko [reguł ruchu wychodzącego](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/security-overview.md) do kontrolowania publicznych punktów końcowych, które są dostępne dla wywołań wychodzących z maszyny wirtualnej.  
+Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/network-security-groups-overview.md) do kontrolowania publicznych punktów końcowych, które są dostępne dla wywołań wychodzących z maszyny wirtualnej.  
 Aby uzyskać więcej informacji, zobacz scenariusz 2 w dokumencie [połączenia wychodzące](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 Konfiguracja będzie wyglądać następująco:  
 
@@ -81,11 +81,11 @@ Konfiguracja będzie wyglądać następująco:
 ### <a name="important-considerations"></a>Istotne zagadnienia
 
 - Możesz użyć jednej z dodatkowych Load Balancer publicznych dla wielu maszyn wirtualnych w tej samej podsieci, aby uzyskać łączność wychodzącą z publicznym punktem końcowym i zoptymalizować koszty  
-- Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/security-overview.md) do kontrolowania, które publiczne punkty końcowe są dostępne z maszyn wirtualnych. Można przypisać sieciową grupę zabezpieczeń do podsieci lub do każdej maszyny wirtualnej. Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/security-overview.md#service-tags) , aby zmniejszyć złożoność reguł zabezpieczeń.  
+- Używaj [sieciowych grup zabezpieczeń](../../../virtual-network/network-security-groups-overview.md) do kontrolowania, które publiczne punkty końcowe są dostępne z maszyn wirtualnych. Można przypisać sieciową grupę zabezpieczeń do podsieci lub do każdej maszyny wirtualnej. Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/network-security-groups-overview.md#service-tags) , aby zmniejszyć złożoność reguł zabezpieczeń.  
 - Moduł równoważenia obciążenia w warstwie Standardowa platformy Azure z publicznym adresem IP i regułami ruchu wychodzącego umożliwia bezpośredni dostęp do publicznego punktu końcowego. Jeśli istnieją wymagania dotyczące zabezpieczeń firmy, aby cały ruch wychodzący był realizowany za pośrednictwem scentralizowanego rozwiązania firmy na potrzeby inspekcji i rejestrowania, może nie być możliwe spełnienie wymagań w tym scenariuszu.  
 
 >[!TIP]
->Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/security-overview.md#service-tags) , aby zmniejszyć złożoność sieciowej grupy zabezpieczeń. 
+>Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/network-security-groups-overview.md#service-tags) , aby zmniejszyć złożoność sieciowej grupy zabezpieczeń. 
 
 ### <a name="deployment-steps"></a>Kroki wdrażania
 
@@ -117,7 +117,7 @@ Konfiguracja będzie wyglądać następująco:
 
    ![Połączenie wychodzące z drugim Load Balancer z publicznym adresem IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Aby uzyskać więcej informacji na temat grup zabezpieczeń sieci platformy Azure, zobacz [grupy zabezpieczeń ](../../../virtual-network/security-overview.md). 
+   Aby uzyskać więcej informacji na temat grup zabezpieczeń sieci platformy Azure, zobacz [grupy zabezpieczeń ](../../../virtual-network/network-security-groups-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Zapora platformy Azure dla połączeń wychodzących z Internetem
 
@@ -137,7 +137,7 @@ Architektura będzie wyglądać następująco:
 - Jeśli firmowe rozwiązanie zapory nie jest zaporą platformy Azure i masz wymagania dotyczące zabezpieczeń, aby cały ruch wychodzący był przekazywany przez centralne rozwiązanie korporacyjne, rozwiązanie to może nie być praktyczne.  
 
 >[!TIP]
->Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/security-overview.md#service-tags) , aby zmniejszyć złożoność reguł zapory platformy Azure.  
+>Jeśli to możliwe, użyj [tagów usługi](../../../virtual-network/network-security-groups-overview.md#service-tags) , aby zmniejszyć złożoność reguł zapory platformy Azure.  
 
 ### <a name="deployment-steps"></a>Kroki wdrażania
 

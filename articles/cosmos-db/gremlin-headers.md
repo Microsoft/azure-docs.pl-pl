@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
 ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409531"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB nagłówki odpowiedzi serwera Gremlin
@@ -21,7 +21,7 @@ Należy pamiętać, że w zależności od tych nagłówków ograniczenie przeno�
 
 ## <a name="headers"></a>Nagłówki
 
-| Header | Typ | Przykładowa wartość | Po dołączeniu | Objaśnienie |
+| Header | Type | Przykładowa wartość | Po dołączeniu | Objaśnienie |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla komunikatu częściowego odpowiedzi. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Odzwierciedla opłaty za konkretny fragment odpowiedzi. Tylko w przypadku żądań składających się z pojedynczego fragmentu odpowiedzi ten nagłówek dopasowuje łączny koszt przechodzenia. Jednak w przypadku większości złożonych przechodzenia ta wartość reprezentuje koszt częściowy. |
 | **x-ms-total-request-charge** | double | 423,987 | Sukces i niepowodzenie | Ilość przepływności kolekcji lub bazy danych wykorzystywana w [jednostkach żądania (ru/s lub jednostek ru)](request-units.md) dla całego żądania. Ten nagłówek jest obecny w każdej kontynuacji dla żądań, które mają wiele fragmentów. Wskazuje ona łączną opłatę od początku żądania. Wartość tego nagłówka w ostatnim fragmencie wskazuje na całkowitą opłatą żądania. |

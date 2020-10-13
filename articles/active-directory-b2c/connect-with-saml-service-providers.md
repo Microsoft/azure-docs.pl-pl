@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740381"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961327"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -104,7 +104,7 @@ Następnie Przekaż potwierdzenie SAML i certyfikat podpisywania odpowiedzi do A
 1. Wprowadź **nazwę**, na przykład *SamlIdpCert*. Prefiks *B2C_1A_* jest automatycznie dodawany do nazwy klucza.
 1. Przekaż certyfikat przy użyciu kontrolki przekazywania pliku.
 1. Wprowadź hasło certyfikatu.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 1. Sprawdź, czy klucz jest wyświetlany zgodnie z oczekiwaniami. Na przykład *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Przygotuj zasady
@@ -437,6 +437,24 @@ Następujące scenariusze jednostki uzależnionej SAML (RP) są obsługiwane za 
 
 Następujące scenariusze jednostki uzależnionej SAML (RP) nie są obecnie obsługiwane:
 * Dostawca tożsamości zainicjował logowanie, gdzie dostawca tożsamości jest zewnętrznym dostawcą tożsamości, na przykład ADFS.
+
+## <a name="saml-token"></a>Token SAML
+
+Tokenem SAML jest token zabezpieczający wystawiony przez Azure AD B2C po pomyślnym logowaniu. Zawiera informacje o użytkowniku, dostawcy usług, dla których token jest zamierzony, sygnatura i czas ważności. W poniższej tabeli wymieniono oświadczenia i właściwości, których można oczekiwać w tokenie SAML wystawionym przez Azure AD B2C.
+
+|Element  |Właściwość  |Uwagi  |
+|---------|---------|---------|
+|`<Response>`| `ID` | Automatycznie wygenerowany unikatowy identyfikator odpowiedzi. | 
+|`<Response>`| `InResponseTo` | Identyfikator żądania SAML, do którego ta wiadomość jest w odpowiedzi. | 
+|`<Response>` | `IssueInstant` | Czas od momentu wystawienia odpowiedzi. Wartość czasu jest zaszyfrowana w formacie UTC.Aby zmienić ustawienia okresów istnienia tokenu, ustaw `TokenNotBeforeSkewInSeconds` [metadane](saml-issuer-technical-profile.md#metadata) profilu technicznego wystawcy tokenów SAML. | 
+|`<Response>` | `Destination`| Odwołanie do identyfikatora URI wskazujące adres, na który została wysłana ta odpowiedź. Wartość jest taka sama jak w przypadku żądania SAML `AssertionConsumerServiceURL` . | 
+|`<Response>` `<Issuer>` | |Identyfikuje wystawcę tokenu. Jest to dowolny identyfikator URI zdefiniowany przez metadane problemu tokenu SAML `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Podmiot zabezpieczeń, dla którego token potwierdza informacje, takie jak identyfikator obiektu użytkownika. Ta wartość jest niezmienna i nie można jej ponownie przypisać ani ponownie użyć. Może służyć do bezpiecznego sprawdzania autoryzacji, na przykład gdy token jest używany w celu uzyskania dostępu do zasobu. Domyślnie, zgłoszenie podmiotu jest wypełniane IDENTYFIKATORem obiektu użytkownika w katalogu.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Odwołanie identyfikatora URI reprezentujące klasyfikację informacji o identyfikatorze opartym na ciągach. Domyślnie ta właściwość jest pomijana. Można ustawić [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) jednostki uzależnionej, aby określić `NameID` Format, taki jak `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Godzina, o której token stał się ważny. Wartość czasu jest zaszyfrowana w formacie UTC. Twoja aplikacja powinna używać tego żądania, aby zweryfikować ważność okresu istnienia tokenu. Aby zmienić ustawienia okresów istnienia tokenu, ustaw `TokenNotBeforeSkewInSeconds` [metadane](saml-issuer-technical-profile.md#metadata) profilu technicznego wystawiania tokenów SAML. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Godzina, o której token stał się nieprawidłowy. Twoja aplikacja powinna używać tego żądania, aby zweryfikować ważność okresu istnienia tokenu. Wartość jest równa 15 minut od `NotBefore` i nie można jej zmienić.|
+|`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Odwołanie do identyfikatora URI, które identyfikuje zamierzonych odbiorców. Identyfikuje zamierzony odbiorcę tokenu. Wartość jest taka sama jak w przypadku żądania SAML `AssertionConsumerServiceURL` .|
+|`<Response>``<Assertion>` `<saml:AttributeStatement>` Kolekcja`<Attribute>` | | Kolekcja potwierdzeń (oświadczeń), zgodnie z konfiguracją w oświadczeniach wyjściowych [profilu technicznego jednostki uzależnionej](relyingparty.md#technicalprofile) . Nazwę potwierdzenia można skonfigurować przez ustawienie `PartnerClaimType` zgłoszenia wynikowego. |
 
 ## <a name="next-steps"></a>Następne kroki
 

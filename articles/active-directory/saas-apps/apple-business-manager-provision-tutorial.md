@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5cfd355941a7fae211f3abb9b5dd31e86ba1d14b
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ff017671496816f0142bd3b71c3df1a3769b274b
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757507"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941096"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Apple Business Manager do automatycznej aprowizacji użytkowników
 
@@ -103,7 +103,7 @@ Usługa aprowizacji Azure AD umożliwia określenie zakresu aprowizacji na podst
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do programu Apple Business Manager**.
 
@@ -147,7 +147,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user), aby zapoznać się ze stanem cyklu aprowizacji i czasem pozostałym do jego zakończenia
 3. Jeśli konfiguracja aprowizacji jest w złej kondycji, aplikacja przejdzie w stan kwarantanny. Więcej informacji o stanach kwarantanny znajdziesz [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacją kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
@@ -160,7 +160,7 @@ Po skonfigurowaniu aprowizacji możesz skorzystać z następujących zasobów, a
 * [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a823611)
 * [Rozłącz połączenie usługi Standard scim w programie Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd609be3a61)
 * [Zarządzanie istniejącym tokenem Standard scim i połączeniami w programie Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
-* [Rozwiązywanie problemów z połączeniem Standard scim w programie Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
+* [Rozwiązywanie problemów z połączeniem Standard scim w programie Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd403a0f3bd/web)
 
 ## <a name="next-steps"></a>Następne kroki
 

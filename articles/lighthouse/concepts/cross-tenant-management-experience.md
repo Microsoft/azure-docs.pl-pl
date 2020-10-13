@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 09/30/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739735"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970643"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -35,10 +35,12 @@ Zadania zarządzania można wykonywać w odniesieniu do zasobów delegowanych be
 
 Azure PowerShell [polecenie cmdlet Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) wyświetla `HomeTenantId` atrybuty i `ManagedByTenantIds` dla każdej subskrypcji, co pozwala określić, czy zwrócona subskrypcja należy do zarządzanej dzierżawy, czy do dzierżawy zarządzającej.
 
-Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](/cli/azure/account#az-account-list) , wyświetla `homeTenantId` `managedByTenants` atrybuty i.
+Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](/cli/azure/account#az-account-list) , wyświetla `homeTenantId` `managedByTenants` atrybuty i. Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
 
-> [!TIP]
-> Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
+W interfejsie API REST platformy Azure dostępne są polecenia [subscriptions-Get](/rest/api/resources/subscriptions/get) i [subscriptions-list](/rest/api/resources/subscriptions/list) `ManagedByTenant` .
+
+> [!NOTE]
+> Oprócz informacji o dzierżawie związanych z usługą Azure Lighthouse dzierżawy pokazane przez te interfejsy API mogą również odzwierciedlać dzierżawców partnerów dla Azure Databricks lub aplikacji zarządzanych przez platformę Azure.
 
 Udostępniamy również interfejsy API, które są specyficzne dla wykonywania zadań Lighthouse platformy Azure. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą **odwołania** .
 

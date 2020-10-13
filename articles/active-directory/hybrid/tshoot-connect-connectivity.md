@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317516"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
@@ -93,7 +93,7 @@ Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z se
 Jeśli serwer proxy nie został prawidłowo skonfigurowany, zostanie wyświetlony komunikat o błędzie: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
  ![ proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Error | Tekst błędu | Komentarz |
+| Błąd | Tekst błędu | Komentarz |
 | --- | --- | --- |
 | 403 |Forbidden |Serwer proxy nie został otwarty dla żądanego adresu URL. Ponownie odwiedź konfigurację serwera proxy i upewnij się, że [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zostały otwarte. |
 | 407 |Wymagane jest uwierzytelnianie serwera proxy |Serwer proxy wymaga logowania, ale nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że to ustawienie jest skonfigurowane w machine.config. Upewnij się również, że używasz kont domeny dla użytkownika, który uruchamia kreatora i dla konta usługi. |

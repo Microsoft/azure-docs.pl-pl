@@ -4,12 +4,12 @@ description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839014"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875125"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -134,7 +134,7 @@ Przy użyciu [metryk na żywo](./live-stream.md) można szybko sprawdzić, czy A
 
 ### <a name="ilogger-logs"></a>Dzienniki ILogger
 
-Dzienniki emitowane za pośrednictwem `ILogger` ważności `Warning` i powyżej są przechwytywane automatycznie. Postępuj zgodnie z dokumentacją [ILogger](ilogger.md#control-logging-level) , aby dostosowywać poziomy dzienników przechwytywane przez Application Insights.
+Konfiguracja domyślna zbiera `ILogger` dzienniki o ważności `Warning` i powyżej. Tę konfigurację można [dostosować](#how-do-i-customize-ilogger-logs-collection).
 
 ### <a name="dependencies"></a>Zależności
 

@@ -12,10 +12,10 @@ ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5910c40729d07d5a759b2e5cc7b7a4272524c150
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91253857"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Uaktualnij z odczytu v2. x, aby odczytać v3. x
@@ -47,7 +47,7 @@ Dostępny jest nowy opcjonalny parametr _języka_ . Jeśli nie znasz języka dok
 
 |Przeczytaj 2. x |Przeczytaj 3. x  |
 |----------|-----------|
-|https://{Endpoint}/Vision/**v 2.0/Read/Operations**/{operationId}     |ciąg https://{Endpoint}/ **wersja** vision/<>/Read/analyzeresults/{operationId}|
+|https://{Endpoint}/Vision/**v 2.0/Read/Operations**/{operationId}     |ciąg https://{Endpoint}/ **wersja** vision/<>/Read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>`Get Read Operation Result` Flaga stanu
 
@@ -187,7 +187,7 @@ Nowy opcjonalny parametr _języka_ jest dostępny w wersji 3.0. Jeśli nie znasz
 
 |Rozpoznawanie tekstu 2. x |Przeczytaj 3. x  |
 |----------|-----------|
-|https://{Endpoint}/Vision/**v 2.0/Textoperations/**{operationId}|ciąg https://{Endpoint}/ **wersja** vision/<>/Read/analyzeresults/{operationId}|
+|https://{Endpoint}/Vision/**v 2.0/Textoperations/**{operationId}|ciąg https://{Endpoint}/ **wersja** vision/<>/Read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>`Get Recognize Text Operation Result` flagi stanu
 Gdy wywołanie `Get Recognize Text Operation Result` powiedzie się, zwraca pole ciągu stanu w treści JSON. 
@@ -311,4 +311,4 @@ W wersji 3. x został dostosowany:
 
 |Przeczytaj 2,0 |Przeczytaj 3. x  |
 |----------|-----------|
-|https://{Endpoint}/Vision/**v 2.0/Read/Core/Analizuj**     |ciąg https://{Endpoint}/wersja wizji/<**wersji**>/Read/syncanalyze [? language]|
+|https://{Endpoint}/Vision/**v 2.0/Read/Core/Analizuj**     |ciąg https://{Endpoint}/wersja wizji/<**wersji**>/Read/syncAnalyze [? language]|

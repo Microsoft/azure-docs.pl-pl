@@ -1,19 +1,20 @@
 ---
-title: Optymalizowanie kosztów magazynu obiektów BLOB przy użyciu zarezerwowanej pojemności — Azure Storage
+title: Optymalizowanie kosztów magazynu obiektów blob przy użyciu pojemności zarezerwowanej
+titleSuffix: Azure Storage
 description: Dowiedz się więcej o kupowaniu zarezerwowanej pojemności usługi Azure Storage, aby zaoszczędzić koszty dotyczące blokowych obiektów blob i Azure Data Lake Storage Gen2 zasobów.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259205"
+ms.locfileid: "91874819"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optymalizowanie kosztów magazynu obiektów blob przy użyciu pojemności zarezerwowanej
 
@@ -29,7 +30,7 @@ W poniższych sekcjach opisano warunki rezerwacji usługi Azure Storage.
 
 ### <a name="reservation-capacity"></a>Pojemność rezerwacji
 
-Możesz zakupić zarezerwowaną pojemność usługi Azure Storage w jednostkach 100 TB i 1 GB na miesiąc przez okres jednego roku lub trzech lat.
+Możesz zakupić zarezerwowaną pojemność usługi Azure Storage w jednostkach 100 TiB i 1 PiB miesięcznie przez okres jednego roku lub trzy lata.
 
 ### <a name="reservation-scope"></a>Zakres rezerwacji
 
@@ -62,7 +63,7 @@ Aby zakupić zastrzeżoną pojemność:
 
 W przypadku zakupu rezerwacji usługi Azure Storage należy wybrać opcję region, warstwa dostępu i nadmiarowość dla rezerwacji. Rezerwacja jest prawidłowa tylko dla danych przechowywanych w tym regionie, warstwy dostępu i na poziomie nadmiarowości. Załóżmy na przykład, że zakupisz rezerwację danych w zachodnich stanach USA dla warstwy gorąca przy użyciu magazynu Strefowo nadmiarowego (ZRS). Nie można używać tej samej rezerwacji dla danych w regionach Wschodnie stany USA, danych w warstwie archiwum ani danych w magazynie geograficznie nadmiarowym (GRS). Można jednak zakupić kolejną rezerwację w celu uzyskania dodatkowych potrzeb.  
 
-Rezerwacje są obecnie dostępne dla bloków 100 TB lub 1 PB z wyższymi rabatami dla bloków 1 PB. Po zakupieniu rezerwacji w Azure Portal firma Microsoft może dostarczyć rekomendacje w oparciu o poprzednie użycie, aby pomóc w ustaleniu, która rezerwacja należy zakupić.
+Rezerwacje są obecnie dostępne dla bloków 100 TiB lub 1 PiB z wyższymi rabatami dla 1 bloków PiB. Po zakupieniu rezerwacji w Azure Portal firma Microsoft może dostarczyć rekomendacje w oparciu o poprzednie użycie, aby pomóc w ustaleniu, która rezerwacja należy zakupić.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Kupowanie zarezerwowanej pojemności usługi Azure Storage
 
@@ -86,7 +87,7 @@ Wykonaj następujące kroki, aby zakupić zastrzeżoną pojemność:
    | **Warstwa dostępu** | Warstwa dostępu, w której obowiązuje rezerwacja. Dostępne opcje to *gorąca*, *chłodna*lub *archiwalna*. Aby uzyskać więcej informacji o warstwach dostępu, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md). |
    | **Nadmiarowość** | Opcja nadmiarowości dla rezerwacji. Dostępne opcje to: *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*i *RA-GZRS*. Aby uzyskać więcej informacji na temat opcji nadmiarowości, zobacz [nadmiarowość usługi Azure Storage](../common/storage-redundancy.md). |
    | **Częstotliwość rozliczeń** | Wskazuje, jak często konto jest rozliczane dla rezerwacji. Opcje obejmują *co miesiąc* lub z *góry*. |
-   | **Rozmiar** | Region, w którym rezerwacja jest obowiązująca. |
+   | **Rozmiar** | Ilość pojemności do zarezerwowania. |
    |**Okres**  | Jeden rok lub trzy lata.   |
 
 1. Po wybraniu parametrów dla rezerwacji Azure Portal zostanie wyświetlony koszt. W portalu jest również pokazywana wartość procentowa rabatu w porównaniu z płatnościami zgodnie z rzeczywistym użyciem.

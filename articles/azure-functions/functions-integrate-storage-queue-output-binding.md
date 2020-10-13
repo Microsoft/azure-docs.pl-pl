@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982020"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Dodawanie komunikatów do kolejki usługi Azure Storage przy użyciu funkcji
@@ -38,7 +38,7 @@ W tej sekcji użyjesz interfejsu użytkownika portalu w celu dodania powiązania
 
 1. Wybierz typ powiązania **queue storage platformy Azure** i Dodaj ustawienia określone w tabeli, która następuje po tym zrzucie ekranu: 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Dodaj powiązanie danych wyjściowych kolejki magazynu do funkcji w witrynie Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
     
     | Ustawienie      |  Sugerowana wartość   | Opis                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 1. Po zapisaniu zmian w kodzie wybierz pozycję **Testuj**.
 1. Upewnij się, że test pasuje do poniższego obrazu, i wybierz pozycję **Uruchom**. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Przetestuj powiązanie magazynu kolejki w Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
 
     Zwróć uwagę na to, że **treść żądania** zawiera `name` wartość *Azure*. Ta wartość jest wyświetlana w komunikacie w kolejce tworzonym po wywołaniu funkcji.
     
@@ -111,11 +111,11 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. W obszarze **Ustawienia aplikacji**wybierz pozycję **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Zrzut ekranu przedstawia stronę konfiguracji z wybraną pozycją AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
 
 1. Znajdź i zanotuj nazwę konta.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Znajdź konto magazynu połączone z usługą AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Utwórz powiązanie danych wyjściowych dla funkcji." border="true":::
 
 ### <a name="examine-the-output-queue"></a>Sprawdzanie kolejki wyjściowej
 
@@ -127,7 +127,7 @@ W tej sekcji dodasz kod służący do zapisywania komunikatu do kolejki wyjścio
 
 1. Ponownie uruchom funkcję. W kolejce pojawi się nowy komunikat.  
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 

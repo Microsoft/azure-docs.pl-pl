@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252837"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (Portal)
@@ -37,7 +37,7 @@ Te szczegóły można znaleźć w [Azure Portal](https://portal.azure.com) po sk
 
 Wybierz wystąpienie z wyników, aby wyświetlić stronę szczegółów wystąpienia:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły wystąpienia ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Tworzenie punktu końcowego dla usługi Azure Digital bliźniaczych reprezentacji
 
@@ -62,11 +62,11 @@ Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utwor
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Zrzut ekranu przedstawiający tworzenie punktu końcowego typu Event Grid.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
 
 Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Zrzut ekranu przedstawiający powiadomienie w celu zweryfikowania utworzenia punktu końcowego." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal." border="false":::
 
 Możesz również wyświetlić punkt końcowy, który został utworzony ponownie na stronie *punkty końcowe* wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -88,7 +88,7 @@ Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utwor
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Zrzut ekranu przedstawiający tworzenie punktu końcowego typu Event Hubs.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
 
 Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal. 
 
@@ -110,7 +110,7 @@ Na stronie *Tworzenie punktu końcowego* , który zostanie otwarty, można utwor
 
 Następnie Utwórz punkt końcowy, naciskając pozycję _Zapisz_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Zrzut ekranu przedstawiający tworzenie punktu końcowego typu Service Bus.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
 
 Możesz sprawdzić, czy punkt końcowy został pomyślnie utworzony, sprawdzając ikonę powiadomienia na górnym pasku Azure Portal. 
 
@@ -149,7 +149,7 @@ Na stronie *Tworzenie trasy zdarzenia* , która zostanie otwarta, wybierz co naj
 
 Aby można było włączyć trasę, należy również **dodać filtr trasy zdarzeń** o wartości co najmniej `true` . (Pozostawienie wartości domyślnej `false` spowoduje utworzenie trasy, ale żadne zdarzenia nie będą wysyłane do niego). W tym celu Przełącz przełącznik dla _edytora zaawansowanego_ , aby go włączyć, i wpisz `true` w polu *filtru* .
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń dla danego wystąpienia." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Po zakończeniu kliknij przycisk _Zapisz_ , aby utworzyć trasę zdarzenia.
 
@@ -175,7 +175,7 @@ Aby użyć filtrów podstawowych, rozwiń opcję _typy zdarzeń_ i zaznacz pola 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń z filtrem podstawowym. Zaznaczanie pól wyboru zdarzeń.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ Spowoduje to wypełnienie pola tekstowego filtru tekstem, który został wybrany
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń z filtrem podstawowym. Wyświetlanie automatycznie wypełnionego tekstu filtru po zaznaczeniu zdarzeń.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Aby utworzyć trasę zdarzeń z zaawansowanymi opcjami filtru, Przełącz przeł
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Zrzut ekranu przedstawiający tworzenie trasy zdarzeń z filtrem zaawansowanym.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Zrzut ekranu przedstawiający pasek wyszukiwania Azure Portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::

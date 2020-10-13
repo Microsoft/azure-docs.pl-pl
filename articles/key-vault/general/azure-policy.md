@@ -7,12 +7,12 @@ ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef41516d516ce6498fc8c502a229084acdebfa1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586073"
+ms.locfileid: "91875527"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrowanie usługi Azure Key Vault z usługą Azure Policy
 
@@ -148,7 +148,10 @@ Zarządzasz magazynem kluczy używanym przez wiele zespołów, które zawierają
 Przypisanie zasad z efektem "odmowa" może potrwać do 30 minut (średni przypadek) i 1 godzina (najgorszy przypadek), aby rozpocząć odmowa tworzenia niezgodnych zasobów. Ocena zasad istniejących składników w magazynie może potrwać do 1 godziny (średnia wielkość liter) i 2 godziny (najgorszy przypadek), zanim wyniki zgodności będą widoczne w interfejsie użytkownika portalu. Jeśli wyniki zgodności są wyświetlane jako "nie uruchomiono", może to być spowodowane następującymi przyczynami:
 - Wycena nie została jeszcze ukończona. Opóźnienie wstępnej oceny może potrwać do 2 godzin w scenariuszu najgorszego przypadku. 
 - W zakresie przypisania zasad nie ma magazynów kluczy.
-- Brak magazynów kluczy z certyfikatami w zakresie przypisania zasad. 
+- Brak magazynów kluczy z certyfikatami w zakresie przypisania zasad.
+
+> [!NOTE]
+> Azure Policy [tryby dostawcy zasobów](../../governance/policy/concepts/definition-structure.md#resource-provider-modes), takie jak te dla Azure Key Vault, zawierają informacje o zgodności na stronie [zgodność składników](../../governance/policy/how-to/get-compliance-data.md#component-compliance) .
 
 ## <a name="next-steps"></a>Następne kroki
 

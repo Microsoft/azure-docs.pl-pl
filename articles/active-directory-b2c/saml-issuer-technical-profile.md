@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88521216"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961242"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy tokenów SAML w zasadach niestandardowych Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ W poniższym przykładzie przedstawiono profil techniczny dla `Saml2AssertionIss
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,7 @@ Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie 
 | --------- | -------- | ----------- |
 | IssuerUri | Nie | Nazwa wystawcy, która pojawia się w odpowiedzi SAML. Wartość powinna być taka sama jak nazwa skonfigurowana w aplikacji jednostki uzależnionej. |
 | XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania potwierdzenia SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` . Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. Aby skonfigurować odpowiedź SAML, zobacz [metadane SAML jednostki uzależnionej](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| Nie| Określa pochylenie jako liczbę całkowitą dla sygnatury czasowej, która oznacza początek okresu ważności. Im wyższy numer to, tym więcej z powrotem w czasie okres ważności rozpoczyna się w odniesieniu do czasu, w którym oświadczenia są wystawiane dla jednostki uzależnionej. Na przykład gdy TokenNotBeforeSkewInSeconds jest ustawiony na 60 sekund, jeśli token jest wystawiony o 13:05:10 czasu UTC, token jest ważny od 13:04:10 czasu UTC. Wartość domyślna to 0. Wartość maksymalna to 3600 (jedna godzina). |
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 

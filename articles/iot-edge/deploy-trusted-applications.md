@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: kgremban
 ms.openlocfilehash: d81cc6c94c04c683362fd12cd6777c304a4b0a84
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361980"
 ---
 # <a name="confidential-computing-at-the-edge"></a>Poufne dane obliczeniowe na brzegu

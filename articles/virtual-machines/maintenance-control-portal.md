@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
 ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397287"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Kontrolowanie aktualizacji z kontrolą konserwacji i Azure Portal
 
 Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje odizolowanych maszyn wirtualnych i hostów dedykowanych platformy Azure. W tym temacie omówiono opcje Azure Portal sterowania konserwacją. Aby uzyskać więcej informacji na temat korzyści z używania kontroli konserwacji, jej ograniczeń i innych opcji zarządzania, zobacz [Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji](maintenance-control.md).
 
-## <a name="create-a-maintenance-configuration"></a>Utwórz konfigurację konserwacji
+## <a name="create-a-maintenance-configuration"></a>Utworzenie konfiguracji konserwacji
 
 1. Zaloguj się do Portalu Azure.
 
@@ -38,7 +38,7 @@ Kontrola konserwacji pozwala określić, kiedy mają być stosowane aktualizacje
 
    ![Zrzut ekranu przedstawiający sposób dodawania tagów do konfiguracji konserwacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 
-1. Przejrzyj podsumowanie. Kliknij pozycję **Utwórz**.
+1. Przejrzyj podsumowanie. Kliknij przycisk **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sposób tworzenia konfiguracji konserwacji](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
 

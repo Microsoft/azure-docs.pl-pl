@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
 ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891388"
 ---
 # <a name="certificate-requirements"></a>Wymagania certyfikatu
@@ -53,7 +53,7 @@ Certyfikaty muszą mieć następującą nazwę podmiotu i alternatywne wymagania
 
 * Podczas tworzenia certyfikatu punktu końcowego należy skorzystać z następującej tabeli:
 
-    |Typ |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
+    |Type |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -70,7 +70,7 @@ Certyfikaty PFX zainstalowane na urządzeniu Azure Stack EDGE Pro powinny spełn
 
 * Podczas eksportowania certyfikatu PFX upewnij się, że wybrano opcję **Dołącz wszystkie certyfikaty w łańcuchu, jeśli jest to możliwe** .
 
-* Użyj certyfikatu PFX dla punktu końcowego, lokalnego interfejsu użytkownika, węzła, sieci VPN i Wi-Fi, ponieważ klucze publiczny i prywatny są wymagane do Azure Stack EDGE Pro. Klucz prywatny musi mieć ustawiony atrybut klucza komputera lokalnego.
+* Użyj certyfikatu PFX dla punktu końcowego, lokalnego interfejsu użytkownika, węzła, sieci VPN i Wi-Fi, ponieważ klucze publiczny i prywatny są wymagane dla Azure Stack EDGE Pro. Klucz prywatny musi mieć ustawiony atrybut klucza komputera lokalnego.
 
 * Szyfrowanie PFX certyfikatu powinno mieć wartość 3DES. Jest to domyślne szyfrowanie używane podczas eksportowania z magazynu certyfikatów systemu Windows 10 lub Windows Server 2016. Aby uzyskać więcej informacji dotyczących algorytmu 3DES, zobacz [Triple DES](https://en.wikipedia.org/wiki/Triple_DES).
 

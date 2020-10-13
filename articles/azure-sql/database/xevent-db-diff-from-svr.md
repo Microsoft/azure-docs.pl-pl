@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619818"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Zdarzenia rozszerzone w Azure SQL Database 
@@ -75,13 +75,13 @@ Funkcja zdarzeń rozszerzonych jest obsługiwana przez kilka [widoków wykazu](h
 
 | Nazwa<br/>Widok wykazu | Opis |
 |:--- |:--- |
-| **sys. database_event_session_actions** |Zwraca wiersz dla każdej akcji w każdym zdarzeniu sesji zdarzeń. |
-| **sys. database_event_session_events** |Zwraca wiersz dla każdego zdarzenia w sesji zdarzeń. |
-| **sys. database_event_session_fields** |Zwraca wiersz dla każdej kolumny dostosowania, która została jawnie ustawiona dla zdarzeń i elementów docelowych. |
-| **sys. database_event_session_targets** |Zwraca wiersz dla każdego obiektu docelowego zdarzenia dla sesji zdarzeń. |
-| **sys. database_event_sessions** |Zwraca wiersz dla każdej sesji zdarzeń w bazie danych. |
+| **sys.database_event_session_actions** |Zwraca wiersz dla każdej akcji w każdym zdarzeniu sesji zdarzeń. |
+| **sys.database_event_session_events** |Zwraca wiersz dla każdego zdarzenia w sesji zdarzeń. |
+| **sys.database_event_session_fields** |Zwraca wiersz dla każdej kolumny dostosowania, która została jawnie ustawiona dla zdarzeń i elementów docelowych. |
+| **sys.database_event_session_targets** |Zwraca wiersz dla każdego obiektu docelowego zdarzenia dla sesji zdarzeń. |
+| **sys.database_event_sessions** |Zwraca wiersz dla każdej sesji zdarzeń w bazie danych. |
 
-W Microsoft SQL Server podobne widoki wykazu mają nazwy, które obejmują *. serwer \_ * zamiast *. baza danych \_ *. Wzorzec nazwy jest podobny do wykazu **sys. server_event_%**.
+W Microsoft SQL Server podobne widoki wykazu mają nazwy, które obejmują *. serwer \_ * zamiast *. baza danych \_ *. Wzorzec nazwy jest taki jak **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Nowe dynamiczne widoki zarządzania [(widoków DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -89,24 +89,24 @@ Azure SQL Database ma [dynamiczne widoki zarządzania (widoków DMV)](https://ms
 
 | Nazwa DMV | Opis |
 |:--- |:--- |
-| **sys. dm_xe_database_session_event_actions** |Zwraca informacje o akcjach sesji zdarzeń. |
-| **sys. dm_xe_database_session_events** |Zwraca informacje o zdarzeniach sesji. |
-| **sys. dm_xe_database_session_object_columns** |Pokazuje wartości konfiguracji dla obiektów, które są powiązane z sesją. |
-| **sys. dm_xe_database_session_targets** |Zwraca informacje o celach docelowych sesji. |
-| **sys. dm_xe_database_sessions** |Zwraca wiersz dla każdej sesji zdarzeń, który jest objęty zakresem bieżącej bazy danych. |
+| **sys.dm_xe_database_session_event_actions** |Zwraca informacje o akcjach sesji zdarzeń. |
+| **sys.dm_xe_database_session_events** |Zwraca informacje o zdarzeniach sesji. |
+| **sys.dm_xe_database_session_object_columns** |Pokazuje wartości konfiguracji dla obiektów, które są powiązane z sesją. |
+| **sys.dm_xe_database_session_targets** |Zwraca informacje o celach docelowych sesji. |
+| **sys.dm_xe_database_sessions** |Zwraca wiersz dla każdej sesji zdarzeń, który jest objęty zakresem bieżącej bazy danych. |
 
 W Microsoft SQL Server podobne widoki wykazu są nazwane bez części nazwy * \_ bazy danych* , takiej jak:
 
-- **sys. dm_xe_sessions**, a nie nazwa<br/>**sys. dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, zamiast nazwy<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Widoków DMV wspólne dla obu
 
 W przypadku zdarzeń rozszerzonych istnieją dodatkowe widoków DMV, które są wspólne dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i Microsoft SQL Server:
 
-- **sys. dm_xe_map_values**
-- **sys. dm_xe_object_columns**
-- **sys. dm_xe_objects**
-- **sys. dm_xe_packages**
+- **sys.dm_xe_map_values**
+- **sys.dm_xe_object_columns**
+- **sys.dm_xe_objects**
+- **sys.dm_xe_packages**
 
 <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 

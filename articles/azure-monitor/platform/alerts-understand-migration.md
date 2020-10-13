@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852399"
+ms.locfileid: "91875924"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Omówienie opcji migracji do nowszych alertów
 
@@ -254,10 +254,12 @@ W ramach migracji zostaną utworzone nowe alerty metryki i nowe grupy akcji, a n
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Zasady z efektem "Odmów" uniemożliwiają nam Migrowanie reguł
 
-W ramach migracji zostaną utworzone nowe alerty metryki i nowe grupy akcji, a następnie zostaną usunięte reguły klasycznego alertu. Jednak zasady mogą uniemożliwić tworzenie zasobów przez firmę Microsoft. W zależności od zasad nie można migrować niektórych lub wszystkich reguł. Zasady, które blokują proces, są wymienione w [narzędziu migracji](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Rozwiąż ten problem, korzystając z:
+W ramach migracji zostaną utworzone nowe alerty metryki i nowe grupy akcji, a następnie zostaną usunięte reguły klasycznego alertu. Jednak przypisanie [Azure Policy](../../governance/policy/index.yml) może uniemożliwić nam tworzenie zasobów. W zależności od przypisania zasad nie można migrować niektórych lub wszystkich reguł. Przypisania zasad, które blokują proces, są wymienione w [narzędziu migracji](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Rozwiąż ten problem, korzystając z:
 
-- Wykluczanie subskrypcji lub grup zasobów na czas trwania procesu migracji z przypisania zasad. [Dowiedz się więcej o zarządzaniu zakresem wykluczeń zasad](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Usunięcie lub zmiana efektu na "Audit" lub "append" (na przykład może rozwiązać problemy związane z brakującymi tagami). [Dowiedz się więcej o zarządzaniu wpływem zasad](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Wykluczanie subskrypcji, grup zasobów lub poszczególnych zasobów w czasie trwania procesu migracji z przypisania zasad. [Dowiedz się więcej o zarządzaniu zakresami wykluczeń zasad](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Ustaw tryb wymuszania na **wyłączony** w przypisaniu zasad. [Dowiedz się więcej o właściwości wymuszania przypisania zasad](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Ustaw wykluczenie Azure Policy (wersja zapoznawcza) dla subskrypcji, grup zasobów lub poszczególnych zasobów w ramach przypisania zasad. [Dowiedz się więcej o strukturze wykluczenia Azure Policy](../../governance/policy/concepts/exemption-structure.md).
+- Usunięcie lub zmiana efektu na "Disabled", "Audit", "append" lub "Modify" (na przykład może rozwiązać problemy związane z brakującymi tagami). [Dowiedz się więcej o zarządzaniu efektami zasad](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Następne kroki
 

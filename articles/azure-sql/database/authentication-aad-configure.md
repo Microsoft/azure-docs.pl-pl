@@ -13,10 +13,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
 ms.openlocfilehash: d7b0f2bb479154fa10a18cd07a65b9f7287fc97c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444479"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Konfigurowanie uwierzytelniania usługi Azure AD i zarządzanie nim za pomocą usługi Azure SQL
@@ -120,7 +120,7 @@ Po zainicjowaniu obsługi administracyjnej administratora usługi Azure AD dla w
 > [!TIP]
 > Aby później usunąć administratora, w górnej części strony Administrator Active Directory wybierz pozycję **Usuń administratora**, a następnie wybierz pozycję **Zapisz**.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Aby udzielić uprawnienia do odczytu wystąpienia zarządzanego usługi SQL AD przy użyciu programu PowerShell, uruchom następujący skrypt:
 
@@ -186,7 +186,7 @@ Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uru
 Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
 
 - Connect-AzAccount
-- SELECT-AzSubscription
+- Select-AzSubscription
 
 Polecenia cmdlet służące do aprowizacji i zarządzania administratorem usługi Azure AD dla wystąpienia zarządzanego SQL są wymienione w poniższej tabeli:
 
@@ -275,7 +275,7 @@ Aby później usunąć administratora, w górnej części strony **administrator
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/). Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
 
 - Connect-AzAccount
-- SELECT-AzSubscription
+- Select-AzSubscription
 
 Polecenia cmdlet służące do aprowizacji i zarządzania administratorem usługi Azure AD dla SQL Database i usługi Azure Synapse:
 

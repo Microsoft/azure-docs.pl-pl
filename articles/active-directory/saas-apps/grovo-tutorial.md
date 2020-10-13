@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c43a50dbbd2276573a80b866ee673e4391d9736b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a503f93895d0e1377f8037818b68ea42178363c2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551413"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944992"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Grovo
 
@@ -111,7 +111,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -137,11 +137,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Przejdź do **Admin**pozycji  >  **integracje**administratorów.
  
-    ![Konfiguracja Grovo](./media/grovo-tutorial/tutorial_grovo_admin.png) 
+    ![Zrzut ekranu pokazujący menu "Administrator" z wybraną opcją "integracje".](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
 3. Kliknij pozycję **Konfiguruj** w obszarze protokołu **SAML zainicjowanego przez program SP 2,0** .
 
-    ![Konfiguracja Grovo](./media/grovo-tutorial/tutorial_grovo_setup.png)
+    ![Zrzut ekranu przedstawiający sekcję "S P zainicjowana S A M L 2,0" z wybranym przyciskiem "Konfiguruj".](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
 4. W oknie podręcznym **zainicjowanie protokołu SAML 2,0** w programie Sp wykonaj następujące czynności:
 
@@ -170,7 +170,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Grovo w panelu dostępu należy automatycznie zalogować się do Grovo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
