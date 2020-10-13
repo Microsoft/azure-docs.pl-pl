@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713176"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania

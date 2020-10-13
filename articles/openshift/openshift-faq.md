@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816239"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
@@ -127,7 +127,7 @@ W przypadku klastrów 4. x należy uwidocznić bezpieczny rejestr i skonfigurowa
 
 W przypadku klastrów 3,11 jest dostępny rejestr platformy Docker. Rejestr platformy Docker jest dostępny z programu `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Możesz również użyć Azure Container Registry.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 ### <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Czy mogę wdrożyć klaster w istniejącej sieci wirtualnej?
 
@@ -202,7 +202,7 @@ W przypadku klastrów 4. x należy skonfigurować własnego dostawcę tożsamoś
 
 W przypadku klastrów 3,11 można korzystać z integracji usługi Azure AD. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 ### <a name="is-data-on-my-cluster-encrypted"></a>Czy dane w moim klastrze są szyfrowane?
 

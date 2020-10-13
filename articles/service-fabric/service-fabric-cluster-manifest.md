@@ -4,10 +4,10 @@ description: Dowiedz się, jak skonfigurować autonomiczny lub lokalny klaster u
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843162"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Ustawienia konfiguracji dla autonomicznego klastra systemu Windows

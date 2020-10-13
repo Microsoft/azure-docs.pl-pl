@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
 ms.openlocfilehash: 1742c80fd6914a1c9420f37217df02791e80da9d
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710060"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Miejsce zapisywania i zapisywania plików do Azure Machine Learning eksperymentów

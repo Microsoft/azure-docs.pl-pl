@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: d25c8908b46608ac64bcf135404a070740413fe0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907370"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Uruchom ponownie Azure Database for PostgreSQL — pojedynczy serwer przy użyciu Azure Portal
@@ -36,15 +36,15 @@ Wykonaj następujące kroki, aby ponownie uruchomić serwer PostgreSQL:
 
 3. Kliknij przycisk **tak** , aby potwierdzić ponowne uruchomienie serwera.
 
-   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie":::
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for PostgreSQL — przegląd — przycisk ponownego uruchamiania":::
 
 4. Zwróć uwagę, że stan serwera zmieni się na "ponowne uruchomienie".
 
-   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for PostgreSQL — stan ponownego uruchomienia":::
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for PostgreSQL — przegląd — przycisk ponownego uruchamiania":::
 
 5. Potwierdzenie ponownego uruchomienia serwera zakończyło się pomyślnie.
 
-   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for PostgreSQL — pomyślne ponowne uruchomienie":::
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for PostgreSQL — przegląd — przycisk ponownego uruchamiania":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
 ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708649"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
@@ -93,7 +93,7 @@ Wybór branżowy ma zastosowanie tylko w przypadku ofert opublikowanych w usług
 | **Architektura & konstrukcja** | |
 | **Motoryzacja** | |
 | **Dystrybucja** | Handel hurtowy <br> Wysyłka pakietu & Parcel |  
-| **Education** | Szkolnictwo wyższe <br> Podstawowa & dodatkowej platformy edu/K-12 <br> Biblioteki & muzea |
+| **Edukacja** | Szkolnictwo wyższe <br> Podstawowa & dodatkowej platformy edu/K-12 <br> Biblioteki & muzea |
 | **Usługi finansowe** | Bankowość & — rynki kapitałowe <br> Zakład | 
 | **Instytucje rządowe** |  Inteligencja & obrony <br> Rząd cywilny <br> Bezpieczeństwo publiczne & sprawiedliwości |
 | **Opieka zdrowotna** | Płatnik kondycji <br> Dostawca kondycji <br> Pharmaceuticals | 

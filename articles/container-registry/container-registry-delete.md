@@ -4,10 +4,10 @@ description: Szczegółowe informacje na temat efektywnego zarządzania rozmiare
 ms.topic: article
 ms.date: 07/31/2019
 ms.openlocfilehash: 449a1c09bf88e3e0e0aeca4d3b687371d2a6b91a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78403342"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Usuwanie obrazów kontenera w Azure Container Registry przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -58,7 +58,7 @@ Are you sure you want to continue? (y/n):
 
 [Podsumowanie manifestu](container-registry-concepts.md#manifest-digest) może być skojarzone z jednym, brakiem lub wieloma tagami. Po usunięciu przez Digest wszystkie Tagi, do których odwołuje się manifest, są usuwane, tak jak dane warstwy dla każdej warstwy, które są unikatowe dla obrazu. Dane warstwy udostępnionej nie są usuwane.
 
-Aby usunąć plik przez podsumowanie, najpierw Wyświetl skróty manifestu zawierające obrazy, które chcesz usunąć. Przykład:
+Aby usunąć plik przez podsumowanie, najpierw Wyświetl skróty manifestu zawierające obrazy, które chcesz usunąć. Na przykład:
 
 ```azurecli
 az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -154,7 +154,7 @@ fi
 
 Jak wspomniano w sekcji [Podsumowanie manifestu](container-registry-concepts.md#manifest-digest) , wypychanie zmodyfikowanego obrazu przy użyciu istniejącego tagu spowoduje **nieoznakowanie** wcześniej wypchnięcia obrazu, co spowoduje powstanie oddzielonego obrazu (lub "zawieszonego"). Plik manifestu wcześniej wypchniętego obrazu — i jego dane warstwy — pozostają w rejestrze. Należy wziąć pod uwagę następującą sekwencję zdarzeń:
 
-1. Wypychanie obrazu *ACR — HelloWorld* z tagiem **najnowszy**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Wypychanie obrazu *ACR — HelloWorld* z tagiem **najnowszy**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Sprawdź manifesty dla repozytorium *ACR-HelloWorld*:
 
    ```azurecli
@@ -175,7 +175,7 @@ Jak wspomniano w sekcji [Podsumowanie manifestu](container-registry-concepts.md#
    ```
 
 1. Modyfikuj *ACR — HelloWorld* pliku dockerfile
-1. Wypychanie obrazu *ACR — HelloWorld* z tagiem **najnowszy**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Wypychanie obrazu *ACR — HelloWorld* z tagiem **najnowszy**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Sprawdź manifesty dla repozytorium *ACR-HelloWorld*:
 
    ```azurecli

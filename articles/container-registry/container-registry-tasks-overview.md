@@ -4,10 +4,10 @@ description: Wprowadzenie do ACR zadań, zestaw funkcji w Azure Container Regist
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488647"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatyzowanie kompilacji i konserwacji obrazów kontenerów za pomocą zadań ACR

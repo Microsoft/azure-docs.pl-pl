@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712293"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Tworzenie automatycznych odpowiedzi na alerty i zalecenia z automatyzacją przepływu pracy

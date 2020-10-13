@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764047"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych platformy Azure
@@ -78,7 +78,7 @@ Aby opublikować ten pulpit nawigacyjny dla dowolnej maszyny wirtualnej w przysz
 Istnieją dwa podejścia do interfejsów API, które tworzą zasoby na platformie Azure:
 
 * Bezwzględne interfejsy API tworzą jeden zasób w danym momencie. Aby uzyskać więcej informacji, zobacz [zasoby](/rest/api/resources/resources).
-* System wdrażania oparty na szablonach, który tworzy wiele zależnych zasobów z pojedynczym wywołaniem interfejsu API. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* System wdrażania oparty na szablonach, który tworzy wiele zależnych zasobów z pojedynczym wywołaniem interfejsu API. Aby uzyskać więcej informacji, zobacz  [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 Wdrożenie oparte na szablonach obsługuje parametryzacja i tworzenia szablonów. Używamy tej metody w tym artykule.
 

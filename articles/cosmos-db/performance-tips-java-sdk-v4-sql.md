@@ -1,5 +1,5 @@
 ---
-title: Wskazówki dotyczące wydajności dla Azure Cosmos DB Java SDK v4
+title: Porady dotyczące wydajności zestawu Java SDK usługi Azure Cosmos DB w wersji 4
 description: Dowiedz się więcej na temat opcji konfiguracji klienta, aby zwiększyć wydajność usługi Azure Cosmos Database dla zestawu Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258318"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Wskazówki dotyczące wydajności dla Azure Cosmos DB Java SDK v4
+# <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Porady dotyczące wydajności zestawu Java SDK usługi Azure Cosmos DB w wersji 4
 
 > [!div class="op_single_selector"]
 > * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
@@ -157,7 +157,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     * ***Przegląd trybu bezpośredniego***
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja architektury trybu bezpośredniego" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja zasad połączenia Azure Cosmos DB" border="false":::
 
         Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 **kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi**repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
 
@@ -169,7 +169,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
         Pierwszym krokiem jest użycie poniższych zalecanych ustawień konfiguracji. Te opcje *DirectConnectionConfig* są zaawansowane ustawienia konfiguracji, które mogą wpływać na wydajność zestawu SDK w nieoczekiwany sposób. Zalecamy, aby użytkownicy nie mogli ich modyfikować, chyba że obawiają się one w zrozumieniu kompromisów i są absolutnie niezbędne. Skontaktuj się z [zespołem Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) , jeśli wystąpią problemy z tym konkretnym tematem.
 
-        | Opcja konfiguracji       | Domyślny    |
+        | Opcja konfiguracji       | Domyślne    |
         | :------------------:       | :-----:    |
         | idleConnectionTimeout      | "PT1M"     |
         | maxConnectionsPerEndpoint  | "PT0S"     |

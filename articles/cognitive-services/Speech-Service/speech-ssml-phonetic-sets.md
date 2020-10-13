@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78675341"
 ---
 # <a name="speech-service-phonetic-sets"></a>Zestawy fonetyczne usługi mowy
 
-Usługa mowy definiuje alfabety fonetyczne ("zestawy telefonów" jako krótkie), składające się z siedmiu języków: `en-US`, `fr-FR` `es-ES`, `de-DE` `zh-CN`,,, i `zh-TW`. `ja-JP` Zestawy telefonów usługi Speech Service są zwykle mapowane na <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet fonetyczny (IPA <span class="docon docon-navigate-external x-hidden-focus"> </span>) </a>. Zestawy telefonów usługi Speech Service są używane w połączeniu z [językiem SSML (Speech syntezing Language)](speech-synthesis-markup.md)w ramach oferty usługi zamiany tekstu na mowę. W tym artykule dowiesz się, jak te zestawy telefonów są mapowane i kiedy używać zestawu telefonów.
+Usługa mowy definiuje alfabety fonetyczne ("zestawy telefonów" jako krótkie), składające się z siedmiu języków: `en-US`,,,,, `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` i `zh-TW` . Zestawy telefonów usługi Speech Service są zwykle mapowane na <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet fonetyczny (IPA <span class="docon docon-navigate-external x-hidden-focus"></span> ) </a>. Zestawy telefonów usługi Speech Service są używane w połączeniu z [językiem SSML (Speech syntezing Language)](speech-synthesis-markup.md)w ramach oferty usługi zamiany tekstu na mowę. W tym artykule dowiesz się, jak te zestawy telefonów są mapowane i kiedy używać zestawu telefonów.
 
 # <a name="en-us"></a>[pl-US](#tab/en-US)
 
@@ -70,7 +70,7 @@ Usługa mowy definiuje alfabety fonetyczne ("zestawy telefonów" jako krótkie),
 | `sapi` | `ipa` | Przykład 1           | Przykład 2  | Przykład 3 |
 |--------|-------|---------------------|------------|-----------|
 | w      | `w`   | **w**itd **. de** | Al**w**AYS |           |
-| t      | `j`   | **t**ARD, f**e**w   | włączone**i**  |           |
+| Y      | `j`   | **t**ARD, f**e**w   | włączone**i**  |           |
 
 ### <a name="english-aspirated-oral-stops"></a>Przejścia w Stanach doustnych w języku angielskim
 
@@ -95,7 +95,7 @@ Usługa mowy definiuje alfabety fonetyczne ("zestawy telefonów" jako krótkie),
 
 | `sapi` | `ipa` | Przykład 1   | Przykład 2        | Przykład 3  |
 |--------|-------|-------------|------------------|------------|
-| k      | `f`   | eć **f**    | Le**f**t         | HAL**f**   |
+| f      | `f`   | eć **f**    | Le**f**t         | HAL**f**   |
 | v      | `v`   | **v**RG   | e **.**        | Lo ***** e   |
 | th     | `θ`   | **th**w    | EMPA**th**y      | Mon**th**  |
 | DH     | `ð`   | **th**    | mo**th**       | smoo**th** |
@@ -123,7 +123,7 @@ Usługa mowy definiuje alfabety fonetyczne ("zestawy telefonów" jako krótkie),
 
 ### <a name="french-suprasegmentals"></a>Suprasegmentals francuski
 
-Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem na sylabę; zestaw `fr-FR` telefonów usługi Speech Service nie obsługuje IPA "ˌ". Jeśli konieczne jest podIPAa, należy użyć IPA bezpośrednio.
+Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem na sylabę; `fr-FR` zestaw telefonów usługi Speech Service nie obsługuje IPA "ˌ". Jeśli konieczne jest podIPAa, należy użyć IPA bezpośrednio.
 
 ### <a name="french-vowels"></a>Głoski francuskie
 
@@ -152,7 +152,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 |--------|-------|-------------|---------------|----------------------------------|
 | b      | `b`   | **b**ête    | ha**b**Ille   | ro**b**e                         |
 | d      | `d`   | **d**wygasnąć    | Piotr**d**EUR   | Chau**d**e                       |
-| k      | `f`   | Emme **f**   | Su**FF**IXE   | bo**f**                          |
+| f      | `f`   | Emme **f**   | Su**FF**IXE   | bo**f**                          |
 | g      | `g`   | **g**auche  | é**g**ale     | BA**gu**e                        |
 | gazu     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)**parkowanie** |
 | hy     | `ɥ`   | h**u**Iku   | n**u**wygasnąć     |                                  |
@@ -168,7 +168,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 | t      | `t`   | ête **t**    | ô**t**      | ne**t**                          |
 | v      | `v`   | **wersja**    | w programie**v**ENTER  | rê**v**e                         |
 | w      | `w`   | **jednostka organizacyjna**i     | iersz k**OU**    |                                  |
-| t      | `j`   | **y**od     | p**i**étiner  | Mars**Ille**                    |
+| Y      | `j`   | **y**od     | p**i**étiner  | Mars**Ille**                    |
 | z      | `z`   | * * z * * éro   | Rai**s**onner | ro**s**e                         |
 | zh     | `ʒ`   | Ardin **j**  | Man**g**er    | piè**g**e                        |
 |        | `n‿`  |             |               | u**n** Arbre                     |
@@ -179,7 +179,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 **1** *tylko dla niektórych wyrazów obcych.*
 
 > [!TIP]
-> Zestaw `fr-FR` telefonów usługi Speech Service nie obsługuje następujących francuskich liasions, `n‿`, `t‿`i `z‿`. Jeśli są potrzebne, należy rozważyć użycie IPA bezpośrednio.
+> `fr-FR`Zestaw telefonów usługi Speech Service nie obsługuje następujących francuskich liasions, `n‿` , `t‿` i `z‿` . Jeśli są potrzebne, należy rozważyć użycie IPA bezpośrednio.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
@@ -238,10 +238,10 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 | c | `ç` | **Ch**emie | mögli**ch**St | [<sup>2</sup>](#de-c-2)i**ch** |
 | d | `d` | **d**anken | [<sup>3</sup>](#de-c-3) Len**d**l | [<sup>4</sup>](#de-c-4) Clau**d**e |  |
 | jh | `ʤ` | EFF **J** | gemana**g**t | [<sup>5</sup>](#de-c-5) Kanał**g**e |
-| k | `f` | Ahrtdauer **F** | Angri**FF**slustig | abbruchrei**f** |  |
+| f | `f` | Ahrtdauer **F** | Angri**FF**slustig | abbruchrei**f** |  |
 | g | `g` | **g**UT |  | [<sup>6</sup>](#de-c-6) Protokół gre**g** |  |
 | h | `h` | Ausanbau **H** |  |  |  |
-| t | `j` | **J**od | Reakt**i**na | HU**i** |  |
+| Y | `j` | **J**od | Reakt**i**na | HU**i** |  |
 | k | `k` | **K**OMA | Aspe**k**t | Flec**k** |  |
 | l | `l` | **l**. | ähne**l**n | zuvie**l** |  |
 | m | `m` | **M**UT | **M**t | Leh**m** |  |
@@ -256,7 +256,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 | TS | `ts` | **Z**g | AR**z**t | WIT**z** |  |
 | ch | `tʃ` | **Tsch**echien | aufgepu**Tsch**t | bundesdeu**Tsch** |  |
 | v | `v` | **w**inken | P**u**Alle | [<sup>9</sup>](#de-c-9) Gr**oo**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**ch**erach | Dr**ch**t mögli**ch**St | Schma**ch** "i**ch** |
+| x | [<sup>10</sup>](#de-c-10) `x` ,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**ch**erach | Dr**ch**t mögli**ch**St | Schma**ch** "i**ch** |
 | z | `z` | uper **s** |  |  |  |
 | zh | `ʒ` | **G**enre | B**ezinski** | EDVI**g**e |
 
@@ -292,7 +292,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 | ^      | `ʔ`   | beachtlich/b AX — ^ a 1 x t-l IH c/ |
 
 > [!NOTE]
-> Musimy dodać [numer telefonu GS\] między dwoma odrębnymi odgłosami, z wyjątkiem dwóch samogłosek jest to oryginalny diphthong. Ta doustna Spółgłoska to glottal, aby uzyskać więcej informacji, <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">Zobacz glottal <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>Stop.
+> Musimy dodać [ \] numer telefonu GS między dwoma odrębnymi odgłosami, z wyjątkiem dwóch samogłosek jest to oryginalny diphthong. Ta doustna Spółgłoska to glottal, aby uzyskać więcej informacji, zobacz <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank"> glottal Stop <span class="docon docon-navigate-external x-hidden-focus"> </a> </a> .
 
 # <a name="es-es"></a>[es-ES](#tab/es-ES)
 
@@ -315,7 +315,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 | ch     | `tʃ`       | **ch**eque | co**ch**e      | Marraque**ch** |
 | d      | `d`        | **d**Edo   |                | portlan**d**   |
 |        | `ð`        |            | **d**o       | Verda**d**     |
-| k      | `f`        | ácil **f**  | ele**f**ante   | PU**f**        |
+| f      | `f`        | ácil **f**  | ele**f**ante   | PU**f**        |
 | g      | `g`        | **g**tongijska  |                | dópin**g**     |
 |        | `ɣ`        |            | a**g**UA       | tuare**g**     |
 | j      | `j`        | **ODO**   | cal**i**przedsiębio   | **odosij y**        |
@@ -336,7 +336,7 @@ Zestaw telefonu usługi mowy umożliwia nanaciskanie po samogłosach z naciskiem
 | x      | `x`        | OTA **j**   | **j**o        | relokacji**j**      |
 
 > [!TIP]
-> Zestaw `es-ES` telefonów usługi Speech Service nie obsługuje następujących IPA w języku `β`hiszpańskim `ð`,, `ɣ`i. Jeśli są potrzebne, należy rozważyć użycie IPA bezpośrednio.
+> `es-ES`Zestaw telefonów usługi Speech Service nie obsługuje następujących IPA w języku hiszpańskim,, `β` `ð` i `ɣ` . Jeśli są potrzebne, należy rozważyć użycie IPA bezpośrednio.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
@@ -362,7 +362,7 @@ Zestaw telefonów usługi Speech Service `zh-CN` jest oparty na natywnym zestawi
 
 # <a name="zh-tw"></a>[zh-TW](#tab/zh-TW)
 
-Zestaw telefonów usługi mowy dla `zh-TW` systemu jest oparty na zestawie natywnego telefonu <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+Zestaw telefonów usługi mowy dla `zh-TW` systemu jest oparty na zestawie natywnego <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">telefonu <span class="docon docon-navigate-external x-hidden-focus"></span> Bopomofo</a> .
 
 ### <a name="tone"></a>Ton komunikatu
 
@@ -390,8 +390,8 @@ Zestaw telefonów usługi mowy dla `ja-JP` systemu jest oparty na natywnym zesta
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ`mainstress |
-| `+`    | `ˌ`podobciążenie  |
+| `ˈ`    | `ˈ` mainstress |
+| `+`    | `ˌ` podobciążenie  |
 
 #### <a name="example"></a>Przykład
 

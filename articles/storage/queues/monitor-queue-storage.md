@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
 ms.openlocfilehash: 3fe99543b821810b1479f1e504098d81fd20c534
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711450"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorowanie usługi Azure queue storage
@@ -395,7 +395,7 @@ Użyj tych zapytań, aby ułatwić monitorowanie kont usługi Azure Storage:
     | sort by count_ desc 
     | render piechart
     ```
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Czy usługa Azure Storage obsługuje metryki dla dysków Managed Disks lub niezarządzanych?**
 

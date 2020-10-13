@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 973b8a49c4a849f5a50fb3ab72321746a5ca06a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083478"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Wizualizowanie danych programu Apache Hive przy użyciu usługi Microsoft Power BI za pomocą interfejsu ODBC w usłudze Azure HDInsight
@@ -52,7 +52,7 @@ Tabela programu Hive **hivesampletable** zawiera wszystkie klastry usługi HDIns
 
 1. W oknie dialogowym **pobieranie danych** wybierz pozycję **inne** po lewej stronie, wybierz pozycję **ODBC** z prawej strony, a następnie wybierz pozycję **Połącz** u dołu.
 
-1. W oknie dialogowym **z programu ODBC** wybierz nazwę źródła danych utworzoną w ostatniej sekcji z listy rozwijanej. Następnie wybierz pozycję **OK**.
+1. W oknie dialogowym **z programu ODBC** wybierz nazwę źródła danych utworzoną w ostatniej sekcji z listy rozwijanej. Następnie wybierz przycisk **OK**.
 
 1. Do pierwszego użycia zostanie otwarte okno dialogowe **sterownika ODBC** . Z menu po lewej stronie wybierz opcję **domyślne lub niestandardowe** . Następnie wybierz pozycję **Połącz** , aby otworzyć okno **Nawigator**.
 
@@ -72,7 +72,7 @@ Kontynuuj z ostatniej procedury.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób wizualizacji danych z usługi HDInsight przy użyciu Power BI.  Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule przedstawiono sposób wizualizacji danych z usługi HDInsight przy użyciu Power BI.  Więcej informacji można znaleźć w następujących artykułach:
 
 * [Łączenie programu Excel z usługą HDInsight przy użyciu Sterownik Microsoft Hive ODBC](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Łączenie programu Excel z Apache Hadoop przy użyciu Power Query](apache-hadoop-connect-excel-power-query.md).

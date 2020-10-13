@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 5760d5e140919c9309b22f6f597e73c88f7a9069
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710281"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Warstwy cenowe w usłudze Azure Database for PostgreSQL— pojedynczy serwer
 
 Serwer Azure Database for PostgreSQL można utworzyć w jednej z trzech różnych warstw cenowych: podstawowe, Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci. Warstwy cenowe są zróżnicowane według ilości obliczeń w rdzeni wirtualnych, które mogą być inicjowane, pamięć na rdzeń wirtualny i technologia magazynowania służąca do przechowywania danych. Wszystkie zasoby są obsługiwane na poziomie serwera PostgreSQL. Serwer może mieć jedną lub wiele baz danych.
 
-| Zasób/warstwa | **Podstawowa** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
+| Zasób/warstwa | **Podstawowe** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
 | Generowanie obliczeń | Gen 4, Gen 5 | Gen 4, Gen 5 | 5. generacja |
 | Rdzeni wirtualnych | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Zasoby obliczeniowe są udostępniane jako rdzeni wirtualnych, które reprezentu
 
 Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla serwera Azure Database for PostgreSQL. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera PostgreSQL. Całkowita ilość dostępnego miejsca w magazynie określa również wydajność we/wy dostępną dla serwera.
 
-| Atrybuty magazynu | **Podstawowa** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
+| Atrybuty magazynu | **Podstawowe** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
 | Typ magazynu | Magazyn podstawowy | Magazyn Ogólnego przeznaczenia | Magazyn Ogólnego przeznaczenia |
 | Rozmiar magazynu | od 5 GB do 1 TB | od 5 GB do 16 TB | od 5 GB do 16 TB |

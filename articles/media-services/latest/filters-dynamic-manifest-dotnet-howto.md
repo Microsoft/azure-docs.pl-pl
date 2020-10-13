@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9f54a505d63660fb7c97b3226df4c232e48125e1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527364"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Tworzenie filtrów za pomocą zestawu SDK platformy Media Services .NET

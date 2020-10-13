@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/23/2020
 ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332104"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
@@ -378,21 +378,21 @@ Skonfiguruj odpowiedni typ danych Data Factory w strukturze zestawu danych, któ
 | Typ danych Dynamics | Data Factory typ danych pośrednich | Obsługiwane jako źródło | Obsługiwane jako ujścia |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode. BigInt | Długo | ✓ | ✓ |
-| AttributeTypeCode. Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode. Boolean | Boolean (wartość logiczna) | ✓ | ✓ |
 | AttributeType. Customer | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. DateTime | Datetime (data/godzina) | ✓ | ✓ |
 | AttributeType. Decimal | Liczba dziesiętna | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
-| AttributeType. EntityName | String | ✓ | ✓ |
+| AttributeType. EntityName | Ciąg | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
 | AttributeType. Lookup | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
-| AttributeType. ManagedProperty | Boolean | ✓ | |
-| AttributeType. MEMO | String | ✓ | ✓ |
+| AttributeType. ManagedProperty | Boolean (wartość logiczna) | ✓ | |
+| AttributeType. MEMO | Ciąg | ✓ | ✓ |
 | AttributeType. Money | Liczba dziesiętna | ✓ | ✓ |
 | AttributeType. Owner | GUID | ✓ | ✓ (Zobacz [wskazówki](#writing-data-to-a-lookup-field)) |
 | AttributeType. Lista wyboru | Int32 | ✓ | ✓ |
 | AttributeType. unikatowy identyfikator | GUID | ✓ | ✓ |
-| AttributeType. String | String | ✓ | ✓ |
+| AttributeType. String | Ciąg | ✓ | ✓ |
 | AttributeType. State | Int32 | ✓ | ✓ |
 | AttributeType. status | Int32 | ✓ | ✓ |
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seodec18,seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: 7792ac688ede32155ec32e1f4ba25b328102f86c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079840"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>pakiet Enterprise Security konfiguracji z Azure Active Directory Domain Services w usłudze HDInsight

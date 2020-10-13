@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708836"
 ---
 # <a name="best-practices-for-query-store"></a>Najlepsze rozwiązania dotyczące magazynu zapytań
@@ -24,7 +24,7 @@ Pozwól, aby Magazyn zapytań przechwytł dane.
 
 |**pg_qs pg_qs.query_capture_mode** | **Scenariusz**|
 |---|---|
-|_Całą_  |Dokładne analizowanie obciążeń pod względem wszystkich zapytań i ich częstotliwości wykonywania oraz innych statystyk. Zidentyfikuj nowe zapytania w obciążeniu. Wykrywaj, czy zapytania ad hoc służą do identyfikowania możliwości użytkownika lub autoparametryzacja. _Wszystko_ to zapewnia zwiększony koszt zużycia zasobów. |
+|_Wszystkie_  |Dokładne analizowanie obciążeń pod względem wszystkich zapytań i ich częstotliwości wykonywania oraz innych statystyk. Zidentyfikuj nowe zapytania w obciążeniu. Wykrywaj, czy zapytania ad hoc służą do identyfikowania możliwości użytkownika lub autoparametryzacja. _Wszystko_ to zapewnia zwiększony koszt zużycia zasobów. |
 |_Pierwsze_  |Należy skoncentrować się na najważniejszych zapytaniach — tych, które są wystawiane przez klientów.
 |_Brak_ |Przechwycono już zestaw zapytań i przedział czasu, które chcesz zbadać, i chcesz wyeliminować rozpraszanie, które mogą zostać wprowadzone przez inne zapytania. _Żadna nie_ jest odpowiednia do testowania i oznaczania na kanapie. _Nie_ należy stosować z zachowaniem ostrożności, ponieważ możesz pominąć szansę śledzenia i optymalizacji ważnych nowych zapytań. Nie można odzyskać danych w oknach, które przeszły czas. |
 

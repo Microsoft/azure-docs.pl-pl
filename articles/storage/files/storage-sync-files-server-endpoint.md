@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541496"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Dodawanie/Usuwanie punktu końcowego serwera Azure File Sync

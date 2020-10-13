@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Samouczek: integracja Azure Active Directory z usługą Acadia
@@ -156,7 +156,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

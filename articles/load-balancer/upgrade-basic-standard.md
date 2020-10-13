@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84809338"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Uaktualnij Load Balancer publicznej platformy Azure
@@ -41,7 +41,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Pobierz skrypt migracji z  [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Używanie skryptu
 
 W zależności od konfiguracji i preferencji lokalnego środowiska programu PowerShell dostępne są dwie opcje:
@@ -51,7 +51,7 @@ W zależności od konfiguracji i preferencji lokalnego środowiska programu Powe
 
 Aby określić, czy masz zainstalowane moduły Azure AZ, uruchom polecenie `Get-InstalledModule -Name az` . Jeśli nie widzisz żadnych zainstalowanych modułów AZ, możesz użyć `Install-Script` metody.
 
-### <a name="install-using-the-install-script-method"></a>Instalowanie przy użyciu metody install-Script
+### <a name="install-using-the-install-script-method"></a>Instalowanie przy użyciu metody Install-Script
 
 Aby można było użyć tej opcji, na komputerze nie trzeba mieć zainstalowanych modułów platformy Azure. Jeśli są zainstalowane, następujące polecenie wyświetla błąd. Możesz odinstalować usługę Azure AZ module lub użyć innej opcji, aby ręcznie pobrać skrypt i uruchomić go.
   

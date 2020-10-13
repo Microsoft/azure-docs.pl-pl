@@ -16,21 +16,21 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790850"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]W tym artykule opisano sposób przypisywania ról przy użyciu interfejsu API REST.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] W tym artykule opisano sposób przypisywania ról przy użyciu interfejsu API REST.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby dodać lub usunąć przypisania ról, musisz mieć:
 
-- `Microsoft.Authorization/roleAssignments/write`i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` i `Microsoft.Authorization/roleAssignments/delete` uprawnienia, takie jak [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) lub [właściciel](built-in-roles.md#owner)
 
 ## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
 
@@ -38,7 +38,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli
 
 1. Aby uzyskać identyfikator definicji roli, która ma zostać przypisana, użyj sekcji [definicje ról-list](/rest/api/authorization/roledefinitions/list) API REST lub zobacz [wbudowane role](built-in-roles.md) .
 
-1. Użyj narzędzia GUID, aby wygenerować unikatowy identyfikator, który będzie używany dla identyfikatora przypisania roli. Identyfikator ma format:`00000000-0000-0000-0000-000000000000`
+1. Użyj narzędzia GUID, aby wygenerować unikatowy identyfikator, który będzie używany dla identyfikatora przypisania roli. Identyfikator ma format: `00000000-0000-0000-0000-000000000000`
 
 1. Rozpocznij od następującego żądania i treści:
 
@@ -58,7 +58,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem przypisania roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Typ |
+    > | Zakres | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
@@ -72,7 +72,7 @@ W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli
 1. W treści żądania Zastąp wartość *{SCOPE}* zakresem przypisania roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Typ |
+    > | Zakres | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |
@@ -132,7 +132,7 @@ W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie ro
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, aby usunąć przypisanie roli.
 
     > [!div class="mx-tableFixed"]
-    > | Zakres | Typ |
+    > | Zakres | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupa zarządzania |
     > | `subscriptions/{subscriptionId1}` | Subskrypcja |

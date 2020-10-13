@@ -1,5 +1,5 @@
 ---
-title: 'Przykład: korzystanie z funkcji dużej skali'
+title: 'Przykład: Użyj funkcji Large-Scale'
 titleSuffix: Azure Cognitive Services
 description: Ten przewodnik to artykuł dotyczący sposobu skalowania w górę od istniejącej osoby i FaceList obiektów do obiektów LargePersonGroup i LargeFaceList.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332393"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Przykład: korzystanie z funkcji dużej skali
@@ -65,7 +65,7 @@ Dodaj wszystkie powierzchnie i osoby z tej osoby do nowego LargePersonGroup. Aby
 | Interfejsy API listy FaceList | Interfejsy API listy LargeFaceList |
 |:---:|:---:|
 | Utwórz | Utwórz |
-| Usuń | Usuń |
+| Usuwanie | Usuwanie |
 | Get | Get |
 | Lista | Lista |
 | Aktualizacja | Aktualizacja |

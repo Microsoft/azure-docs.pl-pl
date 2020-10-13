@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082084"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurowanie szyfrowania i uwierzytelniania TLS dla Apache Kafka w usłudze Azure HDInsight
@@ -52,7 +52,7 @@ Podsumowanie procesu instalacji brokera przebiega następująco:
 Aby ukończyć konfigurowanie brokera, Skorzystaj z poniższych szczegółowych instrukcji:
 
 > [!Important]
-> W poniższych fragmentach kodu wnX jest skrót jednego z trzech węzłów procesu roboczego i powinien zostać zastąpiony `wn0` `wn1` lub `wn2` w zależności od potrzeb. `WorkerNode0_Name`i `HeadNode0_Name` powinny być zastąpione nazwami odpowiednich maszyn.
+> W poniższych fragmentach kodu wnX jest skrót jednego z trzech węzłów procesu roboczego i powinien zostać zastąpiony `wn0` `wn1` lub `wn2` w zależności od potrzeb. `WorkerNode0_Name` i `HeadNode0_Name` powinny być zastąpione nazwami odpowiednich maszyn.
 
 1. Wykonaj konfigurację początkową w węźle głównym 0, dla którego Usługa HDInsight wypełni rolę urzędu certyfikacji.
 
@@ -128,8 +128,8 @@ Aby ukończyć modyfikację konfiguracji, wykonaj następujące czynności:
 
 1. Zaloguj się do Azure Portal i wybierz klaster Apache Kafka usługi Azure HDInsight.
 1. Przejdź do interfejsu użytkownika Ambari, klikając pozycję **Strona główna** w obszarze **pulpity nawigacyjne klastra**.
-1. W obszarze **Broker Kafka** ustaw właściwość **detektory** na`PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. W obszarze **Advanced Kafka-Broker** ustaw właściwość **Security. Inter. Broker. Protocol** na`SSL`
+1. W obszarze **Broker Kafka** ustaw właściwość **detektory** na `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. W obszarze **Advanced Kafka-Broker** ustaw właściwość **Security. Inter. Broker. Protocol** na `SSL`
 
     ![Edytowanie właściwości konfiguracji protokołu SSL Kafka w Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 

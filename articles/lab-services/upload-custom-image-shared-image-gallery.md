@@ -4,13 +4,13 @@ description: Opisuje sposób przekazywania obrazu niestandardowego do galerii ob
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: cd701215eb375b7f9b867ba05082afc7ed348ff7
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712413"
 ---
-# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Przekazywanie obrazu niestandardowego do galerii obrazów udostępnionych
+# <a name="upload-a-custom-image-to-shared-image-gallery"></a>Przekazywanie obrazu niestandardowego do usługi Shared Image Gallery
 
 Udostępniona Galeria obrazów jest dostępna do importowania własnych niestandardowych obrazów do tworzenia laboratoriów w Azure Lab Services. Uniwersyteckie działy IT będą wyszukiwać obrazy, które są szczególnie korzystne z następujących powodów: 
 

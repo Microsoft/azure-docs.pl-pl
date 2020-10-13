@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84792097"
 ---
 Aby uzyskać stan kondycji punktów końcowych, można użyć interfejsu API REST [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) . Zalecamy używanie [metryk IoT Hub](../articles/iot-hub/iot-hub-metrics.md) związanych z opóźnieniem komunikatów routingu w celu identyfikowania i debugowania błędów, gdy kondycja punktu końcowego jest martwa lub zła, ponieważ oczekuje się, że opóźnienie ma być wyższe, gdy punkt końcowy jest w jednym z tych stanów.

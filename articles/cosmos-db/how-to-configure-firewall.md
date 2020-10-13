@@ -8,10 +8,10 @@ ms.date: 08/24/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88814182"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurowanie zapory IP w Azure Cosmos DB
@@ -37,7 +37,7 @@ Po włączeniu kontroli dostępu do adresów IP Azure Portal zapewnia możliwoś
 
 Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla Azure Portal do właściwości **ipRangeFilter** , aby zachować dostęp. Adresy IP portalu to:
 
-|Region (Region)|Adres IP|
+|Region|Adres IP|
 |------|----------|
 |Niemcy|51.4.229.218|
 |Chiny|139.217.8.252|
@@ -46,13 +46,13 @@ Po włączeniu programowo zasad kontroli dostępu IP należy dodać adres IP dla
 
 Żądania dostępu do Azure Portal można włączyć, wybierając opcję **Zezwalaj na dostęp z Azure Portal** , jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Zrzut ekranu przedstawiający sposób włączania dostępu Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Zezwalaj na żądania z globalnych centrów danych platformy Azure lub innych źródeł na platformie Azure
 
 W przypadku uzyskania dostępu do konta Azure Cosmos DB z usług, które nie zapewniają statycznego adresu IP (na przykład Azure Stream Analytics i Azure Functions), można nadal korzystać z zapory IP w celu ograniczenia dostępu. Możesz włączyć dostęp z innych źródeł w ramach platformy Azure, wybierając opcję **Akceptuj połączenia z poziomu centrów danych platformy Azure** , jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Zrzut ekranu przedstawiający sposób akceptowania połączeń z centrów danych platformy Azure":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 
 Po włączeniu tej opcji adres IP `0.0.0.0` zostanie dodany do listy dozwolonych adresów IP. `0.0.0.0`Adres IP ogranicza żądania do konta Azure Cosmos DB z zakresu adresów IP centrum danych platformy Azure. To ustawienie nie zezwala na dostęp do konta usługi Azure Cosmos DB z jakiegokolwiek innego adresu IP.
 
@@ -65,9 +65,9 @@ Aby uprościć programowanie, Azure Portal ułatwia identyfikowanie i Dodawanie 
 
 Portal automatycznie wykrywa adres IP klienta. Może to być adres IP klienta komputera lub adres IP bramy sieci. Pamiętaj o usunięciu tego adresu IP przed przejęciem obciążeń do środowiska produkcyjnego.
 
-Aby dodać bieżący adres IP do listy adresów IP, wybierz pozycję **Dodaj mój bieżący adres IP**. Następnie wybierz pozycję **Zapisz**.
+Aby dodać bieżący adres IP do listy adresów IP, wybierz pozycję **Dodaj mój bieżący adres IP**. Następnie wybierz przycisk **Zapisz**.
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Zrzut ekranu przedstawiający sposób konfigurowania ustawień zapory dla bieżącego adresu IP":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 
 ### <a name="requests-from-cloud-services"></a>Żądania z usług Cloud Services
 
@@ -75,7 +75,7 @@ Na platformie Azure usługi Cloud Services są typowym sposobem hostowania logik
 
 Możesz pobrać adresy IP dla usług w chmurze w Azure Portal, jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Zrzut ekranu przedstawiający publiczny adres IP dla usługi w chmurze, która jest wyświetlana w Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 
 W przypadku skalowania w poziomie usługi w chmurze przez dodanie wystąpień roli nowe wystąpienia będą automatycznie miały dostęp do konta Azure Cosmos DB, ponieważ są one częścią tej samej usługi w chmurze.
 
@@ -85,7 +85,7 @@ Do hostowania usług warstwy środkowej przy użyciu Azure Cosmos DB można tak�
 
 Adresy IP dla maszyn wirtualnych można pobrać w Azure Portal, jak pokazano na poniższym zrzucie ekranu:
 
-:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Zrzut ekranu przedstawiający publiczny adres IP dla maszyny wirtualnej wyświetlanej w Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Zrzut ekranu przedstawiający sposób otwierania strony zapory w Azure Portal":::
 
 Po dodaniu wystąpień maszyn wirtualnych do grupy automatycznie otrzymuje ona dostęp do konta Azure Cosmos DB.
 
