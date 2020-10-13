@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356200"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Porządkowanie zdarzeń połączenia urządzenia pochodzących z usługi Azure IoT Hub przy użyciu usługi Azure Cosmos DB
@@ -333,7 +333,7 @@ Wyniki wykonanej procedury składowanej można zobaczyć w dokumencie Cosmos DB.
 
    ![Jak uzyskać wyniki](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
-## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
 Zamiast korzystać z [Azure Portal](https://portal.azure.com), można wykonać kroki IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 

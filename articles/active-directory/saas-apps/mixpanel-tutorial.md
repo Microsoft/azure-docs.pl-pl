@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554730"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Samouczek: integracja Azure Active Directory z usługą Mixpanel
 
@@ -130,15 +130,15 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Mixpanel, w
 
 3. Kliknij kartę **zabezpieczenia dostępu** , a następnie kliknij przycisk **Zmień ustawienia**.
    
-    ![Ustawienia Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![Zrzut ekranu przedstawia kartę Zabezpieczenia dostępu, w której można zmienić ustawienia.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. Na stronie **Zmienianie certyfikatu** okno dialogowe, kliknij przycisk **Wybierz plik** , aby przekazać pobrany certyfikat, a następnie kliknij przycisk **dalej**.
    
-    ![Ustawienia Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![Zrzut ekranu przedstawia okno dialogowe Zmienianie certyfikatu, w którym można wybrać plik certyfikatu.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  W polu tekstowym adres URL uwierzytelniania na stronie **Zmienianie adresu URL uwierzytelniania** , wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal, a następnie kliknij przycisk **dalej**.
    
-    ![Ustawienia Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![Zrzut ekranu przedstawia okienko Zmień uwierzytelnianie U R L, w którym można skopiować dane logowania U R L.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Kliknij pozycję **Gotowe**.
 
@@ -205,7 +205,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Mixpanel.
 
 4. W polu tekstowym **członek zespołu** wpisz adres e-mail Britta na platformie Azure.
    
-    ![Ustawienia Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![Zrzut ekranu przedstawia kartę zespołu, w której można dodać adres do zaproszenia.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Kliknij pozycję **Invite** (Zaproś). 
 

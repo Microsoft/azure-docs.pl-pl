@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535835"
 ---
 # <a name="caching-with-azure-front-door"></a>Buforowanie z usługami frontonu platformy Azure
@@ -113,7 +113,7 @@ Następująca kolejność nagłówków służy do określenia, jak długo elemen
 2. Cache-Control: max-age =\<seconds>
 3. Wygasł \<http-date>
 
-Nagłówki odpowiedzi kontroli pamięci podręcznej, wskazujące, że odpowiedź nie będzie buforowana, taka jak Cache-Control: Private, Cache-Control: Brak pamięci podręcznej i kontrola pamięci podręcznej: żaden magazyn nie jest uznawany.  Jeśli nie ma żadnej kontroli pamięci podręcznej, domyślne zachowanie polega na tym, że drzwi z przodu buforują zasób przez X ilość czasu, gdzie X zostanie losowo pobrany z przedziału od 1 do 3 dni.
+Cache-Control nagłówki odpowiedzi wskazujące, że odpowiedź nie będzie buforowana, taka jak Cache-Control: Private, Cache-Control: Brak pamięci podręcznej i kontrola pamięci podręcznej: żaden magazyn nie jest uznawany za.  Jeśli żadna Cache-Control nie jest obecna, domyślne zachowanie polega na tym, że drzwi z przodu będą buforować zasób przez X ilość czasu, gdzie X zostanie losowo pobrany z przedziału od 1 do 3 dni.
 
 ## <a name="request-headers"></a>Nagłówki żądań
 

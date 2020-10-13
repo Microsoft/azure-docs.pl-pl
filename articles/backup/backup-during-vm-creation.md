@@ -4,10 +4,10 @@ description: Opisuje sposób włączania tworzenia kopii zapasowej podczas tworz
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377339"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej platformy Azure
@@ -79,7 +79,7 @@ Po utworzeniu maszyny wirtualnej wykonaj następujące czynności:
 1. We właściwościach maszyny wirtualnej wybierz pozycję **kopia zapasowa**. Stan maszyny wirtualnej to początkowa kopia zapasowa oczekująca na uruchomienie początkowej kopii zapasowej.
 2. Wybierz pozycję **Utwórz kopię zapasową teraz** , aby uruchomić kopię zapasową na żądanie.
 
-    ![Uruchamianie kopii zapasowej na żądanie](./media/backup-during-vm-creation/run-backup.png)
+    ![Uruchamianie tworzenia kopii zapasowej na żądanie](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Wdrażanie chronionej maszyny wirtualnej przy użyciu szablonu Menedżer zasobów
 

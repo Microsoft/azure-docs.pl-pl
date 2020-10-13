@@ -10,10 +10,10 @@ ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322317"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Tworzenie migawki przy użyciu portalu lub programu PowerShell
@@ -33,7 +33,7 @@ Aby utworzyć migawkę, wykonaj następujące czynności:
 6. Wybierz **lokalizację** centrum danych Azure.  
 7. W polu **dysk źródłowy**wybierz dysk zarządzany do utworzenia migawki.
 8. Wybierz **Typ konta** , który ma być używany do przechowywania migawki. Wybierz pozycję **Standard_HDD**, chyba że potrzebujesz, aby migawka była przechowywana na dysku o wysokiej wydajności.
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 

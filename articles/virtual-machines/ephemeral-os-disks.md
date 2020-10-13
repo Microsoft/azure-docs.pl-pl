@@ -9,10 +9,10 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611524"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tymczasowe dyski systemu operacyjnego dla maszyn wirtualnych platformy Azure
@@ -35,7 +35,7 @@ Kluczowe różnice między dyskami trwałymi i stałymi systemu operacyjnego:
 |                             | Trwały dysk systemu operacyjnego                          | Efemeryczny dysk systemu operacyjnego                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limit rozmiaru dysku systemu operacyjnego**      | 2 TiB                                                                                        | Rozmiar pamięci podręcznej dla rozmiaru maszyny wirtualnej lub 2TiB, w zależności od tego, który jest mniejszy. Dla **rozmiaru pamięci podręcznej w GIB**, zobacz [ds](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)i [GS](sizes-previous-gen.md#gs-series)              |
-| **Obsługiwane rozmiary maszyn wirtualnych**          | Wszystko                                                                                          | Rozmiary maszyn wirtualnych obsługujące magazyn Premium Storage, takie jak DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Obsługiwane rozmiary maszyn wirtualnych**          | Wszystkie                                                                                          | Rozmiary maszyn wirtualnych obsługujące magazyn Premium Storage, takie jak DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Obsługa typu dysku**           | Zarządzany i niezarządzany dysk systemu operacyjnego                                                                | Tylko zarządzany dysk systemu operacyjnego                                                               |
 | **Obsługa regionów**              | Wszystkie regiony                                                                                  | Wszystkie regiony                              |
 | **Trwałość danych**            | Dane dysku systemu operacyjnego zapisane na dysku systemu operacyjnego są przechowywane w usłudze Azure Storage                                  | Dane zapisane na dysku systemu operacyjnego są przechowywane w lokalnym magazynie maszyn wirtualnych i nie są utrwalane w usłudze Azure Storage. |
@@ -53,7 +53,7 @@ Dyski tymczasowe wymagają również, aby rozmiar maszyny wirtualnej obsługiwa�
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Wersja zapoznawcza — dyski z systemem operacyjnym mogą być teraz przechowywane na dyskach tymczasowych
 Tymczasowe dyski systemu operacyjnego mogą teraz być przechowywane na dysku tymczasowym/zasobów maszyny wirtualnej oprócz pamięci podręcznej maszyny wirtualnej. W związku z tym teraz można używać tymczasowych dysków systemu operacyjnego z maszyną wirtualną, która nie ma pamięci podręcznej lub ma niewystarczającą pamięć podręczną, ale ma dysk temp/Resource do przechowywania tymczasowego dysku systemu operacyjnego, takiego jak Dav3, Dav4, Eav4 i Eav3. Jeśli maszyna wirtualna ma wystarczającą ilość pamięci podręcznej i tymczasową, można teraz określić miejsce przechowywania tymczasowego dysku systemu operacyjnego przy użyciu nowej właściwości o nazwie [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Po zainicjowaniu obsługi maszyny wirtualnej z systemem Windows zostanie skonfigurowany plik stronicowania, który ma znajdować się na dysku systemu operacyjnego. Ta funkcja jest obecnie w wersji zapoznawczej. Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Aby rozpocząć, [Zażądaj dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Aby użyć dysku tymczasowych do wdrożenia maszyny wirtualnej programu PowerShell, należy użyć polecenia [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) w konfiguracji maszyny wirtualnej. Ustaw wartość `-DiffDiskSetting` na `Local` i `-Caching` `ReadOnly` .     
 

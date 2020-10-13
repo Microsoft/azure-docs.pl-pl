@@ -15,7 +15,7 @@
 - name: Samouczki
   expanded: true
   items:
-    - name: Python — dzień 1 — wprowadzenie
+    - name: Python — wprowadzenie (dzień 1)
       expanded: true
       items:
         - name: 1. Konfigurowanie komputera lokalnego
@@ -188,6 +188,8 @@
             - name: Używanie linku prywatnego
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Używanie niestandardowej usługi DNS
+              href: how-to-custom-dns.md
             - name: Konfigurowanie bezpiecznych usług internetowych
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

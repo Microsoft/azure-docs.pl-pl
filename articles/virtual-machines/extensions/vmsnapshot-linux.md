@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275051"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Rozszerzenie maszyny wirtualnej z systemem Linux dla Azure Backup
@@ -64,7 +64,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia migawki maszyny wirtualnej. Roz
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | ciąg |
 | commandStartTimeUTCTicks | 6.36458 e + 17 | ciąg |
 | locale | en-us | ciąg |

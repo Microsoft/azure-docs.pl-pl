@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076131"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregacja i zbieranie zdarzeń przy użyciu Diagnostyka Azure systemu Windows
@@ -193,7 +193,7 @@ Po zmodyfikowaniu template.jsw pliku zgodnie z opisem, należy ponownie opubliko
 
 ### <a name="update-storage-quota"></a>Aktualizowanie przydziału magazynu
 
-Ponieważ tabele wypełnione przez rozszerzenie zwiększają się do momentu osiągnięcia limitu przydziału, warto rozważyć zmniejszenie rozmiaru przydziału. Wartość domyślna to 50 GB i można ją skonfigurować w szablonie pod `overallQuotaInMB` polem poniżej`DiagnosticMonitorConfiguration`
+Ponieważ tabele wypełnione przez rozszerzenie zwiększają się do momentu osiągnięcia limitu przydziału, warto rozważyć zmniejszenie rozmiaru przydziału. Wartość domyślna to 50 GB i można ją skonfigurować w szablonie pod `overallQuotaInMB` polem poniżej `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -284,7 +284,7 @@ Aby zaktualizować diagnostykę w celu zbierania dzienników z nowych kanałów 
 
 Zaktualizuj `EtwEventSourceProviderConfiguration` sekcję w template.jsna pliku, aby dodać wpisy dla nowych kanałów EventSource przed zastosowaniem aktualizacji konfiguracji za pomocą `New-AzResourceGroupDeployment` polecenia programu PowerShell. Nazwa źródła zdarzenia jest definiowana jako część kodu w pliku ServiceEventSource.cs wygenerowanego przez program Visual Studio.
 
-Na przykład jeśli źródło zdarzenia ma nazwę my-EventSource, Dodaj następujący kod, aby umieścić zdarzenia z elementu my-EventSource w tabeli o nazwie MyDestinationTableName.
+Na przykład jeśli źródło zdarzenia ma nazwę my-EventSource, Dodaj następujący kod, aby umieścić zdarzenia z My-Eventsource w tabeli o nazwie MyDestinationTableName.
 
 ```json
         {

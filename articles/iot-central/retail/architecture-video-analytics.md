@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372208"
+ms.locfileid: "91874292"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Analiza wideo — architektura aplikacji wykrywania obiektów i ruchu
 
@@ -41,4 +41,4 @@ Program Media Graph pozwala określić miejsce, z którego ma być przechwytywan
 
 ## <a name="next-steps"></a>Następne kroki
 
-Sugerowany następny krok to Dowiedz się, jak [utworzyć aplikację do analizy wideo na platformie Azure IoT Central](tutorial-video-analytics-create-app.md).
+Sugerowany następny krok to Dowiedz się, jak [wdrożyć aplikację IoT Central przy użyciu szablonu wideo Analiza obiektów i funkcji wykrywania ruchu](tutorial-video-analytics-deploy.md).

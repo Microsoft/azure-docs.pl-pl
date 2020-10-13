@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827317"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmień sposób replikowania konta magazynu
@@ -39,10 +39,10 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 
 | Włączanie | ... do LRS | ... do GRS/RA-GRS | ... do ZRS | ... do GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... z LRS</b> | Brak | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
-| <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Brak | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
-| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Brak | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
-| <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Brak |
+| <b>... z LRS</b> | Nie dotyczy | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
+| <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Żądaj migracji na żywo |
+| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Nie dotyczy | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
+| <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Nie dotyczy |
 
 <sup>1</sup> powoduje naliczenie jednorazowej opłaty za ruch wychodzący.<br />
 <sup>2</sup> konwersja z ZRS na GZRS/RA-GZRS lub odwrotnie nie jest obsługiwana w następujących regionach: Wschodnie stany USA 2, Wschodnie stany USA, Europa Zachodnia.
@@ -128,16 +128,16 @@ Możesz zażądać migracji na żywo za pomocą [portalu pomocy technicznej syst
     - **Typ problemu**: wybierz pozycję **techniczne**.
     - **Usługa**: wybierz pozycję **Moje usługi** i **Zarządzanie kontem magazynu**.
     - **Zasób**: wybierz zasób, który chcesz przekonwertować na ZRS.
-3. Wybierz pozycję **Dalej**.
+3. Wybierz opcję **Dalej**.
 4. Określ następujące wartości w sekcji **problem** :
     - **Ważność**: pozostaw wartość domyślną równą-is.
     - **Typ problemu**: wybierz pozycję **migracja danych**.
     - **Kategoria**: wybierz pozycję **Migruj do ZRS**.
     - **Title**: wpisz opisowy tytuł, na przykład **ZRS**.
     - **Szczegóły**: wpisz dodatkowe szczegóły w polu **szczegóły** , na przykład chcę przeprowadzić migrację do ZRS z [LRS, GRS] w \_ \_ regionie.
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 6. Sprawdź, czy informacje kontaktowe są poprawne w bloku **informacje kontaktowe** .
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 Osoba odpowiedzialna za pomoc techniczną skontaktuje się z Tobą i pomoże Ci uzyskać pomoc.
 

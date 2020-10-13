@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7ff618024c269a010eddf08128e827ade7921c94
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87043907"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940603"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Szybki Start: Ustawianie i pobieranie certyfikatu z Azure Key Vault przy użyciu Azure PowerShell
 
@@ -73,7 +73,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-Teraz można odwołać się do tego certyfikatu, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Użyj, **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** Aby pobrać bieżącą wersję. 
+Teraz można odwołać się do tego certyfikatu, który został dodany do Azure Key Vault przy użyciu identyfikatora URI. Użyj **" https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate "** , aby pobrać bieżącą wersję. 
 
 Aby wyświetlić poprzednio zapisany certyfikat:
 

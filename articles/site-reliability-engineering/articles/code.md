@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: b8865fdd53f4947b17a3621a128fc83f3d93d3e2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089075"
 ---
 # <a name="frequently-asked-questions-do-i-need-to-know-how-to-code-to-get-involved-with-sre"></a>Często zadawane pytania: Czy muszę dowiedzieć się, jak kod, aby uzyskać dostęp do SRE?

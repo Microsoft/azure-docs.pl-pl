@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264644"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows
@@ -89,7 +89,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa odwołań |Okna/rozszerzenia |
-    | Dokumentacja |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
+    | Tematy pomocy |Wybierz zestaw SDK klienta Microsoft Smooth Streaming dla systemu Windows 8 i pakiet środowiska uruchomieniowego Microsoft Visual C++ |
 
 1. Kliknij przycisk **OK**. 
 
@@ -1040,7 +1040,7 @@ Lekcja 4 została ukończona.  W tej lekcji dodasz funkcje do wybierania ścież
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Inne zasoby:

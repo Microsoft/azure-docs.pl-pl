@@ -7,10 +7,10 @@ ms.date: 2/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018658"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregacja i zbieranie zdarzeń przy użyciu użyciu struktury eventflow
@@ -146,7 +146,7 @@ servicefabric:/<section-name>/<setting-name>
 
 Uruchom usługę i zaobserwuj okno dane wyjściowe debugowania w programie Visual Studio. Po uruchomieniu usługi należy zacząć wyświetlać dowód, że usługa wysyła rekordy do danych wyjściowych, które zostały skonfigurowane. Przejdź do platformy analizy zdarzeń i wizualizacji, a następnie upewnij się, że dzienniki zostały uruchomione w celu wyświetlenia (może to potrwać kilka minut).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Analiza zdarzeń i wizualizacja przy użyciu Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

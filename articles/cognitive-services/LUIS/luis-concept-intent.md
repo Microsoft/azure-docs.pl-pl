@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536107"
 ---
 # <a name="intents-in-your-luis-app"></a>Intencje w aplikacji LUIS
@@ -25,8 +25,8 @@ Zdefiniuj zestaw intencji, który odnosi się do akcji, które użytkownicy chc�
 Intencje dla aplikacji podróży   |   Przykładowe wypowiedzi   |
 ------|------|
  BookFlight     |   "Zarezerwuj do mnie następny tydzień" <br/> "Przylot mnie do Rio na 24" <br/> "Muszę mieć bilet z płaszczyzną w następnej niedzielę do Rio de Janeiro"    |
- Powitanie     |   Wysoka <br/>"Hello" <br/>"Dobry rano"  |
- CheckWeather | "Co to jest pogoda, jak w Boston?" <br/> "Pokaż mi prognozę dla tego weekendu" |
+ Powitanie     |   „Hi” (Cześć) <br/>"Hello" <br/>„Good morning” (Dzień dobry)  |
+ CheckWeather (Sprawdzanie pogody) | "Co to jest pogoda, jak w Boston?" <br/> "Pokaż mi prognozę dla tego weekendu" |
  Brak         | "Pobierz przepis cookie"<br>"Czy udało Ci się wygrać?" |
 
 Wszystkie aplikacje są dostarczane ze wstępnie zdefiniowanym zamiarem "[none](#none-intent)", który jest zamiarem alternatywnym.
@@ -53,8 +53,8 @@ Utwórz cel, gdy _zamiaru_ użytkownika wywoła akcję w aplikacji klienckiej, t
 
 |Zamiar   | Jednostka | Przykładowa wypowiedź   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | {"Type": "Location", "Entity": "Seattle"}<br>{"Type": "wbudowane. datetimeV2. Date", "Entity": "jutro", "Solution": "2018 r-05-23"} | Jak wygląda Pogoda `Seattle` `tomorrow` ? |
-| CheckWeather | {"Type": "date_range", "Entity": "weekend"} | Pokaż mi prognozę dla `this weekend` |
+| CheckWeather (Sprawdzanie pogody) | {"Type": "Location", "Entity": "Seattle"}<br>{"Type": "wbudowane. datetimeV2. Date", "Entity": "jutro", "Solution": "2018 r-05-23"} | Jak wygląda Pogoda `Seattle` `tomorrow` ? |
+| CheckWeather (Sprawdzanie pogody) | {"Type": "date_range", "Entity": "weekend"} | Pokaż mi prognozę dla `this weekend` |
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>Prebudowane intencje domeny
@@ -63,7 +63,7 @@ Utwórz cel, gdy _zamiaru_ użytkownika wywoła akcję w aplikacji klienckiej, t
 
 ## <a name="none-intent"></a>Intencja None
 
-Opcja **Brak** jest tworzona, ale pozostaje pusta w celu. Intencją **none** nie jest wymagane i nie można jej usunąć ani zmienić jej nazwy. Wypełnij ją wyrażenia długości, które znajdują się poza Twoją domeną.
+Opcja **Brak** jest tworzona, ale pozostaje pusta w celu. Intencją **none** nie jest wymagane i nie można jej usunąć ani zmienić jej nazwy. Wypełnij ją wypowiedziami, które znajdują się poza Twoją domeną.
 
 Opcja **Brak** jest zamiarem rezerwowym, istotnym dla każdej aplikacji i powinna mieć 10% całkowitej wyrażenia długości. Jest on używany do uczenia LUIS wyrażenia długości, które nie są ważne w domenie aplikacji (obszar tematu). Jeśli nie dodasz żadnych wyrażenia długości dla zamiaru **Brak** , Luis wymusza wypowiedź, który znajduje się poza domeną, do jednej z intencji domeny. Spowoduje to pochylenie wyników przewidywania przez uczenie LUIS niewłaściwego zamiaru wypowiedź.
 

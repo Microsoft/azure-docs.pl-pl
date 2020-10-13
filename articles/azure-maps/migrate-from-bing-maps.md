@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319609"
+ms.locfileid: "91873748"
 ---
-# <a name="migrate-from-bing-maps-to-azure-maps"></a>Migracja z usługi Mapy Bing do usługi Azure Maps
+# <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Samouczek — Migrowanie z usługi mapy Bing do Azure Maps
 
 Ten przewodnik zawiera szczegółowe informacje na temat migrowania aplikacji sieci Web, mobilnych i opartych na serwerze z usługi mapy Bing do Azure Maps platformy. Ten przewodnik zawiera przykłady kodu porównawczego, sugestie dotyczące migracji oraz najlepsze rozwiązania dotyczące migracji do Azure Maps.
 
@@ -52,7 +52,7 @@ Poniższa tabela zawiera listę funkcji mapy Bing na wysokim poziomie oraz pomoc
 | Data Services przestrzenne           | Częściowe            |
 | Strefa czasowa                             | ✓                  |
 | Zdarzenia dotyczące ruchu                     | ✓                  |
-| Mapy oparte na konfiguracji             | Brak                |
+| Mapy oparte na konfiguracji             | Nie dotyczy                |
 
 Usługi mapy Bing zapewniają podstawowe uwierzytelnianie oparte na kluczach. Azure Maps zapewnia zarówno podstawowe uwierzytelnianie oparte na kluczach, jak i wysoce bezpieczne, Azure Active Directory uwierzytelnianie.
 

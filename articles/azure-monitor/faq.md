@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
 ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760257"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
@@ -399,7 +399,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 ```
 
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 

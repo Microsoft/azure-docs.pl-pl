@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: sttsinar
 ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666844"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Izolacja maszyny wirtualnej na platformie Azure
@@ -45,7 +45,7 @@ Ponieważ rozmiary maszyn wirtualnych są zależne od rozmiarów sprzętowych, p
 <sup>1</sup>  Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
 
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: czy rozmiar, który ma zostać wycofany, czy tylko "izolacja" jest?
 Odp **.: Jeśli**rozmiar maszyny wirtualnej nie ma indeksu dolnego "i", tylko funkcja "izolacja" zostanie wycofana. Jeśli izolacja nie jest konieczna, nie ma żadnej akcji, a maszyna wirtualna będzie nadal działać zgodnie z oczekiwaniami. Przykładami mogą być Standard_DS15_v2, Standard_D15_v2, Standard_M128ms itd. Jeśli rozmiar maszyny wirtualnej obejmuje indeks dolny, rozmiar zostanie wycofany.
 

@@ -9,10 +9,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323404"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorowanie użycia i szacowane koszty w Azure Monitor
@@ -74,7 +74,7 @@ Więcej szczegółów dotyczących użycia można uzyskać, [pobierając użycie
 
 Kolejną opcją wyświetlania Azure Monitor użycia jest strona **użycie i szacowane koszty** w centrum monitora. Przedstawiono w nim użycie podstawowych funkcji monitorowania, takich jak [alerty, metryki, powiadomienia](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)i [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). W przypadku klientów korzystających z planów cenowych dostępnych przed 2018 kwietnia będzie to również Log Analytics użycie zakupione w ramach oferty usługi Insights i Analytics.
 
-Na tej stronie użytkownicy mogą wyświetlić użycie zasobów przez ostatnie 31 dni, zagregowane na subskrypcję. `Drill-ins`Pokaż trendy użycia w ciągu 31-dniowego okresu. Do tego oszacowania należy wiele danych, dlatego należy poczekać, aż strona zostanie załadowana.
+Na tej stronie użytkownicy mogą wyświetlić użycie zasobów przez ostatnie 31 dni, zagregowane na subskrypcję. `Drill-ins` Pokaż trendy użycia w ciągu 31-dniowego okresu. Do tego oszacowania należy wiele danych, dlatego należy poczekać, aż strona zostanie załadowana.
 
 W tym przykładzie przedstawiono monitorowanie użycia i szacunkowe koszty:
 

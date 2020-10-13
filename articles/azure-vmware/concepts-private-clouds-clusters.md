@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat kluczowych funkcji centrów danych zd
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316872"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Rozwiązanie Azure VMware Private Cloud i pojęcia dotyczące klastrów
@@ -38,7 +38,7 @@ Węzły infrastruktury w chmurze prywatnej rozwiązania Azure VMware są używan
 
 | Typ hosta              |             Procesor CPU             |   Pamięć RAM (GB)   |  Warstwa pamięci podręcznej interfejsu NVMe sieci vSAN (TB, RAW)  |  warstwa pojemności sieci vSAN SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| Wysoka końcowa (IT)          |  Dwurdzeniowy procesor Intel 18 2,3 GHz  |     576      |                3.2               |                15,20               |
+| High-End ()          |  Dwurdzeniowy procesor Intel 18 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Hosty, które są używane do kompilowania lub skalowania klastrów, są uzyskiwane z izolowanej puli hostów. Te hosty przekazały testy sprzętu i wszystkie dane zostały bezpiecznie usunięte z dysków flash. Po usunięciu hosta z klastra dyski wewnętrzne są bezpiecznie czyszczone i hosty są umieszczane w izolowanej puli hostów. Po dodaniu hosta do klastra jest używany oczyszczony host z puli izolowanej.
 
@@ -61,7 +61,7 @@ Ogólne zasady i procesy uaktualniania dotyczące oprogramowania platformy Azure
 
 Zarządzanie konserwacją i cyklem życia hosta odbywa się bez wpływu na pojemność ani wydajność klastrów chmury prywatnej. Przykłady automatycznej konserwacji hosta obejmują uaktualnienia oprogramowania układowego i naprawy sprzętu lub wymiany.
 
-Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu północ-południe. Jako administrator chmury prywatnej rozwiązania Azure VMware jest odpowiedzialny za NSX-T SDN Configuration. Na przykład segmenty sieci, rozproszone reguły zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
+Firma Microsoft jest odpowiedzialna za zarządzanie cyklem życia urządzeń NSX-T, takimi jak NSX-T Manager i NSX-T Edge. Firma Microsoft jest odpowiedzialna za uruchamianie konfiguracji sieci, np. Tworzenie bramy warstwy 0 i Włączanie routingu North-Southowego. Jako administrator chmury prywatnej rozwiązania Azure VMware jest odpowiedzialny za NSX-T SDN Configuration. Na przykład segmenty sieci, rozproszone reguły zapory, bramy warstwy 1 i moduły równoważenia obciążenia.
 
 > [!IMPORTANT]
 > Administrator rozwiązania VMware platformy Azure nie może modyfikować konfiguracji bramy NSX-T ani warstwy 0. Może to spowodować utratę usługi.

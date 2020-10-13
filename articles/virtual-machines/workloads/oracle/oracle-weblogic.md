@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
 ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274371"
 ---
-# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Co to są rozwiązania do uruchamiania programu Oracle webWebLogicc Server na platformie Azure Virtual Machines?
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Jakie rozwiązania umożliwiają uruchamianie serwera Oracle WebLogic Server w usłudze Azure Virtual Machines?
 
 Na tej stronie opisano rozwiązania do uruchamiania programu Oracle webWebLogicc Server (WLS) na maszynach wirtualnych platformy Azure. Te rozwiązania są wspólnie opracowywane przez oprogramowanie Oracle i firmę Microsoft.
 
@@ -56,7 +56,7 @@ Ta oferta tworzy wysoce dostępny i skalowalny dynamiczny klaster maszyn wirtual
 
 Rozwiązania te umożliwiają szeroką gamę architektur wdrożenia gotowych do użycia w środowisku produkcyjnym. Większość przypadków migracji można spełnić w najbardziej wydajny sposób dzięki umożliwieniu skoncentrowania się na tworzeniu aplikacji biznesowej.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Złożone wdrożenia serwera WebLogic są włączone na platformie Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Za pomocą Azure Portal można wdrożyć serwer WebLogic na platformie Azure":::
 
 Oprócz tego, co jest automatycznie obsługiwane przez rozwiązania, klienci mają pełną elastyczność, aby jeszcze bardziej dostosować swoje wdrożenia. Prawdopodobnie na podstawie wdrażania aplikacji klienci będą integrować dalsze zasoby platformy Azure ze swoimi wdrożeniami. Zachęcamy klientów do przekazywania opinii na temat dalszej poprawy rozwiązań.
 

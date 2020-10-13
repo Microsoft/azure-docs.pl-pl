@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855917"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970014"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Rozbudowana technicznie migracja z obsługą platformy od modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
 
@@ -135,7 +135,7 @@ Jest to opcjonalny krok, jeśli chcesz cofnąć zmiany do klasycznego modelu wdr
 Po zakończeniu walidacji możesz zatwierdzić migrację. Zasoby nie pojawiają się już w klasycznym modelu wdrażania i są dostępne tylko w modelu wdrażania Menedżer zasobów. Zmigrowanymi zasobami można zarządzać tylko w nowym portalu.
 
 > [!NOTE]
-> Jest to operacja idempotentna. Jeśli to się nie powiedzie, spróbuj ponownie wykonać operację. Jeśli to się nie powiedzie, Utwórz bilet pomocy technicznej lub Utwórz forum w witrynie [Microsoft Q&a](https://docs.microsoft.com/answers/index.html)
+> Jest to operacja idempotentna. Jeśli to się nie powiedzie, spróbuj ponownie wykonać operację. Jeśli to się nie powiedzie, Utwórz bilet pomocy technicznej lub Utwórz forum w witrynie [Microsoft Q&a](/answers/index.html)
 >
 >
 

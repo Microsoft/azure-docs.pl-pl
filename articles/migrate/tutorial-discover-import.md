@@ -4,10 +4,10 @@ description: Opisuje sposób odnajdywania serwerów lokalnych na potrzeby migrac
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604227"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Samouczek: ocenianie serwerów przy użyciu zaimportowanego pliku CSV
@@ -18,10 +18,10 @@ W tym samouczku pokazano, jak ocenić maszyny lokalne za pomocą narzędzia do o
 
 W przypadku korzystania z pliku CSV nie trzeba konfigurować urządzenia Azure Migrate w celu odnajdywania i oceniania serwerów. Możesz kontrolować dane, które udostępniasz w pliku, a większość danych jest opcjonalna. Ta metoda jest przydatna, jeśli:
 
-- Przed wdrożeniem urządzenia należy utworzyć szybką, początkową ocenę.
-- Nie można wdrożyć urządzenia Azure Migrate w organizacji.
-- Nie można udostępniać poświadczeń zezwalających na dostęp do serwerów lokalnych.
-- Ograniczenia zabezpieczeń uniemożliwiają zbieranie i wysyłanie danych zebranych przez urządzenie na platformę Azure.
+- Chcesz utworzyć szybką, wstępną ocenę przed wdrożeniem urządzenia.
+- Nie można wdrożyć urządzenia usługi Azure Migrate w organizacji.
+- Nie można udostępnić poświadczeń zezwalających na dostęp do serwerów lokalnych.
+- Ograniczenia zabezpieczeń uniemożliwiają zbieranie i wysyłanie danych zebranych przez urządzenie do platformy Azure.
 
 > [!NOTE]
 > Nie można migrować serwerów zaimportowanych przy użyciu pliku CSV.
@@ -29,7 +29,7 @@ W przypadku korzystania z pliku CSV nie trzeba konfigurować urządzenia Azure M
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj konto platformy Azure
-> * Konfigurowanie projektu Azure Migrate
+> * Konfigurowanie projektu usługi Azure Migrate
 > * Przygotuj plik CSV
 > * Zaimportuj plik
 > * Ocenianie serwerów
@@ -51,7 +51,7 @@ Aby utworzyć projekt Azure Migrate, musisz mieć konto z:
 - Uprawnienia współautora lub właściciela w ramach subskrypcji platformy Azure.
 - Uprawnienia do rejestrowania aplikacji Azure Active Directory.
 
-Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
+Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji. Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać uprawnienia w następujący sposób:
 
 1. W Azure Portal Wyszukaj "subskrypcje", a w obszarze **usługi**wybierz pozycję **subskrypcje**.
 
@@ -94,108 +94,108 @@ Skonfiguruj nowy projekt Azure Migrate, jeśli go nie masz.
 
 ![Zostanie wyświetlona strona narzędzia do oceny serwera, która jest domyślnie dodawana](./media/tutorial-discover-import/added-tool.png)
 
-## <a name="prepare-the-csv"></a>Przygotowywanie woluminu CSV
+## <a name="prepare-the-csv"></a>Przygotowywanie pliku CSV
 
-Pobierz szablon CSV i Dodaj do niego informacje o serwerze.
+Pobierz szablon CSV i dodaj do niego informacje o serwerze.
 
 ### <a name="download-the-template"></a>Pobieranie szablonu
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
-2. W obszarze **odnajdywanie maszyn**wybierz pozycję **Importuj przy użyciu woluminu CSV**.
-3. Wybierz pozycję **Pobierz** , aby pobrać szablon woluminu CSV. Alternatywnie możesz [pobrać go bezpośrednio](https://go.microsoft.com/fwlink/?linkid=2109031).
+1. W obszarze **Cele migracji** > **Serwery** > **Azure Migrate: Server Assessment** wybierz pozycję **Odnajdź**.
+2. W obszarze **Odnajdywanie maszyn** wybierz pozycję **Importuj przy użyciu pliku CSV**.
+3. Wybierz pozycję **Pobierz**, aby pobrać szablon CSV. Alternatywnie możesz [pobrać go bezpośrednio](https://go.microsoft.com/fwlink/?linkid=2109031).
 
-    ![Pobierz szablon CSV](./media/tutorial-discover-import/download-template.png)
+    ![Pobieranie szablonu CSV](./media/tutorial-discover-import/download-template.png)
 
 ### <a name="add-server-information"></a>Dodawanie informacji o serwerze
 
-Zbierz dane serwera i Dodaj je do pliku CSV.
+Zbierz dane serwera i dodaj je do pliku CSV.
 
-- Aby zebrać dane, można wyeksportować je z narzędzi używanych do zarządzania lokalnym serwerem, takich jak VMware vSphere lub baza danych zarządzania konfiguracją (CMDB).
-- Aby przejrzeć przykładowe dane, Pobierz nasz [przykładowy plik](https://go.microsoft.com/fwlink/?linkid=2108405).
+- Aby zebrać dane, można je wyeksportować z narzędzi używanych do zarządzania serwerem lokalnym, takich jak VMware vSphere lub baza danych zarządzania konfiguracją (CMDB).
+- Aby przejrzeć przykładowe dane, pobierz nasz [przykładowy plik](https://go.microsoft.com/fwlink/?linkid=2108405).
 
 Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 
-**Nazwa pola** | **Wypełnione** | **Szczegóły**
+**Nazwa pola** | **Obowiązkowe** | **Szczegóły**
 --- | --- | ---
 **Nazwa serwera** | Yes | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
 **Adres IP** | Nie | Adres serwera.
-**Rdzenie** | Yes | Liczba rdzeni procesora przypisanych do serwera.
-**Pamięć** | Yes | Całkowita ilość pamięci RAM w MB przypisana do serwera.
-**Nazwa systemu operacyjnego** | Yes | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
+**Rdzenie** | Yes | Liczba rdzeni procesora przydzielonych do serwera.
+**Pamięć** | Yes | Całkowita ilość pamięci RAM (w MB) przydzielona do serwera.
+**Nazwa systemu operacyjnego** | Yes | System operacyjny serwera. <br/> Nazwy systemów operacyjnych, które są zgodne lub zawierają nazwy z [tej](#supported-operating-system-names) listy, są rozpoznawane w trakcie oceny.
 **Wersja systemu operacyjnego** | Nie | Wersja systemu operacyjnego serwera.
-**Architektura systemu operacyjnego** | Nie | Architektura systemu operacyjnego serwera <br/> Prawidłowe wartości to: x64, x86, amd64, 32-bitowa lub 64-bitowy
-**Liczba dysków** | Nie | Niepotrzebna, jeśli podano szczegółowe szczegóły dysku.
-**Rozmiar dysku 1**  | Nie | Maksymalny rozmiar dysku (w GB).<br/>Możesz dodać szczegóły do większej liczby dysków, [dodając kolumny](#add-multiple-disks) w szablonie. Można dodać maksymalnie osiem dysków.
-**Operacje odczytu z dysku 1** | Nie | Operacje odczytu z dysku na sekundę.
-**Operacje zapisu na dysku 1** | Nie | Operacje zapisu na dysku na sekundę.
-**Przepływność odczytu dysku 1** | Nie | Dane odczytane z dysku na sekundę, w MEGABAJTach na sekundę.
-**Przepływność zapisu na dysku 1** | Nie | Dane zapisywane na dysku na sekundę, w MEGABAJTach na sekundę.
-**Procent użycia procesora CPU** | Nie | Procent użycia procesora CPU.
-**Procent wykorzystania pamięci** | Nie | Procent używanej pamięci RAM.
-**Całkowita liczba odczytywanych dysków** | Nie | Operacje odczytu z dysku na sekundę.
-**Całkowita liczba dysków — operacje zapisu** | Nie | Operacje zapisu na dysku na sekundę.
-**Całkowita liczba dysków do odczytu** | Nie | Dane odczytane z dysku (MB na sekundę).
-**Całkowita przepustowość zapisu dysków** | Nie | Dane zapisywane na dysku, w MEGABAJTach na sekundę.
-**Sieć w przepływności** | Nie | Dane odebrane przez serwer, w MEGABAJTach na sekundę.
-**Przepływność w sieci** | Nie | Dane przesyłane przez serwer, w MEGABAJTach na sekundę.
-**Typ oprogramowania układowego** | Nie | Oprogramowanie układowe serwera. Wartości mogą być "BIOS" lub "UEFI".
+**Architektura systemu operacyjnego** | Nie | Architektura systemu operacyjnego serwera <br/> Prawidłowe wartości to: x64, x86, amd64, 32-bitowy lub 64-bitowy
+**Liczba dysków** | Nie | Niepotrzebna, jeśli podano szczegóły dysku.
+**Rozmiar dysku 1**  | Nie | Maksymalny rozmiar dysku (w GB).<br/>Możesz dodać szczegóły dla większej liczby dysków, [dodając kolumny](#add-multiple-disks) w szablonie. Można dodać maksymalnie osiem dysków.
+**Operacje odczytu dysku 1** | Nie | Operacje odczytu dysku na sekundę.
+**Operacje zapisu dysku 1** | Nie | Operacje zapisu dysku na sekundę.
+**Przepływność odczytu dysku 1** | Nie | Dane odczytane z dysku na sekundę (w MB na sekundę).
+**Przepływność zapisu dysku 1** | Nie | Dane zapisywane na dysku na sekundę (w MB na sekundę).
+**Procent użycia procesora CPU** | Nie | Wartość procentowa użycia procesora CPU.
+**Procent użycia pamięci** | Nie | Wartość procentowa użycia pamięci RAM.
+**Łączna liczba operacji odczytu dysku** | Nie | Operacje odczytu z dysku na sekundę.
+**Łączna liczba operacji zapisu na dysku** | Nie | Operacje zapisu na dysku na sekundę.
+**Łączna przepływność odczytu dysków** | Nie | Dane odczytane z dysku (MB na sekundę).
+**Łączna przepływność zapisu dysków** | Nie | Dane zapisywane na dysku, w MEGABAJTach na sekundę.
+**Przepływność ruchu przychodzącego w sieci** | Nie | Dane odebrane przez serwer (w MB na sekundę).
+**Przepływność ruchu wychodzącego w sieci** | Nie | Dane przesyłane przez serwer (w MB na sekundę).
+**Typ oprogramowania układowego** | Nie | Oprogramowanie układowe serwera. Wartości to „BIOS” lub „UEFI”.
 **Adres MAC**| Nie | Adres MAC serwera.
 
 
 ### <a name="add-operating-systems"></a>Dodawanie systemów operacyjnych
 
-Ocena rozpoznaje nazwy określonych systemów operacyjnych. Każda określona nazwa musi dokładnie odpowiadać jednemu z ciągów z [listy obsługiwanych nazw](#supported-operating-system-names).
+Narzędzie oceny rozpoznaje określone nazwy systemów operacyjnych. Każda określona nazwa musi dokładnie odpowiadać jednemu z ciągów na [liście obsługiwanych nazw](#supported-operating-system-names).
 
-### <a name="add-multiple-disks"></a>Dodaj wiele dysków
+### <a name="add-multiple-disks"></a>Dodawanie wielu dysków
 
 Szablon zawiera domyślne pola dla pierwszego dysku. Możesz dodać podobne kolumny dla maksymalnie ośmiu dysków.
 
-Na przykład aby określić wszystkie pola dla drugiego dysku, Dodaj następujące kolumny:
+Na przykład aby określić wszystkie pola dla drugiego dysku, dodaj następujące kolumny:
 
 - Rozmiar dysku 2
-- Operacje odczytu z dysku 2
-- Operacje zapisu na dysku 2
+- Operacje odczytu dysku 2
+- Operacje zapisu dysku 2
 - Przepływność odczytu dysku 2
 - Przepływność zapisu na dysku 2
 
 
-## <a name="import-the-server-information"></a>Importuj informacje o serwerze
+## <a name="import-the-server-information"></a>Importowanie informacji o serwerze
 
 Po dodaniu informacji do szablonu CSV Zaimportuj plik CSV do oceny serwera.
 
-1. W Azure Migrate w obszarze **odnajdywanie maszyn**przejdź do ukończonego szablonu.
+1. W usłudze Azure Migrate, w obszarze **Odnajdywanie maszyn** przejdź do ukończonego szablonu.
 2. Wybierz pozycję **Importuj**.
-3. Stan importowania jest pokazywany.
-    - Jeśli w stanie pojawiły się ostrzeżenia, możesz je rozwiązać lub kontynuować bez rozwiązywania problemów.
-    - Aby poprawić dokładność oceny, Popraw informacje o serwerze zgodnie z opisem w ostrzeżeniach.
-    - Aby wyświetlić i naprawić ostrzeżenia, wybierz pozycję **Pobierz szczegóły ostrzeżenia. Wolumin CSV**. Ta operacja pobiera wolumin CSV z zawartymi ostrzeżeniami. Przejrzyj ostrzeżenia i rozwiąż problemy zgodnie z wymaganiami.
-    - Jeśli błędy pojawiają się w stanie, w związku z czym stan importu **nie powiodło się**, należy usunąć te błędy przed kontynuowaniem importowania:
+3. Zostanie wyświetlony stan importowania.
+    - Jeśli w stanie pojawiły się ostrzeżenia, możesz je naprawić lub kontynuować bez ich rozwiązywania.
+    - Aby poprawić dokładność oceny, popraw informacje o serwerze zgodnie z opisem w ostrzeżeniach.
+    - Aby wyświetlić i naprawić ostrzeżenia, wybierz pozycję **Pobierz plik CSV ze szczegółami ostrzeżenia**. Ta operacja pobiera plik CSV wraz z ostrzeżeniami. Przejrzyj ostrzeżenia i rozwiąż problemy zgodnie z wymaganiami.
+    - Jeśli w stanie pojawią się błędy, co powoduje, że stan importu wskazuje **Niepowodzenie**, należy naprawić te błędy przed kontynuowaniem importowania:
         1. Pobierz plik CSV, który zawiera teraz szczegóły błędu.
-        1. Przejrzyj błędy i Rozwiąż je w razie potrzeby. 
-        1. Ponownie Przekaż zmodyfikowany plik.
-4. Po **zakończeniu**stanu importu informacje o serwerze zostały zaimportowane. Odśwież, jeśli proces importowania nie zostanie ukończony.
+        1. Przejrzyj błędy i rozwiąż je w razie potrzeby. 
+        1. Ponownie przekaż zmodyfikowany plik.
+4. Gdy stan importowania ma wartość **Ukończono**, informacje o serwerze zostały zaimportowane. Odśwież, jeśli proces importowania nie zostanie ukończony.
 
 ## <a name="update-server-information"></a>Aktualizowanie informacji o serwerze
 
-Możesz zaktualizować informacje o serwerze, importując dane dla serwera z tą samą **nazwą serwera**. Nie można zmodyfikować pola **Nazwa serwera** . Usuwanie serwerów nie jest obecnie obsługiwane.
+Możesz zaktualizować informacje dotyczące serwera, importując ponownie dane serwera przy użyciu tej samej **nazwy serwera**. Nie można zmodyfikować pola **Nazwa serwera**. Usuwanie serwerów nie jest obecnie obsługiwane.
 
 ## <a name="verify-servers-in-the-portal"></a>Weryfikowanie serwerów w portalu
 
-Aby sprawdzić, czy serwery są wyświetlane w Azure Portal po przeprowadzeniu odnajdywania:
+Aby sprawdzić, czy serwery są wyświetlane w witrynie Azure Portal po wykonaniu operacji odnajdywania:
 
-1. Otwórz pulpit nawigacyjny Azure Migrate.
-2. Na stronie **Azure Migrate serwerów**  >  **Azure Migrate: Ocena serwera** wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
-3. Wybierz kartę **Importuj na podstawie** .
+1. Otwórz pulpit nawigacyjny usługi Azure Migrate.
+2. Na stronie **Azure Migrate — Serwery** > **Azure Migrate: Server Assessment** wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+3. Wybierz kartę **Na podstawie importu**.
 
 
 
-## <a name="supported-operating-system-names"></a>Obsługiwane nazwy systemu operacyjnego
+## <a name="supported-operating-system-names"></a>Obsługiwane nazwy systemów operacyjnych
 
 Nazwy systemu operacyjnego podane w pliku CSV muszą zawierać i być zgodne. W przeciwnym razie nie będzie można ich ocenić. 
 
 **A – H** | **I-R** | **S-T** | **U-Z**
 --- | --- | --- | ---
-Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>FreeBSD | SYSTEM OPERACYJNY IBM OS/2<br/>systemu<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oracle Linux 4/5<br/>Oracle Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO dla systemu UNIX 7<br/> Serenity Systems eComStation 1<br/>Serenity Systems eComStation <br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>System Windows 3<br/>Windows 7<br/>Windows 8<br/>System Windows 95<br/>Windows 98<br/>System Windows NT<br/>System Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 z dodatkiem R2<br/>Windows Server 2012<br/>Windows Server 2012 z dodatkiem R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Próg systemu Windows Server<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
+Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>FreeBSD | IBM OS/2<br/>MS-DOS<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oracle Linux 4/5<br/>Oracle Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7<br/> Serenity Systems eComStation 1<br/>Serenity Systems eComStation <br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 z dodatkiem R2<br/>Windows Server 2012<br/>Windows Server 2012 z dodatkiem R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
 
 ## <a name="next-steps"></a>Następne kroki
 

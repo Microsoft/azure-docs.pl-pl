@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332920"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
@@ -162,7 +162,7 @@ Jeśli nie chcesz zezwolić na połączenia z aparatem bazy danych za pośrednic
 
 Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Wszystkie opcje są zabezpieczane za pomocą reguł grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) i uwierzytelniania SQL/systemu Windows. Po utworzeniu maszyny wirtualnej można edytować sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](security-considerations-best-practices.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Jeśli wymagane jest uwierzytelnianie SQL Server, wybierz pozycję **Włącz** w obszarze **uwierzytelnianie SQL** na karcie **Ustawienia SQL Server** .
 

@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323744"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V8 języka Java
@@ -175,7 +175,7 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli obiekty blob, które zostały przekazane, nie są już potrzebne, można usunąć cały kontener za pomocą [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). Ta metoda spowoduje również usunięcie plików w kontenerze.
 
