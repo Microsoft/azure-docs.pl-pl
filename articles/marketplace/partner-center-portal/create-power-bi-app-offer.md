@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710655"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Tworzenie oferty aplikacji Power BI
@@ -53,7 +53,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na tej stronie przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończona, jak i nadchodząca) oraz czas, w którym należy wykonać poszczególne kroki.
 
-Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Zawiera ona linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](update-existing-offer.md#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](update-existing-offer.md#stop-selling-an-offer-or-plan)

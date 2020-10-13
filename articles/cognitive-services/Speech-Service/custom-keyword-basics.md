@@ -12,13 +12,13 @@ ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667697"
 ---
-# <a name="get-started-with-custom-keyword"></a>Wprowadzenie do niestandardowego słowa kluczowego
+# <a name="get-started-with-custom-keyword"></a>Wprowadzenie do Niestandardowego słowa kluczowego
 
 W tym przewodniku szybki start przedstawiono podstawowe informacje dotyczące pracy z niestandardowymi słowami kluczowymi przy użyciu programu Speech Studio i zestawu Speech SDK. Słowo kluczowe jest słowem lub krótką frazą umożliwiającą produktowi aktywację głosu. Można tworzyć modele słów kluczowych w programie Speech Studio, a następnie eksportować plik modelu używany z zestawem Speech SDK w aplikacjach.
 

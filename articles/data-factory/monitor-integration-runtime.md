@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568893"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
@@ -48,7 +48,7 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez polecenie cmdlet 
 | Właściwość | Opis |
 -------- | ------------- | 
 | Nazwa | Nazwa środowiska Azure Integration Runtime. |  
-| Stan | Stan środowiska Azure Integration Runtime. | 
+| State | Stan środowiska Azure Integration Runtime. | 
 | Lokalizacja | Lokalizacja środowiska Azure Integration Runtime. Aby uzyskać szczegółowe informacje na temat lokalizacji środowiska Azure Integration Runtime, zobacz [wprowadzenie do środowiska Integration Runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Nazwa fabryki danych, do której należy środowisko Azure Integration Runtime. | 
 | ResourceGroupName | Nazwa grupy zasobów, do której należy Fabryka danych.  |
@@ -181,7 +181,7 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez powyższe polecen
 | Węzły                        | Przydzielono lub dostępne węzły Azure-SSIS IR z Stanami specyficznymi dla węzła (początkowymi/dostępnymi/odtwarzanymi/niedostępnymi) i błędami do wykonania. |
 | OtherErrors                  | Błędy niespecyficzne dla węzła w Azure-SSIS IR. |
 | LastOperation                | Wynik ostatniej operacji uruchamiania/zatrzymywania na Azure-SSIS IR z błędami, które można wykonać, jeśli to się nie powiodło. |
-| Stan                        | Ogólny stan (początkowy/początkowy/uruchomiony/zatrzymywanie/zatrzymana) Azure-SSIS IR. |
+| State                        | Ogólny stan (początkowy/początkowy/uruchomiony/zatrzymywanie/zatrzymana) Azure-SSIS IR. |
 | Lokalizacja                     | Lokalizacja Azure-SSIS IR. |
 | NodeSize                     | Rozmiar każdego węzła w Azure-SSIS IR. |
 | NodeCount                    | Liczba węzłów w Azure-SSIS IR. |
@@ -192,8 +192,8 @@ Poniższa tabela zawiera opisy właściwości zwracanych przez powyższe polecen
 | CatalogPricingTier           | Warstwa cenowa usługi SSISDB hostowana przez Azure SQL Database Server.  Nie dotyczy SSISDB hostingu wystąpienia zarządzanego Azure SQL. |
 | VNetId                       | Identyfikator zasobu sieci wirtualnej dla Azure-SSIS IR do przyłączenia. |
 | Podsieć                       | Nazwa podsieci do przyłączenia do Azure-SSIS IR. |
-| ID                           | Identyfikator zasobu Azure-SSIS IR. |
-| Typ                         | Typ IR (zarządzany/samoobsługowy) Azure-SSIS IR. |
+| ID (Identyfikator)                           | Identyfikator zasobu Azure-SSIS IR. |
+| Type                         | Typ IR (zarządzany/samoobsługowy) Azure-SSIS IR. |
 | ResourceGroupName            | Nazwa grupy zasobów platformy Azure, w której zostały utworzone zasoby ADF i Azure-SSIS IR. |
 | DataFactoryName              | Nazwa Twojego ADF. |
 | Nazwa                         | Nazwa Azure-SSIS IR. |
@@ -246,7 +246,7 @@ W przypadku używania modelu wdrażania projektu, w którym pakiety są przechow
 
 #### <a name="proxy--staging-tile"></a>Kafelek PROXY/PRZEMIESZCZAnie
 
-W przypadku pobierania, instalowania i konfigurowania samodzielnego środowiska IR (SHIR) jako serwera proxy dla Azure-SSIS IR dostępu do danych lokalnych, zobaczysz kafelek **serwer proxy/przemieszczanie** na stronie monitorowania Azure-SSIS IR (zobacz [Konfigurowanie SHIR jako serwera proxy dla Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). Na tym kafelku możesz wybrać łącze wyznaczające SHIR, aby otworzyć jego stronę monitorowania. Możesz również wybrać inny link wskazujący Blob Storage platformy Azure na potrzeby przygotowania, aby ponownie skonfigurować jego połączoną usługę.
+Jeśli pobierzesz, zainstalujesz i skonfigurujesz Self-Hosted IR (SHIR) jako serwer proxy dla Azure-SSIS IR dostępu do danych lokalnie, zobaczysz kafelek **serwer proxy/przemieszczanie** na stronie monitorowania Azure-SSIS IR (zobacz [Konfigurowanie SHIR jako serwera proxy dla Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). Na tym kafelku możesz wybrać łącze wyznaczające SHIR, aby otworzyć jego stronę monitorowania. Możesz również wybrać inny link wskazujący Blob Storage platformy Azure na potrzeby przygotowania, aby ponownie skonfigurować jego połączoną usługę.
 
 #### <a name="validate-vnet--subnet-tile"></a>Sprawdź poprawność kafelka sieci wirtualnej/podsieci
 

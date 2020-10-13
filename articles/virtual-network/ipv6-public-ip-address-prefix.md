@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666787"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefiks publicznego adresu IPv6
@@ -38,7 +38,7 @@ Dostępne są następujące publiczne rozmiary prefiksów adresów IP:
 -  Minimalny rozmiar prefiksu IPv6:/127 = 2 adresy
 -  Maksymalny rozmiar prefiksu IPv6:/124 = 16 adresów
 
-Rozmiar prefiksu jest określony jako rozmiar maski routingu między domenami (CIDR). Na przykład maska/128 reprezentuje pojedynczy adres IPv6, ponieważ adresy IPv6 składają się z 128 bitów.
+Rozmiar prefiksu jest określony jako rozmiar maski routingu bezklasowego Inter-Domain (CIDR). Na przykład maska/128 reprezentuje pojedynczy adres IPv6, ponieważ adresy IPv6 składają się z 128 bitów.
 
 ## <a name="pricing"></a>Cennik
  

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629798"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943870"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -116,7 +116,7 @@ Wynik bezpiecznego, który jest oparty na kontrolkach w centrum zabezpieczeń in
 **Szczegóły**: Postępuj zgodnie z [zaleceniami dotyczącymi zabezpieczeń](../../security-center/security-center-recommendations.md) w Security Center rozpoczynając od elementów o najwyższym priorytecie.
 
 **Najlepsze**rozwiązanie: Integruj Security Center alertów z rozwiązaniem do zarządzania informacjami i zdarzeniami zabezpieczeń (Siem).   
-**Szczegóły**: Większość organizacji z Siem korzysta z niego jako centralnej usługi Clearinghouse do obsługi alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia utworzone przez Security Center są publikowane w dzienniku aktywności platformy Azure, jeden z dzienników dostępnych za pomocą Azure Monitor. Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać instrukcje, zobacz sekcję [Eksportowanie alertów zabezpieczeń i zaleceń](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) . Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Szczegóły**: Większość organizacji z Siem korzysta z niego jako centralnej usługi Clearinghouse do obsługi alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia utworzone przez Security Center są publikowane w dzienniku aktywności platformy Azure, jeden z dzienników dostępnych za pomocą Azure Monitor. Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać instrukcje [, zobacz alerty przesyłania strumieniowego do rozwiązania do zarządzania usługami Siem, o lub IT](../../security-center/export-to-siem.md) . Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Najlepsze rozwiązanie**: Integrowanie dzienników platformy Azure z Siem.   
 **Szczegóły**: Użyj [Azure monitor, aby zebrać i wyeksportować dane](/azure/azure-monitor/overview#integrate-and-export-data). To rozwiązanie ma kluczowe znaczenie dla włączenia badania zdarzeń związanych z zabezpieczeniami, a przechowywanie dzienników w trybie online jest ograniczone. Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz temat [łączenie ze źródłami danych](../../sentinel/connect-data-sources.md).

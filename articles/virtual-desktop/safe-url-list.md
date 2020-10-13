@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291113"
+ms.locfileid: "91875108"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -19,17 +19,19 @@ Należy odblokować niektóre adresy URL, aby wdrożenie pulpitu wirtualnego sys
 
 ## <a name="virtual-machines"></a>Maszyny wirtualne
 
-Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą mieć dostęp do następujących adresów URL:
+Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą mieć dostęp do następujących adresów URL w chmurze komercyjnej platformy Azure:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
 |---|---|---|---|
 |*. wvd.microsoft.com|443|Ruch usługi|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
-|*.core.windows.net|443|Ruch agenta|AzureCloud|
-|*.servicebus.windows.net|443|Ruch agenta|AzureCloud|
 |gcs.prod.monitoring.core.windows.net|443|Ruch agenta|AzureCloud|
+|production.diagnostics.monitoring.core.windows.net|443|Ruch agenta|AzureCloud|
+|* xt.blob.core.windows.net|443|Ruch agenta|AzureCloud|
+|* eh.servicebus.windows.net|443|Ruch agenta|AzureCloud|
+|* xt.table.core.windows.net|443|Ruch agenta|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Aktywacja systemu Windows|Internet|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
 | 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
 | 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/security-overview.md#azure-platform-considerations) | Nie dotyczy |
@@ -39,16 +41,33 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 >
 >Zalecamy używanie tagów FQDN lub tagów usług zamiast adresów URL, aby zapobiec problemom z usługą. Wymienione adresy URL i Tagi odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows. Nie obejmują one adresów URL dla innych usług, takich jak Azure Active Directory.
 
-W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
+Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windows muszą mieć dostęp do następujących adresów URL w chmurze Azure Government:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
 |---|---|---|---|
-|*.microsoftonline.com|443|Uwierzytelnianie w usługach online firmy Microsoft|Brak|
+|*. wvd.microsoft.us|443|Ruch usługi|WindowsVirtualDesktop|
+|gcs.monitoring.core.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
+|monitoring.core.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
+|fairfax.warmpath.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
+|* xt.blob.core.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
+|*. servicebus.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
+|* xt.table.core.usgovcloudapi.net|443|Ruch agenta|AzureCloud|
+|Kms.core.usgovcloudapi.net|1688|Aktywacja systemu Windows|Internet|
+|mrsglobalstugviffx.core.usgovcloudapi.net|443|Aktualizacje stosu agenta i SXS|AzureCloud|
+|wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Obsługa Azure Portal|AzureCloud|
+| 169.254.169.254 | 80 | [Punkt końcowy usługi metadanych wystąpienia platformy Azure](../virtual-machines/windows/instance-metadata-service.md) | Nie dotyczy |
+| 168.63.129.16 | 80 | [Monitorowanie kondycji hosta sesji](../virtual-network/security-overview.md#azure-platform-considerations) | Nie dotyczy |
+
+W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
+
+|Adres|Wychodzący port TCP|Przeznaczenie|Azure gov|
+|---|---|---|---|
+|*.microsoftonline.com|443|Uwierzytelnianie w usługach online firmy Microsoft|login.microsoftonline.us|
 |*. events.data.microsoft.com|443|Usługa telemetrii|Brak|
 |www.msftconnecttest.com|443|Wykrywa, czy system operacyjny jest połączony z Internetem|Brak|
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Brak|
-|login.windows.net|443|Zaloguj się do usług Microsoft Online Services, Microsoft 365|Brak|
-|*. sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|Brak|
+|login.windows.net|443|Zaloguj się do usług Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
+|*. sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|oneclient.sfx.ms|
 |*. digicert.com|443|Sprawdzanie odwołania certyfikatu|Brak|
 
 >[!NOTE]
@@ -66,15 +85,15 @@ W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wir
 
 Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następujących adresów URL:
 
-|Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
-|---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszystkie|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystkie|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystkie|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszystkie|
-|docs.microsoft.com|443|Dokumentacja|Wszystkie|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystkie|
-|query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
+|Adres|Wychodzący port TCP|Przeznaczenie|Klienci|Azure gov|
+|---|---|---|---|---|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszystkie|*. wvd.microsoft.us|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystkie|*. servicebus.usgovcloudapi.net|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystkie|Brak|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszystkie|Brak|
+|docs.microsoft.com|443|Dokumentacja|Wszystkie|Brak|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystkie|Brak|
+|query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|Brak|
 
 >[!IMPORTANT]
 >Otwieranie tych adresów URL jest niezbędne dla niezawodnego środowiska klienta. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi.

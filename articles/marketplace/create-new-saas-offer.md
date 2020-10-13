@@ -9,17 +9,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708904"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace
 
 Jako komercyjny wydawca portalu Marketplace możesz utworzyć ofertę oprogramowania jako usługi (SaaS), aby potencjalni klienci mogli zakupić rozwiązanie techniczne oparte na SaaS. W tym artykule opisano proces tworzenia oferty SaaS dla komercyjnego portalu Microsoft Marketplace.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj się z artykułem [Planowanie oferty SaaS dla komercyjnej witryny Marketplace](plan-saas-offer.md). Wyjaśni wymagania techniczne dotyczące aplikacji SaaS oraz informacje i zasoby, które będą potrzebne podczas tworzenia oferty. Jeśli nie planujesz opublikowania prostej listy (**skontaktuj się ze mną** ) w komercyjnej witrynie Marketplace, Twoja aplikacja SaaS musi spełniać wymagania techniczne dotyczące uwierzytelniania.
 
@@ -64,7 +64,7 @@ Test jest doskonałym sposobem na pokazanie oferty potencjalnym klientom, zapewn
 1.  W obszarze **testowanie dysku**zaznacz pole wyboru **Włącz dysk testowy** .
 1.  Wybierz typ dysku testowego z wyświetlonej listy.
 
-### <a name="configure-lead-management"></a>Konfigurowanie zarządzania liderem
+### <a name="configure-lead-management"></a>Konfigurowanie zarządzania potencjalnymi klientami
 
 Połącz system zarządzania relacjami z klientami (CRM) z ofertą komercyjnej witryny Marketplace, aby otrzymywać informacje kontaktowe klienta, gdy klient wyraża zainteresowanie lub wdroży produkt. To połączenie można zmodyfikować w dowolnym momencie podczas tworzenia oferty lub po niej.
 

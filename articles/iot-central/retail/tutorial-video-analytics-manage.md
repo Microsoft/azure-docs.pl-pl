@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575201"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874802"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Samouczek: monitorowanie i zarządzanie analizą wideo — aplikacja do wykrywania obiektów i ruchu
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Dodaj aparaty wykrywania obiektów i ruchu do aplikacji IoT Central.
 > * Zarządzanie strumieniami wideo i odtwarzanie ich w przypadku wykrycia interesujących zdarzeń.
@@ -26,7 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Przed rozpoczęciem należy wykonać następujące czynności:
 
-* Samouczek [Tworzenie aplikacji do analizy filmów wideo na żywo w usłudze Azure IoT Central](./tutorial-video-analytics-create-app.md) .
+* Jedną z poprzednich części: [Tworzenie aplikacji do analizy filmów wideo na żywo na platformie azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) lub [Tworzenie analiz wideo w samouczkach usługi Azure IoT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) .
 * Jedno z wcześniejszych [IoT Edge utworzyć wystąpienie dla usługi Live Video Analytics (maszyna wirtualna z systemem Linux)](tutorial-video-analytics-iot-edge-vm.md) lub [utworzyć wystąpienie IoT Edge dla samouczków analizy wideo na żywo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) .
 
 Na komputerze lokalnym musi być zainstalowany program [Docker](https://www.docker.com/products/docker-desktop) , aby można było uruchomić aplikację przeglądarka wideo.

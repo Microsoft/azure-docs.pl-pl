@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613768"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
@@ -65,7 +65,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
    >[!NOTE]
    >W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako Log Analytics obszary robocze.
 
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij przycisk **Utwórz**.
 
 Gdy zasób rozwiązania zostanie wdrożony, w prawym górnym rogu okna pojawi się powiadomienie.
 
@@ -186,7 +186,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 
 - ServiceDeskConnectionName
 - Identyfikator działu obsługi
-- Stan
+- State
 - Pilność
 - Wpływ
 - Priorytet
@@ -218,9 +218,9 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Element źródłowy
 - Przypisano do
 - Tytuł
-- Typ
+- Type
 - Kategoria
-- Stan
+- State
 - Eskalacja
 - Stan konfliktu
 - Pilność
@@ -244,7 +244,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | Pole Log Analytics | Pole usługi ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
-| IncidentState_s | Stan |
+| IncidentState_s | State |
 | Urgency_s |Pilność |
 | Impact_s |Wpływ|
 | Priority_s | Priorytet |
@@ -263,16 +263,16 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dane wyjściowe żądania zmiany usługi ServiceNow
 
-| Log Analytics | Pole usługi ServiceNow |
+| Usługa Log Analytics | Pole usługi ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Liczba |
 | CreatedBy_s | Żądane przez |
 | ClosedBy_s | Zamknięte przez |
 | AssignedTo_s | Przypisano do  |
 | Title_s|  Krótki opis |
-| Type_s|  Typ |
+| Type_s|  Type |
 | Category_s|  Kategoria |
-| CRState_s|  Stan|
+| CRState_s|  State|
 | Urgency_s|  Pilność |
 | Priority_s| Priorytet|
 | Risk_s| Ryzyko|

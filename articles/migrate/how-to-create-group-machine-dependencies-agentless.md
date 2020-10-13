@@ -4,10 +4,10 @@ description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667473"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
@@ -50,7 +50,7 @@ Dodaj konto użytkownika do urządzenia.
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
 3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
 3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
     ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -144,7 +144,7 @@ Pobierz moduł programu PowerShell z repozytorium [Azure PowerShell Samples](htt
 
 ### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-1. Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia cmdlet Connect-AzAccount.
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia cmdlet Connect-AzAccount.
 
     ```PowerShell
     Connect-AzAccount
@@ -197,7 +197,7 @@ Azure Migrate oferuje szablon Power BI, którego można użyć do wizualizacji p
 1. Pobierz moduł programu PowerShell i szablon Power BI z repozytorium [przykładów Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) w witrynie GitHub.
 
 2. Zaloguj się do platformy Azure, korzystając z poniższych instrukcji: 
-- Zaloguj się do subskrypcji platformy Azure przy użyciu polecenia cmdlet Connect-AzAccount.
+- Zaloguj się do subskrypcji platformy Azure za pomocą polecenia cmdlet Connect-AzAccount.
 
     ```PowerShell
     Connect-AzAccount

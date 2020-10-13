@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362167"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Samouczek: projektowanie relacyjnej bazy danych w Azure SQL Database przy użyciu programu SSMS
@@ -115,7 +115,7 @@ Azure SQL Database tworzy zaporę IP na poziomie serwera. Ta zapora uniemożliwi
 
 1. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory bazującej na adresach IP. Reguła zapory bazująca na adresach IP może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-1. Kliknij pozycję **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
+1. Kliknij przycisk **Zapisz**. Reguła zapory adresów IP na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
 
 1. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
 

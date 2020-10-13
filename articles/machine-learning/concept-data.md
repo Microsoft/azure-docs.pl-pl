@@ -12,10 +12,10 @@ ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446693"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
@@ -38,7 +38,7 @@ Gdy wszystko będzie gotowe do użycia danych w rozwiązaniu do magazynowania w 
 3. Aby użyć tego zestawu danych w eksperymentie uczenia maszynowego, możesz
     1. Zainstaluj go w miejscu docelowym obliczeń eksperymentu na potrzeby szkolenia modeli.
 
-        **ORAZ** 
+        **OR** 
 
     1. Korzystaj bezpośrednio z rozwiązań Azure Machine Learning, takich jak zautomatyzowany przebiegi eksperymentów uczenia maszynowego (zautomatyzowany ML), potoki uczenia maszynowego lub [projektant Azure Machine Learning](concept-designer.md).
 

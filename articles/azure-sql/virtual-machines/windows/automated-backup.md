@@ -14,10 +14,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565143"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatyczne kopie zapasowe v2 dla maszyn wirtualnych platformy Azure (Menedżer zasobów)
@@ -314,7 +314,7 @@ Najpierw można sondować stan, wywołując metodę [msdb. managed_backup. sp_ge
 
 Innym rozwiązaniem jest skorzystanie z wbudowanej funkcji Poczta bazy danych na potrzeby powiadomień.
 
-1. Wywołaj procedurę składowaną [msdb. managed_backup. sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) , aby przypisać adres e-mail do parametru **SSMBackup2WANotificationEmailIds** . 
+1. Wywołaj procedurę składowaną [msdb. managed_backup. sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) , aby przypisać do parametru **SSMBackup2WANotificationEmailIds** adres e-mail. 
 1. Włącz [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) do wysyłania wiadomości e-mail z maszyny wirtualnej platformy Azure.
 1. Aby skonfigurować Poczta bazy danych, Użyj serwera SMTP i nazwy użytkownika. Poczta bazy danych można skonfigurować w SQL Server Management Studio lub za pomocą poleceń języka Transact-SQL. Aby uzyskać więcej informacji, zobacz [poczta bazy danych](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
 1. [Skonfiguruj SQL Server agenta, aby korzystał z poczta bazy danych](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).

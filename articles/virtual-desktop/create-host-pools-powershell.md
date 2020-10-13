@@ -7,10 +7,10 @@ ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667167"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Tworzenie puli hostów usług pulpitu wirtualnego systemu Windows przy użyciu programu PowerShell
@@ -140,8 +140,8 @@ Aby zaktualizować agenta:
    Aby odinstalować te pliki, kliknij prawym przyciskiem myszy każdą nazwę pliku, a następnie wybierz pozycję **Odinstaluj**.
 5. Opcjonalnie można również usunąć następujące ustawienia rejestru:
      
-     - Komputer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
-     - Komputer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
 6. Po odinstalowaniu tych elementów należy usunąć wszystkie skojarzenia ze starą pulą hostów. Jeśli chcesz ponownie zarejestrować tego hosta w usłudze, postępuj zgodnie z instrukcjami w temacie [Rejestrowanie maszyn wirtualnych w puli hostów usług pulpitu wirtualnego systemu Windows](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 

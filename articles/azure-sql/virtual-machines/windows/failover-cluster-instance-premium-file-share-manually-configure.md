@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298715"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
@@ -96,17 +96,7 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 1. Wybierz opcję **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Wybierz testy weryfikacji klastra":::
-
-1. Wybierz opcję **Dalej**.
-1. W obszarze **potwierdzenie**wybierz pozycję **dalej**.
-
-Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
-
-Aby sprawdzić poprawność klastra przy użyciu programu PowerShell, uruchom następujący skrypt z sesji programu PowerShell administratora na jednej z maszyn wirtualnych:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect"
    ```
 
 Po sprawdzeniu poprawności klastra utwórz klaster trybu failover.
@@ -151,7 +141,7 @@ Skonfiguruj rozwiązanie kworum, które najlepiej odpowiada Twoim potrzebom bizn
 
 Przetestuj tryb failover klastra. W **Menedżer klastra trybu failover**kliknij prawym przyciskiem myszy klaster, wybierz pozycję **więcej akcji**  >  **Przenieś zasób klastra podstawowego**  >  **Wybierz węzeł**, a następnie wybierz inny węzeł klastra. Przenieś zasób podstawowego klastra do każdego węzła klastra, a następnie przenieś go z powrotem do węzła podstawowego. Jeśli możesz pomyślnie przenieść klaster do każdego węzła, możesz zainstalować SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testowanie trybu failover klastra przez przeniesienie zasobu podstawowego do innych węzłów":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect":::
 
 
 ## <a name="create-sql-server-fci"></a>Utwórz SQL Server FCI
@@ -172,7 +162,7 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
    Katalogi danych FCI muszą znajdować się w udziale plików w warstwie Premium. Wprowadź pełną ścieżkę udziału w tym formacie: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Zostanie wyświetlone ostrzeżenie z informacją o tym, że jako katalog danych został określony serwer plików. To ostrzeżenie jest oczekiwane. Upewnij się, że konto użytkownika używane do uzyskiwania dostępu do maszyny wirtualnej za pośrednictwem protokołu RDP podczas utrwalania udziału plików jest tym samym kontem, którego używa Usługa SQL Server, aby uniknąć możliwych błędów.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Korzystanie z udziału plików jako katalogów danych SQL":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Kopiuj Oba polecenia programu PowerShell z portalu usługi File Share Connect":::
 
 1. Po wykonaniu kroków opisanych w Kreatorze Instalator zainstaluje SQL Server FCI na pierwszym węźle.
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 4fe15d1bd23f36b7289c54bedf575ae4760600e0
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710808"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrowanie bazy danych PostgreSQL metodą zrzutu i przywracania
@@ -73,7 +73,7 @@ Jednym ze sposobów migrowania istniejącej bazy danych PostgreSQL do usługi Az
 >
 
 ### <a name="for-the-backup"></a>Dla kopii zapasowej
-- Utwórz kopię zapasową za pomocą przełącznika-FC, aby można było wykonać przywracanie równolegle w celu przyspieszenia jego działania. Przykład:
+- Utwórz kopię zapasową za pomocą przełącznika-FC, aby można było wykonać przywracanie równolegle w celu przyspieszenia jego działania. Na przykład:
 
     ```bash
     pg_dump -h my-source-server-name -U source-server-username -Fc -d source-databasename -f Z:\Data\Backups\my-database-backup.dump
@@ -84,7 +84,7 @@ Jednym ze sposobów migrowania istniejącej bazy danych PostgreSQL do usługi Az
 
 - Powinno to być już wykonywane domyślnie, ale otworzyć plik zrzutu, aby sprawdzić, czy instrukcje CREATE INDEX są po wstawieniu danych. Jeśli tak nie jest, Przenieś instrukcje tworzenia indeksu po wstawieniu danych.
 
-- Przywróć przy użyciu przełączników-FC i-j, *#* Aby zrównoleglanie przywracanie. *#* jest liczbą rdzeni na serwerze docelowym. Możesz również spróbować z *#* ustawionym dwukrotnie liczbą rdzeni serwera docelowego, aby zobaczyć wpływ. Przykład:
+- Przywróć przy użyciu przełączników-FC i-j, *#* Aby zrównoleglanie przywracanie. *#* jest liczbą rdzeni na serwerze docelowym. Możesz również spróbować z *#* ustawionym dwukrotnie liczbą rdzeni serwera docelowego, aby zobaczyć wpływ. Na przykład:
 
 Oto przykład użycia tego **pg_restore** dla **pojedynczego serwera**:
 ```bash

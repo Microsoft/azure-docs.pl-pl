@@ -14,10 +14,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565126"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa maszyn wirtualnych SQL Server 2014 (Menedżer zasobów)
@@ -261,11 +261,11 @@ Aby monitorować automatyczne kopie zapasowe na SQL Server 2014, dostępne są d
 Najpierw można sondować stan, wywołując metodę [msdb. smart_admin. sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Lub wykonaj zapytanie dotyczące funkcji zwracającej tabelę [msdb. smart_admin. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
 
 > [!NOTE]
-> Schemat zarządzanej kopii zapasowej w SQL Server 2014 ma wartość **msdb. smart_admin**. W SQL Server 2016 zmiana na **msdb. managed_backup**i tematy referencyjne używają tego nowszego schematu. Ale dla SQL Server 2014 należy nadal używać schematu **smart_admin** dla wszystkich obiektów zarządzanych kopii zapasowych.
+> Schemat dla zarządzanej kopii zapasowej w SQL Server 2014 jest **msdb.smart_admin**. W SQL Server 2016 ta zmiana na **msdb.managed_backup**, a tematy referencyjne używają tego nowszego schematu. Ale dla SQL Server 2014 należy nadal używać schematu **smart_admin** dla wszystkich obiektów zarządzanych kopii zapasowych.
 
 Innym rozwiązaniem jest skorzystanie z wbudowanej funkcji Poczta bazy danych na potrzeby powiadomień.
 
-1. Wywołaj procedurę składowaną [msdb. smart_admin. sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) , aby przypisać adres e-mail do parametru **SSMBackup2WANotificationEmailIds** . 
+1. Wywołaj procedurę składowaną [msdb. smart_admin. sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) , aby przypisać do parametru **SSMBackup2WANotificationEmailIds** adres e-mail. 
 1. Włącz [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) do wysyłania wiadomości e-mail z maszyny wirtualnej platformy Azure.
 1. Aby skonfigurować Poczta bazy danych, Użyj serwera SMTP i nazwy użytkownika. Poczta bazy danych można skonfigurować w SQL Server Management Studio lub za pomocą poleceń języka Transact-SQL. Aby uzyskać więcej informacji, zobacz [poczta bazy danych](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
 1. [Skonfiguruj SQL Server agenta, aby korzystał z poczta bazy danych](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).

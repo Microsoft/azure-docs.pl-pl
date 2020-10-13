@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
 ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709020"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
@@ -31,7 +31,7 @@ Po opublikowaniu ofert w witrynie Azure Marketplace można:
 - Uzyskuj wysokiej jakości potencjalni klienci z tych rynków.
 - Zyskaj swoje usługi przez zespoły ds. sprzedaży i telesprzedaży firmy Microsoft.
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Jeśli jeszcze tego nie zrobiono, zapoznaj się z [przewodnikiem publikowania oferty maszyn wirtualnych](../marketplace-virtual-machines.md) i tym materiałem maszyny wirtualnej platformy Azure:
 
@@ -53,7 +53,7 @@ Proces projektowania, kompilowania i testowania ofert trwa od czasu i wymaga zna
 
 Zespół inżynieryjny powinien dysponować podstawową wiedzą i praktyczną wiedzę o następujących technologiach firmy Microsoft:
 
-- [Usługi Azure](https://azure.microsoft.com/services/)
+- [Usługi platformy Azure](https://azure.microsoft.com/services/)
 - [Projektowanie i Architektura aplikacji platformy Azure](https://azure.microsoft.com/solutions/architecture/)
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
 
@@ -265,7 +265,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć 1280 &times; 720 pikseli w rozmiarze i formacie PNG. Każdy zrzut ekranu musi zawierać podpis.
 
-#### <a name="videos"></a>Filmy wideo
+#### <a name="videos"></a>Wideo
 
 Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Filmy wideo powinny być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres sieci Web i obraz miniatury PNG wideo o godzinie 1280 &times; 720 pikseli.
 

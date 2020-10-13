@@ -4,10 +4,10 @@ description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667796"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
@@ -23,7 +23,7 @@ Jeśli chcesz przeprowadzić migrację maszyn wirtualnych VMware na platformę A
 **Pomoc techniczna** | **Szczegóły**
 --- | ---
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure.<br/><br/> Można odkrywać i oceniać do 35 000 maszyn wirtualnych VMware w jednym [projekcie](migrate-support-matrix.md#azure-migrate-projects). Projekt może również obejmować serwery fizyczne i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
-**Odnajdowa** | Urządzenie Azure Migrate może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.
+**Odnajdywanie** | Urządzenie Azure Migrate może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.
 **Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn wirtualnych.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
@@ -67,7 +67,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 **Pomoc techniczna** | **Szczegóły**
 --- | ---
 **Obsługiwane maszyny** | Funkcja odnajdywania aplikacji jest obecnie obsługiwana tylko w przypadku maszyn wirtualnych VMware.
-**Odnajdowa** | Odnajdowanie aplikacji jest bezagentem. Używa poświadczeń gościa komputera i zdalnie uzyskuje dostęp do maszyn przy użyciu usług WMI i wywołań SSH.
+**Odnajdywanie** | Odnajdowanie aplikacji jest bezagentem. Używa poświadczeń gościa komputera i zdalnie uzyskuje dostęp do maszyn przy użyciu usług WMI i wywołań SSH.
 **Obsługa maszyn wirtualnych** | Funkcja odnajdywania aplikacji jest obsługiwana w przypadku maszyn wirtualnych, na których działają wszystkie wersje systemów Windows i Linux.
 **vCenter** | VCenter Server konto tylko do odczytu używane do oceny, wymaga uprawnień włączonych do **Virtual Machines**  >  **operacji gościa**, aby można było korzystać z maszyny wirtualnej w celu odnajdywania aplikacji.
 **Dostęp do maszyny wirtualnej** | Funkcja odnajdywania aplikacji musi mieć konto użytkownika lokalnego na maszynie wirtualnej w celu odnajdywania aplikacji.<br/><br/> Azure Migrate obecnie obsługuje użycie jednego poświadczenia dla wszystkich serwerów z systemem Windows i jedno poświadczenie dla wszystkich serwerów z systemem Linux.<br/><br/> Tworzysz konto użytkownika-gościa dla maszyn wirtualnych z systemem Windows oraz normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich maszyn wirtualnych z systemem Linux.

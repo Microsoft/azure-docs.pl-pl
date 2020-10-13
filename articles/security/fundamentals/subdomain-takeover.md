@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
 ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447371"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
@@ -86,7 +86,7 @@ Jeśli rekordy CNAME znajdują się w innych usługach DNS i wskaż zasoby platf
 Narzędzie obsługuje zasoby platformy Azure wymienione w poniższej tabeli. Narzędzie wyodrębnia lub przyjmuje jako dane wejściowe wszystkie rekordy CNAME dzierżawcy.
 
 
-| Usługa                   | Typ                                        | FQDNproperty                               | Przykład                         |
+| Usługa                   | Type                                        | FQDNproperty                               | Przykład                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | Microsoft. Network/usługi frontdoor                | Właściwości. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | Microsoft. Storage/storageaccounts           | Properties. obiektu. blob           | `abc. blob.core.windows.net`    |

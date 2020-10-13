@@ -4,10 +4,10 @@ description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy uży
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567438"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
@@ -31,7 +31,7 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 - Obecnie dane można wyświetlać w raportach dotyczących kopii zapasowych w maksymalnie 100 Log Analytics obszarach roboczych (między dzierżawcami).
 - Dane dla zadań kopii zapasowej dzienników nie są obecnie wyświetlane w raportach.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 

@@ -17,13 +17,13 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299752"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Ograniczone delegowanie protokołu Kerberos na potrzeby logowania jednokrotnego do aplikacji przy użyciu serwera proxy aplikacji
+# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Logowanie jednokrotne w aplikacjach z użyciem ograniczonego delegowania Kerberos dzięki funkcji serwera proxy aplikacji
 
 Możesz udostępnić Logowanie jednokrotne dla aplikacji lokalnych publikowanych za pomocą serwera proxy aplikacji zabezpieczonego przy użyciu zintegrowanego uwierzytelniania systemu Windows. Te aplikacje wymagają biletu protokołu Kerberos w celu uzyskania dostępu. Serwer proxy aplikacji używa ograniczonego delegowania protokołu Kerberos (KCD) do obsługi tych aplikacji. 
 

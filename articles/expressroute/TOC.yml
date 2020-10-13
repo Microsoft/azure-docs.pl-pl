@@ -4,7 +4,7 @@
   items:
     - name: Co to jest ExpressRoute?
       href: expressroute-introduction.md
-- name: Szybki start
+- name: Przewodniki Szybki start
   items:
     - name: Tworzenie obwodu usługi ExpressRoute — portal
       href: expressroute-howto-circuit-portal-resource-manager.md

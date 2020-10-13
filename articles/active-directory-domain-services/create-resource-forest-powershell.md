@@ -1,20 +1,20 @@
 ---
 title: Tworzenie lasu zasobów Azure AD Domain Services przy użyciu Azure PowerShell | Microsoft Docs
 description: W tym artykule dowiesz się, jak utworzyć i skonfigurować Las zasobów Azure Active Directory Domain Services i Las wychodzący w środowisku lokalnym Active Directory Domain Services przy użyciu Azure PowerShell.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723167"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960953"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Utwórz Las zasobów Azure Active Directory Domain Services i zaufanie lasu wychodzącego do domeny lokalnej przy użyciu Azure PowerShell
 
@@ -105,7 +105,7 @@ Aby utworzyć Las zasobów domeny zarządzanej, należy użyć `New-AzureAaddsFo
     | Nazwa                         | Parametr skryptu          | Opis |
     |:-----------------------------|---------------------------|:------------|
     | Subskrypcja                 | *-azureSubscriptionId*    | Identyfikator subskrypcji używany na potrzeby rozliczeń w usłudze Azure AD DS. Listę subskrypcji można uzyskać za pomocą polecenia cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
-    | Grupa zasobów               | *-aaddsResourceGroupName* | Nazwa grupy zasobów dla domeny zarządzanej i skojarzonych zasobów. |
+    | Resource Group               | *-aaddsResourceGroupName* | Nazwa grupy zasobów dla domeny zarządzanej i skojarzonych zasobów. |
     | Lokalizacja                     | *-aaddsLocation*          | Region świadczenia usługi Azure, który będzie hostować domenę zarządzaną. Aby uzyskać dostęp do dostępnych regionów, zobacz sekcję [Obsługiwane regiony dla platformy Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Administrator usługi Azure AD DS    | *-aaddsAdminUser*         | Główna nazwa użytkownika pierwszego administratora domeny zarządzanej. To konto musi być istniejącym kontem użytkownika w chmurze w Twojej Azure Active Directory. Użytkownik i użytkownik uruchamiający skrypt są dodawane do grupy *administratorów kontrolera domeny usługi AAD* . |
     | Nazwa domeny usługi Azure AD DS      | *-aaddsDomainName*        | Nazwa FQDN domeny zarządzanej, zgodnie z poprzednimi wskazówkami dotyczącymi wybierania nazwy lasu. |

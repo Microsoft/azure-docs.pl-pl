@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
 ms.openlocfilehash: 158adb6b35b488c310bd2912d4076b86579383a4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446398"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Zarządzanie pakietami za pomocą magazynu pakietów Azure-SSIS Integration Runtime

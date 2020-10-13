@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361895"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Zarządzanie usługą sieci Web przy użyciu portalu usług sieci Web Azure Machine Learning Studio (klasyczny)
@@ -73,8 +73,8 @@ Kliknij kartę **pulpit nawigacyjny** .
 Na pulpicie nawigacyjnym możesz wyświetlać ogólne użycie usługi sieci Web w danym okresie czasu. Możesz wybrać okres do wyświetlenia z menu rozwijanego okres w prawym górnym rogu wykresów użycia. Na pulpicie nawigacyjnym są wyświetlane następujące informacje:
 
 * **Żądania w czasie** przedstawiają wykres etapowy liczby żądań w wybranym okresie. Może pomóc w ustaleniu, czy występuje wzrost użycia.
-* **Żądania żądanie-odpowiedź** zawierają informacje o całkowitej liczbie wywołań żądania-odpowiedź usługi odebranej w wybranym okresie oraz o tym, ile z nich nie powiodło się.
-* **Średni czas obliczeń żądania odpowiedzi** przedstawia średni czas wymagany do wykonania odebranych żądań.
+* **Żądania żądanie-odpowiedź** zawiera łączną liczbę wywołań Request-Response odebranych przez usługę w wybranym okresie i ich liczbę nie powiodła się.
+* **Średni czas obliczeń Request-Response** wyświetla średni czas wymagany do wykonania odebranych żądań.
 * **Żądania usługi Batch** zawierają informacje o całkowitej liczbie żądań wsadowych odebranych przez usługę w wybranym okresie oraz o tym, ile z nich zakończyło się niepowodzeniem.
 * **Średnie opóźnienie zadania** przedstawia średni czas wymagany do wykonania odebranych żądań.
 * **Błędy** przedstawiają zagregowaną liczbę błędów, które wystąpiły podczas wywołań usługi sieci Web.
@@ -89,7 +89,7 @@ Można zaktualizować następujące właściwości:
 * **Tytuł** umożliwia wprowadzenie tytułu usługi sieci Web
 * **Klucze** umożliwiają obracanie podstawowych i pomocniczych kluczy interfejsu API.
 * **Klucz konta magazynu** umożliwia zaktualizowanie klucza konta magazynu skojarzonego z usługą sieci Web. 
-* **Włącz przykładowe dane** umożliwiają dostarczenie przykładowych danych, których można użyć do przetestowania usługi żądanie-odpowiedź. Jeśli usługa sieci Web została utworzona w Machine Learning Studio (klasyczny), przykładowe dane są pobierane z danych używanych do uczenia modelu. Jeśli usługa została utworzona programowo, dane są pobierane z przykładowych danych dostarczonych jako część pakietu JSON.
+* **Włącz przykładowe dane** umożliwiają dostarczenie przykładowych danych, których można użyć do przetestowania usługi Request-Response. Jeśli usługa sieci Web została utworzona w Machine Learning Studio (klasyczny), przykładowe dane są pobierane z danych używanych do uczenia modelu. Jeśli usługa została utworzona programowo, dane są pobierane z przykładowych danych dostarczonych jako część pakietu JSON.
 
 ### <a name="managing-billing-plans"></a>Zarządzanie planami rozliczeń
 Kliknij opcję **plany** menu na stronie szybkiego startu usług sieci Web. Możesz również kliknąć plan skojarzony z określoną usługą sieci Web, aby zarządzać tym planem.
@@ -140,8 +140,8 @@ Kliknij kartę **pulpit nawigacyjny** .
 Na pulpicie nawigacyjnym możesz wyświetlać ogólne użycie usługi sieci Web w danym okresie czasu. Możesz wybrać okres do wyświetlenia z menu rozwijanego okres w prawym górnym rogu wykresów użycia. Na pulpicie nawigacyjnym są wyświetlane następujące informacje:
 
 * **Żądania w czasie** przedstawiają wykres etapowy liczby żądań w wybranym okresie. Może pomóc w ustaleniu, czy występuje wzrost użycia.
-* **Żądania żądanie-odpowiedź** zawierają informacje o całkowitej liczbie wywołań żądania-odpowiedź usługi odebranej w wybranym okresie oraz o tym, ile z nich nie powiodło się.
-* **Średni czas obliczeń żądania odpowiedzi** przedstawia średni czas wymagany do wykonania odebranych żądań.
+* **Żądania żądanie-odpowiedź** zawiera łączną liczbę wywołań Request-Response odebranych przez usługę w wybranym okresie i ich liczbę nie powiodła się.
+* **Średni czas obliczeń Request-Response** wyświetla średni czas wymagany do wykonania odebranych żądań.
 * **Żądania usługi Batch** zawierają informacje o całkowitej liczbie żądań wsadowych odebranych przez usługę w wybranym okresie oraz o tym, ile z nich zakończyło się niepowodzeniem.
 * **Średnie opóźnienie zadania** przedstawia średni czas wymagany do wykonania odebranych żądań.
 * **Błędy** przedstawiają zagregowaną liczbę błędów, które wystąpiły podczas wywołań usługi sieci Web.
@@ -154,6 +154,6 @@ Można zaktualizować następujące właściwości:
 
 * **Opis** umożliwia wprowadzenie opisu usługi sieci Web. Opis jest polem wymaganym.
 * **Rejestrowanie** umożliwia włączenie lub wyłączenie rejestrowania błędów w punkcie końcowym. Aby uzyskać więcej informacji na temat rejestrowania, zobacz Włączanie [rejestrowania dla usług sieci web Machine Learning](web-services-logging.md).
-* **Włącz przykładowe dane** umożliwiają dostarczenie przykładowych danych, których można użyć do przetestowania usługi żądanie-odpowiedź. Jeśli usługa sieci Web została utworzona w Machine Learning Studio (klasyczny), przykładowe dane są pobierane z danych używanych do uczenia modelu. Jeśli usługa została utworzona programowo, dane są pobierane z przykładowych danych dostarczonych jako część pakietu JSON.
+* **Włącz przykładowe dane** umożliwiają dostarczenie przykładowych danych, których można użyć do przetestowania usługi Request-Response. Jeśli usługa sieci Web została utworzona w Machine Learning Studio (klasyczny), przykładowe dane są pobierane z danych używanych do uczenia modelu. Jeśli usługa została utworzona programowo, dane są pobierane z przykładowych danych dostarczonych jako część pakietu JSON.
 
 

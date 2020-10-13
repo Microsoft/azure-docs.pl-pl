@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666946"
 ---
 # <a name="client-and-server-architecture"></a>Architektura klienta i serwera
@@ -80,7 +80,7 @@ Możesz chcieć zamieścić dowolne dane między użytkownikami, aby na przykła
 > [!div class="nextstepaction"]
 > [Tworzenie tokenów dostępu użytkowników](../quickstarts/access-tokens.md)
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - Informacje o [uwierzytelnianiu](../concepts/authentication.md)
 - Informacje o [rozwiązaniach PSTN i SMS](../concepts/telephony-sms/plan-solution.md)

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566605"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Samouczek: tworzenie pierwszej fabryki danych przy użyciu witryny Azure Portal
@@ -23,7 +23,7 @@ ms.locfileid: "91566605"
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
 > * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
@@ -76,7 +76,7 @@ Aby utworzyć fabrykę danych, wykonaj następujące kroki:
 
 1. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    > [!IMPORTANT]
    > Aby utworzyć wystąpienia Data Factory, musisz być członkiem roli [współautor Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.

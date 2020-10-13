@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: cb4dd6646eceaa6028dca4e04e9cddced487de3e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361674"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podróży usługi Juno na potrzeby automatycznego aprowizacji użytkowników
@@ -97,7 +97,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, aby Juno podróż w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Junoej operacji aktualizacji. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), należy się upewnić, że interfejs API podróży Juno obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-   |Zmienna|Typ|
+   |Zmienna|Type|
    |---|---|
    |userName|Ciąg|
    |externalId|Ciąg|
@@ -106,25 +106,25 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |aktywne|Wartość logiczna|
    |preferredLanguage|Ciąg|
    |emails[type eq "work"].value|Ciąg|
-   |addresss [Type EQ "Work"]. Country|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
    |adresy [typ EQ "Work"]. streetAddress|Ciąg|
    |name.givenName|Ciąg|
    |name.familyName|Ciąg|
-   |Name. middleName|String|
-   |Nazwa. sformatowana|String|
+   |Name. middleName|Ciąg|
+   |Nazwa. sformatowana|Ciąg|
    |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|Ciąg|
 
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

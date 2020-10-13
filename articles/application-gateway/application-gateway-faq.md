@@ -9,10 +9,10 @@ ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
 ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278638"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
@@ -71,7 +71,7 @@ Jeśli używasz publicznego adresu IP jako punktu końcowego, możesz znaleźć 
 
 W przypadku jednostki SKU v2 Otwórz zasób publicznego adresu IP i wybierz pozycję **Konfiguracja**. Pole **etykieta nazwy DNS (opcjonalnie)** jest dostępne do skonfigurowania nazwy DNS.
 
-### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Jakie są ustawienia limitu czasu utrzymywania aktywności i limitu czasu bezczynności protokołu TCP?
+### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Jakie są ustawienia limitu czasu Keep-Alive i limitu czasu bezczynności protokołu TCP?
 
 *Limit czasu utrzymywania aktywności* określa, jak długo Application Gateway będzie czekać na wysłanie przez klienta kolejnego żądania HTTP przed ponownym użyciem lub zamknięciem. *Limit czasu bezczynności protokołu TCP* określa, jak długo połączenie TCP jest przechowywane w przypadku braku aktywności. 
 

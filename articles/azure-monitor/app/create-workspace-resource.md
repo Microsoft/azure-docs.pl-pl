@@ -6,17 +6,17 @@ ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894540"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Zasoby Application Insights oparte na obszarze roboczym
 
 Zasoby oparte na obszarze roboczym obsługują pełną integrację między Application Insights i Log Analytics. Teraz możesz wysyłać dane telemetryczne Application Insights do wspólnego Log Analytics obszaru roboczego, dzięki któremu masz pełny dostęp do wszystkich funkcji Log Analytics podczas zachowywania dzienników aplikacji, infrastruktury i platformy w pojedynczej skonsolidowanej lokalizacji.
 
-Pozwala to również na wspólne Access Control oparte na rolach (RBAC) w ramach Twoich zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
+Pozwala to również na typowe Role-Based Access Control (RBAC) w ramach Twoich zasobów i eliminuje konieczność wykonywania zapytań między aplikacjami i obszarami roboczymi.
 
 > [!NOTE]
 > Pozyskiwanie i przechowywanie danych dla zasobów Application Insights opartych na obszarze roboczym jest rozliczane za pośrednictwem Log Analytics obszaru roboczego, w którym znajdują się dane. [Dowiedz się więcej]( ./pricing.md#workspace-based-application-insights) o rozliczeniach dla zasobów Application Insights opartych na obszarze roboczym.

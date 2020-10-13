@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236577"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940709"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>Nowe funkcje wystąpienia zarządzanego SQL i znane problemy
+## <a name="new-features"></a>Nowe funkcje
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Wystąpienia zarządzane SQL H2 2019 aktualizacje
 
@@ -93,10 +93,11 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
   - Nowa [rola współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) wbudowanego wystąpienia umożliwia rozdzielenie cła (SOD) z zasadami zabezpieczeń i zgodności z normami przedsiębiorstwa.
   - Wystąpienie zarządzane SQL jest dostępne w następujących regionach Azure Government, do GA (US Gov Teksas, US Gov Arizona), a także w Chiny Północne 2 i Chiny Wschodnie 2. Jest ona również dostępna w następujących regionach publicznych: Australia Środkowa, Australia Środkowa 2, Brazylia Południowa, Francja Południowa, Europa Środkowa, Płn. Zjednoczone Emiraty Arabskie, Północna Republika Południowej Afryki, Zachodnia Republika Południowej Afryki.
 
-### <a name="known-issues"></a>Znane problemy
+## <a name="known-issues"></a>Znane problemy
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) w usłudze Azure SQL i `BACKUP` / `RESTORE` instrukcji w wystąpieniu zarządzanym nie można używać tożsamości zarządzania usługą Azure AD do uwierzytelniania w usłudze Azure Storage|Wrz 2020|Ma obejście||
 |[Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 sie|Ma obejście||
 |[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
 |[Agent przestaje odpowiadać po zmodyfikowaniu, wyłączeniu lub włączeniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
@@ -124,6 +125,21 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |Przywracanie bazy danych do punktu w czasie z warstwy Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia nie powiedzie się, jeśli źródłowa baza danych zawiera obiekty OLTP w pamięci.||Resolved|2019 października|
 |Funkcja poczty bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia||Resolved|2019 października|
 |Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym SQL||Resolved|2019 sie|
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Instrukcje BULK INSERT i tworzenia kopii zapasowej/przywracania nie mogą używać tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage
+
+Instrukcja BULK INSERT nie może być używana `DATABASE SCOPED CREDENTIAL` z tożsamością zarządzaną do uwierzytelniania w usłudze Azure Storage. Aby obejść ten sposób, przełącz się na uwierzytelnianie SYGNATURy dostępu współdzielonego. Poniższy przykład nie będzie działał w przypadku usługi Azure SQL (bazy danych i wystąpienia zarządzanego):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Obejście**: Użyj [sygnatury dostępu współdzielonego, aby uwierzytelnić w magazynie](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV
 

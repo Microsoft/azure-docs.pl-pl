@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277703"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
@@ -77,7 +77,7 @@ Usługa Batch używa usługi Azure Storage do przechowywania pakietów aplikacji
 
 Aby wyświetlić aplikacje na koncie w usłudze Batch, wybierz pozycję **aplikacje** w menu nawigacji po lewej stronie.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Zrzut ekranu przedstawiający element menu aplikacje w Azure Portal.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
 
 Wybranie tej opcji menu spowoduje otwarcie okna **aplikacje** . W tym oknie jest wyświetlany identyfikator każdej aplikacji na Twoim koncie oraz następujące właściwości:
 
@@ -101,7 +101,7 @@ Aby utworzyć nową aplikację, należy dodać pakiet aplikacji i określić uni
 
 Na koncie wsadowym wybierz pozycję **aplikacje** , a następnie wybierz pozycję **Dodaj**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Zrzut ekranu przedstawiający proces tworzenia nowej aplikacji w Azure Portal.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
 
 Wprowadź następujące informacje:
 
@@ -128,7 +128,7 @@ Tak jak w przypadku nowej aplikacji, określ **wersję** nowego pakietu, Przeka�
 
 Aby zaktualizować lub usunąć istniejący pakiet aplikacji, wybierz aplikację w sekcji **aplikacje** na koncie w usłudze Batch. Wybierz wielokropek w wierszu pakietu aplikacji, który chcesz zmodyfikować, a następnie wybierz akcję, którą chcesz wykonać.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Zrzut ekranu przedstawiający Opcje aktualizacji i usuwania pakietów aplikacji w Azure Portal.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagram przedstawiający ogólny widok aplikacji i pakietów aplikacji.":::
 
 W przypadku wybrania opcji **Aktualizuj**będzie możliwe przekazanie nowego pliku. zip. Spowoduje to zastąpienie poprzedniego pliku zip przekazanego dla tej wersji.
 
@@ -243,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Aktualizowanie pakietów aplikacji puli
 
-Jeśli istniejąca pula została już skonfigurowana przy użyciu pakietu aplikacji, można określić nowy pakiet dla puli. Oznacza to:
+Jeśli istniejąca pula została już skonfigurowana przy użyciu pakietu aplikacji, można określić nowy pakiet dla puli. Składają się na to następujące elementy:
 
 - Usługa Batch instaluje nowo określony pakiet na wszystkich nowych węzłach dołączanych do puli i w każdym istniejącym węźle, który jest ponownie uruchamiany lub odtwarzany z obrazu.
 - Węzły obliczeniowe, które znajdują się już w puli, po zaktualizowaniu odwołań do pakietów nie instalują automatycznie nowego pakietu aplikacji. Te węzły obliczeniowe muszą być ponownie uruchomione lub odtwarzane z obrazu, aby otrzymać nowy pakiet.

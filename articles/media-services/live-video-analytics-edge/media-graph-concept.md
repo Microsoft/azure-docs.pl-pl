@@ -4,10 +4,10 @@ description: Graf multimedialny pozwala określić, gdzie mają być przechwytyw
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567082"
 ---
 # <a name="media-graph"></a>Graf multimedialny

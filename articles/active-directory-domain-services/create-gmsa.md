@@ -2,7 +2,7 @@
 title: Konta usług zarządzane przez grupę dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć konto usługi zarządzane przez grupę (gMSA) do użycia z domenami zarządzanymi Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: af1df1dd95d570038c44ea9052db88ae80586c32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281858"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960987"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Tworzenie konta usługi zarządzanego przez grupę (gMSA) w Azure Active Directory Domain Services
 
@@ -26,7 +26,7 @@ Zamiast tego można utworzyć konto usługi zarządzane przez grupę (gMSA) w do
 
 W tym artykule opisano sposób tworzenia gMSA w domenie zarządzanej przy użyciu Azure PowerShell.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

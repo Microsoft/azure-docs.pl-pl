@@ -4,10 +4,10 @@ description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytan
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894528"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
@@ -148,7 +148,7 @@ Możesz przenieść przestrzeń nazw z jednej subskrypcji platformy Azure do inn
 
 Aby użyć Azure Portal do migracji przestrzeni nazw Service Bus do innej subskrypcji, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 
 Poniższa sekwencja poleceń programu PowerShell przenosi przestrzeń nazw z jednej subskrypcji platformy Azure do innej. Aby wykonać tę operację, przestrzeń nazw musi być już aktywna, a użytkownik uruchamiający polecenia programu PowerShell musi być administratorem zarówno dla subskrypcji źródłowej, jak i docelowej.
 

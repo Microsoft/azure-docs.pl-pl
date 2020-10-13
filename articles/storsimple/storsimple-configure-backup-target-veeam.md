@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710349"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veeam
@@ -104,7 +104,7 @@ W poniższych tabelach przedstawiono wskazówki wstępne dotyczące modelu urzą
 | Scenariusz tworzenia kopii zapasowej  | Pojemność magazynu lokalnego  | Pojemność magazynu w chmurze  |
 |---|---|---|
 | Podstawowa kopia zapasowa  | Ostatnie kopie zapasowe przechowywane w magazynie lokalnym na potrzeby szybkiego odzyskiwania w celu spełnienia celu punktu odzyskiwania (RPO) | Historia kopii zapasowych (RPO) pasuje do pojemności chmury |
-| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Brak  |
+| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Nie dotyczy  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple jako podstawowy element docelowy kopii zapasowej
 
@@ -276,11 +276,11 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam i podświetl opcję Dodaj repozytorium kopii zapasowych.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz pozycję **Dalej**.
+2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz opcję **Dalej**.
 
     ![Strona Veeam Management Console, nazwa i opis](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz pozycję **Dalej**.
+3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz opcję **Dalej**.
 
     ![Veeam Management Console, wybierz typ repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Veeam Management Console, ustawienia zgodności magazynu](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz pozycję **Dalej**.
+6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz opcję **Dalej**.
 
     ![Zrzut ekranu pokazujący konsolę zarządzania Veeam, w której można dodać nowe repozytorium kopii zapasowej.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -308,7 +308,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 > [!IMPORTANT]
 > Przywracanie danych z kopii zapasowej, która została przedzielona do chmury, odbywa się z szybkością chmury.
 
-Poniższy rysunek przedstawia mapowanie typowego woluminu do zadania tworzenia kopii zapasowej. W takim przypadku wszystkie cotygodniowe kopie zapasowe są mapowane na pełny dysk w sobotę, a przyrostowe kopie zapasowe są mapowane na dyski przyrostowe z poniedziałek do piątku. Wszystkie kopie zapasowe i przywracane są z woluminu warstwowego StorSimple.
+Poniższy rysunek przedstawia mapowanie typowego woluminu do zadania tworzenia kopii zapasowej. W takim przypadku wszystkie cotygodniowe kopie zapasowe są mapowane na pełny dysk w sobotę, a przyrostowe kopie zapasowe są mapowane na Monday-Friday dysków przyrostowych. Wszystkie kopie zapasowe i przywracane są z woluminu warstwowego StorSimple.
 
 ![Diagram logiczny konfiguracji podstawowej lokalizacji docelowej kopii zapasowej](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
@@ -318,7 +318,7 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
-| Co tydzień (tygodnie 1-4) | Sobota | Poniedziałek — piątek |
+| Co tydzień (tygodnie 1-4) | Sobota | Monday-Friday |
 | Co miesiąc  | Sobota  |   |
 | Rocznie | Sobota  |   |
 
@@ -507,7 +507,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Następujące dokumenty odwołują się do tego artykułu:
 

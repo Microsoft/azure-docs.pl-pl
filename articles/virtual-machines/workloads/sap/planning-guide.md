@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361929"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planowanie i wdrażanie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
@@ -939,7 +939,7 @@ Infrastruktura platformy Azure jako usługa nie jest jednokierunkową ulicą umo
 
 Podczas pobierania dyski VHD lub Managed Disks nie mogą być aktywne. Nawet w przypadku pobierania dysków, które są zainstalowane na maszynach wirtualnych, maszyna wirtualna musi zostać wyłączona i cofnięta alokacja. Jeśli chcesz tylko pobrać zawartość bazy danych, w tym celu należy użyć do skonfigurowania nowego systemu lokalnego i jeśli jest akceptowalny, aby w czasie pobierania i instalacji nowego systemu na platformie Azure nadal działały, można uniknąć długiego przestoju przez wykonanie skompresowanej kopii zapasowej bazy danych na dysku, a dopiero potem pobranie systemu operacyjnego.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 
 * Pobieranie dysku zarządzanego musisz najpierw uzyskać dostęp do bazowego obiektu BLOB dysku zarządzanego. Następnie możesz skopiować źródłowy obiekt BLOB do nowego konta magazynu i pobrać obiekt BLOB z tego konta magazynu.
 
@@ -996,9 +996,9 @@ Dyski danych mogą być przechowywane jako pliki VHD na koncie usługi Azure Sto
 
 Dyski danych mogą być również Managed Disks. W takim przypadku dysk zarządzany jest używany do utworzenia nowego dysku zarządzanego przed dołączeniem do maszyny wirtualnej. Nazwa dysku zarządzanego musi być unikatowa w obrębie grupy zasobów.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Program PowerShell
 
-Za pomocą poleceń cmdlet Azure PowerShell można skopiować dysk VHD, jak pokazano w [tym artykule][storage-powershell-guide-full-copy-vhd]. Aby utworzyć nowy dysk zarządzany, użyj polecenie New-AzDiskConfig i New-AzDisk, jak pokazano w poniższym przykładzie.
+Za pomocą poleceń cmdlet Azure PowerShell można skopiować dysk VHD, jak pokazano w [tym artykule][storage-powershell-guide-full-copy-vhd]. Aby utworzyć nowy dysk zarządzany, użyj New-AzDiskConfig i New-AzDisk, jak pokazano w poniższym przykładzie.
 
 ```powershell
 $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
@@ -1071,7 +1071,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="copying-disks-between-azure-storage-accounts"></a><a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Kopiowanie dysków między kontami usługi Azure Storage
 Nie można wykonać tego zadania na Azure Portal. Możesz użyć poleceń cmdlet Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub przeglądarki magazynu innej firmy. Polecenia cmdlet programu PowerShell lub poleceń interfejsu CLI mogą tworzyć obiekty blob i zarządzać nimi, co obejmuje możliwość asynchronicznego kopiowania obiektów BLOB na kontach magazynu i między regionami w ramach subskrypcji platformy Azure.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Program PowerShell
 Istnieje również możliwość kopiowania dysków VHD między subskrypcjami. Aby uzyskać więcej informacji, Przeczytaj [ten artykuł][storage-powershell-guide-full-copy-vhd].
 
 Podstawowy przepływ logiki poleceń cmdlet środowiska PS wygląda następująco:
@@ -1168,7 +1168,7 @@ Doświadczenie wdrożeń SAP w ciągu ostatnich dwóch lat — kilka lekcji, kt�
 >
 
 ---
-* Premium Storage przedstawia znaczącą lepszą wydajność, szczególnie w przypadku krytycznych zapisów w dzienniku transakcji. W przypadku scenariuszy SAP, które oczekują na dostarczenie wydajności, takich jak wydajność, zdecydowanie zaleca się korzystanie z serii maszyn wirtualnych, które mogą korzystać z usługi Azure Premium Storage.
+* Premium Storage przedstawia znaczącą lepszą wydajność, szczególnie w przypadku krytycznych zapisów w dzienniku transakcji. W przypadku scenariuszy SAP, które oczekują na dostarczenie wydajności, takich jak wydajność, zdecydowanie zaleca się używanie VM-Series, które mogą korzystać z usługi Azure Premium Storage.
 
 Należy pamiętać, że dysk, który zawiera system operacyjny, i zgodnie z zaleceniami, pliki binarne SAP i bazy danych (podstawowa maszyna wirtualna) nie są już ograniczone do 127 GB. Teraz może mieć rozmiar do 1 TB. Powinno to być wystarczające miejsce, aby zachować wszystkie niezbędne pliki, w tym na przykład dzienniki zadań wsadowych SAP.
 
@@ -1219,7 +1219,7 @@ Replikacja geograficzna platformy Azure działa lokalnie na każdym wirtualnym d
 >
 > Aby ustawić autoinstalację, zapoznaj się z dokumentacją pliku wykonywalnego wiersza polecenia diskpart.exe tutaj:
 >
-> * [Opcje wiersza polecenia narzędzia DiskPart](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
+> * [Opcje Command-Line narzędzia DiskPart](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
 > * [Automatycznej instalacji](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc753703(v=ws.11))
 >
 > Okno wiersza polecenia systemu Windows powinno być otwarte jako administrator.
@@ -1309,7 +1309,7 @@ Przyjęto założenie, że utworzono obraz maszyny wirtualnej zgodnie z opisem w
 
 Sekwencja zdarzeń do wdrożenia scenariusza wygląda następująco:
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Program PowerShell
 
 * Utwórz nową grupę zasobów dla każdego szkolenia/demonstracji poziomej
 
@@ -1738,7 +1738,7 @@ Ogólna architektura rozszerzenia platformy Azure dla oprogramowania SAP wygląd
 
 Wystąpienia SAP działające na platformie Azure muszą być również dostępne z SAProuter.
 
-![Połączenie sieciowe SAP-router][planning-guide-figure-2600]
+![SAP-Router połączenie sieciowe][planning-guide-figure-2600]
 
 SAProuter umożliwia komunikację TCP/IP między systemami uczestniczącymi, jeśli nie ma bezpośredniego połączenia IP. Zapewnia to, że nie jest konieczne połączenie kompleksowe między partnerami komunikacyjnymi na poziomie sieci. SAProuter domyślnie nasłuchuje na porcie 3299.
 Aby połączyć wystąpienia SAP za pomocą SAProuter, należy podać ciąg SAProuter i nazwę hosta z każdą próbą nawiązania połączenia.
@@ -1936,7 +1936,7 @@ Zobacz dodatkowe informacje dotyczące autostartu wystąpień oprogramowania SAP
 * [Jak włączyć funkcję autostartu bazy danych HANA](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Większe 3-warstwowe systemy SAP
-Zagadnienia wysokiej dostępności dotyczące 3-warstwowych konfiguracji SAP zostały już omówione we wcześniejszych sekcjach. Ale co się stało z systemami, w których wymagania dotyczące serwera DBMS są zbyt duże, aby znajdowały się na platformie Azure, ale warstwa aplikacji SAP została wdrożona na platformie Azure?
+High-Availability aspekty 3-warstwowych konfiguracji SAP zostały już omówione we wcześniejszych sekcjach. Ale co się stało z systemami, w których wymagania dotyczące serwera DBMS są zbyt duże, aby znajdowały się na platformie Azure, ale warstwa aplikacji SAP została wdrożona na platformie Azure?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>Lokalizacja 3-warstwowych konfiguracji SAP
 Nie jest obsługiwane podział warstwy aplikacji ani warstwy aplikacji i DBMS między środowiskiem lokalnym i platformą Azure. System SAP jest całkowicie wdrożony lokalnie lub na platformie Azure. Nie jest również obsługiwane, aby niektóre serwery aplikacji działały lokalnie i inne na platformie Azure. To jest punkt początkowy dyskusji. Nie obsługujemy również składników DBMS systemu SAP i warstwy serwera aplikacji SAP wdrożonych w dwóch różnych regionach świadczenia usługi Azure. Na przykład system DBMS w warstwie zachodnie stany USA i SAP w regionie Środkowe stany USA. Przyczyną braku obsługi takich konfiguracji jest czułość opóźnienia architektury SAP NetWeaver.

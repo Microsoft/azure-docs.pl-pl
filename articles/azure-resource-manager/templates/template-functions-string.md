@@ -3,12 +3,12 @@ title: Funkcje szablonu — ciąg
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z ciągami.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962071"
+ms.locfileid: "91874717"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funkcje ciągów dla szablonów ARM
 
@@ -27,6 +27,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami w szabl
 * [Formatowanie](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [kodu](#json)
 * [ostatniego](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -894,6 +895,12 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | firstString | int | 2 |
 | lastString | int | 0 |
 | notFound | int | -1 |
+
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Konwertuje prawidłowy ciąg JSON na typ danych JSON. Aby uzyskać więcej informacji, zobacz [Funkcja JSON](template-functions-object.md#json).
 
 ## <a name="last"></a>ostatni
 

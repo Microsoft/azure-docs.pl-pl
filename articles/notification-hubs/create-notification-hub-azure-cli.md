@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90024137"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875035"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Szybki Start: tworzenie centrum powiadomień platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -32,17 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom polecenie `az --version`, aby znaleźć zainstalowaną wersję i biblioteki zależne. Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-## <a name="install-the-azure-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia platformy Azure
-
-Aby pracować z odwołaniami do rozszerzenia dla interfejsu wiersza polecenia platformy Azure, należy najpierw zainstalować rozszerzenie. Rozszerzenia interfejsu wiersza polecenia platformy Azure umożliwiają dostęp do poleceń eksperymentalnych i w wersji wstępnej, które nie zostały wysłane jako część podstawowego interfejsu wiersza polecenia. Aby dowiedzieć się więcej na temat rozszerzeń, w tym aktualizacji i odinstalowywania, zobacz [Używanie rozszerzeń z interfejsem wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
-
-Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure dla Notification Hubs.
-
-```azurecli
-az extension add --name notification-hub
-```
+> Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom [AZ Version](/cli/azure/reference-index?#az_version) , aby znaleźć wersję i biblioteki zależne, które są zainstalowane. Aby uaktualnić do najnowszej wersji, uruchom polecenie [AZ upgrade](/cli/azure/reference-index?#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 

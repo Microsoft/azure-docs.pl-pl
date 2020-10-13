@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767362"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Używanie certyfikatów z urządzeniem Azure Stack Edge
@@ -52,7 +52,7 @@ Każdy z tych certyfikatów opisano szczegółowo w poniższych sekcjach.
 
 Są to certyfikaty dla urzędu, które podpisą certyfikaty lub urząd certyfikacji podpisywania. 
 
-### <a name="types"></a>Typy
+### <a name="types"></a>Types
 
 Te certyfikaty mogą być certyfikatami głównymi lub pośrednimi certyfikatami. Certyfikaty główne są zawsze z podpisem własnym (lub podpisane przez siebie). Certyfikaty pośrednie nie są z podpisem własnym i są podpisane przez Urząd podpisywania.
 
@@ -77,7 +77,7 @@ Te certyfikaty mogą być certyfikatami głównymi lub pośrednimi certyfikatami
 - Jeśli domena DNS ulegnie zmianie, ale nazwa urządzenia nie ulegnie zmianie, należy zmienić certyfikat węzła. W przypadku przenoszenia własnego certyfikatu węzła nie można zmienić numeru seryjnego urządzenia, można zmienić tylko nazwę domeny.
 - Poniższa tabela zawiera instrukcje podczas tworzenia certyfikatu węzła.
    
-    |Typ |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
+    |Type |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
     |---------|---------|---------|---------|
     |Węzeł|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,7 +98,7 @@ Po dołączeniu własnego certyfikatu do własnych potrzeb potrzebny jest równi
 - Właściwości certyfikatów punktów końcowych są podobne do typowych certyfikatów SSL. 
 - Podczas tworzenia certyfikatu punktu końcowego należy skorzystać z następującej tabeli:
 
-    |Typ |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
+    |Type |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -114,7 +114,7 @@ Możesz uzyskać dostęp do lokalnego interfejsu użytkownika sieci Web urządze
 - Certyfikat lokalnego interfejsu użytkownika jest również przekazywany w `.pfx` formacie z kluczem prywatnym, który można wyeksportować.
 - Po przekazaniu certyfikatu lokalnego interfejsu użytkownika należy ponownie uruchomić przeglądarkę i wyczyścić pamięć podręczną. Zapoznaj się z określonymi instrukcjami dla przeglądarki.
 
-    |Typ |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
+    |Type |Nazwa podmiotu (SN)  |Alternatywna nazwa podmiotu (SAN)  |Przykład nazwy podmiotu |
     |---------|---------|---------|---------|
     |Lokalny interfejs użytkownika| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
