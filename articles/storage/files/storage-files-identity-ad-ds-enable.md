@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
 ms.openlocfilehash: b125ae506a9811b8e80a9114e31effc1933c114d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821210"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure 
@@ -32,7 +32,7 @@ Polecenia cmdlet w module AzFilesHybrid PowerShell wprowadzają niezbędne modyf
 - Zainstaluj i wykonaj moduł w urządzeniu przyłączonym do lokalnego AD DS z poświadczeniami AD DS, które mają uprawnienia do tworzenia konta logowania do usługi lub konta komputera w docelowej usłudze AD.
 -  Uruchom skrypt przy użyciu lokalnego poświadczenia AD DS, które jest synchronizowane z usługą Azure AD. Poświadczenia lokalnego AD DS muszą mieć właściciela konta magazynu lub uprawnienia roli współautor platformy Azure.
 
-### <a name="run-join-azstorageaccountforauth"></a>Uruchom dołączenie — AzStorageAccountForAuth
+### <a name="run-join-azstorageaccountforauth"></a>Uruchom Join-AzStorageAccountForAuth
 
 `Join-AzStorageAccountForAuth`Polecenie cmdlet wykonuje odpowiednik przyłączania do domeny w trybie offline w imieniu określonego konta magazynu. Skrypt używa polecenia cmdlet do utworzenia [konta komputera](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) w domenie usługi AD. Jeśli z jakiegoś powodu nie możesz użyć konta komputera, możesz zmienić skrypt, aby utworzyć [konto logowania do usługi](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) . Jeśli zdecydujesz się uruchomić polecenie ręcznie, wybierz konto najlepiej dopasowane do danego środowiska.
 
@@ -132,7 +132,7 @@ Set-AzStorageAccount `
 
 ### <a name="debugging"></a>Debugowanie
 
-Można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth w celu przeprowadzenia zestawu podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w wersji AzFilesHybrid 0.1.2+. Aby uzyskać więcej informacji na temat kontroli wykonanych w tym poleceniu cmdlet, zobacz [nie można zainstalować Azure Files z poświadczeniami usługi AD](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) w przewodniku rozwiązywania problemów dla systemu Windows.
+Można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth, aby przeprowadzić zestaw podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w wersji AzFilesHybrid 0.1.2+. Aby uzyskać więcej informacji na temat kontroli wykonanych w tym poleceniu cmdlet, zobacz [nie można zainstalować Azure Files z poświadczeniami usługi AD](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) w przewodniku rozwiązywania problemów dla systemu Windows.
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

@@ -12,10 +12,10 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804366"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurowanie zgody właściciela grupy na aplikacje uzyskujące dostęp do danych grupy
@@ -75,7 +75,7 @@ Możesz użyć modułu Azure AD PowerShell w wersji zapoznawczej, [AzureADPrevie
 
     | Ustawienie       | Typ         | Opis  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Boolean | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
+    | _EnableGroupSpecificConsent_   | Boolean (wartość logiczna) | Flaga oznaczająca, czy właściciele grup mogą udzielać uprawnień specyficznych dla grupy. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid (identyfikator GUID) | Jeśli _EnableGroupSpecificConsent_ jest ustawiona na wartość "true", a ta wartość jest ustawiona na identyfikator obiektu grupy, członkowie wskazanej grupy będą uprawnieni do przyznawania uprawnień specyficznych dla grupy do grup, których są właścicielami. |
 
 1. Zaktualizuj wartości ustawień dla żądanej konfiguracji:

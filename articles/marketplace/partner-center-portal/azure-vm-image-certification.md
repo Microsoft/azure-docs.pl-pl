@@ -8,10 +8,10 @@ author: github-2407
 ms.author: krsh
 ms.date: 08/14/2020
 ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821332"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Testowanie obrazu maszyny wirtualnej w witrynie Azure Marketplace
@@ -986,7 +986,7 @@ Narzędzie Test certyfikacji dla certyfikatu platformy Azure jest uruchamiane na
                     ],
                     &quot;commandToExecute&quot;: &quot;[concat('powershell -ExecutionPolicy Unrestricted -file ConfigureWinRM.ps1 ',variables('hostDNSNameScriptArgument'))]":::
 
-6. Wybierz pozycję **Dalej**.
+6. Wybierz opcję **Dalej**.
 
 #### <a name="run-a-certification-test"></a>Uruchamianie testu certyfikacji
 
@@ -1000,7 +1000,7 @@ Na koniec wybierz pozycję Generuj raport, aby pobrać wyniki testów i pliki dz
 > [!Note]
 > Kilku wydawców ma scenariusze, w których maszyny wirtualne muszą być zablokowane, ponieważ mają one oprogramowanie takie jak zapory zainstalowane na maszynie wirtualnej. W takim przypadku wydawcy mogą pobrać [certyfikowane Narzędzie testowe](https://aka.ms/AzureCertificationTestTool) tutaj i udostępnić raport na stronie [pomocy technicznej wydawcy w portalu Marketplace](https://aka.ms/marketplacepublishersupport)
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Jak korzystać z interfejsu API samoobsługowego testowania przy użyciu programu PowerShell
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Jak korzystać z interfejsu API Self-Test przy użyciu programu PowerShell
 
 ### <a name="on-linux-os"></a>W systemie operacyjnym Linux
 
@@ -1735,7 +1735,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![Wyniki testów w podglądzie JSON w trybie online.](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Jak używać funkcji zazwinięcie do korzystania z interfejsu API samoobsługowego testowania w systemie operacyjnym Linux
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Jak używać funkcji zazwinięcie do korzystania z interfejsu API Self-Test w systemie operacyjnym Linux
 
 Wywołaj interfejs API w polu ZWINIĘCIE:
 

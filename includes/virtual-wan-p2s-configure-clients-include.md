@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9caf63fc90be7bae0461ddc24c94594a32199765
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812708"
 ---
 #### <a name="microsoft-windows"></a>Microsoft Windows
@@ -20,7 +20,7 @@ ms.locfileid: "91812708"
 ##### <a name="openvpn"></a>OpenVPN
 
 1. Pobierz i zainstaluj klienta OpenVPN z oficjalnej witryny internetowej.
-1. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie konfiguracje sieci VPN użytkownika w Azure Portal lub polecenie New-AzureRmVpnClientConfiguration w programie PowerShell.
+1. Pobierz profil sieci VPN dla bramy. Można to zrobić na karcie konfiguracje sieci VPN użytkownika w Azure Portal lub New-AzureRmVpnClientConfiguration w programie PowerShell.
 1. Rozpakuj profil. Otwórz plik konfiguracji vpnconfig.ovpn z folderu OpenVPN w programie Notatnik.
 1. W sekcji certyfikatu klienta P2S wprowadź klucz publiczny certyfikatu klienta P2S w formacie base64. W formacie certyfikatu PEM można otworzyć plik. cer i skopiować go za pomocą klucza Base64 między nagłówkami certyfikatów. Aby uzyskać instrukcje, zobacz [Eksportowanie certyfikatu w celu uzyskania zakodowanego klucza publicznego.](../articles/virtual-wan/certificates-point-to-site.md)
 1. W sekcji klucza prywatnego wprowadź klucz prywatny certyfikatu klienta P2S w formacie base64. Aby uzyskać instrukcje, zobacz [Jak wyodrębnić klucz prywatny.](../articles/virtual-wan/howto-openvpn-clients.md#windows)

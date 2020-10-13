@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Samouczek: integracja Azure Active Directory z Help Scout
@@ -191,7 +191,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Spowoduje to przejście do sekcji ustawień języka SAML w celu wykonania następujących czynności:
 
-    ![Zrzut ekranu przedstawia kartę logowania jednokrotnego, w której wprowadzane są określone informacje.](./media/helpscout-tutorial/settings3.png)
+    ![Zrzut ekranu przedstawia kartę pojedyncze Sign-On, w której wprowadzane są określone informacje.](./media/helpscout-tutorial/settings3.png)
 
     a. Skopiuj wartość **Post-back URL (Assertion Consumer Service URL)** (Zwrotny adres URL — adres URL usługi Assertion Consumer Service) i wklej ją w polu tekstowym **Adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
@@ -199,9 +199,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Włącz ustawienie **Enable SAML** (Włącz SAML) i wykonaj następujące czynności:
 
-    ![Zrzut ekranu przedstawia kartę logowania jednokrotnego, w której można włączyć protokół SAML i dodać inne informacje.](./media/helpscout-tutorial/settings4.png)
+    ![Zrzut ekranu przedstawia kartę z pojedynczym Sign-On, w której można włączyć protokół SAML i dodać inne informacje.](./media/helpscout-tutorial/settings4.png)
 
-    a. W polu tekstowym **adres URL** logowania jednokrotnego wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
+    a. W polu tekstowym **adres URL pojedynczego Sign-On** wklej wartość **adresu URL logowania**, którą skopiowano z Azure Portal.
 
     b. Kliknij przycisk **Upload Certificate** (Przekaż certyfikat), aby przekazać **certyfikat (Base64)** pobrany z witryny Azure Portal.
 

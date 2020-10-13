@@ -10,10 +10,10 @@ ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 481f1353e16fecd0e413152db89a4ae54824a0f8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019287"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API tabel
@@ -27,7 +27,7 @@ W tym artykule opisano następujące zadania:
 
 Zapytania w tym artykule korzystają z następującej przykładowej tabeli `People`:
 
-| PartitionKey | RowKey | Adres e-mail | PhoneNumber |
+| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
@@ -53,7 +53,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 
 **Wyniki**
 
-| PartitionKey | RowKey | Adres e-mail | PhoneNumber |
+| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
@@ -80,7 +80,7 @@ Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla
 
 **Wyniki**
 
-| PartitionKey | RowKey | Adres e-mail | PhoneNumber |
+| PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
@@ -95,7 +95,7 @@ IQueryable<CustomerEntity> linqQuery = table.CreateQuery<CustomerEntity>()
             .Select(x => new CustomerEntity() { PartitionKey = x.PartitionKey, RowKey = x.RowKey, Email = x.Email });
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku wykonano następujące czynności:
 

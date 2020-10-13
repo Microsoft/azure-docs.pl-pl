@@ -14,10 +14,10 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819896"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
@@ -36,7 +36,7 @@ W przypadku korzystania z chmury firmy Microsoft można łatwo wybrać [najlepsz
  
 Bez względu na to, czy jest nawiązywane połączenie z Warszawy do Tokio, czy z Waszyngton DC do Los Angeles, wydajność sieci jest określana i wpływa na takie elementy, jak opóźnienia, wahania, utrata pakietów i przepływność.  Firma Microsoft zaleca, aby używać bezpośrednich połączeń z przeciwieństwem do przesyłania linków, dzięki czemu ruch związany z odpowiedzią jest symetryczny i pomaga w zachowaniu przeskoków, stron i ścieżek komunikacji równorzędnej jako krótkich i prostych, jak to możliwe. 
 
-Na przykład, jeśli użytkownik w Londynie próbuje uzyskać dostęp do usługi w Tokio, ruch internetowy przechodzi przez firmę Microsoft do systemu, w którym znajduje się jedna z naszych brzegów w Londynie, przejdzie do sieci WAN, w której znajdują się ścieżki Trans-Saudyjska między Europą a Indie, a następnie do Japonii, gdzie usługa jest hostowana. Ruch odpowiedzi jest symetryczny. Jest to czasami nazywane [routingiem zimnej ziemniaka](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , co oznacza, że ruch w sieci firmy Microsoft jest dłuższy niż to możliwe.  
+Na przykład, jeśli użytkownik w Londynie próbuje uzyskać dostęp do usługi w Tokio, ruch internetowy przechodzi przez firmę Microsoft do Francji, a nasze Trans-Arabia ścieżki między Europą a Indie, a następnie do Japonii, gdzie usługa jest hostowana. Ruch odpowiedzi jest symetryczny. Jest to czasami nazywane [routingiem zimnej ziemniaka](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) , co oznacza, że ruch w sieci firmy Microsoft jest dłuższy niż to możliwe.  
   
 Czy oznacza to, że to wszystko i cały ruch w przypadku korzystania z usług firmy Microsoft? Tak, cały ruch między centrami danych, w Microsoft Azure lub między usługami firmy Microsoft, takimi jak Virtual Machines, Microsoft 365, XBox, SQL baz danych, Storage i Virtual Networks, jest kierowany w naszej sieci globalnej i nigdy nie przez publiczny Internet, aby zapewnić optymalną wydajność i spójność.  
  

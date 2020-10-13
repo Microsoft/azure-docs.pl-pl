@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658201"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Ciągłość działania i odzyskiwanie po awarii dla Azure Logic Apps
@@ -102,7 +102,7 @@ Można skonfigurować lokalizacje podstawowe i dodatkowe, aby wystąpienia aplik
 
 | Rola podstawowa — pomocnicza | Opis |
 |------------------------|-------------|
-| *Aktywne/aktywne* | Główne i pomocnicze wystąpienia aplikacji logiki w obu lokalizacjach aktywnie obsługują żądania, wykonując jeden z następujących wzorców: <p><p>- *Równoważenie obciążenia*: możliwe, że oba wystąpienia nasłuchują punktu końcowego i równoważenia obciążenia ruchem do każdego wystąpienia, w razie potrzeby. <p>- *Konkurujący konsumenci*: można mieć oba wystąpienia jako konkurujących odbiorców, aby wystąpienia konkurują o komunikaty z kolejki. Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienie przejmuje obciążenie. |
+| *Aktywne-aktywne* | Główne i pomocnicze wystąpienia aplikacji logiki w obu lokalizacjach aktywnie obsługują żądania, wykonując jeden z następujących wzorców: <p><p>- *Równoważenie obciążenia*: możliwe, że oba wystąpienia nasłuchują punktu końcowego i równoważenia obciążenia ruchem do każdego wystąpienia, w razie potrzeby. <p>- *Konkurujący konsumenci*: można mieć oba wystąpienia jako konkurujących odbiorców, aby wystąpienia konkurują o komunikaty z kolejki. Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienie przejmuje obciążenie. |
 | *Aktywne/pasywne* | Główne wystąpienie aplikacji logiki aktywnie obsługuje całe obciążenie, podczas gdy wystąpienie pomocnicze jest pasywne (wyłączone lub nieaktywne). Pomocniczy czeka na sygnał, że podstawowy jest niedostępny lub nie działa z powodu przerwy lub awarii i przejmuje obciążenie jako aktywne wystąpienie. |
 | Kombinacja | Niektóre aplikacje logiki odgrywają rolę Active-Active, podczas gdy inne aplikacje logiki odgrywają rolę Active-pasywną. |
 |||

@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
 ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819323"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Debugowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach w usłudze Azure Active Directory
@@ -26,7 +26,7 @@ ms.locfileid: "91819323"
 
 Dowiedz się, jak znaleźć i naprawić problemy związane z [logowaniem](../manage-apps/what-is-single-sign-on.md) jednokrotnym dla aplikacji w usłudze Azure Active Directory (Azure AD) obsługującej [SAML (SAML) 2,0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Zalecamy zainstalowanie [rozszerzenia moje aplikacje bezpieczne logowanie](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). To rozszerzenie przeglądarki ułatwia zbieranie informacji o żądaniach SAML i odpowiedzi SAML, które są potrzebne do rozwiązywania problemów z logowaniem jednokrotnym. Jeśli nie można zainstalować rozszerzenia, w tym artykule opisano sposób rozwiązywania problemów z zainstalowanym rozszerzeniem i bez niego.
 
@@ -77,7 +77,7 @@ Jeśli nie podano rozwiązania dla błędu logowania, sugerujemy użycie pola te
 1. Wróć do usługi Azure AD i Znajdź blok **Testuj logowanie** jednokrotne.
 1. W polu tekstowym powyżej **Uzyskaj wskazówki dotyczące rozwiązywania problemów**wklej komunikat o błędzie.
 1. Kliknij przycisk **Uzyskaj wskazówki dotyczące rozwiązywania** , aby wyświetlić kroki rozwiązywania problemu. Wskazówki mogą wymagać informacji z żądania SAML lub odpowiedzi SAML. Jeśli nie używasz rozszerzenia moje aplikacje bezpieczne logowanie, może być potrzebne narzędzie, takie jak [programu Fiddler](https://www.telerik.com/fiddler) , aby pobrać żądanie i odpowiedź SAML.
-1. Upewnij się, że miejsce docelowe w żądaniu SAML odpowiada adresowi URL usługi logowania jednokrotnego protokołu SAML uzyskanej z usługi Azure AD.
+1. Upewnij się, że miejsce docelowe w żądaniu SAML odpowiada adresowi URL usługi SAML Single Sign-On otrzymanej z usługi Azure AD.
 1. Sprawdź, czy wystawca w żądaniu SAML ma ten sam identyfikator, który został skonfigurowany dla aplikacji w usłudze Azure AD. Usługa Azure AD używa wystawcy, aby znaleźć aplikację w katalogu.
 1. Sprawdź, czy AssertionConsumerServiceURL jest miejscem, w którym aplikacja oczekuje na otrzymanie tokenu SAML z usługi Azure AD. Tę wartość można skonfigurować w usłudze Azure AD, ale nie jest to wymagane, jeśli jest ona częścią żądania języka SAML.
 

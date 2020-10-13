@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: d85e6bbaf85ebb84d3664d90e3d645f61b2cb60a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817364"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Samouczek: Konfigurowanie logowania jednokrotnego między Azure Active Directory i F5
@@ -245,7 +245,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Zrzut ekranu przedstawia stronę właściwości puli.](./media/headerf5-tutorial/configure06.png)
 
-1. Na ekranie Ustawienia logowania jednokrotnego wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze wybrany typ logowania jednokrotnego wybierz opcję **oparty na nagłówku HTTP**. Zastąp element **Session. SAML. Last. Identity** identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze Źródło nazwy użytkownika (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). W obszarze nagłówki rejestracji jednokrotnej.
+1. Na ekranie Ustawienia pojedynczej Sign-On wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze wybrany typ pojedynczego Sign-On wybierz opcję **oparty na nagłówku HTTP**. Zastąp element **Session. SAML. Last. Identity** identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze Źródło nazwy użytkownika (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). W obszarze nagłówki rejestracji jednokrotnej.
 
     * **Nagłówek: Moja autoryzacja**
 
@@ -258,7 +258,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     >[!NOTE]
     >Nazwa konta to utworzone konto delegowania F5 (Sprawdź dokumentację dotyczącą F5).
 
-    ![Zrzut ekranu przedstawia stronę ustawień logowania jednokrotnego.](./media/headerf5-tutorial/configure07.png) 
+    ![Zrzut ekranu przedstawia stronę ustawień pojedynczej Sign-On.](./media/headerf5-tutorial/configure07.png) 
 
 1. Na potrzeby tych wskazówek pominiemy testy punktów końcowych.  Zapoznaj się z dokumentacją F5, aby uzyskać szczegółowe informacje. Wybierz pozycję **zapisz & dalej**.
 
@@ -453,7 +453,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować się do F5, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

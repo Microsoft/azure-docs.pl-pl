@@ -6,10 +6,10 @@ ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
 ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818481"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Często zadawane pytania dotyczące Azure Container Instances
@@ -43,7 +43,7 @@ Zobacz bardziej [szczegółowe wskazówki](container-instances-troubleshooting.m
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` ,  `10.0.14393.3506` lub nowszy
 
 > [!NOTE]
-> Obrazy systemu Windows oparte na półrocze w wersji 1709 lub 1803 nie są obsługiwane.
+> Obrazy systemu Windows oparte na Semi-Annual kanale 1709 lub 1803 nie są obsługiwane.
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 i obrazy podstawowe klienta (wersja zapoznawcza)
 

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 7b5881651312e69ed840eb50388d497258ddeb27
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362456"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definiowanie niestandardowych modułów R dla Machine Learning Studio (klasyczny)
@@ -305,11 +305,11 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * Liczbowe
     * Boolean (wartość logiczna)
     * Podzielone na kategorie
-    * String
+    * Ciąg
     * Etykieta
-    * Cechy
+    * Cecha
     * Wynik
-    * Wszystko
+    * Wszystkie
   * **domyślne** ustawienia domyślne dla selektora kolumn są prawidłowe: 
     
     * Brak
@@ -332,7 +332,7 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * AllLabel
     * AllFeature
     * AllScore
-    * Wszystko
+    * Wszystkie
 
 **Menu rozwijane**: Lista wyliczeniowa określona przez użytkownika (lista rozwijana). Elementy rozwijane są określone w elemencie **Properties** przy użyciu elementu **Item** . **Identyfikator** każdego **elementu** musi być unikatowy i prawidłową zmienną języka R. Wartość **nazwy** **elementu** służy zarówno jako wyświetlany tekst, jak i wartość, która jest przesyłana do funkcji języka R.
 

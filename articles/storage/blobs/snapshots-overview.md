@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295408"
 ---
 # <a name="blob-snapshots"></a>Migawki obiektów BLOB

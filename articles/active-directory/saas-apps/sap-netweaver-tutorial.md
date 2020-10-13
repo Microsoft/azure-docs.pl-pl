@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: d91ada217d54f424803abfeb31dcad237b5fe05c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania SAP NetWeaver
@@ -138,7 +138,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W Azure Portal na stronie integracja aplikacji **SAP NetWeaver** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu języka SAML** kliknij ikonę Edytuj/pióra, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -175,9 +175,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. Z listy **parametr 1** wybierz pozycję **User. userPrincipalName**.
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfiguruj pojedyncze Sign-On za pomocą elementu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
    ![Link do pobierania certyfikatu](common/metadataxml.png)
 
@@ -195,7 +195,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
     1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
     1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-    1. Kliknij pozycję **Utwórz**.
+    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -215,51 +215,51 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Aby skonfigurować punkty końcowe dla zaufanego dostawcy tożsamości (Azure AD), przejdź na kartę **Trusted Providers** (Zaufani dostawcy).
 
-    ![Skonfiguruj zaufanych dostawców z logowaniem jednokrotnym](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Konfigurowanie jednego Sign-On zaufanych dostawców](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. Naciśnij pozycję **Add** (Dodaj) i wybierz polecenie **Upload Metadata File** (Przekaż plik metadanych) z menu kontekstowego.
 
-    ![Skonfiguruj Logowanie jednokrotne 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Skonfiguruj pojedynczy Sign-On 2](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Przekaż plik metadanych, który został pobrany z witryny Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Skonfiguruj pojedynczy Sign-On 3](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. Na następnym ekranie wpisz nazwę aliasu. Na przykład aadsts i naciśnij przycisk **dalej** , aby kontynuować.
 
-    ![Konfigurowanie logowania jednokrotnego 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Skonfiguruj pojedynczy Sign-On 4](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. Upewnij się, że w polu **Digest Algorithm** (Algorytm porządkowania ) znajduje się wartość **SHA-256** i że nie są wymagane żadne zmiany, a następnie naciśnij pozycję **Next** (Dalej).
 
-    ![Konfigurowanie logowania jednokrotnego 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Skonfiguruj pojedynczy Sign-On 5](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. Na stronie **Single Sign-On Endpoints** (Punkty końcowe logowania jednokrotnego) użyj opcji **HTTP POST** i kliknij przycisk **Next** (Dalej), aby kontynuować.
 
-    ![Skonfiguruj Logowanie jednokrotne 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Skonfiguruj pojedynczy Sign-On 6](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. Na stronie **Single Logout Endpoints** (Punkty końcowe wylogowania jednokrotnego) wybierz opcję **HTTPRedirect** i kliknij przycisk **Next** (Dalej), aby kontynuować.
 
-    ![Konfigurowanie logowania jednokrotnego 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Skonfiguruj pojedynczy Sign-On 7](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. Na stronie **Artifact Endpoints** (Punkty końcowe artefaktu) naciśnij przycisk **Next** (Dalej), aby kontynuować.
 
-    ![Konfigurowanie logowania jednokrotnego 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Skonfiguruj pojedynczy Sign-On 8](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. Na stronie **Authentication Requirements** (Wymagania dotyczące uwierzytelniania) kliknij przycisk **Finish** (Zakończ).
 
-    ![Konfigurowanie logowania jednokrotnego 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Konfigurowanie pojedynczego Sign-On 9](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. Przejdź do pozycji karta Federacja **zaufanych dostawców**  >  **tożsamość** (od dołu ekranu). Kliknij pozycję **Edytuj**.
 
-    ![Konfigurowanie logowania jednokrotnego 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Skonfiguruj pojedynczy Sign-On 10](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. Kliknij przycisk **Add** (Dodaj) na karcie **Identity Federation** (Federacja tożsamości) (dolne okno).
 
-    ![Konfigurowanie logowania jednokrotnego 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Skonfiguruj pojedynczy Sign-On 11](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. W oknie podręcznym wybierz opcję **nieokreślone** w **obsługiwanych formatach NameID** , a następnie kliknij przycisk OK.
 
-    ![Skonfiguruj Logowanie jednokrotne 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Skonfiguruj pojedynczy Sign-On 12](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
 14. Należy pamiętać, że wartości w polu **Źródło identyfikatora użytkownika** i **Mapowanie identyfikatora użytkownika** określają łącze między użytkownikiem SAP a usługą Azure AD.  
 
@@ -267,29 +267,29 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     a. Zrzut ekranu przedstawiający szczegóły identyfikatora nazwy w systemie SAP.
 
-    ![Skonfiguruj Logowanie jednokrotne 13](./media/sapnetweaver-tutorial/nameiddetails.png)
+    ![Skonfiguruj pojedynczy Sign-On 13](./media/sapnetweaver-tutorial/nameiddetails.png)
 
     b. Zrzut ekranu przedstawiający wymagane oświadczenia z usługi Azure AD.
 
-    ![Skonfiguruj Logowanie jednokrotne 14](./media/sapnetweaver-tutorial/claimsaad1.png)
+    ![Skonfiguruj pojedynczy Sign-On 14](./media/sapnetweaver-tutorial/claimsaad1.png)
 
     #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenariusz: wybierz pozycję Identyfikator użytkownika SAP na podstawie skonfigurowanego adresu e-mail w SU01. W tym przypadku Identyfikator poczty e-mail powinien być skonfigurowany w usłudze su01 dla każdego użytkownika, który wymaga logowania jednokrotnego.
 
     a.  Zrzut ekranu przedstawiający szczegóły identyfikatora nazwy w systemie SAP.
 
-    ![Skonfiguruj Logowanie jednokrotne 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+    ![Skonfiguruj pojedynczy Sign-On 15](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
     b. Zrzut ekranu przedstawiający wymagane oświadczenia z usługi Azure AD.
 
-    ![Skonfiguruj Logowanie jednokrotne 16](./media/sapnetweaver-tutorial/claimsaad2.png)
+    ![Skonfiguruj pojedynczy Sign-On 16](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. Kliknij przycisk **Zapisz**, a następnie kliknij przycisk **Włącz**, aby włączyć dostawcę tożsamości.
 
-    ![Skonfiguruj Logowanie jednokrotne 17](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Konfigurowanie jednego Sign-On 17](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. Po wyświetleniu monitu kliknij przycisk **OK**.
 
-    ![Konfigurowanie logowania jednokrotnego 18](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Skonfiguruj pojedynczy Sign-On 18](./media/sapnetweaver-tutorial/configuration2.png)
 
     ### <a name="create-sap-netweaver-test-user"></a>Tworzenie użytkownika testowego oprogramowania SAP NetWeaver
 
@@ -310,7 +310,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Powyższy adres URL powinien przenieść Cię na pokazany poniżej ekran. Jeśli poniższa strona zostanie wyświetlona, oznacza to, że konfiguracja logowania jednokrotnego usługi Azure AD została przeprowadzona pomyślnie.
 
-    ![Testuj Logowanie jednokrotne](./media/sapnetweaver-tutorial/testingsso.png)
+    ![Testuj pojedyncze Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. Jeśli zostanie wyświetlony monit o nazwę użytkownika i hasło, zdiagnozuj problem, włączając śledzenie przy użyciu poniższego adresu URL
 

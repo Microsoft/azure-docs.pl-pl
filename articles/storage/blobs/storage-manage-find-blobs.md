@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
 ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817540"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Zarządzanie danymi obiektów blob platformy Azure i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
@@ -300,7 +300,7 @@ W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zap
 - CopyBlob (kopia asynchroniczna) z innego konta magazynu z zastosowanymi tagami w docelowym obiekcie blob aktualnie powoduje, że aparat indeksu obiektów BLOB nie zwraca obiektu BLOB i jego tagów w zestawie filtrów. Zalecane jest użycie CopyBlob z adresu URL (kopia synchroniczna) w tymczasowym.
 - Tagi są utrwalane podczas tworzenia migawki; jednak promowanie migawek nie jest obecnie obsługiwane i może spowodować powstanie pustego zestawu tagów.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>Czy indeks obiektów BLOB ułatwia filtrowanie i wykonywanie zapytań dotyczących zawartości wewnątrz obiektów BLOB?
 Nie, Tagi indeksów obiektów BLOB mogą pomóc w znalezieniu obiektów blob, których szukasz. Jeśli chcesz wyszukać w obiektach Blob, użyj przyspieszenia zapytania lub usługi Azure Search.

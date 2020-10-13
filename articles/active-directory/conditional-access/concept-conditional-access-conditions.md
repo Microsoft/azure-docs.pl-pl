@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818358"
 ---
 # <a name="conditional-access-conditions"></a>Dostęp warunkowy: warunki
@@ -132,14 +132,14 @@ Aby uzyskać pomoc techniczną dla programu Chrome w **aktualizacji systemu Wind
 
 Aby automatycznie wdrożyć to rozszerzenie w przeglądarkach programu Chrome, Utwórz następujący klucz rejestru:
 
-- Ścieżka HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist ścieżki
 - Nazwa 1
 - Typ REG_SZ (ciąg)
 - Ppnbnpeolgkicgegkbkbjmhlideopiji danych; https \: //clients2.Google.com/Service/UPDATE2/CRX
 
 Aby uzyskać pomoc techniczną dla programu Chrome w **Windows 8.1 i 7**, Utwórz następujący klucz rejestru:
 
-- Ścieżka HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls ścieżki
 - Nazwa 1
 - Typ REG_SZ (ciąg)
 - Data {"wzorzec": " https://device.login.microsoftonline.com ", "filter": {"wystawca": {"CN": "MS-Organization-Access"}}}
@@ -158,13 +158,13 @@ To ustawienie ma wpływ na próby dostępu wykonane z następujących aplikacji 
 | Aplikacja poczty/kalendarza/osoby, Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania)| Exchange Online | Windows 10 |
 | Zasady usługi MFA i lokalizacji dla aplikacji. Zasady oparte na urządzeniach nie są obsługiwane.| Wszystkie aplikacje my App Service | Systemy Android i iOS |
 | Usługi Microsoft Teams — kontroluje wszystkie usługi obsługujące Microsoft Teams i wszystkie jej aplikacje klienckie — Windows Desktop, iOS, Android, WP i klient sieci Web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android i macOS |
-| Aplikacje pakietu Office 2016, pakiet Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Aplikacje pakietu Office 2016, pakiet Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | Sharepoint | Windows 8.1, Windows 7 |
 | Aplikacje pakietu Office 2016, uniwersalne aplikacje biurowe, Office 2013 (z nowoczesnego uwierzytelniania), [klient synchronizacji usługi OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, tylko OneNote). | SharePoint | macOS |
-| Pakiet Office 2019| SharePoint | Windows 10, macOS |
-| Aplikacje mobilne pakietu Office | SharePoint | Android, iOS |
+| Office 2016 (Word, Excel, PowerPoint, tylko OneNote). | Sharepoint | macOS |
+| Pakiet Office 2019| Sharepoint | Windows 10, macOS |
+| Aplikacje mobilne pakietu Office | Sharepoint | Android, iOS |
 | Aplikacja Yammera pakietu Office | Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2019 | Sharepoint | Windows 10, macOS |
 | Outlook 2016 (Office for macOS) | Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (z nowoczesnego uwierzytelniania), Skype dla firm (z nowoczesnego uwierzytelniania) | Exchange Online | Windows 8.1, Windows 7 |
 | Aplikacja mobilna Outlook | Exchange Online | Android, iOS |
