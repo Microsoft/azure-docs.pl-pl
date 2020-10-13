@@ -1,18 +1,18 @@
 ---
 title: Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 description: Dowiedz się, jak korzystać z właściwości tylko do odczytu i z możliwością zapisu w rozwiązaniu IoT Central platformy Azure.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb949f6f0895743250ead0276692497432bfeed5
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940569"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999753"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
@@ -244,10 +244,10 @@ Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjona
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202` lub `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku. |
-| `'ac': 4xx` | Błąd | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
-| `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
+| `'ac': 4xx` | Error | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
+| `'ac': 5xx` | Error | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
 
 
 Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji urządzeń, zobacz [Konfigurowanie urządzeń z poziomu usługi zaplecza](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).

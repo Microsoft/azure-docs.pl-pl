@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961327"
+ms.locfileid: "91998114"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -454,7 +454,7 @@ Tokenem SAML jest token zabezpieczający wystawiony przez Azure AD B2C po pomyś
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Godzina, o której token stał się ważny. Wartość czasu jest zaszyfrowana w formacie UTC. Twoja aplikacja powinna używać tego żądania, aby zweryfikować ważność okresu istnienia tokenu. Aby zmienić ustawienia okresów istnienia tokenu, ustaw `TokenNotBeforeSkewInSeconds` [metadane](saml-issuer-technical-profile.md#metadata) profilu technicznego wystawiania tokenów SAML. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Godzina, o której token stał się nieprawidłowy. Twoja aplikacja powinna używać tego żądania, aby zweryfikować ważność okresu istnienia tokenu. Wartość jest równa 15 minut od `NotBefore` i nie można jej zmienić.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Odwołanie do identyfikatora URI, które identyfikuje zamierzonych odbiorców. Identyfikuje zamierzony odbiorcę tokenu. Wartość jest taka sama jak w przypadku żądania SAML `AssertionConsumerServiceURL` .|
-|`<Response>``<Assertion>` `<saml:AttributeStatement>` Kolekcja`<Attribute>` | | Kolekcja potwierdzeń (oświadczeń), zgodnie z konfiguracją w oświadczeniach wyjściowych [profilu technicznego jednostki uzależnionej](relyingparty.md#technicalprofile) . Nazwę potwierdzenia można skonfigurować przez ustawienie `PartnerClaimType` zgłoszenia wynikowego. |
+|`<Response>``<Assertion>` `<AttributeStatement>` Kolekcja`<Attribute>` | | Kolekcja potwierdzeń (oświadczeń), zgodnie z konfiguracją w oświadczeniach wyjściowych [profilu technicznego jednostki uzależnionej](relyingparty.md#technicalprofile) . Nazwę potwierdzenia można skonfigurować przez ustawienie `PartnerClaimType` zgłoszenia wynikowego. |
 
 ## <a name="next-steps"></a>Następne kroki
 

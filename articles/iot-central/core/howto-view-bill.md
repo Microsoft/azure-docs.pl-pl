@@ -1,29 +1,29 @@
 ---
 title: Zarządzaj rachunkiem i Konwertuj z bezpłatnego planu cenowego w aplikacji Azure IoT Central | Microsoft Docs
 description: Skontaktuj się z administratorem, aby dowiedzieć się, jak zarządzać rozliczeniami i przechodzić z planu cen bezpłatnych do standardowego planu cenowego w aplikacji IoT Central platformy Azure
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/09/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 888b9f31b8082ac124a773cc489293b335d7d255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 515f5f665e947ff9594cce6dbbaea9b5e0c50ebf
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157523"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999702"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Zarządzanie rozliczeniami w aplikacji IoT Central
 
-W tym artykule opisano, jak administrator może zarządzać rozliczeniami w aplikacji IoT Central platformy Azure w sekcji Administracja. Dowiesz się, jak przenieść aplikację z bezpłatnego planu cenowego do standardowego planu cenowego, a także jak uaktualnić lub obniżyć plan cenowy.
+W tym artykule opisano, jak administrator może zarządzać rozliczeniami usługi Azure IoT Central. Możesz przenieść swoją aplikację z bezpłatnego planu cenowego do standardowego planu cenowego, a także uaktualnić lub obniżyć plan cenowy.
 
-Aby uzyskać dostęp do sekcji **Administracja** i korzystać z niej, musisz mieć rolę *administratora* lub mieć *niestandardową rolę użytkownika* , która umożliwia wyświetlanie rozliczeń dla aplikacji IoT Central platformy Azure. Jeśli utworzysz aplikację IoT Central platformy Azure, zostanie ona automatycznie przypisana do roli **administratora** dla tej aplikacji.
+Aby uzyskać dostęp do sekcji **Administracja** , musisz mieć rolę *administratora* lub mieć *niestandardową rolę użytkownika* , która umożliwia wyświetlanie rozliczeń. Jeśli utworzysz aplikację IoT Central platformy Azure, zostanie ona automatycznie przypisana do roli **administratora** .
 
 ## <a name="move-from-free-to-standard-pricing-plan"></a>Przejdź od bezpłatnej do standardowego planu cen
 
-- Aplikacje korzystające z bezpłatnego planu cenowego są bezpłatne przez siedem dni przed ich wygaśnięciem. Aby uniknąć utraty danych, można przenieść je do standardowego planu cenowego w dowolnym momencie przed wygaśnięciem.
+- Aplikacje korzystające z bezpłatnego planu cenowego są bezpłatne przez siedem dni przed ich wygaśnięciem. Aby uniknąć utraty danych, można je przenieść do standardowego planu cenowego w dowolnym momencie przed wygaśnięciem.
 - W przypadku aplikacji korzystających ze standardowego planu cenowego są naliczone opłaty za każde urządzenie, a pierwsze dwa urządzenia są bezpłatne dla każdej aplikacji.
 
 Więcej informacji o cenach znajdziesz na [stronie cennika usługi Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
@@ -55,9 +55,9 @@ W sekcji Cennik można w dowolnym momencie uaktualnić lub obniżyć plan cen us
 
 1. Przejdź do strony **cennika** w sekcji **Administracja** .
 
-    ![Stan wersji próbnej](media/howto-view-bill/pricing.png)
+    ![Uaktualnij plan prcing](media/howto-view-bill/pricing.png)
 
-1. Wybierz **Plan** , a następnie kliknij przycisk **Zapisz** w celu uaktualnienia lub obniżenia poziomu.
+1. Wybierz **Plan** , a następnie wybierz pozycję **Zapisz** w celu uaktualnienia lub obniżenia poziomu.
 
 ## <a name="view-your-bill"></a>Wyświetlanie rachunku
 

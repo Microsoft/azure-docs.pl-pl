@@ -10,13 +10,13 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a9b8a2c2454c135c72d39a587e84220e8916e54b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: 40d8d4596e7d93b589e44f2dde2d1cb453566d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315438"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999237"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 
@@ -316,8 +316,8 @@ W poniższej tabeli opisano różne stany usług:
 | Przechodzenie | Usługa jest w trakcie wdrażania. | Nie |
 | Nieprawidłowy | Usługa została wdrożona, ale jest obecnie nieosiągalna.  | Nie |
 | Unschedulable | Nie można teraz wdrożyć usługi z powodu braku zasobów. | Nie |
-| Niepowodzenie | Wdrożenie usługi nie powiodło się z powodu błędu lub awarii. | Tak |
-| Dobra kondycja | Usługa jest w dobrej kondycji, a punkt końcowy jest dostępny. | Tak |
+| Niepowodzenie | Wdrożenie usługi nie powiodło się z powodu błędu lub awarii. | Yes |
+| Dobra kondycja | Usługa jest w dobrej kondycji, a punkt końcowy jest dostępny. | Yes |
 
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Wnioskowanie partii

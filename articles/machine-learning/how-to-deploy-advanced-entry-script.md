@@ -9,12 +9,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: gopalv
-ms.openlocfilehash: 3af681f561bc190ae7c0354afb7fc3591fa82b5c
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999220"
 ---
 # <a name="advanced-entry-script-authoring"></a>Tworzenie zaawansowanego skryptu wejściowego
 
@@ -259,7 +261,7 @@ AZUREML_MODEL_DIR jest zmienną środowiskową utworzoną podczas wdrażania us�
 
 W poniższej tabeli opisano wartość AZUREML_MODEL_DIR w zależności od liczby wdrożonych modeli:
 
-| Wdrożenie | Wartość zmiennej środowiskowej |
+| wdrażania | Wartość zmiennej środowiskowej |
 | ----- | ----- |
 | Jeden model | Ścieżka do folderu zawierającego model. |
 | Wiele modeli | Ścieżka do folderu zawierającego wszystkie modele. Modele są zlokalizowane według nazwy i wersji w tym folderze ( `$MODEL_NAME/$VERSION` ) |

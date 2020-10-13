@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744223"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998406"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnozuj problemy z konfiguracją linków prywatnych na Azure Key Vault
 
@@ -34,7 +34,7 @@ Jeśli jesteś nowym elementem tej funkcji, zobacz [integracja Key Vault z prywa
 ### <a name="problems-not-covered-by-this-article"></a>Problemy, które nie zostały omówione w tym artykule
 
 - Występuje tymczasowy problem z łącznością. W danym kliencie zobaczysz, że niektóre żądania działają, a niektóre nie działają. *Sporadyczne problemy zwykle nie są spowodowane problemem z konfiguracją linków prywatnych; są one znakiem przeciążenia sieci lub klienta.*
-- Używasz produktu platformy Azure, który obsługuje BYOK (Bring Your Own Key) lub CMK (klucze zarządzane przez klienta) i że produkt nie może uzyskać dostępu do magazynu kluczy. *Zapoznaj się z dokumentacją innych produktów. Upewnij się, że jawnie stanowi obsługę magazynów kluczy z włączoną zaporą. W razie potrzeby skontaktuj się z pomocą techniczną dotyczącą tego konkretnego produktu.*
+- Używasz produktu platformy Azure, który obsługuje BYOK (Bring Your Own Key), CMK (klucze zarządzane przez klienta) lub dostęp do wpisów tajnych przechowywanych w magazynie kluczy. Po włączeniu Zapory w ustawieniach magazynu kluczy ten produkt nie będzie mógł uzyskać dostępu do magazynu kluczy. *Zapoznaj się z dokumentacją specyficzną dla produktu. Upewnij się, że jawnie stanowi obsługę magazynów kluczy z włączoną zaporą. W razie potrzeby skontaktuj się z pomocą techniczną tego konkretnego produktu.*
 
 ### <a name="how-to-read-this-article"></a>Jak przeczytać ten artykuł
 
@@ -46,9 +46,11 @@ Zaczynamy!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Upewnij się, że klient jest uruchomiony w sieci wirtualnej
 
-Ten przewodnik ma pomóc w naprawieniu połączeń z magazynem kluczy, który pochodzi z kodu aplikacji. Przykładami są aplikacje i skrypty wykonywane w ramach platformy Azure Virtual Machines, klastry Service Fabric platformy Azure, Azure App Service, usługa Azure Kubernetes Service (AKS) i podobne inne.
+Ten przewodnik ma pomóc w naprawieniu połączeń z magazynem kluczy, który pochodzi z kodu aplikacji. Przykładami są aplikacje i skrypty wykonywane w ramach platformy Azure Virtual Machines, klastry Service Fabric platformy Azure, Azure App Service, usługa Azure Kubernetes Service (AKS) i podobne inne. Ten przewodnik ma również zastosowanie w przypadku dostępu wykonywanego w interfejsie użytkownika w sieci Web Azure Portal, w którym przeglądarka bezpośrednio uzyskuje dostęp do magazynu kluczy.
 
-Przez zdefiniowanie linków prywatnych, aplikacja lub skrypt musi działać na komputerze, klastrze lub środowisku podłączonym do Virtual Network, w którym został wdrożony [zasób prywatnego punktu końcowego](../../private-link/private-endpoint-overview.md) . Jeśli aplikacja działa w dowolnej sieci połączonej z Internetem, ten przewodnik nie ma zastosowania i prawdopodobnie nie można używać prywatnych linków.
+Przez zdefiniowanie linków prywatnych aplikacja, skrypt lub portal muszą być uruchomione na komputerze, klastrze lub środowisku podłączonym do Virtual Network, w którym został wdrożony [zasób prywatnego punktu końcowego](../../private-link/private-endpoint-overview.md) .
+
+Jeśli aplikacja, skrypt lub portal jest uruchomiony w dowolnej sieci połączonej z Internetem, ten przewodnik nie ma zastosowania i prawdopodobnie nie można używać prywatnych linków. To ograniczenie dotyczy również poleceń wykonywanych w Azure Cloud Shell, ponieważ są one uruchamiane na zdalnej maszynie platformy Azure udostępnionej na żądanie, a nie w przeglądarce użytkownika.
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>Jeśli używasz rozwiązania zarządzanego, zapoznaj się z określoną dokumentacją
 
@@ -74,7 +76,7 @@ Dobrym pomysłem jest usunięcie nieskutecznych połączeń, aby zachować przej
 >[!IMPORTANT]
 > Zmiana ustawień zapory może spowodować usunięcie dostępu z uprawnionych klientów, którzy nadal nie używają linków prywatnych. Upewnij się, że masz świadomość skutków każdej zmiany w konfiguracji zapory.
 
-Ważną kwestią jest to, że linki prywatne *dają* dostęp tylko do Twojego magazynu kluczy. Nie powoduje *usunięcia* istniejącego dostępu. Aby efektywnie blokować dostęp z publicznej sieci Internet, należy jawnie włączyć zaporę magazynu kluczy:
+Ważną kwestią jest to, że funkcja linków prywatnych *zapewnia* tylko dostęp do magazynu kluczy w Virtual Network zamkniętym w celu zapobieżenia eksfiltracji danych. Nie powoduje *usunięcia* istniejącego dostępu. Aby efektywnie blokować dostęp z publicznej sieci Internet, należy jawnie włączyć zaporę magazynu kluczy:
 
 1. Otwórz Azure Portal i Otwórz zasób magazynu kluczy.
 2. W menu po lewej stronie wybierz pozycję **Sieć**.
@@ -229,11 +231,11 @@ Twoja subskrypcja platformy Azure musi mieć [prywatna strefa DNS zasób strefy]
 
 Obecność tego zasobu można sprawdzić, przechodząc do strony subskrypcji w portalu i wybierając pozycję "zasoby" w menu po lewej stronie. Nazwa zasobu musi mieć wartość `privatelink.vaultcore.azure.net` , a typem zasobu musi być **prywatna strefa DNS strefa**.
 
-Zazwyczaj ten zasób jest tworzony automatycznie podczas tworzenia prywatnego punktu końcowego przy użyciu typowej metody. Istnieją jednak przypadki, w których ten zasób nie jest tworzony automatycznie i trzeba go wykonać ręcznie. Ten zasób mógł również zostać przypadkowo usunięty.
+Zazwyczaj ten zasób jest tworzony automatycznie podczas tworzenia prywatnego punktu końcowego przy użyciu wspólnej procedury. Istnieją jednak przypadki, w których ten zasób nie jest tworzony automatycznie i trzeba go wykonać ręcznie. Ten zasób mógł również zostać przypadkowo usunięty.
 
 Jeśli nie masz tego zasobu, Utwórz nowy zasób strefy Prywatna strefa DNS w ramach subskrypcji. Należy pamiętać, że nazwa musi być dokładnie `privatelink.vaultcore.azure.net` , bez spacji lub dodatkowych kropek. W przypadku określenia nieprawidłowej nazwy rozpoznawanie nazw wyjaśnione w tym artykule nie będzie działało. Aby uzyskać więcej informacji na temat tworzenia tego zasobu, zobacz [Tworzenie prywatnej strefy DNS platformy Azure przy użyciu Azure Portal](../../dns/private-dns-getstarted-portal.md). Po wykonaniu tej strony możesz pominąć tworzenie Virtual Network, ponieważ na tym etapie powinien już istnieć. Można również pominąć procedury walidacji za pomocą Virtual Machines.
 
-### <a name="confirm-that-the-private-dns-zone-must-be-linked-to-the-virtual-network"></a>Upewnij się, że strefa Prywatna strefa DNS musi być połączona z Virtual Network
+### <a name="confirm-that-the-private-dns-zone-is-linked-to-the-virtual-network"></a>Upewnij się, że Prywatna strefa DNS strefa jest połączona z Virtual Network
 
 Nie ma wystarczającej Prywatna strefa DNS strefy. Musi on również być połączony z Virtual Networką zawierającą prywatny punkt końcowy. Jeśli strefa Prywatna strefa DNS nie jest połączona z poprawnym Virtual Network, wszelkie rozpoznawanie nazw DNS z tego Virtual Network spowoduje zignorowanie strefy Prywatna strefa DNS.
 
@@ -259,9 +261,9 @@ Ponadto wartość `A` rekordu (adres IP) musi być [prywatnym adresem IP magazyn
 
 Jeśli istnieje wiele sieci wirtualnych, a każdy z nich ma własny prywatny zasób punktu końcowego odwołujący się do tego samego magazynu kluczy, nazwa hosta magazynu kluczy musi zostać rozpoznana jako inny prywatny adres IP w zależności od sieci. Oznacza to, że konieczne jest również korzystanie z wielu Prywatna strefa DNS stref, z których każda jest połączona z innym Virtual Network i przy użyciu innego adresu IP w `A` rekordzie.
 
-W bardziej zaawansowanych scenariuszach istnieje wiele sieci wirtualnych z włączoną obsługą komunikacji równorzędnej. W takim przypadku tylko jeden Virtual Network wymaga zasobu prywatnego punktu końcowego, chociaż obie mogą wymagać połączenia z zasobem strefy Prywatna strefa DNS. Ten dokument nie jest bezpośrednio objęty tym scenariuszem.
+W bardziej zaawansowanych scenariuszach sieci wirtualne mogą mieć włączone komunikację równorzędną. W takim przypadku tylko jeden Virtual Network wymaga zasobu prywatnego punktu końcowego, chociaż obie mogą wymagać połączenia z zasobem strefy Prywatna strefa DNS. Ten dokument nie jest bezpośrednio objęty tym scenariuszem.
 
-### <a name="fact-you-have-control-over-dns-resolution"></a>Fakt: masz kontrolę nad rozpoznawaniem nazw DNS
+### <a name="understand-that-you-have-control-over-dns-resolution"></a>Zrozumienie, że masz kontrolę nad rozpoznawaniem nazw DNS
 
 Zgodnie z opisem w [poprzedniej sekcji](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)Magazyn kluczy z linkami prywatnymi ma alias `{vaultname}.privatelink.vaultcore.azure.net` w swojej *publicznej* rejestracji. Serwer DNS używany przez Virtual Network używa rejestracji publicznej, ale sprawdza każdy alias do rejestracji *prywatnej* , a jeśli zostanie znaleziony, zostanie zatrzymany po aliasie zdefiniowanym podczas rejestracji publicznej.
 
@@ -324,9 +326,9 @@ Odpowiedź musi zawierać nagłówek `x-ms-keyvault-network-info` :
 ### <a name="query-the-key-vault-ip-address-directly"></a>Bezpośrednie zapytanie dotyczące adresu IP magazynu kluczy
 
 >[!IMPORTANT]
-> Dostęp do magazynu kluczy bez sprawdzania poprawności certyfikatu HTTPS jest niebezpieczny i może być używany tylko do celów edukacyjnych. Kod produkcyjny nigdy nie może uzyskiwać dostępu do magazynu kluczy bez sprawdzania poprawności po stronie klienta. Nawet jeśli tylko diagnozowanie problemów jest możliwe, może być konieczne ciągłej próbie manipulowania, która nie zostanie ujawniona, jeśli w żądaniach do magazynu kluczy zawsze wyłączysz weryfikację certyfikatu HTTPS.
+> Dostęp do magazynu kluczy bez sprawdzania poprawności certyfikatu HTTPS jest niebezpieczny i może być używany tylko do celów edukacyjnych. Kod produkcyjny nigdy nie może uzyskiwać dostępu do magazynu kluczy bez sprawdzania poprawności po stronie klienta. Nawet w przypadku zdiagnozowania problemów mogą być podejmowane próby naruszenia, które nie będą ujawnione w przypadku częstego wyłączania weryfikacji certyfikatu HTTPS w żądaniach do magazynu kluczy.
 
-Jeśli zainstalowano najnowsze wersje programu PowerShell, można użyć `-SkipCertificateCheck` programu do pomijania sprawdzania certyfikatu HTTPS, a następnie można skierować [adres IP magazynu kluczy](#find-the-key-vault-private-ip-address-in-the-virtual-network) bezpośrednio:
+Jeśli zainstalowano najnowszą wersję programu PowerShell, można użyć `-SkipCertificateCheck` programu do pomijania sprawdzania certyfikatu HTTPS, a następnie można wskazać [adres IP magazynu kluczy](#find-the-key-vault-private-ip-address-in-the-virtual-network) bezpośrednio:
 
     PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
 
@@ -334,7 +336,7 @@ Jeśli używasz programu `curl` , możesz wykonać te same czynności z `-k` arg
 
     joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
 
-Odpowiedzi powinny być takie same jak w poprzedniej sekcji, co oznacza, że musi zawierać `x-ms-keyvault-network-info` nagłówek o tej samej wartości. `/healthstatus`Punkt końcowy nie ma opieki w przypadku używania nazwy hosta lub adresu IP magazynu kluczy.
+Odpowiedzi muszą być takie same w poprzedniej sekcji, co oznacza, że musi zawierać `x-ms-keyvault-network-info` nagłówek o tej samej wartości. `/healthstatus`Punkt końcowy nie ma opieki w przypadku używania nazwy hosta lub adresu IP magazynu kluczy.
 
 Jeśli zostanie wyświetlona `x-ms-keyvault-network-info` zwracanie jednej wartości żądania przy użyciu nazwy hosta magazynu kluczy i innej wartości żądania przy użyciu adresu IP, każde żądanie jest kierowane do innego punktu końcowego. Zapoznaj się z wyjaśnieniem `addr` pola z `x-ms-keyvault-network-info` w poprzedniej sekcji, aby określić, który przypadek jest nieprawidłowy i należy go naprawić.
 
@@ -354,7 +356,7 @@ Wiele systemów operacyjnych pozwala na ustawienie jawnego stałego adresu IP na
 
 ### <a name="promiscuous-proxies-fiddler-etc"></a>Nieograniczone serwery proxy (programu Fiddler itp.)
 
-Z wyjątkiem jawnie zanotowanych opcji diagnostyki w tym artykule działa tylko wtedy, gdy w środowisku nie istnieje ogólny serwer proxy. Chociaż te serwery proxy są często instalowane wyłącznie na maszynach, które są diagnozowane (programu Fiddler jest najbardziej typowym przykładem), Administratorzy zaawansowani mogą zastąpić główne urzędy certyfikacji (CA) i zainstalować ogólny serwer proxy na urządzeniach bramy, które obsługują wiele maszyn w sieci. Te serwery proxy mogą znacząco wpływać na bezpieczeństwo i niezawodność. Firma Microsoft nie obsługuje konfiguracji, w których są używane te produkty.
+Z wyjątkiem sytuacji, w której jawnie zanotowano, opcje diagnostyki w tym artykule działają tylko wtedy, gdy w środowisku nie ma ogólnego serwera proxy. Chociaż te serwery proxy są często instalowane wyłącznie na maszynach, które są diagnozowane (programu Fiddler jest najbardziej typowym przykładem), Administratorzy zaawansowani mogą zastąpić główne urzędy certyfikacji (CA) i zainstalować ogólny serwer proxy na urządzeniach bramy, które obsługują wiele maszyn w sieci. Te serwery proxy mogą znacząco wpływać na bezpieczeństwo i niezawodność. Firma Microsoft nie obsługuje konfiguracji, w których są używane te produkty.
 
 ### <a name="other-things-that-may-affect-connectivity"></a>Inne elementy, które mogą mieć wpływ na łączność
 

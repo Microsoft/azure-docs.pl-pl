@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907044"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998478"
 ---
 # <a name="group-data-into-bins-module"></a>Grupowanie danych w moduł pojemników
 
@@ -44,7 +44,8 @@ Moduł dane grupy do zasobników obsługuje wiele opcji danych pakowania. Możes
 
 Na poniższym diagramie przedstawiono rozkład wartości liczbowych przed i po pakowania za pomocą metody *quantiles* . Zwróć uwagę, że w porównaniu z danymi pierwotnymi po lewej stronie dane zostały Binned i przekształcone na skalę normalną.  
 
-Możesz znaleźć [przykład z wyniku tego uruchomienia potoku](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Wizualizacja wyników](media/module/group-data-into-bins-result-example.png)
 
 Ze względu na to, że istnieje wiele sposobów grupowania danych, wszystkie możliwe do dostosowania, zalecamy eksperymentowanie z różnymi metodami i wartościami. 
 
@@ -65,6 +66,9 @@ Ze względu na to, że istnieje wiele sposobów grupowania danych, wszystkie mo�
     - **Krawędzie niestandardowe**: możesz określić wartości, które zaczynają się w każdym pojemniku. Wartość brzegowa jest zawsze dolną granicą pojemnika. 
     
       Załóżmy na przykład, że chcesz grupować wartości w dwóch pojemnikach. Wartość jednego z nich będzie większa niż 0, a jedna z nich będzie zawierać wartości mniejsze lub równe 0. W tym przypadku dla krawędzi pojemników należy wprowadzić **0** w **rozdzielaną przecinkami listę krawędzi pojemnika**. Dane wyjściowe modułu będą 1 i 2 wskazujące indeks pojemnika dla każdej wartości wiersza. Należy zauważyć, że lista wartości rozdzielanych przecinkami musi być w kolejności rosnącej, takiej jak 1, 3, 5, 7.
+    
+    > [!Note]
+    > Tryb *entropii MDL* jest zdefiniowany w Studio (klasyczny) i nie istnieje odpowiedni pakiet Open Source, którego można użyć do obsługi jeszcze projektanta.        
 
 4. Jeśli używasz trybów pakowania **quantiles** i **równych szerokości** , użyj opcji **Liczba pojemników** , aby określić liczbę pojemników lub *quantiles*, które chcesz utworzyć.
 

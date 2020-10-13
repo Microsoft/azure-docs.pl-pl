@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 6e3d87d613db63e05ddee47d43aead779eca75c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71325246b69f501ec8af91c59cb4f042180542c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628013"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999665"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -117,7 +117,7 @@ Ten model można rozszerzyć na wiele równorzędnych sieci wirtualnych, które 
 > Ta konfiguracja wymaga pojedynczej prywatnej strefy DNS. Utworzenie wielu stref o tej samej nazwie dla różnych sieci wirtualnych wymaga ręcznej operacji do scalenia rekordów DNS.
 
 > [!IMPORTANT]
-> Jeśli używasz prywatnego punktu końcowego w modelu gwiazdy i szprych z innej subskrypcji, Użyj tej samej prywatnej strefy DNS w centrum.
+> Jeśli używasz prywatnego punktu końcowego w modelu gwiazdy i gwiazdy z innej subskrypcji, Użyj tej samej prywatnej strefy DNS w centrum.
 
 W tym scenariuszu istnieje topologia sieci typu [Hub i szprych](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) z sieciami szprych, które udostępniają wspólny prywatny punkt końcowy, a wszystkie sieci wirtualne szprych są połączone z tą samą prywatną strefą DNS. 
 

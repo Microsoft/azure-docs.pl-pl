@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
-ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206635"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999282"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio powiązanie dla Azure Functions
 
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład pokazuje, jak wysłać wiadomość SMS przy użyciu powiązania danych wyjściowych zgodnie z definicją w poniższym *function.js*.
+Poniższy przykład pokazuje, jak wysłać wiadomość SMS przy użyciu powiązania danych wyjściowych, zgodnie z definicją w poniższej *function.jsw systemie*.
 
 ```json
     {

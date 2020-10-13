@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961293"
+ms.locfileid: "91998430"
 ---
 # <a name="json-claims-transformations"></a>Przekształcenia oświadczeń JSON
 
@@ -112,7 +112,7 @@ Poniższy przykład generuje ciąg JSON na podstawie wartości, a także ciągó
 </ClaimsTransformation>
 ```
 
-Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do interfejsu API REST. Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "".
+Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do interfejsu API REST. Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "".
 
 - Oświadczenia wejściowe:
   - **adres e-mail**, typ zgłoszenia transformacji  **customerEntity. email**: " john.s@contoso.com "

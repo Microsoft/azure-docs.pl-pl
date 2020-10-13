@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448661"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999311"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -38,8 +38,8 @@ Security Center oferuje więcej funkcji zabezpieczeń kontenerów po włączeniu
 |Stan wydania:|Wersja zapoznawcza|
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Właściciel** lub **administrator zabezpieczeń** , który edytuje przypisanie<br>**Czytnik** do wyświetlania zaleceń|
-|Obsługiwane klastry|Wymagany jest Kubernetes w wersji 1.14 (lub nowszej)<br>Brak zasobu PodSecurityPolicy (stary model PSP) w klastrach<br>Węzły systemu Windows nie są obsługiwane|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Obsługiwane klastry:|Wymagany jest Kubernetes w wersji 1.14 (lub nowszej)<br>Brak zasobu PodSecurityPolicy (stary model PSP) w klastrach<br>Węzły systemu Windows nie są obsługiwane|
+|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 

@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 90becfb79973ba45851b0e30384b0f05a7b887e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a427fbc6fad1566ae10e11b61de981aded32e64a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962251"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000239"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Samouczek: wdrażanie aplikacji ASP.NET na platformie Azure za pomocą Azure SQL Database
 
@@ -19,7 +19,7 @@ ms.locfileid: "88962251"
 
 ![Opublikowana aplikacja ASP.NET w aplikacji usługi App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -65,20 +65,18 @@ W obszarze **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt 
 
 ![Publikowanie z Eksploratora rozwiązań](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Upewnij się, że jest zaznaczona usługa **Microsoft Azure App Service**, a następnie kliknij przycisk **Publikuj**.
+Wybierz **platformę Azure** jako element docelowy, kliknij przycisk Dalej i upewnij się, że **Azure App Service (Windows)** jest zaznaczone i ponownie kliknij przycisk Dalej.
 
 ![Publikowanie ze strony przeglądu projektu](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-Publikowanie powoduje otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwia tworzenie wszystkich zasobów platformy Azure potrzebnych do uruchomienia aplikacji ASP.NET na platformie Azure.
-
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-W oknie dialogowym **Tworzenie usługi App Service** kliknij pozycję **Dodaj konto**, a następnie zaloguj się do swojej subskrypcji platformy Azure. Jeśli zalogowano się już do konta Microsoft, upewnij się, że to konto zawiera Twoją subskrypcję platformy Azure. Jeśli użyte do logowania konto Microsoft nie ma subskrypcji platformy Azure, kliknij je, aby dodać prawidłowe konto.
+W oknie dialogowym **Publikowanie** kliknij pozycję **Dodaj konto** z listy rozwijanej Menedżer kont, a następnie zaloguj się do subskrypcji platformy Azure. Jeśli zalogowano się już do konta Microsoft, upewnij się, że to konto zawiera Twoją subskrypcję platformy Azure. Jeśli użyte do logowania konto Microsoft nie ma subskrypcji platformy Azure, kliknij je, aby dodać prawidłowe konto.
+
+![Logowanie do platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 > [!NOTE]
 > Jeśli przeprowadzono już logowanie, nie wybieraj jeszcze pozycji **Utwórz**.
-
-![Logowanie do platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Konfigurowanie nazwy aplikacji internetowej
 
@@ -112,15 +110,20 @@ Wygenerowaną nazwę aplikacji internetowej można zachować lub zmienić na inn
    |**Lokalizacja**| West Europe | [Regiony platformy Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Rozmiar**| Bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
+3. W oknie dialogowym **Publikowanie** są wyświetlane skonfigurowane zasoby. Kliknij przycisk **Finish** (Zakończ).
+
+   ![Utworzone zasoby](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+
+
 ### <a name="create-a-server"></a>Tworzenie serwera
 
 Przed utworzeniem bazy danych potrzebny jest [logiczny serwer SQL](../azure-sql/database/logical-servers.md). Logiczny serwer SQL to konstrukcja logiczna, która zawiera grupę baz danych zarządzanych jako Grupa.
 
-1. Kliknij pozycję **Utwórz bazę danych SQL Database**.
+1. Kliknij pozycję **Konfiguruj** obok pozycji baza danych SQL Server w obszarze **połączone usługi**.
 
    ![Tworzenie bazy danych SQL](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
-2. W oknie dialogowym **Konfigurowanie bazy danych SQL** kliknij pozycję **Nowy** obok pozycji **SQL Server**.
+2. W oknie dialogowym **Azure SQL Database** kliknij pozycję **Nowy** obok pozycji **serwer bazy danych**.
 
    Zostanie wygenerowana unikatowa nazwa serwera. Ta nazwa jest używana jako część domyślnego adresu URL serwera programu `<server_name>.database.windows.net` . Musi być unikatowa dla wszystkich serwerów w usłudze Azure SQL. Nazwę serwera można zmienić, ale na potrzeby tego samouczka należy zachować wygenerowaną wartość.
 
@@ -128,28 +131,31 @@ Przed utworzeniem bazy danych potrzebny jest [logiczny serwer SQL](../azure-sql/
 
    Zapamiętaj tę nazwę użytkownika i hasło. Są one potrzebne do późniejszego zarządzania serwerem.
 
+   ![Tworzenie serwera](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
+
    > [!IMPORTANT]
    > Mimo że hasło w parametrach połączenia jest maskowane (w programie Visual Studio, a także w usłudze App Service), to fakt jego przechowywania zwiększa obszar aplikacji podatny na ataki. Usługa App Service może używać [tożsamości usługi zarządzanej](overview-managed-identity.md) do wyeliminowania tego ryzyka przez całkowite usunięcie konieczności przechowywania wpisów tajnych w kodzie lub konfiguracji aplikacji. Aby uzyskać więcej informacji, zobacz [Następne kroki](#next-steps).
-
-   ![Tworzenie serwera](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
 4. Kliknij przycisk **OK**. Nie zamykaj jeszcze okna dialogowego **Konfigurowanie bazy danych SQL**.
 
 ### <a name="create-a-database-in-azure-sql-database"></a>Tworzenie bazy danych w Azure SQL Database
 
-1. W oknie dialogowym **Konfigurowanie bazy danych SQL** wykonaj następujące czynności:
+1. W oknie dialogowym **Azure SQL Database** :
 
    * Nie zmieniaj wygenerowanej domyślnej wartości pola **Nazwa bazy danych**.
-   * W polu **Nazwa parametrów połączenia** wpisz *MyDbConnection*. Ta nazwa musi być zgodna z parametrami połączenia przywoływanymi w pliku *Models/MyDatabaseContext.cs*.
-   * Wybierz przycisk **OK**.
+   * Wybierz pozycję **Utwórz**.
 
     ![Konfiguruj bazę danych](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. Skonfigurowane zasoby zostaną wyświetlone w oknie dialogowym **Tworzenie usługi App Service**. Kliknij przycisk **Utwórz**.
+2. W **Nazwa parametry połączenia z bazą danych**wpisz _MyDbConnection_. Ta nazwa musi być zgodna z parametrami połączenia przywoływanymi w pliku _Models/MyDatabaseContext.cs_.
 
-   ![Utworzone zasoby](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
+3. Wprowadź nazwę użytkownika i hasło administratora, które zostały użyte podczas [tworzenia serwera](#create-a-server) krok 3 odpowiednio do nazwy użytkownika i hasła bazy danych.
 
-Po zakończeniu tworzenia zasobów platformy Azure Kreator publikuje aplikację ASP.NET na platformie Azure. Uruchamiana jest domyślna przeglądarka z adresem URL wdrożonej aplikacji.
+    ![Konfigurowanie parametrów połączenia z bazą danych](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
+
+4. Wybierz pozycję **Zakończ**.
+
+Po zakończeniu tworzenia zasobów platformy Azure przez kreatora kliknij pozycję **Publikuj** , aby wdrożyć aplikację ASP.NET na platformie Azure. Uruchamiana jest domyślna przeglądarka z adresem URL wdrożonej aplikacji.
 
 Dodaj kilka elementów do wykonania.
 
@@ -353,7 +359,7 @@ W celu zmiany poziomu śledzenia w taki sposób, aby w danych wyjściowych znajd
 
 Kliknij ponownie prawym przyciskiem myszy aplikację platformy Azure i wybierz polecenie **Wyświetl ustawienia**.
 
-Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję **Pełne**. Kliknij przycisk **Zapisz**.
+Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję **Pełne**. Kliknij pozycję **Zapisz**.
 
 ![Zmienianie poziomu śledzenia na Pełne](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 

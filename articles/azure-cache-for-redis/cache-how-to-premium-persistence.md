@@ -5,16 +5,16 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2017
-ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004805"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000009"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować trwałość danych dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
-Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. W tym artykule opisano sposób konfigurowania trwałości w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis.
+W tym artykule dowiesz się, jak skonfigurować trwałość w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis za pomocą Azure Portal. Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. 
 
 ## <a name="what-is-data-persistence"></a>Co to jest trwałość danych?
 [Trwałość Redis](https://redis.io/topics/persistence) umożliwia utrwalanie danych przechowywanych w Redis. Można również tworzyć migawki i tworzyć kopie zapasowe danych, które można ładować w przypadku awarii sprzętu. Jest to ogromna korzyść w porównaniu z warstwą podstawową lub standardową, w której wszystkie dane są przechowywane w pamięci i może istnieć potencjalna utrata danych w przypadku awarii, w której węzły pamięci podręcznej nie działają. 
@@ -32,54 +32,62 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
 > 
 > 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Aby utworzyć pamięć podręczną Premium, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. Oprócz tworzenia pamięci podręcznych w witrynie Azure Portal, możesz również utworzyć je przy użyciu programu PowerShell, interfejsu wiersza polecenia platformy Azure oraz szablonów usługi Resource Manager. Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej platformy Azure dla usługi Redis, zobacz [Tworzenie pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Po wybraniu warstwy cenowej Premium kliknij pozycję **Redis trwałość**.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Utwórz zasób.":::
+   
+2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
-![Trwałość Redis][redis-cache-persistence]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Utwórz zasób.":::
 
-Kroki opisane w następnej sekcji opisują sposób konfigurowania trwałości Redis w nowej pamięci podręcznej Premium. Po skonfigurowaniu trwałości Redis kliknij pozycję **Utwórz** , aby utworzyć nową pamięć podręczną Premium z trwałością Redis.
+3. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia nowej pamięci podręcznej Premium.
+   
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, które zawierają tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to * \<DNS name> . Redis.cache.Windows.NET*. | 
+   | **Subskrypcja** | I wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
+   | **Grupa zasobów** | Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
+   | **Lokalizacja** | I wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
+   | **Typ pamięci podręcznej** | Wybierz pozycję Pamięć podręczna Premium, aby skonfigurować funkcje Premium. Aby uzyskać szczegółowe informacje, zobacz [Azure cache for Redis — Cennik](https://azure.microsoft.com/pricing/details/cache/). |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
 
-## <a name="enable-redis-persistence"></a>Włącz Trwałość Redis
+4. Wybierz kartę **Sieć** lub kliknij przycisk **sieci** w dolnej części strony.
 
-Trwałość Redis jest włączona w bloku **trwałość danych** przez wybranie opcji trwałość **RDB** lub **kopia zapasowa AOF** . W przypadku nowych pamięci podręcznych ten blok jest dostępny w procesie tworzenia pamięci podręcznej, zgodnie z opisem w poprzedniej sekcji. W przypadku istniejących pamięci podręcznych blok **trwałość danych** jest dostępny z **menu zasób** dla pamięci podręcznej.
+5. Na karcie **Sieć** wybierz metodę łączności. W przypadku wystąpień pamięci podręcznej Premium można łączyć się publicznie za pośrednictwem publicznych adresów IP lub punktów końcowych usług albo prywatnie przy użyciu prywatnego punktu końcowego.
 
-![Ustawienia Redis][redis-cache-settings]
+6. Wybierz kartę **Dalej: Zaawansowane** lub kliknij przycisk **Dalej: Zaawansowane** w dolnej części strony.
 
+7. Na karcie **Zaawansowane** wystąpienia pamięci podręcznej Premium Skonfiguruj ustawienia dla portu niezwiązanego z protokołem TLS, klastrowania i trwałości danych. W celu zapewnienia trwałości danych możesz wybrać opcję trwałość **RDB** lub **kopia zapasowa AOF** . 
 
-## <a name="configure-rdb-persistence"></a>Konfiguruj trwałość RDB
+8. Aby włączyć trwałość RDB, kliknij pozycję **RDB** i skonfiguruj ustawienia. 
+   
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Częstotliwość tworzenia kopii zapasowych** | Lista rozwijana i wybór interwału kopii zapasowych, dostępne opcje to **15 minut**, **30 minut**, **60 minut**, **6 godzin**, **12**godzin i **24 godziny**. | Ten interwał rozpoczyna zliczanie w dół po pomyślnym zakończeniu poprzedniej operacji tworzenia kopii zapasowej i po zainicjowaniu nowej kopii zapasowej. | 
+   | **Konto magazynu** | I wybierz konto magazynu. | Musisz wybrać konto magazynu w tym samym regionie, w którym znajduje się pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność.  | 
+   | **Klucz magazynu** | Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
 
-Aby włączyć trwałość RDB, kliknij pozycję **RDB**. Aby wyłączyć trwałość RDB w wcześniej włączonej pamięci podręcznej Premium, kliknij pozycję **wyłączone**.
+    Pierwsza kopia zapasowa jest inicjowana po upłynięciu interwału częstotliwości tworzenia kopii zapasowych.
 
-![Trwałość Redis RDB][redis-cache-rdb-persistence]
+9. Aby włączyć trwałość kopia zapasowa AOF, kliknij pozycję **kopia zapasowa AOF** i skonfiguruj ustawienia. 
+   
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Pierwsze konto magazynu** | I wybierz konto magazynu. | To konto magazynu musi znajdować się w tym samym regionie, w którym znajduje się pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność. | 
+   | **Pierwszy klucz magazynu** | Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
+   | **Drugie konto magazynu** | Obowiązkowe Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | Opcjonalnie możesz skonfigurować dodatkowe konto magazynu. W przypadku skonfigurowania drugiego konta magazynu operacje zapisu w pamięci podręcznej repliki są zapisywane na tym drugim koncie magazynu. | 
+   | **Drugi klucz magazynu** | Obowiązkowe Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
 
-Aby skonfigurować interwał tworzenia kopii zapasowych, wybierz z listy rozwijanej **częstotliwość tworzenia kopii zapasowych** . Dostępne opcje to **15 minut**, **30 minut**, **60 minut**, **6 godzin**, **12 godzin**i **24 godziny**. Ten interwał rozpoczyna zliczanie w dół po pomyślnym zakończeniu poprzedniej operacji tworzenia kopii zapasowej i po zainicjowaniu nowej kopii zapasowej.
+    Po włączeniu funkcji trwałości kopia zapasowa AOF operacje zapisu w pamięci podręcznej są zapisywane na wyznaczynym koncie magazynu (lub na kontach, jeśli skonfigurowano drugie konto magazynu). W przypadku błędu krytycznego, który przeprowadzi zarówno podstawową, jak i pamięć podręczną repliki, zapisany dziennik kopia zapasowa AOF służy do odbudowywania pamięci podręcznej.
 
-Kliknij pozycję **konto magazynu** , aby wybrać konto magazynu, które ma być używane, a następnie wybierz **klucz podstawowy** lub **klucz pomocniczy** do użycia z listy rozwijanej **klucz magazynu** . Musisz wybrać konto magazynu w tym samym regionie, w którym znajduje się pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność. 
+10. Wybierz kartę **następne: Tagi** lub kliknij przycisk **Dalej: Tagi** w dolnej części strony.
 
-> [!IMPORTANT]
-> W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** .
-> 
-> 
+11. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
 
-Kliknij przycisk **OK** , aby zapisać konfigurację trwałości.
+12. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
 
-Kolejna kopia zapasowa (lub pierwsza kopia zapasowa nowych pamięci podręcznych) jest inicjowana po upłynięciu interwału częstotliwości wykonywania kopii zapasowych.
+13. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
 
-## <a name="configure-aof-persistence"></a>Konfigurowanie trwałości kopia zapasowa AOF
-
-Aby włączyć trwałość kopia zapasowa AOF, kliknij przycisk **kopia zapasowa AOF**. Aby wyłączyć trwałość kopia zapasowa AOF w wcześniej włączonej pamięci podręcznej Premium, kliknij pozycję **wyłączone**.
-
-![Trwałość Redis kopia zapasowa AOF][redis-cache-aof-persistence]
-
-Aby skonfigurować trwałość kopia zapasowa AOF, określ **pierwsze konto magazynu**. To konto magazynu musi znajdować się w tym samym regionie, w którym znajduje się pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność. Opcjonalnie możesz skonfigurować dodatkowe konto magazynu o nazwie **drugie konto magazynu**. W przypadku skonfigurowania drugiego konta magazynu operacje zapisu w pamięci podręcznej repliki są zapisywane na tym drugim koncie magazynu. Dla każdego skonfigurowanego konta magazynu wybierz **klucz podstawowy** lub **klucz pomocniczy** do użycia z listy rozwijanej **klucz magazynu** . 
-
-> [!IMPORTANT]
-> W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** .
-> 
-> 
-
-Po włączeniu funkcji trwałości kopia zapasowa AOF operacje zapisu w pamięci podręcznej są zapisywane na wyznaczynym koncie magazynu (lub na kontach, jeśli skonfigurowano drugie konto magazynu). W przypadku błędu krytycznego, który przeprowadzi zarówno podstawową, jak i pamięć podręczną repliki, zapisany dziennik kopia zapasowa AOF służy do odbudowywania pamięci podręcznej.
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd**usługi Azure cache for Redis   . Gdy **stan**   jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. 
 
 ## <a name="persistence-faq"></a>Często zadawane pytania dotyczące trwałości
 Poniższa lista zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure cache for Redis trwałość.
@@ -148,7 +156,7 @@ Trwałość kopia zapasowa AOF ma wpływ na przepływność przez około 15% –
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Jak usunąć drugie konto magazynu?
 
-Konto magazynu pomocniczego trwałości kopia zapasowa AOF można usunąć, ustawiając drugie konto magazynu jako takie samo, jak pierwsze konto magazynu. Aby uzyskać instrukcje, zobacz [Konfigurowanie trwałości kopia zapasowa AOF](#configure-aof-persistence).
+Konto magazynu pomocniczego trwałości kopia zapasowa AOF można usunąć, ustawiając drugie konto magazynu jako takie samo, jak pierwsze konto magazynu. W przypadku istniejących pamięci podręcznych blok **trwałość danych** jest dostępny z **menu zasób** dla pamięci podręcznej. Aby wyłączyć trwałość kopia zapasowa AOF, kliknij pozycję **wyłączone**.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Co to jest ponowne zapisywanie i jak ma to wpływ na moją pamięć podręczną?
 

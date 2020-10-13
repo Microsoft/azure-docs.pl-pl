@@ -1,0 +1,115 @@
+---
+title: Reguły wychodzące Azure Load Balancer
+description: W tym artykule wyjaśniono, jak skonfigurować reguły ruchu wychodzącego w celu kontrolowania ruchu internetowego za pomocą Azure Load Balancer.
+services: load-balancer
+author: asudbring
+ms.service: load-balancer
+ms.topic: conceptual
+ms.custom: contperfq1
+ms.date: 10/13/2020
+ms.author: allensu
+ms.openlocfilehash: 51810876e3636b7023ce9c9318a071636bb00c4c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92002659"
+---
+# <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Reguły wychodzące Azure Load Balancer
+
+Reguły ruchu wychodzącego umożliwiają skonfigurowanie publicznego przychodzącego ruchu źródłowego modułu równoważenia obciążenia (translator adresów sieciowych). Ta konfiguracja umożliwia korzystanie z publicznych adresów IP modułu równoważenia obciążenia jako serwera proxy.
+
+Ta konfiguracja umożliwia:
+
+* Zamaskowane IP
+* Uproszczenie list dozwolonych.
+* Zmniejsza liczbę publicznych zasobów IP do wdrożenia.
+
+Reguły ruchu wychodzącego mają pełną kontrolę deklaratywną w porównaniu z wychodzącymi połączeniami internetowymi. Reguły ruchu wychodzącego umożliwiają skalowanie i dostosowanie tej możliwości do konkretnych potrzeb. 
+
+Reguły ruchu wychodzącego będą następować tylko wtedy, gdy maszyna wirtualna zaplecza nie ma publicznego adresu IP na poziomie wystąpienia (ILPIP).
+
+![Load Balancer reguły ruchu wychodzącego](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
+
+Korzystając z reguł ruchu **wychodzącego** , można jawnie zdefiniować zachowanie przychodzącego ruchu zwrotnego.
+
+Reguły ruchu wychodzącego umożliwiają sterowanie:
+
+* **Które maszyny wirtualne są tłumaczone na które publiczne adresy IP.**
+     * Dwie reguły stanowiły pulę zaplecza A i korzystają z adresów IP a i B, a w puli zaplecza B są stosowane adresy IP C i D.
+* **Jak są podawane porty wychodzącego ruchu źródłowego.**
+     * Pula zaplecza B jest jedyną pulą służącą do nawiązywania połączeń wychodzących, nadając jej wszystkie porty i brak do puli zaplecza A.
+* **Protokoły, dla których ma zostać przewidziane tłumaczenie wychodzące.**
+     * Pula zaplecza B potrzebuje portów UDP dla ruchu wychodzącego. Pula zaplecza A wymaga protokołu TCP. Nadaj portom TCP portów i UDP do B.
+* **Czas trwania okresu bezczynności połączenia wychodzącego (4-120 minut).**
+     * W przypadku długotrwałych połączeń z utrzymywaniem aktywności należy zarezerwować bezczynne porty dla długotrwałych połączeń przez maksymalnie 120 minut. Przyjęto założenie, że stare połączenia są porzucane i zwalniane w ciągu 4 minut na potrzeby nowych połączeń 
+* **Czy należy wysyłać Resetowanie protokołu TCP przy użyciu limitu czasu bezczynności.**
+     * po upływie limitu czasu bezczynnych połączeń wysyłamy do klienta i serwera protokół TCP, aby wiadomo, że przepływ został porzucony?
+
+## <a name="outbound-rule-definition"></a>Definicja reguły ruchu wychodzącego
+
+Reguły ruchu wychodzącego są zgodne z tą samą znajomą składnią jak **frontend**Równoważenie obciążenia i reguły NAT dla ruchu przychodzącego:  +  **parameters**  +  **baza danych**frontonu. 
+
+Reguła ruchu wychodzącego konfiguruje wychodzące NAT dla _wszystkich maszyn wirtualnych identyfikowanych przez pulę zaplecza_ , które mają zostać przetłumaczone na _fronton_.  
+
+_Parametry_ zapewniają dodatkową kontrolę nad algorytmem NAT dla ruchu wychodzącego.
+
+## <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a> Skalowanie ruchu wychodzącego NAT z wieloma adresami IP
+
+Każdy dodatkowy adres IP dostarczony przez fronton oferuje dodatkowe 64 000 portów tymczasowych dla modułu równoważenia obciążenia, które mogą być używane jako porty protokołu źródłowego. 
+
+Użyj wielu adresów IP do zaplanowania scenariuszy o dużej skali. Użyj reguł ruchu wychodzącego, aby ograniczyć [wyczerpanie adresów](troubleshoot-outbound-connection.md#snatexhaust). 
+
+Można również użyć [publicznego prefiksu adresu IP](https://aka.ms/lbpublicipprefix) bezpośrednio z regułą wychodzącą. 
+
+Publiczny prefiks adresu IP zwiększa skalowanie wdrożenia. Prefiks można dodać do listy dozwolonych przepływów pochodzących z zasobów platformy Azure. Konfigurację adresu IP frontonu można skonfigurować w ramach modułu równoważenia obciążenia, aby odwoływać się do prefiksu publicznego adresu IP.  
+
+Moduł równoważenia obciążenia ma kontrolę nad publicznym prefiksem adresu IP. Reguła ruchu wychodzącego automatycznie będzie używać wszystkich publicznych adresów IP zawartych w publicznym prefiksie adresu IP dla połączeń wychodzących. 
+
+Każdy adres IP w ramach publicznego prefiksu IP zapewnia dodatkowe 64 000 portów tymczasowych na adres IP dla usługi równoważenia obciążenia, które mają być używane jako porty protokołu źródłowego.
+
+## <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Limit czasu bezczynności przepływu ruchu wychodzącego i Resetowanie protokołu TCP
+
+Reguły ruchu wychodzącego zapewniają parametr konfiguracji służący do kontrolowania limitu czasu bezczynności przepływu wychodzącego i dopasowania go do potrzeb aplikacji. Domyślnie wychodzące limity czasu bezczynności to 4 minuty. Aby uzyskać więcej informacji, zobacz [Konfigurowanie limitów czasu bezczynności](load-balancer-tcp-idle-timeout.md). 
+
+Domyślnym zachowaniem usługi równoważenia obciążenia jest odrzucanie przepływu w trybie dyskretnym, gdy osiągnięto limit czasu bezczynności dla ruchu wychodzącego. `enableTCPReset`Parametr umożliwia przewidywalną kontrolę i zachowanie aplikacji. Parametr określa, czy należy wysyłać dwukierunkowe Resetowanie TCP (TCP RST) przy limicie czasu limitu czasu bezczynności ruchu wychodzącego. 
+
+Przejrzyj informacje [o limicie czasu bezczynności na potrzeby resetowania protokołu TCP](https://aka.ms/lbtcpreset) , co obejmuje dostępność regionów.
+
+## <a name="securing-and-controlling-outbound-connectivity-explicitly"></a><a name="preventoutbound"></a>Jawne Zabezpieczanie i kontrolowanie łączności wychodzącej
+
+Reguły równoważenia obciążenia zapewniają automatyczne Programowanie dla wychodzącego translatora adresów sieciowych. Niektóre scenariusze korzyści lub wymagają wyłączenia automatycznego programowania wychodzącego NAT przez regułę równoważenia obciążenia. Wyłączenie za pośrednictwem reguły pozwala kontrolować lub ograniczać zachowanie.  
+
+Tego parametru można użyć na dwa sposoby:
+
+1. Zapobieganie przychodzącemu adresowi IP dla wychodzącego odruchu. Wyłącz wychodzący magazyn danych w regule równoważenia obciążenia.
+  
+2. Dostosuj parametry wychodzącego ruchu **źródłowego** dla adresu IP używanego do ruchu przychodzącego i wychodzącego jednocześnie. Automatyczne wychodzące NAT musi być wyłączone, aby zezwolić regule wychodzącej na przejęcie kontroli. Aby zmienić przydzieloną portów adresów sieciowych dla ruchu przychodzącego, `disableOutboundSnat` należy także ustawić wartość true dla parametru. 
+
+Operacja konfigurowania reguły wychodzącej zakończy się niepowodzeniem w przypadku próby ponownego zdefiniowania adresu IP używanego do obsługi ruchu przychodzącego.  Najpierw wyłącz wychodzące NAT reguły równoważenia obciążenia.
+
+>[!IMPORTANT]
+> Jeśli ustawisz ten parametr na wartość true, maszyna wirtualna nie będzie mogła mieć łączności wychodzącej, aby zdefiniować łączność wychodzącą.  Niektóre operacje związane z maszyną wirtualną lub aplikacją mogą zależeć od dostępnego połączenia wychodzącego. Zadbaj o to, aby zrozumieć zależności danego scenariusza i wziąć pod uwagę wpływ wprowadzania tej zmiany.
+
+Czasami jest niepożądane, aby maszyna wirtualna mogła utworzyć przepływ wychodzący. Może istnieć wymóg, aby zarządzać miejscem, w którym znajdują się przepływy wychodzące, lub które miejsca docelowe zaczynają przepływy przychodzące. Użyj [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md) , aby zarządzać miejscami docelowymi, do których dojdzie maszyna wirtualna. Użyj sieciowych grup zabezpieczeń, aby zarządzać, które publiczne miejsca docelowe zaczynają przepływy przychodzące.
+
+Po zastosowaniu sieciowej grupy zabezpieczeń do maszyny wirtualnej z równoważeniem obciążenia należy zwrócić uwagę na [Tagi usługi](../virtual-network/security-overview.md#service-tags) i [domyślne reguły zabezpieczeń](../virtual-network/security-overview.md#default-security-rules). 
+
+Upewnij się, że maszyna wirtualna może odbierać żądania sondowania kondycji z Azure Load Balancer.
+
+Jeśli sieciowej grupy zabezpieczeń blokuje żądania sondy kondycji z domyślnego tagu AZURE_LOADBALANCER, sonda kondycji maszyny wirtualnej kończy się niepowodzeniem, a maszyna wirtualna zostanie oznaczona jako niedostępna. Moduł równoważenia obciążenia przestaje wysyłać Nowe przepływy do tej maszyny wirtualnej.
+
+## <a name="limitations"></a>Ograniczenia
+
+- Maksymalna liczba użytecznych portów tymczasowych na adres IP frontonu to 64 000.
+- Zakres konfigurowalnego limitu czasu bezczynności wynosi od 4 do 120 minut (240 do 7200 sekund).
+- Moduł równoważenia obciążenia nie obsługuje protokołu ICMP dla wychodzącego translatora adresów sieciowych.
+- Reguły ruchu wychodzącego mogą być stosowane tylko do podstawowej konfiguracji adresu IP karty sieciowej.  Nie można utworzyć reguły ruchu wychodzącego dla pomocniczego adresu IP maszyny wirtualnej lub urządzenie WUS. Obsługiwane są wiele kart sieciowych.
+- Wszystkie maszyny wirtualne w ramach **zestawu dostępności** muszą zostać dodane do puli zaplecza na potrzeby łączności wychodzącej. 
+- Wszystkie maszyny wirtualne w ramach **zestawu skalowania maszyn wirtualnych** należy dodać do puli zaplecza na potrzeby łączności wychodzącej.
+
+## <a name="next-steps"></a>Następne kroki
+
+- Dowiedz się więcej o [usłudze Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md)
+- Zapoznaj się z [często zadawanymi pytaniami dotyczącymi Azure Load Balancer](load-balancer-faqs.md)
+

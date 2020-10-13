@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 984977d7cef1a923bf7f17de0c503bddeeebcd82
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575099"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998379"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Co to jest usługa IoT Plug and Play?
 
@@ -67,10 +67,6 @@ Jako Konstruktor urządzeń można opracowywać produkt sprzętu IoT, który obs
 ## <a name="device-certification"></a>Certyfikacja urządzenia
 
 [Program certyfikacji urządzenia Plug and Play IoT](howto-certify-device.md) sprawdza, czy urządzenie spełnia wymagania certyfikacji Plug and Play IoT. Można dodać certyfikowane urządzenie do [wykazu urządzeń usługi Azure IoT z certyfikatem](https://aka.ms/devicecatalog)publicznym.
-
-## <a name="regional-availability"></a>Dostępność regionalna
-
-To odświeżenie Plug and Play IoT jest dostępne w centrach IoT utworzonych w regionach Środkowe stany USA, Europa Północna i Japonia Wschodnia.
 
 ## <a name="next-steps"></a>Następne kroki
 

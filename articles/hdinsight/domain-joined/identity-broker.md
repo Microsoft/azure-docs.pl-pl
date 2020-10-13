@@ -1,68 +1,68 @@
 ---
 title: Korzystanie z usługi ID brokera (wersja zapoznawcza) na potrzeby zarządzania poświadczeniami — Azure HDInsight
-description: Dowiedz się więcej o usłudze HDInsight ID Broker, aby uprościć uwierzytelnianie dla przyłączonych do domeny Apache Hadoop klastrów.
+description: Dowiedz się więcej o usłudze Azure HDInsight ID Broker, aby uprościć uwierzytelnianie dla przyłączonych do domeny Apache Hadoop klastrów.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565330"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999948"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)
 
-W tym artykule opisano sposób konfigurowania i używania funkcji brokera identyfikatorów HDInsight (HIB) w usłudze Azure HDInsight. Za pomocą tej funkcji można uzyskać nowoczesne uwierzytelnianie OAuth na platformie Apache Ambari podczas wymuszania Multi-Factor Authentication (MFA) bez konieczności używania starszych skrótów haseł w usłudze Azure Active Directory Domain Services (AAD-DS).
+W tym artykule opisano sposób konfigurowania i używania funkcji brokera identyfikatorów usługi Azure HDInsight. Za pomocą tej funkcji można uzyskać nowoczesne uwierzytelnianie OAuth na platformie Apache Ambari przy jednoczesnym wymuszeniu uwierzytelniania wieloskładnikowego bez konieczności używania starszych skrótów haseł w Azure Active Directory Domain Services (AD DS platformy Azure).
 
 ## <a name="overview"></a>Omówienie
 
-HIB upraszcza skomplikowane konfiguracje uwierzytelniania w następujących scenariuszach:
+Broker identyfikatorów usługi HDInsight upraszcza konfiguracje uwierzytelniania złożonego w następujących scenariuszach:
 
-* Organizacja korzysta z Federacji, aby uwierzytelniać użytkowników w celu uzyskiwania dostępu do zasobów w chmurze. Wcześniej aby można było korzystać z klastrów usługi HDInsight pakiet Enterprise Security (ESP), należy włączyć synchronizację skrótów haseł z środowiska lokalnego do Azure Active Directory (Azure AD). To wymaganie może być trudne lub niepożądane w niektórych organizacjach.
+* Organizacja korzysta z Federacji, aby uwierzytelniać użytkowników w celu uzyskiwania dostępu do zasobów w chmurze. Wcześniej aby można było korzystać z klastrów pakiet Enterprise Security HDInsight, należy włączyć synchronizację skrótów haseł z środowiska lokalnego do Azure Active Directory (Azure AD). To wymaganie może być trudne lub niepożądane w niektórych organizacjach.
+* Organizacja chce wymusić uwierzytelnianie wieloskładnikowe na potrzeby dostępu opartego na sieci Web lub HTTP do usługi Apache Ambari i innych zasobów klastra.
 
-* Organizacja chce wymusić uwierzytelnianie wieloskładnikowe dla dostępu za pośrednictwem sieci Web/HTTP do platformy Apache Ambari i innych zasobów klastra.
+Broker identyfikatora usługi HDInsight udostępnia infrastrukturę uwierzytelniania, która umożliwia przejście protokołu z uwierzytelniania OAuth (nowoczesnego) do protokołu Kerberos (starsza wersja) bez konieczności synchronizacji skrótów haseł do usługi Azure AD DS. Ta infrastruktura obejmuje składniki działające na maszynie wirtualnej z systemem Windows Server z włączonym węzłem brokera identyfikatorów usługi HDInsight wraz z węzłami bramy klastra.
 
-HIB zapewnia infrastrukturę uwierzytelniania, która umożliwia przejście protokołu z uwierzytelniania OAuth (nowoczesnego) do protokołu Kerberos (starsza wersja) bez konieczności synchronizowania skrótów haseł z usługą AAD-DS. Ta infrastruktura obejmuje składniki działające na maszynie wirtualnej z systemem Windows Server (węzłem brokera identyfikatorów) wraz z węzłami bramy klastra.
-
-Skorzystaj z poniższej tabeli, aby określić najlepszą opcję uwierzytelniania w zależności od potrzeb organizacji:
+Skorzystaj z poniższej tabeli, aby określić najlepszą opcję uwierzytelniania w zależności od potrzeb organizacji.
 
 |Opcje uwierzytelniania |Konfiguracja usługi HDInsight | Czynniki, które należy wziąć pod uwagę |
 |---|---|---|
-| Pełny protokół OAuth | ESP + HIB | 1. najbezpieczniejsza opcja (MFA jest obsługiwana) 2.    Przekazanie synchronizacji skrótu nie jest wymagane. 3.  Brak dostępu SSH/narzędzie kinit/plik KEYTAB dla kont on-Premium, które nie mają skrótu hasła w usłudze AAD-DS. 4.   Konta w chmurze mogą nadal być SSH/narzędzie kinit/plik KEYTAB. 5. Dostęp oparty na sieci Web do Ambari za pośrednictwem protokołu OAuth 6.  Wymaga aktualizacji starszych aplikacji (JDBC/ODBC itp.) w celu obsługi uwierzytelniania OAuth.|
-| Uwierzytelnianie OAuth + podstawowa | ESP + HIB | 1. dostęp oparty na sieci Web do Ambari za pośrednictwem protokołu OAuth 2. Starsze aplikacje nadal używają uwierzytelniania podstawowego. 3. Uwierzytelnianie wieloskładnikowe musi być wyłączone dla podstawowego dostępu do uwierzytelniania. 4. Przekazanie synchronizacji skrótu nie jest wymagane. 5. Brak dostępu SSH/narzędzie kinit/plik KEYTAB dla kont on-Premium, które nie mają skrótu hasła w usłudze AAD-DS. 6. Konta w chmurze mogą nadal być SSH/narzędzie kinit. |
-| Uwierzytelnianie w pełni podstawowe | ESP | 1. najbardziej podobne do konfiguracji Premium. 2. Wymagana jest synchronizacja skrótów haseł w usłudze AAD — DS. 3. Konta Premium mogą korzystać z protokołu SSH/narzędzie kinit lub plik KEYTAB. 4. Jeśli magazyn zapasowy jest ADLS Gen2, należy wyłączyć usługę MFA |
+| Pełny protokół OAuth | pakiet Enterprise Security + Broker identyfikatorów usługi HDInsight | Opcja najbezpieczniejsza. (Uwierzytelnianie wieloskładnikowe jest obsługiwane). Przekazanie synchronizacji skrótu *nie* jest wymagane. Brak dostępu SSH/narzędzie kinit/plik KEYTAB dla kont lokalnych, które nie mają skrótu hasła na platformie Azure AD DS. Konta tylko w chmurze mogą nadal być SSH/narzędzie kinit/plik KEYTAB. Dostęp oparty na sieci Web do Ambari za pośrednictwem protokołu OAuth. Wymaga aktualizacji starszych aplikacji (na przykład JDBC/ODBC) do obsługi protokołu OAuth.|
+| Uwierzytelnianie OAuth + podstawowa | pakiet Enterprise Security + Broker identyfikatorów usługi HDInsight | Dostęp oparty na sieci Web do Ambari za pośrednictwem protokołu OAuth. Starsze aplikacje nadal używają uwierzytelniania podstawowego. Uwierzytelnianie wieloskładnikowe musi być wyłączone dla podstawowego dostępu do uwierzytelniania. Przekazanie synchronizacji skrótu *nie* jest wymagane. Brak dostępu SSH/narzędzie kinit/plik KEYTAB dla kont lokalnych, które nie mają skrótu hasła na platformie Azure AD DS. Konta tylko w chmurze mogą nadal być SSH/narzędzie kinit. |
+| Uwierzytelnianie w pełni podstawowe | Pakiet Enterprise Security | Najbardziej podobne do konfiguracji lokalnych. Wymagana jest synchronizacja skrótów haseł do usługi Azure AD DS. Konta lokalne mogą korzystać z protokołu SSH/narzędzie kinit lub plik KEYTAB. Jeśli magazyn zapasowy jest Azure Data Lake Storage Gen2, należy wyłączyć uwierzytelnianie wieloskładnikowe. |
 
-Na poniższym diagramie przedstawiono nowoczesne przepływy uwierzytelniania opartego na OAuth dla wszystkich użytkowników, w tym użytkowników federacyjnych, po włączeniu brokera identyfikatorów:
+Na poniższym diagramie przedstawiono nowoczesne przepływy uwierzytelniania opartego na protokole OAuth dla wszystkich użytkowników, w tym użytkowników federacyjnych, po włączeniu brokera identyfikatora usługi HDInsight:
 
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagram przedstawiający przepływ uwierzytelniania przy użyciu brokera identyfikatora usługi HDInsight.":::
 
-Na tym diagramie klient (tj. przeglądarka lub aplikacje) musi najpierw uzyskać token OAuth, a następnie przedstawić token do bramy w żądaniu HTTP. Jeśli zalogowano się już do innych usług platformy Azure, takich jak Azure Portal, możesz zalogować się do klastra usługi HDInsight przy użyciu logowania jednokrotnego (SSO).
+Na tym diagramie klient (czyli przeglądarka lub aplikacja) musi najpierw uzyskać token uwierzytelniania OAuth. Następnie przedstawia token bramy w żądaniu HTTP. Jeśli zalogowano się już do innych usług platformy Azure, takich jak Azure Portal, możesz zalogować się do klastra usługi HDInsight przy użyciu logowania jednokrotnego.
 
-Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzytelnianie podstawowe (tj. nazwa użytkownika/hasło). W tych scenariuszach nadal można nawiązać połączenie z bramami klastra przy użyciu uwierzytelniania podstawowego protokołu HTTP. W tej konfiguracji należy zapewnić łączność sieciową z węzłów bramy do punktu końcowego Federacji (AD FS Endpoint), aby zapewnić bezpośrednią linię wglądu z węzłów bramy. 
+Nadal może istnieć wiele starszych aplikacji, które obsługują tylko uwierzytelnianie podstawowe (to jest nazwa użytkownika i hasło). W tych scenariuszach nadal można nawiązać połączenie z bramami klastra przy użyciu uwierzytelniania podstawowego protokołu HTTP. W tej konfiguracji należy zapewnić łączność sieciową z węzłów bramy do punktu końcowego Active Directory Federation Services (AD FS), aby zapewnić bezpośrednią linię wglądu z węzłów bramy.
 
-Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) i w przypadku braku skrótów haseł synchronizowanych z usługą Azure AD, a następnie powróci do odnajdywania punktu końcowego AD FS i dokończyć uwierzytelnianie, uzyskując dostęp do punktu końcowego AD FS.
+Na poniższym diagramie przedstawiono przepływ uwierzytelniania podstawowego dla użytkowników federacyjnych. Najpierw Brama próbuje ukończyć uwierzytelnianie przy użyciu usługi [ROPC Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). W przypadku braku skrótów haseł synchronizowanych z usługą Azure AD powracanie do odnajdywania punktu końcowego AD FS i kończenia uwierzytelniania przez uzyskanie dostępu do punktu końcowego AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Przepływ uwierzytelniania z brokerem identyfikatorów":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram przedstawiający przepływ uwierzytelniania przy użyciu brokera identyfikatora usługi HDInsight.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Włącz brokera identyfikatorów usługi HDInsight
 
-Aby utworzyć klaster ESP z włączonym brokerem identyfikatorów, wykonaj następujące czynności:
+Aby utworzyć klaster pakiet Enterprise Security z włączonym brokerem identyfikatora usługi HDInsight:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Postępuj zgodnie z podstawowymi procedurami tworzenia klastra ESP. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra usługi HDInsight przy użyciu protokołu ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
+1. Postępuj zgodnie z podstawowymi procedurami tworzenia klastra pakiet Enterprise Security. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra usługi HDInsight przy użyciu pakiet Enterprise Security](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Wybierz pozycję **Włącz brokera identyfikatorów HDInsight**.
 
-Funkcja brokera identyfikatorów doda do klastra jedną dodatkową maszynę wirtualną. Ta maszyna wirtualna jest węzłem brokera identyfikatorów i zawiera składniki serwera do obsługi uwierzytelniania. Węzeł brokera identyfikatorów jest przyłączony do domeny AD DS platformy Azure.
+Funkcja brokera identyfikatorów usługi HDInsight dodaje do klastra jedną dodatkową maszynę wirtualną. Ta maszyna wirtualna jest węzłem brokera identyfikatora usługi HDInsight i obejmuje składniki serwera do obsługi uwierzytelniania. Węzeł brokera identyfikatorów HDInsight jest przyłączony do domeny AD DS platformy Azure.
 
-![Opcja włączenia brokera identyfikatorów](./media/identity-broker/identity-broker-enable.png)
+![Diagram przedstawiający opcję włączenia brokera identyfikatora usługi HDInsight.](./media/identity-broker/identity-broker-enable.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
-Jeśli dodasz nową rolę o nazwie `idbrokernode` z poniższymi atrybutami do profilu obliczeniowego szablonu, klaster zostanie utworzony z włączonym węzłem identyfikatora brokera:
+### <a name="use-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
+
+Jeśli dodasz nową rolę o nazwie `idbrokernode` z następującymi atrybutami do profilu obliczeniowego szablonu, klaster zostanie utworzony z włączonym węzłem brokera identyfikatorów usługi HDInsight:
 
 ```json
 .
@@ -103,31 +103,31 @@ Jeśli dodasz nową rolę o nazwie `idbrokernode` z poniższymi atrybutami do pr
 
 ## <a name="tool-integration"></a>Integracja narzędzi
 
-Narzędzia HDIsngith zostały zaktualizowane w celu natywnego obsługi protokołu OAuth. Zdecydowanie zalecamy używanie tych narzędzi dla nowoczesnego dostępu opartego na protokole OAuth do klastrów. Wtyczka usługi HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) może być używana dla aplikacji opartych na języku Java, takich jak Scala. [Narzędzia programu Hive & platformy Spark dla vs Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) mogą służyć do PySpark i zadań Hive. Obsługują zarówno zadania wsadowe, jak i interaktywne.
+Narzędzia usługi HDInsight są aktualizowane w celu natywnej obsługi protokołu OAuth. Użyj tych narzędzi dla nowoczesnego dostępu opartego na protokole OAuth do klastrów. Wtyczka usługi HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) może być używana w przypadku aplikacji opartych na języku Java, takich jak Scala. [Narzędzia Spark i Hive dla Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) mogą być używane na potrzeby zadań PySpark i Hive. Narzędzia obsługują zadanie wsadowe i zadania interaktywne.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Dostęp SSH bez skrótu hasła na platformie Azure AD DS
 
 |Opcje protokołu SSH |Czynniki, które należy wziąć pod uwagę |
 |---|---|
-| Konto lokalnego maszyny wirtualnej (np. sshuser) | 1. to konto zostało podane podczas tworzenia klastra. 2.  Brak authication Kerberos dla tego konta |
-| Konto tylko w chmurze (np. alice@contoso.onmicrosoft.com ) | 1. skrót hasła jest dostępny w usłudze AAD — DS. 2. Uwierzytelnianie Kerberos jest możliwe za pośrednictwem protokołu SSH Kerberos |
-| Konto Premium (np. alice@contoso.com ) | 1. uwierzytelnianie Kerberos protokołu SSH jest możliwe tylko wtedy, gdy skrót hasła jest dostępny w usłudze AAD — w przeciwnym razie ten użytkownik nie może przeprowadzić połączenia SSH z klastrem |
+| Konto lokalnego maszyny wirtualnej (na przykład sshuser) | To konto zostało podane podczas tworzenia klastra. Brak uwierzytelniania Kerberos dla tego konta. |
+| Konto tylko w chmurze (na przykład alice@contoso.onmicrosoft.com ) | Skrót hasła jest dostępny w usłudze Azure AD DS. Uwierzytelnianie Kerberos jest możliwe za pośrednictwem protokołu SSH Kerberos. |
+| Konto lokalne (na przykład alice@contoso.com ) | Uwierzytelnianie za pomocą protokołu SSH Kerberos jest możliwe tylko wtedy, gdy skrót hasła jest dostępny w usłudze Azure AD DS. W przeciwnym razie ten użytkownik nie może nawiązać połączenia SSH z klastrem. |
 
-Aby zapewnić połączenie SSH z przyłączoną do domeny maszyną wirtualną lub uruchomić `kinit` polecenie, należy podać hasło. Uwierzytelnianie protokołu SSH Kerberos wymaga, aby skrót był dostępny w usłudze AAD-DS. Jeśli chcesz używać protokołu SSH tylko w przypadku scenariuszy administracyjnych, możesz utworzyć jedno konto tylko w chmurze i używać go do protokołu SSH do klastra. Inni użytkownicy korzystający z usługi Premium mogą nadal używać narzędzi Ambari lub HDInsight lub uwierzytelniania podstawowego protokołu HTTP, bez potrzeby korzystania z skrótu hasła w usłudze AAD-DS.
+Aby zapewnić połączenie SSH z maszyną wirtualną przyłączoną do domeny lub uruchomić `kinit` polecenie, musisz podać hasło. Uwierzytelnianie protokołu SSH Kerberos wymaga, aby skrót był dostępny na platformie Azure AD DS. Jeśli chcesz używać protokołu SSH tylko w przypadku scenariuszy administracyjnych, możesz utworzyć jedno konto tylko w chmurze i używać go do protokołu SSH do klastra. Inni użytkownicy lokalni nadal mogą korzystać z narzędzi Ambari lub HDInsight lub uwierzytelniania podstawowego protokołu HTTP bez posiadania skrótu hasła dostępnego w usłudze Azure AD DS.
 
-Jeśli w organizacji nie są synchronizowane skróty haseł do usługi AAD-DS, najlepszym rozwiązaniem jest utworzenie tylko jednego użytkownika tylko w chmurze w usłudze Azure AD i przypisanie go jako administratora klastra podczas tworzenia klastra i użycie go do celów administracyjnych obejmujących dostęp do maszyn wirtualnych za pośrednictwem protokołu SSH.
+Jeśli Twoja organizacja nie synchronizuje skrótów haseł do usługi Azure AD DS, najlepszym rozwiązaniem jest utworzenie jednego użytkownika tylko w chmurze w usłudze Azure AD. Następnie przypisz go jako administratora klastra podczas tworzenia klastra i użyj go do celów administracyjnych. Można go użyć, aby uzyskać dostęp do maszyn wirtualnych za pośrednictwem protokołu SSH.
 
-Aby rozwiązać problemy z uwierzytelnianiem, zobacz ten [Przewodnik](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+Aby rozwiązać problemy z uwierzytelnianiem, zobacz [ten przewodnik](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
 
-## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-hib"></a>Klienci korzystający z protokołu OAuth do nawiązywania połączenia z bramą usługi HDInsight z usługą HIB
+## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>Klienci korzystający z protokołu OAuth do nawiązywania połączenia z bramą usługi HDInsight z brokerem identyfikatorów usługi HDInsight
 
-W instalatorze HIB można zaktualizować niestandardowe aplikacje i klientów łączących się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Możesz wykonać kroki opisane w tym [dokumencie](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) , aby uzyskać token z następującymi informacjami:
+W konfiguracji brokera identyfikatora usługi HDInsight można zaktualizować niestandardowe aplikacje i klientów, którzy łączą się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Wykonaj kroki opisane w [tym dokumencie](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) , aby uzyskać token z następującymi informacjami:
 
 *   Identyfikator URI zasobu OAuth: `https://hib.azurehdinsight.net` 
 *   Identyfikator aplikacji: 7865c1d2-F040-46cc-875f-831a1ef6a28a
 *   Uprawnienie: (nazwa: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
-Po uzyskaniu tokenu OAuth można użyć go w nagłówku autoryzacji żądania HTTP do bramy klastra (np. https:// <clustername> -int.azurehdinsight.NET). Przykładowo polecenie zwinięcie przykładu do interfejsu API Apache usługi Livy może wyglądać następująco:
+Po uzyskaniu tokenu OAuth Użyj go w nagłówku autoryzacji żądania HTTP do bramy klastra (na przykład https:// <clustername> -int.azurehdinsight.NET). Przykładowa postać polecenia zwinięcie do interfejsu API Apache usługi Livy może wyglądać następująco:
     
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"

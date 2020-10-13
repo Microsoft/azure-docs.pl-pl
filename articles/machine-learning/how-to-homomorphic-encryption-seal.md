@@ -9,13 +9,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b241220168a5cd81ce23be729944df387e87e567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844546"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998688"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Jak wdrożyć zaszyfrowaną usługę sieci Web inferencing (wersja zapoznawcza)
 

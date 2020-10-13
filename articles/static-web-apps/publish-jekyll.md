@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797704"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000215"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Jekyll w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Jekyll](https://jekyllrb.com/) w usłudze [Azure static Web Apps](overview.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -96,7 +96,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**.
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 1. W obszarze **subskrypcja**Zaakceptuj subskrypcję wymienioną na liście lub wybierz nową z listy rozwijanej.
 
@@ -146,12 +146,9 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Otwórz aplikację Jekyll w edytorze tekstów i Otwórz plik _. GitHub/przepływy pracy/Azure-Pages-<WORKFLOW_NAME>. yml_ .
 
-1. Dodaj wiersze po bloku `- uses: actions/checkout@v2` do następującego bloku konfiguracji.
+1. Po wierszu `- uses: actions/checkout@v2` Dodaj następujący blok konfiguracji.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:

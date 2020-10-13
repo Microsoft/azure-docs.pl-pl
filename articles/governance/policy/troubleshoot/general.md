@@ -3,12 +3,12 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
 ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743441"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999901"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy
 
@@ -169,6 +169,24 @@ Wykres Helm o nazwie `azure-policy-addon` został już zainstalowany lub częśc
 #### <a name="resolution"></a>Rozwiązanie
 
 Postępuj zgodnie z instrukcjami, aby [usunąć Azure Policy dodatku Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on), a następnie ponownie uruchom `helm install azure-policy-addon` polecenie.
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Scenariusz: tożsamości przypisane przez użytkownika maszyn wirtualnych platformy Azure są zastępowane tożsamościami zarządzanymi przez system
+
+#### <a name="issue"></a>Problem
+
+Po przypisaniu inicjatyw zasad konfiguracji gościa do ustawień inspekcji wewnątrz maszyn, zarządzane tożsamości przypisane przez użytkownika przypisane do maszyny nie są już przypisane. Przypisywana jest tylko tożsamość zarządzana przypisana przez system.
+
+#### <a name="cause"></a>Przyczyna
+
+Definicje zasad wcześniej używane w definicjach DeployIfNotExists konfiguracji gościa zapewniają, że tożsamość przypisana przez system jest przypisana do komputera, ale również z przypisanymi przez użytkownika przypisaniami tożsamości.
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Definicje, które wcześniej powodowały ten problem, są wyświetlane jako \[ przestarzałe \] i zastąpione przez definicje zasad, które zarządzają wymaganiami wstępnymi bez usuwania tożsamości zarządzanej przypisanej przez użytkownika. Wymagany jest krok ręczny. Usuń wszystkie istniejące przypisania zasad, które są oznaczone jako \[ przestarzałe \] , i zastąp je za pomocą zaktualizowanej inicjatywy zasad i definicji zasad, które mają taką samą nazwę jak oryginalna.
+
+Aby uzyskać szczegółowe opisy, zobacz następujący wpis w blogu:
+
+[Ważna zmiana dotycząca zasad inspekcji konfiguracji gościa](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>Następne kroki
 

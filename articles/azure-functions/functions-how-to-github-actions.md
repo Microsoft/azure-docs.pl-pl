@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 48482658fdabc3e826b6855c500829a16c166749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851122"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999242"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
@@ -32,6 +32,18 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 > [!NOTE]
 > Nie trzeba tworzyć jednostki usługi, jeśli zdecydujesz się na użycie profilu publikowania na potrzeby uwierzytelniania.
 
+## <a name="downloading-and-using-a-publish-profile-as-deployment-credential-recommended"></a>Pobieranie i używanie profilu publikowania jako poświadczeń wdrożenia (zalecane)
+
+Aby pobrać profil publikowania aplikacji funkcji:
+
+1. Wybierz stronę **Przegląd** aplikacji funkcji, a następnie wybierz pozycję **Pobierz profil publikowania**.
+
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Pobierz profil publikowania":::
+
+1. Zapisz i skopiuj zawartość pliku ustawień publikowania.
+
+## <a name="create-a-service-principal-deprecated"></a>Tworzenie jednostki usługi (przestarzałe)
+=======
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -44,7 +56,8 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 
 Zalecanym sposobem uwierzytelniania przy użyciu Azure Functions na potrzeby akcji usługi GitHub jest profil publikowania. Można także uwierzytelnić się za pomocą nazwy głównej usługi, ale proces wymaga większej liczby kroków. 
 
-Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) , aby uwierzytelnić się na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
+## <a name="configure-the-github-secret"></a>Konfigurowanie wpisu tajnego usługi GitHub
+= = = = = = Zapisz poświadczenia profilu publikowania lub nazwę główną usługi jako [wpis tajny serwisu GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) do uwierzytelniania na platformie Azure. Będziesz uzyskiwać dostęp do wpisu tajnego w ramach przepływu pracy. 
 
 # <a name="publish-profile"></a>[Publikuj profil](#tab/publish-profile)
 

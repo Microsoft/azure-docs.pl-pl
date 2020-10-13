@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840255"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000162"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -33,7 +33,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
 * [Omówienie](#overview)
 * [Dziennik aktywności](#activity-log)
 * [Kontrola dostępu (IAM)](#access-control-iam)
-* [Tagi](#tags)
+* [Tags](#tags)
 * [Diagnozowanie i rozwiązywanie problemów](#diagnose-and-solve-problems)
 * [Ustawienia](#settings)
     * [Klawisze dostępu](#access-keys)
@@ -74,7 +74,7 @@ Kliknij pozycję **Dziennik aktywności** , aby wyświetlić akcje wykonywane w 
 
 Sekcja **Kontrola dostępu (IAM)** zapewnia obsługę kontroli dostępu opartej na ROLACH (RBAC) w Azure Portal. Ta konfiguracja ułatwia organizacjom spełnienie wymagań związanych z zarządzaniem dostępem po prostu i precyzyjnie. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Tagi
+### <a name="tags"></a>Tags
 
 Sekcja **Tagi** pomaga organizować zasoby. Aby uzyskać więcej informacji, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](../azure-resource-manager/management/tag-resources.md).
 
@@ -214,7 +214,7 @@ Aby zmienić rozmiar klastra, użyj suwaka lub wpisz liczbę z zakresu od 1 do 1
 
 
 ### <a name="redis-data-persistence"></a>Trwałość danych Redis
-Kliknij pozycję **trwałość danych** , aby włączyć, wyłączyć lub skonfigurować trwałość danych dla pamięci podręcznej Premium. Usługa Azure cache for Redis oferuje Trwałość Redis przy użyciu trwałości [RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) lub [trwałości kopia zapasowa AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Kliknij pozycję **trwałość danych** , aby włączyć, wyłączyć lub skonfigurować trwałość danych dla pamięci podręcznej Premium. Usługa Azure cache for Redis oferuje Trwałość Redis przy użyciu trwałości RDB lub trwałości kopia zapasowa AOF.
 
 Aby uzyskać więcej informacji, zobacz [jak skonfigurować trwałość dla pamięci podręcznej Premium platformy Azure dla Redis](cache-how-to-premium-persistence.md).
 
@@ -258,13 +258,13 @@ Sekcja **Virtual Network** umożliwia skonfigurowanie ustawień sieci wirtualnej
 >
 >
 
-### <a name="firewall"></a>Zapora
+### <a name="firewall"></a>Firewall
 
 Konfiguracja reguł zapory jest dostępna dla wszystkich warstw usługi Azure cache for Redis.
 
 Kliknij pozycję **Zapora** , aby wyświetlić i skonfigurować reguły zapory dla pamięci podręcznej.
 
-![Zapora](./media/cache-configure/redis-firewall-rules.png)
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
 Można określić reguły zapory z zakresem adresów IP początkowy i końcowy. Po skonfigurowaniu reguł zapory tylko połączenia klienckie z określonych zakresów adresów IP mogą łączyć się z pamięcią podręczną. Po zapisaniu reguły zapory występuje krótkie opóźnienie, zanim reguła zacznie obowiązywać. To opóźnienie jest zazwyczaj mniejsze niż jedna minuta.
 

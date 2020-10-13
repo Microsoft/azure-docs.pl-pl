@@ -6,13 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 34e4781d1437b34607a6d9e4f99ec5bd2ef9b46d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205564"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999982"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować obsługę Virtual Network w przypadku pamięci podręcznej Premium platformy Azure dla Redis
 Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. Sieć wirtualna jest siecią prywatną w chmurze. Gdy usługa Azure cache for Redis jest skonfigurowana przy użyciu sieci wirtualnej, nie jest ona publicznie adresowana i można uzyskać do niej dostęp tylko z maszyn wirtualnych i aplikacji w sieci wirtualnej. W tym artykule opisano sposób konfigurowania obsługi sieci wirtualnej na potrzeby wystąpienia usługi Redis w warstwie Premium.
@@ -28,22 +28,38 @@ Wdrożenie [usługi azure Virtual Network (VNET)](https://azure.microsoft.com/se
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej
 Obsługa Virtual Network (VNet) jest konfigurowana w **nowym bloku Azure cache for Redis** podczas tworzenia pamięci podręcznej. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Aby utworzyć pamięć podręczną Premium, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**. Oprócz tworzenia pamięci podręcznych w Azure Portal można je również utworzyć za pomocą szablonów Menedżer zasobów, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji na temat tworzenia pamięci podręcznej platformy Azure dla usługi Redis, zobacz [Tworzenie pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Po wybraniu warstwy cenowej Premium można skonfigurować integrację sieci wirtualnej Redis, wybierając sieć wirtualną znajdującą się w tej samej subskrypcji i lokalizacji co pamięć podręczna. Aby użyć nowej sieci wirtualnej, należy ją najpierw utworzyć, wykonując czynności opisane w temacie [Create a Virtual Network przy użyciu Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) lub [Utwórz sieć wirtualną (klasyczną) za pomocą Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) a następnie wróć do **nowego bloku Azure cache for Redis** , aby utworzyć i skonfigurować pamięć podręczną Premium.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Utwórz zasób.":::
+   
+2. Na stronie **Nowy** wybierz pozycję **bazy danych** , a następnie wybierz pozycję **Azure cache for Redis**.
 
-Aby skonfigurować sieć wirtualną dla nowej pamięci podręcznej, kliknij pozycję **Virtual Network** w **nowym bloku Azure cache for Redis** i wybierz żądaną sieć wirtualną z listy rozwijanej.
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Utwórz zasób.":::
 
-![Sieć wirtualna][redis-cache-vnet]
+3. Na stronie **nowy Redis Cache** Skonfiguruj ustawienia nowej pamięci podręcznej Premium.
+   
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nazwa DNS** | Podaj globalnie unikatową nazwę. | Nazwa pamięci podręcznej musi być ciągiem z przedziału od 1 do 63 znaków, który zawiera tylko cyfry, litery lub łączniki. Nazwa musi zaczynać się i kończyć cyfrą lub literą i nie może zawierać następujących po sobie łączników. *Nazwa hosta* wystąpienia pamięci podręcznej to * \<DNS name> . Redis.cache.Windows.NET*. | 
+   | **Subskrypcja** | I wybierz swoją subskrypcję. | Subskrypcja, w ramach której ma zostać utworzone nowe wystąpienie usługi Azure cache for Redis. | 
+   | **Grupa zasobów** | Wybierz grupę zasobów lub wybierz pozycję **Utwórz nową** , a następnie wprowadź nową nazwę grupy zasobów. | Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna i inne zasoby. Umieszczenie wszystkich zasobów aplikacji w jednej grupie zasobów pozwala łatwo zarządzać nimi i usuwać je razem. | 
+   | **Lokalizacja** | I wybierz lokalizację. | Wybierz [region](https://azure.microsoft.com/regions/) blisko innych usług, które będą korzystać z pamięci podręcznej. |
+   | **Typ pamięci podręcznej** | Wybierz pozycję Pamięć podręczna Premium, aby skonfigurować funkcje Premium. Aby uzyskać szczegółowe informacje, zobacz [Azure cache for Redis — Cennik](https://azure.microsoft.com/pricing/details/cache/). |  Warstwa cenowa decyduje o rozmiarze, wydajności i funkcjach dostępnych dla pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [Omówienie pamięci podręcznej Azure Cache for Redis](cache-overview.md). |
 
-Wybierz żądaną podsieć z listy rozwijanej **podsieć** .  W razie potrzeby określ **statyczny adres IP**. Pole **statyczny adres IP** jest opcjonalne i jeśli nie jest określone, jeden z nich zostanie wybrany z wybranej podsieci.
+4. Wybierz kartę **Sieć** lub kliknij przycisk **sieci** w dolnej części strony.
+
+5. Na karcie **Sieć** wybierz pozycję **sieci wirtualne** jako metodę łączności. Aby użyć nowej sieci wirtualnej, utwórz ją najpierw, wykonując kroki opisane w temacie [Tworzenie sieci wirtualnej przy użyciu Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) lub [Utwórz sieć wirtualną (klasyczną) przy użyciu Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) , a następnie wróć do nowego bloku **Azure cache for Redis** , aby utworzyć i skonfigurować pamięć podręczną Premium.
 
 > [!IMPORTANT]
 > Podczas wdrażania pamięci podręcznej platformy Azure dla Redis w sieci wirtualnej Menedżer zasobów, pamięć podręczna musi znajdować się w dedykowanej podsieci, która nie zawiera żadnych innych zasobów z wyjątkiem usługi Azure cache for Redis Instances. Jeśli podjęto próbę wdrożenia pamięci podręcznej platformy Azure dla Redis w sieci wirtualnej Menedżer zasobów w podsieci zawierającej inne zasoby, wdrożenie zakończy się niepowodzeniem.
 > 
 > 
 
-![Sieć wirtualna][redis-cache-vnet-ip]
+   | Ustawienie      | Sugerowana wartość  | Opis |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Virtual Network** | I wybierz sieć wirtualną. | Wybierz sieć wirtualną znajdującą się w tej samej subskrypcji i lokalizacji co pamięć podręczna. | 
+   | **Podsieć** | I wybierz podsieć. | Zakres adresów podsieci powinien być w notacji CIDR (np. 192.168.1.0/24). Musi ona być zawarta w przestrzeni adresowej sieci wirtualnej. | 
+   | **Statyczny adres IP** | Obowiązkowe Wprowadź statyczny adres IP. | Jeśli nie określisz statycznego adresu IP, adres IP zostanie wybrany automatycznie. | 
 
 > [!IMPORTANT]
 > Platforma Azure rezerwuje niektóre adresy IP w poszczególnych podsieciach i nie można użyć tych adresów. Pierwsze i ostatnie adresy IP podsieci są zarezerwowane na potrzeby zgodności protokołów oraz trzy kolejne adresy używane dla usług platformy Azure. Aby uzyskać więcej informacji, zobacz [czy istnieją jakieś ograniczenia dotyczące używania adresów IP w tych podsieciach?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -52,7 +68,19 @@ Wybierz żądaną podsieć z listy rozwijanej **podsieć** .  W razie potrzeby o
 > 
 > 
 
-Po utworzeniu pamięci podręcznej można wyświetlić konfigurację sieci wirtualnej, klikając pozycję **Virtual Network** w **menu zasób**.
+6. Wybierz kartę **Dalej: Zaawansowane** lub kliknij przycisk **Dalej: Zaawansowane** w dolnej części strony.
+
+7. Na karcie **Zaawansowane** wystąpienia pamięci podręcznej Premium Skonfiguruj ustawienia dla portu niezwiązanego z protokołem TLS, klastrowania i trwałości danych. 
+
+8. Wybierz kartę **następne: Tagi** lub kliknij przycisk **Dalej: Tagi** w dolnej części strony.
+
+9. Opcjonalnie na karcie **Tagi** wprowadź nazwę i wartość, jeśli chcesz przydzielić zasób. 
+
+10. Wybierz pozycję **Recenzja + Utwórz**. Nastąpi przekierowanie do karty Recenzja + tworzenie, w której platforma Azure weryfikuje konfigurację.
+
+11. Po wyświetleniu komunikatu o pomyślnym sprawdzeniu poprawności, wybierz pozycję **Utwórz**.
+
+Tworzenie pamięci podręcznej zajmuje trochę czasu. Postęp można monitorować na stronie **Przegląd**usługi Azure cache for Redis   . Gdy **stan**   jest wyświetlany jako **uruchomiony**, pamięć podręczna jest gotowa do użycia. Po utworzeniu pamięci podręcznej można wyświetlić konfigurację sieci wirtualnej, klikając pozycję **Virtual Network** w **menu zasób**.
 
 ![Sieć wirtualna][redis-cache-vnet-info]
 

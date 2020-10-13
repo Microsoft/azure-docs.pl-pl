@@ -8,21 +8,21 @@ ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 07/14/2020
-ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 510e9e2a9e90d62996ed6dcfebdd96f77b034f3d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298909"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000155"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX i programu SQL Machine Learning
 
 W tym przewodniku szybki start dowiesz się, jak nauczyć model, przekonwertować go na ONNX, wdrożyć go w usłudze [Azure SQL Edge](onnx-overview.md) lub [wystąpieniu zarządzanym Azure SQL (wersja zapoznawcza)](../azure-sql/managed-instance/machine-learning-services-overview.md), a następnie uruchomić natywne przewidywania danych przy użyciu przekazanego modelu ONNX.
 
 Ten przewodnik Szybki Start jest oparty na **scikit — uczenie** i używa [zestawu danych dla obudowy Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 * Jeśli używasz usługi Azure SQL Edge i nie wdrożono modułu usługi Azure SQL Edge, postępuj zgodnie z instrukcjami [wdrażania programu SQL Edge przy użyciu Azure Portal](deploy-portal.md).
 

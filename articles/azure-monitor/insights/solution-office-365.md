@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498801"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999743"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure (wersja zapoznawcza)
 
@@ -104,9 +104,9 @@ ms.locfileid: "86498801"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>P: co się stanie w dniu 31 października? Czy muszę odłączania wcześniej?
 > 
-> - Nie będzie można odbierać danych z rozwiązania usługi **Office 365** . Rozwiązanie nie będzie już dostępne w witrynie Marketplace
+> - Nie będzie można odbierać danych z rozwiązania usługi **Office 365** . Rozwiązanie zostanie usunięte z obszaru roboczego i nie będzie już dostępne w portalu Marketplace.
 > - W przypadku klientów z wskaźnikiem na platformie Azure — rozwiązanie obszaru roboczego Log Analytics w usłudze **Office 365** zostanie uwzględnione w rozwiązaniu usługi Azure **SecurityInsights** .
-> - Jeśli rozwiązanie nie zostanie odłączania ręcznie, Twoje dane zostaną rozłączone automatycznie 31 października.
+> - Jeśli Twoje rozwiązanie nie zostanie odłączania ręcznie do 31 października, dane zostaną rozłączone automatycznie, a tabela **pakietu Office** zostanie usunięta. Nawet w dalszym ciągu będzie można przywrócić tabelę po włączeniu łącznika pakietu Office 365 na platformie Azure wskaźnikowej, jak wyjaśniono poniżej.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: czy dane zostaną przesłane do nowego rozwiązania?
 > Tak. Po usunięciu rozwiązania **pakietu Office 365** z obszaru roboczego jego dane staną się tymczasowo niedostępne, ponieważ schemat został usunięty. Po włączeniu nowego łącznika **pakietu Office 365** w kontrolce wskaźnikowej schemat zostanie przywrócony do obszaru roboczego, a wszystkie zebrane dane staną się dostępne. 
@@ -247,8 +247,8 @@ Na pulpicie nawigacyjnym znajdują się kolumny wymienione w poniższej tabeli. 
 |:--|:--|
 | Operacje | Zawiera informacje o aktywnych użytkownikach ze wszystkich monitorowanych subskrypcji pakietu Office 365. Zobaczysz również liczbę działań, które wystąpiły w czasie.
 | Exchange | Pokazuje podział działań programu Exchange Server, takich jak uprawnienia Add-Mailbox lub Set-Mailbox. |
-| Sharepoint | Przedstawia najważniejsze działania wykonywane przez użytkowników w dokumentach programu SharePoint. Podczas przechodzenia do szczegółów z tego kafelka na stronie wyszukiwania są wyświetlane szczegółowe informacje o tych działaniach, takie jak dokument docelowy i lokalizacja tego działania. Na przykład dla zdarzenia, do którego jest uzyskiwany dostęp do pliku, będzie można wyświetlić dokument, do którego jest uzyskiwany dostęp, jego nazwę skojarzonego konta i adres IP. |
-| Usługa Azure Active Directory | Obejmuje działania najważniejszych użytkowników, takie jak resetowanie hasła użytkownika i logowania. Po przejściu do szczegółów będzie można zobaczyć szczegóły tych działań, jak w przypadku stanu wyniku. Jest to szczególnie przydatne, jeśli chcesz monitorować podejrzane działania na Azure Active Directory. |
+| SharePoint | Przedstawia najważniejsze działania wykonywane przez użytkowników w dokumentach programu SharePoint. Podczas przechodzenia do szczegółów z tego kafelka na stronie wyszukiwania są wyświetlane szczegółowe informacje o tych działaniach, takie jak dokument docelowy i lokalizacja tego działania. Na przykład dla zdarzenia, do którego jest uzyskiwany dostęp do pliku, będzie można wyświetlić dokument, do którego jest uzyskiwany dostęp, jego nazwę skojarzonego konta i adres IP. |
+| Azure Active Directory | Obejmuje działania najważniejszych użytkowników, takie jak resetowanie hasła użytkownika i logowania. Po przejściu do szczegółów będzie można zobaczyć szczegóły tych działań, jak w przypadku stanu wyniku. Jest to szczególnie przydatne, jeśli chcesz monitorować podejrzane działania na Azure Active Directory. |
 
 
 
@@ -263,9 +263,9 @@ Następujące właściwości są wspólne dla wszystkich rekordów pakietu Offic
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Type | *Pakiet Office* |
+| Typ | *Pakiet Office* |
 | ClientIP | Adres IP urządzenia, które było używane podczas zarejestrowania działania. Adres IP jest wyświetlany w formacie IPv4 lub IPv6. |
-| OfficeWorkload | Usługa Office 365, do której odwołuje się rekord.<br><br>Usługi azureactivedirectory<br>Exchange<br>Sharepoint|
+| OfficeWorkload | Usługa Office 365, do której odwołuje się rekord.<br><br>Usługi azureactivedirectory<br>Exchange<br>SharePoint|
 | Operacja | Nazwa działania użytkownika lub administratora.  |
 | OrganizationId | Identyfikator GUID dzierżawy pakietu Office 365 w organizacji. Ta wartość będzie zawsze taka sama dla organizacji, niezależnie od usługi Office 365, w której występuje. |
 | RecordType | Typ wykonywanej operacji. |
@@ -301,7 +301,7 @@ Te rekordy są tworzone, gdy użytkownik Active Directory próbuje się zalogowa
 | `UserDomain` | Informacje o tożsamości dzierżawy (TII). | 
 
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Te rekordy są tworzone w przypadku wprowadzenia zmian lub uzupełnień do Azure Active Directory obiektów.
 
@@ -413,8 +413,8 @@ Te właściwości są wspólne dla wszystkich rekordów programu SharePoint.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| OfficeWorkload | Sharepoint |
-| OfficeWorkload | Sharepoint |
+| OfficeWorkload | SharePoint |
+| OfficeWorkload | SharePoint |
 | EventSource | Wskazuje, że zdarzenie wystąpiło w programie SharePoint. Możliwe wartości to SharePoint lub ObjectModel. |
 | ItemType | Typ obiektu, do którego uzyskano dostęp lub zmodyfikowany. Zobacz tabelę ItemType, aby uzyskać szczegółowe informacje na temat typów obiektów. |
 | MachineDomainInfo | Informacje o operacjach synchronizacji urządzeń. Te informacje są raportowane tylko wtedy, gdy znajdują się w żądaniu. |
@@ -430,8 +430,8 @@ Te rekordy są tworzone po wprowadzeniu zmian w konfiguracji programu SharePoint
 
 | Właściwość | Opis |
 |:--- |:--- |
-| OfficeWorkload | Sharepoint |
-| OfficeWorkload | Sharepoint |
+| OfficeWorkload | SharePoint |
+| OfficeWorkload | SharePoint |
 | CustomEvent | Opcjonalny ciąg dla zdarzeń niestandardowych. |
 | Event_Data |     Opcjonalny ładunek dla zdarzeń niestandardowych. |
 | ModifiedProperties | Właściwość jest uwzględniana dla zdarzeń administracyjnych, takich jak dodanie użytkownika jako członka lokacji lub grupy administratorów kolekcji witryn. Właściwość zawiera nazwę zmodyfikowanej właściwości (na przykład grupy administratorów lokacji), nową wartość zmodyfikowanej właściwości (takiego użytkownika, który został dodany jako administrator lokacji) i poprzednią wartość zmodyfikowanego obiektu. |
@@ -443,7 +443,7 @@ Te rekordy są tworzone w odpowiedzi na operacje na plikach w programie SharePoi
 
 | Właściwość | Opis |
 |:--- |:--- |
-| OfficeWorkload | Sharepoint |
+| OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
 | DestinationFileExtension | Rozszerzenie pliku, który jest kopiowany lub przenoszony. Ta właściwość jest wyświetlana tylko dla zdarzeń FileCopied i FileMoved. |
 | DestinationFileName | Nazwa pliku, który jest kopiowany lub przenoszony. Ta właściwość jest wyświetlana tylko dla zdarzeń FileCopied i FileMoved. |

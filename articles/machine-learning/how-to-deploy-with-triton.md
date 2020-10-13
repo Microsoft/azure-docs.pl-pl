@@ -9,12 +9,14 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17260c3890df0bd78b1503a046ff39ab173712be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91622067"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998763"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Obsługa wysokiej wydajności przy użyciu serwera wnioskowania Triton (wersja zapoznawcza) 
 
