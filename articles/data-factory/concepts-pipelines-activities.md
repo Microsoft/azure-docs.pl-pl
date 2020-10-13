@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562013"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w usłudze Azure Data Factory
@@ -108,9 +108,9 @@ Poniżej przedstawiono sposób definiowania potoku w formacie JSON:
 
 Tag | Opis | Typ | Wymagane
 --- | ----------- | ---- | --------
-name | Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 140</li><li>Musi zaczynać się literą, cyfrą lub podkreśleniem ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | Ciąg | Yes
+name | Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 140</li><li>Musi zaczynać się literą, cyfrą lub podkreśleniem ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | Ciąg | Tak
 description | Wprowadź tekst opisujący przeznaczenie potoku. | Ciąg | Nie
-activities | W sekcji **activities** można zdefiniować jedno lub więcej działań. Sprawdź sekcję [Format JSON działania](#activity-json), aby uzyskać szczegółowe informacje na temat elementu JSON activities. | Tablica | Yes
+activities | W sekcji **activities** można zdefiniować jedno lub więcej działań. Sprawdź sekcję [Format JSON działania](#activity-json), aby uzyskać szczegółowe informacje na temat elementu JSON activities. | Tablica | Tak
 parameters | Sekcja **parameters** może zawierać jeden lub kilka parametrów zdefiniowanych w potoku, co zwiększa elastyczność i możliwość ponownego zastosowania potoku. | Lista | Nie
 współbieżność | Maksymalna liczba współbieżnych uruchomień potoku. Domyślnie nie ma żadnych wartości maksymalnej. W przypadku osiągnięcia limitu współbieżności dodatkowe uruchomienia potoku są umieszczane w kolejce do momentu ukończenia wcześniejszych | Liczba | Nie 
 adnotacj | Lista tagów skojarzonych z potokiem | Tablica | Nie
@@ -143,9 +143,9 @@ Poniższa tabela zawiera opis właściwości w definicji JSON działania:
 
 Tag | Opis | Wymagane
 --- | ----------- | ---------
-name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie. <br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się literą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Yes</li></ul>
-description | Tekst opisujący przeznaczenie działania | Yes
-typ | Typ działania. W sekcjach [działania przenoszenia danych](#data-movement-activities), [działania przekształcania danych](#data-transformation-activities)i [działania sterowania](#control-flow-activities) dla różnych typów działań. | Yes
+name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie. <br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się literą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Tak</li></ul>
+description | Tekst opisujący przeznaczenie działania | Tak
+typ | Typ działania. W sekcjach [działania przenoszenia danych](#data-movement-activities), [działania przekształcania danych](#data-transformation-activities)i [działania sterowania](#control-flow-activities) dla różnych typów działań. | Tak
 linkedServiceName | Nazwa połączonej usługi używana na potrzeby działania.<br/><br/>Działanie może wymagać określenia połączonej usługi, która stanowi łącze do wymaganego środowiska obliczeniowego. | Tak dla działań HDInsight, oceny partii Azure Machine Learning i procedury składowanej. <br/><br/>Nie dla wszystkich innych
 typeProperties | Właściwości w sekcji typeProperties zależą od typu działania. Aby wyświetlić właściwości typu dla działania, kliknij linki do działań w poprzedniej sekcji. | Nie
 policy | Zasady, które mają wpływ na zachowanie działania w czasie wykonania. Ta właściwość obejmuje limit czasu i sposób ponawiania próby. Jeśli nie zostanie określony, są używane wartości domyślne. Więcej informacji można znaleźć w sekcji [Zasady działania](#activity-policy). | Nie
@@ -187,7 +187,7 @@ Nazwa JSON | Opis | Dozwolone wartości | Wymagane
 timeout | Określa limit czasu pracy działania. | Zakres czasu | Nie. Domyślny limit czasu wynosi 7 dni.
 retry | Maksymalna liczba ponownych prób | Liczba całkowita | Nie. Wartość domyślna to 0
 retryIntervalInSeconds | Opóźnienie między ponownymi próbami w sekundach | Liczba całkowita | Nie. Wartość domyślna to 30 sekund
-secureOutput | Po ustawieniu na wartość true dane wyjściowe z działania są uznawane za bezpieczne i nie są rejestrowane do monitorowania. | Wartość logiczna | Nie. Wartość domyślna to false.
+secureOutput | Po ustawieniu na wartość true dane wyjściowe z działania są uznawane za bezpieczne i nie są rejestrowane do monitorowania. | Boolean (wartość logiczna) | Nie. Wartość domyślna to false.
 
 ### <a name="control-activity"></a>Działanie sterowania
 Działania sterowania mają następującą strukturę najwyższego poziomu:
@@ -208,9 +208,9 @@ Działania sterowania mają następującą strukturę najwyższego poziomu:
 
 Tag | Opis | Wymagane
 --- | ----------- | --------
-name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie.<br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Yes</li><ul>
-description | Tekst opisujący przeznaczenie działania | Yes
-typ | Typ działania. Poszczególne typy działań opisano w sekcjach [Działania przenoszenia danych](#data-movement-activities), [Działania przekształcania danych](#data-transformation-activities) i [Działania sterowania](#control-flow-activities). | Yes
+name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie.<br/><ul><li>Maksymalna liczba znaków: 55</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Tak</li><ul>
+description | Tekst opisujący przeznaczenie działania | Tak
+typ | Typ działania. Poszczególne typy działań opisano w sekcjach [Działania przenoszenia danych](#data-movement-activities), [Działania przekształcania danych](#data-transformation-activities) i [Działania sterowania](#control-flow-activities). | Tak
 typeProperties | Właściwości w sekcji typeProperties zależą od typu działania. Aby wyświetlić właściwości typu dla działania, kliknij linki do działań w poprzedniej sekcji. | Nie
 dependsOn | Ta właściwość jest używana do definiowania zależności działania oraz sposobu, w jaki kolejne działania zależą od poprzednich działań. Aby uzyskać więcej informacji, zobacz [zależność działania](#activity-dependency). | Nie
 

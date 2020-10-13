@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142370"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Omówienie certyfikatów usług Azure Cloud Services)
@@ -65,7 +65,7 @@ Istnieją dwa proste metody tworzenia certyfikatu w systemie Windows przy użyci
 ### <a name="makecertexe"></a>Makecert.exe
 To narzędzie jest przestarzałe i nie jest już udokumentowane w tym miejscu. Aby uzyskać więcej informacji, zobacz [ten artykuł w witrynie MSDN](/windows/desktop/SecCrypto/makecert).
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 2048 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText

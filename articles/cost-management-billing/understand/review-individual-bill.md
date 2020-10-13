@@ -1,24 +1,24 @@
 ---
-title: Przeglądanie indywidualnego rachunku za korzystanie z platformy Azure
-description: Dowiedz się, jak interpretować informacje o rozliczeniach i użyciu zasobów oraz sprawdzić opłaty za pojedynczą subskrypcję platformy Azure.
+title: Przeglądanie indywidualnego rachunku za subskrypcję platformy Azure
+description: Dowiedz się, jak interpretować informacje o rozliczeniach i użyciu zasobów oraz sprawdzić opłaty za pojedynczą subskrypcję platformy Azure, w tym przy płatności zgodnie z rzeczywistym użyciem.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270529"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653285"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>Samouczek: Przeglądanie indywidualnego rachunku za korzystanie z platformy Azure
+# <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Samouczek: Przeglądanie indywidualnego rachunku za subskrypcję platformy Azure
 
-Ten artykuł pomaga zinterpretować i przejrzeć rachunek za korzystanie z platformy Azure. Dla każdego okresu rozliczeniowego otrzymujesz zwykle fakturę w wiadomości e-mail. Faktura odzwierciedla naliczone opłaty za platformę Azure. Te same informacje o kosztach na fakturze są dostępne w witrynie Azure Portal. W tym samouczku porównasz fakturę z zawartością pliku szczegółowego dziennego użycia oraz analizą kosztów w witrynie Azure Portal.
+Ten artykuł ułatwia zapoznanie się z rozliczeniami subskrypcji z płatnością zgodnie z rzeczywistym użyciem oraz subskrypcji platformy Azure programu Visual Studio, w tym rozliczeniami płatności zgodnie z rzeczywistym użyciem i programu Visual Studio. Dla każdego okresu rozliczeniowego otrzymujesz zwykle fakturę w wiadomości e-mail. Faktura odzwierciedla naliczone opłaty za platformę Azure. Te same informacje o kosztach na fakturze są dostępne w witrynie Azure Portal. W tym samouczku porównasz fakturę z zawartością pliku szczegółowego dziennego użycia oraz analizą kosztów w witrynie Azure Portal.
 
 Ten samouczek dotyczy tylko klientów platformy Azure mających pojedynczą subskrypcję. Pojedyncze subskrypcje są najczęściej subskrypcjami ze stawkami płatności zgodnie z rzeczywistym użyciem kupowanymi bezpośrednio w witrynie internetowej platformy Azure.
 
@@ -42,7 +42,7 @@ Od dnia zasubskrybowania platformy Azure musi upłynąć więcej niż 30 dni. Na
 
 - Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>Porównywanie zafakturowanych opłat z plikiem użycia
+## <a name="compare-billed-charges-with-your-usage-file"></a>Porównywanie naliczonych opłat z plikiem użycia
 
 <a name="charges"></a>
 
@@ -109,7 +109,7 @@ Zsumowana wartość kolumny *Cost* (Koszt) powinna odpowiadać dokładnie koszto
 
 Aby uzyskać więcej informacji, zobacz [Informacje dotyczące faktury za użycie platformy Azure](understand-invoice.md) i [Informacje dotyczące szczegółów użycia platformy Azure](understand-usage.md).
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>Porównywanie opłat i użycia w analizie kosztów
+## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Porównywanie naliczonych opłat i użycia w analizie kosztów
 
 Analiza kosztów w witrynie Azure Portal może również pomóc w sprawdzeniu opłat. Aby uzyskać dostęp do krótkiego przeglądu zafakturowanego użycia i opłat, wybierz swoją subskrypcję na [stronie Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) w witrynie Azure Portal. Kliknij pozycję **Analiza kosztów**, a następnie na liście widoków kliknij pozycję **Szczegóły faktury**.
 
@@ -123,13 +123,15 @@ Koszty pokazane w analizie kosztów powinny dokładnie odpowiadać kosztom *opł
 
 ![Fakturowanie opłat za użycie](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-services-billed-separately"></a><a name="external"></a>Usługi zewnętrzne rozliczane oddzielnie
+## <a name="external-marketplace-services-are-billed-separately"></a>Opłaty związane z zewnętrznymi usługami witryny Marketplace są naliczane osobno
+
+<a name="external"></a>
 
 Opłaty za usługi zewnętrzne lub korzystanie z portalu Marketplace dotyczą zasobów utworzonych przez dostawców oprogramowania innych firm. Te zasoby są dostępne do użycia w portalu Azure Marketplace. Na przykład zapora Barracuda to zasób portalu Azure Marketplace oferowany przez inną firmę. Wszystkie opłaty za zaporę i odpowiadające jej mierniki są wyświetlane jako opłaty za usługi zewnętrzne.
 
 Opłaty za usługi zewnętrzne są rozliczane osobno. Opłaty nie są wyświetlane na fakturze za korzystanie z platformy Azure. Aby dowiedzieć się więcej, zobacz temat [Understand your Azure external service charges](understand-azure-marketplace-charges.md) (Informacje dotyczące opłat za usługi zewnętrzne platformy Azure).
 
-### <a name="resources-billed-by-usage-meters"></a>Zasoby rozliczane według mierników użycia
+### <a name="resources-are-billed-by-usage-meters"></a>Opłaty za zasoby są naliczane według mierników użycia
 
 Na platformie Azure nie są bezpośrednio naliczane opłaty na podstawie kosztu zasobu. Opłaty za zasób są obliczane przy użyciu co najmniej jednego miernika. Mierniki są używane do śledzenia użycia zasobu przez cały okres istnienia. Te mierniki są następnie używane do obliczania rachunku.
 
@@ -152,7 +154,9 @@ Po utworzeniu maszyny wirtualnej każdy miernik rozpoczyna emitowanie rekordów 
 
 Liczniki, które zostały użyte do obliczenia rachunku, są pokazywane w pliku CSV użycia, jak we wcześniejszym przykładzie.
 
-## <a name="pay-your-bill"></a><a name="payment"></a>Płatność za rachunek
+## <a name="pay-your-bill"></a>Płatność za rachunek
+
+<a name="payment"></a>
 
 W przypadku skonfigurowania karty kredytowej jako formy płatności opłata zostanie naliczona automatycznie w ciągu 10 dni od zakończenia okresu rozliczeniowego. Na wyciągu z karty kredytowej będzie to uwzględnione jako **MSFT Azure**.
 

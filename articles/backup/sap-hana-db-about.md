@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak tworzyć kopie zapasowe baz danych
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022313"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Informacje o kopii zapasowej bazy danych SAP HANA na maszynach wirtualnych platformy Azure
@@ -72,7 +72,7 @@ Aby przywrócić maszynę wirtualną z systemem SAP HANA, wykonaj następujące 
 * Po ustawieniu wszystkich innych konfiguracji (takich jak adres IP, nazwa systemu i tak dalej), maszyna wirtualna jest ustawiana na odbieranie danych z Azure Backup.
 * Teraz Przywróć bazę danych do maszyny wirtualnej z [kopii zapasowej usługi Azure SAP HANA DB](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) do żądanego punktu w czasie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [przywrócić bazę danych SAP HANA działającej na maszynie wirtualnej platformy Azure](./sap-hana-db-restore.md)
 * Dowiedz się [, jak zarządzać bazami danych SAP HANA, których kopia zapasowa została utworzona przy użyciu Azure Backup](./sap-hana-db-manage.md)

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669032"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
-Wszystkie urządzenia IoT Edge używają certyfikatów do tworzenia bezpiecznych połączeń między środowiskiem uruchomieniowym i wszystkimi modułami uruchomionymi na urządzeniu. IoT Edge urządzenia działające jako bramy używają tych samych certyfikatów do łączenia się z urządzeniami podrzędnymi.
+Wszystkie urządzenia IoT Edge używają certyfikatów do tworzenia bezpiecznych połączeń między środowiskiem uruchomieniowym a dowolnymi modułami uruchomionymi na urządzeniu. IoT Edge urządzenia działające jako bramy używają tych samych certyfikatów do łączenia się z urządzeniami podrzędnymi.
 
 ## <a name="install-production-certificates"></a>Instalowanie certyfikatów produkcyjnych
 
@@ -57,7 +57,7 @@ Aby zapoznać się z przykładem tych certyfikatów, przejrzyj skrypty, które t
 
 Zainstaluj łańcuch certyfikatów na urządzeniu IoT Edge i skonfiguruj środowisko uruchomieniowe IoT Edge, aby odwoływać się do nowych certyfikatów.
 
-Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-test-certificates.md)użyto przykładowych skryptów, Skopiuj następujące pliki na urządzenie usługi IoT Edge:
+Na przykład jeśli użyto przykładowych skryptów do [tworzenia certyfikatów demonstracyjnych](how-to-create-test-certificates.md), Skopiuj następujące pliki na urządzenie IoT-Edge:
 
 * Certyfikat urzędu certyfikacji urządzenia: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Klucz prywatny urzędu certyfikacji urządzenia: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`

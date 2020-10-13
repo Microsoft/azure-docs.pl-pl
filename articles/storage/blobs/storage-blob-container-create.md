@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a17ab97dbfa1819154695f4c287b59db90f34334
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018998"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Tworzenie lub usuwanie kontenera w usłudze Azure Storage przy użyciu platformy .NET
@@ -146,14 +146,14 @@ Aby usunąć kontener w programie .NET, należy użyć jednej z następujących 
 
 # <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
-- [Usuń](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
+- [Usuwanie](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
 
 # <a name="net-v11"></a>[\.V11 netto](#tab/dotnetv11)
 
-- [Usuń](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
+- [Usuwanie](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)

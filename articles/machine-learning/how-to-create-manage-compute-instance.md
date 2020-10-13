@@ -12,10 +12,10 @@ author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91756623"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Tworzenie wystąpienia obliczeniowego Azure Machine Learning i zarządzanie nim
@@ -40,7 +40,7 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
 
 * [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning Service](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Przycisk Utwórz
+## <a name="create"></a>Utwórz
 
 **Szacowany czas**: około 5 minut.
 
@@ -161,7 +161,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Usuń
+* Usuwanie
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ W poniższych przykładach nazwa wystąpienia obliczeniowego to **wystąpienie**
 
     Aby uzyskać więcej informacji, zobacz [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Usuń
+* Usuwanie
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

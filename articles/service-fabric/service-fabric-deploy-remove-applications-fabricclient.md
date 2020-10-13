@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89009305"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Wdrażanie i usuwanie aplikacji przy użyciu FabricClient
@@ -321,7 +321,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md)
 
 [Service Fabric wprowadzenie do kondycji](service-fabric-health-introduction.md)

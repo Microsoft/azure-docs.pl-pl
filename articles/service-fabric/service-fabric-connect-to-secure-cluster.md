@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2ce0325f7aebac92eb1e7deadd6f6875b75b3755
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89008815"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
@@ -379,7 +379,7 @@ Co najmniej dwa certyfikaty powinny być używane do zabezpieczania klastra, jed
 
 * Na komputerach Mac: kliknij dwukrotnie plik PFX, a następnie postępuj zgodnie z monitami, aby zainstalować certyfikat w pęku kluczy.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Service Fabric proces uaktualniania klastra i oczekiwania z niego](service-fabric-cluster-upgrade.md)
 * [Zarządzanie aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)

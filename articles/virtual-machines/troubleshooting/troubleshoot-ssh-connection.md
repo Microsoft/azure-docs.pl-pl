@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371460"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused (Rozwiązywanie problemów dotyczących połączeń SSH z maszyną wirtualną z systemem Linux — niepowodzenia, błędy lub odmowa połączenia)
@@ -101,7 +101,7 @@ Dane wyjściowe będą wyglądać następująco:
 Port 22
 ```
 
-## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
+## <a name="use-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 Jeśli jeszcze tego nie zrobiono, zainstaluj najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zaloguj się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
 
 Jeśli utworzono i przekazano niestandardowy obraz dysku systemu Linux, upewnij się, że jest zainstalowany [Agent Microsoft Azure Linux](../extensions/agent-linux.md) w wersji 2.0.5 lub nowszej. W przypadku maszyn wirtualnych utworzonych przy użyciu obrazów galerii to rozszerzenie dostępu jest już zainstalowane i skonfigurowane.

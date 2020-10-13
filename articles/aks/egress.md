@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563249"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Użyj statycznego publicznego adresu IP dla ruchu wychodzącego z *podstawową* usługą równoważenia obciążenia SKU w usłudze Azure Kubernetes Service (AKS)
@@ -18,7 +18,7 @@ Domyślnie adres IP ruchu wychodzącego z klastra usługi Azure Kubernetes Servi
 
 W tym artykule opisano sposób tworzenia i używania statycznego publicznego adresu IP do użycia z ruchem wychodzącym w klastrze AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że korzystasz z usługi Azure Basic Load Balancer.  Zalecamy korzystanie z [usługi Azure usługa Load Balancer w warstwie Standardowa](../load-balancer/load-balancer-overview.md)i można korzystać z bardziej zaawansowanych funkcji [kontrolujących ruch wychodzący AKS](./limit-egress-traffic.md).
 

@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020001"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Tworzenie kontenera usługi Azure Cosmos
@@ -53,7 +53,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
    * Kliknij przycisk **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Zrzut ekranu przedstawiający interfejs Azure Cosmos DB API dla MongoDB, okno dialogowe Dodawanie kontenera":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Zrzut ekranu przedstawiający okienko Eksplorator danych z wyróżnionym nowym kontenerem":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>Interfejs API rozwiązania Cassandra
 
@@ -69,7 +69,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
    * Kliknij przycisk **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Zrzut ekranu interfejsu API Cassandra, okno dialogowe Dodawanie tabeli":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Zrzut ekranu przedstawiający okienko Eksplorator danych z wyróżnionym nowym kontenerem":::
 
 > [!NOTE]
 > W przypadku interfejsu API rozwiązania Cassandra jako klucz partycji jest używany klucz podstawowy.
@@ -89,7 +89,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
    * Kliknij przycisk **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Zrzut ekranu interfejsu API Gremlin, okno dialogowe Dodawanie grafu":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Zrzut ekranu przedstawiający okienko Eksplorator danych z wyróżnionym nowym kontenerem":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>Interfejs API tabel
 
@@ -103,7 +103,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
    * Kliknij przycisk **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Zrzut ekranu interfejsu API tabel, okno dialogowe Dodawanie tabeli":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Zrzut ekranu przedstawiający okienko Eksplorator danych z wyróżnionym nowym kontenerem":::
 
 > [!Note]
 > W przypadku interfejsu API tabel klucz partycji jest określany każdorazowo podczas dodawania nowego wiersza.
@@ -170,7 +170,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 * [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)

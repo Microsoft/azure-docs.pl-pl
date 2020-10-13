@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
 ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053280"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalowanie i Konfigurowanie adaptera StorSimple dla programu SharePoint
@@ -140,7 +140,7 @@ Upewnij się, że farma serwerów programu SharePoint została prawidłowo skonf
   3. W lewym okienku kliknij pozycję **serwer lokalny**.
   4. W prawym okienku obok pozycji **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer**kliknij pozycję **włączone**.
   5. W obszarze **administratorzy**kliknij pozycję **wyłączone**.
-  6. Kliknij pozycję **OK**.
+  6. Kliknij przycisk **OK**.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Wymagania wstępne dotyczące zdalnego magazynu obiektów BLOB (SPZ)
 Upewnij się, że używasz obsługiwanej wersji programu SQL Server. Tylko następujące wersje są obsługiwane i mogą korzystać z SPZ:
@@ -208,7 +208,7 @@ W poniższych procedurach opisano sposób przenoszenia obiektów blob z powrotem
 > Przed odinstalowaniem oprogramowania karty obiekty blob należy przenieść z powrotem do baz danych zawartości.
 
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 Przed przeniesieniem danych z powrotem do baz danych zawartości SQL Server należy zebrać następujące informacje i rozpocząć proces usuwania karty:
 
 * Nazwy wszystkich baz danych, dla których jest włączona funkcja SPZ

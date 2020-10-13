@@ -4,10 +4,10 @@ description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej a
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323132"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
@@ -16,7 +16,7 @@ Usługa Azure Application Insights wyświetla dane dotyczące aplikacji w Micros
 
 ## <a name="sign-in-to-microsoft-azure"></a>Zaloguj się do Microsoft Azure
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -56,7 +56,7 @@ Zestaw SDK zawiera standardowe moduły wysyłające dane telemetryczne bez konie
 
 ## <a name="creating-a-resource-automatically"></a>Automatyczne tworzenie zasobu
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Tworzenie nowego zasobu Application Insights
 
@@ -103,7 +103,7 @@ Aby uzyskać dostęp do Application Insights poleceń interfejsu wiersza polecen
  az extension add -n application-insights
 ```
 
-Jeśli polecenie nie zostanie uruchomione `az extension add` , zostanie wyświetlony komunikat o błędzie informujący o tym, że:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Jeśli polecenie nie zostanie uruchomione `az extension add` , zostanie wyświetlony komunikat o błędzie informujący o tym, że: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Teraz można wykonać następujące czynności, aby utworzyć zasób Application Insights:
 

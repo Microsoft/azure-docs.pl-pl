@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327705"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego
@@ -56,7 +56,7 @@ W portalu pole punkt końcowy zgodny z centrum zdarzeń zawiera pełne parametry
 | Nazwa | Wartość |
 | ---- | ----- |
 | Punkt końcowy | sb://abcd1234namespace.servicebus.windows.net/ |
-| Nazwa hosta | abcd1234namespace.servicebus.windows.net |
+| Hostname (Nazwa hosta) | abcd1234namespace.servicebus.windows.net |
 | Przestrzeń nazw | abcd1234namespace |
 
 Następnie możesz wybrać wszystkie zasady dostępu współdzielonego z listy rozwijanej, jak pokazano na poniższym zrzucie ekranu. Pokazuje tylko zasady, które mają uprawnienia **serviceconnect** do nawiązywania połączenia z określonym centrum zdarzeń.

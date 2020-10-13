@@ -8,10 +8,10 @@ ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89614081"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
@@ -38,15 +38,15 @@ W programie Visual Studio 2019 wybierz pozycję _plik > nowy > projekt_ i wyszuk
 
 Określ nazwę aplikacji funkcji i wybierz pozycję _Utwórz_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: Konfigurowanie nowego projektu":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Wybierz typ Event Grid aplikacji funkcji *wyzwalacz* i wybierz pozycję _Utwórz_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: okno dialogowe wyzwalacza projektu funkcji platformy Azure":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Po utworzeniu aplikacji funkcji program Visual Studio będzie miał automatycznie wypełniony kod przykładowy w pliku **Function.cs** w folderze projektu. Ta krótka funkcja platformy Azure służy do rejestrowania zdarzeń.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: okno projektu z przykładowym kodem":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Napisz funkcję platformy Azure z wyzwalaczem Event Grid
 
@@ -160,19 +160,19 @@ Aby opublikować aplikację funkcji na platformie Azure, w Eksplorator rozwiąza
 > [!IMPORTANT] 
 > Publikowanie funkcji platformy Azure wiąże się z dodatkowymi opłatami za subskrypcję, niezależnie od bliźniaczych reprezentacji cyfrowych platformy Azure.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publikowanie funkcji platformy Azure ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Wybierz pozycję **Azure** jako element docelowy publikowania i wybierz pozycję **dalej**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publikowanie okna dialogowego usługi Azure Functions, Wybieranie platformy Azure ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: publikowanie funkcji okna dialogowego, wybierz pozycję Azure aplikacja funkcji (Windows) lub (Linux) na podstawie swojej maszyny":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: publikowanie funkcji okna dialogowego, tworzenie nowej funkcji platformy Azure":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: publikowanie funkcji okna dialogowego, wypełnij pola i wybierz pozycję Utwórz":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publikowanie funkcji okna dialogowego, wybierz aplikację funkcji z listy i Zakończ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Na następującej stronie wprowadź żądaną nazwę nowej aplikacji funkcji, grupy zasobów i inne szczegóły.
 Aby aplikacja Functions mogła uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji, musi mieć tożsamość zarządzaną przez system i mieć uprawnienia dostępu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
@@ -214,27 +214,27 @@ Tożsamość zarządzana przypisana przez system umożliwia zasobom platformy Az
 
 W [Azure Portal](https://portal.azure.com/)Wyszukaj _aplikację funkcji_ na pasku wyszukiwania przy użyciu utworzonej wcześniej nazwy aplikacji funkcji. Wybierz z listy *aplikacja funkcji* . 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure Portal: Wyszukaj aplikację funkcji":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 W oknie aplikacja funkcji wybierz pozycję _tożsamość_ na pasku nawigacyjnym po lewej stronie, aby włączyć zarządzaną tożsamość.
 W obszarze _przypisana do systemu_ Przełącz _stan_ na wartość włączone i _Zapisz_ go. Zostanie wyświetlone okno podręczne umożliwiające _włączenie tożsamości zarządzanej przypisanej do systemu_.
 Wybierz przycisk _tak_ . 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: Włącz tożsamość zarządzaną przez system":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Można zweryfikować powiadomienia, że funkcja została pomyślnie zarejestrowana w Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal: powiadomienia":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Należy również zwrócić uwagę na **Identyfikator obiektu** wyświetlany na stronie _tożsamości_ , ponieważ będzie on używany w następnej sekcji.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Skopiuj identyfikator obiektu do użycia w przyszłości":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Przypisywanie ról dostępu przy użyciu Azure Portal
 
 Wybierz przycisk _przypisania roli platformy Azure_ , który otwiera się na stronie przydziały ról platformy Azure. Następnie wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: Dodawanie przypisania roli":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 W oknie _Dodawanie przypisania roli (wersja zapoznawcza)_ , które zostanie otwarte, wybierz pozycję
 
@@ -245,7 +245,7 @@ W oknie _Dodawanie przypisania roli (wersja zapoznawcza)_ , które zostanie otwa
 
 Zapisz szczegóły, wybierając przycisk _Zapisz_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: Dodawanie przypisania roli (wersja zapoznawcza) ":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Konfigurowanie ustawień aplikacji przy użyciu Azure Portal
 
@@ -255,7 +255,7 @@ Musisz ADT_INSTANCE_URL, aby utworzyć ustawienie aplikacji.
 
 ADT_INSTANCE_URL można uzyskać, dołączając **_https://_** do nazwy hosta wystąpienia. W Azure Portal można znaleźć nazwę hosta wystąpienia Digital bliźniaczych reprezentacji, wyszukując wystąpienie na pasku wyszukiwania. Następnie wybierz pozycję _Przegląd_ na lewym pasku nawigacyjnym, aby wyświetlić _nazwę hosta_. Skopiuj tę wartość, aby utworzyć ustawienie aplikacji.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: przegląd — > skopiuj nazwę hosta do użycia w polu _Value_.":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Teraz możesz utworzyć ustawienie aplikacji, wykonując poniższe kroki:
 
@@ -263,9 +263,9 @@ Teraz możesz utworzyć ustawienie aplikacji, wykonując poniższe kroki:
 * Wybierz pozycję _Konfiguracja_ na pasku nawigacyjnym po lewej stronie, aby utworzyć nowe ustawienie aplikacji
 * Na karcie _Ustawienia aplikacji_ wybierz pozycję _+ nowe ustawienie aplikacji_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: Wyszukaj istniejącą funkcję platformy Azure":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: Konfigurowanie ustawień aplikacji":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 W otwartym oknie Użyj wartości skopiowanej z powyżej, aby utworzyć ustawienie aplikacji. \
 _Nazwa_  : ADT_SERVICE_URL \
@@ -273,19 +273,19 @@ _Wartość_ : https://{Twoja-Azure-Digital-bliźniaczych reprezentacji-hostname}
 
 Wybierz _przycisk OK_ , aby utworzyć ustawienie aplikacji.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal: Dodaj ustawienia aplikacji.":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Ustawienia aplikacji można wyświetlić za pomocą nazwy aplikacji w polu _Nazwa_ . Następnie Zapisz ustawienia aplikacji, wybierając przycisk _Zapisz_ .
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal: Wyświetl aplikację utworzoną i uruchom ponownie aplikację":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Wszelkie zmiany w ustawieniach aplikacji wymagają ponownego uruchomienia aplikacji. Wybierz pozycję _Kontynuuj_ , aby ponownie uruchomić aplikację.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal: Zapisz ustawienia aplikacji":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 Ustawienia aplikacji można wyświetlić, wybierając ikonę _powiadomienia_ . Jeśli ustawienie aplikacji nie zostanie utworzone, można ponowić próbę dodania ustawienia aplikacji, wykonując powyższy proces.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal: powiadomienia dotyczące aktualizowania ustawień aplikacji":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
 ## <a name="next-steps"></a>Następne kroki
 

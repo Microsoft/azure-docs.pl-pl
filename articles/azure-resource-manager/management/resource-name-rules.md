@@ -4,10 +4,10 @@ description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów pla
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653370"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
@@ -39,8 +39,8 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | usługa | global | 1-50 | Znaki alfanumeryczne i łączniki.<br><br>Zacznij od litery i kończyć się znakiem alfanumerycznym. |
 > | Usługa/interfejsy API | usługa | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/problemy | api | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
-> | Usługa/interfejsy API/problemy/załączniki | wykonaj | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
-> | Usługa/interfejsy API/problemy/Komentarze | wykonaj | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
+> | Usługa/interfejsy API/problemy/załączniki | issue | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
+> | Usługa/interfejsy API/problemy/Komentarze | issue | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/operacje | api | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/operacje/Tagi | operation | 1-256 | Nie można użyć:<br> `*#&+:<>?` |
 > | Usługa/interfejsy API/wersje | api | 1-80 | Alfanumeryczne, podkreślenia i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym lub podkreśleniem. |
@@ -543,7 +543,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | rozwiązania | obszar roboczy | Brak | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
+> | rozwiązania | obszar roboczy | Nie dotyczy | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
@@ -653,7 +653,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | storageAccounts/managementPolicies | konto magazynu |  | Musi być `default` . |
 > | blob | kontener | 1-1024 | Wszystkie znaki adresu URL, z uwzględnieniem wielkości liter |
 > | kolejka | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. Nie można używać kolejnych łączników. |
-> | table (stolik) | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
+> | tabela | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 

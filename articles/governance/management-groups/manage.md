@@ -4,10 +4,10 @@ description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwa
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531041"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
@@ -127,7 +127,7 @@ Możesz wyświetlić dowolną grupę zarządzania, dla której masz bezpośredni
 
 ### <a name="view-in-powershell"></a>Wyświetl w programie PowerShell
 
-Aby pobrać wszystkie grupy, należy użyć polecenia Get-AzManagementGroup. Zobacz [AZ. resources](/powershell/module/az.resources/Get-AzManagementGroup) , aby uzyskać pełną listę grup zarządzania, Pobierz polecenia programu PowerShell.  
+Do pobrania wszystkich grup służy polecenie Get-AzManagementGroup. Zobacz [AZ. resources](/powershell/module/az.resources/Get-AzManagementGroup) , aby uzyskać pełną listę grup zarządzania, Pobierz polecenia programu PowerShell.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -255,13 +255,13 @@ Aby sprawdzić, jakie uprawnienia znajdują się w Azure Portal, wybierz grupę 
 
 ### <a name="move-subscriptions-in-powershell"></a>Przenoszenie subskrypcji w programie PowerShell
 
-Aby przenieść subskrypcję programu PowerShell, użyj polecenia New-AzManagementGroupSubscription.  
+Aby przenieść subskrypcję w programie PowerShell, użyj polecenia New-AzManagementGroupSubscription.  
 
 ```azurepowershell-interactive
 New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-Aby usunąć łącze między programem a subskrypcją i grupą zarządzania, użyj polecenia Remove-AzManagementGroupSubscription.
+Aby usunąć łącze między usługą a subskrypcją i grupą zarządzania, użyj polecenia Remove-AzManagementGroupSubscription.
 
 ```azurepowershell-interactive
 Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -304,7 +304,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-powershell"></a>Przenoszenie grup zarządzania w programie PowerShell
 
-Użyj polecenia Update-AzManagementGroup w programie PowerShell, aby przenieść grupę zarządzania pod inną grupę.
+Użyj Update-AzManagementGroup polecenia w programie PowerShell, aby przenieść grupę zarządzania pod inną grupę.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT

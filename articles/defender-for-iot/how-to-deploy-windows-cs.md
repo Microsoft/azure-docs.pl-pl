@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 04b33c7e63efbd6ffabf978708e1b8ed81f1fc42
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940034"
 ---
 # <a name="deploy-an-defender-for-iot-c-based-security-agent-for-windows"></a>Wdrażanie agenta zabezpieczeń opartego na programie Defender for IoT C# dla systemu Windows
@@ -62,7 +62,7 @@ Aby zainstalować agenta zabezpieczeń, użyj następującego przepływu pracy:
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    Przykład:
+    Na przykład:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -79,7 +79,7 @@ Ten skrypt wykonuje następujące czynności:
 
 Aby uzyskać dodatkową pomoc, użyj polecenia Get-Help w programie PowerShell.
 
-Przykład get-help:    ```Get-Help .\InstallSecurityAgent.ps1```
+Get-Help przykład:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Sprawdź stan wdrożenia
 

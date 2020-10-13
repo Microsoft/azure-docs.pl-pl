@@ -7,10 +7,10 @@ ms.date: 10/12/2018
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022194"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core na platformie Azure Service Fabric Reliable Services
@@ -471,7 +471,7 @@ Kestrel to sugerowany serwer sieci Web dla usług frontonu, które uwidaczniają
  
 W przypadku udostępnienia Internetu usługa bezstanowa powinna używać dobrze znanego i stabilnego punktu końcowego, który jest dostępny za pomocą modułu równoważenia obciążenia. Ten adres URL należy podać użytkownikom aplikacji. Zalecamy wykonanie następującej konfiguracji:
 
-| Typ | Zalecenie | Uwagi |
+| Type | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Kestrel to preferowany serwer sieci Web, który jest obsługiwany w systemach Windows i Linux. |
 | Konfiguracja portu | static | Dobrze znany port statyczny powinien zostać skonfigurowany w `Endpoints` konfiguracji ServiceManifest.xml, na przykład 80 dla http lub 443 dla protokołu HTTPS. |
@@ -496,7 +496,7 @@ Jeśli wiele usług narażonych na zewnątrz współużytkują ten sam zestaw w�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Usługa bezstanowa ASP.NET Core tylko w ramach wewnętrznego
 W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy używać unikatowych adresów URL i dynamicznie przypisywanych portów w celu zapewnienia współpracy między wieloma usługami. Zalecamy wykonanie następującej konfiguracji:
 
-| Typ | Zalecenie | Uwagi |
+| Type | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Chociaż można używać HTTP.sys dla wewnętrznych usług bezstanowych, Kestrel jest najlepszym serwerem, aby umożliwić wielu wystąpieniem usługi Udostępnianie hosta.  |
 | Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
@@ -506,13 +506,13 @@ W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Usługa bezstanowa ASP.NET Core tylko wewnętrznie
 Usługi stanowe, które są wywoływane tylko z poziomu klastra, powinny używać dynamicznie przydzielonych portów w celu zapewnienia współpracy między wieloma usługami. Zalecamy wykonanie następującej konfiguracji:
 
-| Typ | Zalecenie | Uwagi |
+| Type | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | `HttpSysCommunicationListener`Nie jest przeznaczony do użycia przez usługi stanowe, w których repliki współużytkują proces hosta. |
 | Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | W przypadku dynamicznego przypisywania portów to ustawienie uniemożliwia opisywany wcześniej problem dotyczący tożsamości. |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [Debug your Service Fabric application by using Visual Studio (Debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio)](service-fabric-debugging-your-application.md)
 
 

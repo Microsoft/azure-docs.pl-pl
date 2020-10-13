@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499396"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilowanie aplikacji produkcyjnych na platformie Azure za pomocą Application Insights
@@ -91,7 +91,7 @@ Metody takie jak **SqlCommand.Exeurocze** wskazują, że kod oczekuje na zakońc
 
 ### <a name="unmanaged-async"></a>Niezarządzany asynchroniczny
 
-Program .NET Framework emituje zdarzenia ETW i przekazuje identyfikatory aktywności między wątkami, aby wywołania asynchroniczne mogły być śledzone między wątkami. Kod niezarządzany (kod natywny) i niektóre starsze style kodu asynchronicznego nie mają tych zdarzeń i identyfikatorów aktywności, dlatego Profiler nie może określić wątku i jakie funkcje działają w wątku. W stosie wywołań jest oznaczona jako "niezarządzana asynchroniczna". Jeśli pobierasz plik ETW, możesz użyć [Narzędzia PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) , aby uzyskać więcej informacji o tym, co się dzieje.
+Program .NET Framework emituje zdarzenia ETW i przekazuje identyfikatory aktywności między wątkami, aby wywołania asynchroniczne mogły być śledzone między wątkami. Kod niezarządzany (kod natywny) i niektóre starsze style kodu asynchronicznego nie mają tych zdarzeń i identyfikatorów aktywności, dlatego Profiler nie może określić wątku i jakie funkcje działają w wątku. W stosie wywołań jest oznaczona jako "niezarządzana asynchroniczna". Jeśli pobierasz plik ETW, możesz użyć [Narzędzia PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  , aby uzyskać więcej informacji o tym, co się dzieje.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>Czas procesora CPU
 

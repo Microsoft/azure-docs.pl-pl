@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526395"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873282"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (maszyna wirtualna z systemem Linux)
 
@@ -27,14 +27,14 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak przygotować urządzenie IoT Edge na maszynie wirtualnej platformy Azure. W wystąpieniu IoT Edge są uruchamiane moduły analizy wideo na żywo, które są używane przez szablon aplikacji Azure IoT Central Video Analytics — obiekt i ruch.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej platformy Azure z zainstalowanym środowiskiem uruchomieniowym Azure IoT Edge
 > * Przygotuj instalację IoT Edge, aby hostować moduł analizy wideo na żywo i połączyć się z IoT Central
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem należy wykonać poprzednią pracę w samouczku [Tworzenie aplikacji wideo Analytics w usłudze Azure IoT Central](./tutorial-video-analytics-create-app.md) .
+Przed rozpoczęciem należy wykonać poprzednią [aplikację Tworzenie aplikacji wideo Analytics na platformie azure IoT Central](./tutorial-video-analytics-create-app-yolo-v3.md) lub [utworzyć analizę wideo w samouczku usługi Azure IoT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) .
 
 Potrzebna jest również subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć bezpłatnie na [stronie rejestracji na platformie Azure](https://aka.ms/createazuresubscription).
 

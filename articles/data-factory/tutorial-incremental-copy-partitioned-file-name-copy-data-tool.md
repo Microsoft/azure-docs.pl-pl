@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533761"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych plików na podstawie nazwy pliku podzielonego na partycje przy użyciu narzędzia Kopiowanie danych
@@ -78,7 +78,7 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
 5. W obszarze **Wersja** wybierz wersję **V2**.
 6. W obszarze **Lokalizacja**wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez Twoją fabrykę danych mogą mieścić się w innych lokalizacjach i regionach.
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 8. Po zakończeniu tworzenia zostanie wyświetlona strona główna usługi **Data Factory**.
 9. Aby w osobnej karcie uruchomić interfejs użytkownika usługi Azure Data Factory, kliknij kafelek **Tworzenie i monitorowanie**.
 
@@ -101,7 +101,7 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
     d. W obszarze **cykl**wprowadź **1 godzinę**.
 
-    e. Wybierz pozycję **Dalej**.
+    e. Wybierz opcję **Dalej**.
 
     Interfejs użytkownika usługi Data Factory tworzy potok o określonej nazwie zadania.
 

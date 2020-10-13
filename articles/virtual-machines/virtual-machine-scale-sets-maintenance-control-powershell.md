@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 62b2fd0554c218b733501805779745049d3b8c92
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532711"
 ---
 # <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Wersja zapoznawcza: kontrola konserwacji obrazów systemu operacyjnego w zestawach skalowania maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
@@ -56,7 +56,7 @@ $location="eastus2"
 $vmss="myMaintenanceVMSS"
 ```
 
-## <a name="create-a-maintenance-configuration"></a>Utwórz konfigurację konserwacji
+## <a name="create-a-maintenance-configuration"></a>Utworzenie konfiguracji konserwacji
 
 Utwórz grupę zasobów jako kontener dla konfiguracji. W tym przykładzie grupa zasobów o nazwie *myMaintenanceRG* jest tworzona w *eastus2*. Jeśli masz już grupę zasobów, której chcesz użyć, możesz pominąć tę część. Wystarczy zamienić nazwę grupy zasobów na własną w pozostałej części przykładów.
 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86509090"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Rozwiązywanie problemów z MASZYNami wirtualnymi platformy Azure za pomocą narzędzi zdalnych
@@ -180,7 +180,7 @@ Uruchom następujące polecenie w oparciu o lokalizację komputera klienckiego:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * W przypadku maszyny wirtualnej Azure Resource Manager należy najpierw dodać nazwę DNS do publicznego adresu IP. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](../windows/portal-create-fqdn.md). Następnie uruchom poniższe polecenie:
+  * W przypadku maszyny wirtualnej Azure Resource Manager należy najpierw dodać nazwę DNS do publicznego adresu IP. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](../windows/portal-create-fqdn.md). Następnie uruchom następujące polecenie:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -197,7 +197,7 @@ Uruchom następujące polecenie w oparciu o lokalizację komputera klienckiego:
 >[!NOTE] 
 >Ustawienie flagi SkipCaCheck pomija wymagania dotyczące importowania certyfikatu do maszyny wirtualnej podczas uruchamiania sesji.
 
-Można również użyć polecenia cmdlet Invoke-Command do zdalnego uruchomienia skryptu na maszynie wirtualnej.
+Możesz również użyć polecenia cmdlet Invoke-Command, aby zdalnie uruchomić skrypt na maszynie wirtualnej.
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}

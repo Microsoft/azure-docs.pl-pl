@@ -7,17 +7,17 @@ ms.date: 10/02/2017
 ms.author: sumukhs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021973"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurowanie niezawodnych usług stanowych
 Istnieją dwa zestawy ustawień konfiguracji dla niezawodnych usług. Jeden zestaw jest globalny dla wszystkich niezawodnych usług w klastrze, podczas gdy drugi zestaw jest specyficzny dla konkretnej niezawodnej usługi.
 
 ## <a name="global-configuration"></a>Konfiguracja globalna
-Globalna konfiguracja niezawodnej usługi jest określona w manifeście klastra dla klastra w sekcji KtlLogger. Umożliwia ona konfigurację udostępnionej lokalizacji i rozmiaru dziennika oraz globalne limity pamięci używane przez rejestratora. Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracje, które mają zastosowanie do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest.xml. Manifest klastra dla klastra można wyświetlić za pomocą polecenia programu PowerShell Get-ServiceFabricClusterManifest.
+Globalna konfiguracja niezawodnej usługi jest określona w manifeście klastra dla klastra w sekcji KtlLogger. Umożliwia ona konfigurację udostępnionej lokalizacji i rozmiaru dziennika oraz globalne limity pamięci używane przez rejestratora. Manifest klastra to pojedynczy plik XML, który zawiera ustawienia i konfiguracje, które mają zastosowanie do wszystkich węzłów i usług w klastrze. Plik jest zwykle nazywany ClusterManifest.xml. Manifest klastra dla klastra można wyświetlić za pomocą polecenia Get-ServiceFabricClusterManifest PowerShell.
 
 ### <a name="configuration-names"></a>Nazwy konfiguracji
 | Nazwa | Jednostka | Wartość domyślna | Uwagi |
@@ -119,7 +119,7 @@ ReplicatorConfig
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 | SlowApiMonitoringDuration |Sekundy |300 |Ustawia interwał monitorowania dla wywołań zarządzanych interfejsów API. Przykład: użytkownik podał funkcję wywołania zwrotnego kopii zapasowej. Po upływie interwału Raport kondycji ostrzeżeń zostanie wysłany do Menedżera kondycji. |
 | LogTruncationIntervalSeconds |Sekundy |0 |Konfigurowalny interwał, w którym zostanie zainicjowane obcinanie dziennika dla każdej repliki. Jest on używany do zapewnienia, że dziennik jest również obcinany w oparciu o czas, a nie tylko rozmiar dziennika. To ustawienie wymusza także przeczyszczanie usuniętych wpisów w niezawodnym słowniku. W związku z tym można go użyć w celu zapewnienia, że usunięte elementy są czyszczone w odpowiednim czasie. |
-| EnableStableReads |Wartość logiczna |Fałsz |Włączenie stałych odczytów ogranicza repliki pomocnicze do zwracania wartości, które były potwierdzone kworum. |
+| EnableStableReads |Boolean (wartość logiczna) |Fałsz |Włączenie stałych odczytów ogranicza repliki pomocnicze do zwracania wartości, które były potwierdzone kworum. |
 
 ### <a name="sample-configuration-via-code"></a>Przykładowa konfiguracja za pośrednictwem kodu
 ```csharp
@@ -185,6 +185,6 @@ Ustawienie MaxRecordSizeInKB określa maksymalny rozmiar rekordu, który może b
 
 Ustawienia SharedLogId i SharedLogPath są zawsze używane razem, aby usługa korzystała z oddzielnego dziennika udostępnionego z domyślnego dziennika udostępnionego węzła. W celu uzyskania najlepszej wydajności, jak wiele usług, jak to możliwe, należy określić ten sam dziennik udostępniony. Udostępnione pliki dzienników powinny być umieszczane na dyskach, które są używane wyłącznie dla udostępnionego pliku dziennika, aby zmniejszyć rywalizację o ruch podrzędny. Oczekujemy, że ta wartość powinna być zmieniana tylko w rzadkich przypadkach.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Debugowanie aplikacji Service Fabric w programie Visual Studio](service-fabric-debugging-your-application.md)
 * [Dokumentacja dla deweloperów Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

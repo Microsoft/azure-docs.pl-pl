@@ -5,10 +5,10 @@ ms.date: 08/24/2020
 ms.topic: tutorial
 ms.reviewer: ravastra
 ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88784032"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Samouczek: Tworzenie aplikacji łańcucha bloków dla usługi Azure łańcucha bloków Workbench
@@ -208,7 +208,7 @@ Na początku pliku konfiguracji znajdują się informacje o aplikacji, w tym naz
 
 W sekcji ról aplikacji są definiowane role użytkowników, którzy mogą działać lub uczestniczyć w ramach aplikacji łańcucha bloków. Definiowany jest zestaw odrębnych ról na podstawie funkcjonalności. W scenariuszu żądanie-odpowiedź występuje rozróżnienie między funkcjonalnością osoby żądającej jako jednostki tworzącej żądania oraz osoby odpowiadającej jako jednostki tworzącej odpowiedzi.
 
-### <a name="workflows"></a>Przepływy pracy
+### <a name="workflows"></a>Przepływy
 
 Przepływy pracy definiują co najmniej jeden etap i co najmniej jedną akcję kontraktu. W scenariuszu żądanie-odpowiedź pierwszy etap (stan) przepływu pracy to wykonanie akcji (przejście) wysłania żądania (funkcja) przez osobę żądającą (rola). W kolejnym etapie (stan) osoba odpowiadająca (rola) wykonuje akcję (przejście) wysłania odpowiedzi (funkcja). Przepływ pracy aplikacji może obejmować właściwości, funkcje i stany wymagane do opisania przepływu kontraktu.
 

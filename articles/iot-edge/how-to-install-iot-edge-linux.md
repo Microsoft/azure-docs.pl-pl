@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: kgremban
 ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660033"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opcja 2: automatyczne Inicjowanie obsługi
 
-IoT Edge urządzeń można automatycznie zainicjować przy użyciu [usługi Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Obecnie IoT Edge obsługuje trzy mechanizmy zaświadczania przy korzystaniu z automatycznej aprowizacji, ale wymagania sprzętowe mogą wpływać na wybór. Na przykład urządzenia Raspberry Pi nie są domyślnie dołączone do układu moduł TPM (TPM). Aby uzyskać więcej informacji, zobacz następujące artykuły:
+IoT Edge urządzeń można automatycznie zainicjować przy użyciu [usługi Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Obecnie IoT Edge obsługuje trzy mechanizmy zaświadczania przy korzystaniu z automatycznej aprowizacji, ale wymagania sprzętowe mogą wpływać na wybór. Na przykład urządzenia Raspberry Pi nie są domyślnie dołączone do układu moduł TPM (TPM). Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * [Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu wirtualnego modułu TPM na maszynie wirtualnej z systemem Linux](how-to-auto-provision-simulated-device-linux.md)
 * [Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509](how-to-auto-provision-x509-certs.md)

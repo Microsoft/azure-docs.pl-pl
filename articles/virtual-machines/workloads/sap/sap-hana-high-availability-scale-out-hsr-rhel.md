@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
 ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744851"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowalnego w poziomie systemu na Red Hat Enterprise Linux 
@@ -80,14 +80,14 @@ Przed rozpoczęciem zapoznaj się z następującymi informacjami i dokumentami S
 * [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
 * [Wymagania sieci SAP HANA](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html)
 * Ogólna dokumentacja RHEL
-  * [Omówienie dodatku wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administracja dodatkiem wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Dodatkowe informacje o wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administracja Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Informacje o wysokiej dostępności Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Przewodnik po sieci Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [Jak mogę skonfigurować replikację systemu SAP HANA skalowalnego w poziomie w klastrze Pacemaker z systemami plików HANA w udziałach NFS](https://access.redhat.com/solutions/5423971)
+  * [Jak mogę skonfigurować replikację systemu SAP HANA Scale-Out w klastrze Pacemaker z systemami plików HANA w udziałach NFS](https://access.redhat.com/solutions/5423971)
 * Dokumentacja RHEL specyficzna dla platformy Azure:
   * [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użycia w Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
-  * [Red Hat Enterprise Linux rozwiązanie do SAP HANA skalowania w poziomie i replikacji systemu](https://access.redhat.com/solutions/4386601)
+  * [Red Hat Enterprise Linux rozwiązanie do SAP HANA Scale-Out i replikacji systemu](https://access.redhat.com/solutions/4386601)
 * [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files][anf-sap-applications-azure]
 * [Dokumentacja Azure NetApp Files][anf-azure-doc] 
 
@@ -836,7 +836,7 @@ Uwzględnij wszystkie maszyny wirtualne, w tym większość twórców w klastrze
     ```
 
    > [!TIP]
-   > Jeśli konfiguracja obejmuje inne systemy plików, oprócz/ `hana/shared` , które są zainstalowane w systemie plików NFS, a następnie dołączania `sequential=false` opcji, tak że nie ma żadnych zależności porządkunia między systemami plików. Wszystkie zainstalowane systemy plików NFS muszą zostać uruchomione przed odpowiednim zasobem atrybutu, ale nie muszą być uruchamiane w żadnej kolejności względem siebie. Aby uzyskać więcej informacji, zobacz [Jak mogę konfigurowania SAP HANA skalowania w poziomie HSR w klastrze Pacemaker, gdy systemy plików Hana są udziałami NFS](https://access.redhat.com/solutions/5423971).  
+   > Jeśli konfiguracja obejmuje inne systemy plików, oprócz/ `hana/shared` , które są zainstalowane w systemie plików NFS, a następnie dołączania `sequential=false` opcji, tak że nie ma żadnych zależności porządkunia między systemami plików. Wszystkie zainstalowane systemy plików NFS muszą zostać uruchomione przed odpowiednim zasobem atrybutu, ale nie muszą być uruchamiane w żadnej kolejności względem siebie. Aby uzyskać więcej informacji, zobacz [Jak mogę konfigurowania SAP HANA Scale-Out HSR w klastrze Pacemaker, gdy systemy plików Hana to udziały NFS](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** Umieść Pacemaker w trybie konserwacji, przygotowując do tworzenia zasobów klastra Hana.  
     ```

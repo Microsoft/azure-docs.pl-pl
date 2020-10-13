@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324560"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregacje zaawansowane w zapytaniach dziennika Azure Monitor
@@ -38,7 +38,7 @@ Event
 | KOMPUTER2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-`makelist`generuje listę w kolejności, w której przekazano dane. Aby sortować zdarzenia od najstarszych do najnowszych, użyj `asc` w instrukcji Order zamiast `desc` . 
+`makelist` generuje listę w kolejności, w której przekazano dane. Aby sortować zdarzenia od najstarszych do najnowszych, użyj `asc` w instrukcji Order zamiast `desc` . 
 
 Warto również utworzyć listę tylko odrębnych wartości. Jest to tzw. _zestaw_ , który można wygenerować za pomocą `makeset` :
 
@@ -163,7 +163,7 @@ Heartbeat
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Zawężanie wyników do zestawu elementów: `let` , `makeset` , `toscalar` ,`in`
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Zawężanie wyników do zestawu elementów: `let` , `makeset` , `toscalar` , `in`
 Typowym scenariuszem jest wybranie nazw niektórych określonych jednostek na podstawie zestawu kryteriów, a następnie odfiltrowanie innych danych do tego zestawu jednostek. Na przykład można znaleźć komputery, na których wiadomo, że brakuje aktualizacji i zidentyfikować adresy IP, do których te komputery wezwały:
 
 

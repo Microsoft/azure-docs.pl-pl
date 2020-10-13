@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939782"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Pojęcia dotyczące dystrybuowania danych za pomocą PostgreSQL
@@ -46,7 +46,7 @@ Więcej informacji znajduje [się w węzłach i tabelach w Azure Database for Po
 ## <a name="determine-the-application-type"></a>Określanie typu aplikacji
 Jasno identyfikujący typ kompilowanej aplikacji jest istotny. Dlaczego? Ponieważ uruchamianie wydajnych zapytań na platformie Azure z włączoną obsługą PostgreSQL na serwerze wieloskalowania wymaga, aby tabele były prawidłowo dystrybuowane na różnych serwerach. Zalecana dystrybucja jest różna w zależności od typu aplikacji i jej wzorców zapytań. Istnieją rozległie dwa rodzaje aplikacji, które dobrze działają na platformie Azure z włączonym skalowaniem Postgres:
 - Aplikacje z wieloma dzierżawcami
-- Aplikacje w czasie rzeczywistym
+- Real-Time aplikacji
 
 Pierwszym krokiem modelowania danych jest zidentyfikowanie, który z nich jest bardziej zbliżony do Twojej aplikacji.
 

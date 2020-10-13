@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597849"
 ---
 # <a name="understand-linked-sign-on"></a>Opis połączonego logowania
@@ -31,7 +31,7 @@ Niektóre typowe scenariusze, w których opcja link jest cenna, to m.in.:
  
  **Połączona** opcja nie zapewnia funkcji logowania za pomocą poświadczeń usługi Azure AD. Można jednak nadal używać niektórych innych funkcji **aplikacji dla przedsiębiorstw**. Można na przykład użyć dzienników inspekcji i dodać niestandardowe logo i nazwę aplikacji.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Na stronie Szybki Start, w przypadku konfigurowania logowania jednokrotnego, należy również znaleźć opcję **połączona** . 
 

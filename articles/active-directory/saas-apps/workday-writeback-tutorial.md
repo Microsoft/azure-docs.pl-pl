@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017476"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do produktu Workday
@@ -52,7 +52,7 @@ Postępuj zgodnie z tymi instrukcjami, aby skonfigurować Stornowanie adresów e
 
 **Aby skonfigurować łącznik zapisywania zwrotnego dla produktu Workday:**
 
-1. Przejdź do witryny <https://portal.azure.com>.
+1. Przejdź do adresu <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
@@ -133,7 +133,7 @@ W tej sekcji skonfigurujesz sposób przepływu atrybutów zapisywania zwrotnego 
      Replace([mobile], , "[()\\s-]+", , "", , )
      ```
 
-6. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Mapowanie atrybutów.
+6. Aby zapisać mapowania, kliknij pozycję **Zapisz** w górnej części sekcji Attribute-Mapping.
 
 ## <a name="enable-and-launch-user-provisioning"></a>Włączanie i uruchamianie aprowizacji użytkowników
 
@@ -144,7 +144,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij pozycję **Zapisz**.
+2. Kliknij przycisk **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w katalogu źródłowym. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
@@ -157,7 +157,7 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
 * [Dowiedz się, jak skonfigurować Logowanie jednokrotne między produktem Workday i Azure Active Directory](workday-tutorial.md)
 * [Dowiedz się, jak zintegrować inne aplikacje SaaS z Azure Active Directory](tutorial-list.md)
 * [Dowiedz się, jak eksportować i importować konfiguracje aprowizacji](../app-provisioning/export-import-provisioning-configuration.md)
