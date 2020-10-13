@@ -7,10 +7,10 @@ ms.date: 06/30/2017
 ms.custom: devx-track-java
 ms.author: pakunapa
 ms.openlocfilehash: d53d20510db70d81aab796efab48de40c880bb3a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87316128"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Komunikacja zdalna usługi w języku Java z Reliable Services
@@ -26,7 +26,7 @@ W przypadku usług, które nie są powiązane z określonym protokołem lub stos
 Konfigurowanie komunikacji zdalnej dla usługi odbywa się w dwóch prostych krokach:
 
 1. Utwórz interfejs do wdrożenia usługi. Ten interfejs definiuje metody, które są dostępne dla zdalnego wywołania procedury w usłudze. Metody muszą być zwracanymi metodami asynchronicznymi. Interfejs musi implementować `microsoft.serviceFabric.services.remoting.Service` , aby sygnalizować, że usługa ma interfejs komunikacji zdalnej.
-2. Użyj odbiornika komunikacji zdalnej w usłudze. Jest to `CommunicationListener` implementacja, która udostępnia możliwości komunikacji zdalnej. `FabricTransportServiceRemotingListener`może służyć do tworzenia odbiornika usług zdalnych przy użyciu domyślnego protokołu transportowego komunikacji zdalnej.
+2. Użyj odbiornika komunikacji zdalnej w usłudze. Jest to `CommunicationListener` implementacja, która udostępnia możliwości komunikacji zdalnej. `FabricTransportServiceRemotingListener` może służyć do tworzenia odbiornika usług zdalnych przy użyciu domyślnego protokołu transportowego komunikacji zdalnej.
 
 Na przykład następująca usługa bezstanowa udostępnia pojedynczą metodę, aby uzyskać "Hello world" za pośrednictwem zdalnego wywołania procedury.
 
@@ -86,7 +86,7 @@ Tworzenie ServiceProxy jest operacją uproszczoną, więc można utworzyć dowol
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory okres istnienia
 [FabricServiceProxyFactory](/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) to fabryka, która tworzy serwer proxy dla różnych interfejsów komunikacji zdalnej. Jeśli używasz interfejsu API `ServiceProxyBase.create` do tworzenia serwera proxy, platforma utworzy `FabricServiceProxyFactory` .
 Warto utworzyć je ręcznie, gdy zachodzi potrzeba zastąpienia właściwości [ServiceRemotingClientFactory](/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) .
-Fabryka jest kosztowną operacją. `FabricServiceProxyFactory`obsługuje pamięć podręczną klientów komunikacyjnych.
+Fabryka jest kosztowną operacją. `FabricServiceProxyFactory` obsługuje pamięć podręczną klientów komunikacyjnych.
 Najlepszym rozwiązaniem jest buforowanie `FabricServiceProxyFactory` tak długo, jak to możliwe.
 
 ## <a name="remoting-exception-handling"></a>Obsługa wyjątków zdalnych

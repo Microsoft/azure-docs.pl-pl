@@ -1,5 +1,5 @@
 ---
-title: Zaktualizuj rozszerzenie Network Watcher do najnowszej wersji
+title: Aktualizowanie rozszerzenia Network Watcher do najnowszej wersji
 description: Dowiedz się, jak aktualizować rozszerzenie Network Watcher do najnowszej wersji
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: c386685d63894472623ffc4392a529541a91391c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd3fff2d438bbf804e35f04db0cfae15eea5e782
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410344"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973343"
 ---
 # <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Jak zaktualizować rozszerzenie Network Watcher do najnowszej wersji 
 
@@ -114,4 +114,4 @@ Jeśli na potrzeby rozszerzenia NetworkWatcher jest ustawiona funkcja autoupgrad
 
 ## <a name="support"></a>Pomoc techniczna
 
-Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz zapoznać się z dokumentacją rozszerzenia Network Watcher ([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux)lub [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows)) lub skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).
+Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, możesz zapoznać się z dokumentacją rozszerzenia Network Watcher ([Linux](./network-watcher-linux.md)lub [Windows](./network-watcher-windows.md)) lub skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję Uzyskaj pomoc techniczną. Aby uzyskać informacje o korzystaniu z pomocy technicznej platformy Azure, przeczytaj temat [Microsoft Azure support — często zadawane pytania](https://azure.microsoft.com/support/faq/).

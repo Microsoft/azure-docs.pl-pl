@@ -8,10 +8,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 0cb7d1fa8dc9171c4baba09136d3a3c28d6c901c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86510654"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery
@@ -158,7 +158,7 @@ Aby sprawdzić, czy serwer konfiguracji został pomyślnie skojarzony z zasadami
    4. W kroku 3 Dodaj chronione maszyny wirtualne według adresu IP. (Może być potrzebny wewnętrzny adres IP, aby je znaleźć).
    5. W kroku 4 skonfiguruj właściwości, wybierając konta, które zostały wcześniej skonfigurowane na serwerze przetwarzania.
    6. W kroku 5 wybierz zasady replikacji utworzone wcześniej w sekcji "krok 5. Konfigurowanie ustawień replikacji".
-   7. Wybierz przycisk **OK**.
+   7. Kliknij przycisk **OK**.
 
    > [!NOTE]
    > Po cofnięciu przydziału i ponownym uruchomieniu maszyny wirtualnej platformy Azure nie ma gwarancji, że będzie ona mieć ten sam adres IP. Jeśli adres IP serwera konfiguracji/serwera przetwarzania lub chronionych maszyn wirtualnych platformy Azure ulegnie zmianie, replikacja w tym scenariuszu może nie funkcjonować prawidłowo.

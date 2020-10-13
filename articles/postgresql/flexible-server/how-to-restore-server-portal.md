@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938866"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Przywracanie do punktu w czasie dla elastycznego serwera
@@ -40,7 +40,7 @@ Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu naj
 
 4.  Wybierz **najwcześniejszy punkt przywracania** i podaj nową nazwę serwera w polu **Przywróć do nowego serwera** . Zostanie wyświetlona Najwcześniejsza sygnatura czasowa, do której można wykonać przywracanie. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Najwcześniejszy czas przywracania":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Przegląd przywracania":::
 
 5.  Kliknij przycisk **OK**.
 
@@ -61,7 +61,7 @@ Wykonaj następujące kroki, aby przywrócić elastyczny serwer przy użyciu naj
 
 5.  Wybierz datę i godzinę i podaj nową nazwę serwera w polu **Przywróć do nowego serwera** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Niestandardowy czas przywracania":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Przegląd przywracania":::
  
 6.  Kliknij przycisk **OK**.
 

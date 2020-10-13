@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2a931b1a3c3f88af1abec4fd1810aae09c849c48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940855"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Tworzenie wystąpienia zarządzanego usługi Azure SQL w usłudze Azure Arc
@@ -62,7 +62,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 >
 >  Podczas określania alokacji pamięci i alokacji rdzeń wirtualny Użyj tej formuły, aby upewnić się, że tworzenie zakończyło się pomyślnie — dla każdego 1 rdzeń wirtualny potrzeba co najmniej 4 GB pamięci RAM pojemności dostępnej w węźle Kubernetes, w którym zostanie uruchomione wystąpienie zarządzane SQL pod.
 >
->  Podczas tworzenia wystąpienia bazy danych SQL nie używaj wielkich liter w nazwie, jeśli aprowizacji jest inicjowane na platformie Azure
+>  Podczas tworzenia wystąpienia SQL nie używaj wielkich liter w nazwie, jeśli aprowizujesz na platformie Azure
 >
 >  Aby wyświetlić listę dostępnych klas magazynu w klastrze Kubernetes `kubectl get storageclass` 
 

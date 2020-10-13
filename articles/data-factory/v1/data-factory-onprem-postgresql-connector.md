@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082838"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Przenoszenie danych z PostgreSQL za pomocą Azure Data Factory
@@ -99,7 +99,7 @@ Jeśli źródło jest typu **RelationalSource** (co obejmuje PostgreSQL), w sekc
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
+| query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Przykład: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nie (Jeśli określono element **TableName** **zestawu danych** ) |
 
 > [!NOTE]
 > W nazwach schematu i tabeli jest rozróżniana wielkość liter. Ujmij je w `""` (podwójne cudzysłowy) w zapytaniu.
@@ -312,38 +312,38 @@ Podczas przesuwania danych do PostgreSQL następujące mapowania są używane z 
 | boolean |bool |Boolean (wartość logiczna) |
 | dialogowym | |Byte [], ciąg |
 | bajty | |Byte [], ciąg |
-| znak [(n)] |Char [(n)] |String (ciąg) |
-| różne znaki [(n)] |varchar [(n)] |String (ciąg) |
-| Identyfikator | |String (ciąg) |
-| cidr | |String (ciąg) |
+| znak [(n)] |Char [(n)] |Ciąg |
+| różne znaki [(n)] |varchar [(n)] |Ciąg |
+| Identyfikator | |Ciąg |
+| cidr | |Ciąg |
 | koło | |Byte [], ciąg |
-| data | |Datetime (data/godzina) |
-| daterange | |String (ciąg) |
+| date | |Datetime (data/godzina) |
+| daterange | |Ciąg |
 | Podwójna precyzja |float8 |Double |
 | inet | |Byte [], ciąg |
-| intarry | |String (ciąg) |
-| int4range | |String (ciąg) |
-| int8range | |String (ciąg) |
+| intarry | |Ciąg |
+| int4range | |Ciąg |
+| int8range | |Ciąg |
 | liczba całkowita |int, INT4 |Int32 |
 | Interwał [pola] [(p)] | |Zakres czasu |
-| json | |String (ciąg) |
+| json | |Ciąg |
 | jsonb | |Byte [] |
 | line | |Byte [], ciąg |
 | lseg | |Byte [], ciąg |
 | macaddr | |Byte [], ciąg |
-| pieniędzy | |Wartość dziesiętna |
-| numeryczne [(p, s)] |Decimal [(p, s)] |Wartość dziesiętna |
-| numrange | |String (ciąg) |
+| pieniędzy | |Liczba dziesiętna |
+| numeryczne [(p, s)] |Decimal [(p, s)] |Liczba dziesiętna |
+| numrange | |Ciąg |
 | OID | |Int32 |
 | path | |Byte [], ciąg |
 | pg_lsn | |Int64 |
 | moment | |Byte [], ciąg |
 | tworząc | |Byte [], ciąg |
-| liczba rzeczywista |float4 |Pojedyncze |
+| liczba rzeczywista |float4 |Pojedynczy |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | Kolejną |serial4 |Int32 |
-| tekst | |String (ciąg) |
+| tekst | |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się więcej na temat mapowania kolumn w źródłowym zestawie danych na kolumny w datadataset, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

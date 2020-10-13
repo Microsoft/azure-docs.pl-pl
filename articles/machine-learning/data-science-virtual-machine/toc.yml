@@ -56,6 +56,8 @@
           href: dsvm-common-identity.md
         - name: Poświadczenia na potrzeby bezpiecznego dostępu do zasobów
           href: dsvm-secure-access-keys.md
+    - name: Uaktualnianie maszyny Data Science Virtual Machine do systemu Ubuntu 18.04
+      href: ubuntu-upgrade.md
 - name: Zasoby
   items:
     - name: Pytania i odpowiedzi Microsoft — strona pytania

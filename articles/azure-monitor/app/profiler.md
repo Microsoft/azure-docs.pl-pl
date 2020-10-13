@@ -7,17 +7,17 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 4f5328bbe21bb5f4a7947d5a495f4a0c8759c8da
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315641"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilowanie aplikacji Azure App Service na żywo za pomocą Application Insights
 
 Program Profiler można uruchomić na ASP.NET i ASP.NET Core aplikacji, które są uruchomione w Azure App Service za pomocą warstwy usługi Basic lub nowszej. Włączenie profilera w systemie Linux jest obecnie możliwe tylko za pośrednictwem [tej metody](profiler-aspnetcore-linux.md).
 
-## <a name="enable-profiler-for-your-app"></a><a id="installation"></a>Włącz Profiler dla swojej aplikacji
+## <a name="enable-profiler-for-your-app"></a><a id="installation"></a> Włącz Profiler dla swojej aplikacji
 Aby włączyć program Profiler dla aplikacji, postępuj zgodnie z poniższymi instrukcjami. Jeśli używasz innego typu usługi platformy Azure, poniżej znajdują się instrukcje dotyczące włączania profilera na innych obsługiwanych platformach:
 * [Usługi w chmurze](./profiler-cloudservice.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Service Fabric aplikacji](./profiler-servicefabric.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
@@ -50,7 +50,7 @@ Oto ustawienia, które są konieczne do włączenia profilera:
 |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
-Można ustawić te wartości przy użyciu [szablonów Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp), [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Można ustawić te wartości przy użyciu [szablonów Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [interfejsu wiersza polecenia platformy Azure](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Ręczne włączanie profilera dla innych chmur
 

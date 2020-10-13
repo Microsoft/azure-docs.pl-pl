@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265939"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
@@ -80,8 +80,8 @@ Przykład 2:
 
 W trwałej sesji przeglądarki użytkownicy mogą pozostać zalogowani po zamknięciu i ponownym otwarciu okna przeglądarki.
 
-Wartość domyślna usługi Azure AD na potrzeby trwałości sesji przeglądarki umożliwia użytkownikom na urządzeniach osobistych wybieranie, czy sesja ma być utrwalana, pokazując "pozostania w rejestracji". Monituj po pomyślnym uwierzytelnieniu. Jeśli trwałość przeglądarki jest skonfigurowana w AD FS przy użyciu wskazówek w artykule [AD FS ustawienia logowania](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)jednokrotnego, firma Microsoft będzie przestrzegać tych zasad i utrzymywać również sesję usługi Azure AD. Możesz również określić, czy użytkownicy w dzierżawie zobaczą "pozostania w Twojej rejestracji"? Monituj o zmianę odpowiedniego ustawienia w okienku znakowanie firmowe w Azure Portal przy użyciu wskazówek w artykule [Dostosowywanie strony logowania usługi Azure AD](../fundamentals/customize-branding.md).
+Wartość domyślna usługi Azure AD na potrzeby trwałości sesji przeglądarki umożliwia użytkownikom na urządzeniach osobistych wybieranie, czy sesja ma być utrwalana, pokazując "pozostania w rejestracji". Monituj po pomyślnym uwierzytelnieniu. Jeśli trwałość przeglądarki jest skonfigurowana w AD FS przy użyciu wskazówek zawartych w artykule [AD FS pojedyncze ustawienia Sign-On](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+), firma Microsoft będzie przestrzegać tych zasad i utrzymywać również sesję usługi Azure AD. Możesz również określić, czy użytkownicy w dzierżawie zobaczą "pozostania w Twojej rejestracji"? Monituj o zmianę odpowiedniego ustawienia w okienku znakowanie firmowe w Azure Portal przy użyciu wskazówek w artykule [Dostosowywanie strony logowania usługi Azure AD](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Konfigurowanie kontrolek sesji uwierzytelniania
 
@@ -128,7 +128,7 @@ Na zarejestrowanych urządzeniach z systemem Windows w usłudze Azure AD Zaloguj
 
 ## <a name="validation"></a>Walidacja
 
-Za pomocą narzędzia do wykonywania symulacji Zasymuluj Logowanie użytkownika do aplikacji docelowej i innych warunków w zależności od sposobu skonfigurowania zasad. Kontrolki zarządzanie sesjami uwierzytelniania są wyświetlane w wyniku tego narzędzia.
+Użyj narzędzia What-If, aby symulować Logowanie użytkownika do aplikacji docelowej i innych warunków w zależności od sposobu skonfigurowania zasad. Kontrolki zarządzanie sesjami uwierzytelniania są wyświetlane w wyniku tego narzędzia.
 
 ![Wyniki narzędzia What If dostępu warunkowego](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 

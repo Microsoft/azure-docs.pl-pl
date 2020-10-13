@@ -14,10 +14,10 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116907"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Instrukcje: ograniczanie aplikacji usługi Azure AD do zestawu użytkowników w dzierżawie usługi Azure AD
@@ -65,7 +65,7 @@ Istnieją dwa sposoby tworzenia aplikacji z włączonym przypisaniem użytkownik
 1. Znajdź **wymagane przypisanie użytkownika?** i ustaw wartość **tak**. Jeśli ta opcja jest ustawiona na **tak**, użytkownicy w dzierżawie muszą najpierw zostać przypisani do tej aplikacji lub nie będą mogli zalogować się do tej aplikacji.
 1. Wybierz pozycję **Zapisz** , aby zapisać tę zmianę konfiguracji.
 
-### <a name="app-registration"></a>Rejestracja aplikacji
+### <a name="app-registration"></a>Rejestrowanie aplikacji
 
 1. Przejdź do [**Azure Portal**](https://portal.azure.com/).
 1. Na górnym pasku wybierz konto zalogowane. 

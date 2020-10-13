@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 1542bba53b51ffdf2129953a81e5d13975ade434
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939246"
 ---
 # <a name="scale-operations-in-flexible-server"></a>Operacje skalowania na serwerze elastycznym
@@ -43,20 +43,20 @@ Wykonaj następujące kroki, aby wybrać warstwę obliczeniową.
  :::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Widok obliczeniowy + magazyn":::
 
 4.  Można wybrać klasę obliczeniową między warstwami, przeznaczeniem ogólnym i zoptymalizowanymi pod kątem pamięci.
-   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="Wyświetlanie listy warstw obliczeniowych":::
+   :::image type="content" source="./media/how-to-scale-compute-storage-portal/list-compute-tiers.png" alt-text="Widok obliczeniowy + magazyn":::
 
 
 5.  Jeśli chcesz mieć domyślne rozmiary rdzeni wirtualnych i pamięci, możesz pominąć następny krok.
 
 6.  Jeśli chcesz zmienić liczbę rdzeni wirtualnych, możesz kliknąć listę rozwijaną **rozmiar obliczeń** i kliknąć żądaną liczbę rdzeni wirtualnych/pamięci z listy.
     
-    - Warstwa :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="obliczeniowa"::: do przetworzenia
+    - Warstwa :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-burstable-dropdown.png" alt-text="Widok obliczeniowy + magazyn"::: do przetworzenia
 
-    - Warstwa obliczeniowa ogólnego zastosowania: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="obliczenia ogólnego przeznaczenia":::
+    - Warstwa obliczeniowa ogólnego zastosowania: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-general-purpose-dropdown.png" alt-text="Widok obliczeniowy + magazyn":::
 
-    - Warstwa obliczeniowa zoptymalizowana pod kątem pamięci: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="obliczenia zoptymalizowane pod kątem pamięci":::
+    - Warstwa obliczeniowa zoptymalizowana pod kątem pamięci: :::image type="content" source="./media/how-to-scale-compute-storage-portal/compute-memory-optimized-dropdown.png" alt-text="Widok obliczeniowy + magazyn":::
 
-7.  Kliknij pozycję **Zapisz**. 
+7.  Kliknij przycisk **Zapisz**. 
 8.  Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK** , aby wykonać operację. 
 9.  Powiadomienie o trwającej operacji skalowania.
 
@@ -70,12 +70,12 @@ Wykonaj następujące kroki, aby zwiększyć rozmiar magazynu.
 
 3.  Zostanie wyświetlona strona z bieżącymi ustawieniami.
    
-:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Kliknij pozycję obliczeniowe + magazyn":::
+:::image type="content" source="./media/how-to-scale-compute-storage-portal/click-compute-storage.png" alt-text="Widok obliczeniowy + magazyn":::
 4.  **Rozmiar magazynu pól w GIB** z paskiem slajdu jest wyświetlany z bieżącym rozmiarem.
 
 5.  Przesuń pasek do żądanego rozmiaru. Pokazany jest odpowiedni numer operacji we/wy. Liczba operacji we/wy zależy od warstwy obliczeń i rozmiaru. Wyświetlane są również informacje o kosztach. 
 
- :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="skalowanie w górę":::
+ :::image type="content" source="./media/how-to-scale-compute-storage-portal/storage-scaleup.png" alt-text="Widok obliczeniowy + magazyn":::
 
 6.  Jeśli masz dobry rozmiar magazynu, kliknij przycisk **Zapisz**. 
 7.  Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK** , aby wykonać operację. 

@@ -1,18 +1,18 @@
 ---
 title: Oceń wpływ nowej definicji Azure Policy
 description: Zapoznaj się z procesem tworzenia nowej definicji zasad w środowisku platformy Azure.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544706"
+ms.locfileid: "91873871"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Oceń wpływ nowej definicji Azure Policy
 
-Azure Policy to zaawansowane narzędzie do zarządzania zasobami platformy Azure z normami biznesowymi i w celu spełnienia wymagań dotyczących zgodności. Gdy użytkownicy, procesy lub potoki tworzą lub aktualizują zasoby, Azure Policy przegląda żądanie. Gdy efektem definicji zasad jest [dołączenie](./effects.md#deny) lub [DeployIfNotExists](./effects.md#deployifnotexists), zasady zmieniają żądanie lub dodaje do niego. Gdy wynikiem definicji zasad jest [Inspekcja](./effects.md#audit) lub [AuditIfNotExists](./effects.md#auditifnotexists), zasady spowodują utworzenie wpisu dziennika aktywności. W przypadku [odmowy](./effects.md#deny)działania definicji zasad zasady zatrzymają Tworzenie lub zmianę żądania.
+Azure Policy to zaawansowane narzędzie do zarządzania zasobami platformy Azure z normami biznesowymi i w celu spełnienia wymagań dotyczących zgodności. Gdy użytkownicy, procesy lub potoki tworzą lub aktualizują zasoby, Azure Policy przegląda żądanie. Gdy efekt definicji zasad to [Modify](./effects.md#modify), [append](./effects.md#deny) lub [DeployIfNotExists](./effects.md#deployifnotexists), zasady zmieniają żądanie lub dodaje do niego. Gdy działanie definicji zasad ma wartość [Audit](./effects.md#audit) lub [AuditIfNotExists](./effects.md#auditifnotexists), zasady spowodują utworzenie wpisu dziennika aktywności dla nowych i zaktualizowanych zasobów. W przypadku [odmowy](./effects.md#deny)działania definicji zasad zasady zatrzymają Tworzenie lub zmianę żądania.
 
 Te wyniki są dokładnie wymagane, gdy wiadomo, że zasady są prawidłowo zdefiniowane. Należy jednak sprawdzić, czy nowe zasady działają zgodnie z założeniami przed zezwoleniem na zmianę lub zablokowanie pracy. Sprawdzanie poprawności musi upewnić się, że tylko odpowiednie zasoby są określone jako niezgodne, a żadne zgodne zasoby nie są prawidłowo uwzględniane (znane jako _fałszywe pozytywne_) w wynikach.
 

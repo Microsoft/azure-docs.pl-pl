@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082056"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania za pomocą programu PowerShell
@@ -29,7 +29,7 @@ Połączenie klasycznej sieci wirtualnej z siecią wirtualną Menedżer zasobów
 
 Jeśli nie masz jeszcze bramy sieci wirtualnej i nie chcesz jej utworzyć, możesz zamiast tego rozważyć łączenie się z usługą sieci wirtualnych przy użyciu wirtualnych sieci równorzędnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Poniższe kroki przeprowadzą Cię przez ustawienia niezbędne do skonfigurowania bramy dynamicznej lub opartej na trasach dla każdej sieci wirtualnej i utworzenia połączenia sieci VPN między bramami. Ta konfiguracja nie obsługuje bram statycznych lub opartych na zasadach.
 

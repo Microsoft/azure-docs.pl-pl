@@ -10,18 +10,18 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714771"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939345"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
 Główną zaletą korzystania z Azure Active Directory (Azure AD) z usługą Azure Blob Storage lub kolejką queue storage jest to, że Twoje poświadczenia nie muszą już być przechowywane w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a następnie może użyć tokenu dostępu do autoryzowania żądań do usługi Azure Blob Storage lub magazynu kolejek.
 
-W tym artykule pokazano, jak skonfigurować aplikację natywną lub aplikację sieci Web do uwierzytelniania za pomocą platformy Microsoft Identity platform 2,0 przy użyciu przykładowej aplikacji, która jest dostępna do pobrania. Przykładowa aplikacja zawiera platformę .NET, ale inne języki używają podobnego podejścia. Aby uzyskać więcej informacji o platformie Microsoft Identity platform 2,0, zobacz [Microsoft Identity platform (v 2.0) — Omówienie](../../active-directory/develop/v2-overview.md).
+W tym artykule pokazano, jak skonfigurować aplikację natywną lub aplikację sieci Web do uwierzytelniania za pomocą platformy tożsamości firmy Microsoft przy użyciu przykładowej aplikacji, która jest dostępna do pobrania. Przykładowa aplikacja zawiera platformę .NET, ale inne języki używają podobnego podejścia. Aby uzyskać więcej informacji na temat platformy tożsamości firmy Microsoft, zobacz [Microsoft Identity platform — Omówienie](../../active-directory/develop/v2-overview.md).
 
 Aby zapoznać się z omówieniem przepływu przyznawania kodu OAuth 2,0, zobacz temat [Autoryzuj dostęp do aplikacji sieci web Azure Active Directory przy użyciu przepływu przyznawania kodu oauth 2,0](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -247,7 +247,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Zgoda polega na tym, że użytkownik udzielający autoryzacji aplikacji dostępu do chronionych zasobów w ich imieniu. Platforma Microsoft Identity platform 2,0 obsługuje przyrostową zgodę, co oznacza, że podmiot zabezpieczeń może najpierw zażądać minimalnego zestawu uprawnień i dodać do nich uprawnienia w miarę upływu czasu. Gdy kod żąda tokenu dostępu, określ zakres uprawnień wymaganych przez aplikację. Aby uzyskać więcej informacji na temat łącznej zgody, zobacz [przyrostowe i dynamiczne wyrażanie zgody](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Zgoda polega na tym, że użytkownik udzielający autoryzacji aplikacji dostępu do chronionych zasobów w ich imieniu. Platforma tożsamości firmy Microsoft obsługuje przyrostową zgodę, co oznacza, że podmiot zabezpieczeń może początkowo zażądać minimalnego zestawu uprawnień i w razie potrzeby dodać uprawnienia w miarę upływu czasu. Gdy kod żąda tokenu dostępu, określ zakres uprawnień wymaganych przez aplikację. Aby uzyskać więcej informacji na temat łącznej zgody, zobacz [przyrostowe i dynamiczne wyrażanie zgody](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## <a name="view-and-run-the-completed-sample"></a>Wyświetl i uruchom ukończony przykład
 

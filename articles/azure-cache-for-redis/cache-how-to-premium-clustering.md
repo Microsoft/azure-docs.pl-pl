@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004776"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować klastrowanie Redis dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
@@ -62,7 +62,7 @@ Aby zmienić rozmiar klastra w uruchomionej pamięci podręcznej Premium z włą
 
 Aby zmienić rozmiar klastra, użyj suwaka lub wpisz liczbę z zakresu od 1 do 10 w polu tekstowym **Liczba fragmentu** , a następnie kliknij przycisk **OK** , aby zapisać.
 
-Zwiększenie rozmiaru klastra zwiększa maksymalną przepływność i rozmiar pamięci podręcznej. Zwiększenie rozmiaru klastra nie zwiększa wartości maksymalnej. połączenia dostępne dla klientów.
+Zwiększenie rozmiaru klastra zwiększa maksymalną przepływność i rozmiar pamięci podręcznej. Zwiększenie rozmiaru klastra nie powoduje zwiększenia maksymalnej liczby połączeń dostępnych dla klientów.
 
 > [!NOTE]
 > Skalowanie klastra uruchamia polecenie [migracji](https://redis.io/commands/migrate) , które jest kosztownym poleceniem, dlatego w celu zapewnienia minimalnego wpływu należy rozważyć uruchomienie tej operacji w godzinach poza godzinami szczytu. Podczas migracji zostanie wyświetlony skok w polu obciążenie serwera. Skalowanie klastra to długotrwały proces i czas trwania zależy od liczby kluczy i rozmiaru wartości skojarzonych z tymi kluczami.

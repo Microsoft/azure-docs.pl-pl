@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116310"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Wskazówki dla deweloperów dotyczące funkcji dostępu warunkowego Azure Active Directory
@@ -153,9 +153,9 @@ W tym scenariuszu w przypadku aplikacji jednostronicowej (SPA) korzystamy z usł
 
 W ADAL.js istnieje kilka funkcji, które uzyskują tokeny: `login()` , `acquireToken(...)` , `acquireTokenPopup(…)` i `acquireTokenRedirect(…)` .
 
-* `login()`uzyskuje token identyfikatora za pomocą interakcyjnego żądania logowania, ale nie uzyskuje tokenów dostępu dla żadnej usługi (łącznie z chronionym interfejsem API usługi Dostęp warunkowy).
-* `acquireToken(…)`można następnie użyć do dyskretnego uzyskania tokenu dostępu, co oznacza, że w żadnym wypadku nie jest wyświetlany interfejs użytkownika.
-* `acquireTokenPopup(…)`i `acquireTokenRedirect(…)` są one używane do interaktywnego żądania tokenu dla zasobu, co oznacza, że zawsze wyświetla interfejs użytkownika logowania.
+* `login()` uzyskuje token identyfikatora za pomocą interakcyjnego żądania logowania, ale nie uzyskuje tokenów dostępu dla żadnej usługi (łącznie z chronionym interfejsem API usługi Dostęp warunkowy).
+* `acquireToken(…)` można następnie użyć do dyskretnego uzyskania tokenu dostępu, co oznacza, że w żadnym wypadku nie jest wyświetlany interfejs użytkownika.
+* `acquireTokenPopup(…)` i `acquireTokenRedirect(…)` są one używane do interaktywnego żądania tokenu dla zasobu, co oznacza, że zawsze wyświetla interfejs użytkownika logowania.
 
 Gdy aplikacja wymaga tokenu dostępu do wywoływania internetowego interfejsu API, próbuje `acquireToken(…)` . Jeśli sesja tokenu wygasła lub musi być zgodna z zasadami dostępu warunkowego, funkcja *acquireToken* kończy się niepowodzeniem, a aplikacja używa `acquireTokenPopup()` lub `acquireTokenRedirect()` .
 
@@ -173,9 +173,9 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Nasza aplikacja musi przechwycić `error=interaction_required` . Aplikacja może następnie korzystać z `acquireTokenPopup()` lub `acquireTokenRedirect()` w tym samym zasobie. Użytkownik musi przeprowadzić uwierzytelnianie wieloskładnikowe. Po zakończeniu uwierzytelniania wieloskładnikowego przez użytkownika aplikacja zostanie wystawiona jako nowy token dostępu dla żądanego zasobu.
 
-Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować [przykład kodu ogólnegoAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) , aby uzyskać wskazówki dotyczące KĄTOWego Spa
+Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować [ przykład kodu ogólnegoAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) , aby uzyskać wskazówki dotyczące KĄTOWego Spa
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](../conditional-access/overview.md).
 * Aby uzyskać więcej przykładów kodu usługi Azure AD, zobacz [repozytorium kodu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)w witrynie GitHub.

@@ -3,20 +3,29 @@ title: Funkcja platformy Azure jako procedura obsługi zdarzeń dla zdarzeń Azu
 description: Opisuje, jak można używać usługi Azure Functions jako obsługi zdarzeń dla zdarzeń Event Grid.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629692"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873731"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Funkcja platformy Azure jako procedura obsługi zdarzeń dla zdarzeń Event Grid
 
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Program obsługi wykonuje akcję, aby przetworzyć zdarzenie. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Functions** jest jednym z nich. 
 
-Użyj **Azure Functions** w architekturze bezserwerowej w celu reagowania na zdarzenia z Event Grid. W przypadku używania funkcji platformy Azure jako procedury obsługi Użyj wyzwalacza Event Grid zamiast ogólnego wyzwalacza HTTP. Event Grid automatycznie weryfikuje wyzwalacze Event Grid. W przypadku ogólnych wyzwalaczy HTTP należy samodzielnie zaimplementować [odpowiedź na weryfikację](webhook-event-delivery.md) .
 
-Aby uzyskać więcej informacji, zobacz [Event Grid wyzwalacz dla Azure Functions](../azure-functions/functions-bindings-event-grid.md) w celu omówienia korzystania z wyzwalacza Event Grid w funkcjach.
+Aby użyć funkcji platformy Azure jako programu obsługi zdarzeń, należy wykonać jedną z następujących metod: 
+
+-   Użyj [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Określ **funkcję platformy Azure** jako **Typ punktu końcowego**. Następnie określ aplikację funkcji platformy Azure i funkcję, która będzie obsługiwać zdarzenia. 
+-   Użyj [wyzwalacza http](../azure-functions/functions-bindings-http-webhook.md).  Określ **element Hook sieci Web** jako **Typ punktu końcowego**. Następnie określ adres URL funkcji platformy Azure, która będzie obsługiwać zdarzenia. 
+
+Zalecamy używanie pierwszego podejścia (Event Grid wyzwalacza), ponieważ ma ono następujące zalety w porównaniu z drugim podejściem:
+-   Event Grid automatycznie weryfikuje wyzwalacze Event Grid. W przypadku ogólnych wyzwalaczy HTTP należy samodzielnie zaimplementować [odpowiedź na weryfikację](webhook-event-delivery.md) .
+-   Event Grid automatycznie dostosowuje Częstotliwość dostarczania zdarzeń do funkcji wyzwalanej przez zdarzenie Event Grid na podstawie postrzeganej szybkości, z jaką funkcja może przetwarzać zdarzenia. Ta funkcja dopasowania współczynnika powoduje, że nie są dostępne błędy dostarczania, które wynikają z niezdolności funkcji do przetwarzania zdarzeń, ponieważ szybkość przetwarzania zdarzeń funkcji może się różnić w miarę upływu czasu. Aby zwiększyć wydajność przy wysokiej przepływności, należy włączyć przetwarzanie wsadowe w ramach subskrypcji zdarzeń. Aby uzyskać więcej informacji, zobacz [Włączanie przetwarzania wsadowego](#enable-batching).
+
+    > [!NOTE]
+    > Obecnie nie można używać wyzwalacza Event Grid dla aplikacji Azure Functions, gdy zdarzenie jest dostarczane w schemacie **CloudEvents** . Zamiast tego należy użyć wyzwalacza HTTP.
 
 ## <a name="tutorials"></a>Samouczki
 

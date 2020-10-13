@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940802"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usuwanie grupy serwerów PostgreSQL z funkcją Azure Arc
@@ -49,7 +49,7 @@ azdata arc postgres server delete -n postgres01
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Odzyskaj Kubernetes trwałe oświadczenia woluminu (PVC)
 
-Usunięcie grupy serwerów nie powoduje usunięcia skojarzonych z nimi [obwodów PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Jest to celowe. Zamierzenie ma pomóc użytkownikowi w uzyskaniu dostępu do plików bazy danych w przypadku przypadkowego usunięcia wystąpienia. Usuwanie obwodów PVC nie jest obowiązkowe. Jest to jednak zalecane. Jeśli nie odzyskasz tych obwodów PVC, ostatecznie zakończy się z błędami, ponieważ klaster Kubernetes zauważa za mało miejsca na dysku. Aby odzyskiwać obwody PVC, wykonaj następujące czynności:
+Usunięcie grupy serwerów nie powoduje usunięcia skojarzonych z nimi [obwodów PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Jest to celowe. Ma to na celu ułatwienie użytkownikowi uzyskania dostępu do plików bazy danych w razie przypadkowego usunięcia wystąpienia. Usuwanie roszczeń do woluminów trwałych nie jest obowiązkowe. Jest to jednak zalecane. Jeśli nie odzyskasz tych roszczeń do woluminów trwałych, w końcu wystąpią błędy, ponieważ klaster Kubernetes pomyśli, że kończy się miejsce na dysku. Aby odzyskać roszczenia do woluminów trwałych, wykonaj następujące czynności:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. Utwórz listę obwodów PVC dla usuniętej grupy serwerów
 Aby wyświetlić listę obwodów PVC, uruchom następujące polecenie:
@@ -57,7 +57,7 @@ Aby wyświetlić listę obwodów PVC, uruchom następujące polecenie:
 kubectl get pvc [-n <namespace name>]
 ```
 
-Zwraca listę PVSs, w szczególności obwodów PVC dla usuniętej grupy serwerów. Przykład:
+Zwraca listę PVSs, w szczególności obwodów PVC dla usuniętej grupy serwerów. Na przykład:
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -79,7 +79,7 @@ Ogólny format tego polecenia to:
 kubectl delete pvc <name of pvc>  [-n <namespace name>]
 ```
 
-Przykład:
+Na przykład:
 ```console
 kubectl delete pvc data-postgres01-0
 kubectl delete pvc data-postgres01-1 
@@ -91,7 +91,7 @@ kubectl delete pvc logs-postgres01-2
 kubectl delete pvc logs-postgres01-3
 ```
 
-Każde z tych poleceń polecenia kubectl potwierdzi pomyślne usunięcie obwodu PVC. Przykład:
+Każde z tych poleceń polecenia kubectl potwierdzi pomyślne usunięcie obwodu PVC. Na przykład:
 ```console
 persistentvolumeclaim "data-postgres01-0" deleted
 ```

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305214"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor
@@ -77,7 +77,7 @@ Brama Log Analytics jest dostępna w następujących językach:
 - Niemiecki
 - Węgierski
 - Włoski
-- Japoński
+- japoński
 - koreański
 - polski
 - portugalski (Brazylia)
@@ -141,7 +141,7 @@ Aby zainstalować bramę przy użyciu Kreatora instalacji, wykonaj następujące
    ![Zrzut ekranu przedstawiający konfigurację serwera proxy bramy](./media/gateway/gateway-wizard02.png)
 
 1. Jeśli nie masz włączonej Microsoft Update, zostanie wyświetlona strona Microsoft Update i będzie można ją włączyć. Wybierz pozycję, a następnie kliknij przycisk **dalej**. W przeciwnym razie przejdź do następnego kroku.
-1. Na stronie **folder docelowy** pozostaw folder domyślny C:\Program Files\OMS Gateway lub wprowadź lokalizację, w której chcesz zainstalować bramę. Następnie wybierz przycisk **Dalej**.
+1. Na stronie **folder docelowy** pozostaw folder domyślny C:\Program Files\OMS Gateway lub wprowadź lokalizację, w której chcesz zainstalować bramę. Następnie wybierz pozycję **Dalej**.
 1. Na stronie **gotowy do instalacji** wybierz pozycję **Zainstaluj**. Jeśli Kontrola konta użytkownika żąda uprawnień do instalacji, wybierz pozycję **tak**.
 1. Po zakończeniu instalacji wybierz pozycję **Zakończ**. Aby sprawdzić, czy usługa jest uruchomiona, Otwórz przystawkę Services. msc i sprawdź, czy **brama pakietu OMS** jest wyświetlana na liście usług i czy jej stan jest **uruchomiony**.
 
@@ -285,7 +285,7 @@ Aby skonfigurować określone serwery lub grupy do korzystania z serwera bramy L
 1. Otwórz konsolę Operations Manager i wybierz obszar roboczy **Tworzenie** .  
 1. W obszarze roboczym Tworzenie wybierz pozycję **reguły**. 
 1. Na pasku narzędzi Operations Manager wybierz przycisk **zakres** . Jeśli ten przycisk jest niedostępny, upewnij się, że w okienku **monitorowanie** został wybrany obiekt, a nie folder. W oknie dialogowym **zakres obiektów pakietu administracyjnego** zostanie wyświetlona lista wspólnych klas, grup lub obiektów przeznaczonych do użycia. 
-1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Wybierz przycisk **OK**.  
+1. W polu **Wyszukaj** wpisz **Usługa kondycji** i wybierz go z listy. Kliknij przycisk **OK**.  
 1. Wyszukaj **regułę ustawień serwera proxy usługi Advisor**. 
 1. Na pasku narzędzi Operations Manager wybierz pozycję **zastąpienia** , a następnie wskaż polecenie **Przesłoń Rule\For określony obiekt klasy: usługa kondycji** i wybierz obiekt z listy.  Lub Utwórz grupę niestandardową zawierającą obiekt usługi kondycji serwerów, do których chcesz zastosować to zastąpienie. Następnie Zastosuj zastąpienie do grupy niestandardowej.
 1. W oknie dialogowym **Właściwości przesłonięcia** Dodaj znacznik wyboru w kolumnie **Przesłoń** obok parametru **WebProxyAddress** .  W polu **wartość zastąpienia** wprowadź adres URL serwera bramy log Analytics. Ostrożnie Rozpocznij od prefiksu `http://` .  
@@ -306,7 +306,7 @@ Zapoznaj się z sekcją [Konfigurowanie sieci](../../automation/automation-hybri
 Jeśli komputer jest zarejestrowany jako hybrydowy proces roboczy elementu Runbook automatycznie, na przykład jeśli rozwiązanie Update Management jest włączone dla co najmniej jednej maszyny wirtualnej, wykonaj następujące kroki:
 
 1. Dodaj adresy URL usługi danych środowiska uruchomieniowego zadania do listy dozwolonych hostów w bramie Log Analytics. Na przykład: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. Uruchom ponownie usługę bramy Log Analytics przy użyciu następującego polecenia cmdlet programu PowerShell:`Restart-Service OMSGatewayService`
+1. Uruchom ponownie usługę bramy Log Analytics przy użyciu następującego polecenia cmdlet programu PowerShell: `Restart-Service OMSGatewayService`
 
 Jeśli komputer jest przyłączony do Azure Automation przy użyciu polecenia cmdlet hybrydowego rejestrowania procesu roboczego elementu Runbook, wykonaj następujące czynności:
 
@@ -321,7 +321,7 @@ Za pomocą poleceń cmdlet można wykonać zadania w celu zaktualizowania ustawi
 
 1. Zainstaluj bramę Log Analytics (Microsoft Instalator Windows).
 1. Otwórz okno konsoli programu PowerShell.
-1. Zaimportuj moduł, wpisując następujące polecenie:`Import-Module OMSGateway`
+1. Zaimportuj moduł, wpisując następujące polecenie: `Import-Module OMSGateway`
 1. Jeśli w poprzednim kroku nie wystąpił błąd, moduł został pomyślnie zaimportowany i można użyć poleceń cmdlet. Wprowadź wartość `Get-Module OMSGateway`
 1. Po użyciu poleceń cmdlet, aby wprowadzić zmiany, uruchom ponownie usługę bramy OMS.
 
@@ -332,7 +332,7 @@ Błąd w kroku 3 oznacza, że moduł nie został zaimportowany. Ten błąd może
 | `Get-OMSGatewayConfig` |Klucz |Pobiera konfigurację usługi |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Klucz (wymagany) <br> Wartość |Zmienia konfigurację usługi |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Pobiera adres serwera proxy przekazywania (nadrzędnego) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adres<br> Nazwa użytkownika<br> Hasło (bezpieczny ciąg) |Ustawia adres (i poświadczenia) serwera proxy przekazywania (nadrzędnego) |1. Ustaw serwer proxy przekaźnika i poświadczenie:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ustaw serwer proxy przekaźnika, który nie wymaga uwierzytelniania:`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Wyczyść ustawienie serwera proxy przekazywania:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Adres<br> Nazwa użytkownika<br> Hasło (bezpieczny ciąg) |Ustawia adres (i poświadczenia) serwera proxy przekazywania (nadrzędnego) |1. Ustaw serwer proxy przekaźnika i poświadczenie:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ustaw serwer proxy przekaźnika, który nie wymaga uwierzytelniania: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Wyczyść ustawienie serwera proxy przekazywania:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Pobiera aktualnie dozwolony Host (tylko lokalnie skonfigurowany dozwolony host, nie pobiera automatycznie dozwolonych hostów) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (wymagane) |Dodaje hosta do listy dozwolonych |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (wymagane) |Usuwa hosta z listy dozwolonych |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
@@ -350,7 +350,7 @@ Aby zbierać zdarzenia zarejestrowane przez bramę, należy zainstalować agenta
 
 W poniższej tabeli przedstawiono identyfikatory i opisy zdarzeń dotyczących zdarzeń dziennika bramy Log Analytics.
 
-| **ID** | **Opis** |
+| **ID (Identyfikator)** | **Opis** |
 | --- | --- |
 | 400 |Dowolny błąd aplikacji, który nie ma określonego identyfikatora. |
 | 401 |Nieprawidłowa konfiguracja. Na przykład, listenPort = "text" zamiast liczby całkowitej. |

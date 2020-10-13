@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 8c03f6b882c8b1a64c9f256493c5d586b5fa0f89
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940051"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Wdrażanie usługi Defender dla agenta zabezpieczeń opartego na usłudze IoT C dla systemu Linux

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: a69a58da85cf1ee03046626bb076c5cd44196279
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828714"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441458"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Wdróż Azure Monitor na dużą skalę przy użyciu Azure Policy
 Niektóre funkcje Azure Monitor są konfigurowane raz lub ograniczoną liczbę razy, inne muszą być powtórzone dla każdego zasobu, który ma być monitorowany. W tym artykule opisano metody używania Azure Policy do implementowania Azure Monitor na dużą skalę w celu zapewnienia spójnego i dokładnego monitorowania dla wszystkich zasobów platformy Azure.
@@ -41,7 +41,7 @@ Aby wyświetlić wbudowane definicje zasad związane z monitorowaniem, wykonaj n
 2. Wybierz pozycję **definicje**.
 3. W **polu Typ**wybierz pozycję *wbudowane* i dla **kategorii**wybierz pozycję *monitorowanie*.
 
-  ![Wbudowane definicje zasad](media/deploy-scale/builtin-policies.png)
+  ![Zrzut ekranu strony definicje Azure Policy w Azure Portal przedstawiający listę definicji zasad dla kategorii monitorowania i typu wbudowanego.](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>Ustawienia diagnostyczne
@@ -54,7 +54,7 @@ Istnieją dwie wbudowane definicje zasad dla każdego typu zasobu, jeden do wys�
 
 Na przykład na poniższej ilustracji przedstawiono wbudowane definicje zasad ustawień diagnostycznych dla Data Lake Analytics.
 
-  ![Wbudowane definicje zasad](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Zrzut ekranu ze strony definicji Azure Policy, w którym są wyświetlane dwie wbudowane definicje zasad ustawień diagnostycznych dla Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>Niestandardowe definicje zasad
 W przypadku typów zasobów, które nie mają wbudowanych zasad, należy utworzyć niestandardową definicję zasad. Można to zrobić ręcznie w Azure Portal przez skopiowanie istniejących wbudowanych zasad, a następnie zmodyfikowanie dla typu zasobu. Tworzenie zasad programowo przy użyciu skryptu w Galeria programu PowerShell jest bardziej wydajne.
@@ -109,7 +109,7 @@ Szczegółowe informacje na temat tworzenia inicjatywy można znaleźć w temaci
 ### <a name="assignment"></a>Przypisanie 
 Przypisz inicjatywę do grupy zarządzania, subskrypcji lub grupy zasobów platformy Azure w zależności od zakresu zasobów do monitorowania. [Grupa zarządzania](../governance/management-groups/overview.md) jest szczególnie przydatna w przypadku zasad określania zakresu, zwłaszcza jeśli organizacja ma wiele subskrypcji.
 
-![Przypisanie inicjatywy](media/deploy-scale/initiative-assignment.png)
+![Zrzut ekranu przedstawiający ustawienia karty podstawowe w sekcji Przypisywanie inicjatywy ustawień diagnostycznych do Log Analytics obszaru roboczego w Azure Portal.](media/deploy-scale/initiative-assignment.png)
 
 Korzystając z parametrów inicjatywy, można określić obszar roboczy lub inne szczegóły raz dla wszystkich definicji zasad w ramach inicjatywy. 
 
@@ -146,7 +146,7 @@ Aby uzyskać szczegółowe informacje o tym procesie, zobacz [włączanie Azure 
 ### <a name="virtual-machine-scale-sets"></a>Zestawy skalowania maszyn wirtualnych
 Aby użyć Azure Policy do włączenia monitorowania dla zestawów skalowania maszyn wirtualnych, przypisz **Azure monitor dla inicjatywy dla zestawów skalowania maszyn wirtualnych** do grupy zarządzania platformy Azure, subskrypcji lub grupy zasobów w zależności od zakresu zasobów do monitorowania. [Grupa zarządzania](../governance/management-groups/overview.md) jest szczególnie przydatna w przypadku zasad określania zakresu, zwłaszcza jeśli organizacja ma wiele subskrypcji.
 
-![Przypisanie inicjatywy](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Zrzut ekranu strony Przypisywanie inicjatywy w Azure Portal. Definicja inicjatywy została ustawiona tak, aby włączyć Azure Monitor dla zestawów skalowania maszyn wirtualnych.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 Wybierz obszar roboczy, do którego będą wysyłane dane. W tym obszarze roboczym musi być zainstalowane rozwiązanie *VMInsights* zgodnie z opisem w temacie []() .
 

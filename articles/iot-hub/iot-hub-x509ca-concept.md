@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308116"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Omówienie pojęć związanych z certyfikatami urzędu certyfikacji X. 509 w branży IoT
@@ -69,9 +69,9 @@ Zakup certyfikatu urzędu certyfikacji ma zalety posiadania dobrze znanego głó
 
 Aby kupić certyfikat urzędu certyfikacji X. 509, firma-X wybierz dostawcę usług certyfikatów głównych. Wyszukiwanie w Internecie dla frazy "główny urząd certyfikacji" spowoduje zwrócenie prawidłowych potencjalnych klientów. Główny urząd certyfikacji poprowadzi firmę-X na temat tworzenia pary kluczy publicznych/prywatnych oraz sposobu generowania żądania podpisania certyfikatu (CSR) dla swoich usług. CSR to formalny proces stosowania certyfikatu z urzędu certyfikacji. Wynikiem tego zakupu jest certyfikat używany jako certyfikat urzędu certyfikacji. Mając powszechność certyfikatów X. 509, certyfikat jest prawdopodobnie poprawnie sformatowany w standardzie RFC 5280 grupy IETF.
 
-### <a name="creating-a-self-signed-x509-ca-certificate"></a>Tworzenie certyfikatu certyfikacji X. 509 z podpisem własnym
+### <a name="creating-a-self-signed-x509-ca-certificate"></a>Tworzenie certyfikatu Self-Signed X. 509 urzędu certyfikacji
 
-Proces tworzenia certyfikatu z podpisem własnym X. 509 urzędu certyfikacji jest podobny do kupowania, z wyjątkiem tego, że osoba podpisująca inną firmę, jak główny urząd certyfikacji. W naszym przykładzie firma-X podpisuje swój certyfikat urzędu zamiast głównego urzędu certyfikacji. Firma-X może wybrać tę opcję do testowania, dopóki nie będą gotowi do zakupu certyfikatu urzędu certyfikacji. Firma-X może również używać certyfikatu urzędu certyfikacji X. 509 z podpisem własnym w środowisku produkcyjnym, jeśli element widget inteligentny-X nie jest przeznaczony do łączenia się z innymi usługami innych firm poza IoT Hub.
+Proces tworzenia certyfikatu programu Self-Signed X. 509 urzędu certyfikacji jest podobny do zakupu z wyjątkiem tego, czy nie obejmuje on osoby podpisującej innej firmy, takiej jak główny urząd certyfikacji. W naszym przykładzie firma-X podpisuje swój certyfikat urzędu zamiast głównego urzędu certyfikacji. Firma-X może wybrać tę opcję do testowania, dopóki nie będą gotowi do zakupu certyfikatu urzędu certyfikacji. Firma-X może również używać certyfikatu urzędu certyfikacji X. 509 z podpisem własnym w środowisku produkcyjnym, jeśli element widget inteligentny-X nie jest przeznaczony do łączenia się z innymi usługami innych firm poza IoT Hub.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Zarejestruj certyfikat X. 509 w celu IoT Hub
 

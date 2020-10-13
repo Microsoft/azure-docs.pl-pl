@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163734"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Jak monitorować dostępność klastra za pomocą dzienników Azure Monitor w usłudze HDInsight
@@ -99,7 +99,7 @@ Spowoduje to otwarcie **grupy akcji Dodaj**. Wybierz **nazwę grupy akcji**, **k
 > [!NOTE]
 > Istnieje kilka innych akcji, które mogą być wyzwalane przez alert oprócz wiadomości E-mail/SMS/wypychania/głosu, takich jak usługa Azure Functions, LogicApp, webhook, narzędzia ITSM i Automatyzacja. [Dowiedz się więcej.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-Spowoduje to otwarcie **wiadomości e-mail/SMS/wypychania/głosu**. Wybierz **nazwę** odbiorcy, **zaznacz** pole adres **e-mail** , a następnie wpisz adres e-mail, na który ma być wysyłany alert. Wybierz pozycję **OK** w **wiadomości e-mail/SMS/wypychanie/głos**, a następnie w obszarze **Dodaj grupę akcji** , aby zakończyć konfigurowanie grupy akcji.
+Spowoduje to otwarcie **wiadomości e-mail/SMS/wypychania/głosu**. Wybierz **nazwę** odbiorcy, **zaznacz** pole adres **e-mail** , a następnie wpisz adres e-mail, na który ma być wysyłany alert. Wybierz pozycję **OK** w  **wiadomości e-mail/SMS/wypychanie/głos**, a następnie w obszarze **Dodaj grupę akcji** , aby zakończyć konfigurowanie grupy akcji.
 
 ![Reguła alertu tworzy grupę akcji.](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 

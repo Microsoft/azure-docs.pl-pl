@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: cbcfddcd02a3998b3b35b01d386816735c59ae7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526412"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973278"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -24,7 +24,7 @@ Interfejs API przetwarzania obrazów platformy Azure obejmuje funkcje optycznego
 
 ## <a name="read-api"></a>Odczytaj interfejs API 
 
-[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR platformy Azure ([Dowiedz się, co nowego](./whats-new.md)), która wyodrębnia drukowany tekst (w kilku językach), tekst odręczny (tylko w języku angielskim), cyfry i symbole walutowe z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów z obrazami i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje ona wykrywanie wydrukowanych i odręcznych tekstu w tym samym obrazie lub dokumencie.
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR platformy Azure ([Dowiedz się, co nowego](./whats-new.md)), która wyodrębnia drukowany tekst (w kilku językach), tekst odręczny (tylko w języku angielskim), cyfry i symbole walutowe z obrazów i wielostronicowych dokumentów PDF. Jest zoptymalizowany pod kątem wyodrębniania tekstu z obrazów z obrazami i wielostronicowych dokumentów PDF z wielojęzycznymi językami. Obsługuje ona wykrywanie wydrukowanych i odręcznych tekstu w tym samym obrazie lub dokumencie.
 
 ![Jak OCR konwertuje obrazy i dokumenty na strukturalne dane wyjściowe z wyodrębnionym tekstem](./Images/how-ocr-works.svg)
 
@@ -36,21 +36,21 @@ Wywołanie **odczytu** pobiera obrazy i dokumenty jako dane wejściowe. Mają on
 * Rozmiar pliku musi być mniejszy niż 50 MB (4 MB dla warstwy Bezpłatna) i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli. 
 * Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
 
-### <a name="read-31-preview-allows-selecting-pages"></a>Wersja zapoznawcza 3,1 umożliwia wybieranie stron
-Za pomocą [interfejsu API programu Read 3,1 Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)dla dużych dokumentów wielostronicowych można podać określone numery stron lub zakresy stron jako parametr wejściowy, aby wyodrębnić tekst z tylko tych stron. Jest to nowy parametr wejściowy oprócz opcjonalnego parametru języka.
+### <a name="read-32-preview-allows-selecting-pages"></a>Wersja zapoznawcza 3,2 umożliwia wybieranie stron
+Za pomocą [interfejsu API programu Read 3,2 Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)dla dużych dokumentów wielostronicowych można podać określone numery stron lub zakresy stron jako parametr wejściowy, aby wyodrębnić tekst z tylko tych stron. Jest to nowy parametr wejściowy oprócz opcjonalnego parametru języka.
 
 > [!NOTE]
 > **Dane wejściowe języka** 
 >
-> [Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) ma opcjonalny parametr żądania dla języka. Jest to kod języka BCP-47 tekstu w dokumencie. Odczyt obsługuje funkcję autoidentification języka i dokumenty wielojęzyczne, więc podaj tylko kod języka, jeśli chcesz wymusić przetwarzanie dokumentu jako tego konkretnego języka.
+> [Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) ma opcjonalny parametr żądania dla języka. Jest to kod języka BCP-47 tekstu w dokumencie. Odczyt obsługuje funkcję autoidentification języka i dokumenty wielojęzyczne, więc podaj tylko kod języka, jeśli chcesz wymusić przetwarzanie dokumentu jako tego konkretnego języka.
 
 ## <a name="the-read-call"></a>Wywołanie odczytu
 
-[Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) interfejsu API odczytu pobiera obraz lub dokument PDF jako dane wejściowe i asynchronicznie wyodrębnia tekst. Wywołanie zwraca z polem nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator operacji, która ma zostać użyta w następnym kroku.
+[Wywołanie odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) interfejsu API odczytu pobiera obraz lub dokument PDF jako dane wejściowe i asynchronicznie wyodrębnia tekst. Wywołanie zwraca z polem nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator operacji, która ma zostać użyta w następnym kroku.
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Rozliczenia** 
@@ -59,7 +59,7 @@ Za pomocą [interfejsu API programu Read 3,1 Preview](https://westus2.dev.cognit
 
 ## <a name="the-get-read-results-call"></a>Wywołanie metody get Read Results
 
-Drugim krokiem jest wywołanie operacji [Get Results wyniki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Ta operacja przyjmuje jako dane wejściowe Identyfikator operacji, który został utworzony przez operację odczytu. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 1 do 2 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
+Drugim krokiem jest wywołanie operacji [Get Results wyniki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) . Ta operacja przyjmuje jako dane wejściowe Identyfikator operacji, który został utworzony przez operację odczytu. Zwraca odpowiedź JSON, która zawiera pole **stanu** z następującymi możliwymi wartościami. Tę operację można wywołać iteracyjnie, dopóki nie zwróci wartości z wartością **sukces** . Użyj interwału od 1 do 2 sekund, aby uniknąć przekroczenia liczby żądań na sekundę (RPS pliku).
 
 |Pole| Typ | Możliwe wartości |
 |:-----|:----:|:----|
@@ -83,7 +83,7 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,
@@ -128,8 +128,8 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
   }
 }
 ```
-### <a name="read-31-preview-adds-text-line-style-latin-languages-only"></a>Odczyt 3,1 w wersji zapoznawczej dodaje styl linii tekstu (tylko języki łacińskie)
-[Interfejs API odczytu 3,1 w wersji zapoznawczej](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
+### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Odczyt 3,2 w wersji zapoznawczej dodaje styl linii tekstu (tylko języki łacińskie)
+[Interfejs API odczytu 3,2 w wersji zapoznawczej](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) wyświetla obiekt **wyglądu** klasyfikowanie niezależnie od tego, czy każdy wiersz tekstu jest stylem drukowania, czy też z wynikiem ufności. Ta funkcja jest obsługiwana tylko dla języków łacińskich.
 
 ```json
   "appearance": {
@@ -140,12 +140,12 @@ Zobacz następujący przykład pomyślnej odpowiedzi JSON:
 Rozpocznij pracę z [zestawem SDK przetwarzanie obrazów OCR — szybki](./quickstarts-sdk/client-library.md) Start i [interfejs API REST do odczytu — Przewodnik Szybki](./QuickStarts/CSharp-hand-text.md) Start, aby rozpocząć integrację funkcji OCR z aplikacjami.
 
 ## <a name="supported-languages-for-print-text"></a>Obsługiwane języki na potrzeby drukowania tekstu
-[Interfejs API odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
+[Interfejs API odczytu 3,2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
 
 Pełną listę języków obsługiwanych przez OCR można znaleźć w [obsługiwanych językach](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
 
-### <a name="read-31-preview-adds-simplified-chinese-and-japanese"></a>Read 3,1 Preview dodaje uproszczony chiński i japoński
-W [publicznej wersji zapoznawczej interfejsu API Read 3,1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
+### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3,2 Preview dodaje uproszczony chiński i japoński
+W [publicznej wersji zapoznawczej interfejsu API Read 3,2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) dodano obsługę języka chińskiego uproszczonego i japońskiego. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz sekcję dotyczącą [interfejsu API OCR](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Obsługiwane języki dla tekstu odręcznego
 Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłącznie w języku angielskim.
@@ -202,6 +202,6 @@ Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystając
 ## <a name="next-steps"></a>Następne kroki
 
 - Rozpocznij pracę z [Przetwarzanie obrazów Przeczytaj zestaw SDK 3,0 dla przewodników szybki start](./quickstarts-sdk/client-library.md) w językach C#, Java, JavaScript i Python.
-- Aby dowiedzieć się, jak używać interfejsów API REST, Skorzystaj z [przewodnika Szybki start 3,0 interfejsu API REST](./QuickStarts/CSharp-hand-text.md) w językach C#, Java, JavaScript i Python.
-- Dowiedz się więcej o [interfejsie API REST do odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Dowiedz się więcej o [interfejsie API REST usługi Read 3,1 Public Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.
+- Aby dowiedzieć się, jak używać interfejsów API REST, Skorzystaj z [przewodnika Szybki start 3,1 interfejsu API REST](./QuickStarts/CSharp-hand-text.md) w językach C#, Java, JavaScript i Python.
+- Dowiedz się więcej o [interfejsie API REST do odczytu 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Dowiedz się więcej o [interfejsie API REST usługi Read 3,2 Public Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) z dodaną obsługą języka chińskiego uproszczonego i japońskiego.

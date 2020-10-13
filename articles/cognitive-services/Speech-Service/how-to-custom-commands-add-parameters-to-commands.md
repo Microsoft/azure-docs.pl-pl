@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284153"
 ---
 # <a name="add-parameters-to-commands"></a>Dodawanie parametrów do poleceń
@@ -36,7 +36,7 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
    1. Wybierz pozycję **Zmień nazwę**. W oknie **Zmień** nazwę systemu Windows Zmień **nazwę** na **TurnOnOff**.
 
 1. Następnie Dodaj nowy parametr do tego polecenia, który określa, czy użytkownik chce włączyć lub wyłączyć urządzenie.
-   1. Wybierz pozycję **Dodaj** obecność znajdującą się u góry środkowego okienka. Z listy rozwijanej wybierz opcję **parametr**.
+   1. Wybierz pozycję  **Dodaj** obecność znajdującą się u góry środkowego okienka. Z listy rozwijanej wybierz opcję **parametr**.
    1. W okienku po prawej stronie w sekcji **Parametry** Dodaj wartość w polu **Nazwa** jako **OnOff**.
    1. Wybierz pozycję **wymagane**. W oknie **Dodawanie odpowiedzi dla wymaganego parametru** wybierz opcję **prosty edytor**. W **pierwszej wariacji**Dodaj
         ```
@@ -50,18 +50,18 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
    1. Teraz skonfigurujemy właściwości parametrów. Aby uzyskać wyjaśnienie wszystkich właściwości konfiguracji polecenia, przejdź do pozycji [odwołania](./custom-commands-references.md). Skonfiguruj właściwości parametru w następujący sposób:
       
 
-       | Konfigurowanie      | Sugerowana wartość     | Opis                                                      |
+       | Konfiguracja      | Sugerowana wartość     | Opis                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nazwa               | `OnOff`           | Nazwa opisowa parametru                                                                           |
        | Jest globalny          | unchecked       | Pole wyboru wskazujące, czy wartość tego parametru jest stosowana globalnie do wszystkich poleceń w aplikacji|
        | Wymagane           | checked         | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru |
-       | Odpowiedź dotycząca wymaganego parametru      |> edytora prostego`On or Off?`      | Monit o podanie wartości tego parametru, gdy nie jest on znany |
-       | Typ               | String          | Typ parametru, taki jak Number, String, Data Time lub geography   |
-       | Konfigurowanie      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | W przypadku ciągów, to ogranicza dane wejściowe do zestawu możliwych wartości |
+       | Odpowiedź dotycząca wymaganego parametru      |> edytora prostego `On or Off?`      | Monit o podanie wartości tego parametru, gdy nie jest on znany |
+       | Type               | Ciąg          | Typ parametru, taki jak Number, String, Data Time lub geography   |
+       | Konfiguracja      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | W przypadku ciągów, to ogranicza dane wejściowe do zestawu możliwych wartości |
        | Wstępnie zdefiniowane wartości wejściowe     | `on`, `off`           | Zestaw możliwych wartości i ich aliasów         |
        
         
-   1. Aby dodać wstępnie zdefiniowane wartości wejściowe, wybierz opcję **Dodaj wstępnie zdefiniowane dane wejściowe** i w oknie **nowy element** , wpisz **nazwę** w powyższej tabeli. W tym przypadku nie używamy aliasów, więc można pozostawić to pole puste.
+   1. Aby dodać wstępnie zdefiniowane wartości wejściowe, wybierz opcję **Dodaj wstępnie zdefiniowane dane wejściowe** i w oknie **nowy element**  , wpisz **nazwę** w powyższej tabeli. W tym przypadku nie używamy aliasów, więc można pozostawić to pole puste.
    
       > [!div class="mx-imgBorder"]
       > ![Utwórz parametr](media/custom-commands/create-on-off-parameter.png)
@@ -78,9 +78,9 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
        | Nazwa               | `SubjectDevice`         |
        | Jest globalny          | unchecked             |
        | Wymagane           | checked               |
-       | Odpowiedź dotycząca wymaganego parametru     | > edytora prostego`Which device do you want to control?`    | 
-       | Typ               | String                |          |
-       | Konfigurowanie      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | 
+       | Odpowiedź dotycząca wymaganego parametru     | > edytora prostego `Which device do you want to control?`    | 
+       | Type               | Ciąg                |          |
+       | Konfiguracja      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | 
        | Wstępnie zdefiniowane wartości wejściowe | `tv`, `fan`               |
        | Aliasy ( `tv` )      | `television`, `telly`     |
 
@@ -90,9 +90,9 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
 
 W przypadku poleceń z parametrami warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Na przykład:
 
-* Pełne informacje o parametrach —`turn {OnOff} the {SubjectDevice}`
-* Informacje o części parametru-`turn it {OnOff}`
-* Brak informacji o parametrach-`turn something`
+* Pełne informacje o parametrach — `turn {OnOff} the {SubjectDevice}`
+* Informacje o części parametru- `turn it {OnOff}`
+* Brak informacji o parametrach- `turn something`
 
 Przykładowe zdania o różnym stopniu informacji umożliwiają aplikacji poleceń niestandardowych rozpoznawanie zarówno rozdzielczości jednego zrzutu, jak i rozwiązywanie wielu przełączania przy użyciu częściowych informacji.
 
@@ -109,7 +109,7 @@ turn something
 Wybierz pozycję **Zapisz**.
 
 > [!TIP]
-> W przykładowym edytorze zdań Użyj nawiasów klamrowych, aby odwołać się do parametrów. - `turn {OnOff} the {SubjectDevice}`Użyj karty do automatycznego uzupełniania z kopii zapasowej za pomocą wcześniej utworzonych parametrów.
+> W przykładowym edytorze zdań Użyj nawiasów klamrowych, aby odwołać się do parametrów. - `turn {OnOff} the {SubjectDevice}` Użyj karty do automatycznego uzupełniania z kopii zapasowej za pomocą wcześniej utworzonych parametrów.
 
 ### <a name="modify-completion-rules-to-include-parameters"></a>Modyfikuj reguły uzupełniania w celu uwzględnienia parametrów
 
@@ -126,7 +126,7 @@ Zmodyfikuj istniejącą regułę ukończenia **ConfirmationResponse**.
     ```
 1. Wybierz pozycję **Zapisz**.
 
-### <a name="try-it-out"></a>Czas to wypróbować
+### <a name="try-it-out"></a>Wypróbowywanie działania
 1. Wybierz ikonę **szkolenia** w górnej części okienka po prawej stronie.
 
 1. Po zakończeniu szkolenia wybierz pozycję **Testuj**. Zostanie wyświetlone okno **Test aplikacji** .
@@ -147,12 +147,12 @@ Zmodyfikuj polecenie **Settemperaturę** , aby umożliwić jej ustawienie temper
 
 Dodaj nową **temperaturę** parametru z następującą konfiguracją
 
-| Konfigurowanie      | Sugerowana wartość     |
+| Konfiguracja      | Sugerowana wartość     |
 | ------------------ | ----------------|
 | Nazwa               | `Temperature`           |
 | Wymagane           | checked         |
-| Odpowiedź dotycząca wymaganego parametru      | > edytora prostego`What temperature would you like?`
-| Typ               | Liczba          |
+| Odpowiedź dotycząca wymaganego parametru      | > edytora prostego `What temperature would you like?`
+| Type               | Liczba          |
 
 
 Edytuj przykład wyrażenia długości na następujących wartościach.
@@ -166,12 +166,12 @@ change the temperature
 
 Edytuj istniejące reguły uzupełniania zgodnie z następującą konfiguracją.
 
-| Konfigurowanie      | Sugerowana wartość     |
+| Konfiguracja      | Sugerowana wartość     |
 | ------------------ | ----------------|
 | Warunki         | Wymagana > temperatura parametru           |
-| Akcje           | Wysyłanie odpowiedzi na mowę >`Ok, setting temperature to {Temperature} degrees` |
+| Akcje           | Wysyłanie odpowiedzi na mowę > `Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Czas to wypróbować
+### <a name="try-it-out"></a>Wypróbowywanie działania
 
 **Uczenie** i **testowanie** zmian przy użyciu kilku interakcji.
 
@@ -188,8 +188,8 @@ Dodaj parametr o nazwie **DateTime** z następującą konfiguracją.
    | --------------------------------- | ----------------------------------------|
    | Nazwa                              | `DateTime`                               |
    | Wymagane                          | checked                                 |
-   | Odpowiedź dotycząca wymaganego parametru   | > edytora prostego`For what time?`            | 
-   | Typ                              | DateTime                                |
+   | Odpowiedź dotycząca wymaganego parametru   | > edytora prostego `For what time?`            | 
+   | Type                              | DateTime                                |
    | Wartości domyślne daty                     | Jeśli brakuje daty, użyj dzisiaj            |
    | Ustawienia domyślne czasu                     | W przypadku braku czasu Użyj początku dnia     |
 
@@ -210,10 +210,10 @@ Edytuj istniejące reguły uzupełniania zgodnie z następującą konfiguracją.
 
    | Ustawienie    | Sugerowana wartość                               |
    | ---------- | ------------------------------------------------------- |
-   | Akcje    | Wyślij odpowiedź na mowę —`Ok, alarm set for {DateTime}`  |
+   | Akcje    | Wyślij odpowiedź na mowę — `Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Czas to wypróbować
+### <a name="try-it-out"></a>Wypróbowywanie działania
 
 **Uczenie** i **testowanie** zmian.
 - Wejście: ustaw alarm dla jutro o południe

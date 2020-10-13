@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
 ms.openlocfilehash: ad0ff98174a81518fe26063f9ccc6acbbddbf8d6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442374"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
@@ -398,7 +398,7 @@ Aby uzyskać więcej informacji na temat poprawek dostępnych w usłudze HDInsig
 | Phoenix | [Informacje o poprawkach w Phoenix](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
 | Pig | [Informacje o poprawkach świń](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
 | Ranger | [Informacje o poprawkach Ranger](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
-| Spark | [Informacje o poprawkach platformy Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
+| platforma Spark | [Informacje o poprawkach platformy Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
 | Sqoop | Ta wersja udostępnia Sqoop 1.4.7 bez dodatkowych poprawek Apache. |
 | Tez | Ta wersja udostępnia tez od 0.9.1 bez dodatkowych poprawek Apache. |
 | Zeppelin | Ta wersja udostępnia Zeppelin 0.8.0 bez dodatkowych poprawek Apache. |
@@ -751,7 +751,7 @@ W tej wersji udostępniono również następujące poprawki programu Hive 1.2.1 
 
 -   [*Hive-18189*](https://issues.apache.org/jira/browse/HIVE-18189): zapytanie Hive zwróciło nieprawidłowe wyniki podczas ustawiania Hive. GroupBy. OrderBy. Position. aliasu na wartość true.
 
--   [*Hive-18258*](https://issues.apache.org/jira/browse/HIVE-18258): wektoryzacji: zmniejszanie grupy po stronie w MERGEPARTIAL ze zduplikowanymi kolumnami zostało przerwane.
+-   [*Gałąź-18258*](https://issues.apache.org/jira/browse/HIVE-18258): wektoryzacji: Reduce-Side Group by MERGEPARTIAL ze zduplikowanymi kolumnami zostało przerwane.
 
 -   [*Hive-18293*](https://issues.apache.org/jira/browse/HIVE-18293): program Hive nie może kompaktować tabel zawartych w folderze, który nie należy do tożsamości HiveMetaStore.
 
@@ -859,7 +859,7 @@ W tej wersji udostępniono również następujące poprawki programu Hive 1.2.1 
 
 -   [*Hive-18189*](https://issues.apache.org/jira/browse/HIVE-18189): pozycja order by nie działa, gdy usługa CBO jest wyłączona.
 
--   [*Hive-18258*](https://issues.apache.org/jira/browse/HIVE-18258): wektoryzacji: zmniejszanie grupy po stronie w MERGEPARTIAL ze zduplikowanymi kolumnami zostało przerwane.
+-   [*Gałąź-18258*](https://issues.apache.org/jira/browse/HIVE-18258): wektoryzacji: Reduce-Side Group by MERGEPARTIAL ze zduplikowanymi kolumnami zostało przerwane.
 
 -   [*Hive-18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: szybkie LLAP we/wy z potoku przetwarzania wolnego może prowadzić do OOM.
 
@@ -981,7 +981,7 @@ W HDP-2.3. x i 2.4. x zamiast dostarczania konkretnej wersji oprogramowania Apac
 
 Punkt poprawki wybrany dla Mahout w HDP 2.3. x i 2.4. x pochodzi z gałęzi "Mahout-0.10. x" platformy Apache Mahout, z 19 grudnia 2014, Poprawka 0f037cb03e77c096 w serwisie GitHub.
 
-W HDP-2.5. x i 2.6. x usunięto bibliotekę "Commons Attribution-HttpClient" z Mahout, ponieważ przeglądamy ją jako przestarzałą bibliotekę z możliwymi problemami z zabezpieczeniami i uaktualniono klienta Hadoop w Mahout do wersji 2.7.3, tę samą wersję używaną w HDP-2,5. W efekcie:
+W HDP-2.5. x i 2.6. x usunięto bibliotekę "Commons Attribution-HttpClient" z Mahout, ponieważ jest ona wyświetlana jako przestarzała Biblioteka z możliwymi problemami z zabezpieczeniami i uaktualniona Hadoop-Client w Mahout do wersji 2.7.3, ta sama wersja używana w HDP-2,5. W efekcie:
 
 -   Poprzednio skompilowane zadania Mahout muszą zostać ponownie skompilowane w środowisku HDP-2,5 lub 2,6.
 
@@ -1087,11 +1087,11 @@ Ta wersja zawiera Ranger 0.7.0 i następujące poprawki Apache:
 
 -   [Ranger-2008](https://issues.apache.org/jira/browse/RANGER-2008): szacowanie zasad kończy się niepowodzeniem w przypadku warunków zasad wielowierszowych.
 
-#### <a name="slider"></a>Suwak
+#### <a name="slider"></a>Slider
 
 Ta wersja oferuje suwak 0.92.0 bez dodatkowych poprawek Apache.
 
-#### <a name="spark"></a>Spark
+#### <a name="spark"></a>platforma Spark
 
 Ta wersja udostępnia platformę Spark 2.3.0 i następujące poprawki Apache:
 
@@ -1139,7 +1139,7 @@ Ta wersja udostępnia platformę Spark 2.3.0 i następujące poprawki Apache:
 
 -   [Spark-23598](https://issues.apache.org/jira/browse/SPARK-23598): Ustaw metody w BufferedRowIterator, aby uniknąć błędów środowiska uruchomieniowego dla dużego zapytania.
 
--   [Spark-23599](https://issues.apache.org/jira/browse/SPARK-23599): Dodaj Generator UUID z liczb pseudolosowych.
+-   [Spark-23599](https://issues.apache.org/jira/browse/SPARK-23599): Dodaj Generator UUID z numerów Pseudo-Random.
 
 -   [Spark-23599](https://issues.apache.org/jira/browse/SPARK-23599): Użyj RandomUUIDGenerator w wyrażeniu UUID.
 
@@ -1358,7 +1358,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 | USTERKA — 92957              | [GAŁĄŹ-11266](https://issues.apache.org/jira/browse/HIVE-11266)                                                                                                                                                                                                                 | Count ( \* ) niewłaściwy wynik w oparciu o statystyki tabeli dla tabel zewnętrznych                                                   |
 | USTERKA — 93097              | [RANGER-1944](https://issues.apache.org/jira/browse/RANGER-1944)                                                                                                                                                                                                               | Filtr akcji dla inspekcji administratora nie działa                                                                           |
 | USTERKA — 93335              | [GAŁĄŹ-12315](https://issues.apache.org/jira/browse/HIVE-12315)                                                                                                                                                                                                                 | wektoryzacji \_ krótkie \_ . q ma zły problem z wynikiem dla podwójnego obliczenia                                      |
-| USTERKA — 93415              | [Hive-18258](https://issues.apache.org/jira/browse/HIVE-18258), [Hive-18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Wektoryzacji: zmniejszenie liczby grup po stronie w MERGEPARTIAL ze zduplikowanymi kolumnami zostało przerwane                                      |
+| USTERKA — 93415              | [Hive-18258](https://issues.apache.org/jira/browse/HIVE-18258), [Hive-18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Wektoryzacji: Grupa Reduce-Side według MERGEPARTIAL z zduplikowanymi kolumnami jest uszkodzona                                      |
 | USTERKA — 93939              | [ATLAS — 2294](https://issues.apache.org/jira/browse/ATLAS-2294)                                                                                                                                                                                                                 | Dodatkowy parametr "Description" został dodany podczas tworzenia typu                                                               |
 | USTERKA — 94007              | [Phoenix-1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [Phoenix-3112](https://issues.apache.org/jira/browse/PHOENIX-3112)                                                                                                                                         | Zapytania w Phoenix zwracają wartości null ze względu na HBase wiersze częściowe                                                          |
 | USTERKA — 94266              | [GAŁĄŹ-12505](https://issues.apache.org/jira/browse/HIVE-12505)                                                                                                                                                                                                                 | Wstawianie zastąpienia w tej samej zaszyfrowanej strefie dyskretnie nie można usunąć niektórych istniejących plików                                   |
@@ -1450,7 +1450,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 | USTERKA — 98082              | [GAŁĄŹ-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP: zawsze Pakuj pakiet usługi log4j2 API jar dla organizacji. Apache. Log4J                                           |
 | USTERKA — 99849              | Nie dotyczy                                                                                                                                    | Tworzenie nowej tabeli przy użyciu kreatora plików próbuje użyć domyślnej bazy danych                                    |
 
-**Bezpieczeństwo**
+**Zabezpieczenia**
 
 | **Identyfikator błędu Hortonworks** | **Apache JIRA**                                                                                                                                                                                            | **Podsumowanie**                                                                                                           |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -1747,11 +1747,11 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 |**Składnik Apache**|**Apache JIRA**|**Podsumowanie**|**Szczegóły**|
 |--|--|--|--|
 |**Platforma Spark 2,3** |**Nie dotyczy** |**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |-Istnieje dokument "" wycofania "i przewodnik" zmiana sposobu działania ", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />— W przypadku części SQL należy zapoznać się z innym szczegółowym przewodnikiem migracji (od 2,2 do 2,3). https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**GAŁĄŹ-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Zadanie platformy Spark zostało pomyślnie zakończone, ale wystąpił pełny błąd przydziału dysku systemu plików HDFS |**Scenariusz:** Uruchamianie polecenia **INSERT overwrite** w przypadku ustawienia limitu przydziału w folderze Kosz użytkownika, który uruchamia polecenie.<br /><br />**Poprzednie zachowanie:** Zadanie powiedzie się, mimo że przeniesienie danych do kosza nie powiedzie się. Wynik może źle zawierać niektóre z danych znajdujących się wcześniej w tabeli.<br /><br />**Nowe zachowanie:** Po niepowodzeniu przejścia do folderu kosza pliki są trwale usuwane.|
+|platforma Spark |[**GAŁĄŹ-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Zadanie platformy Spark zostało pomyślnie zakończone, ale wystąpił pełny błąd przydziału dysku systemu plików HDFS |**Scenariusz:** Uruchamianie polecenia **INSERT overwrite** w przypadku ustawienia limitu przydziału w folderze Kosz użytkownika, który uruchamia polecenie.<br /><br />**Poprzednie zachowanie:** Zadanie powiedzie się, mimo że przeniesienie danych do kosza nie powiedzie się. Wynik może źle zawierać niektóre z danych znajdujących się wcześniej w tabeli.<br /><br />**Nowe zachowanie:** Po niepowodzeniu przejścia do folderu kosza pliki są trwale usuwane.|
 |**Kafka 1,0**|**Nie dotyczy**|**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/Ranger** | |Dodatkowe zasady programu Hive Ranger wymagane do wstawienia zastąpienia |**Scenariusz:** Dodatkowe zasady programu Hive Ranger wymagane do **wstawienia zastąpienia**<br /><br />**Poprzednie zachowanie:** Pomyślne **Wstawianie ZAstąpień** w programie Hive przebiega pomyślnie.<br /><br />**Nowe zachowanie:** Podczas uaktualniania do HDP-2.6. x z powodu błędu wystąpił nieoczekiwane nieudane zapytania dotyczące **zastępowania** programu Hive:<br /><br />Wystąpił błąd podczas kompilowania instrukcji: niepowodzenie: HiveAccessControlException uprawnień: użytkownik JKowalski nie ma uprawnienia do zapisu w/tmp/ \* (State = 42000, Code = 40000)<br /><br />Od HDP-2.6.0 zapytania programu Hive **INSERT OVERWRITE** wymagają zasad identyfikatora URI Ranger, aby zezwalać na operacje zapisu, nawet jeśli użytkownik ma uprawnienia do zapisu udzielone za pomocą zasad systemu plików HDFS.<br /><br />**Obejście/oczekiwanie na akcję klienta:**<br /><br />1. Utwórz nowe zasady w ramach repozytorium Hive.<br />2. na liście rozwijanej, w której znajduje się baza danych, wybierz pozycję Identyfikator URI.<br />3. Zaktualizuj ścieżkę (przykład:/tmp/*)<br />4. Dodaj użytkowników i grupę i Zapisz.<br />5. Ponów próbę wstawienia zapytania.|
 |**HDFS**|**Nie dotyczy** |System plików HDFS powinien obsługiwać wiele identyfikatorów URI usługi KMS |**Poprzednie zachowanie:** Właściwość DFS. Encryption. Key. Provider. URI została użyta do skonfigurowania ścieżki dostawcy usługi KMS.<br /><br />**Nowe zachowanie:** system plików DFS. Encryption. Key. Provider. URI jest obecnie przestarzały na rzecz platformy Hadoop. Security. Key. Provider. Path w celu skonfigurowania ścieżki dostawcy usługi KMS.|
-|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opcja wyłączania usługi Scheduler |**Dotyczy składnika:** Zeppelin — serwer<br /><br />**Poprzednie zachowanie:** W poprzednich wersjach programu Zeppelin nie było możliwości wyłączenia usługi Scheduler.<br /><br />**Nowe zachowanie:** Domyślnie użytkownicy nie będą już widzieć usługi Scheduler, ponieważ jest ona domyślnie wyłączona.<br /><br />**Obejście/oczekiwanie na akcję klienta:** Jeśli chcesz włączyć usługę Scheduler, musisz dodać azeppelin. Notes. cronus. Enable z wartością true w obszarze Custom Zeppelin site w ustawieniach Zeppelin z Ambari.|
+|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opcja wyłączania usługi Scheduler |**Dotyczy składnika:** Zeppelin-Server<br /><br />**Poprzednie zachowanie:** W poprzednich wersjach programu Zeppelin nie było możliwości wyłączenia usługi Scheduler.<br /><br />**Nowe zachowanie:** Domyślnie użytkownicy nie będą już widzieć usługi Scheduler, ponieważ jest ona domyślnie wyłączona.<br /><br />**Obejście/oczekiwanie na akcję klienta:** Jeśli chcesz włączyć usługę Scheduler, musisz dodać azeppelin. Notes. cronus. Enable z wartością true w obszarze Custom Zeppelin site w ustawieniach Zeppelin z Ambari.|
 
 ### <a name="known-issues"></a>Znane problemy
 

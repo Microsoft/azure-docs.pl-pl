@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120953"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Obsługa wyjątków i błędów MSAL
@@ -36,7 +36,7 @@ Zapoznaj się z następującą sekcją zgodną z używanym językiem, aby uzyska
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
 
-Podczas przetwarzania wyjątków platformy .NET można użyć samego typu wyjątku i `ErrorCode` elementu członkowskiego do rozróżnienia między wyjątkami. `ErrorCode`wartości są stałymi typu [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
+Podczas przetwarzania wyjątków platformy .NET można użyć samego typu wyjątku i `ErrorCode` elementu członkowskiego do rozróżnienia między wyjątkami. `ErrorCode` wartości są stałymi typu [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
 Możesz również obejrzeć pola elementów [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)i [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
@@ -48,7 +48,7 @@ Poniżej przedstawiono typowe wyjątki, które mogą zostać zgłoszone i niekt�
 
 | Wyjątek | Kod błędu | Ograniczanie ryzyka|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: użytkownik lub administrator nie wyraził zgody na korzystanie z aplikacji o IDENTYFIKATORze "{appId}" o nazwie "{nazwa_aplikacji}". Wyślij interaktywne żądanie autoryzacji dla tego użytkownika i zasobu.| Musisz najpierw uzyskać zgodę użytkownika. Jeśli nie korzystasz z platformy .NET Core (bez interfejsu użytkownika sieci Web), wywołaj (tylko raz) `AcquireTokeninteractive` . Jeśli korzystasz z platformy .NET Core lub nie chcesz go wykonać `AcquireTokenInteractive` , użytkownik może przejść do adresu URL, aby wyrazić zgodę: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . Aby wywołać `AcquireTokenInteractive` :`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: użytkownik lub administrator nie wyraził zgody na korzystanie z aplikacji o IDENTYFIKATORze "{appId}" o nazwie "{nazwa_aplikacji}". Wyślij interaktywne żądanie autoryzacji dla tego użytkownika i zasobu.| Musisz najpierw uzyskać zgodę użytkownika. Jeśli nie korzystasz z platformy .NET Core (bez interfejsu użytkownika sieci Web), wywołaj (tylko raz) `AcquireTokeninteractive` . Jeśli korzystasz z platformy .NET Core lub nie chcesz go wykonać `AcquireTokenInteractive` , użytkownik może przejść do adresu URL, aby wyrazić zgodę: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . Aby wywołać `AcquireTokenInteractive` : `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: użytkownik musi korzystać z [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md).| Nie ma żadnych środków zaradczych. Jeśli skonfigurowano usługę MFA dla dzierżawy, a Azure Active Directory (AAD) zdecyduje się ją wymusić, należy wrócić do interaktywnego przepływu, takiego jak `AcquireTokenInteractive` lub `AcquireTokenByDeviceCode` .|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: typ grantu nie jest obsługiwany przez punkty końcowe */typowe* lub */consumers* . Użyj */Organizations* lub punktu końcowego określonego dla dzierżawy. Użyto */typowe*.| Zgodnie z opisem w komunikacie z usługi Azure AD urząd musi mieć dzierżawę lub inny */Organizations*.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: treść żądania musi zawierać następujący parametr: `client_secret or client_assertion` .| Ten wyjątek może być zgłaszany, jeśli aplikacja nie została zarejestrowana jako publiczna aplikacja kliencka w usłudze Azure AD. W Azure Portal Edytuj manifest dla aplikacji i ustaw wartość `allowPublicClient` `true` . |
@@ -63,7 +63,7 @@ Większość czasu `AcquireTokenSilent` , gdy nie powiedzie się, jest to spowod
 
 Interakcja ma na celu przeprowadzenie akcji przez użytkownika. Niektóre z tych warunków są łatwe do rozpoznania (na przykład zaakceptowanie warunków użytkowania za pomocą jednego kliknięcia), a niektóre z nich nie mogą zostać rozwiązane z bieżącą konfiguracją (na przykład w przypadku, gdy komputer musi nawiązać połączenie z określoną siecią firmową). Niektóre pomocne w konfigurowaniu użytkownika — uwierzytelnianie wieloskładnikowe lub instalowanie Microsoft Authenticator na urządzeniu.
 
-### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException`Wyliczenie klasyfikacji
+### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException` Wyliczenie klasyfikacji
 
 MSAL uwidacznia `Classification` pole, które można odczytać, aby zapewnić lepszy interfejs użytkownika, na przykład informujący użytkownika, że jego hasło wygasło lub aby wyrazić zgodę na użycie niektórych zasobów. Obsługiwane wartości są częścią `UiRequiredExceptionClassification` wyliczenia:
 
@@ -244,13 +244,13 @@ W programie MSAL for Python wyjątki są rzadko, ponieważ większość błędó
 
 W programie MSAL for Java istnieją trzy typy wyjątków: `MsalClientException` , i, `MsalServiceException` `MsalInteractionRequiredException` które dziedziczą z `MsalException` .
 
-- `MsalClientException`jest zgłaszany w przypadku wystąpienia błędu, który jest lokalny dla biblioteki lub urządzenia.
-- `MsalServiceException`jest zgłaszany, gdy usługa bezpiecznego tokenu (STS) zwróci odpowiedź na błąd lub Wystąpił inny błąd sieciowy.
-- `MsalInteractionRequiredException`jest zgłaszany, gdy do pomyślnego uwierzytelnienia wymagane jest współdziałanie z interfejsem użytkownika.
+- `MsalClientException` jest zgłaszany w przypadku wystąpienia błędu, który jest lokalny dla biblioteki lub urządzenia.
+- `MsalServiceException` jest zgłaszany, gdy usługa bezpiecznego tokenu (STS) zwróci odpowiedź na błąd lub Wystąpił inny błąd sieciowy.
+- `MsalInteractionRequiredException` jest zgłaszany, gdy do pomyślnego uwierzytelnienia wymagane jest współdziałanie z interfejsem użytkownika.
 
 ### <a name="msalserviceexception"></a>MsalServiceException
 
-`MsalServiceException`przedstawia nagłówki HTTP zwracane w żądaniach do usługi STS. Uzyskaj dostęp do nich za pośrednictwem`MsalServiceException.headers()`
+`MsalServiceException` przedstawia nagłówki HTTP zwracane w żądaniach do usługi STS. Uzyskaj dostęp do nich za pośrednictwem `MsalServiceException.headers()`
 
 ### <a name="msalinteractionrequiredexception"></a>MsalInteractionRequiredException
 
@@ -260,13 +260,13 @@ Większość czasu `AcquireTokenSilently` , gdy nie powiedzie się, jest to spow
 
 Niektóre warunki wynikające z tego błędu są łatwe do rozwiązania użytkownikom. Na przykład może być konieczne zaakceptowanie warunków użytkowania. Lub prawdopodobnie żądanie nie może zostać spełnione z bieżącą konfiguracją, ponieważ maszyna musi nawiązać połączenie z określoną siecią firmową.
 
-MSAL uwidacznia `reason` pole, którego można użyć, aby zapewnić lepsze środowisko użytkownika. Na przykład `reason` pole może prowadzić do poinformowania użytkownika o wygaśnięciu hasła lub zapewnieniu zgody na korzystanie z niektórych zasobów. Obsługiwane wartości są częścią `InteractionRequiredExceptionReason` wyliczenia:
+MSAL uwidacznia `reason` pole, którego można użyć, aby zapewnić lepsze środowisko użytkownika. Na przykład `reason` pole może prowadzić do poinformowania użytkownika o wygaśnięciu hasła lub zapewnieniu zgody na korzystanie z niektórych zasobów. Obsługiwane wartości są częścią  `InteractionRequiredExceptionReason` wyliczenia:
 
 | Przyczyna | Znaczenie | Zalecana obsługa |
 |---------|-----------|-----------------------------|
 | `BasicAction` | Warunek może zostać rozpoznany przez interakcję użytkownika w trakcie przepływu uwierzytelniania interaktywnego | Wywołanie `acquireToken` z parametrami interaktywnym |
 | `AdditionalAction` | Warunek można rozwiązać przez dodatkowe interakcje z systemem poza przepływem uwierzytelniania interaktywnego. | Wywołaj `acquireToken` Parametry interaktywne, aby wyświetlić komunikat objaśniający akcję zaradczą do wykonania. Aplikacja wywołująca może zdecydować się na ukrycie przepływów, które wymagają dodatkowej akcji, jeśli użytkownik nie będzie mógł wykonać akcji naprawczej. |
-| `MessageOnly` | Nie można teraz rozwiązać warunku. Uruchom interaktywny przepływ uwierzytelniania, aby wyświetlić komunikat objaśniający warunek. | Wywołaj `acquireToken` z parametrami interaktywnym, aby wyświetlić komunikat objaśniający warunek. `acquireToken`zwróci błąd, `UserCanceled` gdy użytkownik odczyta komunikat i zamknie okno. Aplikacja może zdecydować się na ukrycie przepływów, które powodują, że użytkownik prawdopodobnie nie będzie mógł skorzystać z wiadomości. |
+| `MessageOnly` | Nie można teraz rozwiązać warunku. Uruchom interaktywny przepływ uwierzytelniania, aby wyświetlić komunikat objaśniający warunek. | Wywołaj `acquireToken` z parametrami interaktywnym, aby wyświetlić komunikat objaśniający warunek. `acquireToken` zwróci błąd, `UserCanceled` gdy użytkownik odczyta komunikat i zamknie okno. Aplikacja może zdecydować się na ukrycie przepływów, które powodują, że użytkownik prawdopodobnie nie będzie mógł skorzystać z wiadomości. |
 | `ConsentRequired`| Brak zgody użytkownika lub został on odwołany. |Wywołaj `acquireToken` Parametry interaktywne, aby użytkownik mógł wyrazić zgodę. |
 | `UserPasswordExpired` | Hasło użytkownika wygasło. | Wywołanie `acquireToken` z parametrem interaktywnym, aby użytkownik mógł zresetować swoje hasło |
 | `None` |  Dostępne są również dalsze szczegóły. Warunek może zostać rozpoznany przez interakcję użytkownika podczas przepływu uwierzytelniania interaktywnego. | Wywołanie `acquireToken` z parametrami interaktywnym |
