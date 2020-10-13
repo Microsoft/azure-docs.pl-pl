@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
 ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266704"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
@@ -55,7 +55,7 @@ Obsługiwane są cztery różne typy mapowania:
 - **Direct** — atrybut docelowy jest wypełniany wartością atrybutu obiektu połączonego w usłudze Azure AD.
 - **Stała** — atrybut docelowy jest wypełniony określonym określonym ciągiem.
 - **Expression** — atrybut target jest wypełniany w oparciu o wynik wyrażenia przypominającego skrypt.
-  Aby uzyskać więcej informacji, zobacz [Pisanie wyrażeń mapowania atrybutów w Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
+  Aby uzyskać więcej informacji, zobacz [Pisanie wyrażeń dla Attribute-Mappings w Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **Brak** — atrybut docelowy nie został zmodyfikowany. Jeśli jednak atrybut target jest kiedykolwiek pusty, zostanie wypełniony wartością domyślną, którą określisz.
 
 Podobnie jak te cztery podstawowe typy, niestandardowe mapowania atrybutów obsługują koncepcję opcjonalnego przypisania wartości **domyślnych** . Przypisanie wartości domyślnej gwarantuje, że atrybut docelowy zostanie wypełniony wartością, jeśli nie istnieje wartość w usłudze Azure AD lub w obiekcie docelowym. Najbardziej typową konfiguracją jest pozostawienie tej pustej.

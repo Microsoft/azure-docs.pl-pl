@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554672"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Samouczek: integracja Azure Active Directory z usługą moconavi
 
@@ -191,15 +191,15 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w moconavi. Aby dodać
 
 3. Kliknij przycisk **Ustawienia połączenia** .
 
-    ![Testowanie logowania jednokrotnego](./media/moconavi-tutorial/testing1.png)
+    ![Zrzut ekranu przedstawia moconavi z przyciskiem ustawienia połączenia.](./media/moconavi-tutorial/testing1.png)
 
 4. Wprowadź tekst `https://mcs-admin.moconavi.biz/gateway` w polu tekstowym **Połącz z adresem URL** , a następnie kliknij przycisk **gotowe** .
 
-    ![Testowanie logowania jednokrotnego](./media/moconavi-tutorial/testing2.png)
+    ![Zrzut ekranu przedstawia pole "Połącz z U R L" i przycisk Gotowe.](./media/moconavi-tutorial/testing2.png)
 
 5. Na poniższym zrzucie ekranu wykonaj następujące czynności:
 
-    ![Testowanie logowania jednokrotnego](./media/moconavi-tutorial/testing3.png)
+    ![Zrzut ekranu przedstawia stronę moconavi, na której można wprowadzić podane wartości.](./media/moconavi-tutorial/testing3.png)
 
     a. Wprowadź **klucz uwierzytelniania wejściowego**: `azureAD` w polu tekstowym **klucz uwierzytelniania wejściowego** .
 
@@ -209,11 +209,11 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w moconavi. Aby dodać
 
 6. Wprowadź hasło w polu tekstowym **hasło** usługi Azure AD, a następnie kliknij przycisk **Zaloguj** .
 
-    ![Testowanie logowania jednokrotnego](./media/moconavi-tutorial/testing4.png)
+    ![Zrzut ekranu przedstawia miejsce wprowadzenia hasła Azure A D.](./media/moconavi-tutorial/testing4.png)
 
 7. Uwierzytelnianie usługi Azure AD powiedzie się po wyświetleniu menu.
 
-    ![Testowanie logowania jednokrotnego](./media/moconavi-tutorial/testing5.png)
+    ![Zrzut ekranu przedstawia ikonę telefonu w moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

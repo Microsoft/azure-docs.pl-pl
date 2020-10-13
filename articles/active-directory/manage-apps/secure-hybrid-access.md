@@ -12,10 +12,10 @@ ms.date: 9/10/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d64f7423d537958b6d3c388cb12f23bd2e30e36
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087096"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Bezpieczny dostęp hybrydowy: Zabezpiecz starsze aplikacje za pomocą Azure Active Directory
@@ -26,7 +26,7 @@ Teraz możesz chronić starsze aplikacje do uwierzytelniania lokalnego i w chmur
 
 - [Twoje istniejące kontrolery dostarczania aplikacji i sieci](#sha-through-networking-and-delivery-controllers)
 
-- [Wirtualne sieci prywatne (VPN) i aplikacje obwodowe (SDP)](#sha-through-vpn-and-sdp-applications)
+- [Aplikacje wirtualnej sieci prywatnej (VPN) i Software-Defined obwodu (SDP)](#sha-through-vpn-and-sdp-applications)
 
 Możesz przyciągnąć przerwy i wzmocnić stan zabezpieczeń dla wszystkich aplikacji, korzystając z funkcji usługi Azure AD, takich jak [dostęp warunkowy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) usługi Azure AD i usługa Azure AD [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
 

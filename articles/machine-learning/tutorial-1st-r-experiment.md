@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fe9b0e9d2e2e46c7c4d04549777a5c27df6bdf18
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906729"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940110"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 
@@ -68,7 +68,7 @@ Użyj RStudio w wystąpieniu obliczeniowym Azure ML, aby uruchomić ten samoucze
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Klonowanie przykładowej vignettes 
 
-Sklonuj https://github.com/azure/azureml-sdk-for-r repozytorium GitHub, aby uzyskać kopię plików Vignette, które zostaną uruchomione w tym samouczku.
+Sklonuj https://github.com/Azure/azureml-sdk-for-r repozytorium GitHub, aby uzyskać kopię plików Vignette, które zostaną uruchomione w tym samouczku.
 
 1. W programie RStudio przejdź do karty "Terminal" i CD do katalogu, w którym chcesz sklonować repozytorium.
 
@@ -369,7 +369,7 @@ Możesz również uzyskać punkt końcowy HTTP usługi sieci Web, który akceptu
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń zasoby, gdy nie będą już potrzebne. Nie usuwaj zasobów, których planujesz nadal używać. 
 

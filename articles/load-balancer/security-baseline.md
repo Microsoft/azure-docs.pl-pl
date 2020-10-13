@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e62da791e8c60f884855fba16315a03fe22cecb5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450744"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940331"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Podstawa zabezpieczeń platformy Azure dla Azure Load Balancer
 
@@ -98,7 +98,7 @@ Security Center (warstwa standardowa) zapewnia dostęp do maszyny wirtualnej jus
 Aby zalecać konfiguracje grup zabezpieczeń sieci, które ograniczają porty i źródłowe adresy IP na podstawie rzeczywistego ruchu i analizy zagrożeń, należy użyć funkcji adaptacyjnej ochrony sieci Security Center.
  
 
-- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos`protection)
+- [Zarządzanie standardem Azure DDoS Protection przy użyciu Azure Portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 - [Filtrowanie na podstawie analizy zagrożeń zapory platformy Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
 

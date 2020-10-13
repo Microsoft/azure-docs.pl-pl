@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89447886"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969606"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Błąd Menedżera rozruchu systemu Windows — 0xC0000428 stanu nieprawidłowy skrót obrazu
 
@@ -28,7 +28,7 @@ W tym artykule przedstawiono kroki rozwiązywania problemów z użyciem obrazu p
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla Menedżera rozruchu systemu Windows z komunikatem:
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla Menedżera rozruchu systemu Windows z komunikatem:
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ Nie można przesunąć daty wygaśnięcia obrazu w wersji zapoznawczej. Po wyga�
 
 ## <a name="solution"></a>Rozwiązanie
 
-Jeśli obraz jest obrazem w wersji zapoznawczej, nie ma możliwości przeciągnięcia daty wygaśnięcia dla używanego obrazu, należy [wdrożyć nową maszynę wirtualną](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) przy użyciu obrazu bez podglądu. Poniższe kroki ułatwią ustalenie, czy używasz obrazu w wersji zapoznawczej, a także udostępnienie zasobów ułatwiających transfer danych z tej maszyny wirtualnej do nowej maszyny wirtualnej. W przypadku pozytywnego zidentyfikowania obrazu jako obrazu podglądu obraz nie jest możliwy do odzyskania, ponieważ już wygasł.
+Jeśli obraz jest obrazem w wersji zapoznawczej, nie ma możliwości przeciągnięcia daty wygaśnięcia dla używanego obrazu, należy [wdrożyć nową maszynę wirtualną](../windows/quick-create-portal.md) przy użyciu obrazu bez podglądu. Poniższe kroki ułatwią ustalenie, czy używasz obrazu w wersji zapoznawczej, a także udostępnienie zasobów ułatwiających transfer danych z tej maszyny wirtualnej do nowej maszyny wirtualnej. W przypadku pozytywnego zidentyfikowania obrazu jako obrazu podglądu obraz nie jest możliwy do odzyskania, ponieważ już wygasł.
 
 W zależności od preferencji można użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure w celu zbadania obrazu, aby określić, czy jest to obraz podglądu. Za pomocą tych poleceń można potwierdzić, że obraz jest obrazem podglądu.
 
@@ -103,7 +103,7 @@ W zależności od preferencji można użyć Azure PowerShell lub interfejsu wier
 
 ### <a name="query-using-the-azure-cli"></a>Zapytanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-1. Jeśli jeszcze tego nie zrobiono, należy [zainstalować interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Jeśli jeszcze tego nie zrobiono, należy [zainstalować interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 1. Po pobraniu Użyj wiersza polecenia lub programu PowerShell, aby wprowadzić `az login` polecenie, a następnie zaloguj się przy użyciu poświadczeń konta.
 1. Po zalogowaniu wprowadź następujące polecenia:
 

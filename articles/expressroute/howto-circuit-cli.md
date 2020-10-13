@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eebb2693d3bc0f65059c6c3c377f1afb7ae7eccd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757609"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969096"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>Szybki Start: Tworzenie i modyfikowanie obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -347,7 +347,7 @@ Aby anulować obsługę administracyjną i usunąć obwód ExpressRoute, upewnij
 * Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub **Zainicjowano obsługę administracyjną** , należy skontaktować się z dostawcą usług w celu **anulowania aprowizacji** obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.
 * Jeśli dostawca usług anulował obsługę administracyjną tego obwodu, oznacza to, że stan aprowizacji dostawcy usług jest ustawiony na **nieinicjowany**, można usunąć obwód. Naliczanie opłat za obwód zostanie zatrzymane.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Obwód ExpressRoute można usunąć, uruchamiając następujące polecenie:
 

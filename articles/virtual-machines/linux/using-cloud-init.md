@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
 ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869273"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa usługi Cloud-init dla maszyn wirtualnych w systemie Azure
@@ -45,7 +45,7 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 ### <a name="rhel"></a>RHEL
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak | tak — obsługa z wersji pakietu: *18.2-1. el7_6.2*|
+|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak | tak — obsługa z wersji pakietu: *18.2-1.el7_6.2*|
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 września 2020) | Nie dotyczy |
 |RedHat 7,7 (Gen1)|RHEL |7,7 | 7.7.2020051912 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | tak | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
@@ -77,7 +77,7 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oracle 7,7 |Oracle — Linux |77-Ci |7.7.01| Podgląd obrazu (Uwaga: jest to obraz w wersji zapoznawczej, a gdy wszystkie obrazy z systemem Oracle 7,7 obsługują funkcję Cloud-init, zostanie on 2020 usunięty. | nie, w wersji zapoznawczej pakiet jest: *18.5-3.0.1. el7*
+|Oracle 7,7 |Oracle-Linux |77-Ci |7.7.01| Podgląd obrazu (Uwaga: jest to obraz w wersji zapoznawczej, a gdy wszystkie obrazy z systemem Oracle 7,7 obsługują funkcję Cloud-init, zostanie on 2020 usunięty. | nie, w wersji zapoznawczej pakiet jest: *18.5-3.0.1. el7*
 
 ### <a name="suse-sles"></a>SUSE SLES
 Te obrazy SLES zostały zaktualizowane w celu inicjowania obsługi administracyjnej przy użyciu funkcji Cloud-init, a także wariantów obrazów Gen2.

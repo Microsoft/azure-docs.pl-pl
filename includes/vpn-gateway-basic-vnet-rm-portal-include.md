@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89052489"
 ---
 Możesz utworzyć sieć wirtualną w modelu wdrożenia usługi Resource Manager w witrynie Azure Portal, wykonując poniższe kroki. Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz [Virtual network overview](../articles/virtual-network/virtual-networks-overview.md) (Omówienie sieci wirtualnych).
@@ -38,7 +38,7 @@ Możesz utworzyć sieć wirtualną w modelu wdrożenia usługi Resource Manager 
    ![Karta podstawy](./media/vpn-gateway-basic-vnet-rm-portal-include/basics.png "Karta Podstawowe") Po wypełnieniu pól zostanie wyświetlony zielony znacznik wyboru, gdy znaki wprowadzone w polu zostaną zweryfikowane. Niektóre wartości są wypełnione automatycznie — możesz je zastąpić własnymi wartościami:
 
    - **Subskrypcja**: Sprawdź, czy na liście znajduje się poprawna subskrypcja. Subskrypcje można zmieniać, korzystając z listy rozwijanej.
-   - **Grupa zasobów**: wybierz istniejącą grupę zasobów lub kliknij pozycję **Utwórz nową** , aby utworzyć nową. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Azure Resource Manager przegląd](../articles/azure-resource-manager/management/overview.md#resource-groups).
+   - **Grupa zasobów**: wybierz istniejącą grupę zasobów lub kliknij pozycję **Utwórz nową** , aby utworzyć nową. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
    - **Nazwa**: Wprowadź nazwę sieci wirtualnej.
    - **Region**: Wybierz lokalizację sieci wirtualnej. Lokalizacja określa miejsce, w którym zostaną umieszczone zasoby wdrażane w tej sieci wirtualnej.
 

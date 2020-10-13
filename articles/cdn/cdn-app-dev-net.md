@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: a812704c42a4da5ddf89fe6c5ba0c9a684047f75
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919492"
 ---
 # <a name="get-started-with-the-azure-cdn-library-for-net"></a>Wprowadzenie do biblioteki Azure CDN dla platformy .NET
@@ -156,7 +156,7 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
 Teraz, gdy podstawowa struktura naszego programu jest zapisywana, należy utworzyć metody wywoływane przez `Main` metodę.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 Zanim będziemy mogli korzystać z biblioteki zarządzania Azure CDN, musimy uwierzytelnić naszą nazwę główną usługi i uzyskać token uwierzytelniania.  Ta metoda używa biblioteki ADAL do pobrania tokenu.
 
 ```csharp
@@ -330,7 +330,7 @@ Teraz można skompilować i uruchomić program, klikając przycisk **Uruchom** w
 
 Gdy program osiągnie powyższy monit, powinien być w stanie wrócić do grupy zasobów w Azure Portal i zobaczyć, że profil został utworzony.
 
-![Sukces!](./media/cdn-app-dev-net/cdn-success.png)
+![To wszystko!](./media/cdn-app-dev-net/cdn-success.png)
 
 Następnie możemy potwierdzić poprawność uruchomienia pozostałej części programu.
 

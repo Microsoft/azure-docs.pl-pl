@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754977"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969708"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii dla dysków usługi Azure IaaS
 
@@ -48,7 +48,7 @@ Ze względu na tę architekturę platforma Azure stale dostarcza trwałość kla
 
 Zlokalizowane błędy sprzętu na hoście obliczeniowym lub na platformie magazynu mogą czasami spowodować tymczasową niedostępność maszyny wirtualnej, która jest objęta umową [SLA platformy Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) na potrzeby dostępności maszyny wirtualnej. Platforma Azure oferuje również wiodącą w branży umowę SLA dotyczącą pojedynczych wystąpień maszyn wirtualnych, które korzystają z usługi Azure Premium dysków SSD.
 
-Aby chronić obciążenia aplikacji przed przestojem z powodu tymczasowej niedostępności dysku lub maszyny wirtualnej, klienci mogą korzystać z [zestawów dostępności](windows/manage-availability.md). Co najmniej dwie maszyny wirtualne w zestawie dostępności zapewniają nadmiarowość aplikacji. Następnie platforma Azure tworzy te maszyny wirtualne i dyski w osobnych domenach błędów z różnymi składnikami usług, sieci i serwerów.
+Aby chronić obciążenia aplikacji przed przestojem z powodu tymczasowej niedostępności dysku lub maszyny wirtualnej, klienci mogą korzystać z [zestawów dostępności](./manage-availability.md). Co najmniej dwie maszyny wirtualne w zestawie dostępności zapewniają nadmiarowość aplikacji. Następnie platforma Azure tworzy te maszyny wirtualne i dyski w osobnych domenach błędów z różnymi składnikami usług, sieci i serwerów.
 
 Ze względu na te oddzielne domeny błędów zlokalizowane awarie sprzętu zazwyczaj nie mają wpływu na wiele maszyn wirtualnych w zestawie w tym samym czasie. Posiadanie oddzielnych domen błędów zapewnia wysoką dostępność aplikacji. Jest to dobre rozwiązanie, aby korzystać z zestawów dostępności, gdy wymagana jest wysoka dostępność. W następnej sekcji omówiono aspekt odzyskiwania po awarii.
 
@@ -77,7 +77,7 @@ Należy wziąć pod uwagę produkcyjny serwer bazy danych, taki jak SQL Server l
 - Dane muszą być chronione i możliwe do odzyskania.
 - Serwer musi być dostępny do użycia.
 
-Plan odzyskiwania po awarii może wymagać utrzymania repliki bazy danych w innym regionie jako kopia zapasowa. W zależności od wymagań dotyczących dostępności serwera i odzyskiwania danych rozwiązanie może być przedziałem od aktywnej aktywnej lub aktywnej pasywnej lokacji repliki do okresowego wykonywania kopii zapasowych w trybie offline danych. Relacyjne bazy danych, takie jak SQL Server i Oracle, zapewniają różne opcje replikacji. Aby uzyskać SQL Server, użyj [SQL Server zawsze włączone grupy dostępności](https://msdn.microsoft.com/library/hh510230.aspx) w celu zapewnienia wysokiej dostępności.
+Plan odzyskiwania po awarii może wymagać utrzymania repliki bazy danych w innym regionie jako kopia zapasowa. W zależności od wymagań dotyczących dostępności serwera i odzyskiwania danych rozwiązanie może być przedziałem od aktywnej aktywnej lub aktywnej pasywnej lokacji repliki do okresowego wykonywania kopii zapasowych w trybie offline danych. Relacyjne bazy danych, takie jak SQL Server i Oracle, zapewniają różne opcje replikacji. Aby uzyskać SQL Server, użyj [SQL Server zawsze włączone grupy dostępności](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) w celu zapewnienia wysokiej dostępności.
 
 Bazy danych NoSQL, takie jak MongoDB, obsługują również [repliki](https://docs.mongodb.com/manual/replication/) w celu zapewnienia nadmiarowości. Używane są repliki w celu zapewnienia wysokiej dostępności.
 
@@ -201,7 +201,7 @@ Kolejną opcją tworzenia spójnych kopii zapasowych jest zamknięcie maszyny wi
 
 1. Utwórz migawkę każdego obiektu BLOB wirtualnego dysku twardego, który zajmuje zaledwie kilka sekund.
 
-    Aby utworzyć migawkę, można użyć [programu PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [interfejsu API REST usługi Azure Storage](https://msdn.microsoft.com/library/azure/ee691971.aspx)lub jednej z bibliotek klienta usługi Azure Storage, takich jak [Biblioteka klienta magazynu dla platformy .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx). [Azure CLI](/cli/azure/)
+    Aby utworzyć migawkę, można użyć [programu PowerShell](/powershell/module/az.storage), [interfejsu API REST usługi Azure Storage](/rest/api/storageservices/Snapshot-Blob)lub jednej z bibliotek klienta usługi Azure Storage, takich jak [Biblioteka klienta magazynu dla platformy .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob). [Azure CLI](/cli/azure/)
 
 1. Uruchom maszynę wirtualną, która skończy przestoje. Zwykle cały proces kończy się w ciągu kilku minut.
 
@@ -224,7 +224,7 @@ Aby efektywnie kopiować przyrostowe migawki na potrzeby odzyskiwania po awarii,
 
 ### <a name="recovery-from-snapshots"></a>Odzyskiwanie z migawek
 
-Aby pobrać migawkę, skopiuj ją w celu utworzenia nowego obiektu BLOB. W przypadku kopiowania migawki z konta podstawowego można skopiować migawkę do podstawowego obiektu BLOB migawki. Ten proces powoduje przywrócenie dysku do migawki. Ten proces jest znany jako podwyższanie poziomu migawki. W przypadku kopiowania kopii zapasowej migawki z konta dodatkowego, w przypadku konta magazynu geograficznie nadmiarowego do odczytu, należy skopiować je na konto podstawowe. Migawkę można skopiować za [pomocą programu PowerShell](https://docs.microsoft.com/powershell/module/az.storage) lub narzędzia AzCopy. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą narzędzia wiersza polecenia AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Aby pobrać migawkę, skopiuj ją w celu utworzenia nowego obiektu BLOB. W przypadku kopiowania migawki z konta podstawowego można skopiować migawkę do podstawowego obiektu BLOB migawki. Ten proces powoduje przywrócenie dysku do migawki. Ten proces jest znany jako podwyższanie poziomu migawki. W przypadku kopiowania kopii zapasowej migawki z konta dodatkowego, w przypadku konta magazynu geograficznie nadmiarowego do odczytu, należy skopiować je na konto podstawowe. Migawkę można skopiować za [pomocą programu PowerShell](/powershell/module/az.storage) lub narzędzia AzCopy. Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 W przypadku maszyn wirtualnych z wieloma dyskami należy skopiować wszystkie migawki, które są częścią tego samego skoordynowanego punktu przywracania. Po skopiowaniu migawek do zapisywalnych obiektów BLOB wirtualnego dysku twardego można użyć obiektów BLOB do ponownego utworzenia maszyny wirtualnej przy użyciu szablonu dla maszyny wirtualnej.
 
@@ -265,4 +265,3 @@ Zobacz [Tworzenie kopii zapasowych dysków maszyny wirtualnej niezarządzanych p
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

@@ -7,16 +7,16 @@ ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922569"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
 >[!IMPORTANT]
->Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku tej usługi.
+>Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku GCC-High i DoD.
 
 >[!NOTE]
 >Optymalizacja multimediów dla programu Microsoft Teams jest dostępna tylko dla klienta klasycznego systemu Windows na komputerach z systemem Windows 10. Optymalizacje multimediów wymagają klienta klasycznego systemu Windows w wersji 1.2.1026.0 lub nowszej.
@@ -42,7 +42,7 @@ W tej sekcji pokazano, jak zainstalować aplikację Team Desktop w obrazie maszy
 
 Aby włączyć optymalizację multimediów dla zespołów, należy dla hosta ustawić następujący klucz rejestru:
 
-1. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
+1. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Utwórz następującą wartość dla klucza zespoły:
 
 | Nazwa             | Typ   | Dane/wartość  |
@@ -94,7 +94,7 @@ Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze l
 
         Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 64-bitowym systemie operacyjnym i folderze Program Files w 32-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
 
-        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru w obszarze program i funkcje w panelu sterowania są wyświetlane zespoły Instalator, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły.
+        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru zespoły Machine-Wide Instalator pojawiają się w oknie Programy i funkcje w panelu sterowania, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły.
 
         > [!NOTE]
         > Użytkownicy i Administratorzy nie mogą wyłączyć automatycznego uruchamiania dla zespołów podczas logowania.

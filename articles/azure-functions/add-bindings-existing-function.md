@@ -4,10 +4,10 @@ description: Dowiedz się, jak dodać powiązania do istniejącej funkcji w proj
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91654155"
 ---
 # <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Dodaj powiązania do istniejącej funkcji w Azure Functions

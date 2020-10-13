@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 63f1d1d40d8aff21641f3fa4ee10a289de40800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae9db6dd20ef4346050be73250c7a10f7a449ec
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552615"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Samouczek: integracja Azure Active Directory z roztocznym połączeniem MiCloud lub platformą CloudLink
 
@@ -112,7 +112,7 @@ Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure
 
 4. W Azure Portal wybierz ikonę **Edytuj** w sekcji **podstawowe konfiguracje języka SAML** .
    
-    ![image (obraz)](common/edit-urls.png)
+    ![Zrzut ekranu przedstawia stronę Konfigurowanie pojedynczego Sign-On ze stroną SAML z wybraną ikoną Edytuj.](common/edit-urls.png)
 
     Zostanie wyświetlone okno dialogowe Podstawowa konfiguracja protokołu SAML.
 
@@ -120,7 +120,7 @@ Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure
 
 6. Skopiuj adres URL z pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w portalu roztocza konta i wklej go do pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w Azure Portal.
 
-   ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
+   ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML w sekcji Azure Portal i Konfigurowanie dostawcy tożsamości w portalu roztocznego konta z wierszami wskazującymi relację między nimi.](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
 7. W polu tekstowym **adres URL logowania** wpisz jeden z następujących adresów URL:
 
@@ -134,11 +134,11 @@ Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure
 
 9. W sekcji **certyfikat podpisywania SAML** na stronie **logowania opartej na protokole SAML** w Azure Portal wybierz pozycję **Pobierz** obok pozycji **certyfikat (base64)** , aby pobrać **certyfikat podpisywania** i zapisać go na komputerze.
 
-    ![image (obraz)](./media/mitel-connect-tutorial/azure-signing-certificate.png)
+    ![Zrzut ekranu przedstawia okienko certyfikatu podpisywania SAML, w którym można pobrać certyfikat.](./media/mitel-connect-tutorial/azure-signing-certificate.png)
 
 10. Otwórz plik certyfikatu podpisywania w edytorze tekstów, skopiuj wszystkie dane z pliku, a następnie wklej dane w polu **certyfikat podpisywania** w portalu konta roztocznego. 
 
-      ![image (obraz)](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
+      ![Zrzut ekranu przedstawia pole certyfikatu podpisywania.](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
 
 11. W sekcji **Ustawienia Roztoczne połączenie** na stronie **logowania opartej** na protokole SAML Azure Portal:
 
@@ -146,7 +146,7 @@ Aby skonfigurować MiCloud łączenie z logowaniem jednokrotnym w usłudze Azure
 
      1. Skopiuj adres URL z pola **Identyfikator usługi Azure AD** i wklej go do pola **Identyfikator jednostki** w portalu roztocznego konta.
          
-         ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
+         ![Zrzut ekranu przedstawia relację między stroną logowania opartą na protokole SAML Azure Portal i portalem konta rozłożenia.](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
 
 12. Wybierz pozycję **Zapisz** w oknie dialogowym **Połącz pojedyncze Sign-On ustawienia** w portalu konta roztocznego.
 
@@ -241,7 +241,7 @@ Aby skonfigurować platformę CloudLink z logowaniem jednokrotnym w usłudze Azu
     
        Zostanie otwarta strona **logowania oparta na protokole SAML** , w której jest wyświetlana sekcja **Podstawowa konfiguracja języka SAML** .
 
-       ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
+       ![Zrzut ekranu przedstawia stronę logowania opartą na protokole SAML z podstawową konfiguracją SAML.](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
 
 2. Aby uzyskać dostęp do panelu konfiguracji logowania jednokrotnego usługi **Azure AD** w portalu konta CloudLink:
 
@@ -251,33 +251,33 @@ Aby skonfigurować platformę CloudLink z logowaniem jednokrotnym w usłudze Azu
 
     1. Wybierz kartę **inne firmy** . Zostanie wyświetlona lista obsługiwanych aplikacji innych firm. Wybierz przycisk **Dodaj** skojarzony z **logowaniem jednokrotnym w usłudze Azure AD**, a następnie wybierz pozycję **gotowe**.
 
-       ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
+       ![Zrzut ekranu przedstawia stronę integracji, na której można dodać Logowanie jednokrotne w usłudze Azure A D.](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
 
        Rejestracja jednokrotna **usługi Azure AD** jest włączona dla konta klienta i zostanie dodana do sekcji **Integrations** na stronie **Informacje o koncie** .   
 
    1. Wybierz pozycję **Ukończ instalację**.
     
-      ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
+      ![Zrzut ekranu przedstawia pełną opcję instalacji usługi Azure A D Logowanie jednokrotne.](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
       
       Zostanie otwarty panel konfiguracja logowania jednokrotnego **usługi Azure AD** .
       
-       ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
+       ![Zrzut ekranu przedstawia jednoSign-Onową konfigurację usługi Azure A D.](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
        
        Należy zastanowić się, że nie jest zaznaczone pole wyboru **Włącz poświadczenia ścięcia (opcjonalnie)** w sekcji **opcjonalne poświadczenia z zatoczeniem** . Zaznacz to pole wyboru tylko wtedy, gdy chcesz, aby użytkownik zalogować się do aplikacji CloudLink przy użyciu poświadczeń pod kątem jednolitego logowania.
 
 3. W Azure Portal na stronie **logowania opartej na protokole SAML** wybierz ikonę **Edytuj** w sekcji **Podstawowa konfiguracja protokołu SAML** . Zostanie otwarty panel **podstawowe Konfigurowanie protokołu SAML** .
 
-    ![image (obraz)](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
+    ![Zrzut ekranu przedstawia okienko podstawowe konfiguracje języka SAML z wybraną ikoną Edytuj.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
  4. Skopiuj adres URL z pola **Identyfikator Roztoczny (identyfikator jednostki)** w portalu konta CloudLink i wklej go do pola **Identyfikator (identyfikator jednostki)** w Azure Portal.
 
  5. Skopiuj adres URL z pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w portalu konta CloudLink i wklej go do pola **adres URL odpowiedzi (adres URL usługi konsumenckej odbiorcy)** w Azure Portal.  
     
-    ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
+    ![Zrzut ekranu przedstawia relację między stronami w portalu kont CloudLink i Azure Portal.](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
 
  6. W polu tekstowym **adres URL logowania** wpisz adres URL, `https://accounts.mitel.io` Aby użyć portalu kont CloudLink jako domyślnej aplikacji pod kątem rozłożenia.
      
-     ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
+     ![Zrzut ekranu przedstawia pole tekstowe logowanie U R L.](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
   
      > [!NOTE]
      > Domyślna aplikacja pod kątem aplikacji jest otwierana, gdy użytkownik wybierze kafelek roztoczne połączenie w panelu dostępu. Jest to również aplikacja, do której można uzyskać dostęp, gdy użytkownik skonfiguruje konfigurację testową z usługi Azure AD.
@@ -286,14 +286,14 @@ Aby skonfigurować platformę CloudLink z logowaniem jednokrotnym w usłudze Azu
 
 8. W sekcji **certyfikat podpisywania SAML** na stronie **logowania opartej na protokole SAML** w Azure Portal wybierz pozycję **Pobierz** obok **certyfikatu (base64)** , aby pobrać **certyfikat podpisywania**. Zapisz certyfikat na komputerze.
   
-    ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
+    ![Zrzut ekranu przedstawia sekcję certyfikat podpisywania SAML, w której można pobrać certyfikat Base64.](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
 
 9. Otwórz plik certyfikatu podpisywania w edytorze tekstów, skopiuj wszystkie dane z pliku, a następnie wklej dane do pola **certyfikat podpisywania** w portalu konta CloudLink.  
 
     > [!NOTE]
     > Jeśli masz więcej niż jeden certyfikat, zalecamy wklejenie ich jeden po drugim. 
        
-    ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
+    ![Zrzut ekranu przedstawia krok dwie procedury, w której można wypełniać wartości z integracji z platformą Azure A D.](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
 
 10. W sekcji **Skonfiguruj nawiązanie połączenia** na stronie **logowania opartej na protokole SAML** Azure Portal:
 
@@ -301,7 +301,7 @@ Aby skonfigurować platformę CloudLink z logowaniem jednokrotnym w usłudze Azu
 
      1. Skopiuj adres URL z pola **Identyfikator usługi Azure AD** i wklej go do pola **Identyfikator dostawcy tożsamości (identyfikator jednostki)** w portalu konta CloudLink.
      
-        ![image (obraz)](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
+        ![Zrzut ekranu przedstawia źródło wartości opisanych w tym miejscu w Mintel Connect.](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
 
 11. Wybierz pozycję **Zapisz** w panelu Logowanie jednokrotne **usługi Azure AD** w portalu konta CloudLink.
 
