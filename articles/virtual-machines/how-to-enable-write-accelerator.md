@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: 0b5e6134de2260998e599bad0d1bf6b381898ffd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88513251"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962330"
 ---
 # <a name="enable-write-accelerator"></a>Włącz akcelerator zapisu
 
@@ -77,23 +77,23 @@ Aby można było włączyć lub wdrożyć dyski obsługiwane przez akcelerator z
 
 Dodano nowy parametr przełącznika **-WriteAccelerator** do następujących poleceń cmdlet:
 
-- [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
-- [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [Add-AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 Nie podawanie parametru ustawia właściwość na false i spowoduje wdrożenie dysków bez obsługi przez akcelerator zapisu.
 
 Nowy parametr przełącznika **-OsDiskWriteAccelerator** został dodany do następujących poleceń cmdlet:
 
-- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
+- [Set-AzVmssStorageProfile](/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 Nieokreślanie parametru domyślnie ustawia właściwość false, zwracając dyski, które nie wykorzystują akcelerator zapisu.
 
 Nowy opcjonalny parametr logiczny (niedopuszczający wartości null) **— OsDiskWriteAccelerator** został dodany do następujących poleceń cmdlet:
 
-- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
-- [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
+- [Update-AzVM](/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Określ $true lub $false do kontrolowania obsługi akcelerator zapisu platformy Azure z dyskami.
 
@@ -168,13 +168,13 @@ Akcelerator zapisu można włączyć za pośrednictwem portalu, w którym można
 
 ## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Włączanie akceleratora zapisu platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby włączyć akcelerator zapisu, można użyć [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) .
+Aby włączyć akcelerator zapisu, można użyć [interfejsu wiersza polecenia platformy Azure](/cli/azure/?view=azure-cli-latest) .
 
-Aby włączyć akcelerator zapisu na istniejącym dysku, użyj [AZ VM Update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), można użyć następujących przykładów w przypadku zastąpienia wartości diskname, VMName i Source z własnymi wartościami: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+Aby włączyć akcelerator zapisu na istniejącym dysku, użyj [AZ VM Update](/cli/azure/vm?view=azure-cli-latest#az-vm-update), można użyć następujących przykładów w przypadku zastąpienia wartości diskname, VMName i Source z własnymi wartościami: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-Aby dołączyć dysk z włączonym akcelerator zapisu przy użyciu opcji [AZ VM Disk Attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), można użyć poniższego przykładu w przypadku zastąpienia własnych wartości: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+Aby dołączyć dysk z włączonym akcelerator zapisu przy użyciu opcji [AZ VM Disk Attach](/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), można użyć poniższego przykładu w przypadku zastąpienia własnych wartości: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-Aby wyłączyć akcelerator zapisu, użyj [AZ VM Update](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update), ustawiając właściwości na false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+Aby wyłączyć akcelerator zapisu, użyj [AZ VM Update](/cli/azure/vm?view=azure-cli-latest#az-vm-update), ustawiając właściwości na false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>Włączanie akcelerator zapisu przy użyciu interfejsów API REST
 

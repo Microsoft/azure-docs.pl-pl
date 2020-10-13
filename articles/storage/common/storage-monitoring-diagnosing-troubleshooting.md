@@ -13,7 +13,7 @@ ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854561"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
@@ -473,7 +473,7 @@ Najbardziej typową przyczyną tego błędu jest odłączenie klienta przed upł
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Klient odbiera komunikaty HTTP 403 (zabronione)
 Jeśli aplikacja kliencka zgłasza błędy HTTP 403 (zabronione), prawdopodobną przyczyną jest to, że klient używa wygasłej sygnatury dostępu współdzielonego podczas wysyłania żądania magazynu (chociaż inne możliwe przyczyny to niedokładność zegara, nieprawidłowe klucze i puste nagłówki). Jeśli przyczyną jest wygasły klucz sygnatury dostępu współdzielonego, nie będą widoczne żadne wpisy w danych dziennika rejestrowania danych magazynu po stronie serwera. W poniższej tabeli przedstawiono przykład z dziennika po stronie klienta wygenerowanego przez bibliotekę klienta usługi Storage, która ilustruje ten problem:
 
-| Źródło | Szczegółowość | Szczegółowość | Identyfikator żądania klienta | Tekst operacji |
+| Element źródłowy | Szczegółowość | Szczegółowość | Identyfikator żądania klienta | Tekst operacji |
 | --- | --- | --- | --- | --- |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Rozpoczynanie operacji przy użyciu lokalizacji podstawowej dla trybu lokalizacji PrimaryOnly. |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Uruchamianie żądania synchronicznego do <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |

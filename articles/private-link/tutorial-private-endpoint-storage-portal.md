@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: 69bee753c2134b6eebe9c5df0a554c965208ad7c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91366227"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Samouczek: łączenie się z kontem magazynu przy użyciu prywatnego punktu końcowego platformy Azure
@@ -78,7 +78,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Kliknij przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -103,7 +103,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Nazwa maszyny wirtualnej | Wprowadź **myVM** |
     | Region | Wybierz **Wschodnie stany USA** |
     | Opcje dostępności | Nie wybieraj **nadmiarowości infrastruktury** |
-    | Image (Obraz) | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
+    | Obraz | Wybierz pozycję **Windows Server 2019 Datacenter-Gen1** |
     | Wystąpienie usługi Azure Spot | Wybierz pozycję **nie** |
     | Rozmiar | Wybierz rozmiar maszyny wirtualnej lub ustaw ustawienie domyślne |
     | **Konto administratora** |  |
@@ -121,7 +121,7 @@ W tej sekcji utworzysz maszynę wirtualną, która będzie używana do testowani
     | Sieć wirtualna | **myVNet** |
     | Podsieć | **mySubnet** |
     | Publiczny adres IP | Wybierz pozycję **Brak**. |
-    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowa**|
+    | Grupa zabezpieczeń sieci karty sieciowej | **Podstawowe**|
     | Publiczne porty wejściowe | Wybierz pozycję **Brak**. |
    
 5. Wybierz pozycję **Przeglądanie + tworzenie**. 
@@ -170,7 +170,7 @@ W tej sekcji utworzysz konto magazynu i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.blob.core.windows.net |
 
-7. Wybierz przycisk **OK**.
+7. Kliknij przycisk **OK**.
 
 8. Wybierz pozycję **Przeglądanie + tworzenie**.
 

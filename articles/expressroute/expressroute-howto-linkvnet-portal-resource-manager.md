@@ -12,7 +12,7 @@ ms.openlocfilehash: f46ad0d45967f94191732f472b44a47de930a3a4
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855357"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Samouczek: łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu portalu
@@ -27,7 +27,7 @@ ms.locfileid: "91855357"
 
 Ten samouczek pomaga utworzyć połączenie w celu połączenia sieci wirtualnej z obwodem usługi Azure ExpressRoute przy użyciu Azure Portal. Sieci wirtualne, które można połączyć ze obwodem usługi Azure ExpressRoute, mogą znajdować się w tej samej subskrypcji lub być częścią innej subskrypcji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > - Podłącz sieć wirtualną do obwodu w tej samej subskrypcji.
 > - Połącz sieć wirtualną z obwodem w innej subskrypcji.

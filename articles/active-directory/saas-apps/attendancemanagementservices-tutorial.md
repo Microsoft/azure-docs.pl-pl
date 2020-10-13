@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Samouczek: integracja Azure Active Directory z usługami zarządzania frekwencją
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą usług zarządzania frekwencją, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Logowanie jednokrotne usług zarządzania frekwencją](#configure-attendance-management-services-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Logowanie jednokrotne usług zarządzania frekwencją](#configure-attendance-management-services-single-sign-on)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego usług zarządzania frekwencją](#create-attendance-management-services-test-user)** , aby uzyskać odpowiednik usługi Britta Simon w usłudze zarządzania frekwencjami, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
@@ -122,7 +122,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usług z
 
     c. Adres URL wylogowywania
 
-### <a name="configure-attendance-management-services-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usług zarządzania frekwencją
+### <a name="configure-attendance-management-services-single-sign-on"></a>Skonfiguruj pojedyncze Sign-On usług zarządzania frekwencją
 
 1. W innym oknie przeglądarki Zaloguj się do witryny firmy usług zarządzania frekwencją jako administrator.
 
@@ -168,7 +168,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

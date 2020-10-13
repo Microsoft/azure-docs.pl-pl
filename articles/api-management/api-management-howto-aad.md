@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91363209"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoryzowanie kont deweloperów przy użyciu usługi Azure Active Directory w usłudze Azure API Management
@@ -34,7 +34,7 @@ W tym artykule opisano sposób włączania dostępu do portalu dla deweloperów 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autoryzuj konta dewelopera przy użyciu usługi Azure AD
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. Wybierz pozycję ![Ikona strzałki.](./media/api-management-howto-aad/arrow.png).
+2. Wybierz ![Ikona strzałki.](./media/api-management-howto-aad/arrow.png).
 3. Wpisz w polu wyszukiwania **interfejs API** .
 4. Wybierz pozycję **API Management Services**.
 5. Wybierz swoje wystąpienie usługi API Management.

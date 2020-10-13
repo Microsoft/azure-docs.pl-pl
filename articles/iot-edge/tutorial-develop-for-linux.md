@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ca4be9387754c84dc256dd72b131bd5b76b458
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056231"
+ms.locfileid: "91876468"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Linux
 
@@ -24,7 +24,7 @@ W tym przewodniku szybki start utworzono urządzenie IoT Edge przy użyciu maszy
 
 Ten samouczek używa przykładu wdrażania **modułu C# na urządzeniu z systemem Linux**. Ten przykład został wybrany, ponieważ jest to najbardziej typowy scenariusz dla deweloperów rozwiązań IoT Edge. Nawet jeśli planujesz użycie innego języka lub wdrożenie usługi platformy Azure, ten samouczek jest nadal przydatny do poznania się z narzędziami i pojęciami programistycznymi. Wypełnij to wprowadzenie do procesu tworzenia, a następnie wybierz preferowany język lub usługę platformy Azure, aby szczegółowe się ze szczegółami.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -177,19 +177,19 @@ Utworzony szablon rozwiązania zawiera przykładowy kod dla modułu IoT Edge. Te
 
 Każdy moduł może mieć wiele kolejek *wejściowych* i *wyjściowych* zadeklarowanych w ich kodzie. Centrum IoT Edge uruchomione na urządzeniu kieruje komunikaty z danych wyjściowych jednego modułu do danych wejściowych jednego lub kilku modułów. Konkretny kod służący do deklarowania danych wejściowych i wyjściowych różni się między językami, ale koncepcja jest taka sama we wszystkich modułach. Aby uzyskać więcej informacji na temat routingu między modułami, zobacz [DECLARE Routes](module-composition.md#declare-routes).
 
-Przykładowy kod w języku C#, który jest dostarczany z szablonem projektu, używa [klasy ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) z zestawu SDK IoT Hub dla platformy .NET.
+Przykładowy kod w języku C#, który jest dostarczany z szablonem projektu, używa [klasy ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) z zestawu SDK IoT Hub dla platformy .NET.
 
 1. Otwórz plik **program.cs** , który znajduje się w **module/SampleModule/** folder.
 
 2. W program.cs Znajdź metodę **SetInputMessageHandlerAsync** .
 
-3. Metoda [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) konfiguruje kolejkę wejściową do odbierania wiadomości przychodzących. Przejrzyj tę metodę i zobacz, jak inicjuje kolejkę wejściową o nazwie **INPUT1**.
+3. Metoda [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) konfiguruje kolejkę wejściową do odbierania wiadomości przychodzących. Przejrzyj tę metodę i zobacz, jak inicjuje kolejkę wejściową o nazwie **INPUT1**.
 
    ![Znajdź nazwę wejściową w konstruktorze SetInputMessageCallback](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. Następnie znajdź metodę **SendEventAsync** .
 
-5. Metoda [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) przetwarza odebrane komunikaty i konfiguruje kolejkę wyjściową w celu przekazywania ich razem. Przejrzyj tę metodę i sprawdź, czy inicjuje kolejkę wyjściową o nazwie **output1**.
+5. Metoda [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) przetwarza odebrane komunikaty i konfiguruje kolejkę wyjściową w celu przekazywania ich razem. Przejrzyj tę metodę i sprawdź, czy inicjuje kolejkę wyjściową o nazwie **output1**.
 
    ![Znajdź nazwę wyjściową w SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 

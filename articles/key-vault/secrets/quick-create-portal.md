@@ -11,18 +11,22 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83652280"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962449"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Szybki start: konfigurowanie i pobieranie wpisów tajnych z usługi Key Vault przy użyciu witryny Azure Portal
 
 Azure Key Vault to usługa w chmurze, która zapewnia bezpieczny magazyn wpisów tajnych. Możesz bezpiecznie przechowywać klucze, hasła, certyfikaty oraz inne wpisy tajne. Magazyny kluczy platformy Azure można tworzyć oraz nimi zarządzać za pośrednictwem witryny Azure Portal. W tym przewodniku Szybki start utworzysz magazyn kluczy, a następnie użyjesz go do przechowywania wpisu tajnego. Aby uzyskać więcej informacji na temat usługi Key Vault, możesz zapoznać się z [omówieniem](../general/overview.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Aby uzyskać więcej informacji na temat wpisów tajnych, zobacz (about-secrets.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -46,6 +50,9 @@ Zanotuj dwie poniższe właściwości:
 
 * **Nazwa magazynu**: w tym przykładzie jest to **Contoso-Vault2**. Użyjesz tej nazwy w innych krokach.
 * **Identyfikator URI magazynu**: w tym przykładzie jest to https://contoso-vault2.vault.azure.net/. Aplikacje korzystające z magazynu za pomocą jego interfejsu API REST muszą używać tego identyfikatora URI.
+
+Możesz również utworzyć Key Vault za pomocą interfejsu wiersza polecenia platformy Azure i programu PowerShell: [Tworzenie Key Vault przy użyciu programu PowerShell](../general/quick-create-powershell.md) 
+ [Tworzenie Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](../general/quick-create-cli.md)
 
 Twoje konto platformy Azure jest teraz jedynym kontem z uprawnieniami do wykonywania operacji na tym nowym magazynie.
 
@@ -90,5 +97,8 @@ Jeśli nie będą Ci one już potrzebne, usuń grupę zasobów, a zostanie takż
 W tym przewodniku szybki start utworzono Key Vault i Zapisano w nim wpis tajny. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
+- Odczytaj [bezpieczny dostęp do Key Vault](../general/secure-your-key-vault.md)
+- Zobacz [używanie Key Vault z aplikacją App Service Web App](../general/tutorial-net-create-vault-azure-web-app.md)
+- Zobacz [używanie Key Vault z aplikacją wdrożoną na maszynie wirtualnej](../general/tutorial-net-virtual-machine.md)
 - Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
 - Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań

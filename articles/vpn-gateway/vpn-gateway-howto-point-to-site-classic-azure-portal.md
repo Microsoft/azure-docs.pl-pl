@@ -1,18 +1,18 @@
 ---
-title: 'Łączenie komputera z siecią wirtualną przy użyciu połączenia typu punkt-lokacja i uwierzytelniania certyfikatu: klasyczna witryna Azure Portal | Microsoft Docs'
+title: 'Łączenie komputera z siecią wirtualną przy użyciu połączenia typu punkt-lokacja i uwierzytelnianie certyfikatu: Azure Portal klasyczny | Microsoft Docs'
 description: Utwórz klasyczne połączenie bramy sieci VPN typu punkt-lokacja przy użyciu witryny Azure Portal.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0618c120a7fe572aa55b423d36dce3ef5656da
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984788"
+ms.locfileid: "91876196"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Konfigurowanie połączenia typu punkt-lokacja przy użyciu uwierzytelniania certyfikatu (wersja klasyczna)
 
@@ -79,31 +79,11 @@ Przed rozpoczęciem sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie 
 
 ### <a name="part-1-create-a-virtual-network"></a>Część 1. Tworzenie sieci wirtualnej
 
-Jeśli nie masz jeszcze sieci wirtualnej, utwórz ją. Zamieszczone zrzuty ekranu są przykładowe. Przedstawione na nich wartości należy zastąpić własnymi. Aby utworzyć sieć wirtualną przy użyciu witryny Azure Portal, wykonaj poniższe kroki:
+Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projektem bramy sieci VPN. Zwróć szczególną uwagę na wszelkie podsieci, które mogą pokrywać się z innymi sieciami.
 
-1. W menu witryny [Azure Portal](https://portal.azure.com) lub na **stronie głównej** wybierz pozycję **Utwórz zasób**. Zostanie otwarta strona **Nowy**.
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
-2. W polu **Wyszukaj w witrynie Marketplace** wpisz *sieć wirtualna* i wybierz pozycję **Sieć wirtualna** na liście wyników. Zostanie otwarta strona **Sieć wirtualna**.
-
-3. Na liście **Wybierz model wdrożenia** wybierz pozycję **Klasyczny**, a następnie wybierz pozycję **Utwórz**. Spowoduje to otwarcie strony **Tworzenie sieci wirtualnej**.
-
-4. Na stronie **Tworzenie sieci wirtualnej** skonfiguruj ustawienia sieci wirtualnej. Na tej stronie dodaj pierwszą przestrzeń adresową i zakres adresów pojedynczej podsieci. Po zakończeniu tworzenia sieci wirtualnej możesz wrócić i dodać dodatkowe podsieci oraz przestrzenie adresowe.
-
-   ![Strona Tworzenie sieci wirtualnej](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-
-5. Na liście rozwijanej wybierz **subskrypcję**, której chcesz użyć.
-
-6. Wybierz istniejącą **grupę zasobów**. Możesz też utworzyć nową grupę zasobów, wybierając pozycję **Utwórz nową** i wprowadzając nazwę. Jeśli tworzysz nową grupę zasobów, nadaj jej nazwę odpowiadającą wartościom planowanej konfiguracji. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
-
-7. Wybierz **lokalizację** sieci wirtualnej. To ustawienie określa lokalizację geograficzną zasobów wdrażanych w tej sieci wirtualnej.
-
-8. Wybierz pozycję **Utwórz**, aby utworzyć sieć wirtualną. Na stronie **Powiadomienia** pojawi się komunikat **Wdrażanie jest w toku**.
-
-8. Po utworzeniu sieci wirtualnej treść komunikatu na stronie **Powiadomienia** zmieni się na **Wdrożenie powiodło się**. Jeśli chcesz, aby Twoją sieć wirtualną można było łatwo znaleźć na pulpicie nawigacyjnym, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**. 
-
-10. Dodaj serwer DNS (opcjonalnie). Po utworzeniu sieci wirtualnej możesz dodać adres IP serwera DNS na potrzeby rozpoznawania nazw. Określony adres IP serwera DNS powinien rozpoznawać nazwy zasobów w sieci wirtualnej.
-
-    Aby dodać serwer DNS, wybierz pozycję **Serwery DNS** na stronie sieci wirtualnej. Wprowadź adres IP serwera DNS, którego chcesz użyć, a następnie wybierz pozycję **Zapisz**.
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Część 2: Tworzenie podsieci bramy i bramy routingu dynamicznego
 

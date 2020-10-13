@@ -15,7 +15,7 @@ ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856489"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Tworzenie wyzwalacza uruchamiającego potok w oknie wirowania
@@ -94,7 +94,7 @@ Okno wirowania ma następujące właściwości typu wyzwalacza:
 
 Poniższa tabela zawiera ogólne omówienie głównych elementów JSON, które są związane z cyklem i harmonogramem wyzwalacza okna wirowania:
 
-| Element JSON | Opis | Typ | Dozwolone wartości | Wymagane |
+| Element JSON | Opis | Type | Dozwolone wartości | Wymagane |
 |:--- |:--- |:--- |:--- |:--- |
 | **Wprowadź** | Typ wyzwalacza. Typ to stała wartość "TumblingWindowTrigger". | Ciąg | "TumblingWindowTrigger" | Tak |
 | **runtimeState** | Bieżący stan czasu uruchomienia wyzwalacza.<br/>**Uwaga**: ten element to \<readOnly> . | Ciąg | "Uruchomiona", "zatrzymana", "wyłączona" | Tak |

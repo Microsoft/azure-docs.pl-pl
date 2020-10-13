@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531580"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876043"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Powiązania Azure Cosmos DB dla Azure Functions 1. x
 
@@ -214,6 +214,8 @@ Wyzwalacz nie wskazuje, czy dokument został zaktualizowany lub wstawiony, zawie
 ## <a name="input"></a>Dane wejściowe
 
 Powiązanie wejściowe usługi Azure Cosmos DB używa interfejsu API SQL, aby pobrać co najmniej jeden dokument usługi Azure Cosmos DB, a następnie przekazuje go do parametru wejściowego funkcji. Identyfikator dokumentu lub parametry zapytania można określić na podstawie wyzwalacza wywołującego funkcję.
+
+## <a name="input---example"></a>Dane wejściowe — przykład
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1146,6 +1148,8 @@ Aktualizacje nie są wykonywane automatycznie po zamknięciu funkcji. Zamiast te
 ## <a name="output"></a>Dane wyjściowe
 
 Powiązanie danych wyjściowych Azure Cosmos DB umożliwia pisanie nowego dokumentu w Azure Cosmos DB bazie danych przy użyciu interfejsu API SQL.
+
+## <a name="output---example"></a>Dane wyjściowe — przykład
 
 # <a name="c"></a>[C#](#tab/csharp)
 

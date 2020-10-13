@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1417635c0e510badd191e99786f49dfb509c8206
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279437"
+ms.locfileid: "91893411"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Zatwierdzone dystrybucje systemu Linux na platformie Azure
 
@@ -37,7 +37,7 @@ Agent systemu Azure Linux jest już wstępnie zainstalowany w obrazach portalu A
 | CentOS przez oprogramowanie nieautoryzowane Wave |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [pobieranie lis](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: w jądrze |Pakiet: w [repozytorium](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS jest teraz [koniec okresu](https://coreos.com/os/eol/) ważności z 26 maja 2020. |Nie jest już dostępne | | |
 | Debian według credativ |8.x, 9.x |W jądrze |Pakiet: w repozytorium w obszarze "waagent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Flatcar kontener systemu Linux przez Kinvolk| Stabilny, beta| W jądrze | wa-Linux — Agent jest już zainstalowany w/usr/share/OEM/bin/waagent |
+|Flatcar kontener systemu Linux przez Kinvolk| Pro, stabilny, beta| W jądrze | wa-Linux — Agent jest już zainstalowany w/usr/share/OEM/bin/waagent |
 | Oracle Linux przez firmę Oracle |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux przez Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |W jądrze |Pakiet: w repozytorium w obszarze "WALinuxAgent" <br/>Kod źródłowy: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise przez SUSE |SLES/SLES dla oprogramowania SAP 11. x, 12. x, 15. x <br/> [Cykl życia obrazu chmury publicznej SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |W jądrze |Package<p> 11 w [chmurze: repozytorium narzędzi](https://build.opensuse.org/project/show/Cloud:Tools)<br>w przypadku 12 uwzględnionych w module "chmura publiczna" w obszarze "Python-Azure-Agent"<br/>Kod źródłowy: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
@@ -58,6 +58,7 @@ W większości przypadków te jądra są wstępnie zainstalowane na domyślnych 
 - [Debian jądro w chmurze — dostępne za pomocą obrazu Debian 10 i Debian 9 "na platformie Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
 - [SLES Azure-Tuned jądro](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
 - [Ubuntu Azure-Tuned jądro](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Kontener Flatcar Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>Partnerzy
 

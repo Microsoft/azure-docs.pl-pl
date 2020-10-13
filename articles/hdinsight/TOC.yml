@@ -64,8 +64,14 @@
           href: ./hdinsight-capacity-planning.md
         - name: Najlepsze rozwiązania dotyczące zarządzania klastrami
           href: ./cluster-management-best-practices.md
-        - name: Dostępność i niezawodność
-          href: ./hdinsight-high-availability-linux.md
+        - name: Ciągłość działalności biznesowej
+          items:
+            - name: Omówienie ciągłości działania
+              href: hdinsight-business-continuity.md
+            - name: Architektura ciągłości działania
+              href: ./hdinsight-business-continuity-architecture.md
+            - name: Analiza przypadku o wysokiej dostępności
+              href: ./hdinsight-high-availability-case-study.md
         - name: Omówienie tożsamości zarządzanych
           href: ./hdinsight-managed-identities.md
         - name: Porównanie opcji magazynu
@@ -102,10 +108,14 @@
           items:
             - name: Korzystanie z usługi Azure Storage
               href: hdinsight-hadoop-use-blob-storage.md
-            - name: Korzystanie z usługi Azure Data Lake Storage Gen2
+            - name: Korzystanie z usługi Data Lake Storage Gen2
               href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Korzystanie z usługi Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Korzystanie z usługi Data Lake Storage Gen2 w portalu
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+            - name: Korzystanie z usługi Data Lake Storage Gen2 przy użyciu interfejsu wiersza polecenia platformy Azure
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+            - name: Korzystanie z usługi Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-storage-gen1.md
         - name: Rozszerzanie klastrów
           items:
             - name: Instalowanie aplikacji usługi HDInsight
@@ -757,6 +767,8 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Wskazówki dotyczące rozmiaru
           href: ./interactive-query/sizing-guidelines.md
+        - name: Replikacja programu Hive
+          href: ./interactive-query/apache-hive-replication.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Programowanie

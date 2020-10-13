@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815610"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972530"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opcje dostępności maszyn wirtualnych na platformie Azure
 
@@ -51,7 +51,7 @@ Zestawy skalowania maszyn wirtualnych platformy Azure umożliwiają tworzenie i 
 
 **Domeny błędów i domeny aktualizacji**
 
-Zestawy skalowania maszyn wirtualnych upraszczają projektowanie pod kątem wysokiej dostępności przez wyrównywanie domen błędów i aktualizowanie domen. W przypadku zestawu skalowania będzie konieczne tylko zdefiniowanie domen błędów. Liczba domen błędów dostępnych dla zestawów skalowania może różnić się w zależności od regionu. Zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](./windows/manage-availability.md).
+Zestawy skalowania maszyn wirtualnych upraszczają projektowanie pod kątem wysokiej dostępności przez wyrównywanie domen błędów i aktualizowanie domen. W przypadku zestawu skalowania będzie konieczne tylko zdefiniowanie domen błędów. Liczba domen błędów dostępnych dla zestawów skalowania może różnić się w zależności od regionu. Zobacz [Zarządzanie dostępnością maszyn wirtualnych na platformie Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Zestawy dostępności
@@ -61,7 +61,7 @@ W zestawie dostępności maszyny wirtualne są automatycznie dystrybuowane w tyc
 
 Maszyny wirtualne korzystające z usługi [Azure Managed Disks](./faq-for-disks.md) są przydzielane do domen błędów dysków zarządzanych w przypadku korzystania z zarządzanego zestawu dostępności. Dzięki takiemu dopasowaniu wszystkie dyski zarządzane dołączone do maszyny wirtualnej działają w tej samej domenie błędów dysku zarządzanego. 
 
-W zarządzanym zestawie dostępności można tworzyć tylko maszyny wirtualne z użyciem dysków zarządzanych. Liczba domen błędów dysku zarządzanego zależy od regionu — dwie lub trzy domeny błędów dysku zarządzanego na region. Więcej informacji o tych domenach błędów dysków zarządzanych można znaleźć na [maszynach wirtualnych systemu Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) lub [maszynach wirtualnych z systemem Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+W zarządzanym zestawie dostępności można tworzyć tylko maszyny wirtualne z użyciem dysków zarządzanych. Liczba domen błędów dysku zarządzanego zależy od regionu — dwie lub trzy domeny błędów dysku zarządzanego na region. Więcej informacji o tych domenach błędów dysków zarządzanych można znaleźć na [maszynach wirtualnych systemu Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) lub [maszynach wirtualnych z systemem Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Zarządzany zestaw dostępności](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

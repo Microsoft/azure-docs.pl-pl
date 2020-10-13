@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802705"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Przeniesienie uwierzytelniania aplikacji z Active Directory Federation Services do Azure Active Directory
@@ -94,7 +94,7 @@ Zaktualizuj konfigurację aplikacji produkcyjnej, aby wskazywała swoją produkc
 
 Aplikacje biznesowe są opracowywane wewnętrznie przez organizację lub dostępne jako standardowe produkty spakowane zainstalowane w centrum danych. Przykładami mogą być aplikacje oparte na aplikacjach Windows Identity Foundation i SharePoint (nie SharePoint Online).
 
-Aplikacje LOB, które używają protokołu OAuth 2,0, OpenID Connect Connect lub WS-Federation, można zintegrować z usługą Azure AD jako [rejestracje aplikacji](../develop/quickstart-register-app.md). Integruj aplikacje niestandardowe korzystające z protokołu SAML 2,0 lub WS-Federation jako [aplikacji innych niż Galeria](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) na stronie aplikacje dla przedsiębiorstw w [Azure Portal](https://portal.azure.com/).
+Aplikacje LOB korzystające z protokołu OAuth 2,0, OpenID Connect Connect lub WS-Federation mogą być zintegrowane z usługą Azure AD jako [rejestracje aplikacji](../develop/quickstart-register-app.md). Integruj aplikacje niestandardowe korzystające z protokołu SAML 2,0 lub WS-Federation jako [aplikacje nie](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) korzystające z galerii na stronie aplikacje dla przedsiębiorstw w [Azure Portal](https://portal.azure.com/).
 
 ## <a name="saml-based-single-sign-on"></a>Logowanie jednokrotne oparte na protokole SAML
 
@@ -171,7 +171,7 @@ Aplikacje, które wymagają następujących możliwości, nie mogą być migrowa
 
 **Możliwości protokołu**
 
-* Obsługa wzorca ActAs protokołu WS-Trust
+* Obsługa wzorca WS-Trust ActAs
 
 * Rozpoznawanie artefaktów języka SAML
 
@@ -198,13 +198,13 @@ W poniższej tabeli opisano niektóre typowe mapowania ustawień między AD FS z
 
 | Ustawienie konfiguracji| AD FS| Jak skonfigurować usługę Azure AD| Token SAML |
 | - | - | - | - |
-| **Adres URL logowania do aplikacji** <p>Adres URL użytkownika służącego do logowania się do aplikacji w ramach przepływu SAML zainicjowanego przez dostawcę usług (SP).| Brak| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Brak |
+| **Adres URL logowania do aplikacji** <p>Adres URL użytkownika służącego do logowania się do aplikacji w ramach przepływu SAML zainicjowanego przez dostawcę usług (SP).| Nie dotyczy| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Nie dotyczy |
 | **Adres URL odpowiedzi aplikacji** <p>Adres URL aplikacji z perspektywy dostawcy tożsamości (dostawcy tożsamości). Dostawcy tożsamości wysyła użytkownika i token tutaj po zalogowaniu się użytkownika do dostawcy tożsamości.  Jest to również znany jako **punkt końcowy odbiorcy potwierdzenia SAML**.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Element docelowy w tokenie SAML. Przykładowa wartość: `https://contoso.my.salesforce.com` |
-| **Adres URL wylogowania aplikacji** <p>Jest to adres URL, do którego są wysyłane żądania "Czyszczenie wylogowania", gdy użytkownik wyloguje się z aplikacji. Dostawcy tożsamości wysyła żądanie wylogowania użytkownika ze wszystkich innych aplikacji.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Brak |
+| **Adres URL wylogowania aplikacji** <p>Jest to adres URL, do którego są wysyłane żądania "Czyszczenie wylogowania", gdy użytkownik wyloguje się z aplikacji. Dostawcy tożsamości wysyła żądanie wylogowania użytkownika ze wszystkich innych aplikacji.| Wybierz kartę **punkty końcowe**| Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Nie dotyczy |
 | **Identyfikator aplikacji** <p>To jest identyfikator aplikacji z perspektywy dostawcy tożsamości. Wartość adresu URL logowania jest często używana dla identyfikatora (ale nie zawsze).  Czasami aplikacja wywołuje ten identyfikator jednostki.| Wybierz kartę **identyfikatory**|Otwórz podstawową konfigurację SAML przy użyciu logowania opartego na protokole SAML| Mapuje do elementu **odbiorców** w tokenie SAML. |
-| **Metadane federacji aplikacji** <p>Jest to lokalizacja metadanych federacji aplikacji. Używana przez dostawcę tożsamości do automatycznego aktualizowania określonych ustawień konfiguracji, takich jak punkty końcowe lub certyfikaty szyfrowania.| Wybierz kartę **monitorowanie**| Nie dotyczy. Usługa Azure AD nie obsługuje bezpośredniego korzystania z metadanych federacji aplikacji. Można ręcznie zaimportować metadane federacji.| Brak |
+| **Metadane federacji aplikacji** <p>Jest to lokalizacja metadanych federacji aplikacji. Używana przez dostawcę tożsamości do automatycznego aktualizowania określonych ustawień konfiguracji, takich jak punkty końcowe lub certyfikaty szyfrowania.| Wybierz kartę **monitorowanie**| Nie dotyczy. Usługa Azure AD nie obsługuje bezpośredniego korzystania z metadanych federacji aplikacji. Można ręcznie zaimportować metadane federacji.| Nie dotyczy |
 | **Identyfikator/nazwa użytkownika** <p>Atrybut używany do jednoznacznego wskazywania tożsamości użytkownika z usług Azure AD lub AD FS do aplikacji.  Ten atrybut jest zazwyczaj nazwą UPN lub adresem e-mail użytkownika.| Reguły dotyczące roszczeń. W większości przypadków reguła dotycząca roszczeń wystawia zgłoszenie z typem kończącym się na NameIdentifier.| Identyfikator można znaleźć pod nagłówkiem **atrybuty użytkownika i oświadczenia**. Domyślnie używana jest nazwa UPN| Mapuje do elementu **NameID** w tokenie języka SAML. |
-| **Inne oświadczenia** <p>Przykłady innych informacji o zgłoszeniach, które są często wysyłane z dostawcy tożsamości do aplikacji, obejmują imię, nazwisko, adres E-mail i członkostwo w grupie.| W usługach AD FS są to inne reguły oświadczenia powiązane z jednostką uzależnioną.| Identyfikator można znaleźć w obszarze **atrybuty użytkownika nagłówka & oświadczenia**. Wybierz pozycję **Wyświetl** i edytuj wszystkie inne atrybuty użytkownika.| Brak |
+| **Inne oświadczenia** <p>Przykłady innych informacji o zgłoszeniach, które są często wysyłane z dostawcy tożsamości do aplikacji, obejmują imię, nazwisko, adres E-mail i członkostwo w grupie.| W usługach AD FS są to inne reguły oświadczenia powiązane z jednostką uzależnioną.| Identyfikator można znaleźć w obszarze **atrybuty użytkownika nagłówka & oświadczenia**. Wybierz pozycję **Wyświetl** i edytuj wszystkie inne atrybuty użytkownika.| Nie dotyczy |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>Ustawienia dostawcy tożsamości (dostawcy tożsamości)
@@ -458,7 +458,7 @@ W zależności od sposobu skonfigurowania aplikacji Sprawdź, czy logowanie jedn
 ‎ |
 | Logowanie jednokrotne oparte na języku SAML| Użyj przycisku [Testuj ustawienia SAML](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) w obszarze **Logowanie jednokrotne**.
 ‎ |
-| Logowanie jednokrotne oparte na hasłach| Pobierz i zainstaluj rozszerzenie " [bezpieczne logowanie do aplikacji](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)" [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). To rozszerzenie ułatwia rozpoczęcie pracy z aplikacjami w chmurze w organizacji, które wymagają korzystania z procesu rejestracji jednokrotnej.
+| Password-Based LOGOWANIE JEDNOKROTNE| Pobierz i zainstaluj rozszerzenie " [bezpieczne logowanie do aplikacji](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)" [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). To rozszerzenie ułatwia rozpoczęcie pracy z aplikacjami w chmurze w organizacji, które wymagają korzystania z procesu rejestracji jednokrotnej.
 ‎ |
 | Serwer proxy aplikacji| Upewnij się, że łącznik jest uruchomiony i przypisany do aplikacji. Więcej informacji można znaleźć w [przewodniku rozwiązywania problemów z serwerem proxy aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) .
 ‎ |
@@ -484,7 +484,7 @@ Po zakończeniu wdrażania można wysłać komunikat informujący użytkowników
 
 * Przypomnij użytkownikom, że mogą oni potrzebować zaktualizować ustawienia usługi MFA.
 
-* W przypadku wdrożenia funkcji samoobsługowego resetowania hasła użytkownicy mogą wymagać aktualizacji lub weryfikowania metod uwierzytelniania. Zobacz szablony komunikacji usługi [MFA](https://aka.ms/mfatemplates) i [SSPR](https://aka.ms/ssprtemplates) dla użytkowników końcowych.
+* W przypadku wdrożenia Self-Service resetowania hasła użytkownicy mogą chcieć zaktualizować lub zweryfikować swoje metody uwierzytelniania. Zobacz szablony komunikacji usługi [MFA](https://aka.ms/mfatemplates) i [SSPR](https://aka.ms/ssprtemplates) dla użytkowników końcowych.
 
 Komunikacja z użytkownikami zewnętrznymi: Ta grupa użytkowników jest zazwyczaj najbardziej krytycznym problemem w przypadku problemów. Jest to szczególnie prawdziwe, jeśli stan zabezpieczeń wymusza różne zestawy reguł dostępu warunkowego lub profile ryzyka dla partnerów zewnętrznych. Upewnij się, że partnerzy zewnętrzni są świadomi harmonogramu migracji do chmury i mają przedział czasu, w którym zaleca się uczestnictwo w wdrożeniu pilotażowym, które testuje wszystkie przepływy w ramach współpracy zewnętrznej. Na koniec upewnij się, że masz dostęp do pomocy technicznej w przypadku problemów z przerywaniem.
 

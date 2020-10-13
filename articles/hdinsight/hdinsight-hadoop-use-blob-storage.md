@@ -12,7 +12,7 @@ ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855671"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
@@ -32,7 +32,7 @@ W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami us�
 | Rodzaj konta magazynu | Obsługiwane usługi | Obsługiwane warstwy wydajności |Nieobsługiwane warstwy wydajności| Obsługiwane warstwy dostępu |
 |----------------------|--------------------|-----------------------------|---|------------------------|
 | StorageV2 (ogólnego przeznaczenia wersja 2)  | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
-| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa (Standard)                    |Premium| Brak                    |
+| Magazyn (ogólnego przeznaczenia w wersji 1)   | Obiekt blob     | Standardowa (Standard)                    |Premium| Nie dotyczy                    |
 | BlobStorage                    | Obiekt blob     | Standardowa (Standard)                    |Premium| Gorąca, chłodna, archiwalna\*   |
 
 Nie zaleca się używania domyślnego kontenera obiektów BLOB do przechowywania danych firmowych. Dobrym rozwiązaniem jest usunięcie domyślnego kontenera obiektów blob po każdym użyciu, aby obniżyć koszty magazynowania. Kontener domyślny zawiera Dzienniki aplikacji i systemu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
