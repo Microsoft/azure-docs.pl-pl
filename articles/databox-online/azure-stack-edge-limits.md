@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904461"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992762"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Limity urządzenia Azure Stack Edge Pro
 
@@ -27,12 +27,16 @@ Te limity należy wziąć pod uwagę podczas wdrażania i obsługi rozwiązania 
 
 W poniższej tabeli opisano limity dla urządzenia z Azure Stack Edge. 
 
+W poniższej tabeli opisano limity dotyczące Azure Stack urządzenia brzegowego.
+
 | Opis | Wartość |
 |---|---|
 |Nie. plików na urządzenie |100 000 000 |
-|Nie. udziałów na urządzenie |24 |
 |Nie. udziałów na kontener |1 |
+|Wartość maksymalna. punktów końcowych udostępniania i punktów końcowych REST na urządzenie| 24 |
+|Wartość maksymalna. kont magazynu warstwowego na urządzenie| 24|
 |Maksymalny rozmiar pliku zapisany w udziale| 5 TB |
+|Maksymalna liczba grup zasobów na urządzenie| 800 |
 
 ## <a name="azure-storage-limits"></a>Limity usługi Azure Storage
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441458"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993245"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Wdróż Azure Monitor na dużą skalę przy użyciu Azure Policy
 Niektóre funkcje Azure Monitor są konfigurowane raz lub ograniczoną liczbę razy, inne muszą być powtórzone dla każdego zasobu, który ma być monitorowany. W tym artykule opisano metody używania Azure Policy do implementowania Azure Monitor na dużą skalę w celu zapewnienia spójnego i dokładnego monitorowania dla wszystkich zasobów platformy Azure.
@@ -33,7 +33,7 @@ Azure Policy składa się z obiektów w poniższej tabeli. Zobacz [Azure Policy 
 | Przypisanie | Definicja zasad lub inicjatywa nie zacznie obowiązywać, dopóki nie zostanie przypisana do zakresu. Na przykład Przypisz zasady do grupy zasobów, aby zastosować je do wszystkich zasobów utworzonych w tym zasobie, lub zastosować je do subskrypcji, aby zastosować je do wszystkich zasobów w tej subskrypcji.  Aby uzyskać więcej informacji, zobacz [Azure Policy struktury przypisywania](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Wbudowane definicje zasad dla Azure Monitor
-Azure Policy zawiera kilka wstępnie skompilowanych definicji związanych z Azure Monitor. Te definicje zasad można przypisać do istniejącej subskrypcji lub użyć ich jako podstawy do utworzenia własnych definicji niestandardowych. Aby zapoznać się z pełną listą wbudowanych polityka w kategorii **monitorowanie** , zobacz [Azure Policy wbudowane definicje zasad dla Azure monitor](samples/policy-samples.md).
+Azure Policy zawiera kilka wstępnie skompilowanych definicji związanych z Azure Monitor. Te definicje zasad można przypisać do istniejącej subskrypcji lub użyć ich jako podstawy do utworzenia własnych definicji niestandardowych. Aby zapoznać się z pełną listą wbudowanych polityka w kategorii **monitorowanie** , zobacz [Azure Policy wbudowane definicje zasad dla Azure monitor](./samples/policy-reference.md).
 
 Aby wyświetlić wbudowane definicje zasad związane z monitorowaniem, wykonaj następujące czynności:
 

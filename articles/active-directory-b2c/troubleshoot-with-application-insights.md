@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 10/12/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116078"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993163"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Zbieranie dzienników Azure Active Directory B2C z Application Insights
 
@@ -89,7 +89,7 @@ Jeśli jeszcze tego nie masz, Utwórz wystąpienie Application Insights w subskr
 Istnieje krótkie opóźnienie, zazwyczaj mniej niż pięć minut, zanim będzie można zobaczyć nowe dzienniki w Application Insights.
 
 1. Otwórz zasób Application Insights, który został utworzony w [Azure Portal](https://portal.azure.com).
-1. W menu **Przegląd** wybierz pozycję **Analiza**.
+1. Na stronie **Przegląd** wybierz pozycję **dzienniki**.
 1. Otwórz nową kartę w Application Insights.
 
 Poniżej znajduje się lista zapytań, których można użyć, aby wyświetlić dzienniki:

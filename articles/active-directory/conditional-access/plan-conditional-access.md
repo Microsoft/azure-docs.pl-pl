@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258680"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992868"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) analizy dostępu warunkowego (CA) są sygnała
 
 Firma Microsoft udostępnia standardowe zasady warunkowe o nazwie [zabezpieczenia domyślne](../fundamentals/concept-fundamentals-security-defaults.md) , które zapewniają podstawowy poziom zabezpieczeń. Jednak organizacja może potrzebować większej elastyczności niż domyślna oferta zabezpieczeń. Za pomocą dostępu warunkowego można dostosować ustawienia domyślne zabezpieczeń z większą szczegółowością i skonfigurować nowe zasady spełniające Twoje wymagania.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Informacje
 
 Przed rozpoczęciem upewnij się, że rozumiesz, jak działa [dostęp warunkowy](overview.md) , oraz kiedy należy go używać.
 
@@ -67,7 +67,7 @@ Jeśli wymagane są dodatkowe funkcje, mogą również być potrzebne powiązane
 Następujące zasoby mogą być przydatne podczas nauki na temat dostępu warunkowego:
 
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 * [Co to jest dostęp warunkowy?](https://youtu.be/ffMAw2IVO7A)
 * [Jak wdrożyć dostęp warunkowy?](https://youtu.be/c_izIRNJNuk)
@@ -89,7 +89,7 @@ Podczas określania strategii tego wdrożenia w danym środowisku należy wzią�
 
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans) Cię odpowiednie osoby zainteresowane i że role projektu są jasne.
+Gdy projekty technologii kończą się niepowodzeniem, zazwyczaj są to spowodowane niezgodnością oczekiwań, rezultatów i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md) Cię odpowiednie osoby zainteresowane i że role projektu są jasne.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 

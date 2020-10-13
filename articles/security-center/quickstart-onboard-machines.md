@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 818ef3a29724f18cad5924bf1961b74afadfdb75
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939600"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993607"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
-Usługa Security Center może monitorować stan bezpieczeństwa komputerów nienależących do platformy Azure, ale musisz najpierw dołączyć te zasoby. 
+Security Center może monitorować stan zabezpieczeń na komputerach spoza platformy Azure, ale najpierw należy połączyć je z platformą Azure. 
 
-Komputery spoza platformy Azure można dodać w dowolny z następujących sposobów:
+Komputery spoza platformy Azure można połączyć w dowolny z następujących sposobów:
 
 - Korzystanie z usługi Azure ARC (**zalecane**)
 - Ze stron Security Center w Azure Portal (**wprowadzenie** i **spis**)
@@ -30,7 +30,7 @@ Każdy z tych elementów został opisany na tej stronie.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Dodawanie maszyn spoza platformy Azure przy użyciu usługi Azure Arc
 
-Korzystanie z usługi Azure Arc jest preferowanym sposobem dodawania maszyn nienależących do platformy Azure do Azure Security Center.
+Usługa Azure Arc jest preferowanym sposobem dodawania maszyn nienależących do platformy Azure do Azure Security Center.
 
 Komputer z włączonym użyciem usługi Azure Arc jest zasobem platformy Azure i pojawia się w Security Center z zaleceniami, takimi jak inne zasoby platformy Azure. 
 
@@ -50,7 +50,7 @@ Dowiedz się więcej o [usłudze Azure Arc](../azure-arc/servers/overview.md).
 
 ::: zone pivot="azure-portal"
 
-## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Dodawanie maszyn spoza platformy Azure ze stron portalu Security Center
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Dodaj maszyny spoza platformy Azure z Azure Portal
 
 1. W menu Security Center Otwórz stronę **wprowadzenie** .
 1. Wybierz kartę **Rozpoczęcie pracy**.

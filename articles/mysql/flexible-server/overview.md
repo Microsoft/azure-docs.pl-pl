@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: da9b7216908b4a4ba80a421427f473c217f76c28
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759649"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993746"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Serwer elastyczny Azure Database for MySQL (wersja zapoznawcza)
 
@@ -117,8 +117,19 @@ Usługa uruchamia wersję społeczności MySQL. Zapewnia to pełną zgodność a
 - **Zrzuć i Przywróć** — w przypadku migracji w trybie offline, w których użytkownicy mogą uzyskać pewien przestój, zrzuty i przywracanie przy użyciu narzędzi społeczności, takich jak mysqldump/Dumper, mogą zapewnić najszybszy sposób migracji. Aby uzyskać szczegółowe informacje, zobacz Migrowanie przy użyciu zrzutów i przywracania. 
 - **Azure Database Migration Service** — w celu zapewnienia bezproblemowej i uproszczonej migracji na pojedynczy serwer z minimalnym przestojem, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) można wykorzystać. 
 
+## <a name="azure-regions"></a>Regiony świadczenia usługi Azure
+
+Jedną z zalet korzystania z obciążeń na platformie Azure jest globalny zasięg. Elastyczny serwer dla Azure Database for MySQL jest dostępny dzisiaj w następujących regionach świadczenia usługi Azure:
+
+- Europa Północna
+- Azja Południowo-Wschodnia
+- Wschodnie stany USA 2
+- Zachodnie stany USA 2
+
+Pracujemy nad dodaniem nowych serwerów wkrótce.
+
 ## <a name="contacts"></a>Kontakty
-Aby dowiedzieć się więcej na temat pytań lub sugestii dotyczących pracy z Azure Database for MySQL, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL ([ @Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Ten adres e-mail nie jest aliasem pomocy technicznej.
+W przypadku pytań lub sugestii, które mogą znajdować się na Azure Database for MySQL elastycznym serwerze, Wyślij wiadomość e-mail do zespołu Azure Database for MySQL ([ @Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Ten adres e-mail nie jest aliasem pomocy technicznej.
 
 Ponadto, w zależności od potrzeb, należy wziąć pod uwagę następujące punkty kontaktowe:
 

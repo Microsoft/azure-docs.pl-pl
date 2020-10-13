@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993710"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor
 Jeśli masz krytyczne aplikacje i procesy biznesowe polegające na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez zasoby platformy Azure oraz sposób używania funkcji Azure Monitor do analizowania i generowania alertów dotyczących tych danych.
@@ -80,7 +80,7 @@ Ustawienia diagnostyczne definiują, gdzie należy wysyłać dzienniki zasobów 
 - [Centra zdarzeń](../platform/resource-logs.md#send-to-azure-event-hubs) do przesyłania strumieniowego danych do systemów zewnętrznych, takich jak rozwiązań Siem innych firm, oraz inne rozwiązania do analizy dzienników. 
 - [Konto usługi Azure Storage](../platform/resource-logs.md#send-to-azure-storage) , które jest przydatne do inspekcji, analizy statycznej lub tworzenia kopii zapasowych.
 
-Postępuj zgodnie z procedurą w temacie [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure w](../platform/diagnostic-settings.md) celu tworzenia ustawień diagnostycznych i zarządzania nimi za pomocą Azure Portal. Zobacz [Tworzenie ustawień diagnostycznych na platformie Azure przy użyciu szablonu Menedżer zasobów](../platform/diagnostic-settings-template.md) , aby zdefiniować je w szablonie i włączyć pełne monitorowanie dla zasobu po jego utworzeniu.
+Postępuj zgodnie z procedurą w temacie [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure w](../platform/diagnostic-settings.md) celu tworzenia ustawień diagnostycznych i zarządzania nimi za pomocą Azure Portal. Zobacz [Tworzenie ustawień diagnostycznych na platformie Azure przy użyciu szablonu Menedżer zasobów](../samples/resource-manager-diagnostic-settings.md) , aby zdefiniować je w szablonie i włączyć pełne monitorowanie dla zasobu po jego utworzeniu.
 
 
 ## <a name="monitoring-in-the-azure-portal"></a>Monitorowanie w Azure Portal
@@ -160,5 +160,4 @@ Użyj **alertów** z menu zasobów, aby wyświetlić alerty i zarządzać reguł
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Szczegóły dzienników zasobów dla różnych usług platformy Azure można znaleźć w temacie [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../platform/resource-logs-schema.md) .  
-
+* Szczegóły dzienników zasobów dla różnych usług platformy Azure można znaleźć w temacie [obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure](../platform/resource-logs-schema.md) .

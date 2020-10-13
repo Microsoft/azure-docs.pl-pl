@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282351"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993646"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Zakończenie protokołu TLS z certyfikatami Key Vault
 
@@ -32,7 +32,7 @@ Integracja Application Gateway z Key Vault oferuje wiele korzyści, w tym:
 - Obsługa importowania istniejących certyfikatów do magazynu kluczy. Lub użyj Key Vault interfejsów API, aby tworzyć nowe certyfikaty i zarządzać nimi za pomocą dowolnych zaufanych partnerów Key Vault.
 - Obsługa automatycznego odnawiania certyfikatów przechowywanych w magazynie kluczy.
 
-Application Gateway obecnie obsługuje tylko certyfikaty zweryfikowane przez oprogramowanie. Sprzętowy moduł zabezpieczeń (HSM) — zweryfikowane certyfikaty nie są obsługiwane. Gdy Application Gateway jest skonfigurowany do korzystania z certyfikatów Key Vault, jego wystąpienia pobierają certyfikat z Key Vault i instalują je lokalnie w celu zakończenia protokołu TLS. Wystąpienia są również sondowane Key Vault co 24 godziny w celu pobrania odnowionej wersji certyfikatu (jeśli istnieje). Jeśli zostanie znaleziony zaktualizowany certyfikat, certyfikat TLS/SSL aktualnie skojarzony z odbiornikiem HTTPS jest automatycznie obracany.
+Application Gateway obecnie obsługuje tylko certyfikaty zweryfikowane przez oprogramowanie. Sprzętowy moduł zabezpieczeń (HSM) — zweryfikowane certyfikaty nie są obsługiwane. Gdy Application Gateway jest skonfigurowany do korzystania z certyfikatów Key Vault, jego wystąpienia pobierają certyfikat z Key Vault i instalują je lokalnie w celu zakończenia protokołu TLS. Wystąpienia są również sondowane Key Vault w okresach 4-godzinnych w celu pobrania odnowionej wersji certyfikatu (jeśli istnieje). Jeśli zostanie znaleziony zaktualizowany certyfikat, certyfikat TLS/SSL aktualnie skojarzony z odbiornikiem HTTPS jest automatycznie obracany.
 
 > [!NOTE]
 > Azure Portal obsługuje tylko certyfikaty magazynu kluczy, a nie wpisy tajne. Application Gateway nadal obsługuje odwołania do wpisów tajnych z magazynu kluczy, ale tylko za pośrednictwem zasobów nienależących do portalu, takich jak program PowerShell, interfejs wiersza polecenia, interfejsy API, szablony ARM itd. 

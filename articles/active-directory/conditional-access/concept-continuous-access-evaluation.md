@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266063"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992815"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -103,7 +103,7 @@ Jeśli nie korzystasz z klientów z systemem CAE, domyślny okres istnienia toke
 
 1. Klient obsługujący CAE przedstawia poświadczenia lub token odświeżenia w usłudze Azure AD z prośbą o token dostępu dla pewnego zasobu.
 1. Token dostępu jest zwracany wraz z innymi artefaktami dla klienta.
-1. Administrator jawnie [odwołuje wszystkie tokeny odświeżania dla użytkownika](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
+1. Administrator jawnie [odwołuje wszystkie tokeny odświeżania dla użytkownika](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Zdarzenie odwołania zostanie wysłane do dostawcy zasobów z usługi Azure AD.
 1. Dostawca zasobów przedstawia token dostępu. Dostawca zasobów szacuje ważność tokenu i sprawdza, czy istnieją jakieś zdarzenia odwołania dla użytkownika. Dostawca zasobów używa tych informacji do podejmowania decyzji o udzieleniu dostępu do zasobu.
 1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła wezwanie do klienta 401 + roszczeń z powrotem.
 1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD będzie następnie ponownie szacować wszystkie warunki i monitować użytkownika o ponowne uwierzytelnienie w tym przypadku.
@@ -159,7 +159,7 @@ Jeśli ten scenariusz istnieje w Twoim środowisku, aby uniknąć nieskończonyc
 | Semi-Annual kanału przedsiębiorstwa | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. |
 | Bieżący kanał <br> lub <br> Miesięczny kanał przedsiębiorstwa | CAE jest obsługiwany niezależnie od ustawienia | CAE jest obsługiwany niezależnie od ustawienia |
 
-Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówienie kanałów aktualizacji dla aplikacji Microsoft 365](https://docs.microsoft.com/deployoffice/overview-update-channels). Zalecane jest, aby organizacje nie wyłączać Menedżera kont sieci Web (WAM).
+Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówienie kanałów aktualizacji dla aplikacji Microsoft 365](/deployoffice/overview-update-channels). Zalecane jest, aby organizacje nie wyłączać Menedżera kont sieci Web (WAM).
 
 ### <a name="policy-change-timing"></a>Chronometraż zmiany zasad
 

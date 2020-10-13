@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: videor, jeevanb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f3766e02316eccb519bea15246541531750ed1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d681eba53aa85fe5df05f8404bcddb7c6877477
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90008029"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992787"
 ---
 # <a name="conditional-access-programmatic-access"></a>Dostęp warunkowy: dostęp programistyczny
 
@@ -32,7 +32,7 @@ Wiele z poniższych przykładów używa narzędzi, takich jak [tożsamości zarz
 
 ## <a name="configure"></a>Konfigurowanie
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 W przypadku wielu administratorów program PowerShell jest już zrozumiałym narzędziem do obsługi skryptów. Poniższy przykład pokazuje, jak używać [modułu Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD) do zarządzania zasadami dostępu warunkowego.
 
@@ -78,7 +78,7 @@ Automatyzuj wykonywanie kopii zapasowych i przywracanie zasad dostępu warunkowe
 
 ### <a name="emergency-access-accounts"></a>Konta dostępu awaryjnego
 
-Wielu administratorów może tworzyć zasady dostępu warunkowego i mogą pamiętać o dodaniu [kont dostępu awaryjnego](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) jako wykluczenia do tych zasad. W tym przykładzie zagwarantujemy, że wszystkie zasady zostaną zaktualizowane w celu uwzględnienia wskazanych kont dostępu awaryjnego.
+Wielu administratorów może tworzyć zasady dostępu warunkowego i mogą pamiętać o dodaniu [kont dostępu awaryjnego](../users-groups-roles/directory-emergency-access.md) jako wykluczenia do tych zasad. W tym przykładzie zagwarantujemy, że wszystkie zasady zostaną zaktualizowane w celu uwzględnienia wskazanych kont dostępu awaryjnego.
 
 - [Zarządzanie przypisywaniem kont dostępu awaryjnego do zasad dostępu warunkowego przy użyciu wywołań interfejsu API Microsoft Graph](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

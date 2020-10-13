@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322146"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993877"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Rozpoczęcie analizowania aplikacji mobilnej za pomocą Centrum aplikacji i usługi Application Insights
 
@@ -124,7 +124,7 @@ Usługa Application Insights umożliwia wykonywanie zapytań, segmentowanie, fil
    1. Wybierz zapytanie, klikając w dowolnym miejscu zapytania w edytorze tekstów.
    2. Następnie kliknij pozycję **Przejdź**, aby wykonać zapytanie. 
 
-   Dowiedz się więcej o [portalu Analiza usługi Application Insights](../log-query/log-query-overview.md) i [języku zapytań Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Dowiedz się więcej o [portalu Analiza usługi Application Insights](../log-query/log-query-overview.md) i [języku zapytań Log Analytics](/azure/data-explorer/kusto/query/).
 
 
 2. **Przeprowadź segmentację i filtrowanie danych telemetrycznych zdarzeń niestandardowych.** Na stronie **Przegląd** usługi Application Insights wybierz w spisie treści pozycję **Użytkownicy**.
@@ -168,4 +168,3 @@ Aby usunąć zasób usługi Application Insights:
 
 > [!div class="nextstepaction"]
 > [Informacje o sposobie używania aplikacji przez klientów](../app/usage-overview.md)
-
