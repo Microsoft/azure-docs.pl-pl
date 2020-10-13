@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.author: jeedes
 ms.openlocfilehash: 969fb8c688fe26e1aa830cab2bbc35c5712b060e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarity"></a>Samouczek: integracja Azure Active Directory z przejrzystością
@@ -62,7 +62,7 @@ Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD prz
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-2. **[Konfigurowanie logowania jednokrotnego dla programu ProClarity](#configure-clarity-single-sign-on)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania jednokrotnego dla programu ProClarity](#configure-clarity-single-sign-on)** — w celu skonfigurowania pojedynczych ustawień Sign-On po stronie aplikacji.
     1. **[Utwórz użytkownika testowego ProClarity](#create-clarity-test-user)** — Aby uzyskać odpowiedniki B. Simon w przejrzystości, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
@@ -123,7 +123,7 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**
 
-## <a name="configure-clarity-single-sign-on"></a>Konfigurowanie logowania jednokrotnego dla programu ProClarity
+## <a name="configure-clarity-single-sign-on"></a>Konfigurowanie jednego Sign-On dla programu ProClarity
 
 Aby skonfigurować Logowanie jednokrotne po stronie **ProClarity** , musisz wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej ProClarity](mailto:catechnicalsupport@ca.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
@@ -141,7 +141,7 @@ Po kliknięciu kafelka ProClarity w panelu dostępu należy automatycznie zalogo
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

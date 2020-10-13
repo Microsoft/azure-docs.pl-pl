@@ -1,6 +1,6 @@
 ---
-title: Skonfiguruj zabezpieczenia dla grupy serwerów PostgreSQL na potrzeby usługi Azure Arc
-description: Skonfiguruj zabezpieczenia dla grupy serwerów PostgreSQL na potrzeby usługi Azure Arc
+title: Konfigurowanie zabezpieczeń grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
+description: Konfigurowanie zabezpieczeń grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273204"
 ---
-# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skonfiguruj zabezpieczenia dla grupy serwerów PostgreSQL na potrzeby usługi Azure Arc
+# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Konfigurowanie zabezpieczeń grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
 W tym dokumencie opisano różne aspekty związane z bezpieczeństwem grupy serwerów:
 - Szyfrowanie w spoczynku
@@ -150,7 +150,7 @@ Ten mały przykład pokazuje, że można zaszyfrować dane w spoczynku (Przechow
 
 ## <a name="user-management"></a>Zarządzanie użytkownikami
 ### <a name="general-perspectives"></a>Perspektywy ogólne
-Możesz użyć standardowego Postgres, aby utworzyć użytkowników lub role. Jeśli jednak to zrobisz, te artefakty będą dostępne tylko w roli koordynatora. W trakcie okresu zapoznawczego użytkownicy/role nie będą mogli uzyskać dostępu do danych dystrybuowanych poza węzłem koordynatora i węzłami procesu roboczego grupy serwerów. Przyczyną jest to, że w wersji zapoznawczej definicja użytkownika nie jest replikowana do węzłów procesu roboczego.
+Możesz użyć standardowego Postgres, aby utworzyć użytkowników lub role. Jeśli jednak to zrobisz, te artefakty będą dostępne tylko w roli koordynatora. W okresie korzystania z wersji zapoznawczej użytkownicy/role nie będą mogli uzyskać dostępu do danych, które są dystrybuowane poza węzłem koordynatora i w węzłach roboczych grupy serwerów. Przyczyną jest to, że w wersji zapoznawczej definicja użytkownika nie jest replikowana do węzłów roboczych.
 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>Zmień hasło użytkownika administracyjnego _Postgres_
 Usługa Azure ARC z możliwością skalowania w PostgreSQL jest dostępna ze standardowym użytkownikiem administracyjnym Postgres _Postgres_ , dla którego można ustawić hasło podczas tworzenia grupy serwerów.

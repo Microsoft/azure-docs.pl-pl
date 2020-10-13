@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 author: jasonwhowell
 ms.author: jasonh
 ms.openlocfilehash: 15b4e6515f98a4d5a65bb5a56bdd5a5f40f90fe8
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408615"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Użyj MongoDB kompas do nawiązywania połączenia z interfejsem API usługi Azure Cosmos DB dla MongoDB
@@ -40,17 +40,17 @@ Aby połączyć konto Cosmos DB z kompasem, możesz wykonać poniższe czynnośc
 
 2. Kliknij przycisk informujący **o skopiowaniu do schowka** obok **podstawowego/pomocniczego ciągu połączenia** w Cosmos DB. Kliknięcie tego przycisku spowoduje skopiowanie całego ciągu połączenia do Schowka.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Zrzut ekranu przedstawiający przycisk Kopiuj do schowka":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 
 3. Otwórz kompas na pulpicie/komputerze i kliknij przycisk **Połącz** , a następnie **Połącz z...**.
 
 4. Kompas automatycznie wykryje parametry połączenia w schowku i wyświetli monit o podanie, czy chcesz użyć tego do nawiązania połączenia. Kliknij przycisk **tak** , tak jak pokazano na poniższym zrzucie ekranu.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Zrzut ekranu przedstawiający monit o podanie poziomu kompasu do nawiązania połączenia":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 
 5. Po kliknięciu przycisku **tak** w powyższym kroku zostaną automatycznie wypełnione szczegóły z parametrów połączenia. Usuń wartość automatycznie wypełnianą w polu **Nazwa zestawu replik** , aby upewnić się, że pole pozostanie puste.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Zrzut ekranu przedstawiający monit o podanie poziomu kompasu do nawiązania połączenia":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 
 6. Kliknij pozycję **Połącz** w dolnej części strony. Twoje konto Cosmos DB i bazy danych powinny teraz być widoczne w MongoDB kompasu.
 

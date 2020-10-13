@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90528657"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Zarejestrowanie zestawu deweloperskiego IoT DevKit przy użyciu usługi Azure IoT Hub Device Provisioning Service IoT Hub
 
-W tym artykule opisano sposób korzystania z usługi Azure IoT Hub Device Provisioning Service do [aprowizacji](about-iot-dps.md#provisioning-process) usługi zestawu deweloperskiego IoT DevKit w usłudze Azure IoT Hub. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym artykule opisano sposób korzystania z usługi Azure IoT Hub Device Provisioning Service do [aprowizacji](about-iot-dps.md#provisioning-process) usługi zestawu deweloperskiego IoT DevKit w usłudze Azure IoT Hub. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 * Skonfiguruj globalny punkt końcowy usługi Device Provisioning na urządzeniu.
 * Aby wygenerować certyfikat X. 509, należy użyć unikatowego klucza tajnego urządzenia.
@@ -26,11 +26,11 @@ W tym artykule opisano sposób korzystania z usługi Azure IoT Hub Device Provis
 
 [Zestawu deweloperskiego IoT DevKit](https://aka.ms/iot-devkit) to cała tablica niezgodna z programem Arduino z rozbudowanymi urządzeniami peryferyjnymi i czujnikami. Możesz to zrobić za pomocą [usługi Azure IoT Device Workbench](https://aka.ms/iot-workbench) lub pakietu rozszerzeń [narzędzi Azure iot Tools](https://aka.ms/azure-iot-tools) w Visual Studio Code. DevKit jest dostępny w katalogu rosnące [projekty](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) , aby kierować rozwiązania do tworzenia prototypów Internet rzeczy (IoT), które wykorzystują usługi platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać kroki opisane w tym samouczku, najpierw wykonaj następujące zadania:
 
-* Skonfiguruj sieć Wi-Fi DevKit i przygotuj środowisko programistyczne, postępując zgodnie z instrukcjami w sekcji "Przygotowanie środowiska programistycznego" w artykule [Connect IoT DEVKIT AZ3166 do platformy Azure IoT Hub w chmurze](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Skonfiguruj Wi-Fi i przygotuj środowisko programistyczne, postępując zgodnie z instrukcjami w sekcji "Przygotowanie środowiska programistycznego" w artykule [Connect IoT DEVKIT AZ3166 do platformy Azure IoT Hub w chmurze](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Uaktualnij do najnowszego oprogramowania układowego (1.3.0 lub nowszego) za pomocą samouczka [aktualizacji oprogramowania układowego DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) .
 * Utwórz i Połącz IoT Hub z wystąpieniem usługi Device Provisioning Service, wykonując kroki opisane w temacie [konfigurowanie IoT Hub Device Provisioning Service za pomocą Azure Portal](/azure/iot-dps/quick-setup-auto-provision).
 

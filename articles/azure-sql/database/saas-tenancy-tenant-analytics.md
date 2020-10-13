@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619546"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analiza wielu dzierżawców przy użyciu wyodrębnionych aplikacji z jedną dzierżawą
@@ -156,7 +156,7 @@ W tej części samouczka zdefiniujesz i uruchomisz zadanie, które scala wyodrę
 2. W programie SSMS Otwórz pozycję *. ..\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.SQL*.
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt w celu zdefiniowania zadania, które wywołuje procedurę składowaną sp_ShredRawExtractedData w sklepie analizy.
 4. Poczekaj, aż zadanie zostanie pomyślnie uruchomione.
-    - Sprawdź kolumnę **cykl życia** zadania. jobs_execution tabeli dla stanu zadania. Przed kontynuowaniem upewnij się, że zadanie **zakończyło się pomyślnie** . Pomyślne uruchomienie wyświetla dane podobne do poniższego wykresu:
+    - Sprawdź kolumnę **cykl życia** tabeli jobs.jobs_execution dla stanu zadania. Przed kontynuowaniem upewnij się, że zadanie **zakończyło się pomyślnie** . Pomyślne uruchomienie wyświetla dane podobne do poniższego wykresu:
 
 ![shredding](./media/saas-tenancy-tenant-analytics/shreddingJob.PNG)
 
@@ -238,7 +238,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Gratulacje!
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - Dodatkowe [samouczki, które kompilują się po aplikacji Wingtip SaaS](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Zadania elastyczne](../../sql-database/elastic-jobs-overview.md).

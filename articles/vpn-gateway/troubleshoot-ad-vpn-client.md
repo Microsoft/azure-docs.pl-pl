@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84988108"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Rozwiązywanie problemów z klientem sieci VPN uwierzytelniania usługi Azure AD

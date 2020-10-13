@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
 ms.openlocfilehash: e7a4ddaf74df6e04c1597b9c106cd458ddebac55
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079595"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Wdrażanie aplikacji na zestawach skalowania maszyn wirtualnych
@@ -35,7 +35,7 @@ Rozszerzenie niestandardowego skryptu pobiera i wykonuje skrypty na maszynach wi
 
 - [Interfejs wiersza polecenia platformy Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Szablon Azure Resource Manager](tutorial-install-apps-template.md)
+- [Szablon usługi Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalowanie aplikacji na maszynie wirtualnej z systemem Windows przy użyciu programu PowerShell DSC

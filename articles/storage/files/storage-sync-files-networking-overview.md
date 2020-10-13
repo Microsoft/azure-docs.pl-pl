@@ -8,10 +8,10 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267792"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Zagadnienia dotyczące sieci Azure File Sync
@@ -53,7 +53,7 @@ Azure File Sync wymaga zakresów adresów IP dla następujących usług, identyf
 | Azure File Sync | Usługa Azure File Sync, reprezentowana przez obiekt usługi synchronizacji magazynu, jest odpowiedzialna za podstawową aktywność synchronizacji danych między udziałem plików platformy Azure a serwerem plików systemu Windows. | `StorageSyncService` |
 | Azure Files | Wszystkie dane zsynchronizowane za pośrednictwem Azure File Sync są przechowywane w udziale plików platformy Azure. Pliki zmienione na serwerach plików systemu Windows są replikowane do udziału plików platformy Azure, a pliki warstwowe na lokalnym serwerze plików są bezproblemowo pobierane podczas żądania przez użytkownika. | `Storage` |
 | Azure Resource Manager | Azure Resource Manager jest interfejsem zarządzania dla platformy Azure. Wszystkie wywołania zarządzania, w tym Azure File Sync rejestracji serwera i trwającego serwera synchronizacji, są tworzone przez Azure Resource Manager. | `AzureResourceManager` |
-| Azure Active Directory | Azure Active Directory lub usługa Azure AD zawiera podmioty zabezpieczeń wymagane do autoryzacji rejestracji serwera względem usługi synchronizacji magazynu oraz jednostki usługi wymagane do Azure File Sync mają autoryzację w celu uzyskania dostępu do zasobów w chmurze. | `AzureActiveDirectory` |
+| Usługa Azure Active Directory | Azure Active Directory lub usługa Azure AD zawiera podmioty zabezpieczeń wymagane do autoryzacji rejestracji serwera względem usługi synchronizacji magazynu oraz jednostki usługi wymagane do Azure File Sync mają autoryzację w celu uzyskania dostępu do zasobów w chmurze. | `AzureActiveDirectory` |
 
 Jeśli używasz Azure File Sync w ramach platformy Azure, nawet jeśli jest to inny region, możesz użyć nazwy znacznika usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch do tej usługi. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/security-overview.md). 
 
@@ -172,4 +172,4 @@ Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobac
 
 ## <a name="see-also"></a>Zobacz też
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)

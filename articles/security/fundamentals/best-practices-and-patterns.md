@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889853"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń platformy Azure
@@ -30,7 +30,7 @@ Najlepsze rozwiązania są przeznaczone dla informatyków. Może to obejmować p
 
 * [Najlepsze rozwiązania dotyczące zabezpieczeń granicznych platformy Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Najlepsze rozwiązania dotyczące zabezpieczeń bazy danych na platformie Azure](database-best-practices.md)
-* [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych platformy Azure](data-encryption-best-practices.md)
+* [Najlepsze rozwiązania z zakresu zabezpieczeń i szyfrowania danych na platformie Azure](data-encryption-best-practices.md)
 * [Najlepsze rozwiązania dotyczące zabezpieczeń kontroli dostępu i zarządzania tożsamościami na platformie Azure](identity-management-best-practices.md)
 * [Najlepsze rozwiązania z zakresu zabezpieczeń sieci platformy Azure](network-best-practices.md)
 * [Najlepsze rozwiązania dotyczące bezpieczeństwa działania na platformie Azure](operational-best-practices.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Las decyzyjny dwuklasowej: odwołanie do modułu'
+title: 'Two-Class Las decyzyjny: odwołanie do modułu'
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak utworzyć model uczenia maszynowego na podstawie algorytmu lasów decyzyjnych przy użyciu dwuklasowego modułu lasu decyzyjnego w Azure Machine Learning.
+description: Dowiedz się, jak utworzyć model uczenia maszynowego na podstawie algorytmu lasów decyzyjnych w programie Azure Machine Learning przy użyciu Two-Classowego modułu lasu decyzyjnego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907723"
 ---
-# <a name="two-class-decision-forest-module"></a>Moduł dwuklasowego lasu decyzyjnego
+# <a name="two-class-decision-forest-module"></a>Moduł Las decyzyjny Two-Class
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer.
 

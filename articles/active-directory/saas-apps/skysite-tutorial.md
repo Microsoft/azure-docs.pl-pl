@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 1454be235c98e5348d1b57028d988252191ad270
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88528050"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą SKYSITE
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. Wybierz **atrybut Source** **identyfikatora grupy**.
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -148,17 +148,17 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. Kliknij pozycję **Ustawienia** w prawym górnym rogu strony, a następnie przejdź do **Ustawienia konta**.
 
-    ![Konfigurowanie](./media/skysite-tutorial/config03.png)
+    ![Konfiguracja](./media/skysite-tutorial/config03.png)
 
 5. Przejdź do karty Logowanie jednokrotne **(SSO)** , wykonaj następujące czynności:
 
-    ![Konfigurowanie](./media/skysite-tutorial/config04.png)
+    ![Konfiguracja](./media/skysite-tutorial/config04.png)
 
     a. W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL dostępu użytkownika**, która została skopiowana z karty **Właściwości** w Azure Portal.
 
     b. Kliknij przycisk **Przekaż certyfikat**, aby przekazać certyfikat szyfrowany algorytmem Base64, który został pobrany z Azure Portal.
 
-    c. Kliknij pozycję **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-skysite-test-user"></a>Utwórz użytkownika testowego SKYSITE
 
@@ -174,7 +174,7 @@ Po kliknięciu kafelka SKYSITE w panelu dostępu należy automatycznie zalogowa�
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

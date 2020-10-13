@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201365"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -44,7 +44,7 @@ Element **ClaimType** zawiera następujący atrybut:
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Identyfikator | Tak | Identyfikator, który jest używany dla typu zgłoszenia. Inne elementy mogą używać tego identyfikatora w zasadach. |
+| Id | Tak | Identyfikator, który jest używany dla typu zgłoszenia. Inne elementy mogą używać tego identyfikatora w zasadach. |
 
 Element **ClaimType** zawiera następujące elementy:
 
@@ -68,10 +68,10 @@ Element **DataType** obsługuje następujące wartości:
 
 | Typ | Opis |
 | ------- | ----------- |
-|wartość logiczna|Reprezentuje wartość logiczną ( `true` lub `false` ).|
+|boolean|Reprezentuje wartość logiczną ( `true` lub `false` ).|
 |date| Reprezentuje chwilę w czasie, zazwyczaj wyrażoną jako dzień. Wartość daty jest zgodna z Konwencją ISO 8601.|
 |Data i godzina|Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wartość daty jest zgodna z Konwencją ISO 8601.|
-|czas trwania|Reprezentuje przedział czasu w latach, miesiącach, dniach, godzinach, minutach i sekundach. Format is `PnYnMnDTnHnMnS` , gdzie `P` wskazuje wartość dodatnią lub `N` ujemną. `nY`to liczba lat, po której następuje literał `Y` . `nMo`to liczba miesięcy, po której następuje literał `Mo` . `nD`to liczba dni, po której następuje literał `D` . Przykłady: `P21Y` reprezentuje 21 lat. `P1Y2Mo`reprezentuje rok i dwa miesiące. `P1Y2Mo5D`reprezentuje jeden rok, dwa miesiące i pięć dni.  `P1Y2M5DT8H5M620S`reprezentuje jeden rok, dwa miesiące, pięć dni, osiem godzin, pięć minut i dwadzieścia sekund.  |
+|czas trwania|Reprezentuje przedział czasu w latach, miesiącach, dniach, godzinach, minutach i sekundach. Format is `PnYnMnDTnHnMnS` , gdzie `P` wskazuje wartość dodatnią lub `N` ujemną. `nY` to liczba lat, po której następuje literał `Y` . `nMo` to liczba miesięcy, po której następuje literał `Mo` . `nD` to liczba dni, po której następuje literał `D` . Przykłady: `P21Y` reprezentuje 21 lat. `P1Y2Mo` reprezentuje rok i dwa miesiące. `P1Y2Mo5D` reprezentuje jeden rok, dwa miesiące i pięć dni.  `P1Y2M5DT8H5M620S` reprezentuje jeden rok, dwa miesiące, pięć dni, osiem godzin, pięć minut i dwadzieścia sekund.  |
 |phoneNumber|Reprezentuje numer telefonu. |
 |int| Reprezentuje liczbę z przedziału od-2 147 483 648 do 2 147 483 647|
 |długi| Reprezentuje liczbę z przedziału od-zakresu od do 9 223 372 036 854 775 807 |

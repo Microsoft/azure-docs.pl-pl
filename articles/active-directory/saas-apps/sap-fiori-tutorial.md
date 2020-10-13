@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543398"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania SAP Fiori
@@ -158,7 +158,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > 
     > Identyfikator obiektu można ustawić `ServicePrincipal` samodzielnie przed uruchomieniem skryptu lub przekazać go tutaj.
 
-1. Aplikacja SAP Fiori oczekuje, że potwierdzenia SAML mają być w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Aby zarządzać tymi wartościami atrybutów, w okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj**.
+1. Aplikacja SAP Fiori oczekuje, że potwierdzenia SAML mają być w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Aby zarządzać tymi wartościami atrybutów, w okienku **Konfiguracja jednego Sign-On za pomocą SAML** wybierz pozycję **Edytuj**.
 
     ![Okienko atrybuty użytkownika](common/edit-attribute.png)
 
@@ -238,9 +238,9 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Sprawdź wartość algorytmu digest w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
-1. W obszarze **punkty końcowe logowania**jednokrotnego wybierz pozycję **http post**, a następnie wybierz przycisk **dalej**.
+1. W obszarze **punkty końcowe pojedynczej Sign-On**wybierz pozycję **http post**, a następnie wybierz przycisk **dalej**.
 
-    ![Opcje punktów końcowych logowania jednokrotnego w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
+    ![Opcje pojedynczych punktów końcowych Sign-On w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
 
 1. W obszarze **punkty końcowe logowania jednokrotnego**wybierz pozycję **przekierowywanie http**, a następnie wybierz przycisk **dalej**.
 
@@ -262,7 +262,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     ![Opcja Dodaj na karcie federacji tożsamości](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
 
-1. W oknie dialogowym **obsługiwane formaty NameID** wybierz opcję **nieokreślony**. Kliknij przycisk **OK**.
+1. W oknie dialogowym **obsługiwane formaty NameID** wybierz opcję **nieokreślony**. Wybierz przycisk **OK**.
 
     ![Okno dialogowe obsługiwane formaty NameID i opcje w oprogramowaniu SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
 
@@ -320,7 +320,7 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w oprogramowaniu SAP F
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

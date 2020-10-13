@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: aafd284122ca61ba2b668186095b88003be2775c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450371"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Ogranicz zakres wdrożenia Update Management
@@ -30,7 +30,7 @@ Aby ograniczyć zakres wdrożenia Update Management:
 
 3. Wybierz pozycję **konfiguracje zakresu (wersja zapoznawcza)** w obszarze **źródła danych obszaru roboczego**.
 
-4. Wybierz wielokropek z prawej strony w obszarze `MicrosoftDefaultScopeConfig-Updates` Konfiguracja zakresu, a następnie wybierz pozycję **Edytuj**.
+4. Wybierz wielokropek z prawej strony w obszarze  `MicrosoftDefaultScopeConfig-Updates` Konfiguracja zakresu, a następnie wybierz pozycję **Edytuj**.
 
 5. W okienku Edycja rozwiń **pozycję Wybierz grupy komputerów**. W okienku grupy komputerów zostaną wyświetlone zapisane wyszukiwania, które są używane do tworzenia konfiguracji zakresu. Zapisane wyszukiwanie używane przez Update Management to:
 

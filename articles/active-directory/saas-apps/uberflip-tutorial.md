@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88533167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Samouczek: integracja Azure Active Directory z usługą Uberflip
@@ -94,7 +94,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Uberflip, w
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz opcję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -115,7 +115,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Uberflip, w
 
      ![Uberflip domenę i adresy URL Logowanie jednokrotne](common/both-signonurl.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji i zapisać go na komputerze.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji i zapisać go na komputerze.
 
    ![Opcja pobierania XML metadanych Federacji](common/metadataxml.png)
 
@@ -153,7 +153,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
     1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -198,6 +198,6 @@ Po wybraniu opcji **Uberflip** w portalu Moje aplikacje należy automatycznie za
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

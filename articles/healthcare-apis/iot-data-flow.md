@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
 ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513381"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Usługa Azure IoT Connector dla przepływu danych FHIR (wersja zapoznawcza)
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Przepływ danych łącznika usługi Azure IoT dla platformy FHIR (wersja zapoznawcza)
 
 Ten artykuł zawiera omówienie przepływu danych w łączniku usługi Azure IoT dla FHIR *. Dowiesz się [więcej na temat](https://www.hl7.org/fhir/observation.html) różnych etapów przetwarzania danych w ramach łącznika usługi Azure IoT dla FHIR, które przekształcają dane urządzeń w FHIRe zasoby.
 
@@ -36,7 +36,7 @@ Normalizacja to kolejny etap, w którym dane urządzenia są pobierane z powyżs
 
 Proces normalizacji nie tylko upraszcza przetwarzanie danych na późniejszym etapie, ale również zapewnia możliwość tworzenia projektu jednego komunikatu wejściowego w wielu znormalizowanych wiadomościach. Na przykład urządzenie może wysyłać wiele nieistotnych oznak dla temperatury ciała, współczynnika pulsu, naciskania krwi oraz stawki za ponowne oddychanie w pojedynczym komunikacie. Ten komunikat wejściowy utworzy cztery osobne zasoby FHIR. Każdy zasób reprezentuje inny klucz istotny, a komunikat wejściowy jest rzutowany na cztery różne znormalizowane komunikaty.
 
-## <a name="group"></a>Grupa
+## <a name="group"></a>Group (Grupa)
 Grupa jest następnym etapem, w którym znormalizowane wiadomości dostępne z poprzedniego etapu są grupowane przy użyciu trzech różnych parametrów: tożsamości urządzenia, typu pomiaru i okresu.
 
 Grupowanie tożsamości urządzeń i typów pomiarów umożliwia użycie typu pomiaru [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) . Ten typ zapewnia zwięzły sposób przedstawiania serii pomiarów z urządzenia w FHIR. I okres określa czas, w którym obserwacje zasobów wygenerowanych przez łącznik usługi Azure IoT dla FHIR są zapisywane w interfejsie API platformy Azure dla FHIR.

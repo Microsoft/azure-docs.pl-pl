@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280304"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Włącz i Zarządzaj usuwaniem nietrwałym dla kontenerów (wersja zapoznawcza)
@@ -86,7 +86,7 @@ Aby wyświetlić nietrwałe kontenery usunięte w Azure Portal, wykonaj następu
 1. Przejdź do swojego konta magazynu w Azure Portal i Wyświetl listę kontenerów.
 1. Przełącz przełącznik Pokaż usunięte kontenery w celu uwzględnienia usuniętych kontenerów na liście.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania nietrwałych usuniętych kontenerów w Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usuwania nietrwałego kontenera w Azure Portal":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Przywracanie usuniętego z nietrwałego kontenera
 
@@ -95,7 +95,7 @@ Można przywrócić usunięty trwale kontener i jego zawartość w okresie przec
 1. Przejdź do swojego konta magazynu w Azure Portal i Wyświetl listę kontenerów.
 1. Wyświetl menu kontekstowe dla kontenera, który chcesz przywrócić, a następnie wybierz polecenie **Cofnij usunięcie** z menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Zrzut ekranu przedstawiający sposób przywracania usuniętego nietrwałego kontenera w Azure Portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Zrzut ekranu przedstawiający sposób włączania usuwania nietrwałego kontenera w Azure Portal":::
 
 ## <a name="next-steps"></a>Następne kroki
 

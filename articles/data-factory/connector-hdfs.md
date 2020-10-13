@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405089"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Kopiowanie danych z serwera HDFS przy użyciu Azure Data Factory
@@ -412,7 +412,7 @@ Kadmin> addprinc <username>@<REALM.COM>
     Kadmin> addprinc krbtgt/REALM.COM@AD.COM
     ```
 
-3. W pliku konfiguracji usługi *Hadoop. Security. auth_to_local* HDFS Dodaj pozycję `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
+3. W pliku konfiguracji usługi *Hadoop.Security.auth_to_local* HDFS Dodaj `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//` .
 
 **Na kontrolerze domeny:**
 

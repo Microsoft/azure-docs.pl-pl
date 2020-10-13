@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: f339ae4ff1ea90929ce7811efe002f5860f7b47d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269339"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu śródwierszowego w Azure Logic Apps
@@ -129,7 +129,7 @@ W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej 
 
 Ta tabela zawiera więcej informacji o tych właściwościach:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 |----------|------|-------|
 | `actions` | Kolekcja obiektów | Obiekty wynikowe z akcji, które są uruchamiane przed uruchomieniem fragmentu kodu. Każdy obiekt ma parę *klucz-wartość* , gdzie klucz jest nazwą akcji, a wartość jest równoważna wywołaniu [funkcji Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) w `@actions('<action-name>')` . Nazwa akcji używa tej samej nazwy akcji, która jest używana w źródłowej definicji przepływu pracy, która zastępuje spacje ("") w nazwie akcji znakami podkreślenia (_). Ten obiekt zapewnia dostęp do wartości właściwości akcji z bieżącego przebiegu wystąpienia przepływu pracy. |
 | `trigger` | Obiekt | Obiekt wynikowy z wyzwalacza i równoważny do wywołania [funkcji wyzwalacza ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Ten obiekt zapewnia dostęp do wartości właściwości wyzwalacza z bieżącego uruchomienia wystąpienia przepływu pracy. |
@@ -261,7 +261,7 @@ Jeśli wybierzesz pozycję **Akcje**, zostanie wyświetlony monit o akcje, któr
 
 1. Aby dodać kolejną akcję, wybierz pozycję **Dodaj nowy element**.
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Tematy pomocy
 
 Aby uzyskać więcej informacji o strukturze i składni akcji **Wykonaj kod JavaScript** w źródłowej definicji przepływu pracy aplikacji logiki przy użyciu języka definicji przepływu pracy, zapoznaj się z [sekcją odwołania](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)tej akcji.
 

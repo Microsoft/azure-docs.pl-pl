@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272025"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguracja usługi Storage dla maszyn wirtualnych programu SQL Server

@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemó
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87039331"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure
@@ -86,7 +86,7 @@ Podczas tworzenia punktu końcowego usługi sieci wirtualnej dla przestrzeni naz
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Sprawdź ustawienia zapory adresu IP dla swojej przestrzeni nazw
 Sprawdź, czy publiczny adres IP komputera, na którym uruchomiona jest aplikacja, nie jest blokowany przez zaporę protokołu IP.  
 
-Domyślnie obszary nazw Event Hubs są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
+Domyślnie obszary nazw Event Hubs są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją tylko do zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 Reguły zapory adresów IP są stosowane na poziomie przestrzeni nazw Event Hubs. W związku z tym reguły są stosowane do wszystkich połączeń z klientów przy użyciu dowolnego obsługiwanego protokołu. Wszystkie próby połączenia z adresu IP, które nie pasują do dozwolonej reguły adresów IP w przestrzeni nazw Event Hubs, są odrzucane jako nieautoryzowane. Odpowiedź nie zawiera wzmianki o regule adresów IP. Reguły filtrowania adresów IP są stosowane w podanej kolejności, a pierwsza reguła zgodna z adresem IP określa akcję Akceptuj lub Odrzuć.
 

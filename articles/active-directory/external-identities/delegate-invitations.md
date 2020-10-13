@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278791"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włączanie zewnętrznej współpracy B2B i zarządzanie osobami, które mogą zapraszać gości
@@ -61,7 +61,7 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
 
    - **Goście mogą zapraszać**: aby umożliwić Gościom Zapraszanie innych Gości, ustaw dla tych zasad wartość **tak**.
 
-   - **Włącz jednorazowy kod dostępu wiadomości e-mail dla Gości (wersja zapoznawcza)**: Aby uzyskać więcej informacji na temat funkcji jednorazowego kodu dostępu, zobacz [poczta e-mail jednorazowe uwierzytelnianie kodu dostępu (wersja zapoznawcza)](one-time-passcode.md).
+   - **Włącz One-Time dostępu do poczty e-mail dla Gości (wersja zapoznawcza)**: Aby uzyskać więcej informacji na temat funkcji jednorazowego kodu dostępu, zobacz [poczta e-mail jednorazowe uwierzytelnianie kodu dostępu (wersja zapoznawcza)](one-time-passcode.md).
 
    - Włącz samoobsługowe **Rejestrowanie się Gościa za pomocą przepływów użytkownika (wersja zapoznawcza)**: Aby uzyskać więcej informacji na temat tego ustawienia, zobacz [Dodawanie przepływu użytkownika samoobsługowego tworzenia konta do aplikacji (wersja zapoznawcza)](self-service-sign-up-user-flow.md).
 

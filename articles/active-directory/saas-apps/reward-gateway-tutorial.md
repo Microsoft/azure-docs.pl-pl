@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 61d7e678b2904ff6eda1866951cfafd0fa0d6688
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88534311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Samouczek: integracja Azure Active Directory z bramą z wynagrodzeniem
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu bramy nagradzania, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj funkcję rejestracji](#configure-reward-gateway-single-sign-on)** jednokrotnej bramy, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. Skonfiguruj jednokrotne **[Logowanie bramy nagradzania](#configure-reward-gateway-single-sign-on)** — aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego bramy z wynagrodzeniem](#create-reward-gateway-test-user)** — Aby uzyskać odpowiednik usługi Britta Simon, która jest powiązana z reprezentacją użytkownika w usłudze Azure AD.
@@ -132,7 +132,7 @@ Aby skonfigurować usługę Azure AD Logowanie jednokrotne za pomocą bramy nagr
 
     c. Adres URL wylogowywania
 
-### <a name="configure-reward-gateway-single-sign-on"></a>Konfigurowanie jednokrotnego logowania bramy nagradzania
+### <a name="configure-reward-gateway-single-sign-on"></a>Skonfiguruj pojedynczy Sign-On bramy nagradzania
 
 Aby skonfigurować opcję logowania jednokrotnego na stronie **bramy z wynagrodzeniem** , Rozpocznij Konfigurowanie integracji w portalu Menedżera nagradzania. Użyj pobranych metadanych, aby uzyskać certyfikat podpisywania i przekazać go podczas konfiguracji. Szczegóły można znaleźć na https://success.rewardgateway.com/hc/en-us/articles/360038650573-Microsoft-Azure-for-Authentication
 
@@ -201,6 +201,6 @@ Po kliknięciu kafelka Brama nagrody w panelu dostępu należy automatycznie zal
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

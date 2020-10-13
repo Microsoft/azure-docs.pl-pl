@@ -15,10 +15,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 04ee653cd78f2e6820ced573bc11d622ef918a32
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079170"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Konfigurowanie Azure-SSIS IR w Azure Data Factory przy użyciu programu PowerShell
@@ -37,7 +37,7 @@ Aby uzyskać informacje koncepcyjne dotyczące środowisk Azure SSIS IR, zobacz 
 > [!NOTE]
 > W tym artykule pokazano, jak skonfigurować Azure-SSIS IR za pomocą Azure PowerShell. Aby skonfigurować Azure-SSIS IR za pomocą aplikacji Azure Portal lub Azure Data Factory, zobacz [Samouczek: konfigurowanie Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md). 
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 > [!div class="checklist"]
 > * Tworzenie fabryki danych.
 > * Utwórz Azure-SSIS Integration Runtime.

@@ -14,10 +14,10 @@ ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272161"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest SQL Server w usłudze Azure Virtual Machines (system Windows)
@@ -141,7 +141,7 @@ Program poprawy jakości obsługi klienta jest domyślnie włączony. Wysyła on
 ### <a name="windows-virtual-machines"></a>Maszyny wirtualne z systemem Windows
 * [Omówienie usługi Azure Virtual Machines](../../../virtual-machines/windows/overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Networking

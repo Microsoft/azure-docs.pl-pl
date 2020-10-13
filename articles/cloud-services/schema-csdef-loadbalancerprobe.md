@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79537350"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schemat LoadBalancerProbe definicji Cloud Services platformy Azure
@@ -47,19 +47,19 @@ Jeśli używasz sondy modułu równoważenia obciążenia, musisz upewnić się,
 - [LoadBalancerProbes, element](#LoadBalancerProbes)
 - [LoadBalancerProbe, element](#LoadBalancerProbe)
 
-##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>LoadBalancerProbes, element
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> LoadBalancerProbes, element
 `LoadBalancerProbes`Element opisuje zbieranie sond modułu równoważenia obciążenia. Ten element jest elementem nadrzędnym [elementu LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>LoadBalancerProbe, element
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> LoadBalancerProbe, element
 `LoadBalancerProbe`Element definiuje sondę kondycji dla modelu. Można zdefiniować wiele sond modułu równoważenia obciążenia. 
 
 W poniższej tabeli opisano atrybuty `LoadBalancerProbe` elementu:
 
 |Atrybut|Typ|Opis|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Wymagany. Nazwa sondy modułu równoważenia obciążenia. Nazwa musi być unikatowa.|
-| `protocol`          | `string` | Wymagany. Określa protokół punktu końcowego. Możliwe wartości to `http` lub `tcp`. Jeśli `tcp` jest określony, odebrane potwierdzenie jest wymagane do pomyślnego sondowania. Jeśli `http` jest określony, wymagana jest odpowiedź 200 OK od określonego identyfikatora URI, aby sonda zakończyła się pomyślnie.|
-| `path`              | `string` | Identyfikator URI używany do żądania stanu kondycji z maszyny wirtualnej. `path`jest wymagana `protocol` , jeśli jest ustawiona na `http` . W przeciwnym razie jest to niedozwolone.<br /><br /> Nie ma żadnej wartości domyślnej.|
+| `name`              | `string` | Wymagane. Nazwa sondy modułu równoważenia obciążenia. Nazwa musi być unikatowa.|
+| `protocol`          | `string` | Wymagane. Określa protokół punktu końcowego. Możliwe wartości to `http` lub `tcp`. Jeśli `tcp` jest określony, odebrane potwierdzenie jest wymagane do pomyślnego sondowania. Jeśli `http` jest określony, wymagana jest odpowiedź 200 OK od określonego identyfikatora URI, aby sonda zakończyła się pomyślnie.|
+| `path`              | `string` | Identyfikator URI używany do żądania stanu kondycji z maszyny wirtualnej. `path` jest wymagana `protocol` , jeśli jest ustawiona na `http` . W przeciwnym razie jest to niedozwolone.<br /><br /> Nie ma żadnej wartości domyślnej.|
 | `port`              | `integer` | Opcjonalny. Port do komunikacji z sondą. Jest to opcjonalne dla każdego punktu końcowego, ponieważ ten sam port będzie używany do sondowania. Możesz również skonfigurować inny port dla ich sondowania. Możliwe wartości mieszczą się w zakresie od 1 do 65535 włącznie.<br /><br /> Wartość domyślna jest ustawiana przez punkt końcowy.|
 | `intervalInSeconds` | `integer` | Opcjonalny. Interwał (w sekundach), w którym częstotliwość sondowania punktu końcowego dla stanu kondycji. Zazwyczaj interwał jest nieco krótszy niż połowa przydzielonych przedziałów czasu (w sekundach), co umożliwia uzyskanie dwóch pełnych sond przed przeprowadzeniem obrotu.<br /><br /> Wartość domyślna to 15, a wartość minimalna to 5.|
 | `timeoutInSeconds`  | `integer` | Opcjonalny. Przedział czasu (w sekundach) stosowany do sondy, w której nie zostanie zatrzymywany dalsze przesyłanie ruchu do punktu końcowego. Ta wartość umożliwia wypróbowanie punktów końcowych szybciej lub wolniej niż zwykle używane na platformie Azure (które są wartościami domyślnymi).<br /><br /> Wartość domyślna to 31, wartość minimalna to 11.|

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85130419"
 ---
 # <a name="deploy-a-custom-model"></a>Wdrażanie modelu niestandardowego
@@ -51,5 +51,5 @@ Dane rejestrowania są dostępne do pobrania w obszarze **punkt końcowy > szcze
 * [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)
 * [Oceń dane](how-to-custom-speech-evaluate-data.md)
-* [Trenowanie modelu](how-to-custom-speech-train-model.md)
+* [Szkolenie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)

@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068519"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Dostrajanie wydajności protokołu TCP/IP dla maszyn wirtualnych platformy Azure
@@ -198,7 +198,7 @@ Współczynnik skali wynoszący 14 skutkuje rozmiarem okna TCP wynoszącym 14 (d
 
 #### <a name="support-for-tcp-window-scaling"></a>Obsługa skalowania okna TCP
 
-System Windows może ustawić różne czynniki skalowania dla różnych typów połączeń. (Klasy połączeń obejmują centrum danych, Internet i tak dalej). `Get-NetTCPConnection`Aby wyświetlić typ połączenia skalowania okna, należy użyć polecenia programu PowerShell:
+System Windows może ustawić różne czynniki skalowania dla różnych typów połączeń. (Klasy połączeń obejmują centrum danych, Internet i tak dalej). `Get-NetTCPConnection` Aby wyświetlić typ połączenia skalowania okna, należy użyć polecenia programu PowerShell:
 
 ```powershell
 Get-NetTCPConnection
@@ -210,7 +210,7 @@ Możesz użyć `Get-NetTCPSetting` polecenia programu PowerShell, aby wyświetli
 Get-NetTCPSetting
 ```
 
-Możesz ustawić początkowy rozmiar okna TCP i współczynnik skalowania TCP w systemie Windows za pomocą `Set-NetTCPSetting` polecenia programu PowerShell. Aby uzyskać więcej informacji, zobacz [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Możesz ustawić początkowy rozmiar okna TCP i współczynnik skalowania TCP w systemie Windows za pomocą `Set-NetTCPSetting` polecenia programu PowerShell. Aby uzyskać więcej informacji, zobacz  [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting

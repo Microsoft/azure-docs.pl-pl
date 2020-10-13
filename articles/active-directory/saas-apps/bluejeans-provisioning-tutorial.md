@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273710"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie BlueJeans na potrzeby automatycznego aprowizacji użytkowników
@@ -111,7 +111,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zrzut ekranu przedstawiający pole tekstowe powiadomienia E-mail.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
-8. Kliknij pozycję **Zapisz**.
+8. Kliknij przycisk **Zapisz**.
 
 9. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do BlueJeans**.
 

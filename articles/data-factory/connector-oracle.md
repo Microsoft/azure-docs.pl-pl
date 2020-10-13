@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91407830"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiowanie danych z i do programu Oracle przy użyciu Azure Data Factory
@@ -84,7 +84,7 @@ Więcej właściwości połączenia, które można ustawić w parametrach połą
 
 | Właściwość | Opis | Dozwolone wartości |
 |:--- |:--- |:--- |
-| Rozmiaru tablicy |Liczba bajtów, które łącznik może pobrać w pojedynczej rejsie sieci. Np `ArraySize=‭10485760‬` ..<br/><br/>Większe wartości zwiększają przepływność przez skrócenie liczby prób pobrania danych w sieci. Mniejsze wartości zwiększają czas odpowiedzi, ponieważ trwają mniejsze opóźnienie oczekiwania na przesłanie danych przez serwer. | Liczba całkowita z przedziału od 1 do 4294967296 (4 GB). Wartość domyślna to `60000` . Wartość 1 nie definiuje liczby bajtów, ale wskazuje na przydzielanie miejsca dla dokładnie jednego wiersza danych. |
+| Rozmiaru tablicy |Liczba bajtów, które łącznik może pobrać w pojedynczej rejsie sieci. Np `ArraySize=‭10485760‬` ..<br/><br/>Większe wartości zwiększają przepływność przez skrócenie liczby prób pobrania danych w sieci. Mniejsze wartości zwiększają czas odpowiedzi, ponieważ trwają mniejsze opóźnienie oczekiwania na przesłanie danych przez serwer. | Liczba całkowita z przedziału od 1 do 4294967296 (4 GB). Wartość domyślna to `60000`. Wartość 1 nie definiuje liczby bajtów, ale wskazuje na przydzielanie miejsca dla dokładnie jednego wiersza danych. |
 
 Aby włączyć szyfrowanie na połączeniu z programem Oracle, dostępne są dwie opcje:
 
@@ -180,7 +180,7 @@ Aby skopiować dane z i do programu Oracle, należy ustawić Właściwość Type
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość `OracleTable` . | Tak |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| table (stolik) | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| tabela | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
 
 **Przykład:**

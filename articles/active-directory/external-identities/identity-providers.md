@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265718"
 ---
 # <a name="identity-providers-for-external-identities"></a>Dostawcy tożsamości dla tożsamości zewnętrznych
@@ -30,7 +30,7 @@ Można jednak umożliwić użytkownikom logowanie się przy użyciu różnych do
 
 - **Facebook**: podczas kompilowania aplikacji można skonfigurować samoobsługowe rejestrowanie i włączyć Federacji w serwisie Facebook, dzięki czemu użytkownicy mogą zarejestrować się w aplikacji przy użyciu własnych kont w serwisie Facebook. Usługi Facebook można używać tylko w przypadku przepływów użytkowników samoobsługowego rejestrowania i nie są dostępne jako opcja logowania, gdy użytkownicy korzystają z zaproszeń.
 
-- **Federacja bezpośrednia**: można również skonfigurować bezpośrednią Federacji z dowolnym zewnętrznym dostawcą tożsamości, który obsługuje protokoły SAML lub WS-Direct. Bezpośrednia Federacja umożliwia użytkownikom zewnętrznym realizowanie zaproszeń od Ciebie, logując się do aplikacji przy użyciu istniejących kont społecznościowych lub firmowych. 
+- **Federacja bezpośrednia**: można również skonfigurować bezpośrednią Federacji z dowolnym zewnętrznym dostawcą tożsamości, który obsługuje protokoły SAML lub WS-Fed. Bezpośrednia Federacja umożliwia użytkownikom zewnętrznym realizowanie zaproszeń od Ciebie, logując się do aplikacji przy użyciu istniejących kont społecznościowych lub firmowych. 
    > [!NOTE]
    > Bezpośrednich dostawców tożsamości Federacji nie można używać w przepływach użytkownika samoobsługowego rejestrowania.
 
@@ -59,4 +59,4 @@ Aby dowiedzieć się, jak dodać dostawców tożsamości do logowania się do ap
 
 - [Dodaj firmę Google](google-federation.md) do listy dostawców tożsamości społecznościowych
 - [Dodawanie usługi Facebook](facebook-federation.md) do listy dostawców tożsamości społecznościowych
-- [Skonfiguruj bezpośrednią Federacji](direct-federation.md) z każdą organizacją, której dostawca tożsamości obsługuje protokół SAML 2,0 lub WS-Direction. Należy zauważyć, że Federacja bezpośrednia nie jest opcją dla przepływów użytkownika samoobsługowego rejestrowania.
+- [Skonfiguruj bezpośrednią Federacji](direct-federation.md) z każdą organizacją, której dostawca tożsamości obsługuje protokół SAML 2,0 lub WS-Fed. Należy zauważyć, że Federacja bezpośrednia nie jest opcją dla przepływów użytkownika samoobsługowego rejestrowania.

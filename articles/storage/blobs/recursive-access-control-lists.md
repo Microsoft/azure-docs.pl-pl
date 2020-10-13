@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cedb6d162829d63aaac1a36b35abee1faeae3f1b
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843400"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ustawianie list kontroli dostępu (ACL) rekursywnie dla Azure Data Lake Storage Gen2
@@ -634,7 +634,7 @@ def resume_set_acl_recursive(continuation_token):
 
 ---
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Ta sekcja zawiera linki do bibliotek i przykładów kodu.
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 02ce6b00b6555f849d162b9f3b381c0ab358d712
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79532845"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Omówienie tworzenia aplikacji dla Azure Database for MySQL 
@@ -22,7 +22,7 @@ W tym artykule omówiono zagadnienia związane z projektowaniem, które dewelope
 ## <a name="language-and-platform"></a>Język i platforma
 Dostępne są przykłady kodu dla różnych języków programowania i platform programistycznych. Linki do przykładów kodu można znaleźć pod adresem: [biblioteki połączeń używane do łączenia](concepts-connection-libraries.md) się z Azure Database for MySQL
 
-## <a name="tools"></a>narzędzia
+## <a name="tools"></a>Narzędzia
 Azure Database for MySQL używa wersji społeczności MySQL zgodnej z typowymi narzędziami do zarządzania MySQL, takimi jak Workbench lub MySQL Utilities, takimi jak mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)i inne. Korzystając z Azure Portal, interfejsu wiersza polecenia platformy Azure i interfejsów API REST, można również korzystać z usługi bazy danych.
 
 ## <a name="resource-limitations"></a>Ograniczenia zasobów
@@ -33,7 +33,7 @@ Azure Database for MySQL zarządza zasobami dostępnymi dla serwera przy użyciu
 ## <a name="security"></a>Zabezpieczenia
 Azure Database for MySQL zapewnia zasoby do ograniczania dostępu, ochrony danych, konfigurowania użytkowników i ról oraz monitorowania działań w bazie danych MySQL.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 Azure Database for MySQL obsługuje uwierzytelnianie serwera dla użytkowników i logowania.
 
 ## <a name="resiliency"></a>Odporność
