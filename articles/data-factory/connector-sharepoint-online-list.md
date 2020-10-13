@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
 ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83871918"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiowanie danych z listy usługi SharePoint Online przy użyciu Azure Data Factory
@@ -55,8 +55,8 @@ W każdym przypadku ten łącznik online listy programu SharePoint używa uwierz
     1. Otwórz łącze witryny usługi SharePoint Online, np. `https://[your_site_url]/_layouts/15/appinv.aspx` (Zastąp adres URL witryny).
     2. Wyszukaj zarejestrowany identyfikator aplikacji, Wypełnij puste pola i kliknij przycisk "Utwórz".
 
-        - Domena aplikacji:`localhost.com`
-        - Adres URL przekierowania:`https://www.localhost.com`
+        - Domena aplikacji: `localhost.com`
+        - Adres URL przekierowania: `https://www.localhost.com`
         - KOD XML żądania uprawnień:
 
         ```xml
@@ -189,16 +189,16 @@ Podczas kopiowania danych z listy usługi SharePoint Online następujące mapowa
 
 | **Typ danych usługi SharePoint Online**                 | **Typ danych OData**                                  | **Azure Data Factory typ danych pośrednich** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Pojedynczy wiersz tekstu                             | Edm.String                                           | String                                   |
-| Wiele wierszy tekstu                          | Edm.String                                           | String                                   |
-| Wybór (menu do wyboru)                    | Edm.String                                           | String                                   |
+| Pojedynczy wiersz tekstu                             | Edm.String                                           | Ciąg                                   |
+| Wiele wierszy tekstu                          | Edm.String                                           | Ciąg                                   |
+| Wybór (menu do wyboru)                    | Edm.String                                           | Ciąg                                   |
 | Liczba (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
 | Waluta ($, ¥, €)                              | Edm.Double                                           | Double                                   |
 | Data i godzina                                   | EDM. DateTime                                         | DateTime                                 |
 | Odnośnik (informacje znajdujące się już w tej lokacji)       | Edm.Int32                                            | Int32                                    |
-| Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Boolean                                  |
+| Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Boolean (wartość logiczna)                                  |
 | Osoba lub grupa                                 | Edm.Int32                                            | Int32                                    |
-| Hiperłącze lub obraz                            | Edm.String                                           | String                                   |
+| Hiperłącze lub obraz                            | Edm.String                                           | Ciąg                                   |
 | Obliczone (obliczanie na podstawie innych kolumn) | EDM. String/EDM. Double/EDM. DateTime/EDM. Boolean | Ciąg/Double/DateTime/wartość logiczna     |
 | Załącznik                                      | Nieobsługiwane                                        |                                          |
 | Wynik zadania                                    | Nieobsługiwane                                        |                                          |
@@ -219,7 +219,7 @@ Możesz skopiować plik z usługi SharePoint Online za pomocą **działania siec
     - **Metoda**: post
     - **Nagłówki**:
         - Content-Type: application/x-www-form-urlencoded
-    - **Treść**: `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]` . Zastąp identyfikator klienta, klucz tajny klienta, identyfikator dzierżawy i nazwę dzierżawy.
+    - **Treść**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]` . Zastąp identyfikator klienta, klucz tajny klienta, identyfikator dzierżawy i nazwę dzierżawy.
 
     > [!CAUTION]
     > Ustaw opcję bezpiecznego wyjścia na true w działaniu sieci Web, aby zapobiec zarejestrowaniu wartości tokenu w postaci zwykłego tekstu. Wszelkie dalsze działania, które zużywają tę wartość, powinny mieć ustawioną opcję bezpiecznego wprowadzania wartość true.

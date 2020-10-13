@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: virtual-machines-windows
 author: rothja
 manager: craigg
@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050303"
 ---
 ## <a name="prepare-for-akv-integration"></a>Przygotowanie do integracji z programem AKV
@@ -31,10 +31,10 @@ W poniższych sekcjach opisano te wymagania wstępne i informacje, które należ
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-### <a name="install-azure-powershell"></a><a id="install"></a>Zainstaluj Azure PowerShell
+### <a name="install-azure-powershell"></a><a id="install"></a> Zainstaluj Azure PowerShell
 Upewnij się, że zainstalowano najnowszy moduł Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a>Zarejestruj aplikację w Azure Active Directory
+### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a> Zarejestruj aplikację w Azure Active Directory
 
 Najpierw musisz mieć [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) w Twojej subskrypcji. Dzięki temu można udzielić uprawnienia do magazynu kluczy dla określonych użytkowników i aplikacji.
 
@@ -53,7 +53,7 @@ Następnie zarejestruj aplikację przy użyciu usługi AAD. Spowoduje to nadanie
 
 * Musisz autoryzować ten nowy identyfikator aplikacji (lub identyfikator klienta), aby mieć następujące uprawnienia dostępu: **Get**, **wrapKey**, **unwrapKey**. Jest to realizowane za pomocą polecenia cmdlet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) . Aby uzyskać więcej informacji, zobacz [Azure Key Vault przegląd](../articles/key-vault/key-vault-overview.md).
 
-### <a name="create-a-key-vault"></a><a id="createkeyvault"></a>Tworzenie magazynu kluczy
+### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Tworzenie magazynu kluczy
 Aby można było używać Azure Key Vault do przechowywania kluczy używanych do szyfrowania na maszynie wirtualnej, wymagany jest dostęp do magazynu kluczy. Jeśli magazyn kluczy nie został jeszcze skonfigurowany, utwórz go, wykonując kroki opisane w [wprowadzenie z Azure Key Vault](../articles/key-vault/key-vault-overview.md) artykule. Przed wykonaniem tych kroków należy zebrać pewne informacje, które są potrzebne w dalszej części tego ustawienia, gdy włączysz Azure Key Vault integrację na maszynie wirtualnej SQL.
 
 ```azurepowershell

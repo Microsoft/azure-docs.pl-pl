@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261944"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Interfejs API platformy .NET tabeli Azure Cosmos DB: pobieranie i informacje o wersji
@@ -116,7 +116,7 @@ podczas próby użycia pakietu NuGet Microsoft. Azure. CosmosDB. Table dostępne
     
 * Przed zainstalowaniem Microsoft. Azure. CosmosDB. Table przy użyciu preferowanego narzędzia do zarządzania pakietami NuGet Zainstaluj pakiet NuGet Microsoft. Azure. Storage. Common.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

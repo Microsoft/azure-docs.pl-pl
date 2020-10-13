@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306569"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
@@ -246,7 +246,7 @@ Aby utworzyć zasady przeglądu dostępu, musisz dysponować następującymi inf
 | **Zasoby do przejrzenia**| Dostęp do systemu Microsoft Dynamics |
 | **Częstotliwość przeglądu**| Co miesiąc |
 | **Kto wykonuje przegląd**| Menedżerowie programów grupy Dynamics Business |
-| **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed przeczytaniem do aliasu Dynamics-PMS<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
+| **Powiadomienie**| Wyślij wiadomość e-mail na 24 godziny przed rozpoczęciem przeglądu aliasu Dynamics-Pms<p>Dołącz do recenzentów niestandardową wiadomość, aby zabezpieczyć swój zakup |
 | **Oś czasu**| 48 godzin od powiadomienia |
 |**Akcje automatyczne**| Usuń dostęp z dowolnego konta, które nie ma interakcyjnego logowania w ciągu 90 dni, usuwając użytkownika z grupy zabezpieczeń Dynamics. <p>*Wykonaj akcje, jeśli nie zostały zrecenzowane na osi czasu.* |
 | **Akcje ręczne**| Recenzenci mogą wykonać zatwierdzenie usunięcia przed automatycznym akcją w razie potrzeby. |
@@ -361,7 +361,7 @@ Możesz użyć wyników z przeglądu dostępu do grup lokalnych i przetworzyć j
 
 * Używanie Microsoft Graph do programistycznego uzyskiwania dostępu do wyników i decyzji w ramach ukończonych przeglądów dostępu.
 
-Aby na przykład uzyskać dostęp do wyników dla grupy zarządzanej przez usługi Windows AD, użyj tego [skryptu przykładowego programu PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Skrypt zawiera opis wymaganych wywołań wykresów i eksportuje polecenia Windows AD-PowerShell w celu przeprowadzenia zmian.
+Aby na przykład uzyskać dostęp do wyników dla grupy zarządzanej przez usługi Windows AD, użyj tego [skryptu przykładowego programu PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Skrypt zawiera opis wymaganych wywołań wykresów i eksportuje polecenia AD-PowerShell systemu Windows w celu przeprowadzenia zmian.
 
 ## <a name="plan-access-reviews-for-applications"></a>Planowanie przeglądów dostępu dla aplikacji 
 

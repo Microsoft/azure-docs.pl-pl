@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84430662"
 ---
-# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Tworzenie certyfikatów demonstracyjnych do testowania funkcji urządzenia IoT Edge
+# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Tworzenie certyfikatów demonstracyjnych do testowania funkcji urządzenia usługi IoT Edge
 
 Urządzenia IoT Edge wymagają certyfikatów do bezpiecznej komunikacji między środowiskiem uruchomieniowym, modułami i wszystkimi urządzeniami podrzędnymi.
 Jeśli nie masz urzędu certyfikacji, aby utworzyć wymagane certyfikaty, możesz użyć opcji certyfikaty demonstracyjne, aby wypróbować IoT Edge funkcje w środowisku testowym.
@@ -293,7 +293,7 @@ Urządzenie IoT wymaga również kopii certyfikatów urządzeń, aby można był
 
 1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
 
-2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Przykład:
+2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Na przykład:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +323,7 @@ Urządzenie IoT wymaga również kopii certyfikatów urządzeń, aby można był
 
 1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
 
-2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Przykład:
+2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Na przykład:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

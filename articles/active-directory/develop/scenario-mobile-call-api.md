@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83771744"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Wywoływanie interfejsu API sieci Web z aplikacji mobilnej
@@ -29,17 +29,17 @@ W tym artykule najpierw Przyjrzyjmy się wynikowi MSAL. Następnie dowiesz się,
 ## <a name="msal-result"></a>Wynik MSAL
 MSAL udostępnia następujące wartości: 
 
-- `AccessToken`wywołuje chronione interfejsy API sieci Web w żądaniu HTTP okaziciela.
-- `IdToken`zawiera użyteczne informacje dotyczące zalogowanego użytkownika. Te informacje obejmują nazwę użytkownika, dzierżawę domową i unikatowy identyfikator magazynu.
-- `ExpiresOn`to czas wygaśnięcia tokenu. MSAL obsługuje automatyczne odświeżanie aplikacji.
-- `TenantId`jest identyfikatorem dzierżawy, w której zalogowany jest użytkownik. Dla użytkowników-Gości w usłudze Azure Active Directory (Azure AD) B2B ta wartość identyfikuje dzierżawcę, w którym użytkownik zalogował się. Wartość nie identyfikuje dzierżawy głównej użytkownika.  
-- `Scopes`wskazuje zakresy, które zostały przyznane z tokenem. Przyznane zakresy mogą być podzbiorem żądanych zakresów.
+- `AccessToken` wywołuje chronione interfejsy API sieci Web w żądaniu HTTP okaziciela.
+- `IdToken` zawiera użyteczne informacje dotyczące zalogowanego użytkownika. Te informacje obejmują nazwę użytkownika, dzierżawę domową i unikatowy identyfikator magazynu.
+- `ExpiresOn` to czas wygaśnięcia tokenu. MSAL obsługuje automatyczne odświeżanie aplikacji.
+- `TenantId` jest identyfikatorem dzierżawy, w której zalogowany jest użytkownik. Dla użytkowników-Gości w usłudze Azure Active Directory (Azure AD) B2B ta wartość identyfikuje dzierżawcę, w którym użytkownik zalogował się. Wartość nie identyfikuje dzierżawy głównej użytkownika.  
+- `Scopes` wskazuje zakresy, które zostały przyznane z tokenem. Przyznane zakresy mogą być podzbiorem żądanych zakresów.
 
 MSAL udostępnia również streszczenie dla `Account` wartości. `Account`Wartość reprezentuje konto zalogowanego bieżącego użytkownika:
 
-- `HomeAccountIdentifier`Identyfikuje dzierżawcę w domu użytkownika.
-- `UserName`jest preferowaną nazwą użytkownika. Ta wartość może być pusta dla Azure AD B2C użytkowników.
-- `AccountIdentifier`Identyfikuje zalogowanego użytkownika. W większości przypadków ta wartość jest taka sama jak wartość, `HomeAccountIdentifier` chyba że użytkownik jest gościem w innej dzierżawie.
+- `HomeAccountIdentifier` Identyfikuje dzierżawcę w domu użytkownika.
+- `UserName` jest preferowaną nazwą użytkownika. Ta wartość może być pusta dla Azure AD B2C użytkowników.
+- `AccountIdentifier` Identyfikuje zalogowanego użytkownika. W większości przypadków ta wartość jest taka sama jak wartość, `HomeAccountIdentifier` chyba że użytkownik jest gościem w innej dzierżawie.
 
 ## <a name="call-an-api"></a>Wywoływanie interfejsu API
 
@@ -87,7 +87,7 @@ Po uzyskaniu tokenu dostępu można wywołać internetowy interfejs API. Aplikac
 
 ### <a name="msal-for-ios-and-macos"></a>Biblioteka MSAL dla systemów iOS i macOS
 
-Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` Właściwość. Możesz użyć, `accessToken` Aby wywołać internetowy interfejs API. Dodaj tę właściwość do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
+Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult` uwidacznia `accessToken` Właściwość. Możesz użyć, `accessToken` Aby wywołać internetowy interfejs API. Dodaj tę właściwość do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -160,4 +160,4 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przenieś do środowiska produkcyjnego](scenario-mobile-production.md)
+> [Przenoszenie do środowiska produkcyjnego](scenario-mobile-production.md)

@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: ec8f27d0376f7187fd36b3feba556dbced0946e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937593"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Ciągła integracja i wdrażanie (CI/CD) dla Azure Stream Analytics
@@ -21,7 +21,7 @@ Zadanie Azure Stream Analytics można wdrożyć w sposób ciągły przy użyciu 
 
 Jeśli dopiero zaczynasz Azure Stream Analytics, Rozpocznij pracę z [Azure Stream Analytics przewodnika Szybki Start](stream-analytics-quick-create-portal.md).
 
-## <a name="create-a-cicd-pipeline"></a>Tworzenie potoku ciągłej integracji/ciągłego dostarczania
+## <a name="create-a-cicd-pipeline"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania
 
 Wykonaj kroki opisane w tym przewodniku, aby utworzyć potok ciągłej integracji/ciągłego wdrażania dla Stream Analytics.
 

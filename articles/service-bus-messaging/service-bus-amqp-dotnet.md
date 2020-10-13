@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób korzystania z Azure Service Bus z ap
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067107"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Używanie Service Bus z platformy .NET z AMQP 1,0
@@ -89,7 +89,7 @@ Aby ułatwić współdziałanie z klientami non-.NET, należy używać tylko typ
 Istnieje kilka małych różnic w zachowaniu Service Bus interfejsu API .NET w przypadku używania AMQP w porównaniu z domyślnym protokołem:
 
 * Właściwość [OperationTimeout][OperationTimeout] jest ignorowana.
-* `MessageReceiver.Receive(TimeSpan.Zero)`jest zaimplementowany jako `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` .
+* `MessageReceiver.Receive(TimeSpan.Zero)` jest zaimplementowany jako `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` .
 * Wykonywanie komunikatów według tokenów blokad może odbywać się tylko przez odbiorniki komunikatów, którzy początkowo otrzymali komunikaty.
 
 ## <a name="control-amqp-protocol-settings"></a>Ustawienia protokołu kontroli AMQP

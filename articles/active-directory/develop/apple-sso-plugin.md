@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530701"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Wtyczka Microsoft Enterprise SSO dla urządzeń firmy Apple (wersja zapoznawcza)
@@ -35,7 +35,7 @@ W tej publicznej wersji zapoznawczej wtyczka logowania jednokrotnego w przedsię
 
 Wtyczka logowania jednokrotnego w przedsiębiorstwie firmy Microsoft dla urządzeń firmy Apple oferuje następujące korzyści:
 
-- Zapewnia Logowanie jednokrotne dla kont usługi Azure AD we wszystkich aplikacjach, które obsługują funkcję logowania jednokrotnego w przedsiębiorstwie firmy Apple.
+- Zapewnia Logowanie jednokrotne dla kont usługi Azure AD we wszystkich aplikacjach, które obsługują funkcję pojedynczej Sign-On w przedsiębiorstwie firmy Apple.
 - Dostarczane automatycznie w Microsoft Authenticator i mogą być włączane przez dowolne rozwiązanie do zarządzania urządzeniami przenośnymi (MDM).
 
 ## <a name="requirements"></a>Wymagania
@@ -125,7 +125,7 @@ Jeśli tworzysz aplikację dla scenariuszy roboczych teraźniejszości, zobacz [
 
 ## <a name="how-the-sso-plug-in-works"></a>Jak działa wtyczka Logowanie jednokrotne
 
-Wtyczka Microsoft Enterprise SSO jest oparta na platformie logowania jednokrotnego w [przedsiębiorstwie firmy Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Dostawcy tożsamości dołączenia do struktury mogą przechwycić ruch sieciowy dla swoich domen i zwiększyć lub zmienić sposób obsługi tych żądań. Na przykład wtyczka logowania jednokrotnego może wyświetlać dodatkowy interfejs użytkownika, aby bezpiecznie zbierać poświadczenia użytkownika końcowego, wymagać uwierzytelniania wieloskładnikowego lub w trybie dyskretnym.
+Wtyczka Microsoft Enterprise SSO jest oparta na [architekturze jednoSign-Onowej dla przedsiębiorstwa firmy Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Dostawcy tożsamości dołączenia do struktury mogą przechwycić ruch sieciowy dla swoich domen i zwiększyć lub zmienić sposób obsługi tych żądań. Na przykład wtyczka logowania jednokrotnego może wyświetlać dodatkowy interfejs użytkownika, aby bezpiecznie zbierać poświadczenia użytkownika końcowego, wymagać uwierzytelniania wieloskładnikowego lub w trybie dyskretnym.
 
 Natywne aplikacje mogą również implementować operacje niestandardowe i komunikować się bezpośrednio z wtyczką logowania jednokrotnego.
 Więcej informacji na temat platformy rejestracji jednokrotnej można znaleźć w tym [2019 WWDC wideo od firmy Apple](https://developer.apple.com/videos/play/tech-talks/301/)

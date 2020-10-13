@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925315"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji, zobacz [tabelę składników Azure Backup](/azu
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) zapewnia ciągłość działania przez organizowanie replikacji lokalnych maszyn wirtualnych i fizycznych na platformę Azure lub do lokacji dodatkowej. Jeśli lokacja główna jest niedostępna, przełączenie w tryb failover do lokalizacji dodatkowej spowoduje, że użytkownicy będą mogli kontynuować pracę. Powrót po awarii, gdy system wróci do kolejności roboczej. Użyj Azure Security Center, aby wykonywać bardziej inteligentne i efektywne wykrywanie zagrożeń.
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-enable-sso-scenario) to kompleksowa usługa tożsamości:
 
@@ -68,7 +68,7 @@ Usługa Azure AD zawiera również pełen pakiet [funkcji zarządzania tożsamo�
 - [Samoobsługowe zarządzanie hasłami](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Samoobsługowe zarządzanie grupami](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Zarządzanie kontami uprzywilejowanymi](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview)
+- [Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](/azure/role-based-access-control/overview)
 - [Monitorowanie użycia aplikacji](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Zaawansowana Inspekcja](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitorowanie zabezpieczeń i alerty](/azure/operations-management-suite/oms-security-responding-alerts)

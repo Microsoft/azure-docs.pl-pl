@@ -1,7 +1,7 @@
 ---
 title: Protokół SAML logowania jednokrotnego na platformie Azure
 titleSuffix: Microsoft identity platform
-description: W tym artykule opisano protokół SAML logowania jednokrotnego (SSO) w Azure Active Directory
+description: W tym artykule opisano protokół SAML Single Sign-On (SSO) w programie Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: kenwith
@@ -15,19 +15,19 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118454"
 ---
-# <a name="single-sign-on-saml-protocol"></a>Protokół SAML logowania jednokrotnego
+# <a name="single-sign-on-saml-protocol"></a>Pojedynczy Sign-On protokół SAML
 
-W tym artykule omówiono żądania uwierzytelniania SAML 2,0 i odpowiedzi, które Azure Active Directory (Azure AD) obsługują Logowanie jednokrotne (SSO).
+W tym artykule omówiono żądania uwierzytelniania SAML 2,0 i odpowiedzi, które Azure Active Directory (Azure AD) obsługują pojedyncze Sign-On (SSO).
 
 Poniższy diagram protokołu opisuje sekwencję logowania jednokrotnego. Usługa w chmurze (dostawca usług) używa powiązania przekierowania HTTP w celu przekazania `AuthnRequest` elementu (żądanie uwierzytelnienia) do usługi Azure AD (dostawcy tożsamości). Usługa Azure AD następnie używa powiązania post protokołu HTTP w celu opublikowania `Response` elementu w usłudze w chmurze.
 
-![Przepływ pracy logowania jednokrotnego (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Single Sign-On (SSO) — przepływ pracy](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > W tym artykule omówiono użycie protokołu SAML do logowania jednokrotnego. Aby uzyskać więcej informacji na temat innych sposobów obsługi logowania jednokrotnego (na przykład przy użyciu usługi OpenID Connect Connect lub zintegrowanego uwierzytelniania systemu Windows), zobacz Logowanie jednokrotne [do aplikacji w Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
@@ -48,7 +48,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametr | Typ | Opis |
 | --- | --- | --- |
-| ID | Wymagane | Usługa Azure AD używa tego atrybutu do wypełniania `InResponseTo` atrybutu zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest prawidłowym identyfikatorem. |
+| ID (Identyfikator) | Wymagane | Usługa Azure AD używa tego atrybutu do wypełniania `InResponseTo` atrybutu zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest prawidłowym identyfikatorem. |
 | Wersja | Wymagane | Dla tego parametru należy ustawić wartość **2,0**. |
 | IssueInstant | Wymagane | Jest to ciąg daty i godziny z wartością czasu UTC i [formatem rundy ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Usługa Azure AD oczekuje wartości daty i godziny tego typu, ale nie oblicza ani nie używa wartości. |
 | AssertionConsumerServiceUrl | Opcjonalne | Jeśli ta wartość jest określona, ten parametr musi być zgodny z `RedirectUri` usługą w chmurze w usłudze Azure AD. |
@@ -104,7 +104,7 @@ Jeśli jest podany, nie dołączaj `ProxyCount` atrybutu `IDPListOption` lub `Re
 ### <a name="subject"></a>Temat
 Nie dołączaj `Subject` elementu. Usługa Azure AD nie obsługuje określania tematu dla żądania i zwróci błąd, jeśli został podany.
 
-## <a name="response"></a>Odpowiedź
+## <a name="response"></a>Reakcja
 Po pomyślnym zakończeniu logowania usługa Azure AD ogłasza odpowiedź do usługi w chmurze. Odpowiedź na pomyślną próbę zalogowania wygląda jak w poniższym przykładzie:
 
 ```
@@ -150,7 +150,7 @@ Po pomyślnym zakończeniu logowania usługa Azure AD ogłasza odpowiedź do us�
 </samlp:Response>
 ```
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 `Response`Element zawiera wynik żądania autoryzacji. Usługa Azure AD ustawia `ID` `Version` wartości i `IssueInstant` w `Response` elemencie. Ustawia również następujące atrybuty:
 
@@ -273,7 +273,7 @@ Zawiera ona oświadczenia dotyczące tematu lub użytkownika. Poniższy fragment
 ```        
 
 * **Nazwa** — wartość `Name` atrybutu ( `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ) to główna nazwa użytkownika uwierzytelnionego użytkownika, na przykład `testuser@managedtenant.com` .
-* **Elemencie objectidentifier** — wartość `ObjectIdentifier` atrybutu ( `http://schemas.microsoft.com/identity/claims/objectidentifier` ) jest `ObjectId` obiektem katalogu, który reprezentuje uwierzytelnionego użytkownika w usłudze Azure AD. `ObjectId`jest niezmiennym, globalnie unikatowym i wielokrotnym używaniem bezpiecznego identyfikatora uwierzytelnionego użytkownika.
+* **Elemencie objectidentifier** — wartość `ObjectIdentifier` atrybutu ( `http://schemas.microsoft.com/identity/claims/objectidentifier` ) jest `ObjectId` obiektem katalogu, który reprezentuje uwierzytelnionego użytkownika w usłudze Azure AD. `ObjectId` jest niezmiennym, globalnie unikatowym i wielokrotnym używaniem bezpiecznego identyfikatora uwierzytelnionego użytkownika.
 
 #### <a name="authnstatement"></a>AuthnStatement
 

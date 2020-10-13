@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080715"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Omówienie lokalnej pamięci podręcznej Azure App Service
@@ -48,13 +48,13 @@ Funkcja lokalnej pamięci podręcznej Azure App Service udostępnia widok roli s
 ## <a name="enable-local-cache-in-app-service"></a>Włącz lokalną pamięć podręczną w App Service
 Lokalna pamięć podręczna jest konfigurowana przy użyciu kombinacji ustawień aplikacji zarezerwowanych. Te ustawienia aplikacji można skonfigurować przy użyciu następujących metod:
 
-* [Witryna Azure Portal](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurowanie lokalnej pamięci podręcznej przy użyciu Azure Portal
 <a name="Configure-Local-Cache-Portal"></a>
 
-Lokalna pamięć podręczna jest włączana dla poszczególnych aplikacji dla sieci Web przy użyciu tego ustawienia aplikacji:`WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
+Lokalna pamięć podręczna jest włączana dla poszczególnych aplikacji dla sieci Web przy użyciu tego ustawienia aplikacji: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
 ![Ustawienia aplikacji Azure Portal: lokalna pamięć podręczna](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949035"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Uaktualnianie do najnowszego interfejsu API REST na platformie Azure Wyszukiwanie poznawcze
@@ -61,7 +61,7 @@ Wersja 2019-05-06 to Poprzednia ogólnie dostępna wersja interfejsu API REST. F
 * [Tryby analizy JsonLines](search-howto-index-json-blobs.md), część indeksowania obiektów blob platformy Azure, tworzy jeden dokument wyszukiwania na jednostkę JSON rozdzieloną wierszem.
 * [Wzbogacanie AI](cognitive-search-concept-intro.md) zapewnia indeksowanie, które wykorzystuje silniki wzbogacania AI Cognitive Services.
 
-### <a name="breaking-changes"></a>Fundamentalne zmiany
+### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
 
 Istniejący kod pisany przed wcześniejszymi wersjami interfejsu API zacznie działać w wersji API-Version = 2019-05-06 i nowszych, jeśli kod zawiera następujące funkcje:
 
@@ -141,7 +141,7 @@ Za pomocą interfejsu API w wersji 2017-11-11-Preview można zaktualizować inde
 > [!NOTE]
 > Nie jest możliwe zarządzanie indeksami utworzonymi przy użyciu starego formatu "Flat" z Azure Portal. Uaktualnij indeksy z "płaskiej" reprezentacji do "drzewa" w najkrótszej wygodie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z dokumentacją interfejsu API REST usługi Search. Jeśli wystąpią problemy, poproś nas o pomoc dotyczącą [Stack Overflow](https://stackoverflow.com/) lub [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/community/?product=search).
 

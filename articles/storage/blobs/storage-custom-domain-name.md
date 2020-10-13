@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88053630"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage
@@ -113,9 +113,9 @@ Utwórz rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest typem rekor
 
 #### <a name="step-4-test-your-custom-domain"></a>Krok 4. Testowanie domeny niestandardowej
 
-Aby upewnić się, że domena niestandardowa została zamapowana na punkt końcowy usługi BLOB Service, Utwórz obiekt BLOB w kontenerze publicznym na koncie magazynu. Następnie w przeglądarce internetowej Uzyskuj dostęp do obiektu BLOB przy użyciu identyfikatora URI w następującym formacie:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Aby upewnić się, że domena niestandardowa została zamapowana na punkt końcowy usługi BLOB Service, Utwórz obiekt BLOB w kontenerze publicznym na koncie magazynu. Następnie w przeglądarce internetowej Uzyskuj dostęp do obiektu BLOB przy użyciu identyfikatora URI w następującym formacie: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI:`http://photos.contoso.com/myforms/applicationform.htm`
+Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time"></a>
 
@@ -177,7 +177,7 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta. Rekord CNAME jest 
        
    - Nazwa hosta uzyskana w sekcji [pobieranie nazwy hosta punktu końcowego magazynu](#endpoint) we wcześniejszej części tego artykułu. 
 
-     Dodaj poddomenę `asverify` do nazwy hosta. Na przykład: `asverify.mystorageaccount.blob.core.windows.net`.
+     Dodaj poddomenę `asverify` do nazwy hosta. Przykład: `asverify.mystorageaccount.blob.core.windows.net`.
 
 4. Aby zarejestrować domenę niestandardową, wybierz przycisk **Zapisz** .
 
@@ -225,9 +225,9 @@ Utwórz tymczasowy rekord CNAME, aby wskazywał nazwę hosta.
 
 #### <a name="step-5-test-your-custom-domain"></a>Krok 5. Testowanie domeny niestandardowej
 
-Aby upewnić się, że domena niestandardowa została zamapowana na punkt końcowy usługi BLOB Service, Utwórz obiekt BLOB w kontenerze publicznym na koncie magazynu. Następnie w przeglądarce internetowej Uzyskuj dostęp do obiektu BLOB przy użyciu identyfikatora URI w następującym formacie:`http://<subdomain.customdomain>/<mycontainer>/<myblob>`
+Aby upewnić się, że domena niestandardowa została zamapowana na punkt końcowy usługi BLOB Service, Utwórz obiekt BLOB w kontenerze publicznym na koncie magazynu. Następnie w przeglądarce internetowej Uzyskuj dostęp do obiektu BLOB przy użyciu identyfikatora URI w następującym formacie: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI:`http://photos.contoso.com/myforms/applicationform.htm`
+Na przykład aby uzyskać dostęp do formularza sieci Web w kontenerze *WebForms* w niestandardowej poddomenie *photos.contoso.com* , można użyć następującego identyfikatora URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 ### <a name="remove-a-custom-domain-mapping"></a>Usuń niestandardowe mapowanie domeny
 

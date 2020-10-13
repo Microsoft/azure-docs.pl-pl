@@ -13,10 +13,10 @@ ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477196"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Instrukcje: żądania oświadczeń niestandardowych przy użyciu MSAL dla systemów iOS i macOS
@@ -25,7 +25,7 @@ Program OpenID Connect Connect umożliwia opcjonalne żądanie powrotu pojedyncz
 
 Biblioteka Microsoft Authentication Library (MSAL) dla systemów iOS i macOS umożliwia żądanie określonych oświadczeń w scenariuszach pozyskiwania tokenów interaktywnych i dyskretnych. Robi to za pomocą `claimsRequest` parametru.
 
-Istnieje wiele scenariuszy, w których jest to wymaganie. Przykład:
+Istnieje wiele scenariuszy, w których jest to wymaganie. Na przykład:
 
 - Żądanie oświadczeń poza standardowym zestawem dla aplikacji.
 - Żądanie określonych kombinacji standardowych oświadczeń, których nie można określić za pomocą zakresów dla aplikacji. Na przykład, jeśli token dostępu zostanie odrzucony z powodu braku oświadczeń, aplikacja może zażądać brakujących oświadczeń przy użyciu MSAL.
@@ -33,7 +33,7 @@ Istnieje wiele scenariuszy, w których jest to wymaganie. Przykład:
 > [!NOTE]
 > MSAL pomija pamięć podręczną tokenów dostępu za każdym razem, gdy żądanie oświadczeń jest określone. Należy podać `claimsRequest` parametr tylko wtedy, gdy potrzebne są dodatkowe oświadczenia (w przeciwieństwie do tego samego `claimsRequest` parametru w każdym wywołaniu interfejsu API MSAL).
 
-`claimsRequest`można określić w `MSALSilentTokenParameters` i `MSALInteractiveTokenParameters` :
+`claimsRequest` można określić w `MSALSilentTokenParameters` i `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!
@@ -49,7 +49,7 @@ Istnieje wiele scenariuszy, w których jest to wymaganie. Przykład:
 
 @end
 ```
-`MSALClaimsRequest`można utworzyć z reprezentacji NSString żądania oświadczeń JSON. 
+`MSALClaimsRequest` można utworzyć z reprezentacji NSString żądania oświadczeń JSON. 
 
 Cel-C:
 
@@ -98,7 +98,7 @@ do {
 
 
 
-`MSALClaimsRequest`należy następnie ustawić parametry tokenu i podać je w jednym z interfejsów API pozyskiwania tokenów MSAL:
+`MSALClaimsRequest` należy następnie ustawić parametry tokenu i podać je w jednym z interfejsów API pozyskiwania tokenów MSAL:
 
 Cel-C:
 

@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212183"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions powiązania SendGrid
@@ -37,7 +37,7 @@ Powiązania SendGrid są dostępne w pakiecie NuGet [Microsoft. Azure. WebJobs. 
 
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która używa wyzwalacza kolejki Service Bus i powiązania danych wyjściowych SendGrid.
 
-### <a name="synchronous"></a>Synchroniczny
+### <a name="synchronous"></a>Synchronous
 
 ```cs
 using SendGrid.Helpers.Mail;
@@ -361,9 +361,9 @@ W poniższej tabeli wymieniono właściwości konfiguracji powiązań dostępne 
 | kierunek |nie dotyczy| Musi być ustawiony na `out` .| Nie |
 | name |nie dotyczy| Nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. Ta wartość jest, `$return` gdy istnieje tylko jedna wartość zwracana. | Nie |
 | apiKey | ApiKey | Nazwa ustawienia aplikacji, która zawiera klucz interfejsu API. Jeśli nie zostanie ustawiona, domyślna nazwa ustawienia aplikacji to *AzureWebJobsSendGridApiKey*.| Nie |
-| na| Działanie | Adres e-mail adresata. | Tak |
+| na wartość| Działanie | Adres e-mail adresata. | Tak |
 | wniosek| Źródło | Adres e-mail nadawcy. |  Tak |
-| subject| Temat | Temat wiadomości e-mail. | Tak |
+| Temat| Temat | Temat wiadomości e-mail. | Tak |
 | tekst| Tekst | Zawartość wiadomości e-mail. | Tak |
 
 Właściwości opcjonalne mogą mieć wartości domyślne zdefiniowane w powiązaniu i dodawane lub zastępowane programowo.
@@ -390,7 +390,7 @@ W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiąz
 }
 ```  
 
-|Właściwość  |Domyślny | Opis |
+|Właściwość  |Domyślne | Opis |
 |---------|---------|---------| 
 |wniosek|nie dotyczy|Adres e-mail nadawcy we wszystkich funkcjach.| 
 

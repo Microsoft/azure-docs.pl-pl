@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87124157"
 ---
 # <a name="azure-custom-roles"></a>Role niestandardowe platformy Azure
@@ -117,10 +117,10 @@ W poniższej tabeli opisano znaczenie właściwości roli niestandardowej.
 
 | Właściwość | Wymagany | Typ | Opis |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Tak | String (ciąg) | Nazwa wyświetlana roli niestandardowej. Chociaż definicja roli jest grupą zarządzania lub zasobem na poziomie subskrypcji, definicja roli może być używana w wielu subskrypcjach, które współużytkują ten sam katalog usługi Azure AD. Ta nazwa wyświetlana musi być unikatowa w zakresie katalogu usługi Azure AD. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 128. |
-| `Id`</br>`name` | Tak | String (ciąg) | Unikatowy identyfikator roli niestandardowej. W przypadku Azure PowerShell i interfejsu wiersza polecenia platformy Azure ten identyfikator jest generowany automatycznie podczas tworzenia nowej roli. |
-| `IsCustom`</br>`roleType` | Tak | String (ciąg) | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` lub `CustomRole` dla ról niestandardowych. Ustaw dla `false` `BuiltInRole` ról wbudowanych lub. |
-| `Description`</br>`description` | Tak | String (ciąg) | Opis roli niestandardowej. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 1024. |
+| `Name`</br>`roleName` | Tak | Ciąg | Nazwa wyświetlana roli niestandardowej. Chociaż definicja roli jest grupą zarządzania lub zasobem na poziomie subskrypcji, definicja roli może być używana w wielu subskrypcjach, które współużytkują ten sam katalog usługi Azure AD. Ta nazwa wyświetlana musi być unikatowa w zakresie katalogu usługi Azure AD. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 128. |
+| `Id`</br>`name` | Tak | Ciąg | Unikatowy identyfikator roli niestandardowej. W przypadku Azure PowerShell i interfejsu wiersza polecenia platformy Azure ten identyfikator jest generowany automatycznie podczas tworzenia nowej roli. |
+| `IsCustom`</br>`roleType` | Tak | Ciąg | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` lub `CustomRole` dla ról niestandardowych. Ustaw dla `false` `BuiltInRole` ról wbudowanych lub. |
+| `Description`</br>`description` | Tak | Ciąg | Opis roli niestandardowej. Może zawierać litery, cyfry, spacje i znaki specjalne. Maksymalna liczba znaków to 1024. |
 | `Actions`</br>`actions` | Tak | Ciąg [] | Tablica ciągów, która określa operacje zarządzania, które mogą być wykonywane przez rolę. Aby uzyskać więcej informacji, zobacz [Akcje](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | Nie | Ciąg [] | Tablica ciągów, która określa operacje zarządzania, które są wykluczone z dozwolonej wartości `Actions` . Aby uzyskać więcej informacji, zobacz [Nonaruszone](role-definitions.md#notactions). |
 | `DataActions`</br>`dataActions` | Nie | Ciąg [] | Tablica ciągów, która określa operacje na danych, które mogą być wykonywane na danych w tym obiekcie. Jeśli utworzysz rolę niestandardową z `DataActions` , ta rola nie może zostać przypisana w zakresie grupy zarządzania. Aby uzyskać więcej informacji, zobacz temat [Dataactions](role-definitions.md#dataactions). |

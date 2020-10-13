@@ -9,10 +9,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067614"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
@@ -86,7 +86,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
   * ***Przegląd trybu bezpośredniego***
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja architektury trybu bezpośredniego" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja zasad połączenia Azure Cosmos DB" border="false":::
   
   Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 **kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi**repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
 
@@ -97,7 +97,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
     Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (oznacza to, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować wartość *idleEndpointTimeout* na 0 (czyli bez limitu czasu).
 
 
-    | Opcja konfiguracji       | Domyślny    |
+    | Opcja konfiguracji       | Domyślne    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | Parametru          | "PT1M"     |
@@ -260,7 +260,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Aby uzyskać więcej informacji, zobacz [Azure Cosmos DB zasad indeksowania](indexing-policies.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Kazany
+## <a name="throughput"></a><a id="measure-rus"></a>Przepływność
 
 * **Mierzenie i dostrajanie dla niższych jednostek żądań/drugiego użycia**
 

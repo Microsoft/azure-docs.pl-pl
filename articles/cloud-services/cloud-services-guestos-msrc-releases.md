@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.date: 9/29/2020
 ms.author: yohaddad
 ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531160"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
@@ -1438,7 +1438,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS16-147 |[3204063]   |Aktualizacja zabezpieczeń dla programu Microsoft Uniscribe|2,58, 3,46, 4,39, 5,4 |13 grudnia 2016 |
 | MS16-149 |[3205655]   |Aktualizacja zabezpieczeń dla systemu Microsoft Windows|2,58, 3,46, 4,39, 5,4 |13 grudnia 2016 |
 | MS16 – 150 |[3205642]   |Aktualizacja zabezpieczeń dla bezpiecznego trybu jądra |5.4 |13 grudnia 2016 |
-| MS16 — 151 |[3205651]   |Aktualizacja zabezpieczeń dla sterowników trybu jądra|2,58, 3,46, 4,39, 5,4 |13 grudnia 2016 |
+| MS16 — 151 |[3205651]   |Aktualizacja zabezpieczeń dla sterowników Kernel-Mode|2,58, 3,46, 4,39, 5,4 |13 grudnia 2016 |
 | MS16 — 152 |[3199709]   |Aktualizacja zabezpieczeń dla jądra systemu Windows |5.4 |13 grudnia 2016 |
 | MS16-153 |[3207328] |Aktualizacja zabezpieczeń dla sterownika Common Log File System|2,58, 3,46, 4,39, 5,4 |13 grudnia 2016 |
 | MS16 — 155 |[3205640]   |Aktualizacja zabezpieczeń dla .NET Framework |5.4 |13 grudnia 2016 |
@@ -1454,7 +1454,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS16-131 |[3199151]   |Aktualizacja zabezpieczeń dla kontrolki wideo firmy Microsoft |5,3, 4,38, 3,45, 2,57 |LIS 8, 2016 |
 | MS16 — 132 |[3199120] |Aktualizacja zabezpieczeń dla składnika Microsoft |5,3, 4,38, 3,45, 2,57 |LIS 8, 2016 |
 | MS16-134 |[3193706] |Aktualizacja zabezpieczeń dla sterownika Common Log File System |5,3, 4,38, 3,45, 2,57 |LIS 8, 2016 |
-| MS16-135 |[3199135] |Aktualizacja zabezpieczeń dla sterowników trybu jądra |5,3, 4,38, 3,45, 2,57 |LIS 8, 2016 |
+| MS16-135 |[3199135] |Aktualizacja zabezpieczeń dla sterowników Kernel-Mode |5,3, 4,38, 3,45, 2,57 |LIS 8, 2016 |
 | MS16 — 137 |[3199173]   |Aktualizacja zabezpieczeń dla metod uwierzytelniania systemu Windows |5,3, 4,38, 3,45, 2,57 |LIS 8, 2016 |
 | MS16-138 |[3199647] |Aktualizacja zabezpieczeń wirtualnego dysku twardego firmy Microsoft |5,3, 4,38, 3,45 |LIS 8, 2016 |
 | MS16-139 |[3199720] |Aktualizacja zabezpieczeń dla jądra systemu Windows |2,57 |LIS 8,2016 |
@@ -1476,7 +1476,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | --- | --- | --- | --- | --- |
 | MS16 – 118 |[3192887] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4,37, 3,44, 2,56 |11 października 2016 |
 | MS16 – 120 |[3192884] |Aktualizacja zabezpieczeń dla składnika Microsoft Graphics |4,37, 3,44, 2,56 |11 października 2016 |
-| MS16-123 |[3192892] |Aktualizacja zabezpieczeń dla sterowników trybu jądra |4,37, 3,44, 2,56 |11 października 2016 |
+| MS16-123 |[3192892] |Aktualizacja zabezpieczeń dla sterowników Kernel-Mode |4,37, 3,44, 2,56 |11 października 2016 |
 | MS16 — 124 |[3193227] |Aktualizacja zabezpieczeń rejestru systemu Windows |4,37, 3,44, 2,56 |11 października 2016 |
 | MS16 — 126 |[3196067] |Aktualizacja zabezpieczeń interfejsu API usługi Microsoft Internet Messaging |2,56 |11 października 2016 |
 | MS16 — 101 |[3178465] |Aktualizacja zabezpieczeń dla metod uwierzytelniania systemu Windows |4,37, 3,44, 2,56 |11 października 2016 |
@@ -1497,7 +1497,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS16-114 |[3185879] |Aktualizacja zabezpieczeń dla serwera SMB systemu Windows |4,36, 3,43, 2,55 |Września 13, 2016 |
 | MS16-115 |[3188733] |Aktualizacja zabezpieczeń dla pliku PDF |4,35, 3,43 |Września 13, 2016 |
 | MS16-116 |[3188724] |Aktualizacja zabezpieczeń w automatyzacji OLE dla aparatu skryptów VBScript |4,36, 3,43, 2,55 |Września 13, 2016 |
-| Nie dotyczy |[3174644] |Zaktualizowano obsługę wymiany kluczy diff-Hellmana |4,36, 3,43, 2,55 |Września 13, 2016 |
+| Nie dotyczy |[3174644] |Zaktualizowano obsługę wymiany kluczy Diffie-Hellman |4,36, 3,43, 2,55 |Września 13, 2016 |
 | Nie dotyczy |[3177723] |Aktualizacja strefy czasowej — Egipt anuluje proces DST |4,36, 3,43, 2,55 |Września 13, 2016 |
 | Nie dotyczy |[3179573] |Pakiet zbiorczy aktualizacji 2016 dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.55 |Września 13, 2016 |
 | Nie dotyczy |[3179575] |Pakiet zbiorczy aktualizacji 2016 z sierpnia dla systemu Windows Server 2012 |3,43 |Września 13, 2016 |
@@ -1508,11 +1508,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | --- | --- | --- | --- | --- |
 | MS16 — 095 |[3177356] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4,35, 3,42, 2,54 |9 sierpnia 2016 |
 | MS16 — 097 |[3177393] |Aktualizacja zabezpieczeń dla składnika Microsoft Graphics |4,35, 3,42, 2,54 |9 sierpnia 2016 |
-| MS16 — 098 |[3178466] |Aktualizacja zabezpieczeń dla sterowników trybu jądra systemu Windows |4,35, 3,42, 2,54 |9 sierpnia 2016 |
+| MS16 — 098 |[3178466] |Aktualizacja zabezpieczeń dla sterowników Kernel-Mode systemu Windows |4,35, 3,42, 2,54 |9 sierpnia 2016 |
 | MS16 — 100 |[3179577] |Aktualizacja zabezpieczeń dla bezpiecznego rozruchu |4,35, 3,42 |9 sierpnia 2016 |
 | MS16 — 101 |[3178465] |Aktualizacja zabezpieczeń dla metod uwierzytelniania systemu Windows |4,35, 3,42, 2,54 |9 sierpnia 2016 |
 | MS16 – 102 |[3182248] |Aktualizacja zabezpieczeń dla biblioteki Microsoft Windows PDF |4,35, 3,42 |9 sierpnia 2016 |
-| MS16 — 077 ponowne wydanie |[3165191] |Aktualizacja zabezpieczeń dla autowykrywania serwera proxy sieci Web (WPAD) |4,35, 3,42, 2,54 |9 sierpnia 2016 |
+| MS16-077 Re-Release |[3165191] |Aktualizacja zabezpieczeń dla autowykrywania serwera proxy sieci Web (WPAD) |4,35, 3,42, 2,54 |9 sierpnia 2016 |
 | Nie dotyczy |[3172605] |Pakiet zbiorczy aktualizacji 2016 dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2,54 |9 sierpnia 2016 |
 | Nie dotyczy |[3172615] |Pakiet zbiorczy aktualizacji 2016 dla systemu Windows Server 2012 |3,42 |9 sierpnia 2016 |
 | Nie dotyczy |[3172614] |Pakiet zbiorczy aktualizacji 2016 dla systemów Windows RT 8,1, Windows 8.1 i Windows Server 2012 R2 |4,35 |9 sierpnia 2016 |
@@ -1600,7 +1600,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS16 — 031 |[3140410] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows w celu podniesienia uprawnień |2,49 |8 marca 2016 |
 | MS16 — 032 |[3143141] |Aktualizacja zabezpieczeń do logowania pomocniczego w celu podniesienia uprawnień |4,30, 3,37, 2,49 |8 marca 2016 |
 | MS16 — 033 |[3143142] |Aktualizacja zabezpieczeń sterownika klasy pamięci masowej USB w celu podniesienia uprawnień |4,30, 3,37, 2,49 |8 marca 2016 |
-| MS16 — 034 |[3143145] |Aktualizacje zabezpieczeń dla sterownika trybu jądra w celu podniesienia uprawnień |4,30, 3,37, 2,49 |8 marca 2016 |
+| MS16 — 034 |[3143145] |Aktualizacje zabezpieczeń dla sterownika Kernel-Mode w celu podniesienia uprawnień |4,30, 3,37, 2,49 |8 marca 2016 |
 
 ## <a name="february-2016-guest-os"></a>System operacyjny gościa z lutego 2016
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
@@ -1609,20 +1609,20 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS16 — 013 |[3134811] |Aktualizacja zabezpieczeń w programie Windows Journal w celu rozwiązania zdalnego wykonywania kodu |4,29, 3,36, 2,48 |9 lutego 2016 |
 | MS16 — 014 |[3134228] |Aktualizacja zabezpieczeń systemu Microsoft Windows umożliwiająca zdalne wykonywanie kodu |4,29, 3,36, 2,48 |9 lutego 2016 |
 | MS16 — 016 |[3136041] |Aktualizacja zabezpieczeń do WebDAV w celu podniesienia uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
-| MS16 — 018 |[3136082] |Aktualizacja zabezpieczeń sterownika trybu jądra systemu Windows w celu podniesienia uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
+| MS16 — 018 |[3136082] |Aktualizacja zabezpieczeń sterownika Kernel-Mode systemu Windows w celu podniesienia uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
 | MS16 — 019 |[3137893] |Aktualizacja zabezpieczeń dla .NET Framework na potrzeby zdalnego wykonywania kodu |4,29, 3,36, 2,48 |9 lutego 2016 |
 | MS16 — 021 |[3133043] |Aktualizacja zabezpieczeń serwera NPS RADIUS w celu rozwiązania odmowy usługi |4,29, 3,36, 2,48 |9 lutego 2016 |
 | Poradnik zabezpieczeń firmy Microsoft |[3109853] |Aktualizacja w celu poprawy współdziałania protokołu TLS |4,29, 3,36 |9 lutego 2016 |
-| Ponowne wydanie — MS15-101 |[3089662] |Luki w zabezpieczeniach .NET Framework mogą pozwolić na podniesienie uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
-| Ponowne wydanie — MS15-118 |[3104507] |Aktualizacje zabezpieczeń .NET Framework w celu podniesienia uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
-| Ponowne wydanie — MS15-128 |[3104503] |Aktualizacje zabezpieczeń składnika Microsoft Graphics na potrzeby zdalnego wykonywania kodu |4,29, 3,36, 2,48 |9 lutego 2016 |
+| Re-Release-MS15-101 |[3089662] |Luki w zabezpieczeniach .NET Framework mogą pozwolić na podniesienie uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
+| Re-Release-MS15-118 |[3104507] |Aktualizacje zabezpieczeń .NET Framework w celu podniesienia uprawnień |4,29, 3,36, 2,48 |9 lutego 2016 |
+| Re-Release-MS15-128 |[3104503] |Aktualizacje zabezpieczeń składnika Microsoft Graphics na potrzeby zdalnego wykonywania kodu |4,29, 3,36, 2,48 |9 lutego 2016 |
 
 ## <a name="january-2016-guest-os"></a>System operacyjny gościa w styczniu 2016
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4,28, 3,35, 2,47 |12 stycznia 2016 |
 | MS16 — 003 |[3125540] |Zbiorcza aktualizacja zabezpieczeń dla języków JScript i VBScript |2,47 |12 stycznia 2016 |
-| MS16 — 005 |[3124584] |Aktualizacja zabezpieczeń dla sterowników trybu jądra systemu Windows w celu rozwiązywania zdalnego wykonywania kodu |4,28, 3,35, 2,47 |12 stycznia 2016 |
+| MS16 — 005 |[3124584] |Aktualizacja zabezpieczeń dla sterowników Kernel-Mode systemu Windows w celu rozwiązywania zdalnego wykonywania kodu |4,28, 3,35, 2,47 |12 stycznia 2016 |
 | MS16 — 007 |[3124901] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows umożliwiająca zdalne wykonywanie kodu |4,28, 3,35, 2,47 |12 stycznia 2016 |
 | MS16 — 008 |[3124605] |Aktualizacja zabezpieczeń jądra w celu podniesienia uprawnień |4,28, 3,35, 2,47 |12 stycznia 2016 |
 | Poprawka dotycząca biuletynu zabezpieczeń firmy Microsoft |[2755801] |Aktualizacja luk w zabezpieczeniach programu Adobe Flash Player w programie Internet Explorer (pakiet KB: do opracowania później) — symbol zastępczy doradcy |4,28, 3,35 |12 stycznia 2016 |
@@ -1699,7 +1699,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 069 |[3072631] |Luki w zabezpieczeniach systemu Windows umożliwiają zdalne wykonywanie kodu |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 071 |[3068457] |Luka w zabezpieczeniach w usłudze NETLOGON może pozwolić na fałszowanie |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 072 |[3069392] |Luka w zabezpieczeniach sterownika grafiki może pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
-| MS15 — 073 |[3070102] |Luki w zabezpieczeniach sterownika trybu jądra mogą pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
+| MS15 — 073 |[3070102] |Luki w zabezpieczeniach sterownika Kernel-Mode mogą pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 074 |[3072630] |Luka w zabezpieczeniach w usłudze Instalator Windows może pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 075 |[3072633] |Luki w zabezpieczeniach OLE mogą pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 076 |[3067505] |Luka w zabezpieczeniach w zdalnym wywołaniu procedury systemu Windows umożliwia podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
@@ -1712,7 +1712,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 056 |[3058515] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4,21, 3,28, 2,40 |9 czerwca 2015 |
 | MS15 — 057 |[3033890] |Luka w zabezpieczeniach w systemie Windows Media Player umożliwia zdalne wykonywanie kodu |4,21, 3,28, 2,40 |9 czerwca 2015 |
 | MS15 — 060 |[3059317] |Luka w zabezpieczeniach formantów firmy Microsoft umożliwia zdalne wykonywanie kodu |4,21, 3,28, 2,40 |9 czerwca 2015 |
-| MS15 — 061 |[3057839] |Luki w zabezpieczeniach sterowników trybu jądra systemu Windows mogą pozwolić na podniesienie uprawnień |4,21, 3,28, 2,40 |9 czerwca 2015 |
+| MS15 — 061 |[3057839] |Luki w zabezpieczeniach sterowników Kernel-Mode systemu Windows mogą pozwolić na podniesienie uprawnień |4,21, 3,28, 2,40 |9 czerwca 2015 |
 | MS15 — 062 |[3062577] |Luka w zabezpieczeniach Active Directory Federation Services może pozwolić na podniesienie uprawnień |4,21, 3,28, 2,40 |9 czerwca 2015 |
 | MS15 — 063 |[3063858] |Luka w zabezpieczeniach jądra systemu Windows może pozwolić na podniesienie uprawnień |4,21, 3,28, 2,40 |9 czerwca 2015 |
 
@@ -1724,7 +1724,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 045 |[3046002] |Luka w zabezpieczeniach w programie Windows Journal umożliwia zdalne wykonywanie kodu |4,20, 3,27, 2,39 |12 maja 2015 |
 | MS15-048 |[3057134] |Luki w zabezpieczeniach .NET Framework mogą pozwolić na podniesienie uprawnień |4,20, 3,27, 2,39 |12 maja 2015 |
 | MS15 — 050 |[3055642] |Luki w zabezpieczeniach w Menedżerze kontroli usług mogą pozwolić na podniesienie uprawnień |4,20, 3,27, 2,39 |12 maja 2015 |
-| MS15 — 051 |[3057191] |Luki w zabezpieczeniach sterowników trybu jądra systemu Windows mogą pozwolić na podniesienie uprawnień |4,20, 3,27, 2,39 |12 maja 2015 |
+| MS15 — 051 |[3057191] |Luki w zabezpieczeniach sterowników Kernel-Mode systemu Windows mogą pozwolić na podniesienie uprawnień |4,20, 3,27, 2,39 |12 maja 2015 |
 | MS15 — 052 |[3050514] |Luka w zabezpieczeniach jądra systemu Windows może pozwolić na obejście funkcji zabezpieczeń |4,20, 3,27, 2,39 |12 maja 2015 |
 | MS15 — 053 |[3057263] |Luki w zabezpieczeniach języka JScript i aparatu skryptów VBScript mogą pozwolić na obejście funkcji zabezpieczeń |4,20, 3,27, 2,39 |12 maja 2015 |
 | MS15 — 054 |[3051768] |Luka w zabezpieczeniach w formacie pliku programu Microsoft Management Console może pozwolić na odmowę usługi |4,20, 3,27, 2,39 |12 maja 2015 |

@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927168"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Zarządzanie dostępem Site Recovery przy użyciu kontroli dostępu opartej na rolach (RBAC)
@@ -53,7 +53,7 @@ Użytkownik musi mieć następujące uprawnienia, aby ukończyć replikację now
 |  |  | Microsoft. ClassicCompute/virtualMachines/odczyt |
 |  |  | Microsoft. ClassicCompute/virtualMachines/Write |
 |  |  | Microsoft. ClassicCompute/virtualMachines/Delete |
-| Network | Resource Manager | Microsoft. Network/networkInterfaces/odczyt |
+| Sieć | Resource Manager | Microsoft. Network/networkInterfaces/odczyt |
 |  |  | Microsoft. Network/networkInterfaces/Write |
 |  |  | Microsoft. Network/networkInterfaces/Delete |
 |  |  | Microsoft. Network/networkInterfaces/Join/Action |

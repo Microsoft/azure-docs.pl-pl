@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87909151"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
@@ -42,8 +42,8 @@ Alternatywą dla wiadomości e-mail z zaproszeniem jest nadanie gościa bezpośr
 
 > [!IMPORTANT]
 > Link bezpośredni musi być specyficzny dla dzierżawy. Innymi słowy, musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Wspólny adres URL, taki jak https://myapps.microsoft.com nie będzie działał dla gościa, ponieważ zostanie przekierowany do dzierżawy domowej w celu uwierzytelnienia. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
- > - Panel dostępu do aplikacji:`https://myapps.microsoft.com/?tenantid=<tenant id>`
- > - Panel dostępu aplikacje dla zweryfikowanej domeny:`https://myapps.microsoft.com/<;verified domain>`
+ > - Panel dostępu do aplikacji: `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Panel dostępu aplikacje dla zweryfikowanej domeny: `https://myapps.microsoft.com/<;verified domain>`
  > - Witryna Azure Portal: `https://portal.azure.com/<tenant id>`
  > - Poszczególna aplikacja: Zobacz, jak używać [linku bezpośredniego logowania](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
@@ -113,4 +113,4 @@ W katalogu wartość **zaakceptowana przez zaproszenie** gościa zmieni się na 
 - [Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal](add-users-administrator.md)
 - [Jak Pracownicy przetwarzający informacje mogą dodawać do Azure Active Directory użytkowników współpracy B2B?](add-users-information-worker.md)
 - [Dodawanie Azure Active Directory użytkowników współpracy B2B przy użyciu programu PowerShell](customize-invitation-api.md#powershell)
-- [Opuść organizację jako użytkownika-gościa](leave-the-organization.md)
+- [Opuszczanie organizacji jako użytkownik-gość](leave-the-organization.md)

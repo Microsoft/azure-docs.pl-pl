@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325988"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Zoptymalizuj środowisko SQL za pomocą rozwiązania do sprawdzania kondycji SQL Server w Azure Monitor
@@ -85,7 +85,7 @@ Poniższe informacje służą do ustawiania konta Uruchom jako Operations Manage
    > Typ konta Uruchom jako musi być w systemie Windows. Konto Uruchom jako musi być również częścią lokalnej grupy administratorów na wszystkich serwerach z systemem Windows hostującym wystąpienia SQL Server.
    >
    >
-5. Kliknij pozycję **Zapisz**.
+5. Kliknij przycisk **Zapisz**.
 6. Zmodyfikuj i wykonaj następujące przykładowe polecenie T-SQL na każdym wystąpieniu SQL Server, aby przyznać minimalnym uprawnieniam wymaganym dla konta Uruchom jako, aby przeprowadzić kontrolę kondycji. Nie trzeba jednak tego robić, jeśli konto Uruchom jako jest już częścią roli serwera sysadmin w SQL Server wystąpieniach.
 
 ```

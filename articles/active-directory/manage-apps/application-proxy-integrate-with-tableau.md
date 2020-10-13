@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764506"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>serwer proxy aplikacji usługi Azure Active Directory i Tableau 
@@ -42,7 +42,7 @@ Serwer proxy aplikacji obsługuje przepływ przyznania protokołu OAuth 2,0, kt�
 
 Aby opublikować Tableau, należy opublikować aplikację w witrynie Azure Portal.
 
-Dla
+Dla:
 
 - Szczegółowe instrukcje dotyczące kroków 1-8 można znaleźć w temacie [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-add-on-premises-application.md). 
 - Informacje o sposobach znajdowania wartości Tableau dla pól serwera proxy aplikacji można znaleźć w dokumentacji Tableau.  

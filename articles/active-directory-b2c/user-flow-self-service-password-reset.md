@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481499"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Konfigurowanie samoobsługowego resetowania haseł dla klientów
@@ -31,7 +31,7 @@ Domyślnie katalog nie ma włączonej funkcji samoobsługowego resetowania hasł
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako administrator subskrypcji. To samo konto służbowe lub szkolne konto Microsoft, które zostało użyte do utworzenia katalogu.
 2. Otwórz **Azure Active Directory** (na pasku nawigacyjnym po lewej stronie).
 3. Przewiń w dół w bloku opcje i wybierz pozycję **Resetowanie hasła**.
-4. Ustaw funkcję samoobsługowego **resetowania hasła** na **wszystkie**.
+4. Ustaw funkcję samoobsługowego **resetowania hasła**  na **wszystkie**.
 5. Kliknij przycisk **Zapisz** w górnej części strony. Wszystko gotowe!
 
 Aby przetestować, użyj funkcji "Uruchom teraz" w dowolnym przepływie użytkownika logowania, który ma konta lokalne jako dostawcę tożsamości. Na stronie logowania do konta lokalnego (w przypadku wprowadzenia adresu e-mail i hasła lub nazwy użytkownika i hasła) kliknij pozycję **nie można uzyskać dostępu do konta?** , aby zweryfikować środowisko klienta.

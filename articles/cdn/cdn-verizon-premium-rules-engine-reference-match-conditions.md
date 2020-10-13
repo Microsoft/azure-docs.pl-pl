@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323318"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN z warunków dopasowania aparatu programu Verizon Premium
@@ -28,10 +28,10 @@ Można na przykład użyć warunku dopasowywania do:
 
 ## <a name="match-conditions"></a><a name="top"></a>Warunki dopasowania
 
-* [Zawsze](#always)
+* [Always](#always) (Zawsze)
 * [Urządzenie](#device)
 * [Lokalizacja](#location)
-* [Origin](#origin)
+* [Źródł](#origin)
 * [Żądanie](#request)
 * [Adres URL](#url)
 
@@ -73,7 +73,7 @@ Te warunki dopasowania są przeznaczone do identyfikowania żądań opartych na 
 
 **[Powrót do początku](#top)**
 
-### <a name="location"></a><a name="location"></a>Lokalizacja
+### <a name="location"></a><a name="location"></a>Przeniesienie
 
 Te warunki dopasowania są przeznaczone do identyfikowania żądań na podstawie lokalizacji obiektu żądającego.
 
@@ -84,7 +84,7 @@ Te warunki dopasowania są przeznaczone do identyfikowania żądań na podstawie
 | [Kontynent](https://docs.vdms.com/cdn/Content/HRE/M/Continent.htm) | Identyfikuje żądania, które pochodzą z określonych kontynentów. |
 | [Kraj](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identyfikuje żądania, które pochodzą z określonych krajów. |
 | [Kod DMA](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identyfikuje żądania, które pochodzą z określonych linii metra (wyznaczonych obszarów rynkowych). |
-| [Szerokość geograficzna](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identyfikuje żądania, które pochodzą z określonego Latitudes. |
+| [Rodziny](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identyfikuje żądania, które pochodzą z określonego Latitudes. |
 | [Długość geograficzna](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identyfikuje żądania, które pochodzą z określonych długości geograficznej. |
 | [Kod Metro](https://docs.vdms.com/cdn/Content/HRE/M/Metro-Code.htm) | Identyfikuje żądania, które pochodzą z określonych linii metra (wyznaczonych obszarów rynkowych). |
 | [Kod pocztowy](https://docs.vdms.com/cdn/Content/HRE/M/Postal-Code.htm) | Identyfikuje żądania, które pochodzą z określonych kodów pocztowych. |
@@ -96,7 +96,7 @@ Oba te warunki dopasowania zapewniają tę samą funkcję. Jednak zaleca się u�
 
 **[Powrót do początku](#top)**
 
-### <a name="origin"></a><a name="origin"></a>Origin
+### <a name="origin"></a><a name="origin"></a>Źródł
 
 Te warunki dopasowania są przeznaczone do identyfikowania żądań, które wskazują magazyn CDN lub serwer pochodzenia klienta.
 

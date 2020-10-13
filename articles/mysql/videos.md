@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 2c2fbb3352b159ce9f5231c56399638a1d393366
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513863"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure Database for MySQL filmów wideo
@@ -43,4 +43,4 @@ Azure Database for PostgreSQL i Azure Database for MySQL Połącz ze sobą apara
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8045/player]
 [Otwórz w kanale 9](https://channel9.msdn.com/events/Build/2017/B8045)
 
-W tym filmie wideo z konferencji 2017 Build firmy Microsoft można znaleźć informacje o ofercie zarządzanej bazy danych firmy Microsoft na platformie Azure. Film wideo przeprowadzi Cię przez strategię firmy Microsoft dotyczącą obsługi systemów baz danych open source na platformie Azure. Film wideo zawiera informacje na temat sposobu tworzenia lub wdrażania aplikacji korzystających z programu MySQL na platformie Azure. Ten film wideo zawiera omówienie architektury usługi i pokazuje, Azure Database for MySQL jest zintegrowany z innymi usługami platformy Azure, takimi jak Web Apps.
+W tym filmie wideo z konferencji 2017 Build firmy Microsoft można znaleźć informacje o ofercie zarządzanej bazy danych firmy Microsoft na platformie Azure. Film wideo przeprowadzi Cię przez strategię firmy Microsoft dotyczącą obsługi systemów Open-Source Database na platformie Azure. Film wideo zawiera informacje na temat sposobu tworzenia lub wdrażania aplikacji korzystających z programu MySQL na platformie Azure. Ten film wideo zawiera omówienie architektury usługi i pokazuje, Azure Database for MySQL jest zintegrowany z innymi usługami platformy Azure, takimi jak Web Apps.

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078918"
 ---
 # <a name="sensor-partner-integration"></a>Integracja z partnerami obsługującymi czujniki
@@ -44,7 +44,7 @@ Dane telemetryczne są mapowane na komunikat kanoniczny, który jest publikowany
 
 Interfejsy API zawierają dokumentację techniczną struktury Swagger. Aby uzyskać więcej informacji na temat interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [Swagger](https://aka.ms/FarmBeatsSwagger).
 
-**Uwierzytelnianie**
+**Authentication**
 
 FarmBeats używa uwierzytelniania Microsoft Azure Active Directory.Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji.
 
@@ -93,10 +93,10 @@ access_token = token_response.get('access_token')
 Poniżej znajdują się najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats Datahub.
 
 
-**Nagłówek** | **Opis i przykład**
+**Nagłówki** | **Opis i przykład**
 --- | ---
 Content-Type | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
-Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
+Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
 Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API FarmBeats Datahub format jest JSON. Akceptuj: Application/JSON
 
 **Żądania interfejsu API**

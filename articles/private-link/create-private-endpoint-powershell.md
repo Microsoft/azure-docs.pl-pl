@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737380"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
@@ -184,13 +184,13 @@ mstsc /v:<publicIpAddress>
   > [!NOTE]
   > Może być konieczne wybranie pozycji więcej opcji, > użyć innego konta, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej. 
   
-3. Wybierz przycisk **OK**. 
+3. Kliknij przycisk **OK**. 
 4. Może zostać wyświetlone ostrzeżenie o certyfikacie. W takim przypadku wybierz pozycję **Tak** lub **Kontynuuj**. 
 
 ## <a name="access-sql-database-privately-from-the-vm"></a>Dostęp SQL Database prywatnie z maszyny wirtualnej
 
-1. W Pulpit zdalny myVM Otwórz program PowerShell.
-2. Wprowadź polecenie `nslookup myserver.database.windows.net`. Pamiętaj, aby zamienić na `myserver` nazwę programu SQL Server.
+1. Na pulpicie zdalnym maszyny myVm otwórz program PowerShell.
+2. Wprowadź `nslookup myserver.database.windows.net`. Pamiętaj, aby zamienić na `myserver` nazwę programu SQL Server.
 
     Zostanie wyświetlony komunikat podobny do tego:
     

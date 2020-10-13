@@ -4,10 +4,10 @@ description: Użyj przycisku, aby wdrożyć szablony Azure Resource Manager z re
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079460"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Użyj przycisku wdrożenia, aby wdrożyć szablony z repozytorium GitHub
@@ -82,7 +82,7 @@ W przypadku języka HTML należy użyć:
 </a>
 ```
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Aby przetestować pełne rozwiązanie, wybierz następujący przycisk:
 

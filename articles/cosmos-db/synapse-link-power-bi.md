@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
 ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937980"
 ---
 # <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Używaj Power BI i Synapse programu SQL Server, aby analizować dane Azure Cosmos DB za pomocą linku Synapse (wersja zapoznawcza)
@@ -46,7 +46,7 @@ W obszarze roboczym Synapse przejdź do karty **Tworzenie** , wybierz pozycję n
 
 Każdy obszar roboczy jest dostarczany z Synapse bezserwerowym punktem końcowym programu SQL Server. Po utworzeniu skryptu SQL z paska narzędzi na górze Połącz się z serwerem **SQL na żądanie**.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Włączanie przez skrypt SQL bezSynapseowego punktu końcowego programu SQL Server w obszarze roboczym":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 
 Utwórz nową bazę danych o nazwie **RetailCosmosDB**i Widok SQL dla kontenerów z włączonym linkiem Synapse. Następujące polecenie pokazuje, jak utworzyć bazę danych:
 
@@ -106,7 +106,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 Wybierz pozycję **Uruchom** , która daje w wyniku następującą tabelę:
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Wyniki zapytania po dołączeniu do widoków StoreDemographics i RetailSales":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Widoki modelu za pośrednictwem kontenerów z Power BI
 
@@ -141,7 +141,7 @@ Teraz przejdź do okna **raport** i Utwórz raport, aby porównać względną wa
 1. Przeciągnij i upuść **productCode** z widoku **RetailSales** w legendzie, aby wybrać konkretny wiersz produktu.
 Po wybraniu tych opcji powinien zostać wyświetlony wykres podobny do poniższego zrzutu ekranu:
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Raport, który porównuje względną ważność rozmiaru gospodarstwa domowego z średnim przychodem na sklep":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Dodawanie skryptu SQL do obszaru roboczego analizy Synapse":::
 
 ## <a name="next-steps"></a>Następne kroki
 

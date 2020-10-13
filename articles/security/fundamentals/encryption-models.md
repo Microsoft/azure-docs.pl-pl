@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645745"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
@@ -27,7 +27,7 @@ Zrozumienie różnych modeli szyfrowania i ich zalet i wad jest niezbędne do po
 
 Istnieją trzy scenariusze dotyczące szyfrowania po stronie serwera:
 
-- Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez usługę
+- Szyfrowanie po stronie serwera przy użyciu kluczy Service-Managed
   - Dostawcy zasobów platformy Azure wykonują operacje szyfrowania i odszyfrowywania
   - Firma Microsoft zarządza kluczami
   - Pełna funkcjonalność chmury
@@ -143,7 +143,7 @@ Gdy używane jest szyfrowanie po stronie serwera przy użyciu kluczy zarządzany
 ## <a name="supporting-services"></a>Usługi pomocnicze
 Usługi platformy Azure, które obsługują każdy model szyfrowania:
 
-| Produkt, funkcja lub usługa | Po stronie serwera przy użyciu klucza zarządzanego przez usługę   | Po stronie serwera przy użyciu klucza zarządzanego przez klienta | Po stronie klienta przy użyciu klucza zarządzanego przez klienta  |
+| Produkt, funkcja lub usługa | Server-Side przy użyciu klucza Service-Managed   | Server-Side przy użyciu klucza Customer-Managed | Client-Side przy użyciu klucza Client-Managed  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **Sztuczna inteligencja i uczenie maszynowe**      |                    |                    |                    |
 | Azure Cognitive Search           | Tak                | Tak                | -                  |
@@ -164,7 +164,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Funkcje                        | Tak                | Tak                | -                  |
 | Azure Analysis Services          | Tak                | -                  | -                  |
 | Azure Data Catalog               | Tak                | -                  | -                  |
-| Azure HDInsight                  | Tak                | Wszystko                | -                  |
+| Azure HDInsight                  | Tak                | Wszystkie                | -                  |
 | Azure Monitor Application Insights | Tak                | Tak                | -                  |
 | Azure Monitor Log Analytics      | Tak                | Tak                | -                  |
 | Azure Data Explorer              | Tak                | Tak                | -                  |
@@ -175,7 +175,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Container Instances              | Tak                | Tak                | -                  |
 | Container Registry               | Tak                | Tak                | -                  |
 | **Środowisko obliczeniowe**                      |                    |                    |                    |
-| Maszyny wirtualne                 | Tak                | Tak                | -                  |
+| Virtual Machines                 | Tak                | Tak                | -                  |
 | Zestaw skalowania maszyn wirtualnych        | Tak                | Tak                | -                  |
 | SAP HANA                         | Tak                | Tak                | -                  |
 | App Service                      | Tak                | Opcję\*\*            | -                  |
@@ -203,7 +203,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Azure Repos                      | Tak                | -                  | Tak                |
 | **Tożsamość**                     |                    |                    |                    |
 | Usługa Azure Active Directory           | Tak                | -                  | -                  |
-| Usługi Azure Active Directory Domain Services | Tak          | Tak                | -                  |
+| Azure Active Directory Domain Services | Tak          | Tak                | -                  |
 | **Integracja**                  |                    |                    |                    |
 | Service Bus                      | Tak                | Tak                | Tak                |
 | Event Grid                       | Tak                | -                  | -                  |
@@ -216,7 +216,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Azure Migrate                    | Tak                | Tak                | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Tak                | -                  | Tak                |
-| **Bezpieczeństwo**                     |                    |                    |                    |
+| **Zabezpieczenia**                     |                    |                    |                    |
 | Azure Security Center dla IoT    | Tak                | Tak                | -                  |
 | Usługa Azure Sentinel                   | Tak                | Tak                | -                  |
 | **Storage**                      |                    |                    |                    |
@@ -240,7 +240,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 
 \* Ta usługa nie utrwala danych. Przejściowe pamięci podręczne (jeśli istnieją) są szyfrowane za pomocą klucza firmy Microsoft.
 
-\*\* Ta usługa obsługuje przechowywanie danych we własnym Key Vault, koncie magazynu lub innej usłudze utrwalania danych, która obsługuje już szyfrowanie po stronie serwera z kluczem zarządzanym przez klienta.
+\*\* Ta usługa obsługuje przechowywanie danych we własnym Key Vault, koncie magazynu lub innej usłudze utrwalania danych, która obsługuje już Server-Side szyfrowanie z kluczem Customer-Managed.
 
 ## <a name="next-steps"></a>Następne kroki
 

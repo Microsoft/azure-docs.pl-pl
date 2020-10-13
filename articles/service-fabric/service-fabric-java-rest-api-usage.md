@@ -7,10 +7,10 @@ ms.date: 11/27/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 24ee4a3d8109626bf93e01fbd10c00140762c9c6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324628"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Interfejsy API klienta Java Service Fabric platformy Azure
@@ -40,7 +40,7 @@ Wykonaj kroki opisane poniżej, aby wygenerować Service Fabric kod klienta Java
     npm install -g autorest
     ```
 
-3. Rozwidlenie i klonowanie repozytorium [specyfikacji platformy Azure-REST-API-specyfikacje](https://github.com/Azure/azure-rest-api-specs) na maszynie lokalnej i przejście do sklonowanej lokalizacji z terminalu maszyny.
+3. Rozwidlenie i klonowanie repozytorium [specyfikacji platformy Azure-REST-API-specyfikacje](https://github.com/Azure/azure-rest-api-specs)  na maszynie lokalnej i przejście do sklonowanej lokalizacji z terminalu maszyny.
 
 
 4. Przejdź do lokalizacji wymienionej poniżej w sklonowanym repozytorium.
@@ -63,7 +63,7 @@ Wykonaj kroki opisane poniżej, aby wygenerować Service Fabric kod klienta Java
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   Następujące polecenie pobiera ``servicefabric.json`` plik specyfikacji jako dane wejściowe i generuje kod klienta Java w ``java-rest-api-     code`` folderze i umieszcza kod w ``servicefabricrest`` przestrzeni nazw. Po wykonaniu tego kroku znajdziesz dwa foldery ``models`` ``implementation`` i dwa pliki ``ServiceFabricClientAPIs.java`` i ``package-info.java`` wygenerowane w ``java-rest-api-code`` folderze.
+   Następujące polecenie pobiera ``servicefabric.json`` plik specyfikacji jako dane wejściowe i generuje kod klienta Java w ``java-rest-api-     code`` folderze i umieszcza kod w  ``servicefabricrest`` przestrzeni nazw. Po wykonaniu tego kroku znajdziesz dwa foldery ``models`` ``implementation`` i dwa pliki ``ServiceFabricClientAPIs.java`` i ``package-info.java`` wygenerowane w ``java-rest-api-code`` folderze.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Uwzględnianie wygenerowanego klienta w projekcie i korzystanie z niego

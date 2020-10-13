@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83736504"
 ---
 # <a name="identity-protection-policies"></a>Zasady ochrony tożsamości
@@ -30,7 +30,7 @@ Ochrona tożsamości może pomóc organizacjom wdrożyć usługę Azure Multi-Fa
 
 Więcej informacji o usłudze Azure Multi-Factor Authentication można znaleźć w artykule, [jak to działa: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
 
-## <a name="sign-in-risk-policy"></a>Zasady dotyczące ryzyka związanego z logowaniem
+## <a name="sign-in-risk-policy"></a>Zasady ryzyka związanego z logowaniem
 
 Program Identity Protection analizuje sygnały z każdego logowania, zarówno w czasie rzeczywistym, jak i offline, a następnie oblicza ocenę ryzyka na podstawie prawdopodobieństwa, że logowanie nie zostało wykonane przez użytkownika. Administratorzy mogą podejmować decyzje na podstawie tego sygnału oceny ryzyka, aby wymusić wymagania organizacyjne. Administratorzy mogą wybrać blokowanie dostępu, zezwalanie na dostęp lub zezwalanie na dostęp, ale wymagają uwierzytelniania wieloskładnikowego.
 
@@ -45,7 +45,7 @@ Administratorzy mogą również utworzyć niestandardowe zasady dostępu warunko
 
 ![Zasady dotyczące ryzyka związanego z logowaniem niestandardowym dostępu warunkowego](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 
-## <a name="user-risk-policy"></a>Zasady ryzyka dla użytkowników
+## <a name="user-risk-policy"></a>Zasady ryzyka związanego z użytkownikiem
 
 Program Identity Protection może obliczyć, co jest bardzo zrozumiałe w przypadku zachowania użytkownika i którego należy użyć do podejmowania decyzji o podstawowym zagrożeniu. Ryzyko związane z użytkownikiem to obliczenie prawdopodobieństwa naruszenia zabezpieczeń tożsamości. Administratorzy mogą podejmować decyzje na podstawie tego sygnału oceny ryzyka, aby wymusić wymagania organizacyjne. Administratorzy mogą wybrać blokowanie dostępu, zezwalanie na dostęp lub zezwalanie na dostęp, ale wymagać zmiany hasła przy użyciu funkcji samoobsługowego [resetowania hasła w usłudze Azure AD](../authentication/howto-sspr-deployment.md).
 

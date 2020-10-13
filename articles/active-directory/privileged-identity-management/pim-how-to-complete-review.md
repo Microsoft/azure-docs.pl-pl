@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa7e8089fbbf2ee653100a05383fdbdc877ffda4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84742220"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Dokończ przegląd dostępu ról usługi Azure AD w Privileged Identity Management
@@ -53,7 +53,7 @@ Po zakończeniu przeglądu dostępu, ponieważ osiągnięto datę końcową lub 
 
 Jeśli chcesz zastosować wyniki przeglądu dostępu ręcznie, możesz wyeksportować przegląd. Przycisk **Eksportuj** rozpocznie pobieranie pliku CSV. Można zarządzać wynikami w programie Excel lub innych programach, które otwierają pliki CSV.
 
-### <a name="delete"></a>Usuń
+### <a name="delete"></a>Usuwanie
 
 Jeśli nie interesuje Cię przegląd, usuń go. Przycisk **Usuń** usuwa przegląd z usługi Privileged Identity Management.
 

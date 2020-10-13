@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710885"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegowanie poddomeny Azure DNS
@@ -33,10 +33,10 @@ Najpierw Utwórz strefę dla poddomeny **inżynierów** .
 
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu wyszukiwania wpisz **DNS**, a następnie wybierz pozycję **strefa DNS**.
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. W okienku **Tworzenie strefy DNS** wpisz **Engineering.contoso.com** w polu tekstowym **Nazwa** .
 5. Wybierz grupę zasobów dla swojej strefy. Możesz chcieć używać tej samej grupy zasobów co strefa nadrzędna, aby zapewnić sobie podobne zasoby.
-6. Kliknij pozycję **Utwórz**.
+6. Kliknij przycisk **Utwórz**.
 7. Po pomyślnym wdrożeniu przejdź do nowej strefy.
 
 ## <a name="note-the-name-servers"></a>Zanotuj serwery nazw
@@ -65,7 +65,7 @@ Następnie Utwórz rekord serwera nazw (NS) dla strefy **inżynierów** .
 Aby przetestować delegowanie, użyj polecenia nslookup.
 
 1. Otwórz okno programu PowerShell.
-2. W wierszu polecenia wpisz`nslookup www.engineering.contoso.com.`
+2. W wierszu polecenia wpisz `nslookup www.engineering.contoso.com.`
 3. Odpowiedź Nieautorytatywna powinna być wyświetlana z adresem **10.10.10.10**.
 
 ## <a name="next-steps"></a>Następne kroki

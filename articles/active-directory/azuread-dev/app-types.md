@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116448"
 ---
 # <a name="application-types-in-v10"></a>Typy aplikacji w wersji 1.0
@@ -47,7 +47,7 @@ Można opracowywać dowolne aplikacje i scenariusze opisane w tym miejscu przy u
 
 Ponadto, jeśli aplikacja wymaga określonego fragmentu lub segmentu kompleksowego scenariusza, w większości przypadków można dodać funkcje niezależnie. Na przykład jeśli masz natywną aplikację, która wywołuje interfejs API sieci Web, możesz łatwo dodać aplikację sieci Web, która również wywołuje internetowy interfejs API.
 
-## <a name="app-registration"></a>Rejestracja aplikacji
+## <a name="app-registration"></a>Rejestrowanie aplikacji
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Rejestrowanie aplikacji korzystającej z punktu końcowego usługi Azure AD v 1.0
 

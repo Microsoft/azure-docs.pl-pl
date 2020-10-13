@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: victorh
 ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83758966"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Skonfiguruj zaporę aplikacji sieci Web V2 na Application Gateway z regułą niestandardową przy użyciu Azure PowerShell
@@ -21,7 +21,7 @@ ms.locfileid: "83758966"
 
 Reguły niestandardowe umożliwiają tworzenie własnych reguł, które są oceniane dla każdego żądania, które przechodzi przez zaporę aplikacji sieci Web (WAF) v2. Reguły te mają wyższy priorytet niż pozostałe reguły w zarządzanych zestawach reguł. Reguły niestandardowe mają akcję (do zezwalania lub blokowania), warunek dopasowania i operator, aby umożliwić pełne dostosowanie.
 
-W tym artykule jest tworzony Application Gateway WAF v2, który używa reguły niestandardowej. Reguła niestandardowa blokuje ruch, jeśli nagłówek żądania zawiera *Evilbot*User-Agent.
+W tym artykule jest tworzony Application Gateway WAF v2, który używa reguły niestandardowej. Reguła niestandardowa blokuje ruch, jeśli nagłówek żądania zawiera User-Agent *evilbot*.
 
 Aby zobaczyć więcej przykładów niestandardowych reguł, zobacz [Tworzenie i używanie niestandardowych reguł zapory aplikacji sieci Web](create-custom-waf-rules.md)
 

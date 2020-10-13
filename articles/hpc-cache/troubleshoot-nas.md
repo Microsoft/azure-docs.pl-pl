@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
 ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082770"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Rozwiązywanie problemów z konfiguracją serwera NAS i miejscem docelowym magazynu NFS
@@ -96,7 +96,7 @@ Aby uniknąć tej potencjalnej kolizji plików w przypadku plików w wielu ekspo
 
 Serwer NAS musi wystawić swoje eksporty podczas wykonywania zapytania w pamięci podręcznej platformy Azure HPC.
 
-W większości systemów magazynowania NFS można je przetestować, wysyłając następujące zapytanie z klienta systemu Linux:``showmount -e <storage IP address>``
+W większości systemów magazynowania NFS można je przetestować, wysyłając następujące zapytanie z klienta systemu Linux: ``showmount -e <storage IP address>``
 
 Jeśli to możliwe, użyj klienta systemu Linux z tej samej sieci wirtualnej co pamięć podręczna.
 
@@ -112,7 +112,7 @@ Nie istnieje prosty sposób, aby stwierdzić, czy system ma ten problem, chyba �
 * Korzystając ze detektorów pakietów po obu stronach sieci VPN, można wykryć, które pakiety zostały pomyślnie przeniesione.
 * Jeśli sieć VPN zezwala na polecenia ping, można testować wysyłanie pakietu o pełnym rozmiarze.
 
-  Uruchom polecenie ping za pośrednictwem sieci VPN do serwera NAS, korzystając z tych opcji. (Użyj adresu IP systemu magazynu zamiast *storage_IP<wartość>* ).
+  Uruchom polecenie ping za pośrednictwem sieci VPN do serwera NAS, korzystając z tych opcji. (Użyj adresu IP systemu magazynu zamiast * storage_IP<wartość>* ).
 
    ```bash
    ping -M do -s 1472 -c 1 <storage_IP>
@@ -120,9 +120,9 @@ Nie istnieje prosty sposób, aby stwierdzić, czy system ma ten problem, chyba �
 
   Oto opcje polecenia:
 
-  * ``-M do``-Nie fragmentuj
-  * ``-c 1``-Wyślij tylko jeden pakiet
-  * ``-s 1472``-Ustaw rozmiar ładunku na 1472 bajtów. Jest to maksymalny rozmiar ładunku 1500-bajtowego po rozliczeniu za obciążenie sieci Ethernet.
+  * ``-M do`` -Nie fragmentuj
+  * ``-c 1`` -Wyślij tylko jeden pakiet
+  * ``-s 1472`` -Ustaw rozmiar ładunku na 1472 bajtów. Jest to maksymalny rozmiar ładunku 1500-bajtowego po rozliczeniu za obciążenie sieci Ethernet.
 
   Odpowiedź oznaczająca powodzenie wygląda następująco:
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
 ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326056"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optymalizowanie środowiska za pomocą rozwiązania System Center Operations Manager Health Check (wersja zapoznawcza)
@@ -82,7 +82,7 @@ Przed kontynuowaniem konto Uruchom jako musi spełniać następujące wymagania:
 4. Na stronie **Właściwości ogólne** wybierz pozycję **Windows** na liście **Typ konta Uruchom jako** .
 5. Wpisz nazwę wyświetlaną w polu tekstowym **Nazwa wyświetlana** i opcjonalnie wpisz opis w polu **Opis** , a następnie kliknij przycisk **dalej**.
 6. Na stronie **zabezpieczenia dystrybucji** **Wybierz pozycję bezpieczniejsze.**
-7. Kliknij pozycję **Utwórz**.  
+7. Kliknij przycisk **Utwórz**.  
 
 Teraz, gdy tworzone jest konto Uruchom jako, musi ono być docelowe serwery zarządzania w grupie zarządzania i skojarzone ze wstępnie zdefiniowanym profilem Uruchom jako, aby przepływy pracy były uruchamiane przy użyciu poświadczeń.  
 

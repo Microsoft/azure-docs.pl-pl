@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902460"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Rozwiązywanie problemów z urządzeniem IoT Edge
@@ -71,7 +71,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>Sprawdź wersję IoT Edge
 
-Jeśli używasz starszej wersji IoT Edge, uaktualnienie może rozwiązać problem. `iotedge check`Narzędzie sprawdza, czy IoT Edge Security DAEMON to Najnowsza wersja, ale nie sprawdza wersji centrów IoT Edge i modułów agentów. Aby sprawdzić wersję modułów środowiska uruchomieniowego na urządzeniu, Użyj poleceń `iotedge logs edgeAgent` i `iotedge logs edgeHub` . Numer wersji jest zadeklarowany w dziennikach podczas uruchamiania modułu.
+Jeśli używasz starszej wersji usługi IoT Edge, uaktualnienie może rozwiązać problem. `iotedge check`Narzędzie sprawdza, czy IoT Edge Security DAEMON to Najnowsza wersja, ale nie sprawdza wersji centrów IoT Edge i modułów agentów. Aby sprawdzić wersję modułów środowiska uruchomieniowego na urządzeniu, Użyj poleceń `iotedge logs edgeAgent` i `iotedge logs edgeHub` . Numer wersji jest deklarowany w dziennikach podczas uruchamiania modułu.
 
 Aby uzyskać instrukcje dotyczące sposobu aktualizowania urządzenia, zobacz [Aktualizacja demona i środowisko uruchomieniowe IoT Edge Security](how-to-update-iot-edge.md).
 

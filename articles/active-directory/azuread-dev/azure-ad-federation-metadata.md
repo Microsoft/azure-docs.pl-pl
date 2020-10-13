@@ -14,10 +14,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: bcc44f61ccb7b4a19e7df39ab979669c5aa37da1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80154903"
 ---
 # <a name="federation-metadata"></a>Metadane federacji
@@ -91,7 +91,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 
 `KeyDescriptor`Element pojawia się w dwóch miejscach w dokumencie metadanych Federacji, w sekcji dotyczącej protokołu WS-Federation i w sekcji dotyczącej języka SAML. Certyfikaty publikowane w obu sekcjach będą takie same.
 
-W sekcji dotyczącej protokołu WS-Federation czytnik metadanych usługi WS-Federation odczytuje certyfikaty z `RoleDescriptor` elementu z `SecurityTokenServiceType` typem.
+W sekcji dotyczącej protokołu WS-Federation czytnik metadanych WS-Federation odczytuje certyfikaty z `RoleDescriptor` elementu z `SecurityTokenServiceType` typem.
 
 Poniższe metadane przedstawiają przykładowy `RoleDescriptor` element.
 
@@ -99,7 +99,7 @@ Poniższe metadane przedstawiają przykładowy `RoleDescriptor` element.
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-W sekcji dotyczącej języka SAML czytnik metadanych usługi WS-Federation odczytuje certyfikaty z `IDPSSODescriptor` elementu.
+W sekcji dotyczącej protokołu SAML czytnik metadanych WS-Federation odczytuje certyfikaty z `IDPSSODescriptor` elementu.
 
 Poniższe metadane przedstawiają przykładowy `IDPSSODescriptor` element.
 
@@ -108,7 +108,7 @@ Poniższe metadane przedstawiają przykładowy `IDPSSODescriptor` element.
 ```
 Nie ma żadnych różnic w formacie certyfikatów specyficznych dla dzierżawy i niezależnych od dzierżawców.
 
-### <a name="ws-federation-endpoint-url"></a>Adres URL punktu końcowego usługi WS-Federation
+### <a name="ws-federation-endpoint-url"></a>Adres URL punktu końcowego WS-Federation
 Metadane federacji obejmują adres URL, który jest wykorzystywany przez usługę Azure AD do logowania jednokrotnego i logowania jednokrotnego w protokole WS-Federation. Ten punkt końcowy jest wyświetlany w `PassiveRequestorEndpoint` elemencie.
 
 Poniższe metadane przedstawiają przykładowy `PassiveRequestorEndpoint` element dla punktu końcowego określonego dla dzierżawy.
@@ -122,7 +122,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-W przypadku punktu końcowego niezależnego od dzierżawy adres URL protokołu WS-Federation pojawia się w punkcie końcowym usługi WS-Federation, jak pokazano w poniższym przykładzie.
+W przypadku punktu końcowego niezależnego od dzierżawy adres URL WS-Federation pojawia się w punkcie końcowym WS-Federation, jak pokazano w poniższym przykładzie.
 
 ```
 <fed:PassiveRequestorEndpoint>
