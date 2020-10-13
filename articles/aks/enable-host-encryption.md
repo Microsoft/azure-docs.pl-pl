@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986869"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Szyfrowanie oparte na hoście w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
@@ -29,7 +29,7 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 - Upewnij się, że masz `EncryptionAtHost` flagę funkcji w obszarze `Microsoft.Compute` włączone.
 - Upewnij się, że masz `EnableEncryptionAtHostPreview` flagę funkcji w obszarze `Microsoft.ContainerService` włączone.
 
-### <a name="register-encryptionathost--preview-features"></a>Rejestrowanie `EncryptionAtHost` funkcji w wersji zapoznawczej
+### <a name="register-encryptionathost--preview-features"></a>Rejestrowanie `EncryptionAtHost`  funkcji w wersji zapoznawczej
 
 Aby utworzyć klaster AKS, który korzysta z szyfrowania opartego na hoście, należy włączyć `EnableEncryptionAtHostPreview` `EncryptionAtHost` flagi i funkcji w subskrypcji.
 

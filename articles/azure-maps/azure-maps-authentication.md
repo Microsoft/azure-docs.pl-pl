@@ -11,10 +11,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036848"
 ---
 # <a name="authentication-with-azure-maps"></a>Uwierzytelnianie w usłudze Azure Maps
@@ -65,7 +65,7 @@ Po odebraniu tokenu dostępu przez aplikację zestaw SDK i/lub aplikacja wysyła
 | Autoryzacja  | Bearer eyJ0e….HNIVN |
 
 > [!NOTE]
-> `x-ms-client-id`jest identyfikatorem GUID opartym na koncie Azure Maps, który pojawia się na stronie uwierzytelnianie Azure Maps.
+> `x-ms-client-id` jest identyfikatorem GUID opartym na koncie Azure Maps, który pojawia się na stronie uwierzytelnianie Azure Maps.
 
 Oto przykład żądania Azure Maps trasy, które używa tokenu okaziciela OAuth usługi Azure AD:
 
@@ -133,7 +133,7 @@ Przypisanie przypisania roli do grupy zasobów może umożliwić dostęp do wiel
 
 Aby dowiedzieć się więcej na temat RBAC, zobacz
 > [!div class="nextstepaction"]
-> [Kontrola dostępu na podstawie ról](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Kontrola dostępu oparta na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 Aby dowiedzieć się więcej o uwierzytelnianiu aplikacji za pomocą usługi Azure AD i Azure Maps, zobacz
 > [!div class="nextstepaction"]

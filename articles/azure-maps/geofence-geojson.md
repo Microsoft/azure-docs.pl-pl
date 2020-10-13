@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037409"
 ---
 # <a name="geofencing-geojson-data"></a>Geogeofencingu dane GEOJSON
@@ -24,9 +24,9 @@ Dane dla geofencingu lub zestawu geoogrodzenia są reprezentowane przez `Feature
 * Typ obiektu GEOJSON może być `Feature` obiektem lub `FeatureCollection` obiektem.
 * Obiekt geometry może być typu `Point` , `MultiPoint` ,,, `LineString` , `MultiLineString` `Polygon` `MultiPolygon` , i `GeometryCollection` .
 * Wszystkie właściwości funkcji powinny zawierać element `geometryId` , który jest używany do identyfikowania geoogrodzenia.
-* Funkcja z `Point` , `MultiPoint` , `LineString` , `MultiLineString` musi zawierać `radius` właściwości. `radius`wartość jest mierzona w licznikach, a `radius` wartości z zakresu od 1 do 10000.
+* Funkcja z `Point` , `MultiPoint` , `LineString` , `MultiLineString` musi zawierać `radius` właściwości. `radius` wartość jest mierzona w licznikach, a `radius` wartości z zakresu od 1 do 10000.
 * Funkcja with `polygon` i `multipolygon` Typ geometry nie mają właściwości RADIUS.
-* `validityTime`jest opcjonalną właściwością, która umożliwia użytkownikowi ustawianie czasu wygaśnięcia i okresu ważności danych geoogrodzenia. Jeśli nie zostanie określony, dane nigdy nie wygasną i są zawsze poprawne.
+* `validityTime` jest opcjonalną właściwością, która umożliwia użytkownikowi ustawianie czasu wygaśnięcia i okresu ważności danych geoogrodzenia. Jeśli nie zostanie określony, dane nigdy nie wygasną i są zawsze poprawne.
 * `expiredTime`Jest to data i godzina wygaśnięcia danych dotyczących geofencingu. Jeśli wartość `userTime` w żądaniu jest późniejsza niż ta wartość, odpowiednie dane geoogrodzenia są uznawane za wygasłe i nie są wysyłane do zapytania. W związku z tym, geometryId danych geoogrodzenia zostanie uwzględniony w `expiredGeofenceGeometryId` tablicy w odpowiedzi geołożonej.
 * `validityPeriod`Jest to lista okresów czasu ważności geoogrodzenia. Jeśli wartość `userTime` w żądaniu przypada poza okresem ważności, odpowiednie dane geoogrodzenia są uznawane za nieprawidłowe i nie będą wysyłane do nich zapytania. GeometryId tych danych geograficznych jest dołączany do `invalidPeriodGeofenceGeometryId` tablicy w odpowiedzi geoogrodzenia. W poniższej tabeli przedstawiono właściwości elementu validityPeriod.
 
@@ -34,15 +34,15 @@ Dane dla geofencingu lub zestawu geoogrodzenia są reprezentowane przez `Feature
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime (data/godzina)  | true | Data i godzina rozpoczęcia okresu ważności. |
 | endTime   | Datetime (data/godzina)  | true |  Data i godzina zakończenia okresu ważności. |
-| Nr wystąpienia | ciąg | fałsz |   Typ cyklu okresu. Wartością może być `Daily` , `Weekly` , `Monthly` , lub `Yearly` . Wartość domyślna to `Daily` .|
-| businessDayOnly | Boolean | fałsz |  Wskazuje, czy dane są prawidłowe tylko w dniach roboczych. Wartość domyślna to `false` .|
+| Nr wystąpienia | ciąg | fałsz |   Typ cyklu okresu. Wartością może być `Daily` , `Weekly` , `Monthly` , lub `Yearly` . Wartość domyślna to `Daily`.|
+| businessDayOnly | Boolean | fałsz |  Wskazuje, czy dane są prawidłowe tylko w dniach roboczych. Wartość domyślna to `false`.|
 
 
 * Wszystkie wartości współrzędnych są reprezentowane jako [Długość geograficzna, Szerokość geograficzna] zdefiniowana w `WGS84` .
 * Dla każdej funkcji, która zawiera `MultiPoint` , `MultiLineString` , `MultiPolygon` lub `GeometryCollection` , właściwości są stosowane do wszystkich elementów. na przykład: wszystkie punkty w programie `MultiPoint` będą używały tego samego promienia do utworzenia wieloogrodzenia okręgu.
 * W scenariuszu w kółku punktowym geometria okręgu może być reprezentowana przy użyciu `Point` obiektu geometrii z właściwościami opracowanymi w ramach [rozszerzania GEOJSON geometrie](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 
-Poniżej znajduje się Przykładowa treść żądania dla geoogrodzenia reprezentowana jako geometryczna geometria okręgu `GeoJSON` przy użyciu punktu centralnego i promienia. Prawidłowy okres danych geoogrodzenia zaczyna się od 2018-10-22, 9:00 do 17:00, powtarzany każdego dnia z wyjątkiem weekendu. `expiredTime`wskazuje, że te dane geoogrodzenia będą uznawane za wygasłe, jeśli `userTime` żądanie jest późniejsze niż `2019-01-01` .  
+Poniżej znajduje się Przykładowa treść żądania dla geoogrodzenia reprezentowana jako geometryczna geometria okręgu `GeoJSON` przy użyciu punktu centralnego i promienia. Prawidłowy okres danych geoogrodzenia zaczyna się od 2018-10-22, 9:00 do 17:00, powtarzany każdego dnia z wyjątkiem weekendu. `expiredTime` wskazuje, że te dane geoogrodzenia będą uznawane za wygasłe, jeśli `userTime` żądanie jest późniejsze niż `2019-01-01` .  
 
 ```json
 {

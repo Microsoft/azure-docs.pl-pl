@@ -4,10 +4,10 @@ description: Dowiedz się, jak wdrażać Azure Backup dla Data Protection Manage
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 176cbffe5152462055c4ffdb2367cf9c0ab97c1f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968293"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie kopii zapasowych serwerów Data Protection Manager (DPM) na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 Dostępne opcje to:
 
-| Opcja | Szczegóły | Domyślny |
+| Opcja | Szczegóły | Domyślne |
 | --- | --- | --- |
 | /q |Instalacja cicha |- |
 | /p: "Location" |Ścieżka do folderu instalacji agenta Azure Backup. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -340,7 +340,7 @@ Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Zmiana rozmiaru repliki programu DPM & wolumin punktu odzyskiwania
 
-Możesz również zmienić rozmiar woluminu repliki programu DPM i woluminu kopii w tle za pomocą polecenia cmdlet [Set-DPMDatasourceDiskAllocation](/powershell/module/dataprotectionmanager/set-dpmdatasourcediskallocation) , tak jak w poniższym przykładzie: Get-DatasourceDiskAllocation-DataSource $ds Set-DatasourceDiskAllocation-DataSource $ds-Protection $MPG-ręczna-ReplicaArea (2 GB)-ShadowCopyArea (2 GB)
+Możesz również zmienić rozmiar woluminu repliki programu DPM i woluminu kopii w tle za pomocą polecenia cmdlet [Set-DPMDatasourceDiskAllocation](/powershell/module/dataprotectionmanager/set-dpmdatasourcediskallocation) , tak jak w poniższym przykładzie: Get-DatasourceDiskAllocation-datasource $ds Set-DatasourceDiskAllocation-DataSource $DS-$MPG Protection-ReplicaArea (2 GB)-ShadowCopyArea (2 GB)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Zatwierdzanie zmian w grupie ochrony
 

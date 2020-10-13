@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95dc5b70174cd738104260aac2e175c0657d9c90
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447818"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966206"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
@@ -178,11 +178,36 @@ Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe
 
 Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe IoT Edge na maszynie wirtualnej.
 
-Przed rozpoczęciem artykułu, który jest zgodny z typem urządzenia, należy znać **zakres identyfikatorów** DPS i **Identyfikator rejestracji** urządzenia. Jeśli zainstalowano przykładowy serwer Ubuntu, należy użyć instrukcji **x64** . Pamiętaj, aby skonfigurować środowisko uruchomieniowe IoT Edge automatyczne, a nie ręczne, Inicjowanie obsługi administracyjnej.
+Wykonaj kroki opisane w artykule [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge.md), a następnie wróć do tego artykułu, aby udostępnić urządzenie.
 
-Po przekroczeniu kroku, aby skonfigurować demona zabezpieczeń, należy się upewnić, że jest wybrana [Opcja 2 Automatyczna obsługa administracyjna](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) i konfiguracja zaświadczania TPM.
+## <a name="configure-the-device-with-provisioning-information"></a>Konfigurowanie urządzenia przy użyciu informacji o aprowizacji
 
-[Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
+Po zainstalowaniu na urządzeniu środowiska uruchomieniowego skonfiguruj je za pomocą informacji, które są używane do nawiązywania połączenia z usługą Device Provisioning i IoT Hub.
+
+1. Należy znać **zakres identyfikatorów** DPS i **Identyfikator rejestracji** urządzenia, które zostały zebrane w poprzednich sekcjach.
+
+1. Otwórz plik konfiguracji na urządzeniu IoT Edge.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Znajdź sekcję konfiguracje aprowizacji pliku. Usuń znaczniki komentarza z wierszy, aby zainicjować obsługę administracyjną modułu TPM, i upewnij się, że wszystkie inne wiersze aprowizacji zostały oznaczone jako komentarze.
+
+   `provisioning:`Wiersz nie powinien zawierać poprzedzających odstępów, a zagnieżdżone elementy powinny mieć dwie spacje.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. Zaktualizuj wartości `scope_id` i `registration_id` przy użyciu informacji o usłudze DPS i urządzeniu.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Nadaj IoT Edge dostęp do modułu TPM
 

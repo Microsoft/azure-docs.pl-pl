@@ -4,10 +4,10 @@ description: Ten artykuł zawiera instrukcje dotyczące zapisywania obrazów nie
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476244"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Zapisywanie obrazów niestandardowych i ich dystrybucja do wielu laboratoriów
@@ -78,7 +78,7 @@ Korzystając z tych samych kroków opisanych wcześniej w tym artykule, Dodaj do
 
 ![Kompiluj zadanie w celu dystrybucji obrazów](./media/save-distribute-custom-images/second-build-task-powershell.png)
 
-Parametry są następujące:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
+Parametry są następujące: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
 
 To zadanie pobiera wszystkie obrazy niestandardowe obecne w fabryce obrazu i wypycha je do wszystkich laboratoriów zdefiniowanych w Labs.jsna pliku.
 

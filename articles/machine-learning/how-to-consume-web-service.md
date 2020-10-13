@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: da5155653ce531c359eda34eec87fa7239219e4d
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5ffdb7a3bb177092d728fbd469aa8cf95e93edb5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940161"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966104"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa internetowa
 
@@ -46,7 +46,9 @@ Klasa [Azure. Core. WebService](https://docs.microsoft.com/python/api/azureml-co
 * `scoring_uri` — Adres interfejsu API REST.
 * `swagger_uri` -Adres specyfikacji OpenAPI. Ten identyfikator URI jest dostępny po włączeniu automatycznego generowania schematu. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
 
-Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci Web:
+Istnieje kilka sposobów na pobranie tych informacji dla wdrożonych usług sieci Web:
+
+# <a name="python"></a>[Python](#tab/python)
 
 * Podczas wdrażania modelu `Webservice` obiekt jest zwracany z informacjami o usłudze:
 
@@ -72,6 +74,30 @@ Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci W
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Jeśli znasz nazwę wdrożonej usługi, użyj polecenia [AZ ml Service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
+
+```azurecli
+az ml service show -n <service-name>
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+W programie Azure Machine Learning Studio wybierz __punkty końcowe__, __punkty końcowe w czasie rzeczywistym__, a następnie nazwę punktu końcowego. W szczegółach dla punktu końcowego w polu __punkt końcowy REST__ znajduje się identyfikator URI oceniania. __Identyfikator URI struktury Swagger__ zawiera identyfikator URI programu Swagger.
+
+---
+
+W poniższej tabeli pokazano, jak wyglądają następujące identyfikatory URI:
+
+| Typ identyfikatora URI | Przykład |
+| ----- | ----- |
+| Identyfikator URI oceniania | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Identyfikator URI struktury Swagger | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+
+> [!TIP]
+> Adres IP będzie różny dla Twojego wdrożenia. Każdy klaster AKS będzie miał własny adres IP, który jest udostępniany przez wdrożenia dla tego klastra.
 
 ### <a name="secured-web-service"></a>Zabezpieczona usługa sieci Web
 

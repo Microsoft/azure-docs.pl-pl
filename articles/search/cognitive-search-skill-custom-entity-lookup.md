@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936116"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność wyszukiwania jednostek niestandardowych (wersja zapoznawcza)
@@ -69,7 +69,7 @@ Jeśli definicja została podana w tekście, powinna być określona jako wbudow
 
 ### <a name="csv-format"></a>Format CSV
 
-Można podać definicję jednostek niestandardowych do wyszukania w pliku wartości rozdzielanych przecinkami (CSV), podając ścieżkę do pliku i ustawiając go w parametrze umiejętności *entitiesDefinitionUri*  . Ścieżka powinna znajdować się w lokalizacji HTTPS. Plik definicji może mieć rozmiar do 10 MB.
+Możesz podać Definicje jednostek niestandardowych do wyszukania w pliku wartości Comma-Separated (CSV), podając ścieżkę do pliku i ustawiając go w parametrze umiejętności *entitiesDefinitionUri*  . Ścieżka powinna znajdować się w lokalizacji HTTPS. Plik definicji może mieć rozmiar do 10 MB.
 
 Format CSV jest prosty. Każdy wiersz reprezentuje unikatową jednostkę, jak pokazano poniżej:
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554519"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Samouczek: integracja logowania jednokrotnego w usłudze Azure AD z pakietem
@@ -79,7 +79,7 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie **integracja aplikacji sieci** Web Znajdź sekcję **Zarządzanie** , a następnie wybierz pozycję **Logowanie jednokrotne**.
 1. W okienku **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **Edytuj** ("ołówek") obok pozycji **Podstawowa konfiguracja SAML**.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz ikonę **Edytuj** ("ołówek") obok pozycji **Podstawowa konfiguracja SAML**.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -135,7 +135,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    a. W polu **Nazwa** wprowadź wartość **B. Simon**.  
    b. W polu **Nazwa użytkownika** wprowadź username@companydomain.extension (na przykład B.Simon@contoso.com ).  
    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.  
-   d. Wybierz pozycję **Utwórz**.
+   d. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -263,7 +263,7 @@ Po wybraniu kafelka pakietu w panelu dostępu należy automatycznie zalogować s
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Wypróbuj pakiet z usługą Azure AD](https://aad.portal.azure.com/)
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

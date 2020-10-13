@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 09/08/2020
 ms.openlocfilehash: 2e53c9d7c7328ef631bd1ba3d678f31dd12e1f28
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574034"
 ---
 W [konfiguracji środowiska](../articles/iot-pnp/set-up-environment.md)utworzono cztery zmienne środowiskowe w celu skonfigurowania przykładu do korzystania z usługi Device Provisioning Service (DPS) w celu nawiązania połączenia z Centrum IoT:

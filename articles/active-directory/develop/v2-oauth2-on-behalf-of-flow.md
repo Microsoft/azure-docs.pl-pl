@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88958664"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
@@ -222,7 +222,7 @@ W niektórych scenariuszach może istnieć tylko jedno skojarzenie klienta warst
 
 Jeśli klient używa niejawnego przepływu do uzyskania id_token, a ten klient ma także symbole wieloznaczne w adresie URL odpowiedzi, nie można użyć id_token dla przepływu OBO.  Jednak tokeny dostępu nabyte za pomocą niejawnego przepływu dotacji nadal mogą być realizowane przez poufnego klienta, nawet jeśli klient inicjujący ma zarejestrowany adres URL odpowiedzi z symbolem wieloznacznym.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o protokole OAuth 2,0 i innym sposobie przeprowadzania uwierzytelniania usługi przy użyciu poświadczeń klienta.
 

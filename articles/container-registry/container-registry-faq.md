@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
 ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570515"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
@@ -434,7 +434,7 @@ Jeśli używasz przeglądarki Microsoft Edge/IE, możesz zobaczyć maksymalnie 1
 Przeglądarka może nie być w stanie wysłać żądania pobrania repozytoriów lub tagów na serwer. Mogą istnieć różne przyczyny, takie jak:
 
 * Brak łączności sieciowej
-* Firewall
+* Zapora
 * Bloki usługi AD
 * Błędy DNS
 

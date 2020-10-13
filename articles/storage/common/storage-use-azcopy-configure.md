@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037188"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
@@ -32,7 +32,7 @@ Aby skonfigurować ustawienia serwera proxy dla AzCopy, należy ustawić `https_
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
-| **Windows** | W wierszu polecenia Użyj:`set https_proxy=<proxy IP>:<proxy port>`<br> W programie PowerShell Użyj:`$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | W wierszu polecenia Użyj: `set https_proxy=<proxy IP>:<proxy port>`<br> W programie PowerShell Użyj: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -45,11 +45,11 @@ Jeśli uruchamiasz program AzCopy w systemie Windows i chcesz powiedzieć, że w
 | System operacyjny | Środowisko | Polecenia  |
 |--------|-----------|----------|
 | **Windows** | Wiersz polecenia (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
-| **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
+| **Windows** | Program PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
 
 W innych systemach operacyjnych, należy po prostu pozostawić zmienną HTTPS_PROXY tak, aby nie był używany żaden serwer proxy.
 
-## <a name="optimize-performance"></a>Optymalizowanie wydajności
+## <a name="optimize-performance"></a>Optymalizacja wydajności
 
 Możesz przeprowadzić test wydajności, a następnie użyć poleceń i zmiennych środowiskowych, aby znaleźć optymalną kompromis między wydajnością i użyciem zasobów.
 
@@ -191,7 +191,7 @@ Użyj dowolnego z tych poleceń.
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
-| **Windows** | Narzędzia`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> W wierszu polecenia Użyj::`set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | Narzędzia`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> W wierszu polecenia Użyj:: `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
@@ -203,7 +203,7 @@ Użyj dowolnego z tych poleceń.
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
-| **Windows** | Narzędzia`$env:AZCOPY_LOG_LOCATION="<value>"` <br> W wierszu polecenia Użyj::`set AZCOPY_LOG_LOCATION=<value>`|
+| **Windows** | Narzędzia`$env:AZCOPY_LOG_LOCATION="<value>"` <br> W wierszu polecenia Użyj:: `set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 

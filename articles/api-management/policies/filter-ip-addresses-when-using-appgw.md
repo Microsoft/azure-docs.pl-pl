@@ -13,10 +13,10 @@ ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
 ms.openlocfilehash: 45e16c9aa9e4b04e7225320951e9f839fae75ba3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75942479"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtruj według adresu IP żądania przy użyciu Application Gateway

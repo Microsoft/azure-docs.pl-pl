@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
 ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950497"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące usługi Azure Site Recovery
@@ -124,7 +124,7 @@ Możesz przełączyć się na zarządzaną tożsamość magazynu usługi Recover
   - [Współautor danych obiektu blob usługi Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Konta magazynu oparte na Menedżer zasobów (typ warstwy Premium):
   - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
-  - [Właściciel danych obiektów blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+  - [Właściciel danych obiektu blob usługi Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 - Klasyczne konta magazynu:
   - [Współautor klasycznego konta magazynu](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Rola usługi operatora kluczy klasycznego konta magazynu](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
@@ -357,5 +357,5 @@ Tak. Przepływy pracy usługi Site Recovery można zautomatyzować przy użyciu 
 
 [Dowiedz się więcej](site-recovery-whats-new.md) o nowych aktualizacjach i [Pobierz informacje zbiorcze](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * Zapoznaj się z [omówieniem usługi Site Recovery](site-recovery-overview.md)

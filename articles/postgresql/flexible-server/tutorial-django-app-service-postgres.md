@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 3366f39f3aca8ad0114244c122d1003b5e9b91a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90946668"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Samouczek: wdrażanie aplikacji Django przy użyciu App Service i Azure Database for PostgreSQL — serwer elastyczny (wersja zapoznawcza)
@@ -270,14 +270,14 @@ Przejdź do *protokołu http: \/ / \<app-name> . azurewebsites.NET* i przetestuj
 
 W [Azure Portal](https://portal.azure.com)Wyszukaj nazwę aplikacji i wybierz aplikację w wynikach.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Przejdź do aplikacji w języku Python Django w Azure Portal":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Przykład Django serwera deweloperskiego":::
 
 Domyślnie w portalu jest wyświetlana strona **omówienia** aplikacji, która zawiera ogólny widok wydajności. W tym miejscu można również wykonywać podstawowe zadania zarządzania, takie jak przeglądanie, zatrzymywanie, ponowne uruchamianie i usuwanie. Na kartach po lewej stronie strony są pokazane poszczególne strony konfiguracji, które można otworzyć.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Zarządzanie aplikacją Django języka Python na stronie Przegląd w Azure Portal":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Przykład Django serwera deweloperskiego":::
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz zachować aplikację lub przejść do następnego samouczka, przejdź do [sekcji Następne kroki](#next-steps). W przeciwnym razie, aby uniknąć ponoszenia opłat, możesz usunąć grupę zasobów utworzoną dla tego samouczka:
 

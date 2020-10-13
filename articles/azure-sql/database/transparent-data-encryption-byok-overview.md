@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
 ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602673"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Funkcja Transparent Data Encryption usługi Azure SQL przy użyciu klucza zarządzanego przez klienta
@@ -191,7 +191,7 @@ Użyj polecenia cmdlet Backup-AzKeyVaultKey, aby pobrać klucz w szyfrowanym for
 
 Jeśli wystąpi awaria wpływająca na podstawowy Magazyn kluczy, system automatycznie przejdzie do innego połączonego klucza z tym samym odciskiem palca w magazynie kluczy pomocniczych, jeśli istnieje. Należy pamiętać, że ten przełącznik nie zostanie wykonany, jeśli funkcja ochrony TDE jest niedostępna z powodu odwołanych praw dostępu lub klucz lub Magazyn kluczy został usunięty, ponieważ może to wskazywać, że klient chce ograniczyć dostęp serwera do klucza.
 
-![HA na jednym serwerze](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
+![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>Geograficznie i TDE zarządzane przez klienta
 

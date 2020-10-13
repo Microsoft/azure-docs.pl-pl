@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: daperlov
 ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905309"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model w Azure Data Factory
@@ -37,7 +37,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CD
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Format musi być`cdm` | tak | `cdm` | format |
+| Format | Format musi być `cdm` | tak | `cdm` | format |
 | Format metadanych | Miejsce, w którym znajdują się odwołania do danych jednostki. Jeśli jest używany program CDM w wersji 1,0, wybierz pozycję Manifest. W przypadku używania wersji CDM przed 1,0 wybierz pozycję model.json. | Tak | `'manifest'` lub `'model'` | manifesttype |
 | Lokalizacja główna: kontener | Nazwa kontenera folderu CDM | tak | Ciąg | Wymagany |
 | Lokalizacja główna: ścieżka folderu | Lokalizacja folderu głównego folderu CDM | tak | Ciąg | folderPath |
@@ -114,7 +114,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia CDM.
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Format musi być`cdm` | tak | `cdm` | format |
+| Format | Format musi być `cdm` | tak | `cdm` | format |
 | Lokalizacja główna: kontener | Nazwa kontenera folderu CDM | tak | Ciąg | Wymagany |
 | Lokalizacja główna: ścieżka folderu | Lokalizacja folderu głównego folderu CDM | tak | Ciąg | folderPath |
 | Plik manifestu: ścieżka jednostki | Ścieżka folderu jednostki w folderze głównym | nie | Ciąg | entityPath |
@@ -127,7 +127,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia CDM.
 | Jednostka korpus | Ścieżka do odwołania do jednostki | tak | Ciąg | jednostka |
 | Ścieżka partycji | Lokalizacja, w której zostanie zapisywana partycja | nie | Ciąg | partitionPath |
 | Wyczyść folder | Jeśli folder docelowy został wyczyszczony przed zapisem | nie | `true` lub `false` | obciąć |
-| Typ formatu | Wybierz, aby określić format Parquet | nie | `parquet`Jeśli określony | podformat |
+| Typ formatu | Wybierz, aby określić format Parquet | nie | `parquet` Jeśli określony | podformat |
 | Ogranicznik kolumny | Jeśli piszesz do DelimitedText, jak ograniczać kolumny | tak, jeśli piszesz do DelimitedText | Ciąg | columnDelimiter |
 | Pierwszy wiersz jako nagłówek | W przypadku korzystania z DelimitedText, niezależnie od tego, czy nazwy kolumn są dodawane jako nagłówek | nie | `true` lub `false` | columnNamesAsHeader |
 

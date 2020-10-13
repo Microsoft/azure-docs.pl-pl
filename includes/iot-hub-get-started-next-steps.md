@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: c8bf7f3a423b97f6cd84f0b575d00d60776c598c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75911933"
 ---
 Aby nadal zacząć korzystać z usługi Azure IoT Hub i zapoznać się ze wszystkimi rozszerzonymi scenariuszami IoT, zobacz następujące tematy:

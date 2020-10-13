@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
 ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651830"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure
@@ -77,16 +77,16 @@ Przygotuj platformę Azure do migracji przy użyciu Azure Migrate: Narzędzia mi
 
 **Zadanie** | **Szczegóły**
 --- | ---
-**Tworzenie projektu Azure Migrate** | Twoje konto platformy Azure musi mieć uprawnienia współautora lub właściciela, aby utworzyć projekt.
+**Tworzenie projektu usługi Azure Migrate** | Twoje konto platformy Azure musi mieć uprawnienia współautora lub właściciela, aby utworzyć projekt.
 **Weryfikowanie uprawnień do konta platformy Azure** | Twoje konto platformy Azure wymaga uprawnień do utworzenia maszyny wirtualnej i zapisu na dysku zarządzanym platformy Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu
 
-1. W Azure Portal Otwórz subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)**.
+1. W witrynie Azure Portal otwórz daną subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)** .
 2. W obszarze **Sprawdź dostęp**Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia.
 3. Należy mieć uprawnienia **współautora** lub **właściciela** .
-    - Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji.
-    - Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać rolę.
+    - Jeśli bezpłatne konto platformy Azure zostało właśnie utworzone, jesteś właścicielem subskrypcji.
+    - Jeśli nie jesteś właścicielem subskrypcji, poproś właściciela o przypisanie roli.
 
 ### <a name="assign-azure-account-permissions"></a>Przypisywanie uprawnień konta platformy Azure
 
@@ -143,7 +143,7 @@ Skonfiguruj projekt Azure Migrate, a następnie Dodaj do niego narzędzie do mig
     - Lokalizacja geograficzna projektu służy tylko do przechowywania metadanych zebranych z maszyn AWS.
     - Podczas przeprowadzania migracji można wybrać dowolny region docelowy.
 
-    ![Tworzenie projektu Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
+    ![Tworzenie projektu usługi Azure Migrate](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
 8. W obszarze **Wybierz narzędzie oceny**, wybierz pozycję **Pomiń teraz dodawanie narzędzia oceny** > **Dalej**.
 9. W obszarze **Wybierz narzędzie migracji** wybierz pozycję **Azure Migrate: Migracja serwera** > **Dalej**.
@@ -185,7 +185,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     9,8 w **lokalizacji instalacji**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,9 w **obszarze Wybór sieci**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,10 w obszarze **Podsumowanie**wybierz pozycję **Zainstaluj**.   
-    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz pozycję **OK**.   
+    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz przycisk **OK**.   
     9,12 następnie w oknie zostanie wyświetlony komunikat dotyczący hasła połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i Zapisz hasło w tymczasowym pliku tekstowym na źródłowych maszynach wirtualnych. To hasło będzie potrzebne później, podczas procesu instalacji usługi mobilności.
 10. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 11. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.

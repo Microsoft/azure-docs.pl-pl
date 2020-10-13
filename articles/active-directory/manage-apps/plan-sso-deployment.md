@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603343"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
@@ -158,8 +158,8 @@ W poniższej sekcji przedstawiono wymagania dotyczące konfigurowania konkretnej
 W przypadku wszystkich wstępnie zintegrowanych aplikacji SaaS firma Microsoft udostępnia samouczek i nie potrzebuje tych informacji. Jeśli aplikacja nie znajduje się w portalu Marketplace/galerii aplikacji, może być konieczne zebranie następujących fragmentów danych:
 
 - **Bieżący dostawca tożsamości używa aplikacji na potrzeby logowania jednokrotnego, jeśli ma zastosowanie** — na przykład: AD FS, serwera pingfederate, usługi okta
-- **Protokoły obsługiwane przez aplikację docelową** — na przykład SAML 2,0, OpenID Connect Connect, OAuth, uwierzytelniania opartego na formularzach, WS-Supported, WS-Trust
-- **Protokół konfigurowany za pomocą usługi Azure AD** — na przykład SAML 2,0 lub 1,1, OpenID Connect Connect, OAuth, formularze oparte na protokole WS-karmione
+- **Protokoły obsługiwane przez aplikację docelową** — na przykład SAML 2,0, OpenID Connect Connect, OAuth, Forms-Based Auth, WS-Trust
+- **Protokół konfigurowany za pomocą usługi Azure AD** — na przykład SAML 2,0 lub 1,1, OpenID Connect Connect, OAuth, oparte na formularzach, WS-Fed
 
 ### <a name="attribute-requirements"></a>Wymagania dotyczące atrybutów
 
@@ -313,11 +313,11 @@ Poniższe linki prowadzą do rozwiązywania problemów. Możesz chcieć utworzy�
 
 [Protokół SAML logowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-[Protokół SAML wylogowania jednokrotnego](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[Pojedynczy Sign-Out protokół SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
 
 [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (dla użytkowników zewnętrznych, takich jak partnerzy i dostawcy)
 
-[Dostęp warunkowy usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Dostęp warunkowy w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

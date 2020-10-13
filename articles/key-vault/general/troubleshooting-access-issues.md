@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595992"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
@@ -45,7 +45,7 @@ Jeśli tworzysz aplikację Premium, przenosząc lokalne programowanie lub w inny
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Jak nadawać grupie usługi AD dostęp do magazynu kluczy?
 
-Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy za pomocą polecenia interfejsu CLI platformy Azure `az keyvault set-policy` lub poleceń cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](assign-access-policy-cli.md) i [przypisywanie zasad dostępu — PowerShell](assign-access-policy-powershell.md).
+Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy za pomocą polecenia interfejsu CLI platformy Azure `az keyvault set-policy` lub polecenia cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](assign-access-policy-cli.md) i [przypisywanie zasad dostępu — PowerShell](assign-access-policy-powershell.md).
 
 Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami i dostępem (IAM) przypisanej do magazynu kluczy. W przeciwnym razie nie będzie można zalogować się i nie powiedzie się z powodu niewystarczających praw dostępu do subskrypcji. Grupy usługi Azure AD z zarządzanymi tożsamościami mogą odświeżać tokeny do ośmiu godzin i zaczynają obowiązywać.
 

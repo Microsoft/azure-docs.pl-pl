@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961792"
 ---
 # <a name="create-an-external-app-service-environment"></a>Tworzenie zewnętrznego środowiska App Service
@@ -65,7 +65,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 2. Wybierz subskrypcję. Aplikacja i środowisko ASE są tworzone w tych samych subskrypcjach.
 
-3. Wybierz lub utwórz grupę zasobów. Grupy zasobów umożliwiają zarządzanie powiązanymi zasobami platformy Azure jako jednostką. Grupy zasobów są również przydatne w przypadku ustanowienia reguł Access Control opartych na rolach dla aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ARMOverview].
+3. Wybierz lub utwórz grupę zasobów. Grupy zasobów umożliwiają zarządzanie powiązanymi zasobami platformy Azure jako jednostką. Grupy zasobów są również przydatne podczas ustanawiania Role-Based reguł Access Control dla aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ARMOverview].
 
 4. Wybierz system operacyjny (Windows, Linux lub Docker). 
 
@@ -103,7 +103,7 @@ Aby utworzyć środowisko ASE podczas tworzenia planu App Service:
 
 1. Wybierz subskrypcję. Aplikacja i środowisko ASE są tworzone w tych samych subskrypcjach.
 
-1. Wybierz lub utwórz grupę zasobów. Grupy zasobów umożliwiają zarządzanie powiązanymi zasobami platformy Azure jako jednostką. Grupy zasobów są również przydatne w przypadku ustanowienia reguł Access Control opartych na rolach dla aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ARMOverview].
+1. Wybierz lub utwórz grupę zasobów. Grupy zasobów umożliwiają zarządzanie powiązanymi zasobami platformy Azure jako jednostką. Grupy zasobów są również przydatne podczas ustanawiania Role-Based reguł Access Control dla aplikacji. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager][ARMOverview].
 
 1. Wybierz plan App Service, a następnie wybierz pozycję **Utwórz nowy**. Aplikacje sieci Web w systemie Linux i aplikacje sieci Web systemu Windows nie mogą znajdować się w tym samym planie App Service, ale mogą być w tej samej App Service Environment. 
 

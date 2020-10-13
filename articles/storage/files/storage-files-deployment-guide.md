@@ -8,10 +8,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 08bcb41dd8d9f4643b03d855960d8632b778ff84
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034502"
 ---
 # <a name="how-to-deploy-azure-files"></a>Jak wdrożyć usługę Pliki Azure
@@ -104,7 +104,7 @@ Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z sys
     
     Robocopy ma znaczną liczbę opcji w celu zmodyfikowania zachowania kopiowania zgodnie z potrzebami. Aby uzyskać więcej informacji, zobacz stronę ręczną [Robocopy](https://technet.microsoft.com/library/cc733145.aspx) .
 
-### <a name="azcopy"></a>AzCopy
+### <a name="azcopy"></a>Narzędzie AzCopy
 AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych do i z Azure Files, a także do usługi Azure Blob Storage przy użyciu prostych poleceń z optymalną wydajnością. Korzystanie z AzCopy jest łatwe:
 
 1. Pobierz [najnowszą wersję programu AzCopy w systemie Windows](https://aka.ms/downloadazcopy) lub [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).

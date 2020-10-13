@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117740"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Wywołania między usługami, które korzystają z delegowanej tożsamości użytkownika w ramach przepływu w imieniu
@@ -144,8 +144,8 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | grant_type |wymagane | Typ żądania tokenu. Żądanie OBO używa tokenu dostępu JWT, dlatego musi mieć wartość **urn: IETF: params: OAuth: Grant-Type: JWT**. |
 | twierdz |wymagane | Wartość tokenu użytego w żądaniu. |
 | client_id |wymagane | Identyfikator aplikacji przypisany do usługi wywołującej podczas rejestracji w usłudze Azure AD. Aby znaleźć identyfikator aplikacji w Azure Portal, wybierz pozycję **Active Directory**, wybierz katalog, a następnie wybierz nazwę aplikacji. |
-| client_assertion_type |wymagane |Wartość musi być równa`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |wymagane | Token sieci Web JSON, który można utworzyć i podpisać przy użyciu certyfikatu zarejestrowanego jako poświadczenia dla aplikacji. Aby dowiedzieć się więcej o formacie potwierdzenia i o sposobie rejestrowania certyfikatu, zobacz [poświadczenia certyfikatu](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) .|
+| client_assertion_type |wymagane |Wartość musi być równa `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |wymagane | Token sieci Web JSON, który można utworzyć i podpisać przy użyciu certyfikatu zarejestrowanego jako poświadczenia dla aplikacji. Aby dowiedzieć się więcej o formacie potwierdzenia i o sposobie rejestrowania certyfikatu, zobacz  [poświadczenia certyfikatu](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) .|
 | zasób |wymagane | Identyfikator URI identyfikatora aplikacji usługi odbiorczej (zabezpieczony zasób). Aby znaleźć identyfikator URI aplikacji w Azure Portal, wybierz pozycję **Active Directory** i wybierz katalog. Wybierz nazwę aplikacji, wybierz pozycję **wszystkie ustawienia**, a następnie wybierz pozycję **Właściwości**. |
 | requested_token_use |wymagane | Określa, w jaki sposób żądanie powinno być przetwarzane. W imieniu przepływu wartość musi być **on_behalf_of**. |
 | scope |wymagane | Rozdzielana spacjami lista zakresów dla żądania tokenu. W przypadku połączenia OpenID Connect należy określić zakres **OpenID Connect** .|
@@ -282,10 +282,10 @@ Odpowiedź zawiera token języka SAML zakodowany w formacie UTF8 i Base64url.
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
-- zasoby`https://api.contoso.com`
-- access_token:\<SAML assertion\>
+- zasoby `https://api.contoso.com`
+- access_token: \<SAML assertion\>
 - issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
-- refresh_token:\<Refresh token\>
+- refresh_token: \<Refresh token\>
 
 ## <a name="client-limitations"></a>Ograniczenia klienta
 

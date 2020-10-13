@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91286016"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie narzędzia Smartsheet na potrzeby automatycznego aprowizacji użytkowników
@@ -131,7 +131,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-7. Kliknij pozycję **Zapisz**.
+7. Kliknij przycisk **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do narzędzia Smartsheet**.
 
@@ -146,16 +146,16 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.familyName|Ciąg|
    |phoneNumbers[type eq "work"].value|Ciąg|
    |phoneNumbers[type eq "mobile"].value|Ciąg|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
    |externalId|Ciąg|
-   |role [podstawowa EQ "true"]. Display|String|
+   |role [podstawowa EQ "true"]. Display|Ciąg|
    |role [podstawowa EQ "true"]. Type|Ciąg|
    |roles[primary eq "True"].value|Ciąg|
-   |role|String|
-   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
+   |role|Ciąg|
+   urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
 
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

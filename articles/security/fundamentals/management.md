@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921932"
 ---
 # <a name="security-management-in-azure"></a>Zarządzanie zabezpieczeniami na platformie Azure
@@ -118,7 +118,7 @@ Brama usług pulpitu zdalnego jest opartą na zasadach usługą serwera proxy RD
 ## <a name="security-guidelines"></a>Zalecenia dotyczące zabezpieczeń
 Ogólnie rzecz biorąc, ulepszanie zabezpieczeń stacji roboczych administratorów używanych do pracy z chmurą jest podobne do rozwiązań stosowanych w przypadku dowolnych lokalnych stacji roboczych (na przykład minimalizacja funkcjonalności i ograniczanie uprawnień). Niektóre unikatowe aspekty zarządzania chmurą są bardziej zbliżone do zdalnego zarządzania lub zarządzania poza pasmem w przedsiębiorstwach. Przykładem może być użycie i inspekcja poświadczeń, rozszerzone zabezpieczenia dostępu zdalnego oraz wykrywanie zagrożeń i podejmowanie działań zaradczych.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 Korzystając z ograniczeń logowania platformy Azure, można zmniejszyć liczbę źródłowych adresów IP używanych do uzyskiwania dostępu do narzędzi administracyjnych i prowadzić inspekcję żądań dostępu. Aby pomóc platformie Azure identyfikować klientów zarządzania (stacje robocze i/lub aplikacje), można skonfigurować oba typy SMAPI (przy użyciu narzędzi opracowanych przez klienta, takich jak polecenia cmdlet programu Windows PowerShell) i Azure Portal, aby wymagały zainstalowania certyfikatów zarządzania po stronie klienta, oprócz certyfikatów TLS/SSL. Zalecamy również stosowanie uwierzytelniania wieloskładnikowego w przypadku dostępu administratorów.
 
 Niektóre aplikacje lub usługi wdrażane na platformie Azure mogą mieć własne mechanizmy uwierzytelniania zarówno użytkowników końcowych, jak i administratorów, podczas gdy inne wykorzystują w pełnym zakresie usługę Azure AD. W zależności od tego, czy jest dokonywana federacja poświadczeń za pośrednictwem usługi Active Directory Federation Services (AD FS), używana synchronizacja katalogów, czy obsługa kont użytkowników jedynie w chmurze, użycie usługi [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (część usługi Azure AD Premium) ułatwia zarządzanie cyklami życia tożsamości między zasobami.

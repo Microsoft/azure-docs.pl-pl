@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: d0fee044506a9a19e09478ef8d70b3719ecc167a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554263"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu logowania jednokrotnego NS1 dla platformy Azure
@@ -94,7 +94,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > [!NOTE]
     > Wartość adresu URL odpowiedzi nie jest prawdziwa. Zaktualizuj wartość adresu URL odpowiedzi przy użyciu rzeczywistego adresu URL odpowiedzi. Aby uzyskać wartość, skontaktuj się z [zespołem pomocy technicznej SSO ns1 dla klientów platformy Azure](mailto:techops@nsone.net) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. NS1 Logowanie jednokrotne dla aplikacji platformy Azure oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów można zarządzać z sekcji " **atrybuty użytkownika & oświadczenia** na stronie integracja aplikacji". Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę ołówka, aby otworzyć okno dialogowe **atrybuty użytkownika** .
+1. NS1 Logowanie jednokrotne dla aplikacji platformy Azure oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów można zarządzać z sekcji " **atrybuty użytkownika & oświadczenia** na stronie integracja aplikacji". Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** wybierz ikonę ołówka, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
     ![Zrzut ekranu przedstawiający sekcje User Attributes & oświadczenia z wyróżnioną ikoną ołówka](./media/ns1-sso-for-azure-tutorial/attribute-edit-option.png)
 
@@ -133,7 +133,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -171,7 +171,7 @@ Po wybraniu kafelka Logowanie jednokrotne dla platformy Azure w panelu dostępu 
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

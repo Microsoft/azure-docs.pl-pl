@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91286654"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
@@ -324,7 +324,7 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij pozycję **Zapisz**.
+2. Kliknij przycisk **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 

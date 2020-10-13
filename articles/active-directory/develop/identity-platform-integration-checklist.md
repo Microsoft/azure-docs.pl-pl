@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116805"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
@@ -44,7 +44,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 ![pole wyboru ](./media/active-directory-integration-checklist/checkbox-two.svg) udostępnia opisową nazwę i logo dla aplikacji. Te informacje są wyświetlane w [monicie o zgodę aplikacji](application-consent-experience.md). Upewnij się, że Twoja nazwa i logo są reprezentatywne dla Twojej firmy/produktu, aby użytkownicy mogli podejmować świadome decyzje. Upewnij się, że nie są naruszane żadne znaki towarowe.
 
-## <a name="privacy"></a>Ochrona prywatności
+## <a name="privacy"></a>Prywatność
 
 ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) Podaj linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji.
 

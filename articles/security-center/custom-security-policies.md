@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
 ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448398"
 ---
 # <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
@@ -52,7 +52,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](https://docs.microsoft.com/azure/
     1. Wprowadź lokalizację i nazwę definicji.
     1. Wybierz zasady do uwzględnienia i kliknij przycisk **Dodaj**.
     1. Wprowadź wszelkie wymagane parametry.
-    1. Kliknij pozycję **Zapisz**.
+    1. Kliknij przycisk **Zapisz**.
     1. Na stronie Dodaj niestandardowe inicjatywy kliknij przycisk Odśwież. Twoja nowa inicjatywa będzie wyświetlana jako dostępna.
     1. Kliknij pozycję **Dodaj** i przypisz ją do subskrypcji.
 

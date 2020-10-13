@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.openlocfilehash: 3d4cc17570057f5f37cf38685847afbe38ea6831
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90606635"
 ---
 | Zasób | Standardowe udziały plików | Udziały plików w warstwie Premium |
@@ -26,6 +26,6 @@ ms.locfileid: "90606635"
 | Maksymalna liczba migawek udziałów | 200 migawek udziałów | 200 migawek udziałów |
 | Maksymalna długość nazwy obiektu (katalogów i plików) | 2 048 znaków | 2 048 znaków |
 | Maksymalna część ścieżki składnika (w ścieżce \A\B\C\D każda litera jest składnikiem) | 255 znaków | 255 znaków |
-| Limit linków twardych (tylko system plików NFS) | Brak | 178 |
+| Limit linków twardych (tylko system plików NFS) | Nie dotyczy | 178 |
 
 \* Domyślnie w standardowych udziałach plików jest 5 TiB, zobacz temat [Włączanie i tworzenie dużych udziałów plików](../articles/storage/files/storage-files-how-to-create-large-file-share.md) , aby uzyskać szczegółowe informacje na temat zwiększania rozmiaru standardowych udziałów plików do 100 TIB.

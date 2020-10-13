@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630582"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>Samouczek: Tworzenie i publikowanie produktu  
@@ -44,7 +44,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nazwa wyświetlana             | Nazwa, która ma być wyświetlana w [portalu dla deweloperów](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Opis              | Podaj informacje o produkcie, takie jak jego przeznaczenie, interfejsy API, do których zapewnia dostęp, oraz inne szczegóły.                                                                                                                                               |
-    | Stan                    | Wybierz pozycję **opublikowano** , jeśli chcesz opublikować produkt. Aby możliwe było wywołanie interfejsów API w produkcie, produkt musi zostać najpierw opublikowany. Domyślnie nowe produkty nie są publikowane i są widoczne tylko dla grupy  **administratorzy** .                                                                                      |
+    | State                    | Wybierz pozycję **opublikowano** , jeśli chcesz opublikować produkt. Aby możliwe było wywołanie interfejsów API w produkcie, produkt musi zostać najpierw opublikowany. Domyślnie nowe produkty nie są publikowane i są widoczne tylko dla grupy  **administratorzy** .                                                                                      |
     | Wymaga subskrypcji    | Wybierz, czy użytkownik musi subskrybować korzystanie z produktu.                                                                                                                                                                                                                                   |
     | Wymaga zatwierdzenia        | Wybierz, czy chcesz, aby administrator przeglądał i akceptował lub odrzucał próby subskrypcji tego produktu. Jeśli nie zostanie wybrana, próby subskrypcji są zatwierdzane domyślnie.                                                                                                                         |
     | Limit liczby subskrypcji | Opcjonalnie można ograniczyć liczbę równoczesnych subskrypcji.                                                                                                                                                                                                                                |

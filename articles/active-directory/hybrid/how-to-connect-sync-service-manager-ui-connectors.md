@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319881"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Używanie łączników z synchronizacją Azure AD Connect Service Manager
@@ -45,7 +45,7 @@ Karta łączniki służy do zarządzania wszystkimi systemami, do których jest 
 | Odśwież schemat |Odświeża buforowany schemat. Zamiast tego należy użyć opcji w Kreatorze instalacji, ponieważ powoduje to również aktualizację reguł synchronizacji. |
 | [Wyszukaj w obszarze łącznika](#search-connector-space) |Służy do znajdowania obiektów oraz do wykonywania działań w ramach obiektu i jego danych przez system. |
 
-### <a name="delete"></a>Usuń
+### <a name="delete"></a>Usuwanie
 Akcja usuwania jest używana dla dwóch różnych rzeczy.  
 ![Zrzut ekranu pokazujący okno "Usuwanie łącznika" z wybraną opcją "Usuń tylko przestrzeń łącznika".](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
@@ -67,7 +67,7 @@ Akcja obszaru łącznika wyszukiwania jest przydatna do znajdowania obiektów i 
 
 Zacznij od wybrania **zakresu**. Można wyszukiwać na podstawie danych (RDN, DN, kotwicy, poddrzewa) lub stanu obiektu (wszystkie inne opcje).  
 ![Zrzut ekranu pokazujący menu rozwijane "zakres".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Jeśli na przykład przeszukasz drzewo podrzędne, uzyskasz wszystkie obiekty w jednej jednostce organizacyjnej.  
+Jeśli na przykład przeszukasz Sub-Tree, uzyskasz wszystkie obiekty w jednej jednostce organizacyjnej.  
 ![Zrzut ekranu przedstawiający przykład wyszukiwania "poddrzewo".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Z tej siatki możesz wybrać obiekt, wybrać **Właściwości**i [postępować](tshoot-connect-object-not-syncing.md) od obszaru łącznika źródłowego, za pośrednictwem funkcji Metaverse oraz do docelowego miejsca łącznika.
 

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927321"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Windows 
@@ -37,7 +37,7 @@ Sprawdź, czy zapora lub serwer proxy został skonfigurowany tak, aby zezwalał 
 |*.ods.opinsights.azure.com |port 443 |Outbound|Tak |  
 |*.oms.opinsights.azure.com |port 443 |Outbound|Tak |  
 |*.blob.core.windows.net |port 443 |Outbound|Tak |  
-|*. agentsvc.azure-automation.net |port 443 |Outbound|Yes |  
+|*. agentsvc.azure-automation.net |port 443 |Outbound|Tak |  
 
 Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). Jeśli planujesz używać Azure Automation hybrydowego procesu roboczego elementu Runbook do nawiązywania połączenia z usługą Automation i zarejestrowania się z nią w celu używania elementów Runbook lub rozwiązań do zarządzania w danym środowisku, musi on mieć dostęp do numeru portu i adresów URL opisanych w temacie [Konfigurowanie sieci dla hybrydowego procesu roboczego elementu Runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

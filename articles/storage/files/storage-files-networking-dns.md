@@ -8,10 +8,10 @@ ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320272"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Konfigurowanie przekazywania DNS dla usługi Azure Files
@@ -110,7 +110,7 @@ New-AzDnsForwarder `
 
 Warto również sprawdzić, czy jest to przydatne/konieczne, aby podać kilka dodatkowych parametrów:
 
-| Nazwa parametru | Typ | Opis |
+| Nazwa parametru | Type | Opis |
 |----------------|------|-------------|
 | `DnsServerResourceGroupName` | `string` | Domyślnie serwery DNS zostaną wdrożone w tej samej grupie zasobów co sieć wirtualna. Jeśli nie jest to potrzebne, ten parametr pozwala wybrać alternatywną grupę zasobów, która ma zostać wdrożona w programie. |
 | `DnsForwarderRootName` | `string` | Domyślnie serwery DNS wdrożone na platformie Azure mają nazwy `DnsFwder-*` , w których gwiazdka jest wypełniana przez iterator. Ten parametr zmienia katalog główny tej nazwy (tj. `DnsFwder` ). |

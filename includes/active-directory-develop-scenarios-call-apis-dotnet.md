@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 3d4e45d1bf53bab4d1f9c45367f9d051f1668e2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76309036"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Właściwości AuthenticationResult w MSAL.NET
@@ -27,10 +27,10 @@ Metody uzyskiwania zwrotów tokenów `AuthenticationResult` . W przypadku metod 
 
 W programie MSAL.NET `AuthenticationResult` udostępnia:
 
-- `AccessToken`Aby uzyskać dostęp do zasobów za pomocą interfejsu API sieci Web. Ten parametr jest ciągiem, zazwyczaj jest zakodowana przy użyciu Base-64 — JWT. Klient nigdy nie powinien szukać w tokenie dostępu. Format nie gwarantuje, że jest stabilny i może być zaszyfrowany dla zasobu. Pisanie kodu, który zależy od zawartości tokenu dostępu na kliencie, jest jednym z największych źródeł błędów i podziałów logiki klienta. Aby uzyskać więcej informacji, zobacz [tokeny dostępu](../articles/active-directory/develop/access-tokens.md).
-- `IdToken`dla użytkownika. Ten parametr jest zakodowaną JWT. Aby uzyskać więcej informacji, zobacz [identyfikatory tokenów](../articles/active-directory/develop/id-tokens.md).
-- `ExpiresOn`informuje datę i godzinę wygaśnięcia tokenu.
-- `TenantId`zawiera dzierżawcę, w którym znaleziono użytkownika. Dla użytkowników-Gości w scenariuszach usługi Azure Active Directory (Azure AD) B2B identyfikator dzierżawy jest dzierżawcą gościa, a nie z unikatowym dzierżawcą.
+- `AccessToken` Aby uzyskać dostęp do zasobów za pomocą interfejsu API sieci Web. Ten parametr jest ciągiem, zazwyczaj jest zakodowana przy użyciu Base-64 — JWT. Klient nigdy nie powinien szukać w tokenie dostępu. Format nie gwarantuje, że jest stabilny i może być zaszyfrowany dla zasobu. Pisanie kodu, który zależy od zawartości tokenu dostępu na kliencie, jest jednym z największych źródeł błędów i podziałów logiki klienta. Aby uzyskać więcej informacji, zobacz [tokeny dostępu](../articles/active-directory/develop/access-tokens.md).
+- `IdToken` dla użytkownika. Ten parametr jest zakodowaną JWT. Aby uzyskać więcej informacji, zobacz [identyfikatory tokenów](../articles/active-directory/develop/id-tokens.md).
+- `ExpiresOn` informuje datę i godzinę wygaśnięcia tokenu.
+- `TenantId` zawiera dzierżawcę, w którym znaleziono użytkownika. Dla użytkowników-Gości w scenariuszach usługi Azure Active Directory (Azure AD) B2B identyfikator dzierżawy jest dzierżawcą gościa, a nie z unikatowym dzierżawcą.
 Gdy token jest dostarczany dla użytkownika, `AuthenticationResult` zawiera również informacje o tym użytkowniku. W przypadku poufnych przepływów klientów, w których tokeny są żądane bez użytkownika aplikacji, informacje o użytkowniku mają wartość null.
 - `Scopes`Dla którego został wystawiony token.
 - Unikatowy identyfikator użytkownika.
@@ -48,7 +48,7 @@ Na poniższym diagramie przedstawiono strukturę `IAccount` interfejsu.
 |----------|-------------|
 | `TenantId` | Ciąg reprezentujący identyfikator GUID, który jest IDENTYFIKATORem dzierżawy, w której znajduje się konto. |
 | `ObjectId` | Ciąg reprezentujący identyfikator GUID, który jest IDENTYFIKATORem użytkownika, który jest właścicielem konta w dzierżawie. |
-| `Identifier` | Unikatowy identyfikator konta. `Identifier`jest połączeniem `ObjectId` i `TenantId` rozdzielony przecinkami. Nie są one zakodowane w podstawowej 64. |
+| `Identifier` | Unikatowy identyfikator konta. `Identifier` jest połączeniem `ObjectId` i `TenantId` rozdzielony przecinkami. Nie są one zakodowane w podstawowej 64. |
 
 `IAccount`Interfejs reprezentuje informacje o pojedynczym koncie. Ten sam użytkownik może być obecny w różnych dzierżawach, co oznacza, że użytkownik może mieć wiele kont. Jego członkowie są pokazani w poniższej tabeli.
 

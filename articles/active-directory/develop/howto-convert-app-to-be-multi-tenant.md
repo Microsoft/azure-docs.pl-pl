@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631311"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Instrukcje: Logowanie się dowolnego użytkownika usługi Azure Active Directory za pomocą wzorca aplikacji wielodostępnych
@@ -190,7 +190,7 @@ Aplikacje z wieloma dzierżawcami mogą również uzyskać tokeny dostępu do wy
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure AD. Po włączeniu logowania jednokrotnego między aplikacją i usługą Azure AD możesz także zaktualizować aplikację, aby uzyskać dostęp do interfejsów API udostępnianych przez zasoby firmy Microsoft, takie jak Microsoft 365. Dzięki temu możesz oferować spersonalizowany interfejs w aplikacji, taki jak wyświetlanie informacji kontekstowych dla użytkowników, takich jak ich zdjęcie profilu lub termin następnego kalendarza. Aby dowiedzieć się więcej na temat tworzenia wywołań interfejsu API w usłudze Azure AD i Microsoft 365 usług takich jak Exchange, SharePoint, OneDrive, OneNote i inne, odwiedź stronę [Microsoft Graph API][MSFT-Graph-overview].
+W tym artykule przedstawiono sposób tworzenia aplikacji, która może zalogować użytkownika z dowolnej dzierżawy usługi Azure AD. Po włączeniu jednego Sign-On (SSO) między aplikacją i usługą Azure AD możesz także zaktualizować aplikację, aby uzyskać dostęp do interfejsów API udostępnianych przez zasoby firmy Microsoft, takich jak Microsoft 365. Dzięki temu możesz oferować spersonalizowany interfejs w aplikacji, taki jak wyświetlanie informacji kontekstowych dla użytkowników, takich jak ich zdjęcie profilu lub termin następnego kalendarza. Aby dowiedzieć się więcej na temat tworzenia wywołań interfejsu API w usłudze Azure AD i Microsoft 365 usług takich jak Exchange, SharePoint, OneDrive, OneNote i inne, odwiedź stronę [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

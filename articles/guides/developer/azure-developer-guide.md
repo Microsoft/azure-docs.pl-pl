@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120579"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -158,7 +158,7 @@ Platforma Azure oferuje kilka sposobów korzystania z kontenerów w aplikacjach.
   >
   > **Wprowadzenie**: [Użyj niestandardowego obrazu platformy docker dla App Service w systemie Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Niezwykle ważne jest, aby nie tylko wiedzieć, kto korzysta z aplikacji, ale również aby uniemożliwić nieautoryzowany dostęp do zasobów. Platforma Azure oferuje kilka metod uwierzytelniania klientów aplikacji.
 
@@ -229,7 +229,7 @@ Platforma Azure oferuje bogaty zestaw środowisk umożliwiających tworzenie zas
 
 Platforma Azure oferuje dwa sposoby zarządzania aplikacjami i usługami z poziomu wiersza polecenia. Możesz użyć narzędzi, takich jak bash, Terminal, wiersz polecenia lub narzędzia wiersza polecenia. Zazwyczaj można wykonać te same zadania z poziomu wiersza polecenia, tak jak w Azure Portal, takich jak tworzenie i Konfigurowanie maszyn wirtualnych, sieci wirtualnych, aplikacji sieci Web i innych usług.
 
--   [Interfejs wiersza polecenia platformy Azure](../../xplat-cli-install.md): umożliwia łączenie się z subskrypcją platformy Azure i wykonywanie różnych zadań względem zasobów platformy Azure z poziomu wiersza polecenia.
+-   [Interfejs azure Command-Line Interface (CLI)](../../xplat-cli-install.md): umożliwia łączenie się z subskrypcją platformy Azure i wykonywanie różnych zadań w odniesieniu do zasobów platformy Azure z poziomu wiersza polecenia.
 
 -   [Azure PowerShell](../../powershell-install-configure.md): zawiera zestaw modułów z poleceniami cmdlet, które umożliwiają zarządzanie zasobami platformy Azure przy użyciu programu Windows PowerShell.
 

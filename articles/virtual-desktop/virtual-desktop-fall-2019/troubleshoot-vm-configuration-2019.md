@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008631"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji pulpitu wirtualnego systemu Windows (klasycznego)
@@ -114,7 +114,7 @@ Postępuj zgodnie z tymi instrukcjami, aby upewnić się, że składniki są zai
 
 Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy na maszynach wirtualnych hosta sesji (ręcznie lub za pośrednictwem szablonu Azure Resource Manager i programu PowerShell DSC), udostępnia token rejestracji. W poniższej sekcji omówiono problemy związane z rozwiązywaniem problemów dotyczących agenta usług pulpitu wirtualnego systemu Windows i tokenu.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-RdsSessionHost pokazuje stan jako niedostępny
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-RdsSessionHost wyświetla stan jako niedostępny
 
 > [!div class="mx-imgBorder"]
 > ![Polecenie cmdlet Get-RdsSessionHost wyświetla stan jako niedostępny.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924757"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Administrowanie usługą Data Box Disk w witrynie Azure Portal
@@ -51,7 +51,7 @@ Aby sklonować zamówienie, wykonaj następujące czynności.
 
     ![Klonowanie zamówienia — 1](media/data-box-portal-ui-admin/clone-order1.png)
 
-2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij pozycję **Utwórz**.    
+2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij przycisk **Utwórz**.    
 
 W ciągu kilku minut sklonowanie zamówienie zostanie utworzone i wyświetlone w portalu.
 
@@ -128,7 +128,7 @@ Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 |Pobrane     |Przesyłka zwrotna została pobrana. <br> Po odebraniu przesyłki w centrum danych Azure dane zostaną automatycznie przekazane na platformę Azure.         |
 |Odebrano     | Twoje dyski zostały odebrane w centrum danych Azure. Wkrótce rozpocznie się kopiowanie danych.        |
 |Skopiowane dane     |Kopiowanie danych jest w toku.<br> Poczekaj na zakończenie kopiowania danych.         |
-|Ukończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
+|Zakończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
 |Zakończone z błędami| Kopiowanie danych zostało ukończone, ale wystąpiły błędy. <br> Zapoznaj się z dziennikami błędów na potrzeby przekazywania, używając ścieżki podanej w **przeglądzie**. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz dzienniki błędów przekazywania](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie mogło zostać anulowane przez Ciebie lub, w przypadku wystąpienia błędu, przez usługę.     |
 

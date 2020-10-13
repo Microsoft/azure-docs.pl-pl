@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9a68ec82ea5e924916cbe8b07c11a4f8f62199a7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317960"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Ramka zabezpieczeń: zarządzanie konfiguracją | Środki zaradcze 
@@ -214,7 +214,7 @@ Należy pamiętać, że funkcja walidacji żądania nie jest obsługiwana i nie 
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Program [IE8 Security część V: Kompleksowa ochrona](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [Typ MIME](https://en.wikipedia.org/wiki/Mime_type) |
-| **Kroki** | Nagłówek X-Content-options jest nagłówkiem HTTP, który umożliwia deweloperom określenie, że ich zawartość nie powinna być wykrywaniem MIME. Ten nagłówek jest przeznaczony do ograniczania ataków z wykrywaniem MIME. Dla każdej strony, która może zawierać zawartość z możliwością kontrolowania użytkownika, należy użyć nagłówka HTTP X-Content-Type-Options: nowykrywania. Aby włączyć wymagany nagłówek globalnie dla wszystkich stron w aplikacji, można wykonać jedną z następujących czynności:|
+| **Kroki** | Nagłówek X-Content-options jest nagłówkiem HTTP, który umożliwia deweloperom określenie, że ich zawartość nie powinna być wykrywaniem MIME. Ten nagłówek jest przeznaczony do ograniczania ataków MIME-Sniffing. Dla każdej strony, która może zawierać zawartość z możliwością kontrolowania użytkownika, należy użyć nagłówka HTTP X-Content-Type-Options: nowykrywania. Aby włączyć wymagany nagłówek globalnie dla wszystkich stron w aplikacji, można wykonać jedną z następujących czynności:|
 
 ### <a name="example"></a>Przykład
 Dodaj nagłówek w pliku web.config, jeśli aplikacja jest hostowana przez Internet Information Services (IIS) w wersji 7 lub nowszej. 

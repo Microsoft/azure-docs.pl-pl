@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574147"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Securing data stored in Azure Data Lake Storage Gen1 (Zabezpieczanie danych przechowywanych w usłudze Azure Data Lake Storage Gen1)
@@ -74,7 +74,7 @@ Podczas przypisywania użytkowników lub grup zabezpieczeń do kont Data Lake St
    
     ![Dodawanie grupy zabezpieczeń](./media/data-lake-store-secure-data/adl.add.user.2.png "Dodawanie grupy zabezpieczeń")
    
-5. Kliknij pozycję **Zapisz**. Powinna zostać wyświetlona dodana grupa zabezpieczeń, jak pokazano poniżej.
+5. Kliknij przycisk **Zapisz**. Powinna zostać wyświetlona dodana grupa zabezpieczeń, jak pokazano poniżej.
    
     ![Dodano grupę zabezpieczeń](./media/data-lake-store-secure-data/adl.add.user.3.png "Dodano grupę zabezpieczeń")
 

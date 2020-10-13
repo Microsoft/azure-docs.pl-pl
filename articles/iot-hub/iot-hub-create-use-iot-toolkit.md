@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: 668087ae596688e86b7b84a16bc5c0fd0f9fcef6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75912246"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Tworzenie Centrum IoT Hub przy użyciu narzędzi Azure IoT Tools for Visual Studio Code
@@ -28,9 +28,9 @@ Aby wykonać ten artykuł, potrzebne są następujące elementy:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) dla programu Visual Studio Code.
+- [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) dla Visual Studio Code.
 
-## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
+## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
 1. W Visual Studio Code Otwórz widok **Eksploratora** .
 

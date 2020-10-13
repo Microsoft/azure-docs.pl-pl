@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571415"
 ---
-# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Wydajność bazy danych Oracle na Azure NetApp Files pojedynczych woluminów
+# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Wydajność bazy danych Oracle na pojedynczych woluminach usługi Azure NetApp Files
 
 W tym artykule omówiono następujące tematy dotyczące programu Oracle w chmurze. Te tematy mogą być szczególnie przydatne w przypadku administratora bazy danych, architekta chmury lub architekta magazynu:   
 
