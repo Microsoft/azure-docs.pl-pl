@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661112"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969980"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Rozwiązywanie problemów z usługą Azure Image Builder
 
@@ -40,7 +40,7 @@ Poniższe sekcje zawierają wskazówki dotyczące rozwiązywania problemów z ty
 
 ### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>Aktualizacja/uaktualnienie szablonów obrazów nie jest obecnie obsługiwane
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 'Conflict'. Details: Update/Upgrade of image templates is currently not supported
@@ -56,7 +56,7 @@ Jeśli przesyłasz szablon konfiguracji obrazu i przesyłanie nie powiedzie się
 
 ### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>Operacja zasobu została ukończona z stanem inicjowania obsługi terminalu "Niepowodzenie"
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' failed with message '{
@@ -84,7 +84,7 @@ Aby uzyskać więcej informacji na temat konfigurowania uprawnień, zobacz [Konf
 
 ### <a name="error-getting-managed-image"></a>Błąd podczas pobierania obrazu zarządzanego
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
@@ -106,7 +106,7 @@ Aby uzyskać więcej informacji na temat konfigurowania uprawnień, zobacz [Konf
 
 ### <a name="build--step-failed-for-image-version"></a>Nie można wykonać kroku kompilacji dla wersji obrazu
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 ```text
 Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
@@ -121,7 +121,7 @@ Upewnij się, że obraz źródłowy jest prawidłowy i istnieje w lokalizacji us
 
 ### <a name="downloading-external-file-to-local-file"></a>Pobieranie pliku zewnętrznego do pliku lokalnego
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [attempt 1 of 10] failed: Error downloading '<myFile>' to 'xxxxx.0.customizer.fp'..
@@ -209,7 +209,7 @@ Dostosowanie. log obejmuje następujące etapy:
     ```
 5. Etap cofania aprowizacji. Konstruktor obrazów platformy Azure dodaje ukryty element dostosowujący. Ten krok cofania obsługi jest odpowiedzialny za przygotowanie maszyny wirtualnej do nieaprowizacji. Uruchamia narzędzie Windows Sysprep (przy użyciu programu c:\DeprovisioningScript.ps1) lub waagent z systemem Linux (przy użyciu/tmp/DeprovisioningScript.sh). 
 
-    Przykład:
+    Na przykład:
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -228,7 +228,7 @@ Dostosowanie. log obejmuje następujące etapy:
 
 ### <a name="packer-build-command-failure"></a>Błąd polecenia kompilacji pakietu Packer
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
   "provisioningState": "Succeeded",
@@ -247,7 +247,7 @@ Niepowodzenie dostosowywania.
 
 Przejrzyj dziennik, aby zlokalizować niepowodzenia konfiguratorów. Wyszukaj frazę *(telemetrię)*. 
 
-Przykład:
+Na przykład:
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -263,7 +263,7 @@ Przykład:
 
 ### <a name="timeout-exceeded"></a>Przekroczono limit czasu
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in building/customizing image: Failed while waiting for packerizer: Timeout waiting for microservice to complete: 'context deadline exceeded'
@@ -289,7 +289,7 @@ Kompilacja przekroczyła limit czasu kompilacji. Ten błąd jest widoczny w "Las
 
 ### <a name="long-file-download-time"></a>Długi czas pobierania pliku
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 ```text
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 myBigFile.zip 826 B / 826000 B  1.00%
@@ -312,7 +312,7 @@ Konfigurator plików jest odpowiedni dla małych plików do pobrania poniżej 20
 
 ### <a name="error-waiting-on-shared-image-gallery"></a>Wystąpił błąd podczas oczekiwania na galerię obrazów udostępnionych
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
@@ -335,7 +335,7 @@ Zwiększ **buildTimeoutInMinutes**.
  
 ### <a name="low-windows-resource-information-events"></a>Niskie zdarzenia informacji o zasobach systemu Windows
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT     azure-arm: Waiting for operation to complete (system performance: 1% cpu; 37% memory)...
@@ -390,7 +390,7 @@ Zwiększ rozmiar maszyny wirtualnej kompilacji.
 
 ### <a name="builds-finished-but-no-artifacts-were-created"></a>Kompilacje zakończone, ale nie utworzono żadnych artefaktów
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -417,7 +417,7 @@ Uruchom ponownie kompilację, aby spróbować ponownie.
 
 ### <a name="resource-not-found"></a>Nie znaleziono zasobu
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
   "provisioningState": "Succeeded",
@@ -440,7 +440,7 @@ Aby uzyskać więcej informacji na temat konfigurowania uprawnień, zobacz [Konf
 
 ### <a name="sysprep-timing"></a>Chronometraż programu Sysprep
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT     azure-arm: Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
@@ -504,7 +504,7 @@ Zwiększ rozmiar maszyny wirtualnej. Można też dodać 60-sekundowe dostosowani
 
 ### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Anulowanie konstruktora po anulowaniu kontekstu anulowania kontekstu
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 ```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
@@ -522,7 +522,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 Usługa Image Builder używa portu 22 (Linux) lub 5986 (Windows) do nawiązania połączenia z maszyną wirtualną kompilacji, dzieje się tak, gdy usługa jest odłączona od maszyny wirtualnej kompilacji podczas kompilacji obrazu. Przyczyny rozłączenia mogą się różnić, ale włączenie lub skonfigurowanie zapór w skrypcie może zablokować powyższe porty.
 
 #### <a name="solution"></a>Rozwiązanie
-Przejrzyj skrypty pod kątem zmian/włączenia zapory lub zmiany w usłudze SSH lub WinRM oraz upewnij się, że wszystkie zmiany umożliwiają stałą łączność między usługą i Tworzenie maszyny wirtualnej na powyższych portach. Aby uzyskać więcej informacji na temat sieci programu Image Builder, zapoznaj się z [wymaganiami](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Przejrzyj skrypty pod kątem zmian/włączenia zapory lub zmiany w usłudze SSH lub WinRM oraz upewnij się, że wszystkie zmiany umożliwiają stałą łączność między usługą i Tworzenie maszyny wirtualnej na powyższych portach. Aby uzyskać więcej informacji na temat sieci programu Image Builder, zapoznaj się z [wymaganiami](./image-builder-networking.md).
 
 ## <a name="devops-task"></a>Zadanie metodyki DevOps 
 
@@ -554,7 +554,7 @@ Mogą jednak wystąpić sytuacje, w których należy zbadać pomyślne kompilacj
 
 ### <a name="operation-was-canceled"></a>Operacja została anulowana
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
@@ -586,7 +586,7 @@ Mogą jednak wystąpić sytuacje, w których należy zbadać pomyślne kompilacj
 
 Jeśli kompilacja nie została anulowana przez użytkownika, została anulowana przez agenta użytkownika usługi Azure DevOps. Najprawdopodobniej upłynął limit czasu wynoszący 1 godzinę z powodu możliwości usługi Azure DevOps. Jeśli używasz prywatnego projektu i agenta, otrzymujesz 60 minut czasu kompilacji. Jeśli kompilacja przekracza limit czasu, DevOps anuluje uruchomione zadanie.
 
-Aby uzyskać więcej informacji na temat możliwości i ograniczeń usługi Azure DevOps, zobacz [Agenci hostowani przez firmę Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations) .
+Aby uzyskać więcej informacji na temat możliwości i ograniczeń usługi Azure DevOps, zobacz [Agenci hostowani przez firmę Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations) .
  
 #### <a name="solution"></a>Rozwiązanie
 
@@ -594,14 +594,14 @@ Możesz obsługiwać własnych agentów DevOps lub przyjrzeć się skróceniu cz
 
 ### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Wolne logowanie do systemu Windows: "Czekaj na Instalator modułów systemu Windows"
 
-#### <a name="error"></a>Błąd
+#### <a name="error"></a>Error
 Po utworzeniu obrazu systemu Windows 10 za pomocą programu Image Builder Utwórz maszynę wirtualną na podstawie obrazu, przy użyciu protokołu RDP i musisz poczekać minuty przy pierwszym logowaniu, zobaczyc niebieski ekran z komunikatem:
 ```text
 Please wait for the Windows Modules Installer
 ```
 
 #### <a name="solution"></a>Rozwiązanie
-Najpierw sprawdź, czy nie ma żadnych zaległych ponownych uruchomień wymaganych przez dodanie dostosowywania ponownego uruchomienia systemu Windows jako ostatniego dostosowania oraz ukończenie instalacji całego oprogramowania. Na koniec Dodaj opcję [/Mode: VM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) do domyślnego programu Sysprep używanego przez AIB, zobacz poniżej "maszyny wirtualne utworzone na podstawie obrazów AIB nie zostały pomyślnie utworzone" > "przesłaniające polecenia"  
+Najpierw sprawdź, czy nie ma żadnych zaległych ponownych uruchomień wymaganych przez dodanie dostosowywania ponownego uruchomienia systemu Windows jako ostatniego dostosowania oraz ukończenie instalacji całego oprogramowania. Na koniec Dodaj opcję [/Mode: VM](/windows-hardware/manufacture/desktop/sysprep-command-line-options) do domyślnego programu Sysprep używanego przez AIB, zobacz poniżej "maszyny wirtualne utworzone na podstawie obrazów AIB nie zostały pomyślnie utworzone" > "przesłaniające polecenia"  
 
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Maszyny wirtualne utworzone na podstawie obrazów AIB nie zostały pomyślnie utworzone

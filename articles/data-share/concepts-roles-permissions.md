@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761519"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
@@ -61,7 +61,7 @@ Aby utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udział dany
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 1. W obszarze *rola*wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
 1. W obszarze *Wybierz*wpisz nazwę zasobu udziału danych platformy Azure.
-1. Kliknij pozycję *Zapisz*.
+1. Kliknij przycisk *Zapisz*.
 
 W przypadku źródeł opartych na języku SQL oprócz powyższych kroków należy utworzyć użytkownika SQL z zewnętrznego dostawcy w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Ten użytkownik musi mieć przyznane uprawnienie *db_datareader* . Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania opartego na języku SQL można znaleźć w samouczku [udostępnianie danych](share-your-data.md) . 
 
@@ -79,7 +79,7 @@ Aby ręcznie utworzyć przypisanie roli dla tożsamości zarządzanej zasobu udz
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 1. W obszarze *rola*wybierz rolę w powyższej tabeli przypisania roli (na przykład dla konta magazynu wybierz pozycję *czytnik danych magazynu obiektów BLOB*).
 1. W obszarze *Wybierz*wpisz nazwę zasobu udziału danych platformy Azure.
-1. Kliknij pozycję *Zapisz*.
+1. Kliknij przycisk *Zapisz*.
 
 W przypadku obiektów docelowych opartych na języku SQL, oprócz powyższych kroków, należy utworzyć użytkownika SQL z zewnętrznego dostawcy w SQL Database z taką samą nazwą jak zasób udziału danych platformy Azure. Ten użytkownik musi mieć przyznane *db_datareader, db_datawriter db_ddladmin* uprawnienia. Przykładowy skrypt wraz z innymi wymaganiami wstępnymi dotyczącymi udostępniania opartego na języku SQL można znaleźć w samouczku [akceptowanie i odbieranie danych](subscribe-to-data-share.md) . 
 

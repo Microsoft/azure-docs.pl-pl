@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604244"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Samouczek: Ocena maszyn wirtualnych VMware pod kątem migracji do wersji zaautomatycznej
@@ -44,8 +44,8 @@ Zdecyduj, czy chcesz uruchomić ocenę przy użyciu kryteriów ustalania rozmiar
 
 **Ocena** | **Szczegóły** | **Zalecenie**
 --- | --- | ---
-**Zgodnie z lokalnym** | Oceń dane na podstawie konfiguracji komputera/metadanych.  | Zalecany rozmiar węzła w ramach automatycznej synchronizacji zależy od rozmiaru lokalnego maszyny wirtualnej, a także ustawień określonych w ocenie dla typu węzła, typu magazynu i ustawienia niedopuszczalnego do tolerowania.
-**Oparta na wydajności** | Oceniaj na podstawie zebranych danych o wydajności dynamicznej. | Zalecany rozmiar węzła w ramach automatycznej synchronizacji jest oparty na danych użycia procesora i pamięci, a także ustawień określonych w ocenie dla typu węzła, typu magazynu i ustawienia odporności na uszkodzenia.
+**Zgodnie ze środowiskiem lokalnym** | Oceń dane na podstawie konfiguracji komputera/metadanych.  | Zalecany rozmiar węzła w ramach automatycznej synchronizacji zależy od rozmiaru lokalnego maszyny wirtualnej, a także ustawień określonych w ocenie dla typu węzła, typu magazynu i ustawienia niedopuszczalnego do tolerowania.
+**Na podstawie wydajności** | Oceniaj na podstawie zebranych danych o wydajności dynamicznej. | Zalecany rozmiar węzła w ramach automatycznej synchronizacji jest oparty na danych użycia procesora i pamięci, a także ustawień określonych w ocenie dla typu węzła, typu magazynu i ustawienia odporności na uszkodzenia.
 
 ## <a name="run-an-assessment"></a>Uruchamianie oceny
 
@@ -120,12 +120,12 @@ W ramach oceny automatycznej wersji zamieszczono następujące informacje:
 - Wykorzystanie w węzłach automatycznej synchronizacji: przewidywany procesor CPU, pamięć i wykorzystanie magazynu we wszystkich węzłach.
 - Oszacowanie kosztów miesięcznych: szacowane miesięczne koszty wszystkich węzłów platformy Azure VMware (Automatyczna synchronizacja) z uruchomionymi lokalnymi maszynami wirtualnymi.
 
-## <a name="view-an-assessment"></a>Wyświetlanie oceny
+## <a name="view-an-assessment"></a>Widok oceny
 
 Aby wyświetlić ocenę:
 
 1. W obszarze **serwery**  >  **Azure Migrate: Ocena serwera**, kliknij liczbę obok pozycji **oceny**.
-2. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć. 
+2. W pozycji **Oceny** wybierz ocenę, aby ją otworzyć. 
 3. Przejrzyj podsumowanie oceny. Możesz również edytować właściwości oceny lub ponownie obliczyć ocenę.
  
 

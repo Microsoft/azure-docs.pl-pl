@@ -7,12 +7,13 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: non-azure-machines
+ms.openlocfilehash: 818ef3a29724f18cad5924bf1961b74afadfdb75
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612221"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939600"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Połącz maszyny spoza platformy Azure z usługą Security Center
 
@@ -23,7 +24,9 @@ Komputery spoza platformy Azure można dodać w dowolny z następujących sposob
 - Korzystanie z usługi Azure ARC (**zalecane**)
 - Ze stron Security Center w Azure Portal (**wprowadzenie** i **spis**)
 
-Każdy z tych elementów został opisany poniżej.
+Każdy z tych elementów został opisany na tej stronie.
+
+::: zone pivot="azure-arc"
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Dodawanie maszyn spoza platformy Azure przy użyciu usługi Azure Arc
 
@@ -42,6 +45,10 @@ Dowiedz się więcej o [usłudze Azure Arc](../azure-arc/servers/overview.md).
 
 > [!TIP]
 > W przypadku dołączania maszyn AWS łącznik Security Center dla AWS w niewidoczny sposób obsługuje wdrożenie usługi Azure Arc. Dowiedz się więcej w temacie [Łączenie kont AWS z Azure Security Center](quickstart-onboard-aws.md).
+
+::: zone-end
+
+::: zone pivot="azure-portal"
 
 ## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Dodawanie maszyn spoza platformy Azure ze stron portalu Security Center
 
@@ -114,6 +121,7 @@ Po zakończeniu **log Analytics Agent** zostanie wyświetlony w **Panelu sterowa
 
 Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## <a name="verifying"></a>Weryfikacj
 Gratulacje! Teraz możesz zobaczyć maszyny platformy Azure i inne niż platformy Azure razem w jednym miejscu. Otwórz [stronę spisu](asset-inventory.md) zasobów i odfiltruj do odpowiednich typów zasobów. Te ikony odróżniają typy:

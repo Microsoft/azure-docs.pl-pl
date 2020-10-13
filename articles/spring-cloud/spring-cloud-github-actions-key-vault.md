@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888784"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Uwierzytelnianie chmury Azure wiosennej za pomocą Key Vault w akcjach GitHub
@@ -52,7 +52,7 @@ Przejdź do pulpitu nawigacyjnego **Key Vault** w Azure Portal, kliknij menu **K
 
 Skopiuj nazwę poświadczenia, na przykład `azure-cli-2020-01-19-04-39-02` . Otwórz menu **zasady dostępu** , a następnie kliknij pozycję **+ Dodaj zasady dostępu** .  Wybierz pozycję `Secret Management` dla **szablonu**, a następnie wybierz pozycję **podmiot zabezpieczeń**. Wklej nazwę poświadczenia w **Principal** / polu wejściowym**SELECT** Principal:
 
- ![Wybierz pozycję](./media/github-actions/key-vault2.png)
+ ![Wybierz](./media/github-actions/key-vault2.png)
 
  Kliknij przycisk **Dodaj** w oknie dialogowym **Dodawanie zasad dostępu** , a następnie kliknij przycisk **Zapisz**.
 

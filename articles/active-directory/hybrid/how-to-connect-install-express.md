@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279673"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
@@ -53,7 +53,7 @@ Możesz zobaczyć te czynności w praktyce, korzystając z sekcji [Filmy wideo](
 9. Po zakończeniu instalacji kliknij przycisk **Zakończ**.
 10. Po zakończeniu instalacji wyloguj się, a następnie zaloguj się ponownie przed użyciem narzędzia Synchronization Service Manager lub Synchronization Rule Editor.
 
-## <a name="videos"></a>Filmy wideo
+## <a name="videos"></a>Wideo
 Aby obejrzeć film wideo na temat instalacji ekspresowej, zobacz:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
@@ -71,7 +71,7 @@ Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Az
 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 
-| Temat | Link |
+| Temat | Łącze |
 | --- | --- |
 | Omówienie programu Azure AD Connect | [Integrowanie katalogów lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 | Instalowanie przy użyciu ustawień dostosowanych | [Niestandardowa instalacja programu Azure AD Connect](how-to-connect-install-custom.md) |

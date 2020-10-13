@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
 ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766129"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorowanie wydajności Azure Database for MySQL przy użyciu magazynu zapytań
@@ -87,7 +87,7 @@ Po włączeniu magazynu zapytań dane są zapisywane w 15-minutowych oknach agre
 
 Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazynu zapytań.
 
-| **Parametr** | **Opis** | **Domyślne** | **Zakres** |
+| **Parametr** | **Opis** | **Wartooć** | **Zakres** |
 |---|---|---|---|
 | query_store_capture_mode | Włącz/Wyłącz funkcję magazynu zapytań na podstawie wartości. Uwaga: Jeśli performance_schema jest wyłączona, włączenie query_store_capture_mode spowoduje włączenie performance_schema i podzestawu narzędzi schematu wydajności wymaganych dla tej funkcji. | ALL | BRAK, WSZYSTKIE |
 | query_store_capture_interval | Interwał przechwytywania magazynu zapytań (w minutach). Umożliwia określenie interwału, w którym metryki zapytania są agregowane | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ Następujące opcje są dostępne na potrzeby konfigurowania parametrów magazyn
 
 Poniższe opcje są stosowane w odniesieniu do statystyk oczekiwania.
 
-| **Parametr** | **Opis** | **Domyślne** | **Zakres** |
+| **Parametr** | **Opis** | **Wartooć** | **Zakres** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Umożliwia włączenie/wyłączenie statystyk oczekiwania. | DAWAJ | BRAK, WSZYSTKIE |
 | query_store_wait_sampling_frequency | Zmienia częstotliwość próbkowania oczekiwania w sekundach. od 5 do 300 sekund. | 30 | 5-300 |

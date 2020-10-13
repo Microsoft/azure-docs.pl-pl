@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321950"
+ms.locfileid: "91874547"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Nieoczekiwany błąd podczas wyrażania zgody na aplikację
 
@@ -79,10 +79,12 @@ Te błędy są wykonywane, gdy aplikacja, którą użytkownik próbuje wyrazić 
     -   Dodawanie aplikacji z galerii aplikacji usługi Azure AD
 
 ## <a name="risky-app-error-and-warning"></a>Ryzykowny błąd i ostrzeżenie aplikacji
+* **AADSTS900941:** Wymagana jest zgoda administratora. Aplikacja jest uważana za ryzykowną. (AdminConsentRequiredDueToRiskyApp)
 * Ta aplikacja może być ryzykowna. Jeśli ufasz tej aplikacji, poproś administratora o przyznanie Ci dostępu.
+* **AADSTS900981:** Odebrano żądanie zgody administratora dotyczące ryzykownej aplikacji. (AdminConsentRequestRiskyAppWarning)
 * Ta aplikacja może być ryzykowna. Kontynuuj tylko wtedy, gdy ufasz tej aplikacji.
 
-Oba te komunikaty będą wyświetlane, gdy firma Microsoft ustaliła, że żądanie zgody może być ryzykowne. Może się to zdarzyć, gdy [zweryfikowany Wydawca](../develop/publisher-verification-overview.md) nie został dodany do rejestracji aplikacji wśród różnych czynników. Pierwszy komunikat będzie pokazywany użytkownikom końcowym, gdy [przepływ pracy zgody administratora](configure-admin-consent-workflow.md) jest wyłączony. Drugi komunikat będzie pokazywany użytkownikom końcowym, gdy przepływ pracy zgody administratora jest włączony i dla administratorów. 
+Oba te komunikaty będą wyświetlane, gdy firma Microsoft ustaliła, że żądanie zgody może być ryzykowne. Może się to zdarzyć, gdy [zweryfikowany Wydawca](../develop/publisher-verification-overview.md) nie został dodany do rejestracji aplikacji wśród różnych czynników. Pierwszy kod błędu i komunikat będą widoczne dla użytkowników końcowych, gdy [przepływ pracy zgody administratora](configure-admin-consent-workflow.md) jest wyłączony. Drugi kod i komunikat będą widoczne dla użytkowników końcowych, gdy przepływ pracy zgody administratora jest włączony i dla administratorów. 
 
 Użytkownicy końcowi nie będą mogli przyznawać zgody na aplikacje, które zostały wykryte jako ryzykowne. Administratorzy są w stanie, ale powinni bardzo uważnie oszacować aplikację i zachować ostrożność. Jeśli aplikacja jest podejrzana o dalsze przegląd, można zgłosić ją firmie Microsoft na ekranie zgody. 
 

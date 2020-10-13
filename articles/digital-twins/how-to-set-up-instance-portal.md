@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280030"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
@@ -32,11 +32,11 @@ W tej sekcji utworzysz **nowe wystąpienie usługi Azure Digital bliźniaczych r
 
 W portalu Zacznij od wybrania pozycji _Utwórz zasób_ w menu strony głównej usług platformy Azure.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Wybieranie pozycji Utwórz zasób ze strony głównej Azure Portal":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Wyszukaj pozycję *Azure Digital bliźniaczych reprezentacji* w polu wyszukiwania i wybierz usługę **Azure Digital bliźniaczych reprezentacji (wersja zapoznawcza)** z wyników. Wybierz przycisk _Utwórz_ , aby utworzyć nowe wystąpienie usługi.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Wybieranie pozycji Utwórz na stronie usługi Azure Digital bliźniaczych reprezentacji":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Na poniższej stronie *Tworzenie zasobów* Wypełnij wartości podanych poniżej:
 * **Subskrypcja**: subskrypcja platformy Azure, której używasz
@@ -44,7 +44,7 @@ Na poniższej stronie *Tworzenie zasobów* Wypełnij wartości podanych poniżej
 * **Location (lokalizacja**): bliźniaczych reprezentacji na potrzeby wdrożenia przy użyciu cyfrowego obszaru platformy Azure. Aby uzyskać więcej informacji na temat pomocy technicznej regionalnej, odwiedź stronę [*usługi platformy Azure dostępne według regionów (usługa Azure Digital bliźniaczych reprezentacji)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Nazwa zasobu**: nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Wypełnianie opisanych wartości, aby utworzyć zasób usługi Azure Digital bliźniaczych reprezentacji":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Po zakończeniu wybierz pozycję _Przegląd + Utwórz_. Spowoduje to przejście do strony podsumowania, na której można przejrzeć wprowadzone informacje o wystąpieniu i przycisk _Utwórz_. 
 
@@ -52,7 +52,7 @@ Po zakończeniu wybierz pozycję _Przegląd + Utwórz_. Spowoduje to przejście 
 
 Po wypchnięciu polecenia *Create*można wyświetlić stan wdrożenia wystąpienia w obszarze powiadomień platformy Azure na pasku ikon portalu. Powiadomienie będzie wskazywać, kiedy wdrożenie zakończyło się pomyślnie, i będzie można wybrać przycisk _Przejdź do zasobu_ , aby wyświetlić utworzone wystąpienie.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Widok powiadomień platformy Azure przedstawiający pomyślne wdrożenie i wyróżnienie przycisku przejdź do zasobu":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Alternatywnie, jeśli wdrożenie nie powiedzie się, powiadomienie wskaże przyczynę. Zwróć uwagę na komunikat o błędzie i ponów próbę utworzenia wystąpienia.
 
@@ -61,7 +61,7 @@ Alternatywnie, jeśli wdrożenie nie powiedzie się, powiadomienie wskaże przyc
 
 Na stronie *Przegląd* wystąpienia Zanotuj jego *nazwę*, *grupę zasobów*i *nazwę hosta*. Są to wszystkie ważne wartości, które mogą być potrzebne w przypadku kontynuowania pracy z wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Jeśli inni użytkownicy będą programowanie względem wystąpienia, należy udostępnić te wartości.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Wyróżnianie ważnych wartości na stronie przeglądowej wystąpienia":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczych reprezentacji. Następnie uzyskasz odpowiednie uprawnienia użytkownika platformy Azure do zarządzania nim.
 
@@ -71,7 +71,7 @@ Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczy
 
 Najpierw otwórz stronę wystąpienia usługi Azure Digital bliźniaczych reprezentacji w Azure Portal. Z menu wystąpienia wybierz pozycję *Kontrola dostępu (IAM)*. Wybierz przycisk  *Dodaj* w obszarze *Dodawanie przypisania roli*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Wybieranie, aby dodać przypisanie roli na stronie kontrola dostępu (IAM)":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Na poniższej stronie *Dodawanie przypisania roli* Wypełnij wartości (musi zostać wykonane przez użytkownika z [odpowiednimi uprawnieniami](#prerequisites-permission-requirements) w ramach subskrypcji platformy Azure):
 * **Rola**: wybierz pozycję *Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)* z menu rozwijanego
@@ -80,7 +80,7 @@ Na poniższej stronie *Dodawanie przypisania roli* Wypełnij wartości (musi zos
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Wypełnianie pól na liście w oknie dialogowym Dodawanie przypisania roli":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -92,7 +92,7 @@ Po zakończeniu wprowadzania szczegółów naciśnij przycisk *Zapisz* .
 
 Można wyświetlić przypisaną rolę, która została skonfigurowana w obszarze *Kontrola dostępu (IAM) > przypisań ról*. Użytkownik powinien zostać wyświetlony na liście z rolą *właściciela Digital bliźniaczych reprezentacji (wersja zapoznawcza)*. 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Widok przypisań roli dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji w Azure Portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczych reprezentacji i masz przypisane uprawnienia do zarządzania nim. Następnie skonfigurujesz uprawnienia do aplikacji klienckiej w celu uzyskania do niej dostępu.
 
@@ -102,7 +102,7 @@ Masz teraz już gotowe do użycia wystąpienie usługi Azure Digital bliźniaczy
 
 Zacznij od przechodzenia do [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) w Azure Portal (możesz użyć tego linku lub znaleźć go na pasku wyszukiwania portalu). Wybierz *rejestracje aplikacji* z menu usługi, a następnie pozycję *+ Nowa rejestracja*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Wyświetl stronę usługi Azure AD w Azure Portal, podświetl opcję menu Rejestracje aplikacji i przycisk + Nowa rejestracja":::
+:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Na stronie *zarejestruj aplikację* w następującej kolejności wprowadź żądane wartości:
 * **Nazwa**: Nazwa wyświetlana aplikacji usługi Azure AD, która ma zostać skojarzona z rejestracją
@@ -111,7 +111,7 @@ Na stronie *zarejestruj aplikację* w następującej kolejności wprowadź żąd
 
 Po zakończeniu kliknij przycisk *zarejestruj* .
 
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Widok strony Zarejestruj aplikację przy użyciu opisanych wartości wypełnionych":::
+:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Po zakończeniu konfigurowania rejestracji Portal przekieruje Cię do strony szczegółów.
 
@@ -121,18 +121,18 @@ Następnie skonfiguruj rejestrację aplikacji utworzoną za pomocą uprawnień l
 
 Na stronie portalu rejestracji aplikacji wybierz pozycję *uprawnienia interfejsu API* z menu. Na następującej stronie Uprawnienia kliknij przycisk *+ Dodaj uprawnienie* .
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Wyświetl rejestrację aplikacji w Azure Portal, wyróżnij opcję menu uprawnienia interfejsu API i przycisk + Dodaj uprawnienie":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Na stronie *uprawnienia do interfejsu API żądania* przejdź do opcji *interfejsy API Moja organizacja używa* karty i Wyszukaj w *usłudze Azure Digital bliźniaczych reprezentacji*. Wybierz pozycję *Azure Digital bliźniaczych reprezentacji* z wyników wyszukiwania, aby kontynuować przypisywanie uprawnień do interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Widok wyniku wyszukiwania strony uprawnienia interfejsu API żądania z informacjami o usłudze Azure Digital bliźniaczych reprezentacji":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 >[!NOTE]
 > Jeśli masz istniejące wystąpienie usługi Azure Digital bliźniaczych reprezentacji z poprzedniej publicznej wersji zapoznawczej usługi (przed lipca 2020), nadal musisz wyszukać *usługę Azure Smart Spaces* . Jest to Starsza nazwa dla tego samego zestawu interfejsów API i nie zmieni się tego środowiska poza ten krok.
 
 Następnie wybierz uprawnienia, które mają zostać przyznane dla tych interfejsów API. Rozwiń uprawnienie **Odczyt (1)** , a następnie zaznacz pole wyboru *Odczytaj. Zapisz* , aby udzielić uprawnienia czytelnikowi rejestracji aplikacji i składnika zapisywania.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Widok strony uprawnienia interfejsu API żądania Wybieranie uprawnień Odczyt. zapis dla interfejsów API Digital bliźniaczych reprezentacji platformy Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Po zakończeniu kliknij przycisk *Dodaj uprawnienia* .
 
@@ -140,19 +140,19 @@ Po zakończeniu kliknij przycisk *Dodaj uprawnienia* .
 
 Na stronie *uprawnienia interfejsu API* Sprawdź, czy istnieje już wpis do usługi Azure Digital bliźniaczych reprezentacji odzwierciedlający uprawnienia do odczytu/zapisu:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Widok portalu uprawnień interfejsu API dla rejestracji aplikacji usługi Azure AD, pokazujący uprawnienie do odczytu/zapisu dla usługi Azure Digital bliźniaczych reprezentacji":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Możesz również zweryfikować połączenie z usługą Azure Digital bliźniaczych reprezentacji w *manifest.js*rejestracji aplikacji, która została automatycznie zaktualizowana przy użyciu informacji o usłudze Azure Digital bliźniaczych reprezentacji po dodaniu uprawnień interfejsu API.
 
 W tym celu wybierz pozycję *manifest* z menu, aby wyświetlić kod manifestu rejestracji aplikacji. Przewiń w dół okna kod i poszukaj tych pól w obszarze `requiredResourceAccess` . Wartości powinny być zgodne z poniższymi zrzutu ekranu:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Widok portalu dla rejestracji aplikacji usługi Azure AD. Zagnieżdżone w requiredResourceAccess ma wartość resourceAppId elementu 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, a wartość resourceAccess > ID elementu 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 ### <a name="collect-important-values"></a>Zbierz ważne wartości
 
 Następnie na pasku menu wybierz pozycję *Przegląd* , aby wyświetlić szczegóły rejestracji aplikacji:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Widok portalu ważnych wartości rejestracji aplikacji":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Zanotuj *Identyfikator* *aplikacji (klienta)* na stronie **użytkownika** . Te wartości będą później konieczne do [uwierzytelnienia aplikacji klienckiej względem interfejsów API Digital bliźniaczych reprezentacji platformy Azure](how-to-authenticate-client.md). Jeśli nie jesteś osobą, która będzie pisać kod dla takich aplikacji, należy udostępnić te wartości osobie, która będzie.
 

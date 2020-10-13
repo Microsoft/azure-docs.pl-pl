@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
 ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91664877"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności

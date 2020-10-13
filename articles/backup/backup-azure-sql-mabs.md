@@ -4,10 +4,10 @@ description: W tym artykule poznasz konfigurację tworzenia kopii zapasowych SQL
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 29813741e88ad5f2bc5109be87939abf7cc11502
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316923"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Tworzenie kopii zapasowych SQL Server na platformie Azure przy użyciu Azure Backup Server
@@ -70,7 +70,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
 1. Nadaj nazwę grupie ochrony, a następnie wybierz opcję **Chcę chronić w trybie online**.
 
     ![Wybierz metodę ochrony danych — krótkoterminowa ochrona dysku lub ochrona online platformy Azure](./media/backup-azure-backup-sql/pg-name.png)
-1. Na stronie **Określ cele krótkoterminowe** Uwzględnij niezbędne dane wejściowe, aby utworzyć punkty kopii zapasowej na dysku.
+1. Na stronie **Określ cele Short-Term** Uwzględnij niezbędne dane wejściowe, aby utworzyć punkty kopii zapasowej na dysku.
 
     W tym przykładzie **Zakres przechowywania** jest ustawiony na *5 dni*. **Częstotliwość synchronizacji** kopii zapasowych jest ustawiona na co *15 minut*. **Ekspresowa pełna kopia zapasowa** jest ustawiona na *8:00 PM*.
 

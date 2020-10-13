@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: c4ac9e182a7504ea96f73f2ab95d50fb9d859e47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665229"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Elium
@@ -125,7 +125,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -153,15 +153,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij **profil użytkownika** w prawym górnym rogu, a następnie wybierz pozycję **Ustawienia**.
 
-    ![Konfigurowanie logowania jednokrotnego Elium 01](./media/elium-tutorial/elium-01.png)
+    ![Konfigurowanie pojedynczego Sign-On Elium 01](./media/elium-tutorial/elium-01.png)
 
 1. Wybierz pozycję **zabezpieczenia** w obszarze **Zaawansowane**.
 
-    ![Konfigurowanie logowania jednokrotnego Elium 02](./media/elium-tutorial/elium-02.png)
+    ![Konfigurowanie jednego Sign-On Elium 02](./media/elium-tutorial/elium-02.png)
 
 1. Przewiń w dół do sekcji **Single sign-on (SSO)** (Logowanie jednokrotne) i wykonaj następujące kroki:
 
-    ![Konfigurowanie logowania jednokrotnego Elium 03](./media/elium-tutorial/elium-03.png)
+    ![Konfigurowanie jednego Sign-On Elium 03](./media/elium-tutorial/elium-03.png)
 
     a. Skopiuj wartość pola **Verify that SAML2 authentication works for your account** (Sprawdź, czy uwierzytelnianie SAML2 działa dla Twojego konta) i wklej ją w polu tekstowym **Adres URL logowania** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
@@ -176,15 +176,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Wyszukaj element **entityID** w pliku **metadanych dostawcy usług**, skopiuj wartość elementu **entityID**, a następnie wklej ją w polu tekstowym **Identyfikator** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal. 
 
-    ![Konfigurowanie logowania jednokrotnego Elium 04](./media/elium-tutorial/elium-04.png)
+    ![Konfigurowanie jednego Sign-On Elium 04](./media/elium-tutorial/elium-04.png)
 
     f. Wyszukaj element **AssertionConsumerService** w pliku **metadanych dostawcy usług**, skopiuj wartość elementu **Location**, a następnie wklej ją w polu tekstowym **Adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    ![Konfigurowanie logowania jednokrotnego Elium 05](./media/elium-tutorial/elium-05.png)
+    ![Konfigurowanie jednego Sign-On Elium 05](./media/elium-tutorial/elium-05.png)
 
     przykład Otwórz w Notatniku plik metadanych pobrany z witryny Azure Portal, skopiuj jego zawartość i wklej ją w polu tekstowym **IdP Metadata** (Metadane dostawcy tożsamości).
 
-    h. Kliknij pozycję **Zapisz**.
+    h. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-elium-test-user"></a>Tworzenie użytkownika testowego aplikacji Elium
 

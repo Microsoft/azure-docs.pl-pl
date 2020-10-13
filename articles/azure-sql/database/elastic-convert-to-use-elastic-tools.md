@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443469"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrowanie istniejących baz danych w celu skalowania w poziomie
@@ -138,7 +138,7 @@ Add-RangeMapping -KeyType $([int]) -RangeHigh '5' -RangeLow '1' -RangeShardMap $
 
 ### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Krok 4. zamapuj dane dla wielu dzierżawców w pojedynczej bazie danych
 
-Dla każdej dzierżawy Uruchom polecenie Add-ListMapping (opcja 1).
+Dla każdej dzierżawy Uruchom Add-ListMapping (opcja 1).
 
 ## <a name="checking-the-mappings"></a>Sprawdzanie mapowań
 
@@ -156,13 +156,13 @@ Po zakończeniu instalacji można rozpocząć korzystanie z biblioteki klienta E
 
 ## <a name="next-steps"></a>Następne kroki
 
-Pobierz skrypty programu PowerShell ze [skryptów narzędzi Azure SQL Database-Elastic Database Tools](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Pobierz skrypty programu PowerShell ze [skryptów narzędzi bazy danych Azure SQL Database-Elastic Database](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Narzędzia są również w serwisie GitHub: [Azure/Elastic-DB-Tools](https://github.com/Azure/elastic-db-tools).
 
 Użyj narzędzia Split-Merge do przenoszenia danych do modelu z wieloma dzierżawcami lub z niego do modelu z jednym dzierżawcą. Zobacz [dzielenie narzędzia do scalania](elastic-scale-get-started.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikacjach baz danych typu oprogramowanie jako usługa (SaaS), zobacz artykuł [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md) (Wzorce projektowe dla wielodostępnych aplikacji SaaS korzystających z usługi Azure SQL Database).
 

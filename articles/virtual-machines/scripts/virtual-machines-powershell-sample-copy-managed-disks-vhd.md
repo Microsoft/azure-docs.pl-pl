@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: d76fda02f94f85126214de27d88079977824098d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02b55adf4ac1838e9fcb98b9dffcfbd2b4b52d4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320136"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969905"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>Eksportuj/Kopiuj dysk VHD dysku zarządzanego do konta magazynu w innym regionie przy użyciu programu PowerShell (Windows)
 
@@ -47,7 +47,7 @@ Ten skrypt generuje identyfikator URI sygnatury dostępu współdzielonego dysku
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie dysku zarządzanego na podstawie dysku VHD](virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Tworzenie dysku zarządzanego na podstawie dysku VHD](./virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%252fpowershell%252fmodule%252ftoc.json)
 
 [Tworzenie maszyny wirtualnej na podstawie dysku zarządzanego](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 

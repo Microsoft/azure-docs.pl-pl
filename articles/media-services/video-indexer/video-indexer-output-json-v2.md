@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: juliako
 ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050866"
 ---
 # <a name="examine-the-video-indexer-output"></a>Sprawdzanie danych wyjściowych Video Indexer
@@ -58,7 +58,7 @@ Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w da
 |accountId|Identyfikator konta w VI listy odtwarzania.|
 |identyfikator|Identyfikator listy odtwarzania.|
 |name|Nazwa listy odtwarzania.|
-|opis|Opis listy odtwarzania.|
+|description|Opis listy odtwarzania.|
 |userName|Nazwa użytkownika, który utworzył listę odtwarzania.|
 |utworzony|Godzina utworzenia listy odtwarzania.|
 |Ustawienia prywatności|Tryb prywatności listy odtwarzania (prywatny/publiczny).|
@@ -331,12 +331,12 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa interfejs API
 |identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0, zidentyfikowanej osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
-|opis|Opis osobistości. |
+|description|Opis osobistości. |
 |thumbnailId|Identyfikator miniatury tej czołowej.|
 |knownPersonId|Jeśli jest to znana osoba, jej identyfikator wewnętrzny.|
 |referenceId|Jeśli jest to osobistości Bing, jego identyfikator Bing.|
 |referenceType|Obecnie tylko Bing.|
-|tytuł|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
+|title|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
 |imageUrl|Jeśli jest to osobistości, jego adres URL obrazu.|
 |Liczba|Są to wystąpienia, w których pojawiły się powierzchnie w danym przedziale czasu. Każde wystąpienie ma również thumbnailsId. |
 
@@ -519,7 +519,7 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |name|Nazwa marki.|
 |referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Przykładowy adres URL to [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|opis|Opis marek.|
+|description|Opis marek.|
 |tags|Lista wstępnie zdefiniowanych tagów, które zostały skojarzone z tą marką.|
 |ufność|Wartość ufności detektora Video Indexer marką (0-1).|
 |Liczba|Lista zakresów czasu tej marki. Każde wystąpienie ma element marktype, który wskazuje, czy ta marka pojawiła się w transkrypcji, czy w OCR.|

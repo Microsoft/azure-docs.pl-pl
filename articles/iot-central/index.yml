@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 06/30/2020
-  ms.openlocfilehash: 3556fa14d180c16bca00c4e07a67e49cb9cc1220
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 272c5091d99697a77e7fb8420ac8ef2498a7790d
+  ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
   ms.translationtype: HT
   ms.contentlocale: pl-PL
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90974312"
+  ms.locfileid: "91874377"
 highlightedContent:
   items:
   - title: Co to jest usługa IoT Central?
@@ -101,7 +101,7 @@ productDirectory:
     - text: Tworzenie aplikacji cyfrowego centrum dystrybucji
       url: ./retail/tutorial-iot-central-digital-distribution-center.md
     - text: Tworzenie aplikacji do analizy wideo
-      url: ./retail/tutorial-video-analytics-create-app.md
+      url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md
   - title: Tworzenie dla opieki zdrowotnej
     imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
     links:

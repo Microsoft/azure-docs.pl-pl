@@ -2,7 +2,7 @@
 title: Wdróż usługę Azure serwer proxy aplikacji usługi Azure AD dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak zapewnić bezpieczny dostęp do wewnętrznych aplikacji dla pracowników zdalnych przez wdrażanie i Konfigurowanie serwer proxy aplikacji usługi Azure Active Directory w Azure Active Directory Domain Servicesej domenie zarządzanej
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: f02f8c0c5aabc48e7b9966898028485a4687f413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: bc16f75a4ed2f9fe3be8a8bdc2d981a339780cc3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723082"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960783"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Wdrażanie serwer proxy aplikacji usługi Azure AD platformy Azure w celu bezpiecznego dostępu do wewnętrznych aplikacji w domenie zarządzanej Azure Active Directory Domain Services
 
@@ -26,7 +26,7 @@ Jeśli dopiero zaczynasz korzystać z usługi Azure serwer proxy aplikacji usłu
 
 W tym artykule opisano sposób tworzenia i konfigurowania łącznika usługi Azure serwer proxy aplikacji usługi Azure AD w celu zapewnienia bezpiecznego dostępu do aplikacji w domenie zarządzanej.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

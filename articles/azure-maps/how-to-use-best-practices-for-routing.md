@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086406"
+ms.locfileid: "91874598"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
 Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) mogą służyć do obliczania szacowanego czasu przybycia (ETAs) dla każdej żądanej trasy. Interfejsy API tras uwzględniają takie czynniki jak informacje o ruchu w czasie rzeczywistym i historyczne dane o ruchu, takie jak typowe szybkości podróży w dniu tygodnia i o porze dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych jednocześnie w sekwencji lub w kolejności zoptymalizowanej na podstawie czasu lub odległości. Użytkownicy mogą również zażądać wyspecjalizowanych tras i szczegółów dla podejść, rowerzystów i pojazdów komercyjnych, takich jak samochody. W tym artykule udostępnimy najlepsze rozwiązania w zakresie wywoływania Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)i dowiesz się, jak:
 
-> [!div class="checklist"]
-> * Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
-> * Tworzenie żądań dotyczących historycznych i przewidywanych czasów podróży na podstawie historycznych oraz aktualnych danych o ruchu
-> * Żądaj szczegółowych informacji o trasie, takich jak czas i odległość, dla całej trasy i każdego etapu trasy
-> * Zażądaj trasy dla pojazdu komercyjnego, takiego jak ciężarówka
-> * Żądaj informacji o ruchu na trasie, takich jak dżemy i informacje o cle
-> * Zażądaj trasy, która składa się z co najmniej jednego zatrzymania (waypoints)
-> * Optymalizacja trasy jednego lub większej liczby przerw w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania (punkt nawigacyjny)
-> * Optymalizuj alternatywne trasy przy użyciu punktów pomocniczych. Można na przykład oferować alternatywne trasy, które przechodzą przez stację ładowania pojazdu elektrycznego.
-> * Używanie [Route Service](https://docs.microsoft.com/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
+ * Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
+ * Tworzenie żądań dotyczących historycznych i przewidywanych czasów podróży na podstawie historycznych oraz aktualnych danych o ruchu
+ * Żądaj szczegółowych informacji o trasie, takich jak czas i odległość, dla całej trasy i każdego etapu trasy
+ * Zażądaj trasy dla pojazdu komercyjnego, takiego jak ciężarówka
+ * Żądaj informacji o ruchu na trasie, takich jak dżemy i informacje o cle
+ * Zażądaj trasy, która składa się z co najmniej jednego zatrzymania (waypoints)
+ * Optymalizacja trasy jednego lub większej liczby przerw w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania (punkt nawigacyjny)
+ * Optymalizuj alternatywne trasy przy użyciu punktów pomocniczych. Można na przykład oferować alternatywne trasy, które przechodzą przez stację ładowania pojazdu elektrycznego.
+ * Używanie [Route Service](https://docs.microsoft.com/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

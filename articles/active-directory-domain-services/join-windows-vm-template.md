@@ -2,7 +2,7 @@
 title: Używanie szablonu do przyłączania maszyny wirtualnej z systemem Windows do usługi Azure AD DS | Microsoft Docs
 description: Dowiedz się, jak za pomocą szablonów Azure Resource Manager przyłączyć nową lub istniejącą maszynę wirtualną z systemem Windows Server do domeny zarządzanej Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: fdef11fec93d4ba6254957ad14e0612e2fd05580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 988f009527f26a9f2be965b635d57f0bc38913c2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86221361"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960698"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Przyłączanie maszyny wirtualnej z systemem Windows Server do domeny zarządzanej Azure Active Directory Domain Services przy użyciu szablonu Menedżer zasobów
 

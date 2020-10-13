@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 2e6efc08cb7d38a856098395aff363d9d7ec2bab
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442980"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>Używanie routingu zależnego od danych do kierowania zapytania do odpowiedniej bazy danych
@@ -25,7 +25,7 @@ ms.locfileid: "91442980"
 
 Aplikacja nie musi śledzić różnych parametrów połączenia lub lokalizacji bazy danych skojarzonych z różnymi wycinkami danych w środowisku podzielonej na fragmenty. Zamiast tego [Menedżer mapy fragmentu](elastic-scale-shard-map-management.md) otwiera połączenia z prawidłowymi bazami danych, gdy jest to konieczne, na podstawie danych z mapy fragmentu i wartości klucza fragmentowania, który jest celem żądania aplikacji. Klucz jest zwykle *Customer_ID*, *tenant_id*, *date_key*lub inny konkretny identyfikator, który jest podstawowym parametrem żądania bazy danych.
 
-Aby uzyskać więcej informacji, zobacz [skalowanie SQL Server przy użyciu routingu zależnego od danych](https://technet.microsoft.com/library/cc966448.aspx).
+Aby uzyskać więcej informacji, zobacz [skalowanie w SQL Server przy użyciu Data-Dependent routingu](https://technet.microsoft.com/library/cc966448.aspx).
 
 ## <a name="download-the-client-library"></a>Pobierz bibliotekę kliencką
 
@@ -118,7 +118,7 @@ Metoda **OpenConnectionForKey** zwraca nowe, już otwarte połączenie z poprawn
 
 Najlepszym rozwiązaniem w zakresie opracowywania aplikacji do uzyskiwania dostępu do danych w chmurze jest upewnienie się, że błędy przejściowe są przechwytywane przez aplikację i że operacje są ponawiane kilka razy przed wygenerowaniem błędu. Obsługa błędów przejściowych dla aplikacji w chmurze została omówiona w przejściowej obsłudze błędów ([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://docs.microsoft.com/previous-versions/msp-n-p/dn440719(v=pandp.60))).
 
-Przejściowa obsługa błędów może współistnieć z wzorcem routingu zależnego od danych. Kluczowym wymaganiem jest ponowienie próby wykonania całego żądania dostępu do danych, w tym bloku **using** , który uzyskał połączenie routingu zależnego od danych. Poprzedni przykład można napisać ponownie w następujący sposób.
+Przejściowa obsługa błędów może być naturalnie ze wzorcem routingu Data-Dependent. Kluczowym wymaganiem jest ponowienie próby wykonania całego żądania dostępu do danych, w tym bloku **using** , który uzyskał połączenie routingu zależnego od danych. Poprzedni przykład można napisać ponownie w następujący sposób.
 
 ### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Przykład — Routing zależny od danych z obsługą błędów przejściowych
 

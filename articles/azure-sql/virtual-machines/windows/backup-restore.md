@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360790"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure
@@ -35,7 +35,7 @@ Poniższa tabela zawiera informacje dotyczące różnych opcji tworzenia kopii z
 |---|---|---|
 | [Automatyczne usługa Backup](#automated) | 2014<br/> 2016<br/> 2017 | Automatyczne tworzenie kopii zapasowych umożliwia planowanie regularnych kopii zapasowych dla wszystkich baz danych na maszynie wirtualnej SQL Server. Kopie zapasowe są przechowywane w usłudze Azure Storage przez maksymalnie 30 dni. Począwszy od SQL Server 2016, automatyczna kopia zapasowa v2 oferuje dodatkowe opcje, takie jak Konfigurowanie harmonogramu ręcznego oraz częstotliwość pełnych i dzienników kopii zapasowych. |
 | [Usługa Azure Backup dla maszyn wirtualnych SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup zapewnia funkcję tworzenia kopii zapasowych klasy korporacyjnej dla SQL Server na maszynach wirtualnych platformy Azure. Za pomocą tej usługi można centralnie zarządzać kopiami zapasowymi dla wielu serwerów i tysięcy baz danych. Bazy danych można przywrócić do określonego punktu w czasie w portalu. Oferuje to dostosowywalne zasady przechowywania, które mogą obsługiwać kopie zapasowe przez lata. |
-| [Ręczna kopia zapasowa](#manual) | Wszystko | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
+| [Ręczna kopia zapasowa](#manual) | Wszystkie | W zależności od używanej wersji SQL Server istnieją różne techniki ręcznego tworzenia kopii zapasowych i przywracania SQL Server na maszynie wirtualnej platformy Azure. W tym scenariuszu użytkownik jest odpowiedzialny za tworzenie kopii zapasowych baz danych oraz lokalizację magazynu oraz zarządzanie tymi kopiami zapasowymi. |
 
 W poniższych sekcjach opisano każdą opcję bardziej szczegółowo. Ostatnia sekcja tego artykułu zawiera podsumowanie w formie macierzy funkcji.
 
@@ -104,7 +104,7 @@ Począwszy od SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 można two
 | udoskonalenie 2016 | Szczegóły |
 | --- | --- |
 | **Rozkładanie** |Podczas tworzenia kopii zapasowych do Microsoft Azure Blob Storage SQL Server 2016 obsługuje tworzenie kopii zapasowych do wielu obiektów BLOB w celu umożliwienia tworzenia kopii zapasowych dużych baz danych, maksymalnie 12,8 TB. |
-| **Kopia zapasowa migawek** |Za pomocą migawek platformy Azure SQL Server kopia zapasowa plików migawek zawiera niemal chwilowe kopie zapasowe i szybkie przywracanie plików bazy danych przechowywanych przy użyciu usługi Azure Blob Storage. Ta funkcja umożliwia uproszczenie zasad tworzenia kopii zapasowych i przywracania. Kopia zapasowa plików migawek obsługuje również przywracanie do punktu w czasie. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych migawek dla plików bazy danych na platformie Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Kopia zapasowa migawek** |Korzystając z migawek platformy Azure, SQL Server File-Snapshot kopia zapasowa oferuje niemal chwilowe kopie zapasowe i szybkie przywracanie plików bazy danych przechowywanych przy użyciu usługi Azure Blob Storage. Ta funkcja umożliwia uproszczenie zasad tworzenia kopii zapasowych i przywracania. Kopia zapasowa plików migawek obsługuje również przywracanie do punktu w czasie. Aby uzyskać więcej informacji, zobacz [Tworzenie kopii zapasowych migawek dla plików bazy danych na platformie Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 Aby uzyskać więcej informacji, zobacz jeden z następujących artykułów w zależności od używanej wersji programu SQL Server:
 

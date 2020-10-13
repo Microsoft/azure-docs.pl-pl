@@ -15,10 +15,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317008"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Skonfiguruj nazwę sieci rozproszonej dla FCI 
@@ -119,7 +119,7 @@ Aby zaktualizować możliwych właścicieli, wykonaj następujące kroki:
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menu skrótów dla zasobu DNN z wyróżnionym poleceniem właściwości.":::
 1. Usuń zaznaczenie pola wyboru dla wszystkich węzłów, które nie uczestniczą w wystąpieniu klastra trybu failover. Lista możliwych właścicieli zasobu DNN powinna być zgodna z listą możliwych właścicieli zasobu wystąpienia SQL Server. Na przykład przy założeniu, że DATA3 nie uczestniczy w FCI, na poniższej ilustracji przedstawiono przykład usunięcia DATA3 z listy możliwych właścicieli dla zasobu DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Wyczyść pole wyboru obok węzłów, które nie uczestniczą w FCI dla możliwych właścicieli zasobu DNN":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu skrótów dla zasobu DNN z wyróżnionym poleceniem właściwości.":::
 
 1. Wybierz przycisk **OK**, aby zapisać ustawienia. 
 

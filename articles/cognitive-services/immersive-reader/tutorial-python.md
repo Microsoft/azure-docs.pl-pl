@@ -12,10 +12,10 @@ ms.date: 09/11/2020
 ms.author: dylankil
 ms.custom: devx-track-python
 ms.openlocfilehash: 81d4135671d8ab3e2a8854b855ca285107faaa86
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979355"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-python-sample-project"></a>Samouczek: uruchamianie czytnika immersyjny przy użyciu przykładowego projektu języka Python
@@ -217,7 +217,7 @@ sudo nano /etc/paths
 - Przejdź do dolnej części pliku, a następnie wprowadź ścieżkę, którą chcesz dodać jako ostatni element listy, na przykład `PATH=$PATH:/usr/local/bin` .
 - Wybierz **kombinację klawiszy Ctrl + X** , aby zakończyć.
 - Wprowadź **Y** , aby zapisać zmodyfikowany bufor.
-- Gotowe. Aby go przetestować, w nowym oknie terminalu wprowadź `echo $PATH` .
+- To wszystko. Aby go przetestować, w nowym oknie terminalu wprowadź `echo $PATH` .
 
 Zainstaluj kolbę.
 

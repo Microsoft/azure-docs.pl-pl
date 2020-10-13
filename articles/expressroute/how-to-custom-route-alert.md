@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
 ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766663"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
@@ -32,7 +32,7 @@ Konfigurowanie alertu niestandardowego odbywa się na podstawie trzech głównyc
 
 3. Utwórz aplikację logiki, która będzie wyzwalać konto usługi Automation i wysyłać wiadomości e-mail o alertach, jeśli liczba jest większa niż wartość progowa (na przykład 160).
 
-## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -391,7 +391,7 @@ Po przeanalizowaniu kodu JSON Akcja **operacji analizy danych JSON** przechowuje
 
    :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Dodawanie konta usługi Automation":::
 
-5. Na liście **Akcje** wybierz pozycję **Kontrola warunku**. Kontrola warunku jest strukturą kontroli porównującą dane w przepływie pracy z określonymi wartościami lub polami. Następnie można określić różne akcje, które są uruchamiane w zależności od tego, czy dane spełniają warunek.
+5. Na liście **Akcje** wybierz pozycję **Kontrola warunku**. Condition-Control jest strukturą kontroli porównującą dane w przepływie pracy z określonymi wartościami lub polami. Następnie można określić różne akcje, które są uruchamiane w zależności od tego, czy dane spełniają warunek.
 
    :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Dodawanie konta usługi Automation":::
 

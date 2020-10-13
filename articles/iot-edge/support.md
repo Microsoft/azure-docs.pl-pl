@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 679fa4002f687f715ab1fe9701997d46e4b6f2cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 27d078bc1dc61079d44110999b70c5195c9c8a2a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018462"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874224"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -114,7 +114,7 @@ Składniki IoT Edge można zainstalować lub zaktualizować osobno i są wsteczn
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge używa zestawu SDK Microsoft. Azure. Device. Client. Aby uzyskać więcej informacji, zobacz [repozytorium usługi Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) w witrynie GitHub lub [zawartość referencyjną Azure SDK dla platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). Na poniższej liście przedstawiono wersję zestawu SDK klienta, dla którego są testowane poszczególne wersje:
+IoT Edge używa zestawu SDK Microsoft. Azure. Device. Client. Aby uzyskać więcej informacji, zobacz [repozytorium usługi Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) w witrynie GitHub lub [zawartość referencyjną Azure SDK dla platformy .NET](/dotnet/api/overview/azure/iot/client). Na poniższej liście przedstawiono wersję zestawu SDK klienta, dla którego są testowane poszczególne wersje:
 
 * **IoT Edge 1.0.9**: 1.21.1 zestawu SDK klienta
 * **IoT Edge 1.0.8**: 1.20.3 zestawu SDK klienta
@@ -122,7 +122,7 @@ IoT Edge używa zestawu SDK Microsoft. Azure. Device. Client. Aby uzyskać więc
 * **IoT Edge 1.0.6**: 1.17.1 zestawu SDK klienta
 * **IoT Edge 1.0.5**: 1.17.1 zestawu SDK klienta
 
-## <a name="virtual-machines"></a>Maszyny wirtualne
+## <a name="virtual-machines"></a>Virtual Machines
 
 Azure IoT Edge można uruchamiać na maszynach wirtualnych. Użycie maszyny wirtualnej jako urządzenia IoT Edge jest powszechne, gdy klienci chcą rozszerzyć istniejącą infrastrukturę za pomocą funkcji analizy brzegowej. Rodzina systemu operacyjnego hosta maszyny wirtualnej musi być zgodna z rodziną systemu operacyjnego gościa używanego wewnątrz kontenera modułu. To wymaganie jest takie samo, jak w przypadku uruchamiania Azure IoT Edge bezpośrednio na urządzeniu. Azure IoT Edge jest niezależny od podstawowej technologii wirtualizacji i działa na maszynach wirtualnych opartych na platformach takich jak Hyper-V i vSphere.
 

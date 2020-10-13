@@ -5,14 +5,16 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Dowiedz się, jak Visual Studio Code i Azure Dev Spaces ułatwiają debugowanie i szybkie Iterowanie aplikacji Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfcb8107280bb86144b798da2d5b1c16371528e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209877"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960749"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Jak działa Visual Studio Code z Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Możesz użyć Visual Studio Code i [rozszerzenia Azure dev Spaces][azds-extension] do przygotowywania, uruchamiania i debugowania usług przy użyciu Azure dev Spaces. Za pomocą Visual Studio Code i rozszerzenia Azure Dev Spaces można:
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484548"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
@@ -103,7 +103,7 @@ Aby skopiować dane z usługi Amazon RedShift, obsługiwane są następujące w�
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
 | schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -223,14 +223,14 @@ Podczas kopiowania danych z usługi Amazon RedShift następujące mapowania są 
 | BIGINT |Int64 |
 | TYPU |Ciąg |
 | DELIKATN |Ciąg |
-| DATE |Data i godzina |
+| DATE |DateTime |
 | DOKŁADNOŚCI |Liczba dziesiętna |
 | PODWÓJNA PRECYZJA |Double |
 | LICZBA CAŁKOWITA |Int32 |
 | LICZBA RZECZYWISTA |Pojedynczy |
 | SMALLINT |Int16 |
 | TEKST |Ciąg |
-| ZNACZNIK czasu |Data i godzina |
+| ZNACZNIK czasu |DateTime |
 | VARCHAR |Ciąg |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: 73f560ccf7ba910ce9077f2eff2d2bdb90736cc2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361266"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie chmury SAP Analytics na potrzeby automatycznego aprowizacji użytkowników
@@ -128,7 +128,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.familyName|Ciąg|
    |aktywne|Wartość logiczna|
    |emails[type eq "work"].value|Ciąg|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Ciąg|
 
 10. Aby skonfigurować filtry zakresu, skorzystaj z instrukcji przedstawionych w [samouczku dotyczącym filtrów zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

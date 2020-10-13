@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280183"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
@@ -79,7 +79,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
 ### <a name="azure-government-cloud-prerequisite"></a>Azure Government wymagań wstępnych w chmurze
 Przed włączeniem uwierzytelniania przekazywanego za pośrednictwem Azure AD Connect z krok 2 Pobierz najnowszą wersję agenta PTA z Azure Portal.  Musisz się upewnić, że Agent jest w wersji **1.5.1742.0.** lub nowsza wersja.  Aby zweryfikować agenta, zobacz [uaktualnianie agentów uwierzytelniania](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
-Po pobraniu najnowszej wersji agenta postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować uwierzytelnianie przekazywane za pomocą Azure AD Connect.
+Po pobraniu najnowszej wersji agenta postępuj zgodnie z poniższymi instrukcjami, aby skonfigurować uwierzytelnianie Pass-Through przy użyciu Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Krok 2. Włączanie funkcji
 

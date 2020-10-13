@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: f539786de589dbab3a191a5343ba315349533447
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360994"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Wysyłaj metryki systemu operacyjnego gościa do magazynu Azure Monitor metryk klasyczny Cloud Services 

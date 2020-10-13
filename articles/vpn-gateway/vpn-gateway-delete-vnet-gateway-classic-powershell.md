@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: ded1887248e7313c2a284388e8338af96ad7614c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39585a68c5cddc50cd04e82caca71209270f7b68
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84987424"
+ms.locfileid: "91874122"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Usuwanie bramy sieci wirtualnej przy użyciu programu PowerShell (wersja klasyczna)
 
@@ -35,11 +35,7 @@ W tym artykule opisano usuwanie bramy sieci VPN w klasycznym modelu wdrażania p
 
 Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 
-1. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień. Aby przełączyć się do zarządzania usługami, użyj tego polecenia:
-
-   ```powershell
-   azure config mode asm
-   ```
+1. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień.
 2. Połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 
    ```powershell

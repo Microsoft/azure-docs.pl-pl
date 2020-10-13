@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
 ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279838"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli SAP przy użyciu Azure Data Factory
@@ -71,7 +71,7 @@ Aby użyć tego łącznika tabeli SAP, należy wykonać następujące:
   - Autoryzacja przy użyciu miejsc docelowych zdalnego wywołania funkcji (RFC).
   - Uprawnienia do wykonywania działania obiektu autoryzacji S_SDSAUTH.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -91,7 +91,7 @@ Następujące właściwości są obsługiwane dla SAP BW połączonej usługi:
 | `systemId` | Identyfikator systemu SAP, w którym znajduje się tabela.<br/>Służy do nawiązywania połączenia z serwerem komunikatów SAP. | Nie |
 | `logonGroup` | Grupa logowania dla systemu SAP.<br/>Służy do nawiązywania połączenia z serwerem komunikatów SAP. | Nie |
 | `clientId` | Identyfikator klienta w systemie SAP.<br/>Dozwolona wartość: 3-cyfrowa liczba dziesiętna reprezentowana jako ciąg. | Tak |
-| `language` | Język, którego używa System SAP.<br/>Wartość domyślna to `EN` .| Nie |
+| `language` | Język, którego używa System SAP.<br/>Wartość domyślna to `EN`.| Nie |
 | `userName` | Nazwa użytkownika, który ma dostęp do serwera SAP. | Tak |
 | `password` | Hasło dla użytkownika. Oznacz to pole typem, `SecureString` Aby bezpiecznie przechowywać je w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | `sncMode` | Wskaźnik aktywacji SNC w celu uzyskania dostępu do serwera SAP, na którym znajduje się tabela.<br/>Użyj, jeśli chcesz używać SNC do nawiązywania połączenia z serwerem SAP.<br/>Dozwolone wartości to `0` (wyłączone, domyślne) lub `1` (włączone). | Nie |
@@ -227,7 +227,7 @@ Aby skopiować dane z tabeli SAP, obsługiwane są następujące właściwości:
 | `rowCount`                         | Liczba wierszy do pobrania.                              | Nie       |
 | `rfcTableFields`                 | Pola (kolumny) do skopiowania z tabeli SAP. Na przykład `column0, column1`. | Nie       |
 | `rfcTableOptions`                | Opcje filtrowania wierszy w tabeli SAP. Na przykład `COLUMN0 EQ 'SOMEVALUE'`. Zobacz również tabelę operatorów zapytań SAP w dalszej części tego artykułu. | Nie       |
-| `customRfcReadTableFunctionModule` | Niestandardowy moduł funkcji RFC, który może służyć do odczytywania danych z tabeli SAP.<br>Możesz użyć niestandardowego modułu funkcji RFC, aby określić, jak dane są pobierane z systemu SAP i zwracane do Data Factory. Moduł funkcji niestandardowych musi mieć zaimplementowany interfejs (import, eksport, tabele) podobny do `/SAPDS/RFC_READ_TABLE2` , który jest domyślnym interfejsem używanym przez Data Factory.<br>Data Factory | Nie       |
+| `customRfcReadTableFunctionModule` | Niestandardowy moduł funkcji RFC, który może służyć do odczytywania danych z tabeli SAP.<br>Możesz użyć niestandardowego modułu funkcji RFC, aby określić, jak dane są pobierane z systemu SAP i zwracane do Data Factory. Moduł funkcji niestandardowych musi mieć zaimplementowany interfejs (import, eksport, tabele) podobny do `/SAPDS/RFC_READ_TABLE2` , który jest domyślnym interfejsem używanym przez Data Factory.<br>Fabryka danych | Nie       |
 | `partitionOption`                  | Mechanizm partycji, który ma zostać odczytany z tabeli SAP. Obsługiwane opcje obejmują: <ul><li>`None`</li><li>`PartitionOnInt` (normalne wartości całkowite lub całkowite ze uzupełnieniem zero po lewej stronie, takie jak `0000012345` )</li><li>`PartitionOnCalendarYear` (4 cyfry w formacie "RRRR")</li><li>`PartitionOnCalendarMonth` (6 cyfr w formacie "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 cyfr w formacie "RRRRMMDD")</li></ul> | Nie       |
 | `partitionColumnName`              | Nazwa kolumny używanej do partycjonowania danych.                | Nie       |
 | `partitionUpperBound`              | Wartość maksymalna określona w kolumnie `partitionColumnName` , która będzie używana do kontynuowania partycjonowania. | Nie       |
@@ -247,7 +247,7 @@ W programie `rfcTableOptions` można użyć następujących typowych operatorów
 | Operator | Opis |
 | :------- | :------- |
 | `EQ` | Jest równe |
-| `NE` | Nie jest równe |
+| `NE` | Różne od |
 | `LT` | Mniejsze niż |
 | `LE` | Mniejsze niż lub równe |
 | `GT` | Większe niż |

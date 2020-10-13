@@ -5,14 +5,16 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Dowiedz się, jak używać poleceń polecenia kubectl w obszarze dev w klastrze usługi Azure Kubernetes z włączonym Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: 7530cde68b2ce8d06fb7b16a9a147f0f0bc8645c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f79d98cf209d1bc19753f19c9b17b06017c2b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75438360"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960168"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Korzystanie z polecenia kubectl z przestrzenią dev platformy Azure
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Możesz uzyskać dostęp do klastra Kubernetes w przestrzeni usługi Azure dev i korzystać z istniejących narzędzi Kubernetes, takich jak `kubectl` .
 

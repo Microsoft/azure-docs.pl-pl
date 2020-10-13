@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761553"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Dokumentacja zestawu SDK języka JavaScript czytnika immersyjny (v 1.1)
@@ -190,7 +190,7 @@ Zawiera informacje o błędzie.
 
 <br>
 
-## <a name="types"></a>Typy
+## <a name="types"></a>Types
 
 ### <a name="content"></a>Zawartość
 
@@ -526,7 +526,7 @@ Po włączeniu formatowania następująca zawartość będzie renderowana jako H
 | --------- | ----------- |
 | Style czcionki | Pogrubienie, kursywa, podkreślenie, kod, przekreślenie, indeks górny, dolny indeks |
 | Listy nieuporządkowane | Dysk, okrąg, kwadrat |
-| Uporządkowane listy | Dziesiętny, górny, Dolny, niższy niż alfa, wielkie litery, małe litery |
+| Uporządkowane listy | Dziesiętny, górny alfa, niższy-alfa, wielkie litery, Lower-Roman |
 
 Nieobsługiwane Tagi będą renderowane w sposób porównywalny. Obrazy i tabele nie są obecnie obsługiwane.
 

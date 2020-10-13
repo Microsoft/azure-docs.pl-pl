@@ -15,10 +15,10 @@ ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6911128cfbaa87229a09bcea0d655c6110c2d208
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259785"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>Dostępne jednostki SKU dla dużych wystąpień HANA
@@ -48,7 +48,7 @@ Lista dostępnych dużych wystąpień platformy Azure, które są oferowane w po
 
 
 
-| SAP HANA certyfikat | Model | Całkowita ilość pamięci | Pamięć DRAM | Optane pamięci | Storage | Dostępność |
+| SAP HANA certyfikat | Model | Całkowita ilość pamięci | Pamięć DRAM | Optane pamięci | Magazyn | Dostępność |
 | --- | --- | --- | --- | --- | --- | --- |
 | TAK <br />[OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA na platformie Azure s96<br /> — 2 x procesor Intel® Xeon® E7-8890 v4 <br /> 48 rdzeni procesora CPU i 96 wątki procesora |  768 GB | 768 GB | --- | 3,0 TB | Dostępne |
 | TAK <br /> [OLAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186), [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA na platformie Azure S224<br /> — 4 x procesor Intel® Xeon® Platinum 8276 <br /> 112 rdzeni procesora CPU i 224 wątki procesora |  3,0 TB | 3,0 TB | --- | 6,3 TB | Dostępne |
@@ -86,8 +86,8 @@ Lista dostępnych dużych wystąpień platformy Azure, które są oferowane w po
 
 
 - Rdzenie procesora = suma rdzeni procesora CPU, które nie są oparte na funkcji Hyper-Thread, sumy procesorów jednostki serwera.
-- Wątki procesora = suma wątków obliczeniowych dostarczanych przez rdzenie procesora CPU przez wątki z sumą procesorów jednostki serwera. Większość jednostek jest domyślnie skonfigurowanych do korzystania z technologii Hyper-Threading.
-- Na podstawie zaleceń dotyczących dostawcy S768m, S768xm i S960m nie są skonfigurowane do korzystania z funkcji Hyper-Threading do uruchamiania SAP HANA.
+- Wątki procesora = suma wątków obliczeniowych dostarczanych przez rdzenie procesora CPU przez wątki z sumą procesorów jednostki serwera. Większość jednostek jest skonfigurowanych domyślnie do korzystania z technologii Hyper-Threading.
+- Na podstawie zaleceń dotyczących dostawcy S768m, S768xm i S960m nie są skonfigurowane do używania Hyper-Threading do uruchamiania SAP HANA.
 
 
 > [!IMPORTANT]

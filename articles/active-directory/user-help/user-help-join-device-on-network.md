@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536974"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Przyłącz urządzenie służbowe do sieci organizacji

@@ -7,10 +7,10 @@ ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888961"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ W usłudze Azure Kubernetes Service (AKS) węzły tej samej konfiguracji są pog
 > [!Important]
 > W przypadku uruchamiania jednej puli węzłów systemu dla klastra AKS w środowisku produkcyjnym zaleca się użycie co najmniej trzech węzłów dla puli węzłów.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Musisz mieć zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure w wersji 2.3.1 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -170,7 +170,7 @@ Aby można było usunąć jedną z nich, należy mieć co najmniej dwie pule wę
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć klaster, użyj polecenia [AZ Group Delete][az-group-delete] , aby usunąć grupę zasobów AKS:
 

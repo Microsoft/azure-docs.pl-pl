@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613394"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Zarządzanie usługą IoT Plug and Play Digital bliźniaczych reprezentacji
