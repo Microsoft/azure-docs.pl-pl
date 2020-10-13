@@ -13,10 +13,10 @@ ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokalna, OCR, Docker, kontener
 ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536379"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalowanie kontenerów platformy Docker OCR (wersja zapoznawcza) 

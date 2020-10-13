@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536634"
 ---
 # <a name="densenet"></a>Model DenseNet
@@ -54,11 +54,11 @@ Po zakończeniu przebiegu potoku, aby użyć modelu do oceniania, Połącz [mode
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa             | Zakres | Typ    | Domyślny     | Opis                              |
+| Nazwa             | Zakres | Type    | Domyślne     | Opis                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Nazwa modelu       | Dowolne   | Tryb    | densenet201 | Nazwa pewnej struktury DenseNet     |
 | Przeduczenie       | Dowolne   | Boolean | Prawda        | Czy używać modelu wstępnie nauczonego na ImageNet |
-| Wydajna pamięć | Dowolne   | Wartość logiczna | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
+| Wydajna pamięć | Dowolne   | Boolean (wartość logiczna) | Fałsz       | Czy należy używać punktów kontrolnych, co jest znacznie bardziej wydajne, ale wolniejsze |
 
 ###  <a name="output"></a>Dane wyjściowe  
 

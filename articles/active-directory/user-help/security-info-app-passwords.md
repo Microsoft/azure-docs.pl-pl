@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
 ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537008"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Tworzenie haseł aplikacji na stronie informacje zabezpieczające (wersja zapoznawcza)
