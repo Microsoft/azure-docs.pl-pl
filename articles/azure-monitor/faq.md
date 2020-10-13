@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/15/2020
-ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/08/2020
+ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760257"
+ms.locfileid: "91893768"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -322,7 +322,6 @@ Wyszukujemy adres IP (IPv4 lub IPv6) klienta sieci Web za pomocą [GeoLite2](htt
 * Dane telemetryczne serwera: moduł Application Insights zbiera adres IP klienta. Nie jest zbierane, jeśli `X-Forwarded-For` jest ustawiony.
 * Aby dowiedzieć się więcej na temat sposobu zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](./app/ip-collection.md).
 
-
 Można skonfigurować, `ClientIpHeaderTelemetryInitializer` Aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do programu `X-Originating-IP` . [Dowiedz się więcej](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 Możesz [użyć Power BI](app/export-power-bi.md ) , aby wyświetlić dane telemetryczne żądania na mapie.
@@ -398,6 +397,29 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Jak mogę przenieść zasób Application Insights do nowego regionu?
+
+Przeniesienie istniejących zasobów Application Insights z jednego regionu do innego **nie jest obecnie obsługiwane**. Zebranych danych historycznych **nie można migrować** do nowego regionu. Jedyne częściowe obejście to:
+
+1. Utwórz zupełnie nowy zasób Application Insights ([klasyczny](app/create-new-resource.md) lub [oparty na obszarze roboczym](/app/create-workspace-resource.md)) w nowym regionie.
+2. Utwórz ponownie wszystkie unikatowe dostosowania specyficzne dla oryginalnego zasobu w nowym zasobie.
+3. Zmodyfikuj aplikację tak, aby korzystała z [klucza Instrumentacji](app/create-new-resource.md#copy-the-instrumentation-key) zasobu nowego regionu lub [parametrów połączenia](app/sdk-connection-string.md).  
+4. Przetestuj, aby upewnić się, że wszystko nadal działa zgodnie z oczekiwaniami przy użyciu nowego zasobu Application Insights. 
+5. W tym momencie można usunąć oryginalny zasób, co spowoduje **utratę wszystkich danych historycznych**. Lub zachować oryginalny zasób do celów sprawozdawczości historycznej na czas trwania jego ustawień przechowywania danych.
+
+Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizować dla zasobu w nowym regionie, obejmują, ale nie są ograniczone do:
+
+- Utwórz ponownie niestandardowe pulpity nawigacyjne i skoroszyty. 
+- Utwórz ponownie lub zaktualizuj zakres wszelkich niestandardowych alertów dzienników/metryk. 
+- Utwórz ponownie alerty dostępności.
+- Utwórz ponownie wszystkie niestandardowe ustawienia Access Control Role-Based (RBAC), które są wymagane, aby użytkownicy mieli dostęp do nowego zasobu. 
+- Replikowanie ustawień obejmujących pobieranie próbek, przechowywanie danych, dzienny limit i włączenie metryk niestandardowych. Te ustawienia są kontrolowane za pośrednictwem okienka **użycie i szacowane koszty** .
+- Dowolna integracja, która opiera się na kluczach interfejsu API, takich jak [Adnotacje wersji](/app/annotations.md), [kanał bezpiecznego sterowania metrykami na żywo](app/live-stream.md#secure-the-control-channel) itp. Musisz wygenerować nowe klucze interfejsu API i zaktualizować skojarzoną integrację. 
+- Eksport ciągły w klasycznych zasobach musi zostać skonfigurowany ponownie.
+- Ustawienia diagnostyczne w zasobach opartych na obszarze roboczym byłyby konieczne do ponownego skonfigurowania.
+
+> [!NOTE]
+> Jeśli zasób tworzony w nowym regionie zastępuje zasób klasyczny, zalecamy zapoznanie się z zaletami [tworzenia nowego zasobu opartego na obszarze roboczym](app/create-workspace-resource.md) lub [migrowaniem istniejącego zasobu do obszaru roboczego](app/convert-classic-resource.md). 
 
 ### <a name="automation"></a>Automatyzacja
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: fe89b58f71b14b211863fd46ba523e8c866764f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361793"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961344"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Zarządzanie dostępnością maszyn wirtualnych z systemem Linux
 
@@ -22,7 +22,7 @@ Dowiedz się, jak skonfigurować wiele maszyn wirtualnych i zarządzać nimi, ab
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualną na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
 
-* **Zdarzenie nieplanowanej konserwacji sprzętu** ma miejsce, gdy platforma Azure przewidzi zbliżającą się awarię sprzętu lub dowolnego składnika platformy powiązanego z maszyną fizyczną. Gdy platforma przewidzi awarię, wygeneruje zdarzenie nieplanowanej konserwacji sprzętu, aby zmniejszyć wpływ tej awarii na maszyny wirtualne hostowane na tym sprzęcie. Platforma Azure używa technologii [migracja na żywo](./linux/maintenance-and-updates.md) do migrowania Virtual Machines z nieprawidłowego sprzętu na komputer fizyczny w dobrej kondycji. Migracja na żywo to operacja zachowywania maszyny wirtualnej, która jedynie wstrzymuje maszynę wirtualną na krótki czas. Pamięć, otwarte pliki i połączenia sieciowe są utrzymywane, ale wydajność przed i/lub po zdarzeniu może zostać ograniczona. W przypadkach, gdy nie można użyć migracji na żywo, maszyna wirtualna doświadczy nieoczekiwanego przestoju zgodnie z opisem poniżej.
+* **Zdarzenie nieplanowanej konserwacji sprzętu** ma miejsce, gdy platforma Azure przewidzi zbliżającą się awarię sprzętu lub dowolnego składnika platformy powiązanego z maszyną fizyczną. Gdy platforma przewidzi awarię, wygeneruje zdarzenie nieplanowanej konserwacji sprzętu, aby zmniejszyć wpływ tej awarii na maszyny wirtualne hostowane na tym sprzęcie. Platforma Azure używa technologii [migracja na żywo](./maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252flinux%252ftoc.json) do migrowania Virtual Machines z nieprawidłowego sprzętu na komputer fizyczny w dobrej kondycji. Migracja na żywo to operacja zachowywania maszyny wirtualnej, która jedynie wstrzymuje maszynę wirtualną na krótki czas. Pamięć, otwarte pliki i połączenia sieciowe są utrzymywane, ale wydajność przed i/lub po zdarzeniu może zostać ograniczona. W przypadkach, gdy nie można użyć migracji na żywo, maszyna wirtualna doświadczy nieoczekiwanego przestoju zgodnie z opisem poniżej.
 
 
 * **Nieoczekiwany przestój** polega na nieoczekiwanej awarii sprzętu lub infrastruktury fizycznej maszyny wirtualnej. Może to obejmować awarie sieci lokalnej, błędy dysku lokalnego lub inne awarie poziomu stojaka. W przypadku wykrycia platforma Azure automatycznie migruje maszynę wirtualną do zdrowej maszyny fizycznej w tym samym centrum danych. Podczas wykonywania procedury naprawiania maszyny wirtualne doświadczają przestoju (ponownego rozruchu), a w niektórych przypadkach dochodzi do utraty dysku tymczasowego. Dołączone dyski systemu operacyjnego i danych są zawsze zachowywane.
@@ -94,7 +94,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 >
 > W tych okolicznościach dysk systemu operacyjnego drugiej maszyny wirtualnej może zostać utworzony w tej samej domenie błędów co pierwsza maszyna wirtualna, więc dwie maszyny wirtualne będą znajdować się w tej samej domenie błędów. Aby uniknąć tego problemu, zalecamy nie zatrzymywanie/cofanie alokacji maszyn wirtualnych między wdrożeniami.
 
-Jeśli planujesz używanie maszyn wirtualnych z dyskami niezarządzanymi, postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi kont magazynu, w których wirtualne dyski twarde (VHD) maszyn wirtualnych są przechowywane jako [stronicowe obiekty blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Jeśli planujesz używanie maszyn wirtualnych z dyskami niezarządzanymi, postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi kont magazynu, w których wirtualne dyski twarde (VHD) maszyn wirtualnych są przechowywane jako [stronicowe obiekty blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Obsługuj wszystkie dyski (systemu operacyjnego i danych) skojarzone z maszyną wirtualną na tym samym koncie magazynu.**
 2. Przed dodaniem kolejnych dysków VHD do konta magazynu **Przejrzyj [limity](../storage/blobs/scalability-targets-premium-page-blobs.md) liczby dysków niezarządzanych na koncie usługi Azure Storage** .

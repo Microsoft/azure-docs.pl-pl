@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: e6d811e19bb19c8c8bf96764cfcca2b1294f4a85
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91440057"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Tworzenie i Instalowanie plików konfiguracji klienta sieci VPN na potrzeby uwierzytelniania P2S RADIUS
@@ -43,7 +43,7 @@ Aby skorzystać z sekcji w tym artykule, najpierw należy wybrać typ uwierzytel
 
 Uwierzytelnianie przy użyciu nazwy użytkownika i hasła można skonfigurować w taki sposób, aby używać Active Directory lub nie Active Directory. W każdym scenariuszu upewnij się, że wszyscy użytkownicy nawiązujący połączenia mają poświadczenia nazwy użytkownika/hasła, które mogą być uwierzytelniane za pomocą usługi RADIUS.
 
-Podczas konfigurowania uwierzytelniania nazwy użytkownika/hasła można utworzyć tylko konfigurację dla protokołu uwierzytelniania przy użyciu nazwy użytkownika/hasła protokołu EAP-MSCHAPv2. W poleceniach `-AuthenticationMethod` jest `EapMSChapv2` .
+Podczas konfigurowania uwierzytelniania nazwy użytkownika/hasła można utworzyć tylko konfigurację dla EAP-MSCHAPv2 protokołu uwierzytelniania przy użyciu nazwy użytkownika/hasła. W poleceniach `-AuthenticationMethod` jest `EapMSChapv2` .
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. Generuj pliki konfiguracji klienta sieci VPN
 
@@ -130,7 +130,7 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN syst
 6. Podczas instalacji profilu można określić nazwę użytkownika i hasło do uwierzytelniania sieci VPN. Wprowadzanie tych informacji nie jest obowiązkowe. W takim przypadku informacje są zapisywane i automatycznie używane po zainicjowaniu połączenia.Wybierz pozycję **Zainstaluj** , aby wykonać operację.
 
    ![Pola nazwy użytkownika i hasła dla sieci VPN](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-7. Wprowadź nazwę użytkownika i hasło dla uprawnień wymaganych do zainstalowania profilu na komputerze. Wybierz pozycję **OK**.
+7. Wprowadź nazwę użytkownika i hasło dla uprawnień wymaganych do zainstalowania profilu na komputerze. Wybierz przycisk **OK**.
 
    ![Pola Nazwa użytkownika i hasło dla instalacji profilu](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 8. Po zainstalowaniu profilu jest on widoczny w oknie dialogowym **Profile** . Możesz również otworzyć to okno dialogowe później z poziomu **preferencji systemowych**.
@@ -265,7 +265,7 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na k
 
 ## <a name="working-with-other-authentication-types-or-protocols"></a><a name="otherauth"></a>Praca z innymi typami uwierzytelniania lub protokołami
 
-Aby użyć innego typu uwierzytelniania (na przykład OTP) lub użyć innego protokołu uwierzytelniania (takiego jak PEAP-MSCHAPv2 zamiast EAP-MSCHAPv2), należy utworzyć własny profil konfiguracji klienta sieci VPN. Aby utworzyć profil, potrzebne są informacje, takie jak adres IP bramy sieci wirtualnej, typ tunelu i trasy podzielonego tunelu. Te informacje można uzyskać, wykonując następujące czynności:
+Aby użyć innego typu uwierzytelniania (na przykład OTP) lub użyć innego protokołu uwierzytelniania (takiego jak PEAP-MSCHAPv2 zamiast protokołu EAP-MSCHAPv2), należy utworzyć własny profil konfiguracji klienta sieci VPN. Aby utworzyć profil, potrzebne są informacje, takie jak adres IP bramy sieci wirtualnej, typ tunelu i trasy podzielonego tunelu. Te informacje można uzyskać, wykonując następujące czynności:
 
 1. Użyj `Get-AzVpnClientConfiguration` polecenia cmdlet, aby wygenerować konfigurację klienta sieci VPN dla EapMSChapv2.
 

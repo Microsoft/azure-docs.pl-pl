@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255849"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie TheOrgWiki na potrzeby automatycznego aprowizacji użytkowników
@@ -65,7 +65,7 @@ Przed skonfigurowaniem usługi TheOrgWiki na potrzeby automatycznego inicjowania
 
     ![Zrzut ekranu strony konta usług w konsoli administracyjnej typu wiki organizacji.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi**wybierz pozycję **oparty na tokenach**. Kliknij pozycję **Zapisz**.
+4. Kliknij pozycję **+ konto usługi**. W obszarze **Typ konta usługi**wybierz pozycję **oparty na tokenach**. Kliknij przycisk **Zapisz**.
 
     ![Zrzut ekranu przedstawiający okno dialogowe nowe konto usługi z opcjami typ konta usługi, oparte na tokenach i Zapisz.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -147,7 +147,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-8. Kliknij pozycję **Zapisz**.
+8. Kliknij przycisk **Zapisz**.
 
 9. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do TheOrgWiki**.
 

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: twooley
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 358de5761f3535b5f1e75d82539ee8e3ecdbd289
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665621"
 ---
 **Azure Data Lake Storage Gen2** nie jest dedykowanym typem konta usługi lub magazynu. Jest to Najnowsza wersja możliwości, która jest przeznaczona do analizy danych Big Data.  Te funkcje są dostępne w ramach konta magazynu ogólnego przeznaczenia w wersji 2 lub BlockBlobStorage i można je uzyskać, włączając funkcję **hierarchicznej przestrzeni nazw** konta. W przypadku elementów docelowych skalowania Zobacz te artykuły. 

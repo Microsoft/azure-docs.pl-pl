@@ -11,10 +11,10 @@ ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
 ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617761"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
@@ -125,7 +125,7 @@ Stan operacji może być śledzony przez przeglądanie odpowiedzi interfejsu API
 
 ## <a name="monitor-the-failover"></a>Monitorowanie trybu failover
 
-Aby monitorować postęp ręcznej pracy awaryjnej zainicjowanej przez użytkownika, wykonaj następujące zapytanie T-SQL w ulubionym kliencie (takim jak SSMS) w wystąpieniu zarządzanym SQL. Zostanie odczytany widok systemowy sys. dm_hadr_fabric_replica_states i repliki raportów dostępne w wystąpieniu. Odśwież to samo zapytanie po zainicjowaniu ręcznego przełączania do trybu failover.
+Aby monitorować postęp ręcznej pracy awaryjnej zainicjowanej przez użytkownika, wykonaj następujące zapytanie T-SQL w ulubionym kliencie (takim jak SSMS) w wystąpieniu zarządzanym SQL. Spowoduje to odczytanie sys.dm_hadr_fabric_replica_states widoku systemowego i replik raportów dostępnych w wystąpieniu. Odśwież to samo zapytanie po zainicjowaniu ręcznego przełączania do trybu failover.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states

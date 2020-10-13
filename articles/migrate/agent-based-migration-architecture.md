@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357169"
 ---
 # <a name="agent-based-migration-architecture"></a>Architektura migracji z użyciem agentów
@@ -115,7 +115,7 @@ Jeśli musisz wdrożyć serwer przetwarzania skalowalnego w poziomie, Użyj tej 
 
 Ruch VMware replikowany do platformy Azure odbywa się za pomocą określonego serwera przetwarzania. Przepływność przekazywania można ograniczyć, ograniczając przepustowość na komputerach, na których działają jako serwery przetwarzania. Korzystając z tego klucza rejestru, można mieć wpływ na przepustowość:
 
-- Wartość rejestru HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM określa liczbę wątków używanych na potrzeby transferu danych (replikacja początkowa lub różnicowa) dysku. Wyższa wartość zwiększa przepustowość sieci używaną podczas replikacji. Wartość domyślna to 4. Wartość maksymalna to 32. Monitoruj ruch, aby zoptymalizować tę wartość.
+- Wartość rejestru HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM określa liczbę wątków używanych na potrzeby transferu danych (replikacja początkowa lub różnicowa) dysku. Wyższa wartość zwiększa przepustowość sieci używaną podczas replikacji. Wartość domyślna to 4. Wartość maksymalna to 32. Monitoruj ruch, aby zoptymalizować tę wartość.
 - Ponadto można ograniczyć przepustowość na komputerze serwera przetwarzania w następujący sposób:
 
     1. Na komputerze serwera przetwarzania Otwórz przystawkę MMC Azure Backup. Istnieje skrót na pulpicie lub w folderze C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 

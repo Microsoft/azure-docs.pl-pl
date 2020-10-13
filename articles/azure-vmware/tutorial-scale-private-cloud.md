@@ -4,10 +4,10 @@ description: W tym samouczku użyjesz Azure Portal, aby skalować chmurę prywat
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: e1226eb98607a34869bda1f998c7cecea2e50919
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254418"
 ---
 # <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Samouczek: skalowanie chmury prywatnej rozwiązania Azure VMware
@@ -32,7 +32,7 @@ Do ukończenia tego samouczka potrzebna jest chmura prywatna. Jeśli jeszcze nie
 
 1. Na stronie **Dodawanie klastra** Użyj suwaka, aby wybrać liczbę hostów. Wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Na stronie Dodawanie klastra użyj suwaka, aby wybrać liczbę hostów. Wybierz pozycję Zapisz." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Wybierz pozycję Dodaj klaster" border="true":::
 
    Rozpocznie się wdrażanie nowego klastra.
 
@@ -40,11 +40,11 @@ Do ukończenia tego samouczka potrzebna jest chmura prywatna. Jeśli jeszcze nie
 
 1. Na stronie Przegląd istniejącej chmury prywatnej wybierz pozycję **Skaluj chmurę prywatną** i wybierz ikonę ołówka, aby edytować klaster.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Wybierz pozycję Skaluj chmurę prywatną w temacie Omówienie" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Wybierz pozycję Dodaj klaster" border="true":::
 
 1. Na stronie **Edytowanie klastra** Użyj suwaka, aby wybrać liczbę hostów. Wybierz pozycję **Zapisz**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="Na stronie edytowanie klastra użyj suwaka, aby wybrać liczbę hostów. Wybierz pozycję Zapisz." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="Wybierz pozycję Dodaj klaster" border="true":::
 
    Rozpocznie się Dodawanie hostów do klastra.
 

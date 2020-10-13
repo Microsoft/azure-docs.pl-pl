@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
 ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488851"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
@@ -606,7 +606,7 @@ W przypadku środowisk produkcyjnych należy utworzyć dwa profile partnerskie. 
 
 1. Aby otworzyć **Narzędzie testowe dla ustawień przetwarzania IDOC** , w interfejsie SAP Użyj kodu transakcji **WE19** (T-Code) z prefiksem **/n** .
 
-1. W obszarze **szablon do testowania**wybierz pozycję **za pośrednictwem pozycji typ komunikatu**, a następnie wprowadź typ wiadomości, na przykład **CREMAS**. Wybierz pozycję **Utwórz**.
+1. W obszarze **szablon do testowania**wybierz pozycję **za pośrednictwem pozycji typ komunikatu**, a następnie wprowadź typ wiadomości, na przykład **CREMAS**. Wybierz przycisk **Utwórz**.
 
 1. Potwierdź, **który typ IDOC?** komunikat, wybierając pozycję **Kontynuuj**.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358788"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Przygotowywanie aplikacji logiki i elementów Runbook do migracji reguł alertów klasycznych
@@ -31,7 +31,7 @@ Poniższa tabela zawiera odwołanie do interfejsów programistycznych zarówno d
 | ---------------------- | -------------- | ----------------- |
 |Interfejs API REST     | [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](/rest/api/monitor/metricalerts)       |
 |Interfejs wiersza polecenia platformy Azure     | [AZ monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ Monitoruj metryki alertu](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Odwołanie](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Odwołanie](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+|Program PowerShell      | [Odwołanie](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Odwołanie](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Szablon usługi Azure Resource Manager | [W przypadku alertów klasycznych](./alerts-enable-template.md)|[Nowe alerty metryki](./alerts-metric-create-templates.md)|
 
 ## <a name="notification-payload-changes"></a>Zmiany ładunku powiadomień

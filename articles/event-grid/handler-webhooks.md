@@ -3,18 +3,19 @@ title: Elementy webhook jako programy obsługi zdarzeń dla zdarzeń Azure Event
 description: Opisuje, w jaki sposób można używać elementów webhook jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid. Elementy Runbook Azure Automation i Aplikacje logiki są obsługiwane jako programy obsługi zdarzeń za pośrednictwem elementów webhook.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105612"
+ms.locfileid: "91875805"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhook, elementy Runbook usługi Automation, Logic Apps jako programy obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń. Możesz również użyć dowolnego elementu webhook do obsługi zdarzeń. Elementy webhook nie muszą być hostowane na platformie Azure, aby obsługiwać zdarzenia. Event Grid obsługuje tylko punkty końcowe elementu webhook protokołu HTTPS.
 
 > [!NOTE]
-> Elementy Runbook Azure Automation i Aplikacje logiki są obsługiwane jako programy obsługi zdarzeń za pośrednictwem elementów webhook. 
+> - Elementy Runbook Azure Automation i Aplikacje logiki są obsługiwane jako programy obsługi zdarzeń za pośrednictwem elementów webhook. 
+> - Mimo że można użyć **elementu webhook** jako **typu punktu końcowego** , aby skonfigurować funkcję platformy Azure jako procedurę obsługi zdarzeń, użyj **funkcji platformy Azure** jako typu punktu końcowego. Aby uzyskać więcej informacji, zobacz [Funkcja platformy Azure jako procedura obsługi zdarzeń](handler-functions.md).
 
 ## <a name="webhooks"></a>Elementy webhook
 Zobacz następujące artykuły, aby zapoznać się z omówieniem i przykładami używania elementów webhook jako programów obsługi zdarzeń. 

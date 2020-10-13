@@ -9,10 +9,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279707"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Zrozumienie i używanie agenta systemu Linux platformy Azure
@@ -101,7 +101,7 @@ Instalacja przy użyciu programu RPM lub pakietu DEB z repozytorium pakietu dyst
 
 Zapoznaj się z dokumentacją w [repozytorium agenta systemu Azure Linux w witrynie GitHub](https://github.com/Azure/WALinuxAgent) w celu uzyskania zaawansowanych opcji instalacji, takich jak instalowanie ze źródła lub do lokalizacji niestandardowych lub prefiksów.
 
-## <a name="command-line-options"></a>Opcje wiersza polecenia
+## <a name="command-line-options"></a>Opcje Command-Line
 ### <a name="flags"></a>Flagi
 * verbose: Zwiększ poziom szczegółowości określonego polecenia
 * Wymuś: Pomiń interaktywne potwierdzenie niektórych poleceń
@@ -127,7 +127,7 @@ Zapoznaj się z dokumentacją w [repozytorium agenta systemu Azure Linux w witry
 * Demon: Uruchom waagent jako demona, aby zarządzać interakcją z platformą. Ten argument jest określony do waagent w skrypcie init waagent.
 * Uruchom: Uruchom waagent jako proces w tle
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Plik konfiguracji (/etc/waagent.conf) kontroluje akcje waagent. Poniżej przedstawiono przykładowy plik konfiguracji:
 
 ```config

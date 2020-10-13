@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554605"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940620"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą monday.com
 
@@ -88,14 +88,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     c. Po pomyślnym przekazaniu pliku metadanych wartości **identyfikatorów** i **adresów URL odpowiedzi** są automatycznie wypełniane w sekcji Podstawowa konfiguracja SAML.
 
-    ![image (obraz)](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     > [!Note]
     > Jeśli wartości **identyfikatorów** i **adresów URL odpowiedzi** nie zostaną wypełnione automatycznie, wprowadź wartości ręcznie. **Identyfikator** i **adres URL odpowiedzi** są takie same, a wartość jest w następującym wzorcu:`https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![image (obraz)](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<YOUR_DOMAIN>.monday.com`
 
@@ -104,7 +104,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja monday.com oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image (obraz)](common/default-attributes.png)
+    ![Zrzut ekranu przedstawia atrybuty użytkownika & oświadczenia z wartościami domyślnymi, takimi jak podano użytkownikaname i EmailAddress User. mail.](common/default-attributes.png)
 
 1. Oprócz powyższych, aplikacja monday.com oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
 
@@ -166,15 +166,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do **profilu** w prawym górnym rogu strony i kliknij pozycję **administrator**.
 
-    ![Konfiguracja monday.com](./media/mondaycom-tutorial/configuration01.png)
+    ![Zrzut ekranu przedstawia wybrany profil administratora.](./media/mondaycom-tutorial/configuration01.png)
 
 1. Wybierz pozycję **zabezpieczenia** i upewnij się, że klikniesz pozycję **Otwórz** obok pozycji SAML.
 
-    ![Konfiguracja monday.com](./media/mondaycom-tutorial/configuration02.png)
+    ![Zrzut ekranu przedstawia kartę Zabezpieczenia z opcją otwarcia obok pozycji SAML.](./media/mondaycom-tutorial/configuration02.png)
 
 1. Wypełnij szczegóły poniżej dostawcy tożsamości.
 
-    ![Konfiguracja monday.com](./media/mondaycom-tutorial/configuration03.png)
+    ![Zrzut ekranu przedstawia dostawcę SAML, w którym można wprowadzać informacje z I D P.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > Aby uzyskać więcej informacji, zapoznaj się z [tym](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artykułem

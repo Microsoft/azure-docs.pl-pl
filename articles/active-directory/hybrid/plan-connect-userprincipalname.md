@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317595"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Wypełnianie wartości UserPrincipalName w usłudze Azure AD
@@ -25,7 +25,7 @@ Wartość atrybutu UserPrincipalName to nazwa użytkownika usługi Azure AD dla 
 ## <a name="upn-terminology"></a>Terminologia UPN
 W tym artykule jest używana następująca terminologia:
 
-|Termin|Opis|
+|Okres|Opis|
 |-----|-----|
 |Domena początkowa|Domena domyślna (onmicrosoft.com) w dzierżawie usługi Azure AD. Na przykład contoso.onmicrosoft.com.|
 |Adres E-mail usługi Microsoft Online (MOERA)|Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD jako &lt; &gt; &lt; domeny początkowej MailNickName&#64;&gt; .|

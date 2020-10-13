@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
 ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540510"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Samouczek: uruchamianie eksperymentów przy użyciu zautomatyzowanej platformy Azure i Apache Spark
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono następujące zadania:
 - Uczenie zautomatyzowanego modelu regresji uczenia maszynowego
 - Oblicz dokładność modelu
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 - Utwórz pulę Apache Spark, postępując zgodnie z [samouczkiem Tworzenie puli Apache Spark](../quickstart-create-apache-spark-pool-studio.md).
 - Ukończ [samouczek konfiguracji obszaru roboczego Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) , jeśli nie masz istniejącego obszaru roboczego Azure Machine Learning. 
 

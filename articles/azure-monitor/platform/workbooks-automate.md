@@ -2,19 +2,16 @@
 title: Azure Monitor skoroszyty i szablony Azure Resource Manager
 description: Uprość złożone raportowanie ze wstępnie skompilowanymi i niestandardowymi skoroszytami Azure Monitor wdrożonymi za pośrednictwem Azure Resource Manager szablonów
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504924"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929731"
 ---
 # <a name="programmatically-manage-workbooks"></a>Programowe Zarządzanie skoroszytami
 
@@ -86,7 +83,7 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
 
 ### <a name="parameters"></a>Parametry
 
-|Parametry                |Wyjaśnienie                                                                                             |
+|Parametry                |Objaśnienie                                                                                             |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------|
 | `name`                   | Nazwa zasobu szablonu skoroszytu w Azure Resource Manager.                                  |
 |`type`                    | Zawsze Microsoft. Insights/workbooktemplates                                                            |
@@ -190,7 +187,7 @@ Ten szablon pokazuje, jak wdrożyć prosty skoroszyt wyświetlający "Hello worl
 
 ### <a name="template-parameters"></a>Parametry szablonu
 
-| Parametr | Wyjaśnienie |
+| Parametr | Objaśnienie |
 | :------------- |:-------------|
 | `workbookDisplayName` | Przyjazna nazwa skoroszytu, który jest używany w galerii lub zapisanej liście. Musi być unikatowa w zakresie grupy zasobów i źródła |
 | `workbookType` | Galeria, w której będzie pokazywany skoroszyt. Obsługiwane wartości to skoroszyt, `tsg` , Azure monitor itd. |
@@ -201,9 +198,9 @@ Ten szablon pokazuje, jak wdrożyć prosty skoroszyt wyświetlający "Hello worl
 | `serializedData` | Zawiera zawartość lub ładunek do użycia w skoroszycie. Pobieranie wartości przy użyciu szablonu Menedżer zasobów z poziomu interfejsu użytkownika skoroszytów |
 
 ### <a name="workbook-types"></a>Typy skoroszytów
-Typy skoroszytów określają, który typ galerii skoroszytów zostanie wyświetlony nowy wystąpienie skoroszytu. Dostępne są następujące opcje:
+Typy skoroszytów określają, który typ galerii skoroszytów zostanie wyświetlony nowy wystąpienie skoroszytu. Dostępne opcje:
 
-| Typ | Lokalizacja galerii |
+| Type | Lokalizacja galerii |
 | :------------- |:-------------|
 | `workbook` | Wartość domyślna używana w większości raportów, w tym Galeria skoroszytów Application Insights, Azure Monitor itd.  |
 | `tsg` | Galeria przewodników rozwiązywania problemów w Application Insights |

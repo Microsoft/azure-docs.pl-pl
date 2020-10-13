@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403530"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Kontrola zabezpieczeń v2: ładu i strategia
@@ -255,7 +255,7 @@ Ta strategia powinna obejmować udokumentowane wskazówki, zasady i standardy dl
 Aby uzyskać więcej informacji, zobacz następujące odwołania:
 - [Azure Security test — tworzenie kopii zapasowych i odzyskiwanie](security-controls-v2-backup-recovery.md)
 
-- [Środowisko platformy Azure — tworzenie kopii zapasowych i odzyskiwanie po awarii dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Azure Well-Architecture Framework — tworzenie kopii zapasowych i odzyskiwanie po awarii dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 - [Wdrażanie platformy Azure — ciągłość działania i odzyskiwanie po awarii](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 

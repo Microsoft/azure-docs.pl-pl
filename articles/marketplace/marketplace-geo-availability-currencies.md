@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
 ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759097"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
@@ -108,7 +108,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Mongolia                            | MN        | USD          |
 | Czarnogóra                          | ME        | USD          |
 | Maroko                             | MA        | USD          |
-| Namibia                             | NA        | USD          |
+| Namibia                             | Nie dotyczy        | USD          |
 | Nepal                               | NP        | USD          |
 | Holandia                         | NL        | EUR          |
 | Nowa Zelandia                         | NZ        | NZD          |

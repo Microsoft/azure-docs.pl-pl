@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat zasad pomocy technicznej usługi Azur
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888991"
+ms.locfileid: "91892714"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Zasady pomocy technicznej dla usługi Azure Kubernetes Service
 
@@ -130,8 +130,7 @@ Sieciowych grup zabezpieczeń można dostosować tylko w podsieciach niestandard
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Zatrzymane lub cofnięte alokacje klastrów
 
-Zgodnie z powyższym ręcznie cofnąć alokację wszystkich węzłów klastra za pośrednictwem interfejsów API IaaS/CLI/Portal renderuje klaster jako nieobsługiwany.
-Jedyną obsługiwaną metodą zatrzymania/cofnięcia przydzielenia całego węzła jest [Zatrzymaj klaster AKS, co spowoduje zachowanie stanu klastra przez maksymalnie 12 miesięcy.
+Jak wspomniano wcześniej, ręczne cofanie przydziału wszystkich węzłów klastra za pośrednictwem interfejsów API IaaS/interfejsu wiersza polecenia/portalu renderuje klaster jako nieobsługiwany. Jedynym obsługiwanym sposobem zatrzymania/cofnięcia przydzielenia wszystkich węzłów jest [zatrzymanie klastra AKS](start-stop-cluster.md#stop-an-aks-cluster), który zachowuje stan klastra przez maksymalnie 12 miesięcy.
 
 Klastry zatrzymane przez ponad 12 miesięcy nie będą już zachować stanu. 
 

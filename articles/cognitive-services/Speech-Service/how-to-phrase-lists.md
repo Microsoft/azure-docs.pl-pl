@@ -13,10 +13,10 @@ ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 1e0b345eb4f1d6b3ab8ba917794b6878180ac558
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320952"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listy fraz dla zamiany mowy na tekst

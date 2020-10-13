@@ -1,45 +1,45 @@
 ---
-title: Jak używać właściwości w rozwiązaniu IoT Central platformy Azure
-description: Jak korzystać z właściwości tylko do odczytu i z możliwością zapisu w rozwiązaniu IoT Central platformy Azure
+title: Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
+description: Dowiedz się, jak korzystać z właściwości tylko do odczytu i z możliwością zapisu w rozwiązaniu IoT Central platformy Azure.
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: fa9b07d80c34ec26ca920fe147ada8f8ef7f2fd7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eb949f6f0895743250ead0276692497432bfeed5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91346962"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940569"
 ---
-# <a name="how-to-use-properties-in-an-azure-iot-central-solution"></a>Jak używać właściwości w rozwiązaniu IoT Central platformy Azure
+# <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
 W tym artykule pokazano, jak używać właściwości urządzenia, które są zdefiniowane w szablonie urządzenia w aplikacji IoT Central platformy Azure.
 
-Właściwości reprezentują wartości punktu w czasie. Na przykład urządzenie może użyć właściwości do raportowania temperatury docelowej, do której próbujesz uzyskać dostęp. Właściwości pozwalają również synchronizować stan między urządzeniem i aplikacją IoT Central.  Można ustawić właściwości z możliwością zapisu z IoT Central.
+Właściwości reprezentują wartości punktu w czasie. Na przykład urządzenie może użyć właściwości do raportowania temperatury docelowej, do której próbujesz uzyskać dostęp. Właściwości pozwalają również synchronizować stan między urządzeniem i aplikacją IoT Central platformy Azure. Można ustawić właściwości z możliwością zapisu z usługi Azure IoT Central.
 
-Właściwości chmury można także definiować w aplikacji IoT Central. Wartości właściwości chmury nigdy nie są wymieniane z urządzeniem i znajdują się poza zakresem tego artykułu.
+Właściwości chmury można także definiować w aplikacji IoT Central platformy Azure. Wartości właściwości chmury nigdy nie są wymieniane z urządzeniem i znajdują się poza zakresem tego artykułu.
 
 ## <a name="define-your-properties"></a>Definiowanie właściwości
 
-Właściwości to pola danych, które reprezentują stan urządzenia. Użyj właściwości do reprezentowania trwałego stanu urządzenia, na przykład stanu wyłączonego urządzenia. Właściwości mogą również reprezentować podstawowe właściwości urządzenia, takie jak wersja oprogramowania urządzenia. Można zadeklarować właściwości jako tylko do odczytu lub do zapisu.
+Właściwości to pola danych, które reprezentują stan urządzenia. Użyj właściwości, aby reprezentować stan trwały urządzenia, taki jak stan włączania/wyłączania urządzenia. Właściwości mogą również reprezentować podstawowe właściwości urządzenia, takie jak wersja oprogramowania urządzenia. Można zadeklarować właściwości jako tylko do odczytu lub do zapisu.
 
-Poniższy zrzut ekranu przedstawia definicję właściwości w aplikacji IoT Central platformy Azure
+Poniższy zrzut ekranu przedstawia definicję właściwości w aplikacji IoT Central platformy Azure.
 
-![Zdefiniuj Właściwość](./media/howto-use-properties/property-definition.png)
+![Zrzut ekranu pokazujący definicję właściwości w aplikacji IoT Central platformy Azure.](./media/howto-use-properties/property-definition.png)
 
-W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwości:
+W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwości.
 
 | Pole           | Opis                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nazwa wyświetlana    | Nazwa wyświetlana wartości właściwości używanej na pulpitach nawigacyjnych i formularzach.                                                                                                                                                              |
-| Nazwa            | Nazwa właściwości. IoT Central generuje wartość dla tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi być alfanumeryczne.                                                 |
+| Nazwa            | Nazwa właściwości. Usługa Azure IoT Central generuje wartość tego pola z nazwy wyświetlanej, ale w razie potrzeby można wybrać własną wartość. To pole musi zawierać znaki alfanumeryczne.                                                 |
 | Typ możliwości | Wartość.                                                                                                                                                                                                                          |
 | Typ semantyczny   | Typ semantyczny właściwości, taki jak temperatura, stan lub zdarzenie. Wybór typu semantycznego określa, które z poniższych pól są dostępne.                                                                       |
 | Schemat          | Typ danych właściwości, taki jak Double, String lub Vector. Dostępne opcje są określane przez typ semantyczny. Schemat nie jest dostępny dla typów semantyki zdarzenia i stanu.                                               |
-| Z możliwością zapisu       | Jeśli właściwość nie jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do IoT Central i IoT Central może wysyłać do urządzenia aktualizacje właściwości. |
+| Z możliwością zapisu       | Jeśli właściwość nie jest zapisywalna, urządzenie może raportować wartości właściwości do usługi Azure IoT Central. Jeśli właściwość jest zapisywalna, urządzenie może raportować wartości właściwości do usługi Azure IoT Central. Następnie usługa Azure IoT Central może wysyłać do urządzenia aktualizacje właściwości. |
 | Ważność        | Dostępne tylko dla typu semantycznego zdarzenia. Te informacje dotyczą **błędu**, **informacji**lub **ostrzeżenia**.                                                                                                                         |
 | Wartości stanu    | Dostępne tylko dla typu semantyki stanu. Zdefiniuj możliwe wartości stanu, z których każdy ma nazwę wyświetlaną, nazwę, typ wyliczenia i wartość.                                                                                   |
 | Jednostka            | Jednostka wartości właściwości, takiej jak **mph**, **%** lub ** &deg; C**.                                                                                                                                                              |
@@ -47,7 +47,7 @@ W poniższej tabeli przedstawiono ustawienia konfiguracji dla funkcji właściwo
 | Komentarz         | Wszelkie komentarze dotyczące możliwości właściwości.                                                                                                                                                                                        |
 | Opis     | Opis możliwości właściwości.                                                                                                                                                                                          |
 
-Właściwości można także definiować w interfejsie w szablonie urządzenia w następujący sposób:
+Właściwości można także definiować w interfejsie w szablonie urządzenia, jak pokazano poniżej:
 
 ``` json
 {
@@ -91,24 +91,24 @@ Właściwości można także definiować w interfejsie w szablonie urządzenia w
 }
 ```
 
-W tym przykładzie przedstawiono pięć właściwości, które mogą być powiązane z definicją właściwości w interfejsie użytkownika w następujący sposób:
+Ten przykład pokazuje pięć właściwości. Te właściwości mogą być powiązane z definicją właściwości w interfejsie użytkownika, jak pokazano poniżej:
 
 * `@type` Aby określić typ możliwości: `Property`
 * `name` dla wartości właściwości.
 * `schema` Określ typ danych właściwości. Ta wartość może być typem pierwotnym, takim jak Double, Integer, Boolean lub String. Obsługiwane są również złożone typy obiektów, tablice i mapy.
-* `writable` Domyślnie właściwości są tylko do odczytu. Można oznaczyć właściwość jako zapisywalną, używając tego pola.
+* `writable` Domyślnie właściwości są tylko do odczytu. Można oznaczyć właściwość jako zapisywalną przy użyciu tego pola.
 
 Opcjonalne pola, takie jak nazwa wyświetlana i opis, umożliwiają dodanie więcej szczegółów do interfejsu i możliwości.
 
-Podczas tworzenia właściwości można określić złożone typy **schematów** , takie jak Object, enum itd.
+Podczas tworzenia właściwości można określić złożone typy **schematów** , takie jak Object i enum.
 
-![Dodawanie możliwości](./media/howto-use-properties/property.png)
+![Zrzut ekranu pokazujący sposób dodawania funkcji.](./media/howto-use-properties/property.png)
 
-Po wybraniu schematu złożonego, takiego jak **obiekt**, należy również zdefiniować obiekt.
+Po wybraniu **schematu**złożonego, takiego jak **obiekt**, należy również zdefiniować obiekt.
 
-![Zdefiniuj obiekt](./media/howto-use-properties/object.png)
+![Zrzut ekranu pokazujący sposób definiowania obiektu.](./media/howto-use-properties/object.png)
 
-Poniższy kod przedstawia definicję typu właściwości obiektu. Ten obiekt ma dwa pola z typem String i Integer:
+Poniższy kod przedstawia definicję typu właściwości obiektu. Ten obiekt ma dwa pola z typem String i liczbą całkowitą.
 
 ``` json
 {
@@ -150,9 +150,9 @@ Poniższy kod przedstawia definicję typu właściwości obiektu. Ten obiekt ma 
 
 ## <a name="implement-read-only-properties"></a>Implementowanie właściwości tylko do odczytu
 
-Domyślnie właściwości są tylko do odczytu. Właściwości tylko do odczytu oznaczają, że urządzenie zgłasza aktualizacje wartości właściwości do aplikacji IoT Central. Aplikacja IoT Central nie może ustawić wartości właściwości tylko do odczytu.
+Domyślnie właściwości są tylko do odczytu. Właściwości tylko do odczytu oznaczają, że urządzenie zgłasza aktualizacje wartości właściwości do aplikacji IoT Central platformy Azure. Aplikacja platformy Azure IoT Central nie może ustawić wartości właściwości tylko do odczytu.
 
-IoT Central używa bliźniaczych reprezentacji urządzenia do synchronizowania wartości właściwości między urządzeniem a aplikacją IoT Central. Wartości właściwości urządzenia używają właściwości zgłaszanych przez sznurek urządzeń. Aby uzyskać więcej informacji, zobacz [Device bliźniaczych reprezentacji](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins)
+Usługa Azure IoT Central używa bliźniaczych reprezentacji urządzeń do synchronizowania wartości właściwości między urządzeniem a aplikacją IoT Central platformy Azure. Wartości właściwości urządzenia używają właściwości zgłaszanych przez sznurek urządzeń. Aby uzyskać więcej informacji, zobacz [bliźniaczych reprezentacji urządzeń](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
 
 Poniższy fragment kodu z modelu możliwości urządzenia pokazuje definicję typu właściwości tylko do odczytu:
 
@@ -166,9 +166,9 @@ Poniższy fragment kodu z modelu możliwości urządzenia pokazuje definicję ty
 }
 ```
 
-Urządzenie wysyła do IoT Central właściwości tylko do odczytu. Właściwości są wysyłane jako ładunek JSON, aby uzyskać więcej informacji, zobacz [ładunki](./concepts-telemetry-properties-commands.md).
+Urządzenie do usługi Azure IoT Central wysyła właściwości tylko do odczytu. Właściwości są wysyłane jako ładunek JSON. Aby uzyskać więcej informacji, zobacz [ładunki](./concepts-telemetry-properties-commands.md).
 
-Możesz użyć zestawu SDK urządzeń Azure IoT, aby wysłać aktualizację właściwości do aplikacji IoT Central.
+Możesz użyć zestawu SDK urządzeń Azure IoT, aby wysłać aktualizację właściwości do aplikacji IoT Central platformy Azure.
 
 Właściwości sznurka urządzenia mogą być wysyłane do aplikacji IoT Central platformy Azure przy użyciu następującej funkcji:
 
@@ -183,15 +183,18 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-W tym artykule użyto Node.js prostoty, aby uzyskać pełne informacje na temat przykładów aplikacji urządzeń, zobacz temat [Tworzenie i łączenie aplikacji klienckiej w aplikacji platformy azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md) i [Tworzenie i łączenie aplikacji klienckiej z samouczkami aplikacji Azure IoT Central Application (Python)](tutorial-connect-device-python.md) .
+W tym artykule użyto Node.js dla uproszczenia. Aby uzyskać pełne informacje na temat przykładów aplikacji urządzeń, zobacz następujące samouczki:
 
-Poniższy widok w aplikacji IoT Central platformy Azure zawiera właściwości, które umożliwia wyświetlenie widoku automatycznie właściwości _urządzenia tylko do odczytu_.
+* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
+* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Python)](tutorial-connect-device-python.md)
 
-![Widok właściwości tylko do odczytu](./media/howto-use-properties/read-only.png)
+Poniższy widok aplikacji IoT Central platformy Azure przedstawia właściwości, które można wyświetlić. Widok automatycznie powoduje, że właściwość **model urządzenia** jest _właściwością urządzenia tylko do odczytu_.
+
+![Zrzut ekranu pokazujący widok właściwości tylko do odczytu.](./media/howto-use-properties/read-only.png)
 
 ## <a name="implement-writable-properties"></a>Implementowanie właściwości zapisywalnych
 
-Właściwości do zapisu są ustawiane przez operator w aplikacji IoT Central w formularzu. IoT Central wysyła właściwość do urządzenia. IoT Central oczekuje potwierdzenia z urządzenia. 
+Właściwości z możliwością zapisu są ustawiane przez operator w aplikacji IoT Central platformy Azure w formularzu. Usługa Azure IoT Central wysyła właściwość na urządzenie. Usługa Azure IoT Central oczekuje potwierdzenia z urządzenia.
 
 Poniższy fragment kodu z modelu możliwości urządzenia pokazuje definicję typu właściwości możliwej do zapisu:
 
@@ -212,7 +215,7 @@ Klient urządzenia powinien wysłać ładunek JSON, który wygląda podobnie jak
 { "Brightness Level": 2 }
 ```
 
-Aby zdefiniować i obsłużyć zapisywalne właściwości, na które odpowiada urządzenie, możesz użyć poniższego kodu.
+Aby zdefiniować i obsłużyć zapisywalne właściwości, na które odpowiada urządzenie, można użyć następującego kodu:
 
 ``` javascript
 hubClient.getTwin((err, twin) => {
@@ -233,32 +236,33 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjonalne. Przykłady można znaleźć w następujących fragmentach kodu.
+Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjonalne. Zobacz następujące fragmenty kodu, aby zapoznać się z przykładami:
 
-* `ac` to pole liczbowe, które używa wartości z następującej tabeli:
-
+* `ac` to pole liczbowe, które używa wartości z poniższej tabeli.
 * `av` jest numerem wersji wysyłanym do urządzenia.
-
 * `ad` jest opisem ciągu opcji.
 
 | Wartość | Etykieta | Opis |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
-| `'ac': 202`  oraz `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku |
-| `'ac': 4xx` | Error | Żądana zmiana właściwości jest nieprawidłowa lub wystąpił błąd |
-| `'ac': 5xx` | Error | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
+| `'ac': 200` | Zakończone | Operacja zmiany właściwości została pomyślnie ukończona. |
+| `'ac': 202` lub `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku. |
+| `'ac': 4xx` | Błąd | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
+| `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
 
 
-Aby uzyskać więcej informacji, zobacz [bliźniaczych reprezentacji urządzeń](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji urządzeń, zobacz [Konfigurowanie urządzeń z poziomu usługi zaplecza](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
 
-Gdy operator ustawia właściwość do zapisu w aplikacji IoT Central, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zaakceptowane**.
+Gdy operator ustawia właściwość zapisywalną w aplikacji IoT Central platformy Azure, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy usługa Azure IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zaakceptowane**.
 
-W poniższym widoku są wyświetlane właściwości z możliwością zapisu. Po wprowadzeniu wartości i **zapisaniu**stan początkowy jest **oczekujący**, gdy urządzenie zaakceptuje zmiany, stan zmieni się na **zaakceptowane**.
+W poniższym widoku są wyświetlane właściwości z możliwością zapisu. Po wprowadzeniu wartości i wybraniu opcji **Zapisz**stan początkowy jest **oczekujący**. Gdy urządzenie zaakceptuje zmiany, stan zmieni się na **zaakceptowane**.
 
-![Stan oczekiwania](./media/howto-use-properties/status-pending.png)
+![Zrzut ekranu pokazujący stan oczekiwania.](./media/howto-use-properties/status-pending.png)
 
-![Właściwość zaakceptowana](./media/howto-use-properties/accepted.png)
+![Zrzut ekranu przedstawiający zaakceptowaną właściwość.](./media/howto-use-properties/accepted.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz już, jak używać właściwości w aplikacji IoT Central platformy Azure, możesz zobaczyć [ładunki](concepts-telemetry-properties-commands.md) i [utworzyć i połączyć aplikację kliencką z aplikacją IoT Central platformy Azure (Node.js)](tutorial-connect-device-nodejs.md).
+Teraz, gdy wiesz już, jak używać właściwości w aplikacji IoT Central platformy Azure, zobacz:
+
+* [Ładunków](concepts-telemetry-properties-commands.md)
+* [Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Node.js)](tutorial-connect-device-nodejs.md)
