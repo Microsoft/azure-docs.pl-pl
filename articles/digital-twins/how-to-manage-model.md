@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89536459"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974973"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -148,19 +148,19 @@ Oto kilka przykładowych wywołań:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(null, true);
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `ModelData` obiektów. `ModelData` zawiera metadane dotyczące modelu przechowywanego w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, takie jak nazwa, DTMI i Data utworzenia modelu. `ModelData`Obiekt również opcjonalnie zawiera sam model. W zależności od parametrów można w ten sposób użyć wywołań pobierania, aby pobrać tylko metadane (co jest przydatne w scenariuszach, w których chcesz wyświetlić listę dostępnych narzędzi, na przykład) lub cały model.
+Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `DigitalTwinsModelData` obiektów. `DigitalTwinsModelData` zawiera metadane dotyczące modelu przechowywanego w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, takie jak nazwa, DTMI i Data utworzenia modelu. `DigitalTwinsModelData`Obiekt również opcjonalnie zawiera sam model. W zależności od parametrów można w ten sposób użyć wywołań pobierania, aby pobrać tylko metadane (co jest przydatne w scenariuszach, w których chcesz wyświetlić listę dostępnych narzędzi, na przykład) lub cały model.
 
 `RetrieveModelWithDependencies`Wywołanie zwraca nie tylko żądany model, ale również wszystkie modele, od których zależy żądany model.
 
@@ -224,7 +224,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 //...
 ```
 
-Stan likwidowania modelu jest uwzględniany w `ModelData` rekordach zwracanych przez interfejsy API pobierania modelu.
+Stan likwidowania modelu jest uwzględniany w `DigitalTwinsModelData` rekordach zwracanych przez interfejsy API pobierania modelu.
 
 #### <a name="deletion"></a>Usunięcie
 

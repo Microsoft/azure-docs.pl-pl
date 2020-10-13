@@ -14,10 +14,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1ef7d587cd8bec636f42673941edb69647ee8cb
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449997"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
@@ -143,7 +143,7 @@ Usługa Azure AD Provisioning oferuje bogaty zestaw funkcji konfiguracji. Klienc
 ### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>SSPR (Samoobsługowe resetowanie hasła) teraz wymaga dwóch bram dla administratorów Microsoft Azure obsługiwanych przez firmę 21Vianet (Azure Chiny 21Vianet) 
 
 **Typ:** Zmieniono funkcję  
-**Kategoria usługi:** Samoobsługowe resetowanie hasła  
+**Kategoria usługi:** Resetowanie hasła Self-Service  
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
  
 Wcześniej w Microsoft Azure obsługiwane przez firmę 21Vianet (Azure Chiny 21Vianet) Administratorzy korzystający z funkcji samoobsługowego resetowania hasła (SSPR) do resetowania własnych haseł potrzebują tylko jednego "bramy" (wyzwanie), aby potwierdzić swoją tożsamość. W publicznych i innych chmurach narodowych Administratorzy zwykle muszą użyć dwóch bram, aby potwierdzić swoją tożsamość podczas korzystania z usługi SSPR. Ale ponieważ nie obsługujemy wiadomości SMS lub połączeń telefonicznych na platformie 21Vianet firmy Microsoft, zezwalamy na Resetowanie hasła przez administratorów.
@@ -532,7 +532,7 @@ Aby uzyskać więcej informacji, zobacz temat [Dodawanie usługi Google jako dos
 **Kategoria usługi:** Dostęp warunkowy  
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
 
-Usługa Azure AD dla przeglądarki Microsoft Edge w systemach iOS i Android obsługuje teraz Logowanie jednokrotne usługi Azure AD i dostęp warunkowy:
+Usługa Azure AD dla przeglądarki Microsoft Edge w systemach iOS i Android obsługuje teraz pojedyncze Sign-On i dostęp warunkowy usługi Azure AD:
 
 - Logowanie jednokrotne **w przeglądarce Microsoft Edge:** Logowanie jednokrotne jest teraz dostępne na natywnych klientach (takich jak Microsoft Outlook i Microsoft Edge) dla wszystkich aplikacji połączonych z usługą Azure AD.
 
@@ -1256,7 +1256,7 @@ Aby uzyskać więcej informacji, zobacz [Włączanie inspekcji zabezpieczeń dla
 
 **Typ:** Nowa **Kategoria usługi funkcji:** **produkt B2B:** B2B/B2C
 
-Federacja bezpośrednia pomaga uprościć pracę z partnerami, których rozwiązanie do zarządzania tożsamościami zarządzanymi przez dział IT nie jest usługą Azure AD, pracując z systemami tożsamości, które obsługują standardy SAML lub WS-workd. Po skonfigurowaniu bezpośredniej relacji Federacji z partnerem każdy nowy użytkownik-Gość, który Cię zaprosił z tej domeny, może współpracować z użytkownikiem przy użyciu istniejącego konta organizacji, dzięki czemu środowisko użytkownika dla Gości jest bardziej bezproblemowe.
+Federacja bezpośrednia pomaga ułatwić współpracę z partnerami, których rozwiązanie do zarządzania tożsamościami zarządzanymi przez dział IT nie jest usługą Azure AD, pracując z systemami tożsamości, które obsługują standardy SAML lub WS-Fed. Po skonfigurowaniu bezpośredniej relacji Federacji z partnerem każdy nowy użytkownik-Gość, który Cię zaprosił z tej domeny, może współpracować z użytkownikiem przy użyciu istniejącego konta organizacji, dzięki czemu środowisko użytkownika dla Gości jest bardziej bezproblemowe.
 
 Aby uzyskać więcej informacji, zobacz [bezpośrednia Federacja z AD FSami i dostawcami innych firm dla użytkowników-Gości (wersja zapoznawcza)](../external-identities/direct-federation.md).
 
@@ -1344,7 +1344,7 @@ Aby uzyskać więcej informacji, zobacz [dokumentację dotyczącą interfejsu AP
 
 W czerwcu 2019 dodaliśmy te 22 nowe aplikacje z obsługą Federacji do galerii aplikacji:
 
-[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Klient sieci VPN platformy Azure](https://portal.azure.com/), [wydatki](../saas-apps/expensein-tutorial.md), [pomocnik pomocnika](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz w sieci biurowej](https://me.secure.mercedes-benz.com/), [skore](https://app.justskore.it/), [Oracle Cloud Infrastructure](../saas-apps/oracle-cloud-tutorial.md), [CyberArk Authentication SAML](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), Perceptyx, Proptimise [systemu operacyjnego](https://proptimise.co.uk/software/), [vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager for [Oracle, Oracle](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial)Access Manager dla Oracle webbusiness Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
+[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Klient sieci VPN platformy Azure](https://portal.azure.com/), [wydatki](../saas-apps/expensein-tutorial.md) [, pomocnik](../saas-apps/helper-helper-tutorial.md)pomocnika, [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne](../saas-apps/globalone-tutorial.md), [Mercedes-Benz In-Car Office](https://me.secure.mercedes-benz.com/), [skore](https://app.justskore.it/), [konsola infrastruktury Oracle Cloud Infrastructure](../saas-apps/oracle-cloud-tutorial.md), [CyberArk Authentication SAML](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](../saas-apps/pandadoc-tutorial.md), [Perceptyx](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), Proptimise [OS](https://proptimise.co.uk/software/), [vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager for Oracle, Oracle Access Manager dla Oracle webbusiness Suite, Oracle IDCS for E-Business Suite, Oracle IDCS for PeopleSoft, Oracle IDCS for JD Edwards
 
 Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](https://aka.ms/azureadapprequest).
 
@@ -1504,7 +1504,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 Wprowadzono ulepszenia dotyczące środowisk związanych z grupami w portalu usługi Azure AD. Te udoskonalenia umożliwiają administratorom lepsze zarządzanie listami grup, listami członków i udostępnianiem dodatkowych opcji tworzenia.
 
-Ulepszenia obejmują:
+Wprowadzono następujące ulepszenia:
 
 - Podstawowe filtrowanie według typu członkostwa i typu grupy.
 
@@ -1942,7 +1942,7 @@ Aby uzyskać więcej informacji, zobacz [jednorazowe uwierzytelnianie kodu dost�
 
 Wprowadziliśmy trzy nowe ustawienia plików cookie dostępne dla aplikacji publikowanych za poorednictwem serwera proxy aplikacji:
 
-- **Używaj tylko protokołu HTTP.** Ustawia flagę **HTTPOnly** na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, takie jak uniemożliwienie kopiowania lub modyfikowania plików cookie za pomocą skryptów po stronie klienta. Zalecamy włączenie tej flagi (wybierz opcję **tak**), aby uzyskać dodatkowe korzyści.
+- **Użyj HTTP-Only pliku cookie.** Ustawia flagę **HTTPOnly** na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, takie jak uniemożliwienie kopiowania lub modyfikowania plików cookie za pomocą skryptów po stronie klienta. Zalecamy włączenie tej flagi (wybierz opcję **tak**), aby uzyskać dodatkowe korzyści.
 
 - **Użyj bezpiecznego pliku cookie.** Ustawia **bezpieczną** flagę na serwerze proxy aplikacji i plikach cookie sesji. Włączenie tego ustawienia zapewnia dodatkowe korzyści z zabezpieczeń, zapewniając, że pliki cookie są przesyłane tylko za pośrednictwem bezpiecznych kanałów protokołu TLS, takich jak HTTPS. Zalecamy włączenie tej flagi (wybierz opcję **tak**), aby uzyskać dodatkowe korzyści.
 
@@ -2081,7 +2081,7 @@ Administratorzy usługi Azure AD mogą teraz resetować swoje hasła przy użyci
 
 - Inna aplikacja/token sprzętowy do uwierzytelniania mobilnego
 
-- E-mail
+- Poczta e-mail
 
 - Połączenie telefoniczne
 
@@ -2250,11 +2250,11 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie grupy dynamicznej i sprawdzan
 
 ---
 
-### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Uproszczone ustawienia konfiguracji logowania jednokrotnego (SSO) dla niektórych aplikacji innych firm
+### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Uproszczone ustawienia konfiguracji pojedynczego Sign-On (SSO) dla niektórych aplikacji innych firm
 
 **Typ:** Nowa **Kategoria usługi funkcji:** aplikacja dla przedsiębiorstw **:** Logowanie jednokrotne
 
-Zdajemy sobie sprawę, że skonfigurowanie logowania jednokrotnego (SSO) dla aplikacji oprogramowania jako usługi (SaaS) może być trudne ze względu na unikatowy charakter każdej konfiguracji aplikacji. Utworzyliśmy uproszczone środowisko konfiguracji, aby automatycznie wypełnić ustawienia konfiguracji logowania jednokrotnego dla następujących aplikacji SaaS innych firm:
+Firma Microsoft zdaje sobie sprawę, że skonfigurowanie pojedynczych Sign-On (SSO) dla aplikacji SaaS (Software as a Service) może być trudne z powodu unikatowego charakteru każdej konfiguracji aplikacji. Utworzyliśmy uproszczone środowisko konfiguracji, aby automatycznie wypełnić ustawienia konfiguracji logowania jednokrotnego dla następujących aplikacji SaaS innych firm:
 
 - Zendesk
 
@@ -2323,7 +2323,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 ---
 
-### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Nowa Obsługa funkcji samoobsługowego resetowania haseł z poziomu ekranu blokady systemu Windows 7/8/8.1
+### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Nowa obsługa resetowania hasła Self-Service z poziomu ekranu blokady systemu Windows 7/8/8.1
 
 **Typ:** Nowa **Kategoria usługi funkcji:** SSPR **produktu:** uwierzytelnianie użytkownika
 
@@ -2361,7 +2361,7 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 **Typ:** Nowa **Kategoria usługi funkcji:** aplikacja dla przedsiębiorstw **:** Logowanie jednokrotne
 
-Wprowadziliśmy nowe metody przekształcania roszczeń, ToLower () i ToUpper (), które można zastosować do tokenów SAML na stronie **konfiguracji logowania** jednokrotnego opartego na protokole SAML.
+Wprowadziliśmy nowe metody przekształcania, ToLower () i ToUpper (), które mogą być stosowane do tokenów SAML na stronie **konfiguracji pojedynczej Sign-On** opartej na protokole SAML.
 
 Aby uzyskać więcej informacji, zobacz [How to Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw w usłudze Azure AD](../develop/active-directory-saml-claims-customization.md)
 
@@ -2431,7 +2431,7 @@ To jest publiczna wersja zapoznawcza. Administratorzy mogą włączyć nowe śro
 
 ---
 
-### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Nowe ustawienie plików cookie tylko HTTP w aplikacjach serwera proxy aplikacji usługi Azure AD
+### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Nowe HTTP-Only ustawienia plików cookie w aplikacjach serwera proxy aplikacji usługi Azure AD
 
 **Typ:** Nowa **Kategoria usługi funkcji:** **możliwości produktu** serwera proxy aplikacji: Access Control
 
@@ -2439,7 +2439,7 @@ Istnieje nowe ustawienie o nazwie, czyli **pliki cookie** w aplikacjach serwera 
 
 To ustawienie nie jest zgodne z aplikacjami korzystającymi z kontrolek ActiveX, takich jak Pulpit zdalny. W tej sytuacji zalecamy wyłączenie tego ustawienia.
 
-Aby uzyskać więcej informacji na temat ustawienia plików cookie tylko HTTP, zobacz [publikowanie aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-add-on-premises-application.md).
+Aby uzyskać więcej informacji na temat ustawienia HTTP-Only plików cookie, zobacz [publikowanie aplikacji za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/application-proxy-add-on-premises-application.md).
 
 ---
 
@@ -2607,7 +2607,7 @@ Najnowsza wersja Azure AD Connect obejmuje:
 
 - Poprawki błędów i obsługa aktualizacji
 
-- Ogólna dostępność integracji polecenia ping-Sfederować
+- Ogólna dostępność integracji Ping-Federate
 
 - Aktualizacje najnowszego klienta programu SQL 2012
 

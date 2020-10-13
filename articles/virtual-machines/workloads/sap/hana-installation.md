@@ -14,10 +14,10 @@ ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91529834"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
@@ -58,18 +58,18 @@ W związku z tym jest wymagane, aby klient mógł przeczytać uwagi SAP dotyczą
 
 Sprawdź następujące parametry i ostatecznie Dostosuj do:
 
-- NET. Core. rmem_max = 16777216
-- NET. Core. wmem_max = 16777216
-- NET. Core. rmem_default = 16777216
-- NET. Core. wmem_default = 16777216
-- NET. Core. optmem_max = 16777216
-- NET. IPv4. tcp_rmem = 65536 16777216 16777216
-- NET. IPv4. tcp_wmem = 65536 16777216 16777216
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 Począwszy od SLES12 SP1 i RHEL 7,2, te parametry muszą być ustawiane w pliku konfiguracji w katalogu/etc/sysctl.d. Na przykład musi zostać utworzony plik konfiguracji o nazwie 91-NetApp-HANA. conf. W przypadku starszych wersji SLES i RHEL te parametry muszą być ustawione w/etc/sysctl. conf.
 
 W przypadku wszystkich wersji RHEL zaczynających się od RHEL 6,3 należy pamiętać o następujących kwestiach: 
-- Parametr sunrpc. tcp_slot_table_entries = 128 musi być ustawiony w/etc/modprobe. d/sunrpc-Local. conf. Jeśli plik nie istnieje, należy go najpierw utworzyć, dodając wpis: 
+- Parametr sunrpc.tcp_slot_table_entries = 128 musi być ustawiony w/etc/modprobe. d/sunrpc-Local. conf. Jeśli plik nie istnieje, należy go najpierw utworzyć, dodając wpis: 
     - Opcje sunrpc tcp_max_slot_table_entries = 128
 
 **Piąty krok** polega na sprawdzeniu czasu systemowego jednostki dużego wystąpienia platformy Hana. Wystąpienia są wdrażane ze strefą czasową systemu. Ta strefa czasowa reprezentuje lokalizację regionu świadczenia usługi Azure, w którym znajduje się sygnatura dużego wystąpienia platformy HANA. Można zmienić czas systemowy lub strefę czasową wystąpień. 

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450290"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
@@ -37,7 +37,7 @@ Intelligent Insights automatycznie wykrywa problemy z wydajnością w zależnoś
 | [Osiąganie limitów zasobów](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Limity zasobów dotyczące użycia dostępnych zasobów (DTU), wątków roboczych bazy danych lub sesji logowania do bazy danych dostępnych w monitorowanej subskrypcji osiągnęły. Ma to wpływ na wydajność. | Użycie zasobów procesora CPU zbliża się do limitów zasobów. Ma to wpływ na wydajność bazy danych. |
 | [Wzrost obciążenia](intelligent-insights-troubleshoot-performance.md#workload-increase) | Wykryto wzrost obciążenia lub ciągłe gromadzenie obciążeń w bazie danych. Ma to wpływ na wydajność. | Wykryto wzrost obciążenia. Ma to wpływ na wydajność bazy danych. |
 | [Wykorzystanie pamięci](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Pracownicy, którzy zażądali przydzielenia pamięci, muszą oczekiwać na alokacje pamięci przez statystycznie znaczny czas lub zwiększony akumulację pracowników, którzy zażądali przyznanych pamięci. Ma to wpływ na wydajność. | Pracownicy, którzy zażądali przydzielenia pamięci, oczekują na alokacje pamięci przez statystycznie znaczący czas. Ma to wpływ na wydajność bazy danych. |
-| [Blokowan](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
+| [Blokowanie](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
 | [Zwiększono MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. |
 | [Rywalizacja o PAGELATCH](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność. | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność bazy danych. |
 | [Brakujący indeks](intelligent-insights-troubleshoot-performance.md#missing-index) | Wykryto brakujący indeks mający wpływ na wydajność. | Wykryto brakujący indeks mający wpływ na wydajność bazy danych. |

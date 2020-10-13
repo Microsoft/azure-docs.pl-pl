@@ -16,13 +16,13 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450764"
 ---
-# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Woluminy NFS v 4.1 na Azure NetApp Files dla SAP HANA
+# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA
 
 Azure NetApp Files zapewnia natywne udziały NFS, które mogą być używane dla woluminów **/Hana/Shared**, **/Hana/Data**i **/Hana/log** . Używanie udziałów NFS opartych na ANF dla woluminów **/Hana/Data** i **/Hana/log** wymaga użycia protokołu NFS w wersji 4.1. Protokół NFS v3 nie jest obsługiwany w przypadku używania woluminów **/Hana/Data** i **/Hana/log** w przypadku, gdy udziały są oparte na ANF. 
 

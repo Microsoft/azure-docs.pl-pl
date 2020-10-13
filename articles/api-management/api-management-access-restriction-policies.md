@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 05ca16ad828525f2b09e4adf8f75be4667254614
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535189"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
@@ -63,11 +63,11 @@ Użyj `check-header` zasad, aby wymusić, że żądanie ma określony nagłówek
 | Nazwa         | Opis                                                                                                                                   | Wymagane |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | znacznik wyboru | Element główny.                                                                                                                                 | Tak      |
-| wartość        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
+| value        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                       | Opis                                                                                                                                                            | Wymagane | Domyślny |
+| Nazwa                       | Opis                                                                                                                                                            | Wymagane | Domyślne |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Niepowodzenie — check-error-message | Komunikat o błędzie do zwrócenia w treści odpowiedzi HTTP, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość. Ten komunikat musi mieć poprawnie zmienione znaki specjalne. | Tak      | Nie dotyczy     |
 | Niepowodzenie — Check-httpcode      | Kod stanu HTTP do zwrócenia, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość.                                                                                        | Tak      | Nie dotyczy     |
@@ -131,7 +131,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa           | Opis                                                                                           | Wymagane | Domyślny |
+| Nazwa           | Opis                                                                                           | Wymagane | Domyślne |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nazwa interfejsu API, dla którego ma zostać zastosowany limit szybkości.                                                | Tak      | Nie dotyczy     |
 | Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
@@ -197,7 +197,7 @@ W poniższym przykładzie Limit szybkości jest poprzedzony przez adres IP obiek
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                | Opis                                                                                           | Wymagane | Domyślny |
+| Nazwa                | Opis                                                                                           | Wymagane | Domyślne |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
 | klucz licznika         | Klucz, który ma być używany na potrzeby zasad limitu szybkości.                                                             | Tak      | Nie dotyczy     |
@@ -246,7 +246,7 @@ W poniższym przykładzie zasada zezwala tylko na żądania pochodzące z pojedy
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                                      | Opis                                                                                 | Wymagane                                           | Domyślny |
+| Nazwa                                      | Opis                                                                                 | Wymagane                                           | Domyślne |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | zakres adresów od = "Address" do = "Address" | Zakres adresów IP, dla których ma być dozwolony lub zablokowany dostęp.                                        | Wymagane, gdy `address-range` element jest używany. | Nie dotyczy     |
 | IP-Filter Action = "Zezwalaj na &#124; Zabroń"    | Określa, czy wywołania powinny być dozwolone czy nie dla określonych adresów IP i zakresów. | Tak                                                | Nie dotyczy     |
@@ -304,7 +304,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa           | Opis                                                                                               | Wymagane                                                         | Domyślny |
+| Nazwa           | Opis                                                                                               | Wymagane                                                         | Domyślne |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Nazwa interfejsu API lub operacji, dla której ma zastosowanie przydział.                                             | Tak                                                              | Nie dotyczy     |
 | zużywa      | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period` . | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
@@ -367,7 +367,7 @@ W poniższym przykładzie limit przydziału jest poprzedzony przez adres IP obie
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                | Opis                                                                                               | Wymagane                                                         | Domyślny |
+| Nazwa                | Opis                                                                                               | Wymagane                                                         | Domyślne |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | zużywa           | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period` . | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
 | Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` .     | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
@@ -527,7 +527,7 @@ Ten przykład pokazuje, jak używać zasad [weryfikacji tokenu JWT](api-manageme
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                            | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane                                                                         | Domyślny                                                                           |
+| Nazwa                            | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane                                                                         | Domyślne                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | przechylenie zegara                      | Czasu. Użyj, aby określić maksymalną oczekiwaną różnicę czasu między zegarami systemowymi wystawcy tokenów a wystąpieniem API Management.                                                                                                                                                                                                                                                                                                               | Nie                                                                               | 0 sekund                                                                         |
 | Niepowodzenie — Walidacja-komunikat o błędzie | Komunikat o błędzie do zwrócenia w treści odpowiedzi HTTP, jeśli token JWT nie przeszedł walidacji. Ten komunikat musi mieć poprawnie zmienione znaki specjalne.                                                                                                                                                                                                                                                                                                 | Nie                                                                               | Domyślny komunikat o błędzie zależy od problemu ze sprawdzaniem poprawności, na przykład "nieobecność tokenu JWT". |

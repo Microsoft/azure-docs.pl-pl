@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 07/20/2019
 ms.author: mimckitt
-ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855779"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974910"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Omówienie agenta maszyny wirtualnej platformy Azure
 Agent maszyny wirtualnej Microsoft Azure (Agent VM) to bezpieczny, lekki proces zarządzający interakcją maszyny wirtualnej z kontrolerem sieci szkieletowej Azure. Agent maszyny wirtualnej odgrywa podstawową rolę w procesie włączania i wykonywania rozszerzeń maszyny wirtualnej platformy Azure. Rozszerzenia maszyn wirtualnych umożliwiają konfigurację po wdrożeniu maszyny wirtualnej, taką jak instalowanie i Konfigurowanie oprogramowania. Rozszerzenia maszyn wirtualnych umożliwiają również włączenie funkcji odzyskiwania, takich jak resetowanie hasła administracyjnego maszyny wirtualnej. Bez agenta maszyny wirtualnej platformy Azure nie można uruchomić rozszerzeń maszyn wirtualnych.
@@ -68,12 +68,12 @@ $vm | Update-AzVM
 
 - Upewnij się, że maszyna wirtualna ma dostęp do adresu IP 168.63.129.16. Aby uzyskać więcej informacji, zobacz [co to jest adres IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-- Upewnij się, że usługa DHCP jest włączona wewnątrz maszyny wirtualnej gościa. Jest to wymagane do uzyskania adresu hosta lub sieci szkieletowej z usługi DHCP dla agenta maszyny wirtualnej IaaS i rozszerzeń do działania. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy go skonfigurować za pomocą Azure Portal lub PowerShell i upewnić się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) o konfigurowaniu statycznego adresu IP za pomocą programu PowerShell.
+- Upewnij się, że usługa DHCP jest włączona wewnątrz maszyny wirtualnej gościa. Jest to wymagane do uzyskania adresu hosta lub sieci szkieletowej z usługi DHCP dla agenta maszyny wirtualnej IaaS i rozszerzeń do działania. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy go skonfigurować za pomocą Azure Portal lub PowerShell i upewnić się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona. [Dowiedz się więcej](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) o konfigurowaniu statycznego adresu IP za pomocą programu PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Wykrywanie agenta maszyny wirtualnej
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Moduł Azure Resource Manager PowerShell może służyć do pobierania informacji o maszynach wirtualnych platformy Azure. Aby wyświetlić informacje dotyczące maszyny wirtualnej, na przykład stanu aprowizacji agenta maszyny wirtualnej platformy Azure, użyj polecenie [Get-AzVM](/powershell/module/az.compute/get-azvm):
 
@@ -120,7 +120,7 @@ Aby trwale usunąć certyfikat, należy usunąć go z usługi `OSProfile` , a na
 
 W przypadku maszyny wirtualnej Użyj polecenie [Remove-AzVMSecret]() , aby usunąć certyfikaty z programu `OSProfile` .
 
-Aby uzyskać więcej informacji na temat certyfikatów zestawu skalowania maszyn wirtualnych, zobacz [Virtual Machine Scale Sets-jak mogę usunąć przestarzałe certyfikaty?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+Aby uzyskać więcej informacji na temat certyfikatów zestawu skalowania maszyn wirtualnych, zobacz [Virtual Machine Scale Sets-jak mogę usunąć przestarzałe certyfikaty?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
 
 
 ## <a name="next-steps"></a>Następne kroki

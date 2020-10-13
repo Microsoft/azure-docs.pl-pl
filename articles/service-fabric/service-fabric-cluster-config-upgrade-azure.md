@@ -4,10 +4,10 @@ description: Dowiedz się, jak uaktualnić konfigurację, w której działa klas
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 692dc2162159ab61a3ac527e12dac43438084a60
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842720"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uaktualnianie konfiguracji klastra na platformie Azure 

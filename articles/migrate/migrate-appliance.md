@@ -4,10 +4,10 @@ description: Zawiera podsumowanie obsługi urządzenia Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450038"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
@@ -341,7 +341,7 @@ Nazwa/wersja systemu operacyjnego/nazwa FQDN | Msvm_KvpExchangeComponent | Dane 
 Stan zasilacza maszyny wirtualnej | Msvm_ComputerSystem | EnabledState
 **Szczegóły dysku** | 
 Identyfikator dysku | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Typ wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | Typ
+Typ wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | Type
 Rozmiar wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Element nadrzędny wirtualnego dysku twardego | Msvm_VirtualHardDiskSettingData | ParentPath
 **Na szczegóły karty sieciowej** | 
@@ -454,7 +454,7 @@ Urządzenie zostanie uaktualnione w miarę aktualizowania Azure Migrate agentów
 ### <a name="turn-off-auto-update"></a>Wyłącz funkcję autoaktualizacji
 
 1. Na maszynie, na której działa urządzenie, Otwórz Edytor rejestru.
-2. Przejdź do **HKEY_LOCAL_MACHINE \software\microsoft\azureappliance**.
+2. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Aby wyłączyć automatyczne aktualizowanie, **Utwórz klucz rejestru Autoaktualizacja klucza z** wartością DWORD równą 0.
 
     ![Ustawianie klucza rejestru](./media/migrate-appliance/registry-key.png)
@@ -464,13 +464,13 @@ Urządzenie zostanie uaktualnione w miarę aktualizowania Azure Migrate agentów
 
 Można włączyć funkcję autoaktualizacji przy użyciu jednej z następujących metod:
 
-- Przez usunięcie klucza rejestru Autoaktualizacja z HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance.
+- Przez usunięcie klucza rejestru Autoaktualizacja z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
 - Kliknij pozycję **Wyświetl usługi urządzenia** , aby sprawdzić najnowsze aktualizacje w panelu **Konfiguracja wymagań wstępnych** , aby włączyć funkcję autoaktualizowania.
 
 Aby usunąć klucz rejestru:
 
 1. Na maszynie, na której działa urządzenie, Otwórz Edytor rejestru.
-2. Przejdź do **HKEY_LOCAL_MACHINE \software\microsoft\azureappliance**.
+2. Przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Usuń funkcję autouzupełniania **klucza rejestru**, która została wcześniej utworzona w celu wyłączenia automatycznej aktualizacji.
 
 Aby włączyć Configuration Manager urządzeń, po zakończeniu odnajdywania:
