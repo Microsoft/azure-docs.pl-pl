@@ -8,10 +8,10 @@ ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 3b9d1c8c6271d689b022a069de8e3392c0662dd6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826876"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Jak Azure Cosmos DB zapewniać wysoką dostępność? 

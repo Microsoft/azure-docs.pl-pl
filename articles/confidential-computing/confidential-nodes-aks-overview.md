@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001035"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940773"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Poufne węzły obliczeniowe w usłudze Azure Kubernetes Service (publiczna wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ Usługa Azure Kubernetes Service (AKS) obsługuje dodawanie [DCsv2 poufne węzł
 
 #### <a name="sgx-device-plugin"></a>Wtyczka urządzenia SGX <a id="sgx-plugin"></a>
 
-Wtyczka urządzenia SGX implementuje interfejs wtyczki urządzenia Kubernetes dla pamięci sygnatury EPC. Efektywnie Ta wtyczka sprawia, że pamięć sygnatury EPC jest dodatkowym typem zasobu w Kubernetes. Użytkownicy mogą określić limity dla tego zasobu, tak jak inne zasoby. Oprócz funkcji planowania wtyczka urządzenia pomaga przypisać uprawnienia sterownika urządzenia SGX do poufnych kontenerów obciążenia. Przykładowa implementacja przykładowego wdrożenia opartego na pamięci sygnatury EPC ( `kubernetes.azure.com/sgx_epc_mem_in_MiB` ) jest [tutaj](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+Wtyczka urządzenia SGX implementuje interfejs wtyczki urządzenia Kubernetes dla pamięci sygnatury EPC. Efektywnie Ta wtyczka sprawia, że pamięć sygnatury EPC jest dodatkowym typem zasobu w Kubernetes. Użytkownicy mogą określić limity dla tego zasobu, tak jak inne zasoby. Oprócz funkcji planowania wtyczka urządzenia pomaga przypisać uprawnienia sterownika urządzenia SGX do poufnych kontenerów obciążenia. Przykładowa implementacja przykładowego wdrożenia opartego na pamięci sygnatury EPC ( `kubernetes.azure.com/sgx_epc_mem_in_MiB` ) jest [tutaj](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### <a name="sgx-quote-helper-service"></a>Usługa pomocnika cytatu SGX <a id="sgx-quote"></a>
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
 ms.openlocfilehash: 850db53cbf88968a413d72527d76463e17aa8f5d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361708"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie 8x8 na potrzeby automatycznego aprowizacji użytkowników
@@ -37,7 +37,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. administratora aplikacji, administratora aplikacji w chmurze, właściciela aplikacji lub administratora globalnego).
 * Subskrypcja 8x8 serii X na dowolnym poziomie.
 * Konto użytkownika 8x8 z uprawnieniami administratora w [Configuration Manager](https://vo-cm.8x8.com).
-* Logowanie jednokrotne [za pomocą usługi Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) zostało już skonfigurowane.
+* [Jeden Sign-On z usługą Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/8x8virtualoffice-tutorial) został już skonfigurowany.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
 1. Dowiedz się więcej na temat [sposobu działania usługi aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -127,8 +127,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |name.familyName|Ciąg||
    |phoneNumbers[type eq "mobile"].value|Ciąg|Osobisty numer osoby kontaktowej|
    |phoneNumbers[type eq "work"].value|Ciąg|Osobisty numer osoby kontaktowej|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String||
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: 8x8:1.1: użytkownik: Witryna|String|Nie można zaktualizować po utworzeniu użytkownika|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|Ciąg||
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: 8x8:1.1: użytkownik: Witryna|Ciąg|Nie można zaktualizować po utworzeniu użytkownika|
    |locale|Ciąg|Domyślnie Niemapowane|
    |timezone|Ciąg|Domyślnie Niemapowane|
 

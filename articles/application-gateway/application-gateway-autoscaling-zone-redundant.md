@@ -9,10 +9,10 @@ ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
 ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826621"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
@@ -100,7 +100,7 @@ W tej sekcji opisano funkcje i ograniczenia dotyczące jednostki SKU w wersji 2,
 |--|--|
 |Certyfikat uwierzytelniania|Nieobsługiwane.<br>Aby uzyskać więcej informacji, zobacz [Omówienie kompleksowej usługi TLS z Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mieszanie Standard_v2 i Application Gateway standardowych w tej samej podsieci|Nieobsługiwane|
-|Trasa zdefiniowana przez użytkownika (UDR) w podsieci Application Gateway|Obsługiwane (określone scenariusze). W wersji zapoznawczej.<br> Aby uzyskać więcej informacji na temat obsługiwanych scenariuszy, zobacz [Omówienie konfiguracji Application Gateway](configuration-infrastructure.md#supported-user-defined-routes).|
+|User-Defined Route (UDR) w podsieci Application Gateway|Obsługiwane (określone scenariusze). W wersji zapoznawczej.<br> Aby uzyskać więcej informacji na temat obsługiwanych scenariuszy, zobacz [Omówienie konfiguracji Application Gateway](configuration-infrastructure.md#supported-user-defined-routes).|
 |SIECIOWEJ grupy zabezpieczeń dla zakresu portów przychodzących| -65200 do 65535 dla Standard_v2 jednostki SKU<br>-65503 do 65534 dla standardowej jednostki SKU.<br>Aby uzyskać więcej informacji, zobacz [często zadawane pytania](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Dzienniki wydajności w usłudze Diagnostyka Azure|Nieobsługiwane.<br>Należy używać metryk platformy Azure.|
 |Rozliczenia|Rozliczenia zaplanowane do rozpoczęcia od 1 lipca 2019.|

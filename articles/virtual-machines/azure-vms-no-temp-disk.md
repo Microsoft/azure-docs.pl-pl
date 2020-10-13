@@ -8,10 +8,10 @@ ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
 ms.openlocfilehash: 30587fac7d7be37d7595a78502b7999adee9a30f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665314"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego 

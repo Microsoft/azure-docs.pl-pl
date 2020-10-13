@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537348"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Zaawansowane ograniczanie żądań za pomocą usługi Azure API Management

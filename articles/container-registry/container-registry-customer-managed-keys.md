@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Containe
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620345"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940671"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -114,7 +114,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Alternatywnie możesz przypisać uprawnienia do tożsamości w celu uzyskania dostępu do magazynu kluczy za pomocą [usługi Azure RBAC dla Key Vault](../key-vault/general/rbac-guide.md) (wersja zapoznawcza). Na przykład Przypisz rolę szyfrowania Key Vault usług kryptograficznych do tożsamości za pomocą polecenia [AZ role Assign Create](/cli/azure/az/role/assigment#az-role-assignment-create) :
+Alternatywnie możesz przypisać uprawnienia do tożsamości w celu uzyskania dostępu do magazynu kluczy za pomocą [usługi Azure RBAC dla Key Vault](../key-vault/general/rbac-guide.md) (wersja zapoznawcza). Na przykład Przypisz rolę szyfrowania Key Vault usług kryptograficznych do tożsamości za pomocą polecenia [AZ role Assign Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \

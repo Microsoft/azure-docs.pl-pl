@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855854"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969844"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Często zadawane pytania dotyczące migracji z modelu klasycznego do modelu opartego na usłudze Azure Resource Manager
 
@@ -26,7 +26,7 @@ Słowo "klasyczne" w maszynie wirtualnej IaaS (klasyczny) odnosi się do maszyn 
 
 ## <a name="what-is-azure-resource-manager"></a>Co to jest usługa Azure Resource Manager?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) to najnowsza płaszczyzna kontroli platformy Azure odpowiedzialna za tworzenie, zarządzanie, usuwanie maszyn wirtualnych i wykonywanie innych operacji na płaszczyźnie kontroli. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) to najnowsza płaszczyzna kontroli platformy Azure odpowiedzialna za tworzenie, zarządzanie, usuwanie maszyn wirtualnych i wykonywanie innych operacji na płaszczyźnie kontroli. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Jaki jest czas wymagany do migracji?
 
@@ -42,7 +42,7 @@ Klient, który miał aktywną lub zatrzymaną maszynę wirtualną IaaS (klasyczn
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Dlaczego otrzymuję komunikat o błędzie "NewClassicVMCreationNotAllowedForSubscription"?
 
-W ramach procesu wycofywania maszyny wirtualne IaaS (klasyczne) nie są już dostępne dla nowych klientów. Firma Microsoft zidentyfikowała Ciebie jako nowych klientów, dlatego nie jest autoryzowana operacja. Zdecydowanie zalecamy używanie [Virtual Machines platformy Azure przy użyciu usługi ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Jeśli nie możesz korzystać z maszyn wirtualnych platformy Azure przy użyciu usługi ARM, skontaktuj się z pomocą techniczną, aby dodać subskrypcję do listy dozwolonych.
+W ramach procesu wycofywania maszyny wirtualne IaaS (klasyczne) nie są już dostępne dla nowych klientów. Firma Microsoft zidentyfikowała Ciebie jako nowych klientów, dlatego nie jest autoryzowana operacja. Zdecydowanie zalecamy używanie [Virtual Machines platformy Azure przy użyciu usługi ARM](./windows/quick-create-powershell.md). Jeśli nie możesz korzystać z maszyn wirtualnych platformy Azure przy użyciu usługi ARM, skontaktuj się z pomocą techniczną, aby dodać subskrypcję do listy dozwolonych.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Czy ten plan migracji wpływa na moje istniejące usługi lub aplikacje uruchomione na maszynach wirtualnych platformy Azure? 
 
@@ -105,7 +105,7 @@ Zalecamy przerwanie migracji, a następnie zgłoszenie żądania pomocy technicz
 
 ## <a name="how-do-i-report-an-issue"></a>Jak mogę zgłosić problem? 
 
-Opublikuj swoje problemy i pytania dotyczące migracji do naszej [firmy Microsoft&pytań i odpowiedzi na stronę pytania dla maszyny wirtualnej](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)z tagiem classiciaasmigrationem słowa kluczowego. Zalecamy publikowanie wszystkich pytań na tym forum. Jeśli masz umowę pomocy technicznej, możesz także zgłosić bilet pomocy technicznej.
+Opublikuj swoje problemy i pytania dotyczące migracji do naszej [firmy Microsoft&pytań i odpowiedzi na stronę pytania dla maszyny wirtualnej](/answers/topics/azure-virtual-machines.html)z tagiem classiciaasmigrationem słowa kluczowego. Zalecamy publikowanie wszystkich pytań na tym forum. Jeśli masz umowę pomocy technicznej, możesz także zgłosić bilet pomocy technicznej.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Co zrobić, jeśli nie podobają mi się nazwy zasobów wybrane przez platformę podczas migracji? 
 

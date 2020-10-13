@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 9f136248b93283b02824ead7f34886a056ae0a33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762063"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969776"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie informacji o tekście i układzie przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python
 
@@ -27,7 +27,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 - Zainstalowana w języku [Python](https://www.python.org/downloads/) (Jeśli chcesz uruchomić przykład lokalnie).
-- Dokument formularza. Możesz pobrać obraz z [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start.
+- Dokument formularza. Możesz pobrać obraz z [zestawu przykładowych danych](https://go.microsoft.com/fwlink/?linkid=2090451) (Pobierz i wyodrębnij *sample_data.zip*) dla tego przewodnika Szybki Start.
 
 > [!NOTE]
 > Ten przewodnik Szybki Start używa lokalnie przechowywanego dokumentu. Aby dowiedzieć się, jak używać plików zdalnych, do których uzyskuje się dostęp za pomocą adresu URL, zobacz [dokumentację referencyjną](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).

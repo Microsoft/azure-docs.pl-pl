@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613632"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Pokrycie funkcji dla usług Azure PaaS Services <a name="paas-services"></a>

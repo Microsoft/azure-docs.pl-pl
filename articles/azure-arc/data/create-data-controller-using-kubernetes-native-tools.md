@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91661061"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Tworzenie kontrolera danych usługi Azure ARC przy użyciu narzędzi Kubernetes
@@ -131,7 +131,7 @@ Wpis tajny Kubernetes jest przechowywany jako ciąg zakodowany w formacie base64
 
 Możesz użyć narzędzia online do kodowania base64 żądanej nazwy użytkownika i hasła lub użyć wbudowanych narzędzi interfejsu wiersza polecenia w zależności od platformy.
 
-PowerShell
+Program PowerShell
 
 ```console
 [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes('<your string to encode here>'))

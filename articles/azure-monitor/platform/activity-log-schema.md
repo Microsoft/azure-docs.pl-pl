@@ -8,10 +8,10 @@ ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612765"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
@@ -589,7 +589,7 @@ Ta kategoria zawiera rekordy wszystkich alertów wygenerowanych przez Azure Secu
 | eventDataId |Unikatowy identyfikator zdarzenia zabezpieczeń. |
 | eventName |Przyjazna nazwa zdarzenia zabezpieczeń. |
 | category | Zawsze "zabezpieczenia" |
-| ID |Unikatowy identyfikator zasobu zdarzenia zabezpieczeń. |
+| ID (Identyfikator) |Unikatowy identyfikator zasobu zdarzenia zabezpieczeń. |
 | poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "błąd", "ostrzeżenie" lub "informacyjny" |
 | resourceGroupName |Nazwa grupy zasobów dla zasobu. |
 | resourceProviderName |Nazwa dostawcy zasobów dla Azure Security Center. Zawsze "Microsoft. Security". |
@@ -669,7 +669,7 @@ Ta kategoria zawiera rejestr wszelkich nowych zaleceń, które są generowane dl
 | description |Tekst statyczny opisu zdarzenia rekomendacji |
 | eventDataId | Unikatowy identyfikator zdarzenia rekomendacji. |
 | category | Zawsze "rekomendacja" |
-| ID |Unikatowy identyfikator zasobu zdarzenia rekomendacji. |
+| ID (Identyfikator) |Unikatowy identyfikator zasobu zdarzenia rekomendacji. |
 | poziom |Poziom zdarzenia. Jedna z następujących wartości: "krytyczna", "błąd", "ostrzeżenie" lub "informacyjny" |
 | operationName |Nazwa operacji.  Zawsze "Microsoft. Advisor/generateRecommendations/Action"|
 | resourceGroupName |Nazwa grupy zasobów dla zasobu. |
@@ -784,7 +784,7 @@ Ta kategoria zawiera rekordy wszystkich operacji działania akcji wykonywanych p
 | eventName | "BeginRequest" lub "EndRequest". "BeginRequest" jest używany w przypadku opóźnionych ocen auditIfNotExists i deployIfNotExists oraz kiedy efekt deployIfNotExists uruchamia wdrożenie szablonu. Wszystkie inne operacje zwracają wartość "EndRequest". |
 | category | Deklaruje zdarzenie dziennika aktywności jako należące do "zasad". |
 | eventTimestamp | Sygnatura czasowa, gdy zdarzenie zostało wygenerowane przez usługę platformy Azure przetwarzające żądanie odpowiadające zdarzeniu. |
-| ID | Unikatowy identyfikator zdarzenia dla określonego zasobu. |
+| ID (Identyfikator) | Unikatowy identyfikator zdarzenia dla określonego zasobu. |
 | poziom | Poziom zdarzenia. Inspekcja używa "Warning" i Odmów używa "Error". Błąd auditIfNotExists lub deployIfNotExists może generować "Warning" lub "Error" w zależności od ważności. Wszystkie inne zdarzenia zasad używają "informacyjnych". |
 | operationId | Identyfikator GUID współużytkowany przez zdarzenia, które odpowiadają pojedynczej operacji. |
 | operationName | Nazwa operacji i bezpośrednio skorelowanej z efektem zasad. |

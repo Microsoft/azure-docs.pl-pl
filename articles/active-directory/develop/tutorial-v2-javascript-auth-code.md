@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
 ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665875"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji jednostronicowej JavaScript (SPA) przy użyciu przepływu kodu uwierzytelniania
@@ -559,7 +559,7 @@ SPA, który został utworzony w tym samouczku, wywołuje `acquireTokenSilent` i/
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Przykład:
+Po wstępnym logowaniu aplikacja nie powinna prosić użytkowników o ponowne uwierzytelnienie za każdym razem, gdy potrzebują dostępu do chronionego zasobu (czyli do żądania tokenu). Aby uniemożliwić takie żądania ponownego uwierzytelniania, wywołaj polecenie `acquireTokenSilent` . Istnieją jednak sytuacje, w których konieczne może być wymuszenie współpracy użytkowników z punktem końcowym platformy tożsamości firmy Microsoft. Na przykład:
 
 - Użytkownicy muszą ponownie wprowadzić swoje poświadczenia, ponieważ hasło wygasło.
 - Aplikacja żąda dostępu do zasobu i potrzebujesz zgody użytkownika.
