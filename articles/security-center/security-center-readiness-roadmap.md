@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
 ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314491"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plan gotowości Azure Security Center
@@ -32,7 +32,7 @@ Artykuły
 - [Wprowadzenie do usługi Azure Security Center](security-center-introduction.md)
 - [Przewodnik Szybki start dotyczący usługi Azure Security Center](security-center-get-started.md)
 
-Filmy wideo
+Wideo
 - [Wideo z szybkim wprowadzeniem](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 - [Omówienie możliwości związanych z zapobieganiem, wykrywaniem i reagowaniem usługi Security Center](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
@@ -72,7 +72,7 @@ Aby zmniejszyć koszty i szkody, ważne jest, aby przed atakiem uzyskać plan re
 
 Użyj następujących zasobów, aby zrozumieć sposób dołączenia usługi Security Center do procesu reagowania na zdarzenia.
 
-Filmy wideo    
+Wideo    
 * [Usługa Azure Security Center na potrzeby reagowania na zdarzenia](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Szybkie reagowanie na zagrożenia przy użyciu zabezpieczeń, obsługi i badań nowej generacji](https://youtu.be/e8iFCz5RM4g)
 
@@ -86,7 +86,7 @@ Maszyny wirtualne platformy Azure mogą wykorzystywać zaawansowane możliwości
 
 Użyj następujących zasobów, aby dowiedzieć się, jak korzystać z tych możliwości w usłudze Security Center.
 
-Filmy wideo    
+Wideo    
 * [Azure Security Center — dostęp just in Time do maszyny wirtualnej](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center — funkcje adaptacyjnego sterowania aplikacjami](https://youtu.be/wWWekI1Y9ck)
 

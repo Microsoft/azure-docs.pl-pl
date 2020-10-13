@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 90d3ff807275c74ce4495c5631ab913971ebe3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4599f4e3ca291c312c99e938b237d1eb9cd9d407
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513013"
+ms.locfileid: "91929284"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Programowanie dla usługi Azure NetApp Files za pomocą interfejsu API REST 
 
@@ -34,9 +34,9 @@ Specyfikacja interfejsu API REST dla Azure NetApp Files jest publikowana w serwi
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Dostęp do interfejsu API REST Azure NetApp Files  
 
-1. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , jeśli jeszcze tego nie zrobiono.
+1. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) , jeśli jeszcze tego nie zrobiono.
 2. Utwórz nazwę główną usługi w Azure Active Directory (Azure AD):
-   1. Sprawdź, czy masz [wystarczające uprawnienia](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Sprawdź, czy masz [wystarczające uprawnienia](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. Wprowadź następujące polecenie w interfejsie wiersza polecenia platformy Azure: 
     
@@ -203,4 +203,4 @@ Poniższy przykład pokazuje, jak utworzyć migawkę woluminu:
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zobacz Dokumentacja interfejsu API REST Azure NetApp Files](https://docs.microsoft.com/rest/api/netapp/)
+[Zobacz Dokumentacja interfejsu API REST Azure NetApp Files](/rest/api/netapp/)

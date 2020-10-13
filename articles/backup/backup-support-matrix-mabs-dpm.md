@@ -4,10 +4,10 @@ description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332699"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
@@ -102,7 +102,7 @@ Można wdrożyć serwera usługi MAB na maszynie wirtualnej Azure Stack, aby mo�
 **.NET Framework w serwera usługi MAB** | Maszyna wirtualna serwera usługi MAB wymaga .NET Framework 3,3 z dodatkiem SP1 lub nowszą.
 **SERWERA usługi MAB domenę** | Maszyna wirtualna serwera usługi MAB musi być przyłączona do domeny. Użytkownik domeny z uprawnieniami administratora musi zainstalować serwera usługi MAB na maszynie wirtualnej.
 **Azure Stack kopii zapasowej danych maszyny wirtualnej** | Można tworzyć kopie zapasowe plików, folderów i aplikacji.
-**Obsługiwana kopia zapasowa** | Te systemy operacyjne są obsługiwane w przypadku maszyn wirtualnych, których kopia zapasowa ma zostać utworzona:<br/><br/> Półroczny kanał systemu Windows Server (Datacenter, Enterprise, standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**Obsługiwana kopia zapasowa** | Te systemy operacyjne są obsługiwane w przypadku maszyn wirtualnych, których kopia zapasowa ma zostać utworzona:<br/><br/> Windows Server Semi-Annual Channel (Datacenter, Enterprise, standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **SQL Server obsługa Azure Stack maszyn wirtualnych** | Wykonaj kopię zapasową SQL Server 2016, SQL Server 2014 SQL Server 2012 SP1.<br/><br/> Tworzenie kopii zapasowej i odzyskiwanie bazy danych.
 **Obsługa programu SharePoint na potrzeby maszyn wirtualnych Azure Stack** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Tworzenie kopii zapasowej i odzyskiwanie farmy, bazy danych, frontonu i serwera sieci Web.
 **Wymagania sieciowe dotyczące kopii zapasowych maszyn wirtualnych** | Wszystkie maszyny wirtualne w obciążeniu Azure Stack muszą należeć do tej samej sieci wirtualnej i należeć do tej samej subskrypcji.
@@ -157,7 +157,7 @@ Brak łączności przez ponad 15 dni | Wygasłe lub anulowano obsługę administ
 
 |Wymaganie |Szczegóły |
 |---------|---------|
-|Domena    | Serwer DPM/serwera usługi MAB powinien znajdować się w domenie systemu Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
+|Obszar    | Serwer DPM/serwera usługi MAB powinien znajdować się w domenie systemu Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
 |Zaufanie domeny   |  Program DPM/serwera usługi MAB obsługuje ochronę danych w różnych lasach, pod warunkiem, że ustanawiane jest zaufanie dwukierunkowe między oddzielnymi lasami.   <BR><BR>   Program DPM/serwera usługi MAB może chronić serwery i stacje robocze w domenach w lesie, który ma ustanowioną dwukierunkową relację zaufania z domeną serwera DPM/serwera usługi MAB. Aby chronić komputery w grupach roboczych lub domenach niezaufanych, zobacz [wykonywanie kopii zapasowych i przywracanie obciążeń w grupach roboczych i domenach niezaufanych.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Obsługa magazynu programu DPM/serwera usługi MAB

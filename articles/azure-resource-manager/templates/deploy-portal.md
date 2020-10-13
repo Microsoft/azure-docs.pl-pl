@@ -4,10 +4,10 @@ description: Użyj Azure Portal i Zarządzaj zasobami platformy Azure, aby wdro�
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85255266"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Wdrażanie zasobów za pomocą szablonów ARM i Azure Portal
@@ -41,7 +41,7 @@ W tym artykule przedstawiono obie metody.
 
    ![Ustawianie wartości grupy](./media/deploy-portal/set-group-properties.png)
 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Przejrzyj wartości, a następnie wybierz pozycję **Utwórz**.
 1. Wybierz pozycję **Odśwież** , aby wyświetlić nową grupę zasobów na liście.
 
@@ -82,7 +82,7 @@ Jeśli chcesz wykonać wdrożenie, ale nie używasz żadnego z szablonów w port
 
    ![Wyszukaj wdrożenie szablonu](./media/deploy-portal/search-template.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Zobaczysz kilka opcji tworzenia szablonu:
 
     - **Kompiluj własny szablon w edytorze**: Utwórz szablon przy użyciu edytora szablonów portalu.  Edytor może dodać schemat szablonu zasobu.

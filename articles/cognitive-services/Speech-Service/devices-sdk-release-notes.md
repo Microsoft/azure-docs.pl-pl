@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
 ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212500"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Informacje o wersji: zestaw SDK urządzeń mowy
@@ -63,7 +63,7 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 - Nowa technologia słowa kluczowego zapewnia znaczące ulepszenia jakości, zobacz artykuł wprowadzenie zmian.
 - Nowy potok przetwarzania audio dla ulepszonego rozpoznawania pól.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - Ze względu na nową technologię słów kluczowych wszystkie słowa kluczowe muszą zostać utworzone w naszym ulepszonym portalu słów kluczowych. Aby w pełni usunąć stare słowa kluczowe z urządzenia, Odinstaluj starą aplikację.
   - ADB Odinstaluj com. Microsoft. cognitiveservices. Speech. Samples. sdsdkstarterapp
@@ -78,11 +78,11 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 - Obsługa zaktualizowanych słów kluczowych, zobacz istotne zmiany.
 - Przykładowa aplikacja dodaje wybór języka dla rozpoznawania mowy i tłumaczenia.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - [Instalacja słowa kluczowego](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) została uproszczona, jest teraz częścią aplikacji i nie wymaga osobnej instalacji na urządzeniu.
 - Rozpoznawanie słów kluczowych zostało zmienione i obsługiwane są dwa zdarzenia.
-  - `RecognizingKeyword,`wskazuje, że wynik mowy zawiera (niezweryfikowany) tekst słowa kluczowego.
+  - `RecognizingKeyword,` wskazuje, że wynik mowy zawiera (niezweryfikowany) tekst słowa kluczowego.
   - `RecognizedKeyword`wskazuje, że rozpoznawanie słowa kluczowego zostało zakończone rozpoznanie danego słowa kluczowego.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK 1.1.0:2018-lis Release
@@ -97,7 +97,7 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 - Dokładność rozpoznawania mowy zostanie ulepszona dzięki ulepszonemu algorytmowi przetwarzania dźwięku
 - Została naprawiona jedna usterka sesji audio ciągłego rozpoznawania.
 
-**Fundamentalne zmiany**
+**Zmiany powodujące niezgodność**
 
 - W tej wersji wprowadzono kilka istotnych zmian. Sprawdź [Tę stronę](https://aka.ms/csspeech/breakingchanges_1_0_0) , aby uzyskać szczegółowe informacje dotyczące interfejsów API.
 - Pliki modelu KWS są niezgodne z zestawem SDK urządzeń Speech 1.0.1. Istniejące pliki słów kluczowych zostaną usunięte po zapisaniu nowych plików słów kluczowych na urządzeniu.

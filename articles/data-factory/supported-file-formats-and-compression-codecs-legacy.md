@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254620"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Obsługiwane formaty plików i kodeki kompresji w Azure Data Factory (starsza wersja)
@@ -25,7 +25,7 @@ ms.locfileid: "85254620"
 >[!IMPORTANT]
 >Data Factory wprowadzono nowy model zestawu danych oparty na formacie, zobacz odpowiedni format artykułu ze szczegółami: <br>- [Format Avro](format-avro.md)<br>- [Format binarny](format-binary.md)<br>- [Format tekstu rozdzielanego](format-delimited-text.md)<br>- [Format JSON](format-json.md)<br>- [Format ORC](format-orc.md)<br>- [Format Parquet](format-parquet.md)<br>Konfiguracje REST wymienione w tym artykule są nadal obsługiwane w przypadku compabitility z poprzednimi wersjami. Zamierzasz użyć nowego modelu do przodu. 
 
-## <a name="text-format-legacy"></a><a name="text-format"></a>Format tekstu (starsza wersja)
+## <a name="text-format-legacy"></a><a name="text-format"></a> Format tekstu (starsza wersja)
 
 >[!NOTE]
 >Zapoznaj się z nowym modelem w artykule [Formatowanie tekstu rozdzielonego](format-delimited-text.md) . Następujące konfiguracje zestawu danych opartego na plikach są nadal obsługiwane, tak jak w przypadku compabitility z poprzednimi wersjami. Zamierzasz użyć nowego modelu do przodu.
@@ -41,7 +41,7 @@ Jeśli chcesz czytać z pliku tekstowego lub zapisywać do pliku tekstowego, ust
 | nullValue |Co najmniej jeden znak służący do reprezentowania wartości null. |Co najmniej jeden znak. Wartości **domyślne** to **„\N” i „NULL”** przy odczycie oraz **„\N”** przy zapisie. |Nie |
 | encodingName |Określa nazwę kodowania. |Prawidłowa nazwa kodowania. Zobacz [właściwość Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Przykład: windows-1250 lub shift_jis. Wartość **domyślna** to **UTF-8**. |Nie |
 | firstRowAsHeader |Określa, czy pierwszy wiersz ma być traktowany jako nagłówek. W przypadku zestawu danych wejściowych usługa Data Factory odczytuje pierwszy wiersz jako nagłówek. W przypadku zestawu danych wyjściowych usługa Data Factory zapisuje pierwszy wiersz jako nagłówek. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Prawda<br/><b>False (domyślnie)</b> |Nie |
-| skipLineCount |Wskazuje liczbę **niepustych** wierszy do pominięcia podczas odczytywania danych z plików wejściowych. Jeśli określono zarówno właściwość skipLineCount, jak i firstRowAsHeader, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nie |
+| skipLineCount |Wskazuje liczbę **niepustych** wierszy do pominięcia podczas odczytywania danych z plików wejściowych. Jeśli określono zarówno właściwość skipLineCount, jak i firstRowAsHeader, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Liczba całkowita |Nie |
 | treatEmptyAsNull |Określa, czy ciąg pusty lub o wartości null ma być traktowany jako wartość null podczas odczytu danych z pliku wejściowego. |**True (domyślnie)**<br/>Fałsz |Nie |
 
 ### <a name="textformat-example"></a>Przykład formatu TextFormat
@@ -79,7 +79,7 @@ Aby użyć właściwości `escapeChar` zamiast `quoteChar`, zastąp wiersz z wł
 * Kopiujesz dane z pliku tekstowego zawierającego wiersz nagłówka do ujścia innego niż plik i chcesz pominąć ten wiersz. Ustaw właściwość `firstRowAsHeader` na wartość true w zestawie danych wejściowych.
 * Kopiujesz dane z pliku tekstowego i chcesz pominąć kilka początkowych wierszy, które nie zawierają żadnych danych bądź informacji nagłówka. Określ właściwość `skipLineCount`, aby wskazać liczbę wierszy do pominięcia. Jeśli pozostała część pliku zawiera wiersz nagłówka, możesz również określić właściwość `firstRowAsHeader`. Jeśli określono zarówno właściwość `skipLineCount`, jak i `firstRowAsHeader`, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego
 
-## <a name="json-format-legacy"></a><a name="json-format"></a>Format JSON (starsza wersja)
+## <a name="json-format-legacy"></a><a name="json-format"></a> Format JSON (starsza wersja)
 
 >[!NOTE]
 >Poznaj nowy model z artykułu w [formacie JSON](format-json.md) . Następujące konfiguracje zestawu danych opartego na plikach są nadal obsługiwane, tak jak w przypadku compabitility z poprzednimi wersjami. Zamierzasz użyć nowego modelu do przodu.
@@ -224,7 +224,7 @@ W tym przykładzie oczekiwany jest jeden główny obiekt JSON mapowany na pojedy
 
 i chcesz skopiować ją do tabeli usługi Azure SQL w następującym formacie przez wyodrębnienie danych z obiektu i tabeli:
 
-| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| ID (Identyfikator) | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -306,7 +306,7 @@ i chcesz ją skopiować do tabeli Azure SQL w następującym formacie, spłaszcz
 Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: (częściowa definicja zawierająca tylko stosowne fragmenty). Więcej szczegółów:
 
 - Sekcja `structure` definiuje niestandardowe nazwy kolumn i odpowiedni typ danych podczas konwersji na dane tabelaryczne. Ta sekcja jest **opcjonalna**, o ile nie trzeba wykonać mapowania kolumn. Aby uzyskać więcej informacji, zobacz [Mapowanie kolumn źródłowych zestawów danych do docelowych kolumn zestawu danych](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`wskazuje, aby wykonać iterację i wyodrębnić dane z obiektów o tym samym wzorcu w **tablicy** `orderlines` .
+- `jsonNodeReference` wskazuje, aby wykonać iterację i wyodrębnić dane z obiektów o tym samym wzorcu w **tablicy** `orderlines` .
 - Właściwość `jsonPathDefinition` określa ścieżkę JSON dla każdej kolumny, wskazując, skąd mają zostać wyodrębnione dane. W tym przykładzie, `ordernumber` , `orderdate` i `city` znajdują się pod obiektem głównym z ścieżką JSON rozpoczynającą się od `$.` , while `order_pd` i `order_price` są zdefiniowane przy użyciu ścieżki pochodnej elementu Array bez `$.` .
 
 ```json
@@ -356,7 +356,7 @@ Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: 
 
 Jeśli masz poniższą tabelę w SQL Database:
 
-| ID | order_date | order_price | order_by |
+| ID (Identyfikator) | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -406,7 +406,7 @@ Zestaw danych wyjściowych typu **JsonFormat** jest zdefiniowany następująco: 
 }
 ```
 
-## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Format Parquet (starsza wersja)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a> Format Parquet (starsza wersja)
 
 >[!NOTE]
 >Poznaj nowy model z artykułu [Parquet format](format-parquet.md) . Następujące konfiguracje zestawu danych opartego na plikach są nadal obsługiwane, tak jak w przypadku compabitility z poprzednimi wersjami. Zamierzasz użyć nowego modelu do przodu.
@@ -445,7 +445,7 @@ Przykład: Ustaw zmienną `_JAVA_OPTIONS` o wartości `-Xms256m -Xmx16g` . Flaga
 
 | Typ danych pośrednich fabryki danych | Typ pierwotny Parquet | Parquet oryginalny typ (deserializacji) | Parquet oryginalny typ (Serializacja) |
 |:--- |:--- |:--- |:--- |
-| Boolean (wartość logiczna) | Boolean (wartość logiczna) | Nie dotyczy | Nie dotyczy |
+| Boolean (wartość logiczna) | Boolean (wartość logiczna) | NIE DOTYCZY | NIE DOTYCZY |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -453,20 +453,20 @@ Przykład: Ustaw zmienną `_JAVA_OPTIONS` o wartości `-Xms256m -Xmx16g` . Flaga
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/Binary | UInt64 | Wartość dziesiętna |
-| Pojedyncze | Float | Nie dotyczy | Nie dotyczy |
-| Double | Double | Nie dotyczy | Nie dotyczy |
-| Wartość dziesiętna | Binarne | Wartość dziesiętna | Wartość dziesiętna |
-| String | Binarne | Kodowania | Kodowania |
-| DateTime | Int96 | Nie dotyczy | Nie dotyczy |
-| przedział_czasu | Int96 | Nie dotyczy | Nie dotyczy |
-| DateTimeOffset | Int96 | Nie dotyczy | Nie dotyczy |
-| ByteArray | Binarne | Nie dotyczy | Nie dotyczy |
+| UInt64 | Int64/Binary | UInt64 | Liczba dziesiętna |
+| Pojedynczy | Liczba zmiennoprzecinkowa | NIE DOTYCZY | NIE DOTYCZY |
+| Double | Double | NIE DOTYCZY | NIE DOTYCZY |
+| Liczba dziesiętna | Binarne | Liczba dziesiętna | Liczba dziesiętna |
+| Ciąg | Binarne | Kodowania | Kodowania |
+| DateTime | Int96 | NIE DOTYCZY | NIE DOTYCZY |
+| przedział_czasu | Int96 | NIE DOTYCZY | NIE DOTYCZY |
+| DateTimeOffset | Int96 | NIE DOTYCZY | NIE DOTYCZY |
+| ByteArray | Binarne | NIE DOTYCZY | NIE DOTYCZY |
 | Guid (identyfikator GUID) | Binarne | Kodowania | Kodowania |
 | Char | Binarne | Kodowania | Kodowania |
-| CharArray | Nieobsługiwane | Nie dotyczy | Nie dotyczy |
+| CharArray | Nieobsługiwane | NIE DOTYCZY | NIE DOTYCZY |
 
-## <a name="orc-format-legacy"></a><a name="orc-format"></a>Format ORC (starsza wersja)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a> Format ORC (starsza wersja)
 
 >[!NOTE]
 >Poznaj nowy model z artykułu [Orc format](format-orc.md) . Następujące konfiguracje zestawu danych opartego na plikach są nadal obsługiwane, tak jak w przypadku compabitility z poprzednimi wersjami. Zamierzasz użyć nowego modelu do przodu.
@@ -506,19 +506,19 @@ W przypadku kopiowania uruchomionego na samoobsługowym środowisku IR przy uży
 | Int32 | int |
 | UInt32 | Długo |
 | Int64 | Długo |
-| UInt64 | String |
-| Pojedyncze | Float |
+| UInt64 | Ciąg |
+| Pojedynczy | Liczba zmiennoprzecinkowa |
 | Double | Double |
-| Wartość dziesiętna | Wartość dziesiętna |
+| Liczba dziesiętna | Liczba dziesiętna |
 | String (ciąg) | String (ciąg) |
-| DateTime | Znacznik czasu |
-| DateTimeOffset | Znacznik czasu |
-| przedział_czasu | Znacznik czasu |
+| DateTime | Timestamp |
+| DateTimeOffset | Timestamp |
+| przedział_czasu | Timestamp |
 | ByteArray | Binarne |
-| Guid (identyfikator GUID) | String |
+| Guid (identyfikator GUID) | Ciąg |
 | Char | Char (1) |
 
-## <a name="avro-format-legacy"></a><a name="avro-format"></a>Format AVRO (starsza wersja)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a> Format AVRO (starsza wersja)
 
 >[!NOTE]
 >Poznaj nowy model z artykułu [Avro format](format-avro.md) . Następujące konfiguracje zestawu danych opartego na plikach są nadal obsługiwane, tak jak w przypadku compabitility z poprzednimi wersjami. Zamierzasz użyć nowego modelu do przodu.
@@ -538,7 +538,7 @@ Pamiętaj o następujących kwestiach:
 
 * [Złożone typy danych](https://avro.apache.org/docs/current/spec.html#schema_complex) nie są obsługiwane (rekordy, wyliczenia, tablice, mapy, Unii i stałe).
 
-## <a name="compression-support-legacy"></a><a name="compression-support"></a>Obsługa kompresji (starsza wersja)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a> Obsługa kompresji (starsza wersja)
 
 Azure Data Factory obsługuje kompresję/dekompresowanie danych podczas kopiowania. Po określeniu `compression` właściwości w wejściowym zestawie danych działanie kopiowania odczytuje skompresowane dane ze źródła i dekompresuje je; po określeniu właściwości w wyjściowym zestawie danych działanie kopiowania kompresuje następnie dane do ujścia. Oto kilka przykładowych scenariuszy:
 
