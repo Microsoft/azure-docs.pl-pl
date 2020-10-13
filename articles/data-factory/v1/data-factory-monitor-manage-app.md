@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570080"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie potoków Azure Data Factory i zarządzanie nimi za pomocą aplikacji do monitorowania i zarządzania
@@ -177,7 +177,7 @@ Okna działania mogą mieć jeden z następujących stanów:
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie może uruchamiać okien działania, dopóki nie zostanie wznowione.</td>
 </tr>
 <tr>
-<td>Ponów próbę</td><td>Trwa ponawianie wykonywania działania.</td>
+<td>Ponawianie próby</td><td>Trwa ponawianie wykonywania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Sprawdzanie poprawności nie zostało jeszcze rozpoczęte.</td>

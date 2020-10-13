@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527833"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972020"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Przywracanie woluminu StorSimple z zestawu kopii zapasowych
 
@@ -115,7 +115,7 @@ Możesz użyć bloku **wykazu kopii zapasowych** , aby przywrócić wolumin Stor
    
 4. Przejdź z powrotem do karty **wykaz kopii zapasowych** i wybierz zestaw kopii zapasowych. Kliknij prawym przyciskiem myszy, a następnie z menu kontekstowego wybierz polecenie **Przywróć**.
 
-    ![Lista zestawów kopii zapasowych](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Lista zestawów kopii zapasowych 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. Pojawi się monit o potwierdzenie. Przejrzyj informacje o przywracaniu, a następnie zaznacz pole wyboru potwierdzenie.
    
@@ -123,7 +123,7 @@ Możesz użyć bloku **wykazu kopii zapasowych** , aby przywrócić wolumin Stor
 
 7. Kliknij przycisk **Przywróć**. Spowoduje to zainicjowanie zadania przywracania, które można wyświetlić, uzyskując dostęp do strony **zadania** .
 
-   ![Strona potwierdzenia](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Strona potwierdzenia 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Po zakończeniu przywracania Sprawdź, czy zawartość woluminów jest zastępowana przez woluminy z kopii zapasowej.
 

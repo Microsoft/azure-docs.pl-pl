@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
 ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567149"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
@@ -149,7 +149,7 @@ Oto mapa wszystkich typów danych właściwości i ich reprezentacje sufiksów w
 | Double |  ". Float64" |    24,99|
 | Tablica | ". Array" |    ["a", "b"]|
 |Binarne | ". Binary" |0|
-|Wartość logiczna    | ". bool"   |Prawda|
+|Boolean (wartość logiczna)    | ". bool"   |Prawda|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Zero   | ". null"   | wartość null|

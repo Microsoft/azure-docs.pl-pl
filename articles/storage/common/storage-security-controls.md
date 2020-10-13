@@ -10,10 +10,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 3b4d74e7ba869e0438a936817d824e841823d472
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715713"
 ---
 # <a name="security-controls-for-azure-storage"></a>Kontrolki zabezpieczeń dla usługi Azure Storage
@@ -28,8 +28,8 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 |---|---|--|
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak |  |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Tak | Zobacz [szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Brak |  |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Tak | Obsługa standardowych mechanizmów protokołu HTTPS/TLS.  Użytkownicy mogą także szyfrować dane przed ich przesłaniem do usługi. |
+| Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie dotyczy |  |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Tak | Obsługa standardowych mechanizmów protokołu HTTPS/TLS.  Użytkownicy mogą także szyfrować dane przed ich przesłaniem do usługi. |
 | Wywołania interfejsu API są szyfrowane| Tak |  |
 
 ## <a name="network"></a>Sieć
@@ -38,9 +38,9 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 |---|---|--|
 | Obsługa punktów końcowych usługi| Tak |  |
 | Obsługa tagów usługi| Tak | Zobacz [Omówienie tagów usługi platformy Azure](../../virtual-network/service-tags-overview.md) , aby uzyskać więcej informacji na temat tagów usługi obsługiwanych przez usługę Azure Storage. |
-| Obsługa iniekcji sieci wirtualnej| Brak |  |
+| Obsługa iniekcji sieci wirtualnej| Nie dotyczy |  |
 | Izolacja sieci i obsługa zapory| Tak | |
-| Obsługa tunelowania wymuszonego| Brak |  |
+| Obsługa tunelowania wymuszonego| Nie dotyczy |  |
 
 ## <a name="monitoring--logging"></a>Monitorowanie rejestrowania &
 
@@ -54,7 +54,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w usługę Az
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
-| Authentication| Tak | Azure Active Directory, klucz współużytkowany, token dostępu współdzielonego. |
+| Uwierzytelnianie| Tak | Azure Active Directory, klucz współużytkowany, token dostępu współdzielonego. |
 | Autoryzacja| Tak | Obsługa autoryzacji za pośrednictwem usług Azure RBAC, list kontroli dostępu POSIX i tokenów SAS |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją

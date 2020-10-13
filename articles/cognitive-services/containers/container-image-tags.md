@@ -10,10 +10,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369488"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tagi obrazu kontenera Cognitive Services platformy Azure

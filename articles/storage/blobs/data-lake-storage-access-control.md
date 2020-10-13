@@ -9,10 +9,10 @@ ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716102"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
@@ -71,7 +71,7 @@ Aby ustawić uprawnienia na poziomie plików i katalogów, zobacz dowolny z nast
 |.NET |[Użyj programu .NET do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
 |Java|[Używanie języka Java do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
 |Python|[Używanie języka Python do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
-|PowerShell|[Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
+|Program PowerShell|[Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
 |Interfejs wiersza polecenia platformy Azure|[Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
 |Interfejs API REST |[Ścieżka — aktualizacja](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 

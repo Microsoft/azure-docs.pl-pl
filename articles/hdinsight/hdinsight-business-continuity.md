@@ -8,12 +8,12 @@ keywords: Wysoka dostępność usługi Hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 49f1f475ba4169ea6943dec161577a15e76657f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857779"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893649"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Ciągłość biznesowa usługi Azure HDInsight
 
@@ -84,7 +84,7 @@ Nie zawsze trwa katastrofalne zdarzenie mające wpływ na funkcjonalność bizne
 
 ### <a name="hdinsight-metastore"></a>Magazyn metadanych usługi HDInsight
 
-Usługa HDInsight używa [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) jako magazynu metadanych, który oferuje umowę SLA wynoszącą 99,99%. Trzy repliki danych pozostają w centrum danych z replikacją asynchroniczną. W przypadku utraty repliki alternatywna replika jest obsługiwana bezproblemowo. [Aktywna replikacja geograficzna](../azure-sql/database/active-geo-replication-overview.md) jest obsługiwana z użyciem maksymalnie czterech centrów danych. W przypadku przejścia w tryb failover lub centrum danych pierwsza replika w hierarchii zostanie automatycznie przeniesiona do trybu odczytu i zapisu. Aby uzyskać więcej informacji, zobacz [Azure SQL Database ciągłość](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)działania.
+Usługa HDInsight używa [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) jako magazynu metadanych, który oferuje umowę SLA wynoszącą 99,99%. Trzy repliki danych pozostają w centrum danych z replikacją synchroniczną. W przypadku utraty repliki alternatywna replika jest obsługiwana bezproblemowo. [Aktywna replikacja geograficzna](../azure-sql/database/active-geo-replication-overview.md) jest obsługiwana z użyciem maksymalnie czterech centrów danych. W przypadku przejścia w tryb failover lub centrum danych pierwsza replika w hierarchii zostanie automatycznie przeniesiona do trybu odczytu i zapisu. Aby uzyskać więcej informacji, zobacz [Azure SQL Database ciągłość](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)działania.
 
 ### <a name="hdinsight-storage"></a>HDInsight Storage
 
@@ -108,16 +108,16 @@ Poprawa ciągłości działania przy użyciu funkcji odzyskiwania awaryjnego o w
 
 ### <a name="cost-optimizations"></a>Optymalizacje kosztów
 
-|Obszar|Przyczyna eskalacji kosztów|Strategie optymalizacji|
+|Warstwowy|Przyczyna eskalacji kosztów|Strategie optymalizacji|
 |----|------------------------|-----------------------|
 |Magazyn danych|Duplikowanie podstawowych danych/tabel w regionie pomocniczym|Replikuj tylko nadzorowane dane|
 |Dane wychodzące|Wychodzące transfery danych między regionami są oferowane w cenie. Przegląd wytycznych dotyczących cen przepustowości|Replikuj tylko nadzorowane dane, aby zmniejszyć poziom ruchu wychodzącego z regionu|
-|Obliczenia klastra|Dodatkowe klastry usługi HDInsight/s w regionie pomocniczym|Użyj skryptów automatycznych do wdrożenia dodatkowych obliczeń po awarii podstawowej. < \br>< \br>użyć skalowania automatycznego, aby zapewnić minimalny rozmiar klastra pomocniczego. < \br>< \br>używać tańszych jednostek SKU maszyny wirtualnej. < \br>< \br> tworzenia serwerów pomocniczych w regionach, w których mogą zostać obniżone jednostki SKU maszyn wirtualnych.|
-|Authentication |Scenariusze wieloużytkownikom w regionie pomocniczym będą naliczane dodatkowe konfiguracje usługi Azure AD DS|Unikaj konfigurowania wieloużytkownikom w regionie pomocniczym.|
+|Obliczenia klastra|Dodatkowe klastry usługi HDInsight/s w regionie pomocniczym|Użyj skryptów automatycznych do wdrożenia dodatkowych obliczeń po awarii podstawowej. Użyj skalowania automatycznego, aby zapewnić minimalny rozmiar klastra pomocniczego. Używaj tańszych jednostek SKU maszyn wirtualnych. Tworzenie serwerów pomocniczych w regionach, w których mogą zostać obniżone liczby jednostek SKU maszyn wirtualnych.|
+|Uwierzytelnianie |Scenariusze wieloużytkownikom w regionie pomocniczym będą naliczane dodatkowe konfiguracje usługi Azure AD DS|Unikaj konfigurowania wieloużytkownikom w regionie pomocniczym.|
 
 ### <a name="complexity-optimizations"></a>Optymalizacje złożoności
 
-|Obszar|Przyczyna eskalacji złożoności|Strategie optymalizacji|
+|Warstwowy|Przyczyna eskalacji złożoności|Strategie optymalizacji|
 |----|------------------------|-----------------------|
 |Odczytywanie wzorców zapisu |Wymaganie zarówno odczytu, jak i zapisu |Zaprojektuj pomocniczą wartość tylko do odczytu|
 |Zero RPO & RTO |Wymaganie zerowej utraty danych (RPO = 0) i zero przestojów (RTO = 0) |Zaprojektuj cel punktu odzyskiwania i RTO w celu zmniejszenia liczby składników, które wymagają przełączenia w tryb failover.|

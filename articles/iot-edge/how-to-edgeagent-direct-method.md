@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57b9d46918414cef9e8cbcffb941b98c98f985ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42c79526288fb7e05959ac60cddc6f468656ffd4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80240341"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972547"
 ---
 # <a name="communicate-with-edgeagent-using-built-in-direct-methods"></a>Komunikacja z edgeAgent za pomocą wbudowanych metod bezpośrednich
 
@@ -69,13 +69,14 @@ W Azure Portal Wywołaj metodę z nazwą metody `RestartModule` i następującym
 
 ![Wywołaj metodę bezpośrednią "RestartModule" w Azure Portal](./media/how-to-edgeagent-direct-method/restartmodule-direct-method.png)
 
-## <a name="experimental-methods"></a>Metody eksperymentalne
+## <a name="diagnostic-direct-methods"></a>Metody diagnostyczne Direct
 
-Nowe opcje metody bezpośredniej są dostępne jako eksperymentalne funkcje do testowania, w tym:
+* [GetModuleLogs](how-to-retrieve-iot-edge-logs.md#retrieve-module-logs): Pobierz dzienniki modułu w tekście odpowiedzi metody bezpośredniej.
+* [UploadModuleLogs](how-to-retrieve-iot-edge-logs.md#upload-module-logs): Pobierz dzienniki modułu i przekaż je do usługi Azure Blob Storage.
+* [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics): Pobierz dzienniki modułu przy użyciu pakietu obsługi i Przekaż plik zip do usługi Azure Blob Storage.
+* [GetTaskStatus](how-to-retrieve-iot-edge-logs.md#get-upload-request-status): Sprawdź stan dzienników przekazywania lub obsługi żądania pakietu.
 
-* [UploadLogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md): Pobierz dzienniki modułu i przekaż je do usługi Azure Blob Storage.
-* [GetTaskStatus](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#gettaskstatus): Sprawdź stan żądania dzienników przekazywania.
-* [Getlogs](https://github.com/Azure/iotedge/blob/master/doc/built-in-logs-pull.md#getlogs): pobieranie dzienników modułu w odpowiedzi metody bezpośredniej.
+Te metody diagnostyki bezpośredniej są dostępne w wersji 1.0.10.
 
 ## <a name="next-steps"></a>Następne kroki
 

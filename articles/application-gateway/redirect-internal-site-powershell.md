@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
 ms.openlocfilehash: d838fe1d1015e1913c8aa28a122b06d108fb4676
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446648"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu Azure PowerShell

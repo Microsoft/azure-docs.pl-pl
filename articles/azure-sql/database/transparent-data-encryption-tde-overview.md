@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 06/15/2020
-ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836687"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945995"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Przezroczyste szyfrowanie danych dla SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ W przypadku Azure SQL Database i usługi Azure Synapse funkcja ochrony TDE jest 
 > Wszystkie nowo utworzone bazy danych w SQL Database są domyślnie szyfrowane przy użyciu funkcji przezroczystego szyfrowania danych zarządzanego przez usługę. Istniejące bazy danych SQL utworzone przed 2017mi i bazami danych SQL utworzonych przy użyciu funkcji przywracania, replikacji geograficznej i kopii bazy danych nie są szyfrowane domyślnie. Istniejące bazy danych wystąpienia zarządzanego SQL utworzone przed 2019 lutego nie są szyfrowane domyślnie. Bazy danych wystąpienia zarządzanego SQL utworzone za pośrednictwem przywracania dziedziczą stan szyfrowania ze źródła.
 
 > [!NOTE]
-> Nie można użyć TDE do szyfrowania bazy danych **Master** w SQL Database.  Baza danych **Master** zawiera obiekty, które są konieczne do wykonywania operacji TDE w bazach danych użytkowników.
+> Nie można użyć TDE do szyfrowania bazy danych **Master** w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL. Baza danych **Master** zawiera obiekty, które są konieczne do wykonywania operacji TDE w bazach danych użytkowników.
 
 ## <a name="service-managed-transparent-data-encryption"></a>Zarządzane szyfrowanie danych przez usługę
 

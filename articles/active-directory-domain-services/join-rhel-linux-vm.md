@@ -2,7 +2,7 @@
 title: Przyłączanie maszyny wirtualnej RHEL do Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować maszynę wirtualną Red Hat Enterprise Linux i przyłączyć ją do domeny zarządzanej Azure AD Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
-ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: ffde2317ea66a15936df75c4fe2455f627ea6e98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005093"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962126"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Przyłączanie maszyny wirtualnej Red Hat Enterprise Linux do domeny zarządzanej Azure Active Directory Domain Services
 
@@ -42,7 +42,7 @@ Jeśli masz istniejącą maszynę wirtualną z systemem Linux RHEL na platformie
 
 Jeśli musisz utworzyć maszynę wirtualną z systemem Linux RHEL lub chcesz utworzyć testową maszynę wirtualną do użycia z tym artykułem, możesz użyć jednej z następujących metod:
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Witryna Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

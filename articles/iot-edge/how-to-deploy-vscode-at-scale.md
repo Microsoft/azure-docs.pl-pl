@@ -9,12 +9,12 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc059cae927c1aaa057080172313f5720f483bdb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82134366"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972581"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Visual Studio Code
 
@@ -27,7 +27,10 @@ W tym artykule opisano konfigurowanie Visual Studio Code i rozszerzenia IoT. Nas
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Centrum IoT](../iot-hub/iot-hub-create-through-portal.md) w ramach subskrypcji platformy Azure.
-* [Urządzenie IoT Edge](how-to-register-device.md#register-with-visual-studio-code) z zainstalowanym IoT Edge środowiska uruchomieniowego.
+* Co najmniej jedno urządzenie IoT Edge.
+
+  Jeśli nie masz skonfigurowanego urządzenia IoT Edge, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w jednym z artykułów z przewodnikiem Szybki Start, aby [utworzyć wirtualne urządzenie](quickstart-linux.md) z systemem Linux lub [utworzyć wirtualne urządzenie systemu Windows](quickstart.md).
+
 * [Program Visual Studio Code](https://code.visualstudio.com/)
 * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) dla Visual Studio Code.
 

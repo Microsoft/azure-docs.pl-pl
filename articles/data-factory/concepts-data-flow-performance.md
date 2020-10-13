@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
 ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370882"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
@@ -173,7 +173,7 @@ Podczas gdy przepływy danych obsługują różne typy plików, Azure Data Facto
 
 Jeśli używasz tego samego przepływu danych na zestawie plików, zalecamy odczytywanie z folderu przy użyciu ścieżek symboli wieloznacznych lub odczytywanie z listy plików. Pojedynczy przebieg działania przepływu danych może przetwarzać wszystkie pliki w usłudze Batch. Więcej informacji na temat sposobu ustawiania tych ustawień można znaleźć w dokumentacji łącznika, takiej jak [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
 
-Jeśli to możliwe, Unikaj używania dla każdego działania do uruchamiania przepływów danych przez zestaw plików. Spowoduje to, że każda iteracja dla — każdego będzie uruchamiać własny klaster Spark, który często nie jest konieczny i może być kosztowny. 
+Jeśli to możliwe, Unikaj używania działania For-Each do uruchamiania przepływów danych przez zestaw plików. Spowoduje to, że każda iteracja dla — każdego będzie uruchamiać własny klaster Spark, który często nie jest konieczny i może być kosztowny. 
 
 ## <a name="optimizing-sinks"></a>Optymalizowanie ujścia
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440596"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946177"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -247,7 +247,7 @@ W przypadku kopiowania danych do usługi SQL Database/Azure Synapse Analytics, j
 
 Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do następujących magazynów danych ujścia. Możesz znaleźć opcję w *interfejsie użytkownika tworzenia ADF* *— >-* > *opcji tabeli* — > *automatycznego tworzenia tabeli*lub za pośrednictwem `tableOption` właściwości w ładunku ujścia działania kopiowania.
 
-- [Azure SQL Database](connector-azure-sql-database.md)
+- [Baza danych SQL Azure](connector-azure-sql-database.md)
 - [Wystąpienie zarządzane usługi Azure SQL Database](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)

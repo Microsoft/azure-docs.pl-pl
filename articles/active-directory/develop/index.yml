@@ -10,10 +10,10 @@ metadata:
   ms.subservice: develop
   ms.workload: identity
   ms.openlocfilehash: b6dfd02b11c972ae4877e45e7424d3e35f0d0874
-  ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/07/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "91801889"
 landingContent:
 - title: Informacje o platformie tożsamości firmy Microsoft

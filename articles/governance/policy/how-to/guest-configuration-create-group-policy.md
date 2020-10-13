@@ -3,12 +3,12 @@ title: Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady gr
 description: Dowiedz się, jak skonwertować zasady grupy z linii bazowej zabezpieczeń systemu Windows Server 2019 do definicji zasad.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547772"
+ms.locfileid: "91893377"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Jak utworzyć definicje zasad konfiguracji gościa na podstawie zasady grupy linii bazowej dla systemu Windows
 
@@ -87,7 +87,7 @@ Następnie Konwertujemy pobraną linię bazową serwera 2019 na pakiet konfigura
 
 ## <a name="create-azure-policy-guest-configuration"></a>Utwórz konfigurację Azure Policy gościa
 
-Następnym krokiem jest opublikowanie pliku w usłudze BLOB Storage. 
+Następnym krokiem jest opublikowanie pliku na platformie Azure Blob Storage. 
 
 1. Poniższy skrypt zawiera funkcję, której można użyć do zautomatyzowania tego zadania. Należy pamiętać, że polecenia używane w `publish` funkcji wymagają `Az.Storage` modułu.
 
@@ -145,7 +145,7 @@ Następnym krokiem jest opublikowanie pliku w usłudze BLOB Storage.
     $blob = 'Server2019Baseline.zip' 
     ```
 
-1. Użyj funkcji Publish z przypisanymi parametrami, aby opublikować pakiet konfiguracyjny gościa w publicznym magazynie obiektów BLOB.
+1. Użyj funkcji publikowania z przypisanymi parametrami, aby opublikować pakiet konfiguracyjny gościa w Blob Storage publicznej.
 
 
    ```azurepowershell-interactive

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448617"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor szczegółowych informacji dotyczących wirtualnej sieci WAN (wersja zapoznawcza)
@@ -24,7 +24,7 @@ Metryki na poziomie zasobów wirtualnej sieci WAN są zbierane i prezentowane za
 > Opcja menu **Insights** w portalu wirtualnej sieci WAN jest obecnie wdrażana. Podczas wycofywania tego menu możesz uzyskać dostęp do skoroszytu topologii i metryk wirtualnych sieci WAN przy użyciu Azure Monitor sieci. Aby uzyskać więcej informacji, zobacz [Azure monitor dla sieci](../azure-monitor/insights/network-insights-overview.md). 
 >
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać kroki opisane w tym artykule, musisz mieć wirtualną sieć WAN z co najmniej jednym koncentratorem. Aby utworzyć wirtualną sieć WAN i centrum, wykonaj kroki opisane w następujących artykułach:
 

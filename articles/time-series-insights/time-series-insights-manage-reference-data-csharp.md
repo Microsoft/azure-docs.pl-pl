@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: fb0c29fb68d0bcd2405cc031008c1c8e5035476f
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569395"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Zarządzanie danymi referencyjnymi dla środowiska Azure Time Series Insights Gen 1 przy użyciu języka C Sharp
@@ -47,7 +47,7 @@ Przed skompilowaniem i uruchomieniem przykładowego kodu wykonaj następujące c
 
 1. [Utwórz zestaw danych referencyjnych](time-series-insights-add-reference-data-set.md) w danym środowisku. Użyj następującego schematu danych referencyjnych:
 
-   | Nazwa klucza | Typ |
+   | Nazwa klucza | Type |
    | --- | --- |
    | uuid | Ciąg |
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Samouczek: integracja Azure Active Directory z usługą ArcGIS Enterprise
@@ -185,7 +185,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
