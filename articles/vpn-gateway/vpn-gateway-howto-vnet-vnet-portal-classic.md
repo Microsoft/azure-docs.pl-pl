@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84985475"
+ms.locfileid: "91875572"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurowanie połączenia Sieć wirtualna-sieć wirtualna (klasyczna)
 
@@ -80,16 +80,7 @@ W poniższej tabeli przedstawiono przykład sposobu definiowania sieci wirtualny
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Krok 2. Tworzenie sieci wirtualnych
 
-Utwórz dwie sieci wirtualne w [Azure Portal](https://portal.azure.com). Aby uzyskać instrukcje tworzenia klasycznych sieci wirtualnych, zobacz [Tworzenie klasycznej sieci wirtualnej](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
-
-W przypadku tworzenia klasycznej sieci wirtualnej przy użyciu portalu należy przejść do strony sieci wirtualnej, wykonując poniższe kroki. w przeciwnym razie opcja tworzenia klasycznej sieci wirtualnej nie zostanie wyświetlona:
-
-1. Kliknij przycisk "+", aby otworzyć stronę "New".
-2. W polu "Wyszukaj witrynę Marketplace" wpisz "Virtual Network". W takim przypadku wybierz pozycję Sieć — Virtual Network > nie będziesz mieć możliwości utworzenia klasycznej sieci wirtualnej.
-3. Znajdź element "Virtual Network" na liście zwracanej i kliknij go, aby otworzyć stronę Virtual Network. 
-4. Na stronie Sieć wirtualna wybierz opcję "klasyczny", aby utworzyć klasyczną sieć wirtualną. 
-
-Jeśli używasz tego artykułu jako ćwiczenia, możesz użyć następujących przykładowych wartości:
+W tym kroku utworzysz dwie klasyczne sieci wirtualne. Jeśli używasz tego artykułu jako ćwiczenia, możesz użyć następujących przykładowych wartości:
 
 **Wartości dla sieci testvnet1**
 
@@ -125,7 +116,11 @@ GatewaySubnet: 10.41.1.0/27
 
 * **Serwery DNS** — wprowadź nazwę i adres IP serwera DNS. To ustawienie nie powoduje jednak utworzenia serwera DNS. Umożliwia natomiast określenie serwerów DNS, które mają być używane do rozpoznawania nazw dla tej sieci wirtualnej.
 
-W tej sekcji należy skonfigurować typ połączenia, lokację lokalną i utworzyć bramę.
+### <a name="to-create-a-classic-virtual-network"></a>Aby utworzyć klasyczną sieć wirtualną
+
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
+
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>Krok 3 — Konfigurowanie lokacji lokalnej
 
@@ -205,38 +200,7 @@ Po utworzeniu bram sieci wirtualnej dla obu sieci wirtualnych należy dostosowa�
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>Krok 7. Pobieranie wartości z pliku konfiguracji sieci
 
-Po utworzeniu klasycznego sieci wirtualnych w Azure Portal nazwa wyświetlana nie jest pełną nazwą używaną dla programu PowerShell. Na przykład Sieć wirtualna o nazwie **sieci testvnet1** w portalu może mieć znacznie dłuższą nazwę w pliku konfiguracyjnym sieci. Nazwa może wyglądać następująco: **Group ClassicRG sieci testvnet1**. Podczas tworzenia połączeń ważne jest, aby użyć wartości widocznych w pliku konfiguracji sieci.
-
-W poniższych krokach nawiążesz połączenie z kontem platformy Azure i pobierzesz plik konfiguracji sieci i wyświetli go w celu uzyskania wartości wymaganych dla połączeń.
-
-1. Pobierz i zainstaluj najnowszą wersję poleceń cmdlet programu PowerShell dla usługi Azure Service Management (SM). Aby uzyskać więcej informacji, zobacz [Praca z Azure PowerShell](#powershell).
-
-2. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień. Poniższe przykłady ułatwiają nawiązanie połączenia. Te polecenia należy uruchomić lokalnie przy użyciu modułu zarządzania usługą programu PowerShell. Aby przełączyć się do zarządzania usługami, użyj tego polecenia:
-
-   ```powershell
-   azure config mode asm
-   ```
-3. Połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
-
-   ```powershell
-   Add-AzureAccount
-   ```
-4. Sprawdź subskrypcje dostępne na koncie.
-
-   ```powershell
-   Get-AzureSubscription
-   ```
-5. Jeśli masz więcej niż jedną subskrypcję, wybierz tę, której chcesz użyć.
-
-   ```powershell
-   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-   ```
-6. Eksportuj i wyświetlaj plik konfiguracji sieci. Utwórz katalog na komputerze, a następnie wyeksportuj plik konfiguracji sieci do tego katalogu. W tym przykładzie plik konfiguracji sieci jest eksportowany do **C:\AzureNet**.
-
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-   ```
-7. Otwórz plik za pomocą edytora tekstów i Wyświetl nazwy sieci wirtualnych i witryn. Nazwy te będą nazwami używanymi podczas tworzenia połączeń.<br>Nazwy sieci wirtualnej są wyświetlane jako **VirtualNetworkSite nazwa =**<br>Nazwy lokacji są wyświetlane jako **Nazwa LocalNetworkSiteRef =**
+[!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Krok 8. Tworzenie połączeń bramy sieci VPN
 

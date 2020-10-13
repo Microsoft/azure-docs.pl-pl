@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8824f534f573d97353cc86d2a1b112b1acdb211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494506"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949834"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Samouczek: Tworzenie aplikacji zarządzanej z niestandardowymi akcjami i zasobami
 
@@ -353,6 +353,6 @@ Jeśli masz pytania dotyczące Azure Managed Applications, spróbuj zadać pytan
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby opublikować aplikację zarządzaną w witrynie Azure Marketplace, zobacz [Aplikacje zarządzane platformy Azure w witrynie Marketplace](publish-marketplace-app.md).
+Aby opublikować aplikację zarządzaną w witrynie Azure Marketplace, zobacz [Aplikacje zarządzane platformy Azure w witrynie Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 Dowiedz się więcej o [dostawcach niestandardowych platformy Azure](../custom-providers/overview.md).

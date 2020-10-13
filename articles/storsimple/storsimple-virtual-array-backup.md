@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742251"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Tworzenie kopii zapasowej udziałów lub woluminów w macierzy wirtualnej StorSimple
@@ -58,7 +58,7 @@ Wirtualna macierz StorSimple ma domyślne zasady tworzenia kopii zapasowych, kt�
    
     ![Przejdź do zasad kopii zapasowych](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 ### <a name="take-a-manual-backup"></a>Ręczne tworzenie kopii zapasowej
 
@@ -108,7 +108,7 @@ Aby wyświetlić istniejące kopie zapasowe, wykonaj następujące kroki w Azure
    
      ![Filtruj kopie zapasowe](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Kliknij przycisk **Zastosuj**. Filtrowana lista kopii zapasowych jest wyświetlana w bloku **wykazu kopii zapasowych** . Uwaga tylko 100 elementów kopii zapasowej może być wyświetlanych w danym momencie.
+3. Kliknij pozycję **Zastosuj**. Filtrowana lista kopii zapasowych jest wyświetlana w bloku **wykazu kopii zapasowych** . Uwaga tylko 100 elementów kopii zapasowej może być wyświetlanych w danym momencie.
    
     ![Zaktualizowany wykaz kopii zapasowych](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

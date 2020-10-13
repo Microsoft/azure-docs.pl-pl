@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 09/09/2020
+ms.date: 10/07/2020
 ms.author: aahi
 keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d69c47c4833247ac259f9dcc166d7ab2696c117
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710784"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977823"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -30,6 +30,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 * Wykrywanie języka
 * Rozpoznawanie jednostek
 * Wyodrębnianie kluczowych fraz
+* Wyszukiwanie opinii
 
 ::: zone pivot="programming-language-csharp"
 
@@ -86,7 +87,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | Język | Dostępna wersja | 
 |----------|------------------------|
 | Ruby     | [Wersja 2,1](ruby-sdk.md) | 
-| Przejdź       | [Wersja 2,1](go-sdk.md) | 
+| Go       | [Wersja 2,1](go-sdk.md) | 
 
 ::: zone-end
 
@@ -105,5 +106,5 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 * [Przegląd analizy tekstu](../overview.md)
 * [Analiza tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rozpoznawanie jednostek](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Wykrywanie języka](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Wykryj język](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Rozpoznawanie języka](../how-tos/text-analytics-how-to-language-detection.md)

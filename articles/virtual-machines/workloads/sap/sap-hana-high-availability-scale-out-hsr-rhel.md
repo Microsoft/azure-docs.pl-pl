@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
-ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744851"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978109"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowalnego w poziomie systemu na Red Hat Enterprise Linux 
 
@@ -100,7 +100,7 @@ Pokazana konfiguracja przedstawia trzy węzły HANA w każdej lokacji, a także 
 Udostępniony system plików HANA `/hana/shared` w prezentowanej architekturze jest udostępniany przez [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). Jest on instalowany za pośrednictwem NFSv 4.1 w każdym węźle HANA w tej samej lokacji replikacji systemu HANA. Systemy plików `/hana/data` i `/hana/log` są lokalnymi systemami plików i nie są współużytkowane przez węzły bazy danych Hana. SAP HANA zostanie zainstalowana w trybie nieudostępnionym. 
 
 > [!TIP]
-> Aby uzyskać zalecane SAP HANA Konfiguracje magazynów, zobacz [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).   
+> Aby uzyskać zalecane SAP HANA Konfiguracje magazynów, zobacz [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md).   
 
 [![SAP HANA skalowanie w poziomie przy użyciu klastra HSR i Pacemaker](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -128,7 +128,7 @@ Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdro
   
    W przypadku węzła producent większości można wdrożyć małą maszynę wirtualną, ponieważ ta maszyna wirtualna nie uruchamia żadnego z zasobów SAP HANA. Maszyna wirtualna większość twórców jest używana w konfiguracji klastra w celu osiągnięcia nieparzystej liczby węzłów klastra w scenariuszu z podziałem na mózg. Maszyna wirtualna większość maszyn wirtualnych potrzebuje tylko jednego interfejsu sieci wirtualnej w `client` podsieci w tym przykładzie.        
 
-   Wdróż lokalne dyski zarządzane dla systemów `/hana/data` i `/hana/log` . Minimalna zalecana konfiguracja magazynu dla systemu `/hana/data` i `/hana/log` została opisana w temacie [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+   Wdróż lokalne dyski zarządzane dla systemów `/hana/data` i `/hana/log` . Minimalna zalecana konfiguracja magazynu dla systemu `/hana/data` i `/hana/log` została opisana w temacie [SAP HANA Konfiguracja magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md).
 
    Wdróż podstawowy interfejs sieciowy dla każdej maszyny wirtualnej w `client` podsieci sieci wirtualnej.  
    Po wdrożeniu maszyny wirtualnej za pośrednictwem Azure Portal nazwa interfejsu sieciowego jest generowana automatycznie. W tych instrukcjach dotyczących uproszczenia będziemy odnosić się do automatycznie generowanych, podstawowych interfejsów sieciowych dołączonych do `client` podsieci sieci wirtualnej platformy Azure jako **Hana-S1-DB1-Client**, **Hana-S1-DB2-Client**, **Hana-S1-DB3-Client**i tak dalej.  
@@ -229,7 +229,7 @@ Aby zapoznać się z konfiguracją przedstawioną w tym dokumencie, należy wdro
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Wdrażanie infrastruktury Azure NetApp Files 
 
-Wdróż woluminy ANF dla `/hana/shared` systemu plików. Wymagany jest osobny `/hana/shared` wolumin dla każdej lokacji replikacji systemu Hana. Aby uzyskać więcej informacji, zobacz [Konfigurowanie infrastruktury Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel#set-up-the-azure-netapp-files-infrastructure).
+Wdróż woluminy ANF dla `/hana/shared` systemu plików. Wymagany jest osobny `/hana/shared` wolumin dla każdej lokacji replikacji systemu Hana. Aby uzyskać więcej informacji, zobacz [Konfigurowanie infrastruktury Azure NetApp Files](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
 W tym przykładzie użyto następujących Azure NetApp Files woluminów: 
 
@@ -1160,7 +1160,7 @@ Uwzględnij wszystkie maszyny wirtualne, w tym większość twórców w klastrze
       ```
 
 
-Zalecamy gruntowną przetestowanie konfiguracji klastra SAP HANA, wykonując także testy opisane w [HA SAP HANA na maszynach wirtualnych platformy Azure w witrynie RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).
+Zalecamy gruntowną przetestowanie konfiguracji klastra SAP HANA, wykonując także testy opisane w [HA SAP HANA na maszynach wirtualnych platformy Azure w witrynie RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
 
 ## <a name="next-steps"></a>Następne kroki

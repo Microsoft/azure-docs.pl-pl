@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804626"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978870"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Deploy the Azure Blob Storage on IoT Edge module to your device (Wdrażanie modułu usługi Azure Blob Storage w usłudze IoT Edge na urządzeniu)
 
@@ -21,7 +21,10 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Centrum IoT](../iot-hub/iot-hub-create-through-portal.md) w ramach subskrypcji platformy Azure.
-- [Urządzenie IoT Edge](how-to-register-device.md) z zainstalowanym IoT Edge środowiska uruchomieniowego.
+- Urządzenie IoT Edge.
+
+  Jeśli nie masz skonfigurowanego urządzenia IoT Edge, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w jednym z artykułów z przewodnikiem Szybki Start, aby [utworzyć wirtualne urządzenie](quickstart-linux.md) z systemem Linux lub [utworzyć wirtualne urządzenie systemu Windows](quickstart.md).
+
 - [Visual Studio Code](https://code.visualstudio.com/) i [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) w przypadku wdrażania z Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Wdróż z Azure Portal
@@ -203,10 +206,10 @@ Azure IoT Edge udostępnia szablony Visual Studio Code, które ułatwiają oprac
      - W przypadku kontenerów systemu Linux format to ** \<your storage path or volume> :/blobroot**. Na przykład:
          - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Upewnij się, że postępuj zgodnie z instrukcjami, aby [udzielić dostępu do katalogu użytkownikowi kontenera](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Na przykład
+     - W przypadku kontenerów systemu Windows formatem jest ** \<your storage path or volume> : C:/BlobRoot**. Na przykład:
          - Użyj [instalacji woluminu](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Użyj [instalacji bind](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
-         - Zamiast korzystać z dysku lokalnego, można zmapować lokalizację sieciową SMB. Aby uzyskać więcej informacji, zobacz [Używanie udziału SMB jako magazynu lokalnego](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) .
+         - Zamiast korzystać z dysku lokalnego, można mapować lokalizację sieciową SMB. Aby uzyskać więcej informacji, zobacz [Używanie udziału SMB jako magazynu lokalnego](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > Nie należy zmieniać drugiej połowy wartości instalacji magazynu, która wskazuje konkretną lokalizację w Blob Storage na IoT Edge module. Instalacja magazynu musi być zawsze zakończona **:/blobroot** dla kontenerów systemu Linux i **: C:/blobroot** dla kontenerów Windows.
@@ -271,7 +274,7 @@ Ten proces jest opisany w temacie [Konfigurowanie urządzenia IoT Edge do komuni
 
 Ponadto moduł magazynu obiektów BLOB wymaga również ustawienia HTTPS_PROXY w pliku wdrożenia manifestu. Możesz bezpośrednio edytować plik manifestu wdrożenia lub użyć Azure Portal.
 
-1. Przejdź do centrum IoT Hub w Azure Portal a następnie wybierz pozycję **IoT Edge** w menu po lewej stronie.
+1. Przejdź do centrum IoT Hub w Azure Portal a następnie wybierz pozycję **IoT Edge** z menu po lewej stronie.
 
 1. Wybierz urządzenie, które ma zostać skonfigurowane przez moduł.
 

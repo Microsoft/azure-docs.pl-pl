@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 9a7846d1a63ee0b3042bbea473babffbe52f06a6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f0e4c8b832b17ee97b6e97aaf94640aaad7aa8db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779688"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977850"
 ---
 <a name="HOLTop"></a>
 
@@ -117,6 +117,7 @@ Te fragmenty kodu przedstawiają sposób wykonywania następujących zadań za p
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
 * [Analiza tonacji](#sentiment-analysis)
+* [Wyszukiwanie opinii](#opinion-mining)
 * [Wykrywanie języka](#language-detection)
 * [Rozpoznawanie jednostek nazwanych](#named-entity-recognition-ner) 
 * [Rozpoznawanie informacji umożliwiających identyfikację użytkownika](#personally-identifiable-information-recognition) 
@@ -485,7 +486,7 @@ Document ID: 3 , Language: Chinese_Simplified
 > W wersji `3.1` : 
 > * Łączenie jednostek to oddzielne żądanie niż NER.
 
-Utwórz nową funkcję o nazwie `entity_recognition_example` , która przyjmuje klienta jako argument, a następnie wywołuje `recognize_entities()` funkcję i wykonuje iterację przez wyniki. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w `entity` przypadku powodzenia, a `error` Jeśli nie. Dla każdej wykrytej jednostki Wydrukuj jej kategorię i podkategorię, jeśli istnieje.
+Utwórz nową funkcję o nazwie `entity_recognition_example` , która przyjmuje klienta jako argument, a następnie wywołuje `recognize_entities()` funkcję i wykonuje iterację przez wyniki. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w `entity` przypadku powodzenia, a `error` Jeśli nie. Dla każdej wykrytej jednostki Wydrukuj jej kategorię i Sub-Category, jeśli istnieje.
 
 ```python
 def entity_recognition_example(client):
@@ -609,7 +610,7 @@ Linked Entities:
 
 ### <a name="personally-identifiable-information-recognition"></a>Rozpoznawanie informacji umożliwiających identyfikację użytkownika
 
-Utwórz nową funkcję o nazwie `pii_recognition_example` , która przyjmuje klienta jako argument, a następnie wywołuje `recognize_pii_entities()` funkcję i wykonuje iterację przez wyniki. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w `entity` przypadku powodzenia, a `error` Jeśli nie. Dla każdej wykrytej jednostki Wydrukuj jej kategorię i podkategorię, jeśli istnieje.
+Utwórz nową funkcję o nazwie `pii_recognition_example` , która przyjmuje klienta jako argument, a następnie wywołuje `recognize_pii_entities()` funkcję i wykonuje iterację przez wyniki. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w `entity` przypadku powodzenia, a `error` Jeśli nie. Dla każdej wykrytej jednostki Wydrukuj jej kategorię i Sub-Category, jeśli istnieje.
 
 ```python
 def pii_recognition_example(client):
@@ -653,7 +654,7 @@ Entity: 555-555-5555
 > W wersji `3.0` : 
 > * Łączenie jednostek to oddzielne żądanie niż NER.
 
-Utwórz nową funkcję o nazwie `entity_recognition_example` , która przyjmuje klienta jako argument, a następnie wywołuje `recognize_entities()` funkcję i wykonuje iterację przez wyniki. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w `entity` przypadku powodzenia, a `error` Jeśli nie. Dla każdej wykrytej jednostki Wydrukuj jej kategorię i podkategorię, jeśli istnieje.
+Utwórz nową funkcję o nazwie `entity_recognition_example` , która przyjmuje klienta jako argument, a następnie wywołuje `recognize_entities()` funkcję i wykonuje iterację przez wyniki. Zwrócony obiekt odpowiedzi będzie zawierać listę wykrytych jednostek w `entity` przypadku powodzenia, a `error` Jeśli nie. Dla każdej wykrytej jednostki Wydrukuj jej kategorię i Sub-Category, jeśli istnieje.
 
 ```python
 def entity_recognition_example(client):

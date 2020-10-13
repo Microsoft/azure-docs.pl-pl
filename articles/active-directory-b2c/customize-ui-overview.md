@@ -12,12 +12,12 @@ ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4566e3d40a67a9cd9d61f78884df11536c0809bc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259547"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949296"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -156,7 +156,7 @@ W poniższej tabeli wymieniono fragmenty kodu HTML, które Azure AD B2C scalane 
 | Konto społecznościowe — Rejestracja | Może pojawić się podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowej, takiego jak Facebook lub Google. Jest on używany, gdy dodatkowe informacje muszą być zbierane z klienta przy użyciu formularza tworzenia konta. |
 | Ujednolicone rejestrowanie lub logowanie | Obsługuje zarówno rejestrowanie, jak i logowanie klientów, którzy mogą korzystać z dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalnego. |
 | Uwierzytelnianie wieloskładnikowe | Klienci mogą weryfikować numery telefonów (przy użyciu tekstu lub głosu) podczas rejestracji lub logowania. |
-| Błąd | Zawiera informacje o błędach dla klienta. |
+| Error | Zawiera informacje o błędach dla klienta. |
 
 ## <a name="company-branding"></a>Znakowanie firmowe
 
@@ -178,7 +178,6 @@ Podczas konfigurowania znakowania firmowego w Azure AD B2C należy pamiętać o 
 
 * Znakowanie firmowe w Azure AD B2C jest obecnie ograniczone do **obrazu tła**, **logo transparentu**i dostosowania **koloru tła** . Inne właściwości w okienku znakowania firmowego, na przykład **Ustawienia zaawansowane**, *nie są obsługiwane*.
 * Na stronach przepływu użytkownika kolor tła jest wyświetlany przed załadowaniem obrazu tła. Zalecamy wybranie koloru tła, który ściśle dopasowuje kolory w obrazie tła w celu wygładzenia środowiska ładowania.
-* Logo transparentu pojawia się w wiadomościach e-mail weryfikacyjnych wysyłanych do użytkowników po zainicjowaniu przepływu użytkownika podczas rejestracji.
 
 ### <a name="enable-branding-in-user-flow-pages"></a>Włącz znakowanie na stronach przepływu użytkownika
 

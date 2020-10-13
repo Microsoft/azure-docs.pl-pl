@@ -4,16 +4,16 @@ description: Przejrzyj określone właściwości i ich wartości dla modułu edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7a56bcad067176d8f9805b418cca45ad144579
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546189"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978700"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Właściwości agenta IoT Edge i modułu IoT Edge Hub bliźniaczych reprezentacji
 
@@ -33,7 +33,7 @@ Sznurek modułu dla agenta IoT Edge jest wywoływany `$edgeAgent` i koordynuje k
 
 | Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
-| schemaVersion | Musi mieć wartość "1,0" | Tak |
+| schemaVersion | "1,0" lub "1,1". System 1,1 został wprowadzony w wersji IoT Edge 1.0.10 i jest zalecany. | Tak |
 | Typ środowiska uruchomieniowego. | Musi być "Docker" | Tak |
 | Runtime. Settings. minDockerVersion | Ustaw minimalną wersję platformy Docker wymaganą przez ten manifest wdrożenia | Tak |
 | Runtime. Settings. loggingOptions | Skonwertowanej JSON zawierający opcje rejestrowania dla kontenera agenta IoT Edge. [Opcje rejestrowania platformy Docker](https://docs.docker.com/engine/admin/logging/overview/) | Nie |
@@ -47,6 +47,7 @@ Sznurek modułu dla agenta IoT Edge jest wywoływany `$edgeAgent` i koordynuje k
 | systemModules. edgeHub. Type | Musi być "Docker" | Tak |
 | systemModules. edgeHub. status | Musi być "uruchomiona" | Tak |
 | systemModules. edgeHub. restartPolicy | Musi mieć wartość "always" | Tak |
+| systemModules.edgeHub.startupOrder | Wartość całkowita, dla której moduł znajduje się w kolejności uruchamiania. 0 to pierwszy i Maksymalna liczba całkowita (4294967295) jest Ostatnia. Jeśli wartość nie zostanie podana, wartością domyślną jest Max Integer.  | Nie |
 | systemModules. edgeHub. Settings. Image | Identyfikator URI obrazu Centrum IoT Edge. | Tak |
 | systemModules. edgeHub. Settings<br>... | Skonwertowanej JSON zawierający opcje tworzenia kontenera Centrum IoT Edge. [Opcje tworzenia platformy Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nie |
 | systemModules.edgeHub.configuration.id | Identyfikator wdrożenia, który został wdrożony w tym module. | IoT Hub ustawia tę właściwość, gdy manifest zostanie zastosowany przy użyciu wdrożenia. Nie jest częścią manifestu wdrożenia. |
@@ -54,6 +55,7 @@ Sznurek modułu dla agenta IoT Edge jest wywoływany `$edgeAgent` i koordynuje k
 | Moduły. {moduleId}. typ | Musi być "Docker" | Tak |
 | Moduły. {moduleId}. status | {"działa" \| "zatrzymane"} | Tak |
 | Moduły. {moduleId}. restartPolicy | {"nigdy" \| "on-Failure" \| "w złej kondycji" \| "always"} | Tak |
+| Moduły. {moduleId}. startupOrder | Wartość całkowita, dla której moduł znajduje się w kolejności uruchamiania. 0 to pierwszy i Maksymalna liczba całkowita (4294967295) jest Ostatnia. Jeśli wartość nie zostanie podana, wartością domyślną jest Max Integer.  | Nie |
 | Moduły. {moduleId}. imagePullPolicy | {"on-Create" \| "nigdy"} | Nie |
 | Moduły. {moduleId}. env | Lista zmiennych środowiskowych do przekazania do modułu. Formatuje `"<name>": {"value": "<value>"}` | Nie |
 | Moduły. {moduleId}. Settings. Image | Identyfikator URI obrazu modułu. | Tak |
@@ -107,7 +109,7 @@ Sznurek modułu dla Centrum IoT Edge jest wywoływany `$edgeHub` i koordynuje ko
 
 | Właściwość | Opis | Wymagane w manifeście wdrożenia |
 | -------- | ----------- | -------- |
-| schemaVersion | Musi mieć wartość "1,0" | Tak |
+| schemaVersion | "1,0" lub "1,1". System 1,1 został wprowadzony w wersji IoT Edge 1.0.10 i jest zalecany. | Tak |
 | rozsyłan. RouteName | Ciąg reprezentujący trasę Centrum IoT Edge. Aby uzyskać więcej informacji, zobacz [deklarowanie tras](module-composition.md#declare-routes). | `routes`Element może być obecny, ale pusty. |
 | storeAndForwardConfiguration.timeToLiveSecs | Czas (w sekundach), przez jaki usługa IoT Edge Hub zachowuje komunikaty, jeśli są odłączone od punktów końcowych routingu, niezależnie od tego, czy IoT Hub czy moduł lokalny Wartość może być dowolną dodatnią liczbą całkowitą. | Tak |
 

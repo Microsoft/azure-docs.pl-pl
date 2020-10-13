@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3ee0a376b28676e3f74ac2e53010c2c953ad9d7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3b47659486ef32bdb0a9a26d1b0f39c5bcd7a9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317824"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949755"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Ramka zabezpieczeń: dane poufne | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -43,7 +43,7 @@ ms.locfileid: "91317824"
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Granica zaufania maszyny | 
-| **Faza SDL**               | Wdrożenie |  
+| **Faza SDL**               | wdrażania |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
@@ -65,7 +65,7 @@ ms.locfileid: "91317824"
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Granica zaufania maszyny | 
-| **Faza SDL**               | Wdrożenie |  
+| **Faza SDL**               | wdrażania |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
@@ -88,7 +88,7 @@ ms.locfileid: "91317824"
   <system.webServer>
    <httpProtocol>
     <customHeaders>
-        <add name="Cache-Control" value="no-cache" />
+        <add name="Cache-Control" value="no-store" />
         <add name="Pragma" value="no-cache" />
         <add name="Expires" value="-1" />
     </customHeaders>
@@ -260,7 +260,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Granica zaufania maszyny wirtualnej usługi Azure IaaS | 
-| **Faza SDL**               | Wdrożenie |  
+| **Faza SDL**               | wdrażania |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | [Używanie Azure Disk Encryption do szyfrowania dysków używanych przez maszyny wirtualne](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
@@ -293,7 +293,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Dynamics CRM | 
-| **Faza SDL**               | Wdrożenie |  
+| **Faza SDL**               | wdrażania |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
@@ -304,7 +304,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Dynamics CRM | 
-| **Faza SDL**               | Wdrożenie |  
+| **Faza SDL**               | wdrażania |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
@@ -315,7 +315,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | Tytuł                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Dynamics CRM | 
-| **Faza SDL**               | Wdrożenie |  
+| **Faza SDL**               | wdrażania |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |

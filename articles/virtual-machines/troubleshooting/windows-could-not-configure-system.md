@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90078812"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977052"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Rozwiązywanie problemów polegających na tym, że system Windows nie mógł zakończyć konfigurowania systemu
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów, w których proces Sysprep 
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat o błędzie instalacji systemu Windows podczas uruchamiania usług Instalatora systemu Windows. W przypadku błędu zostanie wyświetlony komunikat:
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat o błędzie instalacji systemu Windows podczas uruchamiania usług Instalatora systemu Windows. W przypadku błędu zostanie wyświetlony komunikat:
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
@@ -36,8 +36,8 @@ W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azur
 
 ## <a name="cause"></a>Przyczyna
 
-Ten błąd jest spowodowany tym, że system operacyjny (OS) nie może ukończyć [procesu Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview). Ten błąd wystąpi podczas próby początkowego uruchomienia uogólnionej maszyny wirtualnej. Jeśli wystąpi ten problem, Utwórz ponownie uogólniony obraz, ponieważ obraz jest w stanie niegotowym do wdrożenia i nie można go odzyskać.
+Ten błąd jest spowodowany tym, że system operacyjny (OS) nie może ukończyć [procesu Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Ten błąd wystąpi podczas próby początkowego uruchomienia uogólnionej maszyny wirtualnej. Jeśli wystąpi ten problem, Utwórz ponownie uogólniony obraz, ponieważ obraz jest w stanie niegotowym do wdrożenia i nie można go odzyskać.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Aby rozwiązać ten problem, postępuj zgodnie ze [wskazówkami platformy Azure dotyczącymi przygotowania/przechwytywania obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) i przygotowania nowego uogólnionego obrazu.
+Aby rozwiązać ten problem, postępuj zgodnie ze [wskazówkami platformy Azure dotyczącymi przygotowania/przechwytywania obrazu](../windows/upload-generalized-managed.md) i przygotowania nowego uogólnionego obrazu.

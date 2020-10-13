@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555940"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950015"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi Datadog
 
@@ -107,7 +107,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -142,7 +142,23 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka usługi Datadog w panelu dostępu należy automatycznie zalogować się do usługi Datadog, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>Zezwól wszystkim użytkownikom z dzierżawy na uwierzytelnianie przy użyciu aplikacji
+
+W tej sekcji można umożliwić wszystkim użytkownikom w dzierżawie dostęp do usługi Datadog, jeśli jeden użytkownik ma konto na stronie usługi Datadog.
+
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **usługi Datadog**.
+1. Na stronie Przegląd aplikacji w obszarze **Zarządzaj**wybierz pozycję **Właściwości**.
+
+    ![Łącze "właściwości"](common/properties.png)
+
+1. W przypadku **przypisania użytkownika wymagane**jest wybranie opcji **nie**.
+
+    ![Przypisanie użytkownika nie jest wymagane](common/user-assignment-not-required.png)
+
+1. Wybierz pozycję **Zapisz**.
+
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653600"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978241"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfiguracje obciążenia SAP ze strefami dostępności platformy Azure
 [Strefy dostępności platformy Azure](../../../availability-zones/az-overview.md) to jedna z funkcji wysokiej dostępności udostępniana przez platformę Azure. Użycie Strefy dostępności zwiększa ogólną dostępność obciążeń SAP na platformie Azure. Ta funkcja jest już dostępna w niektórych [regionach świadczenia usługi Azure](https://azure.microsoft.com/global-infrastructure/regions/). W przyszłości będzie ona dostępna w większej liczbie regionów.
@@ -30,7 +30,7 @@ Ta ilustracja przedstawia podstawową architekturę rozwiązania SAP High Availa
 
 ![Standardowa konfiguracja wysokiej dostępności](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-Warstwa aplikacji SAP jest wdrażana w ramach jednego [zestawu dostępności](../../windows/manage-availability.md)platformy Azure. Aby zapewnić wysoką dostępność usług SAP Central, można wdrożyć dwie maszyny wirtualne w osobnym zestawie dostępności. Użyj usługi Windows Server Failover Clustering lub Pacemaker (Linux) jako platformy wysokiej dostępności z automatyczną obsługą trybu failover w przypadku wystąpienia problemu dotyczącego infrastruktury lub oprogramowania. Aby dowiedzieć się więcej o tych wdrożeniach, zobacz:
+Warstwa aplikacji SAP jest wdrażana w ramach jednego [zestawu dostępności](../../manage-availability.md)platformy Azure. Aby zapewnić wysoką dostępność usług SAP Central, można wdrożyć dwie maszyny wirtualne w osobnym zestawie dostępności. Użyj usługi Windows Server Failover Clustering lub Pacemaker (Linux) jako platformy wysokiej dostępności z automatyczną obsługą trybu failover w przypadku wystąpienia problemu dotyczącego infrastruktury lub oprogramowania. Aby dowiedzieć się więcej o tych wdrożeniach, zobacz:
 
 - [Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików](./sap-high-availability-guide-wsfc-file-share.md)

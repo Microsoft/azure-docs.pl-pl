@@ -4,10 +4,10 @@ description: Dowiedz się, jak uruchomić usługę jako użytkownika lub grupę 
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: d4a7afc2ddb0f39014a7cf0fd006d7fe23673a95
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840731"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Uruchamianie usługi jako użytkownika lub grupy Active Directory

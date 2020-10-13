@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741962"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: łączenie, konfigurowanie, aktywowanie Azure Data Box Gateway
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób nawiązywania połączenia z usługą, konfiguro
 
 Proces instalacji i aktywacji może potrwać około 10 minut. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Nawiązywanie połączenia z urządzeniem wirtualnym

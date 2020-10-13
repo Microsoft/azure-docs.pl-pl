@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: a73d327ad2a251b5043da7e58c14e5f6f311e334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d8838747c4f7ff195a5451a3c68f5cf891c91f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274507"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978462"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Rozwiązania aplikacji Oracle integrujące Microsoft Azure i infrastrukturę chmurową Oracle
 
@@ -56,7 +56,7 @@ Poniższy diagram przedstawia ogólny przegląd połączonego rozwiązania. Dla 
 * Azure Europa Zachodnia (WestEurope) & OCI Amsterdam (Holandia zachodni)
 * Azure Japonia Wschodnia (JapanEast) & OCI Tokio (Japonia Wschodnia)
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Klienci korporacyjni często decydują się na zróżnicowanie i wdrażaniu obciążeń dla wielu chmur w różnych sytuacjach firmy i operacyjnych. W celu zróżnicowania klienci korzystają z Internetu, sieci VPN IPSec lub bezpośredniego rozwiązania do łączności dostawcy w chmurze za pośrednictwem sieci lokalnej. Połączenia między sieciami w chmurze mogą wymagać znaczących inwestycji w miarę czasu, pieniędzy, projektowania, zaopatrzenia, instalacji, testowania i operacji. 
 
@@ -68,7 +68,7 @@ Korzystając z ExpressRoute i FastConnect, klienci mogą połączyć się z siec
 
 Zabezpieczenia sieci to kluczowy składnik dowolnej aplikacji korporacyjnej, który stanowi centralne rozwiązanie w chmurze. Każdy ruch przechodzący przez ExpressRoute i FastConnect przechodzi przez sieć prywatną. Ta konfiguracja umożliwia bezpieczną komunikację między siecią wirtualną platformy Azure a siecią chmurą wirtualną firmy Oracle. Nie musisz podawać publicznego adresu IP do żadnych maszyn wirtualnych na platformie Azure. Podobnie nie jest potrzebna Brama internetowa w OCI. Cała komunikacja odbywa się za pośrednictwem prywatnego adresu IP maszyn.
 
-Ponadto można skonfigurować [listy zabezpieczeń](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) w sieci i reguł zabezpieczeń w chmurze wirtualnej OCI (dołączone do [sieciowych grup zabezpieczeń](../../../virtual-network/security-overview.md)platformy Azure). Za pomocą tych reguł można kontrolować ruch przepływający między maszynami w sieciach wirtualnych. Reguły zabezpieczeń sieci można dodawać na poziomie komputera, na poziomie podsieci, a także na poziomie sieci wirtualnej.
+Ponadto można skonfigurować [listy zabezpieczeń](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) w sieci i reguł zabezpieczeń w chmurze wirtualnej OCI (dołączone do [sieciowych grup zabezpieczeń](../../../virtual-network/network-security-groups-overview.md)platformy Azure). Za pomocą tych reguł można kontrolować ruch przepływający między maszynami w sieciach wirtualnych. Reguły zabezpieczeń sieci można dodawać na poziomie komputera, na poziomie podsieci, a także na poziomie sieci wirtualnej.
 
 [Aplikacje platformy Azure WebLogic Server](oracle-weblogic.md) dla każdego z nich tworzą sieciową grupę zabezpieczeń, która została wstępnie skonfigurowana do pracy z konfiguracjami portów serwera WebLogic.
  

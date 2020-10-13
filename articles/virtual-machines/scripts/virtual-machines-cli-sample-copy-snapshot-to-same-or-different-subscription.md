@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: ce2eaac6189e3b9c0550948eddfddd018deac90b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52efdb91328b5d9349eb3724c4a146348e4a975a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89052267"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978581"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiowanie migawki dysku zarządzanego do tej samej lub innej subskrypcji przy użyciu interfejsu wiersza polecenia
 
@@ -25,6 +25,9 @@ Ten skrypt kopiuje migawkę dysku zarządzanego do tej samej lub innej subskrypc
 1. Przeprowadź migrację migawki w usłudze Premium Storage (Premium_LRS) do magazynu w warstwie Standardowa (Standard_LRS lub Standard_ZRS), aby zmniejszyć koszty.
 1. Przeprowadź migrację migawki z magazynu lokalnie nadmiarowego (Premium_LRS, Standard_LRS) do magazynu Strefowo nadmiarowego (Standard_ZRS), aby korzystać z wyższej niezawodności magazynu ZRS.
 1. Przenieś migawkę do innej subskrypcji w tym samym regionie w celu dłuższego przechowywania.
+
+> [!NOTE]
+> Obie subskrypcje muszą znajdować się w tej samej dzierżawie
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

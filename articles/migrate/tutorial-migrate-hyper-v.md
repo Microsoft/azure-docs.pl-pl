@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439073"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979091"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrowanie maszyn wirtualnych funkcji Hyper-V na platformę Azure 
 
@@ -22,10 +22,10 @@ Ten samouczek jest trzecią częścią serii, która pokazuje, jak oceniać i mi
 > [!NOTE]
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Jeśli to możliwe, samouczki używają opcji domyślnych i nie przedstawiają wszystkich możliwych ustawień i ścieżek. 
 
- Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
-> * Dodaj narzędzie migracji platformy Azure: serwer.
+> * Dodaj Azure Migrate: Narzędzia migracji serwera.
 > * Odnajdź maszyny wirtualne, które chcesz zmigrować.
 > * Rozpocznij replikację maszyn wirtualnych.
 > * Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami.

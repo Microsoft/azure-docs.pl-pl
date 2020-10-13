@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825263"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978598"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Oszczędność kosztów dzięki dedykowanym zastrzeżeń hosta na platformie Azure
 
-Po zatwierdzeniu do zarezerwowanego wystąpienia dedykowanych hostów platformy Azure Możesz zaoszczędzić pieniądze. Rabat rezerwacji jest automatycznie stosowany do liczby uruchomionych dedykowanych hostów, które pasują do zakresu rezerwacji i atrybutów. Nie musisz przypisywać rezerwacji do dedykowanego hosta, aby uzyskać rabaty. Zakup wystąpienia zarezerwowanego obejmuje tylko część obliczeniową użycia i zawiera koszty licencjonowania oprogramowania. Zapoznaj się z [omówieniem dedykowanych hostów platformy Azure dla maszyn wirtualnych](./windows/dedicated-hosts.md).
+Po zatwierdzeniu do zarezerwowanego wystąpienia dedykowanych hostów platformy Azure Możesz zaoszczędzić pieniądze. Rabat rezerwacji jest automatycznie stosowany do liczby uruchomionych dedykowanych hostów, które pasują do zakresu rezerwacji i atrybutów. Nie musisz przypisywać rezerwacji do dedykowanego hosta, aby uzyskać rabaty. Zakup wystąpienia zarezerwowanego obejmuje tylko część obliczeniową użycia i zawiera koszty licencjonowania oprogramowania. Zapoznaj się z [omówieniem dedykowanych hostów platformy Azure dla maszyn wirtualnych](./dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Przed zakupem Określ odpowiednią dedykowaną jednostkę SKU hosta
 
@@ -129,7 +129,7 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 
 - [Co to są rezerwacje platformy Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Using Azure Dedicated Hosts (Używanie hostów usługi Azure Dedicated Host)](./windows/dedicated-hosts.md)
+- [Using Azure Dedicated Hosts (Używanie hostów usługi Azure Dedicated Host)](./dedicated-hosts.md)
 
 - [Dedicated Hosts Pricing (Ceny hostów usługi Azure Dedicated Host)](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 

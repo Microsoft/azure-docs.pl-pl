@@ -1,14 +1,14 @@
 ---
 title: Korygowanie niezgodnych zasobów
 description: Ten przewodnik przeprowadzi Cię przez korygowanie zasobów, które są niezgodne z zasadami w Azure Policy.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269849"
+ms.locfileid: "91876332"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Koryguj niezgodne zasoby za pomocą Azure Policy
 
@@ -17,7 +17,7 @@ Zasoby, które są niezgodne z zasadami **deployIfNotExistsymi** lub **modyfikac
 ## <a name="how-remediation-security-works"></a>Jak działa zabezpieczenia korygujące
 
 Gdy Azure Policy uruchamia szablon w definicji zasad **deployIfNotExists** , robi to przy użyciu [tożsamości zarządzanej](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy tworzy tożsamość zarządzaną dla każdego przydziału, ale musi mieć szczegółowe informacje o rolach, które mają udzielić zarządzanej tożsamości. Jeśli zarządzana tożsamość nie zawiera ról, ten błąd jest wyświetlany podczas przypisywania zasad lub inicjatywy. W przypadku korzystania z portalu Azure Policy automatycznie przyznaje zarządzane tożsamości po rozpoczęciu przypisywania. W przypadku korzystania z zestawu SDK role muszą zostać ręcznie przyznane zarządzanej tożsamości. _Lokalizacja_ zarządzanej tożsamości nie ma wpływu na jej działanie z Azure Policy.
+Azure Policy tworzy tożsamość zarządzaną dla każdego przydziału, ale musi mieć szczegółowe informacje o rolach, które mają udzielić zarządzanej tożsamości. Jeśli zarządzana tożsamość nie ma ról, podczas przypisywania zasad lub inicjatywy jest wyświetlany błąd. W przypadku korzystania z portalu Azure Policy automatycznie przyznaje zarządzane tożsamości po rozpoczęciu przypisywania. W przypadku korzystania z zestawu SDK role muszą zostać ręcznie przyznane zarządzanej tożsamości. _Lokalizacja_ zarządzanej tożsamości nie ma wpływu na jej działanie z Azure Policy.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Zrzut ekranu przedstawiający zasady deployIfNotExists, w której brakuje zdefiniowanego uprawnienia do zarządzanej tożsamości." border="false":::
 

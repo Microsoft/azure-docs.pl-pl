@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375888"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976490"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Jak przejrzeć i opublikować ofertę w portalu komercyjnym
 
@@ -170,6 +170,84 @@ Teraz, po wybraniu oferty na żywo z ofertą, która udostępnia ją w komercyjn
     Firma Microsoft gwarantuje, że Twoja oferta będzie publicznie dostępna w portalu Marketplace.
 
 Po zakończeniu sprawdzania poprawności oferta będzie aktywna w portalu Marketplace.
+
+## <a name="publishing-history"></a>Historia publikowania
+
+Na stronie **historia** w centrum partnerskim są wyświetlane zdarzenia publikowania dla ofert komercyjnych portalu Marketplace. Dla każdego zdarzenia na stronie jest wyświetlany użytkownik, który zainicjował akcję, typ zdarzenia i datę i godzinę zdarzenia. [Kroki weryfikacji i publikowania](#validation-and-publishing-steps) są wyświetlane wraz z datą i godziną zakończenia.
+
+Aby wyświetlić historię oferty:
+
+1.    Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+2.    W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3.    Wybierz ofertę.
+4.    Wybierz kartę **historia** w menu nawigacji po lewej stronie. Na stronie znajdują się szczegółowe informacje dotyczące następujących zdarzeń, które mają zastosowanie do oferty:
+
+|Zdarzenie    |Opis    |
+|---------|---------------|
+|Utworzono ofertę    |Oferta została utworzona w centrum partnerskim. Użytkownik zaznaczył typ oferty, identyfikator oferty oraz Alias oferty w **komercyjnym**  >  **przeglądzie**portalu Marketplace.    |
+|Utworzono plan: *Nazwa planu*    |Użytkownik utworzył nowy plan, wprowadzając identyfikator planu i nazwę planu na karcie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Usunięto plan    |Użytkownik usunął plan roboczy, który nie został opublikowany, wybierając pozycję **Usuń wersję roboczą** z strony **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Zainicjowanie planu Wstrzymaj sprzedaż: *Nazwa planu*    |Użytkownik zainicjował plan zatrzymywania transakcji, wybierając pozycję **Zatrzymaj sprzedawanie** na stronie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Cofnij planowanie Zatrzymaj sprzedawanie: *Nazwa planu*    |Użytkownik anulował plan zaniechania sprzedaży, wybierając opcję Cofnij Zaplanuj **sprzedawanie** na stronie **Przegląd planu** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany*.    |
+|Przesłana oferta do wersji zapoznawczej    |Użytkownik przesłał ofertę do wersji zapoznawczej, wybierając pozycję **Publikuj** na stronie **Recenzja i publikowanie** .    |
+|Zainicjowano przesyłanie do anulowania wersji zapoznawczej    |Użytkownik zażądał anulowania publikacji oferty do wersji zapoznawczej, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po przesłaniu do wersji zapoznawczej.</br>*To zdarzenie jest wyświetlane, gdy trwa przetwarzanie żądania anulowania*.    |
+|Anulowano przesłane do wersji zapoznawczej    |Użytkownik anulował publikację w wersji zapoznawczej, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po przejściu do wersji zapoznawczej.</br>*To zdarzenie jest wyświetlane po pomyślnym przetworzeniu żądania anulowania*.    |
+|Zaloguj się, aby przejść na żywo    |Użytkownik opublikował ofertę na komercyjnym rynku, wybierając pozycję **Przejdź na żywo** na stronie **Przegląd oferty** .    |
+|Zainicjowano anulowanie publikowania w witrynie Marketplace    |Użytkownik zażądał anulowania publikacji oferty, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po zakończeniu rejestracji.</br>*To zdarzenie jest wyświetlane, gdy trwa przetwarzanie żądania anulowania*.    |
+|Anulowano publikowanie na rynku komercyjnym    |Użytkownik anulował publikację oferty, wybierając pozycję **Anuluj publikowanie** na stronie **przeglądu oferty** po zakończeniu rejestracji.</br>*To zdarzenie jest wyświetlane po pomyślnym przetworzeniu żądania anulowania*.    |
+|Synchronizuj odbiorców prywatnych    |Użytkownik zaktualizował i zsynchronizuje odbiorców prywatnych, wybierając pozycję **Synchronizuj odbiorców prywatnych** na stronie **Przegląd planu** lub stronie **dostępność planu &** .</br>*To zdarzenie dotyczy tylko typów ofert, które obsługują plany prywatne*.    |
+|Zatrzymywanie oferty sprzedaży    |Użytkownik zatrzymał sprzedawanie oferty, wybierając pozycję **Zatrzymaj sprzedawanie** na stronie **przeglądu oferty** .    |
+
+> [!NOTE]
+> Strona Historia nie jest zapisywana, gdy została zapisana wersja robocza oferty.
+
+### <a name="filter-options"></a>Opcje filtru
+
+Możesz użyć filtrów, aby zawęzić pełną historię oferty do określonych zdarzeń publikowania:
+
+1.    Wybierz przycisk Filtr w prawym górnym rogu strony.
+2.    Wybierz filtr, a następnie wybierz pozycję **Zastosuj** , aby zobaczyć, które zdarzenia historii odpowiadają wybranym kryteriom.
+3.    Wybierz pozycję **Wyczyść filtry** , aby powrócić do pełnej historii oferty.
+
+Istnieją cztery filtry:
+* Zdarzenia
+* Użytkownicy
+* Data
+* Pages
+
+Po wybraniu filtru **strony** można wybrać dowolne ze stron Centrum partnerskiego, które mają zastosowanie do danego typu oferty. Po zastosowaniu filtr **strony** pokazuje całą **przesłaną ofertę, aby wyświetlić podgląd** zdarzeń ze zmianami wybranej strony.
+
+* Dla wszystkich ofert strona **konfigurowania oferty** jest domyślnie uwzględniana dla każdego zdarzenia przesłania.
+* W przypadku ofert, które obsługują plany, Strona **Przegląd planu** jest uwzględniana dla każdego zdarzenia przesłania.
+* W przypadku ofert obsługujących dysk testowy strona **testowa** jest uwzględniana dla każdego zdarzenia przesłania.
+
+### <a name="users"></a>Użytkownicy
+
+Jeśli zdarzenie zostało zainicjowane przez użytkownika, na stronie Historia zostanie wyświetlony użytkownik zgodnie z następującymi scenariuszami:
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>Zdarzenie zostało zainicjowane przez wydawcę
+
+Użytkownicy z uprawnieniami do publikowania dla oferty mają swoją nazwę wyświetlaną dla zainicjowanych przez siebie zdarzeń publikowania.
+
+[![Na stronie historia są wyświetlane nazwy użytkowników z uprawnieniami do publikowania.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>Zdarzenie zostało zainicjowane przez firmę Microsoft
+
+Użytkownik może przyznać administratorom firmy Microsoft uprawnienia do inicjowania akcji w Twoim imieniu lub podejmować działania naprawcze po nieoczekiwanym błędzie systemu. Nazwa i logo firmy Microsoft są wyświetlane na potrzeby publikowania zdarzeń zainicjowanych przez firmę Microsoft w imieniu Twojego konta.
+
+[![Przykład sposobu wyświetlania przez stronę historii zdarzeń zainicjowanych przez firmę Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>Zdarzenie zostało zainicjowane przez niezidentyfikowanego użytkownika
+
+Użytkownicy, którzy nie są już powiązani z kontem, zostaną usunięci z kolumny **zainicjowane przez** , gdy ich uprawnienia do publikowania zostaną wycofane.
+
+[![Przykład sposobu wyświetlania przez strony historii zdarzeń zainicjowanych przez niezidentyfikowanych użytkowników.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Sprawdzanie poprawności i publikowanie kroków
+
+Żaden użytkownik nie jest pokazywany w przypadku procesów systemowych, które odpowiadają [procedurze walidacji i publikowania](#validation-and-publishing-steps). Te zdarzenia są kodowane kolorami zgodnie ze stanem ukończenia zdarzenia.
+
+[![Przykład przedstawiający sposób wyświetlania walidacji i kroków publikowania na stronie historii.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508869"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965764"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Opis ponownego uruchomienia systemu dla maszyny wirtualnej platformy Azure
 
@@ -30,7 +30,7 @@ Najlepszym sposobem na ochronę aplikacji działającej na platformie Azure prze
 
 Aby zapewnić ten poziom nadmiarowości aplikacji, zalecamy grupowanie co najmniej dwóch maszyn wirtualnych w zestawie dostępności. Ta konfiguracja gwarantuje, że podczas planowanego lub nieplanowanego zdarzenia konserwacji jest dostępna co najmniej jedna maszyna wirtualna i spełnia warunki [umowy SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)na 99,95%.
 
-Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych](../windows/manage-availability.md)
+Aby uzyskać więcej informacji na temat zestawów dostępności, zobacz [Zarządzanie dostępnością maszyn wirtualnych](../manage-availability.md)
 
 ## <a name="resource-health-information"></a>Informacje Resource Health
 
@@ -72,7 +72,7 @@ Inne scenariusze, które zwykle powodują ponowne uruchomienie maszyny wirtualne
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center i Windows Update
 
-Azure Security Center monitoruje codzienne maszyny wirtualne z systemami Windows i Linux pod kątem braku aktualizacji systemu operacyjnego. Security Center pobiera listę dostępnych aktualizacji zabezpieczeń i krytycznych z Windows Update lub Windows Server Update Services (WSUS), w zależności od tego, która usługa została skonfigurowana na maszynie wirtualnej z systemem Windows. Security Center również sprawdza najnowsze aktualizacje dla systemów Linux. Jeśli maszyna wirtualna nie ma aktualizacji systemu, Security Center zaleca zastosowanie aktualizacji systemu. Te aktualizacje systemu są kontrolowane przez Security Center w Azure Portal. Po zastosowaniu niektórych aktualizacji może być wymagane ponowne uruchomienie maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [stosowanie aktualizacji systemu w Azure Security Center](../../security-center/security-center-virtual-machine-protection.md).
+Azure Security Center monitoruje codzienne maszyny wirtualne z systemami Windows i Linux pod kątem braku aktualizacji systemu operacyjnego. Security Center pobiera listę dostępnych aktualizacji zabezpieczeń i krytycznych z Windows Update lub Windows Server Update Services (WSUS), w zależności od tego, która usługa została skonfigurowana na maszynie wirtualnej z systemem Windows. Security Center również sprawdza najnowsze aktualizacje dla systemów Linux. Jeśli maszyna wirtualna nie ma aktualizacji systemu, Security Center zaleca zastosowanie aktualizacji systemu. Te aktualizacje systemu są kontrolowane przez Security Center w Azure Portal. Po zastosowaniu niektórych aktualizacji może być wymagane ponowne uruchomienie maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [stosowanie aktualizacji systemu w Azure Security Center](../../security-center/asset-inventory.md).
 
 Podobnie jak w przypadku serwerów lokalnych, platforma Azure nie wypychanie aktualizacji z Windows Update do maszyn wirtualnych z systemem Windows, ponieważ te maszyny mają być zarządzane przez ich użytkowników. Zaleca się jednak pozostawienie ustawienia Windows Update automatycznie włączone. Automatyczna instalacja aktualizacji z Windows Update może także spowodować, że ponowne uruchomienie nastąpi po zastosowaniu aktualizacji. Aby uzyskać więcej informacji, zobacz [Windows Update często zadawane pytania](https://support.microsoft.com/help/12373/windows-update-faq).
 

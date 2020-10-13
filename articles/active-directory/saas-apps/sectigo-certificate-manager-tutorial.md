@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d68e5335fff0341d8808e581061519977e1bb517
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905ca5fd92a09b209bf099bfac0862132ec679a4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543282"
+ms.locfileid: "91875589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Samouczek: integracja Azure Active Directory z menedżerem certyfikatów Sectigo
 
-W tym samouczku dowiesz się, jak zintegrować Menedżera certyfikatów Sectigo z usługą Azure Active Directory (Azure AD).
+W tym samouczku dowiesz się, jak zintegrować Menedżera certyfikatów Sectigo (zwany również menedżerem SCM) z usługą Azure Active Directory (Azure AD).
 
 Integracja Menedżera certyfikatów Sectigo z usługą Azure AD zapewnia następujące korzyści:
 
@@ -35,7 +35,10 @@ Aby uzyskać więcej informacji na temat integracji aplikacji SaaS (Software as 
 Aby skonfigurować integrację usługi Azure AD z menedżerem certyfikatów Sectigo, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji usługi Azure AD, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-* Sectigo subskrypcję Menedżera certyfikatów z włączonym logowaniem jednokrotnym.
+* Sectigo konto menedżera certyfikatów.
+
+> [!NOTE]
+> Sectigo uruchamia wiele wystąpień Menedżera certyfikatów Sectigo. Głównym wystąpieniem Menedżera certyfikatów Sectigo jest  **https: \/ /CERT-Manager.com**, a ten adres URL jest używany w tym samouczku.  Jeśli Twoje konto jest w innym wystąpieniu, należy odpowiednio dostosować adresy URL.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -99,47 +102,45 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W okienku **podstawowe konfiguracje języka SAML** , aby skonfigurować *tryb zainicjowany dostawcy tożsamości*, wykonaj następujące czynności:
+1. W sekcji **Podstawowa konfiguracja języka SAML** wykonaj następujące czynności:
 
-    1. W polu **Identyfikator** wprowadź jeden z następujących adresów URL:
-       * https: \/ /CERT-Manager.com/Shibboleth
-       * https: \/ /Hard.CERT-Manager.com/Shibboleth
+    1. W polu **Identyfikator (identyfikator jednostki)** dla głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Shibboleth**.
 
-    1. W polu **adres URL odpowiedzi** wprowadź jeden z następujących adresów URL:
-        * https: \/ /CERT-Manager.com/Shibboleth.SSO/SAML2/post
-        * https: \/ /Hard.CERT-Manager.com/Shibboleth.SSO/SAML2/post
+    1. W polu **adres URL odpowiedzi** dla głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Shibboleth.SSO/SAML2/post**.
+        
+    > [!NOTE]
+    > Chociaż ogólnie rzecz biorąc, **adres URL logowania** jest obowiązkowy w *trybie zainicjowanym*przez program SP, nie jest on konieczny do logowania się z Menedżera certyfikatów Sectigo.        
+
+1. Opcjonalnie w sekcji **Podstawowa konfiguracja protokołu SAML** , aby skonfigurować *tryb zainicjowany przez dostawcy tożsamości* i zezwolić na działanie **testu** , wykonaj następujące czynności:
 
     1. Wybierz pozycję **Ustaw dodatkowe adresy URL**.
 
-    1. W polu **Stan przekazywania** wprowadź jeden z następujących adresów URL:
-       * https: \/ /CERT-Manager.com/Customer/SSLSupport/IDP
-       * https: \/ /Hard.CERT-Manager.com/Customer/SSLSupport/IDP
+    1. W polu **Stan przekazywania** wprowadź adres URL specyficzny dla klienta Sectigo Certificate Manager. W przypadku głównego wystąpienia Menedżera certyfikatów Sectigo wprowadź **https: \/ /CERT-Manager.com/Customer/ \<customerURI\> /IDP**.
 
     ![Sectigo domeny Menedżera certyfikatów i adresów URL Logowanie jednokrotne](common/idp-relay.png)
 
-1.  Aby skonfigurować aplikację w *trybie zainicjowanym przez program SP*, wykonaj następujące czynności:
+1. W sekcji **atrybuty użytkownika & oświadczenia** wykonaj następujące czynności:
 
-    * W polu **adres URL logowania** wprowadź jeden z następujących adresów URL:
-      * https: \/ /CERT-Manager.com/Shibboleth.SSO/login
-      * https: \/ /Hard.CERT-Manager.com/Shibboleth.SSO/login
+    1. Usuń wszystkie **dodatkowe oświadczenia**.
+    
+    1. Wybierz pozycję **Dodaj nowe oświadczenie** i Dodaj następujące cztery oświadczenia:
+    
+        | Nazwa | Przestrzeń nazw | Element źródłowy | Atrybut źródłowy | Opis |
+        | --- | --- | --- | --- | --- |
+        | eduPersonPrincipalName | puste | Atrybut | user.userprincipalname | Musi pasować do pola **Identyfikator osoby dostawcy tożsamości** w Menedżerze certyfikatów Sectigo dla administratorów. |
+        | mail (poczta) | puste | Atrybut | user.mail | Wymagane |
+        | givenName | puste | Atrybut | user.givenname | Opcjonalne |
+        | sn | puste | Atrybut | user.surname | Opcjonalne |
 
-      ![Sectigo domeny Menedżera certyfikatów i adresów URL Logowanie jednokrotne](common/both-signonurl.png)
+       ![Menedżer certyfikatów Sectigo — Dodaj cztery nowe oświadczenia](media/sectigo-certificate-manager-tutorial/additional-claims.png)
 
-1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **certyfikat (base64)**. Wybierz opcję pobierania w zależności od wymagań. Zapisz certyfikat na komputerze.
+1. W sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **XML metadanych Federacji**. Zapisz plik XML na komputerze.
 
-    ![Opcja pobierania certyfikatu (base64)](common/certificatebase64.png)
-
-1. W sekcji **Konfigurowanie Menedżera certyfikatów Sectigo** Skopiuj następujące adresy URL zgodnie z wymaganiami:
-
-    * Adres URL logowania
-    * Identyfikator usługi Azure AD
-    * Adres URL wylogowywania
-
-    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
+    ![Opcja pobierania XML metadanych Federacji](common/metadataxml.png)
 
 ### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w Menedżerze certyfikatów Sectigo
 
-Aby skonfigurować Logowanie jednokrotne na stronie Menedżera certyfikatów Sectigo, Wyślij pobrany plik certyfikatu (base64) i odpowiednie adresy URL skopiowane z Azure Portal do [zespołu pomocy technicznej Menedżera certyfikatów Sectigo](https://sectigo.com/support). Zespół pomocy technicznej Menedżera certyfikatów Sectigo korzysta z informacji przesyłanych przez Ciebie, aby upewnić się, że połączenie protokołu SAML logowania jednokrotnego jest ustawione prawidłowo po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie Menedżera certyfikatów Sectigo, Wyślij pobrany plik XML metadanych Federacji do [zespołu pomocy technicznej Menedżera certyfikatów Sectigo](https://sectigo.com/support). Zespół pomocy technicznej Menedżera certyfikatów Sectigo korzysta z informacji przesyłanych przez Ciebie, aby upewnić się, że połączenie protokołu SAML logowania jednokrotnego jest ustawione prawidłowo po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -167,7 +168,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji przyznano Britta Simon dostęp do Menedżera certyfikatów Sectigo, dzięki czemu może on korzystać z logowania jednokrotnego na platformie Azure.
+W tej sekcji przyznano Britta Simon dostęp do Menedżera certyfikatów Sectigo, dzięki czemu użytkownik może korzystać z logowania jednokrotnego na platformie Azure.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **Sectigo Menedżera certyfikatów**.
 
@@ -197,9 +198,19 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Menedżerze certyfik
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
+Ta sekcja umożliwia testowanie konfiguracji logowania jednokrotnego usługi Azure AD.
 
-Po skonfigurowaniu logowania jednokrotnego po wybraniu opcji **Sectigo Certificate Manager** w portalu My Apps zostanie automatycznie zalogowany do Menedżera certyfikatów Sectigo. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="test-from-sectigo-certificate-manager-sp-initiated-single-sign-on"></a>Test z Sectigo Certificate Manager (Logowanie jednokrotne zainicjowane przez SP)
+
+Przejdź do adresu URL specyficznego dla klienta (dla głównego wystąpienia Menedżera certyfikatów Sectigo, https: \/ /CERT-Manager.com/Customer/ \<customerURI\> /, a następnie wybierz poniższy przycisk **lub Zaloguj się przy użyciu**usługi.  W przypadku poprawnego skonfigurowania nastąpi automatyczne zalogowanie do Menedżera certyfikatów Sectigo.
+
+#### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Testowanie konfiguracji logowania jednokrotnego na platformie Azure (Logowanie jednokrotne zainicjowane przez dostawcy tożsamości)
+
+W okienku integracja aplikacji **Menedżera certyfikatów Sectigo** wybierz pozycję **Logowanie jednokrotne** i wybierz przycisk **Testuj** .  W przypadku poprawnego skonfigurowania nastąpi automatyczne zalogowanie do Menedżera certyfikatów Sectigo.
+
+#### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>Testowanie przy użyciu portalu My Apps (Logowanie jednokrotne zainicjowane przez dostawcy tożsamości)
+
+Wybierz pozycję **Menedżer certyfikatów Sectigo** w portalu Moje aplikacje.  Po poprawnym skonfigurowaniu nastąpi automatyczne zalogowanie do Menedżera certyfikatów Sectigo. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [dostęp i używanie aplikacji w portalu Moje aplikacje](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

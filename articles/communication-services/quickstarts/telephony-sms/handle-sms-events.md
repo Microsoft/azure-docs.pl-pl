@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756764"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976933"
 ---
 # <a name="quickstart-handle-sms-events"></a>Szybki Start: obsługa zdarzeń programu SMS
 
@@ -86,19 +86,19 @@ Następnie wybierz pozycję **Potwierdź wybór**.
 Aby wyświetlić wyzwalacze zdarzeń, należy wygenerować zdarzenia w pierwszej kolejności.
 
 - `SMS Received` zdarzenia są generowane, gdy numer telefonu usług komunikacyjnych otrzymuje wiadomość SMS. Aby wyzwolić zdarzenie, po prostu wyślij wiadomość od telefonu do numeru telefonu dołączonego do zasobu usług komunikacyjnych.
-- `SMS Delivery Report Received` zdarzenia są generowane podczas wysyłania wiadomości SMS do użytkownika przy użyciu numeru telefonu usług komunikacyjnych. Aby wyzwolić wyzwalacz i zdarzenie, musisz włączyć `Delivery Report` w opcjach [wysłanych wiadomości SMS](../telephony-sms/send.md). Spróbuj wysłać komunikat do telefonu za pomocą `Delivery Report` . Wykonanie tej akcji wiąże się z niewielkim kosztem kilku USD lub mniej na koncie platformy Azure.
+- `SMS Delivery Report Received` zdarzenia są generowane podczas wysyłania wiadomości SMS do użytkownika przy użyciu numeru telefonu usług komunikacyjnych. Aby wyzwolić zdarzenie, musisz włączyć `Delivery Report` w opcjach [wysłanych wiadomości SMS](../telephony-sms/send.md). Spróbuj wysłać komunikat do telefonu za pomocą `Delivery Report` . Wykonanie tej akcji wiąże się z niewielkim kosztem kilku USD lub mniej na koncie platformy Azure.
 
 Zapoznaj się z pełną listą [zdarzeń obsługiwanych przez usługi Azure Communication Services](../../concepts/event-handling.md).
 
 ### <a name="receiving-sms-events"></a>Otrzymywanie zdarzeń SMS
 
-Po wykonaniu każdej akcji powyżej zobaczysz, że  `SMS Received` `SMS Delivery Report Received` zdarzenia i są wysyłane do punktu końcowego. Te zdarzenia będą wyświetlane w [przykładowej Azure Event Grid przeglądarki](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , którą ustawimy na początku. Aby zobaczyć cały ładunek, możesz nacisnąć ikonę oka obok zdarzenia. Zdarzenia będą wyglądać następująco:
+Po wykonaniu każdej akcji powyżej zobaczysz, że `SMS Received` `SMS Delivery Report Received` zdarzenia i są wysyłane do punktu końcowego. Te zdarzenia będą wyświetlane w [przykładowej Azure Event Grid przeglądarki](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) , którą ustawimy na początku. Aby zobaczyć cały ładunek, możesz nacisnąć ikonę oka obok zdarzenia. Zdarzenia będą wyglądać następująco:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku subskrypcji zdarzeń na stronie zdarzenia zasobu.":::
 
-Dowiedz się więcej o [schematach zdarzeń i innych pojęciach związanych z zdarzeniami](../../concepts/event-handling.md)
+Dowiedz się więcej o [schematach zdarzeń i innych pojęciach związanych z zdarzeniami](../../concepts/event-handling.md).
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

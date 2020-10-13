@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874003"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949381"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -77,7 +77,7 @@ Użyj **DisplayName** i **Description** , aby zidentyfikować definicję zasad i
 > [!NOTE]
 > Podczas tworzenia lub aktualizowania definicji zasad, **identyfikatora**, **typu**i **nazwy** są zdefiniowane przez właściwości zewnętrzne w formacie JSON i nie są wymagane w pliku JSON. Pobieranie definicji zasad za pomocą zestawu SDK zwraca **Identyfikator**, **Typ**i właściwości **nazwy** w ramach JSON, ale każda z nich jest informacjami tylko do odczytu związanymi z definicją zasad.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Typ
 
 Podczas gdy nie można ustawić właściwości **Type** , istnieją trzy wartości, które są zwracane przez zestaw SDK i widoczne w portalu:
 
@@ -114,7 +114,7 @@ Następujące tryby dostawcy zasobów są obecnie obsługiwane jako **wersja zap
 - `Microsoft.KeyVault.Data` Zarządzanie magazynami i certyfikatami w [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Tryby dostawcy zasobów obsługują tylko wbudowane definicje zasad.
+> Tryby dostawcy zasobów obsługują tylko wbudowane definicje zasad i nie obsługują [wykluczeń](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadane
 
@@ -435,7 +435,7 @@ Zamiast tego należy użyć funkcji [if ()](../../../azure-resource-manager/temp
 
 Po zmodyfikowaniu reguły zasad `if()` Sprawdź długość **nazwy** przed próbą uzyskania `substring()` wartości przy użyciu mniej niż trzech znaków. Jeśli **Nazwa** jest za krótka, zamiast tego jest zwracana wartość "nie zaczyna się od ABC" i porównana z opcją **ABC**. Zasób z krótką nazwą, która nie zaczyna się od **ABC** , nadal kończy się niepowodzeniem reguły zasad, ale nie powoduje już błędu podczas obliczania.
 
-### <a name="count"></a>Liczba
+### <a name="count"></a>Licznik
 
 Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy element członkowski tablicy [ \[ \* \] aliasów](#understanding-the--alias) dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane maksymalnie trzy razy do pojedynczej definicji **Klasa policyrule** .
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667745"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen1
@@ -27,7 +27,7 @@ Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związa
 
 Azure Data Lake Storage Gen1 oferuje kontrolki dostępu POSIX i szczegółową inspekcję dla Azure Active Directory (Azure AD) użytkowników, grup i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i foldery. Kontroli dostępu można także użyć do tworzenia wartości domyślnych, które mogą być stosowane do nowych plików lub folderów. Gdy uprawnienia są ustawione na istniejące foldery i obiekty podrzędne, uprawnienia muszą być rekursywnie rozpropagowane dla każdego obiektu. W przypadku dużej liczby plików propagowanie uprawnień może zająć dużo czasu. Czas trwania może mieć zakres od 30-50 do przetworzenia obiektów na sekundę. W związku z tym należy odpowiednio zaplanować strukturę folderów i grupy użytkowników. W przeciwnym razie może to spowodować nieoczekiwane opóźnienia i problemy podczas pracy z danymi.
 
-Załóżmy, że masz folder z 100 000 obiektami podrzędnymi. Jeśli pozostanie Dolna granica 30 obiektów przetworzonych na sekundę, zaktualizowanie uprawnienia dla całego folderu może potrwać godzinę. Więcej szczegółów na temat list ACL Data Lake Storage Gen1 są dostępne w [programie w programie Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Aby zwiększyć wydajność rekursywnie przypisywania list ACL, można użyć narzędzia wiersza polecenia Azure Data Lake. Narzędzie tworzy wiele wątków i cykliczną logikę nawigacji, aby szybko zastosować listy ACL do milionów plików. Narzędzie jest dostępne dla systemów Linux i Windows, a [Dokumentacja](https://github.com/Azure/data-lake-adlstool) i [materiały do pobrania](https://aka.ms/adlstool-download) dla tego narzędzia można znaleźć w witrynie GitHub. Te same ulepszenia wydajności mogą być włączane przez własne narzędzia, które są przeznaczone dla zestawów SDK Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) i [Java](data-lake-store-get-started-java-sdk.md) .
+Załóżmy, że masz folder z 100 000 obiektami podrzędnymi. Jeśli pozostanie Dolna granica 30 obiektów przetworzonych na sekundę, zaktualizowanie uprawnienia dla całego folderu może potrwać godzinę. Więcej szczegółów na temat list ACL Data Lake Storage Gen1 są dostępne w [programie w programie Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Aby zwiększyć wydajność rekursywnie przypisywania list ACL, można użyć narzędzia Command-Line Azure Data Lake. Narzędzie tworzy wiele wątków i cykliczną logikę nawigacji, aby szybko zastosować listy ACL do milionów plików. Narzędzie jest dostępne dla systemów Linux i Windows, a [Dokumentacja](https://github.com/Azure/data-lake-adlstool) i [materiały do pobrania](https://aka.ms/adlstool-download) dla tego narzędzia można znaleźć w witrynie GitHub. Te same ulepszenia wydajności mogą być włączane przez własne narzędzia, które są przeznaczone dla zestawów SDK Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) i [Java](data-lake-store-get-started-java-sdk.md) .
 
 ### <a name="use-security-groups-versus-individual-users"></a>Korzystanie z grup zabezpieczeń i poszczególnych użytkowników
 
@@ -104,7 +104,7 @@ Poniżej znajdują się trzy najbardziej zalecane opcje organizowania replikacji
 |**Obsługuje kopiowanie różnic**     |   Tak      | Nie         | Nie         |
 |**Wbudowana aranżacja**     |  Nie (Użyj Oozie Flow lub zadań firmy CRONUS)       | Tak        | Nie (Użyj Azure Automation lub Harmonogram zadań systemu Windows)         |
 |**Obsługiwane systemy plików**     | ADL, HDFS, WASB, S3, GS, CFS        |Wiele, zobacz [Łączniki](../data-factory/connector-azure-blob-storage.md).         | ADL do ADL, WASB do ADL (tylko ten sam region)        |
-|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Brak          | Windows 10         |
+|**Obsługa systemu operacyjnego**     |Dowolny system operacyjny z uruchomioną usługą Hadoop         | Nie dotyczy          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Użyj pomocą distcp do przenoszenia danych między dwiema lokalizacjami
 

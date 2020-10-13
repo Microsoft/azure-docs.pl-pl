@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d67b0c89fbec8da9a3057164aa59d458a85c41d7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e80f866aa7affb07b13847b44658e33c7044da6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91280593"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976899"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Szybki Start: kompilowanie i wdrażanie aplikacji w chmurze Azure wiosennej
 
@@ -276,7 +276,7 @@ Potrzebujemy sposobu na dostęp do aplikacji za pośrednictwem przeglądarki sie
 1. Wygeneruj konfiguracje, uruchamiając następujące polecenie w folderze głównym PiggyMetrics zawierającym pliku pom nadrzędny. Jeśli użytkownik jest już zalogowany za pomocą interfejsu wiersza polecenia platformy Azure, polecenie automatycznie pobierze poświadczenia. W przeciwnym razie zostanie zalogowanie się przy użyciu instrukcji monitu. Aby uzyskać więcej informacji, zobacz naszą [stronę typu wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
     ```
     
     Zostanie wyświetlony monit o wybranie:

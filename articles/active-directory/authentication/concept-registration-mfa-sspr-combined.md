@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718921"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965152"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Rejestracja informacji o zabezpieczeniach dla Azure Active Directory przegląd
 
@@ -51,7 +51,7 @@ Jeśli chcesz wymusić określony język, możesz dodać `?lng=<language>` na ko
 
 Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
-| Metoda | Zarejestruj | Zmiana | Usuwanie |
+| Metoda | Zarejestruj | Zmiana | Usuń |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
 | Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
@@ -59,7 +59,7 @@ Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 | Telefon | Tak | Tak | Tak |
 | Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Nie | Nie | Nie |
-| Poczta e-mail | Tak | Tak | Tak |
+| E-mail | Tak | Tak | Tak |
 | Pytania zabezpieczające | Tak | Nie | Tak |
 | Hasła aplikacji | Tak | Nie | Tak |
 | FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |

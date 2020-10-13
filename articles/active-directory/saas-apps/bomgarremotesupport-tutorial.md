@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
 ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743084"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą BeyondTrust Remote support
@@ -129,7 +129,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -163,7 +163,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Z menu rozwijanego wybierz pozycję **SAML** i kliknij przycisk **Utwórz dostawcę** .
 
-1. W sekcji Ustawienia dostawcy tożsamości istnieje możliwość przekazania metadanych dostawcy tożsamości. Znajdź plik XML metadanych pobrany z Azure Portal i kliknij przycisk **Przekaż** . **Identyfikator jednostki**, **adres URL usługi logowania** jednokrotnego i certyfikat zostaną automatycznie przekazane, a **powiązanie protokołu** należy zmienić na **post protokołu HTTP**. Zobacz zrzut ekranu poniżej:
+1. W sekcji Ustawienia dostawcy tożsamości istnieje możliwość przekazania metadanych dostawcy tożsamości. Znajdź plik XML metadanych pobrany z Azure Portal i kliknij przycisk **Przekaż** . **Identyfikator jednostki**, **adres URL i certyfikat usługi Single Sign-On** zostaną automatycznie przekazane, a **powiązanie protokołu** należy zmienić na **post protokołu HTTP**. Zobacz zrzut ekranu poniżej:
 
     ![Zrzut ekranu przedstawia sekcję ustawień dostawcy tożsamości, w której są wykonywane te akcje.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
@@ -189,7 +189,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka obsługa zdalna BeyondTrust w panelu dostępu należy automatycznie zalogować się do zdalnej pomocy technicznej usługi BeyondTrust, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

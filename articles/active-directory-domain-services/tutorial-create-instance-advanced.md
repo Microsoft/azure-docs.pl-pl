@@ -1,20 +1,20 @@
 ---
 title: Samouczek — Tworzenie dostosowanej Azure Active Directory Domain Services domeny zarządzanej | Microsoft Docs
 description: W ramach tego samouczka nauczysz się, jak utworzyć i skonfigurować dostosowaną domenę zarządzaną Azure Active Directory Domain Services i określić zaawansowane opcje konfiguracji przy użyciu Azure Portal.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 8b48cfa29555cf0ca15428758208df27a52a84f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 23c15bca8c3385a8e115cd0a85d2e5b4f1553007
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87491141"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967346"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Samouczek: Tworzenie i Konfigurowanie domeny zarządzanej Azure Active Directory Domain Services z zaawansowanymi opcjami konfiguracji
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (AD DS platformy Azure) oferuje zarządza
 
 Można [utworzyć domenę zarządzaną przy użyciu opcji konfiguracji domyślnej][tutorial-create-instance] sieci i synchronizacji lub ręcznie zdefiniować te ustawienia. W tym samouczku przedstawiono sposób definiowania zaawansowanych opcji konfiguracji w celu utworzenia i skonfigurowania domeny zarządzanej AD DS platformy Azure przy użyciu Azure Portal.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie ustawień systemu DNS i sieci wirtualnej dla domeny zarządzanej
@@ -165,7 +165,7 @@ Usługa Azure AD DS pozwala synchronizować *wszystkich* użytkowników i grupy 
 
     ![Wykonaj pełną synchronizację użytkowników i grup z usługi Azure AD](./media/tutorial-create-instance-advanced/sync-all.png)
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 ## <a name="deploy-the-managed-domain"></a>Wdróż domenę zarządzaną
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3540add3020c45e5664f96f5c47dec10a551ed4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857048"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978853"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na wirtualnym urządzeniu z systemem Linux
 
@@ -109,7 +109,7 @@ Podczas konfigurowania środowiska uruchomieniowego należy podać parametry po�
 
 ### <a name="deploy-the-iot-edge-device"></a>Wdrażanie urządzenia IoT Edge
 
-Ta sekcja używa szablonu Azure Resource Manager, aby utworzyć nową maszynę wirtualną i zainstalować na niej IoT Edge środowisko uruchomieniowe. Jeśli zamiast tego chcesz użyć własnego urządzenia z systemem Linux, możesz wykonać kroki instalacji opisane w temacie [Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md), a następnie powrócić do tego przewodnika Szybki Start.
+Ta sekcja używa szablonu Azure Resource Manager, aby utworzyć nową maszynę wirtualną i zainstalować na niej IoT Edge środowisko uruchomieniowe. Jeśli zamiast tego chcesz użyć własnego urządzenia z systemem Linux, możesz wykonać kroki instalacji opisane w temacie [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge.md), a następnie powrócić do tego przewodnika Szybki Start.
 
 Poniższe polecenie interfejsu wiersza polecenia służy do tworzenia urządzenia IoT Edge na podstawie wstępnie skompilowanego szablonu [iotedge-VM-Deploy](https://github.com/Azure/iotedge-vm-deploy) .
 

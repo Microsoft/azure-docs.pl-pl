@@ -3,12 +3,12 @@ title: Omówienie agenta połączonej maszyny z systemem Windows
 description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta usługi Azure ARC dla serwerów, który obsługuje monitorowanie maszyn wirtualnych hostowanych w środowiskach hybrydowych.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822200"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979159"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
 
@@ -85,6 +85,7 @@ Tagi usługi:
 
 * Usługi azureactivedirectory
 * AzureTrafficManager
+* AzureResourceManager
 * AzureArcInfrastructure
 
 Adresy
@@ -92,12 +93,17 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Usługa Azure Active Directory|
+|`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|Konfiguracja gościa|
-|`*-agentservice-prod-1.azure-automation.net`|Konfiguracja gościa|
 |`*.guestconfiguration.azure.com` |Konfiguracja gościa|
 |`*.his.arc.azure.com`|Hybrydowa usługa tożsamości|
+
+Agenci wersji zapoznawczej (wersja 0,11 i niższa) wymagają również dostępu do następujących adresów URL:
+
+| Zasób agenta | Opis |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|Konfiguracja gościa|
+|`*-agentservice-prod-1.azure-automation.net`|Konfiguracja gościa|
 
 Aby uzyskać listę adresów IP dla każdego tagu usługi/regionu, zobacz plik JSON — [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). Firma Microsoft publikuje cotygodniowe aktualizacje zawierające poszczególne usługi platformy Azure i zakresy adresów IP, z których korzystają. Aby uzyskać więcej informacji, przejrzyj [Tagi usług](../../virtual-network/security-overview.md#service-tags).
 

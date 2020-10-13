@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 691b7c2890d29d390abbe8151fe66dbd99c5bc60
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653549"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978190"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>SAP HANA wysokiej dostępności dla maszyn wirtualnych platformy Azure
 
@@ -52,7 +52,7 @@ Warto również zapoznać się z następującymi artykułami dotyczącymi SAP HA
 - [Ponowne uruchamianie usługi SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Konfigurowanie replikacji systemu SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Przed zdefiniowaniem architektury dostępności na platformie Azure zalecamy zapoznanie się z tematem Wdrażanie [maszyn wirtualnych](../../windows/manage-availability.md)na platformie Azure.
+Przed zdefiniowaniem architektury dostępności na platformie Azure zalecamy zapoznanie się z tematem Wdrażanie [maszyn wirtualnych](../../manage-availability.md)na platformie Azure.
 
 ## <a name="service-level-agreements-for-azure-components"></a>Umowy dotyczące poziomu usług dla składników platformy Azure
 
@@ -85,4 +85,3 @@ Zmierz wymaganie dostępności na umowy SLA, które mogą być dostępne dla sk�
 
 
 
-  

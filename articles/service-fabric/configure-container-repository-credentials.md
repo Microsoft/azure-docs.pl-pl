@@ -4,12 +4,12 @@ description: Skonfiguruj poświadczenia repozytorium, aby pobierać obrazy z rej
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421428"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978683"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Skonfiguruj poświadczenia repozytorium dla aplikacji, aby pobierać obrazy kontenerów
 
@@ -96,6 +96,9 @@ Service Fabric obsługuje używanie tokenów jako poświadczeń do pobierania ob
 1. Upewnij się, że dla maszyny wirtualnej jest włączona *tożsamość zarządzana przypisana przez system* .
 
     ![Azure Portal: Tworzenie opcji tożsamości zestawu skalowania maszyn wirtualnych](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> W przypadku tożsamości zarządzanej przypisanej przez użytkownika Pomiń ten krok. Pozostałe kroki pozostaną takie same, o ile zestaw skalowania jest skojarzony tylko z jedną tożsamością zarządzaną przez użytkownika.
 
 2. Udziel uprawnień do zestawu skalowania maszyn wirtualnych w celu ściągania/odczytu obrazów z rejestru. W bloku Access Control (IAM) Azure Container Registry w Azure Portal Dodaj *przypisanie roli* dla maszyny wirtualnej:
 

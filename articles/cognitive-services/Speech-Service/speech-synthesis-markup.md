@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 199e19116e0d8ba6bcc4954e767265e6fb4cd238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8dfae58b9910504a11bf3986380398499e3357
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666351"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949602"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -196,6 +196,8 @@ Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy u
 
 Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -228,6 +230,10 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
 |                         | `style="cheerful"`        | Wyraża pozytywne i szczęśliwe Tony                         |
 |                         | `style="empathetic"`      | Wyraża świadomość Caring i zrozumienie               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
+|                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
+|                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |

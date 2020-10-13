@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1b3e12bcf744ad0d762f686a908a01239fc4323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87428118"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949245"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
 
@@ -25,7 +25,7 @@ Element **Lokalizacja** umożliwia obsługę wielu ustawień regionalnych lub j�
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>Elementy strony do rejestracji lub logowania
 
-Następujące identyfikatory są używane dla definicji zawartości o IDENTYFIKATORze `api.signuporsignin` .
+Następujące identyfikatory są używane dla definicji zawartości z IDENTYFIKATORem `api.signuporsignin` i z [własnym profilem technicznym](self-asserted-technical-profile.md).
 
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
@@ -45,7 +45,7 @@ Następujące identyfikatory są używane dla definicji zawartości o IDENTYFIKA
 | **createaccount_link** | Utwórz konto teraz |
 | **divider_title** | LUB |
 | **cancel_message** | Użytkownik zapomniał hasła |
-| **button_signin** | Zaloguj |
+| **button_signin** | Zaloguj się |
 | **social_intro** | Zaloguj się przy użyciu konta społecznościowego |
   **remember_me** |Nie wylogowuj mnie|
 | **unknown_error** | Mamy problemy z zalogowaniem się. Spróbuj ponownie później. |
@@ -93,7 +93,7 @@ Poniższy przykład lokalizuje dostawcę tożsamości w serwisie Facebook do ję
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementy interfejsu użytkownika dotyczące rejestracji i samopotwierdzonej strony
 
-Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORem `api.localaccountsignup` lub dowolną definicją zawartości, która rozpoczyna się od `api.selfasserted` , takich jak `api.selfasserted.profileupdate` i `api.localaccountpasswordreset` .
+Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORem `api.localaccountsignup` lub dowolną definicją zawartości, która rozpoczyna się od `api.selfasserted` , takich jak `api.selfasserted.profileupdate` i i z `api.localaccountpasswordreset` [własnym profilem technicznym](self-asserted-technical-profile.md).
 
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
@@ -104,11 +104,11 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 | **ver_but_send** | Wyślij kod weryfikacyjny |
 | **alert_yes** | Tak |
 | **error_fieldIncorrect** | Co najmniej jedno pole jest wypełniane nieprawidłowo. Sprawdź swoje wpisy i spróbuj ponownie. |
-| **czteroletniego** | Year (Rok) |
+| **czteroletniego** | Rok |
 | **verifying_blurb** | Zaczekaj na przetworzenie informacji. |
 | **button_cancel** | Anuluj |
 | **ver_fail_no_retry** | Wykonano zbyt wiele nieudanych prób. Spróbuj ponownie później. |
-| **bieżącym** | Month (Miesiąc) |
+| **bieżącym** | Miesiąc |
 | **ver_success_msg** | Zweryfikowano adres E-mail. Teraz można kontynuować. |
 | **months** | Styczeń, luty, Marzec, Kwiecień, maj, czerwiec, Lipiec, sierpień, wrzesień, październik, listopad, grudzień |
 | **ver_fail_server** | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Wprowadź prawidłowy adres e-mail i spróbuj ponownie. |
@@ -155,7 +155,7 @@ Poniższy przykład pokazuje użycie niektórych elementów interfejsu użytkown
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementy interfejsu użytkownika na stronie uwierzytelnianie w ramach wskaźnika telefonu
 
-Poniżej przedstawiono identyfikatory dla definicji zawartości o IDENTYFIKATORze `api.phonefactor` .
+Poniżej znajdują się identyfikatory definicji zawartości z IDENTYFIKATORem `api.phonefactor` i [profilem technicznym dla fabryki telefonu](phone-factor-technical-profile.md).
 
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
@@ -171,7 +171,7 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości o IDENTYFIKATORz
 | **invalid_code** | Wprowadź otrzymany 6-cyfrowy kod |
 | **button_cancel** | Anuluj |
 | **local_number_input_placeholder_text** | Numer telefonu |
-| **button_retry** | Ponawianie próby |
+| **button_retry** | Ponów próbę |
 | **alternative_text** | Nie mam mojego telefonu |
 | **intro_phone_p** | W rekordach są dostępne następujące numery. Wybierz numer telefonu, z którym możemy się uwierzytelnić. |
 | **intro_phone** | Mamy dla Ciebie następujący numer rekordu. Będziemy telefonować. |
@@ -197,11 +197,11 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości o IDENTYFIKATORz
 
 W poniższym przykładzie pokazano użycie niektórych elementów interfejsu użytkownika na stronie rejestracji usługi MFA:
 
-![Strona rejestracji — elementy środowiska użytkownika weryfikacji wiadomości e-mail](./media/localization-string-ids/localization-mfa1.png)
+![Elementy środowiska użytkownika rejestracji uwierzytelniania w usłudze Factor Authentication](./media/localization-string-ids/localization-mfa1.png)
 
 Poniższy przykład pokazuje użycie niektórych elementów interfejsu użytkownika na stronie walidacji usługi MFA:
 
-![Strona rejestracji — elementy środowiska użytkownika weryfikacji wiadomości e-mail](./media/localization-string-ids/localization-mfa2.png)
+![Elementy środowiska użytkownika weryfikacji uwierzytelniania w składniku telefonu](./media/localization-string-ids/localization-mfa2.png)
 
 ## <a name="verification-display-control-user-interface-elements"></a>Elementy interfejsu użytkownika kontrolki wyświetlania weryfikacji
 

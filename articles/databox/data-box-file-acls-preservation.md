@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 74b8bfcd8cfedaa7c5e24b6c29d9229a4db5828a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450754"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950316"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Zachowanie list ACL plików, atrybutów i sygnatur czasowych przy użyciu Azure Data Box
 
-Azure Data Box pozwala zachować listy kontroli dostępu (ACL), sygnatury czasowe i atrybuty plików podczas wysyłania danych na platformę Azure. W tym artykule opisano metadane, które można przenieść podczas kopiowania danych do urządzenie Data Box za pośrednictwem bloku komunikatów serwera (SMB) w celu przekazania go do Azure Files. Do kopiowania metadanych przy użyciu narzędzi do kopiowania danych systemu Windows i Linux służą określone kroki.
+Azure Data Box pozwala zachować listy kontroli dostępu (ACL), sygnatury czasowe i atrybuty plików podczas wysyłania danych na platformę Azure. W tym artykule opisano metadane, które można przenieść podczas kopiowania danych do urządzenie Data Box za pośrednictwem bloku komunikatów serwera (SMB) w celu przekazania go do Azure Files. 
+
+Do kopiowania metadanych przy użyciu narzędzi do kopiowania danych systemu Windows i Linux służą określone kroki. Metadane nie są zachowywane podczas przesyłania danych do magazynu obiektów BLOB.
 
 W tym artykule listy ACL, sygnatury czasowe i atrybuty plików, które są transferowane, są określane zbiorczo jako *metadane*.
 

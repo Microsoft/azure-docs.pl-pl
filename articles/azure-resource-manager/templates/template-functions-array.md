@@ -2,13 +2,13 @@
 title: Funkcje szablonu — tablice
 description: Opisuje funkcje, które mają być używane w Azure Resource Manager szablonu do pracy z tablicami.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979142"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funkcje tablicy dla szablonów ARM
 
@@ -185,7 +185,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| concatOutput | Ciąg | prefiks — 5yj4yjf5mbg72 |
+| concatOutput | String | prefiks — 5yj4yjf5mbg72 |
 
 ## <a name="contains"></a>zawiera
 
@@ -278,12 +278,11 @@ Tworzy tablicę z parametrów.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| arg1 |Tak |Ciąg, liczba całkowita, tablica lub obiekt |Pierwsza wartość w tablicy. |
-| dodatkowe argumenty |Nie |Ciąg, liczba całkowita, tablica lub obiekt |Dodatkowe wartości w tablicy. |
+| args |Nie |Ciąg, liczba całkowita, tablica lub obiekt |Wartości w tablicy. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
-Tablica.
+Tablica. Gdy nie podano parametrów, zwraca pustą tablicę.
 
 ### <a name="example"></a>Przykład
 
@@ -321,6 +320,10 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -334,6 +337,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | intArray | Tablica | [1, 2, 3] |
 | objectArray | Tablica | [{"jeden": "a", "dwa": "b", "trzy": "c"}] |
 | arrayArray | Tablica | [["jeden", "dwa", "trzy"]] |
+| emptyArray | Tablica | [] |
 
 ## <a name="empty"></a>puste
 
@@ -449,8 +453,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| arrayOutput | Ciąg | jeden |
-| stringOutput | Ciąg | O |
+| arrayOutput | String | jeden |
+| stringOutput | String | O |
 
 ## <a name="intersection"></a>część wspólną
 
@@ -567,8 +571,8 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| arrayOutput | Ciąg | trzy |
-| stringOutput | Ciąg | e |
+| arrayOutput | String | trzy |
+| stringOutput | String | e |
 
 ## <a name="length"></a>length
 
@@ -876,7 +880,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | arrayOutput | Tablica | ["trzy"] |
-| stringOutput | Ciąg | 2 3 |
+| stringOutput | String | 2 3 |
 
 ## <a name="take"></a>take (pobierz)
 
@@ -944,7 +948,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | arrayOutput | Tablica | ["jeden", "dwa"] |
-| stringOutput | Ciąg | on |
+| stringOutput | String | on |
 
 ## <a name="union"></a>unia
 

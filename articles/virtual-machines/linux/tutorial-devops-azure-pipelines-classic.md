@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 6cc4fdb82e98c30ca33eec58675f2175dfcc2607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77cc85bd62deb2cb2cb74c42cf245a409904b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612786"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978309"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania stopniowego dla maszyn wirtualnych platformy Azure z systemem Linux
 
@@ -29,7 +29,7 @@ Azure DevOps to wbudowana usługa platformy Azure, która automatyzuje każdą c
 
 Azure Pipelines udostępnia w pełni polecany zestaw narzędzi do automatyzacji ciągłej integracji i ciągłego wdrażania na maszynach wirtualnych. Można skonfigurować potok ciągłego dostarczania dla maszyny wirtualnej platformy Azure z poziomu Azure Portal.
 
-W tym artykule przedstawiono sposób konfigurowania potoku ciągłej integracji/ciągłego wdrażania z poziomu Azure Portal. Azure Portal obsługuje również inne strategie, takie jak [Kanaryjskie](https://aka.ms/AA7jdrz) i [niebieskie](https://aka.ms/AA83fwu).
+W tym artykule przedstawiono sposób konfigurowania potoku ciągłej integracji/ciągłego wdrażania z poziomu Azure Portal. Azure Portal obsługuje również inne strategie, takie jak [Kanaryjskie](./tutorial-azure-devops-canary-strategy.md) i [niebieskie](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Konfigurowanie ciągłej integracji/ciągłego wdrażania na maszynach wirtualnych
 
@@ -78,8 +78,8 @@ Korzystając z opcji ciągłego dostarczania, można skonfigurować aktualizacje
 
 ## <a name="other-deployment-strategies"></a>Inne strategie wdrażania
 
-- [Konfigurowanie strategii wdrażania programu Kanaryjskie](https://aka.ms/AA7jdrz)
-- [Konfigurowanie strategii wdrażania Blue-Green](https://aka.ms/AA83fwu)
+- [Konfigurowanie strategii wdrażania programu Kanaryjskie](./tutorial-azure-devops-canary-strategy.md)
+- [Konfigurowanie strategii wdrażania Blue-Green](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 
@@ -91,7 +91,7 @@ Możesz szybko rozpocząć pracę z platformą Azure. Korzystając z Azure DevOp
  
 [Dowiedz się więcej](https://azure.microsoft.com/features/devops-projects/).
  
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Wdrażanie na maszynach wirtualnych platformy Azure przy użyciu Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
 - [Implementowanie ciągłego wdrażania aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
