@@ -7,10 +7,10 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285370"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Powiązanie danych wyjściowych usługi Azure Blob Storage dla Azure Functions
@@ -392,7 +392,7 @@ Ten `@BlobOutput` atrybut daje dostęp do obiektu BLOB, który wyzwolił funkcj�
 
 ## <a name="exceptions-and-return-codes"></a>Wyjątki i kody powrotu
 
-| Wiązanie |  Dokumentacja |
+| Wiązanie |  Tematy pomocy |
 |---|---|
 | Obiekt blob | [Kody błędów obiektów BLOB](/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Obiekt BLOB, tabela, kolejka |  [Kody błędów magazynu](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

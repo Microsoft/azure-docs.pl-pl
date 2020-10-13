@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595788"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security

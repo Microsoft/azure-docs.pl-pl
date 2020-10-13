@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86201803"
 ---
 # <a name="how-caching-works"></a>Jak działa buforowanie
@@ -46,7 +46,7 @@ Każda pamięć podręczna zazwyczaj zarządza własną Aktualności zasobów i 
 
 Ponieważ buforowany zasób może być nieaktualny lub nieodświeżony (w porównaniu do odpowiadającego mu zasobu na serwerze źródłowym), ważne jest, aby mechanizm buforowania mógł kontrolować, kiedy zawartość jest odświeżana. Aby zaoszczędzić czas i użycie przepustowości, zasób pamięci podręcznej nie jest porównywany z wersją na serwerze źródłowym przy każdym uzyskaniu dostępu. Zamiast tego, pod warunkiem, że zasób pamięci podręcznej jest uznawany za świeży, zakłada się, że jest to Najnowsza wersja i jest wysyłana bezpośrednio do klienta. Zasób w pamięci podręcznej jest uznawany za świeży, gdy jego wiek jest mniejszy od wieku lub okresu zdefiniowanego przez ustawienie pamięci podręcznej. Na przykład gdy przeglądarka ponownie ładuje stronę sieci Web, sprawdza, czy każdy buforowany zasób na dysku twardym jest świeży i ładuje go. Jeśli zasób nie jest świeży (nieodświeżony), jest ładowana aktualna kopia z serwera.
 
-### <a name="validation"></a>Weryfikacja
+### <a name="validation"></a>Walidacja
 
 Jeśli zasób jest uznawany za przestarzały, zostanie wyświetlony monit o jego zweryfikowanie, czyli określenie, czy dane w pamięci podręcznej nadal pasują do tego, co znajduje się na serwerze źródłowym. Jeśli plik został zmodyfikowany na serwerze źródłowym, pamięć podręczna aktualizuje swoją wersję zasobu. W przeciwnym razie, jeśli zasób jest świeży, dane są dostarczane bezpośrednio z pamięci podręcznej bez weryfikowania ich w pierwszej kolejności.
 
@@ -60,7 +60,7 @@ Buforowanie jest integralną metodą działania sieci CDN w celu przyspieszenia 
 
 Podobnie jak w przypadku zaimplementowania buforowania w przeglądarce internetowej, można kontrolować sposób buforowania w sieci CDN przez wysyłanie nagłówków dyrektywy Cache-dyrektyw. Nagłówki dyrektywy Cache są nagłówkami HTTP, które są zazwyczaj dodawane przez serwer pochodzenia. Chociaż większość z tych nagłówków została pierwotnie zaprojektowana pod kątem buforowania adresów w przeglądarkach klientów, są one również używane przez wszystkie pośredniczące pamięci podręczne, takie jak sieci CDN. 
 
-Dwa nagłówki mogą służyć do definiowania Aktualności pamięci podręcznej: `Cache-Control` i `Expires` . `Cache-Control`jest bardziej aktualny i ma pierwszeństwo przed `Expires` (jeśli istnieją). Istnieją również dwa typy nagłówków używane do walidacji (nazywane walidatorami): `ETag` i `Last-Modified` . `ETag`jest bardziej aktualny i ma pierwszeństwo przed `Last-Modified` , jeśli oba są zdefiniowane.  
+Dwa nagłówki mogą służyć do definiowania Aktualności pamięci podręcznej: `Cache-Control` i `Expires` . `Cache-Control` jest bardziej aktualny i ma pierwszeństwo przed `Expires` (jeśli istnieją). Istnieją również dwa typy nagłówków używane do walidacji (nazywane walidatorami): `ETag` i `Last-Modified` . `ETag` jest bardziej aktualny i ma pierwszeństwo przed `Last-Modified` , jeśli oba są zdefiniowane.  
 
 ## <a name="cache-directive-headers"></a>Pamięć podręczna — nagłówki dyrektywy
 
@@ -90,7 +90,7 @@ Azure CDN obsługuje następujące nagłówki dyrektywy pamięci podręcznej HTT
    - Domyślnie nie są honorowane przez Azure CDN.
    - Starsza wersja nagłówka wprowadzona w protokole HTTP 1,0; obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami.
    - Używany jako nagłówek żądania klienta w następującej dyrektywie: `no-cache` . Ta dyrektywa nakazuje serwerowi dostarczenie nowej wersji zasobu.
-   - `Pragma: no-cache`jest odpowiednikiem `Cache-Control: no-cache` .
+   - `Pragma: no-cache` jest równoważne `Cache-Control: no-cache`.
 
 ## <a name="validators"></a>Modułów sprawdzania
 
@@ -98,7 +98,7 @@ Gdy pamięć podręczna jest nieodświeżona, moduły sprawdzania pamięci podr�
 
 **Element ETag**
 - **Azure CDN Standard/Premium z Verizon** obsługuje domyślnie `ETag` , natomiast **Azure CDN Standard od firmy Microsoft** i **Azure CDN Standard from Akamai** .
-- `ETag`definiuje ciąg, który jest unikatowy dla każdego pliku i wersji pliku. Na przykład `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
+- `ETag` definiuje ciąg, który jest unikatowy dla każdego pliku i wersji pliku. Na przykład `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Wprowadzone w protokole HTTP 1,1 i jest bardziej aktualne niż `Last-Modified` . Przydatne, gdy data ostatniej modyfikacji jest trudna do określenia.
 - Obsługuje zarówno silną weryfikację, jak i słabą weryfikację. jednak Azure CDN obsługuje tylko silną weryfikację. Aby zapewnić silną weryfikację, dwie reprezentacje zasobów muszą być identyczne bajtowo. 
 - Pamięć podręczna weryfikuje plik, który używa `ETag` przez wysłanie `If-None-Match` nagłówka z co najmniej jednym `ETag` modułem walidacji w żądaniu. Na przykład `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Jeśli wersja serwera jest zgodna z `ETag` walidacją na liście, wysyła kod stanu 304 (nie zmodyfikowano) w odpowiedzi. Jeśli wersja różni się, serwer odpowiada z kodem stanu 200 (OK) i zaktualizowanym zasobem.
@@ -126,7 +126,7 @@ W poniższej tabeli opisano domyślne zachowanie buforowania dla produktów Azur
 
 |    | Microsoft: ogólne dostarczanie w sieci Web | Verizon: ogólne dostarczanie w sieci Web | Verizon: DSA | Akamai: ogólne dostarczanie w sieci Web | Akamai: DSA | Akamai: pobieranie dużych plików | Akamai: ogólne lub VOD przesyłanie strumieniowe multimediów |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Pochodzenie honorowe**       | Tak    | Tak   | Nie   | Yes    | Nie   | Tak   | Tak    |
+| **Pochodzenie honorowe**       | Tak    | Tak   | Nie   | Tak    | Nie   | Tak   | Tak    |
 | **Czas trwania pamięci podręcznej usługi CDN** | 2 dni |7 dni | Brak | 7 dni | Brak | 1 dzień | 1 rok |
 
 **Pochodzenie**: określa, czy w odpowiedzi HTTP z serwera pochodzenia mają być uznawane obsługiwane nagłówki dyrektywy Cache-dyrektyw.

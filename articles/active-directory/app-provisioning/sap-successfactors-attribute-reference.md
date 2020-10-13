@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
 ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87808511"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Odwołanie do atrybutu SAP SuccessFactors
@@ -70,7 +70,7 @@ Zapoznaj się z informacjami dotyczącymi [integracji oprogramowania SAP Success
 | 32 | Użytkownik                                   | homePhone                    | Odczyt           |
 | 33 | Użytkownik                                   | jobFamily                    | Odczyt           |
 | 34 | Użytkownik                                   | pseudonim                     | Odczyt           |
-| 35 | Użytkownik                                   | state                        | Odczyt           |
+| 35 | Użytkownik                                   | stan                        | Odczyt           |
 | 36 | Użytkownik                                   | timeZone                     | Odczyt           |
 | 37 | Użytkownik                                   | nazwa użytkownika                     | Odczyt           |
 | 38 | Użytkownik                                   | Kod pocztowy                      | Odczyt           |
@@ -130,11 +130,11 @@ Poniższa tabela zawiera domyślne mapowanie atrybutów między SuccessFactorsmi
 | 6  | Użytkownik                                   | addressLine1             | streetAddress                           | Nie dotyczy                                                                                           |
 | 7  | Użytkownik                                   | city                     | l                                       | Nie dotyczy                                                                                           |
 | 8  | Użytkownik                                   | country                  | co                                      | Nie dotyczy                                                                                           |
-| 9  | Użytkownik                                   | state                    | st                                      | Nie dotyczy                                                                                           |
+| 9  | Użytkownik                                   | stan                    | st                                      | Nie dotyczy                                                                                           |
 | 10 | Użytkownik                                   | nazwa użytkownika                 | samAccountName                          | Nie dotyczy                                                                                           |
 | 11 | Użytkownik                                   | Kod pocztowy                  | Pocztowy                              | Nie dotyczy                                                                                           |
 | 12 | PerEmail                               | emailAddress             | mail (poczta)                                    | Nie dotyczy                                                                                           |
-| 13 | EmpJob                                 | Stanowiska                 | tytuł                                   | Nie dotyczy                                                                                           |
+| 13 | EmpJob                                 | Stanowiska                 | title                                   | Nie dotyczy                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | Nie dotyczy                                                                                           |
 | 15 | EmpJob \. firmy \. CountryOfRegistration | twoCharCountryCode       | c                                       | Nie dotyczy                                                                                           |
 | 16 | \.Dział EmpJob                     | działu,               | działu,                              | Nie dotyczy                                                                                           |

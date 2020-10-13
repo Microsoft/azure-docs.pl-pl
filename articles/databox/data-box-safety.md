@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564427"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Bezpieczne Instalowanie i obsługiwanie Azure Data Box

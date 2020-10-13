@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
 ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629594"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
@@ -69,11 +69,11 @@ Dostępne zasoby:
 | Maksymalna liczba procesów MPI procesora GPU na węzeł | 1-4 |
 | Maksymalna liczba procesów roboczych procesora GPU na węzeł | 1-4 |
 | Maksymalny okres istnienia zadania | 21 dni<sup>1</sup> |
-| Maksymalny okres istnienia zadania w węźle o niskim priorytecie | 7 dni<sup>2</sup> |
+| Maksymalny okres istnienia zadania w węźle Low-Priority | 7 dni<sup>2</sup> |
 | Maksymalna liczba serwerów parametrów na węzeł | 1 |
 
 <sup>1</sup> maksymalny okres istnienia odnosi się do czasu uruchomienia uruchomienia i po jego zakończeniu. Ukończone przebiegi są utrwalane w nieskończoność; dane dla przebiegów nieukończonych w maksymalnym okresie istnienia są niedostępne.
-<sup>2</sup> zadania w węźle o niskim priorytecie można przewyższyć w dowolnym momencie, gdy istnieje ograniczenie pojemności. Zalecamy zaimplementowanie tworzenia punktów kontrolnych w zadaniu.
+<sup>2</sup> zadania w węźle Low-Priority można zastąpić w dowolnym momencie, gdy istnieje ograniczenie pojemności. Zalecamy zaimplementowanie tworzenia punktów kontrolnych w zadaniu.
 
 ### <a name="azure-machine-learning-pipelines"></a>Potoki Azure Machine Learning
 W przypadku [potoków Azure Machine Learning](concept-ml-pipelines.md)obowiązuje limit przydziału liczby kroków w potoku oraz liczby uruchomień opublikowanych potoków dla regionu w ramach subskrypcji.

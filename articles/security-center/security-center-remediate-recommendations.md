@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89569139"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Rekomendacje dotyczące korygowania w usłudze Azure Security Center

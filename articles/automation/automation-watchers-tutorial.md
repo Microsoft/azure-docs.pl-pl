@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185657"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Śledzenie zaktualizowanych plików przy użyciu zadania obserwatora
@@ -64,7 +64,7 @@ Możesz również zaimportować ten element Runbook do konta usługi Automation 
 [Zmienna automatyzacji](./shared-resources/variables.md) służy do przechowywania sygnatur czasowych, które poprzedni element Runbook odczytuje i zapisuje z każdego pliku.
 
 1. Wybierz **zmienne** w obszarze **zasoby udostępnione** i kliknij pozycję **+ Dodaj zmienną**.
-1. Dla nazwy wprowadź wartość Watch-NewFileTimestamp.
+1. Wprowadź Watch-NewFileTimestamp dla nazwy.
 1. Dla tego typu wybierz pozycję Data i godzina.
 1. Kliknij przycisk **Utwórz** , aby utworzyć zmienną automatyzacji.
 

@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: ae49a59c2629d9f9461d298ada555d314c0c9f22
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256972"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opcje pomocy technicznej platformy Azure Service Fabric
@@ -20,7 +20,7 @@ Aby zapewnić odpowiednie wsparcie dla klastrów Service Fabric, na których jes
 
 W przypadku problemów z raportowaniem w klastrze Service Fabric wdrożonym na platformie Azure Otwórz bilet pomocy technicznej [w witrynie Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) lub [portalu pomocy technicznej firmy Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
  
 - [Pomoc techniczna firmy Microsoft dla platformy Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
@@ -36,7 +36,7 @@ Dowiedz się więcej:
 
 W przypadku problemów z raportowaniem w klastrze Service Fabric wdrożonym lokalnie lub w innych chmurach Otwórz bilet dla profesjonalnej pomocy technicznej w [portalu pomocy technicznej firmy Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 - [Profesjonalne wsparcie firmy Microsoft dla firm lokalnych](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).

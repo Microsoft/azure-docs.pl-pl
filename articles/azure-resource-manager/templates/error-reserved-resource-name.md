@@ -4,10 +4,10 @@ description: Opisuje sposób rozwiązywania błędów podczas podawania nazwy za
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.openlocfilehash: e76f4bf9bfee7de6e7523d69acf1388d2dd80e93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75477631"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>Rozwiązywanie błędów zarezerwowanych nazw zasobów

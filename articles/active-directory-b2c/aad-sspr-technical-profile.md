@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383601"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny usługi Azure AD SSPR w zasadach niestandardowych Azure AD B2C
@@ -103,7 +103,7 @@ Poniższy przykład przedstawia profil techniczny usługi Azure AD SSPR, który 
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Weryfikuj kod
+## <a name="verify-code"></a>Zweryfikuj kod
 
 Drugi tryb tego profilu technicznego polega na sprawdzeniu kodu. Dla tego trybu można skonfigurować następujące opcje.
 

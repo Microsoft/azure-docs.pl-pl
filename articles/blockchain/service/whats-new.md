@@ -4,16 +4,16 @@ description: Dowiedz się, co nowego w usłudze Azure łańcucha bloków Service
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921883"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948463"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Co nowego w usłudze Azure łańcucha bloków Service?
 
-> Otrzymuj powiadomienia o tym, kiedy ponownie odwiedzasz Tę stronę pod kątem aktualizacji, kopiując i wklejając ten adres URL: w przeglądarce kanału informacyjnego RSS `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` [ ![ ikona czytelnika](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us).
+> Otrzymuj powiadomienia o tym, kiedy ponownie odwiedzasz Tę stronę pod kątem aktualizacji, kopiując i wklejając ten adres URL: w przeglądarce kanału informacyjnego RSS `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` [ ![ ikona czytelnika](./media/whats-new/feed-icon-16x16.png)](/api/search/rss?locale=en-us&search=%2522Release%2bnotes%2b-%2bAzure%2bBlockchain%2bService%2522).
 
 Usługa Azure łańcucha bloków Service odbiera usprawnienia w sposób ciągły. Aby zachować aktualność w zakresie najnowszych zmian, ten artykuł zawiera informacje na temat:
 

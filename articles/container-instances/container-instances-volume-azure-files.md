@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
 ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259477"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Instalowanie udziału plików platformy Azure w usłudze Azure Container Instances
 
-Domyślnie usługa Azure Container Instances jest bezstanowa. Po awarii lub wyłączeniu kontenera cały jego stan zostanie utracony. Aby zachować stan również wtedy, należy zainstalować wolumin z magazynu zewnętrznego. Jak pokazano w tym artykule, Azure Container Instances może zainstalować udział plików platformy Azure utworzony przy użyciu [Azure Files](../storage/files/storage-files-introduction.md). Azure Files oferuje w pełni zarządzane udziały plików hostowane w usłudze Azure Storage, które są dostępne za pośrednictwem protokołu Server Message Block (SMB) w warstwie Standardowa. Korzystanie z udziału plików platformy Azure z Azure Container Instances zapewnia funkcje udostępniania plików podobne do korzystania z udziału plików platformy Azure z maszynami wirtualnymi platformy Azure.
+Domyślnie usługa Azure Container Instances jest bezstanowa. Jeśli kontener ulegnie awarii lub zostanie zatrzymany, cały jego stan zostanie utracony. Aby w takim przypadku go zachować, należy zainstalować wolumin z magazynu zewnętrznego. Jak pokazano w tym artykule, Azure Container Instances może zainstalować udział plików platformy Azure utworzony przy użyciu [Azure Files](../storage/files/storage-files-introduction.md). Azure Files oferuje w pełni zarządzane udziały plików hostowane w usłudze Azure Storage, które są dostępne za pośrednictwem protokołu Server Message Block (SMB) w warstwie Standardowa. Korzystanie z udziału plików platformy Azure z Azure Container Instances zapewnia funkcje udostępniania plików podobne do korzystania z udziału plików platformy Azure z maszynami wirtualnymi platformy Azure.
 
 > [!NOTE]
 > Instalowanie udziału Azure Files jest obecnie ograniczone do kontenerów systemu Linux. Znajdź bieżące różnice w platformie w [przeglądzie](container-instances-overview.md#linux-and-windows-containers).

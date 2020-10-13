@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: 09cd7428519cbf84c785efa16b61b9507a3c0b94
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940507"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Zarządzanie strefą nadmiarową wysoką dostępność w Azure Database for MySQL elastycznym serwerze (wersja zapoznawcza)

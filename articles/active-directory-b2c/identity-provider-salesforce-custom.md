@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 668bc645edd1be611fe71b8fc1fa81288572e843
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388072"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą dostawcy protokołu SAML usługi Salesforce przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
@@ -36,11 +36,11 @@ W tym artykule opisano sposób włączania logowania dla użytkowników z organi
 2. W menu po lewej stronie w obszarze **Ustawienia**rozwiń węzeł **tożsamość**, a następnie wybierz pozycję **dostawca tożsamości**.
 3. Wybierz pozycję **Włącz dostawcę tożsamości**.
 4. W obszarze **Wybierz certyfikat**wybierz certyfikat, który ma być używany przez usługi Salesforce do komunikowania się z Azure AD B2C. Możesz użyć domyślnego certyfikatu.
-5. Kliknij pozycję **Zapisz**.
+5. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Tworzenie aplikacji połączonej w usłudze Salesforce
 
-1. Na stronie **dostawca tożsamości** wybierz opcję **dostawcy usług są teraz tworzone przez połączone aplikacje. Kliknij tutaj.**
+1. Na stronie **dostawca tożsamości** wybierz opcję **dostawcy usług są teraz tworzone za pośrednictwem połączonych aplikacji. Kliknij tutaj.**
 2. W obszarze **podstawowe informacje**wprowadź wymagane wartości dla połączonej aplikacji.
 3. W obszarze **Ustawienia aplikacji sieci Web**zaznacz pole wyboru **Włącz protokół SAML** .
 4. W polu **Identyfikator jednostki** wprowadź następujący adres URL. Upewnij się, że zastąpisz wartość dla `your-tenant` nazwy Azure AD B2C dzierżawy.
@@ -97,7 +97,7 @@ Należy przechowywać certyfikat utworzony w dzierżawie Azure AD B2C.
 7. Wprowadź wartość **Nazwa** dla zasad. Na przykład SAMLSigningCert. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 8. Przejdź do i wybierz utworzony certyfikat B2CSigningCert. pfx.
 9. Wprowadź **hasło** dla certyfikatu.
-3. Kliknij pozycję **Utwórz**.
+3. Kliknij przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 

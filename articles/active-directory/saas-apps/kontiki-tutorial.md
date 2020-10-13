@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Samouczek: integracja Azure Active Directory z usługą Kontiki
@@ -95,7 +95,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
 
     ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** wybierz pozycję **Edytuj** (ikona ołówka), aby otworzyć okienko **podstawowe ustawienia protokołu SAML** .
 
     ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą
     > [!NOTE]
     > Skontaktuj się z [zespołem obsługi klienta Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) , aby uzyskać poprawną wartość do użycia. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok **metadanych Federacji XML**. Wybierz opcję pobierania w zależności od wymagań. Zapisz certyfikat na komputerze.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** obok pozycji **XML metadanych Federacji**. Wybierz opcję pobierania w zależności od wymagań. Zapisz certyfikat na komputerze.
 
     ![Opcja pobierania certyfikatu XML metadanych Federacji](common/metadataxml.png)
 
@@ -142,7 +142,7 @@ W tej sekcji utworzysz użytkownika testowego o nazwie Britta Simon w witrynie A
 
     1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość wyświetlaną w polu **hasło** .
 
-    1. Wybierz pozycję **Utwórz**.
+    1. Wybierz przycisk **Utwórz**.
 
     ![Okienko użytkownika](common/user-properties.png)
 

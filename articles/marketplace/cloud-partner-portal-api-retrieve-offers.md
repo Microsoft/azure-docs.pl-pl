@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271964"
 ---
 # <a name="retrieve-offers"></a>Pobieranie oferty
@@ -27,11 +27,11 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 
 | **Nazwa**         |  **Opis**                         |  **Typ danych** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identyfikator wydawcy, na przykład`contoso` |   String    |
-|  api-version     | Najnowsza wersja interfejsu API                    |    Data        |
+|  publisherId     | Identyfikator wydawcy, na przykład `contoso` |   Ciąg    |
+|  api-version     | Najnowsza wersja interfejsu API                    |    Date        |
 |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 
 |  **Nazwa**        |         **Wartość**       |
 |  --------------- |       ----------------  |
@@ -41,7 +41,7 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 
 ## <a name="body-example"></a>Przykład treści
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 ``` json
   200 OK 
@@ -68,7 +68,7 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  publisherId    | Identyfikator, który jednoznacznie identyfikuje wydawcę                                                                      |
 |  status         | Stan oferty. Aby uzyskać listę możliwych wartości, zobacz temat [status oferty](#offer-status) poniżej.                         |
 |  identyfikator             | Identyfikator GUID, który jednoznacznie identyfikuje ofertę w przestrzeni nazw wydawcy.                                                    |
-|  version        | Bieżąca wersja oferty. Nie można zmodyfikować właściwości Version przez klienta. Zwiększa się po każdej publikacji. |
+|  Wersja        | Bieżąca wersja oferty. Nie można zmodyfikować właściwości Version przez klienta. Zwiększa się po każdej publikacji. |
 |  definicja     | Zawiera sumaryczny widok rzeczywistej definicji obciążenia. Aby uzyskać szczegółową definicję, użyj interfejsu API [pobierania określonej oferty](./cloud-partner-portal-api-retrieve-specific-offer.md) . |
 |  changedTime    | Czas UTC ostatniej modyfikacji oferty                                                                              |
 |  |  |
@@ -77,10 +77,10 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 
 | **Kod**  |  **Opis**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`-Żądanie zostało pomyślnie przetworzone i wszystkie oferty w ramach wydawcy zostały zwrócone do klienta.  |
-|  400      | `Bad/Malformed request`-Treść odpowiedzi błędu może zawierać więcej informacji.                                    |
-|  403      | `Forbidden`-Klient nie ma dostępu do określonego obszaru nazw.                                          |
-|  404      | `Not found`-Określona jednostka nie istnieje.                                                                 |
+|  200      | `OK` -Żądanie zostało pomyślnie przetworzone i wszystkie oferty w ramach wydawcy zostały zwrócone do klienta.  |
+|  400      | `Bad/Malformed request` -Treść odpowiedzi błędu może zawierać więcej informacji.                                    |
+|  403      | `Forbidden` -Klient nie ma dostępu do określonego obszaru nazw.                                          |
+|  404      | `Not found` -Określona jednostka nie istnieje.                                                                 |
 |  |  |
 
 ### <a name="offer-status"></a>Stan oferty
@@ -90,8 +90,8 @@ Pobiera podsumowującą listę ofert w przestrzeni nazw wydawcy.
 |  NeverPublished              | Oferta nie została nigdy opublikowana.                  |
 |  NotStarted                  | Oferta jest nowa, ale nie została uruchomiona.                 |
 |  WaitingForPublisherReview   | Oferta oczekuje na zatwierdzenie przez wydawcę.         |
-|  Uruchomiono                     | Przesyłanie oferty jest przetwarzane.             |
-|  Powodzenie                   | Przesyłanie oferty zostało zakończone.       |
+|  Uruchomienie                     | Przesyłanie oferty jest przetwarzane.             |
+|  Sukces                   | Przesyłanie oferty zostało zakończone.       |
 |  Anulowane                    | Przesyłanie oferty zostało anulowane.                   |
 |  Niepowodzenie                      | Nie można przesłać oferty.                         |
 |  |  |

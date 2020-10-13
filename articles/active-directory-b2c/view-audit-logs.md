@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383941"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Uzyskiwanie dostępu do dzienników inspekcji Azure AD B2C
@@ -65,7 +65,7 @@ Panel szczegóły działania zawiera następujące informacje:
 
 Azure Portal zapewnia dostęp do zdarzeń dziennika inspekcji w dzierżawie Azure AD B2C.
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Przejdź do katalogu, który zawiera Azure AD B2C dzierżawy, a następnie przejdź do **Azure AD B2C**.
 1. W obszarze **działania** w menu po lewej stronie wybierz pozycję **dzienniki inspekcji**.
 

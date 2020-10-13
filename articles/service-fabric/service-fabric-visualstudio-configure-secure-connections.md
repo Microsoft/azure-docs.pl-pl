@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256097"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Konfigurowanie bezpiecznych połączeń z klastrem Service Fabric z programu Visual Studio
@@ -31,7 +31,7 @@ Okno dialogowe **publikowanie Service Fabric aplikacji** automatycznie weryfikuj
 
 ### <a name="to-connect-to-a-secure-cluster"></a>Aby nawiązać połączenie z bezpiecznym klastrem
 1. Upewnij się, że masz dostęp do jednego z certyfikatów klienta, z którymi ufa klaster docelowy. Certyfikat jest zazwyczaj udostępniany jako plik wymiany informacji osobistych (pfx). Zobacz [Konfigurowanie klastra Service Fabric z Azure Portal,](service-fabric-cluster-creation-via-portal.md) aby skonfigurować serwer w taki sposób, aby zezwalał na dostęp do klienta.
-2. Zainstaluj zaufany certyfikat. Aby to zrobić, kliknij dwukrotnie plik PFX lub Użyj skryptu programu PowerShell import-PfxCertificate w celu zaimportowania certyfikatów. Zainstaluj certyfikat do **certyfikatu: \ LocalMachine\My**. Po zaimportowaniu certyfikatu można zaakceptować wszystkie ustawienia domyślne.
+2. Zainstaluj zaufany certyfikat. Aby to zrobić, kliknij dwukrotnie plik PFX lub Użyj skryptu programu PowerShell Import-PfxCertificate, aby zaimportować certyfikaty. Zainstaluj certyfikat do **certyfikatu: \ LocalMachine\My**. Po zaimportowaniu certyfikatu można zaakceptować wszystkie ustawienia domyślne.
 3. Wybierz polecenie **Publikuj...** w menu skrótów projektu, aby otworzyć okno dialogowe **publikowanie aplikacji platformy Azure** , a następnie wybierz klaster docelowy. Narzędzie automatycznie rozwiązuje połączenie i zapisuje parametry bezpiecznego połączenia w profilu publikowania.
 4. Opcjonalne: można edytować profil publikowania, aby określić bezpieczne połączenie z klastrem.
    

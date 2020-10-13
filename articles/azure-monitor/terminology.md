@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86498614"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor nazewnictwo i terminologia
@@ -22,7 +22,7 @@ Wprowadzono znaczące zmiany Azure Monitor ostatnio z różnymi usługami, któr
 ## <a name="february-2019---log-analytics-terminology"></a>Luty 2019 — terminologia Log Analytics
 Po konsolidacji różnych usług w ramach Azure Monitor wykonujemy następny krok, modyfikując terminologię w naszej dokumentacji, aby lepiej opisać usługę Azure Monitor i jej różne składniki. 
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics"></a>Usługa Log Analytics
 Azure Monitor dane dziennika są nadal przechowywane w Log Analytics obszarze roboczym i są nadal zbierane i analizowane przez tę samą usługę Log Analytics, ale zmieniamy termin _log Analytics_ w wielu miejscach na _Azure monitor dzienniki_. Ten termin lepiej odzwierciedla swoją rolę w Azure Monitor i zapewnia lepszą spójność przy użyciu [metryk w Azure monitor](platform/data-platform-metrics.md).
 
 Termin usługi _log Analytics_ dotyczy teraz głównie strony w Azure Portal używanej do zapisywania i uruchamiania zapytań oraz analizowania danych dziennika. Jest to funkcjonalny odpowiednik [Eksploratora metryk](platform/metrics-charts.md), który jest stroną w Azure Portal używany do analizowania danych metryk.
@@ -48,7 +48,7 @@ Pakiet Operations Management Suite (OMS) to zbiór następujących usług zarzą
 - Application Insights
 - Azure Automation
 - Azure Backup
-- Log Analytics
+- Usługa Log Analytics
 - Site Recovery
 
 [Dla tych usług wprowadzono nowe ceny](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), a pakiet OMS nie jest już dostępny dla nowych klientów. Żadna z usług, które były częścią pakietu OMS, nie zmieniła się, z wyjątkiem konsolidacji do Azure Monitor opisanej powyżej. 

@@ -7,10 +7,10 @@ ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186660"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w Azure Automation
@@ -31,9 +31,9 @@ Podczas tworzenia połączenia należy określić typ połączenia. Typ połącz
 
 Azure Automation udostępnia następujące wbudowane typy połączeń:
 
-* `Azure`-Reprezentuje połączenie używane do zarządzania klasycznymi zasobami.
-* `AzureServicePrincipal`-Reprezentuje połączenie używane przez konto Uruchom jako platformy Azure.
-* `AzureClassicCertificate`-Reprezentuje połączenie używane przez klasyczne konto Uruchom jako platformy Azure.
+* `Azure` -Reprezentuje połączenie używane do zarządzania klasycznymi zasobami.
+* `AzureServicePrincipal` -Reprezentuje połączenie używane przez konto Uruchom jako platformy Azure.
+* `AzureClassicCertificate` -Reprezentuje połączenie używane przez klasyczne konto Uruchom jako platformy Azure.
 
 W większości przypadków nie trzeba tworzyć zasobu połączenia, ponieważ jest on tworzony podczas tworzenia [konta Uruchom jako](manage-runas-account.md).
 

@@ -12,10 +12,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629373"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Zabezpieczanie bazy danych w usłudze Azure Synapse
@@ -41,7 +41,7 @@ Usługa Azure Synapse Analytics używa reguł zapory adresów IP na poziomie ser
 
 Połączenia z pulą SQL są domyślnie szyfrowane.  Modyfikowanie ustawień połączenia w celu wyłączenia szyfrowania jest ignorowane.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie to sposób potwierdzenia tożsamości podczas nawiązywania połączenia z bazą danych. Pula SQL obecnie obsługuje uwierzytelnianie SQL Server przy użyciu nazwy użytkownika i hasła oraz z Azure Active Directory.
 

@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: 95d97605f00a3a80c097eb16695c9d296e17c33d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87825246"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows w strefie dostępności przy użyciu programu PowerShell
@@ -23,7 +23,7 @@ Aby użyć strefy dostępność, utwórz maszynę wirtualną w [obsługiwanym re
 
  
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do subskrypcji platformy Azure za pomocą polecenia `Connect-AzAccount` i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 

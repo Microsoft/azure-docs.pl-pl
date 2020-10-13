@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259968"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -131,7 +131,7 @@ Pobierz manifest klastra Service Fabric. Manifest klastra zawiera właściwości
 ## <a name="sfctl-cluster-operation-cancel"></a>Operacja klastra sfctl — anulowanie
 Anuluje operację niepowodzeniem wywoływaną przez użytkownika.
 
-Następujące interfejsy API uruchamiają operacje błędów, które mogą zostać anulowane przy użyciu CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Jeśli Force ma wartość false, określona operacja wywołana przez użytkownika zostanie bezpiecznie zatrzymana i wyczyszczona.  Jeśli Force ma wartość true, polecenie zostanie przerwane i niektóre Stany wewnętrzne mogą pozostać poza.  Określenie siły jako prawdziwej powinno być używane z opieką. Wywołanie tego interfejsu API z opcją Force ustawioną na wartość true jest niedozwolone, dopóki ten interfejs API nie został już wywołany w tym samym poleceniu testowym z opcją Force o wartości false, lub jeśli polecenie testowe ma już OperationState OperationState. RollingBack. Wyjaśnienie \: OperationState. RollingBack oznacza, że system będzie/oczyszcza wewnętrzny stan systemu spowodowany przez wykonanie polecenia.  Dane nie zostaną przywrócone, jeśli polecenie testowe powodowało utratę danych.  Na przykład jeśli wywołasz StartDataLoss, wywołaj ten interfejs API, system wyczyści stan wewnętrzny tylko z uruchomienia polecenia. Nie spowoduje to przywrócenia danych partycji docelowej, jeśli polecenie postępuje zbyt długo, aby spowodować utratę danych. Ważna Uwaga \: Jeśli ten interfejs API jest wywoływany przy użyciu siły = = true, stan wewnętrzny może pozostać poza.
+Następujące interfejsy API uruchamiają operacje błędów, które mogą zostać anulowane przy użyciu CancelOperation \: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Jeśli Force ma wartość false, określona operacja wywołana przez użytkownika zostanie bezpiecznie zatrzymana i wyczyszczona.  Jeśli Force ma wartość true, polecenie zostanie przerwane i niektóre Stany wewnętrzne mogą pozostać poza.  Określenie siły jako prawdziwej powinno być używane z opieką. Wywołanie tego interfejsu API z opcją Force ustawioną na wartość true jest niedozwolone, dopóki ten interfejs API nie został już wywołany w tym samym poleceniu testowym z opcją Force o wartości false, lub jeśli polecenie testowe ma już OperationState OperationState. RollingBack. Wyjaśnienie \: OperationState. RollingBack oznacza, że system będzie/oczyszcza wewnętrzny stan systemu spowodowany przez wykonanie polecenia.  Dane nie zostaną przywrócone, jeśli polecenie testowe powodowało utratę danych.  Na przykład jeśli wywołasz StartDataLoss, wywołaj ten interfejs API, system wyczyści stan wewnętrzny tylko z uruchomienia polecenia. Nie spowoduje to przywrócenia danych partycji docelowej, jeśli polecenie postępuje zbyt długo, aby spowodować utratę danych. Ważna Uwaga \:  Jeśli ten interfejs API jest wywoływany przy użyciu siły = = true, stan wewnętrzny może pozostać poza.
 
 ### <a name="arguments"></a>Argumenty
 

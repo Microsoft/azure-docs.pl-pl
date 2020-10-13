@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186745"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Utwórz niestandardową sondę dla Application Gateway platformy Azure przy użyciu programu PowerShell dla Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 

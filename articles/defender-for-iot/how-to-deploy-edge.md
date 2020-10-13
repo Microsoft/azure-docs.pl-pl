@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938351"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Wdrażanie modułu zabezpieczeń na urządzeniu IoT Edge
@@ -141,7 +141,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
 
 1. Wybierz pozycję **Zapisz**.
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 #### <a name="step-3-specify-routes"></a>Krok 3. Określanie tras
 
@@ -157,7 +157,7 @@ Wykonaj każdy krok, aby ukończyć wdrażanie IoT Edge dla usługi Defender for
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
     ```
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 #### <a name="step-4-review-deployment"></a>Krok 4. przegląd wdrożenia
 

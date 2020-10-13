@@ -17,10 +17,10 @@ ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.custom: devx-track-java
 ms.openlocfilehash: 9ff006b74b6202b02a2767aee4d853b1206ce60d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87304483"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Jak wysyłać wiadomości E-mail przy użyciu programu SendGrid z języka Java
@@ -202,9 +202,9 @@ Usługa SendGrid oferuje interfejsy API oparte na sieci Web, których można uż
 Teraz, gdy znasz już podstawy usługi poczty E-mail SendGrid, Skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
 * Przykład demonstrujący korzystanie z SendGrid w ramach wdrożenia platformy Azure: [jak wysyłać wiadomości e-mail przy użyciu SendGrid z języka Java w ramach wdrożenia platformy Azure](store-sendgrid-java-how-to-send-email-example.md)
-* SendGrid Java SDK:<https://sendgrid.com/docs/Code_Examples/java.html>
-* Dokumentacja interfejsu API SendGrid:<https://sendgrid.com/docs/API_Reference/index.html>
-* Oferta Specjalna SendGrid dla klientów platformy Azure:<https://sendgrid.com/windowsazure.html>
+* SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
+* Dokumentacja interfejsu API SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
+* Oferta Specjalna SendGrid dla klientów platformy Azure: <https://sendgrid.com/windowsazure.html>
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html

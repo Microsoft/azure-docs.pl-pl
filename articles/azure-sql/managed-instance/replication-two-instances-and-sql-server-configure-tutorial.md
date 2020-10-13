@@ -11,10 +11,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
 ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283194"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
@@ -146,7 +146,7 @@ Prywatna strefa DNS umożliwia routing DNS między wystąpieniami zarządzanymi 
 
 ### <a name="create-a-private-dns-zone"></a>Tworzenie prywatnej strefy DNS
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **Utwórz zasób** , aby utworzyć nowy zasób platformy Azure.
 1. Wyszukaj `private dns zone` w witrynie Azure Marketplace.
 1. Wybierz zasób **strefy prywatna strefa DNS** Opublikowany przez firmę Microsoft, a następnie wybierz pozycję **Utwórz** , aby utworzyć strefę DNS.

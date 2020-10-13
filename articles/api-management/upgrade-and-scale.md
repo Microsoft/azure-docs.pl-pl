@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205768"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uaktualnianie i skalowanie wystąpienia usługi Azure API Management  
@@ -33,7 +33,7 @@ Cena każdej jednostki i dostępnych funkcji (na przykład wdrożenie z wielu re
 
 Aby wykonać kroki opisane w tym artykule, musisz:
 
-+ Mieć aktywną subskrypcję platformy Azure.
++ Aktywna subskrypcja platformy Azure.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Aby wykonać kroki opisane w tym artykule, musisz:
 
 ## <a name="upgrade-and-scale"></a>Uaktualnianie i skalowanie  
 
-Można wybrać jedną z czterech warstw: **Developer**, **Basic**, **Standard**i **Premium**. Aby oszacować usługę, należy użyć warstwy **dewelopera** . nie powinna być używana w środowisku produkcyjnym. Warstwa **dewelopera** nie ma umowy SLA i nie można skalować tej warstwy (Dodaj/Usuń jednostki). 
+Można wybrać jedną z czterech warstw: **Developer**, **Basic**,  **Standard**i **Premium**. Aby oszacować usługę, należy użyć warstwy **dewelopera** . nie powinna być używana w środowisku produkcyjnym. Warstwa **dewelopera** nie ma umowy SLA i nie można skalować tej warstwy (Dodaj/Usuń jednostki). 
 
 **Podstawowa**, **standardowa**i **Premium** to warstwy produkcyjne, które mają umowę SLA i mogą być skalowane. Warstwa **podstawowa** to najtańsza warstwa z umową SLA i można ją skalować do dwóch jednostek. Warstwa **standardowa** może być skalowana do maksymalnie czterech jednostek. Możesz dodać dowolną liczbę jednostek do warstwy **Premium** .
 
@@ -74,7 +74,7 @@ Możesz uaktualnić i obniżyć wersję do i z dowolnej warstwy. Uaktualnianie l
 1. Przejdź do usługi API Management w [Azure Portal](https://portal.azure.com/).
 2. Kliknij **warstwę cenową** w menu.
 3. Wybierz żądaną warstwę usług z listy rozwijanej. Użyj suwaka, aby określić skalę usługi API Management po zmianie.
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Przestoje podczas skalowania w górę i w dół
 W przypadku skalowania z lub do warstwy dewelopera wygaśnie Przestój. W przeciwnym razie nie ma przestojów. 

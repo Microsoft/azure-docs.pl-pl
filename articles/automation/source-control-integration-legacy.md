@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187340"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Używanie integracji kontroli źródła w programie Azure Automation — Starsza wersja
@@ -63,7 +63,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
      | **Parametr** | **Wartość** |
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
-     | `Type`  |String |
+     | `Type`  |Ciąg |
      | `Value` |{"Branch": \<*Your branch name*> , "RunbookFolderPath": \<*Runbook folder path*> , "ProviderType": \<*has a value 1 for GitHub*> , "Repository": \<*Name of your repository*> , "username": \<*Your GitHub user name*> } |
 
    * Zmienna **Microsoft. Azure. Automation. SourceControl. OAuthToken**zawiera bezpieczną zaszyfrowaną wartość OAuthToken.  
@@ -115,7 +115,7 @@ Przycisk Synchronizuj na stronie synchronizacja repozytorium umożliwia ściąga
 
     ![Przycisk Synchronizuj z komunikatem potwierdzającym, że wszystkie elementy Runbook zostaną zsynchronizowane](media/source-control-integration-legacy/automation-SyncButtonwithMessage.png)
 
-2. Synchronizacja uruchamia element Runbook **Sync-MicrosoftAzureAutomationAccountFromGitHubV1** , który łączy się z usługą GitHub i pobiera zmiany z repozytorium do Azure Automation. Ta akcja powinna zostać wyświetlona na stronie synchronizacji repozytorium. Aby wyświetlić szczegółowe informacje o zadaniu synchronizacji, kliknij, aby otworzyć stronę szczegóły zadania.  
+2. Synchronizacja uruchamia element Runbook  **Sync-MicrosoftAzureAutomationAccountFromGitHubV1** , który łączy się z usługą GitHub i pobiera zmiany z repozytorium do Azure Automation. Ta akcja powinna zostać wyświetlona na stronie synchronizacji repozytorium. Aby wyświetlić szczegółowe informacje o zadaniu synchronizacji, kliknij, aby otworzyć stronę szczegóły zadania.  
 
     ![Okno przedstawiające wyniki synchronizacji zadania synchronizacji w repozytorium GitHub](media/source-control-integration-legacy/automation-SyncRunbook.png)
 

@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na I
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567558"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
@@ -21,7 +21,7 @@ Dowiesz się również, jak można kontrolować dzienniki generowane przez modu�
 Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane telemetryczne zgodnie z następującą taksonomią.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taksonomia zdarzeń":::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taksonomia zdarzeń&quot;:::
 
 * Działa: zdarzenia generowane jako część akcji wykonywanych przez użytkownika lub podczas wykonywania [grafu multimedialnego](media-graph-concept.md).
    
@@ -32,16 +32,16 @@ Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane te
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -264,7 +264,7 @@ Powyżej umożliwia modułowi Edge zapisywanie dzienników na ścieżce magazynu
 
 Następnie moduł zapisze Dzienniki debugowania w formacie binarnym na ścieżce magazynu (na urządzeniu)/var/Local/MediaServices/debuglogs/, którą można udostępnić z pomocą techniczną platformy Azure.
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 [Często zadawane pytania](faq.md#monitoring-and-metrics)
 

@@ -14,16 +14,16 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: f4dcec5e58cb10850e22d3006b0ecd41f6d013fd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86202270"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Wszystkie tematy dotyczące usługi SQL Server Stretch Database platformy Azure
 Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośrednio do usługi **SQL Server stretch Database** platformy Azure. Możesz przeszukać Tę stronę sieci Web pod kątem słów kluczowych przy użyciu **kombinacji klawiszy Ctrl + F**, aby znaleźć tematy bieżącego zainteresowania.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 | Tytuł | Opis |
 |:--- |:--- |
 |[Identyfikowanie baz danych i tabel dla Stretch Database przez uruchomienie usługi Stretch Database Advisor](sql-server-stretch-database-identify-databases.md) |Dowiedz się, jak identyfikować bazy danych i tabele, które są kandydatami do Stretch Database. |
@@ -31,7 +31,7 @@ Ten temat zawiera listę wszystkich tematów, które mają zastosowanie bezpośr
 |[Przegląd Stretch Database](sql-server-stretch-database-overview.md) |Dowiedz się, jak w sposób niewidoczny i bezpieczny usługa Stretch Database migruje zimne dane do chmury platformy Microsoft Azure. |
 |[Rozpoczynanie pracy przez uruchomienie kreatora włączania bazy danych Stretch](sql-server-stretch-database-wizard.md) |Dowiedz się, jak skonfigurować bazę danych dla bazy danych Stretch przy użyciu kreatora włączania bazy danych Stretch. |
 
-## <a name="enable"></a>Włączanie
+## <a name="enable"></a>Włącz
 | Tytuł | Opis |
 |:--- |:--- |
 |[Włączanie bazy danych Stretch dla bazy danych](sql-server-stretch-database-enable-database.md) |Dowiedz się, jak skonfigurować bazę danych dla Stretch Database. |

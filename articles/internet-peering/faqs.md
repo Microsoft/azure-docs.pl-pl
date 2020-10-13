@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775500"
 ---
 # <a name="internet-peering---faqs"></a>Internet Komunikacja równorzędna — często zadawane pytania
@@ -27,10 +27,10 @@ Usługa komunikacji równorzędnej to usługa, która zamierza zapewnić firmie 
 
 Połączenie komunikacji równorzędnej skonfigurowane przy użyciu Azure PowerShell jest zarządzane jako zasób platformy Azure. Połączenia komunikacji równorzędnej skonfigurowane w przeszłości są przechowywane w naszym systemie jako Starsza Komunikacja równorzędna, którą można skonwertować do zarządzania jako zasób platformy Azure.
 
-**Kiedy wywoływana jest funkcja New-AzPeeringDirectConnectionObject, jakie adresy IP są przyznawane urządzeniom firmy Microsoft i równorzędnym?**
+**Kiedy New-AzPeeringDirectConnectionObject jest wywoływana, jakie adresy IP są przyznawane urządzeniom firmy Microsoft i równorzędnym?**
 
-Podczas wywoływania polecenia cmdlet New-AzPeeringDirectConnectionObject jest wprowadzony adres/31 (a. b. c. d/31) lub w/30 (a. b. c. d/30). Pierwszy adres IP (a. b. c. d + 0) jest przyznany do urządzenia równorzędnego i drugiego adresu IP (a. b. c. d + 1).
+Podczas wywoływania polecenia cmdlet New-AzPeeringDirectConnectionObject jest wprowadzony adres/31 (a. b. c. d/31) lub adres/30 (a. b. c. d/30). Pierwszy adres IP (a. b. c. d + 0) jest przyznany do urządzenia równorzędnego i drugiego adresu IP (a. b. c. d + 1).
 
-**Co to są parametry MaxPrefixesAdvertisedIPv4 i MaxPrefixesAdvertisedIPv6 w polecenia cmdlet New-AzPeeringDirectConnectionObject?**
+**Co to są parametry MaxPrefixesAdvertisedIPv4 i MaxPrefixesAdvertisedIPv6 w New-AzPeeringDirectConnectionObject polecenie cmdlet?**
 
 Parametry MaxPrefixesAdvertisedIPv4 i MaxPrefixesAdvertisedIPv6 przedstawiają maksymalną liczbę prefiksów IPv4 i IPv6, które firma Microsoft chce zaakceptować. Te parametry można modyfikować w dowolnym momencie.

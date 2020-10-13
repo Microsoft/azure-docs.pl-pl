@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836738"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Dowiedz się więcej o różnicach między Cloud Services i Service Fabric przed migracją aplikacji.
@@ -91,7 +91,7 @@ Ten sam model komunikacji może być używany w Service Fabric. Może to być pr
 | RoleInstance. GetUpgradeDomain | FabricClient. Querymanager. GetNodeList | Filtrowanie w węźle nodename i używanie właściwości upgrade |
 | RoleInstance. GetInstanceEndpoints | FabricRuntime. GetActivationContext lub nazwa (ResolveService) | CodePackageActivationContext, który jest dostarczany zarówno przez FabricRuntime. GetActivationContext, jak i w replikach za pośrednictwem ServiceInitializationParameters. CodePackageActivationContext. Inicjacj |
 | RoleEnvironment. GetRoles | FabricClient. Querymanager. GetNodeList | Jeśli chcesz wykonać te same operacje filtrowania według typu, możesz uzyskać listę typów węzłów z manifestu klastra za pomocą FabricClient. Clustermanager. GetClusterManifest i pobrać z niego typy ról/węzłów. |
-| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster lub Create a FabricRuntime do określonego węzła | * |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster lub Utwórz element FabricRuntime, który wskazywał określony węzeł | * |
 | RoleEnvironment.GetLocalResource | CodePackageActivationContext. log/temp/Work | * |
 | RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext. log/temp/Work | * |
 | LocalResource.GetRootPath | CodePackageActivationContext. log/temp/Work | * |

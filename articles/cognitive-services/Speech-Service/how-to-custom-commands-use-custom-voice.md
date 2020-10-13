@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: sausin
 ms.openlocfilehash: b1e488653f210089ee5ed6757fb2f3d1e4fb0fe4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294301"
 ---
 # <a name="use-custom-commands-with-custom-voice"></a>Używanie poleceń niestandardowych z głosem niestandardowym
