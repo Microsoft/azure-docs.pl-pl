@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961979"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997028"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -31,7 +31,7 @@ Połączona z nim oferuje:
 
 * **Dostosowywalne** miejsce, w którym można zmienić metryki, które mają być wyświetlane, zmodyfikować lub ustawić progi, które są wyrównane wraz z limitami, i zapisać jako własny skoroszyt. Wykresy w skoroszycie można przypinać do pulpitu nawigacyjnego platformy Azure.  
 
-Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych informacji. metryki magazynu z kont magazynu są domyślnie zbierane. Jeśli nie znasz metryk dostępnych w usłudze Azure Storage, zobacz opis i definicję w obszarze metryki usługi Azure Storage, przeglądając [metryki usługi Azure Storage](../../storage/common/monitor-storage.md).
+Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych informacji. metryki magazynu z kont magazynu są domyślnie zbierane. Jeśli nie znasz metryk dostępnych w usłudze Azure Storage, zobacz opis i definicję w obszarze metryki usługi Azure Storage, przeglądając [metryki usługi Azure Storage](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >Dostęp do tej funkcji nie jest naliczany, a opłaty są naliczane tylko za Azure Monitor podstawowe funkcje, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegóły cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
@@ -67,7 +67,7 @@ Kafelek licznika pod listą rozwijaną podsumowuje łączną liczbę kont magazy
 Wybierz wartość w polu **dostępność**kolumn, **opóźnienie E2E**, **opóźnienie serwera**i **Typ błędu transakcji/błędy** kierujesz raport dostosowany do określonego typu metryk magazynu, które pasują do kolumny wybranej dla tego konta magazynu. Aby uzyskać więcej informacji na temat skoroszytów dla każdej kategorii, zobacz sekcję [szczegółowy skoroszyty magazynu](#detailed-storage-workbooks) poniżej. 
 
 >[!NOTE]
->Aby uzyskać szczegółowe informacje o błędach, które mogą być wyświetlane w raporcie, zobacz [schemat typu odpowiedzi](../../storage/common/monitor-storage-reference.md#metrics-dimensions) i Wyszukaj typy odpowiedzi, takie jak **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. W zależności od wybranych kont magazynu, jeśli zgłoszono więcej niż trzy typy błędów, wszystkie inne błędy są reprezentowane w kategorii **innych**.
+>Aby uzyskać szczegółowe informacje o błędach, które mogą być wyświetlane w raporcie, zobacz [schemat typu odpowiedzi](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) i Wyszukaj typy odpowiedzi, takie jak **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. W zależności od wybranych kont magazynu, jeśli zgłoszono więcej niż trzy typy błędów, wszystkie inne błędy są reprezentowane w kategorii **innych**.
 
 Domyślny próg **dostępności** :
 
@@ -274,4 +274,3 @@ Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany.
 * Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).
 
 * Aby uzyskać szczegółowy przewodnik dotyczący używania analityka magazynu i innych narzędzi do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
-

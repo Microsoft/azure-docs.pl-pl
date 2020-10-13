@@ -3,12 +3,12 @@ title: Rejestrowanie alertów z Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób tworzenia niestandardowych alertów dziennika dla pamięci i wykorzystania procesora CPU z Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294550"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995267"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Jak utworzyć alerty dzienników z Azure Monitor dla kontenerów
 
@@ -307,4 +307,4 @@ Ta sekcja zawiera szczegółowe instrukcje dotyczące tworzenia reguły alertu p
 
 - Wyświetl [przykłady zapytań dotyczących dzienników](container-insights-log-search.md#search-logs-to-analyze-data) , aby zobaczyć wstępnie zdefiniowane zapytania i przykłady do oszacowania lub dostosowania do tworzenia alertów, wizualizacji lub analizowania klastrów.
 
-- Aby dowiedzieć się więcej na temat Azure Monitor i sposobu monitorowania innych aspektów klastra Kubernetes, zobacz [Wyświetlanie Kubernetes klastra Performance](container-insights-analyze.md) and [View Kubernetes Cluster Health](container-insights-health.md).
+- Aby dowiedzieć się więcej na temat Azure Monitor i sposobu monitorowania innych aspektów klastra Kubernetes, zobacz [Wyświetlanie Kubernetes klastra Performance](container-insights-analyze.md) and [View Kubernetes Cluster Health](./container-insights-overview.md).

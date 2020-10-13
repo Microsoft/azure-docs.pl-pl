@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951689"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995342"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -129,12 +129,12 @@ Następujący szablon działania kopiowania zawiera pełną listę obsługiwanyc
 
 | Właściwość | Opis | Wymagane? |
 |:--- |:--- |:--- |
-| typ | Dla działania kopiowania ustaw wartość na `Copy` | Tak |
-| danych wejściowych | Określ utworzony zestaw danych, który wskazuje na dane źródłowe. Działanie kopiowania obsługuje tylko pojedyncze dane wejściowe. | Tak |
-| wydajności | Określ utworzony zestaw danych, który wskazuje na dane ujścia. Działanie kopiowania obsługuje tylko pojedyncze dane wyjściowe. | Tak |
-| typeProperties | Określ właściwości, aby skonfigurować działanie kopiowania. | Tak |
-| source | Określ typ źródła kopiowania i odpowiednie właściwości do pobierania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Tak |
-| fotografii | Określ typ ujścia kopiowania i odpowiadające im właściwości zapisywania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Tak |
+| typ | Dla działania kopiowania ustaw wartość na `Copy` | Yes |
+| danych wejściowych | Określ utworzony zestaw danych, który wskazuje na dane źródłowe. Działanie kopiowania obsługuje tylko pojedyncze dane wejściowe. | Yes |
+| wydajności | Określ utworzony zestaw danych, który wskazuje na dane ujścia. Działanie kopiowania obsługuje tylko pojedyncze dane wyjściowe. | Yes |
+| typeProperties | Określ właściwości, aby skonfigurować działanie kopiowania. | Yes |
+| source | Określ typ źródła kopiowania i odpowiednie właściwości do pobierania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Yes |
+| fotografii | Określ typ ujścia kopiowania i odpowiadające im właściwości zapisywania danych.<br/>Aby uzyskać więcej informacji, zobacz sekcję "właściwości działania kopiowania" w artykule łącznika wymienionym w temacie [obsługiwane magazyny i formaty danych](#supported-data-stores-and-formats). | Yes |
 | tłumacz | Określ jawne mapowania kolumn ze źródła do ujścia. Ta właściwość ma zastosowanie, gdy domyślne zachowanie kopiowania nie spełnia Twoich potrzeb.<br/>Aby uzyskać więcej informacji, zobacz [Mapowanie schematu w działaniu kopiowania](copy-activity-schema-and-type-mapping.md). | Nie |
 | dataIntegrationUnits | Określ miarę, która przedstawia ilość mocy używanej przez [środowisko Azure Integration Runtime](concepts-integration-runtime.md) do kopiowania danych. Te jednostki były wcześniej znane jako jednostki przenoszenia danych w chmurze (DMU). <br/>Aby uzyskać więcej informacji, zobacz [jednostki integracji danych](copy-activity-performance-features.md#data-integration-units). | Nie |
 | parallelCopies | Określ równoległość, która ma być używana przez działanie kopiowania podczas odczytywania danych ze źródła i zapisywania danych do ujścia.<br/>Aby uzyskać więcej informacji, zobacz [Kopiowanie równoległe](copy-activity-performance-features.md#parallel-copy). | Nie |
@@ -201,7 +201,7 @@ Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źr
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`** -Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **$ $Column: <source_column_name>** — wzorzec zmiennej zastrzeżonej wskazuje na duplikowanie określonej kolumny źródłowej jako innej kolumny<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
+| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`** -Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **`$$COLUMN:<source_column_name>`** -wzór zmiennej zastrzeżonej wskazuje na duplikowanie określonej kolumny źródłowej jako innej kolumny<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
 
 **Przykład:**
 

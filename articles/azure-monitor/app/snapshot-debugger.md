@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: ab142b4e0a2d5486727ffc71fc94ae4944513052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935810"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996521"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
 Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](./app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](./asp-net-exceptions.md) w portalu Application Insights.
 
-Migawki debugowania można wyświetlić w portalu, aby zobaczyć stos wywołań i sprawdzić zmienne w każdej ramce tego stosu. Aby uzyskać bardziej zaawansowane środowisko debugowania z kodem źródłowym, Otwórz migawki w programie Visual Studio 2019 Enterprise. W programie Visual Studio można także [ustawić punkty przyciągania, aby interaktywnie podejmować migawki](https://aka.ms/snappoint) bez oczekiwania na wyjątek.
+Migawki debugowania można wyświetlić w portalu, aby zobaczyć stos wywołań i sprawdzić zmienne w każdej ramce tego stosu. Aby uzyskać bardziej zaawansowane środowisko debugowania z kodem źródłowym, Otwórz migawki w programie Visual Studio 2019 Enterprise. W programie Visual Studio można także [ustawić punkty przyciągania, aby interaktywnie podejmować migawki](/visualstudio/debugger/debug-live-azure-applications) bez oczekiwania na wyjątek.
 
 Migawki debugowania są przechowywane przez 15 dni. Te zasady przechowywania są ustawiane dla poszczególnych aplikacji. Jeśli musisz zwiększyć tę wartość, możesz poprosić o zwiększenie, otwierając przypadek pomocy technicznej w Azure Portal.
 
@@ -142,4 +142,3 @@ Poza Application Insights Snapshot Debugger:
 * [Ustaw punkty przyciągania w kodzie](/visualstudio/debugger/debug-live-azure-applications) , aby uzyskać migawki bez oczekiwania na wyjątek.
 * [Diagnozuj wyjątki w aplikacjach sieci Web](./asp-net-exceptions.md) wyjaśnia, jak zwiększyć liczbę wyjątków widocznych dla Application Insights.
 * [Inteligentne wykrywanie](./proactive-diagnostics.md) automatycznie wykrywa anomalie wydajności.
-

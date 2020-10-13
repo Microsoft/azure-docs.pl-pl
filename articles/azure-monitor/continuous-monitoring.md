@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318134"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996395"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Ciągłe monitorowanie za pomocą Azure Monitor
 
@@ -43,7 +43,7 @@ Aplikacje są tak niezawodne, jak ich podstawowa infrastruktura. Monitorowanie w
 
 [Infrastruktura jako kod](/azure/devops/learn/what-is-infrastructure-as-code) to zarządzanie infrastrukturą w modelu opisowym przy użyciu tej samej wersji, której zespoły DevOps używają do kodu źródłowego. Zwiększa niezawodność i skalowalność środowiska oraz pozwala korzystać z podobnych procesów, które są używane do zarządzania aplikacjami.
 
--  Użyj [szablonów Menedżer zasobów](platform/template-workspace-configuration.md) , aby włączyć monitorowanie i skonfigurować alerty w ramach dużego zestawu zasobów.
+-  Użyj [szablonów Menedżer zasobów](./samples/resource-manager-workspace.md) , aby włączyć monitorowanie i skonfigurować alerty w ramach dużego zestawu zasobów.
 - Użyj [Azure Policy](../governance/policy/overview.md) , aby wymusić różne reguły dla zasobów. Gwarantuje to, że te zasoby pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług. 
 
 
@@ -87,4 +87,3 @@ Upewnienie się, że Twoje programowanie i operacje mają dostęp do tych samych
 
 - Dowiedz się więcej o składnikach różnic [Azure monitor](overview.md).
 - [Dodawanie ciągłego monitorowania](./app/continuous-monitoring.md) do potoku wydania.
-

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 75f68a4de2db0c4c9102a58da12d80cc273a6e80
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931176"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996883"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Automatyczna rejestracja przy użyciu dostawcy zasobów maszyny wirtualnej SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -77,6 +77,25 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 ---
 
+## <a name="enable-for-multiple-subscriptions"></a>Włącz dla wielu subskrypcji
+
+Funkcję automatycznej rejestracji można włączyć dla wielu subskrypcji platformy Azure za pomocą programu PowerShell. 
+
+W tym celu wykonaj następujące czynności:
+
+1. Zapisz [ten skrypt](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) do `.ps1` pliku, na przykład `EnableBySubscription.ps1` . 
+1. Przejdź do lokalizacji, w której zapisano skrypt przy użyciu wiersza polecenia administracyjnego lub okna programu PowerShell. 
+1. Połącz z platformą Azure ( `az login` ).
+1. Wykonaj skrypt, przekazując w SubscriptionIds jako parametry, takie jak   
+   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+
+   Na przykład: 
+
+   ```console
+   .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+
+Błędy rejestracji zakończonych niepowodzeniem są przechowywane w `RegistrationErrors.csv` lokalizacji znajdującej się w tym samym katalogu, w którym zapisano i wykonano `.ps1` skrypt. 
 
 ## <a name="next-steps"></a>Następne kroki
 

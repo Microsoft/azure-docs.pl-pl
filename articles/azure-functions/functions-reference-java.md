@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89144927"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996494"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -151,7 +151,7 @@ O ile nie zostanie określona wersja języka Java dla danego wdrożenia, Maven A
 
 ### <a name="specify-the-deployment-version"></a>Określ wersję wdrożenia
 
-Za pomocą parametru można kontrolować wersję języka Java wskazywaną przez Maven Archetype `-DjavaVersion` . Wartością tego parametru może być Eter `8` lub `11` . Obsługa języka Java 11 jest obecnie dostępna w wersji zapoznawczej. 
+Za pomocą parametru można kontrolować wersję języka Java wskazywaną przez Maven Archetype `-DjavaVersion` . Wartością tego parametru może być `8` lub `11` . Obsługa języka Java 11 jest obecnie dostępna w wersji zapoznawczej. 
 
 Maven Archetype generuje pom.xml, który jest przeznaczony dla określonej wersji języka Java. Następujące elementy w pom.xml wskazują wersję języka Java do użycia:
 
@@ -276,8 +276,8 @@ public class Function {
     @FunctionName("echo")
     public static String echo(
         @HttpTrigger(name = "req", methods = { HttpMethod.PUT }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
-        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData,
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData
     ) {
         testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
         return "Hello, " + inputReq + " and " + inputData.getKey() + ".";

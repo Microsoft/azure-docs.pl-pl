@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893768"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994674"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
-Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor. Jeśli masz dodatkowe pytania, przejdź do [forum dyskusyjnego](https://docs.microsoft.com/answers/questions/topics/single/24223.html) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
+Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor. Jeśli masz dodatkowe pytania, przejdź do [forum dyskusyjnego](/answers/questions/topics/single/24223.html) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
 
 
 ## <a name="general"></a>Ogólne
@@ -421,7 +421,7 @@ Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizo
 > [!NOTE]
 > Jeśli zasób tworzony w nowym regionie zastępuje zasób klasyczny, zalecamy zapoznanie się z zaletami [tworzenia nowego zasobu opartego na obszarze roboczym](app/create-workspace-resource.md) lub [migrowaniem istniejącego zasobu do obszaru roboczego](app/convert-classic-resource.md). 
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 

@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 14b905c69f0dab933159b414028db3e985d314a3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935837"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993980"
 ---
-# <a name="manual-qos-capacity-pool"></a>Ręczna Pula pojemności QoS
+# <a name="manual-qos-capacity-pool"></a>Ręczna pula pojemności usługi QoS
 
 Ten artykuł zawiera wprowadzenie do funkcji ręcznego puli pojemności Quality of Service (QoS).
 
@@ -34,6 +34,10 @@ W *ręcznej* puli pojemności usługi QoS można przypisać pojemność i przep�
 W puli pojemności *automatycznej* usługi QoS przepływność jest przypisywana automatycznie do woluminów w puli proporcjonalnie do przydziału rozmiaru przypisanego do woluminów.  
 
 Zobacz [Hierarchia magazynu Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) i [zagadnienia dotyczące wydajności dla Azure NetApp Files](azure-netapp-files-performance-considerations.md) , aby uzyskać informacje o typach QoS.
+
+## <a name="example-of-using-manual-qos"></a>Przykład użycia ręcznej jakości usług
+
+W przypadku korzystania z ręcznej puli pojemności dla programu, na przykład system SAP HANA, baza danych Oracle lub inne obciążenia wymagające wielu woluminów, Pula pojemności może być używana do tworzenia tych woluminów aplikacji.  Każdy wolumin może zapewnić indywidualny rozmiar i przepływność w celu spełnienia wymagań aplikacji.  Aby uzyskać szczegółowe informacje o korzyściach, zobacz temat [Limit przepływności woluminów w ręcznej puli pojemności usługi QoS](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) .  
 
 ## <a name="how-to-specify-the-manual-qos-type"></a>Jak określić typ ręcznych ustawień QoS
 

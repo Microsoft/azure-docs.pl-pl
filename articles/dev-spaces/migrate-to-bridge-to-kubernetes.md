@@ -3,14 +3,14 @@ title: Migrowanie do rozszerzenia Bridge to Kubernetes
 services: azure-dev-spaces
 ms.date: 10/12/2020
 ms.topic: conceptual
-description: Opisuje procesy, które Azure Dev Spaces
+description: Opisuje proces migracji z Azure Dev Spaces do mostka do Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962857"
+ms.locfileid: "91993939"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
@@ -48,24 +48,24 @@ Azure Dev Spaces i mostek do Kubernetes mają podobne funkcje, ale również ró
 | Wymagany jest dostęp do zabezpieczeń w klastrze  | Współautor klastra AKS  | Kubernetes RBAC — aktualizacja wdrożenia   |
 | Wymagany na komputerze deweloperskim dostęp do zabezpieczeń  | Nie dotyczy  | Administrator lokalny/sudo   |
 | **Wykorzystania** |
-| Niezależna od Kubernetes i artefaktów platformy Docker  | Nie  | Tak   |
-| Automatyczne wycofywanie zmian, po debugowaniu  | Nie  | Tak   |
+| Niezależna od Kubernetes i artefaktów platformy Docker  | Nie  | Yes   |
+| Automatyczne wycofywanie zmian, po debugowaniu  | Nie  | Yes   |
 | **Środowiska** |
-| Współpracuje z programem Visual Studio 2019  | Tak  | Tak   |
-| Działa z Visual Studio Code  | Tak  | Tak   |
-| Współdziałanie z interfejsem wiersza polecenia  | Tak  | Nie   |
+| Współpracuje z programem Visual Studio 2019  | Yes  | Yes   |
+| Działa z Visual Studio Code  | Yes  | Yes   |
+| Współdziałanie z interfejsem wiersza polecenia  | Yes  | Nie   |
 | **Zgodność systemu operacyjnego** |
-| Działa w systemie Windows 10  | Tak  | Tak  |
-| Działa w systemie Linux  | Tak  | Tak  |
-| Działa na macOS  | Tak  | Tak  |
+| Działa w systemie Windows 10  | Yes  | Yes  |
+| Działa w systemie Linux  | Yes  | Yes  |
+| Działa na macOS  | Yes  | Yes  |
 | **Możliwości** |
-| Izolacja deweloperów lub programowanie zespołowe  | Tak  | Tak  |
-| Selektywne zastępowanie zmiennych środowiskowych  | Nie  | Tak  |
-| Tworzenie wykresu pliku dockerfile i Helm  | Tak  | Nie  |
-| Trwałe Wdrażanie kodu do Kubernetes  | Tak  | Nie  |
-| Zdalne debugowanie w Kubernetes pod  | Tak  | Nie  |
-| Debugowanie lokalne połączone z Kubernetes  | Nie  | Tak  |
-| Debugowanie wielu usług w tym samym czasie na tej samej stacji roboczej  | Tak  | Tak  |
+| Izolacja deweloperów lub programowanie zespołowe  | Yes  | Yes  |
+| Selektywne zastępowanie zmiennych środowiskowych  | Nie  | Yes  |
+| Tworzenie wykresu pliku dockerfile i Helm  | Yes  | Nie  |
+| Trwałe Wdrażanie kodu do Kubernetes  | Yes  | Nie  |
+| Zdalne debugowanie w Kubernetes pod  | Yes  | Nie  |
+| Debugowanie lokalne połączone z Kubernetes  | Nie  | Yes  |
+| Debugowanie wielu usług w tym samym czasie na tej samej stacji roboczej  | Yes  | Yes  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Kubernetes — programowanie w pętli wewnętrznej
 
@@ -84,10 +84,34 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 
 1. Zaktualizuj środowisko IDE programu Visual Studio do wersji 16,7 lub nowszej i zainstaluj mostek do rozszerzenia Kubernetes z [Visual Studio Marketplace][vs-marketplace].
 1. Wyłącz kontroler Azure Dev Spaces przy użyciu Azure Portal lub [interfejsu wiersza polecenia Azure dev Spaces][azds-delete].
-1. Usuń `azds.yaml` plik z projektu.
+1. Użyj [Azure Cloud Shell](https://shell.azure.com). Lub na komputerach Mac, Linux lub Windows z zainstalowanym programem bash Otwórz wiersz polecenia powłoki bash. Upewnij się, że następujące narzędzia są dostępne w środowisku wiersza polecenia: Azure CLI, Docker, polecenia kubectl, zwinięcie, tar i gunzip.
+1. Utwórz rejestr kontenerów lub Użyj istniejącego. Rejestr kontenerów można utworzyć na platformie Azure przy użyciu [Azure Container Registry](../container-registry/index.yml) lub przy użyciu narzędzia [Docker Hub](https://hub.docker.com/).
+1. Uruchom skrypt migracji w celu przekonwertowania Azure Dev Spaces zasobów na mostek do zasobów Kubernetes. Skrypt kompiluje nowy obraz zgodny z mostkiem Kubernetes, przekazuje go do wyoznaczonego rejestru, a następnie używa [Helm](https://helm.sh) do aktualizowania klastra przy użyciu obrazu. Należy podać grupę zasobów, nazwę klastra AKS oraz rejestr kontenerów. Dostępne są inne opcje wiersza polecenia, jak pokazano poniżej:
+
+   ```azure-cli
+   curl -sL https://aka.ms/migrate-tool | bash -s -- -g ResourceGroupName -n AKSName -h ContainerRegistryName -r PathOfTheProject -y
+   ```
+
+   Skrypt obsługuje następujące flagi:
+
+   ```cmd  
+    -g Name of resource group of AKS Cluster [required]
+    -n Name of AKS Cluster [required]
+    -h Container registry name. Examples: ACR, Docker [required]
+    -k Kubernetes namespace to deploy resources (uses 'default' otherwise)
+    -r Path to root of the project that needs to be migrated (default = current working directory)
+    -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
+    -i Enable a public endpoint to access your service over internet. (default is false)
+    -y Doesn't prompt for non-tty terminals
+    -d Helm Debug switch
+   ```
+
+1. Ręcznie Przeprowadź migrację dowolnych dostosowań, takich jak ustawienia zmiennych środowiskowych, w *azds. YAML* do pliku *wartości. yml* projektu.
+1. obowiązkowe Usuń `azds.yaml` plik z projektu.
 1. Wdróż ponownie aplikację.
 1. Skonfiguruj mostek do Kubernetes dla wdrożonej aplikacji. Aby uzyskać więcej informacji o korzystaniu z usługi Bridge do Kubernetes w programie Visual Studio, zobacz [use Bridge to Kubernetes][use-btk-vs].
 1. Rozpocznij debugowanie w programie Visual Studio przy użyciu nowo utworzonego mostka do Kubernetes debugowania profilu.
+1. Skrypt można uruchomić ponownie w razie potrzeby w celu ponownego wdrożenia w klastrze.
 
 ### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Użyj Visual Studio Code, aby przejść do mostka do Kubernetes z Azure Dev Spaces
 

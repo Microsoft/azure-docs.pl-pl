@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526531"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996350"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -79,7 +79,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
    Niektóre wyzwalacze, takie jak **po nadejściu co najmniej jednego komunikatu w kolejce (AutoComplete)** , mogą zwrócić jeden lub więcej komunikatów. Kiedy te wyzwalacze są wyzwalane, zwracają między jedną i liczbę komunikatów, które są określone przez wartość właściwości **Maksymalna liczba komunikatów** wyzwalacza.
 
     > [!NOTE]
-    > Wyzwalacz autouzupełniania automatycznie kończy komunikat, ale uzupełnianie odbywa się tylko przy następnym uruchomieniu wyzwalacza. Takie zachowanie może mieć wpływ na projekt aplikacji logiki. Na przykład Unikaj zmiany współbieżności w wyzwalaczu autouzupełniania, ponieważ ta zmiana może spowodować zduplikowane komunikaty, jeśli aplikacja logiki przejdzie do stanu ograniczenia. Zmiana kontroli współbieżności powoduje utworzenie następujących warunków: wyzwalacze ograniczające są pomijane przy użyciu `WorkflowRunInProgress` kodu, operacja ukończenia nie zostanie wykonana, a następne uruchomienie wyzwalacza następuje po interwale sondowania. Musisz ustawić czas trwania blokady usługi Service Bus na wartość dłuższą niż interwał sondowania. Jednak pomimo tego ustawienia komunikat nadal może nie zostać ukończony, jeśli aplikacja logiki pozostanie w stanie ograniczenia w kolejnym interwale sondowania.
+    > Wyzwalacz autouzupełniania automatycznie kończy komunikat, ale uzupełnianie odbywa się tylko przy następnym wywołaniu do Service Bus. Takie zachowanie może mieć wpływ na projekt aplikacji logiki. Na przykład Unikaj zmiany współbieżności w wyzwalaczu autouzupełniania, ponieważ ta zmiana może spowodować zduplikowane komunikaty, jeśli aplikacja logiki przejdzie do stanu ograniczenia. Zmiana kontroli współbieżności powoduje utworzenie następujących warunków: wyzwalacze ograniczające są pomijane przy użyciu `WorkflowRunInProgress` kodu, operacja ukończenia nie zostanie wykonana, a następne uruchomienie wyzwalacza następuje po interwale sondowania. Musisz ustawić czas trwania blokady usługi Service Bus na wartość dłuższą niż interwał sondowania. Jednak pomimo tego ustawienia komunikat nadal może nie zostać ukończony, jeśli aplikacja logiki pozostanie w stanie ograniczenia w kolejnym interwale sondowania.
 
 1. Jeśli wyzwalacz nawiązuje połączenie z przestrzenią nazw Service Bus po raz pierwszy, wykonaj następujące kroki, gdy projektant aplikacji logiki monituje o informacje o połączeniu.
 
@@ -162,6 +162,10 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 Gdy musisz wysyłać powiązane wiadomości w określonej kolejności, możesz użyć [wzorca *sekwencyjnego konwoju* ](/azure/architecture/patterns/sequential-convoy) za pomocą [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
 
 Podczas tworzenia aplikacji logiki można wybrać **skorelowaną dostawę w kolejności przy użyciu szablonu sesji usługi Service Bus** , który implementuje wzorzec sekwencyjnej konwoju. Aby uzyskać więcej informacji, zobacz [wysyłanie powiązanych komunikatów w kolejności](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Opóźnienia aktualizacji aplikacji logiki
+
+Jeśli interwał sondowania wyzwalacza Service Bus jest mały, na przykład 10 sekund, aktualizacje aplikacji logiki mogą nie obowiązywać przez maksymalnie 10 minut. Aby obejść ten problem, można tymczasowo zwiększyć interwał sondowania do większej wartości, na przykład 30 sekund lub 1 minuty, zanim zaktualizujesz aplikację logiki. Po dokonaniu aktualizacji można zresetować interwał sondowania do wartości oryginalnej. 
 
 <a name="connector-reference"></a>
 

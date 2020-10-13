@@ -1,24 +1,18 @@
 ---
 title: Konfiguracja i optymalizacja dla serii H z obsługą sekwencji i serii N Virtual Machines platformy Azure
 description: Dowiedz się więcej o konfigurowaniu i optymalizowaniu maszyn wirtualnych z obsługą serii H i serii N dla HPC.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994816"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurowanie i optymalizowanie maszyn wirtualnych
 

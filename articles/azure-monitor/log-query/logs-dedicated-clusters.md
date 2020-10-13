@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575524"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996323"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
 
@@ -49,7 +49,7 @@ Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy u�
 
 1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. 
 
-2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](https://docs.microsoft.com/azure/security-center/) dla każdego obszaru roboczego).
+2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](../../security-center/index.yml) dla każdego obszaru roboczego).
 
 Należy pamiętać, że jeśli obszar roboczy korzysta ze starszej warstwy cenowej na węzeł, gdy jest on połączony z klastrem, będzie rozliczany na podstawie danych pozyskanych w ramach rezerwacji pojemności klastra i nie jest już na węzeł. Alokacje danych na węzeł z Azure Security Center będą nadal stosowane.
 
@@ -321,7 +321,7 @@ Stan skojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
 - Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z testem stanu operacji asynchronicznych.
 
-- Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź. Skojarzony obszar roboczy ma clusterResourceId w obszarze "funkcje".
+- Wyślij [obszary robocze — Pobierz](/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź. Skojarzony obszar roboczy ma clusterResourceId w obszarze "funkcje".
 
 Żądanie wysłania wygląda następująco:
 

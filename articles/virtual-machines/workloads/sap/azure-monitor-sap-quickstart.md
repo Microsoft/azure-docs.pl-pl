@@ -6,12 +6,13 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
-ms.openlocfilehash: 2c3b11ca0c2bb916a5a3fcaf50eb99c7db3aa8e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 6deb7b535c3876ae8a8e83174b97a75582e82e58
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88643003"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996426"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Wdrażanie Azure Monitor dla rozwiązań SAP z Azure Portal
 

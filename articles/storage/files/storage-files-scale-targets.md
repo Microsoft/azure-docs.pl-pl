@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 57d04fff069e7cd7d766125bc7364cf4648911ad
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948351"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995437"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Cele dotyczące skalowalności i wydajności usługi Azure Files
 
@@ -94,7 +94,9 @@ Aby ułatwić Planowanie wdrożenia dla każdego z etapów, poniżej przedstawio
 ### <a name="initial-one-time-provisioning"></a>Początkowe Inicjowanie obsługi po raz pierwszy
 
 **Początkowe Wyliczenie zmian w chmurze**: po utworzeniu nowej grupy synchronizacji, początkowym wyliczeniem zmian w chmurze jest pierwszy krok, który zostanie wykonany. W tym procesie system wylicza wszystkie elementy w udziale plików platformy Azure. W trakcie tego procesu nie będzie żadnych działań synchronizacji, co oznacza, że żadne elementy nie zostaną pobrane z punktu końcowego w chmurze do punktu końcowego serwera i żadne elementy nie zostaną przekazane z punktu końcowego serwera do punktu końcowego w chmurze. Działanie synchronizacji zostanie wznowione po zakończeniu początkowego wyliczenia zmian w chmurze.
-Szybkość działania wynosi 7 obiektów na sekundę. Klienci mogą oszacować czas trwania wstępnego wyliczania zmian w chmurze, określając liczbę elementów w udziale chmury i korzystając z następującej formuły, aby uzyskać czas w dniach. Czas (w dniach) dla początkowej wyliczenia chmury = (liczba obiektów w punkcie końcowym w chmurze)/(7*60*60 * 24)
+Szybkość działania wynosi 7 obiektów na sekundę. Klienci mogą oszacować czas trwania wstępnego wyliczania zmian w chmurze, określając liczbę elementów w udziale chmury i korzystając z następującej formuły, aby uzyskać czas w dniach. 
+
+   **Czas (w dniach) dla początkowej wyliczenia chmury = (liczba obiektów w punkcie końcowym w chmurze)/(7 * 60 * 60 * 24)**
 
 **Przepływność pobierania przestrzeni nazw** Po dodaniu nowego punktu końcowego serwera do istniejącej grupy synchronizacji Agent Azure File Sync nie pobiera żadnej zawartości pliku z punktu końcowego w chmurze. Najpierw synchronizuje pełną przestrzeń nazw, a następnie wyzwala odwołanie w tle w celu pobrania plików, w całości lub, jeśli włączono obsługę warstw w chmurze, do zasad obsługi warstw w chmurze ustawionych w punkcie końcowym serwera.
 

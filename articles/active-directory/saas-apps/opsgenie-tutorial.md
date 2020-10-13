@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543911"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą OpsGenie
 
@@ -103,7 +103,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -133,15 +133,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Aby włączyć logowanie jednokrotne, wybierz pozycję **włączone**.
    
-    ![Ustawienia OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Zrzut ekranu, na którym jest zaznaczone pole wyboru "włączone".](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. W sekcji **dostawca** kliknij kartę **Azure Active Directory** .
    
-    ![Ustawienia OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Zrzut ekranu pokazujący sekcję "dostawca" z wybraną kartą "Azure Active Directory".](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. Na stronie okna dialogowego Azure Active Directory wykonaj następujące czynności:
    
-    ![Ustawienia OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Zrzut ekranu przedstawiający sekcję "Logowanie jednokrotne" z przełącznikiem "Włącz logowanie jednokrotne", "S A M L 2,0 Endpoint" i "Metadata U R L".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. Skopiuj wartość **Identyfikator URI identyfikatora aplikacji** i wklej ją do pola **Identyfikator (identyfikator jednostki)** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -169,13 +169,13 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w OpsGenie.
 
 4. W oknie dialogowym **Add User** (Dodawanie użytkownika) wykonaj następujące kroki:
    
-    ![Ustawienia OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "Dodawanie użytkownika" z wyróżnionymi polami tekstowymi "email" i "Full Name" i wybranym przyciskiem "Zapisz".](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. W polu tekstowym **adres e-mail** wpisz adres e-mail B. Simon, który jest adresowany do Azure Active Directory.
    
     b. W polu tekstowym **pełna nazwa** wpisz **B. Simon**.
    
-    c. Kliknij przycisk **Zapisz**. 
+    c. Kliknij pozycję **Zapisz**. 
 
 > [!NOTE]
 > B. Simon Pobiera wiadomość e-mail z instrukcjami dotyczącymi konfigurowania profilu.
@@ -186,7 +186,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka OpsGenie w panelu dostępu należy automatycznie zalogować się do OpsGenie, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

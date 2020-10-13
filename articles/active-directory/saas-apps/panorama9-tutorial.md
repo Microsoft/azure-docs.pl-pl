@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bf3afef81c70355326ed9341f2dd8a39d542b54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e2cb00f4b8228b3587930fc5b237d308c532c8c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554111"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Samouczek: integracja Azure Active Directory z usługą Panorama9
 
@@ -146,7 +146,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Panorama9, 
    
     b. W polu tekstowym **odcisk palca certyfikatu** wklej wartość **odcisku palca** certyfikatu, który został skopiowany z Azure Portal.    
          
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -170,7 +170,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -210,7 +210,7 @@ W przypadku Panorama9, Inicjowanie obsługi administracyjnej jest zadaniem ręcz
 
 2. W menu u góry kliknij pozycję **Zarządzaj**, a następnie kliknij pozycję **Użytkownicy**.
    
-    ![Użytkownicy](./media/panorama9-tutorial/ic790027.png "Użytkownicy")
+    ![Zrzut ekranu pokazujący zaznaczone karty "Zarządzaj" i "Użytkownicy".](./media/panorama9-tutorial/ic790027.png "Użytkownicy")
 
 3. W sekcji Użytkownicy kliknij przycisk, **+** Aby dodać nowego użytkownika.
 

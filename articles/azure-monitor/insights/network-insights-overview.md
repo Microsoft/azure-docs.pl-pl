@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d0e8c4806784cf9b00712ad1bf45bca958a7eb1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803810"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995364"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor dla sieci (wersja zapoznawcza)
-Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) i [metryki](../platform/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji.  Zapewnia również dostęp do wszystkich możliwości monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-preview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [Analiza ruchu](../../network-watcher/traffic-analytics.md)i inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
+Azure Monitor dla sieci zapewnia kompleksowy wgląd w [kondycję](../../service-health/resource-health-checks-resource-types.md) i [metryki](../platform/metrics-supported.md) dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji.  Zapewnia również dostęp do wszystkich możliwości monitorowania sieci, takich jak [monitor połączeń](../../network-watcher/connection-monitor-preview.md), [Rejestrowanie przepływów dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [Analiza ruchu](../../network-watcher/traffic-analytics.md)i inne funkcje [diagnostyki](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) sieci.
 
 Azure Monitor dla sieci ma strukturę następujących najważniejszych składników monitorowania:
 - [Kondycja sieci i metryki](#networkhealth)

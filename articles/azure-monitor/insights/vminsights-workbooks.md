@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449789"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996386"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Tworzenie interakcyjnych raportów usługi Azure Monitor dla maszyn wirtualnych za pomocą skoroszytów
 
-Skoroszyty łączą tekst, [kwerendy dzienników](../log-query/query-language.md), metryki i parametry w rozbudowanych raportach interaktywnych. Skoroszyty mogą być edytowane przez innych członków zespołu, którzy mają dostęp do tych samych zasobów platformy Azure.
+Skoroszyty łączą tekst, [kwerendy dzienników](/azure/data-explorer/kusto/query/), metryki i parametry w rozbudowanych raportach interaktywnych. Skoroszyty mogą być edytowane przez innych członków zespołu, którzy mają dostęp do tych samych zasobów platformy Azure.
 
 Skoroszyty są przydatne w scenariuszach takich jak:
 

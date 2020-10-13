@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553981"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Samouczek: integracja Azure Active Directory z usługą PerformanceCentre
 
@@ -128,19 +128,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Performance
 
 2. Na karcie po lewej stronie kliknij pozycję **Konfiguruj**.
    
-    ![Pojedynczy Sign-On usługi Azure AD][10]
+    ![Zrzut ekranu pokazujący menu "PerformanceCenter" z wybraną pozycją "Konfiguruj".][10]
 
 3. Na karcie po lewej stronie kliknij pozycję **różne**, a następnie kliknij pozycję **Logowanie jednokrotne**.
    
-    ![Pojedynczy Sign-On usługi Azure AD][11]
+    ![Zrzut ekranu pokazujący kartę "Konfigurowanie" z opcją "Logowanie jednokrotne" wybraną z menu "różne".][11]
 
 4. Jako **Protokół**wybierz pozycję **SAML**.
    
-    ![Pojedynczy Sign-On usługi Azure AD][12]
+    ![Zrzut ekranu przedstawiający sekcję "Sign-On konfiguracji pojedynczych" z opcją "S A M L" wybraną z menu "Protokół".][12]
 
 5. Otwórz pobrany plik metadanych w Notatniku, skopiuj zawartość, wklej ją do pola tekstowego **metadanych dostawcy tożsamości** , a następnie kliknij przycisk **Zapisz**.
    
-    ![Pojedynczy Sign-On usługi Azure AD][13]
+    ![Zrzut ekranu przedstawiający pole tekstowe "metadane dostawcy tożsamości".][13]
 
 6. Sprawdź, czy wartości **adresu URL podstawowego jednostki** i **identyfikatora jednostki** są poprawne.
     
@@ -169,7 +169,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -207,7 +207,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Performanc
 
 2. W menu po lewej stronie kliknij pozycję **międzyrelacja**, a następnie kliknij pozycję **Utwórz uczestnika**.
    
-    ![Utwórz użytkownika][400]
+    ![Zrzut ekranu przedstawiający stronę "PerformanceCenter" w witrynie "relacje między uczestnikami" z wybranym przyciskiem "Utwórz uczestnika".][400]
 
 3. W oknie dialogowym **międzyrelacja-tworzenie uczestnika** wykonaj następujące czynności:
    
@@ -220,7 +220,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w Performanc
     
     b. Wybierz pozycję **administrator klienta** jako **Wybierz rolę**.
     
-    c. Kliknij przycisk **Zapisz**. 
+    c. Kliknij pozycję **Zapisz**. 
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 

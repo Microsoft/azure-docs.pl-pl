@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320731"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996406"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Wymagania systemowe dla programu Azure Stack EDGE Pro z procesorem GPU 
 
@@ -32,21 +32,29 @@ Wymagania systemowe dotyczące Azure Stack Edge w wersji Pro obejmują:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
+## <a name="supported-azure-storage-accounts"></a>Obsługiwane konta usługi Azure Storage
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Obsługiwane konta magazynu warstwowego
+## <a name="supported-edge-storage-accounts"></a>Obsługiwane konta magazynu Edge
 
-W przypadku zarządzania z Azure Stack następujące konta magazynu warstwowego są obsługiwane przez interfejsy SMB/NFS/REST.
+Następujące konta magazynu brzegowego są obsługiwane w interfejsie REST urządzenia. Konta magazynu brzegowego są tworzone na urządzeniu. Aby uzyskać więcej informacji, zobacz temat [konta magazynu Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
-|Type  |Konto magazynu  |Komentarze  |
+|Typ  |Konto magazynu  |Komentarze  |
 |---------|---------|---------|
 |Standardowa     |GPv1: blokowy obiekt BLOB         |         |
-|    |  BLOB Storage: blokowy obiekt BLOB       | Obsługiwane tylko dla NAS     |
 
-* Stronicowe obiekty blob i Azure Files nie są obecnie obsługiwane w programie Azure Stack.
-* * Warstwa gorąca i zimna nie istnieje w Azure Stack. Po przekazaniu danych Użyj Azure PowerShell do przenoszenia danych do warstwy archiwum. Aby uzyskać instrukcje krok po kroku, przejdź do pozycji [użyj Azure PowerShell, aby ustawić warstwę obiektów BLOB]()
+* Stronicowe obiekty blob i Azure Files nie są obecnie obsługiwane.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Obsługiwane konta magazynu lokalnego Azure Resource Manager
+
+Te konta magazynu są tworzone za pośrednictwem lokalnych interfejsów API urządzenia podczas łączenia z lokalnym Azure Resource Manager. Obsługiwane są następujące konta magazynu:
+
+|Typ  |Konto magazynu  |Komentarze  |
+|---------|---------|---------|
+|Standardowa     |GPv1: blokowy obiekt BLOB, stronicowy obiekt BLOB        | Typ jednostki SKU to Standard_LRS       |
+|Premium     |GPv1: blokowy obiekt BLOB, stronicowy obiekt BLOB        | Typ jednostki SKU to Premium_LRS        |
+
 
 ## <a name="supported-storage-types"></a>Obsługiwane typy magazynu
 
@@ -73,7 +81,7 @@ W poniższej tabeli przedstawiono konfigurację portów dla serwerów hostujący
 
 | Numer portu. | Do lub do zewnątrz | Zakres portów | Wymagane | Wskazówki |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Out       | Sieć WAN        | Tak      | Wychodzące otwarte dla IoT Edge aprowizacji. Ta konfiguracja jest wymagana w przypadku używania skryptów ręcznych lub usługi Azure IoT Device Provisioning Service (DPS).|
+| TCP 443 (HTTPS)| Out       | Sieć WAN        | Yes      | Wychodzące otwarte dla IoT Edge aprowizacji. Ta konfiguracja jest wymagana w przypadku używania skryptów ręcznych lub usługi Azure IoT Device Provisioning Service (DPS).|
 
 Aby uzyskać pełne informacje, przejdź do [reguły konfiguracji zapory i portów dla IoT Edge wdrożenia](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543996"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Samouczek: integracja Azure Active Directory z optymalizacją
 
@@ -110,7 +110,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu optymaliz
 
 5. Twoja aplikacja optymalizacji oczekuje potwierdzenia SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z ikoną "Edytuj" w prawym górnym rogu.](common/edit-attribute.png)
 
 6. Oprócz powyższych, optymalizacja aplikacji oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
@@ -120,7 +120,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu optymaliz
     
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "oświadczenia użytkownika" z wyróżnionymi akcjami "Dodaj nowe oświadczenie" i "Zapisz".](common/new-save-attribute.png)
 
     ![image (obraz)](common/new-attribute-details.png)
 
@@ -134,7 +134,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu optymaliz
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -164,7 +164,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu optymaliz
 
 4. Kliknij nazwę konta w prawym górnym rogu, a następnie pozycję **Ustawienia konta**.
 
-    ![Pojedynczy Sign-On usługi Azure AD](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Zrzut ekranu przedstawiający nazwę konta wybraną w prawym górnym rogu z menu.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. Na karcie konto zaznacz pole wyboru **Włącz logowanie jednokrotne** w obszarze Rejestracja jednokrotna w sekcji **Przegląd** .
   
@@ -195,7 +195,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -231,7 +231,7 @@ W tej sekcji utworzysz użytkownika o nazwie Britta Simon w sposób optymalny.
 
 2. Aby dodać nowego współpracownika do projektu, kliknij przycisk **Nowy współpracownik**.
    
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Zrzut ekranu, na którym jest zaznaczona wybrana Strona główna "współpracownicy" i przycisk "nowy współpracownik".](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Wprowadź adres e-mail i przypisz im rolę. Kliknij pozycję **Invite** (Zaproś).
 

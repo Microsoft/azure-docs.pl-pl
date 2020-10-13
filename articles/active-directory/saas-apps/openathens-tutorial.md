@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543945"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994191"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą OpenAthens
 
@@ -108,7 +108,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -134,15 +134,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Wybierz pozycję **Connections** (Połączenia) z listy na karcie **Management** (Zarządzanie).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    ![Zrzut ekranu przedstawiający stronę firmy "OpenAthens" z opcją "Connections" wybraną z karty "Zarządzanie".](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Wybierz pozycję **SAML 1.1/2.0**, a następnie wybierz przycisk **Configure** (Konfiguruj).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    ![Zrzut ekranu pokazujący "Wybieranie lokalnego uwierzytelniania systemu". Zostanie wyświetlone okno dialogowe z opcją "S A M L 1.1/2.0" i wybranym przyciskiem "Konfiguruj".](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. W celu dodania konfiguracji wybierz przycisk **Browse** (Przeglądaj), aby przekazać plik xml metadanych pobrany z witryny Azure Portal, a następnie wybierz przycisk **Add** (Dodaj).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    ![Zrzut ekranu pokazujący system uwierzytelniania "Dodaj S A M L". zostanie wyświetlone okno dialogowe z akcją "Przeglądaj" i "Dodaj".](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Wykonaj poniższe kroki na karcie **Details** (Szczegóły).
 
@@ -164,7 +164,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     h. Z karty **</> Relying Party** (</> Jednostka uzależniona) skopiuj adres **Metadata URL** (Adres URL metadanych) i otwórz go w przeglądarce, aby pobrać plik **XML metadanych dostawcy usług**. Przekaż ten plik metadanych dostawcy usług w sekcji **Podstawowa konfiguracja protokołu SAML** w usłudze Azure AD.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Zrzut ekranu pokazujący wybraną kartę "Jednostka uzależniona" i wyróżnioną pozycję "metadane U R L".](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>Tworzenie użytkownika testowego usługi OpenAthens
 
@@ -176,7 +176,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka OpenAthens w panelu dostępu powinno nastąpić automatyczne zalogowanie do usługi OpenAthens, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

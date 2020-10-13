@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544064"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996577"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Samouczek: integracja Azure Active Directory z usługą OnTrack
 
@@ -118,7 +118,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą OnTrack, wy
 
 5. Aplikacja OnTrack oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image (obraz)](common/edit-attribute.png)
+    ![Zrzut ekranu pokazujący okno dialogowe "atrybuty użytkownika" z ikoną "Edytuj" wybraną w prawym górnym rogu.](common/edit-attribute.png)
 
 6. Oprócz powyższych, aplikacja OnTrack oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
@@ -132,7 +132,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą OnTrack, wy
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
-    ![image (obraz)](common/new-save-attribute.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "oświadczenia użytkownika" z wybranymi akcjami "Dodaj nowe oświadczenie" i "Zapisz".](common/new-save-attribute.png)
 
     ![image (obraz)](common/new-attribute-details.png)
 
@@ -146,7 +146,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą OnTrack, wy
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij przycisk **Zapisz**.
+    przykład Kliknij pozycję **Zapisz**.
 
 7. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -189,7 +189,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

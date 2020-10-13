@@ -1,24 +1,18 @@
 ---
 title: Łączenie platformy Azure ExpressRoute z usługą Oracle Cloud Infrastructure | Microsoft Docs
 description: Łączenie platformy Azure ExpressRoute z usługą Oracle Cloud Infrastructure (OCI) FastConnect w celu włączenia rozwiązań aplikacji Oracle dla wielu chmur
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776582"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996234"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Skonfiguruj bezpośrednie połączenie między platformą Azure a infrastrukturą chmurową Oracle  
 
@@ -66,7 +60,7 @@ Na poniższej ilustracji przedstawiono ogólne omówienie połączeń:
     * W **kluczu usługi dostawcy**Wklej klucz usługi ExpressRoute.
     * Użyj pierwszej/30 prywatnej przestrzeni adresów IP używać miejsca w poprzednim kroku dla **podstawowego adresu IP protokołu BGP** i drugiej/30 prywatnej przestrzeni adresów IP dla **POMOCNICZego adresu IP protokołu BGP** .
         * Przypisz pierwszy możliwy do użycia adres dla adresów IP Oracle (podstawowy i pomocniczy), a drugi adres adres IP protokołu BGP klienta (z perspektywy FastConnect). Pierwszy użyteczny adres IP to drugi adres IP w przestrzeni adresowej/30 (pierwszy adres IP jest zastrzeżony przez firmę Microsoft).
-    * Kliknij przycisk **Utwórz**.
+    * Kliknij pozycję **Utwórz**.
 1. Dokończ łączenie FastConnect z wirtualną siecią chmurową w ramach dzierżawy Oracle za pośrednictwem bramy routingu dynamicznego przy użyciu tabeli tras.
 1. Przejdź do platformy Azure i upewnij się, że **stan dostawcy** dla obwodu usługi ExpressRoute został zmieniony na **zainicjowany** i że Zainicjowano obsługę komunikacji równorzędnej typu **Azure Private** . Jest to wymaganie wstępne dla następujących kroków.
 
@@ -82,7 +76,7 @@ Na poniższej ilustracji przedstawiono ogólne omówienie połączeń:
 
 Po zakończeniu konfiguracji sieci można sprawdzić poprawność konfiguracji, klikając pozycję **Pobierz rekordy ARP** i **Pobierz tabelę tras** w bloku prywatnej komunikacji równorzędnej ExpressRoute w Azure Portal.
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Firma Microsoft stworzyła skrypty Terraform, aby umożliwić automatyczne wdrażanie połączeń sieciowych. Przed wykonaniem skryptów Terraform należy przeprowadzić uwierzytelnienie na platformie Azure, ponieważ wymagają one odpowiednich uprawnień w ramach subskrypcji platformy Azure. Uwierzytelnianie można wykonać przy użyciu jednostki [usługi Azure Active Directory](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) lub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją Terraform](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
 

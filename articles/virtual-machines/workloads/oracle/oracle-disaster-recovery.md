@@ -1,25 +1,18 @@
 ---
 title: Omówienie scenariusza odzyskiwania po awarii programu Oracle w środowisku platformy Azure | Microsoft Docs
 description: Scenariusz odzyskiwania po awarii dla Oracle Database bazy danych 12c w środowisku platformy Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 96bb0892b1bc35d1eef34cffc798cf33c837acdc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: cynthn
+ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976644"
+ms.locfileid: "91996173"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Odzyskiwanie po awarii dla Oracle Database bazy danych 12c w środowisku platformy Azure
 

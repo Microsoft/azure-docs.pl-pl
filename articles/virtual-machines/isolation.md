@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: sttsinar
-ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: ayshak
+ms.openlocfilehash: 7b1956d704bbdf9475f04efcbdc4b6ee75bb50b2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666844"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996290"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Izolacja maszyny wirtualnej na platformie Azure
 
@@ -45,7 +46,7 @@ Ponieważ rozmiary maszyn wirtualnych są zależne od rozmiarów sprzętowych, p
 <sup>1</sup>  Aby uzyskać szczegółowe informacje na temat Standard_DS15_v2 i Standard_D15_v2 programu wycofywania izolacji, zobacz często zadawane pytania
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: czy rozmiar, który ma zostać wycofany, czy tylko "izolacja" jest?
 Odp **.: Jeśli**rozmiar maszyny wirtualnej nie ma indeksu dolnego "i", tylko funkcja "izolacja" zostanie wycofana. Jeśli izolacja nie jest konieczna, nie ma żadnej akcji, a maszyna wirtualna będzie nadal działać zgodnie z oczekiwaniami. Przykładami mogą być Standard_DS15_v2, Standard_D15_v2, Standard_M128ms itd. Jeśli rozmiar maszyny wirtualnej obejmuje indeks dolny, rozmiar zostanie wycofany.
 
@@ -64,7 +65,7 @@ Odp **.: nie**. Gwarancje zapewniane przez Service Fabric [warstwy trwałości](
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Jakie są punkty kontrolne na potrzeby wycofania D15_v2 lub odDS15_v2nia izolacji? 
 Odp **.:** 
  
-| Date | Akcja |
+| Data | Akcja |
 |---|---| 
 | 18 listopada 2019 r. | Dostępność D/DS15i_v2 (PAYG, 1 – rok RI) | 
 | 14 maja 2020 | Ostatni dzień zakupu D/DS15i_v2 1 roku RI | 

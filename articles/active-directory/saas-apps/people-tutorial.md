@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552394"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995968"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z osobami
 
@@ -108,7 +108,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -142,11 +142,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
    
 4. W menu po lewej stronie kliknij pozycję **Ustawienia**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/people-tutorial/tutorial_people_001.png)
+    ![Zrzut ekranu pokazujący menu po lewej stronie z wybranymi ustawieniami "Ustawienia".](./media/people-tutorial/tutorial_people_001.png)
 
 5. Kliknij pozycję **Company** (Firma).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/people-tutorial/tutorial_people_002.png)
+    ![Zrzut ekranu pokazujący, że wybrano "Firma" z menu "Ustawienia".](./media/people-tutorial/tutorial_people_002.png)
 
 6. W **pliku metadanych SAML metadanych przekazywania "Logowanie**jednokrotne" kliknij przycisk **Przeglądaj** w celu przekazania pobranego pliku.
 

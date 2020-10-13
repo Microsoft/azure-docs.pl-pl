@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08d9c2f1676c0a04e9cd191b64c41af276521b3d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543748"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Samouczek: integracja Azure Active Directory z usługą Peakon
 
@@ -110,7 +110,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Peakon, wyk
 
 5. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Peakon domenę i adresy URL Logowanie jednokrotne](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu pokazujący, że wybrano "Ustaw dodatkowy U R ls" z wyróżnionym polem tekstowym ""](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://app.peakon.com/login`
 
@@ -186,7 +186,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
