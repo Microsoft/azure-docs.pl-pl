@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 061d66f08e79f935c778eb84dd47f71cab1a62d7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266633"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurowanie zasad ochrony zawartości przy użyciu Azure Portal
@@ -75,7 +75,7 @@ W przypadku skonfigurowania licencji jako trwałej jest ona zapisywana w magazyn
 ## <a name="widevine-license-template"></a>Szablon licencji Widevine
 Szablon licencji Widevine służy do ustawiania funkcjonalności włączonej na licencjach Widevine.
 
-### <a name="basic"></a>Podstawowe
+### <a name="basic"></a>Podstawowy
 Po wybraniu opcji **podstawowa**szablon zostanie utworzony ze wszystkimi wartościami domyślnymi.
 
 ### <a name="advanced"></a>Zaawansowane
@@ -133,5 +133,5 @@ Szyfrowanie klucza Wyczyść AES jest włączone dla wszystkich protokołów prz
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

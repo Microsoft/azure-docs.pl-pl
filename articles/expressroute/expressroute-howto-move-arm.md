@@ -9,17 +9,17 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532549"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego do Menedżer zasobów modelu wdrażania przy użyciu programu PowerShell
 
 Aby użyć obwodu usługi ExpressRoute dla modeli wdrażania klasycznego i Menedżer zasobów, należy przenieść obwód do Menedżer zasobów model wdrażania. Poniższe sekcje ułatwiają przenoszenie obwodu za pomocą programu PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 

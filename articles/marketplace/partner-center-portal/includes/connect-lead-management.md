@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815672"
 ---
 Opublikowanie oferty w portalu komercyjnym za pośrednictwem Centrum partnerskiego wymaga połączenia oferty z systemem CRM. Dzięki temu możesz otrzymywać informacje kontaktowe klienta bezpośrednio po wprowadzeniu zainteresowania przez klienta lub wdrożeniu produktu.

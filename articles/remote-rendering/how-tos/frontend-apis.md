@@ -7,10 +7,10 @@ ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90024064"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Uwierzytelnianie przy użyciu interfejsów API frontonu platformy Azure

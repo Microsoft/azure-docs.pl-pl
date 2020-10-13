@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531194"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Jak rozwiązywać problemy z agentem usługi Log Analytics dla systemu Linux 
@@ -193,7 +193,7 @@ Błędy związane z wydajnością nie zachodzą przez cały czas i są bardzo tr
 
 ### <a name="resolution-step-by-step"></a>Rozwiązanie (krok po kroku)
 
-1. Uaktualnij pakiet NSS-PEM do wersji [1.0.3-5. el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
+1. Uaktualnij pakiet NSS-PEM do wersji [1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
 `sudo yum upgrade nss-pem`
 
 2. Jeśli NSS-PEM nie jest dostępny do uaktualnienia (na przykład w przypadku CentOS), nastąpi obniżenie poziomu do 7.29.0-46. Jeśli przez pomyłkę uruchomisz polecenie "yum update", zwinięcie zostanie uaktualnione do 7.29.0-51, a problem będzie się powtarzać. <br/>
@@ -298,7 +298,7 @@ Ten błąd oznacza, że rozszerzenie diagnostyczne systemu Linux (LAD) jest zain
 * Pakiet OMI został ręcznie uaktualniony do nowszej wersji w porównaniu z tym, co zostało zainstalowane przez program Log Analytics Agent dla systemu Linux
 * Błąd podczas *znajdowania klasy* dzienników zasobów DSC w `omsconfig.log` pliku dziennika
 * Utworzono kopię zapasową Log Analytics agenta dla danych
-* *Bieżąca konfiguracja dzienników DSC nie istnieje. Wykonaj polecenie Start-DscConfiguration z parametrem-Path, aby określić plik konfiguracji i najpierw utworzyć bieżącą konfigurację.* w `omsconfig.log` pliku dziennika, ale nie istnieje żaden komunikat dziennika dotyczący `PerformRequiredConfigurationChecks` operacji.
+* *Bieżąca konfiguracja dzienników DSC nie istnieje. Wykonaj Start-DscConfiguration polecenie z parametrem-Path, aby określić plik konfiguracji i najpierw utworzyć bieżącą konfigurację.* w `omsconfig.log` pliku dziennika, ale nie istnieje żaden komunikat dziennika dotyczący `PerformRequiredConfigurationChecks` operacji.
 
 ### <a name="resolution"></a>Rozwiązanie
 1. Zainstaluj wszystkie zależności, takie jak pakiet objęty inspekcją.

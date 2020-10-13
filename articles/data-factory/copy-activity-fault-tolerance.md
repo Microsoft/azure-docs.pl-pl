@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
 ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440647"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
@@ -37,7 +37,7 @@ ADF obsługuje następujące scenariusze odporności na uszkodzenia podczas kopi
 2. Niektóre konkretne foldery lub pliki nie zezwalają na dostęp do usługi ADF, ponieważ listy ACL tych plików lub folderów wymagają wyższego poziomu uprawnień niż informacje o połączeniu skonfigurowane w podajniku ADF.
 3. Co najmniej jeden plik nie jest weryfikowany pod kątem spójności między magazynem źródłowym i docelowym w przypadku włączenia ustawienia weryfikacji spójności danych w ADF.
 
-### <a name="configuration"></a>Konfigurowanie 
+### <a name="configuration"></a>Konfiguracja 
 Podczas kopiowania plików binarnych między magazynami magazynów można włączyć odporność na uszkodzenia w następujący sposób: 
 
 ```json
@@ -163,7 +163,7 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania usługi [Amazon RedShift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania [procedury składowanej z ujścia bazy danych SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json
@@ -237,7 +237,7 @@ Z przykładowego pliku dziennika można zobaczyć jeden wiersz "dane1, Dane2, DA
 
 Poniżej znajduje się starszy sposób włączania odporności na uszkodzenia tylko do kopiowania danych tabelarycznych. W przypadku tworzenia nowego potoku lub działania zaleca się rozpoczęcie od tego [miejsca](#copying-tabular-data) .
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 Poniższy przykład zawiera definicję JSON, aby skonfigurować pomijanie niezgodnych wierszy w działaniu kopiowania:
 
 ```json

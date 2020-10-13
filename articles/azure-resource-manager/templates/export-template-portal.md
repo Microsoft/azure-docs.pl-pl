@@ -4,10 +4,10 @@ description: Użyj Azure Portal, aby wyeksportować szablon Azure Resource Manag
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423239"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Eksport jednego i kilku zasobów do szablonu w Azure Portal
@@ -55,7 +55,7 @@ Aby wyeksportować zasoby utworzone za pomocą klasycznego modelu wdrażania, na
 
 Jeśli zostanie wyświetlone ostrzeżenie podczas eksportowania szablonu wskazującego, że typ zasobu nie został wyeksportowany, nadal można odnaleźć właściwości dla tego zasobu. Aby dowiedzieć się więcej o różnych opcjach wyświetlania właściwości zasobów, zobacz [odnajdywanie właściwości zasobów](view-resources.md). Możesz również przyjrzeć się [interfejsowi API REST platformy Azure](/rest/api/azure/) dla typu zasobu.
 
-## <a name="export-template-from-a-resource-group"></a>Eksportuj szablon z grupy zasobów
+## <a name="export-template-from-a-resource-group"></a>Eksportowanie szablonu z grupy zasobów
 
 Aby wyeksportować jeden lub więcej zasobów z grupy zasobów:
 

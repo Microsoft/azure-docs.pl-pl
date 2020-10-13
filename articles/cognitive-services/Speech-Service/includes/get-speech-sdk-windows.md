@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88944475"
 ---
 :::row:::
@@ -40,7 +40,7 @@ W przypadku danych wejściowych mikrofonu należy zainstalować biblioteki platf
 
 Wymagane pliki zestawu Speech SDK można wdrożyć w tym samym katalogu, w którym znajduje się aplikacja. Dzięki temu aplikacja może bezpośrednio uzyskiwać dostęp do bibliotek. Upewnij się, że wybrano poprawną wersję (x86/x64) zgodną z aplikacją.
 
-| Name (Nazwa)                                            | Funkcja                                             |
+| Nazwa                                            | Funkcja                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | Podstawowy zestaw SDK wymagany do wdrożenia natywnego i zarządzanego |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Wymagane do wdrożenia zarządzanego                      |

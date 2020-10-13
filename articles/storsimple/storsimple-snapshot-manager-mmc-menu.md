@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056007"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Użyj akcji menu programu MMC w StorSimple Snapshot Manager
@@ -87,7 +87,7 @@ Za pomocą akcji **Eksportuj listę** można zapisać listę w pliku z wartości
    1. W polu **Nazwa pliku** wpisz nazwę pliku CSV lub kliknij strzałkę, aby wybrać z listy rozwijanej.
    2. W polu **Zapisz jako typ** kliknij strzałkę i wybierz typ pliku z listy rozwijanej.
    3. Aby zapisać tylko wybrane elementy, zaznacz wiersze, a następnie kliknij pole wyboru **Zapisz tylko zaznaczone wiersze** . Aby zapisać wszystkie wyeksportowane listy, wyczyść pole wyboru **Zapisz tylko zaznaczone wiersze** .
-   4. Kliknij pozycję **Zapisz**.
+   4. Kliknij przycisk **Zapisz**.
       
       ![Eksportuj listę jako plik z wartościami rozdzielanymi przecinkami](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

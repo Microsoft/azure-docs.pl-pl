@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: e87ddd243aa248b896a26e6389ac1a219579a06d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325580"
 ---
 # <a name="azure-monitor-data-platform"></a>Platforma danych Azure Monitor
@@ -32,7 +32,7 @@ Zasoby platformy Azure generują znaczną ilość danych monitorowania. Azure Mo
 
 
 ### <a name="metrics"></a>Metryki
-[Metryki](data-platform-metrics.md) to wartości liczbowe, które opisują część systemu w konkretnym momencie. Są one zbierane w regularnych odstępach czasu i są identyfikowane za pomocą sygnatury czasowej, nazwy, wartości i co najmniej jednej etykiety definiującej. Metryki można agregować przy użyciu różnych algorytmów, w porównaniu z innymi metrykami i przeanalizowane pod kątem trendów w czasie. 
+[Metryki](data-platform-metrics.md) to wartości liczbowe, które opisują część systemu w konkretnym momencie. Są one zbierane w regularnych odstępach czasu i identyfikowane za pomocą znacznika czasu, nazwy, wartości i co najmniej jednej etykiety definiującej. Metryki można agregować przy użyciu różnych algorytmów, porównywać z innymi metrykami i analizować pod kątem trendów w czasie. 
 
 Metryki w Azure Monitor są przechowywane w bazie danych szeregów czasowych, która jest zoptymalizowana pod kątem analizowania danych z sygnaturami czasowymi. Dzięki temu metryki są szczególnie odpowiednie dla alertów i szybkiego wykrywania problemów. Mogą oni powiedzieć, jak działa system, ale zazwyczaj musi być połączony z dziennikami, aby identyfikować główną przyczynę problemów.
 
@@ -41,7 +41,7 @@ Metryki są dostępne dla interaktywnej analizy w Azure Portal za pomocą [usłu
 Przeczytaj więcej na temat Azure Monitor metryk, w tym ich źródeł danych, w [Azure monitor](data-platform-metrics.md).
 
 ### <a name="logs"></a>Dzienniki
-[Dzienniki](data-platform-logs.md) to zdarzenia, które wystąpiły w systemie. Mogą one zawierać różne rodzaje danych i mogą być strukturalne lub bezpłatne tekstu formularza z sygnaturą czasową. Mogą być tworzone sporadycznie, ponieważ zdarzenia w środowisku generują wpisy dziennika, a system z dużym obciążeniem zwykle generuje więcej woluminów dziennika.
+[Dzienniki](data-platform-logs.md) to zdarzenia, które wystąpiły w systemie. Mogą one zawierać różne rodzaje danych i mogą być strukturalne lub bezpłatne tekstu formularza z sygnaturą czasową. Mogą być tworzone sporadycznie, w miarę generowania wpisów przez zdarzenia w środowisku. W obciążonym systemie objętość tworzonych dzienników zwykle jest większa.
 
 Dzienniki w Azure Monitor są przechowywane w Log Analytics obszarze roboczym, który jest oparty na [Eksplorator danych platformy Azure](/azure/data-explorer/) , który oferuje zaawansowany aparat analityczny i [bogaty język zapytań](/azure/kusto/query/). Dzienniki zapewniają zazwyczaj wystarczającą ilość informacji, aby zapewnić pełen kontekst identyfikowanego problemu i są przydatne do identyfikowania głównych przypadków problemów.
 
@@ -71,7 +71,7 @@ Poniższa tabela zawiera porównanie metryk i dzienników w Azure Monitor.
 | Dane | Tylko wartości liczbowe | Dane tekstowe lub liczbowe |
 | Struktura | Standardowy zestaw właściwości, w tym czas próbkowania, monitorowany zasób, wartość liczbowa. Niektóre metryki obejmują wiele wymiarów w celu dalszej definicji. | Unikatowy zestaw właściwości w zależności od typu dziennika. |
 | Kolekcja | Zbierane w regularnych odstępach czasu. | Mogą być zbierane sporadycznie, ponieważ zdarzenia wyzwalają rekord, który ma zostać utworzony. |
-| Wyświetlanie w witrynie Azure Portal | Eksplorator metryk | Log Analytics |
+| Wyświetlanie w witrynie Azure Portal | Eksplorator metryk | Usługa Log Analytics |
 | Źródła danych obejmują | Metryki platformy zebrane z zasobów platformy Azure.<br>Aplikacje monitorowane przez Application Insights.<br>Niestandardowe zdefiniowane przez aplikację lub interfejs API. | Dzienniki aplikacji i zasobów.<br>Rozwiązania do monitorowania.<br>Agenci i rozszerzenia maszyn wirtualnych.<br>Żądania i wyjątki aplikacji.<br>Azure Security Center.<br>Interfejs API modułu zbierającego dane. |
 
 ## <a name="collect-monitoring-data"></a>Zbieranie danych monitorowania

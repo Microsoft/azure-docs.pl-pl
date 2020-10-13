@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a2bd9b7240033df47f57dc3432ce50819d8754b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62d6d5527cd917304e4c8bc0c4740f4edb772218
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544030"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939175"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-user-authentication"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z uwierzytelnianiem za pomocą Netskope użytkownika
 
@@ -136,15 +136,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **aktywna karta platformy** .
 
-    ![Netskope konfiguracja uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia aktywną platformę wybraną z ustawień.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. Przewiń w dół do **przodu proxy** i wybierz pozycję **SAML**.
 
-    ![Netskope konfiguracja uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/config-saml.png)
+    ![Zrzut ekranu przedstawia element SAML wybrany z aktywnej platformy.](./media/netskope-user-authentication-tutorial/config-saml.png)
 
 1. Na stronie **Ustawienia SAML** wykonaj następujące czynności:
 
-    ![Netskope konfiguracja uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
+    ![Zrzut ekranu przedstawia ustawienia protokołu SAML, w których można wprowadzić podane wartości.](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
 
     a. Skopiuj wartość **Identyfikator jednostki SAML** i wklej ją do pola tekstowego **Identyfikator** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -152,11 +152,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Dodaj konto**.
 
-    ![Netskope konfiguracja uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/config-addaccount.png)
+    ![Zrzut ekranu przedstawia Dodawanie konta wybranego w okienku SAML.](./media/netskope-user-authentication-tutorial/config-addaccount.png)
 
 1. Na stronie **Dodawanie konta SAML** wykonaj następujące czynności:
 
-    ![Netskope konfiguracja uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/config-settings1.png)
+    ![Zrzut ekranu przedstawia Dodawanie konta SAML, w którym można wprowadzić podane wartości.](./media/netskope-user-authentication-tutorial/config-settings1.png)
 
     a. W polu tekstowym **Nazwa** Podaj nazwę, taką jak Azure AD.
 
@@ -174,23 +174,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij kartę **Ustawienia** w okienku nawigacji po lewej stronie.
 
-    ![Netskope — Tworzenie użytkownika uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/config-settings.png)
+    ![Zrzut ekranu przedstawia wybrane ustawienie.](./media/netskope-user-authentication-tutorial/config-settings.png)
 
 1. Kliknij pozycję **aktywna karta platformy** .
 
-    ![Netskope — Tworzenie użytkownika uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia aktywną platformę wybraną z ustawień.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. Kliknij kartę **Użytkownicy** .
 
-    ![Netskope — Tworzenie użytkownika uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/add-user.png)
+    ![Zrzut ekranu przedstawia użytkowników wybranych z aktywnej platformy.](./media/netskope-user-authentication-tutorial/add-user.png)
 
 1. Kliknij pozycję **Dodaj użytkowników**.
 
-    ![Netskope — Tworzenie użytkownika uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/user-add.png)
+    ![Zrzut ekranu przedstawia okno dialogowe użytkownicy, w którym można wybrać opcję Dodaj użytkowników.](./media/netskope-user-authentication-tutorial/user-add.png)
 
 1. Wprowadź adres e-mail użytkownika, który chcesz dodać, a następnie kliknij przycisk **Dodaj**.
 
-    ![Netskope — Tworzenie użytkownika uwierzytelniania użytkownika](./media/netskope-user-authentication-tutorial/add-user-popup.png)
+    ![Zrzut ekranu przedstawia Dodawanie użytkowników, w których można wprowadzić listę użytkowników.](./media/netskope-user-authentication-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
@@ -202,7 +202,7 @@ Po kliknięciu kafelka uwierzytelnianie użytkownika Netskope w panelu dostępu 
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

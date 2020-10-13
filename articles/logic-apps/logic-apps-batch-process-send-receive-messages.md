@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458251"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Wysyłanie, odbieranie i przetwarzanie wsadowe komunikatów w Azure Logic Apps
@@ -48,7 +48,7 @@ Odbiorca usługi Batch i nadawca usługi Batch muszą korzystać z tej samej sub
 
 Przed wysłaniem wiadomości do partii, ta partia musi znajdować się jako miejsce docelowe, w którym są wysyłane te wiadomości. Najpierw należy utworzyć aplikację logiki "odbiorca wsadowa", która rozpoczyna się od wyzwalacza **wsadowego** . Dzięki temu podczas tworzenia aplikacji logiki "nadawca partii" można wybrać aplikację logiki odbiorcy partii. Odbiornik usługi Batch kontynuuje zbieranie komunikatów do momentu spełnienia określonych kryteriów dotyczących zwalniania i przetwarzania tych komunikatów. Odbiorcy partii nie muszą wiedzieć niczego o nadawców wsadowych, dlatego nadawcy wsadowy muszą znać miejsce docelowe, do którego są wysyłane wiadomości.
 
-1. W [Azure Portal](https://portal.azure.com) lub Visual Studio Utwórz aplikację logiki o tej nazwie:`BatchReceiver`
+1. W [Azure Portal](https://portal.azure.com) lub Visual Studio Utwórz aplikację logiki o tej nazwie: `BatchReceiver`
 
 1. W Projektancie aplikacji logiki Dodaj wyzwalacz **wsadowy** , który uruchamia przepływ pracy aplikacji logiki. W polu wyszukiwania wprowadź `batch` i wybierz następujący wyzwalacz: **wiadomości wsadowe**
 
@@ -126,7 +126,7 @@ Teraz należy utworzyć co najmniej jedną aplikację logiki nadawcy partii, kt�
 
 * Upewnij się, że odbiorca usługi Batch i nadawca usługi Batch współużytkują ten sam region platformy Azure *i* subskrypcję platformy Azure. Jeśli nie, nie możesz wybrać odbiorcy partii podczas tworzenia nadawcy partii, ponieważ nie są one widoczne dla siebie nawzajem.
 
-1. Utwórz kolejną aplikację logiki o tej nazwie:`BatchSender`
+1. Utwórz kolejną aplikację logiki o tej nazwie: `BatchSender`
 
    1. W polu wyszukiwania wprowadź `recurrence` jako filtr. Z listy Wyzwalacze wybierz ten wyzwalacz: **cykl**
 

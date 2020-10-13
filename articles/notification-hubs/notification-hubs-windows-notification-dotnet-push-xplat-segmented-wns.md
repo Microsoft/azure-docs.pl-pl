@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 027bbebaaab0694cfa0157464d47ef2c8e08fbff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998224"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Samouczek: wysyłanie powiadomień do określonych urządzeń z uruchomionymi platforma uniwersalna systemu Windows aplikacjami
@@ -246,7 +246,7 @@ Aplikacja jest teraz ukończona. Można przechowywać zestaw kategorii w lokalny
 
 Uruchom aplikację utworzoną w poprzedniej sekcji. Powiadomienia dla wybranych kategorii będą wyświetlane jako powiadomienia wyskakujące.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule przedstawiono sposób rozgłaszania ważnych wiadomości według kategorii. Aplikacja zaplecza wysyła otagowane powiadomienia do urządzeń, które zostały zarejestrowane w celu otrzymywania powiadomień dla tego tagu. Aby dowiedzieć się, jak wypychanie powiadomień do określonych użytkowników niezależnie od używanego urządzenia, przejdź do następującego samouczka:
 

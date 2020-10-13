@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
 ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145488"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
@@ -160,7 +160,7 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 
 ## <a name="supported-skus"></a>Obsługiwane jednostki SKU
 
-| Wydawca | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
+| Publisher | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
 |---|---|---|---|---|---|---|
 | partia | Renderowanie — centos73 | dawania | :heavy_check_mark: <br>Uwaga: zgodność z CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04 – LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -173,7 +173,7 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 | Microsoft-dsvm | Linux-Data-nauka-VM-Ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS — HPC | 7,4, 7,3, 7,1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle — Linux | 7,6 | y | y | y | y |
+| Oracle | Oracle-Linux | 7,6 | y | y | y | y |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | y | y | y |
 
 ## <a name="next-steps"></a>Następne kroki

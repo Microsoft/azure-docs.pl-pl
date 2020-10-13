@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
 ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88942377"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Samouczek: przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics
@@ -114,7 +114,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
 
 1. W drugiej karcie lub oknie przeglądarki wklej *klucz obszaru roboczego* w polu **klucz obszaru roboczego** .
 
-1. Wybierz pozycję **Utwórz**. Teraz utworzysz treść żądania JSON i nazwę dziennika niestandardowego.
+1. Wybierz przycisk **Utwórz**. Teraz utworzysz treść żądania JSON i nazwę dziennika niestandardowego.
 
 1. Wybierz pole **treści żądania JSON** .  Zostanie wyświetlony link umożliwiający **dodanie zawartości dynamicznej** .
 
@@ -124,7 +124,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
     > [!div class="mx-imgBorder"]
     > ![Wybrany temat](media/tutorial-events-log-analytics/topic-selected.png)
 
-1. Wybierz **Widok kodu** aplikacji logiki. Wyszukaj dane wejściowe i wiersze typu log.
+1. Wybierz **Widok kodu** aplikacji logiki. Wyszukaj dane wejściowe i Log-Type wierszy.
     > [!div class="mx-imgBorder"]
     > ![Widok kodu dwóch wierszy](media/tutorial-events-log-analytics/code-view-two-lines.png)
 
@@ -144,7 +144,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
     > [!div class="mx-imgBorder"]
     > ![Zobacz wszystkie nowe zasoby w grupie zasobów](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
-## <a name="test"></a>Test
+## <a name="test"></a>Testowanie
 
 Aby sprawdzić, jak faktycznie działa, Utwórz wydarzenie na żywo w Azure Media Services. Utwórz wydarzenie RTMP na żywo i użyj narzędzia FFmpeg do wypchnięcia strumienia "Live" na podstawie przykładowego pliku. MP4. Po utworzeniu zdarzenia Uzyskaj adres URL pozyskiwania RTMP.
 

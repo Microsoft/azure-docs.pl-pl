@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84730151"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych i zmienionych plików na podstawie LastModifiedDate przy użyciu narzędzia Kopiowanie danych
@@ -74,7 +74,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 5. W obszarze **Wersja** wybierz pozycję **V2**.
 6. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (na przykład Azure Storage i Azure SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 9. Po utworzeniu fabryki danych zostanie wyświetlona strona główna Fabryka danych.
 10. Aby otworzyć Azure Data Factory interfejs użytkownika na oddzielnej karcie, wybierz kafelek **tworzenie & monitor** :
 
@@ -96,7 +96,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     d. W obszarze **cykl**wprowadź **15 minut**.
 
-    e. Wybierz pozycję **Dalej**.
+    e. Wybierz opcję **Dalej**.
 
     Data Factory tworzy potok o określonej nazwie zadania.
 
@@ -104,7 +104,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 3. Na stronie **Magazyn danych źródłowych** wykonaj następujące kroki:
 
-    a. Wybierz pozycję **Utwórz nowe połączenie** , aby dodać połączenie.
+    a. Wybierz pozycję  **Utwórz nowe połączenie** , aby dodać połączenie.
 
     b. Wybierz pozycję **Azure Blob Storage** z galerii, a następnie wybierz pozycję **Kontynuuj**:
 
@@ -136,7 +136,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
-    b. Wybierz pozycję **Dalej**.
+    b. Wybierz opcję **Dalej**.
 
 7. Na stronie **Ustawienia** wybierz przycisk **Dalej**.
 

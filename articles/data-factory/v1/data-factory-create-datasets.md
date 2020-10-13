@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440732"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Zestawy danych w Azure Data Factory (wersja 1)
@@ -77,7 +77,7 @@ Zestaw danych w Data Factory jest zdefiniowany w formacie JSON w następujący s
 
 W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
-| Właściwość | Opis | Wymagane | Domyślny |
+| Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
 | name |Nazwa zestawu danych. Zobacz [reguły](data-factory-naming-rules.md) nazewnictwa Azure Data Factory zasad nazewnictwa. |Tak |Nie dotyczy |
 | typ |Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: AzureBlob, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [Typ zestawu danych](#Type). |Tak |Nie dotyczy |
@@ -231,7 +231,7 @@ Wyjściowy zestaw danych jest generowany co godzinę w czasie rozpoczęcia i zak
 
 W poniższej tabeli opisano właściwości, których można użyć w sekcji dostępność:
 
-| Właściwość | Opis | Wymagane | Domyślny |
+| Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
 | frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |Nie dotyczy |
 | interval |Określa mnożnik dla częstotliwości.<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany. Na przykład jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawiasz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/>Należy pamiętać, że jeśli określisz **częstotliwość** jako **minutę**, należy ustawić interwał na nie mniej niż 15. |Tak |Nie dotyczy |
@@ -278,7 +278,7 @@ Następujący zestaw danych jest co miesiąc i jest tworzony w trzeciej części
 Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, który musi spełniać wycinki zestawu danych.
 
 ### <a name="validation-policies"></a>Zasady walidacji
-| Nazwa zasady | Opis | Zastosowane do | Wymagane | Domyślny |
+| Nazwa zasady | Opis | Zastosowane do | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Sprawdza, czy dane w **usłudze Azure Blob Storage** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Azure Blob Storage |Nie |Nie dotyczy |
 | minimumRows |Sprawdza, czy dane w **bazie danych SQL Azure** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |

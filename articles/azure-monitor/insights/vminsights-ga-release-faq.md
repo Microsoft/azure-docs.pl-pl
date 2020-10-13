@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
 ms.openlocfilehash: be192a5807c40ea65ea6533ec6244183e5a4b644
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88958800"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Azure Monitor dla maszyn wirtualnych ogólnie dostępna (GA) często zadawanych pytań
@@ -110,6 +110,6 @@ Jako istniejący klient można nadal korzystać z funkcji kondycji na maszynach 
 
 Jeśli jesteś istniejącym klientem korzystającym z funkcji kondycji i chcesz go użyć do nowego wdrożenia, skontaktuj się z nami, vminsights@microsoft.com Aby uzyskać instrukcje.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby poznać wymagania i metody, które ułatwiają monitorowanie maszyn wirtualnych, zobacz [wdrażanie Azure monitor dla maszyn wirtualnych](vminsights-enable-overview.md).

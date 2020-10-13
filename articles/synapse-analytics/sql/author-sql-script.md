@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
 ms.openlocfilehash: 9d130c2a2db9ccead7180b6248398a84fcb34c3f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441242"
 ---
 # <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Używanie skryptu SQL w usłudze Azure Synapse Studio (wersja zapoznawcza)

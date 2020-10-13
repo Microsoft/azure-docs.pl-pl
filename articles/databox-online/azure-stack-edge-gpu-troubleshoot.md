@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 413847b7858549dc6130f219829b220b2857c7e2
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743203"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938894"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Rozwiązywanie problemów na urządzeniu z systemem Azure Stack Edge — procesor GPU 
 
@@ -200,6 +200,7 @@ Poniżej przedstawiono błędy związane z usługą BLOB Storage na urządzeniu 
 |Upłynął limit czasu połączenia.|Zaloguj się do Azure Stack Edge, a następnie sprawdź, czy jest odblokowany. Za każdym razem, gdy urządzenie zostanie ponownie uruchomione, pozostaje ono zablokowane, dopóki ktoś się nie zaloguje.|
 
 
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [znanych problemach w tej wersji](azure-stack-edge-gpu-2008-release-notes.md).
+- Dowiedz się więcej na temat [rozwiązywania problemów dotyczących aktywacji urządzeń](azure-stack-edge-gpu-troubleshoot-activation.md).

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89668780"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Szyfrowanie IPSec podczas przesyłania dla usługi Azure HDInsight
@@ -21,7 +21,7 @@ W tym artykule omówiono implementację szyfrowania podczas przesyłania komunik
 > [!Note]
 > Szyfrowanie podczas przesyłania jest obecnie włączone dla następujących regionów: Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2. 
 
-## <a name="background"></a>Informacje dodatkowe
+## <a name="background"></a>Tło
 
 Usługa Azure HDInsight oferuje różne funkcje zabezpieczeń w celu zabezpieczania danych w przedsiębiorstwie. Te rozwiązania są pogrupowane pod filarami zabezpieczeń obwodowych, uwierzytelniania, autoryzacji, inspekcji, szyfrowania i zgodności. Szyfrowanie może być stosowane do danych przechowywanych w czasie spoczynku i podczas przesyłania.
 
@@ -42,7 +42,7 @@ Aby utworzyć nowy klaster z włączonym szyfrowaniem przy użyciu Azure Portal,
 
 1. Na karcie **zabezpieczenia i sieć** kliknij pole wyboru **Włącz szyfrowanie podczas przesyłania** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Tworzenie klastra — Włącz szyfrowanie podczas przesyłania.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Utwórz klaster — karta Zabezpieczenia i sieć.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Tworzenie klastra z włączonym szyfrowaniem przy użyciu interfejsu wiersza polecenia platformy Azure
 

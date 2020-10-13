@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88261892"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963299"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cykl życia i Stany maszyn wirtualnych
 
@@ -418,13 +418,13 @@ Po zakończeniu operacji maszyna wirtualna przejdzie do jednego z następującyc
 
 ## <a name="vm-instance-view"></a>Widok wystąpienia maszyny wirtualnej
 
-Interfejs API widoku wystąpienia zawiera informacje o stanie uruchomienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz dokumentację interfejsu API [widoku Virtual Machines-instance](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) .
+Interfejs API widoku wystąpienia zawiera informacje o stanie uruchomienia maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz dokumentację interfejsu API [widoku Virtual Machines-instance](/rest/api/compute/virtualmachines/instanceview) .
 
 Eksplorator zasobów platformy Azure udostępnia prosty interfejs użytkownika do wyświetlania stanu działania maszyny wirtualnej: [Eksplorator zasobów](https://resources.azure.com/).
 
 Stany aprowizacji są widoczne w obszarze właściwości maszyny wirtualnej i widok wystąpienia. Stany mocy są dostępne w widoku wystąpienia maszyny wirtualnej.
 
-Aby pobrać stan mocy wszystkich maszyn wirtualnych w ramach subskrypcji, użyj opcji [Virtual Machines wszystkie interfejsy API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) z parametrem **statusOnly** na *wartość true*.
+Aby pobrać stan mocy wszystkich maszyn wirtualnych w ramach subskrypcji, użyj opcji [Virtual Machines wszystkie interfejsy API](/rest/api/compute/virtualmachines/listall) z parametrem **statusOnly** na *wartość true*.
 
 ## <a name="next-steps"></a>Następne kroki
 

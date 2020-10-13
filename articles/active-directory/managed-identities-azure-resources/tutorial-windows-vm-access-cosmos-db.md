@@ -16,10 +16,10 @@ ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532673"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB
@@ -59,7 +59,7 @@ Jeśli jeszcze nie masz konta usługi Cosmos DB, utwórz je. Możesz pominąć t
 3. Wprowadź **identyfikator** konta usługi Cosmos DB do późniejszego użycia.  
 4. **Interfejs API** należy ustawić na „SQL”. Podejście opisane w tym samouczku można stosować w przypadku innych dostępnych typów interfejsu API, ale kroki opisane w tym samouczku dotyczą interfejsu API SQL.
 5. Upewnij się, że **Subskrypcja** i **Grupa zasobów** pasują do wartości określonych podczas tworzenia maszyny wirtualnej w poprzednim kroku.  Wybierz **lokalizację**, w której jest dostępna usługa Cosmos DB.
-6. Kliknij pozycję **Utwórz**.
+6. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-a-collection"></a>Tworzenie kolekcji 
 

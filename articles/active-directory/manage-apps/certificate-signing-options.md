@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763690"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Zaawansowane opcje podpisywania certyfikatu w tokenie SAML dla aplikacji galerii w Azure Active Directory
@@ -62,10 +62,10 @@ Aby zmienić opcje podpisywania certyfikatu SAML aplikacji i algorytm podpisywan
 Następnie zmień opcje podpisywania certyfikatu w tokenie SAML dla tej aplikacji:
 
 1. W lewym okienku strony przegląd aplikacji wybierz pozycję **Logowanie jednokrotne**.
-1. Jeśli zostanie wyświetlona strona **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** , przejdź do kroku 5.
+1. Jeśli zostanie wyświetlona strona **Konfigurowanie pojedynczego Sign-On przy użyciu elementu SAML-Preview** , przejdź do kroku 5.
 1. Jeśli strona **Wybierz metodę logowania** jednokrotnego nie zostanie wyświetlona, wybierz pozycję **Zmień tryby rejestracji** jednokrotnej, aby wyświetlić tę stronę.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML** , jeśli jest dostępna. (Jeśli protokół **SAML** nie jest dostępny, aplikacja nie obsługuje protokołu SAML i można zignorować resztę tej procedury i artykułu).
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML-Preview** Znajdź nagłówek **certyfikatu podpisywania SAML** i wybierz ikonę **edycji** (ołówek). Zostanie wyświetlona strona **certyfikat podpisywania SAML** .
+1. Na stronie **Konfigurowanie pojedynczego Sign-On przy użyciu protokołu SAML-Preview** Znajdź nagłówek **certyfikatu podpisywania SAML** i wybierz ikonę **edycji** (ołówek). Zostanie wyświetlona strona **certyfikat podpisywania SAML** .
 
    ![Przykład: Strona certyfikatu podpisywania SAML](./media/certificate-signing-options/saml-signing-page.png)
 
@@ -76,4 +76,4 @@ Następnie zmień opcje podpisywania certyfikatu w tokenie SAML dla tej aplikacj
 ## <a name="next-steps"></a>Następne kroki
 
 * [Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na protokole SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

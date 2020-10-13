@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 116446c2ca6512ac39b907e95a2c1ccdf70befda
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949290"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Zaawansowane scenariusze z serwerem usługi Azure MFA i rozwiązaniami sieci VPN innych firm
@@ -55,7 +55,7 @@ Serwer usługi Azure MFA integruje się z urządzeniem sieci VPN Secure SSL Juni
 | [Juniper/Pulse Secure SSL sieci VPN i konfiguracja usługi Azure MFA dla LDAP](https://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Integruj swoją Juniper/puls Secure SSL VPN z urządzeniem Azure MFA przy użyciu protokołu LDAP |
 | [Juniper/Pulse Secure SSL sieci VPN i konfiguracja usługi Azure MFA dla usługi RADIUS](https://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Integruj swoje urządzenie sieci VPN Secure SSL Juniper/puls z usługą Azure MFA przy użyciu usługi RADIUS |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Rozszerzanie istniejącej infrastruktury uwierzytelniania przy użyciu rozszerzenia serwera NPS dla platformy Azure Multi-Factor Authentication](howto-mfa-nps-extension.md)
 

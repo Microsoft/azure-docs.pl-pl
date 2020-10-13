@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000196"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii języka C# dla Apache Storm przy użyciu narzędzi Data Lake Tools for Visual Studio
@@ -740,7 +740,7 @@ Jeśli plik dziennika *HDInsight-scpwebapi. out* zawiera `FileNotFoundException`
 * JDK nie znajduje się w ścieżce w środowisku deweloperskim. Sprawdź, czy program JDK jest zainstalowany w środowisku deweloperskim i czy `%JAVA_HOME%/bin` znajduje się w ścieżce.
 * Brak zależności Java. Upewnij się, że w ramach przesłania dołączane są wszystkie wymagane pliki jar.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Przykład przetwarzania danych z Event Hubs można znaleźć w temacie [zdarzenia przetwarzania z platformy Azure Event Hubs z burzą w usłudze HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

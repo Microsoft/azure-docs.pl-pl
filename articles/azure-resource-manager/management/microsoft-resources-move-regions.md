@@ -4,10 +4,10 @@ description: Pokaż, jak przenieść zasoby znajdujące się w przestrzeni nazw 
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 098e5c36969da12966d793b6e1eddd4f79701ead
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88951056"
 ---
 # <a name="move-microsoftresources-resources-to-new-region"></a>Przenoszenie zasobów Microsoft. resources do nowego regionu
@@ -90,7 +90,7 @@ Jeśli masz [specyfikację szablonu](../templates/template-specs.md) w jednym re
 
 1. [Wdróż wyeksportowany szablon](../templates/deploy-powershell.md) i określ nowy region dla skryptu wdrażania.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej o przenoszeniu zasobów do nowej grupy zasobów lub subskrypcji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](move-resource-group-and-subscription.md).
 * Aby dowiedzieć się więcej o przenoszeniu zasobów do nowego regionu, zobacz [przemieszczanie zasobów platformy Azure między regionami](move-region.md).

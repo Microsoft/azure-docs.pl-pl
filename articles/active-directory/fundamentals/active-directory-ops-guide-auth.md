@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601368"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Przewodnik dotyczący operacji zarządzania uwierzytelnianiem Azure Active Directory
@@ -105,7 +105,7 @@ Aby lepiej zrozumieć opcje uwierzytelniania, zobacz [Wybieranie odpowiedniej me
 
 ### <a name="programmatic-usage-of-credentials"></a>Programowe użycie poświadczeń
 
-Skrypty usługi Azure AD korzystające z programu PowerShell lub aplikacji korzystających z interfejsu API Microsoft Graph wymagają bezpiecznego uwierzytelniania. Słabe zarządzanie poświadczeniami wykonuje te skrypty i narzędzia zwiększają ryzyko kradzieży poświadczeń. Jeśli używasz skryptów lub aplikacji korzystających z haseł zakodowanych lub monitów o hasło, należy najpierw przejrzeć hasła w plikach konfiguracyjnych lub kodzie źródłowym, zastąpić te zależności i korzystać z tożsamości zarządzanych przez platformę Azure, zintegrowanego uwierzytelniania systemu Windows lub [certyfikatów](../reports-monitoring/tutorial-access-api-with-certificates.md) wszędzie tam, gdzie to możliwe. W przypadku aplikacji, w których poprzednie rozwiązania nie są możliwe, należy rozważyć użycie [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Skrypty usługi Azure AD korzystające z programu PowerShell lub aplikacji korzystających z interfejsu API Microsoft Graph wymagają bezpiecznego uwierzytelniania. Słabe zarządzanie poświadczeniami wykonuje te skrypty i narzędzia zwiększają ryzyko kradzieży poświadczeń. Jeśli używasz skryptów lub aplikacji korzystających z haseł zakodowanych lub monitów o hasło, należy najpierw przejrzeć hasła w plikach konfiguracji lub kodzie źródłowym, zastąpić te zależności i użyć tożsamości zarządzanych przez platformę Azure, uwierzytelniania Integrated-Windows lub [certyfikatów](../reports-monitoring/tutorial-access-api-with-certificates.md) , jeśli jest to możliwe. W przypadku aplikacji, w których poprzednie rozwiązania nie są możliwe, należy rozważyć użycie [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Jeśli okaże się, że istnieją jednostki usługi z poświadczeniami hasła i nie masz pewności, jak te poświadczenia hasła są zabezpieczone przez skrypty lub aplikacje, skontaktuj się z właścicielem aplikacji, aby lepiej zrozumieć wzorce użycia.
 
@@ -115,7 +115,7 @@ Firma Microsoft zaleca również kontaktowanie się z właścicielami aplikacji 
 
 ### <a name="on-premises-authentication"></a>Uwierzytelnianie lokalne
 
-Uwierzytelnianie federacyjne ze zintegrowanym uwierzytelnianiem systemu Windows (IWA) lub bezproblemowe uwierzytelnianie logowania jednokrotnego (SSO) przy użyciu funkcji synchronizacji skrótów haseł lub uwierzytelniania przekazywanego to najlepsze środowisko użytkownika w sieci firmowej z obsługą linii wglądu do lokalnych kontrolerów domeny. Minimalizuje to zmęczenie i zmniejsza ryzyko związane z atakami z wykorzystaniem wyłudzania informacji przez użytkowników Prey. Jeśli używasz już uwierzytelniania zarządzanego przez chmurę z PHS lub PTA, ale użytkownicy nadal muszą wpisać swoje hasło podczas uwierzytelniania lokalnego, należy natychmiast [wdrożyć bezproblemową rejestrację jednokrotną](../hybrid/how-to-connect-sso.md). Z drugiej strony, jeśli obecnie są federacyjne z planami, aby ostatecznie migrować do uwierzytelniania zarządzanego przez chmurę, należy zaimplementować bezproblemowe logowanie jednokrotne w ramach projektu migracji.
+Uwierzytelnianie federacyjne ze zintegrowanym uwierzytelnianiem systemu Windows (IWA) lub bezproblemowe uwierzytelnianie przy użyciu pojedynczego Sign-On (SSO) z synchronizacją skrótów haseł lub uwierzytelnianiem przekazującym to najlepsze środowisko użytkownika w ramach sieci firmowej z lokalnymi kontrolerami domeny. Minimalizuje to zmęczenie i zmniejsza ryzyko związane z atakami z wykorzystaniem wyłudzania informacji przez użytkowników Prey. Jeśli używasz już uwierzytelniania zarządzanego przez chmurę z PHS lub PTA, ale użytkownicy nadal muszą wpisać swoje hasło podczas uwierzytelniania lokalnego, należy natychmiast [wdrożyć bezproblemową rejestrację jednokrotną](../hybrid/how-to-connect-sso.md). Z drugiej strony, jeśli obecnie są federacyjne z planami, aby ostatecznie migrować do uwierzytelniania zarządzanego przez chmurę, należy zaimplementować bezproblemowe logowanie jednokrotne w ramach projektu migracji.
 
 ### <a name="device-trust-access-policies"></a>Zasady dostępu zaufania urządzeń
 
@@ -143,7 +143,7 @@ Jeśli zarządzasz urządzeniami za pomocą rozwiązania MDM lub Microsoft Intun
 - [Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory](../devices/hybrid-azuread-join-plan.md)
 - [Konfiguracje tożsamości i dostępu do urządzeń](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-### <a name="windows-hello-for-business"></a>Windows Hello dla firm
+### <a name="windows-hello-for-business"></a>Windows Hello for Business
 
 W systemie Windows 10 funkcja [Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification) zastępuje hasła silnym uwierzytelnianiem dwuskładnikowym na komputerach. Funkcja Windows Hello dla firm umożliwia korzystanie z bardziej usprawnień usługi MFA dla użytkowników i zmniejsza zależność od haseł. Jeśli nie rozpoczęto wdrażania urządzeń z systemem Windows 10 lub zostały one tylko częściowo wdrożone, zalecamy uaktualnienie do systemu Windows 10 i [włączenie usługi Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) na wszystkich urządzeniach.
 

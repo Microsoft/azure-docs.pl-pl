@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: b029fa246977dfe4210f6e8df242415f7e4103f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081920"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Tworzenie Durable Functions przy użyciu Azure Portal
@@ -40,19 +40,12 @@ W przypadku tworzenia Durable Functions JavaScript należy zainstalować [ `dura
 
 3. W konsoli kudu wybierz pozycję **konsola debugowania**, a następnie polecenie **cmd**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Konsola debugowania kudu":::
-
-3. Struktura katalogu plików aplikacji funkcji powinna być wyświetlana. Przejdź do folderu `site/wwwroot`. W tym miejscu możesz przekazać plik, `package.json` przeciągając go i upuszczając do okna katalogu plików. Poniżej przedstawiono przykład `package.json` :
-
-    ```json
-    {
-      "dependencies": {
-        "durable-functions": "^1.3.1"
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Funkcje platformy funkcji wybierz kudu"
       }
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu przekazywania package.jsna":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Funkcje platformy funkcji wybierz kudu":::
 
 4. Po `package.json` przekazaniu należy uruchomić `npm install` polecenie z konsoli wykonywania zdalnego kudu.
 
@@ -64,7 +57,7 @@ W przypadku tworzenia Durable Functions JavaScript należy zainstalować [ `dura
 
 1. W polu wyszukiwania na stronie **Nowa funkcja** wprowadź `durable` , a następnie wybierz szablon **Durable Functions http Starter** .
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Wybierz Durable Functions HTTP Starter":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Funkcje platformy funkcji wybierz kudu":::
 
 1. Dla **nowej nazwy funkcji** wprowadź wartość `HttpStart` , a następnie wybierz pozycję **Utwórz funkcję**.
 

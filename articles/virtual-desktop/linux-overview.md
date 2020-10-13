@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320249"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960647"
 ---
 # <a name="linux-support"></a>Obsługa systemu Linux
 
-Można uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzeń z systemem Linux z następującymi obsługiwanymi klientami dostarczonymi przez naszych partnerów klientów z systemem Linux. Pracujemy z wieloma partnerami, aby umożliwić obsługę klientów klasycznych systemu Windows w większej liczbie systemów operacyjnych i urządzeń z systemem Linux. Jeśli potrzebujesz obsługi pulpitu wirtualnego systemu Windows na platformie z systemem Linux, która nie jest wymieniona w tym miejscu, poinformuj nas o naszej [stronie usługi UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzeń z systemem Linux za pomocą [klienta sieci Web](connect-web.md) lub następujących obsługiwanych klientów udostępnionych przez naszych partnerów z systemem Linux. Pracujemy z wieloma partnerami, aby umożliwić obsługę klientów klasycznych systemu Windows w większej liczbie systemów operacyjnych i urządzeń z systemem Linux. Jeśli potrzebujesz obsługi pulpitu wirtualnego systemu Windows na platformie z systemem Linux, która nie jest wymieniona w tym miejscu, poinformuj nas o naszej [stronie usługi UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Nawiązywanie połączenia z urządzeniem z systemem Linux
 

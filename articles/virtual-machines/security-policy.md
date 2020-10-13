@@ -9,13 +9,13 @@ ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88852484"
 ---
-# <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Zabezpieczanie i Używanie zasad na maszynach wirtualnych na platformie Azure
+# <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Zabezpieczanie maszyn wirtualnych platformy Azure i stosowanie zasad
 
 Ważne jest, aby zachować bezpieczeństwo maszyny wirtualnej dla aplikacji, które są uruchamiane. Zabezpieczanie maszyn wirtualnych może obejmować jedną lub więcej usług i funkcji platformy Azure, które obejmują bezpieczny dostęp do maszyn wirtualnych i bezpieczny magazyn danych. Ten artykuł zawiera informacje, które umożliwiają bezpieczne zachowanie maszyny wirtualnej i aplikacji.
 
@@ -67,7 +67,7 @@ Funkcja tożsamości zarządzanych dla platformy Azure w usłudze Azure Active D
 
 [Zasady platformy Azure](../governance/policy/overview.md) mogą służyć do definiowania żądanego zachowania dla maszyn wirtualnych z [systemem Windows](./windows/policy.md) i maszyn wirtualnych systemu [Linux](./linux/policy.md)w organizacji. Korzystając z zasad, organizacja może wymusić różne konwencje i reguły w całym przedsiębiorstwie. Wymuszanie żądanego zachowania może pomóc w ograniczeniu ryzyka, a tym samym sukcesem organizacji.
 
-## <a name="role-based-access-control"></a>Kontrola dostępu na podstawie ról
+## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
 Za pomocą [kontroli dostępu opartej na rolach platformy Azure (Azure RBAC)](../role-based-access-control/overview.md)można rozdzielić cła w ramach zespołu i przyznać dostęp tylko użytkownikom na maszynie wirtualnej, którzy potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w [Azure Portal](../role-based-access-control/role-assignments-portal.md)przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/role)lub[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

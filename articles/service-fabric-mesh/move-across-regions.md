@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260156"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Przenoszenie aplikacji siatki Service Fabric do innego regionu platformy Azure
@@ -24,7 +24,7 @@ W tym artykule opisano sposób przenoszenia aplikacji siatki Service Fabric i je
 * Kontroler transferu danych przychodzących (na przykład [Application Gateway](../application-gateway/index.yml)), który będzie używany jako pośrednik do routingu ruchu między klientami a aplikacją Service Fabric siatką
 * Dostępność siatki Service Fabric (wersja zapoznawcza) w docelowym regionie platformy Azure ( `westus` , `eastus` lub `westeurope` )
 
-## <a name="prepare"></a>Przygotowanie
+## <a name="prepare"></a>Przygotowywanie
 
 1. Utwórz "migawkę" bieżącego stanu aplikacji siatki Service Fabric, eksportując szablon Azure Resource Manager i parametry z najnowszego wdrożenia. Aby to zrobić, wykonaj kroki opisane w sekcji [Eksportowanie szablonu po wdrożeniu](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) przy użyciu Azure Portal. Można również użyć interfejsu [wiersza polecenia platformy Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)lub [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 

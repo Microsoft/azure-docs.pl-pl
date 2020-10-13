@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
 ms.openlocfilehash: d9377ba22f1461762e53b1004dfe5f06c2d7b972
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420221"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych na platformie Azure
