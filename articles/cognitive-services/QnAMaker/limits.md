@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776259"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limity i granice bazy wiedzy QnA Maker
@@ -20,7 +20,7 @@ Podane poniżej limity QnA Maker są kombinacją [limitów warstwy cenowej platf
 
 Maksymalna liczba baz wiedzy zależy od [limitów warstwy wyszukiwanie poznawcze platformy Azure](../../search/search-limits-quotas-capacity.md).
 
-|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowa** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
+|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowe** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
 |---|---|---|---|---|---|----|
 |Dozwolona maksymalna liczba opublikowanych baz wiedzy|2|14|49|199|199|2 999|
 
@@ -63,7 +63,7 @@ Metadane są prezentowane jako para kluczowa: wartość, na przykład `product:w
 
 Maksymalna liczba pól metadanych na bazę wiedzy zależy od **[limitów warstwy wyszukiwanie poznawcze platformy Azure](../../search/search-limits-quotas-capacity.md)**.
 
-|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowa** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
+|**Warstwa usługi Azure Wyszukiwanie poznawcze** | **Bezpłatna** | **Podstawowe** |**S1** | **S2**| **S3** |**S3 (wysoka gęstość)**|
 |---|---|---|---|---|---|----|
 |Maksymalna liczba pól metadanych na usługę QnA Maker (w ramach wszystkich artykułów bazy wiedzy)|1000|100 *|1000|1000|1000|1000|
 

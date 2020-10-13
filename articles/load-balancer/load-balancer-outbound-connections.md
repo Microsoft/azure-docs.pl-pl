@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
 ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649800"
 ---
 # <a name="outbound-connections"></a>Połączenia wychodzące
@@ -375,7 +375,7 @@ Jeden port źródłowego adresu IP jest używany dla każdego docelowego i każd
 
 | Odpowiednie protokoły |
 |------------------------|
-| Brak |
+| Nie dotyczy |
 
 #### <a name="details"></a>Szczegóły
 

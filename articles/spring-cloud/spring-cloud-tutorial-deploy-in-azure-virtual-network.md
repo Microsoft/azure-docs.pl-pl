@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892896"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
@@ -58,7 +58,7 @@ Jeśli masz już sieć wirtualną do hostowania wystąpienia usługi w chmurze z
     |Subskrypcja     |Wybierz subskrypcję.                         |
     |Grupa zasobów   |Wybierz grupę zasobów lub Utwórz nową.  |
     |Nazwa             |Wprowadzenie do *platformy Azure-sprężyny w chmurze*                   |
-    |Location         |Wybierz **Wschodnie stany USA**                                |
+    |Lokalizacja         |Wybierz **Wschodnie stany USA**                                |
 
 1. Kliknij przycisk **Dalej: adresy IP >**. 
  
@@ -83,7 +83,7 @@ Wybierz wcześniej utworzoną sieć wirtualną *Azure-sprężynę i chmurę* .
     |Ustawienie  |Wartość                                             |
     |---------|--------------------------------------------------|
     |Rola     |Wybierz **właściciela**                                  |
-    |Wybierz pozycję   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
+    |Wybierz   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
 
     Następnie wybierz pozycję *dostawca zasobów w chmurze Azure wiosny*, a następnie kliknij przycisk **Zapisz**.
 

@@ -1,7 +1,7 @@
 ---
 title: Tworzenie zasad grupy i zarządzanie nimi w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak edytować wbudowane obiekty zasad grupy (GPO) i utworzyć własne zasady niestandardowe w Azure Active Directory Domain Services domenie zarządzanej.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: c5ee162a78ac5e8c3080cd33c89fcee507ecfe92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: deefcb66e05199896e8997d707a06e45f397adec
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704858"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963741"
 ---
 # <a name="administer-group-policy-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrowanie zasady grupy w Azure Active Directory Domain Servicesej domenie zarządzanej
 
@@ -25,7 +25,7 @@ W środowisku hybrydowym zasady grupy skonfigurowane w środowisku lokalnym AD D
 
 W tym artykule opisano sposób instalowania narzędzi do zarządzania zasady grupy, a następnie edytowania wbudowanych obiektów zasad grupy i tworzenia niestandardowych obiektów zasad grupy.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

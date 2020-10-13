@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
 ms.openlocfilehash: b4025990a1a62351d3971d788558dea8ecb390ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327961"
 ---
 # <a name="about-virtual-wan-pricing"></a>Informacje o cenach wirtualnych sieci WAN
@@ -56,7 +56,7 @@ W poniższych tabelach użyto następujących skrótów: {Add: Ameryka Północn
 
 **Ceny wewnątrz kontynentu (*)**
 
-| Wewnątrz kontynentu| Cena ($/GB)|
+| Intra-Continent| Cena ($/GB)|
 |---|---|
 | Do|0,02 USD |
 | UE do UE |0,02 USD |
@@ -67,7 +67,7 @@ W poniższych tabelach użyto następujących skrótów: {Add: Ameryka Północn
 
 **Cennik międzykontynentalny (*)**
 
-| Między kontynentalne| Cena ($/GB)|
+| Inter-Continental| Cena ($/GB)|
 |---|---|
 | OD do UE lub UE do |$0,07 |
 | OD LATAM do dowolnego miejsca |$0,17 |

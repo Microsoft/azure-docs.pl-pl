@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776310"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)
@@ -30,7 +30,7 @@ Możesz również użyć [integracji usług Azure Kubernetes Services z usługą
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Zabezpieczanie dostępu do serwera interfejsu API i węzłów klastra
 
-**Wskazówki dotyczące najlepszych** rozwiązań — Zabezpieczanie dostępu do interfejsu API Kubernetes — serwer jest jednym z najważniejszych możliwości zabezpieczania klastra. Integracja kontroli dostępu opartej na rolach (RBAC) Kubernetes z Azure Active Directory w celu kontrolowania dostępu do serwera interfejsu API. Te kontrolki pozwalają zabezpieczyć AKS w taki sam sposób, jak bezpieczny dostęp do subskrypcji platformy Azure.
+**Wskazówki dotyczące najlepszych** rozwiązań — Zabezpieczanie dostępu do Kubernetes API-Server jest jednym z najważniejszych możliwości zabezpieczania klastra. Integracja kontroli dostępu opartej na rolach (RBAC) Kubernetes z Azure Active Directory w celu kontrolowania dostępu do serwera interfejsu API. Te kontrolki pozwalają zabezpieczyć AKS w taki sam sposób, jak bezpieczny dostęp do subskrypcji platformy Azure.
 
 Serwer interfejsu API Kubernetes zapewnia pojedynczy punkt połączenia dla żądań wykonywania akcji w ramach klastra. Aby zabezpieczyć i kontrolować dostęp do serwera interfejsu API, należy ograniczyć dostęp i zapewnić wymagane uprawnienia dostępu najmniej uprzywilejowanego. Takie podejście nie jest unikatowe dla Kubernetes, ale jest szczególnie ważne, gdy klaster AKS jest logicznie odizolowany do użycia z wieloma dzierżawcami.
 

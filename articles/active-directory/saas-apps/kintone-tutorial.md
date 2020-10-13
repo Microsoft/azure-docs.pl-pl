@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e966595422f353067d66483defa0b880874415
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88535360"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Samouczek: integracja Azure Active Directory z usługą usługi Kintone
 
@@ -145,7 +145,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi Kin
 
 1. Kliknij pozycję **Włącz uwierzytelnianie SAML**.
 
-    ![Uwierzytelnianie SAML](./media/kintone-tutorial/ic785882.png "Uwierzytelnianie SAML")
+    ![Zrzut ekranu przedstawiający wybraną wartość "Użytkownicy & Administracja systemu".](./media/kintone-tutorial/ic785882.png "Uwierzytelnianie SAML")
 
 1. W sekcji SAML Authentication (Uwierzytelnianie SAML) wykonaj następujące kroki:
 
@@ -182,7 +182,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -232,7 +232,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze usługi
 
 1. Kliknij pozycję **New User** (Nowy użytkownik).
 
-    ![Nowi użytkownicy](./media/kintone-tutorial/ic785889.png "Nowi użytkownicy")
+    ![Zrzut ekranu przedstawiający sekcję "Users" z wybraną akcją "nowy użytkownik".](./media/kintone-tutorial/ic785889.png "Nowi użytkownicy")
 
 1. W sekcji **nowy użytkownik** wykonaj następujące czynności:
 

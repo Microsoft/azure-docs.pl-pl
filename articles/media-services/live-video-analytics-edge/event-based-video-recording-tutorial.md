@@ -4,17 +4,17 @@ description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Live Vid
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.openlocfilehash: a2388a01544d2158e7ca6f1692df07b14ec03a93
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773556"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: Rejestrowanie wideo oparte na zdarzeniach w chmurze i odtwarzanie z chmury
 
 W ramach tego samouczka nauczysz się, jak za pomocą usługi Azure Live Video Analytics na Azure IoT Edge selektywnie rejestrować fragmenty aktywnego źródła wideo do Azure Media Services w chmurze. Ten przypadek użycia jest określany mianem [rejestrowania wideo opartego na zdarzeniach](event-based-video-recording-concept.md) (EVR) w tym samouczku. Aby nagrać fragmenty wideo na żywo, będziesz używać modelu AI wykrywania obiektów do wyszukiwania obiektów w wideo i rejestrowania klipów wideo tylko w przypadku wykrycia określonego typu obiektu. Dowiesz się również, jak odtworzyć zarejestrowane klipy wideo przy użyciu Media Services. Ta funkcja jest przydatna w różnych scenariuszach, w których istnieje potrzeba zachowania archiwum interesujących klipów wideo. 
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Skonfiguruj odpowiednie zasoby.

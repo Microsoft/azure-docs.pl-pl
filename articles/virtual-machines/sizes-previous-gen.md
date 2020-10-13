@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 05da5a21fb558b7d936b7569a69578eda06e11cf
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 175d572e69dd34a09787f44cf14ae0336c8e95e0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875278"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975607"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -205,7 +205,7 @@ Seria DC używa najnowszej generacji procesora Intel XEON E-2176G z technologią
 
 > [!IMPORTANT]
 >
-> Maszyny wirtualne z serii DC to [maszyny wirtualne 2. generacji](./linux/generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
+> Maszyny wirtualne z serii DC to [maszyny wirtualne 2. generacji](./generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
 
 
 ### <a name="ds-series"></a>Seria DS  

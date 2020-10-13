@@ -1,6 +1,6 @@
 ---
 title: Transakcje rozproszone w bazach danych w chmurze (wersja zapoznawcza)
-description: Przegląd transakcji Elastic Database z Azure SQL Database.
+description: Przegląd transakcji Elastic Database z usługą Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,95 +11,44 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 60f6863bbe051338308c30e22c6969d84670dc64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5dd5d8ddf8df507cebaaeba4a544f58250a891
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409735"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975233"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transakcje rozproszone w bazach danych w chmurze (wersja zapoznawcza)
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Transakcje elastycznej bazy danych dla Azure SQL Database umożliwiają uruchamianie transakcji obejmujących kilka baz danych w programie SQL Database. Transakcje Elastic Database dla SQL Database są dostępne dla aplikacji .NET przy użyciu programu ADO.NET i integrują się z znanym środowiskiem programistycznym korzystającym z klas [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Aby uzyskać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator sieci Web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Transakcje elastycznej bazy danych dla Azure SQL Database i wystąpienia zarządzanego Azure SQL umożliwiają uruchamianie transakcji obejmujących kilka baz danych. Transakcje Elastic Database są dostępne dla aplikacji .NET korzystających z programu ADO.NET i integrują się z znanym środowiskiem programistycznym korzystającym z klas [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Aby uzyskać bibliotekę, zobacz [.NET Framework 4.6.1 (Instalator sieci Web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Oprócz tego w przypadku transakcji rozproszonych wystąpienia zarządzanego usługi Azure SQL są dostępne w [języku Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
 
-W środowisku lokalnym taki scenariusz zwykle wymaga uruchomionego programu Microsoft Distributed Transaction Coordinator (MSDTC). Ponieważ usługa MSDTC nie jest dostępna dla aplikacji platformy jako usługi na platformie Azure, możliwość skoordynowania transakcji rozproszonych została teraz zintegrowana bezpośrednio z SQL Database. Aplikacje mogą łączyć się z dowolnymi bazami danych w SQL Database do uruchamiania transakcji rozproszonych, a jedna z baz danych w sposób niewidoczny dla użytkownika koordynuje transakcję rozproszoną, jak pokazano na poniższej ilustracji.
+W środowisku lokalnym taki scenariusz zwykle wymaga uruchomionego programu Microsoft Distributed Transaction Coordinator (MSDTC). Ponieważ usługa MSDTC nie jest dostępna dla aplikacji platformy jako usługi na platformie Azure, możliwość skoordynowania transakcji rozproszonych została teraz zintegrowana bezpośrednio z SQL Database lub wystąpieniem zarządzanym. Aplikacje mogą łączyć się z dowolnymi bazami danych w celu uruchamiania transakcji rozproszonych, a jedna z baz danych lub serwerów w sposób przezroczysty koordynuje transakcję rozproszoną, jak pokazano na poniższej ilustracji.
+
+W tym dokumencie przedstawiono "transakcje rozproszone" i "transakcje elastycznej bazy danych" są uznawane za synonimy i będą używane interchangably.
 
   ![Transakcje rozproszone z Azure SQL Database przy użyciu transakcji Elastic Database ][1]
 
 ## <a name="common-scenarios"></a>Typowe scenariusze
 
-Transakcje elastycznej bazy danych dla SQL Database umożliwiają aplikacjom wprowadzanie niepodzielnych zmian danych przechowywanych w kilku różnych bazach danych w programie SQL Database. Wersja zapoznawcza koncentruje się na środowiskach deweloperskich po stronie klienta w językach C# i .NET. Środowisko pracy po stronie serwera przy użyciu języka T-SQL jest planowane w późniejszym czasie.  
+Transakcje Elastic Database umożliwiają aplikacjom wprowadzanie niepodzielnych zmian danych przechowywanych w kilku różnych bazach danych. Wersja zapoznawcza koncentruje się na środowiskach deweloperskich po stronie klienta w językach C# i .NET. Środowisko pracy po stronie serwera (kod zapisany w procedurach składowanych lub skrypty po stronie serwera) przy użyciu [języka Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) jest dostępne tylko dla wystąpienia zarządzanego, a dla SQL Database jest on planowany w późniejszym czasie.
+> [!IMPORTANT]
+> W wersji zapoznawczej uruchamianie transakcji Elastic Database między Azure SQL Database i wystąpieniem zarządzanym Azure SQL nie jest obecnie obsługiwane. Transakcja Elastic Database może obejmować tylko zbiory baz danych SQL lub zestaw wystąpień zarządzanych.
+
 Transakcje elastycznej bazy danych są przeznaczone dla następujących scenariuszy:
 
-* Aplikacje z wieloma bazami danych na platformie Azure: w tym scenariuszu dane są partycjonowane w pionie w wielu bazach danych w SQL Database, w taki sposób, że różne rodzaje danych znajdują się w różnych baz danych. Niektóre operacje wymagają zmian danych, które są przechowywane w co najmniej dwóch bazach danych. Aplikacja używa transakcji Elastic Database do koordynowania zmian w bazach danych i zapewniania niepodzielności.
-* Podzielonej na fragmenty bazy danych na platformie Azure: w tym scenariuszu warstwa danych używa [biblioteki klienta Elastic Database](elastic-database-client-library.md) lub fragmentowania w poziomie, aby podzielić dane między wiele baz danych w SQL Database. Jednym z widocznych przypadków użycia jest konieczność wykonywania niepodzielnych zmian w podzielonej na fragmenty aplikacji wielodostępnej, gdy zmiany obejmują dzierżawców. Pomyśl o wystąpieniu transferu między dzierżawcami, które znajdują się w różnych bazach danych. Drugi przypadek jest szczegółowym fragmentowania, aby sprostać potrzebom związanym z pojemnością dla dużej dzierżawy, co z kolei oznacza, że niektóre operacje niepodzielne muszą być rozciągane między kilka baz danych używanych dla tej samej dzierżawy. Trzecia sprawa jest niepodzielnymi aktualizacjami odwołań do danych replikowanych między bazami danych. Niepodzielna, transakcyjna, operacje w tych wierszach, można teraz koordynować w kilku bazach danych przy użyciu wersji zapoznawczej.
+* Aplikacje z wieloma bazami danych na platformie Azure: w tym scenariuszu dane są partycjonowane w pionie w wielu bazach danych w SQL Database lub w wystąpieniu zarządzanym, w taki sposób, że różne rodzaje danych znajdują się w różnych bazach. Niektóre operacje wymagają zmian danych, które są przechowywane w co najmniej dwóch bazach danych. Aplikacja używa transakcji Elastic Database do koordynowania zmian w bazach danych i zapewniania niepodzielności.
+* Podzielonej na fragmenty bazy danych na platformie Azure: w tym scenariuszu warstwa danych używa [biblioteki klienta Elastic Database](elastic-database-client-library.md) lub fragmentowania w poziomie, aby podzielić dane między wiele baz danych w SQL Database lub zarządzanym wystąpieniu. Jednym z widocznych przypadków użycia jest konieczność wykonywania niepodzielnych zmian w podzielonej na fragmenty aplikacji wielodostępnej, gdy zmiany obejmują dzierżawców. Pomyśl o wystąpieniu transferu między dzierżawcami, które znajdują się w różnych bazach danych. Drugi przypadek jest szczegółowym fragmentowania, aby sprostać potrzebom związanym z pojemnością dla dużej dzierżawy, co z kolei oznacza, że niektóre operacje niepodzielne muszą być rozciągane między kilka baz danych używanych dla tej samej dzierżawy. Trzecia sprawa jest niepodzielnymi aktualizacjami odwołań do danych replikowanych między bazami danych. Niepodzielna, transakcyjna, operacje w tych wierszach, można teraz koordynować w kilku bazach danych przy użyciu wersji zapoznawczej.
   Transakcje elastycznej bazy danych korzystają z dwufazowego zatwierdzania, aby zapewnić niepodzielność transakcji między bazami danych. Jest to dobre dopasowanie w przypadku transakcji obejmujących mniej niż 100 baz danych jednocześnie w ramach jednej transakcji. Te limity nie są wymuszane, ale jeden z nich powinien oczekiwać wydajności i częstotliwości sukcesów dla transakcji Elastic Database, gdy przekraczają te limity.
 
 ## <a name="installation-and-migration"></a>Instalacja i migracja
 
-Możliwości transakcji Elastic Database w SQL Database są udostępniane za pomocą aktualizacji bibliotek .NET System.Data.dll i System.Transactions.dll. Biblioteki DLL zapewniają, że dwufazowe zatwierdzanie jest używane w razie potrzeby w celu zapewnienia niepodzielności. Aby rozpocząć tworzenie aplikacji przy użyciu transakcji Elastic Database, zainstaluj [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) lub nowszą wersję. W przypadku uruchomienia w starszej wersji programu .NET Framework transakcje nie będą poddawane promocji do transakcji rozproszonej i zostanie zgłoszony wyjątek.
+Możliwości transakcji Elastic Database są udostępniane za pomocą aktualizacji bibliotek .NET System.Data.dll i System.Transactions.dll. Biblioteki DLL zapewniają, że dwufazowe zatwierdzanie jest używane w razie potrzeby w celu zapewnienia niepodzielności. Aby rozpocząć tworzenie aplikacji przy użyciu transakcji Elastic Database, zainstaluj [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) lub nowszą wersję. W przypadku uruchomienia w starszej wersji programu .NET Framework transakcje nie będą poddawane promocji do transakcji rozproszonej i zostanie zgłoszony wyjątek.
 
-Po zakończeniu instalacji można używać interfejsów API transakcji rozproszonych w programie System. Transactions z połączeniami do SQL Database. Jeśli masz istniejące aplikacje usługi MSDTC korzystające z tych interfejsów API, po zainstalowaniu przeglądarki 4.6.1 należy po prostu ponownie skompilować istniejące aplikacje dla programu .NET 4,6. Jeśli projekty są przeznaczone dla platformy .NET 4,6, będą automatycznie używały zaktualizowanych bibliotek DLL z nowej wersji platformy i wywołań interfejsu API transakcji rozproszonych w połączeniu z połączeniami z usługą SQL Database.
+Po zakończeniu instalacji można używać interfejsów API transakcji rozproszonych w programie System. Transactions z połączeniami z usługą SQL Database i wystąpieniem zarządzanym. Jeśli masz istniejące aplikacje usługi MSDTC korzystające z tych interfejsów API, po zainstalowaniu przeglądarki 4.6.1 należy po prostu ponownie skompilować istniejące aplikacje dla programu .NET 4,6. Jeśli projekty są przeznaczone dla platformy .NET 4,6, będą automatycznie używały zaktualizowanych bibliotek DLL z nowej wersji platformy i wywołań interfejsu API transakcji rozproszonych w połączeniu z połączeniami z SQL Database lub wystąpieniem zarządzanym.
 
-Pamiętaj, że transakcje Elastic Database nie wymagają instalowania usługi MSDTC. Zamiast tego transakcje Elastic Database są bezpośrednio zarządzane przez program i w ramach SQL Database. Znacznie upraszcza to scenariusze w chmurze, ponieważ wdrożenie usługi MSDTC nie jest konieczne do korzystania z transakcji rozproszonych z SQL Database. Sekcja 4 wyjaśnia bardziej szczegółowo, jak wdrażać transakcje Elastic Database i wymagane środowisko .NET Framework razem z aplikacjami w chmurze na platformie Azure.
-
-## <a name="development-experience"></a>Środowisko programistyczne
-
-### <a name="multi-database-applications"></a>Aplikacje z obsługą kilku baz danych
-
-Następujący przykładowy kod używa znanego środowiska programistycznego w programie .NET system. Transactions. Klasa TransactionScope tworzy otaczającą transakcję w programie .NET. ("Otoczenia transakcji" to ten, który znajduje się w bieżącym wątku). Wszystkie połączenia otwarte w ramach elementu TransactionScope biorą udział w transakcji. W przypadku korzystania z różnych baz danych transakcja zostanie automatycznie podwyższona do transakcji rozproszonej. Wynik transakcji jest kontrolowany przez ustawienie zakresu do ukończenia, aby wskazać zatwierdzenie.
-
-```csharp
-    using (var scope = new TransactionScope())
-    {
-        using (var conn1 = new SqlConnection(connStrDb1))
-        {
-            conn1.Open();
-            SqlCommand cmd1 = conn1.CreateCommand();
-            cmd1.CommandText = string.Format("insert into T1 values(1)");
-            cmd1.ExecuteNonQuery();
-        }
-
-        using (var conn2 = new SqlConnection(connStrDb2))
-        {
-            conn2.Open();
-            var cmd2 = conn2.CreateCommand();
-            cmd2.CommandText = string.Format("insert into T2 values(2)");
-            cmd2.ExecuteNonQuery();
-        }
-
-        scope.Complete();
-    }
-```
-
-### <a name="sharded-database-applications"></a>Aplikacje bazy danych podzielonej na fragmenty
-
-Transakcje elastycznej bazy danych dla SQL Database obsługują również koordynowanie transakcji rozproszonych w przypadku używania metody OpenConnectionForKey biblioteki klienta Elastic Database do otwierania połączeń dla warstwy danych skalowanych w poziomie. Rozważ przypadki, w których należy zagwarantowanie spójności transakcyjnej dla zmian w kilku różnych wartościach klucza fragmentowania. Połączenia z fragmentów hostowania różnych wartości klucza fragmentowania są obsługiwane przez brokera przy użyciu OpenConnectionForKey. W ogólnym przypadku połączenia mogą być różne fragmentów w taki sposób, że zapewnienie transakcyjnych gwarancji wymaga transakcji rozproszonej.
-Poniższy przykład kodu ilustruje to podejście. Przyjęto założenie, że zmienna o nazwie shardmap jest używana do reprezentowania mapy fragmentu z biblioteki klienta Elastic Database:
-
-```csharp
-    using (var scope = new TransactionScope())
-    {
-        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
-        {
-            conn1.Open();
-            SqlCommand cmd1 = conn1.CreateCommand();
-            cmd1.CommandText = string.Format("insert into T1 values(1)");
-            cmd1.ExecuteNonQuery();
-        }
-
-        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
-        {
-            conn2.Open();
-            var cmd2 = conn2.CreateCommand();
-            cmd2.CommandText = string.Format("insert into T1 values(2)");
-            cmd2.ExecuteNonQuery();
-        }
-
-        scope.Complete();
-    }
-```
+Pamiętaj, że transakcje Elastic Database nie wymagają instalowania usługi MSDTC. Zamiast tego transakcje Elastic Database są bezpośrednio zarządzane przez usługę i w ramach tej usługi. Znacznie upraszcza to scenariusze w chmurze, ponieważ wdrożenie usługi MSDTC nie jest konieczne do korzystania z transakcji rozproszonych z SQL Databasem lub wystąpieniem zarządzanym. Sekcja 4 wyjaśnia bardziej szczegółowo, jak wdrażać transakcje Elastic Database i wymagane środowisko .NET Framework razem z aplikacjami w chmurze na platformie Azure.
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalacja platformy .NET dla usługi Azure Cloud Services
 
@@ -130,7 +79,156 @@ Należy pamiętać, że Instalator programu .NET 4.6.1 może wymagać więcej ty
     </Startup>
 ```
 
-## <a name="transactions-across-multiple-servers"></a>Transakcje na wielu serwerach
+## <a name="net-development-experience"></a>Środowisko deweloperskie platformy .NET
+
+### <a name="multi-database-applications"></a>Aplikacje z obsługą kilku baz danych
+
+Następujący przykładowy kod używa znanego środowiska programistycznego w programie .NET system. Transactions. Klasa TransactionScope tworzy otaczającą transakcję w programie .NET. ("Otoczenia transakcji" to ten, który znajduje się w bieżącym wątku). Wszystkie połączenia otwarte w ramach elementu TransactionScope biorą udział w transakcji. W przypadku korzystania z różnych baz danych transakcja zostanie automatycznie podwyższona do transakcji rozproszonej. Wynik transakcji jest kontrolowany przez ustawienie zakresu do ukończenia, aby wskazać zatwierdzenie.
+
+```csharp
+    using (var scope = new TransactionScope())
+    {
+        using (var conn1 = new SqlConnection(connStrDb1))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
+
+        using (var conn2 = new SqlConnection(connStrDb2))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T2 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
+
+        scope.Complete();
+    }
+```
+
+### <a name="sharded-database-applications"></a>Aplikacje bazy danych podzielonej na fragmenty
+
+Transakcje elastycznej bazy danych dla SQL Database i wystąpienia zarządzanego obsługują również koordynowanie transakcji rozproszonych w przypadku używania metody OpenConnectionForKey biblioteki klienta Elastic Database do otwierania połączeń dla warstwy danych skalowanych w poziomie. Rozważ przypadki, w których należy zagwarantowanie spójności transakcyjnej dla zmian w kilku różnych wartościach klucza fragmentowania. Połączenia z fragmentów hostowania różnych wartości klucza fragmentowania są obsługiwane przez brokera przy użyciu OpenConnectionForKey. W ogólnym przypadku połączenia mogą być różne fragmentów w taki sposób, że zapewnienie transakcyjnych gwarancji wymaga transakcji rozproszonej.
+Poniższy przykład kodu ilustruje to podejście. Przyjęto założenie, że zmienna o nazwie shardmap jest używana do reprezentowania mapy fragmentu z biblioteki klienta Elastic Database:
+
+```csharp
+    using (var scope = new TransactionScope())
+    {
+        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
+        {
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
+
+        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
+        {
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T1 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
+
+        scope.Complete();
+    }
+```
+
+## <a name="transact-sql-development-experience"></a>Środowisko programistyczne języka Transact-SQL
+
+Transakcje rozproszone po stronie serwera przy użyciu języka T-SQL są dostępne tylko dla wystąpienia zarządzanego usługi Azure SQL. Transakcja rozproszona może być wykonywana tylko między wystąpieniami zarządzanymi należącymi do tej samej [grupy zaufania serwera](https://aka.ms/mitrusted-groups). W tym scenariuszu wystąpienia zarządzane muszą używać [połączonego serwera](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) w celu odwoływania się do siebie nawzajem.
+
+Następujący przykładowy kod w języku Transact-SQL używa [Rozpocznij transakcji rozproszonej](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) do uruchomienia transakcji rozproszonej.
+
+```Transact-SQL
+
+    -- Configure the Linked Server
+    -- Add one Azure SQL Managed Instance as Linked Server
+    EXEC sp_addlinkedserver
+        @server='managedinstance02', -- Linked server name
+        @srvproduct='',
+        @provider='sqlncli', -- SQL Server Native Client
+        @datasrc='sql-managed-instance-02.48ea8fd5ac90.database.windows.net' -- Managed Instance endpoint
+
+    -- Add credentials and options to this Linked Server
+    EXEC sp_addlinkedsrvlogin
+        @rmtsrvname = 'managedinstance02', -- Linked server name
+        @useself = 'false',
+        @rmtuser = '<login_name>',         -- login
+        @rmtpassword = '<secure_password>' -- password
+
+    USE AdventureWorks2012;
+    GO
+    SET XACT_ABORT ON;
+    GO
+    BEGIN DISTRIBUTED TRANSACTION;
+    -- Delete candidate from local instance.
+    DELETE AdventureWorks2012.HumanResources.JobCandidate
+        WHERE JobCandidateID = 13;
+    -- Delete candidate from remote instance.
+    DELETE RemoteServer.AdventureWorks2012.HumanResources.JobCandidate
+        WHERE JobCandidateID = 13;
+    COMMIT TRANSACTION;
+    GO
+```
+
+## <a name="combining-net-and-transact-sql-development-experience"></a>Łączenie środowiska programistycznego .NET i Transact-SQL
+
+Aplikacje .NET używające klas System. Transaction mogą łączyć klasę TransactionScope z instrukcją Transact-SQL Rozpocznij transakcję rozproszoną. W ramach elementu TransactionScope transakcja wewnętrzna, która wykonuje transakcja BEGIN rozdzielona, będzie jawnie do transakcji rozproszonej. Ponadto, gdy druga SqlConnecton jest otwierana w elemencie TransactionScope, zostanie niejawnie podwyższona do transakcji rozproszonej. Po rozpoczęciu transakcji rozproszonej wszystkie kolejne żądania transakcji, niezależnie od tego, czy pochodzą z platformy .NET, czy Transact-SQL, dołączają nadrzędną transakcję rozproszoną. W miarę jak wszystkie zakresy zagnieżdżonych transakcji inicjowanych przez instrukcję BEGIN będą kończyć się w tej samej transakcji, a instrukcje COMMIT/ROLLBACK będą miały następujący wpływ na ogólny wynik:
+ * Instrukcja COMMIT nie będzie miała wpływu na zakres transakcji zainicjowanej przez instrukcję BEGIN, tzn. nie zostaną zatwierdzone żadne wyniki przed wywołaniem metody Complete () w obiekcie TransactionScope. Jeśli obiekt TransactionScope zostanie zniszczony przed ukończeniem, wszystkie zmiany wprowadzone w zakresie zostaną wycofane.
+ * Instrukcja ROLLBACK spowoduje wycofanie całego elementu TransactionScope. Wszelkie próby zarejestrowania nowych transakcji w ramach elementu TransactionScope zakończą się niepowodzeniem, a także próba wywołania metody Complete () dla obiektu TransactionScope.
+
+Oto przykład, w którym transakcja została jawnie podwyższona do transakcji rozproszonej przy użyciu języka Transact-SQL.
+
+```csharp
+    using (TransactionScope s = new TransactionScope())
+    {
+        using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
+        {
+            conn.Open();
+        
+            // Transaction is here promoted to distributed by BEGIN statement
+            //
+            Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
+            // ...
+        }
+     
+        using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
+        {
+            conn2.Open();
+            // ...
+        }
+        
+        s.Complete();
+    }
+```
+
+W poniższym przykładzie przedstawiono transakcję, która jest niejawnie proted transakcji rozproszonej, gdy druga SqlConnecton została uruchomiona w elemencie TransactionScope.
+
+```csharp
+    using (TransactionScope s = new TransactionScope())
+    {
+        using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
+        {
+            conn.Open();
+            // ...
+        }
+        
+        using (SqlConnection conn = new SqlConnection(DB1_ConnectionString)
+        {
+            // Because this is second SqlConnection within TransactionScope transaction is here implicitly promoted distributed.
+            //
+            conn.Open(); 
+            Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
+            Helper.ExecuteNonQueryOnOpenConnection(conn, lsQuery);
+            // ...
+        }
+        
+        s.Complete();
+    }
+```
+
+## <a name="transactions-across-multiple-servers-for-azure-sql-database"></a>Transakcje na wielu serwerach dla Azure SQL Database
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -144,9 +242,19 @@ Użyj następujących poleceń cmdlet programu PowerShell do zarządzania relacj
 * **Get-AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby pobrać istniejące relacje komunikacji i ich właściwości.
 * **Remove-AzSqlServerCommunicationLink**: Użyj tego polecenia cmdlet, aby usunąć istniejącą relację komunikacji.
 
+## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transakcje na wielu serwerach dla wystąpienia zarządzanego usługi Azure SQL
+
+Transakcje rozproszone są obsługiwane na różnych serwerach w wystąpieniu zarządzanym usługi Azure SQL. Gdy transakcje krzyżowe wystąpienia są zarządzane, najpierw muszą zostać wprowadzone wystąpienia uczestniczące w relacji zabezpieczeń i komunikacji. Jest to realizowane przez skonfigurowanie [grupy zaufania serwera](https://aka.ms/mitrusted-groups) , którą można wykonać na Azure Portal.
+
+  ![Grupy zaufania serwera w witrynie Azure Portal][3]
+
+Na poniższym diagramie przedstawiono grupę zaufania serwera z wystąpieniami zarządzanymi, które mogą wykonywać transakcje rozproszone przy użyciu platformy .NET lub języka Transact-SQL.
+
+  ![Transakcje rozproszone z wystąpieniem zarządzanym usługi Azure SQL przy użyciu transakcji elastycznych][2]
+
 ## <a name="monitoring-transaction-status"></a>Monitorowanie stanu transakcji
 
-Użyj dynamicznych widoków zarządzania (widoków DMV) w SQL Database, aby monitorować stan i postęp trwających transakcji Elastic Database. Wszystkie widoków DMV związane z transakcjami są istotne dla transakcji rozproszonych w SQL Database. Odpowiednią listę widoków DMV można znaleźć tutaj: [powiązane z transakcją dynamiczne widoki zarządzania i funkcje (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Dynamiczne widoki zarządzania (widoków DMV) służą do monitorowania stanu i postępu trwających transakcji Elastic Database. Wszystkie widoków DMV związane z transakcjami są istotne dla transakcji rozproszonych w SQL Database i wystąpieniu zarządzanym. Odpowiednią listę widoków DMV można znaleźć tutaj: [powiązane z transakcją dynamiczne widoki zarządzania i funkcje (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Te widoków DMV są szczególnie przydatne:
 
@@ -162,10 +270,24 @@ W SQL Database są obecnie stosowane następujące ograniczenia dotyczące trans
 * Obsługiwane są tylko transakcje skoordynowane przez klienta z aplikacji .NET. Obsługa po stronie serwera dla języka T-SQL, taka jak Rozpocznij transakcję rozproszoną, jest planowana, ale nie jest jeszcze dostępna.
 * Transakcje w ramach usług WCF nie są obsługiwane. Na przykład masz metodę usługi WCF, która wykonuje transakcję. Załączenie wywołania w ramach zakresu transakcji zakończy się niepowodzeniem jako [System. ServiceModel. ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
+W przypadku transakcji rozproszonych w wystąpieniu zarządzanym są obecnie stosowane następujące ograniczenia:
+
+* Obsługiwane są tylko transakcje między bazami danych w wystąpieniu zarządzanym. Inni dostawcy zasobów (X) i bazy danych usługi [XA](https://en.wikipedia.org/wiki/X/Open_XA) spoza wystąpienia zarządzanego Azure SQL nie mogą uczestniczyć w transakcjach rozproszonych. Oznacza to, że transakcje rozproszone nie mogą rozciągać się w zależności od lokalnych SQL Server i wystąpienia zarządzanego usługi Azure SQL. W przypadku transakcji rozproszonych w środowisku lokalnym Kontynuuj korzystanie z usługi MSDTC.
+* Transakcje w ramach usług WCF nie są obsługiwane. Na przykład masz metodę usługi WCF, która wykonuje transakcję. Załączenie wywołania w ramach zakresu transakcji zakończy się niepowodzeniem jako [System. ServiceModel. ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
+* Wystąpienie zarządzane Azure SQL musi być częścią [grupy zaufania serwera](https://aka.ms/mitrusted-groups) , aby można było uczestniczyć w transakcji rozproszonej.
+* Ograniczenia [grup zaufania serwera](https://aka.ms/mitrusted-groups) mają wpływ na transakcje rozproszone.
+* Wystąpienia zarządzane, które uczestniczą w transakcjach rozproszonych, muszą mieć łączność przez prywatny punkt końcowy (przy użyciu prywatnego adresu IP z sieci wirtualnej, w której są wdrażane) i muszą być wzajemnie przywoływane przy użyciu prywatnych nazw FQDN. Aplikacje klienckie korzystające z języka Transact-SQL mogą korzystać z prywatnego lub publicznego punktu końcowego do uruchamiania transakcji dla wszystkich wystąpień w grupie zaufania serwera. To ograniczenie jest wyjaśnione na poniższym diagramie.
+  ![Ograniczenie łączności z prywatnym punktem końcowym][4]
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać odpowiedzi na pytania, skontaktuj się z nami na [stronie pytań firmy&Microsoft dotyczącym SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). W przypadku żądań funkcji należy je dodać do [forum opinii SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+* Aby uzyskać odpowiedzi na pytania, skontaktuj się z nami na [stronie pytań firmy&Microsoft dotyczącym SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+* Aby uzyskać dostęp do funkcji, Dodaj je do forum [opinii SQL Database](https://feedback.azure.com/forums/217321-sql-database/) lub na [forum wystąpienia zarządzanego](https://feedback.azure.com/forums/915676-sql-managed-instance).
+
+
 
 <!--Image references-->
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
+[2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
+[3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
+[4]: ./media/elastic-transactions-overview/sql-mi-private-endpoint-limitation.png
  

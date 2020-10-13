@@ -4,10 +4,10 @@ description: W tym artykule pokazano, jak wykonać odzyskiwanie po awarii maszyn
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 2ccb6546b9b01255e4a28aed79fd0d3ccbc4516c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580186"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Kończenie odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware

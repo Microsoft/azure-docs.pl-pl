@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849847"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975165"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
@@ -184,7 +184,7 @@ Naciśnij pozycję *+ nowy krok*.
 Spowoduje to otwarcie pola *Wybierz akcję* . Przejdź do karty *niestandardowej* . Łącznik niestandardowy powinien być widoczny wcześniej w górnej części okna.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość &quot;certyfikaty i wpisy tajne&quot;, a na stronie znajduje się wartość &quot;nowy wpis tajny klienta&quot;." w artykule *How to: Manage Digital bliźniaczych reprezentacji*.
-* _interfejs API-Version_: w bieżącej publicznej wersji zapoznawczej ta wartość to *2020-05-31 — wersja zapoznawcza*
+* _API-Version_: Najnowsza wersja interfejsu API. W bieżącej publicznej wersji zapoznawczej ta wartość to *2020-05-31 — wersja zapoznawcza*
 
 Naciśnij klawisz *Save* w projektancie Logic Apps.
 

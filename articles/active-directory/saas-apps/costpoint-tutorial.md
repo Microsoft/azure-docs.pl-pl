@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775732"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Samouczek: integracja Costpoint z usługą Azure Active Directory
@@ -106,7 +106,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
 
    1. Wybierz pozycję **Ustaw dodatkowe adresy URL**. W polu **Stan przekazywania**wprowadź wartość przy użyciu następującego wzorca: `system=[your system]` (na przykład **system = DELTEKCP**).
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz ikonę **kopiowania** , aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go w Notatniku.
+1. Na stronie **Konfigurowanie pojedynczej Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz ikonę **kopiowania** , aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go w Notatniku.
 
    ![Certyfikat podpisywania SAML](common/copy-metadataurl.png)
 
@@ -140,7 +140,7 @@ Celem tej sekcji jest utworzenie użytkownika testowego w Azure Portal o nazwie 
    
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
    
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -176,7 +176,7 @@ Po utworzeniu użytkownika należy zaznaczyć pole wyboru **Metoda uwierzytelnia
 
 Po wybraniu kafelka Costpoint w panelu dostępu należy automatycznie zalogować się do aplikacji Costpoint, ponieważ konfigurujesz Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków umożliwiających integrację aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

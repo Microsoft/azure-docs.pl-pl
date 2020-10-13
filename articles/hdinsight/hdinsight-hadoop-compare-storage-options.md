@@ -12,7 +12,7 @@ ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856198"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Porównanie opcji magazynu do użycia z klastrami usługi Azure HDInsight
@@ -35,7 +35,7 @@ Poniższa tabela zawiera podsumowanie usług Azure Storage, które są obsługiw
 |Azure Storage| Ogólnego przeznaczenia w wersji 2 | Obiekt | Obiekt blob | Standardowa | Gorąca, chłodna, archiwalna | 3.6 + | Wszystkie |
 |Azure Storage| Ogólnego przeznaczenia w wersji 1 | Obiekt | Obiekt blob | Standardowa | Brak | Wszystko | Wszystkie |
 |Azure Storage| Blob Storage * * | Obiekt | Blokowy obiekt BLOB | Standardowa | Gorąca, chłodna, archiwalna | Wszystkie | Wszystkie |
-|Usługa Azure Data Lake Storage 1. generacji| Brak | Hierarchiczny (system plików) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | tylko 3,6 | Wszystkie z wyjątkiem HBase |
+|Usługa Azure Data Lake Storage 1. generacji| Nie dotyczy | Hierarchiczny (system plików) | NIE DOTYCZY | NIE DOTYCZY | NIE DOTYCZY | tylko 3,6 | Wszystkie z wyjątkiem HBase |
 
 * * W przypadku klastrów usługi HDInsight tylko konta magazynu pomocniczego mogą być typu BlobStorage, a obiekt BLOB nie jest obsługiwaną opcją magazynu.
 

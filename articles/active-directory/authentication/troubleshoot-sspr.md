@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a02d46688fa49401684f836a7c289906affb413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030025"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963826"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Rozwiązywanie problemów z samoobsługowym resetowaniem haseł w Azure Active Directory
 
@@ -84,7 +84,7 @@ Błędy rejestracji ogólnej SSPR mogą być spowodowane przez wiele problemów,
 
 Jeśli ty lub użytkownicy mają problemy z używaniem SSPR, zapoznaj się z następującymi scenariuszami rozwiązywania problemów i krokami rozwiązania:
 
-| Błąd | Rozwiązanie |
+| Error | Rozwiązanie |
 | --- | --- |
 | W katalogu nie włączono obsługi resetowania hasła. | W Azure Portal Zmień konfigurację z włączoną funkcją samoobsługowego **resetowania hasła** na *wybraną* lub *wszystkie* , a następnie wybierz pozycję **Zapisz**. |
 | Użytkownik nie ma przypisanej licencji usługi Azure AD. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do żądanego użytkownika. Aby przypisać licencję do konta administratora, postępuj zgodnie z instrukcjami [dotyczącymi przypisywania, weryfikowania i rozwiązywania problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
@@ -106,7 +106,7 @@ Użytkownik może wyświetlić następujące błędy i szczegóły techniczne w 
 
 Skorzystaj z poniższych informacji, aby zrozumieć problem i co należy poprawić w ramach dzierżawy usługi Azure AD lub indywidualnego konta użytkownika.
 
-| Błąd | Szczegóły | Szczegóły techniczne |
+| Error | Szczegóły | Szczegóły techniczne |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Niestety, nie można teraz zresetować hasła, ponieważ administrator wyłączył Resetowanie hasła dla organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o włączenie tej funkcji.<br /><br />Aby dowiedzieć się więcej, zobacz [Pomoc I nie pamiętam hasła usługi Azure AD](../user-help/active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions). | SSPR_0009: wykryliśmy, że Resetowanie hasła nie zostało włączone przez administratora. Skontaktuj się z administratorem i poproś o włączenie resetowania hasła dla organizacji. |
 | WritebackNotEnabled = 10 |Niestety, nie można teraz zresetować hasła, ponieważ administrator nie włączył niezbędnej usługi dla Twojej organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o sprawdzenie konfiguracji swojej organizacji.<br /><br />Aby dowiedzieć się więcej na temat tej niezbędnej usługi, zobacz [Konfigurowanie zapisywania zwrotnego haseł](./tutorial-enable-sspr-writeback.md). | SSPR_0010: wykryto, że funkcja zapisywania zwrotnego haseł nie została włączona. Skontaktuj się z administratorem i poproś o włączenie funkcji zapisywania zwrotnego haseł. |

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537661"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
@@ -129,8 +129,8 @@ Są to prawidłowe `threshold` wartości, które można określić w `Applicatio
 | wartość progowa   | Log4J  | Logback | LIP     |
 |-------------------|--------|---------|---------|
 | WYŁ.               | WYŁ.    | WYŁ.     | WYŁ.     |
-| KRYTYCZN             | KRYTYCZN  | BŁĄD   | WAŻNY  |
-| BŁĄD (lub poważny) | BŁĄD  | BŁĄD   | WAŻNY  |
+| KRYTYCZN             | KRYTYCZN  | ERROR   | WAŻNY  |
+| BŁĄD (lub poważny) | ERROR  | ERROR   | WAŻNY  |
 | WARN (lub ostrzeżenie) | WYOWIETLON   | WYOWIETLON    | OSTRZEŻENIE |
 | INFORMACJE              | INFORMACJE   | INFORMACJE    | INFORMACJE    |
 | SYGNATUR            | DEBUGUJ  | DEBUGUJ   | SYGNATUR  |

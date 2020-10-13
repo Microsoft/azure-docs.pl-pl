@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7105597ec34e804c2f2b85b01feb4824d63005c5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578125"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Tworzenie profilu usługi Intune w celu wdrożenia profilów klienta sieci VPN
@@ -81,7 +81,7 @@ W tej sekcji utworzysz profil Microsoft Intune z ustawieniami niestandardowymi.
    Wybierz ikonę folderu i wybierz plik zapisany w kroku 6 w krokach [XML](#xml) . Wybierz pozycję **Dodaj**.
 
    :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Profile konfiguracji" lightbox="./media/create-profile-intune/configuration-settings.png":::
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W obszarze **przypisania**wybierz grupę, do której chcesz wypchnąć konfigurację. Następnie wybierz pozycję **Dalej**.
 1. Reguły zastosowania są opcjonalne. W razie konieczności Zdefiniuj reguły, a następnie wybierz przycisk **dalej**.
 1. Na stronie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
