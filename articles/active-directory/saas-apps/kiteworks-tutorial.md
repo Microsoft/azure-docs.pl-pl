@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ae504a7dcd6f598c13b5fabffaca4ec6ec067e4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cb6a9691e1b3186e6493b4ae0b62857fb03f38c
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549934"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944050"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Samouczek: integracja platforma Kiteworks z usługą Azure Active Directory
 
@@ -100,11 +100,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Na pasku narzędzi u góry kliknij pozycję **Settings** (Ustawienia).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Zrzut ekranu pokazujący ikonę "Ustawienia" na wybranym pasku narzędzi.](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. W sekcji **uwierzytelnianie i autoryzacja** kliknij pozycję **Konfiguracja logowania jednokrotnego**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Zrzut ekranu pokazujący konfigurację "S S" wybrane z sekcji "uwierzytelnianie i autoryzacja".](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. Na stronie Konfiguracja logowania jednokrotnego wykonaj następujące czynności:
 
@@ -134,7 +134,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

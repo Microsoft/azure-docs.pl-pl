@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 7e8ccc832cdf12176cd88cce0157c08d8bf92507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372590"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970575"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Uruchamianie skryptów powłoki na maszynie wirtualnej z systemem Linux przy użyciu polecenia Run
 
@@ -39,7 +39,7 @@ W przypadku korzystania z polecenia Uruchom należy zastosować następujące og
 * Łączność wychodząca z maszyny wirtualnej jest wymagana do zwrócenia wyników skryptu.
 
 > [!NOTE]
-> Aby działało prawidłowo, polecenie Run wymaga łączności (port 443) z publicznymi adresami IP platformy Azure. Jeśli rozszerzenie nie ma dostępu do tych punktów końcowych, skrypty mogą działać pomyślnie, ale nie zwracają wyników. W przypadku blokowania ruchu na maszynie wirtualnej można użyć [tagów usługi](../../virtual-network/security-overview.md#service-tags) , aby zezwolić na ruch do publicznych adresów IP platformy Azure przy użyciu `AzureCloud` znacznika.
+> Aby działało prawidłowo, polecenie Run wymaga łączności (port 443) z publicznymi adresami IP platformy Azure. Jeśli rozszerzenie nie ma dostępu do tych punktów końcowych, skrypty mogą działać pomyślnie, ale nie zwracają wyników. W przypadku blokowania ruchu na maszynie wirtualnej można użyć [tagów usługi](../../virtual-network/network-security-groups-overview.md#service-tags) , aby zezwolić na ruch do publicznych adresów IP platformy Azure przy użyciu `AzureCloud` znacznika.
 
 ## <a name="available-commands"></a>Dostępne polecenia
 
@@ -85,7 +85,7 @@ Po wybraniu polecenia wybierz pozycję **Uruchom** , aby uruchomić skrypt. Po z
 W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) można uruchomić skrypt programu PowerShell na maszynie wirtualnej platformy Azure. Polecenie cmdlet oczekuje skryptu, do którego istnieje odwołanie w `-ScriptPath` parametrze, do lokalizacji, w której jest uruchamiane polecenie cmdlet.
 
 ```powershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Run

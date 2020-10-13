@@ -2,13 +2,13 @@
 title: Funkcje szablonów
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości, pracy z ciągami i wartościami liczbowymi oraz pobierania informacji o wdrożeniu.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378410"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961174"
 ---
 # <a name="arm-template-functions"></a>Funkcje szablonu ARM
 
@@ -66,7 +66,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 Menedżer zasobów udostępnia kilka funkcji do dokonywania porównań w szablonach.
 
 * [łączonych](template-functions-comparison.md#coalesce)
-* [equals](template-functions-comparison.md#equals)
+* [równa się](template-functions-comparison.md#equals)
 * [wcześniejsz](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
@@ -104,9 +104,11 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z warunkami logicz
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [false](template-functions-logical.md#false)
 * [if](template-functions-logical.md#if)
 * [niemożliwe](template-functions-logical.md#not)
 * [oraz](template-functions-logical.md#or)
+* [oznacza](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -141,10 +143,12 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami.
 
 * [wyświetlana](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
 * [puste](template-functions-object.md#empty)
 * [część wspólną](template-functions-object.md#intersection)
 * [kodu](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [wartość null](template-functions-object.md#null)
 * [Unii](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -233,7 +237,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [Skocz](template-functions-string.md#skip)
 * [podziału](template-functions-string.md#split)
 * [startsWith](template-functions-string.md#startswith)
-* [parametry](template-functions-string.md#string)
+* [ciąg](template-functions-string.md#string)
 * [podciąg](template-functions-string.md#substring)
 * [take (pobierz)](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)

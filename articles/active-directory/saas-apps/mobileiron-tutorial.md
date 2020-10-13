@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554657"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Samouczek: integracja Azure Active Directory z usługą MobileIron
 
@@ -99,7 +99,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji MobileIron
 
 4. Jeśli chcesz skonfigurować aplikację w trybie inicjowanym przez **dostawcę tożsamości**, w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące kroki:
 
-    ![Domena i adresy URL aplikacji MobileIron — informacje dotyczące logowania jednokrotnego](common/idp-intiated.png)
+    ![Zrzut ekranu przedstawia podstawową konfigurację języka SAML, w której można wprowadzić identyfikator, odpowiedź U R L i wybrać pozycję Zapisz.](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, używając następującego wzorca: `https://www.mobileiron.com/<key>`
 
@@ -107,7 +107,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji MobileIron
 
     c. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    ![Domena i adresy URL aplikacji MobileIron — informacje dotyczące logowania jednokrotnego](common/metadata-upload-additional-signon.png)
+    ![Zrzut ekranu przedstawia ustawienie dodatkowego U R LS, gdzie można wprowadzić znak U R L.](common/metadata-upload-additional-signon.png)
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<host>.mobileiron.com/user/login.html`
 
@@ -124,11 +124,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w aplikacji MobileIron
 
 2. Przejdź do pozycji **Administracja**  >  **tożsamość** i wybierz opcję **AAD** w polu **informacje na stronie Konfiguracja dostawcy tożsamości w chmurze** .
 
-    ![Konfigurowanie przycisku Administrator logowania jednokrotnego](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Zrzut ekranu przedstawia kartę administrator witryny MobileIron z wybraną tożsamością.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Skopiuj wartości **klucza** i **hosta** oraz wklej je, aby ukończyć adresy URL w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    ![Konfigurowanie przycisku Administrator logowania jednokrotnego](./media/mobileiron-tutorial/key.png)
+    ![Zrzut ekranu przedstawia konfigurację opcji SAML z wartością klucza i hosta.](./media/mobileiron-tutorial/key.png)
 
 4. W pozycji **Eksportowanie pliku metadanych z usługi AAD i importowanie go do pola chmury aplikacji MobileIron** kliknij pozycję **Wybierz plik**, aby przekazać metadane pobrane z witryny Azure Portal. Po zakończeniu przekazywania kliknij przycisk **Gotowe**.
 

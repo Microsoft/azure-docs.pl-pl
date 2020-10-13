@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317569"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
@@ -362,7 +362,7 @@ Kolumna stan może mieć następujące wartości:
 | SourceConnectorNotPresent |Nie znaleziono obiektu w lokalnym obszarze łącznika Active Directory. |
 | TargetNotExportedToDirectory |Obiekt w obszarze łącznika usługi Azure AD nie został jeszcze wyeksportowany. |
 | MigratedCheckDetailsForMoreInfo |Wpis dziennika został utworzony przed kompilacją 1.0.9125.0 i jest wyświetlany w jego starszym stanie. |
-| Error |Usługa zwróciła nieznany błąd. |
+| Błąd |Usługa zwróciła nieznany błąd. |
 | Nieznane |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
 | Brakattribute |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services są niedostępne. |
 | RetryRequestedByTarget |Określone atrybuty (na przykład skrót protokołu Kerberos) wymagane przez Azure AD Domain Services nie były wcześniej dostępne. Podjęto próbę ponownego zsynchronizowania skrótu hasła użytkownika. |
