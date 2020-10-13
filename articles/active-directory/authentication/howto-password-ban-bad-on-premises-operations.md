@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d72aa65f18896ebbecf651da32558059ba782cc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419771"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968399"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Włącz ochronę hasłem Azure Active Directory lokalnych
 
@@ -26,7 +26,7 @@ Aby chronić lokalne środowisko Active Directory Domain Services (AD DS), może
 
 Aby uzyskać więcej informacji na temat sposobu działania ochrony haseł usługi Azure AD w środowisku lokalnym, zobacz [Jak wymusić ochronę hasłem usługi Azure AD dla systemu Windows Server Active Directory](concept-password-ban-bad-on-premises.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule pokazano, jak włączyć ochronę hasłem w usłudze Azure AD dla środowiska lokalnego. Przed ukończeniem tego artykułu [Zainstaluj i Zarejestruj usługę serwera proxy ochrony hasłem usługi Azure AD i agentów kontrolerów domeny](howto-password-ban-bad-on-premises-deploy.md) w lokalnym środowisku AD DS.
 

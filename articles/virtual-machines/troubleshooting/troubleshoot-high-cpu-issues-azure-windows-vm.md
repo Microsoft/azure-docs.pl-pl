@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596836"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977259"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Rozwiązywanie problemów z wysokim procesorem CPU w przypadku maszyn wirtualnych z systemem Windows Azure
 
@@ -90,11 +90,11 @@ Jeśli problem występuje już teraz, jest to Najlepsza szansa, aby przechwycić
 
 #### <a name="run-perfinsights"></a>Uruchom że program perfinsights
 
-Że program perfinsights jest dostępny zarówno dla [systemu operacyjnego Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) , jak i [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) . W przypadku systemu Windows poniżej przedstawiono opcje.
+Że program perfinsights jest dostępny zarówno dla [systemu operacyjnego Windows](./how-to-use-perfinsights.md) , jak i [Linux](./how-to-use-perfinsights-linux.md) . W przypadku systemu Windows poniżej przedstawiono opcje.
 
 #### <a name="run-and-analyze-reports-through-azure-portal"></a>Uruchamianie i analizowanie raportów za poorednictwem Azure Portal
 
-Po [zainstalowaniu za pomocą Azure Portal](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics)w rzeczywistości zainstaluje rozszerzenie na maszynie wirtualnej. Użytkownicy mogą również instalować że program perfinsights jako rozszerzenie, przechodząc bezpośrednio do [rozszerzeń w bloku maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension), a następnie wybierając opcję diagnostyki wydajności.
+Po [zainstalowaniu za pomocą Azure Portal](./performance-diagnostics.md)w rzeczywistości zainstaluje rozszerzenie na maszynie wirtualnej. Użytkownicy mogą również instalować że program perfinsights jako rozszerzenie, przechodząc bezpośrednio do [rozszerzeń w bloku maszyny wirtualnej](./performance-diagnostics-vm-extension.md), a następnie wybierając opcję diagnostyki wydajności.
 
 #### <a name="azure-portal-option-1"></a>Azure Portal opcja 1
 
@@ -132,7 +132,7 @@ Raport jest przechowywany na jednym z kont magazynu w ramach Twojej subskrypcji.
 
 #### <a name="run-perfinsights-from-within-the-vm"></a>Uruchamianie że program perfinsights z poziomu maszyny wirtualnej
 
-Ta metoda może być używana, jeśli zamierzasz uruchamiać że program perfinsights przez dłuższy czas. [Artykuł że program perfinsights](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) zawiera szczegółowy przewodnik dotyczący różnych poleceń i flag, które są wymagane do uruchomienia że program perfinsights jako pliku wykonywalnego. Na potrzeby użycia wysokiego procesora trzeba mieć jeden z następujących trybów:
+Ta metoda może być używana, jeśli zamierzasz uruchamiać że program perfinsights przez dłuższy czas. [Artykuł że program perfinsights](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) zawiera szczegółowy przewodnik dotyczący różnych poleceń i flag, które są wymagane do uruchomienia że program perfinsights jako pliku wykonywalnego. Na potrzeby użycia wysokiego procesora trzeba mieć jeden z następujących trybów:
 
 - Scenariusz zaawansowany
 
@@ -289,7 +289,7 @@ Po włączeniu ustawień można wyświetlić te liczniki **gościa** w sekcji **
 
   ![Przestrzeń nazw metryk](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Aby uzyskać więcej informacji na temat korzystania z usługi Azure monitor do zarządzania maszynami wirtualnymi platformy Azure, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure).
+Aby uzyskać więcej informacji na temat korzystania z usługi Azure monitor do zarządzania maszynami wirtualnymi platformy Azure, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../../azure-monitor/insights/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Rozwiązywanie problemów z reaktywnymi
 
@@ -311,7 +311,7 @@ Polecenie **Logman Create Counter** służy do uruchamiania kolekcji perfmon prz
 
 Logman.exe można również uruchomić z komputera równorzędnej maszyny wirtualnej platformy Azure w tej samej sieci wirtualnej.
 
-Aby dowiedzieć się więcej na temat tych parametrów, zobacz [Logman Create Counter](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter).
+Aby dowiedzieć się więcej na temat tych parametrów, zobacz [Logman Create Counter](/windows-server/administration/windows-commands/logman-create-counter).
 
 Po zebraniu danych monitora wydajności w trakcie wystąpienia problemu pozostałe kroki w celu przeanalizowania danych są takie same, jak opisane wcześniej.
 

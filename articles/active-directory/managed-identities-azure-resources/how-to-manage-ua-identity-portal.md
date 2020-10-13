@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266391"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977429"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Utwórz, Wyświetl, Usuń lub Przypisz rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal
 
@@ -45,8 +45,8 @@ Do utworzenia tożsamości zarządzanej przypisanej przez użytkownika konto wym
     - **Region**: Wybierz region, aby wdrożyć tożsamość zarządzaną przypisaną przez użytkownika, na przykład **zachodnie stany USA**.
     - **Nazwa**: to jest nazwa tożsamości zarządzanej przypisanej przez użytkownika, na przykład UAI1.
     ![Tworzenie tożsamości zarządzanej przypisanej przez użytkownika](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Kliknij kolejno pozycje **Przegląd +** kolejka, aby przejrzeć zmiany.
-5. Kliknij przycisk **Utwórz**.
+4. Kliknij przycisk **Przegląd + Utwórz** , aby przejrzeć zmiany.
+5. Kliknij pozycję **Utwórz**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Wyświetlanie tożsamości zarządzanych przypisanych przez użytkownika
 

@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 87314e38225d6e08f81ce6c3855f70a13db9c6bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb534ae4a59c9a5c87a7eb7ab268a40b9771fdb2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653183"
+ms.locfileid: "91876230"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesorów GPU
 
 Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecjalizowanymi maszynami wirtualnymi z pojedynczym, wieloma lub ułamkowymi procesorami GPU. Te rozmiary są przeznaczone do obciążeń intensywnie korzystających z operacji obliczeniowych, intensywnie korzystających z grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbie i typie procesorów GPU, procesorów wirtualnych vCPU, dysków danych i kart interfejsu sieciowego. Przepustowość magazynu i przepustowość sieci są również uwzględniane dla każdego rozmiaru w ramach grupowania.
 
-- Rozmiary serii [NC](nc-series.md), serii [NCv2](ncv2-series.md), [Seria NCV3](ncv3-series.md) i serii [NCT4_v3](nct4-v3-series.md) są zoptymalizowane pod kątem intensywnie korzystających z obliczeń aplikacji i algorytmów intensywnie korzystających z sieci. Przykładami są aplikacje i symulacje oparte na CUDA i OpenCL, a następnie w programie AI i uczeniu głębokiego. Seria NCT4v3 koncentruje się na obciążeniach wnioskowania, które są oparte na procesorach GPU Tesla T4 firmy NVIDIA i AMD EPYC2 Rzym. Seria Seria NCV3 koncentruje się na obciążeniach obliczeniowych o wysokiej wydajności, które obejmują procesor GPU Tesla V100 firmy NVIDIA. W serii NC jest używany procesor Intel Xeon E5-2690 v3 2.60 GHz v3 (Haswell), a maszyny wirtualne serii NCv2 i seria NCV3 używają procesora Intel Xeon E5-2690 v4 (Broadwell).
+- Rozmiary serii [Seria NCV3](ncv3-series.md) i [NC T4_v3](nct4-v3-series.md) są zoptymalizowane pod kątem aplikacji z przyspieszeniem procesora GPU intensywnie korzystających z mocy obliczeniowej. Przykładami są aplikacje i symulacje oparte na CUDA i OpenCL, a następnie w programie AI i uczeniu głębokiego. Seria NC T4 V3 jest skoncentrowana na obciążeniach wnioskowania z procesorem GPU Tesla T4 i procesorami AMD EPYC2 Rzym. Seria Seria NCV3 koncentruje się na obciążeniach obliczeniowych o wysokiej wydajności i pojemnościach AI z procesorem GPU Tesla V100.
 
-- Rozmiary serii [ND](nd-series.md)i [NDv2](ndv2-series.md) są ukierunkowane na scenariusze szkolenia i wnioskowania dotyczące uczenia głębokiego. Seria ND używa procesora GPU NVIDIA Tesla P40 i procesorów Intel Xeon E5-2690 v4 (Broadwell). Seria NDv2 używa procesorów NVIDIA Volta V100 oraz procesora Intel Xeon Platinum 8168 (Skylake).
+- Rozmiar [serii NDv2](ndv2-series.md) koncentruje się na skalowalnych i skalowalnych w poziomie aplikacjach szkoleniowych edukacyjnych. Seria NDv2 używa procesorów NVIDIA Volta V100 oraz procesora Intel Xeon Platinum 8168 (Skylake).
 
 - Rozmiary [serii NV](nv-series.md) i [NVv3](nvv3-series.md) są zoptymalizowane i zaprojektowane pod kątem zdalnego wizualizacji, przesyłania strumieniowego, gier, kodowania i infrastruktury VDI przy użyciu struktur, takich jak OpenGL i DirectX. Te maszyny wirtualne są obsługiwane przez procesor GPU NVIDIA Tesla M60.
 
@@ -31,7 +31,7 @@ Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecj
 
 Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, należy zainstalować sterowniki NVIDIA lub AMD GPU.
 
-- W przypadku maszyn wirtualnych, które są obsługiwane przez graficzne procesory NVIDIA, [rozszerzenie sterownika NVIDIA GPU](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub siatki. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](./extensions/hpccompute-gpu-windows.md) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).
+- W przypadku maszyn wirtualnych, które są obsługiwane przez graficzne procesory NVIDIA, [rozszerzenie sterownika NVIDIA GPU](./extensions/hpccompute-gpu-windows.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub siatki. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](./extensions/hpccompute-gpu-windows.md) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](./extensions/overview.md).   
 
    Alternatywnie możesz zainstalować sterowniki NVIDIA GPU ręcznie. Zobacz [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Windows](./windows/n-series-driver-setup.md) lub [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Linux](./linux/n-series-driver-setup.md) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacji.
 

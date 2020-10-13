@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617931"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978377"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Strefy czasowe w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ Korzystanie z tej samej strefy czasowej w wystąpieniu podstawowym i pomocniczym
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Nie można zmienić strefy czasowej istniejącego wystąpienia zarządzanego.
+- Nie można zmienić strefy czasowej istniejącego wystąpienia zarządzanego. Aby obejść ten krok, Utwórz nowe wystąpienie zarządzane ze stosowną strefą czasową, a następnie ręcznie wykonaj kopię zapasową i Przywróć lub to, co jest zalecane, wykonaj [przywracanie do punktu w czasie dla wielu wystąpień](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - Procesy zewnętrzne uruchomione z zadań agenta SQL Server nie obserwują strefy czasowej wystąpienia.
 
 ## <a name="list-of-supported-time-zones"></a>Lista obsługiwanych stref czasowych

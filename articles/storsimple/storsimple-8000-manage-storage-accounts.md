@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515031"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978717"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Zarządzanie poświadczeniami konta magazynu za pomocą usługi StorSimple Menedżer urządzeń
 
@@ -33,7 +33,7 @@ Sekcja **konfiguracji** w bloku usługi StorSimple Menedżer urządzeń przedsta
 
 W tym samouczku wyjaśniono, jak dodać, edytować lub usunąć poświadczenia konta magazynu, lub obrócić klucze zabezpieczeń dla konta magazynu.
 
- ![Lista poświadczeń konta magazynu](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![Lista poświadczeń konta magazynu 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Konta magazynu zawierają poświadczenia używane przez urządzenie StorSimple do uzyskiwania dostępu do konta magazynu za pomocą dostawcy usług w chmurze. W przypadku kont usługi Microsoft Azure Storage są to poświadczenia, takie jak nazwa konta i podstawowy klucz dostępu. 
 
@@ -102,7 +102,7 @@ Można edytować konto magazynu, które jest używane przez kontener woluminów.
 
 1. Przejdź do usługi Menedżer urządzeń StorSimple. W sekcji **Konfiguracja** kliknij pozycję **Poświadczenia konta magazynu**.
 
-    ![Poświadczenia konta magazynu](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Poświadczenia konta magazynu 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. W bloku **poświadczenia konta magazynu** z listy poświadczenia konta magazynu wybierz i kliknij tę, którą chcesz edytować. 
 
@@ -159,11 +159,11 @@ Aby poinformować usługę StorSimple Menedżer urządzeń o zmianie, musisz uzy
 
 3. Kliknij przycisk **... Więcej** , a następnie wybierz pozycję **Synchronizuj klucz dostępu do obrotu**.   
 
-    ![Synchronizuj klucze](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![Synchronizuj klucze 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. W usłudze StorSimple Menedżer urządzeń należy zaktualizować klucz, który został wcześniej zmieniony w usłudze Microsoft Azure Storage. Jeśli podstawowy klucz dostępu został zmieniony (ponownie wygenerowany), wybierz pozycję klucz **podstawowy** . Jeśli klucz pomocniczy został zmieniony, wybierz pozycję klucz **pomocniczy** . Kliknij przycisk **Synchronizuj klucz**.
       
-      ![Synchronizuj klucze](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![Synchronizuj klucze 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 Po pomyślnym zsynchronizowaniu klucza użytkownik zostanie powiadomiony.
 

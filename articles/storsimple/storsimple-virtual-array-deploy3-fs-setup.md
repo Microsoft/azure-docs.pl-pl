@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006300"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977582"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Wdróż wirtualną macierz StorSimple — Skonfiguruj jako serwer plików za pośrednictwem Azure Portal
 ![Diagram przedstawiający kroki wymagane do wdrożenia macierzy wirtualnej. Pierwsza część trzeciego kroku ma ustawioną etykietę jako serwer plików i jest wyróżniona.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Wykonaj następujące instrukcje krok po kroku, aby skonfigurować i skonfigurow
     ![Zrzut ekranu przedstawiający stronę wszystkie zasoby Azure Portal. Zostanie wyróżniona usługa Menedżer urządzeń.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Na liście filtrowane wybierz usługę StorSimple Menedżer urządzeń a następnie przejdź do opcji **zarządzanie > urządzeń**. W bloku **urządzenia** Sprawdź, czy urządzenie pomyślnie nawiązał połączenie z usługą i czy ma stan **gotowe do skonfigurowania**.
     
-    ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Wdrażanie](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Krok 2. Konfigurowanie urządzenia jako serwera plików
 Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby zakończyć wymaganą konfigurację urządzenia.
@@ -129,7 +129,7 @@ Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby za
    ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Kliknij urządzenie i zostanie wyświetlony komunikat transparent wskazujący, że urządzenie jest gotowe do instalacji.
    
-    ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![Konfigurowanie serwera plików 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Kliknij pozycję **Konfiguruj** na pasku poleceń. Spowoduje to otwarcie bloku **Konfiguracja** . W bloku **Konfigurowanie** wykonaj następujące czynności:
    
    1. Nazwa serwera plików jest wypełniana automatycznie.
@@ -140,7 +140,7 @@ Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby za
     
    4. Kliknij pozycję **Skonfiguruj wymagane ustawienia** , aby określić poświadczenia konta magazynu, które będą używane z urządzeniem. Kliknij pozycję **Dodaj nowe** , jeśli nie skonfigurowano żadnych poświadczeń konta magazynu. **Upewnij się, że używane konto magazynu obsługuje blokowe obiekty blob. Stronicowe obiekty blob nie są obsługiwane.** Więcej informacji na temat [bloków BLOB i stronicowych obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-      ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Konfigurowanie serwera plików 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. W bloku **Dodawanie poświadczeń konta magazynu** wykonaj następujące czynności: 
 
     1. Wybierz bieżącą subskrypcję, jeśli konto magazynu znajduje się w tej samej subskrypcji co usługa. Określ inną to konto magazynu jest poza subskrypcją usługi. 
@@ -153,19 +153,19 @@ Wykonaj następujące kroki w [Azure Portal](https://portal.azure.com/) , aby za
     
     5. Kliknij przycisk **Dodaj** , aby dodać to poświadczenie konta magazynu. 
    
-        ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Konfigurowanie serwera plików 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. Po pomyślnym utworzeniu poświadczenia konta magazynu zostanie zaktualizowany blok **Konfigurowanie** , aby wyświetlić określone poświadczenia konta magazynu. Kliknij przycisk **Konfiguruj**.
    
-   ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![Konfigurowanie serwera plików 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    Zobaczysz, że serwer plików jest tworzony. Po pomyślnym utworzeniu serwera plików użytkownik zostanie powiadomiony.
    
-   ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![Konfigurowanie serwera plików 5B](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    Stan urządzenia zmieni się również na **online**.
    
-   ![Konfigurowanie serwera plików](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![Konfigurowanie serwera plików 5c](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    Możesz dalej dodać udział.
 
@@ -189,15 +189,15 @@ Wykonaj poniższe czynności w witrynie [Azure Portal](https://portal.azure.com/
    
    5. Kliknij przycisk **Dodaj** , aby utworzyć udział. 
     
-       ![Dodawanie udziału](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Dodaj udział 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        Zostanie wyświetlone powiadomienie, że trwa tworzenie udziału.
    
-       ![Dodawanie udziału](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Dodaj udział 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       Po utworzeniu udziału przy użyciu określonych ustawień blok **udziałów** zostanie zaktualizowany w celu odzwierciedlenia nowego udziału. Domyślnie monitorowanie i wykonywanie kopii zapasowych jest włączone dla udziału.
    
-      ![Dodawanie udziału](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Dodaj udział 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Krok 4. Nawiązywanie połączenia z udziałem
 Teraz musisz nawiązać połączenie z co najmniej jednym udziałem utworzonym w poprzednim kroku. Wykonaj te kroki na hoście z systemem Windows Server połączonym z wirtualną tablicą StorSimple.

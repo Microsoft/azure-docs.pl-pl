@@ -3,15 +3,15 @@ title: Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji — 
 description: Jak rozszerzyć istniejącą pulę hostów na nowe hosty sesji na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002446"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929595"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono, jak można rozszerzyć istniejącą pulę hostów 
 
 Przed rozpoczęciem upewnij się, że utworzono pulę hostów i maszyny wirtualne hosta sesji (VM), korzystając z jednej z następujących metod:
 
-- [Witryna Azure Portal](./create-host-pools-azure-marketplace.md)
+- [Azure Portal](./create-host-pools-azure-marketplace.md)
 - [Tworzenie puli hostów przy użyciu programu PowerShell](./create-host-pools-powershell.md)
 
 Podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji wymagane są również następujące informacje:
@@ -56,7 +56,7 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 8. Wprowadź liczbę hostów sesji, które chcesz dodać do puli hostów, do **liczby maszyn wirtualnych**. Na przykład jeśli rozszerzasz pulę hostów o pięć hostów, wprowadź **5**.
 
     >[!NOTE]
-    >Nie można edytować rozmiaru ani obrazu maszyn wirtualnych, ponieważ ważne jest, aby upewnić się, że wszystkie maszyny wirtualne w puli hostów mają ten sam rozmiar.
+    >Chociaż istnieje możliwość edytowania obrazu i prefiksu maszyn wirtualnych, nie zaleca się ich edytowania w przypadku maszyn wirtualnych z różnymi obrazami w tej samej puli hostów. Edytuj obraz i prefiks tylko wtedy, gdy planujesz usuwanie maszyn wirtualnych ze starszymi obrazami z tej puli.
 
 9. W polu **Informacje o sieci wirtualnej**wybierz sieć wirtualną i podsieć, do której chcesz dołączyć maszyny wirtualne. Możesz wybrać tę samą sieć wirtualną, której aktualnie używają istniejące maszyny, lub wybrać inną, która jest bardziej odpowiednia dla regionu wybranego w kroku 7.
 
@@ -67,7 +67,7 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 
 11. Wybierz kartę **tag** , jeśli masz jakieś znaczniki, które chcesz zgrupować z maszynami wirtualnymi. W przeciwnym razie Pomiń tę kartę.
 
-12. Wybierz kartę **Recenzja + tworzenie** . Przejrzyj wybrane opcje, a jeśli wszystko wygląda dobrze, wybierz pozycję **Utwórz**.
+12. Wybierz kartę **Recenzja + tworzenie** . Przejrzyj wybrane opcje i jeśli wszystko wygląda dobrze, wybierz pozycję **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

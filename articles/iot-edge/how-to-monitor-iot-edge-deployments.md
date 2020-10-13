@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450179"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorowanie wdrożeń IoT Edge
@@ -25,7 +25,7 @@ Oba urządzenia i moduły mają podobne dane, takie jak łączność, dlatego wa
 
 Usługa IoT Hub zbiera dane zgłoszone przez urządzenia i moduł bliźniaczych reprezentacji oraz zawiera liczbę różnych stanów, które mogą być dostępne dla urządzeń. Usługa IoT Hub organizuje te dane w czterech grupach metryk:
 
-| Typ | Opis |
+| Type | Opis |
 | --- | ---|
 | Docelowe | Przedstawia IoT Edge urządzeń, które pasują do warunku określania wartości docelowej wdrożenia. |
 | Zastosowano | Przedstawia IoT Edge urządzeń, które nie są objęte innym wdrożeniem o wyższym priorytecie. |
@@ -45,8 +45,8 @@ Aby wyświetlić szczegóły wdrożenia i monitorować urządzenia, na których 
 
     | Kolumna | Opis |
     | --- | --- |
-    | ID | Nazwa wdrożenia. |
-    | Typ | Typ **wdrożenia, wdrożenie lub** **wdrożenie warstwowe**. |
+    | ID (Identyfikator) | Nazwa wdrożenia. |
+    | Type | Typ **wdrożenia, wdrożenie lub** **wdrożenie warstwowe**. |
     | Warunek docelowy | Tag używany do definiowania urządzeń objętych usługą. |
     | Priorytet | Numer priorytetu przypisany do wdrożenia. |
     | Metryki systemu | Liczba bliźniaczych reprezentacji urządzeń w IoT Hub, które pasują do warunku określania wartości docelowej. **Zastosowano** określa liczbę urządzeń, na których zastosowana została zawartość wdrożenia do ich modułu bliźniaczych reprezentacji w IoT Hub. |

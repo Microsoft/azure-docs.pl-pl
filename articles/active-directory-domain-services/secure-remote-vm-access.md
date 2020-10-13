@@ -2,20 +2,20 @@
 title: Zabezpieczanie zdalnego dostępu do maszyny wirtualnej w Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak zabezpieczyć zdalny dostęp do maszyn wirtualnych przy użyciu serwera zasad sieciowych (NPS) i platformy Azure Multi-Factor Authentication z wdrożeniem Usługi pulpitu zdalnego w domenie zarządzanej Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 462e0ff8ef8baadf40ba81ed2ae137d8904fbf7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722521"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967787"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Bezpieczny dostęp zdalny do maszyn wirtualnych w Azure Active Directory Domain Services
 

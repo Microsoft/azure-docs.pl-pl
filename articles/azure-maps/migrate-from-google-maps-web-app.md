@@ -1,20 +1,20 @@
 ---
-title: Migrowanie aplikacji internetowej z usługi Google Maps | Mapy Microsoft Azure
-description: Jak przeprowadzić migrację aplikacji internetowej z usługi Google Maps do Microsoft Azure Maps
+title: Samouczek — Migrowanie aplikacji internetowej z usługi Google Maps | Mapy Microsoft Azure
+description: Samouczek dotyczący sposobu migrowania aplikacji internetowej z usługi Mapy Google do usługi Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/18/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 3414f50d6d0fc4983b7a05226a2f768e7ead81dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319677"
+ms.locfileid: "91876502"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrowanie aplikacji internetowej z usługi Google Maps
 
@@ -1011,7 +1011,7 @@ Dodawanie danych i zarządzanie nimi w źródle danych. Połącz źródła danyc
 
 Po włączeniu klastrowania źródło danych wyśle klastrowane i nieklastrowane punkty danych do warstw na potrzeby renderowania. Źródło danych umożliwia klastrowanie setek tysięcy punktów danych. Klastrowany punkt danych ma następujące właściwości:
 
-| Nazwa właściwości             | Typ    | Opis   |
+| Nazwa właściwości             | Type    | Opis   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Wskazuje, czy funkcja reprezentuje klaster. |
 | `cluster_id`              | ciąg  | Unikatowy identyfikator klastra, który może być używany ze źródłem danych `getClusterExpansionZoom` , `getClusterChildren` i `getClusterLeaves` metodami. |

@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569528"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Podstawa zabezpieczeń platformy Azure dla Cosmos DB
@@ -334,7 +334,7 @@ Jak programowo uzyskać dostęp do klawiszy przy użyciu Azure Active Directory:
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3,4: Korzystaj z logowania jednokrotnego (SSO) z usługą Azure Active Directory
 
-**Wskazówki**: Azure Cosmos DB używa dwóch typów kluczy do autoryzowania użytkowników i nie obsługuje logowania jednokrotnego na poziomie płaszczyzny danych. Dostęp do płaszczyzny kontroli dla Cosmos DB jest dostępny za pośrednictwem interfejsu API REST i obsługuje logowanie jednokrotne. Aby przeprowadzić uwierzytelnianie, należy ustawić nagłówek autoryzacji dla żądań na token sieci Web JSON uzyskany z Azure Active Directory.
+**Wskazówki**: Azure Cosmos DB używa dwóch typów kluczy do autoryzowania użytkowników i nie obsługuje pojedynczych Sign-On (SSO) na poziomie płaszczyzny danych. Dostęp do płaszczyzny kontroli dla Cosmos DB jest dostępny za pośrednictwem interfejsu API REST i obsługuje logowanie jednokrotne. Aby przeprowadzić uwierzytelnianie, należy ustawić nagłówek autoryzacji dla żądań na token sieci Web JSON uzyskany z Azure Active Directory.
 
 Informacje na temat interfejsu API REST usługi Azure Database for Cosmos DB: https://docs.microsoft.com/rest/api/cosmos-db/
 
@@ -991,7 +991,7 @@ Jak utworzyć kopię zapasową kluczy Key Vault: https://docs.microsoft.com/powe
 
 **Wskazówki**: Jeśli usunięto bazę danych lub kontener, możesz utworzyć bilet pomocy technicznej lub skontaktować się z pomocą techniczną platformy Azure w celu przywrócenia danych z automatycznych kopii zapasowych online. Pomoc techniczna systemu Azure jest dostępna dla wybranych planów, takich jak standard, Developer i plany wyższe niż. Aby przywrócić określoną migawkę kopii zapasowej, Azure Cosmos DB wymaga, aby dane były dostępne na czas trwania cyklu tworzenia kopii zapasowej dla tej migawki.
 
-Przetestuj przywracanie wpisów tajnych przechowywanych w Azure Key Vault przy użyciu programu PowerShell. Polecenie cmdlet Restore-AzureKeyVaultKey tworzy klucz w określonym magazynie kluczy. Ten klucz jest repliką klucza kopii zapasowej w pliku wejściowym i ma taką samą nazwę jak klucz oryginalny.
+Przetestuj przywracanie wpisów tajnych przechowywanych w Azure Key Vault przy użyciu programu PowerShell. Restore-AzureKeyVaultKey polecenie cmdlet tworzy klucz w określonym magazynie kluczy. Ten klucz jest repliką klucza kopii zapasowej w pliku wejściowym i ma taką samą nazwę jak klucz oryginalny.
 
 Informacje o Azure Cosmos DB zautomatyzowanych kopii zapasowych:
 
@@ -1013,11 +1013,11 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Wskazówki**: ze względu na to, że wszystkie dane użytkownika przechowywane w Cosmos DB są szyfrowane w stanie spoczynku i transport, nie trzeba podejmować żadnych działań. Innym sposobem na umieszczenie tego ustawienia jest to, że szyfrowanie w stanie spoczynku jest domyślnie włączone. Brak kontrolek do wyłączenia lub włączenia. Azure Cosmos DB używa szyfrowania AES-256 we wszystkich regionach, w których konto jest uruchomione.
 
-Włącz nietrwałe usuwanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
+Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
 Poznaj szyfrowanie danych w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Jak włączyć usuwanie nietrwałe w Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Jak włączyć Soft-Delete w Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitorowanie Azure Security Center**: tak
 

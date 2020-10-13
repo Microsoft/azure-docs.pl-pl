@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649690"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978785"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i systemów SAP HANA operacyjnych wdrożonych na natywnych maszynach wirtualnych platformy Azure. Dokument zawiera również informacje o konfiguracji SAP HANA skalowania w poziomie dla jednostki SKU maszyny wirtualnej M128s. Ten dokument nie jest przeznaczony do zastępowania standardowej dokumentacji SAP, która obejmuje następującą zawartość:
@@ -79,7 +79,7 @@ Aby uzyskać informacje o konfiguracjach magazynu i typach magazynów, które ma
 W przypadku połączenia między lokacjami z platformą Azure za pośrednictwem sieci VPN lub ExpressRoute należy mieć co najmniej jedną sieć wirtualną platformy Azure, która jest połączona za pośrednictwem bramy wirtualnej do obwodu sieci VPN lub usługi ExpressRoute. W prostych wdrożeniach można wdrożyć bramę wirtualną w podsieci sieci wirtualnej platformy Azure, która obsługuje również wystąpienia SAP HANA. Aby zainstalować SAP HANA, należy utworzyć dwie dodatkowe podsieci w ramach sieci wirtualnej platformy Azure. Jedna podsieć hostuje maszyny wirtualne do uruchamiania wystąpień SAP HANA. Inna podsieć uruchamia maszyny wirtualne serwera przesiadkowego lub Management do hostowania SAP HANA Studio, innego oprogramowania do zarządzania lub oprogramowania aplikacji.
 
 > [!IMPORTANT]
-> Poza funkcjonalnością, ale bardziej istotny ze względu na wydajność, nie jest obsługiwane Konfigurowanie [urządzeń wirtualnych sieci platformy Azure](https://azure.microsoft.com/solutions/network-appliances/) w ścieżce komunikacji między aplikacją SAP a warstwą DBMS systemu SAP NetWeaver, Hybris lub S/4HANA. Komunikacja między warstwą aplikacji SAP a warstwą DBMS musi być jedną bezpośrednią. Ograniczenie nie obejmuje [reguł usługi Azure ASG i sieciowej grupy zabezpieczeń](../../../virtual-network/security-overview.md) , o ile te reguły ASG i sieciowej grupy zabezpieczeń umożliwiają bezpośrednią komunikację. Dalsze scenariusze, w których urządzeń WUS nie są obsługiwane, znajdują się w ścieżkach komunikacyjnych między maszynami wirtualnymi platformy Azure, które reprezentują węzły klastra systemu Linux Pacemaker i urządzenia SBD, zgodnie z opisem w temacie [wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./high-availability-guide-suse.md) Lub w ścieżkach komunikacyjnych między maszynami wirtualnymi platformy Azure i systemem Windows Server SOFS skonfigurowanym zgodnie z opisem w artykule [klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure](./sap-high-availability-guide-wsfc-file-share.md). Urządzeń WUS w ścieżkach komunikacyjnych mogą łatwo podwójnie opóźniać opóźnienia sieci między dwoma partnerami komunikacyjnymi, co pozwala ograniczyć przepływność w ścieżkach krytycznych między warstwą aplikacji SAP i warstwą DBMS. W niektórych scenariuszach obserwowanych przez klientów urządzeń WUS może spowodować awarię klastrów Pacemaker systemu Linux w przypadkach, gdy komunikacja między węzłami klastra Pacemaker systemu Linux musi komunikować się z urządzeniem SBD za pośrednictwem urządzenie WUS.  
+> Poza funkcjonalnością, ale bardziej istotny ze względu na wydajność, nie jest obsługiwane Konfigurowanie [urządzeń wirtualnych sieci platformy Azure](https://azure.microsoft.com/solutions/network-appliances/) w ścieżce komunikacji między aplikacją SAP a warstwą DBMS systemu SAP NetWeaver, Hybris lub S/4HANA. Komunikacja między warstwą aplikacji SAP a warstwą DBMS musi być jedną bezpośrednią. Ograniczenie nie obejmuje [reguł usługi Azure ASG i sieciowej grupy zabezpieczeń](../../../virtual-network/network-security-groups-overview.md) , o ile te reguły ASG i sieciowej grupy zabezpieczeń umożliwiają bezpośrednią komunikację. Dalsze scenariusze, w których urządzeń WUS nie są obsługiwane, znajdują się w ścieżkach komunikacyjnych między maszynami wirtualnymi platformy Azure, które reprezentują węzły klastra systemu Linux Pacemaker i urządzenia SBD, zgodnie z opisem w temacie [wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./high-availability-guide-suse.md) Lub w ścieżkach komunikacyjnych między maszynami wirtualnymi platformy Azure i systemem Windows Server SOFS skonfigurowanym zgodnie z opisem w artykule [klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure](./sap-high-availability-guide-wsfc-file-share.md). Urządzeń WUS w ścieżkach komunikacyjnych mogą łatwo podwójnie opóźniać opóźnienia sieci między dwoma partnerami komunikacyjnymi, co pozwala ograniczyć przepływność w ścieżkach krytycznych między warstwą aplikacji SAP i warstwą DBMS. W niektórych scenariuszach obserwowanych przez klientów urządzeń WUS może spowodować awarię klastrów Pacemaker systemu Linux w przypadkach, gdy komunikacja między węzłami klastra Pacemaker systemu Linux musi komunikować się z urządzeniem SBD za pośrednictwem urządzenie WUS.  
 > 
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ Aby zapoznać się z omówieniem różnych metod przypisywania adresów IP, zoba
 
 W przypadku maszyn wirtualnych z systemem SAP HANA należy pracować z przypisanymi statycznymi adresami IP. Przyczyną jest to, że niektóre atrybuty konfiguracji adresów IP odwołań HANA.
 
-[Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) platformy Azure](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) są używane do kierowania ruchu kierowanego do wystąpienia SAP HANA lub serwera przesiadkowego. Sieciowych grup zabezpieczeń i ostatecznie [grupy zabezpieczeń aplikacji](../../../virtual-network/security-overview.md#application-security-groups) są skojarzone z podsiecią SAP HANA i podsiecią zarządzania.
+[Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) platformy Azure](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) są używane do kierowania ruchu kierowanego do wystąpienia SAP HANA lub serwera przesiadkowego. Sieciowych grup zabezpieczeń i ostatecznie [grupy zabezpieczeń aplikacji](../../../virtual-network/network-security-groups-overview.md#application-security-groups) są skojarzone z podsiecią SAP HANA i podsiecią zarządzania.
 
 Na poniższej ilustracji przedstawiono ogólny schemat wdrażania dla SAP HANA po architekturze sieci wirtualnej typu Hub i szprych:
 
@@ -324,4 +324,3 @@ Zapoznaj się z artykułami wymienionymi na liście
 - [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server](./sap-hana-high-availability.md)
 - [Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)
 
- 

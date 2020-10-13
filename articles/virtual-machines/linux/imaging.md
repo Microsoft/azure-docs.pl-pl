@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89319546"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966325"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Przełączanie i tworzenie obrazów systemu Linux na platformie Azure
 
@@ -46,7 +46,7 @@ Platforma Azure oferuje dwa główne typy obrazów, uogólnione i wyspecjalizowa
 
 ### <a name="generalized-images"></a>Uogólnione obrazy
 
-Obraz uogólniony jest obrazem, który wymaga zakończenia instalacji przy pierwszym rozruchu. Na przykład podczas pierwszego rozruchu ustawiana jest nazwa hosta, użytkownik administracyjny i inne konfiguracje specyficzne dla maszyny wirtualnej. Jest to przydatne, gdy chcesz, aby obraz był wielokrotnie używany, i gdy chcesz przekazać parametry podczas tworzenia. Jeśli obraz uogólniony zawiera agenta platformy Azure, Agent przetworzy parametry i powraca do platformy, że początkowa konfiguracja została ukończona. Ten proces jest nazywany [aprowizacji](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
+Obraz uogólniony jest obrazem, który wymaga zakończenia instalacji przy pierwszym rozruchu. Na przykład podczas pierwszego rozruchu ustawiana jest nazwa hosta, użytkownik administracyjny i inne konfiguracje specyficzne dla maszyny wirtualnej. Jest to przydatne, gdy chcesz, aby obraz był wielokrotnie używany, i gdy chcesz przekazać parametry podczas tworzenia. Jeśli obraz uogólniony zawiera agenta platformy Azure, Agent przetworzy parametry i powraca do platformy, że początkowa konfiguracja została ukończona. Ten proces jest nazywany [aprowizacji](./provisioning.md). 
 
 Inicjowanie obsługi wymaga, aby w obrazie znajdował się provisioner. Istnieją dwie aprowizacji:
 - [Agent systemu Linux platformy Azure](../extensions/agent-linux.md)
@@ -94,7 +94,7 @@ Na wysokim poziomie utworzysz SIG i składa się z:
 
 ## <a name="hyper-v-generation"></a>Generowanie funkcji Hyper-V
 
-Platforma Azure obsługuje funkcję Hyper-V Generation 1 (Gen1) i generacja 2 (Gen2), Gen2 to najnowsza generacja i oferuje dodatkowe funkcje w zakresie Gen1. Na przykład: zwiększona pamięć, rozszerzenia programu Intel Software Guard (Intel SGX) i Zwirtualizowana Pamięć trwała (vPMEM). Maszyny wirtualne 2. generacji działające lokalnie mają pewne funkcje, które nie są jeszcze obsługiwane na platformie Azure. Aby uzyskać więcej informacji, zobacz sekcję funkcje i możliwości. Aby uzyskać więcej informacji, zobacz ten [artykuł](../windows/generation-2.md). Jeśli potrzebujesz dodatkowych funkcji, Utwórz obrazy Gen2.
+Platforma Azure obsługuje funkcję Hyper-V Generation 1 (Gen1) i generacja 2 (Gen2), Gen2 to najnowsza generacja i oferuje dodatkowe funkcje w zakresie Gen1. Na przykład: zwiększona pamięć, rozszerzenia programu Intel Software Guard (Intel SGX) i Zwirtualizowana Pamięć trwała (vPMEM). Maszyny wirtualne 2. generacji działające lokalnie mają pewne funkcje, które nie są jeszcze obsługiwane na platformie Azure. Aby uzyskać więcej informacji, zobacz sekcję funkcje i możliwości. Aby uzyskać więcej informacji, zobacz ten [artykuł](../generation-2.md). Jeśli potrzebujesz dodatkowych funkcji, Utwórz obrazy Gen2.
 
 Jeśli nadal potrzebujesz utworzyć własny obraz, upewnij się, że spełnia on [wymagania wstępne obrazu](./create-upload-generic.md), i przekaż go do platformy Azure. Wymagania dotyczące dystrybucji:
 

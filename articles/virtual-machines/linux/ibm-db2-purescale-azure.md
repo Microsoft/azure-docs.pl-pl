@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0297c8674cc47a1d5f59fef196a60175244eaae2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87831417"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978326"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale na platformie Azure
 
@@ -86,7 +86,7 @@ W tej architekturze są uruchamiane warstwy aplikacji, magazynu i danych w usłu
 
 ### <a name="storage-considerations"></a>Zagadnienia dotyczące magazynu
 
-Podobnie jak w przypadku oprogramowania Oracle, DB2 pureScale to blok o wysokiej wydajności, skalowalny w poziomie bazę danych. Zalecamy użycie największej opcji dysku [SSD platformy Azure Premium](disks-types.md) , która odpowiada Twoim potrzebom. Mniejsze opcje magazynu mogą być odpowiednie dla środowisk deweloperskich i testowych, natomiast w środowiskach produkcyjnych często potrzebna jest większa pojemność magazynu. Przykładowa architektura używa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) ze względu na stosunek liczby operacji we/wy do rozmiaru i ceny. Bez względu na rozmiar, użyj Premium Storage w celu uzyskania najlepszej wydajności.
+Podobnie jak w przypadku oprogramowania Oracle, DB2 pureScale to blok o wysokiej wydajności, skalowalny w poziomie bazę danych. Zalecamy użycie największej opcji dysku [SSD platformy Azure Premium](../disks-types.md) , która odpowiada Twoim potrzebom. Mniejsze opcje magazynu mogą być odpowiednie dla środowisk deweloperskich i testowych, natomiast w środowiskach produkcyjnych często potrzebna jest większa pojemność magazynu. Przykładowa architektura używa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) ze względu na stosunek liczby operacji we/wy do rozmiaru i ceny. Bez względu na rozmiar, użyj Premium Storage w celu uzyskania najlepszej wydajności.
 
 W programie DB2 pureScale jest stosowana współdzielona architektura, w której wszystkie dane są dostępne we wszystkich węzłach klastra. Usługa Premium Storage musi być współdzielona przez wiele wystąpień, zarówno na żądanie, jak i na dedykowanych wystąpieniach.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266653"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967056"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Facsimile-TelephoneNumber |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |name.givenName |
-| Stanowiska |title |
+| Stanowiska |tytuł |
 | mail (poczta) |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -747,7 +747,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. 
+Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. Należy pamiętać, że należy uważnie przejrzeć listę zakresów adresów IP dla obliczanych adresów. Adres taki jak "40.126.25.32" może być przedstawiony na liście zakresów adresów IP jako "40.126.0.0/18". Możesz również programowo pobrać listę zakresów adresów IP za pomocą poniższego [interfejsu API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 

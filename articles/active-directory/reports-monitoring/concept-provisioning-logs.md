@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812560"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
@@ -33,7 +33,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
-- **Bezpieczeństwo** 
+- **Zabezpieczenia** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -61,7 +61,7 @@ Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
 
 Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
 
-![Dzienniki aprowizowania](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
+![Dzienniki aprowizacji](./media/concept-provisioning-logs/access-provisioning-logs.png "Dzienniki aprowizowania")
 
 
 Dziennik aprowizacji zawiera domyślny widok listy, który pokazuje:
@@ -86,7 +86,7 @@ Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są j
 
 Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje.
 
-![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Filtr")
+![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Filtrowanie")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrowanie działań aprowizacji
@@ -95,12 +95,12 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Data
+- Date
 - Stan
 - Akcja
 
 
-![Dodaj filtry](./media/concept-provisioning-logs/default-filter.png "Filtr")
+![Dodaj filtry](./media/concept-provisioning-logs/default-filter.png "Filtrowanie")
 
 Filtr **tożsamości** umożliwia określenie nazwy lub tożsamości, o której Cię interesują. Ta tożsamość może być użytkownikiem, grupą, rolą lub innym obiektem. Można wyszukiwać według nazwy lub identyfikatora obiektu. Identyfikator różni się w zależności od scenariusza. Na przykład podczas aprowizacji obiektu z usługi Azure AD do usług SalesForce identyfikator źródłowy jest IDENTYFIKATORem obiektu użytkownika w usłudze Azure AD, a TargetID jest IDENTYFIKATORem użytkownika w usłudze Salesforce. Po zainicjowaniu obsługi administracyjnej od dnia roboczego do Active Directory identyfikator źródła to identyfikator pracownika procesu roboczego programu Workday. Należy zauważyć, że nazwa użytkownika może nie zawsze występować w kolumnie tożsamość. Zawsze będzie istnieć jeden identyfikator. 
 
@@ -191,7 +191,7 @@ Na karcie **kroki** przedstawiono kroki, które należy wykonać w celu aprowiza
 
 
 
-![Zrzut ekranu przedstawia kartę kroki, która zawiera kroki inicjowania obsługi.](./media/concept-provisioning-logs/steps.png "Filtr")
+![Zrzut ekranu przedstawia kartę kroki, która zawiera kroki inicjowania obsługi.](./media/concept-provisioning-logs/steps.png "Filtrowanie")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Rozwiązywanie problemów i zalecenia

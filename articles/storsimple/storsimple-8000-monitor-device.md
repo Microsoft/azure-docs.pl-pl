@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514698"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977412"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Monitorowanie urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
 
@@ -77,7 +77,7 @@ W przypadku korzystania z aktualizacji Update 3 lub nowszej można rozbić podst
 
 Możesz również kliknąć poszczególne woluminy na liście i zobaczyć odpowiednie użycie.
 
-![Podstawowe wykorzystanie pojemności dla wszystkich przypiętych lokalnie woluminów](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Podstawowe wykorzystanie pojemności dla wszystkich przypiętych lokalnie woluminów 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>Użycie magazynu w chmurze
 Te wykresy przedstawiają ilość używanego magazynu w chmurze. Te dane są deduplikowane i kompresowane. Ta kwota zawiera migawki w chmurze, które mogą zawierać dane, które nie są odzwierciedlone w woluminie głównym i są przechowywane na potrzeby starszych lub wymaganych operacji przechowywania. Można porównać dane użycia magazynu podstawowego i w chmurze, aby uzyskać pomysł dotyczący szybkości redukcji danych, chociaż nie jest to dokładne.

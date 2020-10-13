@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089976"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91928983"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Ponowne uruchamianie maszyn wirtualnych dla klastrów usługi HDInsight
 
@@ -31,8 +31,8 @@ Gdy węzeł jest ponownie uruchamiany, klaster może stać się w złej kondycji
 - Dysk tymczasowy jest zapełniony w węźle.
 - Tabela procesów na maszynie wirtualnej zawiera wiele wpisów, w których proces został ukończony, ale jest on wyświetlany ze stanem zakończono.
 
-> [!WARNING]
-> Należy zachować ostrożność podczas ponownego uruchamiania maszyn wirtualnych dla klastrów **HBase** i **Kafka** , ponieważ ponowne uruchomienie może spowodować utratę danych.
+> [!NOTE]
+> Ponowne uruchamianie maszyn wirtualnych nie jest obsługiwane w przypadku klastrów **HBase** i **Kafka** , ponieważ ponowne uruchomienie może spowodować utratę danych.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Ponowne uruchamianie maszyn wirtualnych przy użyciu programu PowerShell
 

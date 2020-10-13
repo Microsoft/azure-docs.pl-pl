@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447568"
+ms.locfileid: "91930632"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegowanie podsieci do usługi Azure NetApp Files 
 
@@ -33,7 +33,7 @@ Podsieć należy delegować do usługi Azure NetApp Files.   Podczas tworzenia w
    W sieci wirtualnej można mieć tylko jedną delegowaną podsieć. Konto NetApp może wdrażać woluminy w wielu sieci wirtualnych, z których każda ma własną podsieć delegowaną.  
 * W delegowanej podsieci nie można wyznaczyć sieciowej grupy zabezpieczeń ani punktu końcowego usługi. Jeśli się to zrobi, delegowanie podsieci nie powiedzie się.
 * Dostęp do woluminu z globalnej, równorzędnej sieci wirtualnej nie jest obecnie obsługiwany.
-* [Trasy zdefiniowane przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) i sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie są obsługiwane w delegowanych podsieciach dla Azure NetApp Files. Można jednak zastosować UDR i sieciowych grup zabezpieczeń do innych podsieci, nawet w ramach tej samej sieci wirtualnej co podsieć delegowana do Azure NetApp Files.  
+* [Trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDR) i sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie są obsługiwane w delegowanych podsieciach dla Azure NetApp Files. Można jednak zastosować UDR i sieciowych grup zabezpieczeń do innych podsieci, nawet w ramach tej samej sieci wirtualnej co podsieć delegowana do Azure NetApp Files.  
    Azure NetApp Files tworzy trasę systemową do delegowanej podsieci. Trasa jest pokazywana w **efektywnych trasach** w tabeli tras, jeśli będzie potrzebna do rozwiązywania problemów.
 
 ## <a name="steps"></a>Kroki
@@ -54,6 +54,4 @@ Podsieć można również utworzyć i delegować podczas [tworzenia woluminu dla
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie woluminu dla usługi Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Informacje o integracji z siecią wirtualną dla usług platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-
-
+* [Informacje o integracji z siecią wirtualną dla usług platformy Azure](../virtual-network/virtual-network-for-azure-services.md)

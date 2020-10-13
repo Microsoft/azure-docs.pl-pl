@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905599"
+ms.locfileid: "91931986"
 ---
 ## <a name="query-language-features"></a>Funkcje języka zapytań
 
@@ -32,6 +32,7 @@ Można bardziej ulepszyć zapytania przy użyciu następujących operacji:
 * Pobierz bliźniaczych reprezentacji przez wiele typów relacji ( `JOIN` zapytania). 
   - W trakcie okresu zapoznawczego można używać maksymalnie pięciu poziomów `JOIN` .
 * Wybierz tylko najtrafniejsze wyniki zapytania ( `Select TOP` operator)
+* Zlicz liczbę elementów w zestawie wyników przy użyciu `Select COUNT`
 * Użyj funkcji skalarnych: `IS_BOOL` ,,,, `IS_DEFINED` `IS_NULL` `IS_NUMBER` `IS_OBJECT` ,,, `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` , `ENDSWITH` .
 * Użyj operatorów porównania zapytania: `IN` / `NIN` , `=` ,,, `!=` `<` `>` , `<=` , `>=` .
 * Użyj dowolnej kombinacji ( `AND` , `OR` , `NOT` operatora) `IS_OF_MODEL` , funkcji skalarnych i operatorów porównania.

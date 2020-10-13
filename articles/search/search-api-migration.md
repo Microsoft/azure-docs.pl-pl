@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949035"
+ms.locfileid: "91929646"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Uaktualnianie do najnowszego interfejsu API REST na platformie Azure Wyszukiwanie poznawcze
 
@@ -40,13 +40,19 @@ Jeśli dowolna z tych sytuacji dotyczy użytkownika, może być konieczne odpowi
 
 ## <a name="upgrade-to-2020-06-30"></a>Uaktualnij do 2020-06-30
 
-Wersja 2020-06-30 to nowa, ogólnie dostępna wersja interfejsu API REST. Nie wprowadzono żadnych zmian, ale istnieją pewne różnice w zachowaniu. 
+Wersja 2020-06-30 to nowa, ogólnie dostępna wersja interfejsu API REST. Istnieje jedna istotna zmiana i kilka różnic behawioralnych. 
 
 Funkcje są teraz ogólnie dostępne w tej wersji interfejsu API:
 
 * [Magazyn merytoryczny](knowledge-store-concept-intro.md), trwały magazyn zawartości wzbogaconej utworzony za poorednictwem umiejętności, utworzony na potrzeby analizy i przetwarzania przez inne aplikacje. Dzięki tej możliwości potok wzbogacania AI oparty na indeksatorze może wypełnić magazyn wiedzy oprócz indeksu wyszukiwania. Jeśli używana jest wersja zapoznawcza tej funkcji, jest ona równoważna z ogólnie dostępną wersją. Jedyną wymaganą zmianą kodu jest modyfikowanie interfejsu API-Version.
 
-Zmiany zachowania są następujące:
+### <a name="breaking-change"></a>Zmiana podziału
+
+Istniejący kod pisany przed wcześniejszymi wersjami interfejsu API zacznie działać w wersji API-Version = 2020-06-30 i nowszych, jeśli kod zawiera następujące funkcje:
+
+* Wszystkie literały EDM. Date (Data, która składa się z ciągu roku, takiego jak `2020-12-12` ) w wyrażeniach filtru, muszą być zgodne z formatem EDM. DateTimeOffset: `2020-12-12T00:00:00Z` . Ta zmiana była niezbędna do obsługi błędnych lub nieoczekiwanych wyników zapytania z powodu różnic między strefami czasowymi.
+
+### <a name="behavior-changes"></a>Zmiany zachowania
 
 * [Algorytm klasyfikacji BM25](index-ranking-similarity.md) zastępuje poprzedni algorytm klasyfikacji nowszą technologią. Nowe usługi będą używać tego algorytmu automatycznie. W przypadku istniejących usług należy ustawić parametry, aby używały nowego algorytmu.
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 563b9c03141357eeacf9a7d890c386faae52c6df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510706"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978411"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej przy użyciu Azure Portal
 
@@ -38,7 +38,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Ekran tworzenia maszyny wirtualnej z systemem Linux&quot;:::
 
     > [!WARNING]
-    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania" w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](managed-disks-overview.md) i CMK, a **nie** Azure Disk Encryption.
+    > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania" w obszarze **Opcje dysków**. To pole służy do określania opcji szyfrowania dla [Managed disks](../managed-disks-overview.md) i CMK, a **nie** Azure Disk Encryption.
     >
     > Aby uniknąć nieporozumień, zalecamy całkowite pomijanie karty *dysków* podczas wykonywania tego samouczka.
 
@@ -84,7 +84,7 @@ Wdrożenie maszyny wirtualnej potrwa kilka minut. Po zakończeniu wdrażania prz
     > [!WARNING]
     > Karta &quot;dyski&quot; zawiera pole &quot;typ szyfrowania":::
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.  
+1. Wybierz pozycję **Przejrzyj i utwórz**.  
 1. Po przekazaniu walidacji magazynu kluczy wybierz pozycję **Utwórz**. Spowoduje to powrót do ekranu **wyboru z Azure Key Vault** .
 1. Pozostaw pole **klucza** puste i wybierz **pozycję Wybierz**.
 1. W górnej części ekranu szyfrowania kliknij przycisk **Zapisz**. W oknie podręcznym zostanie wyświetlone ostrzeżenie o ponownym uruchomieniu maszyny wirtualnej. Kliknij przycisk **Yes** (Tak).

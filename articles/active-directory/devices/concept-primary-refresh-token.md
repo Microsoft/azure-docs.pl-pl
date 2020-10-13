@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450411"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
@@ -65,7 +65,7 @@ PRT jest wystawiany podczas uwierzytelniania użytkownika na urządzeniu z syste
 W scenariuszach zarejestrowanych urządzeń w usłudze Azure AD Wtyczka Menedżera WAM usługi Azure AD jest głównym urzędem dla PRT, ponieważ logowanie systemu Windows nie odbywa się przy użyciu tego konta usługi Azure AD.
 
 > [!NOTE]
-> dostawcy tożsamości innych firm muszą obsługiwać protokół WS-Trust, aby umożliwić PRT wystawiania na urządzeniach z systemem Windows 10. Bez protokołu WS-Trust PRT nie może zostać wystawiony dla użytkowników z dołączoną hybrydą usługi Azure AD lub urządzeniami przyłączonymi do usługi Azure AD. W przypadku usług ADFS wymagane są tylko punkty końcowe usernamemixed. Usługi ADFS/Services/Trust/2005/windowstransport i ADFS/Services/Trust/13/windowstransport powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i **nie mogą być udostępniane** jako punkty końcowe do ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web
+> dostawcy tożsamości innych firm muszą obsługiwać protokół WS-Trust, aby umożliwić wydawanie PRT na urządzeniach z systemem Windows 10. Bez protokołu WS-Trust PRT nie może zostać wystawiony dla użytkowników z dołączoną hybrydą usługi Azure AD lub urządzeniami przyłączonymi do usługi Azure AD. W przypadku usług ADFS wymagane są tylko punkty końcowe usernamemixed. Usługi ADFS/Services/Trust/2005/windowstransport i ADFS/Services/Trust/13/windowstransport powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i **nie mogą być udostępniane** jako punkty końcowe do ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Jaki jest okres istnienia PRT?
 

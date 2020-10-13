@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
 ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370916"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
@@ -110,7 +110,7 @@ Mapowanie przepływów danych jest dostępne w następujących regionach:
 | Brazil South  | ✓ |  |
 | Kanada Środkowa | ✓ |  |
 | Indie Środkowe | ✓ |   ✓ |
-| Środkowe stany USA    | ✓ |   ✓ |
+| Central US    | ✓ |   ✓ |
 | Chiny Wschodnie |      | ✓ |
 | Chiny Wschodnie 2  |   |    |
 | Chiny nieregionalne | | |

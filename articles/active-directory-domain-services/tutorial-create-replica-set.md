@@ -2,20 +2,20 @@
 title: Samouczek — Tworzenie zestawu replik w Azure AD Domain Services | Microsoft Docs
 description: Informacje na temat tworzenia i używania zestawów replik w Azure Portal na potrzeby odporności usługi z Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 8cd78a98e47468f103459fd7aa40b145d53db4fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245098"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967039"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Samouczek: Tworzenie i używanie zestawów replik dla odporności lub geolokalizacji w Azure Active Directory Domain Services (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Zestaw replik można dodać do dowolnej równorzędnej sieci wirtualnej w dowoln
 
 Zestawy replik są funkcją publicznej wersji zapoznawczej w Azure AD Domain Services. Zapoznaj się z różnicami w zakresie pomocy technicznej, które istnieją dla funkcji w wersji zapoznawczej. Aby uzyskać więcej informacji o wersjach zapoznawczych, [Azure Active Directory wersji zapoznawczej umowy SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Informacje o wymaganiach dotyczących sieci wirtualnej

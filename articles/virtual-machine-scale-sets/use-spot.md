@@ -10,10 +10,10 @@ ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729019"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
@@ -49,7 +49,7 @@ Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azu
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Wdrażanie maszyn wirtualnych w zestawach skalowania
 
 *Aby wdrożyć*maszyny wirtualne do maszyn wirtualnych w zestawach skalowania, można ustawić flagę nowy *priorytet* . Wszystkie maszyny wirtualne w zestawie skalowania zostaną ustawione jako aktywne. Aby utworzyć zestaw skalowania z maszynami wirtualnymi, należy użyć jednej z następujących metod:
-- [Witryna Azure Portal](#portal)
+- [Azure Portal](#portal)
 - [Interfejs wiersza polecenia platformy Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Szablony usługi Azure Resource Manager](#resource-manager-templates)
@@ -76,7 +76,7 @@ az vmss create \
     --max-price -1 
 ```
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Proces tworzenia zestawu skalowania z maszynami wirtualnymi jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-powershell.md).
 Po prostu Dodaj opcję "-Priority" i podaj `-max-price` do [nowego AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
@@ -119,7 +119,7 @@ Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do sekcji `"
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **P:** Po utworzeniu, czy to wystąpienie jest takie samo jak standardowe wystąpienie?
 

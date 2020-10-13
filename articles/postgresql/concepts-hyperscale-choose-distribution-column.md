@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314916"
+ms.locfileid: "91929340"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Wybieranie kolumn dystrybucji w Azure Database for PostgreSQL — funkcja do skalowania (Citus)
 
@@ -71,8 +71,6 @@ Najbardziej typowym błędem modelowania informacji o szeregach czasowych w rama
 
 -   **Nie wybieraj sygnatury czasowej jako kolumny dystrybucji.** Wybierz inną kolumnę dystrybucji. W aplikacji z wieloma dzierżawami Użyj identyfikatora dzierżawy lub w aplikacji w czasie rzeczywistym Użyj identyfikatora jednostki.
 -   **Zamiast tego użyj partycjonowania tabeli PostgreSQL.** Partycjonowanie tabeli służy do dzielenia dużej ilości danych uporządkowanych według czasu na wiele dziedziczonych tabel każdej tabeli zawierającej różne zakresy czasu. Dystrybuowanie tabeli partycjonowanej Postgres w Citus) tworzy fragmentów dla dziedziczonych tabel.
-
-Zapoznaj się z [samouczkiem dotyczącym szeregów czasowych](https://aka.ms/hyperscale-tutorial-timeseries) , aby zapoznać się z przykładem tworzenia tego rodzaju aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się [, jak](concepts-hyperscale-colocation.md) współdziałanie między danymi rozproszonymi ułatwia wykonywanie zapytań.

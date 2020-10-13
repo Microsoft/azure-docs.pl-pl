@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
 ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448920"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurowanie eksportu przesyłania strumieniowego Azure SQL Database i diagnostyki wystąpienia zarządzanego SQL
@@ -96,7 +96,7 @@ Możesz użyć menu **Ustawienia diagnostyczne** w Azure Portal, aby włączyć 
 
 Wybierz jedną z następujących kart, aby uzyskać wskazówki krok po kroku dotyczące konfigurowania eksportu danych telemetrycznych diagnostyki w Azure Portal i skryptów na potrzeby wykonywania tych samych kroków przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 ### <a name="elastic-pools-in-azure-sql-database"></a>Pule elastyczne w Azure SQL Database
 
@@ -476,7 +476,7 @@ Szczegółowe informacje o telemetrii dostępne dla wszystkich dzienników zosta
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure|
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: ResourceUsageStats |
 |Zasób|Nazwa zasobu |
@@ -501,7 +501,7 @@ Szczegółowe informacje o telemetrii dostępne dla wszystkich dzienników zosta
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: QueryStoreRuntimeStatistics |
 |OperationName|Nazwa operacji. Zawsze: QueryStoreRuntimeStatisticsEvent |
@@ -552,7 +552,7 @@ Dowiedz się więcej o [danych statystyk środowiska uruchomieniowego magazynu z
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: QueryStoreWaitStatistics |
 |OperationName|Nazwa operacji. Zawsze: QueryStoreWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Dowiedz się więcej na temat [danych statystycznych oczekiwania magazynu zapyta
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: Błędy |
 |OperationName|Nazwa operacji. Zawsze: ErrorEvent |
@@ -619,7 +619,7 @@ Dowiedz się więcej o [komunikatach o błędach SQL](https://docs.microsoft.com
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: DatabaseWaitStatistics |
 |OperationName|Nazwa operacji. Zawsze: DatabaseWaitStatisticsEvent |
@@ -648,7 +648,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: przekroczenia limitu czasu |
 |OperationName|Nazwa operacji. Zawsze: TimeoutEvent |
@@ -671,7 +671,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: bloki |
 |OperationName|Nazwa operacji. Zawsze: BlockEvent |
@@ -695,7 +695,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC] |Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: zakleszczenia |
 |OperationName|Nazwa operacji. Zawsze: DeadlockEvent |
@@ -716,7 +716,7 @@ Dowiedz się więcej na temat [statystyk oczekiwania bazy danych](https://docs.m
 |TenantId|Identyfikator dzierżawy |
 |SourceSystem|Zawsze: Azure |
 |TimeGenerated [UTC]|Sygnatura czasowa rejestrowania dziennika |
-|Typ|Zawsze: AzureDiagnostics |
+|Type|Zawsze: AzureDiagnostics |
 |ResourceProvider|Nazwa dostawcy zasobów. Zawsze: MICROSOFT. Server |
 |Kategoria|Nazwa kategorii. Zawsze: AutomaticTuning |
 |Zasób|Nazwa zasobu |

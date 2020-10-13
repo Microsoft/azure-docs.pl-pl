@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13c15eeb98b13d0fe9a5b7797ec942209d403cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761b031916dd9ead71f5be6a6887208a1f200f58
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447754"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966138"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509
 
@@ -209,73 +209,76 @@ Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe
 
 Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi.
 
+Wykonaj kroki opisane w artykule [Instalowanie środowiska uruchomieniowego Azure IoT Edge](how-to-install-iot-edge.md), a następnie wróć do tego artykułu, aby udostępnić urządzenie.
+
 Obsługa administracyjna X. 509 z usługą DPS jest obsługiwana tylko w IoT Edge w wersji 1.0.9 lub nowszej.
 
-Podczas aprowizacji urządzenia potrzebne są następujące informacje:
+## <a name="configure-the-device-with-provisioning-information"></a>Konfigurowanie urządzenia przy użyciu informacji o aprowizacji
+
+Po zainstalowaniu na urządzeniu środowiska uruchomieniowego skonfiguruj je za pomocą informacji, które są używane do nawiązywania połączenia z usługą Device Provisioning i IoT Hub.
+
+Przygotuj następujące informacje:
 
 * Wartość **identyfikatora** DPS. Tę wartość można pobrać ze strony Przegląd wystąpienia usługi DPS w Azure Portal.
 * Plik łańcucha certyfikatu tożsamości urządzenia na urządzeniu.
 * Plik klucza tożsamości urządzenia na urządzeniu.
-* Opcjonalny identyfikator rejestracji (pobierany z nazwy pospolitej w certyfikacie tożsamości urządzenia, jeśli nie zostanie podany).
+* Opcjonalny identyfikator rejestracji. Jeśli nie zostanie podany, identyfikator zostanie pobrany z nazwy pospolitej w certyfikacie tożsamości urządzenia.
 
 ### <a name="linux-device"></a>Urządzenie z systemem Linux
 
-Użyj poniższego linku, aby zainstalować środowisko uruchomieniowe Azure IoT Edge na urządzeniu przy użyciu poleceń odpowiednich dla architektury urządzenia. Po przeniesieniu do sekcji dotyczącej konfigurowania demona zabezpieczeń Skonfiguruj IoT Edge środowisko uruchomieniowe dla X. 509 automatyczne, a nie ręczne, Inicjowanie obsługi administracyjnej. Należy dysponować wszystkimi plikami informacji i certyfikatów, które są potrzebne po wykonaniu poprzednich sekcji tego artykułu.
+1. Otwórz plik konfiguracji na urządzeniu IoT Edge.
 
-[Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux](how-to-install-iot-edge-linux.md)
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-Po dodaniu informacji o certyfikacie X. 509 i kluczu do pliku config. YAML ścieżki powinny być podawane jako identyfikatory URI plików. Na przykład:
+1. Znajdź sekcję konfiguracje aprowizacji pliku. Usuń znaczniki komentarza z wierszy usługi DPS symetrycznej aprowizacji kluczy i upewnij się, że wszystkie inne wiersze aprowizacji są oznaczone jako komentarze.
 
-* `file:///<path>/identity_certificate_chain.pem`
-* `file:///<path>/identity_key.pem`
+   `provisioning:`Wiersz nie powinien zawierać poprzedzających odstępów, a zagnieżdżone elementy powinny mieć dwie spacje.
 
-Sekcja w pliku konfiguracyjnym dla programu X. 509 automatyczne Inicjowanie obsługi wygląda następująco:
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "x509"
+   #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+       identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+       identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   ```
 
-```yaml
-# DPS X.509 provisioning configuration
-provisioning:
-  source: "dps"
-  global_endpoint: "https://global.azure-devices-provisioning.net"
-  scope_id: "<SCOPE_ID>"
-  attestation:
-    method: "x509"
-#   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
-    identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
-    identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
-```
+1. Zaktualizuj wartości `scope_id` , `identity_cert` i `identity_pk` wraz z informacjami o usłudze DPS i urządzeniu.
 
-Zastąp wartości symboli zastępczych `scope_id` , `identity_cert` , `identity_pk` z identyfikatorem zakresu z wystąpienia usługi DPS, oraz identyfikatorów URI do łańcucha certyfikatów i lokalizacji plików kluczy na urządzeniu. W razie potrzeby podaj `registration_id` dla urządzenia urządzenie lub pozostaw ten wiersz komentarzem, aby zarejestrować urządzenie przy użyciu nazwy pospolitej certyfikatu tożsamości.
+   Po dodaniu informacji o certyfikacie X. 509 i kluczu do pliku config. YAML ścieżki powinny być podawane jako identyfikatory URI plików. Na przykład:
 
-Zawsze należy ponownie uruchomić demona zabezpieczeń po zaktualizowaniu pliku config. YAML.
+   `file:///<path>/identity_certificate_chain.pem`
+   `file:///<path>/identity_key.pem`
 
-```bash
-sudo systemctl restart iotedge
-```
+1. W razie potrzeby podaj `registration_id` dla urządzenia urządzenie lub pozostaw ten wiersz komentarzem, aby zarejestrować urządzenie przy użyciu nazwy pospolitej certyfikatu tożsamości.
+
+1. Uruchom ponownie środowisko uruchomieniowe IoT Edge, aby wyszukać wszystkie zmiany konfiguracji wprowadzone na urządzeniu.
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
 
 ### <a name="windows-device"></a>Urządzenie z systemem Windows
 
-Zainstaluj środowisko uruchomieniowe IoT Edge na urządzeniu, dla którego Wygenerowano łańcuch certyfikatów tożsamości i klucz tożsamości. Skonfigurujesz środowisko uruchomieniowe IoT Edge automatyczne, nie ręczne, Inicjowanie obsługi administracyjnej.
-
-Aby uzyskać bardziej szczegółowe informacje na temat instalowania IoT Edge w systemie Windows, w tym wymagania wstępne i instrukcje dotyczące zadań, takich jak Zarządzanie kontenerami i aktualizowanie IoT Edge, zobacz [Instalowanie środowiska uruchomieniowego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
-
 1. Otwórz okno programu PowerShell w trybie administratora. Należy pamiętać, aby podczas instalowania IoT Edge używać sesji AMD64 programu PowerShell, a nie programu PowerShell (x86).
 
-1. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję Containers, a następnie pobiera środowisko uruchomieniowe Moby i środowisko uruchomieniowe IoT Edge. Polecenie domyślnie używa kontenerów systemu Windows.
+1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi przy użyciu kontenerów systemu Windows, więc Użyj `-DpsX509` flagi, aby użyć automatycznej aprowizacji z uwierzytelnianiem certyfikatu X. 509.
+
+   Zastąp wartości symboli zastępczych dla `{scope_id}` , `{identity cert chain path}` i `{identity key path}` z odpowiednimi wartościami z wystąpienia usługi DPS i ścieżkami plików na urządzeniu.
+
+   Dodaj, `-RegistrationId {registration_id}` Jeśli chcesz ustawić identyfikator urządzenia jako inny niż nazwa pospolita certyfikatu tożsamości.
+
+   Dodaj `-ContainerOs Linux` parametr, jeśli używasz kontenerów systemu Linux w systemie Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. W tym momencie urządzenia IoT Core mogą zostać automatycznie uruchomione ponownie. Inne urządzenia z systemem Windows 10 lub Windows Server mogą monitować o ponowne uruchomienie. Jeśli tak, ponownie uruchom urządzenie teraz. Gdy urządzenie jest gotowe, uruchom ponownie program PowerShell jako administrator.
-
-1. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi, chyba że używana jest `-Dps` Flaga do korzystania z automatycznej aprowizacji.
-
-   Zastąp wartości symboli zastępczych dla `{scope_id}` , `{identity cert chain path}` i `{identity key path}` z odpowiednimi wartościami z wystąpienia usługi DPS i ścieżkami plików na urządzeniu. Jeśli chcesz określić identyfikator rejestracji, Uwzględnij `-RegistrationId {registration_id}` również symbol zastępczy odpowiednio do potrzeb.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -DpsX509 -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

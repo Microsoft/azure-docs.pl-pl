@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
-ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71172637"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631544"
 ---
 Gdy firma Microsoft odbierze i zeskanuje urządzenie, stan zamówienia zmieni się na **Odebrane**. Następnie urządzenie zostanie poddane fizycznej weryfikacji pod kątem uszkodzeń lub śladów naruszenia.
 
@@ -20,7 +20,7 @@ Po zakończeniu kopiowania danych stan zamówienia zmieni się na **Zakończone*
 
 Sprawdź, czy dane zostały przekazane na platformę Azure, zanim usuniesz je ze źródła. Twoje dane mogą się znajdować w następujących lokalizacjach:
 
-- Twoje konta usługi Azure Storage. Po skopiowaniu danych na urządzenie Data Box są one zależnie od typu przekazywane do jednej z poniższych ścieżek w ramach konta usługi Azure Storage.
+- Twoje konta usługi Azure Storage. Po skopiowaniu danych na urządzenie Data Box są one przekazywane do jednej z poniższych ścieżek w ramach konta usługi Azure Storage:
 
   - W przypadku blokowych obiektów blob i stronicowych obiektów blob: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - W przypadku usługi Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -37,7 +37,7 @@ Sprawdź, czy dane zostały przekazane na platformę Azure, zanim usuniesz je ze
 
         ![Dysk zarządzany dołączony do grup zasobów](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - Jeśli skopiowano plik VHDX lub dynamiczny/różnicowy dysk VHD, pliki VHDX/VHD zostaną przekazane do konta magazynu przejściowego jako stronicowe obiekty blob, ale konwersja dysku VHD na dysk zarządzany zakończy się niepowodzeniem. Przejdź do pozycji **Konto magazynu > Obiekty blob** w magazynie przejściowym, a następnie wybierz odpowiedni kontener — SSD w warstwie Standardowa, HDD w warstwie Standardowa lub SSD w warstwie Premium. Wirtualne dyski twarde są przekazywane do przejściowego konta magazynu jako stronicowe obiekty blob.
+    - Jeśli skopiowano plik VHDX albo dynamiczny lub różnicowy dysk VHD, plik VHDX/VHD zostanie przekazany do konta magazynu przejściowego jako stronicowy obiekt blob, ale konwersja dysku VHD na dysk zarządzany zakończy się niepowodzeniem. Wybierz pozycję **Konto magazynu > Obiekty blob** w magazynie przejściowym, a następnie wybierz odpowiedni kontener — SSD w warstwie Standardowa, HDD w warstwie Standardowa lub SSD w warstwie Premium. Wirtualne dyski twarde są przekazywane do przejściowego konta magazynu jako stronicowe obiekty blob, co powoduje naliczanie opłat.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Wymazywanie danych z urządzenia Data Box

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bcd0f6d4d1ac505598c839f89850f9b55a9c36a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295570"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977497"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 1,0 w macierzy wirtualnej StorSimple
 
@@ -102,26 +102,26 @@ Wykonanie tej procedury zajmuje około 4 minuty. Wykonaj następujące kroki, ab
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. **Kontynuuj tę aktualizację tylko wtedy, gdy korzystasz z aktualizacji 0,6 (10.0.10293.0). Jeśli używasz wcześniejszej wersji, najpierw [Zainstaluj aktualizację 0,6](storsimple-virtual-array-install-update-06.md) na urządzeniu, a następnie Zastosuj aktualizację Update 1.**
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update1m.png)
+    ![Aktualizacja urządzenia 1](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
 2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij pozycję **Zastosuj**.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update2m.png)
+    ![Aktualizacja urządzenia 2](./media/storsimple-virtual-array-install-update-1/update2m.png)
 
 3. Wyświetlane jest ostrzeżenie. Po zastosowaniu aktualizacji Macierz wirtualna jest urządzeniem z jednym węzłem, a następnie następuje ponowne uruchomienie urządzenia i wystąpiła przestoje. Kliknij ikonę zaznaczania.
    
-   ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update3m.png)
+   ![Aktualizacja urządzenia 3](./media/storsimple-virtual-array-install-update-1/update3m.png)
 
 4. Rozpocznie się aktualizacja. Po pomyślnym zaktualizowaniu urządzenia zostanie ono ponownie uruchomione. Lokalny interfejs użytkownika nie jest dostępny w tym czasie trwania.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update5m.png)
+    ![Aktualizacja urządzenia 4](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
 5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10296** dla aktualizacji 1,0.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10296** oraz Azure Portal raporty **10.0.10296.0** dla tej samej wersji.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-1/update6m.png)
+    ![Aktualizacja urządzenia 5](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
 6. Powtórz kroki 2-4, aby zainstalować poprawkę zabezpieczeń systemu Windows przy użyciu pliku `windows8.1-kb4012213-x64` . Macierz wirtualna jest uruchamiana ponownie po instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
 
