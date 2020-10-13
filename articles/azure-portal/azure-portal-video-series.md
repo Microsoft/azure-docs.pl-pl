@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88522950"
+ms.locfileid: "91873714"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Seria instruktażowych wideo dla witryny Azure Portal
 
@@ -22,18 +22,17 @@ W Azure Portal seriach filmów wideo przedstawiono sposób pracy z usługami pla
 
 ## <a name="featured-video"></a>Polecane wideo
 
-W tym polecanym filmie wideo przedstawiono sposób wdrażania statycznej aplikacji sieci Web platformy Azure.
+W tym polecanym filmie wideo pokazano, jak utworzyć domenę App Service i zarządzać nią.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Jak wdrożyć statyczną aplikację sieci Web platformy Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[Jak utworzyć domenę App Service i zarządzać nią](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 Zapoznaj się z tymi ostatnimi filmami wideo, które mogły zostać pominięte:
 
-| [Jak monitorować Azure Functions](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Jak korzystać z obsługi wersji obiektów BLOB](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Nawiązywanie połączenia z kontem magazynu przy użyciu prywatnego linku platformy Azure](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Jak dodać i zabezpieczyć domenę niestandardową w aplikacji sieci Web App Service](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Ulepszenia środowiska maszyny wirtualnej z systemem Linux](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Jak korzystać z obsługi wersji obiektów BLOB](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Obraz wideo w serwisie YouTube dotyczący sposobu monitorowania Azure Functions](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Obraz wideo w serwisie YouTube dotyczący sposobu korzystania z wersji obiektów BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Obraz wideo w serwisie YouTube dotyczący nawiązywania połączenia z kontem magazynu przy użyciu prywatnego linku platformy Azure](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![Obraz przedstawiający film wideo w usłudze YouTube dotyczący dodawania i zabezpieczania domeny niestandardowej w aplikacji sieci Web App Service](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Obraz wideo w serwisie YouTube dotyczący ulepszeń środowiska maszyny wirtualnej z systemem Linux](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Obraz wideo w serwisie YouTube dotyczący sposobu korzystania z wersji obiektów BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## <a name="video-playlist"></a>Lista odtwarzania wideo
 

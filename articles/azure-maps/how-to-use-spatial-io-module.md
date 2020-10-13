@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335300"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Jak używać przestrzennego modułu we/wy Azure Maps
 
 Zestaw SDK sieci Web Azure Maps udostępnia **moduł operacji we/wy**, który integruje dane przestrzenne z zestawem SDK Azure Maps sieci Web przy użyciu języka JavaScript lub TypeScript. Niezawodne funkcje w tym module umożliwiają deweloperom:
 
-- [Odczytuj i zapisuj pliki wspólnych danych przestrzennych](spatial-io-read-write-spatial-data.md). Obsługiwane formaty plików to: KML, KMZ, GPX, GeoRSS, GML, GEOJSON i pliki CSV zawierające kolumny z informacjami przestrzennymi. Obsługuje również dobrze znany tekst (WKT).
+- [Odczytuj i zapisuj pliki wspólnych danych przestrzennych](spatial-io-read-write-spatial-data.md). Obsługiwane formaty plików to: KML, KMZ, GPX, GeoRSS, GML, GEOJSON i pliki CSV zawierające kolumny z informacjami przestrzennymi. Obsługuje również Well-Known Text (WKT).
 - [Łączenie się z usługami Open Geospatial Consortium (OGC) i integrację z programem Azure Maps Web SDK. Nałóż usługi mapy sieci Web (WMS) i usługi kafelków mapy sieci Web (WMTS) jako warstwy na mapie](spatial-io-add-ogc-map-layer.md).
 - [Wykonywanie zapytań dotyczących danych w usłudze funkcji sieci Web (WFS)](spatial-io-connect-wfs-service.md).
 - [Nałóż złożone zestawy danych, które zawierają informacje o stylu i są renderowane automatycznie przy użyciu minimalnej ilości kodu](spatial-io-add-simple-data-layer.md).

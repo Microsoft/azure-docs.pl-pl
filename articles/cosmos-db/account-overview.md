@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
 ms.openlocfilehash: d01164552b1f3f10f592cedf80eafe57566bf09c
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91661078"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Praca z kontem usługi Azure Cosmos

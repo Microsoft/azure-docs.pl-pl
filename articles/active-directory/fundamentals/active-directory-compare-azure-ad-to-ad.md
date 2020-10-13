@@ -1,5 +1,5 @@
 ---
-title: Porównaj Active Directory z Azure Active Directory
+title: Compare Active Directory to Azure Active Directory (Porównanie usługi Active Directory z usługą Azure Active Directory)
 description: Ten dokument zawiera porównanie Active Directory Domain Services (dodaje) do Azure Active Directory (AD). Przedstawiono w nim kluczowe koncepcje w obu rozwiązaniach dotyczących tożsamości i wyjaśniono, w jaki sposób jest to różne lub podobne.
 services: active-directory
 author: martincoetzer
@@ -12,13 +12,13 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318560"
 ---
-# <a name="compare-active-directory-to-azure-active-directory"></a>Porównaj Active Directory z Azure Active Directory
+# <a name="compare-active-directory-to-azure-active-directory"></a>Compare Active Directory to Azure Active Directory (Porównanie usługi Active Directory z usługą Azure Active Directory)
 
 Azure Active Directory to kolejna ewolucja rozwiązań do zarządzania tożsamościami i dostępem w chmurze. Firma Microsoft wprowadziła Active Directory Domain Services w systemie Windows 2000, aby zapewnić organizacjom możliwość zarządzania wieloma lokalnymi składnikami infrastruktury i systemami przy użyciu jednej tożsamości na użytkownika.
 
@@ -36,7 +36,7 @@ Większość administratorów IT zna koncepcje Active Directory Domain Services.
 | Zarządzanie poświadczeniami| Poświadczenia w Active Directory opierają się na hasłach, uwierzytelnianiu certyfikatów i uwierzytelnianiu kart inteligentnych. Hasła są zarządzane przy użyciu zasad haseł, które są oparte na długości, ważności i złożoności hasła.|Usługa Azure AD używa inteligentnej [ochrony hasłem](../authentication/concept-password-ban-bad.md) w chmurze i lokalnie. Ochrona obejmuje inteligentną blokadę oraz blokowanie wspólnych i niestandardowych fraz haseł oraz podstawień. </br>Usługa Azure AD znacząco zwiększa bezpieczeństwo [dzięki użyciu uwierzytelniania wieloskładnikowego i technologii niezwiązanych](../authentication/concept-mfa-howitworks.md) z [hasłami](../authentication/concept-authentication-passwordless.md) , takich jak FIDO2. </br>Usługa Azure AD redukuje koszty pomocy technicznej, zapewniając użytkownikom [samoobsługowy system resetowania hasła](../authentication/concept-sspr-howitworks.md) . |
 | **Aplikacje**|||
 | Aplikacje infrastruktury|Active Directory stanowi podstawę dla wielu lokalnych składników infrastruktury, na przykład DNS, DHCP, IPSec, Wi-Fi, NPS i sieci VPN.|W nowej chmurze chmurowej usługa Azure AD jest nową płaszczyzną kontroli umożliwiającą uzyskiwanie dostępu do aplikacji w przeciwieństwie do kontrolek sieciowych. Gdy użytkownicy uwierzytelniają się[, dostęp warunkowy (CA)](../conditional-access/overview.md), program będzie kontrolować użytkowników, którzy będą mieli dostęp do aplikacji w ramach wymaganych warunków.|
-| Tradycyjne i starsze aplikacje| Większość aplikacji lokalnych korzysta z protokołu LDAP, uwierzytelniania zintegrowanego systemu Windows (NTLM i Kerberos) lub uwierzytelniania opartego na nagłówkach, aby kontrolować dostęp do użytkowników.| Usługa Azure AD może zapewnić dostęp do tych typów aplikacji lokalnych przy użyciu agentów [serwera proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md) działających lokalnie. Za pomocą tej metody usługa Azure AD może uwierzytelniać Active Directory użytkowników lokalnych przy użyciu protokołu Kerberos podczas migracji lub konieczności współistnienia ze starszymi aplikacjami. |
+| Tradycyjne i starsze aplikacje| Większość aplikacji lokalnych korzysta z protokołu LDAP, uwierzytelniania Windows-Integrated (NTLM i Kerberos) lub uwierzytelniania opartego na nagłówkach, aby kontrolować dostęp do użytkowników.| Usługa Azure AD może zapewnić dostęp do tych typów aplikacji lokalnych przy użyciu agentów [serwera proxy aplikacji usługi Azure AD](../manage-apps/application-proxy.md) działających lokalnie. Za pomocą tej metody usługa Azure AD może uwierzytelniać Active Directory użytkowników lokalnych przy użyciu protokołu Kerberos podczas migracji lub konieczności współistnienia ze starszymi aplikacjami. |
 | Aplikacje SaaS|Active Directory nie obsługuje natywnie aplikacji SaaS i wymaga systemu federacyjnego, takiego jak AD FS.|Aplikacje SaaS obsługujące funkcje OAuth2, SAML i WS- \* Authentication można zintegrować z usługą Azure AD w celu uwierzytelniania. |
 | Aplikacje biznesowe (LOB) z nowoczesnego uwierzytelniania|Organizacje mogą używać AD FS z Active Directory, aby obsługiwać aplikacje LOB wymagające nowoczesnego uwierzytelniania.| Aplikacje LOB wymagające nowoczesnego uwierzytelniania można skonfigurować do uwierzytelniania za pomocą usługi Azure AD. |
 | Usługi warstwy średniej/demona|Usługi działające w środowiskach lokalnych zwykle używają kont usług AD lub kont usług zarządzanych przez grupę (gMSA) do uruchomienia. Następnie te aplikacje będą dziedziczyć uprawnienia konta usługi.| Usługa Azure AD zapewnia [zarządzane tożsamości](../managed-identities-azure-resources/index.yml) do uruchamiania innych obciążeń w chmurze. Cykl życia tych tożsamości jest zarządzany przez usługę Azure AD i powiązany z dostawcą zasobów nie może być używany do innych celów w celu uzyskania dostępu tylne wejście.|

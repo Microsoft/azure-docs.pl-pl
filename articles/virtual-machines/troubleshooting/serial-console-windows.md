@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cf3f9a1cd933526c5e376d232fa5acbc97fad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325984"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969725"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -163,7 +163,7 @@ Jeśli użytkownik jest połączony z konsolą szeregową, a inny użytkownik po
 ## <a name="accessibility"></a>Ułatwienia dostępu
 Ułatwienia dostępu to kluczowy fokus dla konsoli szeregowej platformy Azure. W tym celu upewnimy się, że konsola szeregowa jest dostępna dla osób z upośledzeniem programu Vision lub którzy mają słabą słuch, a także osoby, które mogą nie być w stanie korzystać z myszy.
 
-### <a name="keyboard-navigation"></a>Nawigacja za pomocą klawiatury
+### <a name="keyboard-navigation"></a>Nawigacja przy użyciu klawiatury
 Użyj klawisza **Tab** na klawiaturze, aby przejść do interfejsu konsoli szeregowej z Azure Portal. Twoja lokalizacja zostanie wyróżniona na ekranie. Aby opuścić fokus okna konsoli szeregowej, naciśnij klawisz **Ctrl** + **F6** na klawiaturze.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Korzystanie z konsoli szeregowej z czytnikiem ekranu
@@ -189,7 +189,7 @@ Podczas nawiązywania połączenia z maszyną wirtualną z systemem Windows wyś
 Konsola SAC nie przyjmuje całego obszaru konsoli szeregowej w przeglądarce | Jest to znany problem dotyczący systemu Windows i emulatora terminalu. Śledzimy ten problem zarówno z zespołami, ale nie ma żadnych środków zaradczych.
 Nie można wpisać w wierszu polecenia SAC, jeśli debugowanie jądra jest włączone. | Protokół RDP z maszyną wirtualną i uruchamiany `bcdedit /debug {current} off` z wiersza polecenia z podwyższonym poziomem uprawnień. Jeśli nie możesz użyć protokołu RDP, możesz zamiast tego dołączyć dysk systemu operacyjnego do innej maszyny wirtualnej platformy Azure i zmodyfikować go wraz z dyskiem danych przez uruchomienie `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` , a następnie ponownie Zastąp dysk.
 Wklejanie do programu PowerShell w konsoli SAC skutkuje trzecią literą, jeśli oryginalna zawartość zawierała powtarzający się znak. | Aby obejść obejście, uruchom polecenie `Remove-Module PSReadLine` w celu zwolnienia modułu PSReadLine z bieżącej sesji. Ta akcja nie spowoduje usunięcia ani odinstalowania modułu.
-Niektóre dane wejściowe z klawiatury generują dziwne dane wyjściowe SAC (na przykład **[A**, **[3 ~**). | Sekwencje unikowe [VT100](https://aka.ms/vtsequences) nie są obsługiwane przez monit konsoli SAC.
+Niektóre dane wejściowe z klawiatury generują dziwne dane wyjściowe SAC (na przykład **[A**, **[3 ~**). | Sekwencje unikowe [VT100](/windows/console/console-virtual-terminal-sequences) nie są obsługiwane przez monit konsoli SAC.
 Wklejanie długich ciągów nie działa. | Konsola szeregowa ogranicza długość ciągów wklejonych do terminalu do 2048 znaków, aby zapobiec przeciążeniu przepustowości portu szeregowego.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania

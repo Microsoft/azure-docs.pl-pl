@@ -11,10 +11,10 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
 ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359753"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Włącz rejestrowanie dla usług sieci Web Azure Machine Learning Studio (klasycznych)
@@ -44,7 +44,7 @@ Rejestrowanie można włączyć z poziomu portalu [usług sieci Web Azure Machin
 
    ![Wybierz poziom rejestrowania](./media/web-services-logging/enable-logging.png)
 
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 
 7. W przypadku klasycznych usług sieci Web Utwórz kontener **"ml-Diagnostics"** .
 
@@ -71,9 +71,9 @@ Dzienniki można przeglądać przy użyciu dowolnego z kilku dostępnych narzęd
 ## <a name="log-blob-detail-information"></a>Informacje szczegółowe dotyczące dziennika obiektów BLOB
 Każdy obiekt BLOB w kontenerze przechowuje informacje diagnostyczne dla dokładnie jednej z następujących akcji:
 
-* Wykonywanie metody wykonywania wsadowego  
+* Wykonywanie metody Batch-Execution  
 * Wykonywanie metody Request-Response  
-* Inicjowanie kontenera żądania-odpowiedź
+* Inicjowanie kontenera Request-Response
 
 Nazwa każdego obiektu BLOB ma prefiks następującej postaci: 
 

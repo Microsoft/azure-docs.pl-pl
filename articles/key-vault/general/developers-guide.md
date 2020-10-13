@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6564804b7003b5e1c166868dae1bfaac7bd28fa5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812407"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940468"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -52,17 +52,27 @@ Aby uzyskać więcej informacji na temat płaszczyzny zarządzania Key Vault, zo
 Key Vault używa uwierzytelniania usługi Azure AD, który wymaga podmiotu zabezpieczeń usługi Azure AD, aby udzielić dostępu. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, główną usługą aplikacji, [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)lub grupą dowolnego typu podmiotów zabezpieczeń.
 
 ### <a name="authentication-best-practices"></a>Najlepsze rozwiązania dotyczące uwierzytelniania
+
 Zalecane jest używanie tożsamości zarządzanej dla aplikacji wdrożonych na platformie Azure. W przypadku korzystania z usług platformy Azure, które nie obsługują tożsamości zarządzanej lub jeśli aplikacje są wdrażane lokalnie, jednostka [usługi z certyfikatem](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) jest możliwym alternatywą. W tym scenariuszu certyfikat powinien być przechowywany w Key Vault i obrócony często. Nazwa główna usługi z wpisem tajnym może być używana w środowiskach deweloperskich i testowych, a także lokalnie lub w Cloud Shell przy użyciu podmiotu zabezpieczeń użytkownika.
 
-Powyższe scenariusze uwierzytelniania są obsługiwane przez bibliotekę klienta tożsamości platformy Azure i są zintegrowane z zestawami SDK Key Vault. Biblioteka tożsamości platformy Azure może być używana w różnych środowiskach i platformach bez konieczności zmiany kodu. Usługa Azure Identity również automatycznie pobiera token uwierzytelniania z zalogowanego do użytkownika platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, programu Visual Studio, Visual Studio Code i innych. 
+Zalecane podmioty zabezpieczeń na środowisko:
+- **Środowisko produkcyjne**:
+  - Zarządzana tożsamość lub jednostka usługi z certyfikatem
+- **Środowiska testowe i deweloperskie**:
+  - Tożsamość zarządzana, nazwa główna usługi z certyfikatem lub jednostką usługi z kluczem tajnym
+- **Programowanie lokalne**:
+  - Nazwa główna użytkownika lub nazwa główna usługi z kluczem tajnym
 
-Aby uzyskać więcej informacji, zobacz: 
+Powyższe scenariusze uwierzytelniania są obsługiwane przez **bibliotekę klienta tożsamości platformy Azure** i są zintegrowane z zestawami SDK Key Vault. Biblioteka tożsamości platformy Azure może być używana w różnych środowiskach i platformach bez konieczności zmiany kodu. Usługa Azure Identity również automatycznie pobiera token uwierzytelniania z zalogowanego do użytkownika platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure, programu Visual Studio, Visual Studio Code i innych. 
 
+Aby uzyskać więcej informacji na temat usługi Azure Identity Client libarary, zobacz:
+
+### <a name="azure-identity-client-libraries"></a>Biblioteki klienta tożsamości platformy Azure
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Zestaw Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-Uwierzytelnianie w Key Vault w aplikacjach:
+Aby zapoznać się z samouczkami dotyczącymi uwierzytelniania Key Vault w aplikacjach, zobacz:
 - [Uwierzytelnianie w Key Vault w aplikacji hostowanej w maszynie wirtualnej na platformie .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [Uwierzytelnianie w Key Vault w aplikacji hostowanej na maszynie wirtualnej w języku Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [Uwierzytelnianie w Key Vault przy użyciu App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)

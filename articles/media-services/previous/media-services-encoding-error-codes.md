@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6e56dbe1d1236a567ed6f59acfcca325a6c9ee7e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269033"
 ---
 # <a name="encoding-error-codes"></a>Kody błędów kodowania
@@ -29,7 +29,7 @@ Poniższa tabela zawiera listę kodów błędów, które mogą zostać zwrócone
 
 | ErrorDetail. Code | Możliwe przyczyny błędu |
 | --- | --- |
-| Nieznany |Nieznany błąd podczas wykonywania zadania |
+| Nieznane |Nieznany błąd podczas wykonywania zadania |
 | ErrorDownloadingInputAssetMalformedContent |Kategoria błędów obejmująca błędy podczas pobierania wejściowego zasobu, takie jak nieprawidłowe nazwy plików, pliki o zerowej długości, niepoprawne formaty itd. |
 | ErrorDownloadingInputAssetServiceFailure |Kategoria błędów obejmująca problemy po stronie usługi — na przykład błędy sieci lub magazynu podczas pobierania. |
 | ErrorParsingConfiguration |Kategoria błędów, w której zadanie \<see cref="MediaTask.PrivateData"/> (Konfiguracja) jest nieprawidłowe, na przykład konfiguracja nie jest prawidłowym ustawieniem wstępnym systemu lub zawiera nieprawidłowe dane XML. |
@@ -45,7 +45,7 @@ Aby uzyskać pomoc od zespołu **Media Services** , Otwórz [bilet pomocy techni
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Pokrewne artykuły:

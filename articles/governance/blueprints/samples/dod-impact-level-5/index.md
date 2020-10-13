@@ -4,10 +4,10 @@ description: Omówienie przykładu DoD Impact Level 5. Ten przykład strategii p
 ms.date: 09/17/2020
 ms.topic: sample
 ms.openlocfilehash: 15e2c5990ba32363441f8ca7cd19672cadc16d51
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90978098"
 ---
 # <a name="overview-of-the-dod-impact-level-5-blueprint-sample"></a>Omówienie przykładu strategii DoD Impact Level 5

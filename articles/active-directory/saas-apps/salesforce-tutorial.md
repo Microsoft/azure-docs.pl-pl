@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 6d653594cce20439a6e1214f104d875ec76bf1a9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979853"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) w usłudze Salesforce
@@ -120,7 +120,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -140,7 +140,7 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
     ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-1. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Konfiguracja usługi Salesforce** spowoduje przekierowanie do aplikacji do logowania jednokrotnego usługi Salesforce. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do logowania jednokrotnego w usłudze Salesforce. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-13.
+1. Po dodaniu rozszerzenia do przeglądarki, kliknij pozycję **Konfiguracja usługi Salesforce** spowoduje przekierowanie do aplikacji Sign-On w usłudze Salesforce. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do logowania jednokrotnego w usłudze Salesforce. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-13.
 
     ![Konfiguracja konfiguracji](common/setup-sso.png)
 
@@ -148,46 +148,46 @@ W tej sekcji włączysz funkcję B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Konfiguracja** pod **ikoną ustawień** w prawym górnym rogu strony.
 
-    ![Ikona konfigurowania ustawień logowania jednokrotnego](./media/salesforce-tutorial/configure1.png)
+    ![Ikona konfigurowania ustawień pojedynczego Sign-On](./media/salesforce-tutorial/configure1.png)
 
 1. Przewiń w dół do pozycji **USTAWIENIA** w okienku nawigacji i kliknij pozycję **Tożsamość**, aby rozwinąć odpowiednią sekcję. Następnie kliknij pozycję **Ustawienia logowania jednokrotnego**.
 
-    ![Konfigurowanie ustawień logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso.png)
+    ![Skonfiguruj ustawienia pojedynczego Sign-On](./media/salesforce-tutorial/sf-admin-sso.png)
 
 1. Na stronie **Ustawienia logowania jednokrotnego** kliknij przycisk **Edytuj**.
 
-    ![Skonfiguruj edycję logowania jednokrotnego](./media/salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Skonfiguruj edytowanie pojedynczej Sign-On](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > Jeśli nie możesz włączyć ustawień logowania jednokrotnego dla swojego konta usługi Salesforce, może być konieczne skontaktowanie się z [zespołem pomocy technicznej klienta usługi Salesforce](https://help.salesforce.com/support).
 
 1. Wybierz pozycję **Włączona obsługa protokołu SAML**, a następnie kliknij pozycję **Zapisz**.
 
-    ![Konfigurowanie protokołu SAML z włączonym logowaniem jednokrotnym](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Konfigurowanie protokołu SAML z włączonym pojedynczym Sign-On](./media/salesforce-tutorial/sf-enable-saml.png)
 
 1. Aby skonfigurować ustawienia logowania jednokrotnego SAML, kliknij pozycję **Nowe z pliku metadanych**.
 
-    ![Konfigurowanie logowania jednokrotnego z pliku metadanych](./media/salesforce-tutorial/sf-admin-sso-new.png)
+    ![Konfiguruj pojedyncze Sign-On nowe z pliku metadanych](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
 1. Kliknij pozycję **Wybierz plik**, aby przekazać plik metadanych XML pobrany z witryny Azure Portal, i kliknij pozycję **Utwórz**.
 
-    ![Konfigurowanie logowania jednokrotnego Wybieranie pliku](./media/salesforce-tutorial/xmlchoose.png)
+    ![Konfigurowanie pojedynczego Sign-On Wybieranie pliku](./media/salesforce-tutorial/xmlchoose.png)
 
-1. Na stronie **Ustawienia rejestracji** jednokrotnej protokołu SAML pola są wypełniane automatycznie, wybierz opcję **Inicjowanie obsługi użytkownika** , a następnie kliknij przycisk **Zapisz**.
+1. Na stronie **Ustawienia pojedynczej Sign-On SAML** pola wypełniaj automatycznie, wybierz opcję **Inicjowanie obsługi użytkowników** , a następnie kliknij przycisk **Zapisz**.
 
-    ![Skonfiguruj obsługę logowania jednokrotnego dla użytkowników](./media/salesforce-tutorial/salesforcexml.png)
+    ![Konfigurowanie włączenia obsługi pojedynczej Sign-On użytkownika](./media/salesforce-tutorial/salesforcexml.png)
 
 1. W okienku nawigacji po lewej stronie w usłudze Salesforce kliknij pozycję **Ustawienia firmowe**, aby rozwinąć odpowiednią sekcję, a następnie kliknij pozycję **Moja domena**.
 
-    ![Skonfiguruj domenę logowania jednokrotnego](./media/salesforce-tutorial/sf-my-domain.png)
+    ![Konfigurowanie jednego Sign-On moją domenę](./media/salesforce-tutorial/sf-my-domain.png)
 
 1. Przewiń w dół do sekcji **Konfiguracja uwierzytelniania** i kliknij przycisk **Edytuj**.
 
-    ![Konfigurowanie konfiguracji uwierzytelniania jednokrotnego](./media/salesforce-tutorial/sf-edit-auth-config.png)
+    ![Skonfiguruj konfigurację uwierzytelniania pojedynczego Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
 1. W sekcji **Konfiguracja uwierzytelniania** zaznacz pozycję **AzureSSO** jako **usługę uwierzytelniania** konfiguracji logowania jednokrotnego SAML, a następnie kliknij pozycję **Zapisz**.
 
-    ![Konfigurowanie usługi uwierzytelniania jednokrotnego](./media/salesforce-tutorial/sf-auth-config.png)
+    ![Konfigurowanie usługi uwierzytelniania pojedynczego Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Jeśli zostanie wybrana więcej niż jedna usługa uwierzytelniania, podczas inicjowania logowania w środowisku usługi Salesforce użytkownikom będzie wyświetlany monit o wybranie usługi uwierzytelniania, przy użyciu której chcą się zalogować. Jeśli nie chcesz, aby ten monit był wyświetlany, **pozostaw wszystkie inne usługi uwierzytelniania niezaznaczone**.

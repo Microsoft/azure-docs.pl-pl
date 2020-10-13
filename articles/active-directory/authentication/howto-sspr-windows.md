@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526871"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Włącz Azure Active Directory samoobsługowego resetowania hasła na ekranie logowania systemu Windows
@@ -137,7 +137,7 @@ Aby skonfigurować urządzenie z systemem Windows 7, 8 lub 8,1 na potrzeby usłu
 > [!WARNING]
 > Protokół TLS 1,2 musi być włączony, a nie tylko na wartość Autonegocjowanie.
 
-### <a name="install"></a>Instalowanie
+### <a name="install"></a>Zainstaluj
 
 W przypadku systemów Windows 7, 8 i 8,1 na komputerze musi być zainstalowany niewielki składnik, aby włączyć SSPR na ekranie logowania. Aby zainstalować ten składnik SSPR, wykonaj następujące czynności:
 

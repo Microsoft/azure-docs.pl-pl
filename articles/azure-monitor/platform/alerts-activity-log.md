@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
 ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983090"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure Monitor  
@@ -219,7 +219,7 @@ Następujące pola są opcjami, których można użyć w szablonie Azure Resourc
 9. Substatus: zazwyczaj kod stanu HTTP odpowiadającego wywołania REST, ale może również zawierać inne ciągi opisujące podstan.   Na przykład: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), zaakceptowany (kod stanu HTTP: 202), brak zawartości (kod stanu HTTP: 204), złe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu http: 409), wewnętrzny błąd serwera (kod stanu http: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504).
 10. ResourceType: typ zasobu, którego dotyczy zdarzenie. Na przykład: Microsoft. resources/Deployments
 
-Przykład:
+Na przykład:
 
 ```json
 "condition": {
@@ -246,7 +246,7 @@ Więcej szczegółów na temat pól dziennika aktywności można znaleźć [tuta
 ## <a name="rest-api"></a>Interfejs API REST 
 [Interfejs API alertów dziennika aktywności Azure monitor](/rest/api/monitor/activitylogalerts) jest interfejsem API REST. Jest w pełni zgodna z interfejsem API REST Azure Resource Manager. Można go użyć za pośrednictwem programu PowerShell za pomocą polecenia cmdlet Menedżer zasobów lub interfejsu wiersza poleceń platformy Azure.
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

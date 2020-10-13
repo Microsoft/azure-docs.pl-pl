@@ -9,10 +9,10 @@ ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6b63933fc625079bb490942cf3a32232a484fe38
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89270330"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Utwórz konto magazynu do użycia z Azure Data Lake Storage Gen2
@@ -43,6 +43,6 @@ Jeśli masz istniejące konto magazynu, które ma być używane z Data Lake Stor
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd konta magazynu](../common/storage-account-overview.md)
+- [Omówienie kont magazynu](../common/storage-account-overview.md)
 - [Używanie Azure Data Lake Storage Gen2 do wymagań dotyczących danych Big Data](data-lake-storage-data-scenarios.md)
 - [Kontrola dostępu w usłudze Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

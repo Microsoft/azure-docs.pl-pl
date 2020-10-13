@@ -4,10 +4,10 @@ description: Dowiedz się, jak tworzyć harmonogramy dla laboratoriów stacjonar
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326443"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Twórz harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services i zarządzaj nimi 
@@ -38,7 +38,7 @@ Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laborato
     4. Określ **godzinę rozpoczęcia** uruchamiania maszyn wirtualnych.
     5. Określ **czas zatrzymania** , w którym maszyny wirtualne mają zostać zamknięte. 
     6. Określ **strefę czasową** dla określonego czasu rozpoczęcia i zakończenia. 
-    2. Wybierz dni, w których harmonogram ma obowiązywać. W poniższym przykładzie wybrano poniedziałek-czwartek. 
+    2. Wybierz dni, w których harmonogram ma obowiązywać. W poniższym przykładzie wybrano Monday-Thursday. 
     8. Wybierz pozycję **Zapisz**. 
 
         ![Ustaw harmonogram powtarzania](./media/how-to-create-schedules/set-repeat-schedule.png)

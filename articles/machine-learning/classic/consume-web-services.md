@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
 ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345965"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Jak korzystać z usługi sieci Web Machine Learning Studio (klasycznej)
@@ -36,7 +36,7 @@ W przypadku usługi sieci Web Azure Machine Learning zewnętrzna aplikacja komun
 
 Azure Machine Learning Studio (klasyczny) ma dwa typy usług:
 
-* Usługa Request-Response (RR) — małe opóźnienia i wysoce skalowalna usługa udostępniająca interfejs do modeli bezstanowych utworzonych i wdrożonych z Machine Learning Studio (klasyczny).
+* Request-Response Service (RR) — małe opóźnienia i wysoce skalowalna usługa udostępniająca interfejs do modeli bezstanowych utworzonych i wdrożonych z Machine Learning Studio (klasyczny).
 * Usługa wykonywania wsadowego (BES) — asynchroniczna usługa służąca do oceniania partii rekordów danych.
 
 Aby uzyskać więcej informacji na temat Machine Learning usług sieci Web, zobacz [wdrażanie usługi sieci web Machine Learning](deploy-a-machine-learning-web-service.md).
@@ -78,7 +78,7 @@ Pomoc interfejsu API Machine Learning zawiera szczegółowe informacje o usłudz
 1. Kliknij usługę sieci Web, z którą pracujesz.
 2. Kliknij punkt końcowy, dla którego chcesz wyświetlić stronę pomocy interfejsu API.
 3. W górnym **menu kliknij pozycję**Użyj.
-4. Kliknij pozycję **Pomoc interfejsu API** w obszarze punkty końcowe odpowiedzi na żądanie lub wykonanie wsadowe.
+4. Kliknij pozycję **Pomoc interfejsu API** w obszarze punkty końcowe Request-Response lub wykonywania wsadowego.
 
 **Aby wyświetlić Pomoc interfejsu API Machine Learning dla nowej usługi sieci Web**
 
@@ -87,7 +87,7 @@ W [portalu Azure Machine Learning Web Services](https://services.azureml.net/):
 1. Kliknij pozycję **usługi sieci Web** w górnym menu.
 2. Kliknij usługę sieci Web, dla której chcesz pobrać klucz.
 
-Kliknij pozycję **Użyj usługi sieci Web** , aby pobrać identyfikatory URI dla usług żądanie-odpowiedź i wykonywanie wsadowe oraz przykładowego kodu w językach C#, R i Python.
+Kliknij pozycję **Użyj usługi sieci Web** , aby uzyskać identyfikatory URI Request-Response i usług wykonywania wsadowego oraz przykładowego kodu w językach C#, R i Python.
 
 Kliknij pozycję **interfejs API struktury Swagger** , aby uzyskać dokumentację opartą na strukturze interfejsów API wywoływaną z dostarczonych identyfikatorów URI.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038355"
+ms.locfileid: "91873306"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Samouczek: Tworzenie wystąpienia IoT Edge dla analiz wideo (Intel NUC)
 
@@ -27,7 +27,7 @@ W IoT Edge te usługi działają bezpośrednio na międzyplatformowych urządzen
 
 W tym samouczku pokazano, jak zainstalować i skonfigurować środowisko uruchomieniowe IoT Edge na urządzeniu Intel NUC.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Aktualizowanie i Konfigurowanie IoT Edge
 > * Skonfiguruj bramę IoT Edge
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Przed rozpoczęciem należy wykonać poprzednią [aplikację Tworzenie aplikacji wideo na żywo w samouczku IoT Central platformy Azure](./tutorial-video-analytics-create-app.md) .
+* Przed rozpoczęciem należy wykonać poprzednią [aplikację Tworzenie aplikacji wideo na żywo w usłudze azure IoT Central (Yolo v3)](./tutorial-video-analytics-create-app-yolo-v3.md) lub [utworzyć analizę wideo w samouczku usługi Azure IoT Central (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md).
 * Urządzenie, takie jak Intel NUC, z systemem Linux, które umożliwia uruchamianie kontenerów platformy Docker i ma wystarczającą moc obliczeniową do uruchamiania analizy wideo.
 * [Środowisko uruchomieniowe IoT Edge zainstalowane](../../iot-edge/how-to-install-iot-edge-linux.md) i uruchomione na urządzeniu.
 * Aby można było nawiązać połączenie z urządzeniem IoT Edge z komputera z systemem Windows, potrzebny jest [klient SSH](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) lub równoważne narzędzie.

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
 ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902764"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Jak używać sys_schema na potrzeby dostrajania wydajności i konserwacji bazy danych w programie Azure Database for MySQL
@@ -33,50 +33,50 @@ Teraz przyjrzyjmy się typowym wzorcem użycia sys_schema. Aby zacząć od, będ
 
 ## <a name="performance-tuning"></a>Dostosowywanie wydajności
 
-### <a name="sysuser_summary_by_file_io"></a>*sys. user_summary_by_file_io*
+### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
-We/wy jest najtańszą operacją w bazie danych. Średni czas oczekiwania operacji we/wy można sprawdzić, badając widok *sys. user_summary_by_file_io* . Przy domyślnym 125 GB magazynu z zainicjowaną obsługą operacji we/wy trwa około 15 sekund.
+We/wy jest najtańszą operacją w bazie danych. Średni czas oczekiwania operacji we/wy można sprawdzić, badając widok *sys.user_summary_by_file_io* . Przy domyślnym 125 GB magazynu z zainicjowaną obsługą operacji we/wy trwa około 15 sekund.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="opóźnienie we/wy: 125 GB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="widoki sys_schema":::
 
 Ponieważ Azure Database for MySQL skaluje we/wy w odniesieniu do magazynu, po zwiększeniu miejsca do magazynowania na 1 TB, opóźnienie operacji we/wy zmniejsza się do 571 MS.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="opóźnienie we/wy: 1 TB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-1TB.png" alt-text="widoki sys_schema":::
 
-### <a name="sysschema_tables_with_full_table_scans"></a>*sys. schema_tables_with_full_table_scans*
+### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-Pomimo starannego planowania wiele zapytań nadal może prowadzić do pełnego skanowania tabel. Aby uzyskać dodatkowe informacje o typach indeksów i sposobach ich optymalizacji, można zapoznać się z tym artykułem: [Jak rozwiązywać problemy z wydajnością zapytań](./howto-troubleshoot-query-performance.md). Pełne skanowanie tabeli polega na wielu zasobach i obniżeniu wydajności bazy danych. Najszybszym sposobem znajdowania tabel za pomocą pełnego skanowania tabeli jest zbadanie widoku *sys. schema_tables_with_full_table_scans* .
+Pomimo starannego planowania wiele zapytań nadal może prowadzić do pełnego skanowania tabel. Aby uzyskać dodatkowe informacje o typach indeksów i sposobach ich optymalizacji, można zapoznać się z tym artykułem: [Jak rozwiązywać problemy z wydajnością zapytań](./howto-troubleshoot-query-performance.md). Pełne skanowanie tabeli polega na wielu zasobach i obniżeniu wydajności bazy danych. Najszybszym sposobem znajdowania tabel za pomocą pełnego skanowania tabeli jest zapytanie w widoku *sys.schema_tables_with_full_table_scans* .
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="pełne skanowanie tabeli":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="widoki sys_schema":::
 
-### <a name="sysuser_summary_by_statement_type"></a>*sys. user_summary_by_statement_type*
+### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
-Aby rozwiązać problemy z wydajnością bazy danych, może być korzystne zidentyfikowanie zdarzeń występujących w bazie danych, a korzystanie z widoku *sys. user_summary_by_statement_type* może wystarczyć do wzięcia końca.
+Aby rozwiązać problemy z wydajnością bazy danych, może być korzystne zidentyfikowanie zdarzeń występujących w bazie danych i użycie widoku *sys.user_summary_by_statement_type* może wystarczyć do wzięcia końca.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="Podsumowanie według instrukcji":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/summary-by-statement.png" alt-text="widoki sys_schema":::
 
 W tym przykładzie Azure Database for MySQL poświęcają 53 minut na opróżnianie 44579 dziennika zapytań slog. To długi czas i wiele systemów IOs. To działanie można ograniczyć, wyłączając dziennik wolnych zapytań lub zmniejszając częstotliwość powolnych logowań do Azure Portal.
 
 ## <a name="database-maintenance"></a>Konserwacja bazy danych
 
-### <a name="sysinnodb_buffer_stats_by_table"></a>*sys. innodb_buffer_stats_by_table*
+### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
 [!IMPORTANT]
 > Wykonanie zapytania dotyczącego tego widoku może wpłynąć na wydajność. Zaleca się przeprowadzenie tego rozwiązywania problemów w godzinach pracy poza szczytem.
 
-Pula buforów InnoDB znajduje się w pamięci i jest głównym mechanizmem pamięci podręcznej między systemem DBMS i magazynem. Rozmiar puli buforów InnoDB jest powiązany z warstwą wydajności i nie można jej zmienić, jeśli nie wybrano innej jednostki SKU produktu. Podobnie jak w przypadku pamięci w systemie operacyjnym, stare strony są wymieniane w celu zapewnienia pokoju na potrzeby świeżych danych. Aby dowiedzieć się, które tabele zużywają większość pamięci puli buforów InnoDB, można wykonać zapytanie do widoku *sys. innodb_buffer_stats_by_table* .
+Pula buforów InnoDB znajduje się w pamięci i jest głównym mechanizmem pamięci podręcznej między systemem DBMS i magazynem. Rozmiar puli buforów InnoDB jest powiązany z warstwą wydajności i nie można jej zmienić, jeśli nie wybrano innej jednostki SKU produktu. Podobnie jak w przypadku pamięci w systemie operacyjnym, stare strony są wymieniane w celu zapewnienia pokoju na potrzeby świeżych danych. Aby dowiedzieć się, które tabele zużywają większość pamięci puli buforów InnoDB, można zbadać widok *sys.innodb_buffer_stats_by_table* .
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="Stan buforu InnoDB":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="widoki sys_schema":::
 
 Na grafice powyżej widać, że inne niż tabele i widoki systemowe, każda tabela w bazie danych mysqldatabase033, która hostuje jedną z witryn WordPress, zajmuje 16 KB lub 1 stronę danych w pamięci.
 
-### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys. schema_unused_indexes* & *sys. schema_redundant_indexes*
+### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 
-Indeksy to doskonałe narzędzia pozwalające zwiększyć wydajność odczytu, ale wiążą się z dodatkowymi kosztami operacji wstawiania i przechowywania. *Sys. schema_unused_indexes* i *sys. schema_redundant_indexes* zapewniają wgląd w nieużywane lub zduplikowane indeksy.
+Indeksy to doskonałe narzędzia pozwalające zwiększyć wydajność odczytu, ale wiążą się z dodatkowymi kosztami operacji wstawiania i przechowywania. *Sys.schema_unused_indexes* i *sys.schema_redundant_indexes* zapewniają wgląd w nieużywane lub zduplikowane indeksy.
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="nieużywane indeksy":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/unused-indexes.png" alt-text="widoki sys_schema":::
 
-:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="nadmiarowe indeksy":::
+:::image type="content" source="./media/howto-troubleshoot-sys-schema/redundant-indexes.png" alt-text="widoki sys_schema":::
 
 ## <a name="conclusion"></a>Podsumowanie
 
