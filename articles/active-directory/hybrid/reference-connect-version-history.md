@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604074"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
@@ -32,7 +32,7 @@ Temat |  Szczegóły
 --------- | --------- |
 Procedura uaktualniania z programu Azure AD Connect | Różne metody [uaktualniania z poprzedniej wersji do najnowszego](how-to-upgrade-previous-version.md) wydania Azure AD Connect.
 Wymagane uprawnienia | Aby uzyskać uprawnienia wymagane do zastosowania aktualizacji, zobacz [konta i uprawnienia](reference-connect-accounts-permissions.md#upgrade).
-Pobieranie| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Pobierz| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Wydanie nowej wersji Azure AD Connect to proces, który wymaga kilku kroków kontroli jakości, aby zapewnić działanie usługi i przechodząc przez ten proces, numer wersji nowej wersji, a także stan wydania zostanie zaktualizowany w celu odzwierciedlenia najnowszego stanu.
@@ -140,12 +140,12 @@ Ta kompilacja poprawek rozwiązuje problem w 1.5.20.0 kompilacji, jeśli Sklonow
 
 - Dodano obsługę funkcji mS-DS-ConsistencyGuid dla obiektów Group. Umożliwia to przenoszenie grup między lasami lub ponowne łączenie grup w usłudze AD z usługą Azure AD, w której zmieniono identyfikator obiektu grupy usługi AD, np. gdy serwer usługi AD zostanie odbudowany po Calamity. Aby uzyskać więcej informacji, zobacz [Przechodzenie między lasami](how-to-connect-migrate-groups.md).
 - Atrybut mS-DS-ConsistencyGuid jest ustawiany automatycznie we wszystkich synchronizowanych grupach i nie trzeba wykonywać żadnych czynności w celu włączenia tej funkcji. 
-- Usunięto element get-ADSyncRunProfile, ponieważ nie jest już używany. 
+- Usunięto Get-ADSyncRunProfile, ponieważ nie jest już używany. 
 - Zmieniono ostrzeżenie widoczne podczas próby użycia konta administratora przedsiębiorstwa lub administratora domeny dla konta łącznika AD DS, aby zapewnić więcej kontekstu. 
-- Dodano nowe polecenie cmdlet służące do usuwania obiektów z obszaru łącznika starego CSDelete.exe narzędzia i zostanie zastąpione nowym poleceniem cmdlet Remove-ADSyncCSObject. Polecenie cmdlet Remove-ADSyncCSObject przyjmuje wartość CsObject jako dane wejściowe. Ten obiekt można pobrać przy użyciu polecenia cmdlet Get-ADSyncCSObject.
+- Dodano nowe polecenie cmdlet służące do usuwania obiektów z obszaru łącznika starego narzędzia CSDelete.exe i zostanie ono zastąpione nowym Remove-ADSyncCSObject poleceniem cmdlet. Polecenie cmdlet Remove-ADSyncCSObject pobiera CsObject jako dane wejściowe. Ten obiekt można pobrać przy użyciu polecenia cmdlet Get-ADSyncCSObject.
 
 >[!NOTE]
->Stare narzędzie CSDelete.exe zostało usunięte i zastąpione nowym poleceniem cmdlet Remove-ADSyncCSObject 
+>Stare narzędzie CSDelete.exe zostało usunięte i zastąpione nowym Remove-ADSyncCSObject poleceniem cmdlet 
 
 ### <a name="fixed-issues"></a>Naprawione problemy
 

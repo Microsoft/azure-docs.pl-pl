@@ -5,15 +5,15 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/30/2020
 ms.openlocfilehash: 14380dd781fc1eebfe7edb0a816ff8af0f2f17b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309436"
 ---
 Parametry ciągu zapytania interfejsu API v3 obejmują:
 
-|Parametr zapytania|Nazwa portalu LUIS|Typ|Wersja|Domyślny|Przeznaczenie|
+|Parametr zapytania|Nazwa portalu LUIS|Type|Wersja|Domyślne|Przeznaczenie|
 |--|--|--|--|--|--|
 |`log`|Zapisz dzienniki|boolean|WERSJA 2 & V3|fałsz|Zapisz zapytanie w pliku dziennika. Wartość domyślna to false.|
 |`query`|-|ciąg|Tylko wersja 3|Brak domyślnej — jest to wymagane w żądaniu GET|**W wersji 2**wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3**funkcja jest przenoszona do `query` parametru.|

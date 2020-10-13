@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309510"
 ---
 # <a name="devops-practices-for-luis"></a>DevOps praktyk dla LUIS
@@ -34,7 +34,7 @@ Korzystając z pojęć i wskazówek opisanych w tym dokumencie, można opracowyw
   - Istnieje możliwość zintegrowania zmian w aplikacji LUIS z jednej gałęzi do innej za pośrednictwem zmiany bazy lub scalenia.
   - Deweloperzy mogą scalić żądanie ściągnięcia z gałęzią nadrzędną.
 
-- **Obsługa wersji**
+- **Przechowywanie wersji**
   - Każdy składnik w dużej aplikacji powinien mieć niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji.
 
 - **Przeglądy kodu**
@@ -181,7 +181,7 @@ Aby uzyskać więcej informacji na temat testowania dla LUIS DevOps, zobacz [tes
 
 Aplikacja LUIS w formacie LUDown jest czytelna dla człowieka, która obsługuje komunikację z zmianami w ramach żądania ściągnięcia, które jest odpowiednie do przeglądu. Pliki testów jednostkowych są również zapisywane w formacie LUDown, a także łatwo można je przeglądać w ramach żądania ściągnięcia.
 
-## <a name="versioning"></a>Obsługa wersji
+## <a name="versioning"></a>Przechowywanie wersji
 
 Aplikacja składa się z wielu składników, które mogą obejmować takie elementy, jak bot działające w [Azure bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QNA Maker](https://www.qnamaker.ai/), [Azure Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)i innych. Aby osiągnąć cel luźno sprzężonych aplikacji, należy użyć [kontroli wersji](https://docs.microsoft.com/azure/devops/learn/git/what-is-version-control) , tak aby każdy składnik aplikacji miał niezależną wersję, dzięki czemu deweloperzy mogą wykrywać istotne zmiany lub aktualizacje bezpośrednio, sprawdzając numer wersji. Łatwiej jest w wersji aplikacji LUIS niezależnie od innych składników, Jeśli przechowujesz ją we własnym repozytorium.
 

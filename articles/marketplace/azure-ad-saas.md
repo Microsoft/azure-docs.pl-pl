@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483630"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Oferty usługi Azure AD i transacte SaaS w portalu komercyjnym
@@ -23,7 +23,7 @@ Ponadto Logowanie jednokrotne w usłudze [Azure AD](https://docs.microsoft.com/a
 
 Postępując zgodnie ze wskazówkami w tym artykule, pomożesz zatwierdzić swoją ofertę SaaS na komercyjnym rynku. Aby uzyskać więcej informacji na temat certyfikacji, zapoznaj się z szczegółowymi [komercyjnymi zasadami certyfikacji portalu Marketplace](https://aka.ms/commercial-marketplace-certification-policies#100-general), w tym [określonymi dla SaaS](https://aka.ms/commercial-marketplace-certification-policies#1000-software-as-a-service-saas).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Po [utworzeniu oferty SaaS](./partner-center-portal/create-new-saas-offer.md) w centrum partnerskim możesz wybrać jedną z opcji wyświetlania listy, która będzie wyświetlana na liście oferty. Wybór określa sposób, w jaki Twoja oferta została zrealizowana na komercyjnym rynku. Oferty sprzedawane za poorednictwem firmy Microsoft są nazywane ofertami transakcyjnymi. Klient jest obciążany w Twoim imieniu wszystkimi ofertami z obsługą transakcji. W przypadku wybrania opcji sprzedaży za pomocą firmy Microsoft i zrealizowania transakcji hostów w Twoim imieniu (opcja **tak** ) wybrano opcję utworzenia oferty transakcyjnej i tego artykułu. Zalecamy, aby przeczytał go w całości.
 
@@ -45,7 +45,7 @@ Poniższe sekcje zawierają szczegółowe informacje o wymaganiach dla każdego 
 
 Ten rysunek przedstawia cztery etapy procesu zarządzania zakupami.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustruje cztery etapy procesu zarządzania zakupami.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustruje zarządzanie zakupami, zarządzanie subskrypcjami i opcjonalne etapy procesu zarządzania użytkownikami.":::
 
 Ta tabela zawiera szczegółowe informacje na temat kroków procesu zarządzania zakupami.
 
@@ -61,7 +61,7 @@ Ta tabela zawiera szczegółowe informacje na temat kroków procesu zarządzania
 
 Na tym rysunku przedstawiono dwa etapy procesu zarządzania subskrypcją.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustruje dwa etapy procesu zarządzania subskrypcją.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustruje zarządzanie zakupami, zarządzanie subskrypcjami i opcjonalne etapy procesu zarządzania użytkownikami.":::
 
 W tej tabeli opisano szczegóły kroków procesu zarządzania subskrypcją.
 
@@ -75,7 +75,7 @@ W tej tabeli opisano szczegóły kroków procesu zarządzania subskrypcją.
 
 Na tym rysunku przedstawiono trzy etapy procesu zarządzania użytkownikami.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustruje trzy opcjonalne kroki procesu zarządzania użytkownikami.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustruje zarządzanie zakupami, zarządzanie subskrypcjami i opcjonalne etapy procesu zarządzania użytkownikami.":::
 
 Kroki od 7 do 9 są opcjonalnymi krokami procesu zarządzania użytkownikami. Zapewniają one dodatkowe korzyści dla wydawców, którzy obsługują Logowanie jednokrotne w usłudze Azure AD. W tej tabeli opisano szczegółowe informacje o procedurach procesu zarządzania użytkownikami.
 

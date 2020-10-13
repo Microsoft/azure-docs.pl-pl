@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458624"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
@@ -30,7 +30,7 @@ Aby zapoznać się z bardziej szczegółowym omówieniem, jak dane przechowywane
 
 ## <a name="azure-encryption-models"></a>Modele szyfrowania platformy Azure
 
-Platforma Azure obsługuje różne modele szyfrowania, w tym szyfrowanie po stronie serwera, które używa kluczy zarządzanych przez usługę, kluczy zarządzanych przez klienta w Key Vault lub kluczy zarządzanych przez klienta na sprzęcie kontrolowanym przez klienta. Dzięki szyfrowaniu po stronie klienta można zarządzać kluczami lokalnymi lub w innej bezpiecznej lokalizacji.
+Platforma Azure obsługuje różne modele szyfrowania, w tym szyfrowanie po stronie serwera, które używa kluczy zarządzanych przez usługę, kluczy zarządzanych przez klienta w Key Vault lub kluczy zarządzanych przez klienta na sprzęcie kontrolowanym przez klienta. W przypadku szyfrowania po stronie klienta można zarządzać kluczami i przechowywać je lokalnie lub w innej bezpiecznej lokalizacji.
 
 ### <a name="client-side-encryption"></a>Szyfrowania po stronie klienta
 
@@ -197,7 +197,7 @@ Aby dowiedzieć się więcej o szyfrowaniu danych podczas przesyłania Data Lake
 
 Bez właściwej ochrony i zarządzania kluczami szyfrowanie jest renderowane jako bezużyteczny. Key Vault to rozwiązanie zalecane przez firmę Microsoft służące do zarządzania dostępem do kluczy szyfrowania używanych przez usługi Cloud Services i kontrolowania dostępu do nich. Uprawnienia dostępu do kluczy mogą być przypisywane do usług lub użytkownikom przy użyciu kont Azure Active Directory.
 
-Key Vault zwalnia organizacje wymagające konfigurowania, poprawiania i konserwowania sprzętowych modułów zabezpieczeń (sprzętowych modułów zabezpieczeń) oraz oprogramowania do zarządzania kluczami. W przypadku korzystania z Key Vault należy zachować kontrolę. Firma Microsoft nigdy nie widzi kluczy, a aplikacje nie mają bezpośredniego dostępu do nich. Możesz również importować lub generować klucze w sprzętowych modułów zabezpieczeń.
+Usługa Key Vault pozwala organizacjom zrezygnować z konfigurowania, poprawiania oraz utrzymywania modułów HSM i oprogramowania do zarządzania kluczami. W przypadku korzystania z Key Vault należy zachować kontrolę. Firma Microsoft nigdy nie widzi kluczy, a aplikacje nie mają bezpośredniego dostępu do nich. Możesz również importować lub generować klucze w sprzętowych modułów zabezpieczeń.
 
 ## <a name="next-steps"></a>Następne kroki
 

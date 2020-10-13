@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/16/2020
 ms.openlocfilehash: 41760eb91d2a8406d4deb52cd8e247731239e2b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309867"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w usłudze Azure SQL Database
@@ -88,7 +88,7 @@ Następnie kliknij przycisk z etykietą **Anuluj tę operację**.
 
 ![Anuluj trwającą operację](./media/single-database-scale/cancel-ongoing-operation.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 W wierszu polecenia programu PowerShell Ustaw `$resourceGroupName` polecenie, `$serverName` , i `$databaseName` , a następnie uruchom następujące polecenie:
 

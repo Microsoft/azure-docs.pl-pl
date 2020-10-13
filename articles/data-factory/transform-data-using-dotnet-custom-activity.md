@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276503"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
@@ -302,7 +302,7 @@ Jeśli chcesz korzystać z zawartości stdout.txt w działaniach podrzędnych, m
 
 > [!IMPORTANT]
 > - activity.json, linkedServices.json i datasets.json są przechowywane w folderze Runtime zadania wsadowego. W tym przykładzie activity.json, linkedServices.json i datasets.json jest przechowywany w `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` ścieżce. W razie potrzeby należy je usunąć osobno.
-> - W przypadku połączonych usług, które używają Integration Runtime samoobsługowego, informacje poufne, takie jak klucze lub hasła, są szyfrowane przez samoobsługowe Integration Runtime w celu zapewnienia pozostawania poświadczeń w środowisku sieci prywatnej zdefiniowanej przez klienta. W ten sposób może brakować pewnych poufnych pól w przypadku odwołania się do niestandardowego kodu aplikacji. W razie konieczności Użyj elementu SecureString w Właściwości ExtendedProperties zamiast odwołania do połączonej usługi.
+> - W przypadku połączonych usług korzystających z Self-Hosted Integration Runtime informacje poufne, takie jak klucze lub hasła, są szyfrowane przez Self-Hosted Integration Runtime w celu zapewnienia pozostawania poświadczeń w środowisku sieci prywatnej zdefiniowanej przez klienta. W ten sposób może brakować pewnych poufnych pól w przypadku odwołania się do niestandardowego kodu aplikacji. W razie konieczności Użyj elementu SecureString w Właściwości ExtendedProperties zamiast odwołania do połączonej usługi.
 
 ## <a name="pass-outputs-to-another-activity"></a>Przekazywanie danych wyjściowych do innego działania
 

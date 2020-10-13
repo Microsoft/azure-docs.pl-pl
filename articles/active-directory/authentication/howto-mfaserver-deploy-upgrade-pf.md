@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e485c55ab591bcccdc32818839a8d484a6c3af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919543"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uaktualnianie agenta PhoneFactor do serwera Azure Multi-Factor Authentication
@@ -70,7 +70,7 @@ Aby uaktualnić agenta PhoneFactor (w wersji 5.x lub starszej) do serwera Azure 
 
    2. Aby zainstalować portal użytkowników na serwerze sieci Web, otwórz wiersz polecenia jako administrator i uruchom instalatora MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-      Domyślną nazwą katalogu wirtualnego jest teraz **MultiFactorAuth** zamiast **PhoneFactor**. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, Jeśli zezwolisz instalacji na użycie nowej nazwy domyślnej, należy kliknąć ikonę portalu użytkowników w Serwer Multi-Factor Authentication i zaktualizować adres URL portalu użytkowników na karcie Ustawienia. istniejący użytkownicy muszą mieć poinformowany o nowym adresie URL.
+      Domyślną nazwą katalogu wirtualnego jest teraz **MultiFactorAuth** zamiast **PhoneFactor**. Jeśli chcesz użyć poprzedniej nazwy, musisz podczas instalacji zmienić nazwę katalogu wirtualnego. W przeciwnym razie, Jeśli zezwolisz instalacji na użycie nowej nazwy domyślnej, należy kliknąć ikonę portalu użytkowników w Serwer Multi-Factor Authentication i zaktualizować adres URL portalu użytkowników na karcie Ustawienia. Istniejący użytkownicy muszą być informowani o nowym adresie URL.
 
    3. Przejdź do lokalizacji instalacji portalu użytkowników (np. C:\inetpub\wwwroot\MultiFactorAuth) i otwórz do edycji plik web.config. Z oryginalnego pliku web.config, który został umieszczony w kopii zapasowej przed uaktualnieniem, skopiuj wartości z sekcji appSettings i applicationSettings do nowego pliku web.config. Jeśli nowa domyślna nazwa katalogu wirtualnego została zachowana podczas instalacji zestawu SDK usługi sieci Web, zmień adres URL w sekcji applicationSettings, aby wskazywał poprawną lokalizację. Jeśli w poprzednim pliku web.config zostały zmienione inne wartości domyślne, zastosuj te same zmiany w nowym pliku web.config.
 

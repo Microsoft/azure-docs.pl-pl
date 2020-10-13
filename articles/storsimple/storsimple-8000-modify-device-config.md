@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514683"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962891"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Modyfikowanie konfiguracji urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
 
@@ -61,7 +61,7 @@ Opis urządzenia zazwyczaj pomaga identyfikować właściciela i fizyczną lokal
 
 Urządzenie musi zsynchronizować czas, aby można było uwierzytelnić się u dostawcy usług magazynu w chmurze. Aby zmodyfikować ustawienia czasu urządzenia, użyj bloku **Ustawienia ogólne** na urządzeniu.
 
-![Opis urządzenia w ustawieniach ogólnych](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Opis urządzenia w ustawieniach ogólnych 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Z listy rozwijanej wybierz swoją strefę czasową. Można określić maksymalnie dwa serwery protokołu NTP (Network Time Protocol):
 

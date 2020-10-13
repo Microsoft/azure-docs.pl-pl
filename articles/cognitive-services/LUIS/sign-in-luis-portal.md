@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.author: a-sakand
 author: skandil
 ms.openlocfilehash: 22f5ab332c52a3b567b37089def6e4a494a15d29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309476"
 ---
 # <a name="sign-in-to-luis-portal"></a>Zaloguj się do portalu usługi LUIS
@@ -36,7 +36,7 @@ Konto, które nie jest skojarzone z subskrypcją platformy Azure, ma ikonę plat
 
 Konto skojarzone z subskrypcją platformy Azure umożliwia wybranie subskrypcji i zasobu do użycia.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Ekran częściowy — zrzut ekranu LUIS Portal z listami rozwijanymi wyboru zasobów.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Część ekranu — zrzut paska nawigacyjnego LUIS z ikoną platformy Azure.":::
 
 ## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Zaloguj się przy użyciu konta skojarzonego z subskrypcją platformy Azure
 
@@ -50,11 +50,11 @@ Konto skojarzone z subskrypcją platformy Azure umożliwia wybranie subskrypcji 
 
     [Dowiedz się więcej o kluczach tworzenia i starterów](luis-how-to-azure-subscription.md#luis-resources). Oba zasoby zapewniają 1 000 000 bezpłatnych transakcji tworzenia i 1000 bezpłatnych transakcji prognozowanych.
 
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Zrzut ekranu częściowego, aby wybrać typ zasobu Language Understanding tworzenia.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Część ekranu — zrzut paska nawigacyjnego LUIS z ikoną platformy Azure.":::
 
 1. Użyj istniejącego zasobu tworzenia
 
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Wybieranie zasobu tworzenia":::
+    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Część ekranu — zrzut paska nawigacyjnego LUIS z ikoną platformy Azure.":::
 
     Jeśli masz już LUIS zasoby tworzenia w ramach subskrypcji i masz skojarzenie z kontem usługi LUIS podczas logowania, wybierz opcję **Użyj istniejącego zasobu tworzenia** i podaj następujące informacje:
 
@@ -67,18 +67,13 @@ Konto skojarzone z subskrypcją platformy Azure umożliwia wybranie subskrypcji 
 
 1. Utwórz nowy zasób tworzenia
 
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Utwórz zasób tworzenia":::
-
-    Podczas **tworzenia nowego zasobu tworzenia**należy podać następujące informacje:
-
-    * **Dzierżawca** — dzierżawa, z którą skojarzona jest subskrypcja platformy Azure. Nie będzie można przełączyć dzierżawców z istniejącego okna. Możesz przełączyć dzierżawców, wybierając z prawej strony awatar, który zawiera inicjały na górnym pasku.
-    * **Nazwa zasobu** — wybrana przez Ciebie Nazwa niestandardowa, używana jako część adresu URL dla transakcji tworzenia. Nazwa zasobu może zawierać tylko znaki alfanumeryczne, znak "-" i nie może rozpoczynać się ani kończyć znakiem "-". Jeśli wszystkie inne symbole są zawarte w nazwie, utworzenie zasobu zakończy się niepowodzeniem.
+    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Część ekranu — zrzut paska nawigacyjnego LUIS z ikoną platformy Azure." i nie może rozpoczynać się ani kończyć znakiem "-". Jeśli wszystkie inne symbole są zawarte w nazwie, utworzenie zasobu zakończy się niepowodzeniem.
     * **Nazwa subskrypcji** — subskrypcja, która zostanie skojarzona z zasobem. Jeśli masz więcej niż jedną subskrypcję, która należy do dzierżawy, wybierz żądaną wartość z listy rozwijanej.
     * **Grupa zasobów** — niestandardowa nazwa grupy zasobów wybrana w ramach subskrypcji. Grupy zasobów umożliwiają grupowanie zasobów platformy Azure w celu uzyskania dostępu i zarządzania. Jeśli obecnie nie masz grupy zasobów w subskrypcji, nie będzie można jej utworzyć w portalu LUIS. Przejdź do [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) , aby utworzyć jeden, a następnie przejdź do Luis, aby kontynuować proces logowania.
 
 1. Po wybraniu ścieżki może upłynąć kilka sekund, aż zostanie wyświetlony komunikat "pomyślnie przeprowadzono migrację Twojego konta. Zakończ, wybierając pozycję **Kontynuuj**.
 
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Potwierdź zasób autorstwa":::
+    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Część ekranu — zrzut paska nawigacyjnego LUIS z ikoną platformy Azure.":::
 
     > [!Note]
     > Jeśli masz subskrypcję i co najmniej jeden zasób tworzenia w tym samym regionie, w którym rejestrujesz się w portalu, możesz automatycznie zalogować się do LUIS zmigrowany i skojarzonych z zasobem bez konieczności wybierania ścieżki, która ma zostać przeprowadzona.
@@ -90,7 +85,7 @@ Konto skojarzone z subskrypcją platformy Azure umożliwia wybranie subskrypcji 
 
 1. Zakończ, wybierając pozycję **Kontynuuj**. Spowoduje to automatyczne zalogowanie się przy użyciu klucza próbnego/początkowego. Oznacza to, że ostatecznie konieczne będzie przeprowadzenie [migracji konta](luis-migration-authoring.md#migration-steps) i połączenie aplikacji z zasobem tworzenia. Aby przejść do procesu migracji, należy zalogować się do [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/free/).
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Brak scenariusza subskrypcji":::
+    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Część ekranu — zrzut paska nawigacyjnego LUIS z ikoną platformy Azure.":::
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

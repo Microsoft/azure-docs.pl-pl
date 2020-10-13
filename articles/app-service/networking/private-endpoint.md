@@ -4,19 +4,22 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 10/09/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857269"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873102"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure
+
+> [!IMPORTANT]
+> Prywatny punkt końcowy jest dostępny dla aplikacji sieci Web systemu Windows i Linux, które są obsługiwane przez kontenery lub nie, hostowane w następujących App Service planach: **izolowany**, **PremiumV2**, **PremiumV3**, **funkcje Premium** (czasami określany jako elastyczny plan Premium). 
 
 Możesz użyć prywatnego punktu końcowego dla aplikacji sieci Web platformy Azure, aby umożliwić klientom znajdującym się w sieci prywatnej bezpieczny dostęp do aplikacji za pośrednictwem prywatnego linku. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej platformy Azure. Ruch sieciowy między klientem w sieci prywatnej a aplikacją sieci Web przechodzi przez sieć wirtualną oraz prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
@@ -91,7 +94,7 @@ Na przykład rozpoznawanie nazw będzie:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< — zarządzanie tym wpisem w systemie DNS w celu wskazywania prywatnego adresu IP punktu końcowego|
 
-Po tej konfiguracji DNS można skontaktować się z Twoją aplikacją internetową, korzystając z nazwy domyślnej mywebappname.azurewebsites.net.
+Po tej konfiguracji DNS można skontaktować się z Twoją aplikacją internetową, korzystając z nazwy domyślnej mywebappname.azurewebsites.net. Musisz użyć tej nazwy, ponieważ certyfikat domyślny został wystawiony dla *. azurewebsites.net.
 
 
 Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. Nazwa niestandardowa musi być zweryfikowana, podobnie jak jakakolwiek Nazwa niestandardowa, przy użyciu publicznego rozpoznawania nazw DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
@@ -115,9 +118,9 @@ Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatny
 
 Możesz połączyć maksymalnie 100 prywatny punkt końcowy z określoną aplikacją sieci Web.
 
-Funkcja debugowania zdalnego jest niedostępna, gdy dla aplikacji sieci Web jest włączony prywatny punkt końcowy. Zalecenie polega na wdrożeniu kodu w miejscu i zdalnym debugowaniu.
+Gniazda nie mogą korzystać z prywatnego punktu końcowego.
 
-Prywatny punkt końcowy jest dostępny dla aplikacji sieci Web PremiumV2, PremiumV3, Windows i Linux, kontenerów lub nie, a także planu Azure Functions Premium (czasami określanego jako elastyczny plan Premium). 
+Funkcja debugowania zdalnego jest niedostępna, gdy dla aplikacji sieci Web jest włączony prywatny punkt końcowy. Zalecenie polega na wdrożeniu kodu w miejscu i zdalnym debugowaniu.
 
 Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego. Zapoznaj się z [tym artykułem][pllimitations] , aby uzyskać aktualne informacje o ograniczeniach.
 

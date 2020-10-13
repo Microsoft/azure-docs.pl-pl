@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
 ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604108"
 ---
 # <a name="managing-access-to-apps"></a>Zarządzanie dostępem do aplikacji
 
-Ciągłe zarządzanie dostępem, Ocena użycia i raportowanie nadal są wyzwaniem, gdy aplikacja jest zintegrowana z systemem tożsamości w organizacji. W wielu przypadkach Administratorzy IT lub pomoc techniczna muszą zająć się trwającą aktywną rolą zarządzania dostępem do aplikacji. Czasami przypisanie jest wykonywane przez zespół IT ogólnego lub rozdziałowego. Często decyzja o przypisaniu jest przeznaczona do delegowania do producenta decyzji biznesowej, wymagając do zatwierdzenia przed przypisaniem.  Inne organizacje zainwestowali w integrację z istniejącym automatycznym systemem zarządzania tożsamościami i dostępem, takimi jak Access Control oparte na rolach (RBAC) lub Access Control opartych na atrybutach (ABAC). Rozwój integracji i reguł jest wyspecjalizowany i kosztowny. Monitorowanie lub raportowanie w ramach podejścia do zarządzania to własne oddzielne, kosztowne i złożone inwestycje.
+Ciągłe zarządzanie dostępem, Ocena użycia i raportowanie nadal są wyzwaniem, gdy aplikacja jest zintegrowana z systemem tożsamości w organizacji. W wielu przypadkach Administratorzy IT lub pomoc techniczna muszą zająć się trwającą aktywną rolą zarządzania dostępem do aplikacji. Czasami przypisanie jest wykonywane przez zespół IT ogólnego lub rozdziałowego. Często decyzja o przypisaniu jest przeznaczona do delegowania do producenta decyzji biznesowej, wymagając do zatwierdzenia przed przypisaniem.  Inne organizacje zainwestowali w integrację z istniejącym automatycznym systemem zarządzania tożsamościami i dostępem, takimi jak Role-Based Access Control (RBAC) lub Attribute-Based Access Control (ABAC). Rozwój integracji i reguł jest wyspecjalizowany i kosztowny. Monitorowanie lub raportowanie w ramach podejścia do zarządzania to własne oddzielne, kosztowne i złożone inwestycje.
 
 ## <a name="how-does-azure-active-directory-help"></a>Jak Azure Active Directory pomoc?
 

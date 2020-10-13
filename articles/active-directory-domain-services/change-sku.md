@@ -2,20 +2,20 @@
 title: Zmień jednostkę SKU dla Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, w jaki sposób do warstwy SKU dla Azure AD Domain Servicesej domeny zarządzanej w przypadku zmiany wymagań firmy
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: c85a3f3262da6002e9604b1506552b9188a64460
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489643"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962755"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Zmień jednostkę SKU dla istniejącej Azure Active Directory Domain Services domeny zarządzanej
 
@@ -25,7 +25,7 @@ Podczas tworzenia domeny zarządzanej można wybrać jednostkę SKU, a jednostki
 
 W tym artykule opisano sposób zmiany jednostki SKU dla istniejącej domeny zarządzanej AD DS platformy Azure przy użyciu Azure Portal.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

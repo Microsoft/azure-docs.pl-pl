@@ -8,10 +8,10 @@ author: vamahtan
 ms.author: vamahtan
 ms.date: 09/23/2020
 ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268727"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono kroki i wymagania, które należy wykonać w c
 
 |Krok    |Typ oferty    |Wymagania    |Stan współpracy ze sprzedażą    |
 |----    |-------------    |------------    |---------------   |
-|<ol start=1><li> Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę w komercyjnym portalu Marketplace.</li>|Wszystko|<li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
+|<ol start=1><li> Utwórz konto w centrum partnerskim i Opublikuj swoją ofertę w komercyjnym portalu Marketplace.</li>|Wszystkie|<li>Oferta jest zgodna z komercyjnymi wymaganiami dotyczącymi publikowania w portalu Marketplace.</li><li>Masz pełny profil biznesowy w centrum partnerskim.</li>|Nie gotowy|
 |<ol start=2><li>Prześlij wymagane materiały do przedsprzedażu.</li>|Oferty IP *z* [opcją Współsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Przekaż wymagane materiały w centrum partnerskim](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Kontakt sprzedaży dla każdego kwalifikującego się kraju.</li><li>Zestawienie materiałów: klient z jednym modułem stronicowania, pokładem prezentacji dla klientów (opcjonalnie), adresem URL strony docelowej rozwiązania, adresem URL kanału społecznościowego lub innym (na przykład z analizą przypadku).|Gotowe do rozłożenia|
 ||Oferty IP *bez* [opcji Przedsprzedaż w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.|Gotowe do rozłożenia|
 ||Usługi konsultingowe|<li>Zażądaj [współpracy z specjalistą w chmurze](https://partner.microsoft.com/campaigns/ced-nomination-form/) , aby zapewnić wymaganą dokumentację dotyczącą współsprzedawcy.</li><li>Aktywna kompetencja Gold.</li>|Gotowe do rozłożenia|

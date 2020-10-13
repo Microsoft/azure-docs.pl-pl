@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266063"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
@@ -156,7 +156,7 @@ Jeśli ten scenariusz istnieje w Twoim środowisku, aby uniknąć nieskończonyc
 
 | Kanał aktualizacji pakietu Office | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
-| Półroczny kanał przedsiębiorstwa | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. |
+| Semi-Annual kanału przedsiębiorstwa | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. | Jeśli ustawiona na wartość Enabled lub 1, CAE nie jest obsługiwana. |
 | Bieżący kanał <br> lub <br> Miesięczny kanał przedsiębiorstwa | CAE jest obsługiwany niezależnie od ustawienia | CAE jest obsługiwany niezależnie od ustawienia |
 
 Aby uzyskać wyjaśnienie kanałów aktualizacji pakietu Office, zobacz [Omówienie kanałów aktualizacji dla aplikacji Microsoft 365](https://docs.microsoft.com/deployoffice/overview-update-channels). Zalecane jest, aby organizacje nie wyłączać Menedżera kont sieci Web (WAM).

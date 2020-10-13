@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598073"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wysoka dostępność SAP HANA skalowanie Azure NetApp Files na Red Hat Enterprise Linux
@@ -80,13 +80,13 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
 - [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
 - [SAP HANA replikację systemu w klastrze Pacemaker.](https://access.redhat.com/articles/3004101)
 - Ogólna dokumentacja RHEL
-    - [Omówienie dodatku wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-    - [Administracja dodatkiem o wysokiej dostępności.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-    - [Dodatkowe informacje o wysokiej dostępności.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-    - [Konfigurowanie replikacji systemu SAP HANA w ramach skalowania w górę w klastrze Pacemaker, gdy systemy plików platformy HANA znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
+    - [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+    - [Administracja Add-On o wysokiej dostępności.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+    - [Informacje o wysokiej dostępności Add-On.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+    - [Skonfiguruj SAP HANA replikację systemu w Scale-Up w klastrze Pacemaker, gdy systemy plików platformy HANA znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
 - Dokumentacja RHEL specyficzna dla platformy Azure:
     - [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra.](https://access.redhat.com/articles/3131341)
-    - [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) klastra o wysokiej dostępności na Microsoft Azure.](https://access.redhat.com/articles/3252491)
+    - [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) High-Availability klastra w Microsoft Azure.](https://access.redhat.com/articles/3252491)
     - [Zainstaluj SAP HANA na Red Hat Enterprise Linux do użycia w Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Konfigurowanie SAP HANA skalowalności w poziomie klastra Pacemaker w przypadku systemu plików HANA w udziałach NFS](https://access.redhat.com/solutions/5156571)
 - [NetApp aplikacje SAP na Microsoft Azure przy użyciu Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
@@ -308,7 +308,7 @@ Najpierw należy utworzyć woluminy Azure NetApp Files. Następnie wykonaj nast�
 Aby uzyskać więcej informacji na temat wymaganych portów dla SAP HANA, zapoznaj się z rozdziałem [połączenia z bazami danych dzierżawy](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) w Przewodniku obsługi [bazy danych dzierżaw SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) lub Uwaga [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net. IPv4. tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview). Zobacz również artykuł SAP Uwaga [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Nie należy włączać sygnatur czasowych protokołu TCP na maszynach wirtualnych platformy Azure umieszczonych za Azure Load Balancer. Włączenie sygnatur czasowych protokołu TCP spowoduje niepowodzenie sond kondycji. Ustaw parametr **net.IPv4.tcp_timestamps** na **0**. Aby uzyskać szczegółowe informacje, zobacz [sondy kondycji Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview). Zobacz również artykuł SAP Uwaga [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Zainstaluj wolumin Azure NetApp Files
 
@@ -536,7 +536,7 @@ W tym przykładzie każdy węzeł klastra ma własne systemy plików NFS w syste
     ```
 
    > [!TIP]
-   > Jeśli konfiguracja obejmuje systemy plików, poza grupą `hanadb1_nfs` lub `hanadb2_nfs` , należy uwzględnić `sequential=false` opcję, tak aby nie występowały zależności między systemami plików. Wszystkie systemy plików muszą zaczynać się przed `hana_nfs1_active` , ale nie muszą być uruchamiane w żadnej kolejności względem siebie. Aby uzyskać więcej informacji, zobacz [Jak mogę konfigurowania replikacji systemu SAP HANA w celu skalowania w górę w klastrze Pacemaker, gdy systemy plików platformy Hana znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
+   > Jeśli konfiguracja obejmuje systemy plików, poza grupą `hanadb1_nfs` lub `hanadb2_nfs` , należy uwzględnić `sequential=false` opcję, tak aby nie występowały zależności między systemami plików. Wszystkie systemy plików muszą zaczynać się przed `hana_nfs1_active` , ale nie muszą być uruchamiane w żadnej kolejności względem siebie. Aby uzyskać więcej informacji, zobacz [Jak mogę skonfigurować replikację systemu SAP HANA w Scale-Up w klastrze Pacemaker, gdy systemy plików Hana znajdują się w udziałach NFS](https://access.redhat.com/solutions/5156571)
 
 ### <a name="configure-sap-hana-cluster-resources"></a>Konfigurowanie zasobów klastra SAP HANA
 

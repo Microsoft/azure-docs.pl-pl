@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398582"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Korzystanie z przepływów pracy do integrowania aplikacji IoT Central platformy Azure z innymi usługami w chmurze
@@ -75,7 +75,7 @@ Aby dodać łącznik **usługi Azure IoT Central v3 (wersja zapoznawcza** ) jako
 1. Na liście akcji wybierz akcję IoT Central, której chcesz użyć.
 1. W kroku akcja wykonaj konfigurację wybranej akcji. Następnie wybierz przycisk **Zapisz**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Znajdź łącznik Azure IoT Central v3 i wybierz akcję":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Znajdź łącznik usługi Azure IoT Central — wersja zapoznawcza i wybierz wyzwalacz":::
 
 ## <a name="list-of-actions"></a>Lista akcji
 

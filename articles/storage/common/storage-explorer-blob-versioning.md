@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
 ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051930"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Przewodnik dotyczący obsługi wersji obiektów BLOB Eksplorator usługi Azure Storage
@@ -36,10 +36,10 @@ Eksplorator usługi Storage obsługuje cztery różne widoki do wyświetlania ob
 
 | Widok | Aktywne obiekty blob niebędące wersjami | Nietrwałe usunięte obiekty blob niebędące wersjami | Wersje obiektów BLOB |
 | ---- | :----------: | :-----------: | :------------------: |
-| Aktywne obiekty blob | Yes | Nie | Tylko bieżąca wersja |
-| Aktywne obiekty blob i nietrwałe usunięte obiekty blob | Yes | Yes | Tylko bieżąca wersja |
-| Aktywne obiekty blob i obiekty blob bez bieżącej wersji | Yes | Nie | Bieżąca wersja lub Najnowsza aktywna wersja |
-| Wszystkie obiekty blob i obiekty blob bez bieżącej wersji | Yes | Yes | Bieżąca wersja lub Najnowsza wersja |
+| Aktywne obiekty blob | Tak | Nie | Tylko bieżąca wersja |
+| Aktywne obiekty blob i nietrwałe usunięte obiekty blob | Tak | Tak | Tylko bieżąca wersja |
+| Aktywne obiekty blob i obiekty blob bez bieżącej wersji | Tak | Nie | Bieżąca wersja lub Najnowsza aktywna wersja |
+| Wszystkie obiekty blob i obiekty blob bez bieżącej wersji | Tak | Tak | Bieżąca wersja lub Najnowsza wersja |
 
 ### <a name="active-blobs"></a>Aktywne obiekty blob
 

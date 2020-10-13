@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310173"
 ---
 # <a name="supported-data-format-details"></a>Szczegóły obsługiwanego formatu danych
 
-Ten artykuł zawiera szczegółowe informacje na temat obsługi odczytu i zapisu dla wszystkich tagów XML i dobrze znanych typów geometrii tekstu. Szczegółowo opisano sposób, w jaki rozdzielone dane przestrzenne są analizowane w module we/wy.
+Ten artykuł zawiera szczegółowe informacje na temat obsługi odczytu i zapisu dla wszystkich tagów XML i Well-Known typów geometrii tekstu. Szczegółowo opisano sposób, w jaki rozdzielone dane przestrzenne są analizowane w module we/wy.
 
 ## <a name="supported-xml-namespaces"></a>Obsługiwane przestrzenie nazw XML
 
@@ -304,7 +304,7 @@ Podczas pisania;
 - Wielopunkty zostaną podzielone na poszczególne waypoints.
 - Wielokąty i wielowielokąty będą zapisywane jako ścieżki. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Obsługiwane dobrze znane typy geometrii tekstu
+## <a name="supported-well-known-text-geometry-types"></a>Obsługiwane Well-Known typy geometrii tekstu
 
 | Typ geometrii | Odczyt | Zapisywanie |
 |--------------|:----:|:-----:|
@@ -343,7 +343,7 @@ Podczas pisania;
 
 ## <a name="delimited-spatial-data-support"></a>Ograniczanie obsługi danych przestrzennych
 
-Rozdzielane dane przestrzenne, takie jak pliki z wartościami rozdzielanymi przecinkami (CSV), często mają kolumny zawierające dane przestrzenne. Na przykład mogą istnieć kolumny zawierające informacje o szerokości geograficznej i długości geograficznej. W dobrze znanym formacie tekstowym może istnieć kolumna, która zawiera dane geometryczne przestrzenne.
+Rozdzielane dane przestrzenne, takie jak pliki z wartościami rozdzielanymi przecinkami (CSV), często mają kolumny zawierające dane przestrzenne. Na przykład mogą istnieć kolumny zawierające informacje o szerokości geograficznej i długości geograficznej. W Well-Known formacie tekstowym może istnieć kolumna, która zawiera dane geometryczne przestrzenne.
 
 ### <a name="spatial-data-column-detection"></a>Wykrywanie kolumn danych przestrzennych
 
@@ -385,7 +385,7 @@ Podczas odczytywania rozdzielanego pliku zawierającego dane przestrzenne nagł�
 
 #### <a name="geography"></a>Lokalizacja geograficzna
 
-Pierwszy wiersz danych będzie skanowany pod kątem ciągów, które są w dobrze znanym formacie tekstowym. 
+Pierwszy wiersz danych będzie skanowany pod kątem ciągów, które są w Well-Known formacie tekstowym. 
 
 ### <a name="delimited-data-column-types"></a>Rozdzielane typy kolumn danych
 
@@ -410,7 +410,7 @@ Podczas skanowania wiersza nagłówka wszystkie informacje o typie, które są w
 #### <a name="dates"></a>Daty
 
 - EDM. DateTime
-- data
+- date
 - datetime
 
 #### <a name="geography"></a>Lokalizacja geograficzna

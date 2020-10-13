@@ -1,5 +1,5 @@
 ---
-title: Samouczek — modyfikowanie IoT Edge na żywo modułów analizy wideo
+title: Samouczek — modyfikowanie Azure IoT Edge na żywo modułów analizy wideo
 description: W tym samouczku przedstawiono sposób modyfikowania i kompilowania dynamicznych modułów bramy analitycznych filmów wideo, które są używane przez szablon aplikacji Analiza wideo — obiekt i ruch.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038418"
+ms.locfileid: "91873476"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Samouczek: modyfikowanie i kompilowanie modułów bramy analizy wideo na żywo
 
@@ -50,7 +50,7 @@ Otwórz lokalny folder repozytorium *wideo-Analytics* z vs Code.
 1. Edytuj `LvaEdgeGatewayModule` sekcję modułu, aby dodać nazwę obrazu i nazwę konta AMS w `env:amsAccountName:value` .
 1. Edytuj `lvaYolov3` sekcję modułu i Dodaj nazwę obrazu.
 1. Edytuj `lvaEdge` sekcję modułu i Dodaj nazwę obrazu.
-1. Aby uzyskać więcej informacji na temat kończenia konfiguracji, zobacz artykuł [Tworzenie aplikacji do analizy filmów wideo na platformie Azure IoT Central](tutorial-video-analytics-create-app.md) .
+1. Aby uzyskać więcej informacji na temat kończenia konfiguracji, zobacz artykuł [Tworzenie aplikacji do analizy filmów wideo na platformie Azure IoT Central](tutorial-video-analytics-create-app-yolo-v3.md) .
 
 ## <a name="build-the-code"></a>Kompilowanie kod
 
