@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505600"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Przeniesienie danych do klastra vFXT — pozyskiwanie danych równoległych
@@ -185,7 +185,7 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 ./atj5b55c53be6-02/support/trace/rolling
 ```
 
-Przekieruj ten wynik do pliku:`find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
+Przekieruj ten wynik do pliku: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
 Następnie można wykonać iterację w manifeście przy użyciu poleceń BASH do zliczania plików i określania rozmiarów podkatalogów:
 
@@ -280,13 +280,13 @@ Ta metoda to prosta i bezterminowa Metoda dla zestawów danych do liczby plików
 
 ``msrsync``Narzędzia te można również użyć do przenoszenia danych do podstawowego pliku dla klastra avere. To narzędzie służy do optymalizowania użycia przepustowości przez uruchamianie wielu procesów równoległych ``rsync`` . Jest on dostępny w witrynie GitHub pod adresem <https://github.com/jbd/msrsync> .
 
-``msrsync``dzieli Katalog źródłowy na oddzielne "zasobniki", a następnie uruchamia poszczególne ``rsync`` procesy w każdym przedziale.
+``msrsync`` dzieli Katalog źródłowy na oddzielne "zasobniki", a następnie uruchamia poszczególne ``rsync`` procesy w każdym przedziale.
 
 Testowanie wstępne przy użyciu maszyny wirtualnej z czterema rdzeniami wykazało najlepszą wydajność podczas korzystania z 64 procesów. Użyj ``msrsync`` opcji, ``-p`` Aby ustawić liczbę procesów na 64.
 
 Można również użyć ``--inplace`` argumentu z ``msrsync`` poleceniami. W przypadku użycia tej opcji należy rozważyć uruchomienie drugiego polecenia (podobnie jak w przypadku [rsync](#use-a-two-phase-rsync-process)opisanego powyżej) w celu zapewnienia integralności danych.
 
-``msrsync``można zapisywać tylko na woluminach lokalnych i z nich. Źródło i miejsce docelowe muszą być dostępne jako instalacje lokalne w sieci wirtualnej klastra.
+``msrsync`` można zapisywać tylko na woluminach lokalnych i z nich. Źródło i miejsce docelowe muszą być dostępne jako instalacje lokalne w sieci wirtualnej klastra.
 
 Aby ``msrsync`` wypełnić wolumin w chmurze platformy Azure za pomocą klastra avere, wykonaj następujące instrukcje:
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 523cb0d1a8e8f322c1936f1fe52a954399b2acc5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88999771"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorowanie i diagnozowanie usług w ramach instalacji lokalnego komputera z systemem Linux
@@ -131,6 +131,6 @@ Przykłady w [języku C#](https://github.com/Azure-Samples/service-fabric-dotnet
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Ten sam kod śledzenia dodany do aplikacji również współdziała z diagnostyką aplikacji w klastrze platformy Azure. Zapoznaj się z tymi artykułami, które omawiają różne opcje narzędzi i opisują, jak je skonfigurować.
 * [Jak zbierać dzienniki przy użyciu Diagnostyka Azure](./service-fabric-diagnostics-event-aggregation-lad.md)

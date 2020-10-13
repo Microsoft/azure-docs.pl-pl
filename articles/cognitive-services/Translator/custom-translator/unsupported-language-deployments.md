@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964689"
 ---
 # <a name="unsupported-language-deployments"></a>Wdrożenia w nieobsługiwanych językach
@@ -47,7 +47,7 @@ Po przesłaniu model nie będzie już dostępny na karcie **niewymagane szkoleni
 
 ## <a name="whats-next"></a>Co dalej?
 
-Modele wybrane do wdrożenia są zapisywane po zlikwidowaniu centrum i rozmieszczeniu wszystkich modeli.  Do momentu 24 maja przesłać żądania wdrożenia nieobsługiwanych modeli.  Firma Microsoft wdroży te modele w dniu 15 czerwca, w którym ten punkt będzie dostępny za poorednictwem translatora v3.  Ponadto będą one dostępne za poorednictwem translatora v2 do 1 lipca.  
+Modele wybrane do wdrożenia są zapisywane po zlikwidowaniu centrum i rozmieszczeniu wszystkich modeli.  Do momentu 24 maja przesłać żądania wdrożenia nieobsługiwanych modeli.  Firma Microsoft wdroży te modele od 15 czerwca, w tym momencie będą one dostępne za pomocą interfejsu API usługi Translator v3.  Ponadto będą one dostępne za pomocą interfejsu API v2 do 1 lipca.  
 
 Aby uzyskać więcej informacji na temat ważnych dat wycofania centrum, zobacz [tutaj](https://www.microsoft.com/translator/business/hub/).
 Po wdrożeniu będą stosowane normalne opłaty za hosting.  Aby uzyskać szczegółowe informacje, zobacz [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) .  
@@ -57,4 +57,4 @@ W przeciwieństwie do standardowych modeli translatora niestandardowego modele c
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](how-to-train-model.md).
-- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

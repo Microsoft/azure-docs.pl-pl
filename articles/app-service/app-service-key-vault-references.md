@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557920"
+ms.locfileid: "91930496"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Użyj Key Vault odwołań dla App Service i Azure Functions
 
@@ -30,7 +30,7 @@ Aby można było odczytać wpisy tajne z Key Vault, należy utworzyć magazyn i 
 
 1. Utwórz [zasady dostępu w Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) dla utworzonej wcześniej tożsamości aplikacji. Włącz uprawnienie "Pobieranie" klucza tajnego dla tych zasad. Nie należy konfigurować "autoryzowanej aplikacji" ani `applicationId` ustawień, ponieważ nie są one zgodne z zarządzaną tożsamością.
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Odwołania Key Vault nie są obecnie dostępne do rozpoznawania wpisów tajnych przechowywanych w magazynie kluczy z [ograniczeniami sieci](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Składnia odwołania

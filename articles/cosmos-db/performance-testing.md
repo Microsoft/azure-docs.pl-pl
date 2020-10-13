@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: ffe368d763ee93d1864f0f807cbe18b8ebfe41c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851666"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Testowanie wydajności i skalowania przy użyciu Azure Cosmos DB
@@ -93,7 +93,7 @@ Po uruchomieniu aplikacji można wypróbować różne [zasady indeksowania](inde
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule opisano, jak można przeprowadzić testowanie wydajności i skalowania za pomocą Azure Cosmos DB przy użyciu aplikacji konsolowej platformy .NET. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+W tym artykule opisano, jak można przeprowadzić testowanie wydajności i skalowania za pomocą Azure Cosmos DB przy użyciu aplikacji konsolowej platformy .NET. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * [Przykład testowania wydajności Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Opcje konfiguracji klienta w celu poprawy wydajności Azure Cosmos DB](performance-tips.md)

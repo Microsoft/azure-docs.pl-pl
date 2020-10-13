@@ -2,15 +2,13 @@
 title: Azure Monitor Application Insights schemat zasobów oparty na obszarze roboczym
 description: Zapoznaj się z nową strukturą tabeli i schematem Azure Monitor Application Insights zasobów obszaru roboczego.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323183"
+ms.locfileid: "91931057"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Zmiany zasobów na podstawie obszaru roboczego (wersja zapoznawcza)
 

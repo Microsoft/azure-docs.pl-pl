@@ -3,15 +3,15 @@ title: Dostosowywanie właściwości RDP przy użyciu programu PowerShell — Az
 description: Jak dostosować właściwości protokołu RDP dla pulpitu wirtualnego systemu Windows przy użyciu poleceń cmdlet programu PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86e3422cbd1cbf92a0d0d218267001c934403753
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462228"
+ms.locfileid: "91930700"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Dostosowywanie właściwości Remote Desktop Protocol (RDP) dla puli hostów
 
@@ -28,8 +28,8 @@ Domyślnie pliki RDP mają następujące właściwości:
 
 |Właściwość RDP|Na pulpicie|Jako usługi RemoteApp|
 |---|---|---|
-|Tryb z obsługą kilku monitorów|Enabled (Włączony)|Nie dotyczy|
-|Przekierowania dysków włączone|Dyski, schowek, drukarki, porty COM, urządzenia USB i karty inteligentne|Dyski, schowek i drukarki|
+|Tryb z obsługą kilku monitorów|Disabled|Enabled (Włączony)|
+|Przekierowania dysków włączone|Dyski, schowek, drukarki, porty COM i karty inteligentne|Dyski, schowek i drukarki|
 |Tryb zdalny audio|Odtwórz lokalnie|Odtwórz lokalnie|
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -45,8 +45,9 @@ Aby skonfigurować właściwości RDP w Azure Portal:
 3. W obszarze usługi wybierz pozycję **pulpit wirtualny systemu Windows**.
 4. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu.
 5. Wybierz **nazwę puli hostów** , którą chcesz zaktualizować.
-6. Wybierz pozycję **Właściwości** w menu po lewej stronie ekranu.
-7. Na karcie **Właściwości** przejdź do pozycji **Ustawienia RDP** , aby rozpocząć edytowanie właściwości protokołu RDP. Właściwości powinny znajdować się w formacie rozdzielonym średnikami, jak przykłady programu PowerShell.
+6. Wybierz pozycję **Właściwości RDP** w menu po lewej stronie ekranu.
+7. Ustaw żądaną właściwość.
+   - Alternatywnie możesz otworzyć kartę **Zaawansowane** i dodać właściwości RDP w formacie rozdzielonym średnikami, jak przykłady programu PowerShell w poniższych sekcjach.
 8. Gdy skończysz, wybierz pozycję **Zapisz** , aby zapisać zmiany.
 
 W następnych sekcjach opisano, jak ręcznie edytować niestandardowe właściwości protokołu RDP w programie PowerShell.

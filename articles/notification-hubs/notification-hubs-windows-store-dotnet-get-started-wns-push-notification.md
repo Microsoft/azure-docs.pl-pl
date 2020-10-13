@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.openlocfilehash: 07a0581cd7fe2e7a9c13f860c862e34da3cfd1ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88998292"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji przy użyciu usługi Azure Notification Hubs
@@ -63,7 +63,7 @@ Aby wysyłać powiadomienia wypychane do aplikacji platformy UWP, skojarz aplika
 2. Wpisz nazwę aplikacji i wybierz pozycję **Rezerwuj nazwę produktu**. Spowoduje to utworzenie nowej rejestracji aplikacji w Sklepie Windows.
 
     ![Nazwa aplikacji w Sklepie](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Rozwiń węzeł **Zarządzanie produktem**, wybierz pozycję **WNS/usługi MPNS**, a następnie wybierz pozycję **usługi Live Services**. Zaloguj się na konto Microsoft. Strona Rejestracja aplikacji zostanie otwarta na nowej karcie. Możesz też przejść bezpośrednio do strony [Moje aplikacje](https://apps.dev.microsoft.com) i wybrać nazwę aplikacji, aby uzyskać dostęp do tej strony.
+3. Rozwiń węzeł **Zarządzanie produktem**, wybierz pozycję **WNS/usługi MPNS**, a następnie wybierz pozycję **usługi Live Services**. Zaloguj się na konto Microsoft. Strona Rejestracja aplikacji zostanie otwarta na nowej karcie. Alternatywnie możesz przejść bezpośrednio do strony [Moje aplikacje](https://apps.dev.microsoft.com) i wybrać nazwę aplikacji, aby uzyskać dostęp do tej strony.
 
     ![Strona usługi WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 4. Zanotuj hasło **tajne aplikacji** oraz **Identyfikator zabezpieczeń pakietu (SID)**.
@@ -96,7 +96,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą WNS. Ma
        ![Okno dialogowe Nowy projekt](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
 
     3. W oknie dialogowym **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**i **lokalizację** plików projektu.
-    4. Wybierz pozycję **Utwórz**.
+    4. Wybierz przycisk **Utwórz**.
 
 3. Zaakceptuj wartości domyślne dla wersji platformy **docelowej** i **minimalnej**, a następnie wybierz pozycję **OK**.
 4. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji ze sklepu Windows, wybierz pozycję **Publikuj**, a następnie wybierz pozycję **Skojarz aplikację ze sklepem**. Zostanie wyświetlony kreator **Kojarzenie aplikacji ze Sklepem Windows**.
@@ -165,7 +165,7 @@ Możesz szybko przetestować odbieranie powiadomień w aplikacji, wysyłając po
 2. W oknie **Wysyłanie testowe** wykonaj następujące czynności:
     1. W obszarze **Platformy** wybierz pozycję **Windows**.
     2. W obszarze **Typ powiadomienia** wybierz pozycję **Wyskakujące**.
-    3. Wybierz pozycję **Send** (Wyślij).
+    3. Wybierz pozycję **Wyślij**.
 
         ![Okienko Wysyłanie testowe](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
 3. Zobacz wynik operacji wysyłania na liście **Wynik** w dolnej części okna. Możesz też zobaczyć komunikat alertu.
@@ -175,7 +175,7 @@ Możesz szybko przetestować odbieranie powiadomień w aplikacji, wysyłając po
 
     ![Komunikat z powiadomieniem](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Wysłano powiadomienia emisji do wszystkich urządzeń z systemem Windows przy użyciu portalu lub aplikacji konsolowej. Aby dowiedzieć się, jak wysyłać powiadomienia push do konkretnych urządzeń, przejdź do następującego samouczka:
 
 > [!div class="nextstepaction"]

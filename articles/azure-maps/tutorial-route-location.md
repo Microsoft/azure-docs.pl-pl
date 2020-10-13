@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321717"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Samouczek: jak wyświetlić kierunki tras za pomocą usługi Azure Maps Route i kontrolki mapy
@@ -174,7 +174,7 @@ W tym samouczku wyrenderuje trasę przy użyciu warstwy liniowej. Punkty począt
 
 3. Zapisz **MapRoute.html** i Odśwież przeglądarkę. Mapa jest teraz wyśrodkowana w Seattle. Niebieski numer PIN Teardrop oznacza punkt początkowy. Okrągły niebieski numer PIN oznacza punkt końcowy.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Wyświetlanie punktów początkowych i końcowych tras na mapie":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
 
 <a id="getroute"></a>
 
@@ -216,7 +216,7 @@ W tej sekcji pokazano, jak za pomocą interfejsu API wskazówek dotyczących tra
 
 3. Zapisz plik **MapRoute.html** i odśwież przeglądarkę. Mapa powinna teraz wyświetlać trasę od początku do punktu końcowego.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Kontrolka mapy platformy Azure i usługa Route Service":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
 
 W [tym miejscu](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)możesz uzyskać pełny kod źródłowy dla przykładu. Przykład na żywo można znaleźć [tutaj](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 

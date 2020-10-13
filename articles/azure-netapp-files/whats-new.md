@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: beb1cc9957f7b43bc6ad9b9b6ee6c7707eb0c2d6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91571565"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932417"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Co nowego w Azure NetApp Files
 
@@ -31,7 +31,7 @@ Azure NetApp Files jest regularnie aktualizowana. Ten artykuł zawiera podsumowa
 
   Azure NetApp Files obsługuje teraz replikację między regionami. Dzięki tej nowej możliwości odzyskiwania po awarii możesz replikować Azure NetApp Files z jednego regionu platformy Azure do innego w szybki i ekonomiczny sposób, chroniąc dane przed nieprzewidywalnymi awariami regionalnymi. Azure NetApp Files replikacja między regionami korzysta z technologii NetApp SnapMirror® tylko zmienione bloki są wysyłane przez sieć w skompresowanym, wydajnym formacie. Ta technologia własnościowa minimalizuje ilość danych wymaganych do replikacji w regionach, co pozwala zaoszczędzić koszty transferu danych. Skraca również czas replikacji, dzięki czemu można osiągnąć mniejszy cel punktu przywracania (RPO).
 
-* [Ręczna Pula pojemności QoS](manage-manual-qos-capacity-pool.md) (wersja zapoznawcza)  
+* [Ręczna Pula pojemności QoS](manual-qos-capacity-pool-introduction.md) (wersja zapoznawcza)  
 
     W ręcznej puli pojemności usługi QoS można przypisać pojemność i przepływność dla woluminu niezależnie. Całkowita przepływność wszystkich woluminów utworzonych z ręczną pulą pojemności usługi QoS jest ograniczona przez łączną przepływność puli. Jest ona określana na podstawie kombinacji rozmiaru puli i przepływności na poziomie usług. Alternatywnie [typ QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) puli pojemności może być automatyczny (automatyczny), co jest ustawieniem domyślnym. W puli pojemności automatycznej usługi QoS przepływność jest przypisywana automatycznie do woluminów w puli proporcjonalnie do przydziału rozmiaru przypisanego do woluminów.
 

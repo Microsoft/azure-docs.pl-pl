@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 088961d58cee2f1bb0c6ac042d9d8ee2ad50ba14
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91533899"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931363"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Szybki Start: Konfigurowanie Azure NetApp Files i Tworzenie woluminu NFS 
 
@@ -164,7 +164,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Rejestrowanie na Azure NetApp 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie Azure Resource Manager (szablon ARM) przy użyciu zasobu [Microsoft. NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) . Aby uruchomić kod, Pobierz [pełny szablon usługi ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) z repozytorium GitHub.
+Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie Azure Resource Manager (szablon ARM) przy użyciu zasobu [Microsoft. NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts) . Aby uruchomić kod, Pobierz [pełny szablon usługi ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) z repozytorium GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
 
@@ -194,7 +194,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie A
     * Określ **4 (TIB)** jako rozmiar puli. 
     * Użyj typu **autoqos.**
 
-5. Kliknij pozycję **Utwórz**.
+5. Kliknij przycisk **Utwórz**.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -238,7 +238,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia konta NetApp w szablonie A
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablonie Azure Resource Manager (szablon ARM) przy użyciu zasobu [Microsoft. NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools) . Aby uruchomić kod, Pobierz [pełny szablon usługi ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) z repozytorium GitHub.
+Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablonie Azure Resource Manager (szablon ARM) przy użyciu zasobu [Microsoft. NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) . Aby uruchomić kod, Pobierz [pełny szablon usługi ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) z repozytorium GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
 
@@ -387,7 +387,7 @@ Poniższy fragment kodu przedstawia sposób tworzenia puli pojemności w szablon
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
 
-Poniższe fragmenty kodu pokazują, jak skonfigurować sieć wirtualną i utworzyć wolumin Azure NetApp Files w szablonie Azure Resource Manager (szablon ARM). Konfiguracja sieci wirtualnej używa zasobu [Microsoft. Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks) . Tworzenie woluminu używa zasobu [Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) . Aby uruchomić kod, Pobierz [pełny szablon usługi ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) z repozytorium GitHub.
+Poniższe fragmenty kodu pokazują, jak skonfigurować sieć wirtualną i utworzyć wolumin Azure NetApp Files w szablonie Azure Resource Manager (szablon ARM). Konfiguracja sieci wirtualnej używa zasobu [Microsoft. Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks) . Tworzenie woluminu używa zasobu [Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) . Aby uruchomić kod, Pobierz [pełny szablon usługi ARM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) z repozytorium GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
 
@@ -465,4 +465,4 @@ Aby usunąć grupę zasobów, użyj Azure Portal, programu PowerShell lub interf
 > [!div class="nextstepaction"]
 > [Hierarchia magazynu Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
 > [Poziomy usługi dla Azure NetApp Files](azure-netapp-files-service-levels.md)   
-> [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md)   
+> [Tworzenie woluminu NFS](azure-netapp-files-create-volumes.md)

@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322703"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji internetowej Node.js przy użyciu zestawu JavaScript SDK do zarządzania kontem interfejsu API SQL w programie Azure Cosmos DB 
@@ -439,7 +439,7 @@ Teraz, gdy masz utworzoną aplikację, możesz uruchomić ją lokalnie, wykonuj�
 
 1. Aby przetestować aplikację na komputerze lokalnym, w terminalu uruchom polecenie `npm start`, aby uruchomić aplikację, a następnie odśwież stronę przeglądarki `http://localhost:3000`. Strona powinna teraz wyglądać jak pokazano na poniższym zrzucie ekranu:
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Zrzut ekranu aplikacji MyTodo List w oknie przeglądarki":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki":::
 
     > [!TIP]
     > W przypadku wystąpienia błędu dotyczącego wcięcia w pliku layout.jade bądź index.jade upewnij się, że dwa pierwsze wiersze w obu plikach są wyrównane do lewej, bez spacji. Jeśli przed dwoma pierwszymi wierszami występują spacje, usuń je, zapisz oba pliki, a następnie odśwież okno przeglądarki. 
@@ -448,7 +448,7 @@ Teraz, gdy masz utworzoną aplikację, możesz uruchomić ją lokalnie, wykonuj�
 
 3. Ta strona powinna zostać zaktualizowana w celu wyświetlenia nowo utworzonego elementu na liście ToDo.
    
-    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Zrzut ekranu aplikacji z nowym elementem na liście ToDo":::
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki":::
 
 4. Aby zakończyć zadanie, zaznacz pole wyboru w kolumnie Complete (Zakończ), a następnie wybierz pozycję **Update tasks** (Aktualizuj zadania). Spowoduje to zaktualizowanie utworzonego już dokumentu i usunięcie go z widoku.
 

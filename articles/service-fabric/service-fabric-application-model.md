@@ -4,10 +4,10 @@ description: Jak modelować i opisywać aplikacje i usługi na platformie Azure 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85963737"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelowanie aplikacji w Service Fabric

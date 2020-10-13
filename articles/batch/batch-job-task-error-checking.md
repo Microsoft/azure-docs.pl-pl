@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 03/10/2019
 ms.author: markscu
 ms.openlocfilehash: ece0f1473b3c453ca5506f06b7ef094533d146aa
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964332"
 ---
 # <a name="job-and-task-error-checking"></a>Sprawdzanie błędów zadania i zadania

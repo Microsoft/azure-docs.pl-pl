@@ -1,6 +1,6 @@
 ---
 title: Omówienie dołączania aplikacji MSIX pulpitu wirtualnego systemu Windows — Azure
-description: Co to jest dołączenie aplikacji MSIX? Zapoznaj się z tym artykułem.
+description: Co to jest dołączanie aplikacji MSIX? Zapoznaj się z tym artykułem.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,13 +9,13 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c6bf296b5173a662b1e9dd7b025648e3f16d23c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556346"
 ---
-# <a name="what-is-msix-app-attach"></a>Co to jest dołączenie aplikacji MSIX?
+# <a name="what-is-msix-app-attach"></a>Co to jest dołączanie aplikacji MSIX?
 
 MSIX to nowy format pakietu, który oferuje wiele funkcji przeznaczonych do ulepszania środowiska tworzenia pakietów dla wszystkich aplikacji systemu Windows. Aby dowiedzieć się więcej na temat MSIX, zobacz [Omówienie usługi MSIX](/windows/msix/overview).
 
@@ -45,7 +45,7 @@ Dołączenie do aplikacji MSIX musi być stosowane poza infrastrukturą VDI lub 
 
 Poniższa tabela zawiera porównanie najważniejszych funkcji dołączania aplikacji MSIX i warstw aplikacji.
 
-| Cechy | Tradycyjna warstwa aplikacji  | Dołączanie aplikacji MSIX  |
+| Cecha | Tradycyjna warstwa aplikacji  | Dołączanie aplikacji MSIX  |
 |-----|-----------------------------|--------------------|
 | Format               | Różne technologie warstw aplikacji wymagają różnych formatów własnościowych. | Działa z natywnym formatem pakowania MSIX.        |
 | Ponowne pakowanie | Formaty zastrzeżone wymagają sekwencjonowania i ponownego pakowania na aktualizację.         | Aplikacje opublikowane jako MSIX nie wymagają ponownego pakowania. Jeśli jednak pakiet MSIX nie jest dostępny, nadal obowiązuje ponowne pakowanie. |
