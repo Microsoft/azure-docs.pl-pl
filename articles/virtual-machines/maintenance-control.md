@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080016"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978615"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji 
 
@@ -28,7 +28,7 @@ Za pomocą kontrolki konserwacji można:
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Maszyny wirtualne muszą znajdować się na [dedykowanym hoście](./linux/dedicated-hosts.md)lub być tworzone przy użyciu [IZOLOWANEGO rozmiaru maszyny wirtualnej](isolation.md).
+- Maszyny wirtualne muszą znajdować się na [dedykowanym hoście](./dedicated-hosts.md)lub być tworzone przy użyciu [IZOLOWANEGO rozmiaru maszyny wirtualnej](isolation.md).
 - Po upływie 35 dni zostanie automatycznie zastosowana aktualizacja.
 - Użytkownik musi mieć dostęp **współautora zasobów** .
 
@@ -38,7 +38,7 @@ Konfiguracje konserwacji można tworzyć i zarządzać nimi przy użyciu dowolne
 
 - [Interfejs wiersza polecenia platformy Azure](maintenance-control-cli.md)
 - [Azure PowerShell](maintenance-control-powershell.md)
-- [Azure Portal](maintenance-control-portal.md)
+- [Witryna Azure Portal](maintenance-control-portal.md)
 
 Aby uzyskać przykład Azure Functions, zobacz [Planowanie aktualizacji konserwacji przy użyciu sterowania konserwacją i Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 

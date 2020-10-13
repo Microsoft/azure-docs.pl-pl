@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326545"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949619"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -74,7 +74,7 @@ W razie potrzeby można nawet utworzyć wiele wystąpień tego samego typu relac
 
 ## <a name="list-relationships"></a>Wyświetl relacje
 
-Aby uzyskać dostęp do listy relacji dla danego sznurka na grafie, można użyć:
+Aby uzyskać dostęp do listy relacji **wychodzących** pochodzących z danego przędzy na grafie, można użyć:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 Możesz użyć pobranych relacji, aby przejść do innych bliźniaczych reprezentacji na grafie. Aby to zrobić, Przeczytaj `target` pole z zwróconej relacji i użyj go jako identyfikatora dla następnego wywołania `GetDigitalTwin` . 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Znajdowanie relacji do cyfrowej przędzy
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Znajdź przychodzące relacje z dwuosiową cyfrą
 
-Usługa Azure Digital bliźniaczych reprezentacji ma także interfejs API, aby znaleźć wszystkie przychodzące relacje z danym przędzą. Jest to często przydatne w przypadku nawigacji odwrotnej lub podczas usuwania sznurka.
+Usługa Azure Digital bliźniaczych reprezentacji ma także interfejs API, aby znaleźć wszystkie **przychodzące** relacje z danym przędzą. Jest to często przydatne w przypadku nawigacji odwrotnej lub podczas usuwania sznurka.
 
-Poprzedni przykład kodu koncentruje się na znajdowaniu relacji wychodzących. Poniższy przykład jest podobny, ale zamiast tego odnajduje relacje przychodzące. Usuwa je również po ich znalezieniu.
+Poprzedni przykład kodu koncentruje się na znajdowaniu relacji wychodzących od sznurka. Poniższy przykład ma strukturę podobną, ale zamiast tego znajduje *przychodzące* relacje z przędzą.
 
 Należy zauważyć, że `IncomingRelationship` wywołania nie zwracają pełnej treści relacji.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7243857db9a3726bb42815ac4c9eef661f52e47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717884"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964727"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
 
@@ -178,7 +178,7 @@ Aby skonfigurować serwer RADIUS, można użyć standardowej (opartej na kreator
 
     ![Określ okno grup użytkowników, aby zezwalać na dostęp lub go odmawiać](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Wybierz opcję **Dalej**.
+9. Wybierz pozycję **Dalej**.
 
 10. W oknie **Określanie filtrów IP** wybierz pozycję **dalej**.
 
@@ -249,7 +249,7 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
     ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
-8. Kliknij przycisk **OK**.
+8. Wybierz przycisk **OK**.
 
 ### <a name="test-vpn-connectivity"></a>Testowanie łączności z siecią VPN
 

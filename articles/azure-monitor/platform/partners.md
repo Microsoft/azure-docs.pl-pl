@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460099"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor integracje partnerów
@@ -82,7 +82,7 @@ Usługa CloudMonix oferuje funkcje monitorowania, automatyzacji i samonaprawiani
 
 System Azure umożliwia klientom migrowanie i modernizację aplikacji do działania w chmurze w ramach koordynacji z wieloma rozwiązaniami partnerskimi. Jeden taki Partner to usługi Datadog, który oferuje narzędzia do zapoznania się z bezpieczeństwem i pomaga użytkownikom w zrozumieniu kondycji i wydajności aplikacji w środowiskach hybrydowych i wielochmurowych.  Jednak skonfigurowanie niezbędnych integracji często wymaga przechodzenia między Azure Portal i usługi Datadog.  Ten proces zwiększa złożoność, trwa czas i utrudnia rozwiązywanie problemów, jeśli nie działają.  Aby zmniejszyć obciążenie związane z zarządzaniem w wielu portalach, firma Microsoft pracowała z usługą usługi Datadog w celu utworzenia zintegrowanego rozwiązania usługi Datadog na platformie Azure Cloud Platform.  To rozwiązanie jest dostępne za pośrednictwem portalu Azure Marketplace i zapewnia bezproblemowe środowisko do korzystania z rozwiązania do monitorowania chmurowego usługi Datadog na platformie Azure.  
 
-Dzięki nowej integracji platformy Azure-usługi Datadog organizacje mogą teraz w pełni mapować starsze i oparte na chmurze systemy, monitorować dane w czasie rzeczywistym w każdej fazie przejścia do chmury i zapewnić, że zmigrowane aplikacje będą spełniały cele wydajności. Ta integracja łączy globalną obecność, elastyczność, bezpieczeństwo i zgodność platformy Azure z funkcjami rejestrowania i monitorowania usługi Datadog w celu utworzenia najlepszego środowiska dla przedsiębiorstw. Dzięki temu ujednoliconemu środowisku będziesz mieć możliwość: 
+Dzięki nowej integracji Azure-Datadog organizacje mogą teraz w pełni mapować starsze i oparte na chmurze systemy, monitorować dane w czasie rzeczywistym w każdej fazie przejścia do chmury i zapewnić, że zmigrowane aplikacje będą spełniały cele wydajności. Ta integracja łączy globalną obecność, elastyczność, bezpieczeństwo i zgodność platformy Azure z funkcjami rejestrowania i monitorowania usługi Datadog w celu utworzenia najlepszego środowiska dla przedsiębiorstw. Dzięki temu ujednoliconemu środowisku będziesz mieć możliwość: 
 
 - Zainicjuj nową organizację usługi Datadog i Skonfiguruj swoje zasoby platformy Azure do wysyłania dzienników i metryk do usługi Datadog — w pełni zarządzana konfiguracja bez infrastruktury dla klientów do skonfigurowania i obsługi.  
 - Bezproblemowo wysyłaj dzienniki i metryki do usługi Datadog. Proces przesyłania dalej dzienników został całkowicie zautomatyzowany; zamiast tworzyć potok przesyłania dalej dzienników przy użyciu ustawień diagnostycznych, Event Hubs i funkcji, można skonfigurować wszystko za pomocą zaledwie kilku kliknięć.
@@ -151,7 +151,7 @@ LogRhythm, lider w NextGen firewall SIEM, umożliwia organizacjom z sześciu kon
 
 **Mostka operacji** mikrofokusu automatycznie monitoruje wszystkie hybrydowe zasoby IT — dowolne urządzenie, system operacyjny, baza danych, aplikacja lub usługa, niezależnie od tego, gdzie działa, i stosuje AIOps do wszystkich typów danych — zdarzeń, metryk, dzienników i zależności. Zapewnia ona unikatową kombinację monitorowania jakości usług, w połączeniu z kompleksową analizą kondycji aplikacji i oferuje kompleksowe monitorowanie wydajności i dostępności usług Microsoft Azure. Program Operations Bridge umożliwia klientom dostarczanie pojedynczego okienka ze szkła, dostępnego na dowolnym urządzeniu z przeglądarką, zarówno w celu zrozumienia firmy, jak i udziałowców IT.
 
-Więcej tutaj
+Dowiedz się więcej
 - [Przegląd zestawu OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Pobieranie](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope to składnik pakietu Operations Bridge Suite.

@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: 6812e84282f1a6e8074ac3788f02c5f67167353c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818936"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-key-vault"></a>Azure Policy kontroli zgodności z przepisami dla Azure Key Vault

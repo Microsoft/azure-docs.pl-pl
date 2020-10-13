@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82db48690f8cfa48ebf3a6fdc81cb4e467c159d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331373"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977684"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure
 
@@ -132,7 +132,7 @@ Przy użyciu funkcji Oracle Data Guard można uzyskać wysoką dostępność prz
 
 Samouczek [implementacji programu Oracle GoldenGate na platformie Azure](configure-oracle-golden-gate.md) przeprowadzi Cię przez podstawową procedurę konfiguracji na platformie Azure.
 
-Oprócz posiadania rozwiązań o wysokiej dostępności i rozwiązaniu DR na platformie Azure należy utworzyć strategię tworzenia kopii zapasowych w celu przywrócenia bazy danych. W samouczku [Tworzenie kopii zapasowej i odzyskiwanie Oracle Database](oracle-backup-recovery.md) przeprowadzi Cię przez podstawową procedurę tworzenia spójnej kopii zapasowej.
+Oprócz posiadania rozwiązań o wysokiej dostępności i rozwiązaniu DR na platformie Azure należy utworzyć strategię tworzenia kopii zapasowych w celu przywrócenia bazy danych. W samouczku [Tworzenie kopii zapasowej i odzyskiwanie Oracle Database](./oracle-overview.md) przeprowadzi Cię przez podstawową procedurę tworzenia spójnej kopii zapasowej.
 
 ## <a name="support-for-jd-edwards"></a>Obsługa JD Edwards
 

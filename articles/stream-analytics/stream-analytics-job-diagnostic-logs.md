@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
 ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459816"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Rozwiązywanie problemów z Azure Stream Analytics przy użyciu dzienników zasobów
@@ -66,7 +66,7 @@ Zdecydowanie zaleca się włączenie dzienników zasobów i wysłanie ich do dzi
 
     ![Nawigacja w bloku do dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Podaj **nazwę** w polu **Nazwa ustawień diagnostycznych** i zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik**, a następnie pozycję **AllMetrics** w obszarze **Metryka**. Następnie wybierz pozycję **Wyślij do log Analytics** a następnie wybierz obszar roboczy. Kliknij pozycję **Zapisz**.
+2.  Podaj **nazwę** w polu **Nazwa ustawień diagnostycznych** i zaznacz pola wyboru do **wykonania** i **tworzenia** w obszarze **Dziennik**, a następnie pozycję **AllMetrics** w obszarze **Metryka**. Następnie wybierz pozycję **Wyślij do log Analytics** a następnie wybierz obszar roboczy. Kliknij przycisk **Zapisz**.
 
     ![Ustawienia dzienników zasobów](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -117,7 +117,7 @@ Nazwa | Opis
 ------- | -------
 Element źródłowy | Nazwa danych wejściowych lub wyjściowych zadania, w których wystąpił błąd.
 Wiadomość | Komunikat skojarzony z błędem.
-Typ | Typ błędu. Na przykład **DataConversionError**, **CsvParserError**lub **ServiceBusPropertyColumnMissingError**.
+Type | Typ błędu. Na przykład **DataConversionError**, **CsvParserError**lub **ServiceBusPropertyColumnMissingError**.
 Dane | Zawiera dane, które są przydatne do dokładnego lokalizowania źródła błędu. Podlega obcięciu, w zależności od rozmiaru.
 
 W zależności od wartości **OperationName** , błędy danych mają następujący schemat:
@@ -138,7 +138,7 @@ Nazwa | Opis
 -------- | --------
 Błąd | obowiązkowe Informacje o błędzie. Zazwyczaj są to informacje o wyjątkach, jeśli są dostępne.
 Wiadomość| Komunikat dziennika.
-Typ | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
+Type | Typ komunikatu. Mapuje na wewnętrzną kategoryzację błędów. Na przykład **JobValidationError** lub **BlobOutputAdapterInitializationFailure**.
 Identyfikator korelacji | Identyfikator GUID, który jednoznacznie identyfikuje wykonywanie zadania. Wszystkie wpisy dziennika wykonania od momentu uruchomienia zadania do momentu zatrzymania zadania mają tę samą wartość **identyfikatora korelacji** .
 
 ## <a name="next-steps"></a>Następne kroki

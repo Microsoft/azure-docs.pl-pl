@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
 ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742523"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Samouczek: Używanie interfejsów API REST do kopiowania danych do Azure Data Box magazynu obiektów BLOB  
@@ -117,7 +117,7 @@ Wykonaj następujące kroki, aby zaimportować `.cer` plik do magazynu główneg
 
     ![Importowanie certyfikatu przy użyciu programu PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4. Kliknij przycisk **Zakończ**. Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
+4. Kliknij przycisk **Finish** (Zakończ). Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
 
     ![Importowanie certyfikatu przy użyciu programu PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e13add778ae372ea90361c094238668752fe2af
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977701"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architektury referencyjne dla Oracle Database Enterprise Edition na platformie Azure
 
@@ -33,7 +33,7 @@ Jeśli chcesz dowiedzieć się więcej o maksymalizacji wydajności bazy danych 
 
 ## <a name="high-availability-for-oracle-databases"></a>Wysoka dostępność baz danych Oracle
 
-Osiągnięcie wysokiej dostępności w chmurze jest ważną częścią planowania i projektowania każdej organizacji. Microsoft Azure oferuje [strefy dostępności](../../../availability-zones/az-overview.md) i zestawy dostępności (do użycia w regionach, w których strefy dostępności są niedostępne). Przeczytaj więcej na temat [zarządzania dostępnością maszyn wirtualnych](../../../virtual-machines/linux/manage-availability.md) w celu zaprojektowania chmury.
+Osiągnięcie wysokiej dostępności w chmurze jest ważną częścią planowania i projektowania każdej organizacji. Microsoft Azure oferuje [strefy dostępności](../../../availability-zones/az-overview.md) i zestawy dostępności (do użycia w regionach, w których strefy dostępności są niedostępne). Przeczytaj więcej na temat [zarządzania dostępnością maszyn wirtualnych](../../manage-availability.md) w celu zaprojektowania chmury.
 
 Oprócz natywnych narzędzi i ofert w chmurze firma Oracle udostępnia rozwiązania wysokiej dostępności, takie jak [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7), [Data Guard z FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [fragmentowania](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)i [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) , które można skonfigurować na platformie Azure. Ten przewodnik obejmuje architektury referencyjne dla każdego z tych rozwiązań.
 
@@ -43,7 +43,7 @@ Na koniec podczas migrowania lub tworzenia aplikacji dla chmury ważne jest, aby
 
 Oracle Real Application Cluster (RAC) to rozwiązanie zapewniane przez firmę Oracle, które ułatwia klientom osiąganie dużej przepływności przez wiele wystąpień uzyskujących dostęp do jednego magazynu bazy danych (współdzielony wzorzec architektury). Mimo że certyfikat RAC dla programu Oracle może być używany w środowisku lokalnym o wysokiej dostępności, nie można używać go w celu zapewnienia wysokiej dostępności w chmurze, ponieważ chroni on tylko przed awariami na poziomie wystąpienia, a nie z awariami na poziomie stojaków lub centrów danych. Z tego powodu firma Oracle zaleca użycie usługi Oracle Data Guard z bazą danych (w przypadku pojedynczego wystąpienia lub certyfikatu RAC) w celu zapewnienia wysokiej dostępności. Klienci zazwyczaj wymagają dużej umowy SLA na potrzeby uruchamiania aplikacji o znaczeniu strategicznym. Certyfikat Oracle RAC nie jest obecnie certyfikowany ani obsługiwany przez program Oracle na platformie Azure. Jednak platforma Azure oferuje funkcje, takie jak platforma Azure, oferuje Strefy dostępności i planowane okna obsługi, aby ułatwić ochronę przed awariami na poziomie wystąpienia. Oprócz tego klienci mogą korzystać z technologii takich jak Oracle Data Guard, Oracle GoldenGate i Oracle fragmentowania w celu zapewnienia wysokiej wydajności i odporności przez ochronę swoich baz danych przed awariami na poziomie stojaków oraz geograficznie-politycznych.
 
-W przypadku uruchamiania baz danych Oracle w wielu [strefach dostępności](../../../availability-zones/az-overview.md) w połączeniu z usługą Oracle Data Guard lub GoldenGate klienci mogą uzyskać umowę SLA na 99,99% czasu pracy. W regionach platformy Azure, w których strefy dostępności nie są jeszcze obecne, klienci mogą korzystać z [zestawów dostępności](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) i uzyskać umowę SLA dotyczącą czasu działania wynoszącą 99,95% czasu.
+W przypadku uruchamiania baz danych Oracle w wielu [strefach dostępności](../../../availability-zones/az-overview.md) w połączeniu z usługą Oracle Data Guard lub GoldenGate klienci mogą uzyskać umowę SLA na 99,99% czasu pracy. W regionach platformy Azure, w których strefy dostępności nie są jeszcze obecne, klienci mogą korzystać z [zestawów dostępności](../../manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) i uzyskać umowę SLA dotyczącą czasu działania wynoszącą 99,95% czasu.
 
 >Uwaga: możesz mieć miejsce docelowe czasu pracy, które jest znacznie wyższe niż umowa SLA czasu działania świadczona przez firmę Microsoft.
 
@@ -209,7 +209,7 @@ Podczas wstępnego żądania serwer aplikacji łączy się z fragmentu Director 
 
 ## <a name="patching-and-maintenance"></a>Stosowanie poprawek i konserwacji
 
-W przypadku wdrażania obciążeń Oracle na platformie Azure firma Microsoft bierze pod uwagę wszystkie poprawki na poziomie systemu operacyjnego hosta. Wszystkie planowane czynności konserwacyjne na poziomie systemu operacyjnego są przekazywane klientom z wyprzedzeniem, aby umożliwić klientowi zaplanowaną konserwację. Dwa serwery z dwóch różnych Strefy dostępności nigdy nie są jednocześnie poprawiane. Zobacz [Zarządzanie dostępnością maszyn wirtualnych](../../../virtual-machines/linux/manage-availability.md) , aby uzyskać więcej szczegółowych informacji na temat konserwacji maszyn wirtualnych i stosowania poprawek. 
+W przypadku wdrażania obciążeń Oracle na platformie Azure firma Microsoft bierze pod uwagę wszystkie poprawki na poziomie systemu operacyjnego hosta. Wszystkie planowane czynności konserwacyjne na poziomie systemu operacyjnego są przekazywane klientom z wyprzedzeniem, aby umożliwić klientowi zaplanowaną konserwację. Dwa serwery z dwóch różnych Strefy dostępności nigdy nie są jednocześnie poprawiane. Zobacz [Zarządzanie dostępnością maszyn wirtualnych](../../manage-availability.md) , aby uzyskać więcej szczegółowych informacji na temat konserwacji maszyn wirtualnych i stosowania poprawek. 
 
 Stosowanie poprawek do systemu operacyjnego maszyny wirtualnej może być zautomatyzowane przy użyciu [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Stosowanie poprawek i konserwacji bazy danych Oracle może być zautomatyzowane i zaplanowane przy użyciu [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) lub [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) w celu zminimalizowania przestojów. Zapoznaj się z [ciągłym dostarczaniem oraz wdrożeniami Blue/Green](/azure/devops/learn/what-is-continuous-delivery) , aby zrozumieć, jak można go używać w kontekście baz danych Oracle.
 

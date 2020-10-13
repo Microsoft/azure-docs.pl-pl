@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654603"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963588"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines produktu SAP ESE dla obciążenia SAP
 
@@ -71,7 +71,7 @@ Oprogramowanie SAP ASE zapisuje dane sekwencyjnie na urządzeniach magazynu dysk
 Zaleca się skonfigurowanie automatycznego rozszerzania bazy danych zgodnie z opisem w artykule [Konfigurowanie automatycznego rozszerzania przestrzeni bazy danych w oprogramowaniu SAP adaptacyjne Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  i [sap support uwagi #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Przykładowe oprogramowanie SAP ASE na maszynie wirtualnej platformy Azure, konfiguracje systemu plików i dysku 
-Poniższe szablony pokazują przykładowe konfiguracje dla systemów Linux i Windows. Przed potwierdzeniem konfiguracji maszyny wirtualnej i dysku upewnij się, że przydziały przepustowości sieci i magazynu poszczególnych maszyn wirtualnych są wystarczające do spełnienia wymagań firmy. Należy również pamiętać, że różne typy maszyn wirtualnych platformy Azure mają różną maksymalną liczbę dysków, które można dołączyć do maszyny wirtualnej. Na przykład maszyna wirtualna E4s_v3 ma limit przepływności we/wy magazynu 48 MB/s. Jeśli przepływność magazynu wymaganego przez działanie tworzenia kopii zapasowej bazy danych przekracza 48 MB/s, nie będzie możliwe uniknięcie większego typu maszyn wirtualnych o większej przepływności przepustowości magazynu. Podczas konfigurowania usługi Azure Storage należy również pamiętać, że szczególnie w przypadku [usługi Azure Premium Storage](../../windows/premium-storage-performance.md) przepustowość i liczby operacji wejścia/wyjścia na sekundę na GB pojemności są zmieniane. Więcej informacji na ten temat zawiera artykuł [jakie typy dysków są dostępne na platformie Azure?](../../disks-types.md). Przydziały dla określonych typów maszyn wirtualnych platformy Azure są udokumentowane w artykule [zoptymalizowane rozmiary maszyn wirtualnych](../../sizes-memory.md) oraz połączone z nim artykuły. 
+Poniższe szablony pokazują przykładowe konfiguracje dla systemów Linux i Windows. Przed potwierdzeniem konfiguracji maszyny wirtualnej i dysku upewnij się, że przydziały przepustowości sieci i magazynu poszczególnych maszyn wirtualnych są wystarczające do spełnienia wymagań firmy. Należy również pamiętać, że różne typy maszyn wirtualnych platformy Azure mają różną maksymalną liczbę dysków, które można dołączyć do maszyny wirtualnej. Na przykład maszyna wirtualna E4s_v3 ma limit przepływności we/wy magazynu 48 MB/s. Jeśli przepływność magazynu wymaganego przez działanie tworzenia kopii zapasowej bazy danych przekracza 48 MB/s, nie będzie możliwe uniknięcie większego typu maszyn wirtualnych o większej przepływności przepustowości magazynu. Podczas konfigurowania usługi Azure Storage należy również pamiętać, że szczególnie w przypadku [usługi Azure Premium Storage](../../premium-storage-performance.md) przepustowość i liczby operacji wejścia/wyjścia na sekundę na GB pojemności są zmieniane. Więcej informacji na ten temat zawiera artykuł [jakie typy dysków są dostępne na platformie Azure?](../../disks-types.md). Przydziały dla określonych typów maszyn wirtualnych platformy Azure są udokumentowane w artykule [zoptymalizowane rozmiary maszyn wirtualnych](../../sizes-memory.md) oraz połączone z nim artykuły. 
 
 > [!NOTE]
 >  Jeśli system DBMS jest przenoszony z zasobów lokalnych na platformę Azure, zaleca się przeprowadzenie monitorowania na maszynie wirtualnej i ocenę przepustowości procesora, pamięci, operacji we/wy i magazynu. Porównaj wartości szczytowe zaobserwowane z limitami przydziału maszyn wirtualnych udokumentowanymi w powyższych artykułach

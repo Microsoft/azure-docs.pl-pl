@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967497"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951591"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -58,62 +59,106 @@ Analiza ruchu analizuje dzienniki nieprzetworzonych przepływów sieciowej grupy
 ## <a name="supported-regions-nsg"></a>Obsługiwane regiony: sieciowej grupy zabezpieczeń 
 
 Analizy ruchu można użyć dla sieciowych grup zabezpieczeń w jednym z następujących obsługiwanych regionów:
-
-* Kanada Środkowa
-* Zachodnio-środkowe stany USA
-* East US
-* Wschodnie stany USA 2
-* Północno-środkowe stany USA
-* South Central US
-* Central US
-* Zachodnie stany USA
-* Zachodnie stany USA 2
-* Francja Środkowa
-* West Europe
-* Europa Północna
-* Brazil South
-* Zachodnie Zjednoczone Królestwo
-* Południowe Zjednoczone Królestwo
-* Australia Wschodnia
-* Australia Południowo-Wschodnia
-* Azja Wschodnia
-* Southeast Asia
-* Korea Środkowa
-* Indie Środkowe
-* Indie Południowe
-* Japonia Wschodnia 
-* Japonia Zachodnia
-* US Gov Wirginia
-* Chiny Wschodnie 2
+:::row:::
+   :::column span="":::
+      Australia Środkowa  
+      Australia Wschodnia  
+      Australia Południowo-Wschodnia  
+      Brazil South  
+      Kanada Środkowa  
+      Kanada Wschodnia  
+      Indie Środkowe  
+      Central US  
+      Chiny Wschodnie 2  
+      Chiny Północne 2  
+   :::column-end:::
+   :::column span="":::
+      Azja Wschodnia  
+      East US  
+      Wschodnie stany USA 2  
+      Wschodnie stany USA 2 — EUAP  
+      Francja Środkowa  
+      Japonia Wschodnia  
+      Japonia Zachodnia  
+      Korea Środkowa  
+      Korea Południowa  
+      Północno-środkowe stany USA  
+   :::column-end:::
+   :::column span="":::
+      Europa Północna  
+      Północna Republika Południowej Afryki  
+      South Central US  
+      Indie Południowe  
+      Southeast Asia  
+      Szwajcaria Północna  
+      Szwajcaria Zachodnia  
+      Południowe Zjednoczone Królestwo  
+      Zachodnie Zjednoczone Królestwo  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Teksas  
+      USGov Wirginia  
+      USNat wschód  
+      USNat zachodni  
+      USSec wschód  
+      USSec zachodni  
+      Zachodnio-środkowe stany USA  
+      West Europe  
+      Zachodnie stany USA  
+      Zachodnie stany USA 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Obsługiwane regiony: Log Analytics obszary robocze
 
 Obszar roboczy Log Analytics musi istnieć w następujących regionach:
-* Kanada Środkowa
-* Zachodnio-środkowe stany USA
-* East US
-* Wschodnie stany USA 2
-* Północno-środkowe stany USA
-* South Central US
-* Central US
-* Zachodnie stany USA
-* Zachodnie stany USA 2
-* Central US
-* Francja Środkowa
-* West Europe
-* Europa Północna
-* Brazil South
-* Zachodnie Zjednoczone Królestwo
-* Południowe Zjednoczone Królestwo
-* Australia Wschodnia
-* Australia Południowo-Wschodnia
-* Azja Wschodnia
-* Southeast Asia
-* Korea Środkowa
-* Indie Środkowe
-* Japan East
-* US Gov Wirginia
-* Chiny Wschodnie 2
+:::row:::
+   :::column span="":::
+      Australia Środkowa  
+      Australia Wschodnia  
+      Australia Południowo-Wschodnia  
+      Brazil South  
+      Kanada Środkowa  
+      Indie Środkowe  
+      Central US  
+      Chiny Wschodnie 2  
+      Azja Wschodnia  
+      East US  
+   :::column-end:::
+   :::column span="":::
+      Wschodnie stany USA 2  
+      Wschodnie stany USA 2 — EUAP  
+      Francja Środkowa  
+      Niemcy Środkowo-Zachodnie  
+      Japan East  
+      Korea Środkowa  
+      Północno-środkowe stany USA  
+      Europa Północna  
+      Północna Republika Południowej Afryki  
+      South Central US  
+   :::column-end:::
+   :::column span="":::
+      Southeast Asia  
+      Szwajcaria Północna  
+      Szwajcaria Zachodnia  
+      Środkowy Zjednoczone Emiraty Arabskie  
+      Południowe Zjednoczone Królestwo  
+      Zachodnie Zjednoczone Królestwo  
+      USGov Arizona  
+      USGov Wirginia  
+      USNat wschód  
+      USNat zachodni  
+   :::column-end:::
+   :::column span="":::
+      USSec wschód  
+      USSec zachodni  
+      Zachodnio-środkowe stany USA  
+      West Europe  
+      Zachodnie stany USA  
+      Zachodnie stany USA 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

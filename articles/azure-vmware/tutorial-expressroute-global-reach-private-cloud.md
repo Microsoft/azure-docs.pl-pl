@@ -3,12 +3,12 @@ title: Samouczek — prywatne środowiska lokalne do chmury prywatnej
 description: Dowiedz się, jak utworzyć ExpressRoute Global Reach komunikacji równorzędnej w chmurze prywatnej w rozwiązaniu VMware platformy Azure.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576731"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948310"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Samouczek: środowiska lokalne w chmurze do chmury prywatnej
 
@@ -16,7 +16,7 @@ ExpressRoute Global Reach nawiązuje połączenie środowiska lokalnego z chmur�
 
 Obwód usługi ExpressRoute, który jest używany podczas [konfigurowania sieci Azure-to-Private w chmurze](tutorial-configure-networking.md) , wymaga tworzenia i używania kluczy autoryzacji podczas komunikacji równorzędnej z bramami ExpressRoute lub z innymi obwodami ExpressRoute przy użyciu Global REACH. Jeden klucz autoryzacji został już użyty z obwodu usługi ExpressRoute, a w tym samouczku utworzysz drugi element do komunikacji równorzędnej z lokalnym obwodem usługi ExpressRoute.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie drugiego klucza autoryzacji _obwodu 2_— obwodu usługi ExpressRoute w chmurze prywatnej
@@ -83,7 +83,7 @@ Teraz, po utworzeniu klucza autoryzacji obwodu usługi ExpressRoute w chmurze pr
 Zostały uzupełnione [polecenia interfejsu CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) o szczegółowe informacje i przykłady pomocne w konfigurowaniu komunikacji równorzędnej ExpressRoute Global REACH między środowiskami lokalnymi a chmurą prywatną rozwiązania Azure VMware.  
 
 > [!TIP]  
-> W przypadku zwięzłości w danych wyjściowych poleceń interfejsu wiersza polecenia platformy Azure te instrukcje mogą używać [ `–query` argumentu, aby wykonać zapytanie JMESPath w celu wyświetlenia tylko wymaganych wyników](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> W przypadku zwięzłości w danych wyjściowych poleceń interfejsu wiersza polecenia platformy Azure te instrukcje mogą używać [ `–query` argumentu, aby wykonać zapytanie JMESPath w celu wyświetlenia tylko wymaganych wyników](/cli/azure/query-azure-cli).
 
 
 1. Zaloguj się do Azure Portal przy użyciu tej samej subskrypcji co lokalny obwód usługi ExpressRoute i Otwórz Cloud Shell. Pozostaw powłokę jako bash.

@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435613"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968654"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage jako udziału sieciowego z kontenera w App Service
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage jako udziału sieciowego z poziomu kontenera w usłudze App Service
 
 ::: zone pivot="container-windows"
 
@@ -65,7 +65,6 @@ W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do Ap
 
 - Usługa Azure Storage w App Service jest **w wersji zapoznawczej** dla App Service w systemie Linux i Web App for Containers. Nie jest to **obsługiwane** w **scenariuszach produkcyjnych**.
 - Usługa Azure Storage w App Service obsługuje instalowanie **kontenerów Azure Files** (odczyt/zapis) i **kontenery obiektów blob platformy Azure** (tylko do odczytu)
-- Usługa Azure Storage w App Service **nie obsługuje** korzystania z konfiguracji **zapory magazynu** z powodu ograniczeń infrastruktury.
 - Usługa Azure Storage w App Service umożliwia określenie **maksymalnie pięciu** punktów instalacji na aplikację.
 - Usługa Azure Storage zainstalowana w aplikacji nie jest dostępna za pomocą App Service punktów końcowych FTP/FTPs. Użyj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 

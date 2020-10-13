@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
-  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/02/2020
-  ms.locfileid: "91667456"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91856997"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -88,34 +88,6 @@ conceptualContent:
     footerLink:
       text: Więcej
       url: index-intent-recognition.yml
-  - title: Scenariusze konwersacji
-    links:
-    - itemType: overview
-      text: Informacje o transkrypcji konwersacji (spotkania)
-      url: conversation-transcription.md
-    - itemType: overview
-      text: Informacje o konwersacji między wieloma urządzeniami (spotkania)
-      url: multi-device-conversation.md
-    - itemType: how-to-guide
-      text: Przekształcanie nagrań w centrach telefonicznej obsługi klienta
-      url: call-center-transcription.md
-    footerLink:
-      text: Więcej
-      url: index-conversation-scenarios.yml
-  - title: Asystenci głosowi
-    links:
-    - itemType: overview
-      text: Informacje o asystentach głosowych
-      url: voice-assistants.md
-    - itemType: quickstart
-      text: Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
-      url: custom-commands.md
-    - itemType: get-started
-      text: Tworzenie asystenta głosowego przy użyciu platformy Bot Framework
-      url: direct-line-speech.md
-    footerLink:
-      text: Więcej
-      url: index-voice-assistants.yml
   - title: Rozpoznawanie osoby mówiącej
     links:
     - itemType: overview
@@ -135,6 +107,26 @@ conceptualContent:
     - itemType: quickstart
       text: Wprowadzenie do Niestandardowego słowa kluczowego
       url: custom-keyword-basics.md
+  - title: Szczegółowe omówienia scenariuszy
+    links:
+    - itemType: overview
+      text: Informacje o transkrypcji konwersacji (spotkania)
+      url: conversation-transcription.md
+    - itemType: overview
+      text: Informacje o konwersacji między wieloma urządzeniami (spotkania)
+      url: multi-device-conversation.md
+    - itemType: overview
+      text: Informacje o asystentach głosowych
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
+      url: custom-commands.md
+    - itemType: quickstart
+      text: Tworzenie asystenta głosowego przy użyciu platformy Bot Framework
+      url: direct-line-speech.md
+    - itemType: how-to-guide
+      text: Włączanie przekształcania nagrań w centrach telefonicznej obsługi klienta
+      url: call-center-transcription.md
   - title: narzędzia
     links:
     - itemType: overview

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6e15ef1b9bf488ac18e41dc09eb71e6ea3da39
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569804"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977242"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupy umieszczania bliskości platformy Azure w celu uzyskania optymalnego opóźnienia sieci przy użyciu aplikacji SAP
 Aplikacje SAP oparte na architekturze SAP NetWeaver lub SAP S/4HANA są wrażliwe na opóźnienie sieci między warstwą aplikacji SAP a warstwą bazy danych SAP. Ta czułość jest wynikiem większości logiki biznesowej działającej w warstwie aplikacji. Ze względu na to, że warstwa aplikacji SAP uruchamia logikę biznesową, wystawia zapytania do warstwy bazy danych z dużą częstotliwością, a liczba tysięcy lub dziesiątki tysięcy na sekundę. W większości przypadków charakter tych zapytań jest prosty. Często można je uruchamiać w warstwie bazy danych w 500 mikrosekundach lub mniej.
@@ -33,7 +33,7 @@ Aby zapewnić możliwość optymalizacji opóźnienia sieci, platforma Azure ofe
 
 - Nie można założyć, że wszystkie typy maszyn wirtualnych platformy Azure są dostępne w każdym i wszystkich centrach danych platformy Azure. W związku z tym kombinacja różnych typów maszyn wirtualnych w jednej grupie umieszczania sąsiedztwa może być ograniczona. Te ograniczenia występują, ponieważ sprzęt hosta, który jest wymagany do uruchomienia określonego typu maszyny wirtualnej, może nie być obecny w centrum danych, w którym wdrożono grupę umieszczania
 - Podczas zmiany rozmiaru części maszyn wirtualnych znajdujących się w jednej grupie umieszczania sąsiedztwa nie można automatycznie założyć, że we wszystkich przypadkach nowy typ maszyny wirtualnej jest dostępny w tym samym centrum danych co inne maszyny wirtualne, które są częścią grupy umieszczania sąsiedztwa
-- Ponieważ usługa Azure recommissioning sprzęt może wymusić pewne maszyny wirtualne grupy umieszczania sąsiedztwa w innym centrum danych platformy Azure. Aby zapoznać się ze szczegółami dotyczącymi tego przypadku, zapoznaj się z dokumentem [Lokalizowanie zasobów w celu zwiększenia opóźnienia](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- Ponieważ usługa Azure recommissioning sprzęt może wymusić pewne maszyny wirtualne grupy umieszczania sąsiedztwa w innym centrum danych platformy Azure. Aby zapoznać się ze szczegółami dotyczącymi tego przypadku, zapoznaj się z dokumentem [Lokalizowanie zasobów w celu zwiększenia opóźnienia](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > W wyniku potencjalnych ograniczeń należy użyć grup umieszczania sąsiedztwa:

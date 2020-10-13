@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dc23a0a68471b82c990d5d8a3086e2e71e88d0c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513931"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949432"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do wyświetlania zadań i zarządzania nimi (Aktualizacja Update 3 i nowsze)
 
@@ -59,11 +59,11 @@ Wykonaj poniższe kroki, aby wyświetlić szczegóły każdego zadania.
 
 2. W bloku **zadania** Wyświetl zadania, które Cię interesują, uruchamiając zapytanie z odpowiednimi filtrami. Można wyszukiwać ukończone, uruchomione lub anulowane zadania.
 
-    ![Blok zadania](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+    ![Blok zadania 2](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
 2. Wybierz i kliknij zadanie.
 
-    ![Blok zadania](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
+    ![Blok zadania 3](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
 
 3. W bloku szczegóły zadania można wyświetlić stan, szczegóły, statystyki czasu i statystyki danych.
    
@@ -81,7 +81,7 @@ Wykonaj następujące kroki, aby anulować uruchomione zadanie.
 
 2. Kliknij prawym przyciskiem myszy wybrane zadanie, aby wywołać menu kontekstowe, a następnie kliknij przycisk **Anuluj**.
 
-    ![Szczegóły zadania](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
+    ![Szczegóły zadania 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
 3. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. To zadanie zostało anulowane.
 

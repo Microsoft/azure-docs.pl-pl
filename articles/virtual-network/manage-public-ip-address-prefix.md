@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804014"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Tworzenie, zmienianie i usuwanie prefiksu publicznego adresu IP
 
 Dowiedz się więcej na temat prefiksu publicznego adresu IP oraz sposobu tworzenia, zmieniania i usuwania jednego z nich. Prefiks publicznego adresu IP to ciągły zakres adresów na podstawie liczby określonych publicznych adresów IP. Adresy są przypisywane do subskrypcji. Podczas tworzenia zasobu publicznego adresu IP można przypisać statyczny publiczny adres IP z prefiksu i skojarzyć go z maszynami wirtualnymi, modułami równoważenia obciążenia lub innymi zasobami, aby umożliwić łączność z Internetem. Jeśli nie znasz publicznych prefiksów adresów IP, zobacz temat [prefiks publicznego adresu IP — Omówienie](public-ip-address-prefix.md)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,7 +59,7 @@ Prefiksy publicznych adresów IP są naliczane. Aby uzyskać szczegółowe infor
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network Public-IP prefix Create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
-|PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+|Program PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Tworzenie statycznego publicznego adresu IP z prefiksu
 Po utworzeniu prefiksu należy utworzyć statyczne adresy IP z prefiksu. Aby to zrobić, wykonaj czynności opisane poniżej.
@@ -80,7 +80,7 @@ Alternatywnie możesz użyć poleceń interfejsu wiersza polecenia i PS poniżej
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|Program PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>Wyświetlanie lub usuwanie prefiksu
 
@@ -95,7 +95,7 @@ Alternatywnie możesz użyć poleceń interfejsu wiersza polecenia i PS poniżej
 |Narzędzie|Polecenie|
 |---|---|
 |Interfejs wiersza polecenia|[AZ Network Public-IP prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) , aby wyświetlić listę publicznych adresów IP, [AZ Network Public-IP prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) , aby wyświetlić ustawienia. [AZ Network Public-IP prefix Update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) w celu aktualizacji; [AZ Network Public-IP prefix Delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) do usunięcia|
-|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) , aby pobrać obiekt publicznego adresu IP i wyświetlić jego ustawienia, [Ustaw polecenie Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) , aby zaktualizować ustawienia. [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) do usunięcia|
+|Program PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) , aby pobrać obiekt publicznego adresu IP i wyświetlić jego ustawienia, [Ustaw polecenie Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) , aby zaktualizować ustawienia. [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) do usunięcia|
 
 ## <a name="permissions"></a>Uprawnienia
 

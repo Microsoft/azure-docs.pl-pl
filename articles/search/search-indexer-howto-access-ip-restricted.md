@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: c80462707d3dccbb8fccff244017053c25ad46e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f485569caef285601d1dce7acd116f13675da83a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463782"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950197"
 ---
 # <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>Konfigurowanie reguł zapory adresów IP w celu włączenia dostępu indeksatora
 
@@ -89,6 +89,6 @@ Reguły zapory pobierają od 5-10 minut do zaktualizowania, gdy indeksatory będ
 
 Teraz, gdy wiesz, jak uzyskać dwa zestawy adresów IP, aby zezwolić na dostęp do indeksów, użyj następujących linków, aby zaktualizować reguły zapory IP dla niektórych typowych źródeł danych.
 
-- [Konfigurowanie zapór usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
-- [Konfigurowanie zapory IP dla CosmosDB](https://docs.microsoft.com/azure/cosmos-db/firewall-support)
-- [Konfigurowanie zapory IP dla programu Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+- [Konfigurowanie zapór usługi Azure Storage](../storage/common/storage-network-security.md)
+- [Konfigurowanie zapory IP dla CosmosDB](../cosmos-db/firewall-support.md)
+- [Konfigurowanie zapory IP dla programu Azure SQL Server](../azure-sql/database/firewall-configure.md)

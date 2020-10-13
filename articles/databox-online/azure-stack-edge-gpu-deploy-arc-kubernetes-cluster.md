@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903199"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952220"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Włącz usługę Azure Arc w klastrze Kubernetes na urządzeniu z systemem Azure Stack Edge
 
@@ -68,11 +68,11 @@ Przed włączeniem usługi Azure Arc w klastrze Kubernetes należy włączyć i 
 
 1. Wybierz dostawcę zasobów i w górnej części paska poleceń wybierz pozycję **zarejestruj**. Rejestracja trwa kilka minut. 
 
-    ![Zarejestruj dostawców zasobów Kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Zarejestruj dostawców zasobów Kubernetes 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
 
 1. Odśwież interfejs użytkownika, dopóki nie zobaczysz, że dostawca zasobów został zarejestrowany. Powtórz ten proces dla obu dostawców zasobów.
     
-    ![Zarejestruj dostawców zasobów Kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Zarejestruj dostawców zasobów Kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
 Dostawców zasobów można rejestrować również za pośrednictwem `az cli` . Aby uzyskać więcej informacji, zobacz [Rejestrowanie dwóch dostawców dla usługi Azure ARC z włączonym Kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
 
@@ -92,7 +92,7 @@ Dostawców zasobów można rejestrować również za pośrednictwem `az cli` . A
 
     Aby uzyskać informacje dotyczące sposobu logowania się do programu `az cli` , [Uruchom Cloud Shell w Azure Portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
-    Oto przykład. 
+    Oto przykład: 
     
     ```azurecli
     PS /home/user> az ad sp create-for-rbac --skip-assignment --name "https://azure-arc-for-ase-k8s"
@@ -112,7 +112,7 @@ Dostawców zasobów można rejestrować również za pośrednictwem `az cli` . A
 
     `az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee <appId-from-service-principal> --scope /subscriptions/<SubscriptionID>/resourceGroups/<Resource-group-name>`
 
-    Oto przykład.
+    Oto przykład:
     
     ```azurecli
     PS /home/user> az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b --scope /subscriptions/062c67a6-019b-40af-a775-c4dc1abe56ed/resourceGroups/myaserg1

@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65542ca88d055af2c537907d7ae801250943ed0b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631387"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930377"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Szybki Start: monitorowanie pierwszej metryki przy użyciu portalu sieci Web
 
@@ -41,7 +41,7 @@ Ten dokument używa SQL Database jako przykładu do tworzenia pierwszego monitor
 
 ## <a name="sign-in-to-your-workspace"></a>Zaloguj się do swojego obszaru roboczego
 
-Po wdrożeniu zasobu Zaloguj się do [portalu klasyfikatora metryk](https://go.microsoft.com/fwlink/?linkid=2143774). Wybierz swój obszar roboczy, aby rozpocząć monitorowanie metryk. 
+Po utworzeniu zasobu Zaloguj się do [portalu klasyfikatora metryk](https://go.microsoft.com/fwlink/?linkid=2143774). Wybierz swój obszar roboczy, aby rozpocząć monitorowanie metryk. 
  
 Obecnie można utworzyć jeden zasób usługi Advisor metryk w każdym z dostępnych regionów. W dowolnym momencie możesz przełączyć obszary robocze w portalu usługi Advisor metryk.
 

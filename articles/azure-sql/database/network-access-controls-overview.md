@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435375"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951999"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Zapoznaj się z poniższym wideo, aby zapoznać się z ogólnymi objaśnieniami 
 
 ## <a name="allow-azure-services"></a>Zezwalaj na usługi platformy Azure
 
-Podczas tworzenia nowego serwera logicznego SQL [z Azure Portal](single-database-create-quickstart.md), to ustawienie jest pozostawione niezaznaczone.
+Domyślnie podczas tworzenia nowego serwera logicznego SQL [z Azure Portal](single-database-create-quickstart.md)to ustawienie jest **wyłączone**. To ustawienie pojawia się, gdy łączność jest dozwolona przy użyciu punktu końcowego usługi publicznej.
 
 Możesz również zmienić to ustawienie za pośrednictwem okienka Zapora po utworzeniu logicznego programu SQL Server w następujący sposób.
   
@@ -80,9 +80,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Funkcja Get-AzNetworkServiceTag zwraca globalny zakres dla tagu usługi SQL pomimo określenia parametru Location. Pamiętaj, aby przefiltrować go do regionu, który hostuje bazę danych centrum używaną przez daną grupę synchronizacji
+> Get-AzNetworkServiceTag zwraca globalny zakres dla tagu usługi SQL pomimo określenia parametru lokalizacji. Pamiętaj, aby przefiltrować go do regionu, który hostuje bazę danych centrum używaną przez daną grupę synchronizacji
 
-Należy pamiętać, że dane wyjściowe skryptu programu PowerShell są w notacji CIDR (Classless Inter-Domain Routing). Należy ją przekonwertować na format początkowy i końcowy adresu IP, używając [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) jak to:
+Zwróć uwagę, że dane wyjściowe skryptu programu PowerShell są w notacji CIDR (Classless Inter-Domain Routing). Należy ją przekonwertować na format początkowy i końcowy adresu IP, używając [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) jak to:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26

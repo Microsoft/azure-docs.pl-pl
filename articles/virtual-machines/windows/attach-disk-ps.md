@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825450"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972819"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Dołączanie dysku danych do maszyny wirtualnej z systemem Windows przy użyciu programu PowerShell
 
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dyski zarządzane można także wdrażać przy użyciu szablonów. Aby uzyskać więcej informacji, zobacz [używanie Managed disks w szablonach Azure Resource Manager](using-managed-disks-template-deployments.md) lub [szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) do wdrażania wielu dysków z danymi.
+Dyski zarządzane można także wdrażać przy użyciu szablonów. Aby uzyskać więcej informacji, zobacz [używanie Managed disks w szablonach Azure Resource Manager](../using-managed-disks-template-deployments.md) lub [szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) do wdrażania wielu dysków z danymi.

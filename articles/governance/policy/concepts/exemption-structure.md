@@ -3,16 +3,16 @@ title: Szczegóły struktury wykluczenia zasad
 description: Opisuje definicję wykluczenia zasad używane przez Azure Policy do wykluczenia zasobów z oceny inicjatyw lub definicji.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968051"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950180"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy struktura wykluczenia
 
-Funkcja wykluczania Azure Policy (wersja zapoznawcza) służy do _wykluczania_ hierarchii zasobów lub pojedynczego zasobu z oceny inicjatyw lub definicji. Zasoby, które są _wykluczone_ względem ogólnej zgodności, ale nie mogą być oceniane ani mieć tymczasowego zwolnienia. Aby uzyskać więcej informacji, zobacz [Opis zakresu w Azure Policy](./scope.md). Azure Policy wykluczenia działają tylko z [trybami Menedżer zasobów](./definition-structure.md#resource-manager-modes) i nie działają z **trybami dostawcy zasobów**.
+Funkcja wykluczania Azure Policy (wersja zapoznawcza) służy do _wykluczania_ hierarchii zasobów lub pojedynczego zasobu z oceny inicjatyw lub definicji. Zasoby, które są _wykluczone_ względem ogólnej zgodności, ale nie mogą być oceniane ani mieć tymczasowego zwolnienia. Aby uzyskać więcej informacji, zobacz [Opis zakresu w Azure Policy](./scope.md). Azure Policy wykluczenia działają tylko z [trybami Menedżer zasobów](./definition-structure.md#resource-manager-modes) i nie działają z [trybami dostawcy zasobów](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Ta funkcja jest bezpłatna w **wersji zapoznawczej**. Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/). Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.

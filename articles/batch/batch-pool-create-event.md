@@ -4,10 +4,10 @@ description: Odwołanie do zdarzenia tworzenia puli usługi Batch, które jest e
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: dea0e04fa506274e645ba7a578039a0d6f021043
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850952"
 ---
 # <a name="pool-create-event"></a>Zdarzenie utworzenia puli
@@ -49,7 +49,7 @@ ms.locfileid: "91850952"
 }
 ```
 
-|Element|Typ|Uwagi|
+|Element|Type|Uwagi|
 |-------------|----------|-----------|
 |`id`|Ciąg|Identyfikator puli.|
 |`displayName`|Ciąg|Nazwa wyświetlana puli.|
@@ -69,14 +69,14 @@ ms.locfileid: "91850952"
 
 ###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nazwa elementu|Typ|Uwagi|
+|Nazwa elementu|Type|Uwagi|
 |------------------|----------|-----------|
 |`osFamily`|Ciąg|Rodzina systemów operacyjnych gościa platformy Azure do zainstalowania na maszynach wirtualnych w puli.<br /><br /> Możliwe wartości:<br /><br /> **2** — Rodzina systemów operacyjnych 2, równoważna z systemem Windows Server 2008 R2 z dodatkiem SP1.<br /><br /> **3** — Rodzina systemów operacyjnych 3, równoważna z systemem Windows Server 2012.<br /><br /> **4** — Rodzina systemów operacyjnych 4, równoważna z systemem Windows Server 2012 R2.<br /><br /> Aby uzyskać więcej informacji, zobacz [wersje systemu operacyjnego gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases).|
 |`targetOSVersion`|Ciąg|Wersja systemu operacyjnego gościa platformy Azure do zainstalowania na maszynach wirtualnych w puli.<br /><br /> Wartość domyślna to **\*** określa najnowszą wersję systemu operacyjnego dla określonej rodziny.<br /><br /> Aby uzyskać inne dozwolone wartości, zobacz [wersje systemu operacyjnego gościa platformy Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases).|
 
 ###  <a name="virtualmachineconfiguration"></a><a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nazwa elementu|Typ|Uwagi|
+|Nazwa elementu|Type|Uwagi|
 |------------------|----------|-----------|
 |[`imageReference`](#bk_imgref)|Typ złożony|Określa informacje o platformie lub obrazie witryny Marketplace do użycia.|
 |`nodeAgentId`|Ciąg|Jednostka SKU agenta węzła partii obsługiwana w węźle obliczeniowym.|
@@ -84,7 +84,7 @@ ms.locfileid: "91850952"
 
 ###  <a name="imagereference"></a><a name="bk_imgref"></a> Elementu imagereference
 
-|Nazwa elementu|Typ|Uwagi|
+|Nazwa elementu|Type|Uwagi|
 |------------------|----------|-----------|
 |`publisher`|Ciąg|Wydawca obrazu.|
 |`offer`|Ciąg|Oferta obrazu.|
@@ -93,12 +93,12 @@ ms.locfileid: "91850952"
 
 ###  <a name="windowsconfiguration"></a><a name="bk_winconf"></a> windowsConfiguration
 
-|Nazwa elementu|Typ|Uwagi|
+|Nazwa elementu|Type|Uwagi|
 |------------------|----------|-----------|
-|`enableAutomaticUpdates`|Boolean|Wskazuje, czy dla maszyny wirtualnej włączono automatyczne aktualizacje. Jeśli ta właściwość nie jest określona, wartość domyślna to true.|
+|`enableAutomaticUpdates`|Boolean (wartość logiczna)|Wskazuje, czy dla maszyny wirtualnej włączono automatyczne aktualizacje. Jeśli ta właściwość nie jest określona, wartość domyślna to true.|
 
 ###  <a name="networkconfiguration"></a><a name="bk_netconf"></a> networkConfiguration
 
-|Nazwa elementu|Typ|Uwagi|
+|Nazwa elementu|Type|Uwagi|
 |------------------|--------------|----------|
 |`subnetId`|Ciąg|Określa identyfikator zasobu podsieci, w którym są tworzone węzły obliczeniowe puli.|

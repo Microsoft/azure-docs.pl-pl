@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 917af7ea1789394ddba5d349d631018e2b620216
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33563d12ac31679eb3b658e7625d95581988536d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295689"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977480"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 0,6 w macierzy wirtualnej StorSimple
 
@@ -97,26 +97,26 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. W przypadku korzystania z programu **10.0.10290.0**nie trzeba aktualizować agenta usług MDS w kroku 6.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![Aktualizacja urządzenia 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. W polu **ścieżka pliku aktualizacji**wprowadź nazwę pliku aktualizacji lub poprawki. Możesz również przejść do pliku instalacyjnego aktualizacji lub poprawek, jeśli znajduje się on w udziale sieciowym. Kliknij pozycję **Zastosuj**.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![Aktualizacja urządzenia 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Wyświetlane jest ostrzeżenie. Po zastosowaniu aktualizacji Macierz wirtualna jest urządzeniem z jednym węzłem, a następnie następuje ponowne uruchomienie urządzenia i wystąpiła przestoje. Kliknij ikonę zaznaczania.
    
-   ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![Aktualizacja urządzenia 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. Rozpocznie się aktualizacja. Po pomyślnym zaktualizowaniu urządzenia zostanie ono ponownie uruchomione. Lokalny interfejs użytkownika nie jest dostępny w tym czasie trwania.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![Aktualizacja urządzenia 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10293** dla aktualizacji 0,6.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10293** oraz Azure Portal raporty **10.0.10293.0** dla tej samej wersji.
    
-    ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![Aktualizacja urządzenia 5](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
 6. Pomiń ten krok, jeśli przed zainstalowaniem tej aktualizacji StorSimple wirtualną macierzą 0,5 (**10.0.10290.0**). Zawarto zanotować wersję oprogramowania w kroku 1 przed rozpoczęciem aktualizacji. W przypadku korzystania z aktualizacji 0,5 agent usług MDS jest już aktualny.
 
