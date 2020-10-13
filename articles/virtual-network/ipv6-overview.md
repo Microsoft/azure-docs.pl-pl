@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666827"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Co to jest protokół IPv6 dla usługi Azure Virtual Network?
@@ -50,7 +50,7 @@ Protokół IPv6 dla sieci wirtualnej platformy Azure obejmuje następujące moż
     > Podsieci dla protokołu IPv6 muszą mieć wartość dokładnie/64.  Zapewnia to w przyszłości zgodność w celu włączenia routingu podsieci do sieci lokalnej, ponieważ niektóre routery mogą akceptować tylko trasy IPv6/64.  
 - Ochrona zasobów przy użyciu reguł IPv6 dla sieciowych grup zabezpieczeń.
     - I ochrona rozproszonego odmowy usługi platformy Azure (DDoS) jest rozszerzona na publiczny adres IP dostępny dla Internetu
-- Dostosuj Routing ruchu IPv6 w sieci wirtualnej przy użyciu tras zdefiniowanych przez użytkownika — szczególnie w przypadku korzystania z wirtualnych urządzeń sieciowych w celu rozszerzenia aplikacji.
+- Dostosuj Routing ruchu IPv6 w sieci wirtualnej za pomocą tras User-Defined — szczególnie w przypadku korzystania z wirtualnych urządzeń sieciowych w celu rozszerzenia aplikacji.
 - System Linux i Windows Virtual Machines mogą korzystać z protokołu IPv6 dla sieci wirtualnej platformy Azure
 - [Standardowa obsługa Load Balancer publicznego IPv6](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) do tworzenia odpornych, skalowalnych aplikacji, takich jak:
     - Opcjonalna sonda kondycji IPv6 w celu określenia, które wystąpienia puli zaplecza są kondycją i w ten sposób mogą odbierać Nowe przepływy.

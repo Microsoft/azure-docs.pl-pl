@@ -10,10 +10,10 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 11199e5a283459d7d97f649322f9d41fc7b3e11d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650798"
 ---
 # <a name="supported-data-types"></a>Obsługiwane typy danych
@@ -26,7 +26,7 @@ Poniższa tabela zawiera listę typów danych obsługiwanych przez Azure Time Se
 | **datetime** | Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wyrażony w formacie [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . Właściwości DateTime są zawsze przechowywane w formacie UTC. Przesunięcia strefy czasowej (w przypadku prawidłowego formatowania) zostaną zastosowane, a następnie wartości przechowywane w formacie UTC. Zapoznaj się z [tą](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) sekcją, aby uzyskać więcej informacji na temat właściwości sygnatury czasowej środowiska i przesunięcia DateTime | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Jeśli "eventProcessedLocalTime" jest sygnaturą czasową źródła zdarzeń: `$event.$ts` . Jeśli jest to inna Właściwość JSON: `$event.eventProcessedLocalTime.DateTime` lub `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **liczba o podwójnej precyzji** | Numer 64-bitowy o podwójnej precyzji  | `"value": 31.0482941` | `$event.value.Double` lub `$event['value'].Double` |  `value_double`
 | **liczba długa** | 64-bitowa liczba całkowita ze znakiem  | `"value" : 31` | `$event.value.Long` lub `$event['value'].Long` |  `value_long`
-| **ciąg** | Wartości tekstowe muszą zawierać prawidłowy format UTF-8. Ciągi o wartości null i puste są traktowane jako takie same. |  `"site": "DIM_MLGGG"`| `$event.site.String` lub `$event['site'].String`| `site_string`
+| **parametry** | Wartości tekstowe muszą zawierać prawidłowy format UTF-8. Ciągi o wartości null i puste są traktowane jako takie same. |  `"site": "DIM_MLGGG"`| `$event.site.String` lub `$event['site'].String`| `site_string`
 | **dynamiczna** | Złożony (niepierwotny) typ składający się z tablicy lub zbioru właściwości (Dictionary). Obecnie tylko skonwertowanej tablice JSON elementów podstawowych lub tablic obiektów niezawierających identyfikatora TS lub właściwości sygnatur czasowych będą przechowywane jako dynamiczne. Przeczytaj ten [artykuł](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak obiekty będą spłaszczane, a tablice mogą być nierzutowane. Właściwości ładunku przechowywane jako ten typ są dostępne tylko po wybraniu `Explore Events` w eksploratorze Time Series Insights, aby wyświetlić zdarzenia pierwotne lub za pomocą [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   interfejsu API zapytania dla analizy po stronie klienta. |  `"values": "[197, 194, 189, 188]"` | Odwoływanie się do typów dynamicznych w wyrażeniu szeregów czasowych nie jest jeszcze obsługiwane. | `values_dynamic`
 
 > [!NOTE]

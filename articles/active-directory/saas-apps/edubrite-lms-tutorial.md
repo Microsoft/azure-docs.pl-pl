@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: d753aef3c7cd855b1ab137e85a233a1bca27c25a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>Samouczek: integracja Azure Active Directory z systemem LMS EduBrite
@@ -75,7 +75,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD przy użyciu systemu LMS EduBrite, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. Skonfiguruj Logowanie jednokrotne w **[systemie LMS EduBrite](#configure-edubrite-lms-single-sign-on)** , aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj Logowanie jednokrotne w systemie LMS EduBrite](#configure-edubrite-lms-single-sign-on)** , aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego systemu LMS EduBrite](#create-edubrite-lms-test-user)** , aby uzyskać odpowiednik Britta Simon w systemie LMS EduBrite, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -130,7 +130,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD przy użyciu system
 
     c. Adres URL wylogowywania
 
-### <a name="configure-edubrite-lms-single-sign-on"></a>Konfigurowanie logowania jednokrotnego EduBrite systemu LMS
+### <a name="configure-edubrite-lms-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On systemu LMS EduBrite
 
 Aby skonfigurować Logowanie jednokrotne na stronie systemu **LMS systemu EduBrite** , należy wysłać pobranego **certyfikatu (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej systemu LMS EduBrite](mailto:support@edubrite.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 

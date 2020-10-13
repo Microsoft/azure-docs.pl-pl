@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74c8924116cf9b565ea63e3b72a409686a4d725c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653452"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975724"
 ---
 # <a name="updated-ndv2-series"></a>Zaktualizowana seria NDv2
 
@@ -27,7 +27,7 @@ Krytycznie, NDv2 jest zbudowany na potrzeby skalowania w górę i skalowalnego w
 > [!IMPORTANT]
 > Podczas [włączania funkcji InfiniBand](./workloads/hpc/enable-infiniband.md) na maszynie wirtualnej ND40rs_v2 należy użyć sterownika 1.0.0.1 Mellanox OFED.
 >
-> Ze względu na zwiększoną ilość pamięci GPU Nowa maszyna wirtualna ND40rs_v2 wymaga użycia [maszyn wirtualnych 2. generacji](./windows/generation-2.md) i obrazów w portalu Marketplace. 
+> Ze względu na zwiększoną ilość pamięci GPU Nowa maszyna wirtualna ND40rs_v2 wymaga użycia [maszyn wirtualnych 2. generacji](./generation-2.md) i obrazów w portalu Marketplace. 
 >
 > Uwaga: ND40s_v2 z 16 GB pamięci na procesor GPU nie jest już dostępny do wersji zapoznawczej i został zastąpiony przez zaktualizowane ND40rs_v2.
 

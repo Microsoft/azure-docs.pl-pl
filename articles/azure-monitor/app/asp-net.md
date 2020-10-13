@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
 ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91838946"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Konfigurowanie Application Insights witryny sieci Web ASP.NET

@@ -1,5 +1,5 @@
 ---
-title: Samouczek dotyczący nawiązywania połączenia z usługą, konfigurowania i aktywowania urządzenia Azure Stack EDGE Pro z procesorem GPU w Azure Portal | Microsoft Docs
+title: Samouczek dotyczący nawiązywania połączenia, konfigurowania i aktywowania urządzenia Azure Stack EDGE Pro z procesorem GPU w Azure Portal | Microsoft Docs
 description: Samouczek umożliwiający wdrożenie procesora GPU w programie Azure Stack Edge powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia fizycznego.
 services: databox
 author: alkohli
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1f86b0fc847ade3153c8eaddb0d82bd968913b46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899678"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976083"
 ---
-# <a name="tutorial-configure-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie ustawień urządzenia dla usługi Azure Stack EDGE Pro z procesorem GPU
+# <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Samouczek: Konfigurowanie ustawień urządzenia dla Azure Stack brzeg Pro z procesorem GPU
 
 W tym samouczku opisano sposób konfigurowania ustawień związanych z urządzeniami dla urządzeń Azure Stack EDGE Pro przy użyciu procesora GPU. Można skonfigurować nazwę urządzenia, serwer aktualizacji i serwer czasu za pomocą lokalnego interfejsu użytkownika sieci Web.
 
@@ -67,7 +67,7 @@ Wykonaj następujące kroki, aby skonfigurować ustawienia dotyczące urządzeń
 
     5. Po zastosowaniu ustawień wybierz pozycję **Dalej: serwer aktualizacji**.
 
-        ![Strona lokalnego interfejsu użytkownika sieci Web "urządzenie"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
+        ![Lokalny interfejs użytkownika sieci Web — Strona 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## <a name="configure-update"></a>Konfigurowanie aktualizacji
 
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby skonfigurować ustawienia dotyczące urządzeń
 
         Możesz również wybrać opcję wdrożenia aktualizacji z programu **Windows Server Update Services** (WSUS). Podaj ścieżkę do serwera programu WSUS.
         
-        ![Strona lokalnego interfejsu użytkownika sieci Web "serwer aktualizacji"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Lokalny interfejs użytkownika sieci Web "serwer aktualizacji" — Strona 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
         > Jeśli jest skonfigurowany oddzielny serwer Windows Update i w przypadku wybrania opcji nawiązywania połączenia za pośrednictwem *protokołu HTTPS* (zamiast *protokołu HTTP*) wymagane jest Podpisywanie certyfikatów łańcucha wymaganych do nawiązania połączenia z serwerem aktualizacji. Aby uzyskać informacje na temat tworzenia i przekazywania certyfikatów, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md). 
