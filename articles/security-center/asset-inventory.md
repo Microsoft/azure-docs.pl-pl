@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302047"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950741"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania
 
@@ -33,7 +33,7 @@ Ten widok i jego filtry służą do rozwiązywania takich pytań jako:
 Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosną. 
 
 > [!TIP]
-> Zalecenia dotyczące zabezpieczeń są takie same jak te na stronie **zalecenia** , ale w tym miejscu są one filtrowane według wybranego typu zasobu. Aby uzyskać więcej informacji o sposobach rozwiązywania zaleceń, zobacz [implementowanie zaleceń dotyczących zabezpieczeń w Azure Security Center](security-center-recommendations.md).
+> Zalecenia dotyczące zabezpieczeń na stronie spisu zasobów są takie same jak te na stronie **zalecenia** , ale w tym miejscu są wyświetlane zgodnie z zaatakowanym zasobem. Aby uzyskać informacje o sposobach rozwiązywania zaleceń, zobacz [implementowanie zaleceń dotyczących zabezpieczeń w Azure Security Center](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Dostępność
@@ -94,7 +94,7 @@ Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-ex
 
 1. Wybierz odpowiednie opcje w filtrach, aby utworzyć konkretne zapytanie, które chcesz wykonać.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opcje filtrowania spisu" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Domyślnie zasoby są sortowane według liczby aktywnych zaleceń dotyczących zabezpieczeń.
 
@@ -114,12 +114,12 @@ Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-ex
 
     - **Poza** zasobami, które nie są chronione przez plan usługi Azure Defender. Możesz kliknąć dowolny z tych elementów i uaktualnić je:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Uaktualnianie zasobu do usługi Azure Defender po kliknięciu prawym przyciskiem myszy" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **On** Zasoby, które są chronione przez plan usługi Azure Defender
     - **Częściowo** — dotyczy **subskrypcji** , w przypadku których niektóre plany usługi Azure Defender nie zostały wyłączone. Na przykład następująca subskrypcja ma wyłączone pięć planów usługi Azure Defender. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subskrypcja częściowo w usłudze Azure Defender":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
 
 1. Aby dodatkowo zbadać wyniki zapytania, wybierz interesujące Cię zasoby.
 
@@ -140,7 +140,7 @@ Widok spisu zawiera listę Security Center połączonych zasobów z perspektywy 
 
 Na przykład poniższy zrzut ekranu przedstawia użytkownika z dostępem do subskrypcji 38, ale tylko 10 ma obecnie zalecenia. Dlatego w przypadku filtrowania według **typu zasobu = subskrypcje**w spisie są wyświetlane tylko 10 subskrypcji z aktywnymi zaleceniami:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Nie wszystkie są zwracane, gdy nie ma aktywnych rekomendacji":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Dlaczego niektóre zasoby pokazują puste wartości w kolumnach monitorowania usługi Azure Defender lub agenta?
 
@@ -148,7 +148,7 @@ Nie wszystkie Security Center monitorowane zasoby mają agentów. Na przykład k
 
 Gdy ceny lub monitorowanie agentów nie są odpowiednie dla zasobu, w tych kolumnach spisu nie będą wyświetlane żadne dane.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="W niektórych zasobach są wyświetlane puste informacje w kolumnach monitorowanie agenta lub Azure Defender":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtrowanie do zasobów produkcyjnych, które nie są monitorowane":::
 
 ## <a name="next-steps"></a>Następne kroki
 

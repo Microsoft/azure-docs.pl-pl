@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203864"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950401"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego w Azure Active Directory B2C zasad niestandardowych
 
@@ -32,7 +32,7 @@ Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę rejestrowania i wer
 
 ## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla współczynnika telefonu:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C dla współczynnika telefonu: `Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 Poniższy przykład przedstawia profil techniczny procesu rejestracji i weryfikacji:
 
@@ -78,7 +78,7 @@ Element OutputClaims zawiera listę oświadczeń zwracanych przez profil technic
 
 |  Typ danych| Wymagane | Opis |
 |  -------- | ----------- |----------- |
-| wartość logiczna | Tak | Wskazuje, czy nowy numer telefonu został wprowadzony przez użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na`newPhoneNumberEntered`|
+| boolean | Tak | Wskazuje, czy nowy numer telefonu został wprowadzony przez użytkownika. Nazwa lub PartnerClaimType musi być ustawiona na `newPhoneNumberEntered`|
 | ciąg| Tak | Zweryfikowany numer telefonu. Nazwa lub PartnerClaimType musi być ustawiona na `Verified.OfficePhone` .|
 
 Element OutputClaimsTransformations może zawierać kolekcję elementów OutputClaimsTransformation, które są używane do modyfikowania oświadczeń wyjściowych, lub generować nowe.
@@ -99,7 +99,7 @@ Element **CryptographicKeys** nie jest używany.
 
 ### <a name="ui-elements"></a>Elementy interfejsu użytkownika
 
-Elementy interfejsu użytkownika na stronie uwierzytelnianie w ramach wskaźnika telefonu mogą być [lokalizowane](localization-string-ids.md#azure-mfa-error-messages).
+Elementy interfejsu użytkownika na stronie uwierzytelnianie w ramach wskaźnika telefonu mogą być [lokalizowane](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## <a name="next-steps"></a>Następne kroki
 

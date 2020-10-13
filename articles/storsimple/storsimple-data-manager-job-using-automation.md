@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743611"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Wyzwalanie zadania za pomocą usługi Azure Automation
@@ -50,7 +50,7 @@ Przed rozpoczęciem upewnij się, że masz:
    3. Utwórz nową grupę zasobów lub wybierz ją z istniejącej grupy zasobów.
    4. Wybierz **lokalizację**.
    5. Pozostaw wybraną opcję Domyślne **Utwórz konto Uruchom jako** .
-   6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij pozycję **Utwórz**.
+   6. Aby uzyskać link do szybkiego dostępu do pulpitu nawigacyjnego, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**. Kliknij przycisk **Utwórz**.
 
       ![Tworzenie konta Uruchom jako usługi Automation 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
@@ -86,7 +86,7 @@ Wykonaj następujące kroki, aby zaimportować, opublikować i uruchomić elemen
 
 2. W obszarze **Dodawanie elementu Runbook**kliknij pozycję **Importuj istniejący element Runbook**.
 
-3. Wskaż plik skryptu Azure PowerShell `Trigger-DataTransformation-Job.ps1` dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij pozycję **Utwórz**.
+3. Wskaż plik skryptu Azure PowerShell `Trigger-DataTransformation-Job.ps1` dla **pliku elementu Runbook**. Typ elementu Runbook jest wybierany automatycznie. Podaj nazwę i opcjonalny opis elementu Runbook. Kliknij przycisk **Utwórz**.
 
     ![Dodaj element Runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 

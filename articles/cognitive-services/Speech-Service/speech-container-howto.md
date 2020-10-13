@@ -12,12 +12,12 @@ ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalna, Docker, kontener
-ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813274"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930445"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsów API usługi mowy 
 
@@ -176,7 +176,7 @@ Wszystkie Tagi, z wyjątkiem programu, `latest` są w następującym formacie i 
 Następujący tag jest przykładem formatu:
 
 ```
-2.4.0-amd64-en-us-preview
+2.5.0-amd64-en-us-preview
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych kontenera **zamiany mowy na tekst** należy zapoznać się [ze znacznikami obrazu zamiany mowy na tekst](../containers/container-image-tags.md#speech-to-text).

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2af4f2e2148c96a6059836f861cf56d4a4ac005b
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 61c8468400898655b6501b7a8fada607b77b1466
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931499"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -29,7 +29,7 @@ Interfejsy API płaszczyzny kontroli są interfejsami API [ARM](https://docs.mic
 Najbardziej aktualna wersja interfejsu API płaszczyzny kontroli dla publicznej wersji zapoznawczej to _**2020-03-01 — wersja zapoznawcza**_.
 
 Aby używać interfejsów API płaszczyzny kontroli:
-* Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszego [folderu Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie.
+* Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszej struktury Swagger w [folderze płaszczyzny kontroli Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie.
 * Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w...
   - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([Źródło](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([odwołanie [generowane automatycznie]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([Źródło](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([odwołanie [generowane automatycznie]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview&preserve-view=true))
@@ -51,7 +51,7 @@ Najbardziej aktualna wersja interfejsu API płaszczyzny danych dla publicznej we
 
 Aby używać interfejsów API płaszczyzny danych:
 * Interfejsy API można wywoływać bezpośrednio, przez...
-   - Odwoływanie się do najnowszego [folderu Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie. 
+   - Odwoływanie się do najnowszej struktury Swagger w [folderze Swagger płaszczyzny danych](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie. 
    - Wyświetlanie [dokumentacji dotyczącej interfejsu API](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
 * Możesz użyć zestawu SDK **platformy .NET (C#)** . Aby użyć zestawu SDK platformy .NET...
    - Możesz wyświetlić i dodać pakiet z programu NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 

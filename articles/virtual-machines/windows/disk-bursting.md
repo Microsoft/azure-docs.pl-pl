@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 547834542b605b226ebffd68e05296ee847dc6de
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90889107"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974332"
 ---
 # <a name="disk-bursting"></a>Rozszerzanie możliwości dysków
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -29,7 +29,7 @@ W regionie zachodnie stany USA dostępne są również maszyny wirtualne o nast�
 W przypadku maszyn wirtualnych, które go obsługują, funkcja przenoszenia jest domyślnie włączona.
 
 ## <a name="disk-level-bursting"></a>Rozerwanie na poziomie dysku
-Rozbicie jest również dostępne w [dysków SSD Premium](disks-types.md#premium-ssd) dla rozmiaru dysku P20 i mniejszej we wszystkich regionach. Funkcja przenoszenia dysków jest domyślnie włączona w nowych wdrożeniach obsługiwanych rozmiarów dysków. Istniejące rozmiary dysków, jeśli obsługują rozbicie dysku, mogą umożliwić Przechodzenie przez jedną z następujących metod: 
+Rozbicie jest również dostępne w [dysków SSD Premium](../disks-types.md#premium-ssd) dla rozmiaru dysku P20 i mniejszej we wszystkich regionach. Funkcja przenoszenia dysków jest domyślnie włączona w nowych wdrożeniach obsługiwanych rozmiarów dysków. Istniejące rozmiary dysków, jeśli obsługują rozbicie dysku, mogą umożliwić Przechodzenie przez jedną z następujących metod: 
 - **Uruchom ponownie maszynę wirtualną** 
 - **Odłączanie i ponowne dołączanie dysku**
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
 ms.openlocfilehash: d96a73c3ba996fecf24a4232e1391f0b814be868
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851258"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Omówienie pliku LocalConfiguration.json — agent oparty na języku C
@@ -38,7 +38,7 @@ Zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 | Identyfikator agenta | GUID | Unikatowy identyfikator agenta |
 | TriggerdEventsInterval | Ciąg ISO8601 | Interwał harmonogramu dla zbierania zdarzeń wyzwalanych |
 | Parametru | Ciąg ISO8601 | Czas przed upłynięciem limitu czasu połączenia z usługą IoThub |
-| Authentication | JsonObject | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje, które są związane z uwierzytelnianiem w odniesieniu do IoTHub |
+| Uwierzytelnianie | JsonObject | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje, które są związane z uwierzytelnianiem w odniesieniu do IoTHub |
 | Tożsamość | "DPS", "SecurityModule", "urządzenie" | Tożsamość uwierzytelniania — DPS jeśli następuje uwierzytelnianie za pośrednictwem platformy DPS, SecurityModule w przypadku uwierzytelniania za pomocą poświadczeń modułu zabezpieczeń lub urządzenia, jeśli uwierzytelnianie jest nawiązywane przy użyciu poświadczeń urządzenia |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | klucz tajny użytkownika do uwierzytelniania — wybierz opcję SasToken, jeśli klucz tajny jest kluczem symetrycznym, wybierz opcję certyfikat z podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym.  |
 | Parametr | Ścieżka do pliku (ciąg) | Ścieżka do pliku, który zawiera klucz tajny uwierzytelniania |

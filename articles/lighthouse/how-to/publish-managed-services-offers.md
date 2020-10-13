@@ -3,16 +3,16 @@ title: Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Dowiedz się, jak opublikować ofertę usługi zarządzanej, która dołączy klientów do usługi Azure Lighthouse.
 ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589728"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974366"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
 
-W tym artykule dowiesz się, jak opublikować publiczną lub prywatną ofertę usługi zarządzanej w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com) , korzystając z [komercyjnego](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) programu w centrum partnerskim. Klienci, którzy kupili ofertę, będą delegować subskrypcje lub grupy zasobów, co umożliwi zarządzanie nimi za pomocą [usługi Azure Lighthouse](../overview.md).
+W tym artykule dowiesz się, jak opublikować publiczną lub prywatną ofertę usługi zarządzanej w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com) , korzystając z [komercyjnego](../../marketplace/overview.md) programu w centrum partnerskim. Klienci, którzy kupili ofertę, będą delegować subskrypcje lub grupy zasobów, co umożliwi zarządzanie nimi za pomocą [usługi Azure Lighthouse](../overview.md).
 
 ## <a name="publishing-requirements"></a>Wymagania dotyczące publikowania
 
@@ -40,7 +40,7 @@ Poniższa tabela może pomóc w ustaleniu, czy klienci mają zostać dołączeni
 
 Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia oferty, w tym wszystkich informacji i zasobów, które należy podać, zobacz [Tworzenie oferty usługi zarządzanej](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Aby dowiedzieć się więcej o ogólnym procesie publikowania, zobacz artykuł [Azure Marketplace i Podręcznik publikowania AppSource](../../marketplace/marketplace-publishers-guide.md). Należy również zapoznać się z [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies), szczególnie w sekcji [usługi zarządzane](/legal/marketplace/certification-policies#700-managed-services) .
+Aby dowiedzieć się więcej o ogólnym procesie publikowania, zobacz artykuł [Azure Marketplace i Podręcznik publikowania AppSource](../../marketplace/overview.md). Należy również zapoznać się z [komercyjnymi zasadami certyfikacji portalu Marketplace](/legal/marketplace/certification-policies), szczególnie w sekcji [usługi zarządzane](/legal/marketplace/certification-policies#700-managed-services) .
 
 Po dodaniu oferty przez klienta będzie można delegować jedną lub więcej subskrypcji lub grup zasobów, które zostaną następnie dołączone [do usługi Azure Lighthouse](#the-customer-onboarding-process).
 
@@ -64,6 +64,6 @@ Gdy klient deleguje subskrypcję (lub co najmniej jedną grupę zasobów w ramac
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [komercyjnym rynku](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
+- Dowiedz się więcej o [komercyjnym rynku](../../marketplace/overview.md).
 - Dowiedz się więcej na temat [środowisk zarządzania między dzierżawcami](../concepts/cross-tenant-management-experience.md).
 - [Wyświetlaj klientów i zarządzaj nimi](view-manage-customers.md) , przechodząc do **moich klientów** w Azure Portal.

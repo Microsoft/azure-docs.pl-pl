@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e3861cf3df11fa147814fc80246fe2714653b30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd541b9ff65a5417bff21c0293f4d62f5b6791a7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331390"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972853"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Tworzenie maszyny wirtualnej przy użyciu uogólnionego obrazu 
 
@@ -59,6 +59,7 @@ New-AzVM `
    -Location $location `
    -Name $vmName `
    -Image $imageDefinition.Id
+   -Credential $cred
 ```
 
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
 ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576544"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Przegląd oceny serwera (Migrowanie do rozwiązania Azure VMware)
@@ -172,7 +172,7 @@ Gdy maszyna zostanie oznaczona jako gotowa do automatycznej synchronizacji, Ocen
 
 ### <a name="ftt-sizing-parameters"></a>Parametry zmiany wielkości FTT
 
-Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-RAID: 
+Aparat magazynu używany w ramach automatycznej synchronizacji to sieci vSAN. zasady magazynu sieci vSAN definiują wymagania dotyczące magazynu dla maszyn wirtualnych. Te zasady gwarantują wymagany poziom usług dla maszyn wirtualnych, ponieważ określają sposób przydzielania magazynu do maszyny wirtualnej. Dostępne są następujące kombinacje FTT-Raid: 
 
 **Tolerowana liczba niepowodzeń** | **Konfiguracja RAID** | **Minimalna wymagana liczba hostów** | **Uwagi dotyczące rozmiaru**
 --- | --- | --- | --- 

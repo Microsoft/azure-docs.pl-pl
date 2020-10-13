@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631126"
+ms.locfileid: "91930717"
 ---
 # <a name="tutorial-mock-api-responses"></a>Samouczek: makieta odpowiedzi interfejsu API
 
@@ -23,7 +23,7 @@ Możliwość makiety odpowiedzi może być przydatna w wielu scenariuszach:
 + Kiedy najpierw projektowana jest fasada interfejsu API, a implementacja zaplecza powstaje później. Lub kiedy zaplecze jest opracowywane równolegle.
 + Gdy zaplecze tymczasowo nie działa lub nie można go przeskalować.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie testowego interfejsu API 
@@ -107,7 +107,7 @@ Chociaż nie jest to wymagane w tym przykładzie, można skonfigurować dodatkow
 1. Wybierz pozycję **Zapisz**.
 
     > [!TIP]
-    > Żółty pasek z **makietą tekstu jest włączony** dla interfejsu API wskazuje, że odpowiedzi zwrócone z API Management wysyłania zasad imitacji, a nie rzeczywistej odpowiedzi wewnętrznej bazy danych.
+    > Żółty pasek z **makietą tekstu jest włączony** dla interfejsu API wskazuje, że odpowiedzi zwrócone przez API Management są imitacj przez [zasady imitacji](api-management-advanced-policies.md#mock-response) i nie są tworzone przez zaplecze.
 
 ## <a name="test-the-mocked-api"></a>Testowanie pozorowanego interfejsu API
 

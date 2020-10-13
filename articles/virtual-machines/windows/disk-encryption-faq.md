@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fedefccf57364e690415542114030ba7ce12b49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284561"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974095"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption dla często zadawanych pytań dotyczących maszyn wirtualnych z systemem Windows
 
@@ -140,5 +140,5 @@ Możesz zadawać pytania lub przekazać informacje zwrotne na [stronie pytania&p
 W tym dokumencie przedstawiono kilka częstych pytań dotyczących Azure Disk Encryption. Aby uzyskać więcej informacji na temat tej usługi, zobacz następujące artykuły:
 
 - [Omówienie usługi Azure Disk Encryption](disk-encryption-overview.md)
-- [Zastosuj szyfrowanie dysków w Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
+- [Zastosuj szyfrowanie dysków w Azure Security Center](../../security-center/asset-inventory.md)
 - [Szyfrowanie danych magazynowanych platformy Azure](../../security/fundamentals/encryption-atrest.md)

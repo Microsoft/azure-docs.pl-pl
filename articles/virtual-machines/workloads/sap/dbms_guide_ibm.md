@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331271"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974740"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP
 
@@ -55,9 +55,9 @@ Aby uzyskać informacje o obsługiwanych produktach SAP i typach maszyn wirtualn
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Wytyczne dotyczące konfiguracji oprogramowania IBM DB2 dla systemów Linux, UNIX i Windows dla instalacji SAP na maszynach wirtualnych platformy Azure
 ### <a name="storage-configuration"></a>Konfiguracja usługi Storage
-Aby zapoznać się z omówieniem typów magazynu platformy Azure dla obciążenia SAP, zapoznaj się z artykułem [typy magazynów platformy Azure dla obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) wszystkie pliki bazy danych muszą być przechowywane na zainstalowanych dyskach magazynu blokowego platformy Azure (Windows: NFFS, Linux: XFS, ext4 lub ext3). Dla plików bazy danych **nie** są obsługiwane żadne rodzaje dysków sieciowych ani udziałów zdalnych, takich jak następujące usługi platformy Azure: 
+Aby zapoznać się z omówieniem typów magazynu platformy Azure dla obciążenia SAP, zapoznaj się z artykułem [typy magazynów platformy Azure dla obciążeń SAP](./planning-guide-storage.md) wszystkie pliki bazy danych muszą być przechowywane na zainstalowanych dyskach magazynu blokowego platformy Azure (Windows: NFFS, Linux: XFS, ext4 lub ext3). Dla plików bazy danych **nie** są obsługiwane żadne rodzaje dysków sieciowych ani udziałów zdalnych, takich jak następujące usługi platformy Azure: 
 
-* [Usługa plików Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Usługa plików Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 

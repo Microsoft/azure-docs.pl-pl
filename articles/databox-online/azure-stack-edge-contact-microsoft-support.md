@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743305"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla usługi Azure Stack EDGE Pro i Azure Data Box Gateway
@@ -39,7 +39,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
     7. Na podstawie wybranego typu problemu wybierz odpowiedni **podtyp problemu**.
     8. Wybierz pozycję **Dalej: rozwiązania >>**.
 
-        ![Informacje podstawowe](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Podstawy](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Na karcie **szczegóły** wykonaj następujące czynności:
 

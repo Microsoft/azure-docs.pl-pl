@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 61620a8497765c4d8f90a3d616bd2f4b932f8dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629033"
+ms.locfileid: "91930921"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algorytm Azure Load Balancer
 
@@ -54,16 +54,6 @@ Moduł równoważenia obciążenia nie współdziała bezpośrednio z protokołe
 - Każdy punkt końcowy jest odpowiedzią na maszynę wirtualną. Na przykład uzgadnianie protokołu TCP następuje między klientem a wybraną maszyną wirtualną zaplecza. Odpowiedź na żądanie do frontonu jest odpowiedzią wygenerowaną przez maszynę wirtualną zaplecza. Po pomyślnym zweryfikowaniu łączności z frontonem sprawdzasz poprawność łączności w ramach co najmniej jednej maszyny wirtualnej zaplecza.
 - Ładunki aplikacji są niewidoczne dla modułu równoważenia obciążenia. Można obsługiwać dowolną aplikację UDP lub TCP.
 - Ponieważ moduł równoważenia obciążenia nie współdziała z ładunkiem TCP i zapewnia odciążanie protokołu TLS, można tworzyć kompleksowe zaszyfrowane scenariusze. Korzystanie z usługi równoważenia obciążenia uzyskuje duże skalowanie w poziomie dla aplikacji TLS przez zakończenie połączenia TLS na maszynie wirtualnej. Na przykład pojemność klucza sesji protokołu TLS jest ograniczona tylko przez typ i liczbę maszyn wirtualnych dodawanych do puli zaplecza.
-
-## <a name="limitations"></a><a name = "limitations"></a>Ograniczenia
-
-- Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  
-
-- Moduł równoważenia obciążenia zapewnia Równoważenie obciążenia i przekazywanie portów dla określonych protokołów TCP lub UDP. Reguły równoważenia obciążenia i reguły NAT dla ruchu przychodzącego obsługują protokoły TCP i UDP, ale nie są to adresy IP, w tym protokół ICMP.
-
-- Przepływ wychodzący z maszyny wirtualnej zaplecza do frontonu wewnętrznej Load Balancer zakończy się niepowodzeniem.
-
-- Fragmenty adresów IP przekazywania nie są obsługiwane w regułach równoważenia obciążenia. Fragmentacja IP pakietów UDP i TCP nie jest obsługiwana w regułach równoważenia obciążenia. Reguły równoważenia obciążenia portów HA mogą służyć do przesyłania dalej istniejących fragmentów adresów IP. Aby uzyskać więcej informacji, zobacz [Omówienie portów wysokiej dostępności](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

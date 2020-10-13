@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
 ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576442"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Samouczek: aktualizowanie aplikacji w usłudze Azure Kubernetes Service (AKS)

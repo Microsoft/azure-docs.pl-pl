@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369097"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do puli SQL usługi Azure Synapse Analytics
@@ -36,7 +36,7 @@ W tym samouczku pokazano, jak załadować magazyn danych WideWorldImportersDW z 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Zanim rozpoczniesz ten samouczek, pobierz i zainstaluj najnowszą wersję programu [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
@@ -536,7 +536,7 @@ W tej sekcji są stosowane tabele zewnętrzne zdefiniowane w celu załadowania p
 
 W skrypcie użyto instrukcji języka T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), aby załadować dane z usługi Azure Storage Blob do nowych tabel w magazynie danych. Instrukcja CTAS tworzy nową tabelę na podstawie wyników instrukcji select. Nowa tabela ma takie same kolumny i typy danych jak wyniki instrukcji select. Gdy instrukcja SELECT wybiera z tabeli zewnętrznej, dane są importowane do relacyjnej tabeli w magazynie danych.
 
-Ten skrypt nie ładuje danych do tabel WWI. dimension_Date i WWI. fact_Sale. Te tabele są generowane w późniejszym kroku, aby mogły mieć znaczną liczbę wierszy.
+Ten skrypt nie ładuje danych do tabel wwi.dimension_Date i wwi.fact_Sale. Te tabele są generowane w późniejszym kroku, aby mogły mieć znaczną liczbę wierszy.
 
 1. Uruchom następujący skrypt, aby załadować dane do nowych tabel w magazynie danych.
 
@@ -732,7 +732,7 @@ Ten skrypt nie ładuje danych do tabel WWI. dimension_Date i WWI. fact_Sale. Te 
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Tworzenie tabel i procedur w celu wygenerowania tabel dat i sprzedaży
 
-Ta sekcja tworzy tabele WWI. dimension_Date i WWI. fact_Sale. Tworzy również procedury składowane, które mogą generować miliony wierszy w tabelach WWI. dimension_Date i WWI. fact_Sale.
+Ta sekcja tworzy tabele wwi.dimension_Date i wwi.fact_Sale. Tworzy również procedury składowane, które mogą generować miliony wierszy w tabelach wwi.dimension_Date i wwi.fact_Sale.
 
 1. Utwórz tabele dimension_Date i fact_Sale.  
 
@@ -876,7 +876,7 @@ Ta sekcja tworzy tabele WWI. dimension_Date i WWI. fact_Sale. Tworzy również p
     END;
     ```
 
-4. Utwórz tę procedurę, która wypełnia tabele WWI. dimension_Date i WWI. fact_Sale. Wywołuje ona procedurę [wwi].[PopulateDateDimensionForYear] w celu wypełnienia tabeli wwi.dimension_Date.
+4. Utwórz tę procedurę, która wypełnia tabele wwi.dimension_Date i wwi.fact_Sale. Wywołuje ona procedurę [wwi].[PopulateDateDimensionForYear] w celu wypełnienia tabeli wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ Ta sekcja tworzy tabele WWI. dimension_Date i WWI. fact_Sale. Tworzy również p
 
 ## <a name="generate-millions-of-rows"></a>Generowanie milionów wierszy
 
-Użyj utworzonych procedur składowanych w celu wygenerowania milionów wierszy w tabeli WWI. fact_Sale i odpowiednich danych w tabeli WWI. dimension_Date.
+Użyj utworzonych procedur składowanych w celu wygenerowania milionów wierszy w tabeli wwi.fact_Sale i odpowiednich danych w tabeli wwi.dimension_Date.
 
 1. Uruchom tę procedurę w celu umieszczenia w tabeli [wwi].[seed_Sale] większej liczby wierszy.
 
@@ -941,7 +941,7 @@ Użyj utworzonych procedur składowanych w celu wygenerowania milionów wierszy 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Uruchom tę procedurę, aby wypełnić WWI. fact_Sale z 100 000 wierszy dziennie dla każdego dnia w roku 2000.
+2. Uruchom tę procedurę, aby wypełnić wwi.fact_Sale z 100 000 wierszy dziennie dla każdego dnia w roku 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000

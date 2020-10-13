@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f8f5d7ddf25b2df6b2e07818e1b2ed7e90fb867
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280030"
+ms.locfileid: "91932122"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -123,12 +123,13 @@ Na stronie portalu rejestracji aplikacji wybierz pozycję *uprawnienia interfejs
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
-Na stronie *uprawnienia do interfejsu API żądania* przejdź do opcji *interfejsy API Moja organizacja używa* karty i Wyszukaj w *usłudze Azure Digital bliźniaczych reprezentacji*. Wybierz pozycję *Azure Digital bliźniaczych reprezentacji* z wyników wyszukiwania, aby kontynuować przypisywanie uprawnień do interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
+Na stronie *uprawnienia do interfejsu API żądania* przejdź do opcji *interfejsy API Moja organizacja używa* karty i Wyszukaj w *usłudze Azure Digital bliźniaczych reprezentacji*. Wybierz pozycję _**Azure Digital bliźniaczych reprezentacji**_ z wyników wyszukiwania, aby kontynuować przypisywanie uprawnień do interfejsów API Digital bliźniaczych reprezentacji platformy Azure.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 >[!NOTE]
-> Jeśli masz istniejące wystąpienie usługi Azure Digital bliźniaczych reprezentacji z poprzedniej publicznej wersji zapoznawczej usługi (przed lipca 2020), nadal musisz wyszukać *usługę Azure Smart Spaces* . Jest to Starsza nazwa dla tego samego zestawu interfejsów API i nie zmieni się tego środowiska poza ten krok.
+> Jeśli Twoja subskrypcja ma nadal istniejące wystąpienie usługi Azure Digital bliźniaczych reprezentacji z poprzedniej publicznej wersji zapoznawczej usługi (przed lipca 2020), musisz wyszukać i wybrać _**usługę Azure Smart Spaces**_ . Jest to Starsza nazwa tego samego zestawu interfejsów API (Zauważ, że *Identyfikator aplikacji (klienta)* jest taki sam jak na poniższym zrzucie ekranu), a Twoje środowisko nie zostanie zmienione poza ten krok.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Wybieranie pozycji &quot;Utwórz zasób&quot; ze strony głównej Azure Portal":::
 
 Następnie wybierz uprawnienia, które mają zostać przyznane dla tych interfejsów API. Rozwiń uprawnienie **Odczyt (1)** , a następnie zaznacz pole wyboru *Odczytaj. Zapisz* , aby udzielić uprawnienia czytelnikowi rejestracji aplikacji i składnika zapisywania.
 
@@ -163,7 +164,7 @@ Zanotuj *Identyfikator* *aplikacji (klienta)* na stronie **użytkownika** . Te w
 ## <a name="next-steps"></a>Następne kroki
 
 Przetestuj poszczególne wywołania interfejsu API REST w wystąpieniu przy użyciu poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji: 
-* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
 
 Lub zapoznaj się z tematem jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:

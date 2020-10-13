@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447847"
+ms.locfileid: "91932145"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -59,7 +59,7 @@ Podczas tworzenia nowej tożsamości urządzenia podaj następujące informacje:
 
 * Wybierz **klucz symetryczny** jako typ uwierzytelniania.
 
-* Opcjonalnie wybierz **ustawienie urządzenie nadrzędne** i wybierz urządzenie bramy IoT Edge, za pomocą którego będzie nawiązywane połączenie. Ten krok jest opcjonalny w przypadku uwierzytelniania przy użyciu klucza symetrycznego, ale jest zalecane, ponieważ ustawienie urządzenia nadrzędnego umożliwia korzystanie z [funkcji offline](offline-capabilities.md) dla urządzenia podrzędnego. Możesz zawsze aktualizować szczegóły urządzenia, aby później dodać lub zmienić element nadrzędny.
+* Wybierz pozycję **Ustaw urządzenie nadrzędne** i wybierz urządzenie bramy IoT Edge, za pomocą którego będzie nawiązywane połączenie. Ten krok umożliwia włączenie [funkcji offline](offline-capabilities.md) urządzenia podrzędnego. Możesz zawsze zmienić element nadrzędny później.
 
    ![Tworzenie identyfikatora urządzenia z uwierzytelnianiem przy użyciu klucza symetrycznego w portalu](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -201,7 +201,7 @@ Oraz
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Jeśli została ustanowiona relacja nadrzędny/podrzędny dla tego urządzenia podrzędnego, można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Relacje nadrzędny/podrzędny są wymagane do uwierzytelniania X. 509, ale opcjonalne do uwierzytelniania przy kluczu symetrycznym. Na przykład:
+Dzięki relacji nadrzędny/podrzędny można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Na przykład:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812543"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Poświadczenia hasła właściciela zasobu Microsoft Identity platform i OAuth 2,0
@@ -92,7 +92,7 @@ W poniższym przykładzie przedstawiono Pomyślne odpowiedzi tokenu:
 
 | Parametr | Format | Opis |
 | --------- | ------ | ----------- |
-| `token_type` | String | Zawsze ustawiaj na `Bearer` . |
+| `token_type` | Ciąg | Zawsze ustawiaj na `Bearer` . |
 | `scope` | Ciągi rozdzielone spacją | Jeśli został zwrócony token dostępu, ten parametr wyświetla listę zakresów, dla których token dostępu jest prawidłowy. |
 | `expires_in`| int | Liczba sekund, przez jaką jest ważny włączony token dostępu. |
 | `access_token`| Ciąg nieprzezroczysty | Wystawiony dla żądanych [zakresów](v2-permissions-and-consent.md) . |

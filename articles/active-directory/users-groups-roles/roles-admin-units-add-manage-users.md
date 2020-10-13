@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818175"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Dodawanie użytkowników i zarządzanie nimi w jednostce administracyjnej w Azure Active Directory
@@ -58,7 +58,7 @@ Użytkowników można przypisywać do jednostek administracyjnych pojedynczo lub
 
     ![zbiorcze przypisywanie użytkowników do jednostki administracyjnej](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 ```powershell
 $administrativeunitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
@@ -101,12 +101,12 @@ W Azure Portal można otworzyć profil użytkownika według:
 
    ![Wyświetl listę jednostek administracyjnych dla użytkownika](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
-Uwaga: Domyślnie polecenie Get-AzureADAdministrativeUnitMember zwraca elementy członkowskie 100, a aby uzyskać więcej elementów członkowskich, można dodać "-All $true".
+Uwaga: domyślnie Get-AzureADAdministrativeUnitMember zwraca tylko 100 członków, można dodać "-All $true", aby uzyskać więcej elementów członkowskich.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -126,7 +126,7 @@ Możesz również usunąć użytkownika w **Azure AD**  >  **jednostkach adminis
   
 ![Usuń użytkownika na poziomie jednostki administracyjnej](./media/roles-admin-units-add-manage-users/admin-units-remove-user.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 ```powershell
 Remove-AzureADMSAdministrativeUnitMember -Id $auId -MemberId $memberUserObjId

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182019"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973873"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Utwórz pakiet pomocy technicznej dla serii StorSimple 8000 i Zarządzaj nim
 
@@ -43,7 +43,7 @@ Możesz udostępnić ręcznie wygenerowany pakiet pomocy technicznej pomoc techn
    2. W otwartym oknie dialogowym wprowadź hasło administratora urządzenia. Domyślne hasło to _Password1_.
      
       ![Okno dialogowe poświadczeń programu PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. Wybierz pozycję **OK**.
+   3. Wybierz przycisk **OK**.
    4. W wierszu polecenia wprowadź:
      
       `Enter-PSSession $MS`
@@ -62,7 +62,7 @@ Możesz udostępnić ręcznie wygenerowany pakiet pomocy technicznej pomoc techn
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Parametry polecenia cmdlet Export-HcsSupportPackage
 
-Można użyć następujących parametrów za pomocą polecenia cmdlet Export-HcsSupportPackage.
+Przy użyciu polecenia cmdlet Export-HcsSupportPackage można użyć następujących parametrów.
 
 | Parametr | Wymagane/Opcjonalne | Opis |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ Aby edytować pakiet pomocy technicznej przed przekazaniem go do witryny pomoc t
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Edytuj pakiet pomocy technicznej](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![Edytuj pakiet pomocy technicznej 2](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Po wyświetleniu monitu podaj hasło szyfrowania dla zmodyfikowanego pakietu dla pomocy technicznej.
    
     ```powershell

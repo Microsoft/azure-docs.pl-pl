@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: dbb28726d1c2eaf887ced818284d4b1e0298f8db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767807"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973363"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki Start: Tworzenie i modyfikowanie obwodu ExpressRoute
 
@@ -170,7 +170,7 @@ Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub
 >* Jeśli dostawca usług anulował obsługę administracyjną obwodu (stan aprowizacji dostawcy usług jest ustawiony na **nieinicjowany**), można usunąć obwód. Spowoduje to zatrzymanie naliczania opłat za obwód.
 
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Obwód ExpressRoute można usunąć, wybierając ikonę **Usuń** . 
 

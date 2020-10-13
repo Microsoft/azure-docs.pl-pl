@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand
 author: skandil
-ms.openlocfilehash: 22f5ab332c52a3b567b37089def6e4a494a15d29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d801971ca62c416c66608b40aab3e8052fe941a1
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309476"
+ms.locfileid: "91931414"
 ---
 # <a name="sign-in-to-luis-portal"></a>Zaloguj się do portalu usługi LUIS
 

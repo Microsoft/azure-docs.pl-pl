@@ -8,23 +8,23 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 94763cee852893057348f8eea1fa74fa742f62a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ffd7d2513e87f818001d7ccf96212a4dbef7ac2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534730"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950146"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>Uzyskiwanie dostępu do bezpiecznych zasobów za pośrednictwem prywatnych punktów końcowych
 
 Zasoby platformy Azure (takie jak konta magazynu używane jako źródła danych) można skonfigurować tak, aby były dostępne tylko z określonej listy sieci wirtualnych. Można je również skonfigurować tak, aby nie zezwalać na dostęp "sieci publicznej".
-Klienci mogą zażądać usługi Azure Wyszukiwanie poznawcze, aby utworzyć (wychodzące) [połączenie prywatnego punktu końcowego](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) w celu bezpiecznego dostępu do danych z tych źródeł danych za pośrednictwem indeksatorów.
+Klienci mogą zażądać usługi Azure Wyszukiwanie poznawcze, aby utworzyć (wychodzące) [połączenie prywatnego punktu końcowego](../private-link/private-endpoint-overview.md) w celu bezpiecznego dostępu do danych z tych źródeł danych za pośrednictwem indeksatorów.
 
 ## <a name="shared-private-link-resources-management-apis"></a>Interfejsy API zarządzania zasobami udostępnionego linku prywatnego
 
 Prywatne punkty końcowe, które są tworzone przez platformę Azure Wyszukiwanie poznawcze na żądanie klienta, aby uzyskać dostęp do "bezpiecznych" zasobów nazywanych *udostępnionymi zasobami linków prywatnych*. Klient uzyskuje dostęp do zasobu (takiego jak konto magazynu), który jest dołączony do [usługi łącza prywatnego platformy Azure](https://azure.microsoft.com/services/private-link/).
 
-Usługa Azure Wyszukiwanie poznawcze oferuje interfejs API zarządzania wyszukiwaniem, możliwość [tworzenia lub aktualizowania udostępnionych zasobów linków prywatnych](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Użyjesz tego interfejsu API wraz z innymi udostępnionymi interfejsami API zarządzania *zasobami linków prywatnych* , aby skonfigurować dostęp do bezpiecznego zasobu z usługi Azure wyszukiwanie poznawcze indeksator.
+Usługa Azure Wyszukiwanie poznawcze oferuje interfejs API zarządzania wyszukiwaniem, możliwość [tworzenia lub aktualizowania udostępnionych zasobów linków prywatnych](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Użyjesz tego interfejsu API wraz z innymi udostępnionymi interfejsami API zarządzania *zasobami linków prywatnych* , aby skonfigurować dostęp do bezpiecznego zasobu z usługi Azure wyszukiwanie poznawcze indeksator.
 
 Połączenia z prywatnymi punktami końcowymi do niektórych zasobów można tworzyć tylko za pośrednictwem wersji zapoznawczej interfejsu API zarządzania wyszukiwaniem ( `2020-08-01-Preview` ) wskazanego za pomocą tagu "wersja zapoznawcza" w poniższej tabeli. Zasoby bez tagu "Preview" można tworzyć za pośrednictwem interfejsu API w wersji zapoznawczej oraz interfejsu API GA ( `2020-08-01` )
 
@@ -40,7 +40,7 @@ Poniżej znajduje się lista zasobów platformy Azure, do których można utworz
 | W usłudze Azure Key Vault | `vault` |
 | Azure Functions (wersja zapoznawcza) | `sites` |
 
-Lista zasobów platformy Azure, dla których obsługiwane są wychodzące połączenia z prywatnymi punktami końcowymi, może być również wykonywana za pośrednictwem [listy obsługiwanych interfejsów API](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
+Lista zasobów platformy Azure, dla których obsługiwane są wychodzące połączenia z prywatnymi punktami końcowymi, może być również wykonywana za pośrednictwem [listy obsługiwanych interfejsów API](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
 Na potrzeby tego przewodnika mieszanka [ARMClient](https://github.com/projectkudu/ARMClient) i [Poster](https://www.postman.com/) są używane do zademonstrowania wywołań interfejsu API REST.
 
@@ -51,12 +51,12 @@ W pozostałej części przewodnika pokazano, jak można skonfigurować usługę 
 
 ## <a name="securing-your-storage-account"></a>Zabezpieczanie konta magazynu
 
-Skonfiguruj konto magazynu tak, aby [zezwalało na dostęp tylko z określonych podsieci](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network). Po zaznaczeniu tej opcji i pozostawieniu wartości pustej przez Azure Portal w przypadku zaznaczenia tego ustawienia nie jest dozwolony żaden ruch z sieci wirtualnej.
+Skonfiguruj konto magazynu tak, aby [zezwalało na dostęp tylko z określonych podsieci](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Po zaznaczeniu tej opcji i pozostawieniu wartości pustej przez Azure Portal w przypadku zaznaczenia tego ustawienia nie jest dozwolony żaden ruch z sieci wirtualnej.
 
    ![Dostęp Virtual Network](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Dostęp Virtual Network")
 
 > [!NOTE]
-> [Podejście do zaufanej usługi firmy Microsoft](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) może służyć do obejścia ograniczeń sieci wirtualnej lub protokołu IP na takich kontach magazynu, a usługa wyszukiwania może uzyskiwać dostęp do danych na koncie magazynu zgodnie z opisem w [przewodniku](search-indexer-howto-access-trusted-service-exception.md). Jednak podczas korzystania z tej metody komunikacja między usługą Azure Wyszukiwanie poznawcze i kontem magazynu odbywa się za pośrednictwem publicznego adresu IP konta magazynu za pośrednictwem bezpiecznej sieci szkieletowej firmy Microsoft.
+> [Podejście do zaufanej usługi firmy Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services) może służyć do obejścia ograniczeń sieci wirtualnej lub protokołu IP na takich kontach magazynu, a usługa wyszukiwania może uzyskiwać dostęp do danych na koncie magazynu zgodnie z opisem w [przewodniku](search-indexer-howto-access-trusted-service-exception.md). Jednak podczas korzystania z tej metody komunikacja między usługą Azure Wyszukiwanie poznawcze i kontem magazynu odbywa się za pośrednictwem publicznego adresu IP konta magazynu za pośrednictwem bezpiecznej sieci szkieletowej firmy Microsoft.
 
 ## <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Krok 1. Tworzenie zasobu udostępnionego linku prywatnego na koncie magazynu
 
@@ -101,7 +101,7 @@ Ten identyfikator URI może być sondowany okresowo w celu uzyskania stanu opera
 ## <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>Krok 2a: Zatwierdź połączenie prywatnego punktu końcowego dla konta magazynu
 
 > [!NOTE]
-> Ta sekcja używa Azure Portal do przechodzenia przez przepływ zatwierdzania dla prywatnego punktu końcowego do magazynu. [Interfejs API REST](https://docs.microsoft.com/rest/api/storagerp/privateendpointconnections) dostępny za pośrednictwem dostawcy zasobów magazynu (RP) może być również używany w zamian.
+> Ta sekcja używa Azure Portal do przechodzenia przez przepływ zatwierdzania dla prywatnego punktu końcowego do magazynu. [Interfejs API REST](/rest/api/storagerp/privateendpointconnections) dostępny za pośrednictwem dostawcy zasobów magazynu (RP) może być również używany w zamian.
 >
 > Inni dostawcy, tacy jak CosmosDB, Azure SQL Server itp., oferują również podobne interfejsy API RP do zarządzania połączeniami prywatnych punktów końcowych.
 
@@ -117,7 +117,7 @@ Gdy żądanie połączenia z prywatnym punktem końcowym zostanie zatwierdzone, 
 
 ## <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Krok 2B: wykonywanie zapytania dotyczącego stanu udostępnionego zasobu linku prywatnego
 
- Aby upewnić się, że zasób udostępnionego linku prywatnego został zaktualizowany po zatwierdzeniu, uzyskaj jego status za pośrednictwem [interfejsu API pobierania](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get).
+ Aby upewnić się, że zasób udostępnionego linku prywatnego został zaktualizowany po zatwierdzeniu, uzyskaj jego status za pośrednictwem [interfejsu API pobierania](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -143,24 +143,24 @@ Jeśli `properties.provisioningState` zasób ma wartość `Succeeded` i `propert
 > [!NOTE]
 > Ten krok można wykonać nawet przed zatwierdzeniem połączenia prywatnego punktu końcowego. Dopóki prywatne połączenie z punktem końcowym nie zostanie zatwierdzone, każdy indeksator próbujący skomunikować się z bezpiecznym zasobem (na przykład konto magazynu) zakończy się niepowodzeniem w stanie przejściowym. Nie można utworzyć nowych indeksatorów. Gdy tylko zostanie zatwierdzone połączenie prywatnego punktu końcowego, indeksatory będą mogły uzyskać dostęp do prywatnego konta magazynu.
 
-1. [Utwórz źródło danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) wskazujące konto bezpiecznego magazynu i odpowiedni kontener na koncie magazynu. Poniżej przedstawiono to żądanie wykonywane za pośrednictwem programu Poster.
+1. [Utwórz źródło danych](/rest/api/searchservice/create-data-source) wskazujące konto bezpiecznego magazynu i odpowiedni kontener na koncie magazynu. Poniżej przedstawiono to żądanie wykonywane za pośrednictwem programu Poster.
 ![Create Data Source](media\search-indexer-howto-secure-access\create-ds.png "Tworzenie źródła danych") (Tworzenie źródła danych)
 
-2. Podobnie [Utwórz indeks](https://docs.microsoft.com/rest/api/searchservice/create-index) i opcjonalnie [Utwórz zestawu umiejętności](https://docs.microsoft.com/rest/api/searchservice/create-skillset) przy użyciu interfejsu API REST.
+2. Podobnie [Utwórz indeks](/rest/api/searchservice/create-index) i opcjonalnie [Utwórz zestawu umiejętności](/rest/api/searchservice/create-skillset) przy użyciu interfejsu API REST.
 
-3. [Utwórz indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer) wskazujący źródło danych, indeks i zestawu umiejętności utworzone powyżej. Ponadto należy wymusić uruchomienie indeksatora w prywatnym środowisku wykonywania, ustawiając właściwość konfiguracja indeksatora `executionEnvironment` na `"Private"` .
+3. [Utwórz indeksator](/rest/api/searchservice/create-indexer) wskazujący źródło danych, indeks i zestawu umiejętności utworzone powyżej. Ponadto należy wymusić uruchomienie indeksatora w prywatnym środowisku wykonywania, ustawiając właściwość konfiguracja indeksatora `executionEnvironment` na `"Private"` .
 ![Utwórz indeksator](media\search-indexer-howto-secure-access\create-idr.png "Tworzenie indeksatora")
 
-Indeksator powinien zostać pomyślnie utworzony i powinien być w trakcie wykonywania indeksowanie zawartości z konta magazynu przez połączenie prywatnego punktu końcowego. Stan indeksatora można monitorować za pośrednictwem [interfejsu API stanu indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Indeksator powinien zostać pomyślnie utworzony i powinien być w trakcie wykonywania indeksowanie zawartości z konta magazynu przez połączenie prywatnego punktu końcowego. Stan indeksatora można monitorować za pośrednictwem [interfejsu API stanu indeksatora](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
-> Jeśli masz już istniejące indeksatory, możesz po prostu zaktualizować je za pomocą [interfejsu API Put](https://docs.microsoft.com/rest/api/searchservice/create-indexer) , aby ustawić `executionEnvironment` na `"Private"` .
+> Jeśli masz już istniejące indeksatory, możesz po prostu zaktualizować je za pomocą [interfejsu API Put](/rest/api/searchservice/create-indexer) , aby ustawić `executionEnvironment` na `"Private"` .
 
 ## <a name="troubleshooting-issues"></a>Rozwiązywanie problemów
 
 - W przypadku tworzenia indeksatora, jeśli Tworzenie zakończy się niepowodzeniem z komunikatem o błędzie podobnym do "poświadczenia źródła danych są nieprawidłowe", oznacza to, że połączenie prywatnego punktu końcowego nie zostało *zatwierdzone* lub nie działa.
-Uzyskaj stan udostępnionego zasobu linku prywatnego przy użyciu [interfejsu API pobierania](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get). Jeśli została *zatwierdzona* , sprawdź `properties.provisioningState` zasób. Jeśli tak jest `Incomplete` , oznacza to, że niektóre z podstawowych zależności dla zasobu nie powiodło się — należy `PUT` ponownie wydać żądanie do "ponownego utworzenia" udostępnionego zasobu linku prywatnego, który powinien rozwiązać ten problem. Ponowne zatwierdzenie może być konieczne — Sprawdź stan zasobu ponownie, aby zweryfikować.
-- Jeśli indeksator zostanie utworzony bez ustawienia `executionEnvironment` , tworzenie indeksatora może się powieść, ale jego historia wykonywania będzie pokazywała, że uruchomienie indeksatora nie powiedzie się. Należy [zaktualizować indeksator](https://docs.microsoft.com/rest/api/searchservice/update-indexer) , aby określić środowisko wykonywania.
+Uzyskaj stan udostępnionego zasobu linku prywatnego przy użyciu [interfejsu API pobierania](/rest/api/searchmanagement/sharedprivatelinkresources/get). Jeśli została *zatwierdzona* , sprawdź `properties.provisioningState` zasób. Jeśli tak jest `Incomplete` , oznacza to, że niektóre z podstawowych zależności dla zasobu nie powiodło się — należy `PUT` ponownie wydać żądanie do "ponownego utworzenia" udostępnionego zasobu linku prywatnego, który powinien rozwiązać ten problem. Ponowne zatwierdzenie może być konieczne — Sprawdź stan zasobu ponownie, aby zweryfikować.
+- Jeśli indeksator zostanie utworzony bez ustawienia `executionEnvironment` , tworzenie indeksatora może się powieść, ale jego historia wykonywania będzie pokazywała, że uruchomienie indeksatora nie powiedzie się. Należy [zaktualizować indeksator](/rest/api/searchservice/update-indexer) , aby określić środowisko wykonywania.
 - Jeśli indeksator zostanie utworzony bez ustawienia `executionEnvironment` i zostanie uruchomiony pomyślnie, oznacza to, że usługa Azure wyszukiwanie poznawcze zdecydowała się, że jego środowisko uruchomieniowe jest określonym środowiskiem "prywatnym" usługi wyszukiwania. Jednak może to ulec zmianie w zależności od różnych czynników (zasobów używanych przez indeksator, obciążenia usługi wyszukiwania itp.) i może zakończyć się niepowodzeniem w późniejszym czasie — zdecydowanie zalecamy ustawienie opcji `executionEnvironment` tak `"Private"` , aby upewnić się, że nie ulegnie awarii w przyszłości.
 - [Przydziały i limity](search-limits-quotas-capacity.md) określają, ile udostępnionych zasobów linków prywatnych można utworzyć i zależeć od jednostki SKU usługi wyszukiwania.
 
@@ -168,5 +168,5 @@ Uzyskaj stan udostępnionego zasobu linku prywatnego przy użyciu [interfejsu AP
 
 Dowiedz się więcej o prywatnych punktach końcowych:
 
-- [Co to są prywatne punkty końcowe?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
-- [Konfiguracje DNS, które są zbędne dla prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)
+- [Co to są prywatne punkty końcowe?](../private-link/private-endpoint-overview.md)
+- [Konfiguracje DNS, które są zbędne dla prywatnych punktów końcowych](../private-link/private-endpoint-dns.md)

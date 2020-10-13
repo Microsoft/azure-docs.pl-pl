@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c5b7debe0c94839e2ca7742817a49216328c571
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855337"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963639"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalowanie oprogramowania SAP NetWeaver HA na klastrze trybu failover systemu Windows i dysku udostępnionego dla wystąpienia SAP ASCS/SCS na platformie Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "88855337"
 
 W tym artykule opisano sposób instalowania i konfigurowania systemu SAP o wysokiej dostępności na platformie Azure przy użyciu klastra trybu failover systemu Windows Server i udostępnionego dysku klastra do klastrowania wystąpienia SAP ASCS/SCS. Zgodnie z opisem w [przewodniku architektury: klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udostępnionego dysku klastra][sap-high-availability-guide-wsfc-shared-disk], istnieją dwa alternatywy dla *udostępnionego dysku klastra*:
 
-- [Dyski udostępnione platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Dyski udostępnione platformy Azure](../../windows/disks-shared.md)
 - Tworzenie dublowanego magazynu przy użyciu [oprogramowanie SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne

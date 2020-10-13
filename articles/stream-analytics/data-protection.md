@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812866"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
@@ -33,7 +33,7 @@ Azure Stream Analytics utrzymuje następujące metadane i dane, aby można było
 
 Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
-## <a name="in-region-data-residency"></a>Zamieszkania danych w regionie
+## <a name="in-region-data-residency"></a>In-Region zamieszkania danych
 Azure Stream Analytics przechowuje dane klienta i inne metadane opisane powyżej. Dane klienta są domyślnie przechowywane przez Azure Stream Analytics w jednym regionie, więc ta usługa automatycznie spełnia wymagania dotyczące miejsca zamieszkania danych regionu, w tym te określone w [Centrum zaufania](https://azuredatacentermap.azurewebsites.net/).
 Ponadto możesz wybrać przechowywanie wszystkich zasobów danych (danych klienta i innych metadanych) związanych z zadaniem usługi Stream Analytics w jednym regionie, szyfrując je na wybranym koncie magazynu.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: a46c0d4df4d9a25b249ef552558700f4f776dc47
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946391"
+ms.locfileid: "91950622"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Włącz Security Center we wszystkich subskrypcjach w grupie zarządzania
 
@@ -54,7 +54,7 @@ Istnieje wiele różnych sposobów modyfikowania definicji Azure Policy:
     Podana Definicja definiuje *jedno* z poniższych ustawień "cennika" jako zgodne. Oznacza to, że subskrypcja jest zgodna z ustawieniem "Standardowa" lub "Free".
 
     > [!TIP]
-    > "Standardowa" odnosi się do momentu włączenia planu usługi Azure Defender, który jest opisany w ustawieniach "standard". Gdy jest wyłączona, jest "bezpłatna".
+    > Po włączeniu planu usługi Azure Defender jest on opisany jako w ustawieniu "standardowe". Gdy jest wyłączona, jest "bezpłatna". [Dowiedz się więcej o planach usługi Azure Defender](security-center-pricing.md).
 
     ```
     "existenceCondition": {

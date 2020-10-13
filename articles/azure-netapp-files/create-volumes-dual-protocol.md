@@ -12,35 +12,45 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 9266a5efb7156367dfa0d6036f5876337098c143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54be34b2151aa88705559ac2913db4f528ea4492
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743934"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963520"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu Dual-Protocol (NFSv3 i SMB) dla Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), SMBv3 lub Dual Protocol. W tym artykule opisano sposób tworzenia woluminu korzystającego z dwóch protokołów NFSv3 i SMB z obsługą mapowania użytkowników LDAP.  
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem 
 
-* Potrzebujesz skonfigurowanej puli pojemności.  
+* Trzeba już utworzyć pulę pojemności.  
     Zobacz [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md).   
 * Podsieć musi być delegowana do usługi Azure NetApp Files.  
     Zobacz [delegowanie podsieci do Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 * Upewnij się, że spełniasz [wymagania dotyczące Active Directory połączeń](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Utwórz strefę wyszukiwania wstecznego na serwerze DNS, a następnie Dodaj rekord wskaźnika (PTR) maszyny hosta usługi AD do tej strefy wyszukiwania wstecznego. W przeciwnym razie tworzenie dwuprotokołowego woluminu nie powiedzie się.
 * Upewnij się, że klient NFS jest aktualny i uruchomiono najnowsze aktualizacje dla systemu operacyjnego.
-* Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. W tym celu należy zainstalować i skonfigurować rolę [usługi LDS Active Directory (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
-* Upewnij się, że urząd certyfikacji jest tworzony w usłudze AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
+* Upewnij się, że serwer LDAP Active Directory (AD) jest uruchomiony w usłudze AD. Można to zrobić przez zainstalowanie i skonfigurowanie roli [usługi LDS Active Directory (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na maszynie usługi AD.
+* Upewnij się, że urząd certyfikacji jest tworzony w usłudze AD przy użyciu roli [usług certyfikatów Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) do generowania i eksportowania certyfikatu głównego urzędu certyfikacji z podpisem własnym.   
 * Woluminy podwójnego protokołu nie obsługują obecnie Azure Active Directory Domain Services (AADDS).  
+* Wersja systemu plików NFS używana przez dwuprotokołowy wolumin to NFSv3. W związku z tym obowiązują następujące zagadnienia:
+    * Protokół Dual nie obsługuje rozszerzonych atrybutów list ACL systemu Windows `set/get` z klientów NFS.
+    * Klienci NFS nie mogą zmieniać uprawnień do stylu zabezpieczeń systemu plików NTFS, a klienci systemu Windows nie mogą zmieniać uprawnień dla woluminów z podwójnym protokołem w stylu systemu UNIX.   
+
+    W poniższej tabeli opisano style zabezpieczeń i ich skutki:  
+    
+    | Styl zabezpieczeń    | Klienci, którzy mogą modyfikować uprawnienia   | Uprawnienia, których mogą używać klienci  | Wynikający ze skutecznego stylu zabezpieczeń    | Klienci, którzy mogą uzyskiwać dostęp do plików     |
+    |-  |-  |-  |-  |-  |
+    | UNIX  | NFS   | NFSv3 tryb bitowy   | UNIX  | NFS i Windows   |
+    | NTFS  | Windows   | Listy ACL NTFS     | NTFS  |NFS i Windows|
 
 ## <a name="create-a-dual-protocol-volume"></a>Tworzenie woluminu dwuprotokołowego
 
@@ -113,9 +123,9 @@ Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików 
 
 ## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Przekaż Active Directory publiczny certyfikat główny urzędu certyfikacji  
 
-1.  Aby zainstalować i skonfigurować urząd certyfikacji, należy postępować zgodnie z instrukcjami [instalacji](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) . 
+1.  Aby zainstalować i skonfigurować urząd certyfikacji, należy postępować zgodnie z instrukcjami [instalacji](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) . 
 
-2.  Postępuj zgodnie [z wyświetlaniem certyfikatów z przystawką programu MMC](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) , aby użyć przystawki programu MMC i narzędzia Menedżer certyfikatów.  
+2.  Postępuj zgodnie [z wyświetlaniem certyfikatów z przystawką programu MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) , aby użyć przystawki programu MMC i narzędzia Menedżer certyfikatów.  
     Użyj przystawki Menedżer certyfikatów, aby zlokalizować certyfikat główny lub wystawiający dla urządzenia lokalnego. Polecenia przystawki Zarządzanie certyfikatami należy uruchamiać z jednego z następujących ustawień:  
     * Klient oparty na systemie Windows, który przyłączył się do domeny i ma zainstalowany certyfikat główny 
     * Inny komputer w domenie zawierający certyfikat główny  
@@ -152,4 +162,4 @@ Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie klienta NFS dla Azure
 ## <a name="next-steps"></a>Następne kroki  
 
 * [Dwa często zadawane pytania dotyczące protokołu](azure-netapp-files-faqs.md#dual-protocol-faqs)
-* [Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files](configure-nfs-clients.md) 
+* [Konfigurowanie klienta sieciowego systemu plików dla usługi Azure NetApp Files](configure-nfs-clients.md)

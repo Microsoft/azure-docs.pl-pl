@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589711"
+ms.locfileid: "91930955"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
@@ -127,6 +127,13 @@ Reguła ruchu wychodzącego konfiguruje wychodzące translatora adresów sieciow
 Dowiedz się więcej o [połączeniach wychodzących i regułach](load-balancer-outbound-connections.md).
 
 Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wychodzącego.
+
+## <a name="limitations"></a>Ograniczenia
+
+- Moduł równoważenia obciążenia zapewnia Równoważenie obciążenia i przekazywanie portów dla określonych protokołów TCP lub UDP. Reguły równoważenia obciążenia i reguły NAT dla ruchu przychodzącego obsługują protokoły TCP i UDP, ale nie są to adresy IP, w tym protokół ICMP.
+- Przepływ wychodzący z maszyny wirtualnej zaplecza do frontonu wewnętrznej Load Balancer zakończy się niepowodzeniem.
+- Reguła modułu równoważenia obciążenia nie może obejmować dwóch sieci wirtualnych.  Frontony i ich wystąpienia zaplecza muszą znajdować się w tej samej sieci wirtualnej.  
+- Fragmenty adresów IP przekazywania nie są obsługiwane w regułach równoważenia obciążenia. Fragmentacja IP pakietów UDP i TCP nie jest obsługiwana w regułach równoważenia obciążenia. Reguły równoważenia obciążenia portów HA mogą służyć do przesyłania dalej istniejących fragmentów adresów IP. Aby uzyskać więcej informacji, zobacz [Omówienie portów wysokiej dostępności](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

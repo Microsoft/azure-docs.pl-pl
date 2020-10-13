@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617880"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973312"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -353,7 +353,11 @@ Nieudokumentowane instrukcje DBCC, które są włączone w SQL Server nie są ob
 
 ### <a name="distributed-transactions"></a>Transakcje rozproszone
 
-Usługi MSDTC i [transakcje elastyczne](../database/elastic-transactions-overview.md) obecnie nie są obsługiwane w wystąpieniu zarządzanym SQL.
+Częściowa pomoc techniczna dla [transakcji rozproszonych](../database/elastic-transactions-overview.md) jest obecnie w publicznej wersji zapoznawczej. Obsługiwane scenariusze:
+* Transakcje, w których uczestnicy są tylko wystąpieniami zarządzanymi usługi Azure SQL, które są częścią [grupy zaufania serwera](https://aka.ms/mitrusted-groups).
+* Transakcje zainicjowane z platformy .NET (Klasa TransactionScope) i Transact-SQL.
+
+Wystąpienie zarządzane Azure SQL obecnie nie obsługuje innych scenariuszy, które są regularnie obsługiwane przez usługę MSDTC lokalnie lub w usłudze Azure Virtual Machines.
 
 ### <a name="extended-events"></a>Zdarzenia rozszerzone
 

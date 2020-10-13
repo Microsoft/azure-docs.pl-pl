@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf202e0f14f18d817e4e918f8372ba3c0a4ad8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118454"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950673"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Pojedynczy Sign-On protokół SAML
 
@@ -51,7 +51,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID (Identyfikator) | Wymagane | Usługa Azure AD używa tego atrybutu do wypełniania `InResponseTo` atrybutu zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest prawidłowym identyfikatorem. |
 | Wersja | Wymagane | Dla tego parametru należy ustawić wartość **2,0**. |
 | IssueInstant | Wymagane | Jest to ciąg daty i godziny z wartością czasu UTC i [formatem rundy ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Usługa Azure AD oczekuje wartości daty i godziny tego typu, ale nie oblicza ani nie używa wartości. |
-| AssertionConsumerServiceUrl | Opcjonalne | Jeśli ta wartość jest określona, ten parametr musi być zgodny z `RedirectUri` usługą w chmurze w usłudze Azure AD. |
+| AssertionConsumerServiceURL | Opcjonalne | Jeśli ta wartość jest określona, ten parametr musi być zgodny z `RedirectUri` usługą w chmurze w usłudze Azure AD. |
 | ForceAuthn | Opcjonalne | Jest to wartość logiczna. W przypadku wartości true oznacza to, że użytkownik zostanie zmuszony do ponownego uwierzytelnienia, nawet jeśli ma prawidłową sesję z usługą Azure AD. |
 | Ispassy | Opcjonalne | Jest to wartość logiczna określająca, czy usługa Azure AD powinna uwierzytelniać użytkownika w trybie dyskretnym, bez interakcji z użytkownikiem, jeśli taki istnieje. Jeśli ta wartość jest równa true, usługa Azure AD podejmie próbę uwierzytelnienia użytkownika przy użyciu pliku cookie sesji. |
 

@@ -2,17 +2,14 @@
 title: Debugowanie w programie Visual Studio przy użyciu usługi Azure Application Insights
 description: Analiza wydajności i diagnostyka aplikacji internetowej podczas debugowania oraz w środowisku produkcyjnym.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/07/2017
-ms.reviewer: mbullwin
+ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 1bb18cc43ef306a208500ff49ec41dbfb74b788e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323472"
+ms.locfileid: "91932213"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Debuguj aplikacje za pomocą usługi Azure Application Insights w programie Visual Studio
 W programie Visual Studio (w wersji 2015 i nowszych) można analizować wydajność i diagnozować problemy w aplikacji internetowej platformy ASP.NET zarówno podczas debugowania, jak i w środowisku produkcyjnym, przy użyciu telemetrii z usługi [Azure Application Insights](./app-insights-overview.md).
@@ -94,8 +91,6 @@ Jest to również przydatne, jeśli masz trochę [niestandardowej telemetrii](./
 
 
 ## <a name="next-steps"></a>Następne kroki
-|  |  |
-| --- | --- |
-| **[Dodawanie większej ilości danych](./asp-net-more.md)**<br/>Monitorowanie użycia, dostępności, zależności i wyjątków. Integrowanie śladów ze struktur rejestrowania. Zapisywanie niestandardowych danych telemetrycznych. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Praca z portalem usługi Application Insights](./overview-dashboard.md)**<br/>Wyświetlaj pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, Mapa zależności na żywo aplikacji oraz wyeksportowane dane telemetryczne. |![Visual Studio](./media/visual-studio/62.png) |
+
+ * **[Praca z portalem Application Insights](./overview-dashboard.md)**. Wyświetlaj pulpity nawigacyjne, zaawansowane narzędzia diagnostyczne i analityczne, alerty, Mapa zależności na żywo aplikacji oraz wyeksportowane dane telemetryczne. 
 

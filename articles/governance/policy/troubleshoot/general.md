@@ -4,10 +4,10 @@ description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zas
 ms.date: 10/05/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743441"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy

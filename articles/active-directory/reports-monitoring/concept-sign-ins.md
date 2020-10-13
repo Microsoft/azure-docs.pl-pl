@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812832"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
@@ -32,7 +32,7 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
     - **Dzienniki aprowizacji**  -  [Dzienniki aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) umożliwiają klientom monitorowanie aktywności przy użyciu usługi aprowizacji, takiej jak tworzenie grupy w usługi ServiceNow lub użytkownik zaimportowany z produktu Workday. 
-- **Bezpieczeństwo** 
+- **Zabezpieczenia** 
     - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
     - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
@@ -60,7 +60,7 @@ Raport logowania użytkownika zawiera odpowiedzi na następujące pytania:
 
 W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**lub wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
 
-![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Usługa Azure Active Directory")
 
 W obszarze **monitorowanie**wybierz pozycję **logowania** , aby otworzyć [raport logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
@@ -235,7 +235,7 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Klient
 - Lokalizacja
 - Adres IP
-- Data
+- Date
 - Wymagane uwierzytelnianie wieloskładnikowe
 - Stan logowania
 

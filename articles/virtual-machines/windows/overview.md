@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4e955a51906f160264fc4e81f263fe7677be91de
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8a42711bba8f77070e2b30a9b07d29d5b5095945
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88589626"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973890"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Windows na platformie Azure
 
@@ -69,7 +69,7 @@ Na platformie Azure jest naliczana [Cena godzinowa](https://azure.microsoft.com/
 Subskrypcje mają domyślne [limity przydziałów](../../azure-resource-manager/management/azure-subscription-service-limits.md), które mogą mieć wpływ na wdrożenie wielu maszyn wirtualnych w projekcie. Aktualny limit dla każdej subskrypcji wynosi 20 maszyn wirtualnych na region. Limity można zwiększyć, [wypełniając odpowiednio bilet pomocy technicznej](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Dyski i obrazy z systemem operacyjnym
-Maszyny wirtualne używają [wirtualnych dysków twardych (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) do przechowywania systemu operacyjnego i danych. Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
+Maszyny wirtualne używają [wirtualnych dysków twardych (VHD)](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) do przechowywania systemu operacyjnego i danych. Wirtualne dyski twarde są również używane do obsługi obrazów, spośród których można wybierać, chcąc zainstalować system operacyjny. 
 
 Na platformie Azure jest dostępnych wiele [obrazów z portalu Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1), których można używać z różnymi wersjami i typami systemów operacyjnych Windows Server. Obrazy z Marketplace są oznaczone nazwą wydawcy i oferty, jednostką SKU i wersją (zwykle najnowszą). Obsługiwane są tylko 64-bitowe systemy operacyjne. Aby uzyskać więcej informacji dotyczących obsługiwanych systemów operacyjnych gościa, ról oraz funkcji, zobacz temat [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Obsługa oprogramowania serwera Microsoft maszyn wirtualnych Microsoft Azure).
 
