@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
 ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426269"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
@@ -26,7 +26,7 @@ Ten dokument zawiera szczegółowe informacje dotyczące używania niestandardow
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!NOTE]  
-> Nie używaj niestandardowego rozszerzenia skryptu, aby uruchomić polecenie Update-AzVM z tą samą maszyną wirtualną jako parametrem, ponieważ będzie ona oczekiwać na siebie.  
+> Nie należy używać rozszerzenia skryptu niestandardowego do uruchamiania Update-AzVM z tą samą maszyną wirtualną jako parametrem, ponieważ będzie ona oczekiwać na siebie.  
 
 ### <a name="operating-system"></a>System operacyjny
 
@@ -275,14 +275,14 @@ Jeśli chcesz uruchomić rozszerzenie skryptu niestandardowego więcej niż raz,
 
 Alternatywnie można ustawić **wartość true**dla właściwości [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) .
 
-### <a name="using-invoke-webrequest"></a>Korzystanie z metody Invoke-WebRequest
+### <a name="using-invoke-webrequest"></a>Używanie Invoke-WebRequest
 
 Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) w skrypcie, musisz określić parametr lub w przeciwnym razie `-UseBasicParsing` zostanie wyświetlony następujący komunikat o błędzie podczas sprawdzania szczegółowego stanu:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Zestawy skali maszyn wirtualnych
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
@@ -300,7 +300,7 @@ Kliknij pozycję **+ Dodaj** i na liście zasobów wybierz pozycję **niestandar
 
 Na stronie **rozszerzenie instalacji** wybierz lokalny plik programu PowerShell i Wypełnij wszystkie argumenty i kliknij przycisk **OK**.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Użyj polecenia cmdlet [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) , aby dodać rozszerzenie niestandardowego skryptu do istniejącej maszyny wirtualnej.
 

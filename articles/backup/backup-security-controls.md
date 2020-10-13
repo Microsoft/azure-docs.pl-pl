@@ -4,10 +4,10 @@ description: Dowiedz się więcej o kontrolkach zabezpieczeń używanych w usłu
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89418759"
 ---
 # <a name="security-controls-for-azure-backup"></a>Kontrolki zabezpieczeń dla Azure Backup
@@ -38,8 +38,8 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Backup.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi| Dokumentacja
 |---|---|--|--|
-| Authentication| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |  |
-| Autoryzacja| Tak | Są używane role wbudowane klienta i platformy Azure. Aby uzyskać więcej informacji, zobacz [używanie Access Control opartej na rolach w celu zarządzania Azure Backup punktów odzyskiwania](./backup-rbac-rs-vault.md). |  |
+| Uwierzytelnianie| Tak | Uwierzytelnianie odbywa się za Azure Active Directory. |  |
+| Autoryzacja| Tak | Są używane role wbudowane klienta i platformy Azure. Aby uzyskać więcej informacji, zobacz [używanie Role-Based Access Control do zarządzania punktami odzyskiwania Azure Backup](./backup-rbac-rs-vault.md). |  |
 
 ## <a name="data-protection"></a>Ochrona danych
 
@@ -48,7 +48,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Backup.
 | Szyfrowanie po stronie serwera w czasie spoczynku: klucze zarządzane przez firmę Microsoft | Tak | Korzystanie z szyfrowania usługi Storage dla kont magazynu. |  |
 | Szyfrowanie po stronie serwera w spoczynku: klucze zarządzane przez klienta (BYOK) | Nie |  |  |
 | Szyfrowanie na poziomie kolumny (Data Services platformy Azure)| Nie |  |  |
-| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie sieci wirtualnej)| Nie | Przy użyciu protokołu HTTPS. |  |
+| Szyfrowanie podczas przesyłania (takie jak szyfrowanie ExpressRoute, szyfrowanie sieci wirtualnej i szyfrowanie VNet-VNet)| Nie | Przy użyciu protokołu HTTPS. |  |
 | Wywołania interfejsu API są szyfrowane| Tak |  |  |
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją

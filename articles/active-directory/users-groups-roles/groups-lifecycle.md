@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054555"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurowanie zasad wygasania dla grup Microsoft 365
@@ -134,7 +134,7 @@ Poniżej przedstawiono przykłady użycia poleceń cmdlet programu PowerShell do
    Connect-AzureAD
    ```
 
-1. Skonfiguruj ustawienia wygasania za pomocą polecenia cmdlet New-AzureADMSGroupLifecyclePolicy Ustaw okres istnienia dla wszystkich grup Microsoft 365 w organizacji usługi Azure AD na 365 dni. Powiadomienia o odnowieniu dla grup Microsoft 365 bez właścicieli zostaną wysłane do " emailaddress@contoso.com "
+1. Skonfiguruj ustawienia wygasania za pomocą polecenia cmdlet New-AzureADMSGroupLifecyclePolicy, aby ustawić okres istnienia dla wszystkich grup Microsoft 365 w organizacji usługi Azure AD na 365 dni. Powiadomienia o odnowieniu dla grup Microsoft 365 bez właścicieli zostaną wysłane do " emailaddress@contoso.com "
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com

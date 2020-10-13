@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183266"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Aby zainstalować aktualizacje trybu konserwacji za pośrednictwem program Windows PowerShell dla usługi StorSimple
@@ -18,7 +18,7 @@ ms.locfileid: "67183266"
    
      `Get-HcsUpdateAvailability` 
 4. Otrzymasz powiadomienie o dostępności aktualizacji oraz o tym, czy aktualizacje są zakłócone, czy nie zakłócają działania. Aby zastosować aktualizacje zakłócające, należy przełączyć urządzenie w tryb konserwacji. Zobacz [krok 2. Wprowadź tryb konserwacji](../articles/storsimple/storsimple-update-device.md#step2) , aby uzyskać instrukcje.
-5. Gdy urządzenie jest w trybie konserwacji, w wierszu polecenia wpisz:`Start-HcsUpdate`
+5. Gdy urządzenie jest w trybie konserwacji, w wierszu polecenia wpisz: `Start-HcsUpdate`
 6. Pojawi się monit o potwierdzenie. Po potwierdzeniu aktualizacji zostaną one zainstalowane na kontrolerze, do którego aktualnie uzyskuje się dostęp. Po zainstalowaniu aktualizacji kontroler zostanie uruchomiony ponownie. 
 7. Monitorowanie stanu aktualizacji. Wpisz:
    

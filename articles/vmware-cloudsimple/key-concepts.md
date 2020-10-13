@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8677bc7e4b9f4c2b24b5439aeefb307b9c544ed3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525028"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>Kluczowe pojęcia związane z administracją rozwiązań VMware platformy Azure według CloudSimple
@@ -58,7 +58,7 @@ Usługa CloudSimple zapewnia sieć na region, w którym wdrożono usługę Cloud
 
 Za pomocą usługi CloudSimple można zarządzać maszynami wirtualnymi VMware z poziomu Azure Portal. Co najmniej jeden klaster lub pule zasobów ze środowiska vSphere można zamapować na subskrypcję, w której jest tworzona usługa.
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 * [CloudSimple maszyn wirtualnych](cloudsimple-virtual-machines.md)
 * [Mapowanie subskrypcji platformy Azure](./azure-subscription-mapping.md)

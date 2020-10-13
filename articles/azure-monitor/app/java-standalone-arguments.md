@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374307"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurowanie JVM args autonomiczny Agent Java dla Azure Monitor Application Insights
@@ -43,7 +43,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 
-### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat zainstalowany za pośrednictwem `apt-get` lub`yum`
+### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat zainstalowany za pośrednictwem `apt-get` lub `yum`
 
 Jeśli zainstalowano program Tomcat za pośrednictwem `apt-get` `yum` programu lub, powinien istnieć plik `/etc/tomcat8/tomcat8.conf` .  Dodaj ten wiersz na końcu tego pliku:
 
@@ -139,12 +139,12 @@ W przypadku uruchamiania wielu serwerów zarządzanych na jednym hoście należy
 ...
 ```
 
-Określona `applicationinsights.agent.id` wartość musi być unikatowa. Służy do tworzenia podkatalogu w katalogu ApplicationInsights, ponieważ każdy proces JVM wymaga własnej lokalnej konfiguracji ApplicationInsights i lokalnego pliku dziennika ApplicationInsights. Ponadto, jeśli raportowanie do centralnego modułu zbierającego, `applicationinsights.properties` plik jest współużytkowany przez wiele zarządzanych serwerów, więc określony `applicationinsights.agent.id` jest niezbędny do przesłaniania `agent.id` Ustawienia w tym pliku udostępnionym. `applicationinsights.agent.rollup.id`może być analogicznie określony na serwerze, `system-properties` Jeśli zachodzi potrzeba zastąpienia `agent.rollup.id` Ustawienia na serwerze zarządzanym.
+Określona `applicationinsights.agent.id` wartość musi być unikatowa. Służy do tworzenia podkatalogu w katalogu ApplicationInsights, ponieważ każdy proces JVM wymaga własnej lokalnej konfiguracji ApplicationInsights i lokalnego pliku dziennika ApplicationInsights. Ponadto, jeśli raportowanie do centralnego modułu zbierającego, `applicationinsights.properties` plik jest współużytkowany przez wiele zarządzanych serwerów, więc określony `applicationinsights.agent.id` jest niezbędny do przesłaniania `agent.id` Ustawienia w tym pliku udostępnionym. `applicationinsights.agent.rollup.id` może być analogicznie określony na serwerze, `system-properties` Jeśli zachodzi potrzeba zastąpienia `agent.rollup.id` Ustawienia na serwerze zarządzanym.
 
 
 ## <a name="jetty-9"></a>Jetty 9
 
-Dodaj te wiersze do`start.ini`
+Dodaj te wiersze do `start.ini`
 
 ```
 --exec

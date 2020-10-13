@@ -4,10 +4,10 @@ description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plan
 ms.date: 08/27/2020
 ms.topic: tutorial
 ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048574"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
@@ -111,9 +111,9 @@ Twoja definicja planu została teraz utworzona w Twoim środowisku. Jest on twor
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Wybierz stronę **definicje** strategii po lewej stronie. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
+1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
 
-1. Wybierz pozycję **Publikuj plan** w górnej części strony. W nowym okienku po prawej stronie wprowadź **1,0** jako **wersję**. Ta właściwość jest przydatna, jeśli wprowadzisz zmiany później. Wprowadź **Informacje o zmianach**, takie jak **Pierwsza wersja opublikowana do blokowania zasobów wdrożonych w**planie. Następnie wybierz pozycję **Publikuj** w dolnej części strony.
+1. W górnej części strony wybierz pozycję **Publikuj strategię**. W nowym okienku po prawej stronie wprowadź **1,0** jako **wersję**. Ta właściwość jest przydatna, jeśli wprowadzisz zmiany później. Wprowadź **Informacje o zmianach**, takie jak **Pierwsza wersja opublikowana do blokowania zasobów wdrożonych w**planie. Następnie wybierz pozycję **Publikuj** w dolnej części strony.
 
 Ten krok umożliwia przypisanie planu do subskrypcji. Po opublikowaniu definicji planu można nadal wprowadzać zmiany. W przypadku wprowadzenia zmian należy opublikować definicję z nową wartością wersji, aby śledzić różnice między wersjami tej samej definicji planu.
 
@@ -125,11 +125,11 @@ Po opublikowaniu definicji planu można przypisać ją do subskrypcji w grupie z
 
 1. W okienku po lewej stronie wybierz pozycję **Wszystkie usługi**. Wyszukaj i wybierz pozycję **Strategie**.
 
-1. Wybierz stronę **definicje** strategii po lewej stronie. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
+1. Po lewej stronie wybierz stronę **Definicje strategii**. Użyj filtrów, aby znaleźć definicję planu **storageaccount** , a następnie wybierz ją.
 
-1. Wybierz pozycję **Przypisz plan** w górnej części strony definicji planu.
+1. Wybierz pozycję **Przypisz strategię** w górnej części strony definicji strategii.
 
-1. Podaj wartości parametrów dla przypisania planu:
+1. Podaj wartości parametrów dla przypisania strategii:
 
    - **Podstawy**
 

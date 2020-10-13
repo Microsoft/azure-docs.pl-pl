@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450411"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965917"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
-Podstawowy token odświeżania (PRT) to kluczowy artefakt uwierzytelniania usługi Azure AD na urządzeniach z systemem Windows 10, iOS i Android. Jest to token sieci Web JSON (JWT) specjalnie wystawiony dla brokerów tokenów firmy Microsoft, aby umożliwić Logowanie jednokrotne w aplikacjach używanych na tych urządzeniach. W tym artykule przedstawiono szczegółowe informacje na temat sposobu wystawiania, używania i ochrony PRT na urządzeniach z systemem Windows 10.
+Podstawowy token odświeżania (PRT) to kluczowy artefakt uwierzytelniania usługi Azure AD w systemie Windows 10, Windows Server 2016 i nowszych wersjach, urządzeniach z systemem iOS i Android. Jest to token sieci Web JSON (JWT) specjalnie wystawiony dla brokerów tokenów firmy Microsoft, aby umożliwić Logowanie jednokrotne w aplikacjach używanych na tych urządzeniach. W tym artykule przedstawiono szczegółowe informacje na temat sposobu wystawiania, używania i ochrony PRT na urządzeniach z systemem Windows 10.
 
 W tym artykule przyjęto założenie, że znasz już inne Stany urządzeń dostępne w usłudze Azure AD oraz sposób działania logowania jednokrotnego w systemie Windows 10. Aby uzyskać więcej informacji o urządzeniach w usłudze Azure AD, zobacz artykuł [co to jest zarządzanie urządzeniami w usłudze Azure Active Directory?](overview.md)
 

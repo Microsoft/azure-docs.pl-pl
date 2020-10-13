@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797721"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Ostatnim wynikiem jest nowa statyczna aplikacja internetowa platformy Azure ze skojarzonymi akcjami GitHub, która zapewnia kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -115,7 +115,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. W obszarze _jednostka SKU_wybierz pozycję **bezpłatnie**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Szczegóły wypełnione":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Tworzenie zasobu usługi Azure static Web Apps w portalu":::
 
 1. Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** .
 
@@ -125,7 +125,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację ze statyczną lokacją
 
 1. Dla _gałęzi_ wybierz gałąź **główna**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Zakończono informacje z serwisu GitHub":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Tworzenie zasobu usługi Azure static Web Apps w portalu":::
 
 ### <a name="build"></a>Kompilacja
 
@@ -149,7 +149,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. W oknie _przegląd_ Azure Portal nowo utworzonego zasobu statycznego Web Apps platformy Azure kliknij link _adresu URL_ , aby otworzyć wdrożoną aplikację.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Wdrożona aplikacja":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Tworzenie zasobu usługi Azure static Web Apps w portalu":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

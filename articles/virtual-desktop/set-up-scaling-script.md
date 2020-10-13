@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078558"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
@@ -25,9 +25,9 @@ Narzędzie skalowania udostępnia opcję automatyzacji o niskich kosztach dla kl
 
 Możesz użyć narzędzia skalowania, aby:
 
-- Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych w oparciu o szczytową i nieszczytową godzinę biznesową.
+- Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych w oparciu o szczytową i Off-Peak godziny pracy.
 - Skalowanie maszyn wirtualnych na podstawie liczby sesji na rdzeń procesora CPU.
-- Skalowanie maszyn wirtualnych poza godzinami szczytu, pozostawiając minimalną liczbę maszyn wirtualnych hosta sesji z systemem.
+- Skalowanie maszyn wirtualnych w Off-Peak godzinach, pozostawiając minimalną liczbę maszyn wirtualnych hosta sesji z systemem.
 
 Narzędzie do skalowania używa kombinacji konta Azure Automation, elementu Runbook programu PowerShell, elementów webhook i aplikacji logiki platformy Azure do działania. Po uruchomieniu narzędzia Aplikacja logiki Azure wywołuje element webhook w celu uruchomienia Azure Automation elementu Runbook. Następnie element Runbook utworzy zadanie.
 
@@ -284,7 +284,7 @@ Gdy zgłaszasz problem, musisz podać poniższe informacje, aby pomóc nam w roz
 
 - Data wygaśnięcia [konta Uruchom jako](#create-an-azure-automation-run-as-account). Aby to sprawdzić, Otwórz konto Azure Automation, a następnie wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta** w okienku po lewej stronie okna. Data wygaśnięcia powinna być **uwzględniona w ramach konta Uruchom jako platformy Azure**.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics"></a>Usługa Log Analytics
 
 Jeśli zamierzasz używać Log Analytics, możesz wyświetlić wszystkie dane dziennika w dzienniku niestandardowym o nazwie **WVDTenantScale_CL** w obszarze **dzienniki niestandardowe** w widoku **dzienniki** w obszarze roboczym log Analytics. Wystawiłeś przykładowe zapytania, które mogą być przydatne.
 

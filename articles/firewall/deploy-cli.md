@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075430"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -105,7 +105,7 @@ az network vnet subnet create \
 Teraz utwórz maszyny wirtualne przesiadkową i obciążeń, a następnie umieść je w odpowiednich podsieciach.
 Po wyświetleniu monitu wpisz hasło dla maszyny wirtualnej.
 
-Utwórz maszynę wirtualną z przeskokiem SRV.
+Utwórz Srv-Jump maszynę wirtualną.
 
 ```azurecli-interactive
 az vm create \
@@ -121,7 +121,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Utwórz kartę sieciową dla SRV-Work z określonymi adresami IP serwera DNS i bez publicznego adresu IP do przetestowania.
+Utwórz kartę sieciową dla Srv-Work z określonymi adresami IP serwera DNS i bez publicznego adresu IP do przetestowania.
 
 ```azurecli-interactive
 az network nic create \

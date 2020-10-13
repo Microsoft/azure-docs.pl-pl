@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049574"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
@@ -119,7 +119,7 @@ Zasady awaryjnego dostępu warunkowego to **zasady tworzenia kopii zapasowych** 
 
 * Skonfiguruj zestaw zasad powrotu, jeśli zakłócenia w jednym typie poświadczeń lub jeden mechanizm kontroli dostępu ma wpływ na dostęp do aplikacji. Skonfiguruj zasady w stanie "tylko raport", który wymaga przyłączenia do domeny jako kontrolki jako kopii zapasowej aktywnej zasady, która wymaga dostawcy MFA innej firmy.
 * Ogranicz ryzyko nieprawidłowych uczestników odgadnąć hasła, gdy uwierzytelnianie wieloskładnikowe nie jest wymagane, postępując zgodnie z zasadami [zawartymi w dokumencie wytyczne dotyczące haseł](https://aka.ms/passwordguidance) .
-* Wdróż funkcję samoobsługowego [resetowania haseł (SSPR) usługi Azure AD](./tutorial-enable-sspr.md) i [Ochrona hasłem w usłudze Azure AD](./howto-password-ban-bad-on-premises-deploy.md) , aby upewnić się, że użytkownicy nie używają typowych haseł i postanowień do zaświadczenia.
+* Wdróż [usługę Azure ad Self-Service Resetowanie hasła (SSPR)](./tutorial-enable-sspr.md) i [ochronę hasłem usługi Azure AD](./howto-password-ban-bad-on-premises-deploy.md) , aby upewnić się, że użytkownicy nie używają wspólnych haseł i postanowień dotyczących zakazu.
 * Użyj zasad, które ograniczają dostęp w aplikacjach, jeśli nie zostanie osiągnięty określony poziom uwierzytelniania zamiast po prostu z powrotem do pełnego dostępu. Na przykład:
   * Skonfiguruj zasady tworzenia kopii zapasowych, które wysyłają do programów Exchange i SharePoint żądania ograniczonej sesji.
   * Jeśli Twoja organizacja używa Microsoft Cloud App Security, rozważ powracanie do zasad, które angażują MCAS, a następnie MCAS zezwala na dostęp tylko do odczytu, ale nie do przekazywania.
@@ -215,13 +215,13 @@ Jeśli wdrożono rozszerzenie zasad sieciowych usługi Azure AD MFA w celu ochro
 W takim przypadku można wyłączyć rozszerzenie serwera NPS, w związku z czym serwer NPS sprawdzi tylko podstawowe uwierzytelnianie i nie będzie wymuszać uwierzytelniania wieloskładnikowego dla użytkowników.
 
 Wyłącz rozszerzenie serwera NPS: 
--   Wyeksportuj klucz rejestru HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters jako kopię zapasową. 
+-   Wyeksportuj klucz rejestru HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters jako kopię zapasową. 
 -   Usuń wartości rejestru dla opcji "AuthorizationDLLs" i "ExtensionDLLs", a nie klucza parametrów. 
 -   Uruchom ponownie usługę zasad sieciowych (IAS), aby zmiany zaczęły obowiązywać 
 -   Ustal, czy podstawowe uwierzytelnianie sieci VPN zakończyło się pomyślnie.
 
 Po odzyskaniu usługi i przygotowaniu do ponownego wymuszania uwierzytelniania MFA w przypadku użytkowników należy włączyć rozszerzenie serwera NPS: 
--   Zaimportuj klucz rejestru z kopii zapasowej HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Zaimportuj klucz rejestru z HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters kopii zapasowej 
 -   Uruchom ponownie usługę zasad sieciowych (IAS), aby zmiany zaczęły obowiązywać 
 -   Ustal, czy uwierzytelnianie podstawowe oraz uwierzytelnianie pomocnicze dla sieci VPN zostały wykonane pomyślnie.
 -   Przejrzyj serwer zasad sieciowych i dziennik sieci VPN, aby określić, którzy użytkownicy zostali zalogowani w oknie awaryjnym.

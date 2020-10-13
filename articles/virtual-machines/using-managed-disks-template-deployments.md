@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 298c6e4f33fff99fff01b6b911ec77c78f1fbd26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666555"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976671"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Używanie dysków w szablonach Azure Resource Manager
 
@@ -266,5 +266,4 @@ Aby uzyskać pełne informacje na temat specyfikacji interfejsu API REST, zapozn
 * Aby dowiedzieć się więcej o dyskach zarządzanych, odwiedź stronę z [omówieniem usługi Azure Managed disks](managed-disks-overview.md) .
 * Zapoznaj się z dokumentacją dotyczącą szablonu zasobów maszyny wirtualnej, odwiedzając dokument [referencyjny szablonu Microsoft. COMPUTE/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) .
 * Zapoznaj się z dokumentacją dotyczącą szablonu zasobów dyskowych, odwiedzając dokument [referencyjny szablonu Microsoft. COMPUTE/disks](/azure/templates/microsoft.compute/disks) .
-* Aby uzyskać informacje na temat korzystania z dysków zarządzanych w usłudze Azure Virtual Machine Scale Sets, przejdź do dokumentu [Korzystanie z dysków danych z zestawami skalowania](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) .
-
+* Aby uzyskać informacje na temat korzystania z dysków zarządzanych w usłudze Azure Virtual Machine Scale Sets, przejdź do dokumentu [Korzystanie z dysków danych z zestawami skalowania](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) .

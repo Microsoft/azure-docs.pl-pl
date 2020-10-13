@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87407119"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Szybki Start: Programowanie w usłudze Azure Kubernetes Service (AKS) przy użyciu usługi Helm
@@ -131,8 +131,8 @@ helm create webfrontend
 
 Wprowadź następujące aktualizacje do *webfrontonu/Values. YAML*. Zastąp loginServer rejestru, który został zanotowany we wcześniejszym kroku, na przykład *myhelmacr.azurecr.IO*:
 
-* Zmień `image.repository` na`<loginServer>/webfrontend`
-* Zmień `service.type` na`LoadBalancer`
+* Zmień `image.repository` na `<loginServer>/webfrontend`
+* Zmień `service.type` na `LoadBalancer`
 
 Na przykład:
 
@@ -201,7 +201,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 Aby uzyskać więcej informacji na temat korzystania z programu Helm, zobacz dokumentację Helm.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja Helm][helm-documentation]
+> [Dokumentacja programu Helm][helm-documentation]
 
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-build]: /cli/azure/acr#az-acr-build

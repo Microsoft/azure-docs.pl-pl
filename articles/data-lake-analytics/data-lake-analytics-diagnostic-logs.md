@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331934"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics)
@@ -43,7 +43,7 @@ Rejestrowanie diagnostyczne umożliwia zbieranie dzienników inspekcji dostępu 
 
    * Dla __Archiwum na konto magazynu__Określ liczbę dni, przez które mają zostać zachowane dane.
 
-   * Kliknij pozycję __Zapisz__.
+   * Kliknij przycisk __Zapisz__.
 
         > [!NOTE]
         > Przed kliknięciem przycisku __Zapisz__ należy wybrać opcję __Archiwizuj na koncie magazynu__, __przesłać strumieniowo do centrum zdarzeń__ lub __wysłać do log Analytics__ .
@@ -128,13 +128,13 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |String |Identyfikator zasobu, w którym wykonano operację |
-| category |String |Kategoria dziennika. Na przykład **żądania**. |
-| operationName |String |Nazwa rejestrowanej operacji. Na przykład GetAggregatedJobHistory. |
-| resultType |String |Stan operacji, na przykład 200. |
-| callerIpAddress |String |Adres IP klienta wysyłającego żądanie |
-| correlationId |String |Identyfikator dziennika. Ta wartość może służyć do grupowania zestawu powiązanych wpisów dziennika. |
+| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |Ciąg |Identyfikator zasobu, w którym wykonano operację |
+| category |Ciąg |Kategoria dziennika. Na przykład **żądania**. |
+| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład GetAggregatedJobHistory. |
+| resultType |Ciąg |Stan operacji, na przykład 200. |
+| callerIpAddress |Ciąg |Adres IP klienta wysyłającego żądanie |
+| correlationId |Ciąg |Identyfikator dziennika. Ta wartość może służyć do grupowania zestawu powiązanych wpisów dziennika. |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Aby uzyskać szczegółowe informacje, zobacz następną sekcję (schemat właściwości dziennika żądań) |
 
@@ -142,12 +142,12 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| HttpMethod |String |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
-| Ścieżka |String |Ścieżka, na której wykonano operację |
+| HttpMethod |Ciąg |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
+| Ścieżka |Ciąg |Ścieżka, na której wykonano operację |
 | RequestContentLength |int |Długość zawartości żądania HTTP |
-| Identyfikatorem żądania klienta |String |Identyfikator, który jednoznacznie identyfikuje to żądanie |
-| StartTime |String |Godzina, o której serwer odebrał żądanie |
-| EndTime |String |Godzina, o której serwer wysłał odpowiedź |
+| Identyfikatorem żądania klienta |Ciąg |Identyfikator, który jednoznacznie identyfikuje to żądanie |
+| StartTime |Ciąg |Godzina, o której serwer odebrał żądanie |
+| EndTime |Ciąg |Godzina, o której serwer wysłał odpowiedź |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 
@@ -178,13 +178,13 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |String |Identyfikator zasobu, w którym wykonano operację |
-| category |String |Kategoria dziennika. Na przykład **Inspekcja**. |
-| operationName |String |Nazwa rejestrowanej operacji. Na przykład JobSubmitted. |
-| resultType |String |Podstan zadania (OperationName). |
-| resultSignature |String |Dodatkowe szczegóły dotyczące stanu zadania (OperationName). |
-| identity |String |Użytkownik, który zażądał operacji. Na przykład susan@contoso.com. |
+| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |Ciąg |Identyfikator zasobu, w którym wykonano operację |
+| category |Ciąg |Kategoria dziennika. Na przykład **Inspekcja**. |
+| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład JobSubmitted. |
+| resultType |Ciąg |Podstan zadania (OperationName). |
+| resultSignature |Ciąg |Dodatkowe szczegóły dotyczące stanu zadania (OperationName). |
+| identity |Ciąg |Użytkownik, który zażądał operacji. Na przykład susan@contoso.com. |
 | properties |JSON |Aby uzyskać szczegółowe informacje, zobacz następną sekcję (schemat właściwości dziennika inspekcji) |
 
 > [!NOTE]
@@ -196,13 +196,13 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| JobId |String |Identyfikator przypisany do zadania |
-| JobName |String |Nazwa podana dla zadania |
-| JobRunTime |String |Środowisko uruchomieniowe używane do przetwarzania zadania |
-| SubmitTime |String |Czas (UTC) przesłania zadania |
-| StartTime |String |Czas uruchomienia zadania po jego przejściu (w formacie UTC) |
-| EndTime |String |Godzina zakończenia zadania |
-| Równoległości |String |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
+| JobId |Ciąg |Identyfikator przypisany do zadania |
+| JobName |Ciąg |Nazwa podana dla zadania |
+| JobRunTime |Ciąg |Środowisko uruchomieniowe używane do przetwarzania zadania |
+| SubmitTime |Ciąg |Czas (UTC) przesłania zadania |
+| StartTime |Ciąg |Czas uruchomienia zadania po jego przejściu (w formacie UTC) |
+| EndTime |Ciąg |Godzina zakończenia zadania |
+| Równoległości |Ciąg |Liczba jednostek Data Lake Analytics żądana dla tego zadania podczas przesłania |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **Endtime**i **Parallel** zapewniają informacje dotyczące operacji. Te wpisy zawierają wartość tylko wtedy, gdy ta operacja została rozpoczęta lub ukończona. Na przykład **SubmitTime** zawiera tylko wartość po **operacji** , która ma wartość **JobSubmitted**.

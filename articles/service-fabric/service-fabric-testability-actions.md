@@ -7,10 +7,10 @@ ms.date: 06/07/2017
 ms.author: motanv
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022177"
 ---
 # <a name="testability-actions"></a>Akcje dotyczące testowania
@@ -80,7 +80,7 @@ Aby ponownie uruchomić węzeł Service Fabric w klastrze, należy **ponownie ur
 
 Poniższy zrzut ekranu przedstawia polecenie **"Uruchom ponownie ServiceFabricNode"** w akcji.
 
-![Zrzut ekranu przedstawiający uruchamianie polecenia restart-ServiceFabricNode w programie PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![Zrzut ekranu przedstawiający uruchamianie polecenia Restart-ServiceFabricNode w programie PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 Dane wyjściowe pierwszego polecenia **Get-ServiceFabricNode** (polecenie cmdlet z modułu Service Fabric PowerShell) pokazują, że klaster lokalny ma pięć węzłów: Node. 1 do Node. 5. Po wykonaniu akcji testowania (cmdlet) polecenie **restart-ServiceFabricNode** jest wykonywane w węźle o nazwie Node. 4. zobaczymy, że czas działania węzła został zresetowany.
 
@@ -219,7 +219,7 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Scenariusze testowania](service-fabric-testability-scenarios.md)
 * Testowanie usługi
   * [Symulowanie błędów podczas obciążeń usług](service-fabric-testability-workload-tests.md)

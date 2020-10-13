@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 3c87c234e376cc8380afbb26edf63e1969243475
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d659f0bc65d3dbe7cbb656d505275a52a9742eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87831145"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976627"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Co się stało z zakłóceniem działania usługi platformy Azure na maszynach wirtualnych platformy Azure
 Firma Microsoft chce, aby upewnić się, że nasze usługi są zawsze dostępne dla Ciebie, gdy będą potrzebne. Siły wykraczające poza nasze kontrolki czasami wpływają na metody, które powodują nieplanowane zakłócenia usługi.
@@ -25,7 +25,7 @@ W tym artykule opisano prawdziwe scenariusze odzyskiwania po awarii, gdy cały r
 Aby pomóc Ci w obsłudze tych rzadkich wystąpień, oferujemy następujące wskazówki dotyczące maszyn wirtualnych platformy Azure w przypadku przerwania działania usługi w całym regionie, w którym wdrożono aplikację maszyny wirtualnej platformy Azure.
 
 ## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opcja 1: inicjowanie trybu failover przy użyciu Azure Site Recovery
-Można skonfigurować Azure Site Recovery dla maszyn wirtualnych, aby umożliwić odzyskanie aplikacji za pomocą jednego kliknięcia w kilka minut. Możesz przeprowadzić replikację do wybranego regionu platformy Azure i nie ograniczyć się do sparowanych regionów. Możesz rozpocząć od [replikowania maszyn wirtualnych](https://aka.ms/a2a-getting-started). Można [utworzyć plan odzyskiwania](../site-recovery/site-recovery-create-recovery-plans.md) , dzięki czemu można zautomatyzować cały proces trybu failover dla aplikacji. Przełączenie w [tryb failover można przetestować](../site-recovery/site-recovery-test-failover-to-azure.md) wcześniej bez wpływu na aplikację produkcyjną lub trwającą replikację. W przypadku przerwania działania w regionie podstawowym wystarczy [zainicjować tryb failover](../site-recovery/site-recovery-failover.md) i przenieść swoją aplikację w region docelowy.
+Można skonfigurować Azure Site Recovery dla maszyn wirtualnych, aby umożliwić odzyskanie aplikacji za pomocą jednego kliknięcia w kilka minut. Możesz przeprowadzić replikację do wybranego regionu platformy Azure i nie ograniczyć się do sparowanych regionów. Możesz rozpocząć od [replikowania maszyn wirtualnych](../site-recovery/azure-to-azure-quickstart.md). Można [utworzyć plan odzyskiwania](../site-recovery/site-recovery-create-recovery-plans.md) , dzięki czemu można zautomatyzować cały proces trybu failover dla aplikacji. Przełączenie w [tryb failover można przetestować](../site-recovery/site-recovery-test-failover-to-azure.md) wcześniej bez wpływu na aplikację produkcyjną lub trwającą replikację. W przypadku przerwania działania w regionie podstawowym wystarczy [zainicjować tryb failover](../site-recovery/site-recovery-failover.md) i przenieść swoją aplikację w region docelowy.
 
 
 ## <a name="option-2-wait-for-recovery"></a>Opcja 2: Poczekaj na odzyskanie
@@ -41,7 +41,7 @@ Jest to najlepsza opcja, jeśli nie skonfigurowano Azure Site Recovery, magazynu
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zacznij [chronić aplikacje działające na maszynach wirtualnych platformy Azure](https://aka.ms/a2a-getting-started) przy użyciu Azure Site Recovery
+- Zacznij [chronić aplikacje działające na maszynach wirtualnych platformy Azure](../site-recovery/azure-to-azure-quickstart.md) przy użyciu Azure Site Recovery
 
 - Aby dowiedzieć się więcej o implementowaniu strategii odzyskiwania po awarii i wysokiej dostępności, zobacz [odzyskiwanie po awarii i wysoka dostępność dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery).
 

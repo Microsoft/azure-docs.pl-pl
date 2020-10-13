@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88751284"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrowanie lokalnych klastrów Apache Hadoop do usługi Azure HDInsight — Security i DevOps Best Practices
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby wdrożyć przyłączony do domeny klaster usłu
     |ADRES URL ADRESÓW LDAP|na przykład `ldaps://contoso.onmicrosoft.com:636` .|
     |Dostęp do grupy użytkowników|Grupy zabezpieczeń, których użytkownicy mają synchronizować z klastrem, na przykład: `HiveUsers` . Jeśli chcesz określić wiele grup użytkowników, rozdziel je średnikami ";". Grupy muszą istnieć w katalogu przed utworzeniem klastra ESP.|
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Wprowadzenie do Apache Hadoop zabezpieczeń z przyłączonymi do domeny klastrami usługi HDInsight](../domain-joined/hdinsight-security-overview.md)
 - [Planowanie klastrów Apache Hadoop przyłączonych do domeny platformy Azure w usłudze HDInsight](../domain-joined/apache-domain-joined-architecture.md)
@@ -78,10 +78,10 @@ Kompleksowe zabezpieczenia przedsiębiorstwa można osiągnąć przy użyciu nas
     - Wyświetlaj i Raportuj wszystkie zmiany zasad kontroli dostępu.
 
 **Szyfrowanie**
-    - Przezroczyste szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta.
-    - W przypadku szyfrowania tranzytowego przy użyciu szyfrowania po stronie klienta, protokołu HTTPS i protokołu TLS.
+    - Przezroczyste szyfrowanie Server-Side przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta.
+    - W przypadku szyfrowania tranzytowego przy użyciu Client-Side szyfrowania, protokołu HTTPS i protokołu TLS.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Omówienie usługi Azure Virtual Networks](../../virtual-network/virtual-networks-overview.md)
 - [Omówienie grup zabezpieczeń sieci platformy Azure](../../virtual-network/security-overview.md)

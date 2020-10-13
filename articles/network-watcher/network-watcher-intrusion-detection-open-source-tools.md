@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84737363"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Wykrywanie intruzów w sieci za pomocą Network Watcher i narzędzi open source
@@ -38,7 +38,7 @@ Oba narzędzia Open Source można skonfigurować na maszynie wirtualnej platform
 
 ### <a name="install-suricata"></a>Zainstaluj Suricata
 
-W przypadku wszystkich innych metod instalacji odwiedź witrynęhttps://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
+W przypadku wszystkich innych metod instalacji odwiedź witrynę https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. W terminalu wiersza polecenia maszyny wirtualnej Uruchom następujące polecenia:
 
@@ -217,7 +217,7 @@ Dalsze instrukcje dotyczące instalowania wyszukiwania elastycznego można znale
 
 Dalsze instrukcje dotyczące instalowania logstash można znaleźć w [oficjalnej dokumentacji](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) .
 
-### <a name="install-kibana"></a>Zainstaluj Kibana
+### <a name="install-kibana"></a>Instalowanie narzędzia Kibana
 
 1. Uruchom następujące polecenia, aby zainstalować Kibana:
 
@@ -233,7 +233,7 @@ Dalsze instrukcje dotyczące instalowania logstash można znaleźć w [oficjalne
     ./bin/kibana
     ```
 
-1. Aby wyświetlić interfejs sieci Web Kibana, przejdź do`http://localhost:5601`
+1. Aby wyświetlić interfejs sieci Web Kibana, przejdź do `http://localhost:5601`
 1. W tym scenariuszu wzorzec indeksu używany dla dzienników Suricata ma wartość "logstash-*"
 
 1. Jeśli chcesz zdalnie wyświetlić pulpit nawigacyjny Kibana, Utwórz regułę sieciowej grupy zabezpieczeń dla ruchu przychodzącego zezwalającą na dostęp do **portu 5601**.

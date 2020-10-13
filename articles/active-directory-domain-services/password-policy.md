@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040048"
 ---
 # <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Zasady blokowania haseł i kont w Active Directory Domain Services domenach zarządzanych
@@ -27,7 +27,7 @@ W tym artykule opisano sposób tworzenia i konfigurowania szczegółowych zasad 
 > [!NOTE]
 > Zasady dotyczące haseł są dostępne tylko dla domen zarządzanych utworzonych przy użyciu modelu wdrażania Menedżer zasobów. W przypadku starszych domen zarządzanych utworzonych przy użyciu klasycznego, należy [przeprowadzić migrację z klasycznego modelu sieci wirtualnej do Menedżer zasobów][migrate-from-classic].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

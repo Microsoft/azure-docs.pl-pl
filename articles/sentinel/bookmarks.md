@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77588692"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Śledź dane podczas polowania z platformą Azure — wskaźnikiem
@@ -23,7 +23,7 @@ Polowanie zagrożeń zwykle wymaga przejrzenia górach danych dzienników szukaj
 
 Zakładki polowania w usłudze Azure badającej pomoc można wykonać, zachowując zapytania wykonane w **dziennikach badania platformy Azure**, a także wyniki zapytania, które są odpowiednie. Możesz również rejestrować uwagi kontekstowe i odwoływać się do wyników, dodając notatki i Tagi. Dane oznaczone zakładką są widoczne dla Ciebie i Twoich członków zespołu w celu ułatwienia współpracy.
 
-W dowolnym momencie możesz ponownie odwiedzić dane z zakładkami na karcie **zakładki** okienka **polowania** . Możesz użyć opcji filtrowania i wyszukiwania, aby szybko znaleźć konkretne dane dla bieżącego badania. Alternatywnie możesz wyświetlać dane z zakładek bezpośrednio w tabeli **HuntingBookmark** w obszarze roboczym log Analytics. Przykład:
+W dowolnym momencie możesz ponownie odwiedzić dane z zakładkami na karcie **zakładki** okienka **polowania** . Możesz użyć opcji filtrowania i wyszukiwania, aby szybko znaleźć konkretne dane dla bieżącego badania. Alternatywnie możesz wyświetlać dane z zakładek bezpośrednio w tabeli **HuntingBookmark** w obszarze roboczym log Analytics. Na przykład:
 
 > [!div class="mx-imgBorder"]
 > ![Wyświetl tabelę HuntingBookmark](./media/bookmarks/bookmark-table.png)
@@ -40,7 +40,7 @@ Ponadto w wersji zapoznawczej można wizualizować dane oznaczone zakładką, kl
 
 2. Wybierz jedną z zapytań polowania i po prawej stronie, w szczegółach zapytania polowania wybierz pozycję **Uruchom zapytanie**. 
 
-3. Wybierz pozycję **Wyświetl wyniki zapytania**. Przykład:
+3. Wybierz pozycję **Wyświetl wyniki zapytania**. Na przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Wyświetl wyniki zapytania z polowania wskaźnikowego platformy Azure](./media/bookmarks/new-processes-observed-example.png)
@@ -56,7 +56,7 @@ Ponadto w wersji zapoznawczej można wizualizować dane oznaczone zakładką, kl
 
 6. Po prawej stronie w okienku **Dodaj zakładkę** możesz opcjonalnie zaktualizować nazwę zakładki, dodać tagi i notatki, aby ułatwić identyfikację interesujących elementów.
 
-7. W sekcji **Informacje o zapytaniu** Użyj pól listy rozwijanej, aby wyodrębnić informacje z wyników zapytania dla typu **konta**, **hosta**i jednostki **adresów IP** . Ta akcja mapuje wybrany typ jednostki na określoną kolumnę z wyniku zapytania. Przykład:
+7. W sekcji **Informacje o zapytaniu** Użyj pól listy rozwijanej, aby wyodrębnić informacje z wyników zapytania dla typu **konta**, **hosta**i jednostki **adresów IP** . Ta akcja mapuje wybrany typ jednostki na określoną kolumnę z wyniku zapytania. Na przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Mapowanie typów jednostek dla zakładki polowania](./media/bookmarks/map-entity-types-bookmark.png)

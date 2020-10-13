@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 07/17/2020
 ms.custom: contperfq4
 ms.openlocfilehash: 10b3c06acb3f33dd60e9849faac33cfeef1adb0f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075294"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Jakie narzędzia są dostępne na platformie Azure Data Science Virtual Machine?

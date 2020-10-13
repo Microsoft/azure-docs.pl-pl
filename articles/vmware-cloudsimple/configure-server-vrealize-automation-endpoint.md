@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024844"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Skonfiguruj program vCenter w chmurze prywatnej na potrzeby automatyzacji vRealize Automation
@@ -38,7 +38,7 @@ Wykonaj te zadania przed skonfigurowaniem serwera vCenter:
 | Zasób | Przypisywanie maszyny wirtualnej do puli zasobów<br>Migrowanie wyłączone z maszyny wirtualnej<br>Migrowanie na maszynie wirtualnej |
 | Spis maszyn wirtualnych |  Utwórz na podstawie istniejącego<br>Kliknięcie przycisku Nowe<br>Move<br>Usuń | 
 | Interakcja maszyny wirtualnej |  Konfigurowanie nośnika CD<br>Interakcja z konsolą<br>Połączenie z urządzeniem<br>Zasilanie wyłączone<br>Włącz<br>Reset<br>Wstrzymanie<br>Instalacja narzędzi | 
-| Konfiguracja maszyny wirtualnej |  Dodaj istniejący dysk<br>Dodaj nowy dysk<br>Dodaj lub Usuń<br>Usuń dysk<br>Zaawansowany<br>Zmień liczbę procesorów<br>Zmień zasób<br>Zwiększ dysk wirtualny<br>Change Tracking dysku<br>Memory (Pamięć)<br>Modyfikowanie ustawień urządzenia<br>Zmień nazwę<br>Ustawianie adnotacji (wersja 5,0 i nowsze)<br>Ustawienia<br>Swapfile |
+| Konfiguracja maszyny wirtualnej |  Dodaj istniejący dysk<br>Dodaj nowy dysk<br>Dodaj lub Usuń<br>Usuń dysk<br>Zaawansowane<br>Zmień liczbę procesorów<br>Zmień zasób<br>Zwiększ dysk wirtualny<br>Change Tracking dysku<br>Pamięć<br>Modyfikowanie ustawień urządzenia<br>Zmień nazwę<br>Ustawianie adnotacji (wersja 5,0 i nowsze)<br>Ustawienia<br>Swapfile |
 | Inicjowanie obsługi |  Dostosowywanie<br>Klonuj szablon<br>Klonowanie maszyny wirtualnej<br>Wdrażanie szablonu<br>Przeczytaj specyfikacje dostosowania |
 | Stan maszyny wirtualnej | Utwórz migawkę<br>Usuń migawkę<br>Przywróć migawkę |
 
