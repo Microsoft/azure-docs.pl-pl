@@ -35,7 +35,11 @@
         - name: 0 — Wdrażanie aplikacji do wykrywania obiektów i ruchu
           href: tutorial-video-analytics-deploy.md
         - name: 1 — Tworzenie aplikacji do analizy wideo
-          href: tutorial-video-analytics-create-app.md
+          items:
+            - name: Wykrywanie obiektów i ruchu (YOLO v3)
+              href: tutorial-video-analytics-create-app-yolo-v3.md
+            - name: Wykrywanie obiektów i ruchu (OpenVINO)
+              href: tutorial-video-analytics-create-app-openvino.md
         - name: 2 — Konfigurowanie urządzenia usługi IoT Edge
           items:
             - name: Tworzenie urządzenia do analizy wideo na brzegu sieci (maszyna wirtualna z systemem Linux)

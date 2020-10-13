@@ -202,6 +202,48 @@ groups:
     title: JavaScript
   - id: programming-language-curl
     title: REST
+- id: programming-languages-set-eighteen
+  title: Języki programowania
+  prompt: Wybieranie języka programowania lub interfejsu wiersza polecenia
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: Interfejs wiersza polecenia
+- id: programming-languages-set-nineteen
+  title: Języki programowania
+  prompt: Wybieranie języka programowania lub interfejsu wiersza polecenia
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Przejdź
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: Interfejs wiersza polecenia
 - id: cogsvcs-text-analytics-features
   title: Funkcje analizy tekstu
   prompt: Wybierz ofertę funkcji analizy tekstu
@@ -784,10 +826,18 @@ groups:
     title: Przejdź
   - id: platform-powershell
     title: PowerShell
+- id: non-azure-machines
+  title: Maszyny spoza platformy Azure
+  prompt: Jak nawiązać połączenie z maszyną spoza platformy Azure?
+  pivots:
+  - id: azure-arc
+    title: Azure Arc
+  - id: azure-portal
+    title: Strony portalu Security Center
 metadata:
-  ms.openlocfilehash: a931ef1b1a4a4c5f107c66187d44a74f2eb5bcde
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: ed855c35d70e77233bfb06fd5f40281942589129
+  ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91825116"
+  ms.lasthandoff: 10/11/2020
+  ms.locfileid: "91938784"

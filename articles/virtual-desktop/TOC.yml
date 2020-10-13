@@ -36,6 +36,8 @@
           href: connect-ios.md
         - name: Nawiązywanie połączenia z klientem sklepu Microsoft Store
           href: connect-microsoft-store.md
+    - name: Konfigurowanie przekierowań urządzeń
+      href: configure-device-redirections.md
     - name: Konfigurowanie modułu programu PowerShell
       href: powershell-module.md
     - name: Tworzenie puli hostów i hostów sesji
@@ -102,6 +104,8 @@
       href: azure-advisor.md
     - name: Stosowanie zaleceń
       href: azure-advisor-recommendations.md
+    - name: Konfigurowanie planu odzyskiwania po awarii
+      href: disaster-recovery.md
 - name: Pojęcia
   items:
     - name: Uwierzytelnianie

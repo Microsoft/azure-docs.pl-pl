@@ -61,9 +61,11 @@
     - name: Wdrażanie odzyskiwania po awarii dla maszyn wirtualnych
       href: disaster-recovery-for-virtual-machines.md
     - name: Wdrażanie maszyny wirtualnej za pomocą biblioteki zawartości
-      href: tutorial-deploy-vm-content-library.md
+      href: ./deploy-vm-content-library.md
     - name: Konfigurowanie serwera usługi GitHub Enterprise
       href: github-enterprise-server.md
+    - name: Tworzenie tunelu IPSec
+      href: create-ipsec-tunnel.md
     - name: Integracja z funkcjami macierzystymi platformy Azure
       items:
         - name: API Management

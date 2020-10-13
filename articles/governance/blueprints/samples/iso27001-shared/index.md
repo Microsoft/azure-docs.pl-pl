@@ -3,12 +3,12 @@ title: Omówienie przykładu strategii usług udostępnionych ISO 27001
 description: Omówienie i architektura przykładu strategii usług udostępnionych ISO 27001. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927355"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950554"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Omówienie przykładu strategii usług udostępnionych ISO 27001.
 
@@ -27,12 +27,12 @@ To środowisko składa się z kilku usług platformy Azure, które udostępniaj�
 
 - [Role platformy Azure](../../../../role-based-access-control/overview.md) używane do dzielenia zadań z perspektywy płaszczyzny kontroli. Przed wdrożeniem infrastruktury są definiowane trzy role:
   - Rola NetOps ma uprawnienia do zarządzania środowiskiem sieci, w tym ustawieniami zapory, ustawieniami sieciowej grupy zabezpieczeń, routingiem i innymi funkcjami sieci
-  - Rola SecOps ma uprawnienia niezbędne do wdrażania usługi [Azure Security Center](../../../../security-center/security-center-intro.md) i zarządzania nią oraz definiowania [zasad platformy Azure](../../../policy/overview.md), a także inne prawa związane z zabezpieczeniami
-  - Rola SysOps ma uprawnienia niezbędne do zdefiniowania [zasad platformy Azure](../../../policy/overview.md) w ramach subskrypcji i zarządzania usługą [Log Analytics](../../../../azure-monitor/overview.md) dla całego środowiska oraz inne prawa operacyjne
+  - Rola SecOps ma uprawnienia niezbędne do wdrażania usługi [Azure Security Center](../../../../security-center/security-center-introduction.md) i zarządzania nią oraz definiowania definicji usługi [Azure Policy](../../../policy/overview.md), a także inne prawa związane z zabezpieczeniami
+  - Rola SysOps ma uprawnienia niezbędne do zdefiniowania definicji usługi [Azure Policy](../../../policy/overview.md) w ramach subskrypcji i zarządzania usługą [Log Analytics](../../../../azure-monitor/overview.md) dla całego środowiska oraz inne prawa operacyjne
 - Usługa [Log Analytics](../../../../azure-monitor/overview.md) jest wdrażana jako pierwsza usługa platformy Azure, aby upewnić się, że wszystkie akcje i usługi są rejestrowane w centralnej lokalizacji od czasu uruchomienia bezpiecznego wdrożenia
 - Sieć wirtualna obsługująca podsieci na potrzeby łączności z lokalnym centrum danych, stos przychodzący i wychodzący na potrzeby łączności z Internetem oraz podsieć usługi udostępnionej używającą sieciowych grup zabezpieczeń i grup zabezpieczeń aplikacji na potrzeby pełnej mikrosegmentacji, która zawiera następujące elementy:
   - Host przesiadkowy lub host bastionu używany do zarządzania, który jest dostępny tylko za pośrednictwem usługi [Azure Firewall](../../../../firewall/overview.md) wdrożonej w podsieci stosu przychodzącego
-  - Dwie maszyny wirtualne z uruchomionymi usługami Active Directory Domain Services (ADDS) i systemem DNS dostępne tylko za pośrednictwem serwera przesiadkowego, które można skonfigurować tylko do replikacji usługi AD za pośrednictwem sieci VPN lub połączenia usługi [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (nie są wdrażane w ramach strategii)
+  - Dwie maszyny wirtualne z uruchomionymi usługami Azure Active Directory Domain Services (Azure AD DS) i systemem DNS dostępne tylko za pośrednictwem serwera przesiadkowego, które można skonfigurować tylko do replikacji usługi AD za pośrednictwem sieci VPN lub połączenia usługi [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (nie są wdrażane w ramach strategii)
   - Korzystanie z usługi [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) i standardowej ochrony przed atakami DDoS
 - Wystąpienie usługi [Azure Key Vault](../../../../key-vault/general/overview.md) umożliwiające hostowanie wpisów tajnych używanych na potrzeby maszyn wirtualnych wdrożonych w środowisku usług udostępnionych
 

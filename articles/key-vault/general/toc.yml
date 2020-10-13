@@ -162,6 +162,8 @@
       href: client-libraries.md
     - name: Kody błędów interfejsu API REST — Azure Key Vault
       href: rest-error-codes.md
+    - name: Typowe kody błędów — Azure Key Vault
+      href: common-error-codes.md
     - name: Typowe parametry i nagłówki
       href: common-parameters-and-headers.md
     - name: Wersje usługi Key Vault

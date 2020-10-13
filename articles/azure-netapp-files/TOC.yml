@@ -37,6 +37,8 @@
       href: azure-netapp-files-cost-model.md
     - name: Wytyczne dotyczące planowania sieci usługi Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
+    - name: Ręczna pula pojemności usługi QoS
+      href: manual-qos-capacity-pool-introduction.md
     - name: Replikacja między regionami
       items:
         - name: Informacje o replikacji między regionami
@@ -126,7 +128,7 @@
 - name: Dokumentacja
   items:
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/netapp/'
+      href: /rest/api/netapp/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
 - name: Zasoby

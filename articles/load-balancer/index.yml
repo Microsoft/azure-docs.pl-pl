@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 05/07/2020
-  ms.openlocfilehash: a6348b967e814a49c766388540a594987af2231e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: afc3b8c4d10bc55d8d7c8faa5e8d9eedd9e2a082
+  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
   ms.translationtype: HT
   ms.contentlocale: pl-PL
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89296942"
+  ms.locfileid: "91929748"
 landingContent:
 - title: Informacje o usłudze Load Balancer
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: Co to jest moduł równoważenia obciążenia?
       url: load-balancer-overview.md
-    - text: Pojęcia dotyczące modułu równoważenia obciążenia
+    - text: Algorytm modułu równoważenia obciążenia
       url: concepts.md
     - text: Składniki dotyczące modułu równoważenia obciążenia
       url: components.md
@@ -96,6 +96,10 @@ landingContent:
       url: load-balancer-common-deployment-errors.md
     - text: Rozwiązywanie typowych problemów z połączeniem wychodzącym
       url: troubleshoot-outbound-connection.md
+  - linkListType: video
+    links:
+    - text: Tworzenie i monitorowania aplikacji o wysokiej dostępności za pomocą usługi Azure Load Balancer
+      url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
 - title: Dokumentacja
   linkLists:
   - linkListType: reference
