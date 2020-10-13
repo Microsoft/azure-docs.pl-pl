@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
-ms.openlocfilehash: cfa81b52e8479851fc22b12cbc96a9507f0b2dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e49fc29f03269096bfc7d6bb6e905187bb8788ff
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551391"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944108"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z programem obsługi
 
@@ -104,7 +104,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -138,15 +138,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 4. W prawym górnym rogu strony kliknij pozycję **stałe**  >  Ustawienia uwierzytelniania**Zarządzanie dostępem do**zabezpieczeń  >  **Authentication Settings**.
 
-    ![Konfiguracja zespołu](./media/harness-tutorial/configure01.png)
+    ![Zrzut ekranu pokazujący menu "zabezpieczenia ciągłe" z wybraną opcją "Zarządzanie dostępem" i "ustawienia uwierzytelniania".](./media/harness-tutorial/configure01.png)
 
 5. W sekcji **dostawcy logowania jednokrotnego** kliknij pozycję **+ Dodaj dostawcę rejestracji jednokrotnej**protokołu  >  **SAML**.
 
-    ![Konfiguracja zespołu](./media/harness-tutorial/configure03.png)
+    ![Zrzut ekranu pokazujący dostawców "S S" z opcją "+ Add S O Providers-S A M".](./media/harness-tutorial/configure03.png)
 
 6. W wyskakującym okienku **dostawcy SAML** wykonaj następujące czynności:
 
-    ![Konfiguracja zespołu](./media/harness-tutorial/configure02.png)
+    ![Zrzut ekranu przedstawiający okno podręczne "S A M L" z wyróżnionymi polami "U R L" i "Display Name" oraz wybranymi przyciskami "Wybierz plik" i "Prześlij".](./media/harness-tutorial/configure02.png)
 
     a. Skopiuj **dostawcę rejestracji jednokrotnej, Włącz logowanie przy użyciu protokołu SAML, a następnie wprowadź następujące wystąpienie adresu URL** i wklej je w polu tekstowym adres URL odpowiedzi w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -166,11 +166,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do programu, musz�
 
 1. W prawym górnym rogu strony kliknij pozycję **ciągły**  >  **dostęp do**  >  **zasobów zarządzanie użytkownikami**.
 
-    ![Konfiguracja zespołu](./media/harness-tutorial/configure04.png)
+    ![Zrzut ekranu pokazujący menu "zabezpieczenia ciągłe" z wybraną opcją "Zarządzanie dostępem" i "Użytkownicy".](./media/harness-tutorial/configure04.png)
 
 1. Po prawej stronie kliknij pozycję **+ Dodaj użytkownika**.
 
-    ![Konfiguracja zespołu](./media/harness-tutorial/configure05.png)
+    ![Zrzut ekranu przedstawiający stronę "Użytkownicy" z wybraną akcją "+ Dodaj użytkownika".](./media/harness-tutorial/configure05.png)
 
 1. W oknie podręcznym **Dodaj użytkownika** wykonaj następujące czynności:
 
@@ -188,11 +188,11 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka zestaw w panelu dostępu należy automatycznie zalogować się do zestawu, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

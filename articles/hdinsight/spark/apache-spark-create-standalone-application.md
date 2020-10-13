@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: contperfq1
 ms.date: 08/21/2020
 ms.openlocfilehash: deda7644d29fce5deb8d6c76f93da0caf0b22ff8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536923"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Samouczek: tworzenie aplikacji Scala Maven dla platformy Apache Spark w usłudze HDInsight przy użyciu środowiska IntelliJ
@@ -71,7 +71,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
    ![IntelliJ okno dialogowe Nowy projekt](./media/apache-spark-create-standalone-application/intellij-project-apache-spark.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz opcję **Dalej**.
 
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:  
 
@@ -100,7 +100,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
     ![Zrzut ekranu przedstawia wybrany Archetype w oknie Nowy projekt.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
-6. Wybierz pozycję **Dalej**.
+6. Wybierz opcję **Dalej**.
 
 7. Rozwiń **współrzędne artefaktu**. Podaj odpowiednie wartości dla **identyfikatora GroupID**i **ArtifactId**. **Nazwa**i **Lokalizacja** zostaną automatycznie wypełnione. W tym samouczku są one następujące:
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby zainstalować wtyczkę Scala:
 
     ![Zrzut ekranu przedstawia opcję współrzędne artefaktu w oknie Nowy projekt.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
-8. Wybierz pozycję **Dalej**.
+8. Wybierz opcję **Dalej**.
 
 9. Sprawdź ustawienia, a następnie wybierz pozycję **Next** (Dalej).
 

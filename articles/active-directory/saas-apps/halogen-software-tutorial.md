@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 1743908652a70667a368dced18b2e808ce590a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f60374a4e8f01af119d6e9c604b941e7c4950
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549997"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944244"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z TalentSpace Saba
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -131,15 +131,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Kliknij kartę**Options** (Opcje).
   
-    ![Co to jest program Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    ![Zrzut ekranu przedstawiający stronę główną "Saba TalentSpace" z wybraną kartą "Opcje".](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. W okienku nawigacji po lewej stronie kliknij pozycję **SAML Configuration** (Konfiguracja SAML).
   
-    ![Co to jest program Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    ![Zrzut ekranu przedstawiający okienko nawigacji po lewej stronie "interfejs użytkownika" z wybraną konfiguracją "S A M L".](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. Na stronie **SAML Configuration** (Konfiguracja SAML) wykonaj następujące kroki:
 
-    ![Co to jest program Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    ![Zrzut ekranu przedstawiający stronę "S A M" konfiguracji z wyróżnionymi opcjami "Ustawienia".](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. W sekcji **Unique Identifier** (Unikatowy identyfikator) wybierz opcję **NameID** (Id. nazwy).
 
@@ -166,7 +166,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w obszarze S
 
 2. Kliknij kartę **User Center** (Centrum użytkowników), a następnie kliknij pozycję **Create User** (Utwórz użytkownika).
 
-    ![Co to jest program Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    ![Zrzut ekranu pokazujący kartę "centrum użytkowników" i wybraną pozycję "Utwórz użytkownika".](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. Na stronie dialogowej **New User** (Nowy użytkownik) wykonaj następujące kroki:
 
@@ -188,7 +188,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Saba TalentSpace w panelu dostępu należy automatycznie zalogować się do TalentSpace Saba, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

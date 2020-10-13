@@ -8,10 +8,10 @@ ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827613"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Korelacja telemetrii w Application Insights
@@ -62,7 +62,7 @@ Application Insights przechodzi do [kontekstu śledzenia W3C](https://w3c.github
 - `traceparent`: Przenosi unikatowy identyfikator operacji globalnego i unikatowy identyfikator wywołania.
 - `tracestate`: Przenosi kontekst śledzenia specyficzny dla systemu.
 
-Najnowsza wersja zestawu SDK Application Insights obsługuje protokół śledzenia-kontekstu, ale może być konieczne zachodzenie do niego. (Zgodność z poprzednimi wersjami z powyższym protokołem korelacji obsługiwanym przez zestaw Application Insights SDK zostanie zachowana).
+Najnowsza wersja zestawu SDK Application Insights obsługuje protokół Trace-Context, ale może być konieczne zastąpienie do niego. (Zgodność z poprzednimi wersjami z powyższym protokołem korelacji obsługiwanym przez zestaw Application Insights SDK zostanie zachowana).
 
 [Protokół http korelacji, nazywany również identyfikatorem żądania](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), jest przestarzały. Ten protokół definiuje dwa nagłówki:
 
@@ -84,7 +84,7 @@ Aby uzyskać więcej informacji, zobacz [Application Insights model danych telem
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Włącz obsługę rozproszonego śledzenia W3C dla aplikacji platformy .NET
 
-Śledzenie rozproszone oparte na TraceContext — śledzenieach jest domyślnie włączone we wszystkich najnowszych zestawach SDK .NET Framework/. NET Core oraz zgodność z poprzednimi wersjami przy użyciu starszego protokołu żądania ID.
+Śledzenie rozproszone oparte na TraceContext — śledzenieach jest domyślnie włączone we wszystkich najnowszych zestawach SDK .NET Framework/. NET Core oraz zgodność z poprzednimi wersjami przy użyciu starszego protokołu Request-Id.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Włącz obsługę rozproszonego śledzenia W3C dla aplikacji Java
 
@@ -170,7 +170,7 @@ Jako odwołanie można znaleźć w [tym miejscu](https://github.com/census-instr
 
 ### <a name="incoming-request-correlation"></a>Korelacja żądań przychodzących
 
-OpenCensus Python skorelowanie nagłówków kontekstu śledzenia W3C z żądań przychodzących do zakresów, które są generowane na podstawie samych żądań. OpenCensus automatycznie podejmie integrację dla tych popularnych platform aplikacji sieci Web: kolby, Django i ostrosłupowy. Wystarczy wypełnić nagłówki W3C śledzenia-kontekstu [prawidłowym formatem](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) i wysłać je z żądaniem. Oto przykładowa aplikacja do kolby, która ilustruje:
+OpenCensus Python skorelowanie nagłówków W3C Trace-Context z żądań przychodzących do zakresów, które są generowane na podstawie samych żądań. OpenCensus automatycznie podejmie integrację dla tych popularnych platform aplikacji sieci Web: kolby, Django i ostrosłupowy. Wystarczy wypełnić nagłówki W3C Trace-Context [prawidłowym formatem](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) i wysłać je z żądaniem. Oto przykładowa aplikacja do kolby, która ilustruje:
 
 ```python
 from flask import Flask

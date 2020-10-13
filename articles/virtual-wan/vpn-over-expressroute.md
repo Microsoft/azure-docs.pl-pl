@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91828013"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Szyfrowanie ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN
@@ -54,7 +54,7 @@ W obu tych przykładach usługa Azure wyśle ruch do 10.0.1.0/24 przez połącze
 > Jeśli anonsuje te *same* prefiksy dla połączeń EXPRESSROUTE i VPN, platforma Azure będzie używać ścieżki ExpressRoute bezpośrednio bez ochrony sieci VPN.
 >
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8b18629a776dd98950f49b1f607cbc876abcd9c
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628903"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Utwórz nową konfigurację dla Azure AD Connect aprowizacji opartej na chmurze
@@ -62,7 +62,7 @@ Można ograniczyć agenta do synchronizowania określonych użytkowników i grup
 ## <a name="attribute-mapping"></a>Mapowanie atrybutów
 Azure AD Connect aprowizacji w chmurze umożliwia łatwe Mapowanie atrybutów między obiektami lokalnymi użytkownika/grupy i obiektami w usłudze Azure AD.  Domyślne mapowania atrybutów można dostosować zgodnie z potrzebami biznesowymi. W związku z tym można zmienić lub usunąć istniejące mapowania atrybutów lub utworzyć nowe mapowania atrybutów.  Aby uzyskać więcej informacji, zobacz [Mapowanie atrybutów](how-to-attribute-mapping.md).
 
-## <a name="on-demand-provisioning"></a>Inicjowanie obsługi na żądanie
+## <a name="on-demand-provisioning"></a>Aprowizacja na żądanie
 Azure AD Connect aprowizacji w chmurze umożliwia testowanie zmian konfiguracji przez zastosowanie tych zmian do pojedynczego użytkownika lub grupy.  Można go użyć do sprawdzenia poprawności i sprawdzenia, czy zmiany wprowadzone do konfiguracji zostały zastosowane prawidłowo i są prawidłowo zsynchronizowane z usługą Azure AD.  Aby uzyskać więcej informacji, zobacz [Inicjowanie obsługi na żądanie](how-to-on-demand-provision.md).
 
 ## <a name="restart-provisioning"></a>Ponowne uruchamianie aprowizacji 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362201"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Jak działa replikacja funkcji Hyper-V?
@@ -80,7 +80,7 @@ I
 Jeśli masz zapasową przepustowość na potrzeby replikacji, a chcesz zwiększyć liczbę operacji przekazywania, możesz zwiększyć ilość wątków przydzieloną dla zadania przekazania w następujący sposób:
 
 1. Otwórz Rejestr przy użyciu programu regedit.
-2. Przejdź do usługi Key HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+2. Przejdź do klucza HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
 3. Zwiększ wartość liczby wątków używanych do przekazywania danych dla każdej replikowanej maszyny wirtualnej. Wartość domyślna to 4, a wartość maksymalna to 32. 
 
 

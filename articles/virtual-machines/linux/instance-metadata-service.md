@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa9502a42af9e927f82d7a135473ff702b76577
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974148"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970711"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Instance Metadata Service platformy Azure (IMDS)
 
@@ -249,8 +249,8 @@ offer | Informacje o ofercie dla obrazu maszyny wirtualnej i dostępne tylko dla
 osType | System Linux lub Windows | 2017-04-02
 placementGroupId | [Grupa umieszczania](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) zestawu skalowania maszyn wirtualnych | 2017-08-01
 plan | [Planowanie](/rest/api/compute/virtualmachines/createorupdate#plan) zawierające nazwę, produkt i wydawcę maszyny wirtualnej, jeśli jest to obraz portalu Azure Marketplace | 2018-04-02
-platformUpdateDomain |  [Aktualizuj domenę](manage-availability.md) , w której działa maszyna wirtualna | 2017-04-02
-platformFaultDomain | [Domena błędów](manage-availability.md) , w której działa maszyna wirtualna | 2017-04-02
+platformUpdateDomain |  [Aktualizuj domenę](../manage-availability.md) , w której działa maszyna wirtualna | 2017-04-02
+platformFaultDomain | [Domena błędów](../manage-availability.md) , w której działa maszyna wirtualna | 2017-04-02
 dostawcy | Dostawca maszyny wirtualnej | 2018-10-01
 publicKeys | [Kolekcja kluczy publicznych](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) przypisanych do maszyny wirtualnej i ścieżek | 2018-04-02
 publisher | Wydawca obrazu maszyny wirtualnej | 2017-04-02

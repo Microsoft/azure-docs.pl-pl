@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 9db53e36dee318d39d34d26a548d1d32cbbec3b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266075"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944284"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu klawisza F5
 
@@ -72,15 +72,15 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 2. Na stronie **Konfiguracja z przewodnikiem** kliknij pozycję **Uaktualnij konfigurację z przewodnikiem** w lewym górnym rogu.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure14.png) 
+    ![Zrzut ekranu przedstawiający stronę "Konfiguracja z przewodnikiem" z wybraną akcją "Uaktualnij konfigurację z przewodnikiem".](./media/kerbf5-tutorial/configure14.png) 
 
 3. Na ekranie Konfiguracja przewodnika uaktualniania wybierz pozycję **Wybierz plik** , aby przekazać pobrany pakiet przypadków użycia, a następnie kliknij przycisk **Przekaż i zainstaluj** .
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure15.png) 
+    ![Zrzut ekranu, na którym jest wyświetlany ekran "Wybierz plik" i "Przekaż i zainstaluj".](./media/kerbf5-tutorial/configure15.png) 
 
 4. Po zakończeniu uaktualniania kliknij przycisk **Kontynuuj** .
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure16.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "zakończenie aktualizacji konfiguracji z przewodnikiem" i wybrany przycisk "Kontynuuj".](./media/kerbf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -213,60 +213,60 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. Określ **nazwę certyfikatu** (zostanie przywoływana później w konfiguracji). W **źródle certyfikatu**wybierz pozycję Przekaż plik Określ certyfikat pobrany z platformy Azure podczas konfigurowania logowania jednokrotnego SAML. Kliknij pozycję **Importuj**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure01.png) 
+    ![Zrzut ekranu przedstawiający stronę "S S L/Źródło klucza" z wyróżnioną nazwą "Nazwa certyfikatu", "Przekaż plik" i wybranym przyciskiem "Importuj".](./media/kerbf5-tutorial/configure01.png) 
 
 1. Ponadto wymagany jest **certyfikat SSL dla nazwy hosta aplikacji. Przejdź do systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony. **Typ importu** to **PKCS 12 (IIS)**. Określ **nazwę klucza** (zostanie przywoływana później w konfiguracji) i określ plik PFX. Określ **hasło** dla pliku PFX. Kliknij pozycję **Importuj**.
 
     >[!NOTE]
     >W przykładzie Nasza nazwa aplikacji jest `Kerbapp.superdemo.live` używana jako certyfikat wieloznaczny nasz KeyName to `WildCard-SuperDemo.live`
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure02.png) 
+    ![Zrzut ekranu pokazujący stronę "S S L/Źródło klucza" z wprowadzonymi wartościami i wybranym przyciskiem "Importuj".](./media/kerbf5-tutorial/configure02.png) 
  
 1. Użyjemy środowiska z przewodnikiem, aby skonfigurować dostęp do Federacji i aplikacji usługi Azure AD. Przejdź do – F5 BIG-IP **Main** i wybierz pozycję **Access > konfiguracji z przewodnikiem > federacyjnej > dostawcy usług SAML**. Kliknij przycisk **dalej** , a następnie kliknij przycisk **dalej** , aby rozpocząć konfigurację.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure03.png) 
+    ![Zrzut ekranu przedstawiający stronę "Konfiguracja z przewodnikiem" z wyróżnioną ikoną "Federacja" oraz "S A M L Service Provider".](./media/kerbf5-tutorial/configure03.png) 
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure04.png)
+    ![Zrzut ekranu przedstawiający stronę "Konfiguracja z przewodnikiem-S A M L Service Provider" z wybranym przyciskiem "dalej".](./media/kerbf5-tutorial/configure04.png)
 
 1. Podaj **nazwę konfiguracji**. Określ **Identyfikator jednostki** (taki sam jak skonfigurowany w konfiguracji aplikacji usługi Azure AD). Określ **nazwę hosta**. Dodaj **Opis** odwołania. Zaakceptuj pozostałe wpisy domyślne i wybierz, a następnie kliknij przycisk **zapisz & dalej**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure05.png) 
+    ![Zrzut ekranu pokazujący właściwości "dostawca usług" z wyróżnionymi polami tekstowymi "Nazwa hosta" i "opis" oraz wybrany przycisk "Zapisz & dalej".](./media/kerbf5-tutorial/configure05.png) 
 
 1. W tym przykładzie tworzymy nowy serwer wirtualny jako 192.168.30.200 z portem 443. Określ adres IP serwera wirtualnego w **adresie docelowym**. Wybierz **profil SSL**klienta, a następnie wybierz pozycję Utwórz nowy. Określ wcześniej przekazany certyfikat aplikacji (certyfikat wieloznaczny w tym przykładzie) i skojarzony klucz, a następnie kliknij przycisk **zapisz & dalej**.
 
     >[!NOTE]
     >w tym przykładzie nasz wewnętrzny serwer WebServer jest uruchomiony na porcie 80 i chcemy opublikować go z 443.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure06.png)
+    ![Zrzut ekranu przedstawiający stronę "właściwości serwera wirtualnego" z wyróżnionym polem tekstowym "adres docelowy" i wybranym przyciskiem "Zapisz & dalej".](./media/kerbf5-tutorial/configure06.png)
 
 1. W obszarze **Wybierz metodę, aby skonfigurować łącznik dostawcy tożsamości**, określ metadane, kliknij pozycję Wybierz plik i przekaż pobrany wcześniej plik XML metadanych z usługi Azure AD. Określ unikatową **nazwę** łącznika SAML dostawcy tożsamości. Wybierz **certyfikat podpisywania metadanych** , który został wcześniej przekazany. Kliknij przycisk **zapisz & dalej**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure07.png)  
+    ![Zrzut ekranu przedstawiający stronę "Ustawienia zewnętrznego łącznika dostawcy tożsamości" z wyróżnionym polem tekstowym "nazwa" i wybranym przyciskiem "Zapisz & dalej".](./media/kerbf5-tutorial/configure07.png)  
 
 1. W obszarze **wybierz pulę**określ pozycję **Utwórz nową** (Alternatywnie wybierz już istniejącą pulę). Zezwól na ustawienie wartości domyślnej.    W obszarze serwery puli wpisz adres IP w obszarze **adres IP/nazwa węzła**. Określ **port**. Kliknij przycisk **zapisz & dalej**.
  
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure08.png)
+    ![Zrzut ekranu przedstawiający stronę "właściwości puli" z wyróżnionymi polami tekstowymi "adres IP/nazwa węzła" i "Port" oraz wybrany przycisk "Zapisz & dalej".](./media/kerbf5-tutorial/configure08.png)
 
-1. Na ekranie Ustawienia logowania jednokrotnego wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze **wybrany typ logowania jednokrotnego** wybierz pozycję **Kerberos**. Zastąp element **Session. SAML. Last. Identity**  identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze **Źródło nazwy użytkownika** (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). Wybierz pozycję **Pokaż ustawienia zaawansowane**. W obszarze Typ **obszaru Kerberos** wpisz nazwę domeny. W obszarze **nazwa konta/hasło konta** Określ konto delegowania APM i hasło. Określ adres IP kontrolera domeny w polu **centrum dystrybucji kluczy** . Kliknij przycisk **zapisz & dalej**.
+1. Na ekranie Ustawienia pojedynczej Sign-On wybierz pozycję **Włącz logowanie jednokrotne**. W obszarze **wybrany typ pojedynczego Sign-On** wybierz pozycję **Kerberos**. Zastąp element **Session. SAML. Last. Identity**  identyfikatorem **Session. SAML. Last. ATTR. Name. Identity** w obszarze **Źródło nazwy użytkownika** (Ta zmienna jest ustawiana przy użyciu mapowania oświadczeń w usłudze Azure AD). Wybierz pozycję **Pokaż ustawienia zaawansowane**. W obszarze Typ **obszaru Kerberos** wpisz nazwę domeny. W obszarze **nazwa konta/hasło konta** Określ konto delegowania APM i hasło. Określ adres IP kontrolera domeny w polu **centrum dystrybucji kluczy** . Kliknij przycisk **zapisz & dalej**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure09.png)   
+    ![Zrzut ekranu pokazujący ustawienia pojedynczej Sign-On z wyróżnionymi polami tekstowymi i wybranym przyciskiem Zapisz & dalej.](./media/kerbf5-tutorial/configure09.png)   
 
 1. Na potrzeby tych wskazówek pominiemy testy punktów końcowych.  Zapoznaj się z dokumentacją F5, aby uzyskać szczegółowe informacje.  Na ekranie wybierz pozycję **zapisz & dalej**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure10.png) 
+    ![Zrzut ekranu pokazujący stronę "właściwości sprawdzania punktu końcowego" i wybrany przycisk "Zapisz & dalej".](./media/kerbf5-tutorial/configure10.png) 
 
 1. Zaakceptuj wartości domyślne i kliknij przycisk **zapisz & dalej**. Szczegółowe informacje dotyczące ustawień zarządzania sesją SAML można znaleźć w dokumentacji dotyczącej języka F5.
 
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure11.png) 
+    ![Zrzut ekranu, na którym zostanie wyświetlona strona "ustawienia limitu czasu" z wybranym przyciskiem Zapisz & dalej.](./media/kerbf5-tutorial/configure11.png) 
  
 1. Przejrzyj ekran podsumowanie i wybierz pozycję **Wdróż** , aby skonfigurować Big-IP.
  
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure12.png)
+    ![Zrzut ekranu przedstawiający stronę "aplikacja jest gotowa do wdrożenia" z wyróżnioną sekcją "Podsumowanie" i wybranym przyciskiem "wdróż".](./media/kerbf5-tutorial/configure12.png)
 
 1. Po skonfigurowaniu aplikacji kliknij przycisk **Zakończ**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure13.png)
+    ![Zrzut ekranu pokazujący stronę "wdrożona aplikacja" z wybranym przyciskiem "Zakończ".](./media/kerbf5-tutorial/configure13.png)
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
@@ -317,27 +317,27 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
 15. Kliknij przycisk **Zakończono**. Nowy serwer zostanie wyświetlony na liście. Spowoduje to dodanie nowego serwera Active Directory do listy serwerów Active Directory.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
+    ![Zrzut ekranu pokazujący sekcje "właściwości ogólne" i "Konfiguracja".](./media/kerbf5-tutorial/configure17.png)
 
 ### <a name="saml-configuration"></a>Konfiguracja SAML
 
 1. Konieczne będzie zaimportowanie certyfikatu metadanych do F5, który będzie używany później w procesie instalacji. Przejdź do **systemu > zarządzanie certyfikatami > zarządzania certyfikatami, > listy certyfikatów SSL**. Wybierz pozycję **Importuj** z prawej strony.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure18.png)
+    ![Zrzut ekranu przedstawiający stronę "import S certyfikatu/źródła klucza" z wybranym przyciskiem "Importuj".](./media/kerbf5-tutorial/configure18.png)
 
 2. Aby skonfigurować dostawcy tożsamości SAML, **Przejdź do opcji dostęp > federacyjnej > SAML: Service Provider > zewnętrznych łączników dostawcy tożsamości**, a następnie kliknij pozycję **Utwórz > z metadanych**.
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure19.png)
+    ![Zrzut ekranu przedstawiający stronę "S A M L Service Provider" z opcją "z metadanych" wybraną z listy rozwijanej "Utwórz".](./media/kerbf5-tutorial/configure19.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure20.png)
+    ![Zrzut ekranu przedstawiający okno dialogowe "Tworzenie nowego S A M d P łącznika".](./media/kerbf5-tutorial/configure20.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure21.png)
+    ![Zrzut ekranu przedstawiający okno "Edycja S A M d P łącznik" z wybraną opcją "Ustawienia ogólne".](./media/kerbf5-tutorial/configure21.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure22.png)
+    ![Zrzut ekranu przedstawiający okno "Edytuj S A M d P łącznik" "z wybraną opcją" Logowanie jednokrotne ".](./media/kerbf5-tutorial/configure22.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure23.png)
+    ![Zrzut ekranu przedstawiający okno "Edycja S A M d P łącznik" z wybraną opcją "Ustawienia zabezpieczeń".](./media/kerbf5-tutorial/configure23.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure24.png)
+    ![Zrzut ekranu przedstawiający okno "Edytuj S A M d P łącznik" z wybraną opcją "S L O" Ustawienia usługi ".](./media/kerbf5-tutorial/configure24.png)
 
 1. Aby skonfigurować protokół SAML SP, przejdź do opcji **dostęp > federacyjnego > dostawcy usługi SAML > lokalnych usług Sp** , a następnie kliknij przycisk **Utwórz**. Uzupełnij poniższe informacje i kliknij przycisk **OK**.
 
@@ -348,17 +348,17 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     * Host: kerbapp200. predemonstracyjny. Live
     * Opis: kerbapp200. predemonstracyjny. Live
 
-     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure25.png)
+     ![Zrzut ekranu przedstawiający okno "Edytuj S A M L S P" z wybranymi "ustawieniami ogólnymi".](./media/kerbf5-tutorial/configure25.png)
 
      b. Wybierz pozycję Konfiguracja SP, KerbApp200SAML, a następnie kliknij pozycję **Powiązywanie/Usuwanie powiązania dostawcy tożsamości łączników**.
 
-     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure26.png)
+     ![Zrzut ekranu przedstawiający stronę "S A M L Service Provider-Local S P" z wybraną pozycją "KerbAPP200 S A M L".](./media/kerbf5-tutorial/configure26.png)
 
-     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure27.png)
+     ![Zrzut ekranu pokazujący wybrany przycisk "Powiązywanie/Usuwanie powiązania I d P".](./media/kerbf5-tutorial/configure27.png)
 
      c. Kliknij przycisk **Dodaj nowy wiersz** i wybierz **zewnętrzny łącznik dostawcy tożsamości** utworzony w poprzednim kroku, kliknij przycisk **Aktualizuj**, a następnie kliknij przycisk **OK**.
 
-     ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure28.png)
+     ![Zrzut ekranu, na którym jest wyświetlany przycisk "Edytuj S A M I d PS, który korzysta z tego okna.](./media/kerbf5-tutorial/configure28.png)
 
 1. Aby skonfigurować Logowanie jednokrotne protokołu Kerberos, przejdź do **dostępu > logowanie**jednokrotne > Kerberos, pełne informacje i kliknij przycisk **Zakończono**.
 
@@ -369,7 +369,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
 
     * **Źródło obszaru użytkownika**: Session. Logon. Last. domain
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure29.png)
+        ![Zrzut ekranu przedstawiający stronę "pojedyncze Sign-On-właściwości" z wyróżnionymi polami tekstowymi "username source" i "Źródło obszaru użytkownika".](./media/kerbf5-tutorial/configure29.png)
 
 1. W celu skonfigurowania profilu dostępu przejdź do **dostępu > profilu/zasad > profilu dostępu (dla zasad sesji)**, kliknij przycisk **Utwórz**, uzupełnij poniższe informacje i kliknij przycisk **Zakończono**.
 
@@ -378,38 +378,38 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     * Zakres profilu: profil
     * Języki: angielski
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure30.png)
+        ![Zrzut ekranu przedstawiający stronę "Profile/zasady — właściwości" z wyróżnionymi polami tekstowymi "name", "Typ profilu" i "langauges".](./media/kerbf5-tutorial/configure30.png)
 
 1. Kliknij nazwę, KerbApp200, wykonaj poniższe informacje, a następnie kliknij przycisk **Aktualizuj**.
 
     * Plik cookie domeny: niedemonstracja. Live
     * Konfiguracja logowania jednokrotnego: KerAppSSO_sso
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure31.png)
+        ![Zrzut ekranu przedstawiający stronę "S S/domeny uwierzytelniania" z wyróżnioną listą rozwijaną "domena cookie" i "Konfiguracja" S S ", a wybrany przycisk" Aktualizuj ".](./media/kerbf5-tutorial/configure31.png)
 
 1. Kliknij pozycję **zasady dostępu** , a następnie kliknij pozycję **Edytuj zasady dostępu** dla profilu "KerbApp200".
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure32.png)
+    ![Zrzut ekranu przedstawiający stronę "zasady dostępu" z wybraną akcją "Edytuj zasady dostępu dla profilu KerbApp200".](./media/kerbf5-tutorial/configure32.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure33.png)
+    ![Zrzut ekranu przedstawiający stronę "zasady dostępu" oraz okno dialogowe "S A M L Authentication S P".](./media/kerbf5-tutorial/configure33.png)
 
-    ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure34.png)
+    ![Zrzut ekranu przedstawiający stronę "zasady dostępu" i okno dialogowe "zmienna Assign" z wyróżnionymi polami tekstowymi "przydział".](./media/kerbf5-tutorial/configure34.png)
 
     * **Session. Logon. Last. usernameUPN Expr {[mcget {Session. SAML. Last. Identity}]}**
 
     * **preprezentacja tekstu Session. AD. lastactualdomain. Live**
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure35.png)
+        ![Zrzut ekranu przedstawiający stronę "zasady dostępu" i okno dialogowe "Active Directory" z wyróżnionym polem tekstowym "SearchFilter".](./media/kerbf5-tutorial/configure35.png)
 
     * **(userPrincipalName =% {Session. Logon. Last. usernameUPN})**
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure36.png)
+        ![Zrzut ekranu przedstawiający stronę "zasady dostępu" z oknem dialogowym "A D reguły gałęzi zapytania".](./media/kerbf5-tutorial/configure36.png)
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure37.png)
+        ![Zrzut ekranu, który pokazuje wyróżnione pola tekstowe "zmienna niestandardowa" i "wyrażenie niestandardowe".](./media/kerbf5-tutorial/configure37.png)
 
     * **Session. Logon. Last. username Expr {"[mcget {Session. AD. Last. ATTR. sAMAccountName}]"}**
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure38.png)
+        ![Zrzut ekranu, na którym jest wyróżnione pole tekstowe "Nazwa użytkownika ze strony logowania".](./media/kerbf5-tutorial/configure38.png)
 
     * **mcget {Session. Logon. Last. username}**
     * **mcget {Session. Logon. Last. Password**
@@ -420,7 +420,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     * Opis: KerbApp200
     * Adres: 192.168.20.200
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure39.png)
+        ![Zrzut ekranu pokazujący stronę "nowy węzeł" z wyróżnionymi polami tekstowymi "name", "Description" i "Address" oraz wybranym przyciskiem "gotowe".](./media/kerbf5-tutorial/configure39.png)
 
 1. W celu utworzenia nowej puli przejdź do **Przystawka ruch lokalny > pule > puli, kliknij przycisk Utwórz**, uzupełnij poniższe informacje i kliknij przycisk **Zakończono**.
 
@@ -430,7 +430,7 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     * Adres: 192.168.20.200
     * Port usługi: 81
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure40.png)
+        ![Zrzut ekranu pokazujący stronę "Nowa pula" z wprowadzonymi wartościami i wybranym przyciskiem "gotowe".](./media/kerbf5-tutorial/configure40.png)
 
 1. W celu utworzenia serwera wirtualnego przejdź do obszarze **ruch lokalny > serwery wirtualne > listy serwerów wirtualnych > +**, uzupełnij poniższe informacje i kliknij przycisk **Zakończ**.
 
@@ -440,9 +440,9 @@ Serwer Active Directory AAA można skonfigurować w Menedżerze zasad dostępu (
     * Profil dostępu: KerbApp200
     * Określ Profil dostępu utworzony w poprzednim kroku
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure41.png)
+        ![Zrzut ekranu przedstawiający stronę "Lista serwerów wirtualnych" z wyróżnionymi polami tekstowymi "nazwa", "adres docelowy/maska" i "Port usługi".](./media/kerbf5-tutorial/configure41.png)
 
-        ![Konfiguracja F5 (Kerberos)](./media/kerbf5-tutorial/configure42.png)
+        ![Zrzut ekranu przedstawiający stronę "Lista serwerów wirtualnych" z wyróżnioną listą rozwijaną "Profil dostępu".](./media/kerbf5-tutorial/configure42.png)
 
 ### <a name="setting-up-kerberos-delegation"></a>Konfigurowanie delegowania protokołu Kerberos 
 
@@ -480,7 +480,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka F5 w panelu dostępu należy automatycznie zalogować się do F5, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540626"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944230"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego za pomocą narzędzia Citrix datascaleer (uwierzytelnianie oparte na nagłówkach)
 
@@ -155,7 +155,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
    1. Zaznacz pole wyboru **Pokaż hasło** , a następnie napisz lub skopiuj wartość wyświetlaną w polu **hasło**.
 
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -269,7 +269,7 @@ Aby utworzyć zasady uwierzytelniania:
     
     ![Konfiguracja serwera Citrix — Tworzenie zasad uwierzytelniania — okienko](./media/header-citrix-netscaler-tutorial/policy01.png)
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-an-authentication-saml-server"></a>Tworzenie serwera SAML uwierzytelniania
 
@@ -285,7 +285,7 @@ Aby utworzyć serwer uwierzytelniania SAML, przejdź do okienka **Tworzenie uwie
     
 1. W polu **Nazwa wystawcy**wprowadź odpowiedni adres URL.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ![Konfiguracja programu Citrix webscalenia — tworzenie okienka uwierzytelniania serwera SAML](./media/header-citrix-netscaler-tutorial/server01.png)
 
@@ -360,7 +360,7 @@ Aby skonfigurować program Citrix ADC na potrzeby uwierzytelniania opartego na n
 
     1. W obszarze **wyrażenie**wprowadź **AAA. Użytkownicy. ATRYBUT ("mySecretID")**, gdzie **mySecretID** to Deklaracja SAML usługi Azure AD, która została wysłana do programu Citrix ADC.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
     ![Konfiguracja platformy Citrix — tworzenie okienka akcja Utwórz ponownie](./media/header-citrix-netscaler-tutorial/header02.png)
  
@@ -378,7 +378,7 @@ Aby skonfigurować program Citrix ADC na potrzeby uwierzytelniania opartego na n
 
     1. Dla **wyrażenia**wprowadź **wartość true**.
 
-    1. Wybierz przycisk **Utwórz**.
+    1. Wybierz pozycję **Utwórz**.
 
     ![Konfiguracja platformy Citrix — tworzenie okienka zasad](./media/header-citrix-netscaler-tutorial/header04.png)
 
@@ -392,7 +392,7 @@ Aby powiązać zasady ponownego zapisywania z serwerem wirtualnym przy użyciu g
 
 1. W okienku **serwer wirtualny równoważenia obciążenia** w obszarze **Ustawienia zaawansowane**wybierz pozycję **zasady**. Wszystkie zasady, które są skonfigurowane dla Twojego wystąpienia programu, zostaną wyświetlone na liście.
  
-    ![Konfiguracja programu Citrix dla modułu równoważenia obciążenia — okienko serwera wirtualnego](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Zrzut ekranu pokazujący kartę "Konfiguracja" z wyróżnionymi polami "name", "Action" i "Expression" oraz wybranym przyciskiem "Utwórz".](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Konfiguracja programu Citrix dla modułu równoważenia obciążenia — okienko serwera wirtualnego](./media/header-citrix-netscaler-tutorial/header06.png)
 
@@ -439,7 +439,7 @@ W tej sekcji przetestujesz konfigurację rejestracji jednokrotnej usługi Azure 
 
 Po wybraniu kafelka Citrix datascaleer w panelu dostępu należy automatycznie zalogować się do usługi Citrix, w której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

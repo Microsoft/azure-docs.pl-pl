@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31257d795dbd06da65e3d07e18a16d9bdf7e782a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385267"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961106"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Usługa logowania jednokrotnego [(SSO)](session-overview.md) w programie Azure A
 Aby zarządzać sesjami aplikacji sieci Web, można użyć następujących właściwości:
 
 - **Okres istnienia sesji aplikacji sieci Web (w minutach)** — okres istnienia pliku cookie sesji usługi Azure AD B2C's w przeglądarce użytkownika po pomyślnym uwierzytelnieniu.
-    - Wartość domyślna = 86400 sekund (1440 minut).
-    - Minimum (włącznie) = 900 sekund (15 minut).
-    - Maksimum (włącznie) = 86400 sekund (1440 minut).
+  - Wartość domyślna = 86400 sekund (1440 minut).
+  - Minimum (włącznie) = 900 sekund (15 minut).
+  - Maksimum (włącznie) = 86400 sekund (1440 minut).
 - **Limit czasu sesji aplikacji sieci Web** — [Typ wygaśnięcia sesji](session-overview.md#session-expiry-type), wartość *krocząca*lub *bezwzględna*. 
 - **Konfiguracja logowania** jednokrotnego — [zakres sesji](session-overview.md#session-scope) zachowań logowania jednokrotnego (SSO) w wielu aplikacjach i przepływach użytkowników w dzierżawie Azure AD B2C. 
 
@@ -44,18 +44,42 @@ Aby zmienić zachowanie sesji i konfiguracje rejestracji jednokrotnej, należy d
 </UserJourneyBehaviors>
 ```
 
-## <a name="single-sign-out"></a>Wylogowanie jednokrotne
+## <a name="configure-sign-out-behavior"></a>Skonfiguruj zachowanie wylogowywania
 
-### <a name="configure-the-applications"></a>Konfigurowanie aplikacji
+### <a name="secure-your-logout-redirect"></a>Zabezpiecz przekierowanie wylogowania
+
+Po wylogowaniu użytkownik zostanie przekierowany na identyfikator URI określony w `post_logout_redirect_uri` parametrze, bez względu na adresy URL odpowiedzi określone dla aplikacji. Jeśli jednak zostanie `id_token_hint` przekierowany prawidłowy, a **token Wymagaj tokenu w żądaniach wylogowania** jest włączony, Azure AD B2C sprawdza, czy wartość jest `post_logout_redirect_uri` zgodna z skonfigurowanymi identyfikatorami URI przekierowań aplikacji przed przekazaniem. Jeśli nie skonfigurowano zgodnego adresu URL odpowiedzi dla aplikacji, zostanie wyświetlony komunikat o błędzie i użytkownik nie zostanie przekierowany. 
+
+Aby wymagać tokenu identyfikatora w żądaniach wylogowania, Dodaj element **UserJourneyBehaviors** wewnątrz elementu [RelyingParty](relyingparty.md) . Następnie ustaw **EnforceIdTokenHintOnLogout** elementu **SingleSignon** na `true` . Element **UserJourneyBehaviors** powinien wyglądać podobnie do tego przykładu:
+
+```xml
+<UserJourneyBehaviors>
+  <SingleSignOn Scope="Tenant" EnforceIdTokenHintOnLogout="true"/>
+</UserJourneyBehaviors>
+```
+
+Aby skonfigurować adres URL wylogowywania aplikacji:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając w górnym menu pozycję **katalog i subskrypcja** , a następnie wybierz katalog zawierający dzierżawcę Azure AD B2C.
+1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację.
+1. Wybierz pozycję **Uwierzytelnianie**.
+1. W polu tekstowym **adres URL wylogowywania** wpisz identyfikator URI przekierowania wylogowania, a następnie wybierz pozycję **Zapisz**.
+
+### <a name="single-sign-out"></a>Wylogowanie jednokrotne
+
+#### <a name="configure-the-applications"></a>Konfigurowanie aplikacji
 
 Po przekierowaniu użytkownika do punktu końcowego wylogowania Azure AD B2C (dla protokołów OAuth2 i SAML) Azure AD B2C czyści sesję użytkownika z przeglądarki.  Aby zezwolić na [rejestrację jednokrotną](session-overview.md#single-sign-out), ustaw `LogoutUrl` aplikację z Azure Portal:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 1. Wybierz katalog Azure AD B2C, klikając swoje konto w prawym górnym rogu strony.
 1. W menu po lewej stronie wybierz **Azure AD B2C**, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację.
-1. Wybierz pozycję **Ustawienia**, wybierz pozycję **Właściwości**, a następnie znajdź pole tekstowe **adres URL wylogowywania** . 
+1. Wybierz pozycję **Uwierzytelnianie**.
+1. W polu tekstowym **adres URL wylogowywania** wpisz identyfikator URI przekierowania wylogowania, a następnie wybierz pozycję **Zapisz**.
 
-### <a name="configure-the-token-issuer"></a>Konfigurowanie wystawcy tokenu 
+#### <a name="configure-the-token-issuer"></a>Konfigurowanie wystawcy tokenu 
 
 Aby zapewnić obsługę logowania jednokrotnego, profile techniczne wystawców tokenów dla tokenu JWT i SAML muszą określać:
 
