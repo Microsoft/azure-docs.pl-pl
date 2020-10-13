@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć ExpressRoute Global Reach komunikacji r
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576731"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Samouczek: środowiska lokalne w chmurze do chmury prywatnej
@@ -109,7 +109,7 @@ W tym samouczku przedstawiono sposób tworzenia drugiego klucza autoryzacji dla 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak wdrożyć i skonfigurować rozwiązanie VMware HCX dla chmury prywatnej rozwiązania Azure VMware.
 
 > [!div class="nextstepaction"]
-> [Wdrażanie i Konfigurowanie programu VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Wdrażanie i konfigurowanie usługi VMware HCX](tutorial-deploy-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

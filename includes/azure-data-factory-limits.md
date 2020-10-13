@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: plik dołączany
+description: plik dołączany
 services: data-factory
 author: chez-charlie
 ms.service: data-factory
@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: chez
 ms.custom: include file
 ms.openlocfilehash: a5ea95e0ea958c495e28eaa1fee72e34362157a1
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91859694"
 ---
 Azure Data Factory to wielodostępna usługa, która ma następujące domyślne limity, aby upewnić się, że subskrypcje klientów są chronione przed innymi obciążeniami. Aby podnieść limity do wartości maksymalnej dla subskrypcji, skontaktuj się z pomocą techniczną.

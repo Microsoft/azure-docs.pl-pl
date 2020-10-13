@@ -9,18 +9,18 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471333"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951438"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Samouczek: używanie Data Box Heavy do importowania danych jako dysków zarządzanych na platformie Azure
 
 W tym samouczku opisano, jak używać Azure Data Box Heavy do migrowania lokalnych dysków VHD do dysków zarządzanych na platformie Azure. Wirtualne dyski twarde z lokalnych maszyn wirtualnych są kopiowane do Data Box Heavy jako stronicowe obiekty blob i są przekazywane do platformy Azure jako dyski zarządzane. Te dyski zarządzane można następnie dołączyć do maszyn wirtualnych platformy Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Przegląd wymagań wstępnych
@@ -75,11 +75,11 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     > [!NOTE]
     > Poświadczenia dla wszystkich udziałów dla dysków zarządzanych są identyczne.
 
-    ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Pobieranie poświadczeń udziału](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. W oknie dialogowym Udostępnianie i kopiowanie danych Skopiuj **nazwę użytkownika** i **hasło** dla udziału. Kliknij przycisk **OK**.
     
-    ![Pobieranie poświadczeń udziału 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Pobieranie poświadczeń udziału 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Aby uzyskać dostęp do udziałów skojarzonych z zasobem (*mydbmdrg1* w poniższym przykładzie) z komputera hosta, Otwórz okno wiersza polecenia. W wierszu polecenia wpisz polecenie:
 
@@ -101,7 +101,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>\<ShareName>`. Kliknij przycisk **OK**, aby otworzyć Eksploratora plików.
     
-    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     W poszczególnych udziałach powinny być teraz widoczne następujące utworzone foldery.
     
@@ -114,7 +114,7 @@ Jeśli używasz komputera hosta z systemem Linux, wykonaj następujące kroki, a
 
 1. Podaj adresy IP dozwolonych klientów, którzy mogą uzyskiwać dostęp do udziału. W lokalnym internetowym interfejsie użytkownika przejdź do strony **Połącz i skopiuj**. W obszarze **Ustawienia sieciowego systemu plików** kliknij przycisk **Dostęp klienta do sieciowego systemu plików**.
 
-    ![Konfigurowanie dostępu klienta do sieciowego systemu plików 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
+    ![Konfigurowanie dostępu klienta NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Podaj adres IP klienta sieciowego systemu plików i kliknij przycisk **Dodaj**. Powtarzając ten krok, możesz skonfigurować dostęp dla wielu klientów sieciowego systemu plików. Kliknij przycisk **OK**.
 

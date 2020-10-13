@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5f1e123447bfff53a603bad23b0444a93e4a83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29a685706b09610dc298854093bb242f0bdcf8cf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919628"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964098"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurowanie usługi Azure Serwer Multi-Factor Authentication w celu zapewnienia wysokiej dostępności
 
@@ -45,7 +45,7 @@ Po pomyślnym uwierzytelnieniu w usłudze AD serwer usługi MFA komunikuje się 
 
 Jeśli serwer główny usługi MFA przejdzie w tryb offline, uwierzytelnienia nadal mogą być przetwarzane, ale nie można przetworzyć operacji wymagających zmian w bazie danych MFA. (Przykłady: dodanie użytkowników, samoobsługowe zmiany kodu PIN, zmiana informacji o użytkowniku lub dostęp do portalu użytkowników)
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>wdrażania
 
 Należy wziąć pod uwagę następujące ważne kwestie dotyczące równoważenia obciążenia serwera usługi Azure MFA i powiązanych składników.
 

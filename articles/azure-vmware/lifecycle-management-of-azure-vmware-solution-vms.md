@@ -3,12 +3,12 @@ title: Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platform
 description: Dowiedz się, jak zarządzać wszystkimi aspektami cyklu życia maszyn wirtualnych rozwiązań VMware platformy Azure przy użyciu narzędzi Microsoft Azure natywnych.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575484"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950367"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Zarządzanie cyklem życia maszyn wirtualnych rozwiązań VMware platformy Azure
 
@@ -58,7 +58,7 @@ Maszyny wirtualne rozwiązań VMware platformy Azure można monitorować za poś
 
 **Azure Security Center** zapewnia zaawansowaną ochronę przed zagrożeniami w ramach obciążeń hybrydowych w chmurze i lokalnie. Ocenia ona lukę w zabezpieczeniach maszyn wirtualnych rozwiązań platformy Azure VMware i zgłasza alerty zgodnie z potrzebami. Te alerty zabezpieczeń można przesłać dalej do Azure Monitor w celu rozwiązania problemu.
 - Azure Security Center nie wymaga wdrożenia. Aby uzyskać więcej informacji, zobacz listę [obsługiwanych funkcji dla maszyn wirtualnych](../security-center/security-center-services.md).
-- Aby dodać maszyny wirtualne rozwiązań VMware platformy Azure i maszyny wirtualne spoza platformy Azure do Azure Security Center, zobacz Dołączanie [komputerów z systemem Windows do Azure Security Center](../security-center/quick-onboard-windows-computer.md) i dołączania [komputerów z systemem Linux do Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- Aby dodać maszyny wirtualne rozwiązań VMware platformy Azure i maszyny wirtualne spoza platformy Azure do Azure Security Center, zobacz Dołączanie [komputerów z systemem Windows do Azure Security Center](../security-center/quickstart-onboard-machines.md) i dołączania [komputerów z systemem Linux do Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - Po dodaniu maszyn wirtualnych Azure Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potencjalne luki w zabezpieczeniach. Zawiera również zalecenia na karcie Przegląd. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące zabezpieczeń w Azure Security Center](../security-center/security-center-recommendations.md).
 - Zasady zabezpieczeń można definiować w Azure Security Center. Aby uzyskać informacje na temat konfigurowania zasad zabezpieczeń, zobacz [Praca z zasadami zabezpieczeń](../security-center/tutorial-security-policy.md).
 

@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577768"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Wybieranie odpowiedniej warstwy usługi IoT Hub dla używanego rozwiązania
@@ -75,7 +75,7 @@ Konfiguracja partycji pozostaje niezmieniona podczas migracji z warstwy Podstawo
 
 Różnica w obsługiwanych możliwościach między warstwami podstawowa i Standardowa IoT Hub oznacza, że niektóre wywołania interfejsu API nie działają w przypadku centrów warstwy Podstawowa. W poniższej tabeli przedstawiono dostępne interfejsy API:
 
-| interfejs API | Warstwa Podstawowa | Warstwa Bezpłatna/standardowa |
+| Interfejs API | Warstwa Podstawowa | Warstwa Bezpłatna/standardowa |
 | --- | ---------- | ------------- |
 | [Usuń urządzenie](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Tak | Tak |
 | [Pobierz urządzenie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Tak | Tak |

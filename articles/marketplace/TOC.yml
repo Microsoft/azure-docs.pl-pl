@@ -115,7 +115,7 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Tworzenie zasobu technicznego maszyny wirtualnej platformy Azure
               items:
-                - name: Certyfikacja maszyn wirtualnych — problemy i rozwiązania
+                - name: Problemy z certyfikacją maszyn wirtualnych
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Tworzenie zasobu technicznego maszyny wirtualnej platformy Azure
                   href: partner-center-portal/create-azure-vm-technical-asset.md
@@ -324,17 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: Migracja witryny Cloud Partner Portal — często zadawane pytania
       href: cloud-partner-portal-migration-faq.md
+    - name: Konsultacje dotyczące możliwości biznesowych
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: Konsultacje dotyczące spraw technicznych i publikowania
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Opcje pomocy technicznej Centrum partnerskiego
       href: partner-center-portal/support.md
+    - name: Ogłoszenia Centrum partnerskiego
+      href: /partner-center/announcements
+    - name: Społeczność partnerów firmy Microsoft
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: Forum społeczności partnerów
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: Dostępność geograficzna i waluty
       href: marketplace-geo-availability-currencies.md
+    - name: Znajdowanie identyfikatorów obiektów i dzierżawy
+      href: find-tenant-object-id.md
     - name: Obsługiwane kraje i regiony
       href: sell-from-countries.md
-    - name: Obsługiwane tagi HTML
-      href: supported-html-tags.md
     - name: Kody krajów i regionów wspólnej sprzedaży
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Kody stanów wspólnej sprzedaży
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 'Fora, blogi i szybkie linki'
-      href: marketplace-roadmap.md
+    - name: Obsługiwane tagi HTML
+      href: supported-html-tags.md

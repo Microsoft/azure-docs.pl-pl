@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 8697676abe5af77c8c7795ae4e2ec6480cb99e91
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819441"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948627"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurowalne okresy istnienia tokenów na platformie tożsamości firmy Microsoft (wersja zapoznawcza)
 
@@ -89,9 +89,9 @@ Zasada okresu istnienia tokenu jest typem obiektu zasad, który zawiera reguły 
 | --- | --- | --- | --- | --- | --- |
 | Okres istnienia tokenu dostępu |AccessTokenLifetime<sup>2</sup> |Tokeny dostępu, tokeny identyfikatorów, tokeny SAML2 |1 godzina |10 minut |1 dzień |
 | Maksymalny czas nieaktywności tokenu odświeżania |MaxInactiveTime |Odśwież tokeny |90 dni |10 minut |90 dni |
-| Maksymalny wiek tokenu odświeżania pojedynczego czynnika |MaxAgeSingleFactor |Odśwież tokeny (dla wszystkich użytkowników) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
+| Maksymalny wiek tokenu odświeżania Single-Factor |MaxAgeSingleFactor |Odśwież tokeny (dla wszystkich użytkowników) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
 | Maksymalny wiek tokenu wieloskładnikowego odświeżania |MaxAgeMultiFactor |Odśwież tokeny (dla wszystkich użytkowników) | 180 dni |10 minut |180 dni<sup>1</sup> |
-| Maksymalny wiek tokenu sesji pojedynczego czynnika |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
+| Maksymalny wiek tokenu sesji Single-Factor |MaxAgeSessionSingleFactor |Tokeny sesji (trwałe i nietrwałe) |Do odwołania |10 minut |Do odwołania<sup>1</sup> |
 | Maksymalny wiek tokenu sesji wieloskładnikowe |MaxAgeSessionMultiFactor |Tokeny sesji (trwałe i nietrwałe) | 180 dni |10 minut | 180 dni<sup>1</sup> |
 
 * <sup>1</sup>365 dni to maksymalna jawna długość, którą można ustawić dla tych atrybutów.
@@ -160,11 +160,11 @@ Aby zapoznać się z przykładem, zobacz [Tworzenie zasad logowania do sieci Web
 
 Te zasady wymuszają, że użytkownicy, którzy nie zostali aktywni na kliencie w celu ponownego uwierzytelnienia w celu pobrania nowego tokenu odświeżania.
 
-Właściwość maksymalny czas nieaktywności tokenu odświeżania musi być ustawiona na wartość niższą niż maksymalny wiek tokenu usługi Single-Factor i Maksymalna liczba właściwości wieku tokenu usługi wieloskładnikowej.
+Właściwość maksymalny czas nieaktywności tokenu odświeżania musi mieć ustawioną wartość niższą niż maksymalny wiek tokenu Single-Factor i właściwości maksymalnego wieku tokenu usługi wieloskładnikowej.
 
 Aby zapoznać się z przykładem, zobacz [Tworzenie zasad dla aplikacji natywnej, która wywołuje interfejs API sieci Web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-refresh-token-max-age"></a>Maksymalny wiek tokenu odświeżania pojedynczego czynnika
+### <a name="single-factor-refresh-token-max-age"></a>Maksymalny wiek tokenu odświeżania Single-Factor
 **Ciąg:** MaxAgeSingleFactor
 
 **Ma wpływ na:** Odśwież tokeny
@@ -182,11 +182,11 @@ Aby zapoznać się z przykładem, zobacz [Tworzenie zasad dla aplikacji natywnej
 
 **Podsumowanie:** Ta zasada kontroluje, jak długo użytkownik może użyć tokenu odświeżania, aby uzyskać nową parę tokenów dostępu/odświeżenia po pomyślnym uwierzytelnieniu przy użyciu wielu czynników. Po uwierzytelnieniu i otrzymaniu nowego tokenu odświeżania użytkownik może użyć przepływu tokenu odświeżania przez określony czas. (Wartość ta jest równa, o ile bieżący token odświeżania nie jest odwołany i nie jest używany dłużej niż czas nieaktywności). W tym momencie użytkownicy są zmuszeni do ponownego uwierzytelnienia w celu otrzymania nowego tokenu odświeżania.
 
-Skrócenie maksymalnego wieku zmusza użytkowników do częstego uwierzytelniania. Ponieważ uwierzytelnianie wieloskładnikowe jest uznawane za mniej bezpieczne niż w przypadku uwierzytelniania wieloskładnikowego, zalecamy ustawienie tej właściwości na wartość, która jest równa lub większa niż Właściwość maksymalnego wieku tokena odświeżania.
+Skrócenie maksymalnego wieku zmusza użytkowników do częstego uwierzytelniania. Ponieważ uwierzytelnianie wieloskładnikowe jest uznawane za mniej bezpieczne niż usługa uwierzytelniania wieloskładnikowego, zalecamy ustawienie tej właściwości na wartość, która jest równa lub większa niż Single-Factor Właściwość maksymalnego wieku tokenu odświeżania.
 
 Aby zapoznać się z przykładem, zobacz [Tworzenie zasad dla aplikacji natywnej, która wywołuje interfejs API sieci Web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-session-token-max-age"></a>Maksymalny wiek tokenu sesji pojedynczego czynnika
+### <a name="single-factor-session-token-max-age"></a>Maksymalny wiek tokenu sesji Single-Factor
 **Ciąg:** MaxAgeSessionSingleFactor
 
 **Ma wpływ na:** Tokeny sesji (trwałe i nietrwałe)
@@ -204,7 +204,7 @@ Aby zapoznać się z przykładem, zobacz [Tworzenie zasad logowania do sieci Web
 
 **Podsumowanie:** Ta zasada kontroluje, jak długo użytkownik może użyć tokenu sesji w celu uzyskania nowego identyfikatora i tokenu sesji po ostatnim pomyślnym uwierzytelnieniu przy użyciu wielu czynników. Po uwierzytelnieniu i odebraniu nowego tokenu sesji użytkownik może użyć przepływu tokenu sesji przez określony czas. (Wartość ta jest równa, o ile token bieżącej sesji nie został odwołany i nie wygasł.) Po upływie określonego czasu użytkownik jest zmuszony do ponownego uwierzytelnienia w celu otrzymania nowego tokenu sesji.
 
-Skrócenie maksymalnego wieku zmusza użytkowników do częstego uwierzytelniania. Ponieważ uwierzytelnianie wieloskładnikowe jest uznawane za mniej bezpieczne niż w przypadku usługi uwierzytelniania wieloskładnikowego, zalecamy ustawienie tej właściwości na wartość, która jest równa lub większa niż Właściwość maksymalnego wieku tokenu sesji.
+Skrócenie maksymalnego wieku zmusza użytkowników do częstego uwierzytelniania. Ponieważ uwierzytelnianie wieloskładnikowe jest uznawane za mniej bezpieczne niż w przypadku uwierzytelniania wieloskładnikowego, zalecamy ustawienie tej właściwości na wartość, która jest równa lub większa niż Właściwość maksymalnego wieku tokena sesji Single-Factor.
 
 ## <a name="cmdlet-reference"></a>Dokumentacja poleceń cmdlet
 

@@ -1,18 +1,25 @@
 ---
 title: Migrowanie do rozszerzenia Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 description: Opisuje procesy, które Azure Dev Spaces
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997170"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962857"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
+
+> [!IMPORTANT]
+> Azure Dev Spaces zostanie wycofana 31 października 2023. Deweloperzy powinni przejść do korzystania z usługi Bridge do Kubernetes, narzędzia dla deweloperów klienta.
+>
+> Celem Azure Dev Spaces był rozwój i programowanie na Kubernetes. Istotnym kompromisem w podejściu Azure Dev Spaces było naliczenie dodatkowych obciążeń dla deweloperów w celu zrozumienia konfiguracji platformy Docker i Kubernetes, a także koncepcji wdrożenia Kubernetes. Z upływem czasu nastąpiło również jasne, że podejście Azure Dev Spaces nie skutecznie obniżyć szybkości tworzenia pętli wewnętrznej w Kubernetes. Mostek do Kubernetes skutecznie zmniejsza prędkość tworzenia pętli wewnętrznej i unika niepotrzebnych obciążeń dla deweloperów.
+>
+> Główna misja pozostaje niezmieniona: Utwórz najlepsze środowiska deweloperskie do tworzenia, testowania i debugowania kodu mikrousług w kontekście większej aplikacji.
 
 Mostek do Kubernetes zapewnia jaśniejszą wagę alternatywy dla wielu scenariuszy programistycznych, które współpracują z Azure Dev Spaces. Mostek do Kubernetes to środowisko tylko po stronie klienta przy użyciu rozszerzeń w programie [Visual Studio][vs]   i [Visual Studio Code][vsc].  
 

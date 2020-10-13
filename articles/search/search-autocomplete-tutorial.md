@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dac1a09b7984cdc8deca22ced1e8018a761979e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531619"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951404"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](./search-howto-dotnet-sdk.md).
 
-`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Właściwości klasy [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) określają, które pola są przeszukiwane i zwracane w wynikach, liczbę dopasowań oraz czy użyto dopasowania rozmytego. 
+`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Właściwości klasy [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) określają, które pola są przeszukiwane i zwracane w wynikach, liczbę dopasowań oraz czy użyto dopasowania rozmytego. 
 
 W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do jednej odległości edycji (jeden pominięty lub nieumieszczony znak). Należy zauważyć, że dopasowywanie rozmyte w zapytaniach autouzupełniania może czasami generować nieoczekiwane wyniki w zależności od rozmiaru indeksu i sposobu jego podzielonej na fragmenty. Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące partycji i fragmentowania](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 

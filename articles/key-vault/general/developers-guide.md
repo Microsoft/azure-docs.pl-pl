@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812407"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
@@ -76,14 +76,14 @@ Dostęp do kluczy, wpisów tajnych i certyfikatów jest kontrolowany przez płas
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|Brak|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)|
+|[Odwołanie](/cli/azure/keyvault/key)<br>[Szybki start](../keys/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault/)<br>[Szybki start](../keys/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#key-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.keys)|[Odwołanie](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Szybki start](../keys/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-keys/)|
 
 **Interfejsy API i zestawy SDK certyfikatów**
 
 
 | Interfejs wiersza polecenia platformy Azure | PowerShell | Interfejs API REST | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Odwołanie](/cli/azure/keyvault/certificate)<br>[Szybki start](../certificates/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](../certificates/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#certificate-operations)|Brak|[Odwołanie](/dotnet/api/azure.security.keyvault.certificates)|[Odwołanie](/python/api/overview/azure/keyvault-certificates-readme)<br>[Szybki start](../certificates/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-certificates/)|
+|[Odwołanie](/cli/azure/keyvault/certificate)<br>[Szybki start](../certificates/quick-create-cli.md)|[Odwołanie](/powershell/module/az.keyvault)<br>[Szybki start](../certificates/quick-create-powershell.md)|[Odwołanie](/rest/api/keyvault/#certificate-operations)|Nie dotyczy|[Odwołanie](/dotnet/api/azure.security.keyvault.certificates)|[Odwołanie](/python/api/overview/azure/keyvault-certificates-readme)<br>[Szybki start](../certificates/quick-create-python.md)|[Odwołanie](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Odwołanie](/javascript/api/@azure/keyvault-certificates/)|
 
 **Interfejsy API i zestawy SDK kluczy tajnych**
 

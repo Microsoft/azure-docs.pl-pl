@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
 ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651756"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3
@@ -119,7 +119,7 @@ Aby chronić zasoby w spoczynku, zasoby powinny być szyfrowane przez szyfrowani
 |---|---|---|---|
 |Media Services szyfrowanie magazynu|Szyfrowanie AES-256, klucz zarządzany przez Media Services.|Obsługiwane<sup>(1)</sup>|Nieobsługiwane<sup>(2)</sup>|
 |[szyfrowanie usługi Storage danych magazynowanych](../../storage/common/storage-service-encryption.md)|Szyfrowanie po stronie serwera oferowane przez usługę Azure Storage, klucz zarządzany przez platformę Azure lub przez klienta.|Obsługiwane|Obsługiwane|
-|[Szyfrowanie po stronie klienta magazynu](../../storage/common/storage-client-side-encryption.md)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane|Nieobsługiwane|
+|[Szyfrowanie Client-Side magazynu](../../storage/common/storage-client-side-encryption.md)|Szyfrowanie po stronie klienta oferowane przez usługę Azure Storage, klucz zarządzany przez klienta w Key Vault.|Nieobsługiwane|Nieobsługiwane|
 
 <sup>1</sup> , gdy Media Services obsługuje obsługę zawartości w trybie Wyczyść/bez żadnej formy szyfrowania, nie jest to zalecane.
 

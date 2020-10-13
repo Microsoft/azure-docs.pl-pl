@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b2dea32163fbb2827daed616087c893631429aea
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0709152631037e7561094082c8ce02b860fd4edc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400864"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951563"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Podstawa zabezpieczeń Azure dla usługi Azure Wyszukiwanie poznawcze
 
-Ta linia bazowa zabezpieczeń ma zastosowanie do Wyszukiwanie poznawcze platformy Azure wskazówek dotyczących usługi [Azure Security test w wersji 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview) . Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez usługę Azure Security test i powiązane wskazówki dotyczące usługi Azure wyszukiwanie poznawcze. **Kontrolki** nie mają zastosowania do usługi Azure wyszukiwanie poznawcze lub klient został wykluczony.
+Ta linia bazowa zabezpieczeń ma zastosowanie do Wyszukiwanie poznawcze platformy Azure wskazówek dotyczących usługi [Azure Security test w wersji 1,0](../security/benchmarks/overview.md) . Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez usługę Azure Security test i powiązane wskazówki dotyczące usługi Azure wyszukiwanie poznawcze. **Kontrolki** nie mają zastosowania do usługi Azure wyszukiwanie poznawcze lub klient został wykluczony.
 
 Aby dowiedzieć się, jak platforma Azure Wyszukiwanie poznawcze całkowicie zamapowana na test porównawczy zabezpieczeń platformy Azure, zapoznaj się z [pełnym plikiem mapowania podstawy zabezpieczeń usługi azure wyszukiwanie poznawcze](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
-*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Aby uzyskać więcej informacji, zobacz [wzorzec zabezpieczeń Azure: zabezpieczenia sieci](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: Ochrona zasobów platformy Azure w ramach sieci wirtualnych
 
@@ -30,9 +30,9 @@ Aby dowiedzieć się, jak platforma Azure Wyszukiwanie poznawcze całkowicie zam
 
 Wyszukiwanie poznawcze obsługuje również dodatkowe funkcje zabezpieczeń sieci do zarządzania listami kontroli dostępu do sieci. Skonfiguruj usługę wyszukiwania, aby zezwalać na komunikację z zaufanymi źródłami przez ograniczenie dostępu z określonych zakresów publicznych adresów IP przy użyciu funkcji zapory.
 
-- [Jak skonfigurować prywatne punkty końcowe dla usługi Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/service-create-private-endpoint)
+- [Jak skonfigurować prywatne punkty końcowe dla usługi Azure Wyszukiwanie poznawcze](./service-create-private-endpoint.md)
 
-- [Jak skonfigurować zaporę usługi Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/service-configure-firewall)
+- [Jak skonfigurować zaporę usługi Azure Wyszukiwanie poznawcze](./service-configure-firewall.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -42,11 +42,11 @@ Wyszukiwanie poznawcze obsługuje również dodatkowe funkcje zabezpieczeń siec
 
 **Wskazówki**: wyszukiwanie poznawcze nie mogą być wdrażane bezpośrednio w sieci wirtualnej. Jeśli jednak aplikacja kliencka lub źródła danych znajdują się w sieci wirtualnej, można monitorować i rejestrować ruch dla tych składników w sieci, w tym żądań wysyłanych do usługi wyszukiwania w chmurze. Standardowe zalecenia obejmują włączenie dziennika przepływu sieciowych grup zabezpieczeń i wysyłanie dzienników do usługi Azure Storage lub obszaru roboczego Log Analytics. Opcjonalnie można użyć Analiza ruchu do wglądu w wzorce ruchu.
 
-- [Jak włączyć dzienniki przepływu sieciowych grup zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Jak włączyć dzienniki przepływu sieciowych grup zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Jak włączyć i używać Analiza ruchu](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Jak włączyć i używać Analiza ruchu](../network-watcher/traffic-analytics.md)
 
-- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -64,7 +64,7 @@ Wyszukiwanie poznawcze obsługuje również dodatkowe funkcje zabezpieczeń siec
 
 **Wskazówki**: wyszukiwanie poznawcze nie udostępnia konkretnej funkcji do walki z rozproszonym atakiem typu "odmowa usługi", ale można włączyć Standard DDoS Protection w sieciach wirtualnych skojarzonych z usługą wyszukiwanie poznawcze na potrzeby ochrony ogólnej.
 
-- [Jak skonfigurować ochronę DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Jak skonfigurować ochronę DDoS](../virtual-network/manage-ddos-protection.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -76,9 +76,9 @@ Wyszukiwanie poznawcze obsługuje również dodatkowe funkcje zabezpieczeń siec
 
 Włącz funkcję przechwytywania pakietów Network Watcher, jeśli jest wymagana do badania nietypowej aktywności.
 
-- [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Jak włączyć Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Jak włączyć Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -88,9 +88,9 @@ Włącz funkcję przechwytywania pakietów Network Watcher, jeśli jest wymagana
 
 **Wskazówki**: wyszukiwanie poznawcze nie obsługuje wykrywania intruzów w sieci, ale w przypadku ograniczenia włamania można skonfigurować reguły zapory, aby określić adresy IP akceptowane przez usługę wyszukiwanie poznawcze. Skonfiguruj prywatny punkt końcowy, aby zachować ruch wyszukiwania poza publiczny Internet.
 
-- [Jak skonfigurować klucze zarządzane przez klienta do szyfrowania danych](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
+- [Jak skonfigurować klucze zarządzane przez klienta do szyfrowania danych](./search-security-manage-encryption-keys.md)
 
-- [Jak uzyskać informacje o kluczu zarządzanym przez klienta z indeksów i map synonimów](https://docs.microsoft.com/azure/search/search-security-get-encryption-keys)
+- [Jak uzyskać informacje o kluczu zarządzanym przez klienta z indeksów i map synonimów](./search-security-get-encryption-keys.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -110,7 +110,7 @@ Włącz funkcję przechwytywania pakietów Network Watcher, jeśli jest wymagana
 
 Zezwalaj lub Odmawiaj ruchu do zasobów, określając nazwę tagu usługi (na przykład AzureCognitiveSearch) w odpowiednim polu źródłowym lub docelowym reguły. 
 
-- [Tagi usługi sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Tagi usługi sieci wirtualnej](../virtual-network/service-tags-overview.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -132,13 +132,13 @@ Użyj dowolnych wbudowanych definicji Azure Policy związanych ze znakowaniem, t
 
 Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, aby wyszukiwać lub wykonywać akcje na zasobach na podstawie ich tagów. 
 
-- [Jak utworzyć prywatny punkt końcowy dla Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/service-create-private-endpoint)
+- [Jak utworzyć prywatny punkt końcowy dla Wyszukiwanie poznawcze](./service-create-private-endpoint.md)
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-- [Jak utworzyć Virtual Network platformy Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Jak utworzyć Virtual Network platformy Azure](../virtual-network/quick-create-portal.md)
 
-- [Jak filtrować ruch sieciowy przy użyciu reguł sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Jak filtrować ruch sieciowy przy użyciu reguł sieciowej grupy zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -154,7 +154,7 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: rejestrowanie i monitorowanie](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Użyj źródeł synchronizacji zatwierdzonego czasu
 
@@ -171,9 +171,9 @@ Alternatywnie możesz włączyć i dołączyć te dane do usługi Azure wskaźni
 
 - [Jak rozpocząć pracę z usługą Azure Monitor i integracją SIEM innej firmy](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -183,9 +183,9 @@ Alternatywnie możesz włączyć i dołączyć te dane do usługi Azure wskaźni
 
 **Wskazówki**: dzienniki diagnostyczne i operacyjne zapewniają wgląd w szczegółowe operacje wyszukiwanie poznawcze i są przydatne do monitorowania usługi oraz obciążeń, które uzyskują dostęp do usługi.  Aby przechwytywać dane diagnostyczne, należy włączyć rejestrowanie przez określenie, gdzie są przechowywane informacje o rejestrowaniu.
 
-- [Jak zbierać i analizować dane dzienników dla usługi Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-monitor-logs)
+- [Jak zbierać i analizować dane dzienników dla usługi Azure Wyszukiwanie poznawcze](./search-monitor-logs.md)
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -205,9 +205,9 @@ Alternatywnie możesz włączyć i dołączyć te dane do usługi Azure wskaźni
 
 W Azure Monitor Ustaw okres przechowywania obszaru roboczego Log Analytics zgodnie z regulacjami dotyczącymi zgodności w organizacji. Używaj kont usługi Azure Storage do przechowywania długoterminowego i archiwizowania. 
 
-- [Zmień okres przechowywania danych w Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Zmień okres przechowywania danych w Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Jak skonfigurować zasady przechowywania dla dzienników kont usługi Azure Storage](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -217,15 +217,15 @@ W Azure Monitor Ustaw okres przechowywania obszaru roboczego Log Analytics zgodn
 
 **Wskazówki**: analizowanie i monitorowanie dzienników z usługi Wyszukiwanie poznawcze w celu nietypowego zachowania. Użyj Log Analytics Azure Monitor, aby przejrzeć dzienniki i wykonywać zapytania dotyczące danych dziennika. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
 
-- [Jak zbierać i analizować dane dzienników dla Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-monitor-logs)
+- [Jak zbierać i analizować dane dzienników dla Wyszukiwanie poznawcze](./search-monitor-logs.md)
 
-- [Jak wizualizować dane dziennika wyszukiwania w Power BI](https://docs.microsoft.com/azure/search/search-monitor-logs-powerbi)
+- [Jak wizualizować dane dziennika wyszukiwania w Power BI](./search-monitor-logs-powerbi.md)
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Dowiedz się więcej o usłudze Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Dowiedz się więcej o usłudze Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-- [Jak wykonywać niestandardowe zapytania w Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Jak wykonywać niestandardowe zapytania w Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -235,11 +235,11 @@ W Azure Monitor Ustaw okres przechowywania obszaru roboczego Log Analytics zgodn
 
 **Wskazówki**: Użyj Security Center z obszarem roboczym log Analytics do monitorowania i generowania alertów dotyczących nietypowego działania znalezionego w dziennikach i zdarzeniach zabezpieczeń. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej.
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
-- [Jak zarządzać alertami w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Jak zarządzać alertami w Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Jak ostrzec dane dziennika usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Jak ostrzec dane dziennika usługi log Analytics](../azure-monitor/learn/tutorial-response.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -271,7 +271,7 @@ W Azure Monitor Ustaw okres przechowywania obszaru roboczego Log Analytics zgodn
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: tożsamość i kontrola dostępu](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
@@ -279,12 +279,12 @@ W Azure Monitor Ustaw okres przechowywania obszaru roboczego Log Analytics zgodn
 
 Role Wyszukiwanie poznawcze są skojarzone z uprawnieniami, które obsługują zadania zarządzania poziomem usług.  Role te nie udzielają dostępu do punktu końcowego usługi. Dostęp do operacji względem punktu końcowego (takiego jak zarządzanie indeksami, populacja indeksu i zapytania dotyczące danych wyszukiwania) za pomocą kluczy interfejsu API można uwierzytelniać żądanie.
 
-- [Ustawianie ról dla dostępu administracyjnego do usługi Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-security-rbac)
+- [Ustawianie ról dla dostępu administracyjnego do usługi Azure Wyszukiwanie poznawcze](./search-security-rbac.md)
 
-- [Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/search-security-api-keys)
+- [Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure](./search-security-api-keys.md)
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
-- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -304,9 +304,9 @@ Role Wyszukiwanie poznawcze są skojarzone z uprawnieniami, które obsługują z
 
 Użyj wbudowanych ról usługi Azure AD, które muszą być jawnie przypisane do operacji zarządzania. Wywołaj moduł PowerShell usługi Azure AD, aby wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych.
 
-- [Jak używać ról do dostępu administracyjnego w programie Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-security-rbac)
+- [Jak używać ról do dostępu administracyjnego w programie Wyszukiwanie poznawcze](./search-security-rbac.md)
 
-- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole)
+- [Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -318,7 +318,7 @@ Użyj wbudowanych ról usługi Azure AD, które muszą być jawnie przypisane do
 
 Ustanów proces, aby zmniejszyć liczbę tożsamości i poświadczeń przez włączenie logowania jednokrotnego dla usługi przy użyciu istniejących tożsamości w organizacji.
 
-- [Opis logowania jednokrotnego w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Opis logowania jednokrotnego w usłudze Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -328,9 +328,9 @@ Ustanów proces, aby zmniejszyć liczbę tożsamości i poświadczeń przez wł�
 
 **Wskazówki**: włączanie funkcji Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) i postępuj zgodnie z zaleceniami i dostępem Security Center.
 
-- [Jak włączyć usługę MFA na platformie Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) 
+- [Jak włączyć usługę MFA na platformie Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
-- [Jak monitorować tożsamość i dostęp w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access) 
+- [Jak monitorować tożsamość i dostęp w Azure Security Center](../security-center/security-center-identity-access.md) 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -340,10 +340,10 @@ Ustanów proces, aby zmniejszyć liczbę tożsamości i poświadczeń przez wł�
 
 **Wskazówki**: Użyj stacji roboczej dostępu uprzywilejowanego (dostępem uprzywilejowanym) z usługą Multi-Factor Authentication (MFA) skonfigurowaną w celu logowania się do zasobów platformy Azure i uzyskiwania do nich dostępu.
 
-- [Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+- [Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure](../active-directory/devices/concept-azure-managed-workstation.md)
  
 
-- [Jak włączyć usługę Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Jak włączyć usługę Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
  
 
 **Monitorowanie Azure Security Center**: nie dotyczy
@@ -354,9 +354,9 @@ Ustanów proces, aby zmniejszyć liczbę tożsamości i poświadczeń przez wł�
 
 **Wskazówki**: Użyj raportów i monitorowania zabezpieczeń Azure Active Directory (Azure AD), aby wykryć, kiedy w środowisku występuje podejrzane lub niebezpieczne działania. Użyj Security Center, aby monitorować działania związane z tożsamościami i dostępem.
 
-- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Identyfikowanie użytkowników usługi Azure AD oflagowanych w celu działania ryzykownego](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Jak monitorować działania związane z tożsamościami i dostępem użytkowników w Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -374,9 +374,9 @@ Ustanów proces, aby zmniejszyć liczbę tożsamości i poświadczeń przez wł�
 
 **Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji na potrzeby zadań zarządzania na poziomie usług w usłudze Azure wyszukiwanie poznawcze. Tożsamości usługi Azure AD nie udzielają dostępu do punktu końcowego usługi wyszukiwania.  Dostęp do operacji takich jak zarządzanie indeksami, populacja indeksu i zapytania dotyczące danych wyszukiwania są dostępne za pośrednictwem kluczy interfejsu API.
 
-- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/search-security-api-keys)
+- [Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure](./search-security-api-keys.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -388,11 +388,11 @@ Ustanów proces, aby zmniejszyć liczbę tożsamości i poświadczeń przez wł�
 
 Przegląd dzienników diagnostycznych z Wyszukiwanie poznawcze dla działania w punkcie końcowym usługi wyszukiwania, takich jak zarządzanie indeksami, populacja indeksu i zapytania.
 
-- [Informacje o raportowaniu usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informacje o raportowaniu usługi Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Jak korzystać z przeglądów tożsamości i dostępu w usłudze Azure AD](../active-directory/governance/access-reviews-overview.md)
 
-- [Monitoruj operacje i działania Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/search-monitor-usage)
+- [Monitoruj operacje i działania Wyszukiwanie poznawcze platformy Azure](./search-monitor-usage.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -404,7 +404,7 @@ Przegląd dzienników diagnostycznych z Wyszukiwanie poznawcze dla działania w 
 
 Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Skonfiguruj żądane alerty w obszarze roboczym Log Analytics.
 
-- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -414,11 +414,11 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 
 **Wskazówki**: Użyj funkcji ochrony tożsamości Azure Active Directory (Azure AD), aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. W razie potrzeby Pozyskaj dane do badania na platformie Azure.
 
-- [Jak wyświetlić ryzykowne logowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Jak wyświetlić ryzykowne logowania usługi Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies) 
+- [Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
-- [Jak dołączyć wskaźnik na platformie Azure](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md) 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -434,7 +434,7 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 
 ## <a name="data-protection"></a>Ochrona danych
 
-*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Aby uzyskać więcej informacji, zobacz [Azure Security test: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: przechowywanie spisu poufnych informacji
 
@@ -448,11 +448,11 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Zasoby powinny być oddzielone przez sieć wirtualną/podsieć, odpowiednio otagowane i zabezpieczone w ramach sieciowej grupy zabezpieczeń lub zapory platformy Azure. Zasoby przechowujące lub przetwarzające dane poufne powinny być izolowane. Użyj linku prywatnego, aby skonfigurować prywatny punkt końcowy do Wyszukiwanie poznawcze.
 
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md) 
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
-- [Jak utworzyć prywatny punkt końcowy dla Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/service-create-private-endpoint)
+- [Jak utworzyć prywatny punkt końcowy dla Wyszukiwanie poznawcze](./service-create-private-endpoint.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -464,7 +464,7 @@ Usprawnij ten proces, tworząc ustawienia diagnostyczne dla kont użytkowników 
 
 Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość klienta jako poufną i chroni przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data) 
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md) 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -474,7 +474,7 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 
 **Wskazówki**: wyszukiwanie poznawcze szyfruje dane podczas przesyłania z Transport Layer Security 1,2 i wymusza szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem a usługą.
 
-- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) 
+- [Informacje o szyfrowaniu podczas przesyłania na platformę Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -486,7 +486,7 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 
 Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość klienta jako poufną i chroni przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -495,10 +495,10 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Korzystaj z usługi Azure RBAC, aby zarządzać dostępem do zasobów
 
 **Wskazówki**: w celu administrowania usługą Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zarządzać dostępem do kluczy i konfiguracji. W przypadku operacji związanych z zawartością, takich jak indeksowanie i kwerendy, Wyszukiwanie poznawcze używa kluczy zamiast modelu kontroli dostępu opartego na tożsamości. Użyj funkcji RBAC platformy Azure, aby kontrolować dostęp do kluczy.
-- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 
+- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
-- [Jak używać ról na potrzeby dostępu administracyjnego do Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-security-rbac)
+- [Jak używać ról na potrzeby dostępu administracyjnego do Wyszukiwanie poznawcze](./search-security-rbac.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -510,7 +510,7 @@ Firma Microsoft zarządza podstawową platformą i traktuje całą zawartość k
 
 Firma Microsoft zarządza podstawową infrastrukturą dla Wyszukiwanie poznawcze i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-- [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Zrozumienie ochrony danych klientów na platformie Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -520,9 +520,9 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Wyszukiwanie poznawcze
 
 **Wskazówki**: wyszukiwanie poznawcze automatycznie szyfruje zawartość indeksowaną przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli jest wymagana większa ochrona, można uzupełnić domyślne szyfrowanie z użyciem drugiej warstwy szyfrowania przy użyciu kluczy tworzonych i zarządzanych w Azure Key Vault.
 
-- [Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
+- [Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych w usłudze Azure Wyszukiwanie poznawcze](./search-security-manage-encryption-keys.md)
 
-- [Informacje o szyfrowaniu na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Informacje o szyfrowaniu na platformie Azure](../security/fundamentals/encryption-atrest.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -532,9 +532,9 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Wyszukiwanie poznawcze
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych wyszukiwanie poznawcze i innych krytycznych lub powiązanych zasobów.
 
-- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-- [Jak utworzyć alerty dla działań Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-monitor-logs)
+- [Jak utworzyć alerty dla działań Wyszukiwanie poznawcze](./search-monitor-logs.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -542,7 +542,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Wyszukiwanie poznawcze
 
 ## <a name="vulnerability-management"></a>Zarządzanie lukami w zabezpieczeniach
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Zarządzanie lukami w zabezpieczeniach](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: uruchamianie narzędzi do skanowania automatycznych luk w zabezpieczeniach
 
@@ -586,7 +586,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Wyszukiwanie poznawcze
 
 ## <a name="inventory-and-asset-management"></a>Zarządzanie magazynem i zasobami
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Użyj rozwiązania automatycznego odnajdywania zasobów
 
@@ -594,11 +594,11 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Wyszukiwanie poznawcze
 
 Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i Wylicz wszystkie subskrypcje platformy Azure oraz zasoby w Twoich subskrypcjach.  
 
-- [Jak tworzyć zapytania za pomocą Eksploratora Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal) 
+- [Jak tworzyć zapytania za pomocą Eksploratora Azure Resource Graph](../governance/resource-graph/first-query-portal.md) 
 
-- [Jak wyświetlić subskrypcje platformy Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [Jak wyświetlić subskrypcje platformy Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
 
-- [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Opis kontroli RBAC platformy Azure](../role-based-access-control/overview.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -608,7 +608,7 @@ Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i Wylicz w
 
 **Wskazówki**: Zastosuj Tagi do zasobów platformy Azure za pomocą metadanych, aby logicznie zorganizować je w taksonomię.
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -617,11 +617,11 @@ Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i Wylicz w
 ### <a name="63-delete-unauthorized-azure-resources"></a>6,3: Usuń nieautoryzowane zasoby platformy Azure
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji w miarę potrzeb w celu organizowania i śledzenia zasobów. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
-- [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md) 
 
-- [Jak utworzyć Grupy zarządzania](https://docs.microsoft.com/azure/governance/management-groups/create) 
+- [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md) 
 
-- [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+- [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md) 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -639,9 +639,9 @@ Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i Wylicz w
 
 **Wskazówki**: zaleca się zdefiniowanie spisu zasobów platformy Azure, które zostały zatwierdzone do użycia zgodnie z zasadami organizacji i ze standardami, a następnie Monitoruj dla niezatwierdzonych zasobów platformy Azure za pomocą Azure Policy lub grafu zasobów platformy Azure.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Jak tworzyć zapytania za pomocą usługi Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal) 
+- [Jak tworzyć zapytania za pomocą usługi Azure Graph](../governance/resource-graph/first-query-portal.md) 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -682,9 +682,9 @@ Zalecane jest posiadanie spisu aplikacji, które zostały uznane za zatwierdzone
 
 Użyj grafu zasobów platformy Azure do wykonywania zapytań lub odnajdywania zasobów w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types) 
+- [Jak odmówić określonego typu zasobu za pomocą Azure Policy](../governance/policy/samples/index.md) 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -726,7 +726,7 @@ Kontroluj dostęp do kluczy używanych do uwierzytelniania żądań dla wszystki
 
 ## <a name="secure-configuration"></a>Bezpieczna konfiguracja
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: bezpieczna konfiguracja](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: Ustanów bezpieczne konfiguracje dla wszystkich zasobów platformy Azure
 
@@ -738,9 +738,9 @@ Azure Resource Manager ma możliwość eksportowania szablonu w JavaScript Objec
 
 Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia dla zasobów platformy Azure. 
 
-- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](./security-controls-policy.md)
 
-- [Jak wyświetlić dostępne aliasy Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Jak wyświetlić dostępne aliasy Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -760,13 +760,13 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej konfi
 
 Szablony Azure Resource Manager mogą służyć do obsługi konfiguracji zabezpieczeń zasobów platformy Azure wymaganych przez organizację. 
 
-- [Zrozumienie efektów Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Zrozumienie efektów Azure Policy](../governance/policy/concepts/effects.md)
 
-- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](./security-controls-policy.md)
 
-- [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Tworzenie zasad i zarządzanie nimi w celu wymuszania zgodności](../governance/policy/tutorials/create-and-manage.md)
 
-- [Przegląd szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Przegląd szablonów Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -784,9 +784,9 @@ Szablony Azure Resource Manager mogą służyć do obsługi konfiguracji zabezpi
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy, Użyj usługi Azure DevOps lub Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-- [Jak przechowywać kod w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [Jak przechowywać kod w usłudze Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Dokumentacja Azure Repos](https://docs.microsoft.com/azure/devops/repos/index)
+- [Dokumentacja Azure Repos](/azure/devops/repos/index)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -808,9 +808,9 @@ Aliasy służą do tworzenia zasad niestandardowych do inspekcji lub wymuszania 
 
 Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji i zarządzania wyjątkami zasad. 
 
-- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](./security-controls-policy.md)
 
-- [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -828,9 +828,9 @@ Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji i zarzą
 
 **Wskazówki**: Użyj Security Center, aby przeprowadzić skanowanie linii bazowej zasobów usługi Wyszukiwanie poznawcze.  Ponadto należy używać Azure Policy do powiadamiania i inspekcji konfiguracji zasobów. 
 
-- [Jak skorygować zalecenia w Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Jak skorygować zalecenia w Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Azure Policy kontroli zgodności z przepisami dla Wyszukiwanie poznawcze platformy Azure](./security-controls-policy.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -847,10 +847,10 @@ Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji i zarzą
 ### <a name="711-manage-azure-secrets-securely"></a>7,11: bezpieczne zarządzanie wpisami tajnymi platformy Azure
 
 **Wskazówki**: Użyj tożsamości zarządzanych przez platformę Azure w połączeniu z Azure Key Vault, aby uprościć zarządzanie tajnymi aplikacjami w chmurze.
-- [Jak używać tożsamości zarządzanych dla zasobów platformy Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity) 
-- [Jak utworzyć Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal) 
+- [Jak używać tożsamości zarządzanych dla zasobów platformy Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
+- [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md) 
 
-- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/managed-identity) 
+- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](../key-vault/general/assign-access-policy-portal.md) 
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -860,9 +860,9 @@ Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji i zarzą
 
 **Wskazówki**: Użyj tożsamości zarządzanej platformy Azure, aby zapewnić wyszukiwanie poznawcze dostęp do innych usług platformy Azure, takich jak Key Vault i indeksatory źródeł danych przy użyciu automatycznie zarządzanej tożsamości w Azure Active Directory (Azure AD). Zarządzane tożsamości umożliwiają uwierzytelnianie w dowolnej usłudze obsługującej uwierzytelnianie w usłudze Azure AD, w tym Azure Key Vault, bez żadnych poświadczeń w kodzie. 
 
-- [Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/search/search-howto-managed-identities-data-sources)
+- [Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej](./search-howto-managed-identities-data-sources.md)
 
-- [Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#3---create-a-service-identity)
+- [Konfigurowanie kluczy zarządzanych przez klienta na potrzeby szyfrowania danych przy użyciu tożsamości zarządzanej](./search-security-manage-encryption-keys.md#3---create-a-service-identity)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -878,7 +878,7 @@ Ponadto można użyć Azure Automation do wdrożenia zmian konfiguracji i zarzą
 
 ## <a name="malware-defense"></a>Ochrona przed złośliwym oprogramowaniem
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Obrona złośliwego oprogramowania](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: Obrona złośliwego oprogramowania](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-antimalware-software"></a>8,1: Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym kodem
 
@@ -912,7 +912,7 @@ W przypadku wszelkich zasobów obliczeniowych należących do organizacji i uży
 
 ## <a name="data-recovery"></a>Odzyskiwanie danych
 
-*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Aby uzyskać więcej informacji, zobacz [test dotyczący zabezpieczeń platformy Azure: odzyskiwanie danych](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Zapewnij regularne zautomatyzowane przywracanie awaryjne
 
@@ -928,9 +928,9 @@ W przypadku wszelkich zasobów obliczeniowych należących do organizacji i uży
 
 **Wskazówki**: wyszukiwanie poznawcze obecnie nie obsługuje zautomatyzowanej kopii zapasowej danych w usłudze wyszukiwania i należy wykonać kopię zapasową w procesie ręcznym.  Można również utworzyć kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault. 
 
-- [Tworzenie kopii zapasowej i przywracanie indeksu Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
+- [Tworzenie kopii zapasowej i przywracanie indeksu Wyszukiwanie poznawcze platformy Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Jak utworzyć kopię zapasową kluczy Key Vault na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak utworzyć kopię zapasową kluczy Key Vault na platformie Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -940,9 +940,9 @@ W przypadku wszelkich zasobów obliczeniowych należących do organizacji i uży
 
 **Wskazówki**: wyszukiwanie poznawcze obecnie nie obsługuje zautomatyzowanej kopii zapasowej danych w usłudze wyszukiwania i należy wykonać kopię zapasową i przywrócić ją w procesie ręcznym.  Okresowo wykonuj przywracanie danych kopii zapasowej ręcznie, aby zapewnić kompleksową integralność procesu tworzenia kopii zapasowej.
 
-- [Tworzenie kopii zapasowej i przywracanie indeksu Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
+- [Tworzenie kopii zapasowej i przywracanie indeksu Wyszukiwanie poznawcze platformy Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Jak przywrócić klucze Key Vault na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Jak przywrócić klucze Key Vault na platformie Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -954,11 +954,11 @@ W przypadku wszelkich zasobów obliczeniowych należących do organizacji i uży
 
 Włącz trwałe usuwanie i przeczyszczanie ochrony w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. Jeśli usługa Azure Storage jest używana do przechowywania ręcznych kopii zapasowych, należy włączyć opcję usuwania nietrwałego, aby zapisywać i odzyskiwać dane po usunięciu obiektów blob lub migawek obiektów BLOB. 
 
-- [Tworzenie kopii zapasowej i przywracanie indeksu Wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
+- [Tworzenie kopii zapasowej i przywracanie indeksu Wyszukiwanie poznawcze platformy Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Jak włączyć funkcję usuwania nietrwałego i przeczyszczania w programie Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Jak włączyć funkcję usuwania nietrwałego i przeczyszczania w programie Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Usuwanie nietrwałe dla magazynu obiektów blob platformy Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -966,7 +966,7 @@ Włącz trwałe usuwanie i przeczyszczanie ochrony w Key Vault, aby chronić klu
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
-*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Aby uzyskać więcej informacji, zobacz temat [Azure Security test: odpowiedź na zdarzenia](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: Tworzenie przewodnika odpowiedzi na zdarzenia
 
@@ -988,9 +988,9 @@ Włącz trwałe usuwanie i przeczyszczanie ochrony w Key Vault, aby chronić klu
 
 Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system nazewnictwa, aby identyfikować i klasyfikować zasoby platformy Azure, szczególnie te, które przetwarzają poufne dane. Odpowiedzialność za korygowanie alertów zależy od zagrożenia dla zasobów platformy Azure i środowiska, w którym wystąpiło zdarzenie.
 
-- [Organizowanie zasobów platformy Azure przy użyciu tagów](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [Organizowanie zasobów platformy Azure przy użyciu tagów](../azure-resource-manager/management/tag-resources.md)
 
-- [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](../security-center/security-center-alerts-overview.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1010,7 +1010,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych zostały nadane przez nielegalną lub nieautoryzowaną stronę. Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
 
-- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Jak ustawić kontakt z zabezpieczeniami Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1020,9 +1020,9 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły pozwala na ręczne eksportowanie alertów i zaleceń. Możesz użyć łącznika danych Security Center do przesyłania strumieniowego alertów do usługi Azure wskaźnikowej.
 
-- [Jak skonfigurować eksport ciągły](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Jak skonfigurować eksport ciągły](../security-center/continuous-export.md)
 
-- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowego](../sentinel/connect-azure-security-center.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1032,7 +1032,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
 
-- [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Jak skonfigurować automatyzację przepływu pracy i Logic Apps](../security-center/workflow-automation.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1040,7 +1040,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testy penetracyjne i ćwiczenia typu „red team”
 
-*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Aby uzyskać więcej informacji, zobacz test [porównawczy zabezpieczeń platformy Azure: testy penetracji i czerwone ćwiczenia zespołu](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
@@ -1054,5 +1054,5 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
-- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)
+- Zobacz [test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
+- Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](../security/benchmarks/security-baselines-overview.md)

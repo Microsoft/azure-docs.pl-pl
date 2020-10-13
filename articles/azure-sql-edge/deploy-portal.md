@@ -9,24 +9,23 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445716"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973584"
 ---
 # <a name="deploy-azure-sql-edge"></a>Wdrażanie usługi Azure SQL Edge 
 
 Usługa Azure SQL Edge jest aparatem relacyjnej bazy danych zoptymalizowanym pod kątem wdrożeń IoT i Azure IoT Edge. Zapewnia możliwości tworzenia wysokiej wydajności magazynu danych i warstwy przetwarzania dla aplikacji i rozwiązań IoT. W tym przewodniku szybki start pokazano, jak rozpocząć tworzenie modułu usługi Azure SQL Edge za pośrednictwem Azure IoT Edge przy użyciu Azure Portal.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 * Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 * Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 * Utwórz [IoT Hub platformy Azure](../iot-hub/iot-hub-create-through-portal.md).
-* Zarejestruj [urządzenie IoT Edge z Azure Portal](../iot-edge/how-to-register-device-portal.md).
-* Przygotuj IoT Edge urządzenie do [wdrożenia modułu IoT Edge z Azure Portal](../iot-edge/how-to-deploy-modules-portal.md).
+* Utwórz [urządzenie Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > Aby wdrożyć maszynę wirtualną z systemem Linux na platformie Azure jako urządzenie IoT Edge, zapoznaj się z tym [przewodnikiem Szybki Start](../iot-edge/quickstart-linux.md).
@@ -48,7 +47,7 @@ Portal Azure Marketplace to rynek aplikacji i usług online, w którym można pr
    |**Pole**  |**Opis**  |
    |---------|---------|
    |Subskrypcja  |  Subskrypcja platformy Azure, w ramach której utworzono IoT Hub |
-   |Usługa IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
+   |IoT Hub   |  Nazwa IoT Hub, w którym zarejestrowano urządzenie IoT Edge, a następnie wybierz opcję "wdróż w urządzeniu"|
    |Nazwa urządzenia IoT Edge  |  Nazwa urządzenia IoT Edgeego, na którym zostanie wdrożona Przeglądarka SQL Edge |
 
 4. Na stronie **Ustawianie modułów na urządzeniu:** kliknij moduł Azure SQL Edge w obszarze **IoT Edge**modules. Domyślna nazwa modułu jest ustawiona na *AzureSQLEdge*. 

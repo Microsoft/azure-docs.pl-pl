@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090656"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963265"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej diagnostyki wydajności platformy Azure dla systemu Windows
 
-Rozszerzenie maszyny wirtualnej diagnostyki wydajności Azure ułatwia zbieranie danych diagnostycznych wydajności z maszyn wirtualnych z systemem Windows. Rozszerzenie wykonuje analizę i zawiera raport dotyczący wyników i zaleceń dotyczących identyfikowania i rozwiązywania problemów z wydajnością na maszynie wirtualnej. To rozszerzenie powoduje zainstalowanie narzędzia do rozwiązywania problemów o nazwie [że program perfinsights](https://aka.ms/perfinsights).
+Rozszerzenie maszyny wirtualnej diagnostyki wydajności Azure ułatwia zbieranie danych diagnostycznych wydajności z maszyn wirtualnych z systemem Windows. Rozszerzenie wykonuje analizę i zawiera raport dotyczący wyników i zaleceń dotyczących identyfikowania i rozwiązywania problemów z wydajnością na maszynie wirtualnej. To rozszerzenie powoduje zainstalowanie narzędzia do rozwiązywania problemów o nazwie [że program perfinsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > Jeśli chcesz uruchomić diagnostykę na maszynie wirtualnej z Azure Portal dla nieklasycznych maszyn wirtualnych, zaleca się korzystanie z nowego środowiska. Aby uzyskać więcej informacji, zobacz [Diagnostyka wydajności dla maszyn wirtualnych platformy Azure](performance-diagnostics.md) 
@@ -237,7 +237,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Informacje na temat przechwyconych danych
-Narzędzie że program perfinsights zbiera różne dzienniki, konfigurację i dane diagnostyczne w zależności od wybranego scenariusza. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją że program perfinsights](https://aka.ms/perfinsights).
+Narzędzie że program perfinsights zbiera różne dzienniki, konfigurację i dane diagnostyczne w zależności od wybranego scenariusza. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją że program perfinsights](./how-to-use-perfinsights.md).
 
 ## <a name="view-and-share-the-results"></a>Wyświetlanie i udostępnianie wyników
 

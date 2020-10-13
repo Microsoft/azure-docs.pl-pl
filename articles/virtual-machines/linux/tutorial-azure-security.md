@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eadbc7e7831805c92fdc13982516f64cdf725dd8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974606"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963724"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Samouczek: monitorowanie maszyn wirtualnych z systemem Linux za pomocą usługi Azure Security Center
 
@@ -70,7 +70,7 @@ Aby skonfigurować zasady zabezpieczeń dla całej subskrypcji:
 
 ## <a name="view-vm-configuration-health"></a>Wyświetlanie kondycji konfiguracji maszyny wirtualnej
 
-Po włączeniu zbierania danych i ustawieniu zasad zabezpieczeń usługa Security Center zacznie udostępniać alerty i zalecenia. Gdy maszyny wirtualne są wdrażane, instalowany jest agent zbierania danych. Usługa Security Center jest następnie wypełniana danymi dotyczącymi nowych maszyn wirtualnych. Aby uzyskać szczegółowe informacje o kondycji konfiguracji maszyny wirtualnej, zobacz [Ochrona maszyn wirtualnych w usłudze Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+Po włączeniu zbierania danych i ustawieniu zasad zabezpieczeń usługa Security Center zacznie udostępniać alerty i zalecenia. Gdy maszyny wirtualne są wdrażane, instalowany jest agent zbierania danych. Usługa Security Center jest następnie wypełniana danymi dotyczącymi nowych maszyn wirtualnych. Aby uzyskać szczegółowe informacje o kondycji konfiguracji maszyny wirtualnej, zobacz [Ochrona maszyn wirtualnych w usłudze Security Center](../../security-center/asset-inventory.md). 
 
 W miarę gromadzenia danych agregowana jest kondycja zasobu dla każdej maszyny wirtualnej i powiązanego zasobu platformy Azure. Informacje są pokazywane na czytelnym wykresie. 
 

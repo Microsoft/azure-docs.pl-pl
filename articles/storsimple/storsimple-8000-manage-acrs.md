@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513448"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949908"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Zarządzanie rekordami kontroli dostępu za pomocą usługi StorSimple Manager
 
@@ -63,11 +63,11 @@ Wykonaj następujące kroki, aby dodać ACR.
 
     3. Kliknij przycisk **Dodaj** , aby utworzyć ACR.
 
-        ![Kliknij pozycję Dodaj ACR](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![Kliknij pozycję Dodaj ACR 2](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  Nowo dodana ACR zostanie wyświetlona na liście tabelarycznej rekordami ACR.
 
-    ![Kliknij pozycję Dodaj ACR](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![Kliknij pozycję Dodaj ACR 3](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## <a name="edit-an-access-control-record"></a>Edytowanie rekordu kontroli dostępu
@@ -89,11 +89,11 @@ Wykonaj następujące kroki, aby edytować ACR.
 
 3. W bloku **Edytowanie rekordu kontroli dostępu** Podaj inną nazwę IQN odpowiadającą innemu hostowi.
 
-    ![Edytowanie rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Edytuj rekordy kontroli dostępu 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
 4. Kliknij przycisk **Zapisz**. Po wyświetleniu monitu o potwierdzenie kliknij przycisk **Tak**. 
 
-    ![Edytowanie rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Edytuj rekordy kontroli dostępu 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. Otrzymasz powiadomienie, gdy ACR zostanie zaktualizowany. Lista tabelaryczna jest również aktualizowana w celu odzwierciedlenia zmiany.
 
@@ -109,23 +109,23 @@ Wykonaj następujące kroki, aby usunąć rekord kontroli dostępu.
 #### <a name="to-delete-an-access-control-record"></a>Aby usunąć rekord kontroli dostępu
 1.  Przejdź do usługi StorSimple Menedżer urządzeń, kliknij dwukrotnie nazwę usługi, a następnie w sekcji **Konfiguracja** kliknij pozycję **rekordy kontroli dostępu**.
 
-    ![Przejdź do rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Przejdź do rekordów kontroli dostępu 1b](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. Na tabelarycznej liście rekordów kontroli dostępu kliknij i wybierz ACR, które chcesz usunąć.
 
-    ![Przejdź do rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Przejdź do rekordu kontroli dostępu 2](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. Kliknij prawym przyciskiem myszy, aby wywoływać menu kontekstowe, a następnie wybierz pozycję **Usuń**.
 
-    ![Przejdź do rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Przejdź do rekordu kontroli dostępu 3](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. Po wyświetleniu monitu o potwierdzenie Przejrzyj informacje, a następnie kliknij przycisk **Usuń**.
 
-    ![Przejdź do rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Przejdź do rekordów kontroli dostępu 4](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. Otrzymasz powiadomienie po zakończeniu usuwania. Lista tabelaryczna została zaktualizowana w celu odzwierciedlenia usunięcia.
 
-    ![Przejdź do rekordów kontroli dostępu](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Przejdź do rekordu kontroli dostępu 5](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zarządzaniu woluminami StorSimple](storsimple-8000-manage-volumes-u2.md).

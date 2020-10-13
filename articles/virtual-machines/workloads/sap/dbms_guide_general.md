@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c0158e4bdaff5400404b290e27837bfb3b95419
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331356"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974825"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Zagadnienia dotyczące wdrażania systemu Azure Virtual Machines DBMS dla obciążeń SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -273,7 +273,7 @@ Istnieją inne metody nadmiarowości. Aby uzyskać więcej informacji, zobacz [R
 
 
 ## <a name="vm-node-resiliency"></a>Odporność węzła maszyny wirtualnej
-Platforma Azure oferuje kilka różnych umowy SLA dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz Najnowsza wersja [umowy SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Ponieważ warstwa DBMS ma krytyczne znaczenie dla dostępności w systemie SAP, należy zrozumieć zestawy dostępności, Strefy dostępności i zdarzenia konserwacji. Aby uzyskać więcej informacji na temat tych pojęć, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/manage-availability.md) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/manage-availability.md).
+Platforma Azure oferuje kilka różnych umowy SLA dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz Najnowsza wersja [umowy SLA dla Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Ponieważ warstwa DBMS ma krytyczne znaczenie dla dostępności w systemie SAP, należy zrozumieć zestawy dostępności, Strefy dostępności i zdarzenia konserwacji. Aby uzyskać więcej informacji na temat tych pojęć, zobacz [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../manage-availability.md) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux na platformie Azure](../../manage-availability.md).
 
 Minimalnym zaleceniem dla produkcyjnych scenariuszy systemu DBMS z obciążeniem SAP jest:
 
@@ -295,7 +295,7 @@ Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 - Sieci wirtualne, w których wdrażana jest aplikacja SAP, nie mają dostępu do Internetu.
 - Maszyny wirtualne bazy danych działają w tej samej sieci wirtualnej co warstwa aplikacji, oddzielone w innej podsieci od warstwy aplikacji SAP.
 - Maszyny wirtualne w sieci wirtualnej mają statyczną alokację prywatnego adresu IP. Aby uzyskać więcej informacji, zobacz [typy adresów IP i metody alokacji na platformie Azure](../../../virtual-network/public-ip-addresses.md).
-- Ograniczenia routingu do i z maszyn wirtualnych systemu DBMS *nie* są ustawiane za pomocą zapór zainstalowanych na lokalnych maszynach wirtualnych systemu DBMS. Zamiast tego Routing ruchu jest definiowany przy użyciu [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../../virtual-network/security-overview.md).
+- Ograniczenia routingu do i z maszyn wirtualnych systemu DBMS *nie* są ustawiane za pomocą zapór zainstalowanych na lokalnych maszynach wirtualnych systemu DBMS. Zamiast tego Routing ruchu jest definiowany przy użyciu [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../../virtual-network/network-security-groups-overview.md).
 - Aby oddzielić ruch do maszyny wirtualnej systemu DBMS i go odizolować, przypisz do niej różne karty sieciowe. Każda karta sieciowa pobiera inny adres IP, a każda karta sieciowa jest przypisana do innej podsieci sieci wirtualnej. Każda podsieć ma inne reguły sieciowej grupy zabezpieczeń. Izolacja lub separacja ruchu sieciowego jest miarą routingu. Nie jest on używany do ustawiania przydziałów dla przepływności sieci.
 
 > [!NOTE]
@@ -304,7 +304,7 @@ Te najlepsze rozwiązania są wynikiem setek wdrożeń klientów:
 
 
 > [!WARNING]
-> Konfigurowanie [sieciowych urządzeń wirtualnych](https://azure.microsoft.com/solutions/network-appliances/) w ścieżce komunikacji między aplikacją SAP a warstwą DBMS systemu SAP NetWeaver-, Hybris-lub S/4HANA nie jest obsługiwane. To ograniczenie dotyczy przyczyn związanych z funkcjonalnością i wydajnością. Ścieżka komunikacji między warstwą aplikacji SAP a warstwą DBMS musi być jedną z nich. Ograniczenie nie obejmuje [grupy zabezpieczeń aplikacji (ASG) i reguł sieciowej grupy zabezpieczeń](../../../virtual-network/security-overview.md) , jeśli te reguły ASG i sieciowej grupy zabezpieczeń umożliwiają bezpośrednią ścieżkę komunikacji. 
+> Konfigurowanie [sieciowych urządzeń wirtualnych](https://azure.microsoft.com/solutions/network-appliances/) w ścieżce komunikacji między aplikacją SAP a warstwą DBMS systemu SAP NetWeaver-, Hybris-lub S/4HANA nie jest obsługiwane. To ograniczenie dotyczy przyczyn związanych z funkcjonalnością i wydajnością. Ścieżka komunikacji między warstwą aplikacji SAP a warstwą DBMS musi być jedną z nich. Ograniczenie nie obejmuje [grupy zabezpieczeń aplikacji (ASG) i reguł sieciowej grupy zabezpieczeń](../../../virtual-network/network-security-groups-overview.md) , jeśli te reguły ASG i sieciowej grupy zabezpieczeń umożliwiają bezpośrednią ścieżkę komunikacji. 
 >
 > Inne scenariusze, w których nie są obsługiwane wirtualne urządzenia sieciowe, są następujące:
 >
@@ -333,7 +333,7 @@ Jeśli istnieje przejście w tryb failover węzła bazy danych, nie ma potrzeby 
 
 Platforma Azure oferuje dwie różne [jednostki SKU modułu równoważenia obciążenia](../../../load-balancer/load-balancer-overview.md): podstawową jednostkę SKU i standardową jednostkę SKU. W oparciu o zalety instalacji i funkcjonalności należy używać standardowej jednostki SKU modułu równoważenia obciążenia platformy Azure. Jedną z dużych zalet standardowej wersji usługi równoważenia obciążenia jest to, że ruch danych nie jest kierowany przez sam moduł równoważenia obciążenia.
 
-Przykład sposobu konfigurowania wewnętrznego modułu równoważenia obciążenia można znaleźć w artykule [Samouczek: Konfigurowanie grupy dostępności SQL Server na platformie Azure Virtual Machines ręcznie](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer)
+Przykład sposobu konfigurowania wewnętrznego modułu równoważenia obciążenia można znaleźć w artykule [Samouczek: Konfigurowanie grupy dostępności SQL Server na platformie Azure Virtual Machines ręcznie](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer)
 
 > [!NOTE]
 > Istnieją różnice w zachowaniu podstawowej i standardowej jednostki SKU związanej z dostępem do publicznych adresów IP. Sposób obejścia ograniczeń standardowej jednostki SKU w celu uzyskania dostępu do publicznych adresów IP został opisany w dokumencie [łączność publicznego punktu końcowego dla Virtual Machines przy użyciu usługi Azure usługa Load Balancer w warstwie Standardowa w scenariuszach wysokiej dostępności SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md)
