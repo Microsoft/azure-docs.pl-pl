@@ -4,10 +4,10 @@ description: Uprawnienia usługi Advisor oraz sposób, w jaki mogą blokować mo
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712924"
 ---
 # <a name="permissions-in-azure-advisor"></a>Uprawnienia w Azure Advisor
@@ -20,15 +20,15 @@ W poniższej tabeli zdefiniowano role i dostęp do nich w usłudze Advisor:
 
 | **Role** | **Wyświetl rekomendacje** | **Edytuj reguły** | **Edytuj konfigurację subskrypcji** | **Edytuj konfigurację grupy zasobów**| **Odrzuć i odłóż zalecenia**|
 |---|:---:|:---:|:---:|:---:|:---:|
-|Właściciel subskrypcji|**X**|**X**|**X**|**X**|**X**|
-|Współautor subskrypcji|**X**|**X**|**X**|**X**|**X**|
-|Czytelnik subskrypcji|**X**|--|--|--|--|
-|Właściciel grupy zasobów|**X**|--|--|**X**|**X**|
-|Współautor grupy zasobów|**X**|--|--|**X**|**X**|
-|Czytelnik grupy zasobów|**X**|--|--|--|--|
-|Właściciel zasobu|**X**|--|--|--|**X**|
-|Współautor zasobów|**X**|--|--|--|**X**|
-|Czytnik zasobów|**X**|--|--|--|--|
+|Właściciel subskrypcji|**Y**|**Y**|**Y**|**Y**|**Y**|
+|Współautor subskrypcji|**Y**|**Y**|**Y**|**Y**|**Y**|
+|Czytelnik subskrypcji|**Y**|--|--|--|--|
+|Właściciel grupy zasobów|**Y**|--|--|**Y**|**Y**|
+|Współautor grupy zasobów|**Y**|--|--|**Y**|**Y**|
+|Czytelnik grupy zasobów|**Y**|--|--|--|--|
+|Właściciel zasobu|**Y**|--|--|--|**Y**|
+|Współautor zasobów|**Y**|--|--|--|**Y**|
+|Czytnik zasobów|**Y**|--|--|--|--|
 
 > [!NOTE]
 > Dostęp do zaleceń dotyczących widoku zależy od dostępu do zasobu, którego dotyczy problem.

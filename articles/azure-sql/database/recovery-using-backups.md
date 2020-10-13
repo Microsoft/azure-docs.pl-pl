@@ -13,16 +13,16 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448794"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Odzyskiwanie przy użyciu zautomatyzowanych kopii zapasowych bazy danych — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Poniższe opcje są dostępne do odzyskiwania bazy danych przy użyciu [zautomatyzowanych kopii zapasowych bazy danych](automated-backups-overview.md). Można:
+Poniższe opcje są dostępne do odzyskiwania bazy danych przy użyciu [zautomatyzowanych kopii zapasowych bazy danych](automated-backups-overview.md). Dostępne możliwości:
 
 - Utwórz nową bazę danych na tym samym serwerze, a następnie Odzyskaj ją do określonego punktu w czasie w okresie przechowywania.
 - Utwórz bazę danych na tym samym serwerze, a następnie Odzyskaj do czasu usunięcia usuniętej bazy danych.
@@ -201,7 +201,7 @@ Nie można wykonać przywracania do punktu w czasie dla pomocniczej bazy danych.
 
 Można również użyć Azure PowerShell lub interfejsu API REST do odzyskiwania. W poniższych tabelach opisano zestaw dostępnych poleceń.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]

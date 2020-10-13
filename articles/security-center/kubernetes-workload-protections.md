@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
 ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448661"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes

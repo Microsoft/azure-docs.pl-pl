@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/12/2020
 ms.author: victorh
-ms.openlocfilehash: 56e0d40bcbfb97f57b63dc82da1a6604f83dffad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c840bf9e82b8dcdb1fbf9b380ea847b3d1b08dd9
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85563624"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948072"
 ---
 # <a name="what-is-a-secured-virtual-hub"></a>Co to jest bezpieczny koncentrator wirtualny?
 
@@ -20,9 +20,9 @@ Koncentrator wirtualny to zarządzana przez firmę Microsoft Sieć wirtualna, kt
 
 *Bezpiecznym* koncentratorem wirtualnym jest [Wirtualne Centrum sieci WAN platformy Azure](../virtual-wan/virtual-wan-about.md#resources) ze skojarzonymi zasadami zabezpieczeń i routingu skonfigurowanymi przez Menedżera zapory platformy Azure. Bezpieczne centra wirtualne umożliwiają łatwe tworzenie architektur gwiazdy i satelitów z natywnymi usługami zabezpieczeń dla zarządzania ruchem i ochrony. 
 
-Możesz użyć bezpiecznego koncentratora wirtualnego jako zarządzanej centralnej sieci wirtualnej bez łączności Premium. Zastępuje ona centralną sieć wirtualną, która była wcześniej wymagana do wdrożenia zapory platformy Azure. Ponieważ zabezpieczone centrum wirtualne zapewnia automatyczne Routing, nie ma potrzeby konfigurowania własnych UDR (tras zdefiniowanych przez użytkownika) w celu kierowania ruchu przez zaporę.
+Możesz użyć bezpiecznego koncentratora wirtualnego do filtrowania ruchu między sieciami wirtualnymi (V2V), sieciami wirtualnymi i biurami oddziałów (B2V) i ruchem do Internetu (B2I/V2I). Bezpieczny koncentrator wirtualny zapewnia automatyczne Routing. Nie ma potrzeby konfigurowania własnych UDR (tras zdefiniowanych przez użytkownika) w celu kierowania ruchu przez zaporę.
 
-Istnieje również możliwość użycia zabezpieczonych koncentratorów wirtualnych w ramach pełnej architektury wirtualnej sieci WAN. Ta architektura zapewnia bezpieczną, zoptymalizowaną i zautomatyzowaną łączność z gałęzią z usługą i za pośrednictwem platformy Azure. Można wybrać usługi do ochrony i zarządzania ruchem sieciowym, w tym zaporą platformy Azure i dostawcami innych firm jako usługi (SECaaS).
+Możesz wybrać wymaganych dostawców zabezpieczeń, aby chronić ruch sieciowy i zarządzać nim, w tym zaporą platformy Azure, dostawcami zabezpieczeń (SECaaS) innych firm. Obecnie zabezpieczone centrum nie obsługuje filtrowania gałęzi do gałęzi (B2B) i filtrowania w wielu centrach. Aby dowiedzieć się więcej, zobacz [co to jest Menedżer zapory platformy Azure?](overview.md#known-issues). 
 
 ## <a name="create-a-secured-virtual-hub"></a>Tworzenie bezpiecznego centrum wirtualnego
 

@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: 5c728b219168f61f7f791b7db280a701ff216985
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362388"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Wykonywanie skryptów w języku Python Machine Learning w Azure Machine Learning Studio (klasyczny)
@@ -149,7 +149,7 @@ Istnieje możliwość zwrócenia wielu cyfr przez zapisanie ich w różnych obra
 
 Środowisko Anaconda zainstalowane w programie Studio (klasyczne) zawiera wspólne pakiety, takie jak NumPy, SciPy i Scikits — uczenie się. Te pakiety mogą być efektywnie używane do przetwarzania danych w potoku uczenia maszynowego.
 
-Na przykład następujące eksperymenty i skrypty ilustrują korzystanie z wieloskładnikowych informacji w Scikits — Dowiedz się więcej na temat oceny ważności funkcji obliczeniowej dla zestawu danych. Wyniki mogą być używane do przeprowadzania nadzorowanego wyboru funkcji przed wprowadzeniem ich do innego modelu.
+Na przykład poniższy eksperyment i skrypt ilustrują korzystanie z wieloskładnikowych informacji w Scikits-Learn, aby obliczyć wyniki ważności funkcji dla zestawu danych. Wyniki mogą być używane do przeprowadzania nadzorowanego wyboru funkcji przed wprowadzeniem ich do innego modelu.
 
 Oto funkcja języka Python użyta do obliczenia oceny ważności i uporządkowania funkcji na podstawie wyników:
 

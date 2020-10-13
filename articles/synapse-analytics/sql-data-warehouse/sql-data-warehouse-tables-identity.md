@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121327"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876009"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Używanie tożsamości do tworzenia kluczy zastępczych w puli Synapse SQL
 
@@ -26,7 +26,8 @@ W tym artykule znajdziesz zalecenia i przykłady dotyczące używania właściwo
 
 Klucz zastępczy w tabeli jest kolumną o unikatowym identyfikatorze dla każdego wiersza. Klucz nie jest generowany na podstawie danych tabeli. Modele danych, takie jak tworzenie kluczy zastępczych w tabelach, podczas projektowania modeli magazynu danych. Można użyć właściwości IDENTITY do osiągnięcia tego celu po prostu i efektywnie bez wpływu na wydajność ładowania.
 > [!NOTE]
-> Wartość tożsamości w Synapse SQL nie gwarantuje, że jest ona unikatowa, jeśli użytkownik jawnie wstawi zduplikowaną wartość za pomocą elementu "SET IDENTITY_INSERT ON" lub "renasiona" tożsamości. Aby uzyskać szczegółowe informacje, zobacz [CREATE TABLE (Właściwość Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> W usłudze Azure Synapse Analytics wartość tożsamości jest zwiększana we własnym rozmieszczeniu i nie nakłada się na wartości tożsamości w innych dystrybucjach.  Wartość tożsamości w Synapse nie gwarantuje, że jest ona unikatowa, jeśli użytkownik jawnie wstawi zduplikowaną wartość z "SET IDENTITY_INSERT ON" lub "renasiona" tożsamości. Aby uzyskać szczegółowe informacje, zobacz [CREATE TABLE (Właściwość Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Tworzenie tabeli z kolumną tożsamości
 
@@ -163,13 +164,13 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Obecnie nie jest możliwe użycie `CREATE TABLE AS SELECT` podczas ładowania danych do tabeli z kolumną tożsamości.
 >
 
-Aby uzyskać więcej informacji na temat ładowania danych, zobacz [projektowanie wyodrębniania, ładowania i przekształcania (ELT) dla puli SQL Synapse](design-elt-data-loading.md) i [ładowanie najlepszych](guidance-for-loading-data.md)rozwiązań.
+Aby uzyskać więcej informacji na temat ładowania danych, zobacz [projektowanie wyodrębniania, ładowania i przekształcania (ELT) dla puli SQL Synapse](design-elt-data-loading.md) i  [ładowanie najlepszych](guidance-for-loading-data.md)rozwiązań.
 
 ## <a name="system-views"></a>Widoki systemowe
 
-Widok wykazu [sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) służy do identyfikowania kolumny zawierającej właściwość Identity.
+Widok wykazu [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) służy do identyfikowania kolumny zawierającej właściwość Identity.
 
-Aby lepiej zrozumieć schemat bazy danych, w tym przykładzie pokazano, jak zintegrować sys. identity_column z innymi widokami wykazu systemu:
+Aby lepiej zrozumieć schemat bazy danych, w tym przykładzie pokazano, jak zintegrować sys.identity_column z innymi widokami wykazu systemu:
 
 ```sql
 SELECT  sm.name

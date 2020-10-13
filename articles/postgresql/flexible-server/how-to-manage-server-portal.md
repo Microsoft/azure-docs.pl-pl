@@ -6,13 +6,13 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc
+ms.openlocfilehash: 1ac418d855696138341115412dc7e2601d4cf3a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938501"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961412"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Zarządzanie serwerem elastycznym Azure Database for PostgreSQL przy użyciu Azure Portal
 
@@ -21,7 +21,7 @@ ms.locfileid: "90938501"
 
 W tym artykule opisano sposób zarządzania serwerem elastycznym Azure Database for PostgreSQL. Zadania zarządzania obejmują skalowanie obliczeniowe i magazynowe, Resetowanie hasła administratora oraz wyświetlanie szczegółów serwera.
 
-## <a name="sign-in"></a>Zaloguj
+## <a name="sign-in"></a>Zaloguj się
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Przejdź do elastycznego zasobu serwera w Azure Portal.
 

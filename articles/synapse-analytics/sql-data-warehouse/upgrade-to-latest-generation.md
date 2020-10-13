@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627078"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optymalizowanie wydajności przez uaktualnienie puli SQL usługi Azure Synapse Analytics
@@ -31,7 +31,7 @@ Teraz można bezproblemowo uaktualnić do warstwy Gen2 obliczeń zoptymalizowany
 > [!IMPORTANT]
 > To uaktualnienie dotyczy pul Gen1 zoptymalizowanych pod kątem obliczeń w [obsługiwanych regionach](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 1. Sprawdź, czy [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) jest obsługiwany na potrzeby migracji GEN1 do GEN2. Zanotuj daty automatycznej migracji. Aby uniknąć konfliktów z procesem zautomatyzowanym, zaplanuj migrację ręczną przed datą rozpoczęcia procesu automatycznego.
 2. Jeśli jesteś w regionie, który nie jest jeszcze obsługiwany, Kontynuuj sprawdzanie, czy region ma zostać dodany lub [uaktualniony przy użyciu polecenia Przywróć](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) do obsługiwanego regionu.
@@ -61,7 +61,7 @@ Teraz można bezproblemowo uaktualnić do warstwy Gen2 obliczeń zoptymalizowany
 - Migracja z Gen1 do Gen2 za pośrednictwem Azure Portal jest trwała. Nie istnieje proces powrotu do Gen1.
 - Aby przeprowadzić migrację do Gen2, musi być uruchomiona Pula SQL
 
-### <a name="before-you-begin"></a>Przed rozpoczęciem
+### <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

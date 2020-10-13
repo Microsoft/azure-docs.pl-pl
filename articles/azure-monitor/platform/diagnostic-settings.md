@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
 ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449335"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania metryk i dzienników platformy do różnych miejsc docelowych
@@ -81,7 +81,7 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
 
    - W dzienniku aktywności kliknij pozycję **Dziennik aktywności** w menu **Azure monitor** a następnie wybierz polecenie **Ustawienia diagnostyczne**. Upewnij się, że dla dziennika aktywności została wyłączona każda starsza konfiguracja. Aby uzyskać szczegółowe informacje, zobacz temat [wyłączanie istniejących ustawień](./activity-log.md#legacy-collection-methods) .
 
-        ![Zrzut ekranu przedstawiający menu Azure Monitor z wybranym dziennikiem aktywności i ustawieniami diagnostycznymi wyróżnionymi na pasku menu dziennika aktywności monitora.](media/diagnostic-settings/menu-activity-log.png)
+        ![Zrzut ekranu przedstawiający menu Azure Monitor z wybranym dziennikiem aktywności i ustawieniami diagnostycznymi wyróżnionymi na pasku menu Monitor-Activity log.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Jeśli w wybranym zasobie nie ma żadnych ustawień, zostanie wyświetlony monit o utworzenie ustawienia. Kliknij pozycję **Dodaj ustawienie diagnostyczne**.
 
@@ -128,7 +128,7 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
         >
         > Jeśli na przykład ustawisz zasady przechowywania dla elementu *WorkflowRuntime* na 180 dni, a następnie 24 godziny później ustawisz go na 365 dni, dzienniki przechowywane w ciągu pierwszych 24 godzin zostaną automatycznie usunięte po 180 dni, a wszystkie kolejne dzienniki tego typu zostaną automatycznie usunięte po upływie 365 dni. Zmiana zasad przechowywania w późniejszym czasie nie powoduje, że pierwsze 24 godziny dzienników pozostanie na około 365 dni.
 
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 
 Po kilku chwilach nowe ustawienie zostanie wyświetlone na liście ustawień dla tego zasobu, a dzienniki są przesyłane strumieniowo do określonych lokalizacji docelowych w miarę generowania nowych danych zdarzeń. Gdy zdarzenie jest emitowane i [pojawia się w obszarze roboczym log Analytics](data-ingestion-time.md), może upłynąć do 15 minut.
 

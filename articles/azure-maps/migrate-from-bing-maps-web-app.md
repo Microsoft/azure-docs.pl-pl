@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Migrowanie aplikacji internetowej z usługi mapy Bing | Mapy Microsoft Azure'
-description: Jak przeprowadzić migrację aplikacji internetowej z mapy Bing do Microsoft Azure Maps.
+description: Samouczek dotyczący sposobu migrowania aplikacji internetowej z map Bing do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319745"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876519"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>Migrowanie aplikacji internetowej z usługi mapy Bing
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Samouczek — Migrowanie aplikacji internetowej z usługi mapy Bing
 
 Aplikacje sieci Web używające map Bing często korzystają z zestawu Bing SDK V8 JavaScript. Zestaw SDK sieci Web Azure Maps to odpowiedni zestaw SDK oparty na platformie Azure do migracji. Zestaw SDK sieci Web Azure Maps umożliwia dostosowanie interaktywnych map przy użyciu własnej zawartości i obrazów do wyświetlania w aplikacjach sieci Web lub aplikacji mobilnych. Kontrolka korzysta z technologii WebGL, co umożliwia renderowanie dużych zestawów danych z wysoką wydajnością. Utwórz ten zestaw SDK przy użyciu języka JavaScript lub TypeScript.
 
@@ -46,8 +46,8 @@ W poniższej tabeli przedstawiono najważniejsze funkcje interfejsu API w usłud
 | Mapy cieplne                | ✓                                                                                      |
 | Kafelki warstw              | ✓                                                                                      |
 | Warstwa KML                | ✓                                                                                      |
-| Warstwa konturów            | [Przykłady](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Warstwa pakowania danych       | [Przykłady](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Warstwa konturów            | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
+| Warstwa pakowania danych       | [Samples](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
 | Animowana warstwa kafelków      | Uwzględnione w [module animacji](https://github.com/Azure-Samples/azure-maps-animations) Azure Maps "open source" |
 | Narzędzia do rysowania            | ✓                                                                                      |
 | Usługa geocode         | ✓                                                                                      |
@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono najważniejsze funkcje interfejsu API w usłud
 | Streetside       | Planowany                                                                                |
 | Obsługa GEOJSON          | ✓                                                                                      |
 | Obsługa GeoXML           | ✓                                                                                      |
-| Dobrze znana obsługa tekstu  | ✓                                                                                      |
+| Obsługa tekstu Well-Known  | ✓                                                                                      |
 | Niestandardowe style mapy        | Częściowe                                                                                |
 
 Azure Maps również ma wiele dodatkowych [modułów Open Source dla zestawu SDK sieci Web](open-source-projects.md#open-web-sdk-modules) , które zwiększają możliwości.
@@ -932,7 +932,7 @@ W Azure Maps dane są dodawane i zarządzane przez źródło danych. Warstwy ł�
 
 Po włączeniu klastrowania źródło danych wyśle klastrowane i nieklastrowane punkty danych do warstw na potrzeby renderowania. Źródło danych umożliwia klastrowanie setek tysięcy punktów danych. Klastrowany punkt danych ma następujące właściwości:
 
-| Nazwa właściwości               | Typ    | Opis                                    |
+| Nazwa właściwości               | Type    | Opis                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Wskazuje, czy funkcja reprezentuje klaster.     |
 | `cluster_id`                | ciąg  | Unikatowy identyfikator klastra, który może być używany z `DataSource` klasami `getClusterExpansionZoom` , `getClusterChildren` i i `getClusterLeaves` funkcjami. |
@@ -1409,7 +1409,7 @@ W Azure Maps obrazy geograficzne mogą zostać nadłożone przy użyciu `atlas.l
 
 ### <a name="add-kml-data-to-the-map"></a>Dodawanie danych KML do mapy
 
-Mapy platformy Azure i Bing mogą importować i renderować dane KML, KMZ, GeoRSS, GEOJSON i dobrze znanego tekstu (WKT) na mapie. Azure Maps obsługuje również GPX, GML, przestrzenne pliki CSV, usługi mapowania sieci Web (WMS), usługi kafelków map sieci Web (WMTS) i usługi Web Feature Services (WFS).
+Mapy platformy Azure i Bing mogą importować i renderować dane KML, KMZ, GeoRSS, GEOJSON i Well-Known Text (WKT) na mapie. Azure Maps obsługuje również GPX, GML, przestrzenne pliki CSV, usługi Web-Mapping Services (WMS), Web-Mapping Kafelk Services (WMTS) i usługi Web Feature Services (WFS).
 
 **Przed: mapy Bing**
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c78cfd2a453a082ce3f352504719a7fb8cc2b8ec
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578261"
+ms.locfileid: "91875958"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -338,7 +338,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

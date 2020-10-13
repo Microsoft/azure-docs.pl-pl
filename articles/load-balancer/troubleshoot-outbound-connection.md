@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
 ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628999"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Rozwiązywanie problemów z błędami połączeń wychodzących

@@ -16,10 +16,10 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449384"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
@@ -75,7 +75,7 @@ System Linux ma kilka różnych trybów planowania operacji we/wy. Typowym zalec
 Usługa Azure akcelerator zapisu to funkcja dostępna wyłącznie dla maszyn wirtualnych z serii M platformy Azure. Podobnie jak w przypadku nazw, celem funkcji jest poprawa opóźnień operacji we/wy w usłudze Azure Premium Storage. W przypadku SAP HANA akcelerator zapisu powinna być używana tylko w odniesieniu do woluminu **/Hana/log** . W związku z tym **/Hana/Data** i **/Hana/log** to oddzielne woluminy z platformą Azure akcelerator zapisu obsługują tylko wolumin **/Hana/log** . 
 
 > [!IMPORTANT]
-> W przypadku korzystania z usługi Azure Premium Storage użycie usługi Azure [Akcelerator zapisu](../../how-to-enable-write-accelerator.md) dla woluminu **/Hana/log** jest obowiązkowe. Akcelerator zapisu jest dostępny tylko dla maszyn wirtualnych w warstwie Premium i serii M i serii Mv2. Akcelerator zapisu nie działa w połączeniu z innymi rodzinami maszyn wirtualnych platformy Azure, takimi jak Esv3 lub Edsv4.
+> W przypadku korzystania z usługi Azure Premium Storage użycie usługi Azure [Akcelerator zapisu](../../how-to-enable-write-accelerator.md) dla woluminu **/Hana/log** jest obowiązkowe. Akcelerator zapisu jest dostępna tylko dla usługi Premium Storage i serii M i Mv2-Series maszyn wirtualnych. Akcelerator zapisu nie działa w połączeniu z innymi rodzinami maszyn wirtualnych platformy Azure, takimi jak Esv3 lub Edsv4.
 
 Zalecenia dotyczące buforowania dla dysków z systemem Azure Premium są zakładane przy założeniu, że charakterystyk we/wy SAP HANA tej listy:
 
@@ -88,7 +88,7 @@ Zalecenia dotyczące buforowania dla dysków z systemem Azure Premium są zakła
 **Zalecenie: w wyniku tych obserwowanych wzorców we/wy według SAP HANA, buforowanie dla różnych woluminów przy użyciu usługi Azure Premium Storage powinno być ustawione na przykład:**
 
 - **/Hana/Data** — brak buforowania lub buforowanie odczytu
-- **/Hana/log** — brak buforowania — wyjątek dla maszyn wirtualnych z serii M i Mv2, w których powinien być włączony akcelerator zapisu platformy Azure 
+- **/Hana/log** — brak buforowania — wyjątek dla maszyn wirtualnych z systemem M i Mv2-Series, w których usługa Azure akcelerator zapisu powinna być włączona 
 - **/Hana/Shared** — buforowanie odczytu
 - **Dysk systemu operacyjnego** — nie zmieniaj domyślnego buforowania ustawionego przez platformę Azure podczas tworzenia maszyny wirtualnej
 

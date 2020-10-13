@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: plik dołączany
+description: plik dołączany
 services: redis-cache
 author: curib
 ms.service: cache
@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
 ms.openlocfilehash: ae9526a47a77118503274fc824538980ebcd50de
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91828915"
 ---
 1. Aby utworzyć pamięć podręczną, zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **Utwórz zasób**.

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569777"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Akcje Aparatu reguł usługi Azure Front Door
@@ -35,9 +35,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w żądaniach w
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | String (ciąg)
-Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | String (ciąg)
-Usuwanie | Gdy ta opcja jest zaznaczona z pasującymi regułami, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | String (ciąg)
+Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do żądania o określonej wartości. Jeśli nagłówek już istnieje, wartość jest dołączana do istniejącej wartości. | Ciąg
+Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do żądania o określonej wartości. Jeśli nagłówek już istnieje, określona wartość zastępuje istniejącą wartość. | Ciąg
+Usuwanie | Gdy ta opcja jest zaznaczona z pasującymi regułami, a nagłówek określony w regule jest obecny, nagłówek zostanie usunięty z żądania. | Ciąg
 
 ## <a name="modify-response-header"></a>Modyfikuj nagłówek odpowiedzi
 
@@ -47,9 +47,9 @@ Użyj tej akcji, aby zmodyfikować nagłówki, które są obecne w odpowiedziach
 
 Akcja | Nazwa nagłówka HTTP | Wartość
 -------|------------------|------
-Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | String (ciąg)
-Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | String (ciąg)
-Usuwanie | Gdy ta opcja jest zaznaczona, a reguła pasuje do nagłówka określonego w regule, nagłówek zostanie usunięty z odpowiedzi. | String (ciąg)
+Dołączanie | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** zostaje dodany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek jest już obecny, **wartość** jest dołączana do istniejącej wartości. | Ciąg
+Zastąp | Gdy ta opcja jest zaznaczona, a reguła jest zgodna, nagłówek określony w **nazwie nagłówka** jest dodawany do odpowiedzi przy użyciu określonej **wartości**. Jeśli nagłówek już istnieje, **wartość** zastępuje istniejącą wartość. | Ciąg
+Usuwanie | Gdy ta opcja jest zaznaczona, a reguła pasuje do nagłówka określonego w regule, nagłówek zostanie usunięty z odpowiedzi. | Ciąg
 
 ## <a name="route-configuration-overrides"></a>Przesłonięcia konfiguracji trasy 
 

@@ -11,10 +11,10 @@ ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
 ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713707"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Zalecenia dotyczące zabezpieczeń usługi BLOB Storage

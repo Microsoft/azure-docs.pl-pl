@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450159"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876162"
 ---
 # <a name="monitor-module-twins"></a>Monitorowanie bliźniaczych reprezentacji modułu
 
@@ -168,15 +168,15 @@ Jeśli występują problemy z urządzeniami podrzędnymi, badanie tych danych by
 
 Informacje o łączności modułów niestandardowych są utrzymywane w wieloosiowym module agenta IoT Edge. Sznurek modułu dla modułu niestandardowego jest używany głównie do obsługi danych dla rozwiązania. Żądane właściwości zdefiniowane w deployment.jsw pliku są odzwierciedlane w postaci sznurka modułowego, a moduł może aktualizować raportowane wartości właściwości zgodnie z potrzebami.
 
-Możesz użyć preferowanego języka programowania z zestawami [SDK urządzeń IoT Hub platformy Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) , aby zaktualizować raportowane wartości właściwości w postaci sznurka modułu na podstawie kodu aplikacji modułu. Poniższa procedura korzysta z zestawu Azure SDK dla platformy .NET w tym celu przy użyciu kodu z modułu [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
+Możesz użyć preferowanego języka programowania z zestawami [SDK urządzeń IoT Hub platformy Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) , aby zaktualizować raportowane wartości właściwości w postaci sznurka modułu na podstawie kodu aplikacji modułu. Poniższa procedura korzysta z zestawu Azure SDK dla platformy .NET w tym celu przy użyciu kodu z modułu [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
 
-1. Utwórz wystąpienie [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) za pomocą metody [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
+1. Utwórz wystąpienie [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) za pomocą metody [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
 
-1. Pobierz kolekcję właściwości sznurka modułu za pomocą metody [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) .
+1. Pobierz kolekcję właściwości sznurka modułu za pomocą metody [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) .
 
-1. Utwórz odbiornik (przekazując wywołanie zwrotne), aby przechwycić zmiany do żądanych właściwości przy użyciu metody [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) .
+1. Utwórz odbiornik (przekazując wywołanie zwrotne), aby przechwycić zmiany do żądanych właściwości przy użyciu metody [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) .
 
-1. W metodzie wywołania zwrotnego zaktualizuj raportowane właściwości w postaci sznurka modułu za pomocą metody [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) , przekazując element [bliźniaczycollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) wartości właściwości, które chcesz ustawić.
+1. W metodzie wywołania zwrotnego zaktualizuj raportowane właściwości w postaci sznurka modułu za pomocą metody [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) , przekazując element [bliźniaczycollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) wartości właściwości, które chcesz ustawić.
 
 ## <a name="access-the-module-twins"></a>Dostęp do modułu bliźniaczych reprezentacji
 

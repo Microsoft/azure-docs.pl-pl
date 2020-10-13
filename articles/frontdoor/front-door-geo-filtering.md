@@ -14,10 +14,10 @@ ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
 ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449258"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtrowanie geograficzne w domenie dla drzwi frontonu platformy Azure
@@ -103,7 +103,7 @@ Można skonfigurować zasady filtrowania geograficznego dla drzwi z przodu przy 
 | HR | Chorwacja|
 | HT | Haiti|
 | HU | Węgry|
-| ID | Indonezja|
+| ID (Identyfikator) | Indonezja|
 | IE | Irlandia|
 | IL | Izrael|
 | IN | Indie|

@@ -4,17 +4,17 @@ description: Dowiedz się, jak środowisko uruchomieniowe IoT Edge zarządza mod
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbfc374a5964983c43594fef5d97986e51c0d83
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016958"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971697"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Poznaj środowisko uruchomieniowe Azure IoT Edge i jego architekturę
 
@@ -71,7 +71,7 @@ Aby odebrać komunikat, zarejestruj wywołanie zwrotne, które przetwarza wiadom
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-Aby uzyskać więcej informacji na temat klasy ModuleClient i jej metod komunikacji, zobacz Dokumentacja interfejsu API dla preferowanego języka SDK: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)lub [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+Aby uzyskać więcej informacji na temat klasy ModuleClient i jej metod komunikacji, zobacz Dokumentacja interfejsu API dla preferowanego języka SDK: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)lub [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 Deweloper rozwiązania jest odpowiedzialny za określenie reguł, które określają, jak centrum IoT Edge przekazuje komunikaty między modułami. Reguły routingu są zdefiniowane w chmurze i wypychane do IoT Edge Hub w swoim sznurze modułu. Ta sama składnia dla IoT Hub Routes służy do definiowania tras między modułami w Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wdrażania modułów i ustanawiania tras w programie IoT Edge](module-composition.md).
 
@@ -124,6 +124,22 @@ Agent IoT Edge odgrywa kluczową rolę w zabezpieczeniach IoT Edge urządzeniu. 
 
 Aby uzyskać więcej informacji na temat środowiska zabezpieczeń Azure IoT Edge, Przeczytaj o programie [IoT Edge Security Manager](iot-edge-security-manager.md).
 
+## <a name="runtime-quality-telemetry"></a>Telemetria jakości środowiska uruchomieniowego
+
+IoT Edge zbiera dane telemetryczne anonimowe z modułu uruchomieniowego hosta i modułów systemowych w celu poprawienia jakości produktu. Te informacje są nazywane telemetrią jakości środowiska uruchomieniowego (RQT). RQT są okresowo wysyłane jako komunikaty z urządzenia do chmury w celu IoT Hub z agenta IoT Edge. Komunikaty RQT nie są wyświetlane w zwykłej telemetrii klienta i nie zużywają żadnego limitu przydziału komunikatów.
+
+Pełna lista metryk zbieranych przez edgeAgent i edgeHub jest dostępna w [sekcji dostępne metryki artykułu dotyczącego metryk środowiska uruchomieniowego IoT Edge](how-to-access-built-in-metrics.md#available-metrics). Podzbiór tych metryk jest zbierany przez agenta IoT Edge w ramach RQT. Metryki zbierane jako część RQT obejmują tag `ms_telemetry` .
+
+W ramach zachowywanie anonimowości wszystkie informacje o tożsamościach użytkownika i organizacji, takie jak nazwy urządzeń i modułów, są usuwane przed przekazaniem.
+
+Domyślna częstotliwość RQT to jedna wiadomość wysyłana do IoT Hub co 24 godziny, a lokalna kolekcja przez edgeAgent co godzinę.
+
+Jeśli chcesz zrezygnować z RQT, możesz to zrobić na dwa sposoby:
+
+* Ustaw `SendRuntimeQualityTelemetry` zmienną środowiskową na wartość `false` dla **edgeAgent**lub
+* Usuń zaznaczenie opcji w Azure Portal podczas wdrażania.
+
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie modułów usługi Azure IoT Edge](iot-edge-modules.md)
+* [Omówienie modułów usługi Azure IoT Edge](iot-edge-modules.md)
+* [Informacje o metrykach środowiska uruchomieniowego IoT Edge](how-to-access-built-in-metrics.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 549c14e0506613aca91ee4666026348d74afedbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514763"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961599"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Zarządzanie wykazem kopii zapasowych przy użyciu usługi StorSimple Menedżer urządzeń
 ## <a name="overview"></a>Omówienie
@@ -75,11 +75,11 @@ Wykonaj następujące kroki, aby wybrać zestaw kopii zapasowych dla woluminu lu
       
       Kopie zapasowe skojarzone z wybranym woluminem lub zasadami tworzenia kopii zapasowych powinny pojawić się na liście zestawów kopii zapasowych.
 
-      ![Przejdź do katalogu kopii zapasowych](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Przejdź do wykazu kopii zapasowych 2](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 3. Wybierz i rozwiń zestaw kopii zapasowych. Teraz można zobaczyć zestawy kopii zapasowych podzielone na woluminy, które zawiera. Opcje **przywracania** i **usuwania** są dostępne za pośrednictwem menu kontekstowego (kliknij prawym przyciskiem myszy) dla zestawu kopii zapasowych. Każdą z tych akcji można wykonać w wybranym zestawie kopii zapasowych.
 
-    ![Przejdź do katalogu kopii zapasowych](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![Przejdź do wykazu kopii zapasowych 3](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## <a name="delete-a-backup-set"></a>Usuwanie zestawu kopii zapasowych
 Usuń kopię zapasową, gdy nie chcesz już zachować skojarzonych z nią danych. Wykonaj następujące kroki, aby usunąć zestaw kopii zapasowych.
@@ -95,19 +95,19 @@ Usuń kopię zapasową, gdy nie chcesz już zachować skojarzonych z nią danych
       
       Kopie zapasowe skojarzone z wybranym woluminem lub zasadami tworzenia kopii zapasowych powinny pojawić się na liście zestawów kopii zapasowych.
 
-      ![Przejdź do katalogu kopii zapasowych](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Przejdź do wykazu kopii zapasowych 4](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 1. Wybierz i rozwiń zestaw kopii zapasowych. Teraz można zobaczyć zestawy kopii zapasowych podzielone na woluminy, które zawiera. Opcje **przywracania** i **usuwania** są dostępne za pośrednictwem menu kontekstowego (kliknij prawym przyciskiem myszy) dla zestawu kopii zapasowych. Kliknij prawym przyciskiem myszy wybrany zestaw kopii zapasowych i z menu kontekstowego wybierz polecenie **Usuń**.
 
-    ![Przejdź do katalogu kopii zapasowych](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![Przejdź do katalogu kopii zapasowych 5](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
 1. Po wyświetleniu monitu o potwierdzenie Przejrzyj wyświetlone informacje, a następnie kliknij przycisk **Usuń**. Wybrana kopia zapasowa zostanie trwale usunięta.
 
-    ![Przejdź do katalogu kopii zapasowych](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![Przejdź do wykazu kopii zapasowych 6](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
 1. Otrzymasz powiadomienie, gdy usuwanie jest w toku, a po pomyślnym zakończeniu. Po zakończeniu usuwania Odśwież zapytanie na tej stronie. Usunięty zestaw kopii zapasowych nie będzie już wyświetlany na liście zestawów kopii zapasowych.
 
-    ![Przejdź do katalogu kopii zapasowych](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![Przejdź do wykazu kopii zapasowych 7](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się [, jak przywrócić urządzenie z zestawu kopii zapasowych przy użyciu wykazu kopii zapasowych](storsimple-8000-restore-from-backup-set-u2.md).

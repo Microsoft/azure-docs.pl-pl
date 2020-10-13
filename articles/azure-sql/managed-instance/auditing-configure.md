@@ -14,10 +14,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
 ms.openlocfilehash: d8a6ead23e080b5e1e17403873e2dbaedc0ce177
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620362"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Wprowadzenie do inspekcji wystąpienia zarządzanego usługi Azure SQL
@@ -177,7 +177,7 @@ Dzienniki inspekcji z wystąpienia zarządzanego mogą być wysyłane do usługi
 
 5. Wybierz lokalizację docelową dla zdarzeń inspekcji: Event Hubs, dzienniki Azure Monitor lub oba te elementy. Skonfiguruj dla każdego obiektu docelowego wymagane parametry (np. Log Analytics obszar roboczy).
 
-6. Kliknij pozycję **Zapisz**.
+6. Kliknij przycisk **Zapisz**.
 
     ![Konfigurowanie ustawień diagnostycznych](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -209,7 +209,7 @@ Dzienniki inspekcji z wystąpienia zarządzanego mogą być wysyłane do usługi
 
 Istnieje kilka metod, których można użyć do wyświetlania dzienników inspekcji obiektów BLOB.
 
-- Użyj funkcji system `sys.fn_get_audit_file` (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [dokumentację sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Użyj funkcji system `sys.fn_get_audit_file` (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [dokumentację sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Dzienniki inspekcji można eksplorować przy użyciu narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/). W usłudze Azure Storage dzienniki inspekcji są zapisywane jako kolekcja plików obiektów BLOB w kontenerze zdefiniowanym do przechowywania dzienników inspekcji. Aby uzyskać więcej szczegółowych informacji na temat hierarchii folderu magazynu, konwencji nazewnictwa i formatu dziennika, zobacz [dokumentacja formatu dziennika inspekcji obiektów BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204374"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961293"
 ---
 # <a name="json-claims-transformations"></a>Przekształcenia oświadczeń JSON
 
@@ -33,6 +33,8 @@ Aby wygenerować ciąg JSON, użyj wartości lub stałych. Ciąg ścieżki nast�
 | Oświadczenie inputclaim | Dowolny ciąg następujący po kropce | ciąg | Wykryto pliku JSON, w którym zostanie wstawiona wartość żądania. |
 | InputParameter | Dowolny ciąg następujący po kropce | ciąg | Wykryto w formacie JSON, w którym zostanie wstawiona stała wartość ciągu. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | ciąg | Wygenerowany ciąg JSON. |
+
+### <a name="example-1"></a>Przykład 1
 
 Poniższy przykład generuje ciąg JSON na podstawie wartości "e-mail" i "OTP" oraz ciągów stałych.
 
@@ -52,8 +54,6 @@ Poniższy przykład generuje ciąg JSON na podstawie wartości "e-mail" i "OTP" 
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### <a name="example"></a>Przykład
 
 Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do SendGrid (dostawca poczty e-mail innej firmy). Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "".
 
@@ -87,6 +87,56 @@ Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON
   "from": {
     "email": "service@contoso.com"
   }
+}
+```
+
+### <a name="example-2"></a>Przykład 2
+
+Poniższy przykład generuje ciąg JSON na podstawie wartości, a także ciągów stałych.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+Następujące przekształcanie oświadczeń wyprowadza oświadczenie ciągu JSON, które będzie treścią żądania wysłanego do interfejsu API REST. Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "".
+
+- Oświadczenia wejściowe:
+  - **adres e-mail**, typ zgłoszenia transformacji  **customerEntity. email**: " john.s@contoso.com "
+  - **objectid**, typ **customerEntity. userObjectId** "01234567-89ab-cdef-0123-456789ABCDEF"
+  - **objectid**, typ odszkodowania typu **customerEntity. FirstName** "Jan"
+  - **objectid**, typ odszkodowania typu **customerEntity. LastName** "Kowalski"
+- Parametr wejściowy:
+  - **customerEntity.role.Name**: "Administrator"
+  - **customerEntity.role.ID** 1
+- Zgłoszenie wyjściowe:
+  - **elemencie requestbody**: wartość JSON
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
 }
 ```
 
@@ -231,7 +281,7 @@ Pobiera pierwszy element z danych JSON.
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | inputJson | ciąg | Elementy Claims, które są używane przez transformację oświadczeń do pobierania elementu z danych JSON. |
 | Oświadczenie outputclaim | key | ciąg | Pierwszy klucz elementu w formacie JSON. |
-| Oświadczenie outputclaim | value | ciąg | Wartość pierwszego elementu w formacie JSON. |
+| Oświadczenie outputclaim | wartość | ciąg | Wartość pierwszego elementu w formacie JSON. |
 
 W poniższym przykładzie transformacja oświadczeń wyodrębnia pierwszy element (imię i nazwisko) z danych JSON.
 

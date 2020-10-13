@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449039"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Połącz konta AWS z Azure Security Center
@@ -81,7 +81,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - **Wymagaj zewnętrznego identyfikatora** — należy wybrać
     - **Identyfikator zewnętrzny** — wprowadź identyfikator subskrypcji, jak pokazano na stronie łącznika AWS w Security Center 
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. W sekcji **Dołącz zasady uprawnień** wybierz następujące zasady:
 
     - SecurityAudit
@@ -89,7 +89,7 @@ Istnieją dwa sposoby zezwalania Security Center na uwierzytelnianie AWS:
     - AWSSecurityHubReadOnlyAccess
 
 1. Opcjonalnie dodaj Tagi. Dodawanie tagów do użytkownika nie ma wpływu na połączenie.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
 1. Na liście role Wybierz utworzoną rolę
 
@@ -137,7 +137,7 @@ Jako **właściciel** subskrypcji, której chcesz użyć na potrzeby dołączani
             LUB
 
         - Wybierz pozycję **poświadczenia** i wklej **klucz dostępu** i **klucz tajny** z pliku CSV zapisanego w temacie [Create a AWS User for Security Center](#create-an-aws-user-for-security-center).
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Skonfiguruj opcje na karcie **Konfiguracja usługi Azure Arc** :
 
     Security Center odnajduje wystąpienia EC2 na połączonym koncie AWS i używa program SSM, aby dołączyć je do usługi Azure Arc. 

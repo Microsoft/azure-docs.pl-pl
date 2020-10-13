@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550728"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Samouczek: integracja Azure Active Directory z usługą HappyFox
 
@@ -132,19 +132,19 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją HappyFox,
 
 2. Przejdź do obszaru **Manage** (Zarządzaj) i kliknij kartę **Integrations** (Integracje).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/happyfox-tutorial/header.png) 
+    ![Zrzut ekranu przedstawiający stronę "Zarządzaj" z wybraną kartą "integracje".](./media/happyfox-tutorial/header.png) 
 
 3. Na karcie Integrations (Integracje) kliknij pozycję **Configure** (Konfiguruj) w obszarze **SAML Integration** (Integracja SAML), aby otworzyć ustawienia logowania jednokrotnego.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/happyfox-tutorial/configure.png)
+    ![Zrzut ekranu pokazujący ustawienie "S A M Integration" z wybraną akcją "Konfiguruj".](./media/happyfox-tutorial/configure.png)
 
 4. W sekcji konfiguracji SAML wklej wartość **adresu URL logowania**, która została skopiowana z witryny Azure Portal, w polu tekstowym **SSO Target URL** (Docelowy adres URL logowania jednokrotnego).
 
-    ![Konfigurowanie logowania jednokrotnego](./media/happyfox-tutorial/targeturl.png)
+    ![Zrzut ekranu przedstawiający sekcję "S A M $ L" z wyróżnioną polem tekstowym "S S" Target U R L ".](./media/happyfox-tutorial/targeturl.png)
 
 5. Otwórz certyfikat pobrany z witryny Azure Portal w notatniku i wklej jego zawartość w sekcji **Podpis dostawcy tożsamości** sekcji.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/happyfox-tutorial/cert.png)
+    ![Zrzut ekranu pokazujący podświetloną sekcję "I d P".](./media/happyfox-tutorial/cert.png)
 
 6. Kliknij przycisk **Save Settings** (Zapisz ustawienia).
 
@@ -173,7 +173,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

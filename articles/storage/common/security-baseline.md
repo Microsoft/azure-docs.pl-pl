@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715147"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
@@ -316,7 +316,7 @@ Możesz również włączyć dostęp w trybie just-in-Time/tylko do odczytu, kor
 
 **Odpowiedzialność**: klient
 
-### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Użyj Azure Active Directory logowania jednokrotnego (SSO)
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: Użyj Azure Active Directory pojedynczego Sign-On (SSO)
 
 **Wskazówki**: wszędzie tam, gdzie to możliwe, użyj Azure Active Directory rejestracji jednokrotnej zamiast konfigurować indywidualne poświadczenia autonomiczne dla poszczególnych usług. Użyj Azure Security Center zalecenia dotyczące zarządzania tożsamościami i dostępem. 
 
@@ -960,7 +960,7 @@ Przed przekazaniem do zasobów platformy Azure, takich jak App Service, Data Lak
 
 Możesz również włączyć usługę Azure Automation, aby wykonywać regularne migawki obiektów BLOB.
 
-- [Informacje o nadmiarowości usługi Azure Storage i umowach dotyczących poziomu usług](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Informacje o nadmiarowości usługi Azure Storage i umowach Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 - [Tworzenie migawki obiektu BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 

@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565330"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Broker identyfikatorów usługi Azure HDInsight (wersja zapoznawcza)

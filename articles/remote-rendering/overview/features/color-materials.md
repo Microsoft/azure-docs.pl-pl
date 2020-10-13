@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93fde2d20aaa5b7bac4adc6f1d7fb076569e4bb8
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613768"
+ms.locfileid: "91893564"
 ---
 # <a name="color-materials"></a>Materiały kolorów
 
@@ -36,6 +36,8 @@ Te właściwości są wspólne dla wszystkich materiałów:
 * **useVertexColor:** Jeśli siatka zawiera :::no-loc text="vertex"::: kolory, a ta opcja jest włączona, :::no-loc text="vertex"::: kolor siatki jest mnożony do *albedoColor* i *albedoMap*. Domyślnie *useVertexColor* jest wyłączone.
 
 * **isDoubleSided:** Jeśli jest ustawiona wartość true, Trójkąty z tym materiałem są renderowane, nawet jeśli lampa jest oglądana na ich powierzchni. Domyślnie ta opcja jest wyłączona. Zobacz też [ :::no-loc text="Single-sided"::: renderowanie](single-sided-rendering.md).
+
+* **TransparencyWritesDepth:** Jeśli flaga TransparencyWritesDepth jest ustawiona na materiale i materiał jest przezroczysty, obiekty korzystające z tego materiału również współtworzą końcowy bufor głębokości. Zapoznaj się z właściwością kolor *przezroczystości* w następnej sekcji. Włączenie tej funkcji jest zalecane, jeśli przypadek użycia wymaga bardziej wiarygodnego [rozmieszczenia](late-stage-reprojection.md) w pełni przezroczystych scen. W przypadku mieszanych, nieprzezroczystych/przezroczystych scen, to ustawienie może spowodować niewiarygodne zachowanie lub artefakty reprojektowe. Z tego powodu domyślnym i zalecanym ustawieniem dla ogólnego przypadku użycia jest wyłączenie tej flagi. Zapisywane wartości głębokości są pobierane z warstwy głębi pikseli obiektu znajdującego się najbliżej aparatu.
 
 ## <a name="color-material-properties"></a>Właściwości materiału koloru
 

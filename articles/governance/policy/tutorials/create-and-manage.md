@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Tworzenie zasad w celu wymuszenia zgodności'
 description: W tym samouczku użyjesz zasad, aby wymusić standardy, kontrolować koszty, obsługiwać zabezpieczenia i nakładać zasady projektowania całego przedsiębiorstwa.
-ms.date: 06/15/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: d8dc65d50182b5336a683c2da8e2a5d8ebb9e849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650088"
+ms.locfileid: "91876389"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności
 
@@ -342,13 +342,13 @@ Za pomocą definicji inicjatywy możesz grupować kilka definicji zasad w celu o
 
 1. W lewej części strony usługi Azure Policy wybierz opcję **Definicje** w obszarze **Tworzenie**.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania.":::
 
-1. W górnej części strony wybierz pozycję **+ Definicja inicjatywy**. Spowoduje to przejście do formularza **Definicja inicjatywy**.
+1. Wybierz pozycję **+ Definicja inicjatywy** w górnej części strony, aby otworzyć kreatora **definicji inicjatywy** .
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania.":::
 
-1. Za pomocą wielokropka przy opcji **Lokalizacja definicji** wybierz grupę zarządzania lub subskrypcję, w której definicja ma być przechowywana. Jeśli poprzednia strona dotyczyła tylko jednej grupy zarządzania lub subskrypcji, pole **Lokalizacja definicji** zostanie wypełnione automatycznie. Po wybraniu są wypełniane **definicje dostępne** .
+1. Użyj wielokropka **lokalizacji inicjatywy** , aby wybrać grupę zarządzania lub subskrypcję do przechowywania definicji. Jeśli poprzednia strona została objęta zakresem pojedynczej grupy zarządzania lub subskrypcji, **Lokalizacja inicjatywy** jest automatycznie wypełniana.
 
 1. Wprowadź wartości w polach **Nazwa** i **Opis** inicjatywy.
 
@@ -356,28 +356,34 @@ Za pomocą definicji inicjatywy możesz grupować kilka definicji zasad w celu o
 
 1. W polu **Kategoria** wybierz jedną z istniejących opcji lub utwórz nową kategorię.
 
-1. Przejrzyj listę **Dostępne definicje** (w lewej części strony**Definicja inicjatywy**) i wybierz definicje zasad, które chcesz dodać do tej inicjatywy. W przypadku inicjatywy **Get Secure** należy dodać następujące wbudowane definicje zasad, wybierając **+** obok informacji o definicji zasad lub wybierając wiersz definicji zasad, a następnie opcję **+ Dodaj** na stronie szczegółów:
+1. Ustaw **wersję** inicjatywy, na przykład _1,0_.
+
+   > [!NOTE]
+   > Wartość wersji jest ściśle metadanymi i nie jest używana w przypadku aktualizacji ani żadnego procesu przez usługę Azure Policy.
+
+1. Wybierz pozycję **dalej** w dolnej części strony lub kartę **zasady** w górnej części kreatora.
+
+1. Wybierz przycisk **Dodaj definicje zasad** i Przeglądaj listę. Wybierz definicje zasad, które mają zostać dodane do tej inicjatywy. W przypadku inicjatywy **Get Secure** należy dodać następujące wbudowane definicje zasad, zaznaczając pole wyboru obok definicji zasad:
 
    - Dozwolone lokalizacje
    - Monitoruj brakujące Endpoint Protection w Azure Security Center
-   - Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone
+   - Maszyny wirtualne, które nie są dostępne w Internecie, powinny być chronione przy użyciu sieciowych grup zabezpieczeń
    - Azure Backup powinna być włączona dla Virtual Machines
    - Szyfrowanie dysków powinno być stosowane na maszynach wirtualnych
+   - Dodaj lub Zamień tag dla zasobów (dwukrotnie Dodaj tę definicję zasad)
 
-   Po wybraniu definicji zasad z listy, każda zostanie dodana poniżej **kategorii**.
+   Po wybraniu każdej definicji zasad z listy wybierz pozycję **Dodaj** w dolnej części listy.
+   Ponieważ został dwukrotnie dodany, _Dodawanie lub zastępowanie znacznika w_ definicjach zasad zasobów każdy uzyskuje inny _Identyfikator odwołania_.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." lub "Use Initiative Parameter". Jeśli wybrano opcję "Ustaw wartość", powiązana wartość jest wprowadzana w obszarze _wartości_. Jeśli parametr w definicji zasad ma listę dozwolonych wartości, pole wprowadzania jest selektorem listy rozwijanej. Jeśli wybrano opcję "Użyj parametru inicjatywy", zostanie wybrana lista rozwijana z nazwami parametrów inicjatywy utworzonych na karcie **Parametry inicjatywy** .
 
-1. Jeśli definicja zasad dodawana do inicjatywy zawiera parametry, są one wyświetlane pod nazwą zasad w obszarze obszaru **kategorii** . Pole _Wartość_ może mieć ustawienie „Ustaw wartość” (wartość będzie zakodowana dla wszystkich przypisań tej inicjatywy) lub „Użyj parametru inicjatywy” (wartość będzie ustawiana w trakcie każdego przypisania inicjatywy). Jeśli wybrano opcję "Ustaw wartość", lista rozwijana z prawej strony _wartości_ umożliwia wprowadzanie lub wybieranie wartości. Jeśli wybrano pozycję „Użyj parametru inicjatywy”, zostanie wyświetlona nowa sekcja **Parametry inicjatywy**, umożliwiająca zdefiniowane parametru, który zostanie ustawiony podczas przypisania inicjatywy. Dozwolone wartości tego parametru inicjatywy mogą dodatkowo ograniczać wartości możliwe do ustawienia podczas przypisania inicjatywy.
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." dla zasobów w zakresie przypisania.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania.":::
 
-   > [!NOTE]
-   > W przypadku niektórych parametrów `strongType` listy wartości nie można określić automatycznie. W takich przypadkach z prawej strony wiersza parametru jest wyświetlany symbol wielokropka. Wybranie tej opcji spowoduje otwarcie strony "zakres parametrów ( &lt; Nazwa parametru &gt; )". Na tej stronie wybierz subskrypcję, która ma zostać użyta do podania opcji wartości. Ten zakres parametru jest używany wyłącznie w trakcie tworzenia definicji inicjatywy i nie ma żadnego wpływu na ocenę zasad lub zakres inicjatywy podczas przypisania.
+1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony lub w górnej części kreatora.
 
-   Ustaw parametr "dozwolone lokalizacje" na wartość "Wschodnie stany USA 2" i pozostaw inne jako wartość domyślną "AuditifNotExists".
-
-1. Wybierz pozycję **Zapisz**.
+1. Przejrzyj ustawienia i wybierz pozycję **Utwórz**.
 
 #### <a name="create-a-policy-initiative-definition-with-azure-cli"></a>Tworzenie definicji inicjatywy zasad przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -455,7 +461,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Wybierz pozycję **Zgodność** w lewej części strony usługi Azure Policy.
 
 1. Znajdź inicjatywę **Get Secure** . Jej _Stan zgodności_ prawdopodobnie nadal ma wartość **Nie uruchomiono**.
-   Wybierz inicjatywę, aby uzyskać pełne szczegóły postępu przypisywania.
+   Wybierz inicjatywę, aby uzyskać szczegółowe informacje o przypisaniu.
 
    :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad na pasku wyszukiwania." border="false":::
 
@@ -465,9 +471,12 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Po wybraniu zasad na stronie Zgodność z inicjatywą zostanie otwarta strona szczegóły zgodności dla tych zasad. Ta strona zawiera szczegółowe informacje dotyczące zgodności na poziomie zasobów.
 
-## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Dopuszczanie niezgodnego lub odrzuconego zasobu przy użyciu wykluczenia
+## <a name="remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion"></a>Usuwanie niezgodnego lub odrzuconego zasobu z zakresu z wykluczeniem
 
 Po przypisaniu inicjatywy zasad w celu wymagania określonej lokalizacji wszystkie zasoby utworzone w innej lokalizacji są odrzucane. W tej sekcji opisano sposób rozwiązywania odrzuconego żądania utworzenia zasobu przez utworzenie wykluczenia dla pojedynczej grupy zasobów. Wykluczenie uniemożliwia wymuszanie zasad (lub inicjatywę) w tej grupie zasobów. W poniższym przykładzie każda lokalizacja jest dozwolona w wykluczonej grupie zasobów. Wykluczenie może dotyczyć subskrypcji, grupy zasobów lub poszczególnych zasobów.
+
+> [!NOTE]
+> [Wykluczenia zasad](../concepts/exemption-structure.md) można również użyć do pomijania oceny zasobu. Aby uzyskać dodatkowe informacje, zobacz [zakres w Azure Policy](../concepts/scope.md).
 
 Wdrożenia nieobjęte przypisanymi zasadami lub inicjatywą można wyświetlić w grupie zasobów, której dotyczy wdrożenie: wybierz pozycję **wdrożenia** w lewej części strony, a następnie wybierz **nazwę wdrożenia** zakończonego niepowodzeniem. Zasób, do którego odmówiono dostępu, jest wyświetlany jako _Zabroniony_. Aby określić zasady lub inicjatywę i przypisanie, które odrzuciły zasób, wybierz pozycję **Niepowodzenie. Kliknij tutaj, aby uzyskać szczegółowe informacje — >** na stronie Przegląd wdrożenia. W prawej części strony wyświetli się okno z informacjami o błędzie. W obszarze **Szczegóły błędu** są widoczne identyfikatory GUID powiązanych obiektów zasad.
 

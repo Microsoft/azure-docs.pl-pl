@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
 ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448595"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
@@ -19,7 +19,7 @@ Za pomocą Azure Automation i elementów Runbook programu PowerShell, można wyk
 
 W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładzie w tym artykule jest wykorzystywana nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Tworzenie jednostki usługi przy użyciu Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -104,7 +104,7 @@ Można to skonfigurować w następujący sposób:
 
     ![Konfigurowanie harmonogramu](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Kliknij pozycję **Utwórz**.
+3. Kliknij przycisk **Utwórz**.
 
 4. Wypełnij parametry harmonogramu. Zostaną one użyte przy każdym wyzwoleniu elementu Runbook. Parametr **WEBHOOKDATA** powinien pozostać pusty, gdy jest uruchamiany zgodnie z harmonogramem.
 
@@ -161,7 +161,7 @@ Przykładowa treść JSON:
 
 Te parametry są zdefiniowane w skrypcie elementu Runbook programu PowerShell.  Gdy działanie sieci Web zostanie wykonane, przesłany ładunek JSON to WEBHOOKDATA.
 
-Jest to deserializowane i przechowywane jako parametry programu PowerShell, które są następnie używane przez polecenie Invoke-ProcesASDatabase programu PowerShell.
+Jest to deserializowane i przechowywane jako parametry programu PowerShell, które są następnie używane przez polecenie Invoke-ProcesASDatabase PowerShell.
 
 ![Deserializowany element webhook](./media/analysis-services-refresh-azure-automation/20.png)
 

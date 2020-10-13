@@ -4,10 +4,10 @@ description: Dowiedz się, jak uruchomić usługę jako konto usługi zarządzan
 ms.topic: how-to
 ms.date: 03/29/2018
 ms.openlocfilehash: 9750042764306c5df7a391429cc6926704db05ab
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91838912"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Uruchamianie usługi za pomocą zarządzanego konta usługi grupy

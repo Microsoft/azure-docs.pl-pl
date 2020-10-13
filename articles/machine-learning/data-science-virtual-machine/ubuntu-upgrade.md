@@ -11,13 +11,13 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91828570"
 ---
-# <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Uaktualnij Data Science Virtual Machine do Ubuntu 18,04
+# <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Uaktualnianie maszyny Data Science Virtual Machine do systemu Ubuntu 18.04
 
 Jeśli masz Data Science Virtual Machine, na którym działa Starsza wersja, taka jak Ubuntu 16,04 lub CentOS, należy migrować DSVM do Ubuntu 18,04. Migrowanie zapewni uzyskanie najnowszych poprawek systemu operacyjnego, sterowników, wstępnie zainstalowanego oprogramowania i wersji biblioteki. Ten dokument zawiera informacje na temat migracji ze starszych wersji programu Ubuntu lub z programu CentOS. 
 

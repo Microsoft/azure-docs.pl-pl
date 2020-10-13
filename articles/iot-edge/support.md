@@ -4,16 +4,16 @@ description: Dowiedz się, które systemy operacyjne mogą uruchamiać demona Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/10/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 27d078bc1dc61079d44110999b70c5195c9c8a2a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8bd0d0d6fccedf2bd9c4fe94f3ef13dbd82dc8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874224"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971085"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -65,12 +65,11 @@ Systemy wymienione w poniższej tabeli są obsługiwane przez firmę Microsoft, 
 | Raspbian Stretch |  | ![Raspbian Rozciągaj i ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Publiczna wersja zapoznawcza  |
 | [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Publiczna wersja zapoznawcza |
-| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), kompilacja 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise), kompilacja 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), kompilacja 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), kompilacja 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
-Wymienione powyżej systemy operacyjne Windows są wymaganiami dotyczącymi urządzeń z kontenerami systemu Windows w systemie Windows, które są jedyną obsługiwaną konfiguracją dla środowiska produkcyjnego. Pakiety instalacyjne Azure IoT Edge dla systemu Windows umożliwiają używanie kontenerów z systemem Linux w systemie Windows; Jednak ta konfiguracja służy tylko do tworzenia i testowania. Aby uzyskać więcej informacji, zobacz [używanie IoT Edge w systemie Windows do uruchamiania kontenerów systemu Linux](how-to-install-iot-edge-windows-with-linux.md).
+Wymienione powyżej systemy operacyjne Windows są wymaganiami dotyczącymi urządzeń z kontenerami systemu Windows w systemie Windows, które są jedyną obsługiwaną konfiguracją dla środowiska produkcyjnego. Pakiety instalacyjne Azure IoT Edge dla systemu Windows umożliwiają używanie kontenerów z systemem Linux w systemie Windows; Jednak ta konfiguracja służy tylko do tworzenia i testowania. 
 
 ### <a name="tier-2"></a>Warstwa 2
 
@@ -108,14 +107,16 @@ Składniki IoT Edge można zainstalować lub zaktualizować osobno i są wsteczn
 
 | Release | Demon zabezpieczeń | Centrum brzegowe<br>Agent graniczny | Libiothsm | Moby |
 |--|--|--|--|--|
+| **1.0.10** | 1.0.10 | 1.0.10 | 1.0.10 |  |
 | **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
 | **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge używa zestawu SDK Microsoft. Azure. Device. Client. Aby uzyskać więcej informacji, zobacz [repozytorium usługi Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) w witrynie GitHub lub [zawartość referencyjną Azure SDK dla platformy .NET](/dotnet/api/overview/azure/iot/client). Na poniższej liście przedstawiono wersję zestawu SDK klienta, dla którego są testowane poszczególne wersje:
+IoT Edge używa zestawu SDK Microsoft. Azure. Devices. Client. Aby uzyskać więcej informacji, zobacz [repozytorium usługi Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) w witrynie GitHub lub [zawartość referencyjną Azure SDK dla platformy .NET](/dotnet/api/overview/azure/iot/client). Na poniższej liście przedstawiono wersję zestawu SDK klienta, dla którego są testowane poszczególne wersje:
 
+* **IoT Edge 1.0.10**: 1.28.0 zestawu SDK klienta
 * **IoT Edge 1.0.9**: 1.21.1 zestawu SDK klienta
 * **IoT Edge 1.0.8**: 1.20.3 zestawu SDK klienta
 * **IoT Edge 1.0.7**: 1.20.1 zestawu SDK klienta
