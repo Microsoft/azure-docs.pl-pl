@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
 ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005925"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
 
-Podczas tworzenia konta Video Indexer możesz wybrać bezpłatne konto próbne (w przypadku wybrania pewnej liczby bezpłatnych minut indeksowania) lub opcji płatnej (w przypadku których limit przydziału nie jest ograniczony). Dzięki bezpłatnej wersji próbnej Video Indexer zapewnia do 600 minut bezpłatnego indeksowania do użytkowników witryny sieci Web oraz do 2400 minut wolnego indeksowania do użytkowników interfejsu API. Za pomocą opcji płatne można utworzyć konto Video Indexer, które jest połączone z subskrypcją platformy Azure i kontem Azure Media Services. Płacisz za minuty, a także opłaty związane z kontami multimediów.
+Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. W przypadku opcji płatnej utworzone zostaje konto usługi Video Indexer połączone z subskrypcją platformy Azure i kontem usługi Azure Media Services. Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Media.
 
 W tym artykule pokazano, jak utworzyć konto Video Indexer połączone z subskrypcją platformy Azure i kontem Azure Media Services. Temat zawiera instrukcje dotyczące łączenia się z platformą Azure przy użyciu automatycznego (domyślnego) przepływu. Przedstawiono w nim również sposób ręcznego nawiązywania połączenia z platformą Azure (Zaawansowane).
 
@@ -163,7 +163,7 @@ Możliwość importowania zawartości jest ważna zarówno w przypadku zautomaty
 > [!NOTE]
 > Zawartość można zaimportować tylko raz z każdego konta.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Stosuje się następujące Azure Media Services powiązane zagadnienia:
 

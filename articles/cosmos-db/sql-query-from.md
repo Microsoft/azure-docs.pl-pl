@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005870"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Klauzula FROM w Azure Cosmos DB
@@ -55,11 +55,11 @@ FROM <from_specification>
   
 -  Jeśli wyrażenie ma wartość `<container_expression>` , PROPERTY_NAME, wówczas property_name zostanie użyte jako alias. Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
   
-- DEFINICJ`input_alias`  
+- DEFINICJ `input_alias`  
   
   Określa, że `input_alias` jest zbiorem wartości zwracanych przez bazowe wyrażenie kontenera.  
  
-- `input_alias`PODCZAS  
+- `input_alias` PODCZAS  
   
   Określa, że `input_alias` powinien reprezentować zestaw wartości uzyskanych przez iterację wszystkich elementów tablicy każdej tablicy zwracanej przez bazowe wyrażenie kontenera. Każda wartość zwrócona przez wyrażenie kontenera bazowego, który nie jest tablicą, jest ignorowana.  
   

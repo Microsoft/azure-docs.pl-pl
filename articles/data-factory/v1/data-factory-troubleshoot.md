@@ -14,10 +14,10 @@ ms.reviewer: maghan
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195898"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Rozwiązywanie problemów z usługą Data Factory
@@ -49,7 +49,7 @@ Przypuszczalnie nie używasz prawidłowego konta lub subskrypcji platformy Azure
 
 1. Connect-AzAccount — Użyj odpowiedniego identyfikatora użytkownika i hasła
 2. Get-AzSubscription — Wyświetl wszystkie subskrypcje dla konta.
-3. SELECT-AzSubscription &lt; subskrypcji &gt; — Wybierz odpowiednią subskrypcję. Użyj tego samego, którego używasz, aby utworzyć fabrykę danych na Azure Portal.
+3. Select-AzSubscription &lt; nazwę subskrypcji &gt; — Wybierz odpowiednią subskrypcję. Użyj tego samego, którego używasz, aby utworzyć fabrykę danych na Azure Portal.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: nie można uruchomić Instalatora Express Zarządzanie danymi bramy z Azure Portal
 Instalacja ekspresowa bramy zarządzania danymi wymaga przeglądarki Internet Explorer lub przeglądarki zgodnej z technologią Microsoft ClickOnce. Jeśli uruchomienie instalacji ekspresowej nie powiedzie się, wykonaj jedną z poniższych czynności:

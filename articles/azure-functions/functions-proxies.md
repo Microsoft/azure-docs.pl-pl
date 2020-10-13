@@ -4,10 +4,10 @@ description: Omówienie sposobu używania serwery proxy usługi Azure Functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385878"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Pracuj z serwery proxy usługi Azure Functions
@@ -28,7 +28,7 @@ W tej sekcji pokazano, jak utworzyć serwer proxy w portalu funkcji.
 3. Podaj nazwę serwera proxy.
 4. Skonfiguruj punkt końcowy, który jest udostępniany w tej aplikacji funkcji, określając **szablon trasy** i **metody http**. Te parametry zachowują się zgodnie z regułami dla [wyzwalaczy http].
 5. Ustaw **adres URL zaplecza** na inny punkt końcowy. Ten punkt końcowy może być funkcją w innej aplikacji funkcji lub być innym interfejsem API. Wartość nie musi być statyczna i może odwoływać się do [ustawień] i parametrów aplikacji [z oryginalnego żądania klienta].
-6. Kliknij pozycję **Utwórz**.
+6. Kliknij przycisk **Utwórz**.
 
 Twój serwer proxy istnieje teraz jako nowy punkt końcowy w aplikacji funkcji. Z punktu widzenia klienta jest on równoznaczny z HttpTrigger w Azure Functions. Możesz wypróbować nowy serwer proxy przez skopiowanie adresu URL serwera proxy i przetestowanie go za pomocą ulubionego klienta HTTP.
 
@@ -55,7 +55,7 @@ Konfiguracja serwera proxy nie musi być statyczna. Można warunkować Używanie
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Odwołania do funkcji lokalnych
 Można użyć, `localhost` Aby odwoływać się do funkcji w tej samej aplikacji funkcji bezpośrednio, bez żądania dwukierunkowego serwera proxy.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"`odwołuje się do lokalnej funkcji wyzwalanej przez protokół HTTP w marszrucie`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` odwołuje się do lokalnej funkcji wyzwalanej przez protokół HTTP w marszrucie `/api/httptriggerC#1`
 
  
 >[!Note]  
@@ -142,7 +142,7 @@ Każdy serwer proxy ma przyjazną nazwę, taką jak *Proxy1* w poprzednim przyk�
 > [!NOTE] 
 > Właściwość *Route* w serwery proxy usługi Azure Functions nie przestrzega właściwości *routePrefix* konfiguracji hosta aplikacja funkcji. Jeśli chcesz uwzględnić prefiks, taki jak `/api` , musi być uwzględniony we właściwości *trasy* .
 
-### <a name="disable-individual-proxies"></a><a name="disableProxies"></a>Wyłącz indywidualne serwery proxy
+### <a name="disable-individual-proxies"></a><a name="disableProxies"></a> Wyłącz indywidualne serwery proxy
 
 Poszczególne serwery proxy można wyłączyć, dodając je `"disabled": true` do serwera proxy w `proxies.json` pliku. Spowoduje to, że wszystkie żądania, które spełniają matchCondition, zwracają 404.
 ```json
@@ -160,14 +160,14 @@ Poszczególne serwery proxy można wyłączyć, dodając je `"disabled": true` d
 }
 ```
 
-### <a name="application-settings"></a><a name="applicationSettings"></a>Ustawienia aplikacji
+### <a name="application-settings"></a><a name="applicationSettings"></a> Ustawienia aplikacji
 
 Zachowanie serwera proxy może być kontrolowane przez kilka ustawień aplikacji. Są one opisane w [dokumentacji dotyczącej ustawień aplikacji funkcji](./functions-app-settings.md)
 
 * [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
 * [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
 
-### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a>Znaki zastrzeżone (formatowanie ciągu)
+### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a> Znaki zastrzeżone (formatowanie ciągu)
 
 Serwery proxy odczytują wszystkie ciągi z pliku JSON przy użyciu znaku \ jako symbolu ucieczki. Serwery proxy interpretują również nawiasy klamrowe. Zapoznaj się z pełnym zestawem przykładów poniżej.
 
@@ -241,7 +241,7 @@ Przykładowa konfiguracja może wyglądać następująco:
 > [!NOTE] 
 > W tym przykładzie treść odpowiedzi jest ustawiana bezpośrednio, więc żadna `backendUri` Właściwość nie jest wymagana. W przykładzie pokazano, jak można użyć serwery proxy usługi Azure Functions do tworzenia interfejsów API.
 
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Wyzwalacze HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

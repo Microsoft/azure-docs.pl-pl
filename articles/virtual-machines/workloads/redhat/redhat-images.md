@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87439474"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Przegląd obrazów Red Hat Enterprise Linux
@@ -150,7 +150,7 @@ Wersja pomocnicza |Przykład obrazu EUS              |Stan EUS                  
 RHEL 7,4      |RedHat: RHEL: 7.4:7.4.2019041718 | Obrazy opublikowane w kwietniu 2019 i nowszych są domyślnie EUS.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | Obrazy opublikowane czerwiec 2019 i nowsze są domyślnie EUS. |
 RHEL 7,6      |RedHat: RHEL: 7.6:7.6.2019052206 | Obrazy opublikowane z maja 2019 i nowsze są domyślnie EUS. |
-RHEL 8,0      |Brak                            | W Red Hat nie jest dostępny żaden EUS.                               |
+RHEL 8,0      |Nie dotyczy                            | W Red Hat nie jest dostępny żaden EUS.                               |
 
 ### <a name="update-services-for-sap"></a>Aktualizowanie usług dla oprogramowania SAP
 

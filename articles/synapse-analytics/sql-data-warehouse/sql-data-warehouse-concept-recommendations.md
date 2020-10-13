@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482857"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse zalecenia dotyczące języka SQL
@@ -38,7 +38,7 @@ Posiadanie nieoptymalnych statystyk może poważnie wpływać na wydajność zap
 
 - [Tworzenie i aktualizowanie statystyk tabeli](sql-data-warehouse-tables-statistics.md)
 
-Aby wyświetlić listę tabel, których dotyczy problem, należy uruchomić następujący [skrypt T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Program Advisor ciągle uruchamia ten sam skrypt T-SQL w celu wygenerowania tych zaleceń.
+Aby wyświetlić listę tabel, których dotyczy problem, należy uruchomić następujący  [skrypt T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Program Advisor ciągle uruchamia ten sam skrypt T-SQL w celu wygenerowania tych zaleceń.
 
 ## <a name="replicate-tables"></a>Replikowanie tabel
 

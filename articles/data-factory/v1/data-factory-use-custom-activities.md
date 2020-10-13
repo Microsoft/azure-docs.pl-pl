@@ -14,10 +14,10 @@ ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88997459"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Korzystanie z działań niestandardowych w potoku Azure Data Factory w wersji 1
@@ -54,7 +54,7 @@ Aby zapoznać się z samouczkiem, Utwórz konto Azure Batch z pulą maszyn wirtu
 
 1. Utwórz **konto Azure Batch** przy użyciu [Azure Portal](https://portal.azure.com). Instrukcje można znaleźć w artykule [Tworzenie artykułu konta Azure Batch i zarządzanie][batch-create-account] nim.
 2. Zanotuj nazwę konta Azure Batch, klucz konta, identyfikator URI i nazwę puli. Są one potrzebne do utworzenia Azure Batch połączonej usługi.
-    1. Na stronie głównej konta Azure Batch zostanie wyświetlony **adres URL** w następującym formacie: `https://myaccount.westus.batch.azure.com` . W tym przykładzie konto **jest nazwą konta Azure Batch** . Identyfikator URI, który jest używany w definicji połączonej usługi, to adres URL bez nazwy konta. Na przykład: `https://<region>.batch.azure.com`.
+    1. Na stronie głównej konta Azure Batch zostanie wyświetlony **adres URL** w następującym formacie: `https://myaccount.westus.batch.azure.com` . W tym przykładzie konto **jest nazwą konta Azure Batch** . Identyfikator URI, który jest używany w definicji połączonej usługi, to adres URL bez nazwy konta. Przykład: `https://<region>.batch.azure.com`.
     2. W menu po lewej stronie kliknij pozycję **klucze** , a następnie skopiuj **podstawowy klucz dostępu**.
     3. Aby użyć istniejącej puli, kliknij pozycję **Pule** w menu, a następnie zanotuj **Identyfikator** puli. Jeśli nie masz istniejącej puli, przejdź do następnego kroku.
 2. Utwórz **pulę Azure Batch**.

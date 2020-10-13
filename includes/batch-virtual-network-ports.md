@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: batch
 documentationcenter: ''
 author: JnHs
@@ -14,10 +14,10 @@ ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507579"
 ---
 ### <a name="general-requirements"></a>Wymagania ogólne
@@ -69,8 +69,8 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 | Źródłowe adresy IP | Tag usługi źródłowej | Porty źródłowe | Element docelowy | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
-| Brak | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/security-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
-| Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Brak | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
+| Nie dotyczy | `BatchNodeManagement`[Tag usługi](../articles/virtual-network/security-overview.md#service-tags) (jeśli jest używany wariant regionalny w tym samym regionie, w którym znajduje się konto usługi Batch) | * | Dowolne | 29876-29877 | TCP | Zezwalaj |
+| Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Nie dotyczy | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
 
 > [!WARNING]
 > Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Dlatego zdecydowanie zaleca się użycie `BatchNodeManagement` znacznika usługi (lub wariantu regionalnego) dla reguł sieciowej grupy zabezpieczeń. Unikaj wypełniania reguł sieciowej grupy zabezpieczeń przy użyciu określonych adresów IP usługi Batch.
@@ -79,7 +79,7 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 | Element źródłowy | Porty źródłowe | Element docelowy | Docelowy tag usługi | Porty docelowe | Protokół | Akcja |
 | --- | --- | --- | --- | --- | --- | --- |
-| Dowolne | * | [Tag usługi](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(Jeśli używany jest odmiana regionalna, w tym samym regionie, w którym znajduje się konto usługi Batch) | 443 | TCP | Zezwalaj |
+| Dowolne | * | [Tag usługi](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (Jeśli używany jest odmiana regionalna, w tym samym regionie, w którym znajduje się konto usługi Batch) | 443 | TCP | Zezwalaj |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pule w konfiguracji usługi Cloud Services
 

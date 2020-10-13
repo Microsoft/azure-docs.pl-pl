@@ -8,10 +8,10 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079557"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
@@ -21,7 +21,7 @@ ms.locfileid: "87079557"
 
 ## <a name="metrics-in-azure"></a>Metryki na platformie Azure
 
-[Metryki w Azure monitor](data-platform-metrics.md) są serią mierzonych wartości i liczb, które są zbierane i przechowywane w czasie. Istnieją metryki standardowe (lub platformy) i metryki niestandardowe. Standardowe metryki są udostępniane przez samą platformę Azure. Standardowe metryki odzwierciedlają dane statystyczne dotyczące kondycji i użycia zasobów platformy Azure. Niestandardowe metryki są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu api Application Insights dla niestandardowych zdarzeń i metryk](../app/api-custom-events-metrics.md), [rozszerzenia Windows Diagnostyka Azure (funkcji wad)](./diagnostics-extension-overview.md)lub [interfejsu API REST Azure monitor](./metrics-store-custom-rest-api.md).
+[Metryki w Azure monitor](data-platform-metrics.md) są serią mierzonych wartości i liczb, które są zbierane i przechowywane w czasie. Istnieją metryki standardowe (lub platformy) i metryki niestandardowe. Standardowe metryki są udostępniane przez samą platformę Azure. Standardowe metryki odzwierciedlają dane statystyczne dotyczące kondycji i użycia zasobów platformy Azure. Niestandardowe metryki są wysyłane do platformy Azure przez aplikacje przy użyciu [interfejsu api Application Insights dla niestandardowych zdarzeń i metryk](../app/api-custom-events-metrics.md),  [rozszerzenia Windows Diagnostyka Azure (funkcji wad)](./diagnostics-extension-overview.md)lub [interfejsu API REST Azure monitor](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Tworzenie widoków z wieloma metrykami i wykresami
 

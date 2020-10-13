@@ -4,10 +4,10 @@ description: Dowiedz się, jak lepiej oszacować koszty, które mogą zostać na
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207762"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Szacowanie kosztów planu zużycia
@@ -17,7 +17,7 @@ Obecnie istnieją trzy typy planów hostingu dla aplikacji, która działa w Azu
 | Planowanie | Opis |
 | ---- | ----------- |
 | [**Zużycie**](functions-scale.md#consumption-plan) | Opłata jest naliczana tylko za czas, w którym działa aplikacja funkcji. Ten plan obejmuje [bezpłatną][stronę cenową] dotacji dla każdej subskrypcji.|
-| [**Tytułu**](functions-scale.md#premium-plan) | Zapewnia te same funkcje i mechanizm skalowania co plan zużycia, ale z ulepszoną wydajnością i dostępem do sieci wirtualnej. Koszt jest określany na podstawie wybranej warstwy cenowej. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](functions-premium-plan.md). |
+| [**Premium**](functions-scale.md#premium-plan) | Zapewnia te same funkcje i mechanizm skalowania co plan zużycia, ale z ulepszoną wydajnością i dostępem do sieci wirtualnej. Koszt jest określany na podstawie wybranej warstwy cenowej. Aby dowiedzieć się więcej, zobacz [Azure Functions plan Premium](functions-premium-plan.md). |
 | [**Dedykowane (App Service)**](functions-scale.md#app-service-plan) <br/>(warstwa podstawowa lub wyższa) | Jeśli musisz uruchomić program na dedykowanych maszynach wirtualnych lub w izolacji, użyj niestandardowych obrazów lub chcesz użyć nadmiernej pojemności planu App Service. Stosuje [regularne rozliczanie planu App Service](https://azure.microsoft.com/pricing/details/app-service/). Koszt jest określany na podstawie wybranej warstwy cenowej.|
 
 Wybrano plan, który najlepiej obsługuje wymagania dotyczące wydajności i kosztów. Aby dowiedzieć się więcej, zobacz [Azure Functions skalowanie i hosting](functions-scale.md).
@@ -240,4 +240,4 @@ customMetrics
 > [Dowiedz się więcej o monitorowaniu aplikacji funkcji](functions-monitoring.md)
 
 [Strona cennika]:https://azure.microsoft.com/pricing/details/functions/
-[Witryna Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

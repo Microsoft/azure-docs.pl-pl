@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165252"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
@@ -38,7 +38,7 @@ Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Wybierz pozycję **Rejestruj**. W ustawieniach domyślnych można pozostawić inne pola.
+5. Wybierz pozycję **Zarejestruj**. W ustawieniach domyślnych można pozostawić inne pola.
 
    ![Rejestrowanie strony aplikacji](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 

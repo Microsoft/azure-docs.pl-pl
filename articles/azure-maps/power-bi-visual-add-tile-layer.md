@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261940"
 ---
 # <a name="add-a-tile-layer"></a>Dodawanie warstwy kafelków
@@ -51,11 +51,11 @@ Wizualizacja Azure Maps obsługuje trzy różne konwencje nazewnictwa usługi ka
 
 ADRES URL kafelka adres URL protokołu HTTPS do szablonu adresu URL kafelka, który używa następujących parametrów:
 
--   `{x}`-X pozycja kafelka. Również wymagają `{y}` i `{z}` .
--   `{y}`-Y pozycja kafelka. Również wymagają `{x}` i `{z}` .
--   `{z}`— Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}` .
--   `{quadkey}`-Identyfikator kafelka `quadkey` na podstawie konwencji nazewnictwa systemu kafelków mapy Bing.
--   `{bbox-epsg-3857}`-Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
+-   `{x}` -X pozycja kafelka. Również wymagają `{y}` i `{z}` .
+-   `{y}` -Y pozycja kafelka. Również wymagają `{x}` i `{z}` .
+-   `{z}` — Poziom powiększenia kafelka. Również wymagają `{x}` i `{y}` .
+-   `{quadkey}` -Identyfikator kafelka `quadkey` na podstawie konwencji nazewnictwa systemu kafelków mapy Bing.
+-   `{bbox-epsg-3857}` -Ciąg pola granicznego z formatem `{west},{south},{east},{north}` w systemie referencyjnym przestrzennym EPSG 3857.
 
 Poniżej znajduje się przykład sformatowanego adresu URL kafelka dla [usługi kafelków Pogoda](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) w Azure Maps. Zwróć uwagę, że `[subscription-key]` jest to symbol zastępczy klucza subskrypcji Azure Maps.
 
@@ -68,4 +68,4 @@ Aby uzyskać więcej informacji na Azure Maps rozdzielenie systemu, zobacz [poz
 Dodaj więcej kontekstu do mapy:
 
 > [!div class="nextstepaction"]
-> [Pokaż ruch w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
+> [Pokazywanie ruchu w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)

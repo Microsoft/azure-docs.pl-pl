@@ -10,17 +10,17 @@ ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306637"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Korzystanie z prywatnego linku w wirtualnej sieci WAN
 
 [Łącze prywatne platformy Azure](../private-link/private-link-overview.md) to technologia, która umożliwia łączenie ofert typu "platforma jako usługa" na platformie Azure przy użyciu połączenia z prywatnym adresem IP przez ujawnienie [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md). Za pomocą wirtualnej sieci WAN platformy Azure można wdrożyć prywatny punkt końcowy w jednej z sieci wirtualnych podłączonych do dowolnego koncentratora wirtualnego. Zapewnia to łączność z innymi sieciami wirtualnymi lub gałęziami połączonymi z tą samą wirtualną siecią WAN.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W krokach w tym artykule przyjęto założenie, że wirtualna sieć WAN została już wdrożona z co najmniej jednym koncentratorem, a także przynajmniej dwie sieci wirtualne połączone z wirtualną siecią WAN.
 
@@ -38,11 +38,11 @@ Można utworzyć prywatny punkt końcowy linku dla wielu różnych usług. W tym
 
 Po utworzeniu Azure SQL Database można sprawdzić adres IP prywatnego punktu końcowego, przeglądając prywatne punkty końcowe:
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="prywatne punkty końcowe" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="Utwórz link prywatny" lightbox="./media/howto-private-link/endpoints.png":::
 
 Klikając utworzony przez siebie prywatny punkt końcowy, powinien zostać wyświetlony jego prywatny adres IP, a także jego w pełni kwalifikowaną nazwę domeny (FQDN). Należy zauważyć, że prywatny punkt końcowy ma adres IP w zakresie sieci wirtualnej, w której został wdrożony (10.1.3.0/24):
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Punkt końcowy SQL" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Utwórz link prywatny" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Sprawdź łączność z tej samej sieci wirtualnej
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Jak widać w poprzednich danych wyjściowych, nazwa FQDN `wantest.database.windows.net` jest zamapowana na `wantest.privatelink.database.windows.net` , że prywatna strefa DNS utworzona w prywatnym punkcie końcowym zostanie rozpoznana jako prywatny adres IP `10.1.3.228` . Przechodzenie do prywatnej strefy DNS potwierdzi, że istnieje rekord A dla prywatnego punktu końcowego zamapowanego na prywatny adres IP:
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Strefa DNS" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Utwórz link prywatny" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Po sprawdzeniu poprawnego rozpoznawania nazw DNS można spróbować nawiązać połączenie z bazą danych:
 
@@ -87,7 +87,7 @@ Po nawiązaniu połączenia między siecią wirtualną lub gałęzią sieci wirt
 
 W tym przykładzie będziemy łączyć się z innej sieci wirtualnej, więc najpierw dołączymy prywatną strefę DNS do nowej sieci wirtualnej, aby jej obciążenia mogły rozwiązać Azure SQL Database w pełni kwalifikowaną nazwę domeny na prywatny adres IP. Odbywa się to poprzez łączenie prywatnej strefy DNS z nową siecią wirtualną:
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Łącze DNS" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Utwórz link prywatny" lightbox="./media/howto-private-link/dns-link.png":::
 
 Teraz dowolna maszyna wirtualna w dołączonej sieci wirtualnej powinna poprawnie rozwiązać Azure SQL Database FQDN do prywatnego adresu IP linku prywatnego:
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Aby sprawdzić, czy ta sieć wirtualna (10.1.1.0/24) ma połączenie z oryginalną siecią wirtualną, w której skonfigurowano prywatny punkt końcowy (10.1.3.0/24), można sprawdzić obowiązującą tabelę tras na dowolnej maszynie wirtualnej w sieci VNet:
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="efektywne trasy" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="Utwórz link prywatny" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Jak widać, istnieje trasa wskazująca, że sieć wirtualna 10.1.3.0/24 została wprowadzona przez bramę Virtual Network w wirtualnej sieci WAN platformy Azure. Teraz możemy przetestować łączność z bazą danych:
 

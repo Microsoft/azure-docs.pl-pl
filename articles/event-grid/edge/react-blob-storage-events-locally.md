@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87462024"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Samouczek: reagowanie na zdarzenia Blob Storage w IoT Edge (wersja zapoznawcza)
@@ -37,7 +37,7 @@ Istnieje kilka sposobów wdrażania modułów na urządzeniu IoT Edge i wszystki
 
 ### <a name="select-your-iot-edge-device"></a>Wybierz urządzenie IoT Edge
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 1. Przejdź do IoT Hub.
 1. Wybierz pozycję **IoT Edge** z menu w sekcji **Automatyczne zarządzanie urządzeniami** . 
 1. Kliknij identyfikator urządzenia docelowego z listy urządzeń
@@ -54,7 +54,7 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
    * **Nazwa**: eventgridmodule
-   * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opcje tworzenia kontenera**:
 
     ```json
@@ -93,7 +93,7 @@ W tej sekcji przedstawiono sposób wdrażania innego modułu IoT, który będzie
 1. Podaj nazwę, obraz i opcje tworzenia kontenera:
 
    * **Nazwa**: subskrybent
-   * **Identyfikator URI obrazu**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Identyfikator URI obrazu**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opcje tworzenia kontenera**: brak
 1. Kliknij pozycję **Zapisz**
 1. Przejdź do następnej sekcji, aby dodać moduł Blob Storage platformy Azure
@@ -193,8 +193,8 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
     ```
 
     > [!IMPORTANT]
-    > - W przypadku przepływu HTTPS w przypadku włączenia uwierzytelniania klienta za pośrednictwem klucza SAS należy dodać określony wcześniej klucz sygnatury dostępu współdzielonego jako nagłówek. W związku z tym żądanie zwinięcie będzie:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
-    > - W przypadku przepływu HTTPS, jeśli uwierzytelnianie klienta jest włączone za pośrednictwem certyfikatu, żądanie zazwinięcia będzie:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - W przypadku przepływu HTTPS w przypadku włączenia uwierzytelniania klienta za pośrednictwem klucza SAS należy dodać określony wcześniej klucz sygnatury dostępu współdzielonego jako nagłówek. W związku z tym żądanie zwinięcie będzie: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - W przypadku przepływu HTTPS, jeśli uwierzytelnianie klienta jest włączone za pośrednictwem certyfikatu, żądanie zazwinięcia będzie: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temacie. Aby odebrać każde zdarzenie, musisz utworzyć subskrypcję Event Grid dla tematu **MicrosoftStorage** .
     1. Utwórz blobsubscription.jsprzy użyciu następującej zawartości. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md)
@@ -222,7 +222,7 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
        ```
 
        > [!IMPORTANT]
-       > - W przypadku przepływu HTTPS w przypadku włączenia uwierzytelniania klienta za pośrednictwem klucza SAS należy dodać określony wcześniej klucz sygnatury dostępu współdzielonego jako nagłówek. W związku z tym żądanie zwinięcie będzie:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - W przypadku przepływu HTTPS w przypadku włączenia uwierzytelniania klienta za pośrednictwem klucza SAS należy dodać określony wcześniej klucz sygnatury dostępu współdzielonego jako nagłówek. W związku z tym żądanie zwinięcie będzie: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
        > - W przypadku przepływu HTTPS, jeśli uwierzytelnianie klienta jest włączone za pośrednictwem certyfikatu, żądanie zazwinięcia będzie:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
     3. Uruchom następujące polecenie, aby sprawdzić, czy subskrypcja została pomyślnie utworzona. Należy zwrócić kod stanu HTTP 200 OK.
@@ -251,8 +251,8 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
        ```
 
        > [!IMPORTANT]
-       > - W przypadku przepływu HTTPS w przypadku włączenia uwierzytelniania klienta za pośrednictwem klucza SAS należy dodać określony wcześniej klucz sygnatury dostępu współdzielonego jako nagłówek. W związku z tym żądanie zwinięcie będzie:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-       > - W przypadku przepływu HTTPS, jeśli uwierzytelnianie klienta jest włączone za pośrednictwem certyfikatu, żądanie zazwinięcia będzie:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - W przypadku przepływu HTTPS w przypadku włączenia uwierzytelniania klienta za pośrednictwem klucza SAS należy dodać określony wcześniej klucz sygnatury dostępu współdzielonego jako nagłówek. W związku z tym żądanie zwinięcie będzie: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - W przypadku przepływu HTTPS, jeśli uwierzytelnianie klienta jest włączone za pośrednictwem certyfikatu, żądanie zazwinięcia będzie: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
 3. Pobierz [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) i [Połącz je z lokalnym magazynem](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
@@ -324,7 +324,7 @@ Gratulacje! Samouczek został ukończony. Poniższe sekcje zawierają szczegół
 
 Poniżej znajduje się lista obsługiwanych właściwości zdarzeń oraz ich typów i opisów. 
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
 | subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
@@ -337,9 +337,9 @@ Poniżej znajduje się lista obsługiwanych właściwości zdarzeń oraz ich typ
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
-| api | ciąg | Operacja, która wyzwoliła zdarzenie. Może to być jedna z następujących wartości: <ul><li>BlobCreated — dozwolone wartości to: `PutBlob` i`PutBlockList`</li><li>BlobDeleted — dozwolone wartości to `DeleteBlob` , `DeleteAfterUpload` i `AutoDelete` . <p>`DeleteAfterUpload`Zdarzenie jest generowane, gdy obiekt BLOB jest automatycznie usuwany, ponieważ żądana Właściwość deleteAfterUpload ma wartość true. </p><p>`AutoDelete`zdarzenie jest generowane, gdy obiekt BLOB zostanie automatycznie usunięty, ponieważ deleteAfterMinutes żądana wartość właściwości wygasła.</p></li></ul>|
+| api | ciąg | Operacja, która wyzwoliła zdarzenie. Może to być jedna z następujących wartości: <ul><li>BlobCreated — dozwolone wartości to: `PutBlob` i `PutBlockList`</li><li>BlobDeleted — dozwolone wartości to `DeleteBlob` , `DeleteAfterUpload` i `AutoDelete` . <p>`DeleteAfterUpload`Zdarzenie jest generowane, gdy obiekt BLOB jest automatycznie usuwany, ponieważ żądana Właściwość deleteAfterUpload ma wartość true. </p><p>`AutoDelete` zdarzenie jest generowane, gdy obiekt BLOB zostanie automatycznie usunięty, ponieważ deleteAfterMinutes żądana wartość właściwości wygasła.</p></li></ul>|
 | Identyfikatorem żądania klienta | ciąg | Identyfikator żądania dostarczonego przez klienta dla operacji interfejsu API magazynu. Tego identyfikatora można użyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Client-Request-ID" w dziennikach i można go podać w żądaniach klientów przy użyciu nagłówka "x-MS-Client-Request-ID". Aby uzyskać szczegółowe informacje, zobacz [format dziennika](/rest/api/storageservices/storage-analytics-log-format). |
 | IdentyfikatorŻądania | ciąg | Identyfikator żądania wygenerowanego przez usługę dla operacji interfejsu API magazynu. Może służyć do skorelowania dzienników diagnostycznych usługi Azure Storage przy użyciu pola "Request-ID-Header" w dziennikach i jest zwracana z inicjowania wywołania interfejsu API w nagłówku "x-MS-Request-ID". Zobacz [format dziennika](/rest/api/storageservices/storage-analytics-log-format). |
 | Element ETag | ciąg | Wartość, której można użyć do warunkowego wykonywania operacji. |

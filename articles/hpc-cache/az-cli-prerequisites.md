@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7d0844e699c012d987c23a75e2b0874005cf535a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099249"
 ---
-# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure dla pamięci podręcznej platformy Azure HPC
+# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Konfigurowanie interfejsu wiersza polecenia platformy Azure dla usługi Azure HPC Cache
 
 Wykonaj następujące kroki, aby przygotować środowisko przed użyciem interfejsu wiersza polecenia platformy Azure w celu utworzenia pamięci podręcznej platformy Azure HPC lub zarządzania nią.
 
@@ -21,7 +21,7 @@ Wykonaj następujące kroki, aby przygotować środowisko przed użyciem interfe
 
 ## <a name="install-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
 
-Pamięć podręczna platformy Azure HPC wymaga wersji 2,7 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom, `az --version` Aby znaleźć wersję i zainstalowane biblioteki zależne. Aby zainstalować lub uaktualnić, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Pamięć podręczna platformy Azure HPC wymaga wersji 2,7 lub nowszej interfejsu wiersza polecenia platformy Azure. Uruchom polecenie `az --version`, aby znaleźć zainstalowaną wersję i biblioteki zależne. Aby uzyskać informacje o instalowaniu lub uaktualnianiu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az --version
@@ -39,7 +39,7 @@ Funkcje pamięci podręcznej platformy Azure HPC nie są częścią głównego k
     az login
     ```
 
-    Postępuj zgodnie z instrukcjami wyświetlanymi w terminalu, aby ukończyć proces uwierzytelniania.
+    Wykonaj kroki wyświetlane w terminalu, aby ukończyć proces uwierzytelniania.
 
    > [!TIP]
    > Jeśli masz wiele subskrypcji, musisz ją wybrać. Wybierz ją po rozpoczęciu sesji Cloud Shell w witrynie Azure Portal lub postępuj zgodnie z instrukcjami w temacie [Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli#sign-in) , aby ustawić subskrypcję z wiersza poleceń.

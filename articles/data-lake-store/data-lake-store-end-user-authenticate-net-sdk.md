@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 67ba4f12aec9e987d79109b7197d03301bf40650
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89004786"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
@@ -97,7 +97,7 @@ Kilka rzeczy, które należy znać w poprzednim fragmencie kodu:
 * Jeśli jednak chcesz użyć własnej domeny usługi Azure AD i własnego identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD, a następnie użyć identyfikatora dzierżawy usługi Azure AD, identyfikatora klienta i identyfikatora URI przekierowania utworzonej aplikacji. Aby uzyskać instrukcje [, zobacz Tworzenie aplikacji Active Directory na potrzeby uwierzytelniania użytkowników końcowych z Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) .
 
   
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 W tym artykule pokazano, jak za pomocą uwierzytelniania użytkownika końcowego uwierzytelniać się za pomocą usługi Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK. Teraz możesz zapoznać się z następującymi artykułami dotyczącymi używania zestawu .NET SDK do pracy z Azure Data Lake Storage Gen1.
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-get-started-net-sdk.md)

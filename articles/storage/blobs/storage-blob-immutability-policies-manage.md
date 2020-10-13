@@ -9,10 +9,10 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a09dbd7d778a4f7ea2a9aac9ca07b9e6d06bc1ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84463624"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi
@@ -61,7 +61,7 @@ W tym artykule przedstawiono sposób ustawiania zasad niezmienności i zarządza
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy` i `az storage container legal-hold` . Uruchom `-h` na nich, aby zobaczyć polecenia.
+Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy`  i `az storage container legal-hold` . Uruchom `-h` na nich, aby zobaczyć polecenia.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -174,7 +174,7 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy` i `az storage container legal-hold` . Uruchom `-h` na nich, aby zobaczyć polecenia.
+Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy`  i `az storage container legal-hold` . Uruchom `-h` na nich, aby zobaczyć polecenia.
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 

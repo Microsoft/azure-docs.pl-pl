@@ -4,10 +4,10 @@ description: Opisuje właściwości, które są dostępne dla zdarzeń Service B
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86121138"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus jako źródło Event Grid
@@ -75,11 +75,11 @@ Schemat zdarzenia kolejki utraconych wiadomości jest podobny:
 
 Zdarzenie ma następujące dane najwyższego poziomu:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | temat | ciąg | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| subject | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Dane zdarzenia magazynu obiektów BLOB. |
@@ -88,7 +88,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 Obiekt danych ma następujące właściwości:
 
-| Właściwość | Typ | Opis |
+| Właściwość | Type | Opis |
 | -------- | ---- | ----------- |
 | namespaceName | ciąg | Przestrzeń nazw Service Bus, w której znajduje się zasób. |
 | requestUri | ciąg | Identyfikator URI konkretnej kolejki lub subskrypcji emitującej zdarzenie. |

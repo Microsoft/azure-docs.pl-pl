@@ -8,13 +8,13 @@ author: anbene
 ms.author: mingshen
 ms.date: 07/21/2020
 ms.openlocfilehash: 8a8b64bc0ed2702066a1ba280f1b40aabbcdb11b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87098402"
 ---
-# <a name="azure-consumption-commitment-benefit"></a>Korzyść z tytułu zobowiązania dotyczącego użycia platformy Azure
+# <a name="azure-consumption-commitment-benefit"></a>Korzyść z tytułu zobowiązania do użycia platformy Azure
 
 Wybór zestawu ofert komercyjnych portalu Microsoft Marketplace będzie uczestniczyć w realizacji zobowiązania Microsoft Azure w organizacji, jeśli organizacja ma jedną z następujących umów:
 

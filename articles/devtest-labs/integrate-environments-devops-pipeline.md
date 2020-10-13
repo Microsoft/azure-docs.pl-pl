@@ -4,10 +4,10 @@ description: Dowiedz się, jak zintegrować środowiska Azure DevTest Labs z pot
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483027"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integruj środowiska z potokami CI/DevOps na platformie Azure
@@ -53,8 +53,8 @@ Następnym etapem wdrożenia jest utworzenie środowiska, które ma być używan
 4. W polu **Nazwa szablonu**wybierz nazwę środowiska zapisanego w repozytorium kodu źródłowego *. 
 5. **Nazwa laboratorium**, **Nazwa repozytorium**i **Nazwa szablonu** są przyjaznymi reprezentacjami identyfikatorów zasobów platformy Azure. Ręczne wprowadzenie przyjaznej nazwy spowoduje wystąpienie błędów, użyj list rozwijanych, aby wybrać informacje.
 6. W polu **Nazwa środowiska**wprowadź nazwę, aby jednoznacznie zidentyfikować wystąpienie środowiska w laboratorium.  Musi być unikatowa w ramach laboratorium.
-7. **Plik parametrów** i **Parametry**umożliwiają przekazywanie parametrów niestandardowych do środowiska. W celu ustawienia wartości parametrów można użyć obu tych metod. W tym przykładzie zostanie użyta sekcja Parameters. Użyj nazw zmiennych zdefiniowanych w środowisku, na przykład:`-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
-8. Informacje w szablonie środowiska mogą być przekazywane przez sekcję wyjściową szablonu. Zaznacz opcję **Utwórz zmienne wyjściowe w oparciu o dane wyjściowe szablonu środowiska** , aby inne zadania mogły korzystać z danych. `$(Reference name.Output Name)`jest wzorcem do wykonania. Na przykład jeśli nazwa odwołania to DTL, a nazwa wyjściowa w szablonie była lokalizacją, zmienna byłaby `$(DTL.location)` .
+7. **Plik parametrów** i **Parametry**umożliwiają przekazywanie parametrów niestandardowych do środowiska. W celu ustawienia wartości parametrów można użyć obu tych metod. W tym przykładzie zostanie użyta sekcja Parameters. Użyj nazw zmiennych zdefiniowanych w środowisku, na przykład: `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
+8. Informacje w szablonie środowiska mogą być przekazywane przez sekcję wyjściową szablonu. Zaznacz opcję **Utwórz zmienne wyjściowe w oparciu o dane wyjściowe szablonu środowiska** , aby inne zadania mogły korzystać z danych. `$(Reference name.Output Name)` jest wzorcem do wykonania. Na przykład jeśli nazwa odwołania to DTL, a nazwa wyjściowa w szablonie była lokalizacją, zmienna byłaby `$(DTL.location)` .
 
 ## <a name="delete-the-environment"></a>Usuwanie środowiska
 Ostatnim etapem jest usunięcie środowiska wdrożonego w wystąpieniu Azure DevTest Labs. Zwykle należy usunąć środowisko po wykonaniu zadań deweloperskich lub przeprowadzeniu testów, które są potrzebne w wdrożonych zasobach.

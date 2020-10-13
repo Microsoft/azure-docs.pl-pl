@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 0f3f9e7f4566800bdea6871cae1c5bafb3b37b95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939186"
 ---
-# <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Obsługiwane wersje programu Postgres z usługą Azure ARC z włączonym skalowaniem PostgreSQL
+# <a name="supported-versions-of-postgres-with-azure-arc-enabled-postgresql-hyperscale"></a>Obsługiwane wersje bazy danych Postgres w przypadku bazy danych PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc
 
 W tym artykule wyjaśniono, jakie wersje programu Postgres są dostępne z funkcją Azure ARC z włączonym skalowaniem PostgreSQL.
 Lista obsługiwanych wersji jest zmieniana w miarę upływu czasu. Obecnie wersje główne, które są obsługiwane, to:

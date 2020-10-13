@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a32874cebcd8335967eaf8a07a56346e8ad6460
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213631"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurowanie samoobsługowego zarządzania grupami w Azure Active Directory 
@@ -33,7 +33,7 @@ Po utworzeniu grup zabezpieczeń w Azure Portal lub przy użyciu programu Azure 
 Grupy utworzone w | Zachowanie domyślne grupy zabezpieczeń | Zachowanie domyślne grupy Microsoft 365
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do przyłączenia w panelu dostępu | Otwórz do dołączenia dla wszystkich użytkowników
-[Witryna Azure Portal](https://portal.azure.com) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do przyłączenia w panelu dostępu<br>Właściciel nie jest przypisywany automatycznie podczas tworzenia grupy | Otwórz do dołączenia dla wszystkich użytkowników
+[Azure Portal](https://portal.azure.com) | Tylko właściciele mogą dodawać członków<br>Widoczne, ale niedostępne do przyłączenia w panelu dostępu<br>Właściciel nie jest przypisywany automatycznie podczas tworzenia grupy | Otwórz do dołączenia dla wszystkich użytkowników
 [Panel dostępu](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Otwórz do dołączenia dla wszystkich użytkowników<br>Opcje członkostwa można zmienić po utworzeniu grupy | Otwórz do dołączenia dla wszystkich użytkowników<br>Opcje członkostwa można zmienić po utworzeniu grupy
 
 ## <a name="self-service-group-management-scenarios"></a>Scenariusze samoobsługowego zarządzania grupami

@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962540"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Networking considerations for an App Service Environment (Zagadnienia dotyczące sieci w środowisku App Service Environment) #
@@ -122,7 +122,7 @@ Jeśli ILB ASE jest nazwą domeny *contoso.appserviceenvironment.NET* , a nazwa 
 
 ## <a name="ase-ip-addresses"></a>Adresy IP ASE ##
 
-Środowisko ASE zawiera kilka adresów IP, z którymi należy się zapoznać. Oto one:
+Środowisko ASE zawiera kilka adresów IP, z którymi należy się zapoznać. Są to:
 
 - **Publiczny adres IP ruchu przychodzącego**: używany dla ruchu aplikacji w zewnętrznym środowisku ASE i ruch związany z zarządzaniem zarówno w zewnętrznym środowisku ASE, jak i w środowisku ILB ASE.
 - **Wychodzący publiczny adres IP**: używany jako adres IP "od" dla połączeń wychodzących z środowiska ASE, które opuszczają sieć wirtualną, która nie jest przekierowywana do sieci VPN.

@@ -4,10 +4,10 @@ description: Objawy, przyczyny i rozwiązywanie typowych problemów z wydajnośc
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227476"
 ---
 # <a name="troubleshoot-registry-performance"></a>Rozwiązywanie problemów z wydajnością rejestru
@@ -80,7 +80,7 @@ Powiązane linki:
 
 ### <a name="configure-dns-for-geo-replicated-registry"></a>Konfigurowanie usługi DNS dla rejestru z replikacją geograficzną
 
-Jeśli operacje ściągnięcia z rejestru z replikacją geograficzną wyglądają wolniej, Konfiguracja DNS na kliencie może zostać rozpoznana jako geograficznie odległy serwer DNS. W takim przypadku Traffic Manager mogą być żądaniami routingu do repliki, która jest bliska sieci do serwera DNS, ale z odległego od klienta. Uruchom narzędzie, takie jak `nslookup` lub `dig` (w systemie Linux), aby określić replikę, która Traffic Manager kieruje żądania rejestru do programu. Przykład:
+Jeśli operacje ściągnięcia z rejestru z replikacją geograficzną wyglądają wolniej, Konfiguracja DNS na kliencie może zostać rozpoznana jako geograficznie odległy serwer DNS. W takim przypadku Traffic Manager mogą być żądaniami routingu do repliki, która jest bliska sieci do serwera DNS, ale z odległego od klienta. Uruchom narzędzie, takie jak `nslookup` lub `dig` (w systemie Linux), aby określić replikę, która Traffic Manager kieruje żądania rejestru do programu. Na przykład:
 
 ```console
 nslookup myregistry.azurecr.io

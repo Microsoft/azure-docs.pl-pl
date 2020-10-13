@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195967"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Przenoszenie danych za pomocą działania kopiowania
@@ -94,30 +94,30 @@ Gdy magazyny danych źródła i ujścia znajdują się w chmurze, Data Factory u
 
 | Lokalizacja docelowa docelowych magazynów danych | Region docelowego magazynu danych | Region używany do przenoszenia danych |
 |:--- |:--- |:--- |
-| Stany Zjednoczone | Wschodnie stany USA | Wschodnie stany USA |
+| Stany Zjednoczone | East US | East US |
 | &nbsp; | Wschodnie stany USA 2 | Wschodnie stany USA 2 |
-| &nbsp; | Środkowe stany USA | Środkowe stany USA |
+| &nbsp; | Central US | Central US |
 | &nbsp; | Północno-środkowe stany USA | Północno-środkowe stany USA |
-| &nbsp; | Południowo-środkowe stany USA | Południowo-środkowe stany USA |
+| &nbsp; | South Central US | South Central US |
 | &nbsp; | Zachodnio-środkowe stany USA | Zachodnio-środkowe stany USA |
 | &nbsp; | Zachodnie stany USA | Zachodnie stany USA |
 | &nbsp; | Zachodnie stany USA 2 | Zachodnie stany USA 2 |
 | Kanada | Kanada Wschodnia | Kanada Środkowa |
 | &nbsp; | Kanada Środkowa | Kanada Środkowa |
-| Brazylia | Brazylia Południowa | Brazylia Południowa |
+| Brazylia | Brazil South | Brazil South |
 | Europa | Europa Północna | Europa Północna |
-| &nbsp; | Europa Zachodnia | Europa Zachodnia |
+| &nbsp; | West Europe | West Europe |
 | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | Południowe Zjednoczone Królestwo |
 | &nbsp; | Południowe Zjednoczone Królestwo | Południowe Zjednoczone Królestwo |
-| Azja i Pacyfik | Azja Południowo-Wschodnia | Azja Południowo-Wschodnia |
-| &nbsp; | Azja Wschodnia | Azja Południowo-Wschodnia |
+| Azja i Pacyfik | Southeast Asia | Southeast Asia |
+| &nbsp; | Azja Wschodnia | Southeast Asia |
 | Australia | Australia Wschodnia | Australia Wschodnia |
 | &nbsp; | Australia Południowo-Wschodnia | Australia Południowo-Wschodnia |
 | Indie | Indie Środkowe | Indie Środkowe |
 | &nbsp; | Indie Zachodnie | Indie Środkowe |
 | &nbsp; | Indie Południowe | Indie Środkowe |
-| Japonia | Japonia Wschodnia | Japonia Wschodnia |
-| &nbsp; | Japonia Zachodnia | Japonia Wschodnia |
+| Japonia | Japan East | Japonia Wschodnia |
+| &nbsp; | Japonia Zachodnia | Japan East |
 | Korea | Korea Środkowa | Korea Środkowa |
 | &nbsp; | Korea Południowa | Korea Środkowa |
 
@@ -196,7 +196,7 @@ Zobacz [Przewodnik dotyczący wydajności i dostrajania działania kopiowania](d
 ## <a name="fault-tolerance"></a>Odporność na uszkodzenia
 Domyślnie działanie kopiowania spowoduje zatrzymanie kopiowania danych i zwrócenie błędu w przypadku wystąpienia niezgodnych danych między źródłem i ujściam; Mimo że można jawnie skonfigurować program, aby pominąć i zarejestrować niezgodne wiersze i skopiować te zgodne dane, aby kopie powiodło się. Zobacz [odporność na błędy działania kopiowania](data-factory-copy-activity-fault-tolerance.md) , aby uzyskać więcej szczegółów.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 Zapoznaj się z [zagadnieniami](data-factory-data-movement-security-considerations.md)dotyczącymi zabezpieczeń, które opisują infrastrukturę zabezpieczeń, która w Azure Data Factory używać usług przenoszenia danych w celu zabezpieczania danych.
 
 ## <a name="scheduling-and-sequential-copy"></a>Planowanie i kopiowanie sekwencyjne

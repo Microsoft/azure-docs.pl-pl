@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091253"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Włącz serwery DNS chmury prywatnej CloudSimple, aby przekazywać wyszukiwanie w systemie DNS zasobów lokalnych do serwerów DNS
@@ -27,7 +27,7 @@ Przekazanie wyszukiwania DNS dla lokalnego serwera DNS umożliwia korzystanie z 
 * Używaj Active Directory lokalnych jako źródła tożsamości dla chmury prywatnej vSphere
 * Korzystanie z HCX do migrowania maszyn wirtualnych z lokalizacji lokalnej do chmury prywatnej
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Połączenie sieciowe musi znajdować się w sieci prywatnej chmury w sieci lokalnej na potrzeby przesyłania dalej DNS.  Połączenie sieciowe można skonfigurować przy użyciu:
 

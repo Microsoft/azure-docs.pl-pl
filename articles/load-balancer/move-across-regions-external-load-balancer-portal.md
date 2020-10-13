@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808706"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Przenoszenie zewnętrznego modułu równoważenia obciążenia do innego regionu przy użyciu Azure Portal
@@ -181,8 +181,8 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony w powyższych krokach, najpierw należy uzyskać identyfikator zasobu, a następnie wkleić go do parameters.jsna pliku. Aby uzyskać identyfikator:
 
     1. W innej karcie lub oknie przeglądarki Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **grupy zasobów**.
-    2. Znajdź docelową grupę zasobów zawierającą publiczny adres IP, który został przeniesiony w powyższych krokach. Wybierz ją.
-    3. Wybierz pozycję **Ustawienia**  >  **Właściwości**.
+    2. Znajdź docelową grupę zasobów zawierającą publiczny adres IP, który został przeniesiony w powyższych krokach. Wybierz go.
+    3. Wybierz pozycję **Ustawienia** > **Właściwości**.
     4. W bloku po prawej stronie zaznacz **Identyfikator zasobu** i skopiuj go do Schowka. Alternatywnie możesz wybrać opcję **Kopiuj do schowka** z prawej strony ścieżki **identyfikatora zasobu** .
     5. Wklej identyfikator zasobu do właściwości **wartość** w edytorze **parametrów edycji** , który jest otwarty w innym oknie przeglądarki lub karcie:
 

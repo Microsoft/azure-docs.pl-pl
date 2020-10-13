@@ -16,10 +16,10 @@ ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89178675"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Jak zarządzane tożsamości zasobów platformy Azure współpracują z maszynami wirtualnymi platformy Azure
@@ -32,7 +32,7 @@ W tym artykule dowiesz się, jak zarządzane tożsamości działają z maszynami
 ## <a name="how-it-works"></a>Jak to działa
 
 Wewnętrznie tożsamości zarządzane to nazwy główne usług typu specjalnego, które mogą być używane tylko z zasobami platformy Azure. Po usunięciu tożsamości zarządzanej jest automatycznie usuwana odpowiednia jednostka usługi.
-Ponadto po utworzeniu tożsamości przypisanej do użytkownika lub przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie dla tej tożsamości. 
+Ponadto po utworzeniu tożsamości User-Assigned lub System-Assigned dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie dla tej tożsamości. 
 
 Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi. 
 

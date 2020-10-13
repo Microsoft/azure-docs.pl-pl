@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.openlocfilehash: ab72512b2e5d915dbd4b8a3d7d8446a5932eef9e
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165451"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem MVC (usługa połączona Azure Active Directory Visual Studio)?
@@ -31,7 +31,7 @@ Aby uzyskać informacje na temat pracy z połączoną usługą, zobacz [wprowadz
 
 Ma wpływ na plik projektu (*. NET References) i `packages.config` (odwołania NuGet).
 
-| Typ | Dokumentacja |
+| Type | Tematy pomocy |
 | --- | --- |
 | Waga NuGet | Microsoft. IdentityModel. Protocol. Extensions |
 | Waga NuGet | Microsoft. Owin |
@@ -46,7 +46,7 @@ Ma wpływ na plik projektu (*. NET References) i `packages.config` (odwołania N
 
 Dodatkowe odwołania w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
-| Typ | Dokumentacja |
+| Type | Tematy pomocy |
 | --- | --- |
 | Waga NuGet | EntityFramework |
 | .NET        | EntityFramework. SqlServer (tylko w programie Visual Studio 2015) |
@@ -60,7 +60,7 @@ Dodatkowe odwołania w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
 Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie Visual Studio 2015):
 
-| Typ | Dokumentacja |
+| Type | Tematy pomocy |
 | --- | --- |
 | Waga NuGet | Microsoft. AspNet. Identity. Core |
 | Waga NuGet | Microsoft. AspNet. Identity. EntityFramework |
@@ -138,7 +138,7 @@ Dodatkowe zmiany w przypadku wybrania opcji **Odczytaj dane katalogu** :
 
 - Dodano `Connected Services/AzureAD/ConnectedService.json` (Visual studio 2017) lub `Service References/Azure AD/ConnectedService.json` (visual Studio 2015) zawierający informacje używane przez program Visual Studio do śledzenia dodawania połączonej usługi.
 
-- Jeśli wybrano opcję **Odczytaj dane katalogu** , dodano `Models/ADALTokenCache.cs` i `Models/ApplicationDbContext.cs` do obsługi buforowania tokenów. Dodano również dodatkowy kontroler i widok, aby zilustrować dostęp do informacji o profilu użytkownika przy użyciu interfejsów API usługi Azure Graph: `Controllers/UserProfileController.cs` , `Views/UserProfile/Index.cshtml` i`Views/UserProfile/Relogin.cshtml`
+- Jeśli wybrano opcję **Odczytaj dane katalogu** , dodano `Models/ADALTokenCache.cs` i `Models/ApplicationDbContext.cs` do obsługi buforowania tokenów. Dodano również dodatkowy kontroler i widok, aby zilustrować dostęp do informacji o profilu użytkownika przy użyciu interfejsów API usługi Azure Graph: `Controllers/UserProfileController.cs` , `Views/UserProfile/Index.cshtml` i `Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Kopia zapasowa plików (Visual Studio 2015)
 

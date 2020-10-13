@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236339"
 ---
 # <a name="design-for-querying"></a>Projektowanie pod kątem wykonywania zapytań
@@ -37,12 +37,12 @@ W poniższych przykładach przyjęto założenie, że usługa Table Service zapi
 
 | *Nazwa kolumny* | *Typ danych* |
 | --- | --- |
-| **PartitionKey** (Nazwa działu) |String |
-| **RowKey** (identyfikator pracownika) |String |
-| **FirstName (Imię)** |String |
-| **LastName (Nazwisko)** |String |
-| **Wiek** |Liczba całkowita |
-| **EmailAddress (Adres e-mail)** |String |
+| **PartitionKey** (Nazwa działu) |Ciąg |
+| **RowKey** (identyfikator pracownika) |Ciąg |
+| **FirstName (Imię)** |Ciąg |
+| **LastName (Nazwisko)** |Ciąg |
+| **Age** |Liczba całkowita |
+| **EmailAddress (Adres e-mail)** |Ciąg |
 
 Artykuł [Omówienie usługi Azure Table Storage](table-storage-overview.md) zawiera opis niektórych kluczowych funkcji usługi Azure Table Service, które mają bezpośredni wpływ na projektowanie zapytań. Poniżej przedstawiono ogólne wytyczne dotyczące projektowania zapytań Table service. Należy zauważyć, że składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST Table service, aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

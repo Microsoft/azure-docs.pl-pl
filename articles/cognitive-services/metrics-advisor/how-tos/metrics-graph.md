@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: aahi
 ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940646"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Instrukcje: budowanie grafu metryk do analizowania powiązanych metryk
@@ -35,7 +35,7 @@ Następnie należy dodać inny węzeł i określić relację z istniejącymi wę
 
 Kliknij pozycję **Dodaj relację**i będzie można wybrać inną metrykę i określić typ relacji między dwoma węzłami. Można również zastosować określone filtry wymiarów. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Dodaj węzeł i relację":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Wybierz metrykę":::
 
 Po powtórzeniu powyższych kroków będzie można grafować metryki opisujące relacje między wszystkimi powiązanymi metrykami.
 **Wskazówka dotycząca kolorów węzła**
@@ -50,7 +50,7 @@ Gdy wykres metryk jest zbudowany, za każdym razem, gdy na wykresie zostanie wyk
 
 Kliknij zdarzenie w grafie i przewiń w dół do **analizy metryk krzyżowych**poniżej informacji diagnostycznych.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Wyświetl powiązane metryki i anomalie":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Wybierz metrykę":::
 
 ## <a name="next-steps"></a>Następne kroki
 

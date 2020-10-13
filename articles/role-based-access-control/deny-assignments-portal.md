@@ -15,10 +15,10 @@ ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790250"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure Portal
@@ -32,7 +32,7 @@ ms.locfileid: "84790250"
 
 Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
-- `Microsoft.Authorization/denyAssignments/read`uprawnienie, które jest zawarte w większości [wbudowanych ról platformy Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` uprawnienie, które jest zawarte w większości [wbudowanych ról platformy Azure](built-in-roles.md).
 
 ## <a name="list-deny-assignments"></a>Lista przypisań odmowy
 
