@@ -16,10 +16,10 @@ ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 357eb0a60e6246996de9ab75337ecc213d845ae7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273334"
 ---
 # <a name="fortigate-deployment-guide"></a>Przewodnik wdrażania FortiGate
@@ -314,7 +314,7 @@ Poniższe sekcje zawierają opis kroków dla różnych konfiguracji przy użyciu
 6. Podaj nazwę (zazwyczaj dopasowuje ją do grupy platformy Azure używanej w celu zapewnienia niestandardowego środowiska portalu).
 7. Wybierz znak plus ( **+** ) obok pozycji **źródłowe pule adresów IP**, wybierz pulę domyślną, a następnie wybierz pozycję **Zamknij**.
 8. Dostosuj środowisko dla tej grupy. W przypadku testowania może to być dostosowanie komunikatu portalu i motywu. W tym miejscu można również utworzyć niestandardowe zakładki, które kierują użytkowników do zasobów wewnętrznych.
-9. Wybierz przycisk **OK**.
+9. Kliknij przycisk **OK**.
 10. Powtórz kroki od 5-9 dla każdej grupy platformy Azure, która będzie mieć niestandardowe środowisko portalu.
 11. W obszarze Sieć VPN wybierz pozycję **Ustawienia protokołu SSL i sieci VPN**.
 12. Wybierz znak plus ( **+** ) obok pozycji **nasłuchiwanie na interfejsach**, wybierz pozycję **PORT1**, a następnie wybierz pozycję **Zamknij**.

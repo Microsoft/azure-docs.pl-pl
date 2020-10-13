@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564903"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny wskazówki tokenu identyfikatora w zasadach niestandardowych Azure Active Directory B2C
@@ -84,14 +84,14 @@ Następujące metadane są istotne w przypadku korzystania z klucza symetryczneg
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| issuer | Yes | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość musi być taka sama jak w przypadku żądania `iss` tokenu JWT. | 
-| IdTokenAudience | Yes | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku roszczeń `aud` z zastrzeżeniem tokenu JWT. | 
+| issuer | Tak | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość musi być taka sama jak w przypadku żądania `iss` tokenu JWT. | 
+| IdTokenAudience | Tak | Identyfikuje zamierzony odbiorcę tokenu. Musi być taka sama jak w przypadku roszczeń `aud` z zastrzeżeniem tokenu JWT. | 
 
 Poniższe metadane są istotne w przypadku korzystania z klucza symetrycznego. 
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| METADANE| Yes | Adres URL wskazujący na dokument konfiguracji wystawcy tokenów, który jest również znany jako OpenID Connect dobrze znany punkt końcowy konfiguracji.   |
+| METADANE| Tak | Adres URL wskazujący na dokument konfiguracji wystawcy tokenów, który jest również znany jako OpenID Connect dobrze znany punkt końcowy konfiguracji.   |
 | issuer | Nie | Identyfikuje usługę tokenu zabezpieczającego (Wystawca tokenu). Ta wartość może służyć do zastępowania wartości skonfigurowanej w metadanych i musi być taka sama jak w przypadku żądania `iss` tokenu JWT. |  
 | IdTokenAudience | Nie | Identyfikuje zamierzony odbiorcę tokenu. Ta wartość może służyć do zastępowania wartości skonfigurowanej w metadanych i musi być taka sama jak w przypadku żądania `aud` tokenu JWT. |  
 
@@ -101,7 +101,7 @@ Przy użyciu klucza symetrycznego element **CryptographicKeys** zawiera następu
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Klucz kryptograficzny używany do weryfikowania podpisu tokenu JWT.|
+| client_secret | Tak | Klucz kryptograficzny używany do weryfikowania podpisu tokenu JWT.|
 
 
 ## <a name="how-to-guide"></a>Przewodnik z instrukcjami

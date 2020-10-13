@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275187"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z usługi Azure Table Storage za pomocą usługi Azure Wyszukiwanie poznawcze
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak używać usługi Azure Wyszukiwanie poznawcze do in
 
 Indeksator usługi Azure Table Storage można skonfigurować przy użyciu następujących zasobów:
 
-* [Witryna Azure Portal](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * [Interfejs API REST](/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
 * Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/overview/azure/search)
 

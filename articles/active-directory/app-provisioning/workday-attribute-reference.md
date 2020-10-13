@@ -12,10 +12,10 @@ ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266568"
 ---
 # <a name="workday-attribute-reference"></a>Dokumentacja atrybutów rozwiązania Workday
@@ -117,7 +117,7 @@ W poniższej tabeli przechwycono listę atrybutów produktu Workday i odpowiedni
 
 Jeśli używasz WWS API v 30.0 lub nowszego w adresie URL połączenia, jak pokazano poniżej:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Informacje o wersji produktu Workday":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Brak informacji o wersji produktu Workday":::
 
 ... następnie przed włączeniem zadania aprowizacji zaktualizuj **wyrażenia interfejsu API XPath** w obszarze **mapowanie atrybutu — > opcje zaawansowane — > Edytuj listę atrybutów dla produktu Workday** , aby użyć wartości wymienionych w tabeli. 
 

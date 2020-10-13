@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265395"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalowanie programu Azure AD Connect przy użyciu istniejącej bazy danych programu ADSync
@@ -64,7 +64,7 @@ Ważne uwagi, które należy wziąć pod uwagę przed kontynuowaniem:
 > [!NOTE]
 > Użyj przełącznika **/UseExistingDatabase** tylko wtedy, gdy baza danych zawiera już dane z wcześniejszej instalacji Azure AD Connect. Na przykład podczas przechodzenia z lokalnej bazy danych do pełnej bazy danych SQL Server lub gdy serwer Azure AD Connect został odbudowany i przywrócono kopię zapasową bazy danych SQL ADSync z wcześniejszej instalacji programu Azure AD Connect. Jeśli baza danych jest pusta, czyli nie zawiera żadnych danych z poprzedniej instalacji Azure AD Connect, Pomiń ten krok.
 
-![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
+![Program PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Zobaczysz ekran powitalny programu Azure AD Connect. Gdy zaakceptujesz postanowienia licencyjne i uwagi na temat ochrony prywatności, kliknij pozycję **Kontynuuj**.
    ![Zrzut ekranu przedstawiający stronę "Witamy w usłudze Azure A D Connect"](./media/how-to-connect-install-existing-database/db3.png)
 1. Na ekranie **Instalowanie wymaganych składników** włączona jest opcja **Użyj istniejącego serwera SQL Server**. Określ nazwę serwera SQL Server hostującego bazę danych programu ADSync. Jeśli wystąpienie aparatu SQL używane do hostowania bazy danych programu ADSync nie jest domyślnym wystąpieniem serwera SQL Server, musisz określić nazwę wystąpienia aparatu SQL. Ponadto jeśli nie jest włączone przeglądanie SQL, musisz też określić numer portu wystąpienia aparatu SQL. Na przykład:         
@@ -92,11 +92,11 @@ Podczas przywracania kopii zapasowej bazy danych utworzonej przez wersję Azure 
 
 Poniższa tabela umożliwia zweryfikowanie wszelkich dodatkowych kroków, które są wymagane.
 
-|Cechy|Kroki|
+|Cecha|Kroki|
 |-----|-----|
 |Synchronizacja skrótów haseł| Ustawienia synchronizacji skrótów haseł i zapisywania zwrotnego haseł są w pełni przywrócone dla wersji Azure AD Connect począwszy od 1.2.65.0.  Jeśli przywracasz przy użyciu starszej wersji Azure AD Connect, przejrzyj ustawienia opcji synchronizacji tych funkcji, aby upewnić się, że są one zgodne z aktywnym serwerem synchronizacji.  Nie trzeba wykonywać żadnych innych czynności konfiguracyjnych.|
 |Federacja z usługami AD FS|Uwierzytelnianie platformy Azure będzie nadal korzystać z zasad AD FS skonfigurowanych dla aktywnego serwera synchronizacji.  Jeśli używasz Azure AD Connect do zarządzania farmą AD FS, możesz opcjonalnie zmienić metodę logowania na AD FS Federacji w przygotowaniu dla serwera rezerwy jako aktywnego wystąpienia synchronizacji.   Jeśli na serwerze aktywnej synchronizacji są włączone opcje urządzenia, skonfiguruj te opcje na tym serwerze, uruchamiając zadanie "Konfiguruj opcje urządzenia".|
-|Uwierzytelnianie przekazywane i logowanie jednokrotne na pulpicie|Zaktualizuj metodę logowania, aby była zgodna z konfiguracją na serwerze aktywnej synchronizacji.  Jeśli nie zostanie to wykonane przed podwyższeniem poziomu serwera do podstawowego, uwierzytelnianie przekazywane wraz z bezproblemowym logowaniem jednokrotnym zostanie wyłączone, a dzierżawa może zostać zablokowana, jeśli nie masz synchronizacji skrótów haseł. Należy również pamiętać, że po włączeniu uwierzytelniania przekazywanego w trybie przejściowym zostanie zainstalowany, zarejestrowany i uruchomiony jako agent wysokiej dostępności, który będzie akceptował żądania logowania.|
+|Uwierzytelnianie przekazywane i pojedyncze Sign-On pulpitu|Zaktualizuj metodę logowania, aby była zgodna z konfiguracją na serwerze aktywnej synchronizacji.  Jeśli nie zostanie to wykonane przed podwyższeniem poziomu serwera do podstawowego, uwierzytelnianie przekazywane wraz z bezproblemowym logowaniem jednokrotnym zostanie wyłączone, a dzierżawa może zostać zablokowana, jeśli nie masz synchronizacji skrótów haseł. Należy również pamiętać, że po włączeniu uwierzytelniania przekazywanego w trybie przejściowym zostanie zainstalowany, zarejestrowany i uruchomiony jako agent wysokiej dostępności, który będzie akceptował żądania logowania.|
 |Federacja z serwerem PingFederate|Uwierzytelnianie platformy Azure będzie nadal korzystać z zasad serwera pingfederate skonfigurowanych dla aktywnego serwera synchronizacji.  Opcjonalnie można zmienić metodę logowania na serwera pingfederate w przygotowaniu dla serwera rezerwy jako aktywnego wystąpienia synchronizacji.  Ten krok może zostać odroczony, dopóki nie trzeba będzie sfederować dodatkowych domen z serwera pingfederate.|
 
 ## <a name="next-steps"></a>Następne kroki

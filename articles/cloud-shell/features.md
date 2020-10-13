@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470157"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funkcje & narzędzia dla Azure Cloud Shell
@@ -61,7 +61,7 @@ Program PowerShell w Cloud Shell zawiera prywatną kompilację modułu usługi E
 > [!NOTE]
 > Nazwa modułu powinna rozpoczynać się od `tmp_` , jeśli zainstalowano moduły z tym samym prefiksem, zostaną również wyświetlone te polecenia cmdlet. 
 
-![Zrzut ekranu przedstawiający Azure Cloud Shell uruchomienie polecenia Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
+![Zrzut ekranu przedstawiający Azure Cloud Shell, na którym działa polecenie Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Ścisła integracja z narzędziami Open Source
 
@@ -88,7 +88,7 @@ Cloud Shell obejmuje wstępnie skonfigurowane uwierzytelnianie dla narzędzi typ
 |Przejdź         |1,9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
-|PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
+|Program PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2,7 i 3,5 (wartość domyślna)|
 
 ## <a name="next-steps"></a>Następne kroki

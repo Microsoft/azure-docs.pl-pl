@@ -7,10 +7,10 @@ ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
 ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871188"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Rozwiązywanie problemów z replikacją w przypadku migracji maszyn wirtualnych VMware bez agentów
@@ -44,7 +44,7 @@ W tej sekcji opisano niektóre typowe błędy i sposoby ich rozwiązywania.
 
 **Błąd:** "Key Vault operacji nie powiodła się. Operacja: generowanie definicji sygnatury dostępu współdzielonego, Key Vault: nazwa magazynu kluczy, konto magazynu: nazwa konta magazynu nie powiodła się z powodu błędu: "
 
-![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+![Usługa Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 Ten błąd zazwyczaj występuje, ponieważ zasady dostępu użytkownika dla Key Vault nie dają obecnie zalogowanemu użytkownikowi uprawnień niezbędnych do skonfigurowania kont magazynu, które mają być Key Vault zarządzane. Aby sprawdzić zasady dostępu użytkowników w magazynie kluczy, przejdź do strony Magazyn kluczy w portalu dla magazynu kluczy i wybierz pozycję Zasady dostępu 
 
@@ -58,7 +58,7 @@ Gdy w portalu zostanie utworzony magazyn kluczy, dodaje także zasady dostępu u
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). #C1
 
-Set-AzureRmKeyVaultAccessPolicy-Magazynname "kluczy magazynu"-ObjectId $userPrincipalId-PermissionsToStorage Get, list, DELETE, Set, Update, regeneratekey, getsas, listsas, deletesas, setsas, Recover, Backup, Restore, przeczyszczanie
+Set-AzureRmKeyVaultAccessPolicy-Magazynname "PermissionsToStorage"-ObjectId $userPrincipalId-"Get, list, DELETE, Set, Update, regeneratekey, getsas, listsas, deletesas, setsas, Recover, Backup, Restore, przeczyszczanie
 
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut

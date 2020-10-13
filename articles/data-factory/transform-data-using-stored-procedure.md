@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484735"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania procedury składowanej SQL Server w Azure Data Factory
@@ -34,7 +34,7 @@ Możesz użyć działania procedury składowanej, aby wywołać procedurę skła
 
 - Azure SQL Database
 - Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
-- Baza danych SQL Server.  Jeśli używasz SQL Server, zainstaluj własne środowisko Integration Runtime na tym samym komputerze, na którym znajduje się baza danych programu, lub na oddzielnym komputerze, który ma dostęp do bazy danych programu. Własne środowisko Integration Runtime to składnik, który łączy źródła danych lokalnie/na maszynie wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Szczegółowe informacje można znaleźć w artykule [samodzielne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) .
+- Baza danych SQL Server.  Jeśli używasz SQL Server, zainstaluj własne środowisko Integration Runtime na tym samym komputerze, na którym znajduje się baza danych programu, lub na oddzielnym komputerze, który ma dostęp do bazy danych programu. Self-Hosted Integration Runtime to składnik, który łączy źródła danych lokalnie/na maszynie wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Szczegółowe informacje można znaleźć w artykule [samodzielne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
 > Podczas kopiowania danych do Azure SQL Database lub SQL Server, można skonfigurować działanie **sqlsink** w działaniu Copy, aby wywołać procedurę składowaną za pomocą właściwości **sqlWriterStoredProcedureName** . Aby uzyskać szczegółowe informacje na temat właściwości, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Wywoływanie procedury składowanej podczas kopiowania danych do usługi Azure Synapse Analytics przy użyciu działania kopiowania nie jest obsługiwane. Można jednak użyć działania procedury składowanej, aby wywołać procedurę składowaną w usłudze Azure Synapse Analytics. 

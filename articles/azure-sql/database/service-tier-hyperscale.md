@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
 ms.openlocfilehash: 3455503570d09daedc5e34cba0bf36d71ddcdcbc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90988118"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
@@ -87,7 +87,7 @@ Na poniższym diagramie przedstawiono różne typy węzłów w bazie danych w sk
 
 Baza danych wieloskali zawiera następujące różne typy składników:
 
-### <a name="compute"></a>Wystąpienia obliczeniowe
+### <a name="compute"></a>Compute
 
 Węzeł obliczeniowy to miejsce, w którym działa silnik relacyjny, więc wszystkie elementy języka, przetwarzanie zapytań i tak dalej występują. Wszystkie interakcje użytkownika z bazą danych w ramach skalowania są wykonywane za pomocą tych węzłów obliczeniowych. Węzły obliczeniowe mają pamięć podręczną opartą na dyskach SSD (z etykietami RBPEX-odporny na błędy w powyższym diagramie), aby zminimalizować liczbę podróży w sieci wymaganych do pobrania strony danych. Istnieje jeden podstawowy węzeł obliczeniowy, w którym są przetwarzane wszystkie obciążenia odczytu i zapisu. Istnieje co najmniej jeden pomocniczy węzeł obliczeniowy działający jako węzły rezerwy aktywnej do pracy w trybie failover, a także działający jako węzeł obliczeniowy tylko do odczytu do odciążania obciążeń odczytu (Jeśli ta funkcja jest wymagana).
 
@@ -183,7 +183,7 @@ Włączone regiony:
 - Australia Środkowa
 - Brazil South
 - Kanada Środkowa
-- Środkowe stany USA
+- Central US
 - Chiny Wschodnie 2
 - Chiny Północne 2
 - Azja Wschodnia
@@ -220,13 +220,13 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 
 | Problem | Description |
 | :---- | :--------- |
-| Okienko zarządzanie kopiami zapasowymi dla serwera nie pokazuje baz danych ze skalowaniem. Zostaną one przefiltrowane z widoku.  | Funkcja wieloskalowania ma oddzielną metodę zarządzania kopiami zapasowymi, dlatego ustawienia przechowywania długoterminowego przechowywania danych i punktu w czasie nie są stosowane. W związku z tym bazy danych nie są wyświetlane w okienku zarządzanie kopią zapasową.<br><br>W przypadku baz danych migrowanych do skalowania z innych Azure SQL Database warstwy usług kopie zapasowe przed migracją są przechowywane na czas trwania okresu [przechowywania kopii zapasowej](automated-backups-overview.md#backup-retention) źródłowej bazy danych. Te kopie zapasowe mogą być używane do [przywracania](recovery-using-backups.md#programmatic-recovery-using-automated-backups) źródłowej bazy danych do punktu w czasie przed migracją.|
+| Okienko zarządzanie kopiami zapasowymi dla serwera nie pokazuje baz danych ze skalowaniem. Zostaną one przefiltrowane z widoku.  | Funkcja Moja Skala ma oddzielną metodę zarządzania kopiami zapasowymi, dlatego ustawienia przechowywania kopii zapasowych Long-Term przechowywania i punktu w czasie nie są stosowane. W związku z tym bazy danych nie są wyświetlane w okienku zarządzanie kopią zapasową.<br><br>W przypadku baz danych migrowanych do skalowania z innych Azure SQL Database warstwy usług kopie zapasowe przed migracją są przechowywane na czas trwania okresu [przechowywania kopii zapasowej](automated-backups-overview.md#backup-retention) źródłowej bazy danych. Te kopie zapasowe mogą być używane do [przywracania](recovery-using-backups.md#programmatic-recovery-using-automated-backups) źródłowej bazy danych do punktu w czasie przed migracją.|
 | Przywracanie do określonego momentu | Baza danych bez skalowania nie może zostać przywrócona jako baza danych ze skalą i nie może zostać przywrócona jako baza danych bez skalowania. W przypadku bazy danych bez skalowania, która została zmigrowana do skalowania przez zmianę jej warstwy usług, Przywróć do punktu w czasie przed migracją i w ramach okresu przechowywania kopii zapasowej bazy danych można [programowo](recovery-using-backups.md#programmatic-recovery-using-automated-backups). Przywrócona baza danych nie będzie skalowana. |
 | Jeśli baza danych ma co najmniej jeden plik danych o rozmiarze większym niż 1 TB, migracja nie powiedzie się | W niektórych przypadkach może być możliwe obejście tego problemu, zmniejszając duże ilości plików poniżej 1 TB. W przypadku migrowania bazy danych używanej podczas procesu migracji upewnij się, że żaden plik nie będzie większy niż 1 TB. Użyj następującego zapytania, aby określić rozmiar plików bazy danych. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Wystąpienie zarządzane SQL | Wystąpienie zarządzane Azure SQL nie jest obecnie obsługiwane z bazami danych w skali. |
 | Pule elastyczne |  Pule elastyczne nie są obecnie obsługiwane ze skalą.|
 | Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po migracji bazy danych do funkcji wieloskalowania nie można jej migrować bezpośrednio do warstwy usługi, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) i [AZ SQL DB import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)i from [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
-| Migracja baz danych z obiektami OLTP w pamięci | Funkcja skalowania obsługuje podzestaw obiektów OLTP w pamięci, w tym typów tabel zoptymalizowanych pod kątem pamięci, zmiennych tabel i modułów skompilowanych w sposób macierzysty. Jeśli jednak w trakcie migrowania bazy danych istnieją jakiekolwiek typy obiektów OLTP w pamięci, migracja z warstw usług premium i Krytyczne dla działania firmy nie jest obsługiwana. Aby przeprowadzić migrację takiej bazy danych do skalowania, należy porzucić wszystkie obiekty OLTP w pamięci i ich zależności. Po migracji bazy danych można odtworzyć te obiekty. Trwałe i nietrwałe tabele zoptymalizowane pod kątem pamięci nie są obecnie obsługiwane w ramach skalowania i muszą zostać utworzone ponownie jako tabele dysków.|
+| Migracja baz danych przy użyciu obiektów In-Memory OLTP | Funkcja skalowania obsługuje podzestaw In-Memory obiektów OLTP, w tym typów tabel zoptymalizowanych pod kątem pamięci, zmiennych tabel i modułów skompilowanych w sposób macierzysty. Jeśli jednak dowolny rodzaj In-Memory obiektów OLTP jest obecny w migrowanej bazie danych, migracja z warstw usług premium i Krytyczne dla działania firmy do skalowania nie jest obsługiwana. Aby przeprowadzić migrację takiej bazy danych do skalowania, należy porzucić wszystkie In-Memory obiekty OLTP i ich zależności. Po migracji bazy danych można odtworzyć te obiekty. Trwałe i nietrwałe tabele zoptymalizowane pod kątem pamięci nie są obecnie obsługiwane w ramach skalowania i muszą zostać utworzone ponownie jako tabele dysków.|
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej na potrzeby Azure SQL Database skalowania. |
 | Kopia bazy danych | Kopia bazy danych w ramach skalowania jest teraz w publicznej wersji zapoznawczej. |
 | Integracja TDE/AKV | Nieprzezroczyste szyfrowanie bazy danych przy użyciu Azure Key Vault (nazywanego również przenoszeniem własnym kluczem lub BYOK) jest obecnie dostępne w wersji zapoznawczej. |

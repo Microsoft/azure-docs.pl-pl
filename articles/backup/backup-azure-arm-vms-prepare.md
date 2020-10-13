@@ -4,10 +4,10 @@ description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych 
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986504"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
@@ -149,10 +149,10 @@ Stan zadania może się różnić w zależności od następujących scenariuszy:
 
 **Snapshot** | **Transferowanie danych do magazynu** | **Stan zadania**
 --- | --- | ---
-Ukończone | W toku | W toku
-Ukończone | Pominięto | Ukończone
-Ukończone | Ukończone | Ukończone
-Ukończone | Niepowodzenie | Ukończono z ostrzeżeniem
+Zakończone | W toku | W toku
+Zakończone | Pominięto | Zakończone
+Zakończone | Zakończone | Zakończone
+Zakończone | Niepowodzenie | Ukończono z ostrzeżeniem
 Niepowodzenie | Niepowodzenie | Niepowodzenie
 
 Teraz dzięki tej możliwości dla tej samej maszyny wirtualnej dwa kopie zapasowe mogą działać równolegle, ale w każdej fazie (migawka, transfer danych do magazynu) można uruchomić tylko jedno zadanie podrzędne. Tak więc w scenariuszach, w których zadanie tworzenia kopii zapasowej w toku spowodowało niepowodzenie tworzenia kopii zapasowej w następnym dniu, zostanie ono wyeliminowane w tej funkcji. Kopie zapasowe kolejnych dni mogą mieć ukończoną migawkę **, podczas gdy** zadanie tworzenia kopii zapasowej w poprzednim dniu jest pomijane.

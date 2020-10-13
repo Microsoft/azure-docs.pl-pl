@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
 ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484276"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Wskazówki dotyczące wyświetlania w portalu Azure Marketplace
@@ -28,10 +28,10 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 4 |  Opis oferty | <ul><li> Zawiera 2-3 akapitów.</li><li>Oferta rozwiązania jest łatwa do zrozumienia.</li><li>Jest bezpłatny w przypadku błędów pisowni i gramatyki.</li><li>Jest wszechstronny i przechwytuje docelowych odbiorców, typ użytkownika i dlaczego jest cenny (propozycja wartości).</li><li>Jest w postaci litery z krótkimi zdaniami, które są łatwe do zrozumienia.</li></ul> | <ul><li> Branża docelowa jest przedkreślona (jeśli dotyczy).</li><li>Formatowanie stylu z każdym akapitem zawierającym pojedyncze zdanie lub frazę podsumowujące zawartość, która następuje przy użyciu punktów punktorów, w razie potrzeby, aby wyróżnić najważniejsze zalety. Celem jest umożliwienie czytelnikowi wglądu w informacje o ofercie w łatwym do wyświetlania formacie i niekonieczności odczytywania długich akapitów.</li><li>Między każdym akapitem występuje odstępy. Odczytuje takie dane jak Broszura samochodowa. Oznacza to, że jest to kompleksowe rozwiązanie i zawiera opis oferty po prostu, bez żargon technicznych. | 
 | 5 | Kategorie i branże | <ul><li>Kategorie i podkategorie muszą być zgodne z możliwościami oferty </li><li>Nie wybieraj kategorii/podkategorii, które nie pasują do możliwości oferty. </li></ul> | <ul><li>Wybierz maksymalnie dwie kategorie, w tym podstawową i pomocniczą kategorię (opcjonalnie).</li><li>Wybierz maksymalnie dwie podkategorie dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna w wybranej kategorii.</li></ul> |
 | 6 | Obrazy | <ul><li>Wymagania dotyczące obrazów są wymienione w centrum partnerskim.</li><li>Tekst zawarty na zrzucie ekranu jest czytelny, a obraz jest wyraźny. | Oferta rozwiązania jest łatwa do zrozumienia. |
-| 7 | Filmy wideo | <ul><li>Film wideo nie jest wymagany, ale jeśli jest podany, musi odtworzyć się bez błędów.</li><li>Jeśli to możliwe, może nie odnosić się do firm konkurencyjnych, *chyba że* wykazuje rozwiązanie migracji. |<ul><li>W idealnym przypadku długość wynosi 3 minuty.</li><li>Oferta rozwiązania jest łatwa do zrozumienia przez zawartość wideo.</li><li>Oferuje demonstrację możliwości rozwiązania. |
+| 7 | Wideo | <ul><li>Film wideo nie jest wymagany, ale jeśli jest podany, musi odtworzyć się bez błędów.</li><li>Jeśli to możliwe, może nie odnosić się do firm konkurencyjnych, *chyba że* wykazuje rozwiązanie migracji. |<ul><li>W idealnym przypadku długość wynosi 3 minuty.</li><li>Oferta rozwiązania jest łatwa do zrozumienia przez zawartość wideo.</li><li>Oferuje demonstrację możliwości rozwiązania. |
 | 8 | Stan listy (opcje wyświetlania) | <ul><li>Musi być oznaczony jako jeden z następujących typów: <ul><li>*Skontaktuj się z nami*</li><li>*Wersja próbna* / *Uzyskaj wersję próbną teraz* / *Rozpocznij okres próbny* / Wersja *testowa*</li><li>*Kup teraz* / *Pobierz teraz*</li></ul></ul> | Klient może łatwo zrozumieć, co to są następujące czynności: <ol><li>Wypróbuj wersję próbną.</li><li>Kup teraz.</li><li>Skontaktuj się z pośrednictwem poczty e-mail lub numeru telefonu, aby przygotować się do weryfikacji koncepcji, oceny lub krótkiej.</li></ol> | 
 | 9 | Cennik rozwiązania | Musi mieć kartę/Szczegóły cennika rozwiązania, a Cennik musi być w walucie lokalnej oferty rozwiązania partnerskiego. | Aby zapewnić opcje klienta, można uzyskać dostęp do wielu opcji rozliczeń przy użyciu cen warstwowych. |
-| 10 | Więcej informacji | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
+| 10 | Dowiedz się więcej | Linki u dołu (w obszarze Opis, a nie linki do portalu Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji na temat rozwiązania i są publicznie dostępne i wyświetlane poprawnie. |    Linki do określonych elementów (na przykład stron specyfikacji w witrynie partnerskiej), a nie tylko na stronie głównej partnera. | 
 | 11 | Obsługa rozwiązań i pomoc | Połącz się z co najmniej jedną z następujących czynności: <ul><li>Numery telefonów</li><li>Obsługa poczty e-mail</li><li>Agenci rozmowy</li><li>Fora społeczności |<ul><li>Zostaną wyświetlone wszystkie metody obsługi.</li><li>Płatna pomoc techniczna jest oferowana bezpłatnie w okresie *próbnym* lub *testowym* . |
 | 12 | Informacje prawne | Zasady lub warunki są dostępne za pośrednictwem publicznego adresu URL. |  |
 |||
@@ -85,7 +85,7 @@ W tym artykule wyjaśniono wymagania i wskazówki dotyczące wyświetlania nowyc
 | 9 | Kompetencje | Musi mieć kompetencje co najmniej jedną z następujących czynności:<ul><li>Projektowanie aplikacji</li><li>Integracja aplikacji</li><li>Zarządzanie cyklem życia aplikacji</li><li>Platforma w chmurze<li>Analiza danych</li><li>Centrum danych</li><li>Platforma danych</li><li>DevOps |
 | 10 | Produkty | Muszą być produktami platformy Azure. | |
 | 11 | Kraj/region | Upewnij się, że kraj/region są zgodne z wybraną walutą. | |
-| 12 | Więcej informacji  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
+| 12 | Dowiedz się więcej  | <ul><li>Linki u dołu (w obszarze Opis, a nie linki w witrynie Azure Marketplace po lewej stronie) prowadzą do większej ilości informacji o rozwiązaniu i są dostępne publicznie i są poprawnie wyświetlane.</li><li>Linki muszą mieć "przyjazną nazwę" i nie są wyświetlane jako nazwa pliku do pobrania. | |
 ||||
 
 ## <a name="next-steps"></a>Następne kroki

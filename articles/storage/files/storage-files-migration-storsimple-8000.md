@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653251"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
@@ -427,7 +427,7 @@ Zapoznaj się z plikiem dziennika Robocopy, aby zobaczyć, czy pliki zostały po
 
 Prawdopodobnie trzeba będzie utworzyć udziały SMB na serwerze z systemem Windows, który wcześniej miał dane StorSimple. Możesz Załaduj ponownie ten krok i zrobić go wcześniej, aby nie stracić czasu w tym miejscu, ale musisz upewnić się, że przed tym punktem nie wystąpią żadne zmiany w plikach w systemie Windows Server.
 
-Jeśli masz wdrożenie systemu plików DFS-N, możesz wskazać DFN przestrzeni nazw do nowych lokalizacji folderu serwera. Jeśli nie masz wdrożenia systemu plików DFS-N i masz lokalne urządzenie 8100 8600 z systemem Windows Server, możesz posłużyć się tym serwerem poza domeną, a domena przyłączyć się do nowego serwera z systemem Windows przy użyciu platformy AFS z domeną, nadać tej samej nazwie serwera co stary serwer i te same nazwy udziałów, a następnie przecinanie do nowego serwera pozostanie niewidoczne dla użytkowników. , zasady grupy lub skrypty.
+Jeśli masz wdrożenie systemu plików DFS-N, możesz wskazać DFN-Namespaces do nowej lokalizacji folderu na serwerze. Jeśli nie masz wdrożenia systemu plików DFS-N i masz lokalne urządzenie 8100 8600 z systemem Windows Server, możesz posłużyć się tym serwerem poza domeną, a domena przyłączyć się do nowego serwera z systemem Windows przy użyciu platformy AFS z domeną, nadać tej samej nazwie serwera co stary serwer i te same nazwy udziałów, a następnie przecinanie do nowego serwera pozostanie niewidoczne dla użytkowników. , zasady grupy lub skrypty.
 
 ## <a name="phase-7-deprovision"></a>Faza 7: anulowanie aprowizacji
 

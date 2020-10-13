@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070589"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Wdrażanie wirtualnej macierzy StorSimple — Inicjowanie obsługi administracyjnej w funkcji Hyper-V
@@ -168,11 +168,11 @@ Wykonaj następujące kroki, aby uruchomić macierz wirtualną i nawiązać z ni
    ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere z nieokreślonymi znakami w polu logowania.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Ze względów bezpieczeństwa hasło administratora urządzenia wygasa przy pierwszym logowaniu. Zostanie wyświetlony monit informujący o konieczności zmiany hasła.
 
-   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. tekst na stronie wskazuje, że należy zmienić hasło.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. Tekst na stronie informuje o tym, że należy zmienić hasło.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    Wprowadź hasło zawierające co najmniej 8 znaków. Hasło musi zawierać co najmniej 3 z następujących 4 elementów: wielkie litery, małe litery, cyfry i znaki specjalne. Wprowadź ponownie hasło w celu potwierdzenia. Otrzymasz powiadomienie, że hasło zostało zmienione.
 
-   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. tekst na stronie wskazuje, że hasło zostało zmienione.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![Zrzut ekranu przedstawiający kartę Konsola kliencka vSphere. Tekst na stronie wskazuje, że hasło zostało zmienione.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. Po pomyślnym zmianie hasła tablica wirtualna może zostać ponownie uruchomiona. Poczekaj na uruchomienie urządzenia.
 
    ![Zrzut ekranu przedstawiający stronę głównej StorSimpleAdmin. Tekst na stronie prosi użytkownika o zaczekanie na usługę powiadamiania o zdarzeniach systemowych.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)

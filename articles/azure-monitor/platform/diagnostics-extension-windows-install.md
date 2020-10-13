@@ -9,10 +9,10 @@ ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328874"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)
@@ -142,7 +142,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
   -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
 ```
 
-Ustawienia prywatne są definiowane w [elemencie PrivateConfig](diagnostics-extension-schema-windows.md#privateconfig-element), podczas gdy ustawienia publiczne są zdefiniowane w [elemencie publicznym](diagnostics-extension-schema-windows.md#publicconfig-element) schematu konfiguracji. Możesz również określić szczegóły konta magazynu jako parametry polecenia cmdlet Set-AzVMDiagnosticsExtension zamiast uwzględniać je w ustawieniach prywatnych.
+Ustawienia prywatne są definiowane w [elemencie PrivateConfig](diagnostics-extension-schema-windows.md#privateconfig-element), podczas gdy ustawienia publiczne są zdefiniowane w [elemencie publicznym](diagnostics-extension-schema-windows.md#publicconfig-element) schematu konfiguracji. Możesz również określić szczegóły konta magazynu jako parametry polecenia cmdlet Set-AzVMDiagnosticsExtension, zamiast uwzględniać je w ustawieniach prywatnych.
 
 Poniżej znajduje się minimalny przykład pliku konfiguracji, który umożliwia zbieranie dzienników infrastruktury diagnostycznej, pojedynczy licznik wydajności i pojedynczy dziennik zdarzeń. Zobacz [przykładową konfigurację](diagnostics-extension-schema-windows.md#publicconfig-element) , aby uzyskać szczegółowe informacje dotyczące ustawień prywatnych i publicznych. 
 
@@ -194,11 +194,11 @@ W poniższej tabeli wymieniono różne typy danych zbieranych z rozszerzenia dia
 
 | Dane | Typ magazynu | Opis |
 |:---|:---|:---|
-| WADDiagnosticInfrastructureLogsTable | tabela | Monitor diagnostyczny i zmiany konfiguracji. |
-| WADDirectoriesTable | tabela | Katalogi monitorowane przez Monitor diagnostyczny.  Dotyczy to również dzienników usług IIS, dzienników żądań zakończonych niepowodzeniem i katalogów niestandardowych.  Lokalizacja pliku dziennika obiektów BLOB jest określona w polu kontenera, a nazwa obiektu BLOB znajduje się w polu RelativePath.  Pole AbsolutePath wskazuje lokalizację i nazwę pliku, która istniała na maszynie wirtualnej platformy Azure. |
-| WadLogsTable | tabela | Dzienniki zapisane w kodzie przy użyciu odbiornika śledzenia. |
-| WADPerformanceCountersTable | tabela | Liczniki wydajności. |
-| WADWindowsEventLogsTable | tabela | Dzienniki zdarzeń systemu Windows. |
+| WADDiagnosticInfrastructureLogsTable | Tabela | Monitor diagnostyczny i zmiany konfiguracji. |
+| WADDirectoriesTable | Tabela | Katalogi monitorowane przez Monitor diagnostyczny.  Dotyczy to również dzienników usług IIS, dzienników żądań zakończonych niepowodzeniem i katalogów niestandardowych.  Lokalizacja pliku dziennika obiektów BLOB jest określona w polu kontenera, a nazwa obiektu BLOB znajduje się w polu RelativePath.  Pole AbsolutePath wskazuje lokalizację i nazwę pliku, która istniała na maszynie wirtualnej platformy Azure. |
+| WadLogsTable | Tabela | Dzienniki zapisane w kodzie przy użyciu odbiornika śledzenia. |
+| WADPerformanceCountersTable | Tabela | Liczniki wydajności. |
+| WADWindowsEventLogsTable | Tabela | Dzienniki zdarzeń systemu Windows. |
 | funkcji wad-IIS-failedreqlogfiles | Obiekt blob | Zawiera informacje z dzienników żądań nieudanych usług IIS. |
 | funkcji wad-IIS-LogFiles | Obiekt blob | Zawiera informacje o dziennikach usług IIS. |
 | celnej | Obiekt blob | Niestandardowy kontener oparty na konfigurowaniu katalogów monitorowanych przez Monitor diagnostyczny.  Nazwa tego kontenera obiektów BLOB zostanie określona w WADDirectoriesTable. |

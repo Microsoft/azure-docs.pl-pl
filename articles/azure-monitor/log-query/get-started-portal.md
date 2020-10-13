@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
 ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90088361"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics
@@ -48,7 +48,7 @@ Tabele schematów są wyświetlane na karcie **tabele** w obszarze roboczym log 
 
 Log Analytics otwiera z nowym pustym zapytaniem w **Edytorze zapytań**.
 
-![Log Analytics](media/get-started-portal/homepage.png)
+![Usługa Log Analytics](media/get-started-portal/homepage.png)
 
 ### <a name="write-a-query"></a>Napisz zapytanie
 

@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327569"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Wizualizowanie danych z czujników w czasie rzeczywistym z poziomu usługi Azure IoT Hub w aplikacji sieci Web
@@ -254,7 +254,7 @@ Jeśli występują problemy z tym przykładem, spróbuj wykonać kroki opisane w
 
 * W Azure Portal przejdź do aplikacji sieci Web. W obszarze **monitorowanie** w okienku po lewej stronie wybierz pozycję **dzienniki App Service**. Włącz **Rejestrowanie aplikacji (system plików)** w systemie, ustaw **poziom** na błąd, a następnie wybierz pozycję **Zapisz**. Następnie otwórz **strumień dziennika** (w obszarze **monitorowanie**).
 
-* Z poziomu aplikacji sieci Web w Azure Portal w obszarze **Narzędzia deweloperskie** wybierz pozycję **konsola** i sprawdź wersje węzła i npm z `node -v` i `npm -v` .
+* Z poziomu aplikacji sieci Web w Azure Portal w obszarze **Narzędzia deweloperskie**  wybierz pozycję  **konsola** i sprawdź wersje węzła i npm z `node -v` i `npm -v` .
 
 * Jeśli zobaczysz błąd dotyczący nieznalezienia pakietu, być może czynności zostały wykonane poza kolejnością. Gdy lokacja zostanie wdrożona (w programie `git push` ), zostanie uruchomiona usługa App Service `npm install` , która jest uruchamiana na podstawie bieżącej wersji skonfigurowanego węzła. Jeśli zostanie zmieniony w konfiguracji późniejszej, należy wprowadzić bezużyteczne zmiany w kodzie i ponownie wypchnąć.
 

@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065480"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Utwórz zarządzany prywatny punkt końcowy ze źródłem danych (wersja zapoznawcza)
@@ -36,7 +36,7 @@ Wybierz typ źródła danych. W takim przypadku docelowym źródłem danych jest
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Krok 4. Wprowadzanie informacji o źródle danych
 
-W następnym oknie wprowadź informacje o źródle danych. W tym przykładzie tworzymy zarządzany prywatny punkt końcowy do konta ADLS Gen2. Wprowadź **nazwę** zarządzanego prywatnego punktu końcowego. Podaj **subskrypcję platformy Azure** i **nazwę konta magazynu**. Wybierz pozycję **Utwórz**.
+W następnym oknie wprowadź informacje o źródle danych. W tym przykładzie tworzymy zarządzany prywatny punkt końcowy do konta ADLS Gen2. Wprowadź **nazwę** zarządzanego prywatnego punktu końcowego. Podaj **subskrypcję platformy Azure** i **nazwę konta magazynu**. Wybierz przycisk **Utwórz**.
 ![Wprowadź szczegóły docelowego źródła danych](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Krok 5. Sprawdzanie, czy zarządzany prywatny punkt końcowy został pomyślnie utworzony

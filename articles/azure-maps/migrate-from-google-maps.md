@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264171"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrowanie z usługi Google Maps do Azure Maps
@@ -38,19 +38,19 @@ Tabela zawiera listę funkcji Azure Maps, które odpowiadają funkcjom usługi G
 | Macierz odległości             | ✓                                      |
 | Noszeniu                   | Planowany                                |
 | Geokodowanie (do przodu/wstecz) | ✓                                      |
-| Geolokalizacja                 | Nie dotyczy                                    |
+| Geolokalizacja                 | Brak                                    |
 | Najbliższe drogi               | ✓                                      |
 | Wyszukiwanie miejsc               | ✓                                      |
 | Szczegóły miejsc              | Nie dotyczy — witryna sieci Web & jest dostępny numer telefonu |
-| Umieszcza Zdjęcia               | Nie dotyczy                                    |
+| Umieszcza Zdjęcia               | Brak                                    |
 | Umieść Autouzupełnianie          | ✓                                      |
 | Przyciągaj do drogi                | ✓                                      |
 | Limity szybkości                | ✓                                      |
 | Mapy statyczne                 | ✓                                      |
-| Widok statyczny          | Nie dotyczy                                    |
+| Widok statyczny          | Brak                                    |
 | Strefa czasowa                   | ✓                                      |
-| Maps — osadzony interfejs API           | Nie dotyczy                                    |
-| Adresy URL map                    | Nie dotyczy                                    |
+| Maps — osadzony interfejs API           | Brak                                    |
+| Adresy URL map                    | Brak                                    |
 
 Usługi Mapy Google zapewniają podstawowe uwierzytelnianie oparte na kluczach. Azure Maps zapewnia podstawowe uwierzytelnianie oparte na kluczach i uwierzytelnianie Azure Active Directory. Uwierzytelnianie Azure Active Directory zapewnia więcej funkcji zabezpieczeń w porównaniu do podstawowego uwierzytelniania opartego na kluczach.
 

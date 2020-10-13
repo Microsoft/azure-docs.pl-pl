@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 82478f322e1df22bde50769b90f0424140920e9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063573"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft. COMPUTE. UserNameTextBox — element interfejsu użytkownika
@@ -48,9 +48,9 @@ Kontrolka pola tekstowego z wbudowaną walidacją nazw użytkowników systemu Wi
 ## <a name="remarks"></a>Uwagi
 
 - Jeśli `constraints.required` ma wartość **true**, pole tekstowe musi mieć wartość, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **true**.
-- `osPlatform`musi być określony i może być w **systemie Windows** lub **Linux**.
-- `constraints.regex`jest wzorcem wyrażenia regularnego JavaScript. Jeśli jest określony, wartość pola tekstowego musi być zgodna ze wzorcem, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **null**.
-- `constraints.validationMessage`jest ciągiem, który ma być wyświetlany, gdy wartość pola tekstowego nie powiedzie się walidacji określonej przez `constraints.regex` . Jeśli nie zostanie określony, będą używane wbudowane komunikaty weryfikacyjne pola tekstowego. Wartość domyślna to **null**.
+- `osPlatform` musi być określony i może być w **systemie Windows** lub **Linux**.
+- `constraints.regex` jest wzorcem wyrażenia regularnego JavaScript. Jeśli jest określony, wartość pola tekstowego musi być zgodna ze wzorcem, aby pomyślnie sprawdzić poprawność. Wartość domyślna to **null**.
+- `constraints.validationMessage` jest ciągiem, który ma być wyświetlany, gdy wartość pola tekstowego nie powiedzie się walidacji określonej przez `constraints.regex` . Jeśli nie zostanie określony, będą używane wbudowane komunikaty weryfikacyjne pola tekstowego. Wartość domyślna to **null**.
 - Ten element ma wbudowaną weryfikację opartą na wartości określonej dla parametru `osPlatform` . Wbudowanej walidacji można używać razem z niestandardowym wyrażeniem regularnym. Jeśli określono wartość dla parametru `constraints.regex` , wyzwalane są zarówno wbudowane, jak i niestandardowe walidacje.
 
 ## <a name="next-steps"></a>Następne kroki
