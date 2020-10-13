@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
 ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596836"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Rozwiązywanie problemów z wysokim procesorem CPU w przypadku maszyn wirtualnych z systemem Windows Azure
@@ -35,7 +35,7 @@ Oprócz problemów z opóźnieniami we/wy i sieci, rozwiązywanie problemów z P
 
 Większość istniejących narzędzi do rozwiązywania problemów z wydajnością, takich jak perfmon lub ProcMon, które są używane dla serwerów lokalnych, będzie działała na maszynach wirtualnych z systemem Windows Azure. Jednak że program perfinsights jest zaprojektowana specjalnie dla maszyn wirtualnych platformy Azure, aby uzyskać więcej szczegółowych informacji, w tym najlepszych rozwiązań dotyczących platformy Azure, najlepszych rozwiązań dotyczących języka SQL, wykresów opóźnień we/wy o wysokiej rozdzielczości, kart CPU i pamięci itd.
 
-Niezależnie od tego, czy działa on w trybie użytkownika, czy w trybie jądra, każdy wątek aktywnego procesu wymaga od cykli procesora CPU uruchomienia kodu, z którego został skompilowany. Wiele problemów jest bezpośrednio związanych z obciążeniem. Rodzaj obciążenia, który istnieje na dysku serwera użycie zasobów, w tym procesor CPU.
+Niezależnie od tego, czy działa jako User-Mode, czy tryb jądra, każdy wątek aktywnego procesu wymaga od cykli procesora CPU uruchomienia kodu, z którego został skompilowany. Wiele problemów jest bezpośrednio związanych z obciążeniem. Rodzaj obciążenia, który istnieje na dysku serwera użycie zasobów, w tym procesor CPU.
 
 #### <a name="common-factors"></a>Typowe czynniki
 
@@ -184,7 +184,7 @@ Po rozwinięciu zdarzenia **ustaleń** zobaczysz kilka najważniejszych informac
 
 W ramach **procesora CPU** istnieje dedykowany subtab, który może służyć do szczegółowej analizy wzorców, na rdzeń lub na proces.
 
-Karta klienci z największą ilością **zasobów CPU** ma dwie oddzielne sekcje i w tym miejscu można wyświetlić statystyki dotyczące poszczególnych procesorów. Projekt aplikacji jest często pojedynczym wątkiem lub pinezką do jednego procesora. W tym scenariuszu jeden lub kilka rdzeni jest uruchomionych o 100%, podczas gdy inne rdzenie są uruchamiane na oczekiwanych poziomach. Te scenariusze są bardziej skomplikowane, ponieważ średni procesor CPU na serwerze wydaje się działać zgodnie z oczekiwaniami, ale procesy, które są przypięte na rdzeniach o wysokim poziomie użycia, będą wolniejsze niż oczekiwano.
+Karta klienci z największą ilością **zasobów CPU** ma dwie oddzielne sekcje i w tym miejscu można wyświetlić statystyki dotyczące poszczególnych procesorów. Projekt aplikacji jest często Single-Threaded lub przypinany do jednego procesora. W tym scenariuszu jeden lub kilka rdzeni jest uruchomionych o 100%, podczas gdy inne rdzenie są uruchamiane na oczekiwanych poziomach. Te scenariusze są bardziej skomplikowane, ponieważ średni procesor CPU na serwerze wydaje się działać zgodnie z oczekiwaniami, ale procesy, które są przypięte na rdzeniach o wysokim poziomie użycia, będą wolniejsze niż oczekiwano.
 
   ![Użycie wysokiego procesora](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 

@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204545"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Zarządzanie obliczeniami w magazynie danych usługi Azure Synapse Analytics
@@ -36,7 +36,7 @@ Aby wykonać operację skalowania, usługa SQL Pool najpierw kasuje wszystkie za
 
 W poniższej tabeli przedstawiono, w jaki sposób liczba dystrybucji na węzeł obliczeniowy zmienia się w miarę zmiany jednostek magazynu danych.  DW30000c udostępnia 60 węzłów obliczeniowych i osiąga znacznie wyższą wydajność zapytań niż DW100c.
 
-| Jednostki magazynu danych  | \#węzłów obliczeniowych | \#z dystrybucji na węzeł |
+| Jednostki magazynu danych  | \# węzłów obliczeniowych | \# z dystrybucji na węzeł |
 | -------- | ---------------- | -------------------------- |
 | DW100c   | 1                | 60                         |
 | DW200c   | 1                | 60                         |

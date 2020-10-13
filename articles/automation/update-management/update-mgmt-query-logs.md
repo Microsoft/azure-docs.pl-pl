@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264307"
 ---
 # <a name="query-update-management-logs"></a>Wykonywanie zapytań względem dzienników rozwiązania Update Management
@@ -38,7 +38,7 @@ Tworzony jest rekord typu `RequiredUpdate` , który reprezentuje aktualizacje wy
 | SourceSystem | *OperationsManager* |
 | TenantId | Unikatowy identyfikator reprezentujący wystąpienie organizacji Azure Active Directory. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
-| Typ | *Aktualizowanie* |
+| Type | *Aktualizowanie* |
 | UpdateClassification | Wskazuje typ aktualizacji, które mogą być stosowane. W przypadku systemu Windows:<br> *Aktualizacje krytyczne*<br> *Aktualizacje zabezpieczeń*<br> *Pakiety zbiorcze aktualizacji*<br> *Pakiety funkcji*<br> *Dodatki Service Pack*<br> *Aktualizacje definicji*<br> *Narzędzia*<br> *Aktualizacje*. Dla systemu Linux:<br> *Aktualizacje krytyczne i zabezpieczeń*<br> *Inne* |
 | UpdateSeverity | Klasyfikacja ważności luki w zabezpieczeniach. Wartości to:<br> *Krytyczne*<br> *Ważne*<br> *Umiarkowane*<br> *Niski* |
 | UpdateTitle | Tytuł aktualizacji.|
@@ -63,7 +63,7 @@ Tworzony jest rekord typu `Update` , który reprezentuje dostępne aktualizacje 
 | Opcjonalne | Ma wartość true, jeśli rekord jest opcjonalny lub w przeciwnym razie ma wartość false. |
 | RebootBehavior | Zachowanie ponownego uruchomienia po zainstalowaniu/odinstalowaniu aktualizacji. |
 | _ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
-| Typ | Typ rekordu. Wartość to Update. |
+| Type | Typ rekordu. Wartość to Update. |
 | VMUUID | Unikatowy identyfikator dla maszyny wirtualnej. |
 | MG | Unikatowy identyfikator grupy zarządzania lub Log Analytics obszaru roboczego. |
 | TenantId | Unikatowy identyfikator reprezentujący wystąpienie Azure Active Directory organizacji. |
@@ -97,7 +97,7 @@ Tworzony jest rekord typu `UpdateAgent` , który zawiera szczegółowe informacj
 | SourceSystem | System źródłowy dla rekordu. Wartość to `OperationsManager`. |
 | TenantId | Unikatowy identyfikator reprezentujący wystąpienie Azure Active Directory organizacji. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
-| Typ | Typ rekordu. Wartość to Update. |
+| Type | Typ rekordu. Wartość to Update. |
 | WindowsUpdateAgentVersion | Wersja agenta Windows Update. |
 | WSUSServer | Błędy, jeśli wystąpił problem z agentem Windows Update w celu ułatwienia rozwiązywania problemów. |
 
@@ -128,7 +128,7 @@ Tworzony jest rekord typu `UpdateRunProgress` , który zapewnia stan wdrożenia 
 | SucceededOnRetry | Wartość wskazująca, czy wykonanie aktualizacji nie powiodło się przy pierwszej próbie, a bieżąca operacja jest ponowieniem próby. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
 | Tytuł | Tytuł aktualizacji. |
-| Typ | Typ aktualizacji. Wartość to `UpdateRunProgress`. |
+| Type | Typ aktualizacji. Wartość to `UpdateRunProgress`. |
 | UpdateId | Unikatowy identyfikator aktualizacji oprogramowania. |
 | VMUUID | Unikatowy identyfikator dla maszyny wirtualnej. |
 | ResourceId | Unikatowy identyfikator zasobu skojarzonego z rekordem. |
@@ -160,7 +160,7 @@ Tworzony jest rekord typu `UpdateSummary` , który zawiera podsumowanie aktualiz
 | SubscriptionId | Unikatowy identyfikator subskrypcji platformy Azure. |
 | TimeGenerated | Data i godzina utworzenia rekordu. |
 | TotalUpdatesMissing | Łączna liczba dostępnych aktualizacji, które mają zastosowanie. |
-| Typ | Typ rekordu. Wartość to `UpdateSummary`. |
+| Type | Typ rekordu. Wartość to `UpdateSummary`. |
 | VMUUID | Unikatowy identyfikator dla maszyny wirtualnej. |
 | WindowsUpdateAgentVersion | Wersja agenta Windows Update. |
 | WindowsUpdateSetting | Stan agenta Windows Update. Możliwe wartości:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` |

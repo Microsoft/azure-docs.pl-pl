@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307810"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Tworzenie reguł zapory serwera Azure Database for MySQL elastycznych i zarządzanie nimi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -88,7 +88,7 @@ Zapoznaj się z [dokumentacją](/cli/azure/mysql/flexible-server) interfejsu wie
 ## <a name="create-and-manage-firewall-rule-after-server-create"></a>Utwórz regułę zapory po utworzeniu serwera i zarządzaj nią
 Polecenie **AZ MySQL elastyczny-Server firewall-Rule** jest używane w interfejsie wiersza polecenia platformy Azure do tworzenia, usuwania, wyświetlania i aktualizowania reguł zapory.
 
-Polecenia
+Polecenia:
 - **Tworzenie**: Tworzenie elastycznej reguły zapory serwera.
 - **Lista**: Lista elastycznych reguł zapory serwera.
 - **Aktualizacja**: aktualizowanie elastycznej reguły zapory serwera.

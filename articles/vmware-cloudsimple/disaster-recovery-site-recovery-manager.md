@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6714b2c5d87141fd94d0f96d9cf07913442d18d6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267061"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Skonfiguruj chmurę prywatną jako miejsce docelowe odzyskiwania po awarii za pomocą programu VMware Site Recovery Manager
@@ -111,7 +111,7 @@ Zainstaluj urządzenie replikacji vSphere (vRA) w środowisku lokalnym, postępu
 
 2. Wdróż vRA w środowisku lokalnym przy użyciu OVF w pliku VR ISO from vmware.com. W przypadku vRA 6,5 [ten blog](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) dotyczący oprogramowania VMware zawiera odpowiednie informacje.
 
-3. Zarejestruj lokalne vRA za pomocą logowania jednokrotnego w lokacji lokalnej. Aby uzyskać szczegółowe instrukcje dotyczące replikacji vSphere 6,5, zobacz dokument VMware [VMware vSphere 6,5 replikacja i konfiguracja](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
+3. Zarejestruj lokalne vRA za pomocą jednego Sign-On vCenter w lokacji lokalnej. Aby uzyskać szczegółowe instrukcje dotyczące replikacji vSphere 6,5, zobacz dokument VMware [VMware vSphere 6,5 replikacja i konfiguracja](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
 
 ## <a name="install-vsphere-replication-appliance-in-your-private-cloud-environment"></a>Instalowanie urządzenia replikacji vSphere w środowisku chmury prywatnej
 
@@ -137,7 +137,7 @@ Instalacja składa się z następujących ogólnych kroków:
 3. Przygotuj środowisko chmury prywatnej na potrzeby instalacji vRA.
 4. Wdróż vRA w chmurze prywatnej przy użyciu OVF w pliku VR ISO from vmware.com. W przypadku vRA 6,5 [ten blog VMware](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) ma odpowiednie informacje.
 5. Skonfiguruj reguły zapory dla vRA. Wyjaśniono poniżej w [portalu CloudSimple: Konfigurowanie reguł zapory dla vRA](#cloudsimple-portal-configure-firewall-rules-for-vra).
-6. Zarejestruj chmurę prywatną vRA za pomocą logowania jednokrotnego w lokacji w chmurze prywatnej.
+6. Zarejestruj chmurę prywatną vRA za pomocą jednego Sign-On vCenter w lokacji w chmurze prywatnej.
 7. Skonfiguruj połączenia replikacji vSphere między dwoma urządzeniami. Upewnij się, że wymagane porty są otwierane przez zapory. W [tym artykule z bazy wiedzy VMware](https://kb.vmware.com/s/article/2087769) znajduje się lista numerów portów, które muszą być otwarte dla replikacji vSphere 6,5.
 
 Aby uzyskać szczegółowe instrukcje dotyczące instalacji replikacji vSphere 6,5, zobacz dokument VMware [VMware vSphere 6,5 replikacja i konfiguracja](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf).
@@ -227,7 +227,7 @@ Masz pełną kontrolę nad replikacją vSphere i oprogramowaniem SRM w środowis
 * [OVF opcje podczas wdrażania replikacji vSphere 6,5](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [Instalacja i konfiguracja VMware vSphere replikacji 6,5](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [Wymagania wstępne i najlepsze rozwiązania dotyczące SRM 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
-* [Site Recovery Manager w topologii dwóch lokacji z jednym wystąpieniem vCenter Server na kontroler usług platformy](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
+* [Site Recovery Manager w topologii Two-Site z jednym wystąpieniem vCenter Server na kontroler usług platformy](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html)
 * [Podręcznik instalacji i konfiguracji programu VMware Site Recovery Manager 6,5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-437E1B65-A17B-4B4B-BA5B-C667C90FA418.html)
 * [Blog VMware w witrynie SRM z replikacją opartą na platformie Array a replikacją vSphere](https://blogs.vmware.com/virtualblocks/2017/06/22/srm-array-based-replication-vs-vsphere-replication)
 * [Blog VMware dotyczący opcji SRM wiele lokacji](https://blogs.vmware.com/virtualblocks/2016/07/28/srm-multisite)

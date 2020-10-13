@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319001"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Dokumentacja interfejsu API agenta Application Insights Azure Monitor
@@ -84,10 +84,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Przykład z mapą kluczy Instrumentacji
 W tym przykładzie:
-- `MachineFilter`dopasowuje bieżący komputer przy użyciu `'.*'` symbolu wieloznacznego.
-- `AppFilter='WebAppExclude'`udostępnia `null` klucz Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
-- `AppFilter='WebAppOne'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
-- `AppFilter='WebAppTwo'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
+- `MachineFilter` dopasowuje bieżący komputer przy użyciu `'.*'` symbolu wieloznacznego.
+- `AppFilter='WebAppExclude'` udostępnia `null` klucz Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
+- `AppFilter='WebAppOne'` przypisuje określoną aplikację unikatowy klucz Instrumentacji.
+- `AppFilter='WebAppTwo'` przypisuje określoną aplikację unikatowy klucz Instrumentacji.
 - Na koniec `AppFilter` używa również `'.*'` symboli wieloznacznych, aby dopasować wszystkie aplikacje sieci Web, które nie są zgodne ze starszymi regułami i przypisać domyślny klucz Instrumentacji.
 - Spacje są dodawane do czytelności.
 
@@ -476,10 +476,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Przykład z mapą kluczy Instrumentacji
 W tym przykładzie:
-- `MachineFilter`dopasowuje bieżący komputer przy użyciu `'.*'` symbolu wieloznacznego.
-- `AppFilter='WebAppExclude'`udostępnia `null` klucz Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
-- `AppFilter='WebAppOne'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
-- `AppFilter='WebAppTwo'`przypisuje określoną aplikację unikatowy klucz Instrumentacji.
+- `MachineFilter` dopasowuje bieżący komputer przy użyciu `'.*'` symbolu wieloznacznego.
+- `AppFilter='WebAppExclude'` udostępnia `null` klucz Instrumentacji. Określona aplikacja nie będzie Instrumentacją.
+- `AppFilter='WebAppOne'` przypisuje określoną aplikację unikatowy klucz Instrumentacji.
+- `AppFilter='WebAppTwo'` przypisuje określoną aplikację unikatowy klucz Instrumentacji.
 - Na koniec `AppFilter` używa również `'.*'` symboli wieloznacznych, aby dopasować wszystkie aplikacje sieci Web, które nie są zgodne ze starszymi regułami i przypisać domyślny klucz Instrumentacji.
 - Spacje są dodawane do czytelności.
 

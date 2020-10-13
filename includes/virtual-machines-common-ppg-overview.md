@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377028"
 ---
 Umieszczanie maszyn wirtualnych w jednym regionie zmniejsza odległość fizyczną między wystąpieniami. Umieszczenie ich w ramach pojedynczej strefy dostępności spowoduje również, że zostaną one fizycznie bliżej siebie. Jednak w miarę zwiększania się rozmiaru platformy Azure jedna strefa dostępności może obejmować wiele fizycznych centrów danych, co może skutkować opóźnieniami sieciowymi wpływającymi na aplikację. 
@@ -58,7 +58,7 @@ Aby sprawdzić stan wyrównania dla grup umieszczania sąsiedztwa, można wykona
 
 - Stan wspólnej lokalizacji grupy umieszczania sąsiedztwa można wyświetlić przy użyciu portalu, interfejsu wiersza polecenia i programu PowerShell.
 
-    -   W przypadku korzystania z programu PowerShell stan wspólnej lokalizacji można uzyskać za pomocą polecenia cmdlet Get-AzProximityPlacementGroup poprzez dołączenie opcjonalnego parametru "-ColocationStatus".
+    -   W przypadku korzystania z programu PowerShell stan wspólnej lokalizacji można uzyskać za pomocą polecenia cmdlet Get-AzProximityPlacementGroup przez dołączenie opcjonalnego parametru "-ColocationStatus".
 
     -   W przypadku korzystania z interfejsu wiersza polecenia stan wspólnej lokalizacji można uzyskać za pomocą polecenia, `az ppg show` dołączając opcjonalny parametr "--include-sublocation-status".
 

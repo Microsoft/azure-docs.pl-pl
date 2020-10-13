@@ -10,10 +10,10 @@ services: iot-central
 manager: peterpr
 ms.custom: device-developer
 ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015963"
 ---
 # <a name="create-a-new-device-template-version"></a>Utwórz nową wersję szablonu urządzenia
@@ -93,7 +93,7 @@ Niektóre elementy możliwości urządzenia można edytować bez konieczności k
 1. Wybierz szablon urządzenia, który chcesz dostosować.
 1. Wybierz kartę **Dostosowywanie** .
 1. Wszystkie możliwości zdefiniowane w modelu możliwości urządzenia są wymienione tutaj. Można edytować, zapisywać i korzystać ze wszystkich tych pól bez konieczności podania wersji szablonu urządzenia. Jeśli istnieją pola, które chcesz edytować, są przeznaczone tylko do odczytu, aby je zmienić, musisz mieć wersję szablonu urządzenia. Wybierz pole, które chcesz edytować, a następnie wprowadź nowe wartości.
-1. Kliknij pozycję **Zapisz**. Teraz te wartości zastępują wszystkie elementy, które zostały początkowo zapisane w szablonie urządzenia i są używane w całej aplikacji.
+1. Kliknij przycisk **Zapisz**. Teraz te wartości zastępują wszystkie elementy, które zostały początkowo zapisane w szablonie urządzenia i są używane w całej aplikacji.
 
 ## <a name="version-a-device-template"></a>Wersja szablonu urządzenia
 

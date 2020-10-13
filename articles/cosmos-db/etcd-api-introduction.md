@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 208f0d73b4c8bb11adc9c73796ebc6a622f5ed50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85118172"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Wprowadzenie do interfejsu API Azure Cosmos DB etcd (wersja zapoznawcza)
@@ -50,7 +50,7 @@ Gdy klaster Kubernetes rośnie, konto interfejsu API etcd w Azure Cosmos DB elas
 
 ### <a name="security--enterprise-readiness"></a>Zabezpieczenia & gotowość przedsiębiorstwa
 
-Gdy etcd dane są przechowywane w Azure Cosmos DB, deweloperzy Kubernetes automatycznie pobierają [wbudowane szyfrowanie w spoczynku](database-encryption-at-rest.md), [certyfikatach i zgodności](compliance.md), a [funkcje tworzenia kopii zapasowych i przywracania](online-backup-and-restore.md) obsługiwane przez Azure Cosmos DB. 
+Gdy etcd dane są przechowywane w Azure Cosmos DB, deweloperzy Kubernetes automatycznie pobierają [wbudowane szyfrowanie w spoczynku](database-encryption-at-rest.md),  [certyfikatach i zgodności](compliance.md), a [funkcje tworzenia kopii zapasowych i przywracania](online-backup-and-restore.md) obsługiwane przez Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Następne kroki
 

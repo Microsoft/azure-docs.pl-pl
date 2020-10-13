@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 4b4946da9f63299c7ba2b383d6c153673595a1ab
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450392"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Usuń Update Management z konta usługi Automation
@@ -65,7 +65,7 @@ Podczas próby odłączenia konta usługi Automation można śledzić postęp w 
 Jeśli Update Management został skonfigurowany do obsługi wcześniejszych wersji usługi Azure SQL monitoring, Instalator funkcji mógł utworzyć zasoby automatyzacji, które należy usunąć. W przypadku Update Management można chcieć usunąć następujące elementy, które nie są już potrzebne:
 
    * Harmonogramy aktualizacji — każdy ma nazwę zgodną z utworzonym wdrożeniem aktualizacji.
-   * Grupy hybrydowych procesów roboczych utworzone dla Update Management — każda nazwa jest podobna do *maszyna1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
+   * Grupy hybrydowych procesów roboczych utworzone dla Update Management — każdy ma nazwę podobną do *machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
 
 ## <a name="next-steps"></a>Następne kroki
 

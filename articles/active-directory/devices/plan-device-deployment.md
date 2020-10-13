@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563900"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
@@ -112,7 +112,7 @@ urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w us
 | Hasło| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 | Numer PIN urządzenia| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello dla firm| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
+| Windows Hello for Business| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 | Klucze zabezpieczeń FIDO 2,0| | ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 | Aplikacja Microsoft Authenticator (bezhaseł)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png)| ![Zaznacz te wartości.](./media/plan-device-deployment/check.png) |
 |**Najważniejsze możliwości**| | |  |

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563764"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Rozwiązywanie problemów z koligacją sesji usługi Azure Application Gateway
@@ -195,7 +195,7 @@ Użyj wybranego debugera sieci Web. W tym przykładzie będziemy używać progra
    > [!NOTE]
    > Ta wartość ARRAffinity jest identyfikatorem cookie, który Application Gateway ustawiany przez klienta do określonego serwera zaplecza.
 
-   ![Zrzut ekranu przedstawia przykład szczegółów wpisu dziennika z wyróżnioną wartością Set-cookie.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![Zrzut ekranu przedstawia przykład szczegółów wpisu dziennika z wyróżnioną wartością Set-Cookie.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Przykład B:** Następnym dziennikiem sesji, po którym następuje poprzedni, jest klient odpowiadający na Application Gateway, który ustawił ARRAAFFINITY. Jeśli ARRAffinity jest zgodny z identyfikatorem cookie, pakiet powinien być wysyłany na ten sam serwer zaplecza, który był wcześniej używany. Sprawdź następne kilka wierszy komunikacji http, aby sprawdzić, czy plik cookie ARRAffinity klienta jest zmieniany.
 

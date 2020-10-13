@@ -15,10 +15,10 @@ ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652962"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
@@ -307,7 +307,7 @@ Ogłoszono następujące nowe funkcje:
 ## <a name="april-2015-release"></a><a id="april_changes_15"></a>Wydanie z kwietnia 2015
 ### <a name="general-media-services-updates"></a>Ogólne aktualizacje Media Services
 * [Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/) zostało ogłoszone.
-* Począwszy od Media Services REST 2,10, kanały, które są skonfigurowane do pozyskiwania protokołu Messaging w czasie rzeczywistym, są tworzone przy użyciu podstawowych i dodatkowych adresów URL pozyskiwania. Aby uzyskać więcej informacji, zobacz Konfiguracje pozyskiwania [kanałów](media-services-live-streaming-with-onprem-encoders.md#channel_input).
+* Począwszy od Media Services REST 2,10, kanały, które są skonfigurowane do pozyskiwania protokołu przesyłania komunikatów Real-Time (RTMP), są tworzone przy użyciu podstawowych i dodatkowych adresów URL pozyskiwania. Aby uzyskać więcej informacji, zobacz Konfiguracje pozyskiwania [kanałów](media-services-live-streaming-with-onprem-encoders.md#channel_input).
 * Azure Media Indexer został zaktualizowany.
 * Dodano obsługę języka hiszpańskiego.
 * Dodano nową konfigurację formatu XML.

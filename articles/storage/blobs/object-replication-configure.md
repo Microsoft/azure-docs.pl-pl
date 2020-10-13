@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e42c8e22d004b574e65442f0fbdfce1c9bcabd7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715625"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939424"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB
 
@@ -45,7 +45,7 @@ Jeśli masz dostęp do konta magazynu źródłowego i docelowego, możesz skonfi
 
 Przed skonfigurowaniem replikacji obiektów w Azure Portal należy utworzyć kontenery źródłowe i docelowe na odpowiednich kontach magazynu, jeśli jeszcze nie istnieją. Ponadto Włącz obsługę wersji obiektów blob i źródło zmian na koncie źródłowym i Włącz obsługę wersji obiektów BLOB na koncie docelowym.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Azure Portal automatycznie tworzy zasady na koncie źródłowym po ich skonfigurowaniu dla konta docelowego.
 
@@ -272,7 +272,7 @@ Poniższy przykład definiuje zasady replikacji na koncie docelowym z pojedyncz�
 }
 ```
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby skonfigurować replikację obiektów na koncie docelowym przy użyciu pliku JSON w Azure Portal, wykonaj następujące kroki:
 
@@ -349,11 +349,45 @@ az storage account or-policy create \
 
 ---
 
+## <a name="check-the-replication-status-of-a-blob"></a>Sprawdzanie stanu replikacji obiektu BLOB
+
+Stan replikacji obiektu BLOB można sprawdzić na koncie źródłowym przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Właściwości replikacji obiektów nie są wypełniane, dopóki replikacja nie została ukończona lub zakończyła się niepowodzeniem.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Aby sprawdzić stan replikacji obiektu BLOB na koncie źródłowym w Azure Portal, wykonaj następujące czynności:
+
+1. Przejdź do konta źródłowego w Azure Portal.
+1. Znajdź kontener zawierający źródłowy obiekt BLOB.
+1. Wybierz obiekt BLOB, aby wyświetlić jego właściwości. Jeśli obiekt BLOB został zreplikowany pomyślnie, w sekcji **replikacja obiektów** zostanie wyświetlona wartość *ukończono*. Zostaną również wymienione identyfikatory zasad replikacji i Identyfikator reguły dotyczącej replikacji obiektów dla tego kontenera.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Zrzut ekranu przedstawiający reguły replikacji w Azure Portal":::
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Nie dotyczy
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby sprawdzić stan replikacji obiektu BLOB na koncie źródłowym przy użyciu interfejsu wiersza polecenia platformy Azure, Pobierz wartość właściwości **stan** replikacji obiektu, jak pokazano w następującym przykładzie:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
+```
+
+---
+
 ## <a name="remove-a-replication-policy"></a>Usuwanie zasad replikacji
 
 Aby usunąć zasady replikacji i skojarzone z nimi reguły, użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby usunąć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 

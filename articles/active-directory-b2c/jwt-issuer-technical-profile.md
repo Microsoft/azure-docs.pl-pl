@@ -12,10 +12,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e8f5564f9e7e1176db1fed5fae38eee58874c2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204205"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy token JWT w zasadach niestandardowych Azure Active Directory B2C
@@ -64,7 +64,7 @@ Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie 
 | rolling_refresh_token_lifetime_secs | Nie | Zaodświeżaj okres istnienia okna przewijania tokenu. Po upływie tego czasu użytkownik jest zmuszony do ponownego uwierzytelnienia, niezależnie od okresu ważności ostatniego tokenu odświeżania nabytego przez aplikację. Jeśli nie chcesz wymusić okresu istnienia ruchomego okna, ustaw wartość allow_infinite_rolling_refresh_token na `true` . Wartość domyślna to 7 776 000 sekund (90 dni). Minimalna (włącznie) to 86 400 sekund (24 godziny). Wartość maksymalna (włącznie) to 31 536 000 sekund (365 dni). |
 | allow_infinite_rolling_refresh_token | Nie | Jeśli jest ustawiona na `true` , okres istnienia okna przewijania tokenu odświeżania nigdy nie wygasa. |
 | IssuanceClaimPattern | Nie | Kontroluje wierzytelność wystawcy (ISS). Jedna z wartości:<ul><li>AuthorityAndTenantGuid — zgłoszenie ISS obejmuje nazwę domeny, taką jak `login.microsoftonline` lub `tenant-name.b2clogin.com` , i identyfikator dzierżawy https: \/ /login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp — zgłoszenie ISS obejmuje nazwę domeny, taką jak `login.microsoftonline` lub `tenant-name.b2clogin.com` , identyfikator dzierżawy i nazwę zasad jednostki uzależnionej. https: \/ /login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-Sign-in/v2.0/</li></ul> Wartość domyślna: AuthorityAndTenantGuid |
-| AuthenticationContextReferenceClaimPattern | Nie | Kontroluje `acr` wartość żądania.<ul><li>Brak — Azure AD B2C nie wystawia żądania ACR</li><li>PolicyId — to zgłoszenie `acr` zawiera nazwę zasad</li></ul>Opcje ustawiania tej wartości to TFP (zasady struktury zaufania) i ACR (odwołanie kontekstu uwierzytelniania). Zaleca się ustawienie tej wartości na TFP, aby ustawić wartość, upewnij się, że `<Item>` z `Key="AuthenticationContextReferenceClaimPattern"` istnieje i wartość jest `None` . W zasadach jednostki uzależnionej Dodaj `<OutputClaims>` element, Dodaj ten element `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />` . Upewnij się również, że zasady zawierają typ zgłoszenia`<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+| AuthenticationContextReferenceClaimPattern | Nie | Kontroluje `acr` wartość żądania.<ul><li>Brak — Azure AD B2C nie wystawia żądania ACR</li><li>PolicyId — to zgłoszenie `acr` zawiera nazwę zasad</li></ul>Opcje ustawiania tej wartości to TFP (zasady struktury zaufania) i ACR (odwołanie kontekstu uwierzytelniania). Zaleca się ustawienie tej wartości na TFP, aby ustawić wartość, upewnij się, że `<Item>` z `Key="AuthenticationContextReferenceClaimPattern"` istnieje i wartość jest `None` . W zasadach jednostki uzależnionej Dodaj `<OutputClaims>` element, Dodaj ten element `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />` . Upewnij się również, że zasady zawierają typ zgłoszenia `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
 |RefreshTokenUserJourneyId| Nie | Identyfikator przejazdu użytkownika, który powinien zostać wykonany podczas odświeżania żądania opublikowania [tokenu dostępu](authorization-code-flow.md#4-refresh-the-token) do `/token` punktu końcowego. |
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne

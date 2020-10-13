@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
 ms.openlocfilehash: 81fad1c77b917c1e3eaf7ddd200c3fea83cb0e0a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589677"
 ---
 # <a name="backend-pool-management"></a>Zarządzanie pulą zaplecza
@@ -43,7 +43,7 @@ Poniższe przykłady koncentrują się na operacjach tworzenia i wypełniania dl
   >[!NOTE] 
   >Należy pamiętać, że pule zaplecza skonfigurowane za pośrednictwem interfejsu sieciowego nie mogą zostać zaktualizowane w ramach operacji w puli zaplecza. Dodawanie lub usuwanie zasobów zaplecza musi odbywać się w interfejsie sieciowym zasobu.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 Utwórz nową pulę zaplecza:
  
 ```azurepowershell-interactive
@@ -262,7 +262,7 @@ Wszystkie zarządzanie pulą zaplecza odbywa się bezpośrednio w obiekcie puli 
   >* Kontenery ACI nie są obecnie obsługiwane przez tę funkcję
   >* Moduły równoważenia obciążenia lub usługi frontonu nie mogą być umieszczane w puli zaplecza modułu równoważenia obciążenia
   
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 Utwórz nową pulę zaplecza:
 
 ```azurepowershell-interactive

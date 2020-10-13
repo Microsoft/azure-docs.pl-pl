@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601315"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Dokumentacja podręcznika obsługi ogólnej Azure Active Directory
@@ -156,7 +156,7 @@ Zapoznaj się z poniższą tabelą, aby uzyskać informacje o typie wysyłanych 
 
 Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](../authentication/concept-sspr-howitworks.md). Jeśli używasz AD FS w systemie Windows Server 2012 R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016 lub nowszym, zaimplementuj [inteligentne blokowanie ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Zaleca się włączenie blokowania ekstranetu w taki sposób, aby zawierało ryzyko wymuszania ataków na Active Directory lokalnych. Jeśli jednak masz AD FS w systemie Windows 2016 lub nowszym, należy również włączyć blokadę blokowania ekstranetu, która pomoże ograniczyć ataki z wykorzystaniem [hasła](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
-Jeśli AD FS jest używany tylko w przypadku federacji usługi Azure AD, niektóre punkty końcowe można wyłączyć, aby zminimalizować obszar narażony na ataki. Na przykład jeśli AD FS jest używany tylko w usłudze Azure AD, należy wyłączyć punkty końcowe protokołu WS-Trust inne niż punkty końcowe włączone dla **usernamemixed** i **windowstransport**.
+Jeśli AD FS jest używany tylko w przypadku federacji usługi Azure AD, niektóre punkty końcowe można wyłączyć, aby zminimalizować obszar narażony na ataki. Na przykład jeśli AD FS jest używany tylko w usłudze Azure AD, należy wyłączyć punkty końcowe WS-Trust inne niż punkty końcowe włączone dla **usernamemixed** i **windowstransport**.
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>Dostęp do maszyn z lokalnymi składnikami tożsamości
 

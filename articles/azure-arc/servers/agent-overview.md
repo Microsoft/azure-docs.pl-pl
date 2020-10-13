@@ -4,10 +4,10 @@ description: Ten artykuł zawiera szczegółowe omówienie dostępnego agenta us
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822200"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Omówienie agenta serwerów z obsługą usługi Azure Arc
@@ -23,7 +23,7 @@ Pakiet agenta połączonej maszyny platformy Azure zawiera kilka składników lo
 
 * Usługa metadanych wystąpienia hybrydowego (HIMDS) zarządza połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.
 
-* Agent konfiguracji gościa udostępnia funkcje zasad gościa i konfiguracji gościa, takie jak ocenianie, czy maszyna jest zgodna z wymaganymi zasadami.
+* Agent konfiguracji gościa zapewnia funkcje In-Guest zasad i konfiguracji gościa, takie jak ocenianie, czy maszyna jest zgodna z wymaganymi zasadami.
 
     Zwróć uwagę na następujące zachowanie Azure Policy [konfiguracji gościa](../../governance/policy/concepts/guest-configuration.md) dla rozłączonej maszyny:
 
@@ -92,7 +92,7 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
+|`login.windows.net`|Usługa Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`agentserviceapi.azure-automation.net`|Konfiguracja gościa|
 |`*-agentservice-prod-1.azure-automation.net`|Konfiguracja gościa|
@@ -173,7 +173,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
     |Nazwa usługi |Nazwa wyświetlana |Nazwa procesu |Opis |
     |-------------|-------------|-------------|------------|
     |himds |Instance Metadata Service hybrydowe platformy Azure |himds.exe |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
-    |DscService |Usługa konfiguracji gościa |dsc_service.exe |Baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad w gościu.|
+    |DscService |Usługa konfiguracji gościa |dsc_service.exe |Baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad In-Guest.|
 
 * Podczas instalacji agenta tworzone są następujące zmienne środowiskowe.
 
@@ -224,7 +224,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
     |Nazwa usługi |Nazwa wyświetlana |Nazwa procesu |Opis |
     |-------------|-------------|-------------|------------|
     |himdsd. Service |Instance Metadata Service hybrydowe platformy Azure |/opt/azcmagent/bin/himds |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
-    |dscd. Service |Usługa konfiguracji gościa |/opt/DSC/dsc_linux_service |Jest to baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad w gościu.|
+    |dscd. Service |Usługa konfiguracji gościa |/opt/DSC/dsc_linux_service |Jest to baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad In-Guest.|
 
 * Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399537"
 ---
 # <a name="azure-security-technical-capabilities"></a>Możliwości techniczne zabezpieczeń platformy Azure
@@ -46,7 +46,7 @@ Microsoft Azure udostępnia usługi, które pomagają sprostać wymaganiom zwią
 
 Platforma Azure pomaga w ochronie danych firmowych i osobistych, umożliwiając Zarządzanie tożsamościami i poświadczeniami użytkowników oraz kontrolę dostępu.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Rozwiązania do zarządzania tożsamościami i dostępem firmy Microsoft ułatwiają ochronę dostępu do aplikacji i zasobów w centrum danych firmy oraz w chmurze, co pozwala na dodatkowe poziomy weryfikacji, takie jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowanie podejrzanej aktywności przy użyciu zaawansowanych raportów zabezpieczeń, inspekcji i alertów umożliwia rozwiązywanie potencjalnych problemów z zabezpieczeniami. [Azure Active Directory — wersja Premium](../../active-directory/active-directory-whatis.md) zapewnia Logowanie jednokrotne do tysięcy aplikacji w chmurze i dostęp do aplikacji sieci Web uruchamianych lokalnie.
 
@@ -62,7 +62,7 @@ Zalety zabezpieczeń Azure Active Directory (Azure AD) obejmują:
 
 [Portal Azure Active Directory](https://aad.portal.azure.com/) jest dostępny w ramach Azure Portal. Z tego pulpitu nawigacyjnego można zapoznać się z omówieniem stanu organizacji oraz łatwo zarządzać dostępem do katalogu, użytkowników lub aplikacji.
 
-![Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
+![Usługa Azure Active Directory](./media/technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
 Poniżej przedstawiono podstawowe możliwości usługi Azure Identity Management:
 
@@ -150,7 +150,7 @@ Kontrola dostępu na platformie Azure zaczyna się od perspektywy rozliczania. W
 
 ![Bezpieczny dostęp do zasobów na platformie Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
-Subskrypcje mają także skojarzenie z katalogiem. Katalog definiuje zbiór użytkowników. Mogą to być użytkownicy z pracy lub szkoły, która utworzyła katalog, lub mogą być użytkownikami zewnętrznymi (czyli kontami Microsoft). Subskrypcje są dostępne dla podzestawu tych użytkowników katalogów, którzy zostali przypisani jako administrator usługi (SA) lub współadministrator (CA); Jedynym wyjątkiem jest to, że w przypadku starszych powodów konta Microsoft (wcześniej identyfikator Windows Live ID) można przypisać jako SA lub CA bez obecności w katalogu.
+Subskrypcje mają także skojarzenie z katalogiem. Katalog definiuje zbiór użytkowników. Mogą to być użytkownicy z pracy lub szkoły, która utworzyła katalog, lub mogą być użytkownikami zewnętrznymi (czyli kontami Microsoft). Subskrypcje są dostępne dla podzestawu tych użytkowników katalogów, którzy zostali przypisani jako administrator usługi (SA) lub Co-Administrator (CA); Jedynym wyjątkiem jest to, że w przypadku starszych powodów konta Microsoft (wcześniej identyfikator Windows Live ID) można przypisać jako SA lub CA bez obecności w katalogu.
 
 Firmy zorientowane na zabezpieczenia powinny skupić się na umożliwieniu pracownikom dokładnych wymaganych uprawnień. Zbyt wiele uprawnień może uwidocznić konto w osobach atakujących. Zbyt mało uprawnień oznacza, że pracownicy nie mogą wydajnie pracować. [Kontrola dostępu oparta na rolach (Azure RBAC) na](../../role-based-access-control/overview.md) platformie Azure pomaga rozwiązać ten problem, oferując szczegółowe zarządzanie dostępem na platformie Azure.
 

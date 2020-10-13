@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
 ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318134"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Ciągłe monitorowanie za pomocą Azure Monitor
@@ -27,7 +27,7 @@ Aby uzyskać wgląd w całe środowisko, należy włączyć monitorowanie wszyst
 
 - [Azure DevOps projects](../devops-project/overview.md) zapewnić uproszczone środowisko pracy z istniejącym kodem i repozytorium Git lub wybrać jedną z przykładowych aplikacji, aby utworzyć potok ciągłej integracji i ciągłego dostarczania na platformie Azure.
 - [Ciągłe monitorowanie w potoku wydania DevOps](./app/continuous-monitoring.md) umożliwia bramowanie lub wycofywanie wdrożenia na podstawie danych monitorowania.
-- [Monitor stanu](./app/monitor-performance-live-website-now.md) umożliwia instrumentację na żywo aplikacji .NET w systemie Windows przy użyciu usługi Azure Application Insights, bez konieczności modyfikowania ani ponownego wdrażania kodu.
+- [Monitor stanu](./app/monitor-performance-live-website-now.md)  umożliwia instrumentację na żywo aplikacji .NET w systemie Windows przy użyciu usługi Azure Application Insights, bez konieczności modyfikowania ani ponownego wdrażania kodu.
 - Jeśli masz dostęp do kodu aplikacji, Włącz pełne monitorowanie za pomocą [Application Insights](./app/app-insights-overview.md) , instalując zestaw SDK Azure Monitor Application Insights dla [platformy .NET](./learn/quick-monitor-portal.md), [Java](./app/java-get-started.md), [Node.js](./learn/nodejs-quick-start.md)lub [innych języków programowania](./app/platforms.md). Pozwala to określić niestandardowe zdarzenia, metryki lub widoki stron, które są istotne dla Twojej aplikacji i Twojej firmy.
 
 

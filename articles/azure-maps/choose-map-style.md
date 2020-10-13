@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285166"
 ---
 # <a name="change-the-style-of-the-map"></a>Zmienianie stylu mapy
@@ -101,7 +101,7 @@ Poniższy obraz pokazuje kontrolkę selektora stylu wyświetlaną w `icon` ukła
 
 Poniższy obraz pokazuje kontrolkę selektora stylu wyświetlaną w `list` układzie.
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Układ listy selektora stylów":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Układ ikony selektora stylów":::
 
 > [!IMPORTANT]
 > Domyślnie kontrolka selektora stylów wyświetla listę wszystkich stylów dostępnych w warstwie cenowej S0 Azure Maps. Jeśli chcesz zmniejszyć liczbę stylów na tej liście, Przekaż tablicę stylów, które mają być wyświetlane na liście w `mapStyle` opcji selektora stylów. Jeśli używasz systemu S1 i chcesz wyświetlić wszystkie dostępne style, ustaw `mapStyles` opcję selektora stylów na `"all"` .

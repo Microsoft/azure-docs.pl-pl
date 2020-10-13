@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: 9c54482dc188141c4fc697bd43628b81e0ddc29f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597128"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Chmury i regiony, w których istnieje Azure Media Services v3
@@ -27,7 +27,7 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 
 ## <a name="feature-availability-in-azure-clouds"></a>Dostępność funkcji w chmurach platformy Azure
 
-| Cechy|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
+| Cecha|Globalne regiony platformy Azure | Azure Government|Azure (Niemcy)|Azure w Chinach — 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure Event Grid](reacting-to-media-services-events.md) | Dostępne | Niedostępne | Niedostępne | Niedostępne |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Dostępne | Niedostępne | Niedostępne | Niedostępne |
@@ -44,7 +44,7 @@ Azure Media Services V3 jest dostępny za pośrednictwem Azure Resource Manager 
 - West Europe
 - Europa Północna
 - East US
-- Środkowe stany USA
+- Central US
 - South Central US
 - Zachodnie stany USA 2
 - Brazil South
@@ -85,7 +85,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Usługa | Punkt końcowy |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` |
+| Uwierzytelnianie | `https://login.microsoftonline.com/` |
 | Odbiorcy tokenu | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -93,7 +93,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Usługa | Punkt końcowy |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` |
+| Uwierzytelnianie | `https://login.microsoftonline.us/` |
 | Odbiorcy tokenu | `https://management.core.usgovcloudapi.net/` |
 
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
@@ -103,7 +103,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Usługa | Punkt końcowy |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Uwierzytelnianie | `https://login.microsoftonline.de/` |
 | Odbiorcy tokenu | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet
@@ -111,7 +111,7 @@ Następujące punkty końcowe są ważne, aby wiedzieć, jak nawiązać połącz
 | Usługa | Punkt końcowy |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Uwierzytelnianie | `https://login.chinacloudapi.cn/` |
 | Odbiorcy tokenu |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>Zobacz też

@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267503"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenariusz: kierowanie ruchu przez urządzeń WUS — niestandardowy (wersja zapoznawcza)
@@ -68,7 +68,7 @@ Potrzebujemy tych tras statycznych, aby upewnić się, że ruch między sieciami
 | Opis | Tabela tras | Trasa statyczna              |
 | ----------- | ----------- | ------------------------- |
 | Gałęzie    | RT_V2B      | 10.2.0.0/16 — > vnet4conn  |
-| URZĄDZENIE WUS szprychy  | Domyślny     | 10.1.0.0/16 — > vnet4conn  |
+| URZĄDZENIE WUS szprychy  | Domyślne     | 10.1.0.0/16 — > vnet4conn  |
 
 Teraz wirtualna sieć WAN wie, z którym połączeniem należy wysyłać pakiety, ale połączenie musi wiedzieć, co należy zrobić podczas otrzymywania tych pakietów: jest to miejsce, w którym są używane tabele tras połączeń.
 
@@ -129,7 +129,7 @@ Aby skonfigurować Routing za pośrednictwem urządzenie WUS, poniżej przedstaw
 
 **Rysunek 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Rysunek 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Rysunek 1" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

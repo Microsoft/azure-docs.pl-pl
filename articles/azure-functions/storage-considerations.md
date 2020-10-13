@@ -4,10 +4,10 @@ description: Dowiedz się więcej o wymaganiach dotyczących magazynu Azure Func
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318185"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu Azure Functions
@@ -19,7 +19,7 @@ Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpieni
 |---------|---------|
 | [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Zachowaj stan powiązań i klucze funkcji.  <br/>Używane także przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Azure Files](../storage/files/storage-files-introduction.md)  | Udział plików używany do przechowywania i uruchamiania kodu aplikacji funkcji w [planie użycia](functions-scale.md#consumption-plan) i [planu Premium](functions-scale.md#premium-plan). |
-| [Usługa Azure queue storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
+| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Istnieje możliwość udostępnienia tego samego konta magazynu dla wielu aplika
 
 Istniejące udziały Azure Files można zainstalować w aplikacjach funkcji systemu Linux. Instalując udział w aplikacji funkcji systemu Linux, możesz korzystać z istniejących modeli uczenia maszynowego lub innych danych w swoich funkcjach. Możesz użyć polecenia, [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) Aby zainstalować istniejący udział w aplikacji funkcji systemu Linux. 
 
-W tym poleceniu `share-name` jest nazwą istniejącego udziału Azure Files i `custom-id` może być dowolnym ciągiem, który jednoznacznie definiuje udział w przypadku zamontowania w aplikacji funkcji. Ponadto `mount-path` jest ścieżką, z której uzyskuje się dostęp do udziału w aplikacji funkcji. `mount-path`musi być w formacie `/dir-name` i nie może zaczynać się od `/home` .
+W tym poleceniu `share-name` jest nazwą istniejącego udziału Azure Files i `custom-id` może być dowolnym ciągiem, który jednoznacznie definiuje udział w przypadku zamontowania w aplikacji funkcji. Ponadto `mount-path` jest ścieżką, z której uzyskuje się dostęp do udziału w aplikacji funkcji. `mount-path` musi być w formacie `/dir-name` i nie może zaczynać się od `/home` .
 
 Pełny przykład można znaleźć w artykule skrypty w temacie [Tworzenie aplikacji funkcji języka Python i Instalowanie udziału Azure Files](scripts/functions-cli-mount-files-storage-linux.md). 
 

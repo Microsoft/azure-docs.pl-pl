@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295286"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Event Hubs dane wyjściowe z Azure Stream Analytics
@@ -62,7 +62,7 @@ W poniższym przykładzie pola `DeviceId` i `DeviceStatus` są dodawane do metad
 
 Na poniższej ilustracji przedstawiono oczekiwane właściwości komunikatów wyjściowych, które zostały sprawdzone w centrum EventHub przy użyciu [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Właściwości niestandardowe zdarzenia":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="Kolumny właściwości":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: aahi
 ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937812"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Instrukcje: Zarządzanie źródłami danych
@@ -97,7 +97,7 @@ Istnieje kilka opcjonalnych ustawień zaawansowanych podczas tworzenia nowego ź
 > To ustawienie nie będzie miało wpływu na źródło danych i nie będzie miało wpływu na wykresy danych wyświetlane w portalu. Funkcja automatycznego wypełniania występuje tylko podczas wykrywania anomalii.
 
 Niektóre serie czasowe nie są ciągłe. Gdy brakuje punktów danych, Doradca metryk użyje określonej wartości, aby wypełnić je przed anomalią wykrywania w celu uzyskania lepszej dokładności.
-Dostępne opcje to: 
+Dostępne są następujące opcje: 
 
 * Użycie wartości z poprzedniego rzeczywistego punktu danych. Ta wartość jest używana domyślnie.
 * Przy użyciu określonej wartości.
@@ -106,7 +106,7 @@ Dostępne opcje to:
 
 Szablony linków akcji służą do wstępnego definiowania adresów URL http, które składają się z symboli zastępczych,,, `%datafeed` `%metric` `%timestamp` `%detect_config` i `%tagset` . Możesz użyć szablonu, aby przekierować z anomalii lub zdarzenia do określonego adresu URL w celu przechodzenia do szczegółów.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Szablon łącza akcji" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Strumieniowe źródło danych" lightbox="../media/action-link-template.png":::
 
 Po wypełnieniu linku Akcja kliknij pozycję **Przejdź do linku akcja** na liście Akcja i kliknij prawym przyciskiem myszy drzewo zdarzeń. Zastąp symbole zastępcze w szablonie linku akcji odpowiednimi wartościami anomalii lub incydentu.
 
