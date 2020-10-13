@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449412"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Rozwiązanie do zarządzania Application Insights Connector (przestarzałe)
@@ -55,12 +55,12 @@ W przeciwieństwie do większości innych rozwiązań Log Analytics dane nie są
 - Musisz mieć co najmniej jeden skonfigurowany Application Insights zasób.
 - Musisz być właścicielem lub współautorem zasobu Application Insights.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 1. Włącz rozwiązanie Azure Web Apps Analytics z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań log Analytics z Galeria rozwiązań](../insights/solutions.md).
 2. Przejdź do [Azure Portal](https://portal.azure.com). Wybierz pozycję **wszystkie usługi** , aby otworzyć Application Insights. Następnie wyszukaj Application Insights. 
 3. W obszarze **subskrypcje**wybierz subskrypcję zawierającą Application Insights zasoby, a następnie w obszarze **Nazwa**wybierz co najmniej jedną aplikację.
-4. Kliknij pozycję **Zapisz**.
+4. Kliknij przycisk **Zapisz**.
 
 W ciągu około 30 minut dane staną się dostępne, a kafelek Application Insights zostanie zaktualizowany danymi, takimi jak na poniższej ilustracji:
 
@@ -176,7 +176,7 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 
 | Właściwość | Opis |
 | --- | --- |
-| Typ | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Czas rekordu |
 | ApplicationId | Klucz Instrumentacji aplikacji Application Insights |
@@ -225,7 +225,7 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 
 ### <a name="exception-specific-fields"></a>Pola specyficzne dla wyjątku
 
-| Typ | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | Telemetriatype | Wyjątek |
 | Typ | Typ wyjątku |
@@ -244,10 +244,10 @@ Rekord z *typem* *ApplicationInsights* jest tworzony dla każdego typu danych we
 
 | Właściwość | Opis |
 | --- | --- |
-| Typ | ApplicationInsights |
+| Type | ApplicationInsights |
 | Telemetriatype | Żądanie |
 | ResponseCode | Odpowiedź HTTP wysłana do klienta |
-| RequestSuccess | Wskazuje powodzenie lub niepowodzenie. Prawda lub fałsz. |
+| RequestSuccess | Wskazuje powodzenie lub niepowodzenie. TRUE lub FALSE. |
 | RequestID | Identyfikator do unikatowego identyfikowania żądania |
 | Żądanie | Pobierz/Ogłoś i adres URL bazy |
 | RequestDuration | Czas trwania żądania (w sekundach) |

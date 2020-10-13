@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04b70e593e8b1bee8beb72ac88bc8441bc38bb9a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090639"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963248"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostyka wydajności maszyn wirtualnych platformy Azure
 
@@ -61,7 +61,7 @@ Diagnostykę wydajności można uruchomić bezpośrednio z poziomu Azure Portal,
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instalowanie i uruchamianie diagnostyki wydajności na maszynie wirtualnej
 
-Diagnostyka wydajności instaluje rozszerzenie maszyny wirtualnej z uruchomionym narzędziem diagnostycznym o nazwie że program perfinsights. Że program perfinsights jest dostępny dla [systemów Windows](https://aka.ms/perfinsights) i [Linux](https://aka.ms/perfinsightslinux). Aby zainstalować i uruchomić diagnostykę wydajności, wykonaj następujące kroki:
+Diagnostyka wydajności instaluje rozszerzenie maszyny wirtualnej z uruchomionym narzędziem diagnostycznym o nazwie że program perfinsights. Że program perfinsights jest dostępny dla [systemów Windows](./how-to-use-perfinsights.md) i [Linux](./how-to-use-perfinsights-linux.md). Aby zainstalować i uruchomić diagnostykę wydajności, wykonaj następujące kroki:
 
 1. W lewej kolumnie poleceń wybierz pozycję **maszyny wirtualne**.
 1. Z listy nazw maszyn wirtualnych wybierz maszynę wirtualną, na której chcesz przeprowadzić diagnostykę.
@@ -91,16 +91,16 @@ Diagnostyka wydajności instaluje rozszerzenie maszyny wirtualnej z uruchomionym
 Poniższe scenariusze analizy są dostępne w Azure Portal. Wybierz analizę, w zależności od występującego problemu z wydajnością. Wybierz opcje czasu trwania i śledzenia w zależności od potrzeb analizy.
 
 * **Analiza szybkiej wydajności**  
-    Sprawdza znane problemy, analizuje najlepsze rozwiązania i zbiera dane diagnostyczne. Wykonanie tej analizy trwa kilka minut. Dowiedz się więcej o [systemie Windows](https://aka.ms/perfinsights/quick) lub [Linux](https://aka.ms/perfinsightslinux/quick)
+    Sprawdza znane problemy, analizuje najlepsze rozwiązania i zbiera dane diagnostyczne. Wykonanie tej analizy trwa kilka minut. Dowiedz się więcej o [systemie Windows](./how-to-use-perfinsights.md) lub [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Analiza wydajności**  
-    Obejmuje wszystkie kontrole szybkiej analizy wydajności i monitoruje duże zużycie zasobów. Ta wersja służy do rozwiązywania ogólnych problemów z wydajnością, takich jak duże użycie procesora CPU, pamięci i dysku. Ta analiza trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. Dowiedz się więcej o [systemie Windows](https://aka.ms/perfinsights/vmslow) lub [Linux](https://aka.ms/perfinsightslinux/vmslow)
+    Obejmuje wszystkie kontrole szybkiej analizy wydajności i monitoruje duże zużycie zasobów. Ta wersja służy do rozwiązywania ogólnych problemów z wydajnością, takich jak duże użycie procesora CPU, pamięci i dysku. Ta analiza trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. Dowiedz się więcej o [systemie Windows](./how-to-use-perfinsights.md) lub [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Zaawansowana analiza wydajności**`*`  
-    Obejmuje wszystkie operacje sprawdzania w analizie wydajności i zbiera jeden lub więcej śladów, jak opisano w poniższych sekcjach. Ten scenariusz umożliwia rozwiązywanie złożonych problemów wymagających dodatkowych śladów. Uruchomienie tego scenariusza dla dłuższych okresów spowoduje zwiększenie całkowitego rozmiaru danych wyjściowych diagnostyki, w zależności od rozmiaru maszyny wirtualnej i wybranych opcji śledzenia. Wykonanie tej analizy trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. [Dowiedz się więcej](https://aka.ms/perfinsights/advanced)
+    Obejmuje wszystkie operacje sprawdzania w analizie wydajności i zbiera jeden lub więcej śladów, jak opisano w poniższych sekcjach. Ten scenariusz umożliwia rozwiązywanie złożonych problemów wymagających dodatkowych śladów. Uruchomienie tego scenariusza dla dłuższych okresów spowoduje zwiększenie całkowitego rozmiaru danych wyjściowych diagnostyki, w zależności od rozmiaru maszyny wirtualnej i wybranych opcji śledzenia. Wykonanie tej analizy trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. [Dowiedz się więcej](./how-to-use-perfinsights.md)
 
 * **Analiza Azure Files**`*`  
-    Obejmuje wszystkie sprawdzenia w analizie wydajności i przechwytuje śledzenie sieci i liczniki protokołu SMB. Ten scenariusz umożliwia rozwiązywanie problemów z wydajnością usługi Azure Files. Wykonanie tej analizy trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. [Dowiedz się więcej](https://aka.ms/perfinsights/azurefiles)
+    Obejmuje wszystkie sprawdzenia w analizie wydajności i przechwytuje śledzenie sieci i liczniki protokołu SMB. Ten scenariusz umożliwia rozwiązywanie problemów z wydajnością usługi Azure Files. Wykonanie tej analizy trwa 30 sekund do 15 minut, w zależności od wybranego czasu trwania. [Dowiedz się więcej](./how-to-use-perfinsights.md)
 
 >[!Note]
 >[ `*` ] Te scenariusze analizy są obsługiwane tylko w systemie Windows.

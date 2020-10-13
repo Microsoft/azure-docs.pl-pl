@@ -7,10 +7,10 @@ ms.date: 6/29/2017
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4a336daf9bd7400d049233a22a04d64d561b42c9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021956"
 ---
 # <a name="reliable-services-notifications"></a>Powiadomienia Reliable Services
@@ -207,7 +207,7 @@ Poniżej przedstawiono niektóre kwestie, o których należy pamiętać:
 * W przypadku transakcji zawierających wiele operacji operacje są stosowane w kolejności, w jakiej zostały odebrane w replice podstawowej od użytkownika.
 * W ramach przetwarzania fałszywych postępów niektóre operacje mogą być cofnięte. Powiadomienia są zgłaszane dla takich operacji cofania, ale wycofywanie stanu repliki z powrotem do stabilnego punktu. Jedną z ważnych różnic między powiadomieniami o cofnięciu jest to, że agregowane są zdarzenia, które mają zduplikowane klucze. Na przykład jeśli transakcja T1 jest cofnięta, zobaczysz pojedyncze powiadomienie do usunięcia (X).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Elementy Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services Szybki Start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services kopii zapasowej i przywracania (odzyskiwanie po awarii)](service-fabric-reliable-services-backup-restore.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401643"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974672"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresy IP zarządzania usługą HDInsight
 
@@ -59,7 +59,7 @@ Zezwalaj na ruch z adresów IP wymienionych dla usług Azure HDInsight Health i 
 | Australia | Australia Wschodnia | 104.210.84.115</br>13.75.152.195 | \*: 443 | Inbound |
 | &nbsp; | Australia Południowo-Wschodnia | 13.77.2.56</br>13.77.2.94 | \*: 443 | Inbound |
 | Brazylia | Brazil South | 191.235.84.104</br>191.235.87.113 | \*: 443 | Inbound |
-| Kanada | Kanada Wschodnia | 52.229.127.96</br>52.229.123.172 | \*: 443 | Inbound |
+| Canada | Kanada Wschodnia | 52.229.127.96</br>52.229.123.172 | \*: 443 | Inbound |
 | &nbsp; | Kanada Środkowa | 52.228.37.66</br>52.228.45.222 |\*: 443 | Inbound |
 | Chiny | Chiny Północne | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*: 443 | Inbound |
 | &nbsp; | Chiny Wschodnie | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*: 443 | Inbound |
@@ -85,6 +85,7 @@ Zezwalaj na ruch z adresów IP wymienionych dla usług Azure HDInsight Health i 
 | &nbsp; | Zachodnie stany USA | 13.64.254.98</br>23.101.196.19 | \*: 443 | Inbound |
 | &nbsp; | Zachodnie stany USA 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | Inbound |
 | &nbsp; | Północne Zjednoczone Emiraty Arabskie | 65.52.252.96</br>65.52.252.97 | \*: 443 | Inbound |
+| &nbsp; | Środkowy Zjednoczone Emiraty Arabskie | 20.37.76.96</br>20.37.76.99 | \*: 443 | Inbound |
 
 Aby uzyskać informacje dotyczące adresów IP, które mają być używane na potrzeby Azure Government, zobacz dokument [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
 

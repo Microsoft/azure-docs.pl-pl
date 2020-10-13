@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554519"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940824"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Samouczek: integracja logowania jednokrotnego w usłudze Azure AD z pakietem
 
@@ -96,7 +96,7 @@ Aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal, wykonaj na
 
     * Uzyskasz **<`Instance ID`>** wartość w sekcji konfiguracja pakietu, która została omówiona w dalszej części samouczka w kroku 8 w obszarze Konfiguracja pakietu. Dokładna domena (na przykład system.na0.netsuite.com w tym przypadku) zostanie znaleziona.
 
-        ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/domain-value.png)
+        ![Zrzut ekranu przedstawia stronę konfiguracji protokołu SAML, na której można uzyskać domenę.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > Wartości w poprzednich adresach URL nie są prawdziwe. Zaktualizuj je za pomocą adresu URL rzeczywistej odpowiedzi. Aby uzyskać wartość, skontaktuj się z [zespołem obsługi klienta dla pakietu](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Można również odnieść się do formatów przedstawionych w sekcji podstawowe informacje o **konfiguracji SAML** w Azure Portal.
@@ -164,31 +164,31 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
 2. Na górnym pasku nawigacyjnym wybierz pozycję **Instalator**, a następnie **Company**wybierz pozycję  >  **funkcje włączania**firmy.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![Zrzut ekranu przedstawia funkcje włączania wybrane z firmy.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. Na pasku narzędzi w środku strony wybierz pozycję **SuiteCloud**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![Zrzut ekranu przedstawia SuiteCloud zaznaczone.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. W obszarze **Zarządzanie uwierzytelnianiem**zaznacz pole wyboru Protokół **SAML logowanie** jednokrotne, aby włączyć opcję logowania jednokrotnego protokołu SAML w zestawie.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![Zrzut ekranu przedstawia Zarządzanie uwierzytelnianiem, w którym można wybrać opcję Logowanie jednokrotne w protokole SAML.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. Na górnym pasku nawigacyjnym wybierz pozycję **Konfiguracja**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-setup.png)
+    ![Zrzut ekranu przedstawia konfigurację wybraną na pasku nawigacyjnym pakietu.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. Na liście **zadania Instalatora** wybierz pozycję **integracja**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-integration.png)
+    ![Zrzut ekranu przedstawia integrację wybraną z zadań Instalatora.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. W obszarze **Zarządzanie uwierzytelnianiem**wybierz pozycję **SAML logowanie**jednokrotne.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-saml.png)
+    ![Zrzut ekranu pokazujący Logowanie jednokrotne SAML wybrane z elementu Integration w ZADANIAch INSTALACYJNYch.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. W okienku **Instalatora SAML** w obszarze **Konfiguracja pakietu**, wykonaj następujące czynności:
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![Zrzut ekranu przedstawia konfigurację języka SAML, w której można wprowadzić podane wartości.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. Zaznacz pole wyboru **podstawowa metoda uwierzytelniania** .
 
@@ -198,9 +198,9 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
 9. Na górnym pasku nawigacyjnym pakietu, wybierz pozycję **Instalator**, a następnie **Wybierz pozycję**  >  **Informacje o firmie**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-com.png)
+    ![Zrzut ekranu przedstawia informacje o firmie wybrane z firmy.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-account-id.png)
+    ![Zrzut ekranu przedstawia okienko, w którym można wprowadzić podane wartości.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. W okienku **Informacje o firmie** w prawej kolumnie skopiuj wartość **Identyfikator konta** .
 
@@ -210,23 +210,23 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
     a. Na górnym pasku nawigacyjnym wybierz pozycję **Konfiguracja**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-setup.png)
+    ![Zrzut ekranu przedstawia konfigurację wybraną na pasku nawigacyjnym pakietu.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. W lewym okienku wybierz pozycję **użytkownicy/role**, a następnie wybierz pozycję **Zarządzaj rolami**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![Zrzut ekranu przedstawia okienko Zarządzanie rolami, w którym można wybrać nową rolę.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     c. Wybierz pozycję **Nowa rola**.
 
     d. Wprowadź **nazwę** nowej roli.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-new-role.png)
+    ![Zrzut ekranu przedstawia Menedżera ustawień, w którym można wprowadzić nazwę roli.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. Wybierz pozycję **Zapisz**.
 
     f. Na górnym pasku nawigacyjnym wybierz pozycję **uprawnienia**. Następnie wybierz pozycję **Konfiguracja**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-sso.png)
+    ![Zrzut ekranu przedstawia kartę Konfiguracja, w której można wprowadzić podane wartości.](./media/NetSuite-tutorial/ns-sso.png)
 
     przykład Wybierz pozycję **SAML logowanie**jednokrotne, a następnie wybierz pozycję **Dodaj**.
 
@@ -234,19 +234,19 @@ W tej sekcji zostanie włączona funkcja User B. Simon, która umożliwia logowa
 
     i. Na górnym pasku nawigacyjnym wybierz pozycję **Instalator**, a następnie wybierz pozycję **Menedżer instalacji**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-setup.png)
+    ![Zrzut ekranu przedstawia konfigurację wybraną na pasku nawigacyjnym pakietu.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. W lewym okienku wybierz pozycję **użytkownicy/role**, a następnie wybierz pozycję **Zarządzaj użytkownikami**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![Zrzut ekranu przedstawia okienko zarządzanie użytkownikami, w którym można wybrać zespół demonstracyjny zestawu.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. Wybierz użytkownika testowego, wybierz pozycję **Edytuj**, a następnie wybierz kartę **dostęp** .
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![Zrzut ekranu przedstawia okienko zarządzanie użytkownikami, w którym można wybrać opcję Edytuj.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. W okienku **role** Przypisz odpowiednią rolę utworzoną przez użytkownika.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/NetSuite-tutorial/ns-add-role.png)
+    ![Zrzut ekranu przedstawia administratora wybranego przez pracownika.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. Wybierz pozycję **Zapisz**.
 

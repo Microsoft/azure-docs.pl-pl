@@ -4,10 +4,10 @@ description: Ten artykuł zawiera informacje dotyczące korzystania z Eksplorato
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295604"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Używanie Service Bus Explorer do wykonywania operacji na danych na Service Bus (wersja zapoznawcza)
@@ -51,7 +51,7 @@ Po wybraniu instrukcji **"Queues"** lub **"Tematy"** wybierz określoną kolejk�
 
 Wybierz pozycję **"Service Bus Explorer (wersja zapoznawcza)"** z menu nawigacji po lewej stronie
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Menu nawigacji po lewej stronie Eksploratora SB":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Wybór jednostki":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Wysyłanie komunikatu do kolejki lub tematu
 
@@ -66,17 +66,17 @@ Aby zredagować wiadomość tutaj —
 
 Po utworzeniu komunikatu kliknij przycisk Wyślij.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Redagowanie wiadomości":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Wybór jednostki":::
 
 Po pomyślnym ukończeniu operacji wysyłania 
 
 * W przypadku wysyłania do kolejki licznik metryki **aktywnych komunikatów** zostanie zwiększony.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Wybór jednostki":::
 
 * W przypadku wysłania do tematu Licznik metryk **komunikatów aktywnych** zostanie zwiększony dla subskrypcji, do której wiadomość była kierowana.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TopicAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="Wybór jednostki":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>Otrzymywanie komunikatu z kolejki
 
@@ -93,18 +93,18 @@ Aby odebrać komunikat z kolejki (lub podkolejki utraconych wiadomości)
 1. Kliknij kartę ***Odbierz*** w Eksploratorze Service Bus.
 2. Sprawdź metryki, aby sprawdzić, czy istnieją **aktywne komunikaty** lub **wiadomości utraconych** do odebrania.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Wybór jednostki":::
 
 3. Wybierz między ***kolejką*** lub podkolejką ***utraconych wiadomości*** .
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Wybór jednostki":::
 
 4. Kliknij przycisk ***Odbierz*** , a następnie pozycję ***tak*** , aby potwierdzić operację odbierania i usuwania.
 
 
 Po pomyślnym przeprowadzeniu operacji odbierania szczegóły komunikatu będą wyświetlane w siatce poniżej. Możesz wybrać komunikat z siatki, aby wyświetlić jego szczegóły.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Zrzut ekranu okna kolejki w Eksploratorze Azure Service Bus z informacjami o komunikacie wyświetlanymi dla aktywnej wiadomości wybranej w kolejce.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Wybór jednostki":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Wgląd do wiadomości z kolejki
@@ -113,21 +113,21 @@ Korzystając z funkcji wglądu, można użyć Eksploratora Service Bus do wyświ
 
 1. Aby uzyskać wgląd w komunikat w kolejce, kliknij kartę ***wgląd*** w Eksploratorze Service Bus.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="Wybór jednostki":::
 
 2. Sprawdź metryki, aby sprawdzić, czy są **aktywne komunikaty** lub **wiadomości utracone** do wglądu.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="Wybór jednostki":::
 
 3. Następnie wybierz ***kolejkę podrzędne kolejki*** lub ***utraconych wiadomości*** .
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="Wybór jednostki":::
 
 4. Kliknij przycisk ***wgląd*** . 
 
 Po zakończeniu operacji wglądu do 32 komunikatów będzie widocznych w siatce poniżej. Aby wyświetlić szczegóły konkretnego komunikatu, wybierz go z siatki. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Wybór jednostki":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Podobnie jak w przypadku kolejki, operację ***odbierania*** można wykonać w o
 
 1. Kliknij kartę ***Odbierz*** i wybierz określoną ***subskrypcję*** z selektora listy rozwijanej.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="Wybór jednostki":::
 
 2. Wybierz między ***subskrypcją*** lub podklasą ***utraconych wiadomości*** .
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Wybór jednostki":::
 
 3. Kliknij przycisk ***Odbierz*** , a następnie pozycję ***tak*** , aby potwierdzić operację odbierania i usuwania.
 
 Po pomyślnym przeprowadzeniu operacji odbierania odebrany komunikat zostanie wyświetlony w siatce poniżej. Aby wyświetlić szczegóły komunikatu, kliknij komunikat.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Zrzut ekranu przedstawiający kartę Odbierz w Eksploratorze Azure Service Bus z informacjami o komunikacie wyświetlanymi dla aktywnej wiadomości, która została odebrana.":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Wybór jednostki":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Wgląd do wiadomości z subskrypcji
 
@@ -164,17 +164,17 @@ Aby po prostu przeglądać komunikaty w ramach subskrypcji lub jej podjednostki 
 
 1. Kliknij kartę ***wgląd*** i wybierz określoną ***subskrypcję*** z selektora listy rozwijanej.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="Wybór jednostki":::
 
 2. Wybierz między ***subskrypcją*** lub podjednostki ***utraconych wiadomości*** .
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="Wybór jednostki":::
 
 3. Kliknij przycisk ***wgląd*** .
 
 Po zakończeniu operacji wglądu do 32 komunikatów będzie widocznych w siatce poniżej. Aby wyświetlić szczegóły konkretnego komunikatu, wybierz go z siatki. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="Wybór jednostki":::
 
 > [!NOTE]
 >

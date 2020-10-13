@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773250"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Jak utworzyć sieciowe urządzenie wirtualne w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
@@ -24,7 +24,7 @@ Kroki opisane w tym artykule ułatwiają tworzenie wirtualnego urządzenia sieci
 Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w wirtualnej sieci WAN platformy Azure, Wyślij wiadomość E-mail do firmy Cisco pod następującym adresem e-mail: vwan_public_preview@external.cisco.com
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -49,7 +49,7 @@ Centrum to sieć wirtualna, która może zawierać bramy dla funkcji lokacja-lok
 1. Zlokalizuj utworzoną wirtualną sieć WAN. Na stronie **wirtualna sieć WAN** w obszarze **łączność** wybierz pozycję **centra**.
 1. Na stronie **centra** wybierz pozycję + nowe centrum, aby otworzyć stronę **Tworzenie wirtualnego centrum** .
 
-   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Informacje podstawowe":::
+   :::image type="content" source="./media/how-to-nva-hub/vwan-hub.png" alt-text="Podstawy":::
 1. Na karcie Tworzenie **podstawy** strony **wirtualnego centrum** wykonaj następujące pola:
 
    **Szczegóły projektu**
@@ -66,14 +66,14 @@ W tym kroku utworzysz sieciowe urządzenie wirtualne w centrum. Procedura dla ka
 
 1. Znajdź koncentrator wirtualnej sieci WAN utworzony w poprzednim kroku, a następnie otwórz go.
 
-   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Informacje podstawowe":::
+   :::image type="content" source="./media/how-to-nva-hub/nva-hub.png" alt-text="Podstawy":::
 1. Znajdź kafelek sieciowe urządzenia wirtualne i wybierz łącze **Utwórz** .
 1. W bloku **wirtualnego urządzenia sieciowego** wybierz pozycję **Barracuda CloudGen WAN**, a następnie wybierz przycisk **Utwórz** .
 
-   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Informacje podstawowe":::
+   :::image type="content" source="./media/how-to-nva-hub/select-nva.png" alt-text="Podstawy":::
 1. Spowoduje to przejście do oferty portalu Azure Marketplace dotyczącej bramy Barracuda CloudGen WAN. Przeczytaj warunki, a następnie wybierz przycisk **Utwórz** , gdy wszystko będzie gotowe.
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Informacje podstawowe":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-create-basics.png" alt-text="Podstawy":::
 1. Na stronie **podstawowe** należy podać następujące informacje:
 
    * **Subskrypcja** — wybierz subskrypcję używaną do wdrożenia wirtualnej sieci WAN i centrum.
@@ -83,14 +83,14 @@ W tym kroku utworzysz sieciowe urządzenie wirtualne w centrum. Procedura dla ka
    * **Zarządzana Grupa zasobów** — jest to nazwa zarządzanej grupy zasobów, w której Barracuda będą wdrażać zarządzane przez nich zasoby. Nazwa powinna być wstępnie wypełniona.
 1. Wybierz przycisk **Dalej: CLOUDGEN WAN Gateway** .
 
-   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Informacje podstawowe":::
+   :::image type="content" source="./media/how-to-nva-hub/barracuda-cloudgen-wan.png" alt-text="Podstawy":::
 1. Podaj następujące informacje:
 
    * **Wirtualne Centrum sieci WAN** — Wirtualne Centrum sieci WAN, do którego chcesz WDROŻYĆ ten urządzenie WUS.
    * **Jednostki infrastruktury urządzenie WUS** — wskazuje liczbę jednostek infrastruktury urządzenie WUS, dla których chcesz WDROŻYĆ ten urządzenie WUS. Wybierz ilość zagregowanej pojemności przepustowości, która ma być udostępniana wszystkim lokacjom oddziałów, które będą łączyć się z tym centrum za pośrednictwem tej urządzenie WUS.
    * **Token** -Barracuda wymaga podania tokenu uwierzytelniania w tym miejscu w celu zidentyfikowania siebie jako zarejestrowanego użytkownika tego produktu. Musisz uzyskać ten dostęp z Barracuda.
 1. Wybierz przycisk **Przeglądaj i Utwórz** , aby wykonać operację.
-1. Na tej stronie zostanie wyświetlony monit o zaakceptowanie warunków umowy dotyczącej dostępu współadministratora. Jest to wersja standardowa z zarządzanymi aplikacjami, w których Wydawca będzie miał dostęp do niektórych zasobów w tym wdrożeniu. Zaznacz pole **Zgadzam się na powyższe warunki i postanowienia** , a następnie wybierz pozycję **Utwórz**.
+1. Na tej stronie zostanie wyświetlony monit o zaakceptowanie warunków umowy dostępu Co-Admin. Jest to wersja standardowa z zarządzanymi aplikacjami, w których Wydawca będzie miał dostęp do niektórych zasobów w tym wdrożeniu. Zaznacz pole **Zgadzam się na powyższe warunki i postanowienia** , a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Łączenie sieci wirtualnej z centrum
 

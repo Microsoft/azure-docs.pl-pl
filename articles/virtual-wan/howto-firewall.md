@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983671"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Konfigurowanie zapory platformy Azure w wirtualnym koncentratorze sieci WAN
 
 **Zabezpieczony centrum** to wirtualne Centrum sieci WAN platformy Azure z zaporą platformy Azure. W tym artykule przedstawiono kroki umożliwiające konwersję wirtualnego koncentratora sieci WAN na zabezpieczone centrum przez zainstalowanie zapory platformy Azure bezpośrednio z poziomu stron portalu sieci wirtualnej platformy Azure.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W krokach w tym artykule przyjęto założenie, że wirtualna sieć WAN została już wdrożona z co najmniej jednym koncentratorem.
 

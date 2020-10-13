@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552479"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Samouczek: Azure Active Directory integrację z mianowicie
 
@@ -128,19 +128,19 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą programu, n
 
 2. Na pasku narzędzi u góry kliknij pozycję **firma**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Zrzut ekranu przedstawia wybraną wartość firmy.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Kliknij kartę **Ustawienia**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Zrzut ekranu przedstawia wybraną kartę Ustawienia firmy.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Kliknij pozycję **SAML**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Zrzut ekranu przedstawia wybrany element SAML.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. Na stronie **Ustawienia SAML** wykonaj następujące czynności:
    
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Zrzut ekranu przedstawia ustawienia protokołu SAML, w których można wprowadzić podane wartości.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Kliknij pozycję **Enable SAML** (Włącz protokół SAML). 
 
@@ -211,15 +211,15 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie Britta Simon w temacie.
 
 2. Na pasku narzędzi u góry kliknij pozycję **osoby**.
    
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Zrzut ekranu przedstawia wybraną wartość osoby.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Kliknij kartę **katalog** .
    
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Zrzut ekranu przedstawia wybraną kartę Katalog osoby.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Kliknij pozycję **Dodaj nową osobę**.
 
-    ![Konfigurowanie logowania jednokrotnego](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Zrzut ekranu przedstawia opcję Dodaj nową osobę.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. W oknie dialogowym **Dodaj nową osobę** wykonaj następujące czynności:
 

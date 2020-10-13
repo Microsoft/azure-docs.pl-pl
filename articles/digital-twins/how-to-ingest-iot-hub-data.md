@@ -8,10 +8,10 @@ ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983350"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
@@ -209,14 +209,14 @@ Po pomyślnym opublikowaniu dane wyjściowe będą widoczne w oknie poleceń pro
 ```
 Możesz również sprawdzić stan procesu publikowania w [Azure Portal](https://portal.azure.com/). Wyszukaj _grupę zasobów_ i przejdź do _dziennika aktywności_ i poszukaj w obszarze _Pobierz profil publikowania aplikacji sieci Web_ na liście i sprawdź, czy stan został zakończony pomyślnie.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, który pokazuje stan procesu publikowania.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Połącz funkcję z IoT Hub
 
 Skonfiguruj miejsce docelowe zdarzenia dla danych centrum.
 W [Azure Portal](https://portal.azure.com/)przejdź do wystąpienia IoT Hub utworzonego w sekcji [*wymagania wstępne*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . W obszarze **zdarzenia**Utwórz subskrypcję dla funkcji platformy Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, który pokazuje Dodawanie subskrypcji zdarzeń.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
 
 Na stronie **Tworzenie subskrypcji zdarzeń** Wypełnij pola w następujący sposób:
   1. W polu **Nazwa**Nazwij subskrypcję, którą chcesz.
@@ -225,7 +225,7 @@ Na stronie **Tworzenie subskrypcji zdarzeń** Wypełnij pola w następujący spo
   4. W obszarze **Typ punktu końcowego**wybierz pozycję _Funkcja platformy Azure_.
   5. W obszarze **punkt końcowy**wybierz łącze _Wybierz punkt końcowy_ , aby utworzyć punkt końcowy.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby utworzyć szczegóły subskrypcji zdarzeń":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
 
 Na stronie _Wybierz funkcję platformy Azure_ , która zostanie otwarta, sprawdź poniższe szczegóły.
  1. **Subskrypcja**: Twoja subskrypcja platformy Azure
@@ -236,7 +236,7 @@ Na stronie _Wybierz funkcję platformy Azure_ , która zostanie otwarta, sprawd�
 
 Zapisz szczegóły, wybierając przycisk _Potwierdź wybór_ .            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Zrzut ekranu przedstawiający Azure Portal, aby wybrać funkcję platformy Azure":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
 
 Wybierz przycisk _Utwórz_ , aby utworzyć subskrypcję zdarzeń.
 

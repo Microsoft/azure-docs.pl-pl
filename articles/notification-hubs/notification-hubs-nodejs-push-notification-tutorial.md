@@ -19,10 +19,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250423"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Wysyłanie powiadomień wypychanych za pomocą usługi Azure Notification Hubs i Node.js
@@ -90,7 +90,7 @@ Uzyskaj wartość połączenia `connectionstring` z [Azure Portal] , wykonując 
 ![Azure Portal — Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> Możesz również pobrać parametry połączenia za pomocą polecenia cmdlet **Get-AzureSbNamespace** , które jest dostępne przez [Azure PowerShell](/powershell/azure/) lub **przestrzeń nazw Azure SB show** Command z [interfejsem wiersza polecenia platformy Azure (Azure CLI)](/cli/azure/install-classic-cli).
+> Możesz również pobrać parametry połączenia za pomocą polecenia cmdlet **Get-AzureSbNamespace** , które jest dostępne przez [Azure PowerShell](/powershell/azure/) lub **przestrzeń nazw usługi Azure sb show** z [interfejsem Command-Line platformy Azure (Azure CLI)](/cli/azure/install-classic-cli).
 
 ## <a name="general-architecture"></a>Architektura ogólna
 

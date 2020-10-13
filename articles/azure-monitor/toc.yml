@@ -658,6 +658,8 @@
                       href: app/javascript-react-plugin.md
                     - name: Wtyczka struktury React Native
                       href: app/javascript-react-native-plugin.md
+                    - name: Wtyczka usługi Angular
+                      href: app/javascript-angular-plugin.md
                 - name: Rozwiązywanie problemów
                   items:
                     - name: Niepowodzenie ładowania zestawu SDK

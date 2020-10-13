@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak skonfigurować Azure Backup w syst
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987098"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 Dostępne opcje to:
 
-| Opcja | Szczegóły | Domyślny |
+| Opcja | Szczegóły | Domyślne |
 | --- | --- | --- |
 | /q |Instalacja cicha |- |
 | /p: "Location" |Ścieżka do folderu instalacji agenta Azure Backup. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -312,7 +312,7 @@ PolicyState     : Valid
 * Określ pliki i foldery, które mają zostać wykluczone
 * Określ rekursywną kopię zapasową danych w folderze (lub), czy należy utworzyć kopię zapasową tylko plików najwyższego poziomu w określonym folderze.
 
-Ta ostatnia zostanie osiągnięta przy użyciu flagi-niecyklicznego w poleceniu New-OBFileSpec.
+Ta ostatnia zostanie osiągnięta przy użyciu flagi-niecyklicznego w New-OBFileSpec polecenie.
 
 W poniższym przykładzie będziemy tworzyć kopie zapasowe woluminów C: i D: i wykluczać pliki binarne systemu operacyjnego w folderze systemu Windows i w folderach tymczasowych. W tym celu utworzymy dwie specyfikacje pliku przy użyciu polecenia cmdlet [New-OBFileSpec](/powershell/module/msonlinebackup/new-obfilespec) -one do włączenia i jednego do wykluczenia. Po utworzeniu specyfikacji plików są one skojarzone z zasadami przy użyciu polecenia cmdlet [Add-OBFileSpec](/powershell/module/msonlinebackup/add-obfilespec) .
 

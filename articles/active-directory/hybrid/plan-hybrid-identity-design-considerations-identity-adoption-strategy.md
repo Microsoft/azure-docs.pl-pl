@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294872"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie hybrydowej strategii wdrażania tożsamości
@@ -82,7 +82,7 @@ Stosowana strategia spowoduje wydyktowanie środowiska logowania użytkownika.  
 
 W przypadku określenia z zadania 1 dostawcy tożsamości innej firmy lub korzystania z niej w celu zapewnienia Federacji z usługą Azure AD należy znać następujące obsługiwane możliwości:
 
-* Każdy dostawca SAML 2,0, który jest zgodny z profilem SP-Lite, może obsługiwać uwierzytelnianie w usłudze Azure AD i skojarzonych aplikacjach
+* Każdy dostawca SAML 2,0, który jest zgodny z profilem SP-Lite może obsługiwać uwierzytelnianie w usłudze Azure AD i skojarzonych aplikacjach
 * Obsługuje uwierzytelnianie pasywne, co ułatwia uwierzytelnianie w programie OWA, SPO itp.
 * Klienci usługi Exchange Online mogą być obsługiwani za pośrednictwem rozszerzonego profilu klienta SAML 2,0 (ECP)
 
@@ -158,7 +158,7 @@ W tym celu należy wykonać następujące czynności:
 * Domenę DNS można zarejestrować tylko w jednym katalogu usługi Azure AD, aby nazwy UPN użytkowników w lokalnej usłudze AD musiały używać oddzielnych przestrzeni nazw
 * Użytkownicy w jednym wystąpieniu usługi Azure AD będą mogli zobaczyć użytkowników z ich wystąpienia.  Nie będą oni mogli zobaczyć użytkowników w innych wystąpieniach
 * Tylko jeden z katalogów usługi Azure AD może włączyć funkcję hybrydową programu Exchange z lokalną usługą AD
-* Wzajemne Wykluczanie ma zastosowanie również do zapisu zwrotnego.  Powoduje to, że niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną.  Obejmuje on:
+* Wzajemne Wykluczanie ma zastosowanie również do zapisu zwrotnego.  Powoduje to, że niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną.  Możliwości obejmują:
   * Grupuj kopie zapasowe z konfiguracją domyślną
   * Zapisywanie zwrotne urządzeń
 
@@ -192,7 +192,7 @@ Mimo że można rozliczyć rozwiązanie dla danej strategii, nadal musisz użyć
 
 | Lokalizacja użytkownika | Preferowana opcja projektowania |
 | --- | --- |
-| Azure Active Directory |Wiele FactorAuthentication w chmurze |
+| Usługa Azure Active Directory |Wiele FactorAuthentication w chmurze |
 | Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Oba |
 | Azure AD i lokalna usługa AD przy użyciu Azure AD Connect bez synchronizacji haseł |Oba |
 | Usługa Azure AD i lokalna przy użyciu Azure AD Connect z synchronizacją haseł |Oba |

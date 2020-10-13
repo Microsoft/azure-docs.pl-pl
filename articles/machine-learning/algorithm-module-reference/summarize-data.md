@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898221"
 ---
 # <a name="summarize-data"></a>Podsumowywanie danych
@@ -54,13 +54,13 @@ Raport z modułu może zawierać następujące dane statystyczne.
 |**Brak liczby wartości**|Liczba unikatowych wartości w kolumnie|
 |**Długości**|Najniższa wartość w kolumnie|  
 |**Maksymalny**|Najwyższa wartość w kolumnie|
-|**Średnia**|Średnia dla wszystkich wartości kolumn|
+|**Zależność**|Średnia dla wszystkich wartości kolumn|
 |**Odchylenie średnie**|Średnia odchylenia wartości kolumn|
 |**1. kwartyl**|Wartość przy pierwszym kwartyl|
 |**Symetri**|Wartość kolumny mediana|
 |**3. kwartyl**|Wartość przy trzecim kwartyl|
 |**Tryb**|Tryb wartości kolumn|
-|**Zakresu**|Liczba całkowita reprezentująca liczbę wartości z zakresu wartości maksymalnej i minimalnej|
+|**Zakres**|Liczba całkowita reprezentująca liczbę wartości z zakresu wartości maksymalnej i minimalnej|
 |**WARIANCJA próbki**|WARIANCJA dla kolumny; Zobacz Uwaga|
 |**Przykładowe odchylenie standardowe**|Odchylenie standardowe dla kolumny; Zobacz Uwaga|
 |**Przykład skośności**|Skośność kolumny; Zobacz Uwaga|

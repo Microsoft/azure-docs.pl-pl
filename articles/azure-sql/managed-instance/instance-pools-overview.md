@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325168"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Co to jest pula wystąpień zarządzanych Azure SQL (wersja zapoznawcza)?
@@ -24,7 +24,7 @@ ms.locfileid: "91325168"
 
 Pule wystąpień w wystąpieniu zarządzanym usługi Azure SQL zapewniają wygodny i ekonomiczny sposób migrowania mniejszych wystąpień SQL Server do chmury na dużą skalę.
 
-Pule wystąpień umożliwiają wstępną aprowizację zasobów obliczeniowych zgodnie z całkowitymi wymaganiami migracji. Następnie możesz wdrożyć kilka osobnych wystąpień zarządzanych — do osiągnięcia wstępnie aprowizowanego poziomu obliczeń. Na przykład w przypadku wstępnego udostępnienia usługi 8 rdzeni wirtualnych można wdrożyć dwa 2-rdzeń wirtualny i jedno wystąpienie 4-rdzeń wirtualny, a następnie przeprowadzić migrację baz danych do tych wystąpień. Przed udostępnieniem pul wystąpień mniejsze i mniejsze obciążenia intensywnie korzystające z mocy obliczeniowej będą często musiały zostać skonsolidowane w większym zarządzanym wystąpieniu podczas migracji do chmury. Konieczność migrowania grup baz danych do dużego wystąpienia zwykle wymaga starannego planowania pojemności i zarządzania zasobami, dodatkowych zagadnień związanych z zabezpieczeniami oraz pewnej dodatkowej konsolidacji danych na poziomie wystąpienia.
+Pule wystąpień umożliwiają wstępną aprowizację zasobów obliczeniowych zgodnie z całkowitymi wymaganiami migracji. Następnie możesz wdrożyć kilka osobnych wystąpień zarządzanych — do osiągnięcia wstępnie aprowizowanego poziomu obliczeń. Na przykład w przypadku wstępnego udostępnienia usługi 8 rdzeni wirtualnych można wdrożyć wystąpienie 2 2-rdzeń wirtualny i 1 4-rdzeń wirtualny, a następnie przeprowadzić migrację baz danych do tych wystąpień. Przed udostępnieniem pul wystąpień mniejsze i mniejsze obciążenia intensywnie korzystające z mocy obliczeniowej będą często musiały zostać skonsolidowane w większym zarządzanym wystąpieniu podczas migracji do chmury. Konieczność migrowania grup baz danych do dużego wystąpienia zwykle wymaga starannego planowania pojemności i zarządzania zasobami, dodatkowych zagadnień związanych z zabezpieczeniami oraz pewnej dodatkowej konsolidacji danych na poziomie wystąpienia.
 
 Ponadto pule wystąpień obsługują natywną integrację sieci wirtualnej, dzięki czemu można wdrożyć wiele pul wystąpień i wiele pojedynczych wystąpień w tej samej podsieci.
 

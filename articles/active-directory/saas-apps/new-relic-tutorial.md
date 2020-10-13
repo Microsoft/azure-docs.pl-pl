@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554468"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z nowym Relic według konta
 
@@ -134,7 +134,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. W menu u góry kliknij pozycję **Ustawienia konta**.
    
-    ![Ustawienia konta](./media/new-relic-tutorial/ic797036.png "Ustawienia konta")
+    ![Zrzut ekranu przedstawia stronę powitalną z wybranymi ustawieniami konta.](./media/new-relic-tutorial/ic797036.png "Ustawienia konta")
 
 3. Kliknij kartę **zabezpieczenia i uwierzytelnianie** , a następnie kliknij kartę **Logowanie** jednokrotne.
    
@@ -158,11 +158,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. W menu u góry kliknij pozycję **Ustawienia konta**.
    
-    ![Ustawienia konta](./media/new-relic-tutorial/ic797040.png "Ustawienia konta")
+    ![Zrzut ekranu przedstawia ustawienia konta wybrane na stronie powitalnej.](./media/new-relic-tutorial/ic797040.png "Ustawienia konta")
 
 3. W okienku **konto** po lewej stronie kliknij pozycję **Podsumowanie**, a następnie kliknij pozycję **Dodaj użytkownika**.
    
-    ![Ustawienia konta](./media/new-relic-tutorial/ic797041.png "Ustawienia konta")
+    ![Zrzut ekranu przedstawia okienko Podsumowanie, w którym można wybrać pozycję Dodaj użytkownika.](./media/new-relic-tutorial/ic797041.png "Ustawienia konta")
 
 4. W oknie dialogowym **aktywni użytkownicy** wykonaj następujące czynności:
    

@@ -2,19 +2,19 @@
 title: Przykład Hero rozmowy grupowej
 titleSuffix: An Azure Communication Services sample overview
 description: Omówienie przykładu Hero rozmowy przy użyciu usług Azure Communication Services, aby umożliwić deweloperom dowiedzieć się więcej o wewnętrznych działaniach przykładowych i Dowiedz się, jak go zmodyfikować.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0a01036eb4856d9fd306a50958285bd469791f24
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823874"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962993"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -82,7 +82,6 @@ Możesz przetestować przykład lokalnie, otwierając wiele sesji przeglądarki 
 2. `git clone https://github.com/Azure/Communication.git`
 3. Pobierz `Connection String` z Azure Portal. Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [Tworzenie zasobów usługi Azure Communication](../quickstarts/create-communication-resource.md)
 4. Po otrzymaniu programu `Connection String` Dodaj parametry połączenia do okna **rozmowa/appsettings.jsw** pliku znalezionym w folderze rozmowa. Wprowadź parametry połączenia w zmiennej: `ResourceConnectionString` .
-5. Zaktualizuj ENVIRONMENT_URL w programie `./Chat/ClientApp/src/constants.tsx` przy użyciu lokalizacji zasobu. (np. https://<RESOURCE_NAME>. communication.azure.com)
 
 ### <a name="local-run"></a>Uruchamianie lokalne
 
@@ -110,7 +109,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 >[!div class="nextstepaction"] 
 >[Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - Informacje o [pojęciach związanych z rozmowami](../concepts/chat/concepts.md)
 - Zapoznaj się z naszą [biblioteką klienta czatu](../concepts/chat/sdk-features.md)

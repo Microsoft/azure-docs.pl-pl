@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662576"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: wprowadź zmianę konfiguracji domyślnej
@@ -181,7 +181,7 @@ Reguły synchronizacji out-of-Box zaczynają się od wartości priorytetu 100. J
 
 Możesz nakazać aparatowi synchronizacji, który ma dodać dodatkowe reguły przed regułami, które są używane. Aby uzyskać takie zachowanie, wykonaj następujące kroki:
 
-1. Oznacz pierwszą regułę synchronizacji poza ramką (**w obszarze z elementu AD-User Join**) w Edytorze reguł synchronizacji i wybierz pozycję **Eksportuj**. Skopiuj wartość identyfikatora SR.  
+1. Oznacz pierwszą regułę synchronizacji poza ramką (**w z AD-User Join**) w Edytorze reguł synchronizacji i wybierz pozycję **Eksportuj**. Skopiuj wartość identyfikatora SR.  
 ![PowerShell przed zmianą](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
 2. Utwórz nową regułę synchronizacji. Aby go utworzyć, można użyć edytora reguł synchronizacji. Wyeksportuj regułę do skryptu programu PowerShell.
 3. We właściwości **PrecedenceBefore**Wstaw wartość identyfikatora z reguły out-of-box. Ustaw dla **pierwszeństwa** wartość **0**. Upewnij się, że atrybut identyfikatora jest unikatowy i że nie używasz identyfikatora GUID z innej reguły. Upewnij się również, że właściwość **ImmutableTag** nie jest ustawiona. Ta właściwość powinna być ustawiona tylko dla reguły wbudowanej.

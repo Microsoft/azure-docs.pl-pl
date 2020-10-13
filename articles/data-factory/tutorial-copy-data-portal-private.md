@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
 ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90024421"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Bezpieczne kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą prywatnych punktów końcowych
@@ -95,7 +95,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** .
 
@@ -113,7 +113,7 @@ W tym kroku utworzysz środowisko Azure Integration Runtime i włączysz Data Fa
 1. W obszarze **Konfiguracja sieci wirtualnej (wersja zapoznawcza)** wybierz pozycję **Włącz**.
 
    ![Zrzut ekranu pokazujący włączenie nowego środowiska Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-a-pipeline"></a>Tworzenie potoku
 W tym kroku utworzysz potok z działaniem kopiowania w fabryce danych. Działanie kopiowania kopiuje dane z magazynu obiektów blob do usługi SQL Database. W [samouczku szybkiego startu](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) utworzono potok, wykonując następujące czynności:
@@ -170,7 +170,7 @@ W tym samouczku Zacznij od utworzenia potoku. Następnie utworzysz usługi poł�
 
 1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
-1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
+1. Kliknij przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
     ![Zrzut ekranu pokazujący źródłowy zestaw danych.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
 
@@ -193,7 +193,7 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 
 1. Wprowadź nazwę utworzonego konta magazynu.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po kilku sekundach powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 
@@ -259,7 +259,7 @@ Jeśli nie wybrano hiperlinku podczas przetestowania połączenia, postępuj zgo
 
 1. Wybierz kafelek **Azure SQL Database** z listy, a następnie wybierz pozycję **Kontynuuj**.
 1. Wprowadź nazwę wybranego programu SQL Server.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 1. Po kilku sekundach powinna zostać wyświetlona, że utworzone łącze prywatne wymaga zatwierdzenia.
 1. Wybierz utworzony prywatny punkt końcowy. Można wyświetlić hiperłącze, które umożliwi zatwierdzenie prywatnego punktu końcowego na poziomie programu SQL Server.
 

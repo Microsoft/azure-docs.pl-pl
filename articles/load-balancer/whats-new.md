@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841037"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Co nowego w Azure Load Balancer?
@@ -27,7 +27,7 @@ Możesz również znaleźć najnowsze aktualizacje Azure Load Balancer i subskry
 
 ## <a name="recent-releases"></a>Najnowsze wersje
 
-| Typ |Nazwa |Opis  |Data dodania  |
+| Type |Nazwa |Opis  |Data dodania  |
 | ------ |---------|---------|---------|
 | Cecha | Obsługa przenoszenia między grupami zasobów | Usługa Load Balancer w warstwie Standardowa i Standardowa obsługa publicznego adresu IP dla [grupy zasobów jest przenoszona](https://azure.microsoft.com/updates/standard-resource-group-move/). | Październik 2020 |
 | Cecha | Obsługa zarządzania puli zaplecza opartego na protokole IP (wersja zapoznawcza) | Azure Load Balancer obsługuje dodawanie i usuwanie zasobów z puli zaplecza za pośrednictwem adresów IPv4 lub IPv6. Dzięki temu można łatwo zarządzać kontenerami, maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych skojarzonymi z Load Balancer. Zezwala również na zastrzeżone adresy IP w ramach puli zaplecza przed utworzeniem skojarzonych zasobów. Więcej informacji można znaleźć [tutaj](backend-pool-management.md)|Lipiec 2020 r. |

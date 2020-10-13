@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 25f18eb0f55560b7abd250b8511b2e250ea55852
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250440"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs (wersja 3.0.0-zestawu)
@@ -53,11 +53,11 @@ Przed kontynuowaniem przejdź do poprzedniego samouczka na temat rozpoczynania p
 
    Jeśli nowy profil aprowizowania utworzony w programie Xcode nie jest widoczny, odśwież profile dla Twojej tożsamości podpisywania. Na pasku menu kliknij pozycję **Xcode**   , kliknij pozycję **Preferencje**, kliknij **Account**   kartę konto, kliknij przycisk **Wyświetl szczegóły**   , kliknij swoją tożsamość podpisującą, a następnie kliknij przycisk Odśwież w prawym dolnym rogu.
 
-   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Wyświetl szczegóły":::
+   :::image type="content" source="media/ios-sdk/image2.png" alt-text="Wybierz szablon":::
 
 4. Na karcie **możliwości & podpisywania**   Wybierz pozycję **+ możliwość**. Kliknij dwukrotnie pozycję **powiadomienia wypychane**   , aby ją włączyć.
 
-   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Funkcja":::
+   :::image type="content" source="media/ios-sdk/image3.png" alt-text="Wybierz szablon":::
 
 5. Dodaj moduły zestawu Azure Notification Hubs SDK.
 
@@ -81,7 +81,7 @@ Przed kontynuowaniem przejdź do poprzedniego samouczka na temat rozpoczynania p
 
         - W Xcode kliknij prawym przyciskiem myszy projekt i kliknij opcję **Dodaj pliki do**,   Aby dodać folder **WindowsAzureMessaging. Framework**   do projektu Xcode. Wybierz opcję **Opcje**   i upewnij się, że opcja **Kopiuj elementy w razie konieczności**   jest zaznaczona, a następnie kliknij przycisk **Dodaj**.
 
-          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Dodaj strukturę":::
+          :::image type="content" source="media/ios-sdk/image4.png" alt-text="Wybierz szablon":::
 
 6. Dodaj nowy plik nagłówkowy do projektu o nazwie **stałychs. h**. Aby to zrobić, kliknij prawym przyciskiem myszy nazwę projektu i wybierz pozycję **nowy plik.**... Następnie wybierz pozycję **plik nagłówka**. Ten plik zawiera stałe używane przez centrum powiadomień. Następnie wybierz przycisk **dalej**. Nazwij plik **stałe. h**.
 
@@ -98,13 +98,7 @@ Przed kontynuowaniem przejdź do poprzedniego samouczka na temat rozpoczynania p
 
 8. Dodaj plik implementacji dla stałych. h. Aby to zrobić, kliknij prawym przyciskiem myszy nazwę projektu i wybierz pozycję **nowy plik.**... Wybierz pozycję **plik zamierzenia C**, a następnie wybierz przycisk **dalej**. Nazwij stałe plik **. m**.
 
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Dodaj plik implementacji":::
-
-9. Otwórz plik **stałe. m**   i Zastąp jego zawartość następującym kodem. Zastąp symbole zastępcze literałów ciągów  `NotificationHubConnectionString`   i  `NotificationHubConnectionString`   odpowiednio nazwą centrum i **DefaultListenSharedAccessSignature**, jak poprzednio uzyskano z portalu:
-
-   ```objc
-   #import <Foundation/Foundation.h>
-   #import "Constants.h"
+   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Wybierz szablon"
 
    NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
    NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
@@ -311,7 +305,7 @@ Przed kontynuowaniem przejdź do poprzedniego samouczka na temat rozpoczynania p
 
 Możesz testować otrzymywanie powiadomień w aplikacji za pomocą opcji **Wyślij test**   w [Azure Portal](https://portal.azure.com/). Powoduje to wysłanie testowego powiadomienia push na urządzenie.
 
-:::image type="content" source="media/ios-sdk/image6.png" alt-text="Wysyłanie testowe":::
+:::image type="content" source="media/ios-sdk/image6.png" alt-text="Wybierz szablon":::
 
 Powiadomienia wypychane są zwykle wysyłane za pośrednictwem usługi wewnętrznej bazy danych, takiej jak Mobile Apps czy ASP.NET, przy użyciu zgodnej biblioteki. Jeśli biblioteka nie jest dostępna dla zaplecza, można także użyć interfejsu API REST bezpośrednio do wysyłania komunikatów powiadomień.
 
@@ -328,13 +322,13 @@ Aby przetestować powiadomienia wypychane w systemie iOS, należy wdrożyć apli
 
 1. Uruchom aplikację i sprawdź, czy rejestracja zakończyła się pomyślnie, a następnie naciśnij przycisk **OK**.
 
-   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Zarejestruj":::
+   :::image type="content" source="media/ios-sdk/image7.png" alt-text="Wybierz szablon":::
 
 2. Następnie Wyślij testowe Powiadomienie wypychane z [Azure Portal](https://portal.azure.com/), zgodnie z opisem w poprzedniej sekcji.
 
 3. Powiadomienie wypychane jest wysyłane do wszystkich urządzeń zarejestrowanych w celu otrzymywania powiadomień z danego centrum powiadomień.
 
-   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Wyślij test":::
+   :::image type="content" source="media/ios-sdk/image8.png" alt-text="Wybierz szablon":::
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -342,7 +336,7 @@ W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich zareje
 
 [Samouczek: powiadomienia wypychane do określonych urządzeń](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 - [Omówienie usługi Azure Notification Hubs](notification-hubs-push-notification-overview.md)
 - [Interfejsy API REST Notification Hubs](/rest/api/notificationhubs/)

@@ -3,12 +3,12 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756694"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974723"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -116,9 +116,7 @@ Zasady konfiguracji gościa używają efektu **AuditIfNotExists** . Po przypisan
 Zasady **AuditIfNotExists** nie będą zwracać wyników zgodności, dopóki nie zostaną spełnione wszystkie wymagania na komputerze. Wymagania są opisane w sekcji [wdrażanie wymagań dla usługi Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> W poprzedniej wersji konfiguracji gościa, do łączenia definicji **DeployIfNoteExists** i **AuditIfNotExists** , wymagana była inicjatywa. Definicje **DeployIfNotExists** nie są już wymagane. Definicje i intiaitives są oznaczone etykietami, `[Deprecated]` ale istniejące przypisania będą nadal działać.
->
-> Wymagany jest krok ręczny. Jeśli wcześniej przypisano inicjatywy zasad w kategorii `Guest Configuration` , usuń przypisanie zasad i przypisz nową definicję. Zasady konfiguracji gościa mają wzorzec nazwy w następujący sposób: `Audit <Windows/Linux> machines that <non-compliant condition>`
+> W poprzedniej wersji konfiguracji gościa, do łączenia definicji **DeployIfNoteExists** i **AuditIfNotExists** , wymagana była inicjatywa. Definicje **DeployIfNotExists** nie są już wymagane. Definicje i intiaitives są oznaczone etykietami, `[Deprecated]` ale istniejące przypisania będą nadal działać. Aby uzyskać więcej informacji, zobacz wpis w blogu: [ważna zmiana dotycząca zasad inspekcji konfiguracji gościa](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Azure Policy używa właściwości **complianceStatus** dostawcy zasobów konfiguracji gościa, aby zgłosić zgodność w węźle **zgodność** . Aby uzyskać więcej informacji, zobacz [pobieranie danych zgodności](../how-to/get-compliance-data.md).
 

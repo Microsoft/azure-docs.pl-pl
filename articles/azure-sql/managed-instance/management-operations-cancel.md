@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997242"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Anulowanie operacji zarządzania wystąpieniami zarządzanymi przez usługę Azure SQL
@@ -44,8 +44,8 @@ Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
 |Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Tak |90% operacji zakończonych w ciągu 5 minut. |
-|Usuń |Usunięcie wystąpienia |Nie |  |
-|Usuń |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
+|Usuwanie |Usunięcie wystąpienia |Nie |  |
+|Usuwanie |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
 
 ## <a name="cancel-management-operation"></a>Anuluj operację zarządzania
 
@@ -61,7 +61,7 @@ Aby anulować operacje zarządzania przy użyciu Azure Portal, wykonaj następuj
 
 1. Wybierz pozycję **Anuluj operację** w dolnej części strony. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Wybierz pozycję Anuluj, aby anulować operację.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Wybierz bieżące okno operacji, aby otworzyć stronę trwające operacje.":::
 
 1. Potwierdź, że chcesz anulować operację. 
 

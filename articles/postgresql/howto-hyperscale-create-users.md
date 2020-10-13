@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
 ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295740"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Tworzenie użytkowników w Azure Database for PostgreSQL-Citus
@@ -50,9 +50,9 @@ Jak wspomniano wcześniej, `citus` konto administratora nie ma uprawnień do two
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Strona role":::
 
-2. Wprowadź nazwę i hasło roli. Kliknij pozycję **Zapisz**.
+2. Wprowadź nazwę i hasło roli. Kliknij przycisk **Zapisz**.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Dodaj rolę":::
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Strona role":::
 
 Użytkownik zostanie utworzony w węźle koordynatora grupy serwerów i rozpropagowany do wszystkich węzłów procesu roboczego. Role utworzone za pośrednictwem Azure Portal mają `LOGIN` atrybutu, co oznacza, że są one prawdziwe użytkownikom, którzy mogą logować się do bazy danych.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Aby zaktualizować użytkownika, odwiedź stronę **role** dla grupy serwerów moja skala (Citus), a następnie kliknij przycisk wielokropka **...** obok użytkownika. Wielokropek spowoduje otwarcie menu w celu usunięcia użytkownika lub zresetowania hasła.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Edytowanie roli":::
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Strona role":::
 
 `citus`Rola jest uprzywilejowana i nie można jej usunąć.
 

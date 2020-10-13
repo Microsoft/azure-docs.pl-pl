@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: radeltch
 ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598307"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurowanie Pacemaker Red Hat Enterprise Linux na platformie Azure
@@ -59,13 +59,13 @@ Przeczytaj najpierw następujące informacje i dokumenty SAP:
 * [Wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP w systemie Linux][dbms-guide]
 * [Replikacja systemu SAP HANA w klastrze Pacemaker](https://access.redhat.com/articles/3004101)
 * Ogólna dokumentacja RHEL
-  * [Omówienie dodatku wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administracja dodatkiem wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Dodatkowe informacje o wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Omówienie Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administracja Add-On wysokiej dostępności](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Informacje o wysokiej dostępności Add-On](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Zasady obsługi klastrów RHEL o wysokiej dostępności — SBD i fence_sbd](https://access.redhat.com/articles/2800691)
 * Dokumentacja RHEL specyficzna dla platformy Azure:
   * [Zasady obsługi klastrów RHEL o wysokiej dostępności — Microsoft Azure Virtual Machines jako elementy członkowskie klastra](https://access.redhat.com/articles/3131341)
-  * [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) klastra o wysokiej dostępności na Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instalowanie i Konfigurowanie Red Hat Enterprise Linux 7,4 (i nowszych) High-Availability klastra na Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Zagadnienia dotyczące wdrażania RHEL 8 — wysoka dostępność i klastry](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Konfigurowanie protokołu SAP S/4HANA ASCS/wykres WYWOŁUJĄCYCH przy użyciu autonomicznej kolejki serwer 2 (ENSA2) w Pacemaker na RHEL 7,6](https://access.redhat.com/articles/3974941)
 
@@ -102,7 +102,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
-1. **[A]** Zainstaluj dodatek RHEL ha
+1. **[A]** Zainstaluj Add-On ha RHEL
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    </code></pre>
@@ -110,9 +110,9 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    > [!IMPORTANT]
    > Firma Microsoft zaleca, aby klienci korzystali z szybszych czasów pracy awaryjnej (lub nowszych), jeśli zakończy się niepowodzeniem, lub węzły klastra nie mogą komunikować się, które są już takie:  
    > RHEL 7,7 lub nowszy Użyj najnowszej dostępnej wersji pakietu "Horyzonty" agentów  
-   > RHEL 7,6: ogrodzeni-Agents-4.2.1-11. el7_6.8  
-   > RHEL 7,5: ogrodzeni-Agents-4.0.11-86. el7_5.8  
-   > RHEL 7,4: ogrodzeni-Agents-4.0.11-66. el7_4.12  
+   > RHEL 7,6: ogrodzeni-Agents-4.2.1-11.el7_6.8  
+   > RHEL 7,5: ogrodzeni-Agents-4.0.11-86.el7_5.8  
+   > RHEL 7,4: ogrodzeni-Agents-4.0.11-66.el7_4.12  
    > Aby uzyskać więcej informacji, zobacz [maszynę wirtualną platformy Azure działającą jako SKŁADOWA RHEL o wysokiej dostępności trwa bardzo długo lub nie można przekroczyć limitu czasu przed zamknięciem maszyny wirtualnej](https://access.redhat.com/solutions/3408711).
 
    Sprawdź wersję agenta usługi Azure ogrodzenia. W razie potrzeby zaktualizuj ją do wersji równej lub nowszej niż podane powyżej.
