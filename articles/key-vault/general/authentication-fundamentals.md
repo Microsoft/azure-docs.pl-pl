@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604450"
 ---
-# <a name="key-vault-authentication-fundamentals"></a>Podstawowe informacje dotyczące uwierzytelniania Key Vault
+# <a name="key-vault-authentication-fundamentals"></a>Podstawy uwierzytelniania przy użyciu usługi Key Vault
 
 Azure Key Vault pozwala bezpiecznie przechowywać poświadczenia aplikacji, takie jak wpisy tajne, klucze i certyfikaty w centralnym i bezpiecznym repozytorium chmury i zarządzać nimi. Key Vault eliminuje konieczność przechowywania poświadczeń w aplikacjach. Aplikacje mogą uwierzytelniać się w celu Key Vault w czasie wykonywania w celu pobrania poświadczeń.
 

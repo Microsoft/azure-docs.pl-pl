@@ -10,13 +10,13 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604411"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Procedura dodawania przypisania roli
+# <a name="steps-to-add-a-role-assignment"></a>Kroki umożliwiające dodanie przypisania roli
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] W tym artykule opisano procedurę wysokiego poziomu służącą do dodawania przypisania roli przy użyciu [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), interfejsu [wiersza polecenia platformy Azure](role-assignments-cli.md)lub [interfejsu API REST](role-assignments-rest.md).
 
@@ -86,7 +86,7 @@ Po poznaniu podmiotu zabezpieczeń, roli i zakresu można przypisać rolę. Przy
 Zapoznaj się z następującymi artykułami, aby uzyskać szczegółowe instrukcje dotyczące dodawania przypisań ról.
 
 - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu witryny Azure Portal](role-assignments-portal.md)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](role-assignments-powershell.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu programu Azure PowerShell](role-assignments-powershell.md)
 - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-cli.md)
 - [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
 

@@ -7,10 +7,10 @@ ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cf39fcbfbde8a81400cd93c7f99b066a99f643bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005382"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Łączenie się z usługami w Service Fabric i komunikowanie się z nimi
@@ -170,7 +170,7 @@ Struktura Reliable Services jest dostarczana z kilkoma wstępnie skompilowanymi 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Korzystanie z niestandardowych protokołów i innych platform komunikacji
 Usługi mogą używać dowolnego protokołu lub platformy do komunikacji, niezależnie od tego, czy jest to niestandardowy protokół binarny dla gniazd TCP Sockets, czy przesyłania strumieniowego zdarzeń za pośrednictwem [platformy azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) lub [platformy Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/). Service Fabric udostępnia interfejsy API komunikacji, do których można podłączyć stos komunikacji, podczas gdy cała pozostała do odnalezienia i nawiązania połączenia jest podzielona od użytkownika. Aby uzyskać więcej informacji, zobacz ten artykuł dotyczący [modelu komunikacji niezawodnej usługi](service-fabric-reliable-services-communication.md) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat pojęć i interfejsów API dostępnych w [modelu komunikacji Reliable Services](service-fabric-reliable-services-communication.md), a następnie szybko Rozpocznij pracę z usługami [zdalnymi](service-fabric-reliable-services-communication-remoting.md) , aby dowiedzieć się, jak napisać odbiornik komunikacyjny przy użyciu [interfejsu API sieci Web z własnym hostem Owin](./service-fabric-reliable-services-communication-aspnetcore.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082073"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Zarządzanie maszynami wirtualnymi w chmurze prywatnej CloudSimple na platformie Azure
@@ -25,13 +25,13 @@ Poniższe kontrolki są dostępne na stronie **Przegląd** dla wybranej maszyny 
 
 | Kontrola | Opis |
 | ------------ | ------------- |
-| Połącz | Nawiąż połączenie z określoną maszyną wirtualną.  |
+| Connect | Nawiąż połączenie z określoną maszyną wirtualną.  |
 | Rozpocznij | Uruchom określoną maszynę wirtualną.  |
 | Uruchom ponownie | Zamknij i Wyłącz określoną maszynę wirtualną.  |
 | Stop | Zamknij konkretną maszynę wirtualną.  |
 | Przechwytywanie | Przechwyć obraz określonej maszyny wirtualnej, aby można było go użyć jako obrazu do utworzenia innych maszyn wirtualnych. Zobacz [Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Move | Przejdź do określonej maszyny wirtualnej.  |
-| Usuń | Usuń określoną maszynę wirtualną.  |
+| Usuwanie | Usuń określoną maszynę wirtualną.  |
 | Odśwież | Odśwież dane na ekranie.  |
 
 ### <a name="view-performance-information"></a>Wyświetlanie informacji o wydajności
@@ -49,7 +49,7 @@ Wyświetlane są następujące wykresy.
 
 ## <a name="manage-vm-disks"></a>Zarządzanie dyskami maszyn wirtualnych
 
-Aby dodać dysk maszyny wirtualnej, Otwórz stronę **dyski** dla wybranej maszyny wirtualnej. Aby dodać dysk, kliknij przycisk **Dodaj dysk**. Skonfiguruj następujące ustawienia, wprowadzając lub wybierając opcję wbudowaną. Kliknij pozycję **Zapisz**.
+Aby dodać dysk maszyny wirtualnej, Otwórz stronę **dyski** dla wybranej maszyny wirtualnej. Aby dodać dysk, kliknij przycisk **Dodaj dysk**. Skonfiguruj następujące ustawienia, wprowadzając lub wybierając opcję wbudowaną. Kliknij przycisk **Zapisz**.
 
    | Element | Opis |
    | ------------ | ------------- |
@@ -72,7 +72,7 @@ Aby zmienić pojemność maszyny wirtualnej, Otwórz stronę **rozmiar** wybrane
 
 ## <a name="manage-network-interfaces"></a>Zarządzanie interfejsami sieciowymi
 
-Aby dodać interfejs, kliknij przycisk **Dodaj interfejs sieciowy**. Skonfiguruj wszystkie poniższe ustawienia, wprowadzając lub wybierając opcję wbudowaną. Kliknij pozycję **Zapisz**.
+Aby dodać interfejs, kliknij przycisk **Dodaj interfejs sieciowy**. Skonfiguruj wszystkie poniższe ustawienia, wprowadzając lub wybierając opcję wbudowaną. Kliknij przycisk **Zapisz**.
 
    | Kontrola | Opis |
    | ------------ | ------------- |

@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264484"
 ---
 # <a name="view-update-assessments-in-update-management"></a>Wyświetlanie ocen aktualizacji w Update Management
@@ -70,7 +70,7 @@ W poniższej tabeli wymieniono obsługiwane klasyfikacje aktualizacji w Update M
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zestawy poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacje definicji wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzia lub funkcje, które pomagają wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzia lub funkcje, które pomagają wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacje aplikacji lub plików, które są obecnie zainstalowane.        |
 
 ### <a name="linux"></a>Linux

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247255"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Instrukcje: debugowanie kontenerów systemu Windows na platformie Azure Service Fabric przy użyciu programu Visual Studio 2019
@@ -28,7 +28,7 @@ Program Visual Studio 2019 umożliwia debugowanie aplikacji .NET w kontenerach j
 1. Aby zapewnić obsługę rozpoznawania nazw DNS między kontenerami, należy skonfigurować lokalny klaster programistyczny przy użyciu nazwy maszyny. Te kroki są również niezbędne, jeśli chcesz adresować usługi za pomocą zwrotnego serwera proxy.
    1. Otwórz program PowerShell jako administrator
    2. Przejdź do folderu konfiguracji klastra zestawu SDK, zazwyczaj `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup` .
-   3. Uruchamianie skryptu`DevClusterSetup.ps1`
+   3. Uruchamianie skryptu `DevClusterSetup.ps1`
 
       ``` PowerShell
         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1

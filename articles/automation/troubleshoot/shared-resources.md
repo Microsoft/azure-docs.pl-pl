@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187170"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Rozwiązywanie problemów z zasobami udostępnionymi
@@ -97,7 +97,7 @@ Nie jest powszechne, że wszystkie moduły AzureRM lub AZ są wymagane na tym sa
 > [!NOTE]
 > Należy unikać importowania całości `Az.Automation` lub `AzureRM.Automation` modułu, który importuje wszystkie zawarte moduły.
 
-Jeśli proces aktualizacji zawiesza się, Dodaj `SimultaneousModuleImportJobCount` parametr do skryptu **Update-AzureModules.ps1** i podaj niższą wartość od wartości domyślnej 10. W przypadku zaimplementowania tej logiki spróbuj rozpocząć od wartości 3 lub 5. `SimultaneousModuleImportJobCount`jest parametrem elementu Runbook programu **Update-AutomationAzureModulesForAccount** , który jest używany do aktualizowania modułów platformy Azure. W przypadku wprowadzenia tej korekty proces aktualizacji zostanie uruchomiony dłużej, ale ma lepszą szansę na ukończenie. Poniższy przykład przedstawia parametr i miejsce umieszczenia go w elemencie Runbook:
+Jeśli proces aktualizacji zawiesza się, Dodaj `SimultaneousModuleImportJobCount` parametr do skryptu **Update-AzureModules.ps1** i podaj niższą wartość od wartości domyślnej 10. W przypadku zaimplementowania tej logiki spróbuj rozpocząć od wartości 3 lub 5. `SimultaneousModuleImportJobCount` jest parametrem elementu Runbook programu **Update-AutomationAzureModulesForAccount** , który jest używany do aktualizowania modułów platformy Azure. W przypadku wprowadzenia tej korekty proces aktualizacji zostanie uruchomiony dłużej, ale ma lepszą szansę na ukończenie. Poniższy przykład przedstawia parametr i miejsce umieszczenia go w elemencie Runbook:
 
  ```powershell
          $Body = @"

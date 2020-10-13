@@ -9,13 +9,13 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830448"
 ---
-# <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
+# <a name="azure-disk-encryption-for-linux-vms"></a>Usługa Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
 Usługa Azure Disk Encryption pomaga chronić dane zgodnie z wymaganiami organizacji w zakresie zabezpieczeń i zgodności. Używa funkcji [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) systemu Linux, aby zapewnić szyfrowanie woluminów dla systemu operacyjnego i dysków danych maszyn wirtualnych platformy Azure, a ponadto jest zintegrowane z [Azure Key Vault](../../key-vault/index.yml) , aby pomóc w kontroli i zarządzaniu kluczami szyfrowania dysków i wpisami tajnymi. 
 
@@ -68,7 +68,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | RedHat | RHEL 7,7 | 7 — LVM | RedHat: RHEL: 7-LVM: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7.5 | 7,5 | RedHat: RHEL: 7.5: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RedHat | RHEL 7,4 | 7.4 | RedHat: RHEL: 7.4: Najpóźniejsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,4 | 7,4 | RedHat: RHEL: 7.4: Najpóźniejsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,3 | 7.3 | RedHat: RHEL: 7.3: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 7,2 | 7.2 | RedHat: RHEL: 7.2: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
 | RedHat | RHEL 6,8 | 6.8 | RedHat: RHEL: 6,8: Najnowsze | Dysk danych (patrz Uwaga poniżej) |
@@ -77,7 +77,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | OpenLogic | CentOS 7,7 | 7 — LVM | OpenLogic: CentOS: 7-LVM: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7.5 | 7,5 | OpenLogic: CentOS: 7.5: Najnowsze | System operacyjny i dysk z danymi |
-| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic: CentOS: 7.4: Najpóźniejsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7.4 | 7,4 | OpenLogic: CentOS: 7.4: Najpóźniejsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,3 | 7.3 | OpenLogic: CentOS: 7.3: Najnowsza | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7.2 n | 7.2 n | OpenLogic: CentOS: 7.2 n: Najnowsze | System operacyjny i dysk z danymi |
 | OpenLogic | CentOS 7,1 | 7.1 | OpenLogic: CentOS: 7.1: Najnowsze | Tylko dysk z danymi |
@@ -144,7 +144,7 @@ Poniższa tabela zawiera definicje typowych terminów używanych w dokumentacji 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szybki Start — tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli-quickstart.md)
+- [Szybki Start — tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure ](disk-encryption-cli-quickstart.md)
 - [Szybki Start — tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu programu Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Scenariusze usługi Azure Disk Encryption w przypadku maszyn wirtualnych z systemem Linux](disk-encryption-linux.md)
 - [Skrypt interfejsu wiersza polecenia Azure Disk Encryption preinstalacji](https://github.com/ejarvi/ade-cli-getting-started)

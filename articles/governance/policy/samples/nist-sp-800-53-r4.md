@@ -5,10 +5,10 @@ ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
 ms.openlocfilehash: 196522101cbc09a8c6a3ee12593a273e6565da88
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823977"
 ---
 # <a name="details-of-the-nist-sp-800-53-r4-regulatory-compliance-built-in-initiative"></a>Szczegóły procedury wbudowanej zgodności z przepisami NIST SP 800-53 R4
@@ -99,7 +99,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1017 — \| wylogowywanie nieaktywności zarządzania kontem](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fc3db37-e59a-48c1-84e9-1780cedb409e) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1017.json) |
 
-### <a name="account-management--role-based-schemes"></a>Zarządzanie kontami | Schematy oparte na rolach
+### <a name="account-management--role-based-schemes"></a>Zarządzanie kontami | Role-Based schematy
 
 **Identyfikator**: NIST SP 800-53 R4 AC-2 (7) **własność**: udostępnione
 
@@ -107,9 +107,9 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Dla serwerów SQL powinien zostać zainicjowany administrator Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Inspekcja aprowizacji Azure Active Directory administratora programu SQL Server w celu włączenia uwierzytelniania usługi Azure AD. Uwierzytelnianie usługi Azure AD umożliwia uproszczone zarządzanie uprawnieniami oraz scentralizowane zarządzanie tożsamościami użytkowników baz danych i innych usług firmy Microsoft. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[Inspekcja użycia niestandardowych reguł RBAC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |Inspekcja wbudowanych ról, takich jak "Owner, współautorzy, czytelnik" zamiast niestandardowych ról RBAC, które są podatne na błędy. Używanie ról niestandardowych jest traktowane jako wyjątek i wymaga rygorystycznego przeglądu i modelowania zagrożeń |Inspekcja, wyłączona |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
-|[Microsoft Managed Control 1018 — \| schematy oparte na rolach zarządzania kontami](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9121abf-e698-4ee9-b1cf-71ee528ff07f) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1018.json) |
-|[Microsoft Managed Control 1019 — \| schematy oparte na rolach zarządzania kontami](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6a3ee9b2-3977-459c-b8ce-2db583abd9f7) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1019.json) |
-|[Microsoft Managed Control 1020 — \| schematy oparte na rolach zarządzania kontami](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b291ee8-3140-4cad-beb7-568c077c78ce) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1020.json) |
+|[Microsoft Managed Control 1018 — schematy Role-Based zarządzania kontami \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9121abf-e698-4ee9-b1cf-71ee528ff07f) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1018.json) |
+|[Microsoft Managed Control 1019 — schematy Role-Based zarządzania kontami \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6a3ee9b2-3977-459c-b8ce-2db583abd9f7) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1019.json) |
+|[Microsoft Managed Control 1020 — schematy Role-Based zarządzania kontami \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b291ee8-3140-4cad-beb7-568c077c78ce) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1020.json) |
 |[W klastrach Service Fabric należy używać tylko Azure Active Directory do uwierzytelniania klientów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb54ed75b-3e1a-44ac-a333-05ba39b99ff0) |Inspekcja użycia uwierzytelniania klienta tylko za pośrednictwem Azure Active Directory w Service Fabric |Inspekcja, Odmów, wyłączone |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Fabric/ServiceFabric_AuditADAuth_Audit.json) |
 
 ### <a name="account-management--restrictions-on-use-of-shared--group-accounts"></a>Zarządzanie kontami | Ograniczenia dotyczące korzystania z kont Shared/Group
@@ -146,13 +146,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1024 — \| Monitorowanie konta zarządzania kontem/nietypowe użycie](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F84914fb4-12da-4c53-a341-a9fd463bed10) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1024.json) |
 |[Microsoft Managed Control 1025 — \| Monitorowanie konta zarządzania kontem/nietypowe użycie](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fadfe020d-0a97-45f4-a39c-696ef99f3a95) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1025.json) |
 
-### <a name="account-management--disable-accounts-for-high-risk-individuals"></a>Zarządzanie kontami | Wyłącz konta dla osób wysokiego ryzyka
+### <a name="account-management--disable-accounts-for-high-risk-individuals"></a>Zarządzanie kontami | Wyłącz konta dla High-Risk pojedynczych
 
 **Identyfikator**: NIST SP 800-53 R4 AC-2 (13) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1026 — Zarządzanie kontem \| wyłącza konta dla osób o wysokim ryzyku](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55419419-c597-4cd4-b51e-009fd2266783) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1026.json) |
+|[Microsoft Managed Control 1026 — zarządzanie kontami \| Wyłącz konta dla High-Risk użytkowników indywidualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55419419-c597-4cd4-b51e-009fd2266783) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1026.json) |
 
 ### <a name="access-enforcement"></a>Wymuszanie dostępu
 
@@ -322,13 +322,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1051 — blokada sesji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7cac6ee9-b58b-40c8-a5ce-f0efc3d9b339) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1051.json) |
 |[Microsoft Managed Control 1052 — blokada sesji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F027cae1c-ec3e-4492-9036-4168d540c42a) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1052.json) |
 
-### <a name="session-lock--pattern-hiding-displays"></a>Blokada sesji | Wyświetlanie wzorca — ukrywanie
+### <a name="session-lock--pattern-hiding-displays"></a>Blokada sesji | Pattern-Hiding wyświetlenia
 
 **Identyfikator**: NIST SP 800-53 R4 AC-11 (1) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1053 — wzorzec blokady sesji \| — ukrywanie ekranów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7582b19c-9dba-438e-aed8-ede59ac35ba3) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1053.json) |
+|[Formant zarządzany przez firmę Microsoft 1053- \| Pattern-Hiding wyświetla blokadę sesji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7582b19c-9dba-438e-aed8-ede59ac35ba3) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1053.json) |
 
 ### <a name="session-termination"></a>Zakończenie sesji
 
@@ -338,14 +338,14 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1054 — zakończenie sesji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5807e1b4-ba5e-4718-8689-a0ca05a191b2) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1054.json) |
 
-### <a name="session-termination--user-initiated-logouts--message-displays"></a>Zakończenie sesji | Logowania inicjowane przez użytkownika/wyświetlanie komunikatów
+### <a name="session-termination--user-initiated-logouts--message-displays"></a>Zakończenie sesji | User-Initiated wylogowania/wyświetlania komunikatów
 
 **Identyfikator**: NIST SP 800-53 R4 AC-12 (1) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1055 — \| wylogowania/komunikaty inicjowane przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F769efd9b-3587-4e22-90ce-65ddcd5bd969) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1055.json) |
-|[Microsoft Managed Control 1056 — \| wylogowania/komunikaty inicjowane przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac43352f-df83-4694-8738-cfce549fd08d) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1056.json) |
+|[Zarządzane przez firmę Microsoft kontrolka 1055-kończenie sesji \| User-Initiated wylogowywanie/komunikaty](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F769efd9b-3587-4e22-90ce-65ddcd5bd969) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1055.json) |
+|[Zarządzane przez firmę Microsoft kontrolka 1056-kończenie sesji \| User-Initiated wylogowywanie/komunikaty](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac43352f-df83-4694-8738-cfce549fd08d) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1056.json) |
 
 ### <a name="permitted-actions-without-identification-or-authentication"></a>Dozwolone akcje bez identyfikacji lub uwierzytelniania
 
@@ -474,13 +474,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1073-Access Control dla urządzeń przenośnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fab55cdb0-c7dd-4bd8-ae22-a7cea7594e9c) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1073.json) |
 |[Microsoft Managed Control 1074-Access Control dla urządzeń przenośnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27a69937-af92-4198-9b86-08d355c7e59a) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1074.json) |
 
-### <a name="access-control-for-mobile-devices--full-device--container-based--encryption"></a>Access Control urządzeń przenośnych | Pełne szyfrowanie oparte na urządzeniach/kontenerach
+### <a name="access-control-for-mobile-devices--full-device--container-based--encryption"></a>Access Control urządzeń przenośnych | Pełne szyfrowanie urządzenia/Container-Based
 
 **Identyfikator**: NIST SP 800-53 R4 AC-19 (5) **własność**: Microsoft
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1075-Access Control dla urządzeń przenośnych \| pełne szyfrowanie oparte na urządzeniach/kontenerach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc933d22-04df-48ed-8f87-22a3773d4309) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1075.json) |
+|[Microsoft Managed Control 1075-Access Control dla urządzeń przenośnych \| pełne szyfrowanie urządzenia/Container-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc933d22-04df-48ed-8f87-22a3773d4309) |Firma Microsoft implementuje tę Access Controlą kontrolkę |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1075.json) |
 
 ### <a name="use-of-external-information-systems"></a>Korzystanie z zewnętrznych systemów informacyjnych
 
@@ -557,31 +557,31 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1092 — \| zagrożenie dla niejawnego szkolenia w zakresie zabezpieczeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8a29d47b-8604-4667-84ef-90d203fcb305) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1092.json) |
 
-### <a name="role-based-security-training"></a>Szkolenie dotyczące zabezpieczeń oparte na rolach
+### <a name="role-based-security-training"></a>Szkolenia dotyczące zabezpieczeń Role-Based
 
 **Identyfikator**: NIST SP 800-53 R4 o-3 **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1093 — szkolenia dotyczące zabezpieczeń oparte na rolach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7a0bdeeb-15f4-47e8-a1da-9f769f845fdf) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1093.json) |
-|[Microsoft Managed Control 1094 — szkolenia dotyczące zabezpieczeń oparte na rolach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b1853e0-8973-446b-b567-09d901d31a09) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1094.json) |
-|[Microsoft Managed Control 1095 — szkolenia dotyczące zabezpieczeń oparte na rolach](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc3f6f7a-057b-433e-9834-e8c97b0194f6) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1095.json) |
+|[Microsoft Managed Control 1093 — szkolenia dotyczące zabezpieczeń Role-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7a0bdeeb-15f4-47e8-a1da-9f769f845fdf) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1093.json) |
+|[Microsoft Managed Control 1094 — szkolenia dotyczące zabezpieczeń Role-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4b1853e0-8973-446b-b567-09d901d31a09) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1094.json) |
+|[Microsoft Managed Control 1095 — szkolenia dotyczące zabezpieczeń Role-Based](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc3f6f7a-057b-433e-9834-e8c97b0194f6) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1095.json) |
 
-### <a name="role-based-security-training--practical-exercises"></a>Szkolenie dotyczące zabezpieczeń oparte na rolach | Praktyczne ćwiczenia
+### <a name="role-based-security-training--practical-exercises"></a>Role-Based szkolenia w zakresie zabezpieczeń | Praktyczne ćwiczenia
 
 **Identyfikator**: NIST SP 800-53 R4 o-3 (3) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1096 — praktyczne szkolenia w zakresie zabezpieczeń oparte na rolach \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F420c1477-aa43-49d0-bd7e-c4abdd9addff) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1096.json) |
+|[Microsoft Managed Control 1096-Role-Based praktyczne szkolenia w zakresie zabezpieczeń \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F420c1477-aa43-49d0-bd7e-c4abdd9addff) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1096.json) |
 
-### <a name="role-based-security-training--suspicious-communications-and-anomalous-system-behavior"></a>Szkolenie dotyczące zabezpieczeń oparte na rolach | Podejrzana komunikacja i zachowanie systemu nietypowego
+### <a name="role-based-security-training--suspicious-communications-and-anomalous-system-behavior"></a>Role-Based szkolenia w zakresie zabezpieczeń | Podejrzana komunikacja i zachowanie systemu nietypowego
 
 **Identyfikator**: NIST SP 800-53 R4 o-3 (4) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1097-oparta na rolach szkolenia dotyczące zabezpieczeń \| podejrzana komunikacja i nietypowe zachowanie systemu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf3e4836-f19e-47eb-a8cd-c3ca150452c0) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1097.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1097 — Role-Based szkolenia z zakresu zabezpieczeń \| podejrzane informacje i nietypowe zachowanie systemu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf3e4836-f19e-47eb-a8cd-c3ca150452c0) |Firma Microsoft implementuje tę świadomość i kontrolę szkolenia |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1097.json) |
 
 ### <a name="security-training-records"></a>Rekordy szkoleń w zakresie zabezpieczeń
 
@@ -678,13 +678,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Zarządzana przez firmę Microsoft kontrola 1113-odpowiedź na błędy przetwarzania inspekcji \| pojemność magazynu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F562afd61-56be-4313-8fe4-b9564aa4ba7d) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1113.json) |
 
-### <a name="response-to-audit-processing-failures--real-time-alerts"></a>Odpowiedź na błędy przetwarzania inspekcji | Alerty w czasie rzeczywistym
+### <a name="response-to-audit-processing-failures--real-time-alerts"></a>Odpowiedź na błędy przetwarzania inspekcji | Alerty Real-Time
 
 **Identyfikator**: NIST SP 800-53 R4 au-5 (2) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Zarządzany przez firmę Microsoft formant 1114 — odpowiedź na błędy przetwarzania inspekcji w \| czasie rzeczywistym](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4c090801-59bc-4454-bb33-e0455133486a) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1114.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1114 — odpowiedź na błędy przetwarzania inspekcji \| Real-Time alerty](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4c090801-59bc-4454-bb33-e0455133486a) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1114.json) |
 
 ### <a name="audit-review-analysis-and-reporting"></a>Przegląd, analiza i raportowanie inspekcji
 
@@ -854,13 +854,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1138 — Generowanie inspekcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9c284fc0-268a-4f29-af44-3c126674edb4) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1138.json) |
 |[Microsoft Managed Control 1139 — Generowanie inspekcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ed62522-de00-4dda-9810-5205733d2f34) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1139.json) |
 
-### <a name="audit-generation--system-wide--time-correlated-audit-trail"></a>Generowanie inspekcji | Dziennik inspekcji z korelacją całego systemu/czasowo
+### <a name="audit-generation--system-wide--time-correlated-audit-trail"></a>Generowanie inspekcji | Dziennik inspekcji System-Wide/Time-Correlated
 
 **Identyfikator**: NIST SP 800-53 R4 au-12 (1) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Kontrola zarządzana przez firmę Microsoft 1140 — śledzenie inspekcji na \| całym systemie/w trybie korelacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F90d8b8ad-8ee3-4db7-913f-2a53fcff5316) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1140.json) |
+|[Microsoft Managed Control 1140 — Generowanie inspekcji \| System-Wide/Time-Correlated dziennik inspekcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F90d8b8ad-8ee3-4db7-913f-2a53fcff5316) |Firma Microsoft implementuje tę inspekcję i kontrolę odpowiedzialności |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1140.json) |
 
 ### <a name="audit-generation--changes-by-authorized-individuals"></a>Generowanie inspekcji | Zmiany wprowadzone przez autoryzowanych użytkowników
 
@@ -1061,14 +1061,14 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Zarządzana przez firmę Microsoft kontrola 1181-konfiguracja \| przechowywania wcześniejszych konfiguracji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21839937-d241-4fa5-95c6-b669253d9ab9) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1181.json) |
 
-### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Konfiguracja linii bazowej | Skonfiguruj systemy, składniki lub urządzenia dla obszarów wysokiego ryzyka
+### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Konfiguracja linii bazowej | Skonfiguruj systemy, składniki lub urządzenia dla High-Risk obszarów
 
 **Identyfikator**: Instytut NIST SP 800-53 R4 cm-2 (7) **własność**: Microsoft
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1182-Baseline konfiguracja \| Konfigurowanie systemów, składników lub urządzeń dla obszarów wysokiego ryzyka](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f34f554-da4b-4786-8d66-7915c90893da) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1182.json) |
-|[Microsoft Managed Control 1183-Baseline konfiguracja \| Konfigurowanie systemów, składników lub urządzeń dla obszarów wysokiego ryzyka](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5352e3e0-e63a-452e-9e5f-9c1d181cff9c) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1183.json) |
+|[Microsoft Managed Control 1182-Baseline konfiguracja \| Konfigurowanie systemów, składników lub urządzeń dla High-Risk obszarów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f34f554-da4b-4786-8d66-7915c90893da) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1182.json) |
+|[Microsoft Managed Control 1183-Baseline konfiguracja \| Konfigurowanie systemów, składników lub urządzeń dla High-Risk obszarów](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5352e3e0-e63a-452e-9e5f-9c1d181cff9c) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1183.json) |
 
 ### <a name="configuration-change-control"></a>Kontrola zmiany konfiguracji
 
@@ -1322,24 +1322,24 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Zarządzane przez firmę Microsoft 1237 — ograniczenia użycia oprogramowania — \| oprogramowanie open source](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe80b6812-0bfa-4383-8223-cdd86a46a890) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1237.json) |
 
-### <a name="user-installed-software"></a>Oprogramowanie zainstalowane przez użytkownika
+### <a name="user-installed-software"></a>User-Installed oprogramowanie
 
 **Identyfikator**: Instytut NIST SP 800-53 R4 cm-11 **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Na maszynach powinny być włączone adaptacyjne kontrole aplikacji umożliwiające Definiowanie bezpiecznych aplikacji.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |Włącz kontrolki aplikacji, aby zdefiniować listę znanych bezpiecznych aplikacji uruchomionych na maszynach, i Zgłoś alert, gdy inne aplikacje zostaną uruchomione. Pozwala to na zabezpieczanie maszyn przed złośliwym oprogramowaniem. Aby uprościć proces konfigurowania i utrzymywania reguł, Security Center korzysta z uczenia maszynowego do analizowania aplikacji uruchomionych na poszczególnych maszynach i sugerują listę znanych bezpiecznych aplikacji. |AuditIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
-|[Microsoft Managed Control 1238 — oprogramowanie zainstalowane przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa36cedd4-3ffd-4b1f-8b18-aa71d8d87ce1) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1238.json) |
-|[Microsoft Managed Control 1239 — oprogramowanie zainstalowane przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0be51298-f643-4556-88af-d7db90794879) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1239.json) |
-|[Microsoft Managed Control 1240 — oprogramowanie zainstalowane przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F129eb39f-d79a-4503-84cd-92f036b5e429) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1240.json) |
+|[Microsoft Managed Control 1238 — oprogramowanie User-Installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa36cedd4-3ffd-4b1f-8b18-aa71d8d87ce1) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1238.json) |
+|[Microsoft Managed Control 1239 — oprogramowanie User-Installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0be51298-f643-4556-88af-d7db90794879) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1239.json) |
+|[Microsoft Managed Control 1240 — oprogramowanie User-Installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F129eb39f-d79a-4503-84cd-92f036b5e429) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1240.json) |
 
-### <a name="user-installed-software--alerts-for-unauthorized-installations"></a>Oprogramowanie zainstalowane przez użytkownika | Alerty dla nieautoryzowanych instalacji
+### <a name="user-installed-software--alerts-for-unauthorized-installations"></a>User-Installed oprogramowanie | Alerty dla nieautoryzowanych instalacji
 
 **Identyfikator**: Instytut NIST SP 800-53 R4 cm-11 (1) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1241 — alerty oprogramowania zainstalowanego \| przez użytkownika dla nieautoryzowanych instalacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feca4d7b2-65e2-4e04-95d4-c68606b063c3) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1241.json) |
+|[Zarządzane przez firmę Microsoft oprogramowanie sterujące 1241-User-Installed \| alerty dotyczące oprogramowania dla nieautoryzowanych instalacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feca4d7b2-65e2-4e04-95d4-c68606b063c3) |Firma Microsoft implementuje tę kontrolkę zarządzania konfiguracją |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1241.json) |
 
 ## <a name="contingency-planning"></a>Planowanie awaryjne
 
@@ -1791,7 +1791,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1325 — zarządzanie wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1845796a-7581-49b2-ae20-443121538e19) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1325.json) |
 |[Microsoft Managed Control 1326 — zarządzanie wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8605fc00-1bf5-4fb3-984e-c95cec4f231d) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1326.json) |
 
-### <a name="authenticator-management--password-based-authentication"></a>Zarządzanie wystawcą Uwierzytelnianie oparte na hasłach
+### <a name="authenticator-management--password-based-authentication"></a>Zarządzanie wystawcą Uwierzytelnianie Password-Based
 
 **Identyfikator**: NIST SP 800-53 R4 IA-5 (1) **własność**: udostępnione
 
@@ -1807,23 +1807,23 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Inspekcja maszyn z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fda0f98fe-a24b-4ad5-af69-bd0400233661) |Wymaga, aby warunki wstępne zostały wdrożone w zakresie przypisania zasad. Aby uzyskać szczegółowe informacje, odwiedź stronę [https://aka.ms/gcpol](https://aka.ms/gcpol) . Maszyny nie są zgodne, jeśli maszyny z systemem Windows nie przechowują haseł przy użyciu szyfrowania odwracalnego |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPasswordEncryption_AINE.json) |
 |[Wdrażanie rozszerzenia konfiguracji gościa systemu Linux w celu włączenia przypisań konfiguracji gościa na maszynach wirtualnych z systemem Linux](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F331e8ea8-378a-410f-a2e5-ae22f38bb0da) |Te zasady wdrażają rozszerzenie konfiguracji gościa systemu Linux na maszynach wirtualnych z systemem Linux hostowanych na platformie Azure, które są obsługiwane przez konfigurację gościa. Rozszerzenie konfiguracji gościa systemu Linux jest warunkiem wstępnym wszystkich przypisań konfiguracji gościa systemu Linux i musi zostać wdrożone na maszynach przed użyciem dowolnej definicji zasad konfiguracji gościa systemu Linux. Aby uzyskać więcej informacji na temat konfiguracji gościa, odwiedź stronę [https://aka.ms/gcpol](https://aka.ms/gcpol) . |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionLinux_Prerequisite.json) |
 |[Wdrażanie rozszerzenia konfiguracji gościa systemu Windows w celu włączenia przypisań konfiguracji gościa na maszynach wirtualnych z systemem Windows](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F385f5831-96d4-41db-9a3c-cd3af78aaae6) |Te zasady wdrażają rozszerzenie konfiguracji gościa systemu Windows na maszynach wirtualnych z systemem Windows hostowanych na platformie Azure, które są obsługiwane przez konfigurację gościa. Rozszerzenie konfiguracji gościa systemu Windows jest wymaganiem wstępnym dla wszystkich przypisań konfiguracji gościa systemu Windows i musi zostać wdrożone na maszynach przed użyciem dowolnej definicji zasad konfiguracji gościa systemu Windows. Aby uzyskać więcej informacji na temat konfiguracji gościa, odwiedź stronę [https://aka.ms/gcpol](https://aka.ms/gcpol) . |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_DeployExtensionWindows_Prerequisite.json) |
-|[Microsoft Managed Control 1327 — \| uwierzytelnianie oparte na hasłach zarządzania wystawcą](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03188d8f-1ae5-4fe1-974d-2d7d32ef937d) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1327.json) |
-|[Microsoft Managed Control 1328 — \| uwierzytelnianie oparte na hasłach zarządzania wystawcą](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff5c66fdc-3d02-4034-9db5-ba57802609de) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1328.json) |
-|[Microsoft Managed Control 1329 — \| uwierzytelnianie oparte na hasłach zarządzania wystawcą](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F498f6234-3e20-4b6a-a880-cbd646d973bd) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1329.json) |
-|[Microsoft Managed Control 1330 — \| uwierzytelnianie oparte na hasłach zarządzania wystawcą](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff75cedb2-5def-4b31-973e-b69e8c7bd031) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1330.json) |
-|[Microsoft Managed Control 1331 — \| uwierzytelnianie oparte na hasłach zarządzania wystawcą](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05460fe2-301f-4ed1-8174-d62c8bb92ff4) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1331.json) |
-|[Microsoft Managed Control 1332 — \| uwierzytelnianie oparte na hasłach zarządzania wystawcą](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F068260be-a5e6-4b0a-a430-cd27071c226a) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1332.json) |
+|[Microsoft Managed Control 1327 — uwierzytelnianie Password-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03188d8f-1ae5-4fe1-974d-2d7d32ef937d) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1327.json) |
+|[Microsoft Managed Control 1328 — uwierzytelnianie Password-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff5c66fdc-3d02-4034-9db5-ba57802609de) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1328.json) |
+|[Microsoft Managed Control 1329 — uwierzytelnianie Password-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F498f6234-3e20-4b6a-a880-cbd646d973bd) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1329.json) |
+|[Microsoft Managed Control 1330 — uwierzytelnianie Password-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff75cedb2-5def-4b31-973e-b69e8c7bd031) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1330.json) |
+|[Microsoft Managed Control 1331 — uwierzytelnianie Password-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F05460fe2-301f-4ed1-8174-d62c8bb92ff4) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1331.json) |
+|[Microsoft Managed Control 1332 — uwierzytelnianie Password-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F068260be-a5e6-4b0a-a430-cd27071c226a) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1332.json) |
 
-### <a name="authenticator-management--pki-based-authentication"></a>Zarządzanie wystawcą Uwierzytelnianie oparte na infrastrukturze PKI
+### <a name="authenticator-management--pki-based-authentication"></a>Zarządzanie wystawcą Uwierzytelnianie Pki-Based
 
 **Identyfikator**: NIST SP 800-53 R4 IA-5 (2) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1333 — \| uwierzytelnianie oparte na infrastrukturze PKI zarządzania wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3298d6bf-4bc6-4278-a95d-f7ef3ac6e594) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1333.json) |
-|[Microsoft Managed Control 1334 — \| uwierzytelnianie oparte na infrastrukturze PKI zarządzania wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44bfdadc-8c2e-4c30-9c99-f005986fabcd) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1334.json) |
-|[Microsoft Managed Control 1335 — \| uwierzytelnianie oparte na infrastrukturze PKI zarządzania wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F382016f3-d4ba-4e15-9716-55077ec4dc2a) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1335.json) |
-|[Microsoft Managed Control 1336 — \| uwierzytelnianie oparte na infrastrukturze PKI zarządzania wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77f56280-e367-432a-a3b9-8ca2aa636a26) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1336.json) |
+|[Microsoft Managed Control 1333 — uwierzytelnianie Pki-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3298d6bf-4bc6-4278-a95d-f7ef3ac6e594) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1333.json) |
+|[Microsoft Managed Control 1334 — uwierzytelnianie Pki-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44bfdadc-8c2e-4c30-9c99-f005986fabcd) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1334.json) |
+|[Microsoft Managed Control 1335 — uwierzytelnianie Pki-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F382016f3-d4ba-4e15-9716-55077ec4dc2a) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1335.json) |
+|[Microsoft Managed Control 1336 — uwierzytelnianie Pki-Based zarządzania wystawcy \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F77f56280-e367-432a-a3b9-8ca2aa636a26) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1336.json) |
 
 ### <a name="authenticator-management--in-person-or-trusted-third-party-registration"></a>Zarządzanie wystawcą Rejestracja w ramach osoby lub zaufanej innej firmy
 
@@ -1831,7 +1831,7 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Zarządzana przez firmę Microsoft kontrola 1337 — zarządzanie wystawcy \| lub zaufana rejestracja innych firm](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F463e5220-3f79-4e24-a63f-343e4096cd22) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1337.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1337 — In-Person zarządzania wystawcy \| lub Rejestracja zaufanej innej firmy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F463e5220-3f79-4e24-a63f-343e4096cd22) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1337.json) |
 
 ### <a name="authenticator-management--automated-support--for-password-strength-determination"></a>Zarządzanie wystawcą Automatyczna obsługa określania siły hasła
 
@@ -1865,13 +1865,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1341 — zarządzanie wystawcy — \| wiele kont systemu informacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34cb7e92-fe4c-4826-b51e-8cd203fa5d35) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1341.json) |
 
-### <a name="authenticator-management--hardware-token-based-authentication"></a>Zarządzanie wystawcą Uwierzytelnianie oparte na tokenach sprzętowych
+### <a name="authenticator-management--hardware-token-based-authentication"></a>Zarządzanie wystawcą Sprzętowe uwierzytelnianie Token-Based
 
 **Identyfikator**: NIST SP 800-53 R4 IA-5 (11) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1342 — \| uwierzytelnianie oparte na tokenach sprzętowych zarządzania wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F283a4e29-69d5-4c94-b99e-29acf003c899) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1342.json) |
+|[Microsoft Managed Control 1342 — \| uwierzytelnianie Token-Based sprzętu zarządzania wystawcy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F283a4e29-69d5-4c94-b99e-29acf003c899) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1342.json) |
 
 ### <a name="authenticator-management--expiration-of-cached-authenticators"></a>Zarządzanie wystawcą Wygaśnięcie buforowanych wystawców
 
@@ -1921,21 +1921,21 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Zarządzana przez firmę Microsoft kontrola 1348 — tożsamość i uwierzytelnianie (niebędące organizacjami. Użytkownicy) akceptują \| poświadczenia innych firm](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F855ced56-417b-4d74-9d5f-dd1bc81e22d6) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1348.json) |
 
-### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-approved-products"></a>Identyfikacja i uwierzytelnianie (Użytkownicy niebędący organizacjami) | Korzystanie z produktów zatwierdzonych przez Ficam
+### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-approved-products"></a>Identyfikacja i uwierzytelnianie (Użytkownicy niebędący organizacjami) | Korzystanie z produktów Ficam-Approved
 
 **Identyfikator**: NIST SP 800-53 R4 IA-8 (3) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Zarządzana przez firmę Microsoft kontrola 1349 — tożsamość i uwierzytelnianie (niebędące organizacjami. Użytkownicy) \| wykorzystują zatwierdzone produkty FICAM](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17641f70-94cd-4a5d-a613-3d1143e20e34) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1349.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1349 — tożsamość i uwierzytelnianie (niebędące organizacjami. Użytkownicy) \| wykorzystują FICAM-Approved produkty](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17641f70-94cd-4a5d-a613-3d1143e20e34) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1349.json) |
 
-### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-issued-profiles"></a>Identyfikacja i uwierzytelnianie (Użytkownicy niebędący organizacjami) | Korzystanie z profilów wystawionych przez Ficam
+### <a name="identification-and-authentication-non-organizational-users--use-of-ficam-issued-profiles"></a>Identyfikacja i uwierzytelnianie (Użytkownicy niebędący organizacjami) | Korzystanie z profili Ficam-Issued
 
 **Identyfikator**: NIST SP 800-53 R4 IA-8 (4) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Zarządzana przez firmę Microsoft kontrola 1350 — tożsamość i uwierzytelnianie (niebędące organizacjami. Użytkownicy) \| używają profilów wystawionych przez FICAM](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd77fd943-6ba6-4a21-ba07-22b03e347cc4) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1350.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1350 — tożsamość i uwierzytelnianie (niebędące organizacjami. Użytkownicy) \| używają profilów FICAM-Issued](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd77fd943-6ba6-4a21-ba07-22b03e347cc4) |Firma Microsoft implementuje tę identyfikację i kontrolę uwierzytelniania |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1350.json) |
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
 
@@ -2530,13 +2530,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1473 — Gotowość awaryjna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd7047705-d719-46a7-8bb0-76ad233eba71) |Firma Microsoft implementuje tę kontrolę ochrony fizycznej i środowiskowej |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1473.json) |
 
-### <a name="emergency-power--long-term-alternate-power-supply---minimal-operational-capability"></a>Zasilacz awaryjny | Długoterminowe alternatywne zasilacze — minimalnej możliwości operacyjnej
+### <a name="emergency-power--long-term-alternate-power-supply---minimal-operational-capability"></a>Zasilacz awaryjny | Long-Term alternatywny zasilacz — minimalna możliwość operacyjna
 
 **Identyfikator**: NIST SP 800-53 R4 PE-11 (1) **własność**: Microsoft
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Zarządzana przez firmę Microsoft kontrola 1474 — awaryjne \| długoterminowe zużycie mocy — minimalne możliwości operacyjne](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03ad326e-d7a1-44b1-9a76-e17492efc9e4) |Firma Microsoft implementuje tę kontrolę ochrony fizycznej i środowiskowej |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1474.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1474 — zasilanie awaryjne \| Long-Term alternatywny zasilacz — minimalna możliwość operacyjna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F03ad326e-d7a1-44b1-9a76-e17492efc9e4) |Firma Microsoft implementuje tę kontrolę ochrony fizycznej i środowiskowej |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1474.json) |
 
 ### <a name="emergency-lighting"></a>Oświetlenie awaryjne
 
@@ -3136,13 +3136,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1609 — proces opracowywania, standardy i narzędzia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9e93fa71-42ac-41a7-b177-efbfdc53c69f) |Firma Microsoft implementuje kontrolę pozyskiwania systemu i usług |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1609.json) |
 |[Microsoft Managed Control 1610 — proces opracowywania, standardy i narzędzia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb9f3fb54-4222-46a1-a308-4874061f8491) |Firma Microsoft implementuje kontrolę pozyskiwania systemu i usług |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1610.json) |
 
-### <a name="developer-provided-training"></a>Szkolenia udostępniane przez dewelopera
+### <a name="developer-provided-training"></a>Szkolenia Developer-Provided
 
 **Identyfikator**: NIST SP 800-53 R4 sa-16 **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1611 — szkolenia udostępniane przez dewelopera](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffdda8a0c-ac32-43f6-b2f4-7dc1df03f43f) |Firma Microsoft implementuje kontrolę pozyskiwania systemu i usług |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1611.json) |
+|[Microsoft Managed Control 1611 — szkolenia Developer-Provided](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffdda8a0c-ac32-43f6-b2f4-7dc1df03f43f) |Firma Microsoft implementuje kontrolę pozyskiwania systemu i usług |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1611.json) |
 
 ### <a name="developer-security-architecture-and-design"></a>Architektura i Projektowanie zabezpieczeń dla deweloperów
 
@@ -3273,13 +3273,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Zarządzana przez firmę Microsoft kontrola 1634 — ochrona granic \| uniemożliwia nieautoryzowane eksfiltracji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F292a7c44-37fa-4c68-af7c-9d836955ded2) |Firma Microsoft implementuje ten system i kontrolę ochrony komunikacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1634.json) |
 
-### <a name="boundary-protection--host-based-protection"></a>Ochrona granic | Ochrona oparta na hoście
+### <a name="boundary-protection--host-based-protection"></a>Ochrona granic | Ochrona Host-Based
 
 **ID**: NIST SP 800-53 R4 SC-7 (12) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1635 — ochrona graniczna \| oparta na hoście](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F87551b5d-1deb-4d0f-86cc-9dc14cb4bf7e) |Firma Microsoft implementuje ten system i kontrolę ochrony komunikacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1635.json) |
+|[Microsoft Managed Control 1635 — ochrona granic \| Host-Based ochrona](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F87551b5d-1deb-4d0f-86cc-9dc14cb4bf7e) |Firma Microsoft implementuje ten system i kontrolę ochrony komunikacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1635.json) |
 
 ### <a name="boundary-protection--isolation-of-security-tools--mechanisms--support-components"></a>Ochrona granic | Izolacja narzędzi/mechanizmów zabezpieczeń/składników pomocy technicznej
 
@@ -3580,13 +3580,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1681 — aktualizacje automatyczne ochrony przed złośliwym kodem \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12623e7e-4736-4b2e-b776-c1600f35f93a) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1681.json) |
 
-### <a name="malicious-code-protection--nonsignature-based-detection"></a>Ochrona złośliwego kodu | Wykrywanie na podstawie niesygnatury
+### <a name="malicious-code-protection--nonsignature-based-detection"></a>Ochrona złośliwego kodu | Wykrywanie Nonsignature-Based
 
 **Identyfikator**: NIST SP 800-53 R4 si-3 (7) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Kontrola zarządzana przez firmę Microsoft 1682 — wykrywanie złośliwego kodu \| niepodpisanego](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F62b638c5-29d7-404b-8d93-f21e4b1ce198) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1682.json) |
+|[Zarządzana przez firmę Microsoft kontrola 1682 — Wykrywanie złośliwych Nonsignature-Based ochrony kodu \|](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F62b638c5-29d7-404b-8d93-f21e4b1ce198) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1682.json) |
 
 ### <a name="information-system-monitoring"></a>Monitorowanie systemu informacji
 
@@ -3607,21 +3607,21 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |[Microsoft Managed Control 1688 — monitorowanie systemu informacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F063c3f09-e0f0-4587-8fd5-f4276fae675f) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1688.json) |
 |[Microsoft Managed Control 1689 — monitorowanie systemu informacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fde901f2f-a01a-4456-97f0-33cda7966172) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1689.json) |
 
-### <a name="information-system-monitoring--system-wide-intrusion-detection-system"></a>Monitorowanie systemu informacji | System wykrywania wtargnięcia dla całego systemu
+### <a name="information-system-monitoring--system-wide-intrusion-detection-system"></a>Monitorowanie systemu informacji | System-Wide systemu wykrywania wtargnięcia
 
 **Identyfikator**: NIST SP 800-53 R4 si-4 (1) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1690 — system kontroli dostępu systemu informacyjnego \| dla całego systemu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2567a23-d1c3-4783-99f3-d471302a4d6b) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1690.json) |
+|[Microsoft Managed Control 1690 — system informacji monitorowania \| System-Wide](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2567a23-d1c3-4783-99f3-d471302a4d6b) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1690.json) |
 
-### <a name="information-system-monitoring--automated-tools-for-real-time-analysis"></a>Monitorowanie systemu informacji | Zautomatyzowane narzędzia do analizy w czasie rzeczywistym
+### <a name="information-system-monitoring--automated-tools-for-real-time-analysis"></a>Monitorowanie systemu informacji | Zautomatyzowane narzędzia do analizy Real-Time
 
 **Identyfikator**: NIST SP 800-53 R4 si-4 (2) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1691 — \| zautomatyzowane narzędzia do monitorowania systemu informacji dla analizy w czasie rzeczywistym](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71475fb4-49bd-450b-a1a5-f63894c24725) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1691.json) |
+|[Microsoft Managed Control 1691 — \| zautomatyzowane narzędzia do monitorowania systemu informacji dla Real-Time analizy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71475fb4-49bd-450b-a1a5-f63894c24725) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1691.json) |
 
 ### <a name="information-system-monitoring--inbound-and-outbound-communications-traffic"></a>Monitorowanie systemu informacji | Ruch sieciowy komunikacji przychodzącej i wychodzącej
 
@@ -3631,13 +3631,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1692 — monitorowanie systemu informacji \| ruch przychodzący i wychodzący](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ecda928-9df4-4dd7-8f44-641a91e470e8) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1692.json) |
 
-### <a name="information-system-monitoring--system-generated-alerts"></a>Monitorowanie systemu informacji | Alerty generowane przez system
+### <a name="information-system-monitoring--system-generated-alerts"></a>Monitorowanie systemu informacji | Alerty System-Generated
 
 **Identyfikator**: NIST SP 800-53 R4 si-4 (5) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1693 — \| alerty generowane przez system do monitorowania systemu informacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa450eba6-2efc-4a00-846a-5804a93c6b77) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1693.json) |
+|[Microsoft Managed Control 1693 — alerty dotyczące monitorowania systemu informacji \| System-Generated](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa450eba6-2efc-4a00-846a-5804a93c6b77) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1693.json) |
 
 ### <a name="information-system-monitoring--analyze-communications-traffic-anomalies"></a>Monitorowanie systemu informacji | Analizowanie anomalii ruchu komunikacyjnego
 
@@ -3695,13 +3695,13 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładu NIST SP 800-53 R4](.
 |---|---|---|---|
 |[Microsoft Managed Control 1700 — monitorowanie systemu informacji \| nieautoryzowane Network Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7831b4ba-c3f4-4cb1-8c11-ef8d59438cd5) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1700.json) |
 
-### <a name="information-system-monitoring--host-based-devices"></a>Monitorowanie systemu informacji | Urządzenia oparte na hoście
+### <a name="information-system-monitoring--host-based-devices"></a>Monitorowanie systemu informacji | Urządzenia Host-Based
 
 **Identyfikator**: NIST SP 800-53 R4 si-4 (23) **własność**: udostępnione
 
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
-|[Microsoft Managed Control 1701 — \| urządzenia oparte na hoście monitorowania systemu informacji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff25bc08f-27cb-43b6-9a23-014d00700426) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1701.json) |
+|[Microsoft Managed Control 1701 — monitorowanie systemu informacji \| Host-Based urządzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff25bc08f-27cb-43b6-9a23-014d00700426) |Firma Microsoft implementuje ten system i kontrolę integralności informacji |wizyjn |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/MicrosoftManagedControl1701.json) |
 
 ### <a name="information-system-monitoring--indicators-of-compromise"></a>Monitorowanie systemu informacji | Wskaźniki naruszenia bezpieczeństwa
 

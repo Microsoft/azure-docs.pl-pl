@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653217"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Instrukcje: Planowanie wdrożenia usługi Azure AD Join
@@ -64,12 +64,12 @@ Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uw
 
 ### <a name="federated-environment"></a>Środowisko federacyjne
 
-Środowisko federacyjne powinno mieć dostawcę tożsamości, który obsługuje protokoły WS-Trust i WS-karmione:
+Środowisko federacyjne powinno mieć dostawcę tożsamości, który obsługuje zarówno WS-Trust jak i WS-Fed protokołów:
 
 - **Usługa WS-karmione:** Ten protokół jest wymagany do przyłączania urządzenia do usługi Azure AD.
 - **Usługa WS-Trust:** Ten protokół jest wymagany do zalogowania się do urządzenia dołączonego do usługi Azure AD.
 
-W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe protokołu WS-Trust: `/adfs/services/trust/2005/usernamemixed`
+W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe WS-Trust: `/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`

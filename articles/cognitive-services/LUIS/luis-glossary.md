@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309493"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
@@ -109,7 +109,7 @@ Zobacz też:
 
 Deskryptor jest terminem wcześniej używanym dla [funkcji](#features)uczenia maszynowego.
 
-## <a name="domain"></a>Domena
+## <a name="domain"></a>Obszar
 
 W kontekście LUIS domena jest obszarem wiedzy. Twoja domena jest specyficzna dla Twojego scenariusza. Różne domeny używają określonego języka i terminologii mającej znaczenie w kontekście domeny. Na przykład, jeśli tworzysz aplikację do odtwarzania muzyki, aplikacja będzie miała warunki i język specyficzne dla utworów muzycznych — słowa takie jak "utwór, śledzenie, album, teksty, b, wykonawca". Przykłady domen można znaleźć w temacie [prebudowane domeny](#prebuilt-domain).
 
@@ -285,9 +285,9 @@ W [jednostkach listy](reference-entity-list.md)Luis można utworzyć znormalizow
 
 |Nomalized wartość| Synonimy|
 |--|--|
-|Mały| nieco jeden, 8 uncji|
+|Mała| nieco jeden, 8 uncji|
 |Średniaa| regularne, 12 uncji|
-|Duży| Big, 16 uncji|
+|Duża| Big, 16 uncji|
 |Xtra duże| największy jeden, 24 uncje|
 
 Model zwróci wartość znormalizowaną dla jednostki, gdy którykolwiek z synonimów jest widoczny w danych wejściowych.

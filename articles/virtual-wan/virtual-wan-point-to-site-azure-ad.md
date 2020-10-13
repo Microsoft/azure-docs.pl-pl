@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
 ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87832522"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurowanie uwierzytelniania Azure Active Directory dla sieci VPN użytkownika
@@ -34,7 +34,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -167,11 +167,11 @@ Użyj tego [linku](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt
 
 1. Wybierz wielokropek (...) obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń**.
 
-    ![usunięcie](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Wybierz pozycję **Usuń** , aby usunąć.
 
-    ![usunięcie](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnozuj problemy z połączeniem
 
@@ -197,7 +197,7 @@ Użyj tego [linku](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt
 2. Na stronie Przegląd każdy punkt na mapie przedstawia koncentrator.
 3. W sekcji dotyczącej koncentratorów i połączeń możesz wyświetlić stan koncentratora, lokację, region, stan połączenia sieci VPN oraz bajty przychodzące i wychodzące.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
 
 Jeśli te zasoby nie są już potrzebne, możesz usunąć grupę zasobów i wszystkie zawarte w niej zasoby, używając polecenie [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
 

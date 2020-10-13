@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: d217f21b0a2dbdad56f2147c8800bbb50b0fa45e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265531"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie rozwiązania Zscaler trzech dla automatycznej aprowizacji użytkowników
@@ -101,7 +101,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Konfigurowanie okna SAML](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
 
-    Zaznacz opcję **Włącz Inicjowanie obsługi opartej na Standard scim** i skopiuj **podstawowy adres URL** oraz **token okaziciela**, a następnie Zapisz ustawienia. W Azure Portal wklej **podstawowy adres URL** w polu **adres URL dzierżawy** i **token okaziciela** do pola **token klucza tajnego** .
+    Wybierz pozycję **włącz SCIM-Based aprowizacji** i skopiuj **podstawowy adres URL** oraz **token okaziciela**, a następnie Zapisz ustawienia. W Azure Portal wklej **podstawowy adres URL** w polu **adres URL dzierżawy** i **token okaziciela** do pola **token klucza tajnego** .
 
 7. Po wprowadzeniu wartości w polach **adres URL dzierżawy** i **token tajny** wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z rozwiązania zscalerą trzy. Jeśli połączenie nie powiedzie się, upewnij się, że rozwiązania Zscaler trzy konto ma uprawnienia administratora i spróbuj ponownie.
 

@@ -4,10 +4,10 @@ description: W tym artykule omówiono niektóre zaawansowane tematy dotyczące u
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248088"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uaktualnianie aplikacji Service Fabric: Tematy zaawansowane
@@ -100,7 +100,7 @@ Zastąpiony czas opóźnienia dotyczy tylko wywołanego wystąpienia uaktualnien
 >
 
 > [!NOTE]
-> Tę funkcję można skonfigurować w istniejących usługach za pomocą polecenia cmdlet Update-ServiceFabricService lub szablonu ARM, jak wspomniano powyżej, gdy wersja kodu klastra to 7.1.XXX lub nowszy.
+> Tę funkcję można skonfigurować w istniejących usługach przy użyciu polecenia cmdlet Update-ServiceFabricService lub szablonu ARM, jak wspomniano powyżej, gdy wersja kodu klastra to 7.1.XXX lub nowszy.
 >
 >
 

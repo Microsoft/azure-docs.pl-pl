@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006809"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
@@ -91,7 +91,7 @@ Możesz uzyskać dostęp do Log Analytics obszarów roboczych na Azure Portal lu
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Log Analytics dostępu do Log Analytics obszaru roboczego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Wyszukaj **log Analytics obszar roboczy**.
 
@@ -197,6 +197,6 @@ WVDErrors
 >- W tabeli WVDErrors przedstawiono błędy zarządzania, problemy z rejestracją hosta oraz inne problemy, które są wykonywane, gdy użytkownik subskrybuje listę aplikacji lub pulpitów.
 >- WVDErrors pomaga identyfikować problemy, które mogą być rozwiązywane przez zadania administracyjne. Wartość właściwości serviceerror zawsze mówi "false" dla tego rodzaju problemów. Jeśli serviceerror = "true", musisz eskalować problem do firmy Microsoft. Upewnij się, że podajesz identyfikator korelacji dla błędów, które są eskalacjne.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z typowymi scenariuszami błędów, które mogą identyfikować funkcja diagnostyki, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service.md#common-error-scenarios).

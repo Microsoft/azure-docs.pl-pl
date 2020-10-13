@@ -7,10 +7,10 @@ ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: adb15d995cd2a9fd604aa6b91360adc88a2804e6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89007931"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Wprowadzenie do Service Fabric Reliable Actors
@@ -135,7 +135,7 @@ Niektóre ważne kwestie, które należy wziąć pod uwagę:
 ### <a name="scope-of-concurrency-guarantees"></a>Zakres gwarancji współbieżności
 Środowisko wykonawcze aktorów zapewnia te gwarancje współbieżności w sytuacjach, w których kontroluje wywołania tych metod. Na przykład zapewnia te gwarancje dla wywołań metod, które są wykonywane w odpowiedzi na żądanie klienta, a także dla wywołań zwrotnych czasomierza i przypomnień. Jeśli jednak kod aktora bezpośrednio wywołuje te metody poza mechanizmami dostarczonymi przez środowisko uruchomieniowe aktorów, środowisko uruchomieniowe nie może zapewnić żadnych gwarancji współbieżności. Na przykład jeśli metoda jest wywoływana w kontekście niektórych zadań, które nie są skojarzone z zadaniem zwróconym przez metody aktora, środowisko uruchomieniowe nie może zapewnić gwarancji współbieżności. Jeśli metoda jest wywoływana z wątku tworzonego przez aktora, środowisko uruchomieniowe nie może również zapewnić gwarancji współbieżności. W związku z tym, aby wykonywać operacje w tle, aktory powinny korzystać z [czasomierzy aktora i przypomnień aktorów](service-fabric-reliable-actors-timers-reminders.md) , które respektują współbieżność.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Zacznij od utworzenia pierwszej Reliable Actorsej usługi:
    * [Wprowadzenie do Reliable Actors na platformie .NET](service-fabric-reliable-actors-get-started.md)
    * [Wprowadzenie do Reliable Actors w języku Java](./service-fabric-create-your-first-linux-application-with-java.md)

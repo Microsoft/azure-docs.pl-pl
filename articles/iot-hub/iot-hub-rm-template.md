@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dcec1e40e9095c27abb1470e3739f65035a96834
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89007183"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Tworzenie Centrum IoT Hub przy użyciu szablonu Azure Resource Manager (.NET)
@@ -201,7 +201,7 @@ Teraz możesz ukończyć aplikację, wywołując metodę **CreateIoTHub** przed 
 > [!NOTE]
 > Ta przykładowa aplikacja dodaje standardowe IoT Hub S1, dla którego są naliczane opłaty. Możesz usunąć Centrum IoT za pośrednictwem [Azure Portal][lnk-azure-portal] lub przy użyciu polecenia cmdlet **Remove-AzResource** środowiska PowerShell po zakończeniu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Po wdrożeniu Centrum IoT Hub przy użyciu szablonu Azure Resource Manager z programem w języku C# warto dowiedzieć się więcej:
 
 * Przeczytaj o możliwościach [interfejsu API REST dostawcy zasobów IoT Hub][lnk-rest-api].
