@@ -2,20 +2,20 @@
 title: Azure AD Domain Services dla dostawców rozwiązań w chmurze | Microsoft Docs
 description: Dowiedz się, jak włączyć i zarządzać Azure Active Directory Domain Services domenami zarządzanymi dla dostawców rozwiązań w chmurze platformy Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 524e3682e39b6d9153beeef781deeb20e6ea8750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: fae04d929be7ae6f266ff136b4fbd90f7d8a4e02
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749649"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960970"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Azure Active Directory Domain Services wdrażania i zarządzania dla dostawców rozwiązań w chmurze platformy Azure
 

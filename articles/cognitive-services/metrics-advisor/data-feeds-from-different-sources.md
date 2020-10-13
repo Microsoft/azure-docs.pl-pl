@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324471"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971952"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Dodawanie strumieniowych źródeł danych z różnych źródeł danych do klasyfikatora metryk
 
@@ -133,7 +133,7 @@ Dozwolony jest tylko jeden znacznik czasu na plik JSON.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Parametry połączenia**: zobacz [Wyświetlanie i kopiowanie parametrów połączenia](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) , aby uzyskać informacje na temat pobierania parametrów połączenia z usługi Azure Eksplorator danych (Kusto).
+* **Parametry połączenia**: Klasyfikator metryk obsługuje dostęp do usługi Azure Eksplorator danych (Kusto) przy użyciu uwierzytelniania aplikacji usługi Azure AD. Należy utworzyć i zarejestrować aplikację usługi Azure AD, a następnie autoryzować ją w celu uzyskania dostępu do bazy danych Azure Eksplorator danych Database. Aby uzyskać parametry połączenia, zobacz dokumentację [usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) .
 
 * **Zapytanie**: zobacz [język zapytań Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) , aby uzyskać i sformułować dane w wielowymiarowych danych szeregów czasowych. `@StartTime` `@EndTime` W zapytaniu można używać zmiennych i. Powinny być sformatowane: `yyyy-MM-dd HH:mm:ss` .
 

@@ -2,7 +2,7 @@
 title: Przyłączanie maszyny wirtualnej Ubuntu do Azure AD Domain Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować maszynę wirtualną Ubuntu Linux i przyłączyć ją do domeny zarządzanej Azure AD Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
+ms.author: joflore
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac620ffa36bdeb35ef524ef2956db03c8edcb566
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283150"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962092"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Przyłączanie maszyny wirtualnej Ubuntu Linux do domeny zarządzanej Azure Active Directory Domain Services
 
@@ -43,7 +43,7 @@ Jeśli masz istniejącą Ubuntu Linux maszynę wirtualną na platformie Azure, P
 
 Jeśli musisz utworzyć maszynę wirtualną Ubuntu Linux lub chcesz utworzyć testową maszynę wirtualną do użycia z tym artykułem, możesz użyć jednej z następujących metod:
 
-* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
+* [Witryna Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

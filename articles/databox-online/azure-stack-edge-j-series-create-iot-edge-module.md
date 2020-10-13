@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891191"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952203"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack EDGE Pro
 
@@ -65,7 +65,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. Dwie popularne usługi rejestru platformy Docker dostępne w chmurze to Azure Container Registry i Docker Hub. W tym artykule jest wykorzystywany Container Registry.
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij przycisk **Utwórz**.
+2. Wybierz pozycję **Utwórz zasób > kontenery > Container Registry**. Kliknij pozycję **Utwórz**.
 3. Oferować
 
    1. Unikatowa **Nazwa rejestru** na platformie Azure, która zawiera od 5 do 50 znaków alfanumerycznych.
@@ -77,7 +77,7 @@ Usługa Azure Container Registry to rejestr prywatny platformy Docker na platfor
 
       ![Tworzenie rejestru kontenerów](./media/azure-stack-edge-j-series-create-iot-edge-module/create-container-registry-1.png)
  
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 5. Po utworzeniu rejestru kontenerów przejdź do niego i wybierz pozycję **Klucze dostępu**.
 
     ![Pobierz klucze dostępu](./media/azure-stack-edge-j-series-create-iot-edge-module/get-access-keys-1.png)
@@ -259,7 +259,7 @@ W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do FileCopyMod
  
 3. Po dostarczeniu poświadczeń można wypchnąć obraz modułu do usługi Azure Container Registry. W Eksploratorze VS Code kliknij prawym przyciskiem myszy **module.jsna** pliku i wybierz polecenie **Kompiluj i wypchnij IoT Edge rozwiązanie**.
 
-    ![Rozwiązanie do kompilowania i wypychania IoT Edge](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Kompiluj i wypchnij IoT Edge rozwiązanie 2](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Po poinformowaniu Visual Studio Code o skompilowaniu rozwiązania są uruchamiane dwa polecenia w zintegrowanym terminalu: kompilacja Docker i narzędzie Docker push. Te dwa polecenia kompilują kod, konteneryzują plik CSharpModule.dll i wypychają go do rejestru kontenerów określonego podczas inicjowania rozwiązania.
 

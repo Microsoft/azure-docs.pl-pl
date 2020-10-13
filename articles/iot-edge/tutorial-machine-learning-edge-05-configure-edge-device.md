@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 1e92da6f99ccb32580d7f0286b5bcbf77d694262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855654"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974553"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Samouczek: Konfigurowanie urządzenia IoT Edge
 
@@ -96,7 +96,7 @@ Aby bezpiecznie przechowywać certyfikaty i udostępnić je z wielu urządzeń, 
 
 Aby podłączyć urządzenie Azure IoT Edge do usługi IoT Hub, najpierw tworzymy tożsamość urządzenia w centrum. Przyjmujemy parametry połączenia z tożsamości urządzenia w chmurze i używają jej do konfigurowania środowiska uruchomieniowego na naszym urządzeniu IoT Edge. Po nawiązaniu połączenia z centrum przez skonfigurowane urządzenie można wdrażać moduły i wysyłać komunikaty. Można również zmienić konfigurację urządzenia fizycznego IoT Edge, zmieniając jego tożsamość urządzenia w usłudze IoT Hub.
 
-W tym samouczku utworzymy nową tożsamość urządzenia przy użyciu Visual Studio Code. Te kroki można również wykonać przy użyciu [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)lub [interfejsu wiersza polecenia platformy Azure](how-to-register-device.md#register-with-the-azure-cli).
+W tym samouczku utworzymy nową tożsamość urządzenia przy użyciu Visual Studio Code. Te kroki można również wykonać przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure.
 
 1. Na komputerze deweloperskim Otwórz Visual Studio Code.
 

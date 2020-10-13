@@ -142,3 +142,9 @@
   items:
     - name: Dokumentacja języka Transact-SQL (T-SQL)
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+- name: Zasoby
+  items:
+    - name: Partnerzy
+      items:
+        - name: Zabezpieczenia
+          href: resources-partners-security.md

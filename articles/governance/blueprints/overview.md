@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Blueprints
 description: Dowiedz się, w jaki sposób usługa Azure Plans umożliwia tworzenie, Definiowanie i wdrażanie artefaktów w środowisku platformy Azure.
 ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614261"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892731"
 ---
 # <a name="what-is-azure-blueprints"></a>Czym jest usługa Azure Blueprints?
 
@@ -25,7 +25,7 @@ Usługa Azure Blueprints jest wspierana przez globalnie dystrybuowaną [usługę
 
 ## <a name="how-its-different-from-arm-templates"></a>Różnice między szablonami ARM
 
-Usługa została zaprojektowana w celu ułatwienia _konfiguracji środowiska_. Ta konfiguracja często składa się z zestawu grup zasobów, zasad, przypisań ról i wdrożeń szablonów ARM. Plan to pakiet, który umożliwia łączenie każdego z tych typów _artefaktów_ i pozwala na tworzenie pakietów i ich wersji, w tym za pomocą potoku ciągłej integracji/ciągłego wdrażania. Każdy pakiet jest ostatecznie przypisywany do subskrypcji w ramach jednej operacji, którą można poddawać inspekcji i śledzić.
+Usługa została zaprojektowana w celu ułatwienia _konfiguracji środowiska_. Ta konfiguracja często składa się z zestawu grup zasobów, zasad, przypisań ról i wdrożeń szablonów ARM. Plan to pakiet, który umożliwia łączenie każdego z tych typów _artefaktów_ , oraz pozwala na redagowanie i Tworzenie wersji tego pakietu, w tym za pomocą potoku ciągłej integracji i ciągłego dostarczania (Ci/CD). Każdy pakiet jest ostatecznie przypisywany do subskrypcji w ramach jednej operacji, którą można poddawać inspekcji i śledzić.
 
 Niemal wszystkie elementy, które chcesz dołączyć do wdrożenia w planach platformy Azure, można zrealizować przy użyciu szablonu ARM. Jednak szablon ARM jest dokumentem, który nie istnieje natywnie na platformie Azure — każdy jest przechowywany lokalnie lub w kontroli źródła. Szablon jest używany na potrzeby wdrożenia jednego lub większej liczby zasobów platformy Azure, ale po wdrożeniu tych zasobów nie ma aktywnego połączenia z wykorzystanym szablonem ani relacji z nim.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 245818b60647539c7fff7c45dcecdc6840153fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536fcab8cdfea4846cc1122fa56c939f525388f4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549045"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938478"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z dokumentami
 
@@ -136,7 +136,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 3. Wybierz pozycję **Security Center**.
    
-    ![Repozytorium](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Zrzut ekranu przedstawia Security Center wybrane z dokumentów prawnych.](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Wybierz pozycję **Zaawansowane uwierzytelnianie**.
     
@@ -166,7 +166,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się w dokumentach, mus
 
 3. Wybierz pozycję **Użytkownicy i grupy**.
    
-    ![Repozytorium](./media/netdocuments-tutorial/users-groups.png "Repozytorium")
+    ![Zrzut ekranu przedstawia użytkowników & grup wybranych z dokumentów prawnych.](./media/netdocuments-tutorial/users-groups.png "Repozytorium")
 
 4. W polu tekstowym **adres e-mail** wpisz adres e-mail prawidłowego konta Azure Active Directory, które chcesz udostępnić, a następnie kliknij przycisk **Dodaj użytkownika**.
    

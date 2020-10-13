@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949790"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970439"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
 
@@ -232,18 +232,18 @@ Należy również zwrócić uwagę na **Identyfikator obiektu** wyświetlany na 
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Przypisywanie ról dostępu przy użyciu Azure Portal
 
-Wybierz przycisk _przypisania roli platformy Azure_ , który otwiera się na stronie przydziały ról platformy Azure. Następnie wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_.
+Wybierz przycisk _przypisania roli platformy Azure_ , który spowoduje otwarcie strony *przypisania roli platformy Azure* . Następnie wybierz pozycję _+ Dodaj przypisanie roli (wersja zapoznawcza)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 
-W oknie _Dodawanie przypisania roli (wersja zapoznawcza)_ , które zostanie otwarte, wybierz pozycję:
+Na stronie _Dodaj przypisanie roli (wersja zapoznawcza)_ , która zostanie otwarta, wybierz pozycję:
 
 * _Zakres_: grupa zasobów
 * _Subskrypcja_: wybierz subskrypcję platformy Azure
 * _Grupa zasobów_: Wybierz grupę zasobów z listy rozwijanej
 * _Rola_: wybierz pozycję _Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)_ z listy rozwijanej
 
-Zapisz szczegóły, wybierając przycisk _Zapisz_ .
+Następnie Zapisz szczegóły, naciskając przycisk _Zapisz_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: okno dialogowe Nowy projekt":::
 

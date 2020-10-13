@@ -4,48 +4,52 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b83951cd743afc7e249e3ee37182007bbe40cb5c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83638984"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971397"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Tworzenie zasobu usługi Spatial Anchors
 
 Przejdź do witryny <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
-W okienku nawigacji po lewej stronie Azure Portal wybierz pozycję **Utwórz zasób**.
+W okienku po lewej stronie wybierz pozycję **Utwórz zasób**.
 
 Użyj pola wyszukiwania, aby wyszukać **kotwice przestrzenne**.
 
-   ![Wyszukiwanie usługi Spatial Anchors](./media/spatial-anchors-get-started-create-resource/portal-search.png)
+![Zrzut ekranu przedstawiający wyniki wyszukiwania kotwice przestrzenne.](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-Wybierz **kotwice przestrzenne**. W oknie dialogowym wybierz pozycję **Utwórz**.
+Wybierz pozycję **kotwice przestrzenne**, a następnie wybierz pozycję **Utwórz**.
 
-W oknie dialogowym **konto kotwicowe** :
+W okienku **konto kotwice przestrzenne** wykonaj następujące czynności:
 
-- Wprowadź unikatową nazwę zasobu, używając zwykłych znaków alfanumerycznych.
-- Wybierz subskrypcję, do której chcesz dołączyć zasób.
-- Utwórz grupę zasobów, wybierając pozycję **Utwórz nową**. Nadaj jej **nazwę, a** następnie wybierz **przycisk OK**.
-      [!INCLUDE [resource group intro text](resource-group.md)]
-- Wybierz lokalizację (region), w której ma zostać umieszczony zasób.
-- Wybierz pozycję **Nowy**, aby rozpocząć tworzenie zasobu.
+* Wprowadź unikatową nazwę zasobu, używając zwykłych znaków alfanumerycznych.  
+* Wybierz subskrypcję, do której chcesz dołączyć zasób.  
+* Utwórz grupę zasobów, wybierając pozycję **Utwórz nową**. **Nadaj jej nazwę**, a następnie wybierz przycisk **OK**.  
 
-   ![Tworzenie zasobu](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
+  [!INCLUDE [resource group intro text](resource-group.md)]
+  
+* Wybierz lokalizację (region), w której ma zostać umieszczony zasób.  
+* Wybierz pozycję **Nowy**, aby rozpocząć tworzenie zasobu.
 
-Po utworzeniu zasobu w witrynie Azure Portal zostanie wyświetlona wartość ukończenie wdrożenia. Kliknij opcję **Przejdź do zasobu**.
+![Zrzut ekranu przedstawiający okienko kotwice przestrzenne służące do tworzenia zasobów.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-![Zakończono wdrożenie](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+Po utworzeniu zasobu Azure Portal pokazuje, że wdrożenie zostało zakończone. 
+   
+![Zrzut ekranu przedstawiający ukończenie wdrożenia zasobów.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-Następnie można wyświetlić właściwości zasobów. Skopiuj wartość **identyfikatora konta** zasobu do edytora tekstu, ponieważ będzie ona potrzebna później.
+Wybierz pozycję **Przejdź do zasobu**. Teraz możesz wyświetlić właściwości zasobów. 
+   
+Skopiuj wartość **identyfikatora konta** zasobu do edytora tekstu w celu późniejszego użycia.
 
-   ![Właściwości zasobu](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Zrzut ekranu przedstawiający okienko właściwości zasobu.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-Skopiuj również wartość **domeny konta** zasobu do edytora tekstu, ponieważ będzie ona potrzebna później.
+Skopiuj również wartość **domeny konta** zasobu do edytora tekstu w celu późniejszego użycia.
 
-   ![Domena konta](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+![Zrzut ekranu przedstawiający wartość domeny konta zasobu.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-W obszarze **Ustawienia**wybierz pozycję **klucz**. Skopiuj wartość **klucza podstawowego** do edytora tekstu. Ta wartość to `Account Key` . Będzie on potrzebny później.
+W obszarze **Ustawienia**wybierz pozycję **klucz**. Skopiuj wartość **klucza podstawowego** , **klucz konta**do edytora tekstów w celu późniejszego użycia.
 
-   ![Klucz konta](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Zrzut ekranu przedstawiający okienko klucze dla konta.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575864"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973704"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
 
@@ -136,7 +136,7 @@ W przypadku dysków zarządzanych nie można zmienić ich nazw. Można jednak zm
 
 Obrazy generacji 1 mogą używać tylko partycjonowania GPT na dyskach danych, a nie na dyskach systemu operacyjnego. Dyski systemu operacyjnego muszą używać stylu partycji MBR.
 
-[Obrazy generacji 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) mogą używać partycjonowania GPT na dysku systemu operacyjnego, a także dysków z danymi.
+[Obrazy generacji 2](./generation-2.md) mogą używać partycjonowania GPT na dysku systemu operacyjnego, a także dysków z danymi.
 
 **Jakie typy dysków obsługują migawki?**
 
@@ -241,7 +241,7 @@ Nie, przekazywania można używać tylko podczas tworzenia nowego pustego dysku 
 
 **Jak mogę przekazać do dysku zarządzanego?**
 
-Utwórz dysk zarządzany [z właściwością creationData o wartości](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) " [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) upload", a następnie możesz przekazać do niej dane.
+Utwórz dysk zarządzany [z właściwością creationData o wartości](/rest/api/compute/disks/createorupdate#diskcreateoption) " [creationData](/rest/api/compute/disks/createorupdate#creationdata) upload", a następnie możesz przekazać do niej dane.
 
 **Czy mogę dołączyć dysk do maszyny wirtualnej, gdy jest ona w stanie przekazywania?**
 
@@ -423,11 +423,11 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 
-Rozmiary dysków P4 (32 GiB) i P6 (64 GiB) nie są obsługiwane jako domyślne warstwy dysków dla dysków niezarządzanych i stronicowych obiektów BLOB. Należy jawnie [ustawić warstwę obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) na P4 i P6, aby dysk był mapowany na te warstwy. W przypadku wdrażania niezarządzanego dysku lub stronicowego obiektu BLOB przy użyciu rozmiaru dysku lub zawartości mniejszej niż 32 GiB lub między 32 GiB do 64 GiB bez ustawiania warstwy obiektów blob, będzie można nadal korzystać z P10 z usługami 500 IOPS i 100 MiB/s oraz z zamapowanej warstwy cenowej.
+Rozmiary dysków P4 (32 GiB) i P6 (64 GiB) nie są obsługiwane jako domyślne warstwy dysków dla dysków niezarządzanych i stronicowych obiektów BLOB. Należy jawnie [ustawić warstwę obiektów BLOB](/rest/api/storageservices/set-blob-tier) na P4 i P6, aby dysk był mapowany na te warstwy. W przypadku wdrażania niezarządzanego dysku lub stronicowego obiektu BLOB przy użyciu rozmiaru dysku lub zawartości mniejszej niż 32 GiB lub między 32 GiB do 64 GiB bez ustawiania warstwy obiektów blob, będzie można nadal korzystać z P10 z usługami 500 IOPS i 100 MiB/s oraz z zamapowanej warstwy cenowej.
 
 **Jeśli mój istniejący dysk zarządzany w warstwie Premium o rozmiarze mniejszym niż 64 GiB został utworzony przed włączeniem małego dysku (około 15 czerwca 2017), jak jest rozliczany?**
 
@@ -497,6 +497,6 @@ Nie.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
 
-Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź. W komentarzach można opublikować pytanie na końcu tego artykułu. Aby skontaktować się z zespołem usługi Azure Storage i innymi członkami społeczności dotyczącymi tego artykułu, użyj strony pytań i odpowiedzi [Microsoft&pytań i odpowiedzi na temat usługi Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź. W komentarzach można opublikować pytanie na końcu tego artykułu. Aby skontaktować się z zespołem usługi Azure Storage i innymi członkami społeczności dotyczącymi tego artykułu, użyj strony pytań i odpowiedzi [Microsoft&pytań i odpowiedzi na temat usługi Azure Storage](/answers/products/azure?product=storage).
 
 Aby zażądać funkcji, Prześlij swoje wnioski i pomysły do [forum opinii o usłudze Azure Storage](https://feedback.azure.com/forums/217298-storage).

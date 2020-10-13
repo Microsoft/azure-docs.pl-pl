@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 90f91c56b2448e8455f3c22cf7ccae7b06b5be70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983322800198246bcfaecec92fe0b2b74e587756
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539915"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952101"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funkcje w wersji zapoznawczej na platformie Azure Wyszukiwanie poznawcze
 
@@ -23,8 +23,8 @@ Funkcje wersji zapoznawczej, które przechodzą do ogólnej dostępności, są u
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [**Umiejętność Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Wzbogacanie sztucznej inteligencji| Nowy typ umiejętności służący do integrowania punktu końcowego inferencing z Azure Machine Learning. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md). | Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja](https://docs.microsoft.com/rest/api/searchservice/) zapoznawcza lub 2019-05-06 — wersja zapoznawcza. Dostępne również w portalu w projekcie zestawu umiejętności, przy założeniu, że Wyszukiwanie poznawcze i usługi Azure ML są wdrażane w tej samej subskrypcji. |
-| [**featuremode — parametr**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Istotność (ocenianie) | Rozszerzanie wyniku dopasowania do uwzględnienia szczegółów: wynikowe wyniki dla pola, częstotliwość poszczególnych pól oraz Liczba pasujących tokenów dla każdego pola. Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial). | Dodaj ten parametr zapytania przy użyciu opcji [Wyszukaj dokumenty (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub 2019-05-06 — wersja zapoznawcza. |
+| [**Umiejętność Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Wzbogacanie sztucznej inteligencji| Nowy typ umiejętności służący do integrowania punktu końcowego inferencing z Azure Machine Learning. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md). | Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja](/rest/api/searchservice/) zapoznawcza lub 2019-05-06 — wersja zapoznawcza. Dostępne również w portalu w projekcie zestawu umiejętności, przy założeniu, że Wyszukiwanie poznawcze i usługi Azure ML są wdrażane w tej samej subskrypcji. |
+| [**featuremode — parametr**](/rest/api/searchservice/search-documents#featuresmode) | Istotność (ocenianie) | Rozszerzanie wyniku dopasowania do uwzględnienia szczegółów: wynikowe wyniki dla pola, częstotliwość poszczególnych pól oraz Liczba pasujących tokenów dla każdego pola. Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial). | Dodaj ten parametr zapytania przy użyciu opcji [Wyszukaj dokumenty (REST)](/rest/api/searchservice/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub 2019-05-06 — wersja zapoznawcza. |
 | [**Sesje debugowania**](cognitive-search-debug-session.md) | Portal, wzbogacanie AI (zestawu umiejętności) | Edytor zestawu umiejętności w sesji używany do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki stosowane podczas sesji debugowania można zapisać w zestawu umiejętności w usłudze. | Tylko Portal przy użyciu linków strony średniej na stronie Przegląd, aby otworzyć sesję debugowania. |
 | [**Usuwanie nietrwałe natywnych obiektów BLOB**](search-howto-index-changed-deleted-blobs.md) | Indeksatory, obiekty blob platformy Azure| Usługa Azure Blob Storage indeksator w usłudze Azure Wyszukiwanie poznawcze będzie rozpoznawać obiekty blob w stanie nietrwałego usunięcia i usunąć odpowiednie dokumenty wyszukiwania podczas indeksowania. | Dodaj to ustawienie konfiguracji przy użyciu polecenia [Create indeksatorer (REST)](/rest/api/searchservice/create-indexer) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06 — wersja zapoznawcza. |
 | [**Umiejętność wyszukiwania jednostek niestandardowych**](cognitive-search-skill-custom-entity-lookup.md ) | Wzbogacanie AI (zestawu umiejętności) | Umiejętność, która szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne. | Zastąp tę umiejętność w wersji zapoznawczej przy użyciu edytora zestawu umiejętności w portalu lub [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub interfejs API-Version = 2019-05 -06 — wersja zapoznawcza. |

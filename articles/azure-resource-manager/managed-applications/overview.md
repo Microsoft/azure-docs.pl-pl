@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7641c1e3bc3620b294c2953b993e9179a4875536
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91403691"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951812"
 ---
 # <a name="azure-managed-applications-overview"></a>Omówienie usługi Azure Managed Applications
 
@@ -49,7 +49,7 @@ Aby dowiedzieć się, jak opublikować aplikację zarządzaną w wykazie usług,
 
 Dostawcy, którzy oferują płatne usługi, mogą udostępniać aplikacje zarządzane w witrynie Azure Marketplace. Opublikowana aplikacja jest dostępna dla użytkowników spoza organizacji. Dzięki temu dostawcy usług zarządzanych (MSP), niezależni dostawcy oprogramowania (ISV) oraz integratorzy systemów (SI) mogą oferować swoje rozwiązania wszystkim klientom platformy Azure.
 
-Aby uzyskać informacje dotyczące publikowania aplikacji zarządzanych w witrynie Marketplace, zobacz [Tworzenie aplikacji w witrynie Marketplace](publish-marketplace-app.md).
+Aby uzyskać informacje dotyczące publikowania aplikacji zarządzanych w witrynie Marketplace, zobacz [Tworzenie aplikacji w witrynie Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupy zasobów aplikacji zarządzanych
 
@@ -71,7 +71,7 @@ Klient, który ma pełny dostęp do grupy zasobów, zarządza cyklem życia apli
 
 Ta grupa zasobów zawiera wszystkie zasoby, które są wymagane przez aplikację zarządzaną. Na przykład może ona obejmować maszyny wirtualne, konta magazynu i sieci wirtualne używane przez rozwiązanie. Klient ma ograniczony dostęp do tej grupy zasobów, ponieważ nie zarządza on poszczególnymi zasobami aplikacji zarządzanej. Dostęp wydawcy do grupy zasobów odpowiada roli określonej w definicji aplikacji zarządzanej. Na przykład wydawca może zażądać roli właściciela lub współautora dla tej grupy zasobów. Dostęp jest trwały lub ograniczony do określonego czasu.
 
-W przypadku publikowania [aplikacji zarządzanej w portalu Marketplace](publish-marketplace-app.md)Wydawca może udzielić konsumentom możliwości wykonywania określonych akcji na zasobach w zarządzanej grupie zasobów. Na przykład Wydawca może określić, że klienci mogą ponownie uruchamiać maszyny wirtualne. Wszystkie inne akcje poza akcją odczytu nadal są odrzucane. Zmiany w zasobach w zarządzanej grupie zasobów przez odbiorcę z przyznanymi akcjami podlegają [Azure Policy](../../governance/policy/overview.md) przypisań w ramach dzierżawy odbiorców objętych zakresem do uwzględnienia zarządzanej grupy zasobów.
+W przypadku publikowania [aplikacji zarządzanej w portalu Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)Wydawca może udzielić konsumentom możliwości wykonywania określonych akcji na zasobach w zarządzanej grupie zasobów. Na przykład Wydawca może określić, że klienci mogą ponownie uruchamiać maszyny wirtualne. Wszystkie inne akcje poza akcją odczytu nadal są odrzucane. Zmiany w zasobach w zarządzanej grupie zasobów przez odbiorcę z przyznanymi akcjami podlegają [Azure Policy](../../governance/policy/overview.md) przypisań w ramach dzierżawy odbiorców objętych zakresem do uwzględnienia zarządzanej grupy zasobów.
 
 Usunięcie aplikacji zarządzanej powoduje również usunięcie zarządzanej grupy zasobów.
 

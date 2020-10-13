@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266529"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950945"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Samouczek: zamówienie Azure Data Box Disk
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
 
    ![Wyszukiwanie pozycji Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
-2. Kliknij przycisk **Utwórz**.
+2. Kliknij pozycję **Utwórz**.
 
 3. Sprawdź, czy usługa Data Box jest dostępna w Twoim regionie. Wprowadź lub wybierz poniższe informacje i kliknij pozycję **Zastosuj**.
 
@@ -72,7 +72,7 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
   
 4. Wybierz pozycję **Data Box Disk**. Maksymalna pojemność rozwiązania w pojedynczym zamówieniu obejmującym 5 dysków to 35 TB. W przypadku większych ilości danych można utworzyć wiele zamówień.
 
-     ![Wybieranie opcji Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Wybierz Data Box Disk opcję 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. W obszarze **Zamówienie** określ **szczegóły zamówienia**. Wprowadź lub wybierz poniższe informacje.
 

@@ -3,12 +3,12 @@ title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533983"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951897"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -115,5 +115,5 @@ Aby wyłączyć ustawienie, użyj tego samego punktu końcowego i ustaw **requir
 
 Aby dowiedzieć się więcej na temat grup zarządzania, zobacz:
 
-- [Tworzenie grup zarządzania w celu organizowania zasobów platformy Azure](../create.md)
+- [Tworzenie grup zarządzania w celu organizowania zasobów platformy Azure](../create-management-group-portal.md)
 - [Jak zmienić lub usunąć grupy zarządzania oraz zarządzać nimi](../manage.md)

@@ -3,12 +3,12 @@ title: Eksportuj szablon w Azure Portal
 description: Użyj Azure Portal, aby wyeksportować szablon Azure Resource Manager z zasobów w ramach subskrypcji.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423239"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951761"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Eksport jednego i kilku zasobów do szablonu w Azure Portal
 
@@ -49,11 +49,13 @@ Wyeksportuj szablon przed wdrożeniem lub z historii, gdy:
 
 Podczas eksportowania z grupy zasobów lub zasobu wyeksportowany szablon jest generowany na podstawie [opublikowanych schematów](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) dla każdego typu zasobu. Czasami schemat nie ma najnowszej wersji dla typu zasobu. Sprawdź wyeksportowany szablon, aby upewnić się, że zawiera on potrzebne właściwości. W razie potrzeby edytuj wyeksportowany szablon, aby użyć potrzebnej wersji interfejsu API.
 
-Funkcja eksportowania szablonu nie obsługuje eksportowania zasobów Azure Data Factory. Aby dowiedzieć się, jak wyeksportować zasoby Data Factory, zobacz [kopiowanie lub klonowanie fabryki danych w Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+Funkcja eksportowania szablonu nie obsługuje eksportowania zasobów Azure Data Factory. Aby dowiedzieć się, jak wyeksportować zasoby Data Factory, zobacz [kopiowanie lub klonowanie fabryki danych w Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Aby wyeksportować zasoby utworzone za pomocą klasycznego modelu wdrażania, należy [je zmigrować do modelu wdrażania Menedżer zasobów](https://aka.ms/migrateclassicresourcetoarm).
+Aby wyeksportować zasoby utworzone za pomocą klasycznego modelu wdrażania, należy [je zmigrować do modelu wdrażania Menedżer zasobów](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Jeśli zostanie wyświetlone ostrzeżenie podczas eksportowania szablonu wskazującego, że typ zasobu nie został wyeksportowany, nadal można odnaleźć właściwości dla tego zasobu. Aby dowiedzieć się więcej o różnych opcjach wyświetlania właściwości zasobów, zobacz [odnajdywanie właściwości zasobów](view-resources.md). Możesz również przyjrzeć się [interfejsowi API REST platformy Azure](/rest/api/azure/) dla typu zasobu.
+
+Istnieje limit 200 zasobów w grupie zasobów, dla której zostanie utworzony wyeksportowany szablon. Jeśli spróbujesz wyeksportować grupę zasobów, która ma więcej niż 200 zasobów, zostanie wyświetlony komunikat o błędzie `Export template is not supported for resource groups more than 200 resources` .
 
 ## <a name="export-template-from-a-resource-group"></a>Eksportowanie szablonu z grupy zasobów
 

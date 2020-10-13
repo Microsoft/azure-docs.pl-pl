@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie i modyfikowanie obwodu za pomocą ExpressRoute Azure PowerShell'
-description: Tworzenie, Inicjowanie obsługi, weryfikowanie, aktualizowanie, usuwanie i cofanie aprowizacji obwodu ExpressRoute.
+description: W tym przewodniku szybki start przedstawiono sposób tworzenia, inicjowania obsługi, weryfikowania, aktualizowania, usuwania i anulowania aprowizacji obwodu ExpressRoute.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: b5ac53c44429e23e2d22a934a9dc71bd485ec4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761910"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971544"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>Szybki Start: Tworzenie i modyfikowanie obwodu usługi ExpressRoute przy użyciu Azure PowerShell
 
@@ -371,7 +371,7 @@ Zanotuj następujące informacje:
 * Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub **Zainicjowano obsługę administracyjną** , należy skontaktować się z dostawcą usług w celu **anulowania aprowizacji** obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.
 * Jeśli dostawca usług anulował obsługę administracyjną tego obwodu, oznacza to, że stan aprowizacji dostawcy usług jest ustawiony na **nieinicjowany**, można usunąć obwód. Naliczanie opłat za obwód zostanie zatrzymane.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Obwód ExpressRoute można usunąć, uruchamiając następujące polecenie:
 

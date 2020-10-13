@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653013"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972377"
 ---
 # <a name="dcsv2-series"></a>Seria DCsv2
 
@@ -36,7 +36,7 @@ Przykładowe przypadki użycia obejmują: poufne udostępnianie danych wieloczę
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- Maszyny wirtualne z serii DCsv2 to [maszyny wirtualne 2. generacji](./linux/generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
+- Maszyny wirtualne z serii DCsv2 to [maszyny wirtualne 2. generacji](./generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
 - Obecnie dostępne w regionach wymienionych [tutaj](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 - Poprzednia generacja poufnych maszyn wirtualnych obliczeń: [Seria DC](sizes-previous-gen.md#preview-dc-series)
 - Tworzenie maszyn wirtualnych DCsv2 za pomocą [Azure Portal](./linux/quick-create-portal.md) lub [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332155"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951982"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics (dawniej SQL Data Warehouse) za pomocą Azure Data Factory
 
@@ -48,7 +48,7 @@ W przypadku działania kopiowania ten łącznik usługi Azure Synapse Analytics 
 > W przypadku kopiowania danych przy użyciu Integration Runtime Azure Data Factory należy skonfigurować [regułę zapory na poziomie serwera](../azure-sql/database/firewall-configure.md) , tak aby usługi platformy Azure mogły uzyskiwać dostęp do [serwera logicznego SQL](../azure-sql/database/logical-servers.md).
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z usługą Azure Synapse Analytics.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 > [!TIP]
 > Aby uzyskać najlepszą wydajność, należy użyć bazy danych na platformie Azure Synapse Analytics. [Aby załadować dane do usługi Azure Synapse Analytics, należy wykonać](#use-polybase-to-load-data-into-azure-synapse-analytics) szczegóły. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -564,7 +564,7 @@ Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i au
 
 Jeśli dane źródłowe nie są natywnie zgodne z bazą danych Base, włącz je do kopiowania przez tymczasowy tymczasowy obiekt blob platformy Azure lub Azure Data Lake Storage Gen2 (nie może to być Premium Storage platformy Azure). W takim przypadku Azure Data Factory automatycznie konwertuje dane, aby spełniały wymagania formatu danych Base. Następnie wywołuje bazę danych Base, aby załadować dane do usługi Azure Synapse Analytics. Na koniec czyści dane tymczasowe z magazynu. Aby uzyskać szczegółowe informacje o kopiowaniu danych za pośrednictwem przemieszczania, zobacz [przygotowane kopie](copy-activity-performance-features.md#staged-copy) .
 
-Aby skorzystać z tej funkcji, Utwórz [połączoną usługę azure BLOB Storage](connector-azure-blob-storage.md#linked-service-properties) lub [połączoną usługę Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) , która odwołuje się do konta usługi Azure Storage z magazynem tymczasowym. Następnie określ `enableStaging` właściwości i `stagingSettings` dla działania kopiowania, jak pokazano w poniższym kodzie.
+Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) [Azure Data Lake Storage Gen2 lub połączoną usługę](connector-azure-data-lake-storage.md#linked-service-properties) z **kluczem konta lub uwierzytelnianiem tożsamości zarządzanej** , które odwołuje się do konta usługi Azure Storage jako magazynu tymczasowego.
 
 >[!IMPORTANT]
 >Jeśli przejściowy Magazyn Azure jest skonfigurowany z punktem końcowym usługi sieci wirtualnej, należy użyć uwierzytelniania tożsamości zarządzanej — Zobacz, aby korzystać z [punktów końcowych usługi sieci wirtualnej w usłudze Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Zapoznaj się z wymaganymi konfiguracjami w Data Factory z poziomu [uwierzytelniania tożsamości zarządzanego przez usługę Azure Blob](connector-azure-blob-storage.md#managed-identity) i [uwierzytelniania tożsamości zarządzanego przez Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity).
@@ -824,7 +824,7 @@ W przypadku kopiowania danych z programu lub do usługi Azure Synapse Analytics 
 | binarny                                | Byte []                         |
 | bit                                   | Boolean (wartość logiczna)                        |
 | char                                  | String, Char []                 |
-| date                                  | DateTime                       |
+| data                                  | DateTime                       |
 | Datetime (data/godzina)                              | DateTime                       |
 | datetime2                             | DateTime                       |
 | DateTimeOffset                        | DateTimeOffset                 |

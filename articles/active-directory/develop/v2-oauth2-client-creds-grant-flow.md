@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759074"
+ms.locfileid: "91932587"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity platform i przepływ poświadczeń klienta OAuth 2,0
 
@@ -52,8 +52,11 @@ Typowym przypadkiem użycia jest użycie listy ACL do uruchamiania testów dla a
 
 Ten typ autoryzacji jest typowy dla demonów i kont usług, które muszą uzyskiwać dostęp do danych należących do użytkowników indywidualnych, którzy mają osobiste konta Microsoft. W przypadku danych należących do organizacji zalecamy uzyskanie niezbędnej autoryzacji za pomocą uprawnień aplikacji.
 
-> [!NOTE]
-> Aby można było włączyć ten wzorzec autoryzacji oparty na listach ACL, usługa Azure AD nie wymaga, aby aplikacje były autoryzowane do uzyskiwania tokenów dla innej aplikacji — w związku z tym tokeny tylko dla aplikacji mogą być wystawiane bez `roles` zgłoszenia. Aplikacje uwidaczniające interfejsy API muszą implementować testy uprawnień w celu akceptowania tokenów.
+#### <a name="controlling-tokens-without-the-roles-claim"></a>Kontrolowanie tokenów bez `roles` roszczeń
+
+Aby można było włączyć ten wzorzec autoryzacji na podstawie listy ACL, usługa Azure AD nie wymaga, aby aplikacje były autoryzowane do uzyskiwania tokenów dla innej aplikacji. W ten sposób tokeny tylko dla aplikacji mogą być wystawiane bez `roles` żądania. Aplikacje uwidaczniające interfejsy API muszą implementować testy uprawnień w celu akceptowania tokenów.
+
+Jeśli chcesz uniemożliwić aplikacjom uzyskiwanie tokenów dostępu z dostępem do aplikacji bez ról, upewnij się, [że dla aplikacji są włączone wymagania dotyczące przypisywania użytkowników](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). Spowoduje to zablokowanie użytkowników i aplikacji bez przypisywania ról w celu uzyskania tokenu dla tej aplikacji. 
 
 ### <a name="application-permissions"></a>Uprawnienia aplikacji
 

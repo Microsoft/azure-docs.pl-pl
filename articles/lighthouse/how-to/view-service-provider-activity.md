@@ -1,21 +1,21 @@
 ---
 title: Wyświetlanie działań dostawcy usług
 description: Klienci mogą wyświetlać zarejestrowane działanie, aby zobaczyć akcje wykonywane przez dostawców usług za pomocą funkcji zarządzania zasobami delegowanymi przez platformę Azure.
-ms.date: 07/07/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131456"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974315"
 ---
 # <a name="view-service-provider-activity"></a>Wyświetlanie działań dostawcy usług
 
 Klienci, którzy mają delegowane subskrypcje [usługi Azure Lighthouse](../overview.md) , mogą [wyświetlać dane dziennika aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md) , aby zobaczyć wszystkie wykonane akcje. Zapewnia to klientom pełny wgląd w operacje wykonywane przez dostawców usług za pomocą [delegowania zasobów platformy Azure](../concepts/azure-delegated-resource-management.md), a także operacji wykonywanych przez użytkowników w ramach dzierżawy Azure Active Directory (Azure AD) klienta.
 
 > [!TIP]
-> Firma Microsoft udostępnia również wbudowaną Azure Policy definicję zasad służącą do inspekcji delegowania zakresów do dzierżawy zarządzającej. Aby uzyskać więcej informacji, zobacz [Inspekcja delegowania w środowisku](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Udostępniamy również Azure Policy wbudowane definicje zasad w celu [ograniczenia delegowania do określonych dzierżawców zarządzania](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) i [inspekcji przedelegowania zakresów do dzierżawy zarządzającej](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Aby uzyskać więcej informacji, zobacz [Inspekcja delegowania w środowisku](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Wyświetlanie danych dziennika aktywności
 

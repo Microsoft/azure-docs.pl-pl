@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: aae05c89cd56ffa16994cb5696054457f1d32bc3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876145"
+ms.locfileid: "91892825"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Tworzenie sieci wirtualnej za pomocą połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal (model klasyczny)
 
@@ -109,11 +109,11 @@ Połączenia typu lokacja-lokacja z siecią lokalną wymagają urządzenia sieci
 
 ## <a name="create-the-connection"></a><a name="CreateConnection"></a>Tworzenie połączenia
 
-W tym kroku, korzystając z wartości z poprzednich kroków, należy ustawić klucz współużytkowany i utworzyć połączenie. Ustawiony klucz musi być tym samym kluczem, którego użyto do skonfigurowania urządzenia sieci VPN.
-
 > [!NOTE]
 > W przypadku klasycznego modelu wdrażania ten krok nie jest dostępny w Azure Portal lub za pośrednictwem Azure Cloud Shell. Musisz użyć wersji usługi Service Management (SM) Azure PowerShell poleceń cmdlet lokalnie na pulpicie.
 >
+
+W tym kroku, korzystając z wartości z poprzednich kroków, należy ustawić klucz współużytkowany i utworzyć połączenie. Ustawiony klucz musi być tym samym kluczem, którego użyto do skonfigurowania urządzenia sieci VPN.
 
 1. Ustaw klucz współużytkowany i utwórz połączenie.
 

@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370491"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974179"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu Azure PowerShell
 
-W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
+W tym artykule opisano sposób tworzenia [dedykowanego hosta](../dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
 Upewnij się, że zainstalowano program Azure PowerShell w wersji 2.8.0 lub nowszej oraz że zalogowano się na koncie platformy Azure w usłudze `Connect-AzAccount` . 
 
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - Istnieje przykładowy szablon, który znajduje się w [tym miejscu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), który używa stref i domen błędów w celu uzyskania maksymalnej odporności w regionie.
 
-- Możesz również wdrożyć dedykowane hosty przy użyciu [Azure Portal](dedicated-hosts-portal.md).
+- Możesz również wdrożyć dedykowane hosty przy użyciu [Azure Portal](../dedicated-hosts-portal.md).

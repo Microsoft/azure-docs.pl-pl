@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdeec23b6b0a0ef2884fa35bd0a576ef57bb7853
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518641"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Samouczek: integracja Azure Active Directory z usługą Mozy Enterprise
 
@@ -126,11 +126,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą usługi Moz
 
 2. W sekcji **Konfiguracja** kliknij pozycję **zasady uwierzytelniania**.
    
-    ![Zasady uwierzytelniania](./media/mozy-enterprise-tutorial/ic777314.png "Zasady uwierzytelniania")
+    ![Zrzut ekranu przedstawia zasady uwierzytelniania wybrane z konfiguracji.](./media/mozy-enterprise-tutorial/ic777314.png "Zasady uwierzytelniania")
 
 3. W sekcji **zasady uwierzytelniania** wykonaj następujące czynności:
    
-    ![Zasady uwierzytelniania](./media/mozy-enterprise-tutorial/ic777315.png "Zasady uwierzytelniania")
+    ![Zrzut ekranu przedstawia sekcję zasady uwierzytelniania, w której można wprowadzić podane wartości.](./media/mozy-enterprise-tutorial/ic777315.png "Zasady uwierzytelniania")
    
     a. Wybierz pozycję **Usługa katalogowa** jako **dostawca**.
    

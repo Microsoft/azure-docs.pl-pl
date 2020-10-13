@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85299011"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971753"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aktualizowanie demona zabezpieczeń i środowiska uruchomieniowego usługi IoT Edge
 
@@ -117,7 +117,7 @@ Jeśli chcesz przeprowadzić aktualizację do określonej wersji demona zabezpie
 >[!NOTE]
 >`-OfflineInstallationPath`Parametr szuka pliku o nazwie **Microsoft-Azure-IoTEdge.cab** w podanym katalogu. Począwszy od IoT Edge wersji 1.0.9-RC4 dostępne są dwa pliki cab, które mogą być używane, jeden dla urządzeń AMD64 i jeden dla ARM32. Pobierz właściwy plik dla urządzenia, a następnie zmień nazwę pliku, aby usunąć sufiks architektury.
 
-Aby uzyskać więcej informacji na temat opcji aktualizacji, użyj polecenia `Get-Help Update-IoTEdge -full` lub zapoznaj się ze [wszystkimi parametrami instalacji](how-to-install-iot-edge-windows.md#all-installation-parameters).
+Aby uzyskać więcej informacji na temat opcji aktualizacji, użyj polecenia `Get-Help Update-IoTEdge -full` lub zapoznaj się z [skryptem programu PowerShell w celu IoT Edge w systemie Windows](reference-windows-scripts.md).
 
 ## <a name="update-the-runtime-containers"></a>Aktualizowanie kontenerów środowiska uruchomieniowego
 
@@ -160,7 +160,7 @@ Jeśli używasz określonych tagów we wdrożeniu (na przykład mcr.microsoft.co
 
    ![Konfigurowanie ustawień środowiska uruchomieniowego](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. W obszarze **Ustawienia środowiska uruchomieniowego**zaktualizuj wartość **obrazu** dla **centrum brzegowego** z odpowiednią wersją. Nie zaznaczaj jeszcze opcji **Zapisz** .
+1. W obszarze **Ustawienia środowiska uruchomieniowego**zaktualizuj wartość **obrazu** dla **centrum brzegowego** z odpowiednią wersją. Nie wybieraj jeszcze opcji **Zapisz** .
 
    ![Aktualizuj wersję obrazu centrum brzegowego](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
@@ -213,10 +213,7 @@ W ramach wersji zapoznawczych wersje Release Candidate nie są uwzględniane w n
 
 Skorzystaj z sekcji w tym artykule, aby dowiedzieć się, jak zaktualizować urządzenie IoT Edge do określonej wersji modułów demonów zabezpieczeń lub środowiska uruchomieniowego.
 
-Jeśli instalujesz IoT Edge na nowym komputerze, Skorzystaj z poniższych linków, aby dowiedzieć się, jak zainstalować określoną wersję w zależności od systemu operacyjnego urządzenia:
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+Jeśli instalujesz IoT Edge, a nie uaktualniasz istniejącej instalacji, wykonaj czynności opisane w sekcji [Instalacja w trybie offline lub w określonej wersji](how-to-install-iot-edge.md#offline-or-specific-version-installation).
 
 ## <a name="next-steps"></a>Następne kroki
 

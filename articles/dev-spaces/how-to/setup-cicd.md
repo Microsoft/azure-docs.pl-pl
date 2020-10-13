@@ -8,14 +8,16 @@ ms.topic: conceptual
 manager: gwallace
 description: Dowiedz się, jak skonfigurować ciągłą integrację/ciągłe wdrażanie przy użyciu usługi Azure DevOps z Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery
-ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080270"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960392"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Korzystanie z potoków ciągłej integracji/ciągłego wdrażania za pomocą obszarów Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Ten artykuł przeprowadzi Cię przez proces konfigurowania ciągłej integracji/ciągłego wdrażania (CI/CD) w usłudze Azure Kubernetes Service (AKS) z włączonymi opcjami dev Spaces. Ciągłej integracji/ciągłego wdrażania z AKS umożliwia automatyczne wdrażanie aktualizacji aplikacji przy każdym wypchnięciu przekazanego kodu do repozytorium źródłowego. Używanie ciągłej integracji/ciągłego wdrażania z klastrem z obsługą funkcji "dev Spaces" jest przydatne, ponieważ może to spowodować, że linia bazowa aplikacji jest aktualna dla zespołu.
 
@@ -119,7 +121,7 @@ Masz teraz rozwiązanie CI, które automatycznie kompiluje *mywebapi* i *webfron
 1. Kliknij przycisk **Zapisz** w prawym górnym rogu i **OK**.
 1. Kliknij pozycję **+ wersja** (obok przycisku Zapisz) i **Utwórz wydanie**.
 1. W obszarze **artefakty**Sprawdź, czy jest wybrana Najnowsza kompilacja z potoku kompilacji.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 Proces zautomatyzowanej wersji rozpocznie się teraz, wdrażając wykresy *mywebapi* i *webfrontonu* w klastrze Kubernetes w _obszarze najwyższego_ poziomu. Postęp wydania można monitorować w portalu sieci Web usługi Azure DevOps:
 

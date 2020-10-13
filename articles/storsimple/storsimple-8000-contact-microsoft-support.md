@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514258"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960324"
 ---
 # <a name="contact-microsoft-support"></a>Kontakt z pomocą techniczną firmy Microsoft
 
@@ -39,7 +39,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
    3. Wybierz **Plan pomocy technicznej** z listy rozwijanej, jeśli masz wiele planów skojarzonych z Twoją subskrypcją. Potrzebujesz płatnego planu pomocy technicznej, aby umożliwić pomoc techniczną.
    4. Kliknij przycisk **Dalej**.
 
-       ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. W bloku **nowe żądanie obsługi** wybierz pozycję **krok 2**. W bloku **problemu** wykonaj następujące czynności:
     
@@ -51,15 +51,15 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
     6. Sprawdź **udostępnianie informacji diagnostycznych**.
     7. Kliknij przycisk **Dalej**.
 
-       ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. W bloku **nowe żądanie obsługi** kliknij pozycję **krok 3. informacje kontaktowe**. W bloku **informacje kontaktowe** wykonaj następujące czynności:
 
    1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
    2. W informacjach kontaktowych Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Zaznacz pole wyboru **Zapisz zmiany kontaktu w przyszłych żądaniach obsługi** .
-   3. Kliknij przycisk **Utwórz**.
+   3. Kliknij pozycję **Utwórz**.
    
-       ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       Pomoc techniczna firmy Microsoft będzie używać tych informacji w celu uzyskania dalszych informacji, diagnozowania i rozwiązywania problemów.
       Po przesłaniu żądania inżynier pomocy technicznej skontaktuje się z Tobą najszybciej, jak to możliwe, aby kontynuować żądanie.
@@ -76,11 +76,11 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
 2. W bloku **Pomoc i obsługa techniczna** zostanie wyświetlona tabelaryczna lista wszystkich żądań obsługi.
 
-    ![Zarządzanie żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Zarządzanie żądaniami obsługi 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Wybierz i kliknij żądanie pomocy technicznej. Możesz wyświetlić stan i szczegóły tego żądania. Kliknij pozycję **+ Nowy komunikat** , jeśli chcesz kontynuować na tym żądaniu.
 
-    ![Zarządzanie żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Zarządzanie żądaniami obsługi 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Rozpocznij sesję pomocy technicznej w program Windows PowerShell dla usługi StorSimple
 
