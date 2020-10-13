@@ -12,10 +12,10 @@ ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: 6791691be976e541c6400e89dde8f892fe50c6dc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336177"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować inspekcję SQL Database i zaawansowaną ochronę przed zagrożeniami

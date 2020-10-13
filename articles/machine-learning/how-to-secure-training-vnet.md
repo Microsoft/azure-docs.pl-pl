@@ -12,10 +12,10 @@ author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
 ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629730"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Zabezpiecz środowisko szkoleniowe Azure Machine Learning z sieciami wirtualnymi
@@ -171,7 +171,7 @@ Można to zrobić na dwa sposoby:
         ```
 
         > [!TIP]
-        > Jeśli używasz regionów US-Wirginia, USA-Arizona lub Chiny-wschód-2, te polecenia nie zwracają adresów IP. Zamiast tego użyj jednego z poniższych linków w celu pobrania listy adresów IP:
+        > Jeśli używasz regionów US-Wirginia, US-Arizona lub Chiny-wschód-2, te polecenia nie zwracają adresów IP. Zamiast tego użyj jednego z poniższych linków w celu pobrania listy adresów IP:
         >
         > * [Zakresy adresów IP platformy Azure i Tagi usług dla Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Zakresy adresów IP platformy Azure i Tagi usług dla Chin platformy Azure](https://www.microsoft.com//download/details.aspx?id=57062)
@@ -276,7 +276,7 @@ W tej sekcji dowiesz się, jak używać maszyny wirtualnej lub klastra usługi A
 
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>Tworzenie maszyny wirtualnej lub klastra usługi HDInsight
 
-Utwórz maszynę wirtualną lub klaster usługi HDInsight przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure i umieść klaster w sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Utwórz maszynę wirtualną lub klaster usługi HDInsight przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure i umieść klaster w sieci wirtualnej platformy Azure. Aby uzyskać więcej informacji zobacz następujące artykuły:
 * [Tworzenie sieci wirtualnych platformy Azure dla maszyn wirtualnych z systemem Linux i zarządzanie nimi](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
 * [Zwiększanie usługi HDInsight przy użyciu sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)

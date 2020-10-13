@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
 ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803470"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Typowe problemy występujące podczas certyfikowania obrazów maszyn wirtualnych w portalu Azure Marketplace
@@ -338,7 +338,7 @@ Krok 3. Po pomyślnym wykonaniu polecenia Uruchom ponownie maszynę wirtualną.
 
 Krok 4. Uogólnij maszynę wirtualną, zrób dysk VHD obrazu i Zatrzymaj maszynę wirtualną.
 
-Krok 5.     Prześlij ponownie uogólniony obraz.
+Krok 5.     Re-Submit uogólniony obraz.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Żądanie wyjątków (szablonów niestandardowych) w obrazach maszyn wirtualnych dla testów selektywnych
 

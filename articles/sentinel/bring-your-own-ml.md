@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
 ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347513"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Przenieś własne Machine Learning (ML) na platformę Azure — wskaźnik
@@ -159,13 +159,13 @@ Po zaplanowaniu planowanej oceny możesz użyć modułu w notesie oceniania, aby
 
 Aby zobaczyć wyniki oceny wraz ze szczegółowymi informacjami dotyczącymi dziennika, Wróć do portalu Azure wskaźnikowego. W **dziennikach** > dziennikach niestandardowych wyniki zostaną wyświetlone w tabeli **AnomalousResourceAccessResult_CL** (lub własnej nazwie tabeli niestandardowej). Możesz użyć tych wyników, aby wzmocnić badanie i doświadczenia z łowiectwa.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="nietypowe dzienniki dostępu do zasobów":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="Platforma uczenia maszynowego":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Utwórz niestandardową regułę analizy z wynikami ML
 
 Po potwierdzeniu, że wyniki z tablicy są w niestandardowym spisie i są zadowalające, można utworzyć wykrywanie na podstawie wyników. Przejdź do pozycji **Analiza** z portalu Azure wskaźnikowego i [Utwórz nową regułę wykrywania](tutorial-detect-threats-custom.md). Poniżej przedstawiono przykład wyświetlania zapytania używanego do tworzenia wykrywania.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Utwórz niestandardową regułę analizy dla wykryć B Y O M L":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Platforma uczenia maszynowego":::
 
 ### <a name="view-and-respond-to-incidents"></a>Wyświetlanie zdarzeń i reagowanie na nie
 Po skonfigurowaniu reguły analizy na podstawie wyników z tablicy, jeśli wyniki przekraczają wartość progową ustawioną w zapytaniu, zdarzenie zostanie wygenerowane i naliczane na stronie **incydenty** na platformie Azure. 

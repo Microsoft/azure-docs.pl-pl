@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: 6b252164027f07e4f26ab84ac12e2425e1da05f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357305"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Korzystanie z przykładowych zestawów danych w Azure Machine Learning Studio (klasyczny)
@@ -92,7 +92,7 @@ Kod służący do konwertowania obrazu znajduje się w <strong>podziału koloró
 <tr>
   <td>Dane darowizny krwi</td>
   <td>
-Podzbiór danych z bazy danych dawców krwi centrum usługi transfuzji krwi z Hsin-chu miasto, Tajwan.
+Podzbiór danych z bazy danych dawców krwi centrum usługi transfuzji krwi Hsin-Chu miasto, Tajwan.
 <p></p>
 Dane ofiarodawcy obejmują miesiące od ostatniej darowizny oraz częstotliwość lub łączną liczbę darowizn, czas od ostatniej oddawania i ilość oddanych krwi.
 <p></p>
@@ -158,7 +158,7 @@ Etykiety z wyzwania KDD 2009 (<a href="http://www.sigkdd.org/site/2009/files/ora
 </tr>
 
 <tr>
-  <td>Dane regresji wydajności energetycznej</td>
+  <td>Energy-Efficiency dane regresji</td>
   <td>
 Kolekcja symulowanych profilów energii w oparciu o 12 różnych kształtów konstrukcyjnych. Budynki są zróżnicowane przez osiem funkcji. Obejmuje to obszary szyb, rozmieszczenie obszarów szyb i orientację.
 <p></p>
@@ -172,7 +172,7 @@ Kolekcja symulowanych profilów energii w oparciu o 12 różnych kształtów kon
   <td>
 Dane o wydajności w czasie lotu pasażera wykonywane z TranStats zbierania danych z działu transportu USA (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">w czasie</a>).
 <p></p>
-Ten zestaw danych obejmuje czas od kwietnia do 2013 października. Przed przekazaniem do Azure Machine Learning Studio (klasyczne) zestaw danych został przetworzony w następujący sposób:
+Ten zestaw danych obejmuje okres April-October 2013. Przed przekazaniem do Azure Machine Learning Studio (klasyczne) zestaw danych został przetworzony w następujący sposób:
 <ul>
   <li>Zestaw danych został przefiltrowany w celu pokrycia najgorętszym portów lotniczych o 70 w Stanach Zjednoczonych</li>
   <li>Anulowane loty zostały oznaczone jako opóźnione o więcej niż 15 minut</li>
@@ -332,7 +332,7 @@ Należy również zwrócić uwagę na to, że liczba zdarzeń w tle (h, dla hadr
   <td>
 Codzienne obserwacje pogodowe z NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">scalone dane z 201304 do 201310</a>).
 <p></p>
-Dane pogodowe obejmują obserwacje z stacji pogodowych portów lotniczych, obejmujących okres od kwietnia do października 2013. Przed przekazaniem do Azure Machine Learning Studio (klasyczne) zestaw danych został przetworzony w następujący sposób:
+Dane pogodowe obejmują obserwacje z stacji meteorologicznych lotniska, obejmujące okres April-October 2013. Przed przekazaniem do Azure Machine Learning Studio (klasyczne) zestaw danych został przetworzony w następujący sposób:
 <ul>
   <li>Identyfikatory stacji pogody zostały zamapowane na odpowiednie identyfikatory portów lotniczych</li>
   <li>Stacje pogody nie są skojarzone z najgorętszym portów lotniczych 70 zostały odfiltrowane</li>

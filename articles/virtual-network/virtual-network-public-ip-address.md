@@ -18,10 +18,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804031"
 ---
 # <a name="manage-public-ip-addresses"></a>Zarządzanie publicznymi adresami IP
@@ -30,7 +30,7 @@ Dowiedz się więcej o publicznym adresie IP oraz o sposobie tworzenia, zmienian
 - Komunikacja przychodząca z Internetu do zasobu, taka jak Azure Virtual Machines (maszyna wirtualna), Azure Application Gateways, Azure Load Gateways, Azure sieci VPN i inne. Można nadal komunikować się z niektórymi zasobami, takimi jak maszyny wirtualne, z Internetu, jeśli maszyna wirtualna nie ma przypisanego publicznego adresu IP, pod warunkiem, że maszyna wirtualna jest częścią puli zaplecza modułu równoważenia obciążenia, a moduł równoważenia obciążenia ma przypisany publiczny adres IP. Aby określić, czy zasób dla określonej usługi platformy Azure może mieć przypisany publiczny adres IP, czy też może być przekazywany za pomocą publicznego adresu IP innego zasobu platformy Azure, zapoznaj się z dokumentacją usługi.
 - Łączność wychodząca z Internetem przy użyciu przewidywalnego adresu IP. Na przykład maszyna wirtualna może komunikować się z Internetem bez przypisanego do niego publicznego adresu IP, ale jego adres jest domyślnie przetłumaczony przez platformę Azure do nieprzewidywalnego adresu publicznego. Przypisanie publicznego adresu IP do zasobu pozwala dowiedzieć się, który adres IP jest używany do połączenia wychodzącego. Chociaż przewidywalna, adres może się zmienić, w zależności od wybranej metody przypisania. Aby uzyskać więcej informacji, zobacz [Tworzenie publicznego adresu IP](#create-a-public-ip-address). Aby dowiedzieć się więcej o połączeniach wychodzących z zasobów platformy Azure, zobacz [Omówienie połączeń wychodzących](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -92,7 +92,7 @@ Dodatkowe szczegóły dotyczące określonych atrybutów publicznego adresu IP p
 |---|---|---|---|
 |[Maszyna wirtualna](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Wybierz opcję Usuń **skojarzenie** , aby usunąć skojarzenie adresu IP z konfiguracji karty sieciowej, a następnie wybierz pozycję **Usuń**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) , aby usunąć skojarzenie adresu IP z konfiguracji karty sieciowej; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) do usunięcia|[AZ Network Public-IP Update--Usuń](/cli/azure/network/public-ip#az-network-public-ip-update) , aby usunąć skojarzenie adresu IP z konfiguracji karty sieciowej; [AZ Network Public-IP Delete](/cli/azure/network/public-ip#az-network-public-ip-delete) do usuwania |
 |Load Balancer frontonu | Przejdź do nieużywanego publicznego adresu IP i wybierz opcję **Skojarz** i wybierz Load Balancer z odpowiednią konfiguracją adresu IP frontonu, aby ją zastąpić (następnie stary adres IP można usunąć przy użyciu tej samej metody jak w przypadku maszyny wirtualnej).  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) , aby skojarzyć nową konfigurację adresu IP frontonu z publiczną Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) do usunięcia; można również użyć [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) , aby usunąć konfigurację adresu IP frontonu, jeśli istnieje więcej niż jedna |[AZ Network lb fronton-IP Update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) w celu skojarzenia nowej konfiguracji adresu IP frontonu z publiczną Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) do usunięcia; można również użyć [AZ Network lb frontonu IP Delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) , aby usunąć konfigurację adresu IP frontonu, jeśli istnieje więcej niż jeden|
-|Firewall|Brak| [Cofnij przydział ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) , aby cofnąć przydział zapory i usunąć wszystkie konfiguracje protokołu IP | [AZ Network firewall IP-config Delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) aby usunąć adres IP (ale należy najpierw użyć programu PowerShell do cofnięcia przydziału)|
+|Zapora|Nie dotyczy| [Cofnij przydział ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) , aby cofnąć przydział zapory i usunąć wszystkie konfiguracje protokołu IP | [AZ Network firewall IP-config Delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) aby usunąć adres IP (ale należy najpierw użyć programu PowerShell do cofnięcia przydziału)|
 
 >[!NOTE]
 >Niektóre zasoby nie mogą mieć publicznych adresów IP, które zostały zmienione ani usunięte po utworzeniu.  Są to: Brama translatora adresów sieciowych, Azure VPN Gateway, Azure Application Gateway.

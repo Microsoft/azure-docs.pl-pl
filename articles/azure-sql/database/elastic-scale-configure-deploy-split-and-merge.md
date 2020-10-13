@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443039"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Wdrażanie usługi Split-Merge do przenoszenia danych między bazami danych podzielonej na fragmenty
@@ -23,7 +23,7 @@ ms.locfileid: "91443039"
 
 Narzędzie Split-Merge służy do przenoszenia danych między bazami danych podzielonej na fragmenty. Zobacz [przeniesienie danych między skalowanymi bazami danych w chmurze](elastic-scale-overview-split-and-merge.md)
 
-## <a name="download-the-split-merge-packages"></a>Pobieranie pakietów Split-Merge
+## <a name="download-the-split-merge-packages"></a>Pobierz pakiety Split-Merge
 
 1. Pobierz najnowszą wersję pakietu NuGet z narzędzia [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
@@ -35,7 +35,7 @@ Narzędzie Split-Merge służy do przenoszenia danych między bazami danych podz
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Pliki są umieszczane w katalogu o nazwie **Microsoft. Azure. SQLDatabase. ElasticScale. Service. SplitMerge. x. x. xxx. x** , gdzie *x. x. xxx. x* odzwierciedla numer wersji. Znajdź pliki usługi Split-Merge w podkatalogu **content\splitmerge\service** oraz skrypty programu PowerShell Split-Merge (i wymagane biblioteki DLL klienta) w podkatalogu **content\splitmerge\powershell** .
+Pliki są umieszczane w katalogu o nazwie **Microsoft. Azure. SQLDatabase. ElasticScale. Service. SplitMerge. x. x. xxx. x** , gdzie *x. x. xxx. x* odzwierciedla numer wersji. Znajdź pliki usługi Split-Merge w podkatalogu **content\splitmerge\service** oraz skrypty Split-Merge PowerShell (i wymagane biblioteki DLL klienta) w podkatalogu **content\splitmerge\powershell** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -51,11 +51,11 @@ Pliki są umieszczane w katalogu o nazwie **Microsoft. Azure. SQLDatabase. Elast
 
 ### <a name="split-merge-service-configuration"></a>Konfiguracja usługi Split-Merge
 
-1. W folderze, do którego pobrano zbiory z podziałem, Utwórz kopię pliku *ServiceConfiguration. Template. cscfg* , który został wysłany wraz z *SplitMergeService. cspkg* i zmień jego nazwę na *ServiceConfiguration. cscfg*.
+1. W folderze, do którego pobrano zestawy Split-Merge, Utwórz kopię pliku *ServiceConfiguration. Template. cscfg* , który został wysłany wraz z *SplitMergeService. cspkg* , i zmień jego nazwę na *ServiceConfiguration. cscfg*.
 
 1. Otwórz element *ServiceConfiguration. cscfg* w edytorze tekstu, takim jak program Visual Studio, który sprawdza poprawność danych wejściowych, takich jak format odcisków palców certyfikatów.
 
-1. Utwórz nową bazę danych lub wybierz istniejącą bazę danych, która będzie stanowić bazę danych stanu dla operacji Split-Merge i Pobierz parametry połączenia tej bazy danych.
+1. Utwórz nową bazę danych lub wybierz istniejącą bazę danych, która będzie działać jako baza danych stanu dla operacji Split-Merge i Pobierz parametry połączenia tej bazy danych.
 
    > [!IMPORTANT]
    > W tej chwili baza danych stanu musi używać sortowania łacińskiego (SQL \_ Latin1 \_ General \_ CP1 \_ Ci \_ AS). Aby uzyskać więcej informacji, zobacz [Nazwa sortowania systemu Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
@@ -236,7 +236,7 @@ Uwzględnione pliki skryptów:
    > [!NOTE]
    > Skrypt *SetupSampleSplitMergeEnvironment.ps1* tworzy wszystkie te bazy danych na tym samym serwerze Domyślnie, aby zachować prosty skrypt. Nie jest to ograniczenie usługi Split-Merge.
 
-   Aby usługa Split-Merge mogła przenosić dane i aktualizować mapę fragmentu, konieczne będzie logowanie za pomocą uwierzytelniania SQL z dostępem do odczytu/zapisu do baz danych. Ponieważ usługa Split-Merge działa w chmurze, obecnie nie obsługuje uwierzytelniania zintegrowanego.
+   Aby usługa Split-Merge mogła przenosić dane i aktualizować mapę fragmentu, konieczne będzie logowanie za pomocą uwierzytelniania SQL z dostępem do odczytu i zapisu do baz danych. Ponieważ usługa Split-Merge jest uruchomiona w chmurze, nie obsługuje obecnie uwierzytelniania zintegrowanego.
 
    Upewnij się, że serwer jest skonfigurowany tak, aby zezwalał na dostęp z adresu IP komputera, na którym działają te skrypty. To ustawienie można znaleźć w obszarze serwer SQL/zapory oraz sieci wirtualne/adresy IP klientów.
 

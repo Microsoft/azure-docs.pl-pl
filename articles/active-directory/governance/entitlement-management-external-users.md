@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447078"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
@@ -143,7 +143,7 @@ Możesz wybrać, co się stanie, gdy użytkownik zewnętrzny, który został zap
 
 1. Jeśli chcesz usunąć konto użytkownika-gościa w tym katalogu, możesz ustawić liczbę dni, po której ma zostać usunięta. Jeśli chcesz usunąć konto użytkownika-gościa, gdy tylko utracisz swoje ostatnie przypisanie do wszystkich pakietów dostępu, ustaw **liczbę dni przed usunięciem użytkownika zewnętrznego z tego katalogu** do **0**.
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
