@@ -304,7 +304,7 @@
             - name: Elastyczność rozmiaru wystąpienia maszyny wirtualnej
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Dedykowane hosty
-      href: dedicated-hosts.md
+      href: ../dedicated-hosts.md
     - name: Konserwacja i aktualizacje
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Przechowywanie na dysku

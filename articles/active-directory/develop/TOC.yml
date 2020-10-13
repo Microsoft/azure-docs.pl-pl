@@ -4,6 +4,8 @@
   items:
     - name: Co to jest platforma tożsamości firmy Microsoft?
       href: v2-overview.md
+    - name: Co nowego w dokumentacji?
+      href: whats-new-docs.md
 - name: Przewodniki Szybki start
   expanded: true
   items:

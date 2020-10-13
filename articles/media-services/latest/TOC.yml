@@ -61,6 +61,8 @@
           href: protect-with-aes128.md
         - name: Dynamiczne szyfrowanie przy użyciu usługi DRM
           href: protect-with-drm.md
+        - name: Ochrona zawartości za pomocą usługi Azure AD
+          href: azure-ad-content-protection.md
     - name: REST
       items:
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — REST
@@ -188,8 +190,6 @@
           href: streaming-policy-concept.md
         - name: Zasady kluczy zawartości
           href: content-key-policy-concept.md
-        - name: Ochrona zawartości za pomocą usługi Azure AD
-          href: azure-ad-content-protection.md
     - name: Monitorowanie
       items:
         - name: Zdarzenia z usługą Event Grid
@@ -385,7 +385,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Przejdź
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: c653a8afa3d15278a03655f71dccade6171db837
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 418d97607be5c96dc80a186a4986cff584a19cdb
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88723898"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91960358"
 landingContent:
 - title: Informacje o usłudze Rozpoznawanie formularzy
   linkLists:
@@ -131,7 +131,13 @@ landingContent:
     - text: Interfejs API rozpoznawania formularzy w wersji 2.0
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
     - text: Zestaw SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+    - text: Zestaw SDK dla języka Python
+      url: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
+    - text: Zestaw SDK Java
+      url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+    - text: Zestaw SDK dla języka JavaScript
+      url: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interfejs wiersza polecenia platformy Azure
