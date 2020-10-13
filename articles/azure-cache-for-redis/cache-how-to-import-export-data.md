@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
 ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004325"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importowanie i eksportowanie danych w pamięci podręcznej platformy Azure dla Redis
@@ -28,7 +28,7 @@ Ten artykuł zawiera Przewodnik dotyczący importowania i eksportowania danych z
 >
 >
 
-## <a name="import"></a>Importuj
+## <a name="import"></a>Import
 Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego serwera Redis działającego w dowolnej chmurze lub środowisku, w tym Redis działających w systemie Linux, Windows lub dowolnym dostawcy chmury, takim jak Amazon Web Services i inne. Importowanie danych to prosty sposób tworzenia pamięci podręcznej z wstępnie wypełnionymi danymi. Podczas procesu importowania usługa Azure cache for Redis ładuje pliki RDB z usługi Azure Storage do pamięci, a następnie wstawia klucze do pamięci podręcznej.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Import może służyć do przenoszenia zgodnych plików RDB Redis z dowolnego se
    >
    >
 
-    ![Importuj](./media/cache-how-to-import-export-data/cache-import-blobs.png)
+    ![Import](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
     Możesz monitorować postęp operacji importowania, wykonując powiadomienia z Azure Portal lub wyświetlając zdarzenia w [dzienniku inspekcji](../azure-resource-manager/management/view-activity-logs.md).
 

@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261947"
 ---
-# <a name="add-a-reference-layer"></a>Dodaj warstwę referencyjną
+# <a name="add-a-reference-layer"></a>Dodawanie warstwy odwołania
 
 Funkcja warstwa referencyjna umożliwia przekazanie dodatkowego przestrzennego zestawu danych do wizualizacji i nałożonej na mapę w celu zapewnienia kontekstu dodawania. Ten zestaw danych jest hostowany przez Power BI i musi być [plikiem GEOJSON](https://wikipedia.org/wiki/GeoJSON) z `.json` rozszerzeniem lub `.geojson` .
 
@@ -64,4 +64,4 @@ Dodaj więcej kontekstu do mapy:
 > [Dodawanie warstwy kafelków](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Pokaż ruch w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)
+> [Pokazywanie ruchu w czasie rzeczywistym](power-bi-visual-show-real-time-traffic.md)

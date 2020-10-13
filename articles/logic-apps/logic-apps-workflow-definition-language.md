@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 71929cd449f4a00b91cc6c8620b33b0e0c6d506c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078137"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu definicji przepływu pracy w Azure Logic Apps
@@ -76,9 +76,9 @@ Oto ogólna struktura definicji parametru:
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| <*Nazwa parametru*> | Tak | String (ciąg) | Nazwa parametru, który ma zostać zdefiniowany |
+| <*Nazwa parametru*> | Tak | Ciąg | Nazwa parametru, który ma zostać zdefiniowany |
 | <*Typ parametru*> | Tak | int, float, String, bool, Array, Object, SecureString, secureobject <p><p>**Uwaga**: w przypadku wszystkich haseł, kluczy i wpisów tajnych Użyj `securestring` typów lub, `secureobject` ponieważ `GET` operacja nie zwraca tych typów. Aby uzyskać więcej informacji na temat zabezpieczania parametrów, zapoznaj się z [zaleceniami dotyczącymi zabezpieczeń i parametrami wejściowymi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | Typ parametru |
-| <*wartość domyślna parametru-value*> | Tak | Tak samo jak`type` | Wartość domyślna parametru, która ma być używana, jeśli żadna wartość nie zostanie określona podczas tworzenia wystąpienia przepływu pracy. Ten `defaultValue` atrybut jest wymagany, aby projektant aplikacji logiki mógł poprawnie pokazać parametr, ale można określić wartość pustą. |
+| <*wartość domyślna parametru-value*> | Tak | Tak samo jak `type` | Wartość domyślna parametru, która ma być używana, jeśli żadna wartość nie zostanie określona podczas tworzenia wystąpienia przepływu pracy. Ten `defaultValue` atrybut jest wymagany, aby projektant aplikacji logiki mógł poprawnie pokazać parametr, ale można określić wartość pustą. |
 | <*Array-z-dozwolone-wartości parametrów*> | Nie | Tablica | Tablica z wartościami, które parametr może zaakceptować |
 | <*parametr-Description*> | Nie | Obiekt JSON | Wszystkie inne szczegóły parametrów, takie jak opis parametru |
 ||||
@@ -114,11 +114,11 @@ W `staticResults` atrybucie Zdefiniuj makietę akcji `outputs` i `status` akcję
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| <*static-Result-definition-name*> | Tak | String (ciąg) | Nazwa statycznej definicji wyniku, którą definicja akcji może odwoływać się za pomocą `runtimeConfiguration.staticResult` obiektu. Aby uzyskać więcej informacji, zobacz [Ustawienia konfiguracji środowiska uruchomieniowego](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Możesz użyć dowolnej unikatowej nazwy. Domyślnie ta unikatowa nazwa jest dołączana do liczby, która jest zwiększana w miarę potrzeb. |
+| <*static-Result-definition-name*> | Tak | Ciąg | Nazwa statycznej definicji wyniku, którą definicja akcji może odwoływać się za pomocą `runtimeConfiguration.staticResult` obiektu. Aby uzyskać więcej informacji, zobacz [Ustawienia konfiguracji środowiska uruchomieniowego](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Możesz użyć dowolnej unikatowej nazwy. Domyślnie ta unikatowa nazwa jest dołączana do liczby, która jest zwiększana w miarę potrzeb. |
 | <*Output — zwrócone atrybuty i wartości*> | Tak | Różnie | Wymagania dotyczące tych atrybutów różnią się w zależności od różnych warunków. Na przykład, gdy `status` ma `Succeeded` , `outputs` atrybut zawiera atrybuty i wartości zwracane jako dane wyjściowe makiety przez akcję. Jeśli `status` jest `Failed` , `outputs` atrybut zawiera `errors` atrybut, który jest tablicą z co najmniej jednym obiektem błędu, `message` który zawiera informacje o błędzie. |
 | <*wartości nagłówka*> | Nie | JSON | Wszystkie wartości nagłówka zwrócone przez akcję |
-| <*Stan — zwrócony kod*> | Tak | String (ciąg) | Kod stanu zwracany przez akcję |
-| <*Akcja — stan*> | Tak | String (ciąg) | Stan akcji, na przykład `Succeeded` lub`Failed` |
+| <*Stan — zwrócony kod*> | Tak | Ciąg | Kod stanu zwracany przez akcję |
+| <*Akcja — stan*> | Tak | Ciąg | Stan akcji, na przykład `Succeeded` lub `Failed` |
 |||||
 
 Na przykład w tej definicji akcji HTTP odwołuje się do atrybutu, w `runtimeConfiguration.staticResult.name` `HTTP0` `staticResults` którym są zdefiniowane dane wyjściowe makiety dla akcji. Ten `runtimeConfiguration.staticResult.staticResultOptions` atrybut określa, że ustawienie wynik statyczny jest `Enabled` w akcji http.
@@ -199,7 +199,7 @@ Wynik jest zawsze ciągiem, dzięki czemu ta funkcja jest podobna do `concat()` 
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-Jeśli masz ciąg literału, który rozpoczyna się od \@ znaku, poprzedź \@ znak innym \@ znakiem jako znak ucieczki:\@\@
+Jeśli masz ciąg literału, który rozpoczyna się od \@ znaku, poprzedź \@ znak innym \@ znakiem jako znak ucieczki: \@\@
 
 W poniższych przykładach pokazano, jak są oceniane wyrażenia:
 
@@ -277,7 +277,7 @@ Oto ogólna struktura definicji danych wyjściowych:
 
 | Atrybut | Wymagany | Typ | Opis |
 |-----------|----------|------|-------------|
-| <*Nazwa klucza*> | Tak | String (ciąg) | Nazwa klucza dla wyjściowej wartości zwracanej |
+| <*Nazwa klucza*> | Tak | Ciąg | Nazwa klucza dla wyjściowej wartości zwracanej |
 | <*Typ klucza*> | Tak | int, float, String, SecureString, bool, Array, obiekt JSON | Typ wyjściowej wartości zwracanej |
 | <*klucz-wartość*> | Tak | Analogicznie jak <*typu klucza*> | Zwracana wartość wyjściowa |
 |||||

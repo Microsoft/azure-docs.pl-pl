@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070344"
 ---
 # <a name="storsimple-solution-support"></a>Pomoc techniczna dotycząca rozwiązania StorSimple
@@ -85,7 +85,7 @@ Pomoc techniczna dotycząca problemów związanych z rozliczeniami i zarządzani
 | B        | Umiarkowany wpływ na firmę: <ul><br> <li> Firma klienta ma średnią utratę lub spadek jakości usług, ale praca może być w dalszym ciągu kontynuowana w sposób niesparowany. | Początkowa odpowiedź: <sup>1</sup><ul><br> <li> 2 godz. lub mniej dla warstwy Premium. <br> <li> 4 godziny lub mniej dla warstwy Standardowa.                                      | <ul><li> Przydzielenie odpowiednich zasobów w celu utrzymania ciągłego nakładu pracy w godzinach pracy, chyba że klienci zażądają rezygnacji z 24x7. <br> <li> Dokładne informacje kontaktowe dla właściciela przypadku. |
 | C        | Minimalny wpływ na działalność: <ul><br> <li> Firma klienta ma znacznie działać z drobnymi lub bez przeszkód dla usług.                                 | Początkowa odpowiedź: <sup>1</sup><ul> <br> <li> 4 godziny lub mniej dla warstwy Premium. <br> <li> maksymalnie 8 godzin dla warstwy Standardowa.                                      | <ul><li>Dokładne informacje kontaktowe dla właściciela przypadku                                                                                                                                    |
  
-<sup>1</sup> firma Microsoft może obniżyć poziom ważności sprawy o ważności, jeśli klient nie jest w stanie zapewnić wystarczających zasobów lub odpowiedzi, aby umożliwić firmie Microsoft kontynuowanie rozwiązywania problemów.
+<sup>1 </sup> firma Microsoft może obniżyć poziom ważności sprawy o ważności, jeśli klient nie jest w stanie zapewnić wystarczających zasobów lub odpowiedzi, aby umożliwić firmie Microsoft kontynuowanie rozwiązywania problemów.
 
 <sup>2</sup> oczekiwane czasy odpowiedzi opierają się na obsłudze 24X7 w języku angielskim w przypadku ważności a i lokalnych godzin pracy dla ważności B i C oraz do obsługi lokalnych godzin pracy w pozostałych językach lokalnych: japońskim, tajwańskim, chińskim tradycyjnym i koreańskim.
 
@@ -111,7 +111,7 @@ Obsługa macierzy magazynowych z serii 8000 StorSimple jest oparta na sposobie z
 
 
 
-*<text>* Pokrycie w warstwie Premium nie jest dostępne we wszystkich lokalizacjach. Przed zakupem StorSimple Premium skontaktuj się z firmą Microsoft pod adresem SSSupOps \@ Microsoft.com.*
+*<text> * Pokrycie w warstwie Premium nie jest dostępne we wszystkich lokalizacjach. Przed zakupem StorSimple Premium skontaktuj się z firmą Microsoft pod adresem SSSupOps \@ Microsoft.com.*
 
 ***Urządzenie StorSimple musi zostać wdrożone w regionie, w którym klient jest objęty wsparciem Premier, aby można było skorzystać z bezpłatnego uaktualnienia do pomocy technicznej StorSimple w warstwie Premium.*
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak określić własne repozytorium artefaktów dla l
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270992"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Dodawanie repozytorium artefaktów do laboratorium w DevTest Labs
@@ -48,7 +48,7 @@ Aby dodać repozytorium do laboratorium, najpierw Pobierz informacje o kluczu z 
    2. Z listy **organizacja** wybierz pozycję **wszystkie dostępne organizacje**.
    3. Na liście **wygaśnięcie (UTC)** wybierz pozycję **90 dni**lub niestandardowy okres ważności.
    4. Wybierz opcję **pełny dostęp** dla zakresów.
-   5. Wybierz pozycję **Utwórz**.
+   5. Wybierz przycisk **Utwórz**.
 9. Nowy token zostanie wyświetlony na liście **osobiste tokeny dostępu** . Wybierz pozycję **Kopiuj token**, a następnie Zapisz wartość tokenu do późniejszego użycia.
 10. Przejdź do sekcji Łączenie laboratorium z repozytorium.
 
@@ -180,7 +180,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Po pomyślnym wykonaniu polecenia New-AzResourceGroupDeployment polecenie generuje ważne informacje, takie jak stan aprowizacji (powinno być zakończone powodzeniem) i wszelkie dane wyjściowe szablonu.
+Po pomyślnym uruchomieniu New-AzResourceGroupDeployment polecenie generuje ważne informacje, takie jak stan aprowizacji (powinno być zakończone powodzeniem) i wszelkie dane wyjściowe szablonu.
 
 ## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 Ta sekcja zawiera przykładowy skrypt programu PowerShell, który może służyć do dodawania repozytorium artefaktów do laboratorium. Jeśli nie masz Azure PowerShell, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/?view=azps-1.2.0) , aby uzyskać szczegółowe instrukcje dotyczące instalacji.

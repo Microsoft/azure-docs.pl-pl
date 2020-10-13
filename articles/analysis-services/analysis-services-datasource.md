@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749086"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
@@ -23,7 +23,7 @@ ms.locfileid: "88749086"
 |Źródło danych  |W pamięci  |DirectQuery  |Uwagi |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Tak      |    Tak      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Tak      |   Tak       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Tak      |   Tak       |<sup>[dwóch](#azprovider)</sup>|
 |Azure Blob Storage      |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup> |
 |Azure Table Storage     |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Tak        |  Nie        |<sup>[1](#tab1400a)</sup> |

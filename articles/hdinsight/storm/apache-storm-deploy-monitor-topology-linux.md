@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085739"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Wdrażanie topologii Apache Storm w usłudze Azure HDInsight i zarządzanie nimi
@@ -44,7 +44,7 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
 
 1. W oknie **Tworzenie nowego projektu** wybierz pole wyszukiwania, a następnie wprowadź `Storm` . Następnie wybierz z listy wyników pozycję **przykład burzy** , a następnie wybierz pozycję **dalej**.
 
-1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz pozycję **Utwórz**.
+1. W oknie **Konfigurowanie nowego projektu** wprowadź **nazwę projektu**, a następnie przejdź do lub Utwórz **lokalizację** , w której ma zostać zapisany nowy projekt. Następnie wybierz przycisk **Utwórz**.
 
     ![Konfigurowanie okna nowego projektu, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
@@ -80,7 +80,7 @@ Narzędzia Data Lake Tools for Visual Studio umożliwiają przesyłanie do klast
 
 ## <a name="submit-a-topology-programmatically"></a>Programistyczne przesyłanie topologii
 
-Można programowo wdrożyć topologię przy użyciu usługi Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)zawiera przykładową aplikację Java, która demonstruje sposób wdrażania i uruchamiania topologii za pomocą usługi Nimbus.
+Można programowo wdrożyć topologię przy użyciu usługi Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) zawiera przykładową aplikację Java, która demonstruje sposób wdrażania i uruchamiania topologii za pomocą usługi Nimbus.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Monitorowanie i zarządzanie topologią w programie Visual Studio
 
@@ -255,14 +255,14 @@ W pełni kwalifikowaną nazwę domeny (FQDN) węzła głównego klastra można z
 | Sieć Web Ambari | Na stronie sieci Web klastra Ambari ( `https://CLUSTERNAME.azurehdinsight.net` ) wybierz pozycję **usługi** w górnej części strony, a następnie wybierz pozycję **burza**. Na karcie **Podsumowanie** wybierz pozycję **serwer interfejsu użytkownika burzy**. W górnej części strony jest wyświetlana nazwa FQDN węzła, który hostuje interfejs użytkownika burzy i interfejs API REST. |
 | Interfejs API REST usługi Ambari | Użyj polecenia, `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` Aby pobrać informacje o węźle, w którym działają interfejs użytkownika burzy i interfejs API REST. Zastąp dwa wystąpienia elementu *ClusterName* nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta użytkownika (administratora). W odpowiedzi wpis "host_name" danych wyjściowych JSON zawiera nazwę FQDN węzła. |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Żądania kierowane do interfejsu API REST muszą używać *uwierzytelniania podstawowego*, dlatego należy użyć nazwy administratora i hasła dla klastra usługi HDInsight.
 
 > [!NOTE]  
 > Ponieważ uwierzytelnianie podstawowe jest wysyłane przy użyciu czystego tekstu, należy *zawsze* używać protokołu HTTPS do zabezpieczania komunikacji z klastrem.
 
-### <a name="return-values"></a>Zwracane wartości
+### <a name="return-values"></a>Wartości zwracane
 
 Informacje zwracane z interfejsu API REST mogą być używane tylko w ramach klastra. Na przykład w pełni kwalifikowana nazwa domeny (FQDN) zwracana dla serwerów [Apache ZooKeeper](https://zookeeper.apache.org/) nie jest dostępna z Internetu.
 

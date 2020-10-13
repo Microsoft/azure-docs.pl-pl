@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400470"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
@@ -1093,13 +1093,13 @@ Informacje na temat ochrony przed złośliwym oprogramowaniem firmy Microsoft Cl
 
 **Wskazówki**: zapewnianie zwykłych zautomatyzowanych kopii zapasowych certyfikatów Key Vault, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą następujących poleceń programu PowerShell:
 
-- Kopia zapasowa — AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- Kopia zapasowa — AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- Kopia zapasowa — AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- Kopia zapasowa — AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 Opcjonalnie można przechowywać kopie zapasowe Key Vault w Azure Backup.
 
@@ -1123,13 +1123,13 @@ Jak włączyć Azure Backup: https://docs.microsoft.com/azure/backup
 
 **Wskazówki**: wykonywanie kopii zapasowych certyfikatów Key Vault, kluczy, zarządzanych kont magazynu i wpisów tajnych za pomocą następujących poleceń programu PowerShell:
 
-- Kopia zapasowa — AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- Kopia zapasowa — AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- Kopia zapasowa — AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- Kopia zapasowa — AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 Opcjonalnie można przechowywać kopie zapasowe Key Vault w Azure Backup.
 

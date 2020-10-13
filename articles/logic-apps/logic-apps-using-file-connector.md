@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 10/08/2020
-ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 01/13/2019
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873238"
+ms.locfileid: "89659926"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Łączenie z lokalnymi systemami plików przy użyciu usługi Azure Logic Apps
 
@@ -22,9 +22,6 @@ Za pomocą Azure Logic Apps i łącznika systemu plików można tworzyć automat
 - Twórz, pobieraj, dołączaj, Aktualizuj i usuwaj pliki.
 - Wyświetl listę plików w folderach lub folderach głównych.
 - Pobieranie zawartości i metadanych pliku.
-
-  > [!IMPORTANT]
-  > Łącznik systemu plików obsługuje obecnie tylko systemy plików Windows w systemach operacyjnych Windows.  
 
 W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodnie z opisem w tym przykładowym scenariuszu: Skopiuj plik przekazany do usługi Dropbox do udziału plików, a następnie Wyślij wiadomość e-mail. Aby bezpiecznie połączyć się z systemami lokalnymi i uzyskać do nich dostęp, Aplikacje logiki korzystają z [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md). Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Informacje techniczne dotyczące łącznika można znaleźć w [dokumentacji dotyczącej łącznika systemu plików](/connectors/filesystem/).
 

@@ -1,16 +1,16 @@
 ---
 title: Konfigurowanie aplikacji ASP.NET Core
-description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core w natywnych wystąpieniach systemu Windows lub w kontenerze z wstępnie skompilowanym systemem Linux w programie Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
+description: Dowiedz się, jak skonfigurować aplikację ASP.NET Core w natywnych wystąpieniach systemu Windows lub w kontenerze z wstępnie skompilowanym systemem Linux w programie Azure App Service. W tym artykule przedstawiono najczęściej wykonywane zadania konfiguracji.
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961673"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET Core dla Azure App Service
@@ -98,7 +98,7 @@ Aby uzyskać więcej informacji na temat App Service uruchamiania i kompilowania
 
 ## <a name="access-environment-variables"></a>Uzyskiwanie dostępu do zmiennych środowiskowych
 
-W App Service można [ustawić ustawienia aplikacji](configure-common.md#configure-app-settings) poza kodem aplikacji. Następnie można uzyskać do nich dostęp w dowolnej klasie przy użyciu wzorca iniekcji zależności standardowej ASP.NET Core:
+W usłudze App Service można [określić ustawienia aplikacji](configure-common.md#configure-app-settings) poza kodem aplikacji. Następnie można uzyskać do nich dostęp w dowolnej klasie przy użyciu wzorca iniekcji zależności standardowej ASP.NET Core:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -212,7 +212,7 @@ Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z 
 
 ::: zone pivot="platform-linux"
 
-## <a name="open-ssh-session-in-browser"></a>Otwórz sesję SSH w przeglądarce
+## <a name="open-ssh-session-in-browser"></a>Otwieranie sesji SSH w przeglądarce
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -220,7 +220,7 @@ Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z 
 
 ::: zone-end
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: ASP.NET Core aplikacji z SQL Database](tutorial-dotnetcore-sqldb-app.md)
@@ -228,6 +228,6 @@ Aby uzyskać więcej informacji, zobacz [konfigurowanie ASP.NET Core do pracy z 
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux — często zadawane pytania](faq-app-service-linux.md)
+> [App Service dla systemu Linux — często zadawane pytania](faq-app-service-linux.md)
 
 ::: zone-end

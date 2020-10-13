@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: c7dfbd60b7a668b849c3150bb16e40285c345634
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844117"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>What are classic alerts in Microsoft Azure? (Czym są alerty klasyczne na platformie Microsoft Azure?)
@@ -33,7 +33,7 @@ Nowe możliwości użytkownika dotyczące alertów mają następujące zalety w 
 - **Wyświetl wyzwolone alerty log Analytics w Azure Portal** — teraz można zobaczyć wyzwolone alerty log Analytics w subskrypcji. Wcześniej były one w osobnym portalu.
 - **Rozdzielenie wywołanych alertów i reguł alertów** — reguły alertów (definicja warunku wyzwalającego Alert), a następnie wyzwolone alerty (wystąpienie reguły alertu jest wyzwalane) są rozróżniane, więc widoki operacyjne i konfiguracyjne są rozdzielone.
 - **Lepszy przepływ pracy** — nowe środowisko tworzenia alertów prowadzi użytkownika przez proces konfigurowania reguły alertu, co ułatwia odkrywanie właściwych rzeczy w celu uzyskania alertów.
-- **Alerty inteligentne konsolidacja** i **Ustawianie stanu alertu** — nowsze alerty obejmują funkcję grupowania podwójnego pokazującą podobne alerty, aby zredukować Przeciążenie w interfejsie użytkownika. 
+- **Alerty inteligentne konsolidacja** i **Ustawianie stanu alertu**  — nowsze alerty obejmują funkcję grupowania podwójnego pokazującą podobne alerty, aby zredukować Przeciążenie w interfejsie użytkownika. 
 
 Nowsze alerty dotyczące metryk mają następujące korzyści dotyczące klasycznego alertu dotyczącego metryki:
 - **Ulepszone opóźnienie**: nowsze alerty metryczne mogą być uruchamiane w ciągu co najmniej jednej minuty. Starsze alerty metryk są zawsze uruchamiane z częstotliwością wynoszącą 5 minut. Nowsze alerty zwiększają mniejsze opóźnienie od wystąpienia problemu do powiadomienia lub akcji (od 3 do 5 minut). Starsze alerty są od 5 do 15 minut w zależności od typu.  Alerty dzienników zwykle mają od 10 do 15 minut opóźnienia z powodu czasu potrzebnego na pozyskiwanie dzienników, ale nowsze metody przetwarzania skracają ten czas. 

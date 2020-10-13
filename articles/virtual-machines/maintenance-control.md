@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
 ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080016"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Zarządzanie aktualizacjami platformy przy użyciu kontroli konserwacji 
@@ -38,7 +38,7 @@ Konfiguracje konserwacji można tworzyć i zarządzać nimi przy użyciu dowolne
 
 - [Interfejs wiersza polecenia platformy Azure](maintenance-control-cli.md)
 - [Azure PowerShell](maintenance-control-powershell.md)
-- [Witryna Azure Portal](maintenance-control-portal.md)
+- [Azure Portal](maintenance-control-portal.md)
 
 Aby uzyskać przykład Azure Functions, zobacz [Planowanie aktualizacji konserwacji przy użyciu sterowania konserwacją i Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 

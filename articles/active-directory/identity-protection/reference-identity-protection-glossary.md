@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949178"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection słownik
@@ -26,7 +26,7 @@ Użytkownik, który ma co najmniej jedno aktywne wykrywanie zagrożeń.
 ### <a name="atypical-sign-in-location"></a>Nietypowa lokalizacja logowania
 Logowanie z lokalizacji geograficznej, która nie jest typowa dla określonego użytkownika, podobnych użytkowników lub dzierżawcy.
 
-### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
+### <a name="azure-ad-identity-protection"></a>Usługa Azure AD Identity Protection
 Moduł zabezpieczeń Azure Active Directory, który zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach wpływających na tożsamości organizacji.
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
@@ -35,7 +35,7 @@ Zasady zabezpieczające dostęp do zasobów. Reguły dostępu warunkowego są pr
 ### <a name="credentials"></a>Poświadczenia
 Informacje, które obejmują identyfikację i weryfikację tożsamości, która jest używana do uzyskiwania dostępu do zasobów lokalnych i sieciowych. Przykładami poświadczeń są nazwy i hasła użytkowników, karty inteligentne i certyfikaty.
 
-### <a name="event"></a>Zdarzenie
+### <a name="event"></a>Wydarzenie
 Rekord działania w Azure Active Directory.
 
 ### <a name="false-positive-risk-detection"></a>FAŁSZ — pozytywne (wykrywanie ryzyka)
@@ -89,7 +89,7 @@ Wykrywanie anomalii i oceny ryzyka zdarzenia, takiego jak próba logowania, zani
 ### <a name="remediated-risk-detection"></a>Skorygowane (wykrywanie ryzyka)
 Stan wykrywania ryzyka ustawiany automatycznie przez ochronę tożsamości, co oznacza, że wykrywanie ryzyka zostało skorygowane przy użyciu standardowej akcji korygowania tego typu wykrywania ryzyka. Na przykład, gdy hasło użytkownika zostanie zresetowane, wykrycie wielu zagrożeń wskazujące na naruszenie bezpieczeństwa poprzedniego hasła jest automatycznie korygowane.
 
-### <a name="remediation"></a>Korygowanie
+### <a name="remediation"></a>Korekty
 Akcja zabezpieczania tożsamości lub urządzenia, które zostały wcześniej podejrzane lub uznane za zagrożone. Akcja korygowania przywraca tożsamość lub urządzenie do stanu bezpiecznego i rozwiązuje poprzednie wykrywanie ryzyka skojarzone z tożsamością lub urządzeniem.
 
 ### <a name="resolved-risk-detection"></a>Rozwiązano (wykrywanie ryzyka)

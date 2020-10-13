@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372028"
 ---
 # <a name="machine-learning-features"></a>Funkcje uczenia maszynowego
@@ -209,7 +209,7 @@ Jednostka uczenia maszynowego dla księgi biletów ma dwie podjednostki, aby prz
 
 Jednostka rezerwacji biletów jest jednostką uczenia maszynowego, z podjednostkami, w tym _źródła_ i _miejsca docelowego_. Te podjednostki wskazują lokalizację geograficzną. Aby ułatwić wyodrębnienie lokalizacji i odróżnienie między elementami _początkowymi_ i _docelowymi_, każda podjednostka powinna mieć funkcje.
 
-|Typ|Podjednostka pochodzenie |Podjednostka docelowa|
+|Type|Podjednostka pochodzenie |Podjednostka docelowa|
 |--|--|--|
 |Model jako funkcja|wstępnie utworzona jednostka [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|wstępnie utworzona jednostka [geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3)|
 |Lista fraz|**Słowa źródłowe**: `start at` , `begin from` , `leave`|**Słowa docelowe**: `to` ,,,,, `arrive` `land at` `go` `going` `stay` , `heading`|
@@ -226,7 +226,7 @@ Po utworzeniu jednostki uczenia maszynowego należy dodać przykład wyrażenia 
 
 W przypadku przykładowego rezerwacji biletu etykieta przykład wyrażenia długości w zamierzeniu z `TicketBooking` jednostką i podjednostkami w tekście.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Przykład etykiety wyrażenia długości":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Schemat jednostki Ticketbooking":::
 
 ### <a name="example-pizza-ordering-app"></a>Przykład: Pizza Porządkowanie aplikacji
 
@@ -234,13 +234,13 @@ W drugim przykładzie Rozważmy aplikację dla restauracji Pizza, która otrzymu
 
 Jednostka uczenia maszynowego w tym przykładzie jest bardziej złożona z zagnieżdżonymi podjednostkami, listami fraz, wstępnie skompilowanymi jednostkami i jednostkami niestandardowymi.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schemat jednostki Pizza Order":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schemat jednostki Ticketbooking":::
 
 W tym przykładzie są stosowane funkcje na poziomie podjednostki i element podrzędny elementu podrzędnego poziomu. Na poziomie tego, jakiego rodzaju Lista wyrazów lub model jako funkcja jest istotną częścią projektu jednostki.
 
 Chociaż jednostki podjednostek mogą mieć wiele list fraz jako funkcje, które ułatwiają wykrycie jednostki, każda podjednostka ma tylko jeden model jako funkcję. W tej [aplikacji Pizza](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)te modele są wymieniane głównie.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="ZaPizza kolejności z etykietami przykład wyrażenia długości":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Schemat jednostki Ticketbooking":::
 
 Prawidłowo oznaczony przykład wyrażenia długości jest wyświetlany w sposób, aby pokazać, jak jednostki są zagnieżdżone. 
 

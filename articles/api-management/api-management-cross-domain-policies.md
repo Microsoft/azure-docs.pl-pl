@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499617"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Zasady międzydomenowe
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Zasady międzydomenowe
 
 - [Zezwalaj na wywołania międzydomenowe](api-management-cross-domain-policies.md#AllowCrossDomainCalls) — umożliwia dostęp do interfejsu API z poziomu klientów opartych na przeglądarce Adobe Flash i Microsoft Silverlight.
 - [CORS](api-management-cross-domain-policies.md#CORS) — dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) — dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript.
 
-## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Zezwalaj na wywołania między domenami
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Zezwalaj na wywołania między domenami
 Użyj `cross-domain` zasad, aby udostępnić interfejs API z klientów Adobe Flash i Microsoft Silverlight opartych na przeglądarce.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -63,7 +63,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 - **Sekcje zasad:** przychodzące
 - **Zakresy zasad:** wszystkie zakresy
 
-## <a name="cors"></a><a name="CORS"></a>SPECYFIKACJI
+## <a name="cors"></a><a name="CORS"></a> SPECYFIKACJI
 `cors`Zasada dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.
 
 Mechanizm CORS pozwala przeglądarce i serwerowi na współpracujące i określać, czy zezwolić na określone żądania między źródłami (tj. wywołania XMLHttpRequest wykonane ze skryptu JavaScript na stronie sieci Web do innych domen). Zapewnia to większą elastyczność niż Zezwalanie na żądania tego samego źródła, ale jest bezpieczniejsze niż Zezwalanie na wszystkie żądania między źródłami.
@@ -127,7 +127,7 @@ W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie 
 |Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |specyfikacji|Element główny.|Tak|Nie dotyczy|
-|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolone źródła dla żądań międzydomenowych. `allowed-origins`może zawierać pojedynczy element, `origin` który określa `*` , aby zezwolić na dowolne Źródło lub jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|
+|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolone źródła dla żądań międzydomenowych. `allowed-origins` może zawierać pojedynczy element, `origin` który określa `*` , aby zezwolić na dowolne Źródło lub jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|
 |połączenie pierwotne|Wartość może być `*` równa, aby zezwolić na wszystkie źródła lub identyfikator URI, który określa pojedyncze źródło. Identyfikator URI musi zawierać schemat, hosta i port.|Tak|Jeśli port zostanie pominięty w identyfikatorze URI, port 80 jest używany dla protokołu HTTP, a port 443 jest używany w przypadku protokołu HTTPS.|
 |dozwolone — metody|Ten element jest wymagany, jeśli dozwolone są metody inne niż GET lub POST. Zawiera `method` elementy, które określają obsługiwane zlecenia http. Wartość `*` wskazuje wszystkie metody.|Nie|Jeśli ta sekcja nie jest obecna, obsługiwane są pozycje GET i POST.|
 |method|Określa czasownik HTTP.|`method`Jeśli `allowed-methods` sekcja jest obecna, wymagany jest co najmniej jeden element.|Nie dotyczy|
@@ -148,7 +148,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 - **Sekcje zasad:** przychodzące
 - **Zakresy zasad:** wszystkie zakresy
 
-## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+## <a name="jsonp"></a><a name="JSONP"></a> JSONP
 `jsonp`Zasada dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript. JSONP to metoda używana w programach JavaScript do żądania danych z serwera w innej domenie. JSONP pomija ograniczenia wymuszane przez większość przeglądarek sieci Web, w których dostęp do stron sieci Web musi znajdować się w tej samej domenie.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -165,7 +165,7 @@ Tych zasad można używać w następujących [sekcjach](./api-management-howto-p
 
 Jeśli wywołasz metodę bez parametru wywołania zwrotnego? CB = XXX, zwróci on zwykły kod JSON (bez otoki wywołania funkcji).
 
-Dodanie parametru wywołania zwrotnego `?cb=XXX` spowoduje zwrócenie wyniku JSONP, zawijanie oryginalnych wyników JSON wokół funkcji wywołania zwrotnego, takiej jak`XYZ('<json result goes here>');`
+Dodanie parametru wywołania zwrotnego `?cb=XXX` spowoduje zwrócenie wyniku JSONP, zawijanie oryginalnych wyników JSON wokół funkcji wywołania zwrotnego, takiej jak `XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Elementy
 

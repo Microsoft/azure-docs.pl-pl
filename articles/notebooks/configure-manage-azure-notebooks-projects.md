@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852807"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -30,7 +30,7 @@ Pulpit nawigacyjny projektu w Azure Notebooks umożliwia zarządzanie plikami i 
 
 Azure Notebooks uruchamia podstawową maszynę wirtualną przy każdym uruchomieniu notesu lub innego pliku. Serwer automatycznie zapisuje pliki i zamyka się po 60 minutach braku aktywności. Możesz również zatrzymać serwer w dowolnym momencie za pomocą polecenia **Shutdown** (skrót klawiaturowy: h).
 
-## <a name="compute-tier"></a>Warstwa obliczeniowa
+## <a name="compute-tier"></a>Warstwa zasobów obliczeniowych
 
 Domyślnie projekty są uruchamiane w **bezpłatnej warstwie obliczeniowej** , co jest ograniczone do 4 GB pamięci i 1 GB danych, aby zapobiec nadużyciu. Można pominąć te ograniczenia i zwiększyć moc obliczeniową przy użyciu innej maszyny wirtualnej, która została zainicjowana w ramach subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [jak używać analizy danych Virtual Machines](use-data-science-virtual-machine.md).
 
@@ -83,7 +83,7 @@ Każdy element na liście plików projektu zawiera polecenia za pomocą menu kon
 | Edytuj plik | mogę | Otwiera plik do edycji. |
 | Pobierz | d | Pobiera plik zip, który zawiera plik lub zawartość folderu. |
 | Zmień nazwę | a | Żąda nowej nazwy dla pliku lub folderu. |
-| Usuń | x | Monituje o potwierdzenie, a następnie trwale usuwa plik z projektu. Usunięć nie można cofnąć. |
+| Usuwanie | x | Monituje o potwierdzenie, a następnie trwale usuwa plik z projektu. Usunięć nie można cofnąć. |
 | Move | m | Przenosi plik do innego folderu w tym samym projekcie. |
 
 #### <a name="preview"></a>Wersja zapoznawcza
@@ -190,4 +190,4 @@ Możesz również użyć polecenia z komórki kodu w notesie w języku Python:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Instrukcje: współdziałanie z plikami danych projektu](work-with-project-data-files.md)
-- [Dostęp do danych z chmury w notesie](access-data-resources-jupyter-notebooks.md)
+- [Dostęp do danych w chmurze w notesie](access-data-resources-jupyter-notebooks.md)

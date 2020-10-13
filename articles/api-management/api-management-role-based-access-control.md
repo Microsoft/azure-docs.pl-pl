@@ -1,5 +1,5 @@
 ---
-title: Jak używać Access Control opartych na rolach na platformie Azure API Management | Microsoft Docs
+title: Jak używać Access Control Role-Based na platformie Azure API Management | Microsoft Docs
 description: Dowiedz się, jak używać wbudowanych ról i tworzyć role niestandardowe na platformie Azure API Management
 services: api-management
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015293"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Jak używać kontroli dostępu opartej na rolach w usłudze Azure API Management
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono krótkie opisy wbudowanych ról. Role te możn
 
 <sup>[2] dostęp do zapisu do usług API Management i jednostek z wyjątkiem następujących operacji: Tworzenie, usuwanie i skalowanie wystąpienia; Konfiguracja sieci VPN; i konfiguracja domeny niestandardowej.</sup>
 
-<sup>\*Rola Edytor usługi będzie dostępna po przeprowadzeniu migracji wszystkich interfejsów użytkownika administratora z istniejącego portalu wydawców do Azure Portal. Rola Menedżera zawartości będzie dostępna po rozpoczęciu portalu wydawców tylko w celu uwzględnienia funkcji związanych z zarządzaniem portalem dla deweloperów.</sup>  
+<sup>\* Rola Edytor usługi będzie dostępna po przeprowadzeniu migracji wszystkich interfejsów użytkownika administratora z istniejącego portalu wydawców do Azure Portal. Rola Menedżera zawartości będzie dostępna po rozpoczęciu portalu wydawców tylko w celu uwzględnienia funkcji związanych z zarządzaniem portalem dla deweloperów.</sup>  
 
 ## <a name="custom-roles"></a>Role niestandardowe
 
@@ -79,7 +79,7 @@ Artykuł [działania dostawcy zasobów Azure Resource Manager](../role-based-acc
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Access Control opartych na rolach na platformie Azure, zobacz następujące artykuły:
+Aby dowiedzieć się więcej na temat Role-Based Access Control na platformie Azure, zobacz następujące artykuły:
   * [Wprowadzenie do zarządzania dostępem w witrynie Azure Portal](../role-based-access-control/overview.md)
   * [Zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](../role-based-access-control/role-assignments-portal.md)
   * [Role niestandardowe w usłudze Azure RBAC](../role-based-access-control/custom-roles.md)

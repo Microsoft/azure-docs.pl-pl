@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508053"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurowanie mikrofokusu CICS BankDemo dla deweloperów Enterprise Developer 4,0 na platformie Azure
@@ -185,7 +185,7 @@ Zapytanie powinno być uruchamiane bez błędów. Po zakończeniu będzie dostę
 
      ![Zdefiniuj nazwę regionu region: BANKDEMO](media/08-demo-cics.png)
 
-7. Kliknij przycisk **Zakończ**.
+7. Kliknij przycisk **Finish** (Zakończ).
 
 ## <a name="create-xa-resource-definitions"></a>Utwórz definicje zasobów XA
 

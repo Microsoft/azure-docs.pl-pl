@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132776"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funkcje to informacje o akcjach i kontekście
@@ -54,7 +54,7 @@ Personalizacja wykonuje funkcje zorganizowane w przestrzenie nazw. W aplikacji n
 Poniżej przedstawiono przykłady przestrzeni nazw funkcji używanych przez aplikacje:
 
 * User_Profile_from_CRM
-* Czas
+* Godzina
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -131,7 +131,7 @@ Można poprawić zestawy funkcji, edytując je tak, aby były większe i bardzie
 
 Na przykład sygnatura czasowa do drugiego jest funkcją bardzo rozrzedzoną. Może być bardziej gęsty (efektywny) przez klasyfikowanie godzin do "rano", "środku dnia", "południka" itd.
 
-Informacje o lokalizacji również zwykle mają zalety tworzenia szerszych klasyfikacji. Na przykład współrzędne geograficzne długości geograficznej, takie jak: 47,67402 ° N, Long: 122,12154 ° W, jest zbyt precyzyjne i wymuszają model, aby poznać szerokość i długość geograficzną jako różne wymiary. Podczas próby personalizacji na podstawie informacji o lokalizacji pomocne jest grupowanie informacji o lokalizacji w większych sektorach. Prostym sposobem jest wybranie odpowiedniej dokładności zaokrąglania dla numerów lat, a także nałączenie szerokości i długości geograficznej do "obszarów" przez umieszczenie ich w jednym ciągu. Na przykład dobry sposób reprezentowania 47,67402 ° N, Long: 122,12154 ° w regionach około kilku kilometrów o szerokości "Location": "34.3, 12,1".
+Informacje o lokalizacji również zwykle mają zalety tworzenia szerszych klasyfikacji. Na przykład Współrzędna Latitude-Longitude, taka jak szerokość: 47,67402 ° N, Long: 122,12154 ° W, jest zbyt dokładna i wymusza, aby model pouczył się Szerokość geograficzna i Długość geograficzna jako różne wymiary. Podczas próby personalizacji na podstawie informacji o lokalizacji pomocne jest grupowanie informacji o lokalizacji w większych sektorach. Prostym sposobem jest wybranie odpowiedniej dokładności zaokrąglania dla numerów Lat-Long i połączenie szerokości i długości geograficznej do "obszarów" przez umieszczenie ich w jednym ciągu. Na przykład dobry sposób reprezentowania 47,67402 ° N, Long: 122,12154 ° w regionach około kilku kilometrów o szerokości "Location": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Rozwiń zestawy funkcji z ekstrapolacją informacji

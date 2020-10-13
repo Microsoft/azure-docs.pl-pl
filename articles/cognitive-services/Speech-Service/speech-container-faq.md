@@ -12,10 +12,10 @@ ms.date: 07/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88918472"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Kontenery usługi mowy — często zadawane pytania
@@ -98,7 +98,7 @@ Koszt konserwacji płatnej przez firmę Microsoft zależy od poziomu usługi i z
 
 **Odpowiedź:** `speech_recognition_language=<YOUR_LANGUAGE>` W przypadku korzystania z klienta węgla należy jawnie skonfigurować w żądaniu.
 
-Przykład:
+Na przykład:
 
 ```python
 if not recognize_once(
@@ -292,8 +292,8 @@ Czy można pomóc wypełnić poniższe metryki testu, w tym funkcje, które nale
 
 | Punkt końcowy                                                | Test funkcjonalny                                                   | SDK | Interfejs API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Synteza tekstu (zamiany tekstu na mowę)                                  |     | Yes      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services punkt końcowy protokołu WebSocket Premium w wersji 1        | Yes | Nie       |
+| `/speech/synthesize/cognitiveservices/v1`               | Synteza tekstu (zamiany tekstu na mowę)                                  |     | Tak      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services punkt końcowy protokołu WebSocket Premium w wersji 1        | Tak | Nie       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services w punkcie końcowym protokołu WebSocket Premium w wersji 1  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | Punkt końcowy protokołu WebSocket usługi poznawczej Premium w wersji 1 |     |          |
 

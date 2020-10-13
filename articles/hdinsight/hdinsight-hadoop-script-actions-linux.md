@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082254"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Docelowa wersja systemu operacyjnego
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Docelowa wersja systemu operacyjnego
 
 Usługa HDInsight jest oparta na dystrybucji Ubuntu Linux. Różne wersje usługi HDInsight są zależne od różnych wersji programu Ubuntu, co może zmienić sposób działania skryptu. Na przykład Usługa HDInsight 3,4 i wcześniejsza wersja bazują na wersjach Ubuntu korzystających z oprogramowania. Wersje 3,5 i nowsze są oparte na Ubuntu 16,04, który korzysta z systemu. System i początek są zależne od różnych poleceń, dlatego należy napisać skrypt do pracy z obydwoma.
 
@@ -161,13 +161,13 @@ Usługa HDInsight rejestruje dane wyjściowe skryptu zapisane w strumieniach STD
 > [!NOTE]  
 > Apache Ambari jest dostępny tylko wtedy, gdy klaster został utworzony pomyślnie. Jeśli podczas tworzenia klastra używasz akcji skryptu, a tworzenie nie powiedzie się, zobacz [Rozwiązywanie problemów z skryptami](./troubleshoot-script-action.md) w celu uzyskania innych sposobów uzyskiwania dostępu do zarejestrowanych informacji.
 
-Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Przykład:
+Większość narzędzi i pakietów instalacyjnych już zapisują informacje w strumieniach STDOUT i STDERR, jednak możesz chcieć dodać dodatkowe rejestrowanie. Aby wysłać tekst do STDOUT, użyj `echo` . Na przykład:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Przykład:
+Domyślnie program `echo` wysyła ciąg do stdout. Aby skierować go do STDERR, Dodaj `>&2` przed `echo` . Na przykład:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -177,7 +177,7 @@ Przekierowuje informacje zapisywane w strumieniu STDOUT do STDERR (2). Aby uzysk
 
 Aby uzyskać więcej informacji na temat wyświetlania informacji rejestrowanych przez akcje skryptu, zobacz [Rozwiązywanie problemów z skryptami](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Zapisuj pliki jako ASCII z końcami wierszy LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Zapisuj pliki jako ASCII z końcami wierszy LF
 
 Skrypty bash powinny być przechowywane w formacie ASCII, z wierszami zakończonymi znakami LF. Pliki, które są przechowywane jako UTF-8, lub użycie CRLF jako zakończenia wiersza mogą zakończyć się niepowodzeniem z powodu następującego błędu:
 
@@ -186,7 +186,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>Użyj logiki ponawiania, aby odzyskać błędy przejściowe
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> Użyj logiki ponawiania, aby odzyskać błędy przejściowe
 
 Podczas pobierania plików, instalowania pakietów przy użyciu funkcji apt-get lub innych akcji, które przesyłają dane za pośrednictwem Internetu, działanie może zakończyć się niepowodzeniem z powodu przejściowych błędów sieci. Na przykład zasób zdalny, z którym nawiązujesz połączenie, może być w trakcie przełączenia w tryb failover do węzła kopii zapasowej.
 
@@ -256,7 +256,7 @@ Ta sekcja zawiera wskazówki dotyczące wdrażania niektórych typowych wzorców
 
 W niektórych przypadkach skrypt może wymagać parametrów. Na przykład może być wymagane hasło administratora dla klastra podczas korzystania z interfejsu API REST Ambari.
 
-Parametry przekazane do skryptu są znane jako *parametry pozycyjne*i są przypisywane do `$1` pierwszego parametru, `$2` dla drugiego i tak dalej. `$0`zawiera nazwę samego skryptu.
+Parametry przekazane do skryptu są znane jako *parametry pozycyjne*i są przypisywane do `$1` pierwszego parametru, `$2` dla drugiego i tak dalej. `$0` zawiera nazwę samego skryptu.
 
 Wartości przesłane do skryptu jako parametry powinny być ujęte w cudzysłów ("). To gwarantuje, że przeniesiona wartość jest traktowana jako literał.
 
@@ -360,7 +360,7 @@ Ten problem najczęściej występuje, gdy skrypt jest tworzony w środowisku sys
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 ```
 
-Zamień na `INFILE` plik zawierający BOM. `OUTFILE`powinna być nową nazwą pliku, która zawiera skrypt bez BOM.
+Zamień na `INFILE` plik zawierający BOM. `OUTFILE` powinna być nową nazwą pliku, która zawiera skrypt bez BOM.
 
 ## <a name="next-steps"></a><a name="seeAlso"></a>Następne kroki
 

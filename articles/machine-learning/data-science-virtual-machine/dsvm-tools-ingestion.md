@@ -11,10 +11,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012318"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Narzędzia do pozyskiwania danych Data Science Virtual Machine
@@ -46,7 +46,7 @@ Oto kilka narzędzi do przenoszenia danych, które są dostępne w DSVM.
 | Narzędzia pokrewne na DSVM      | AzCopy, AdlCopy      |
 
 
-## <a name="azcopy"></a>AzCopy
+## <a name="azcopy"></a>Narzędzie AzCopy
 
 | Kategoria | Wartość |
 | ------------- | ------------- |

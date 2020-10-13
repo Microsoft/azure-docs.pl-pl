@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85250716"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wzorce dzierżawy bazy danych SaaS z wieloma dzierżawcami
@@ -135,7 +135,7 @@ Ogólnie rzecz biorąc, wielodostępne bazy danych mają najniższy koszt dla ka
 
 Dwie zmiany modelu bazy danych z wieloma dzierżawcami zostały omówione w poniższej sekcji, dzięki czemu model wielodostępowy podzielonej na fragmenty jest najbardziej elastyczny i skalowalny.
 
-## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>N. Aplikacja wielodostępna z jedną bazą danych z wieloma dzierżawcami
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Aplikacja wielodostępna z jedną bazą danych z wieloma dzierżawcami
 
 Najprostszy wzorzec bazy danych z wieloma dzierżawcami używa pojedynczej bazy danych do hostowania danych dla wszystkich dzierżawców.  Po dodaniu większej liczby dzierżawców baza danych jest skalowana z większą ilością pamięci masowej i zasobów obliczeniowych.  Skalowanie w górę może być konieczne, chociaż zawsze istnieje ostateczny limit skalowania.  Jednak długo przed osiągnięciem tego limitu baza danych będzie nieporęczny do zarządzania.
 
@@ -189,7 +189,7 @@ Poniższa tabela zawiera podsumowanie różnic między głównymi modelami dzier
 | Izolacja dzierżawy | Bardzo wysoka | Wysoki | Małą z wyjątkiem pojedynczej dzierżawy (to samo w przypadku MT DB). |
 | Koszt bazy danych na dzierżawcę | Wysokowydajn ma rozmiar dla wartości szczytowych. | Małą używane pule. | Najniższa dla małych dzierżawców w MT baz danych. |
 | Monitorowanie wydajności i zarządzanie nimi | Tylko dla dzierżawy | Agregowanie i na dzierżawcę | Agreguj Chociaż jest dla dzierżawy tylko dla zmiennoprzecinkowych. |
-| Złożoność programowania | Małe | Małe | Średniookresow ze względu na fragmentowania. |
+| Złożoność programowania | Niski | Niski | Średniookresow ze względu na fragmentowania. |
 | Złożoność operacyjna | Niska-wysoka. Indywidualnie proste i złożone na dużą skalę. | Niski poziom. Złożoność adresów wzorców na dużą skalę. | Niska-wysoka. Indywidualne zarządzanie dzierżawcą jest złożone. |
 | &nbsp; ||||
 

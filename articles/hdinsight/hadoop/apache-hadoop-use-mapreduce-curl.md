@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: 407db727f521ea7731f0cbdbdd05c4338c9f452e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207730"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Uruchamianie zadań MapReduce za pomocą Apache Hadoop w usłudze HDInsight przy użyciu usługi REST
@@ -26,7 +26,7 @@ Dowiedz się, jak używać interfejsu API REST Apache Hive WebHCat do uruchamian
 
 * Klaster Apache Hadoop w usłudze HDInsight. Zobacz [Tworzenie klastrów Apache Hadoop przy użyciu Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-Dostępne opcje:
+Dowolny z następujących elementów:
   * Windows PowerShell lub,
   * [Zwinięcie](https://curl.haxx.se/) z [JQ](https://stedolan.github.io/jq/)
 
@@ -77,7 +77,7 @@ Dostępne opcje:
 
     Koniec identyfikatora URI (/MapReduce/jar) informuje WebHCat, że to żądanie uruchamia zadanie MapReduce z klasy w pliku JAR. W tym poleceniu są używane następujące parametry:
 
-   * **-d**: `-G` nie jest używany, dlatego żądanie jest domyślnie ustawiane jako metoda post. `-d`Określa wartości danych, które są wysyłane wraz z żądaniem.
+   * **-d**: `-G` nie jest używany, dlatego żądanie jest domyślnie ustawiane jako metoda post. `-d` Określa wartości danych, które są wysyłane wraz z żądaniem.
      * **User.Name**: użytkownik, który uruchamia polecenie
      * **jar**: Lokalizacja pliku JAR, który zawiera klasę do uruchomienia
      * **Klasa**: Klasa, która zawiera logikę MapReduce
@@ -94,7 +94,7 @@ Dostępne opcje:
     C:\HDI\jq-win64.exe .status.state
     ```
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 1. Aby ułatwić sobie korzystanie z programu, Ustaw zmienne poniżej. Zastąp wartość `CLUSTERNAME` rzeczywistą nazwą klastra. Wykonaj polecenie i wprowadź hasło logowania klastra po wyświetleniu monitu.
 

@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89646605"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
@@ -85,7 +85,7 @@ Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domy
 |`unique_name` | Ciąg | Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość jest unikatowa w danym punkcie w czasie, ale jako że można ponownie użyć wiadomości e-mail i innych identyfikatorów, ta wartość może być ponownie wyświetlana na innych kontach i dlatego powinna być używana tylko do wyświetlania. Wystawione wyłącznie w wersji 1.0 `id_tokens` . |
 |`uti` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Powinien być ignorowany. |
 |`ver` | Ciąg, 1,0 lub 2,0 | Wskazuje wersję id_token. |
-|`hasgroups`|Wartość logiczna|Jeśli jest obecny, zawsze prawda, oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast roszczeń grupowych dla JWTs w niejawnym wyznaczonym przepływie, jeśli w ramach żądania Full Groups zostanie rozbudowany fragment identyfikatora URI wykraczający poza limity długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ).|
+|`hasgroups`|Boolean (wartość logiczna)|Jeśli jest obecny, zawsze prawda, oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast roszczeń grupowych dla JWTs w niejawnym wyznaczonym przepływie, jeśli w ramach żądania Full Groups zostanie rozbudowany fragment identyfikatora URI wykraczający poza limity długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ).|
 |`groups:src1`|Obiekt JSON | W przypadku żądań tokenów, które nie mają ograniczonej długości (patrz `hasgroups` powyżej), ale wciąż za duże dla tokenu, zostanie uwzględniony link do listy pełnych grup dla użytkownika. W przypadku JWTs jako roszczeń rozproszonych, w przypadku protokołu SAML jako nowego odszkodowania zamiast `groups` zgłoszenia. <br><br>**Przykładowa wartość JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Aby uzyskać więcej informacji, zobacz [Group nadwyżkowe żądania](#groups-overage-claim).|
 
 > [!NOTE]

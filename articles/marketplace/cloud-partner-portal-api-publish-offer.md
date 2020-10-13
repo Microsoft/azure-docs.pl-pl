@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272049"
 ---
 # <a name="publish-an-offer"></a>Publikowanie oferty
@@ -28,12 +28,12 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 
 |  **Nazwa**      |    **Opis**                               |  **Typ danych** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identyfikator wydawcy, na przykład`contoso`      |   String       |
-|  offerId       | Identyfikator oferty                                 |   String       |
-|  api-version   | Najnowsza wersja interfejsu API                        |   Data         |
+|  publisherId   | Identyfikator wydawcy, na przykład `contoso`      |   Ciąg       |
+|  offerId       | Identyfikator oferty                                 |   Ciąg       |
+|  api-version   | Najnowsza wersja interfejsu API                        |   Date         |
 |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 ------
 
 |  **Nazwa**        |    **Wartość**          |
@@ -64,7 +64,7 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 |  powiadomienie — wiadomości e-mail    | Rozdzielana przecinkami lista adresów e-mail, które mają być powiadamiane o postępie operacji publikowania. |
 |  |  |
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 #### <a name="migrated-offers"></a>Zmigrowane oferty
 
@@ -78,15 +78,15 @@ Uruchamia proces publikowania dla określonej oferty. To wywołanie jest długot
 
 |  **Nazwa**             |    **Wartość**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Location    | Ścieżka względna do pobrania stanu tej operacji     |
+| Lokalizacja    | Ścieżka względna do pobrania stanu tej operacji     |
 |  |  |
 
 ### <a name="response-status-codes"></a>Kody stanu odpowiedzi
 
 | **Kod** |  **Opis**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted`-Żądanie zostało pomyślnie zaakceptowane. Odpowiedź zawiera lokalizację, która może służyć do śledzenia uruchomionej operacji. |
-| 400   | `Bad/Malformed request`-Treść odpowiedzi na błąd może dostarczyć więcej informacji.                                                               |
-| 422   | `Un-processable entity`-Wskazuje, że nie można sprawdzić poprawności jednostki do opublikowania.                                                        |
-| 404   | `Not found`-Jednostka określona przez klienta nie istnieje.                                                                              |
+| 202   | `Accepted` -Żądanie zostało pomyślnie zaakceptowane. Odpowiedź zawiera lokalizację, która może służyć do śledzenia uruchomionej operacji. |
+| 400   | `Bad/Malformed request` -Treść odpowiedzi na błąd może dostarczyć więcej informacji.                                                               |
+| 422   | `Un-processable entity` -Wskazuje, że nie można sprawdzić poprawności jednostki do opublikowania.                                                        |
+| 404   | `Not found` -Jednostka określona przez klienta nie istnieje.                                                                              |
 |  |  |

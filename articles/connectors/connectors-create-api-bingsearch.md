@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284068"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Znajdź wyniki w Wyszukiwanie Bing przy użyciu Azure Logic Apps
@@ -124,7 +124,7 @@ Z listy Akcje wybierz żądaną akcję.
       ![Wybieranie funkcji](./media/connectors-create-api-bing-search/expression-select-function.png)
 
    3. Z listy pól wybierz **kategorię**, która konwertuje do parametru. 
-   Dodaj przecinek po pierwszym parametrze, a po przecinku Dodaj następujące słowo:`'tech'` 
+   Dodaj przecinek po pierwszym parametrze, a po przecinku Dodaj następujące słowo: `'tech'` 
 
       ![Wybierz pole](./media/connectors-create-api-bing-search/expression-select-field.png)
 

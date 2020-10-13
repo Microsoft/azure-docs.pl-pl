@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cae29954211e62601debb35d76f938fb6a92779e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284612"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Używanie dysku D: jako dysku z danymi na maszynie wirtualnej z systemem Windows
@@ -35,7 +35,7 @@ Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić p
 6. W sekcji **pamięć wirtualna** wybierz pozycję **Zmień**.
 7. Wybierz dysk **C** , a następnie kliknij pozycję **rozmiar zarządzany przez system** , a następnie kliknij pozycję **Ustaw**.
 8. Wybierz dysk **D** , a następnie kliknij pozycję **Brak pliku stronicowania** , a następnie kliknij pozycję **Ustaw**.
-9. Kliknij przycisk Zastosuj. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
+9. Kliknij pozycję Zastosuj. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
 10. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="change-the-drive-letters"></a>Zmień litery dysku
@@ -54,7 +54,7 @@ Najpierw należy dołączyć dysk danych do maszyny wirtualnej. Aby to zrobić p
 5. W sekcji **pamięć wirtualna** wybierz pozycję **Zmień**.
 6. Wybierz dysk systemu operacyjnego **C** i kliknij opcję **Brak pliku stronicowania** , a następnie kliknij przycisk **Ustaw**.
 7. Wybierz dysk magazynu tymczasowego **T** , a następnie kliknij pozycję **rozmiar zarządzany przez system** , a następnie kliknij pozycję **Ustaw**.
-8. Kliknij przycisk **Zastosuj**. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
+8. Kliknij pozycję **Zastosuj**. Zostanie wyświetlone ostrzeżenie, że należy ponownie uruchomić komputer, aby zmiany zostały zastosowane.
 9. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="next-steps"></a>Następne kroki

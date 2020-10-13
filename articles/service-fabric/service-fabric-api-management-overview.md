@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259294"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Usługi Service Fabric i Azure API Management — omówienie
@@ -79,8 +79,8 @@ W tym przykładzie nowe wystąpienie usługi bezstanowej jest tworzone dla każd
 
   Każda usługa ma unikatową nazwę, ale nazwy nie są znane z góry, ponieważ usługi są tworzone w odpowiedzi na dane wejściowe użytkownika lub administratora i dlatego nie mogą być zakodowane w zasadach APIM lub regułach routingu. Zamiast tego nazwa usługi, do której należy wysłać żądanie, jest generowana w definicji zasad zaplecza z `name` wartości podanej w ścieżce żądania adresu URL. Na przykład:
 
-  - Żądanie skierowane do `/api/users/foo` wystąpienia usługi`fabric:/app/users/foo`
-  - Żądanie skierowane do `/api/users/bar` wystąpienia usługi`fabric:/app/users/bar`
+  - Żądanie skierowane do `/api/users/foo` wystąpienia usługi `fabric:/app/users/foo`
+  - Żądanie skierowane do `/api/users/bar` wystąpienia usługi `fabric:/app/users/bar`
 
 ![Service Fabric z usługą Azure API Management Topology — Omówienie][sf-apim-dynamic-stateless]
 
@@ -98,8 +98,8 @@ W tym przykładzie tworzone jest nowe wystąpienie usługi stanowej dla każdego
 
   Każda usługa ma unikatową nazwę, ale nazwy nie są znane z góry, ponieważ usługi są tworzone w odpowiedzi na dane wejściowe użytkownika lub administratora i dlatego nie mogą być zakodowane w zasadach APIM lub regułach routingu. Zamiast tego nazwa usługi, do której należy wysłać żądanie, jest generowana w definicji zasad zaplecza z `name` wartości podanej w polu Ścieżka żądania adresu URL. Na przykład:
 
-  - Żądanie skierowane do `/api/users/foo` wystąpienia usługi`fabric:/app/users/foo`
-  - Żądanie skierowane do `/api/users/bar` wystąpienia usługi`fabric:/app/users/bar`
+  - Żądanie skierowane do `/api/users/foo` wystąpienia usługi `fabric:/app/users/foo`
+  - Żądanie skierowane do `/api/users/bar` wystąpienia usługi `fabric:/app/users/bar`
 
 Każde wystąpienie usługi jest również podzielone na partycje przy użyciu schematu partycji Int64 z dwiema partycjami i zakresem kluczy, który obejmuje `Int64.MinValue` `Int64.MaxValue` . Zasady zaplecza obliczają klucz partycji w tym zakresie przez przekonwertowanie `id` wartości podanej w ścieżce żądania adresu URL na 64-bitową liczbę całkowitą, chociaż w tym miejscu można użyć dowolnego algorytmu w celu obliczenia klucza partycji. 
 

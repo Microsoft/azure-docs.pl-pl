@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab24b3113f9dc69b8f3907037e228ba212a03106
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252937"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Ustawienia zasady grupy i zarządzania urządzeniami przenośnymi
@@ -41,7 +41,7 @@ Ustawienia zasad MDM dotyczą zarówno systemu Windows 10, jak i Windows 10 Mobi
 
 Ustawienia zasad grupy stosują się do urządzeń z systemem Windows 10, które są przyłączone do domeny Active Directory. Tabela zawiera również starsze ustawienia, które pojawią się w celu zarządzania ustawieniami synchronizacji, ale które nie działają dla Enterprise State Roaming dla systemu Windows 10, które są wymienione w opisie "nie używaj".
 
-Te ustawienia znajdują się w:`Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
+Te ustawienia znajdują się w: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
 | Nazwa | Opis |
 | --- | --- |

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
 ms.openlocfilehash: 92149289c6c422179ddb3562274020acf779f10b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186286"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Włączanie śledzenia zmian i spisu z poziomu elementu runbook
@@ -47,7 +47,7 @@ Przy włączonej Change Tracking i spisie możesz dodać maszynę wirtualną pla
    ![Włączanie Change Tracking i spisu dla maszyny wirtualnej](media/automation-enable-changes-from-runbook/enable-change-tracking.png)
 
     > [!NOTE]
-    > Jeśli spróbujesz włączyć inną funkcję przed rozpoczęciem instalacji Change Tracking i zakończeniu spisu, zostanie wyświetlony następujący komunikat:`Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
+    > Jeśli spróbujesz włączyć inną funkcję przed rozpoczęciem instalacji Change Tracking i zakończeniu spisu, zostanie wyświetlony następujący komunikat: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
 ## <a name="install-and-update-modules"></a>Instalowanie i aktualizowanie modułów
 

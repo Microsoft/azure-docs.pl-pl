@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325189"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych
@@ -230,7 +230,7 @@ Rekordy z typem *VMProcess* mają dane spisu dla procesów połączonych z proto
 |Plik wykonywalny | Nazwa pliku wykonywalnego procesu | 
 |Nazwa wyświetlana | Nazwa wyświetlana procesu |
 |Rola | Rola procesu: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Grupa | Nazwa grupy procesów. Procesy w tej samej grupie są logicznie powiązane, np. częścią tego samego produktu lub składnika systemu. |
+|Group (Grupa) | Nazwa grupy procesów. Procesy w tej samej grupie są logicznie powiązane, np. częścią tego samego produktu lub składnika systemu. |
 |StartTime | Godzina rozpoczęcia puli procesów |
 |FirstPid | Pierwszy Identyfikator PID w puli procesów |
 |Opis | Opis procesu |
@@ -443,10 +443,10 @@ Rekordy z typem *InsightsMetrics* mają dane dotyczące wydajności z systemu op
 |Origin | *vm.azm.ms* |
 |Przestrzeń nazw | Kategoria licznika wydajności | 
 |Nazwa | Nazwa licznika wydajności |
-|Użyte | Zebrana wartość | 
+|Val | Zebrana wartość | 
 |Tagi | Powiązane szczegółowe informacje o rekordzie. Zapoznaj się z poniższą tabelą dla tagów używanych z różnymi typami rekordów.  |
 |Identyfikator agenta | Unikatowy identyfikator dla agenta każdego komputera |
-|Typ | *InsightsMetrics* |
+|Type | *InsightsMetrics* |
 |_ResourceId_ | Identyfikator zasobu maszyny wirtualnej |
 
 Liczniki wydajności aktualnie zebrane w tabeli *InsightsMetrics* są wymienione w poniższej tabeli:

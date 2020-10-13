@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: duau
 ms.openlocfilehash: 8ee7f42a4b05def7c2239c7a1e5bcef54f6f7e50
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395778"
 ---
-# <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurowanie MACsec na portach Direct ExpressRoute
+# <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurowanie zabezpieczeń MACsec na portach usługi ExpressRoute Direct
 
 Ten artykuł pomaga w konfigurowaniu MACsec w celu zabezpieczenia połączeń między routerami brzegowymi i routerami brzegowymi firmy Microsoft przy użyciu programu PowerShell.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji Potwierdź następujące kwestie:
 
@@ -59,7 +59,7 @@ Aby rozpocząć konfigurację, zaloguj się do konta platformy Azure i wybierz s
     $identity = New-AzUserAssignedIdentity  -Name "identity_name" -Location "resource_location" -ResourceGroupName "your_resource_group"
     ```
 
-    Jeśli polecenie New-AzUserAssignedIdentity nie jest rozpoznawane jako prawidłowe polecenie cmdlet programu PowerShell, zainstaluj Poniższy moduł (w trybie administratora) i ponownie uruchom powyższy polecenia.
+    Jeśli New-AzUserAssignedIdentity nie zostanie rozpoznany jako prawidłowe polecenie cmdlet programu PowerShell, zainstaluj następujący moduł (w trybie administratora) i ponownie uruchom powyższe polecenie.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity

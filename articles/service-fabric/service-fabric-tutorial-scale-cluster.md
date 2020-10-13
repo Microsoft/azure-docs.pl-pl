@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716898"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Samouczek: skalowanie klastra usługi Service Fabric na platformie Azure
@@ -807,7 +807,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Po utworzeniu klastra Service Fabric można skalować klaster w poziomie, usuwając typ węzła (zestaw skalowania maszyn wirtualnych) i wszystkie jego węzły. Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze. W miarę skalowania klastra aplikacje są automatycznie skalowane.
 
 > [!WARNING]
-> Nie zaleca się używania polecenia Remove-AzServiceFabricNodeType w celu usunięcia typu węzła z klastra produkcyjnego. Jest to niebezpieczne polecenie, ponieważ usuwa zasób zestawu skalowania maszyn wirtualnych za typem węzła. 
+> Nie zaleca się częstego używania Remove-AzServiceFabricNodeType do usuwania typu węzła z klastra produkcyjnego. Jest to niebezpieczne polecenie, ponieważ usuwa zasób zestawu skalowania maszyn wirtualnych za typem węzła. 
 
 Aby usunąć typ węzła, uruchom polecenie cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  Typ węzła musi być [poziomem trwałości][durability]  Silver lub Gold polecenie cmdlet usuwa zestaw skalowania skojarzony z typem węzła i trwa jakiś czas.  Następnie uruchom polecenie cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) w każdym z węzłów do usunięcia, co spowoduje usunięcie stanu węzła i usunięcie węzłów z klastra. Jeśli w węzłach znajdują się usługi, usługi są najpierw przenoszone do innego węzła. Jeśli Menedżer klastra nie może znaleźć węzła dla repliki/usługi, operacja zostanie opóźniona/zablokowana.
 
