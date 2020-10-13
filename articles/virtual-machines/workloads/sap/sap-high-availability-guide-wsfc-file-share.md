@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361334"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klastrowanie wystąpienia SAP ASCS/SCS w klastrze trybu failover systemu Windows przy użyciu udziału plików na platformie Azure
@@ -133,7 +133,7 @@ Aby można było użyć udziału plików skalowalnego w poziomie, system musi sp
 * Zalecamy formatowanie woluminów przy użyciu systemu plików ReFS.
     * Aby uzyskać więcej informacji, zobacz temat [SAP uwaga 1869038 — obsługa SAP dla systemu plików ReFs][1869038] oraz rozdział [plików][planning-volumes-s2d-choosing-filesystem] w artykule Planowanie woluminów w bezpośrednie miejsca do magazynowania.
     * Pamiętaj, aby zainstalować [aktualizację zbiorczą programu Microsoft KB4025334][kb4025334].
-* Możesz użyć rozmiarów maszyn wirtualnych platformy Azure z serii DS lub DSv2.
+* Można użyć DS-Series lub DSv2-Series rozmiarów maszyn wirtualnych platformy Azure.
 * Aby zapewnić dobrą wydajność sieci między maszynami wirtualnymi, które są niezbędne do Bezpośrednie miejsca do magazynowania synchronizacji dysków, użyj typu maszyny wirtualnej z co najmniej przepustowością sieci "High".
     Aby uzyskać więcej informacji, zobacz specyfikacje [serii DSv2][dv2-series] i [ds][ds-series] .
 * Zalecamy zarezerwowanie pewnej nieprzypisanej pojemności w puli magazynów. Pozostawienie nieprzypisanej pojemności w puli magazynów powoduje, że miejsce na woluminy do naprawy "w miejscu" w przypadku awarii dysku. Zwiększa to bezpieczeństwo i wydajność danych.  Aby uzyskać więcej informacji, zobacz [Wybieranie rozmiaru woluminu][choosing-the-size-of-volumes-s2d].

@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443309"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Raportowanie w skalowanych bazach danych w chmurze (wersja zapoznawcza)
@@ -133,7 +133,7 @@ Wszystkie wiersze z tabeli **Customers** , przechowywane w różnych fragmentów
 
 Teraz można korzystać z zaawansowanych funkcji wizualizacji danych programu Excel. Możesz użyć parametrów połączenia z nazwą serwera, nazwą bazy danych i poświadczeniami, aby połączyć narzędzia do analizy biznesowej i danych z bazą danych zapytań elastycznych. Upewnij się, że SQL Server jest obsługiwane jako źródło danych dla narzędzia. Można odwołać się do bazy danych zapytań elastycznych i tabel zewnętrznych, podobnie jak każda inna baza danych SQL Server i SQL Server tabele, z którymi można nawiązać połączenie za pomocą narzędzia.
 
-### <a name="cost"></a>Cost (Koszt)
+### <a name="cost"></a>Koszty
 Za korzystanie z funkcji zapytania Elastic Database nie ma dodatkowych opłat.
 
 Aby uzyskać informacje o cenach, zobacz [szczegóły cennika SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).

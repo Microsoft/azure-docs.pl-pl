@@ -1,14 +1,14 @@
 ---
 title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596036"
+ms.locfileid: "91873629"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -163,12 +163,13 @@ W przypisaniu zasób nie jest **zgodny** , jeśli nie przestrzega reguł zasad l
 
 | Stan zasobu | Efekt | Ocena zasad | Stan zgodności |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Prawda | Niezgodne |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Fałsz | Zgodny |
-| Nowy | Audit, AuditIfNotExist\* | Prawda | Niezgodne |
-| Nowy | Audit, AuditIfNotExist\* | Fałsz | Zgodny |
+| Nowa czy zaktualizowana? | Inspekcja, modyfikowanie, AuditIfNotExist | Prawda | Niezgodne |
+| Nowa czy zaktualizowana? | Inspekcja, modyfikowanie, AuditIfNotExist | Fałsz | Zgodny |
+| Exists | Deny, Audit, append, Modify, DeployIfNotExist, AuditIfNotExist | Prawda | Niezgodne |
+| Exists | Deny, Audit, append, Modify, DeployIfNotExist, AuditIfNotExist | Fałsz | Zgodny |
 
-\* Efekty Modify, append, DeployIfNotExist i AuditIfNotExist wymagają, aby instrukcja IF była prawdziwa. Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
+> [!NOTE]
+> Efekty DeployIfNotExist i AuditIfNotExist wymagają, aby instrukcja IF była prawdziwa, a warunek istnienia ma wartość FALSE, aby nie był zgodny. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
 
 Załóżmy na przykład, że masz grupę zasobów — ContsoRG z pewnymi kontami magazynu (wyróżnioną kolorem czerwonym), które są dostępne w sieciach publicznych.
 
@@ -189,7 +190,7 @@ Oprócz **zgodnych** i **niezgodnych**zasad i zasobów są cztery inne stany:
 - **Nierozpoczęte**: cykl oceniania nie został uruchomiony dla zasad lub zasobów.
 - **Nie zarejestrowano**: dostawca zasobów Azure Policy nie został zarejestrowany lub zalogowane konto nie ma uprawnień do odczytu danych zgodności.
 
-Azure Policy używa pól **Typ** i **Nazwa** w definicji, aby określić, czy zasób jest zgodny. Gdy zasób jest zgodny, jest uznawany za stosowany i ma status **zgodne**, **niezgodne**lub **wykluczone**. Jeśli **Typ** lub **Nazwa** jest jedyną właściwością w definicji, wszystkie uwzględnione i niewykluczone zasoby są uznawane za stosowane i są oceniane.
+Azure Policy używa pól **typu**, **nazwy**lub **rodzaju** w definicji, aby określić, czy zasób jest zgodny. Gdy zasób jest zgodny, jest uznawany za stosowany i ma status **zgodne**, **niezgodne**lub **wykluczone**. Jeśli **Typ**, **Nazwa**lub **rodzaj** jest jedyną właściwością w definicji, wszystkie uwzględnione i niewykluczone zasoby są uważane za stosowane i są oceniane.
 
 Wartość procentowa zgodności jest określana przez podzielenie zasobów **zgodnych** i **wykluczonych** przez _Łączne zasoby_. _Łączna liczba zasobów_ jest definiowana jako suma **zgodnych**, **niezgodnych**, **zwolnionych**i **sprzecznych** zasobów. Ogólne numery zgodności są sumą odrębnych zasobów, które są **zgodne** lub **wykluczone** przez sumę wszystkich odrębnych zasobów. Na poniższej ilustracji przedstawiono 20 odrębnych zasobów, które mają zastosowanie i tylko jeden z nich jest **niezgodny**.
 Ogólna zgodność zasobów wynosi 95% (19 z 20).
@@ -210,14 +211,14 @@ Ze względu na to, że zasady lub inicjatywy mogą być przypisane do różnych 
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagram kont magazynu narażonych na sieci publiczne w grupie zasobów contoso R G." border="false":::
 
 Lista zasobów na karcie **zgodność zasobów** zawiera stan oceny istniejących zasobów dla bieżącego przypisania. Karta domyślnie nie jest **zgodna**, ale można ją filtrować.
-Zdarzenia (append, Audit, Deny, Deploy) wyzwalane przez żądanie utworzenia zasobu są wyświetlane na karcie **zdarzenia** .
+Zdarzenia (append, Audit, Deny, Deploy, Modify) wyzwalane przez żądanie utworzenia zasobu są wyświetlane na karcie **zdarzenia** .
 
 > [!NOTE]
 > W przypadku zasad aparatu AKS wyświetlony zasób jest grupą zasobów.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagram kont magazynu narażonych na sieci publiczne w grupie zasobów contoso R G." border="false":::
 
-W przypadku zasobów [trybu dostawcy zasobów](../concepts/definition-structure.md#resource-provider-modes) na karcie **zgodność zasobów** wybierz zasób lub kliknij prawym przyciskiem myszy wiersz i wybierz polecenie **Wyświetl szczegóły zgodności** , aby otworzyć Szczegóły zgodności składnika. Ta strona zawiera również karty umożliwiające wyświetlanie zasad przypisanych do tego zasobu, zdarzeń, zdarzeń składników i historii zmian.
+<a name="component-compliance"></a> W przypadku zasobów [trybu dostawcy zasobów](../concepts/definition-structure.md#resource-provider-modes) na karcie **zgodność zasobów** wybierz zasób lub kliknij prawym przyciskiem myszy wiersz i wybierz polecenie **Wyświetl szczegóły zgodności** , aby otworzyć Szczegóły zgodności składnika. Ta strona zawiera również karty umożliwiające wyświetlanie zasad przypisanych do tego zasobu, zdarzeń, zdarzeń składników i historii zmian.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagram kont magazynu narażonych na sieci publiczne w grupie zasobów contoso R G." border="false":::
 

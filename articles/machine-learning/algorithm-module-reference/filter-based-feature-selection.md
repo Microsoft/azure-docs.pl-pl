@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893793"
 ---
 # <a name="filter-based-feature-selection"></a>Wybór funkcji oparty na filtrze
@@ -36,7 +36,7 @@ Zwykle używane są tylko kolumny z najlepszymi wynikami w celu utworzenia model
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Jak wybrać metrykę wyboru funkcji
 
-Moduł wyboru funkcji oparty na filtrach zawiera różne metryki do oceny wartości informacji w każdej kolumnie. Ta sekcja zawiera ogólny opis każdej metryki i sposób jej zastosowania. Dodatkowe wymagania dotyczące korzystania z każdej metryki w [uwagach technicznych](#technical-notes) i instrukcje dotyczące konfigurowania poszczególnych modułów można znaleźć w [temacie](#how-to-configure-filter-based-feature-selection) .
+Moduł wyboru funkcji Filter-Based udostępnia różne metryki do oceny wartości informacji w każdej kolumnie. Ta sekcja zawiera ogólny opis każdej metryki i sposób jej zastosowania. Dodatkowe wymagania dotyczące korzystania z każdej metryki w [uwagach technicznych](#technical-notes) i instrukcje dotyczące konfigurowania poszczególnych modułów można znaleźć w [temacie](#how-to-configure-filter-based-feature-selection) .
 
 -   **Korelacja Pearsona**  
 
@@ -52,11 +52,11 @@ Moduł wyboru funkcji oparty na filtrach zawiera różne metryki do oceny warto�
 > [!TIP]
 > Jeśli potrzebujesz innej opcji niestandardowej metody wyboru funkcji, użyj modułu [skryptu języka R](execute-r-script.md) . 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Jak skonfigurować wybór funkcji oparty na filtrze
+## <a name="how-to-configure-filter-based-feature-selection"></a>Jak skonfigurować wybór funkcji Filter-Based
 
 Wybierasz standardową metrykę statystyczną. Moduł oblicza korelację między parą kolumn: kolumną etykieta i kolumną funkcji.
 
-1.  Dodaj moduł wyboru funkcji oparty na filtrze do potoku. Można go znaleźć w kategorii **wybór funkcji** w projektancie.
+1.  Dodaj moduł wyboru funkcji Filter-Based do potoku. Można go znaleźć w kategorii **wybór funkcji** w projektancie.
 
 2. Połącz zestaw danych wejściowych zawierający co najmniej dwie kolumny, które są potencjalnymi funkcjami.  
 

@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360841"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centrum wdrażania dla usługi Azure Kubernetes
 
 Centrum wdrażania w usłudze Azure DevOps upraszcza Konfigurowanie niezawodnego potoku usługi Azure DevOps dla aplikacji. Domyślnie centrum wdrażania konfiguruje potok usługi Azure DevOps w celu wdrożenia aktualizacji aplikacji w klastrze Kubernetes. Można rozszerzyć domyślny skonfigurowany potok usługi Azure DevOps, a także dodać bogatsze możliwości: możliwość uzyskania zatwierdzenia przed wdrożeniem, aprowizacji dodatkowych zasobów platformy Azure, uruchamiania skryptów, uaktualniania aplikacji, a nawet wykonywania dodatkowych testów weryfikacyjnych.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek obejmuje następujące kroki:
 
 > [!div class="checklist"]
 > * Skonfiguruj potok Azure DevOps, aby wdrożyć aktualizacje aplikacji w klastrze Kubernetes.

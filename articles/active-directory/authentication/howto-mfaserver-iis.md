@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c072298bf5cce4e22fe50d2474c7abe6b915f74
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919509"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication na potrzeby aplikacji internetowych usług IIS
@@ -40,7 +40,7 @@ Aby zabezpieczyć aplikację internetową usług IIS, która korzysta z uwierzyt
 1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę Uwierzytelnianie usług IIS w menu po lewej stronie.
 2. Kliknij kartę **oparte na formularzach** .
 3. Kliknij pozycję **Dodaj**.
-4. Aby automatycznie wykryć zmienne nazwy użytkownika, hasła i domeny, wprowadź adres URL logowania ( `https://localhost/contoso/auth/login.aspx` na przykład) w oknie dialogowym konfigurowana automatycznie witryna sieci Web oparta na formularzach i kliknij przycisk **OK**.
+4. Aby automatycznie wykryć zmienne nazwy użytkownika, hasła i domeny, wprowadź adres URL logowania ( `https://localhost/contoso/auth/login.aspx` na przykład) w oknie dialogowym automatyczna konfiguracja witryny sieci web Form-Based a następnie kliknij przycisk **OK**.
 5. Zaznacz pole **Wymagaj dopasowania użytkownika usługi Multi-Factor Authentication**, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola.
 6. Jeśli nie można automatycznie wykryć zmiennych na stronie, kliknij przycisk **Określ ręcznie** w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach.
 7. W oknie dialogowym Dodawanie witryny sieci Web opartej na formularzach wprowadź adres URL strony logowania w polu Adres URL przesyłania, a następnie wprowadź nazwę aplikacji (opcjonalnie). Nazwa aplikacji jest widoczna w raportach usługi Azure Multi-Factor Authentication i może być wyświetlana w uwierzytelniających wiadomościach SMS lub wiadomościach aplikacji mobilnej.
@@ -74,8 +74,8 @@ Aby zabezpieczyć aplikację internetową usług IIS, która korzysta ze zintegr
 
 Po skonfigurowaniu adresów URL i ustawień dla uwierzytelniania opartego na formularzach lub uwierzytelniania HTTP wybierz lokalizacje w usługach IIS, w których mają zostać załadowane i włączone wtyczki IIS usługi Azure Multi-Factor Authentication. Postępuj zgodnie z następującą procedurą:
 
-1. W przypadku korzystania z usług IIS 6 kliknij kartę **ISAPI** . Wybierz witrynę internetową, w której działa aplikacja sieci Web (np. domyślna witryna sieci Web), aby włączyć wtyczkę filtru ISAPI Multi-Factor Authentication platformy Azure dla tej lokacji.
-2. W przypadku korzystania z usług IIS 7 lub nowszych kliknij kartę **moduł macierzysty** . Wybierz serwer, witryny sieci Web lub aplikacje, aby włączyć WTYCZKĘ usług IIS na żądanych poziomach.
+1. W przypadku korzystania z usług IIS 6 kliknij kartę **ISAPI** . Wybierz witrynę internetową, w ramach której działa aplikacja sieci Web (np. domyślna witryna sieci Web), aby włączyć wtyczkę filtru ISAPI Multi-Factor Authentication platformy Azure dla tej lokacji.
+2. W przypadku korzystania z usług IIS 7 lub nowszych kliknij kartę **moduł macierzysty** . Wybierz serwer, witryny sieci Web lub aplikacje, aby włączyć wtyczkę usług IIS na żądanych poziomach.
 3. Kliknij pole **Włącz uwierzytelnianie usług IIS** w górnej części ekranu. Po wykonaniu tych czynności wybrana aplikacja usług IIS jest zabezpieczona przez usługę Azure Multi-Factor Authentication. Upewnij się, że zaimportowano użytkowników na serwer.
 
 ## <a name="trusted-ips"></a>Zaufane adresy IP

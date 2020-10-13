@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539201"
+ms.locfileid: "91874343"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -223,6 +223,7 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure — publiczna| Kanada Wschodnia| 52.139.80.117|
 | Azure — publiczna| Północne Zjednoczone Emiraty Arabskie| 20.46.144.85|
 | Azure — publiczna| Brazil South| 191.233.24.179|
+| Azure — publiczna| Brazylia Południowo-Wschodnia| 191.232.18.181|
 | Azure — publiczna| Southeast Asia| 40.90.185.46|
 | Azure — publiczna| Północna Republika Południowej Afryki| 102.133.130.197|
 | Azure — publiczna| Kanada Środkowa| 52.139.20.34|

@@ -1,5 +1,5 @@
 ---
-title: Udostępnianie i odbieranie danych z usługi Azure Blob Storage i Azure Data Lake Storage
+title: Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
 description: Dowiedz się, jak udostępniać i odbierać dane z usługi Azure Blob Storage i Azure Data Lake Storage
 author: jifems
 ms.author: jife
@@ -7,13 +7,13 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.openlocfilehash: a54a9d4c50852fe78fd245723dd29f487d58f4b1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89270252"
 ---
-# <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Udostępnianie i odbieranie danych z usługi Azure Blob Storage i Azure Data Lake Storage
+# <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Udostępnianie i odbieranie danych z usług Azure Blob Storage i Azure Data Lake Storage
 
 [!INCLUDE[appliesto-storage](includes/appliesto-storage.md)]
 
@@ -34,8 +34,8 @@ Gdy systemy plików, kontenery lub foldery są udostępniane w ramach udostępni
 ### <a name="prerequisites-for-source-storage-account"></a>Wymagania wstępne dotyczące źródłowego konta magazynu
 
 * Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli współautor.
-* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli właściciela. 
+* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli Współautor.
+* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli Właściciel. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -125,8 +125,8 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
 ### <a name="prerequisites-for-target-storage-account"></a>Wymagania wstępne dotyczące docelowego konta magazynu
 
 * Konto usługi Azure Storage: Jeśli jeszcze go nie masz, możesz utworzyć [konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli współautor. 
-* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli właściciela.  
+* Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli Współautor. 
+* Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli Właściciel.  
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

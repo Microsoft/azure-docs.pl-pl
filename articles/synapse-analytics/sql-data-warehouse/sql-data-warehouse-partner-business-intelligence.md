@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1414859d0735e75e2139dd79aab7dbba5b1e2f13
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710199"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939188"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Partnerzy analizy biznesowej usługi Azure Synapse Analytics
 
@@ -27,7 +27,6 @@ Aby utworzyć rozwiązanie magazynu danych, możesz wybrać różne rodzaje wiod
 | ------- | ----------- | -------------------- |
 | ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>AtScale zapewnia pojedynczy, zabezpieczony i regulowany obszar roboczy dla danych rozproszonych. AtScale w chmurze OLAP, autonomiczna Inżynieria danych,™ i uniwersalna warstwa semantyczna™ umożliwia wyniki analizy biznesowej w celu uzyskania szybszych i bardziej precyzyjnych decyzji biznesowe. |[Strona produktu](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst nawiązuje połączenie całej organizacji za pomocą sieci wieloczęściowych zwirtualizowanych wystąpień analizy biznesowej w oparciu o współdzieloną wspólną sieć szkieletową analizy|[Strona produktu](https://www.birst.com/)<br> |
-| ![ClearStory dane](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dane ClearStory (ciągłe szczegółowe informacje biznesowe)**<br>Dane ClearStory umożliwiają szybką analizę między różnymi danymi przechowywanymi w puli Synapse SQL. Zintegrowana z usługą ClearStory platforma oparta na platformie Spark i analiza dostępu do danych oraz harmonizacja różnych zestawów danych. Umożliwiają one szybkie i wspólne Eksplorowanie, które umożliwiają użytkownikom biznesowym uzyskanie szybkiego wglądu w szczegółowe dane. |[Strona produktu](https://www.clearstorydata.com/product/continuous-insights/)<br> |
 | ![Dremio](./media/sql-data-warehouse-partner-business-intelligence/dremio-logo.png) |**Dremio**<br> Analitycy i analityki danych mogą odkrywać, eksplorować i nadzorować dane za pomocą intuicyjnego interfejsu użytkownika Dremio, podczas gdy utrzymuje on zarządzanie i bezpieczeństwo. Dremio ułatwia dołączanie ADLS z Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight i innych. Dzięki Dremio analitykom Power BI mogą wyszukiwać nowe zestawy danych przechowywane w usłudze ADLS, natychmiast uzyskać dostęp do tych danych w Power BI bez przygotowania ich przez nie, tworzyć wizualizacje i iteracyjnie udoskonalać raporty w czasie rzeczywistym. Analitycy mogą tworzyć nowe raporty, które łączą dane między ADLS i innymi bazami danych. |[Strona produktu](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br> |
 | ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Wizualizacja danych Dundas to wiodący, globalny dostawca oprogramowania do analizy biznesowej i wizualizacji danych.  Pulpity nawigacyjne Dundas, raportowanie i analiza danych wizualnych zapewniają bezproblemową integrację z aplikacjami biznesowymi, umożliwiając lepsze podejmowanie decyzji i szybsze uzyskiwanie szczegółowych informacji.|[Strona produktu](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![Cognos IBM](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**Analiza Cognos firmy IBM**<br>Funkcja Cognos Analytics obejmuje funkcje samoobsługowe, które ułatwiają proste, jasne i łatwe korzystanie z nich, niezależnie od tego, czy jesteś doświadczonym analitykem biznesowym badającym rozległy łańcuch dostaw, czy też na rynku optymalizacja kampanii. Cognos Analytics używa AI i innych funkcji do obsługi eksploracji danych. Ułatwia użytkownikom uzyskiwanie potrzebnych odpowiedzi|[Strona produktu](https://www.ibm.com/products/cognos-analytics)<br>|

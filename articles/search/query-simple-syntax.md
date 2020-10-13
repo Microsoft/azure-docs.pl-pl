@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923385"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Prosta Składnia zapytania w usłudze Azure Wyszukiwanie poznawcze

@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597082"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3
@@ -154,7 +154,7 @@ Powyższa aplikacja PWA Open Source została utworzona w Node.js. Jeśli chcesz 
 
 1. Problem CORS: Przykładowe wideo w przykładowej aplikacji jest hostowane w programie https://storage.googleapis.com/biograf-video-files/videos/ . Firma Google skonfigurował mechanizm CORS dla wszystkich próbek testowych hostowanych w przedziale magazynu Google Cloud. Są one obsługiwane z nagłówkami CORS, określając jawnie wpis CORS: `https://biograf-155113.appspot.com` (domena, w której jest hostowana przez firmę Google), uniemożliwiając dostęp przez inne lokacje. Jeśli spróbujesz, zobaczysz następujący błąd HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problem z certyfikatem: począwszy od programu Chrome v 58, EME for Widevine wymaga protokołu HTTPS. W związku z tym należy hostować przykładową aplikację za pośrednictwem protokołu HTTPS z certyfikatem x509. Zwykły certyfikat testowy nie działa z powodu następujących wymagań: należy uzyskać certyfikat spełniający następujące wymagania minimalne:
-    - Przeglądarki Chrome i Firefox wymagają ustawienia alternatywnej nazwy podmiotu (SAN) w certyfikacie
+    - Przeglądarki Chrome i Firefox wymagają SAN-Subject ustawienie alternatywnej nazwy w certyfikacie
     - Certyfikat musi mieć zaufany urząd certyfikacji, a certyfikat programistyczny z podpisem własnym nie działa
     - Certyfikat musi mieć nazwę POSPOLITą zgodną z nazwą DNS serwera sieci Web lub bramy
 

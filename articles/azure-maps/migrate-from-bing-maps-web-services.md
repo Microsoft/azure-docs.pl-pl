@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Migrowanie usług internetowych z map Bing | Mapy Microsoft Azure'
-description: Jak przeprowadzić migrację usług sieci Web z map Bing do Microsoft Azure Maps.
+description: Samouczek dotyczący sposobu migrowania usług sieci Web z map Bing do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 462befd505333902bd4560f8f1dafeecceffd27f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741673"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873782"
 ---
-# <a name="migrate-web-service-from-bing-maps"></a>Migrowanie usługi sieci Web z map Bing
+# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Samouczek — Migrowanie usługi sieci Web z mapy Bing
 
 Zarówno usługa Azure, jak i mapy Bing zapewniają dostęp do przestrzennych interfejsów API za pomocą usług sieci Web REST. Interfejsy interfejsu API dla tych platform wykonują podobne funkcje, ale używają różnych konwencji nazewnictwa i obiektów odpowiedzi.
 
@@ -194,7 +194,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bi
 |------------------------------------------------------------|---------------------------------------------------|
 | `avoid`                                                    | `avoid`                                           |
 | `dateTime` (`dt`)                                          | `departAt` lub `arriveAt`                          |
-| `distanceBeforeFirstTurn` (`dbft`)                         | Brak                                               |
+| `distanceBeforeFirstTurn` (`dbft`)                         | Nie dotyczy                                               |
 | `distanceUnit` (`du`)                                      | Nie dotyczy — Azure Maps używa tylko systemu metryk.     |
 | `heading` (`hd`)                                           | `vehicleHeading`                                  |
 | `maxSolutions` (`maxSolns`)                                | `maxAlternatives`, `alternativeType` , `minDeviationDistance` i `minDeviationTime`  |
@@ -203,7 +203,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bi
 | `routeAttributes` (`ra`)                                   | `instructionsType`                                |
 | `routePathOutput` (`rpo`)                                  | `routeRepresentation`                             |
 | `timeType` (`tt`)                                          | `departAt` lub `arriveAt`                          |
-| `tolerances` (`tl`)                                        | Brak                                               |
+| `tolerances` (`tl`)                                        | Nie dotyczy                                               |
 | `travelMode`                                               | `travelMode`                                      |
 | `waypoint.n` ( `wp.n` ) lub `viaWaypoint.n` (`vwp.n`)         | `query` — Współrzędne w formacie `lat0,lon0:lat1,lon1….`   |
 | `key`                                                      | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) . |
@@ -221,12 +221,12 @@ Interfejs API routingu Azure Maps obsługuje również Routing ciężarówki w r
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **NIE DOTYCZY**                                    |
+| `vehicleTrailers` (`vt`)                 | **Nie dotyczy**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **NIE DOTYCZY**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **NIE DOTYCZY**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **NIE DOTYCZY**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **NIE DOTYCZY**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **Nie dotyczy**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **Nie dotyczy**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **Nie dotyczy**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **Nie dotyczy**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -287,12 +287,12 @@ Interfejs API routingu Azure Maps obsługuje również parametr routingu cięża
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **NIE DOTYCZY**                                    |
+| `vehicleTrailers` (`vt`)                | **Nie dotyczy**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **NIE DOTYCZY**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **NIE DOTYCZY**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **NIE DOTYCZY**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **NIE DOTYCZY**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **Nie dotyczy**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **Nie dotyczy**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **Nie dotyczy**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **Nie dotyczy**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -327,7 +327,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bi
 | `heading`                | Nie dotyczy — Streetside nie jest obsługiwane.                |
 | `imagerySet`             | `layer` i `style` — Zobacz dokumentację [obsługiwanych stylów mapy](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) .   |
 | `mapArea` (`ma`)         | `bbox`                                         |
-| `mapLayer` (`ml`)        | Brak                                            |
+| `mapLayer` (`ml`)        | Nie dotyczy                                            |
 | `mapSize` (`ms`)         | `width` i `height` — może mieć rozmiar maksymalnie 8192x8192. |
 | `declutterPins` (`dcl`)  | NIE DOTYCZY                                            |
 | `dpi`                    | NIE DOTYCZY                                            |
@@ -339,7 +339,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bi
 | `query`                  | Należy użyć pola centrum lub ograniczenia.     |
 | `highlightEntity` (`he`) | NIE DOTYCZY                                            |
 | `style`                  | NIE DOTYCZY                                            |
-| parametry trasy         | Brak                                            |
+| parametry trasy         | Nie dotyczy                                            |
 | `key`                    | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) . |
 | `culture` (`c`)          | `language` — Zobacz dokumentację [obsługiwanych języków](https://docs.microsoft.com/azure/azure-maps/supported-languages) .   |
 | `userRegion` (`ur`)      | `view` — Zobacz dokumentację [obsługiwanych widoków](https://aka.ms/AzureMapsLocalizationViews) . |
@@ -484,7 +484,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API usługi mapy Bi
 | `endTime`               | `arriveAt`                                                  |
 | `startTime`             | `departAt`                                                  |
 | `travelMode`            | `travelMode`                                                |
-| `resolution`            | Brak                                                         |
+| `resolution`            | Nie dotyczy                                                         |
 | `distanceUnit`          | Nie dotyczy — wszystkie odległości w licznikach.                              |
 | `timeUnit`              | Nie dotyczy — wszystkie razy w sekundach.                                 |
 | `key`                   | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) . |
@@ -565,7 +565,7 @@ W poniższej tabeli odwołuje się do parametrów interfejsu API ruchu Maps mapy
 | Parametr interfejsu API usługi mapy Bing  | Porównywalny parametr interfejsu API Azure Maps   |
 |--------------------------|---------------------------------------|
 | `mapArea`                | `boundingBox` i `boundingZoom`      |
-| `includeLocationCodes`   | Brak                                   |
+| `includeLocationCodes`   | Nie dotyczy                                   |
 | `severity` (`s`)         | Nie dotyczy — wszystkie zwrócone dane               |
 | `type` (`t`)             | Nie dotyczy — wszystkie zwrócone dane               |
 | `key`                    | `subscription-key` — Zobacz też [uwierzytelnianie za pomocą dokumentacji Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) . |

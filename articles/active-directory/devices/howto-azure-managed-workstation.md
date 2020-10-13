@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269560"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Wdrażanie bezpiecznej, zarządzanej na platformie Azure stacji roboczej
@@ -29,20 +29,20 @@ Wybierz profil przed wdrożeniem rozwiązania. Można użyć wielu profilów jed
 > [!NOTE]
 > Zastosuj dowolne profile zgodnie z wymaganiami. Możesz przenieść do innego profilu, przypisując go w Microsoft Intune.
 
-| Profil | Małe | Rozszerzone | Wysoki | Wyspecjalizowany | Zabezpieczone | Izolowana |
+| Profil | Niski | Rozszerzone | Wysoki | Wyspecjalizowany | Zabezpieczone | Izolowana |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Użytkownik w usłudze Azure AD | Yes | Yes | Yes | Yes | Yes | Yes |
-| Usługa Intune — zarządzana | Yes | Yes | Yes | Yes | Yes | Yes |
-| Urządzenie — zarejestrowano usługę Azure AD | Yes |  |  |  |  | |   |
-| Urządzenie — przyłączone do usługi Azure AD |   | Yes | Yes | Yes | Yes | Yes |
-| Zastosowano linię bazową zabezpieczeń usługi Intune |   | Yes <br> Usprawnion | Yes <br> (HighSecurity) | Yes <br> (NCSC) | Yes <br> Secure | Nie dotyczy |
-| Sprzęt spełnia bezpieczne standardy systemu Windows 10 |   | Yes | Yes | Yes | Yes | Yes |
-| Usługa Microsoft Defender ATP została włączona |   | Yes  | Yes | Yes | Yes | Yes |
-| Usuwanie praw administratora |   |   | Yes  | Yes | Yes | Yes |
-| Wdrażanie przy użyciu programu Microsoft autopilotaż |   |   | Yes  | Yes | Yes | Yes |
-| Aplikacje zainstalowane tylko przez usługę Intune |   |   |   | Yes | Yes |Yes |
-| Adresy URL ograniczone do zatwierdzonej listy |   |   |   | Yes | Yes |Yes |
-| Zablokowany przez Internet (przychodzący/wychodzący) |   |   |   |  |  |Yes |
+| Użytkownik w usłudze Azure AD | Tak | Tak | Tak | Tak | Tak | Tak |
+| Usługa Intune — zarządzana | Tak | Tak | Tak | Tak | Tak | Tak |
+| Urządzenie — zarejestrowano usługę Azure AD | Tak |  |  |  |  | |   |
+| Urządzenie — przyłączone do usługi Azure AD |   | Tak | Tak | Tak | Tak | Tak |
+| Zastosowano linię bazową zabezpieczeń usługi Intune |   | Tak <br> Usprawnion | Tak <br> (HighSecurity) | Tak <br> (NCSC) | Tak <br> Secure | Nie dotyczy |
+| Sprzęt spełnia bezpieczne standardy systemu Windows 10 |   | Tak | Tak | Tak | Tak | Tak |
+| Usługa Microsoft Defender ATP została włączona |   | Tak  | Tak | Tak | Tak | Tak |
+| Usuwanie praw administratora |   |   | Tak  | Tak | Tak | Tak |
+| Wdrażanie przy użyciu programu Microsoft autopilotaż |   |   | Tak  | Tak | Tak | Tak |
+| Aplikacje zainstalowane tylko przez usługę Intune |   |   |   | Tak | Tak |Tak |
+| Adresy URL ograniczone do zatwierdzonej listy |   |   |   | Tak | Tak |Tak |
+| Zablokowany przez Internet (przychodzący/wychodzący) |   |   |   |  |  |Tak |
 
 > [!NOTE]
 > Na **stronie wskazówki dotyczące** bezpiecznych stacji roboczych zostaną przypisane profile i zasady. Użytkownicy nie będą mogli bezpośrednio stosować zasad, co pozwala na korzystanie z udostępniania urządzenia (urządzenia współużytkowane). Jeśli bezpieczna stacja robocza nie jest udostępniona w danym wdrożeniu lub są konieczne zasady poszczególnych użytkowników, przypisanie profilów zasad użytkownika można przypisać do użytkownika i urządzenia. 
@@ -129,7 +129,7 @@ Z Azure Portal:
 
 Te kroki umożliwiają zarządzanie dowolnym urządzeniem za pomocą usługi Intune. Aby uzyskać więcej informacji, zobacz [Przewodnik Szybki Start dotyczący usługi Intune: Konfigurowanie automatycznego rejestrowania dla urządzeń z systemem Windows 10](/Intune/quickstart-setup-auto-enrollment). W przyszłości utworzysz konfigurację i zasady zgodności usługi Intune.
 
-#### <a name="azure-ad-conditional-access"></a>Dostęp warunkowy usługi Azure AD
+#### <a name="azure-ad-conditional-access"></a>Dostęp warunkowy w usłudze Azure AD
 
 Dostęp warunkowy usługi Azure AD może pomóc w ograniczeniu uprzywilejowanych zadań administracyjnych do zgodnych urządzeń. Wstępnie zdefiniowane elementy członkowskie grupy **bezpiecznych użytkowników stacji roboczej** są wymagane do przeprowadzenia uwierzytelniania wieloskładnikowego podczas logowania do aplikacji w chmurze. Najlepszym rozwiązaniem jest wykluczenie kont dostępu awaryjnego z zasad. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md).
 
@@ -166,13 +166,13 @@ W usłudze Intune w Azure Portal:
    * Pole **Dołącz do usługi Azure AD jako** powinno zawierać **przyłączone do usługi Azure AD** i być wyszarzone.
    * Wybierz język (region), typ konta użytkownika **Standard**. 
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 
    * Wybierz tag zakresu, jeśli został wstępnie skonfigurowany.
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Wybierz pozycję **przypisania**  >  **Przypisz do**  >  **wybranych grup**. W obszarze **Wybierz grupy do dołączenia**wybierz pozycję **bezpieczne stacje robocze**.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Wybierz pozycję **Utwórz**, aby utworzyć profil. Profil wdrażania rozwiązania Autopilot jest teraz dostępny do przypisania do urządzeń.
 
 Rejestracja urządzeń w programie autopilotaż zapewnia różne środowisko użytkownika w oparciu o typ i rolę urządzenia. W naszym przykładowym wdrożeniu przedstawiono model, w którym są wdrażane zbiorczo dane zabezpieczone i można je udostępnić, ale gdy jest używany po raz pierwszy, urządzenie jest przypisane do użytkownika. Aby uzyskać więcej informacji, zobacz [rejestracja urządzeń autopilotażowego usługi Intune](/intune/device-enrollment).
@@ -290,7 +290,7 @@ W niektórych sytuacjach aplikacje takie jak przeglądarka Google Chrome są wym
 1. W **Azure Portal** przejdź do **Microsoft Intune**  >  **Client apps**  >  **aplikacje**klienckie aplikacje  >  **Dodaj**.
 1. W obszarze **Typ aplikacji**wybierz **pozycję branżowe**.
 1. W obszarze **plik pakietu aplikacji**wybierz `GoogleChromeStandaloneEnterprise64.msi` plik z wyodrębnionej lokalizacji i wybierz **przycisk OK**.
-1. W obszarze **Informacje o aplikacji**Podaj opis i wydawcę. Wybierz pozycję **OK**.
+1. W obszarze **Informacje o aplikacji**Podaj opis i wydawcę. Wybierz przycisk **OK**.
 1. Wybierz pozycję **Dodaj**.
 1. Na karcie **przypisania** wybierz pozycję **dostępne dla zarejestrowanych urządzeń** w obszarze **Typ przypisania**.
 1. W obszarze **dołączone grupy**Dodaj grupę **bezpiecznych stacji roboczych** .
@@ -341,7 +341,7 @@ Skrypt [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptce
 1. Podaj **nazwę** skryptu i określ **lokalizację skryptu**.
 1. Wybierz pozycję **Konfiguruj**.
    1. Ustaw opcję **Uruchom ten skrypt przy użyciu poświadczeń zalogowanych** na **wartość tak**.
-   1. Wybierz pozycję **OK**.
+   1. Wybierz przycisk **OK**.
 1. Wybierz przycisk **Utwórz**.
 1. Wybierz pozycję **przypisania**  >  **Wybierz pozycję grupy**.
    1. Dodaj do grupy zabezpieczeń **bezpieczne stacje robocze**.
@@ -428,7 +428,7 @@ Wdrażanie agenta MMA przy użyciu skryptu programu PowerShell usługi Intune
 1. Podaj **nazwę** skryptu i określ **lokalizację skryptu**.
 1. Wybierz pozycję **Konfiguruj**.
    1. Ustaw opcję **Uruchom ten skrypt przy użyciu poświadczeń zalogowanych** na **wartość tak**.
-   1. Wybierz pozycję **OK**.
+   1. Wybierz przycisk **OK**.
 1. Wybierz przycisk **Utwórz**.
 1. Wybierz pozycję **przypisania**  >  **Wybierz pozycję grupy**.
    1. Dodaj do grupy zabezpieczeń **bezpieczne stacje robocze**.
