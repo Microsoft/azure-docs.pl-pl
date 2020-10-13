@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90020313"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Podstawa podstawy zabezpieczeń platformy Azure dla platformy Azure
@@ -551,13 +551,13 @@ Ponosisz odpowiedzialność za wstępne skanowanie zawartości przekazywanej do 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: zapewnianie ochrony kopii zapasowych i kluczy zarządzanych przez klienta
 
-**Wskazówki**: Włącz usuwanie nietrwałe w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. W przypadku, gdy użytkownik odwołuje klucz szyfrowania klucza, usuwając go lub usuwając dostęp do danych wskaźnikowych platformy Azure w ciągu jednej godziny, wskaźnik na platformie Azure będzie przestrzegać zmiany i zachowuje się tak, jakby dane nie były już dostępne. W tym momencie wszystkie operacje wykonywane przy użyciu trwałych zasobów magazynu, takich jak pozyskiwanie danych, trwałe zmiany konfiguracji i Tworzenie zdarzeń, zostaną uniemożliwione. Poprzednio przechowywane dane nie zostaną usunięte, ale pozostaną niedostępne. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte zgodnie z tymi zasadami.
+**Wskazówki**: Włącz Soft-Delete w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem. W przypadku, gdy użytkownik odwołuje klucz szyfrowania klucza, usuwając go lub usuwając dostęp do danych wskaźnikowych platformy Azure w ciągu jednej godziny, wskaźnik na platformie Azure będzie przestrzegać zmiany i zachowuje się tak, jakby dane nie były już dostępne. W tym momencie wszystkie operacje wykonywane przy użyciu trwałych zasobów magazynu, takich jak pozyskiwanie danych, trwałe zmiany konfiguracji i Tworzenie zdarzeń, zostaną uniemożliwione. Poprzednio przechowywane dane nie zostaną usunięte, ale pozostaną niedostępne. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte zgodnie z tymi zasadami.
 
 Jedyną operacją, którą można wykonać po odwołaniu klucza szyfrowania lub usunięciu jest usunięcie konta.
 
 Jeśli dostęp zostanie przywrócony po odwołaniu, wskaźnik na platformie Azure będzie przywracał dostęp do danych w ciągu godziny.
 
-- [Jak włączyć usuwanie nietrwałe w Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Jak włączyć Soft-Delete w Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Informacje o kluczach zarządzanych przez klienta w usłudze Azure — wskaźnik](customer-managed-keys.md)
 

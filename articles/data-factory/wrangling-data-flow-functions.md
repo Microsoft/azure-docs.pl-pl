@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921554"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funkcje transformacji w przepływie danych przetwarzanie
@@ -68,15 +68,15 @@ Następujące funkcje M dodają lub przekształcają kolumny: [Table. addColumn]
 ----------------------
 * Power Query generuje zagnieżdżone sprzężenie (Table. NestedJoin; użytkownicy mogą również ręcznie napisać [tabelę. AddJoinColumn](https://docs.microsoft.com/powerquery-m/table-addjoincolumn)).
     Użytkownicy muszą następnie rozwinąć zagnieżdżoną kolumnę sprzężenia do niezagnieżdżonego sprzężenia (Table. ExpandTableColumn, nieobsługiwane w żadnym innym kontekście).
-* Tabela funkcji M [. Join](https://docs.microsoft.com/powerquery-m/table-join) można pisać bezpośrednio, aby uniknąć potrzeby dodatkowego kroku rozszerzania, ale użytkownik musi upewnić się, że nie ma żadnych zduplikowanych nazw kolumn wśród sprzężonych tabel
-* Obsługiwane rodzaje sprzężeń: [wewnętrzne](https://docs.microsoft.com/powerquery-m/joinkind-inner), [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter), [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter), [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* Obie [wartości. Equals](https://docs.microsoft.com/powerquery-m/value-equals) i [Value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) są obsługiwane jako porównania klucza równości
+* Tabela funkcji M   [. Join](https://docs.microsoft.com/powerquery-m/table-join) można pisać bezpośrednio, aby uniknąć potrzeby dodatkowego kroku rozszerzania, ale użytkownik musi upewnić się, że nie ma żadnych zduplikowanych nazw kolumn wśród sprzężonych tabel
+* Obsługiwane rodzaje sprzężeń:   [wewnętrzne](https://docs.microsoft.com/powerquery-m/joinkind-inner),   [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter),   [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter),   [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
+* Obie   [wartości. Equals](https://docs.microsoft.com/powerquery-m/value-equals) i   [Value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) są obsługiwane jako porównania klucza równości
 
 ## <a name="group-by"></a>Grupuj według
 
 Użyj [tabeli Table. Group](https://docs.microsoft.com/powerquery-m/table-group) do agregowania wartości.
 * Musi być używana z funkcją agregacji
-* Obsługiwane funkcje agregacji: [Table. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [list. sum](https://docs.microsoft.com/powerquery-m/list-sum), [list. Count](https://docs.microsoft.com/powerquery-m/list-count), [list. Average](https://docs.microsoft.com/powerquery-m/list-average), [list. min](https://docs.microsoft.com/powerquery-m/list-min), List [. Max](https://docs.microsoft.com/powerquery-m/list-max), [list. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), list. [First](https://docs.microsoft.com/powerquery-m/list-first), [list. Last](https://docs.microsoft.com/powerquery-m/list-last)
+* Obsługiwane funkcje agregacji:   [Table. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount),   [list. sum](https://docs.microsoft.com/powerquery-m/list-sum),   [list. Count](https://docs.microsoft.com/powerquery-m/list-count),   [list. Average](https://docs.microsoft.com/powerquery-m/list-average),   [list. min](https://docs.microsoft.com/powerquery-m/list-min), List   [. Max](https://docs.microsoft.com/powerquery-m/list-max),   [list. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), list.   [First](https://docs.microsoft.com/powerquery-m/list-first),   [list. Last](https://docs.microsoft.com/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Sortowanie
 

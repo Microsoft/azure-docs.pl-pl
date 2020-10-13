@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
 ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86509362"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Rozwiązywanie problemów związanych z błędami alokacji występującymi podczas tworzenia lub ponownego uruchamiania maszyn wirtualnych na platformie Azure bądź zmieniania ich rozmiaru
@@ -73,7 +73,7 @@ Całkowite cofanie alokacji oznacza, że wszystkie maszyny wirtualne w zestawie 
 ### <a name="workaround"></a>Obejście
 
 Jeśli używasz starszej serii lub rozmiarów maszyn wirtualnych, takich jak Dv1, DSv1, Av1, D15v2 lub DS15v2, rozważ przeniesienie do nowszych wersji. Zapoznaj się z tymi zaleceniami dotyczącymi określonych rozmiarów maszyn wirtualnych.
-Jeśli nie masz opcji używania innego rozmiaru maszyny wirtualnej, spróbuj wykonać wdrożenie w innym regionie w tym samym georegionie. Aby uzyskać więcej informacji na temat dostępnych rozmiarów maszyn wirtualnych w każdym regionie whttps://aka.ms/azure-regions
+Jeśli nie masz opcji używania innego rozmiaru maszyny wirtualnej, spróbuj wykonać wdrożenie w innym regionie w tym samym georegionie. Aby uzyskać więcej informacji na temat dostępnych rozmiarów maszyn wirtualnych w każdym regionie w https://aka.ms/azure-regions
 
 Jeśli używasz stref dostępności, wypróbuj inną strefę w regionie, która może mieć dostępną pojemność dla żądanego rozmiaru maszyny wirtualnej.
 

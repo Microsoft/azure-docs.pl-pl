@@ -10,13 +10,13 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846839"
 ---
-# <a name="overview-of-dns-zones-and-records"></a>Przegląd stref i rekordów DNS
+# <a name="overview-of-dns-zones-and-records"></a>Omówienie stref i rekordów DNS
 
 Na tej stronie objaśniono kluczowe pojęcia dotyczące domen, stref DNS i rekordów DNS i zestawów rekordów oraz sposób ich obsługi w Azure DNS.
 
@@ -130,7 +130,7 @@ Na poziomie interfejsu API REST Azure DNS elementy ETag są określane przy uży
 | Header | Zachowanie |
 | --- | --- |
 | Brak |UMIESZCZAj zawsze zakończone powodzeniem (brak testów ETag) |
-| If-Match\<etag> |Element PUT kończy się powodzeniem tylko wtedy, gdy zasób istnieje i element ETag pasuje |
+| If-Match \<etag> |Element PUT kończy się powodzeniem tylko wtedy, gdy zasób istnieje i element ETag pasuje |
 | If-Match * |PUT kończy się powodzeniem, jeśli zasób istnieje |
 | If-None-Match * |PUT kończy się powodzeniem, jeśli zasób nie istnieje |
 

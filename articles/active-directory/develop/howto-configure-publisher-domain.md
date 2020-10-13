@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129274"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Instrukcje: Konfigurowanie domeny wydawcy aplikacji
@@ -97,7 +97,7 @@ Jeśli aplikacja nie jest zarejestrowana w dzierżawie, zobaczysz tylko opcję w
 - Jeśli dzierżawca ma zweryfikowane domeny, wybierz jedną z domen z listy rozwijanej **Wybierz zweryfikowaną domenę** .
 
 >[!Note]
-> Oczekiwany nagłówek "Content-Type", który ma zostać zwrócony `application/json` . Może wystąpić błąd, jak wspomniano poniżej, jeśli używasz innych elementów, takich jak`application/json; charset=utf-8` 
+> Oczekiwany nagłówek "Content-Type", który ma zostać zwrócony `application/json` . Może wystąpić błąd, jak wspomniano poniżej, jeśli używasz innych elementów, takich jak `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514913"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatyczne rozwiązanie do odzyskiwania po awarii wykorzystujące Azure Site Recovery dla udziałów plików hostowanych w usłudze StorSimple
@@ -93,7 +93,7 @@ Ten krok wymaga przygotowania lokalnego środowiska serwera plików, utworzenia 
       
 1. Kliknij przycisk **Dalej**.
 1. Zaakceptuj **warunki umowy** , a następnie kliknij przycisk **dalej**.
-1. Kliknij przycisk **Zakończ**.
+1. Kliknij przycisk **Finish** (Zakończ).
 1. Utwórz udziały plików przy użyciu woluminów używać miejsca z magazynu StorSimple. Aby uzyskać więcej informacji, zobacz [Używanie usługi StorSimple Manager do zarządzania woluminami](storsimple-manage-volumes.md).
    
    1. Na lokalnych maszynach wirtualnych naciśnij klawisz Windows + Q i Wyszukaj **iSCSI**.
@@ -104,7 +104,7 @@ Ten krok wymaga przygotowania lokalnego środowiska serwera plików, utworzenia 
    1. Utwórz kontenery woluminów, a następnie utwórz woluminy. (Te woluminy są przeznaczone dla udziałów plików na maszynach wirtualnych serwera plików). Skopiuj nazwę inicjatora i nadaj jej nazwę Access Control podczas tworzenia woluminów.
    1. Wybierz kartę **Konfiguracja** i Zanotuj adres IP urządzenia.
    1. Na lokalnych maszynach wirtualnych przejdź ponownie do **inicjatora iSCSI** , a następnie wprowadź adres IP w sekcji Szybkie łączenie. Kliknij pozycję **szybkie łączenie** (urządzenie powinno być teraz połączone).
-   1. Otwórz Azure Portal i wybierz kartę **woluminy i urządzenia** . kliknij pozycję **Konfiguruj automatycznie**. Utworzony wolumin powinien zostać wyświetlony.
+   1. Otwórz Azure Portal i wybierz kartę **woluminy i urządzenia** . Kliknij pozycję **Konfiguruj automatycznie**. Utworzony wolumin powinien zostać wyświetlony.
    1. W portalu wybierz kartę **urządzenia** , a następnie wybierz pozycję **Utwórz nowe urządzenie wirtualne.** (To urządzenie wirtualne zostanie użyte w przypadku przejścia w tryb failover). To nowe urządzenie wirtualne można zachować w trybie offline, aby uniknąć dodatkowych kosztów. Aby przełączyć urządzenie wirtualne w tryb offline, przejdź do sekcji **Virtual Machines** w portalu i zamknij go.
    1. Wróć do lokalnych maszyn wirtualnych i Otwórz przystawkę Zarządzanie dyskami (naciśnij klawisz Windows + X i wybierz pozycję **Zarządzanie dyskami**).
    1. Zauważysz kilka dodatkowych dysków (w zależności od liczby utworzonych woluminów). Kliknij prawym przyciskiem myszy pierwszy, wybierz opcję **zainicjuj dysk**, a następnie wybierz przycisk **OK**. Kliknij prawym przyciskiem myszy **przydzieloną** sekcję, wybierz pozycję **Nowy wolumin prosty**, przypisz do niej literę dysku i Zakończ pracę kreatora.
@@ -170,7 +170,7 @@ Możesz utworzyć plan odzyskiwania w usłudze ASR, aby zautomatyzować proces t
    
 1. Na koncie usługi Automation kliknij pozycję **zmienne** &gt; **Dodaj zmienną** i Dodaj następujące zmienne. Można zdecydować się na szyfrowanie tych zasobów. Te zmienne są specyficzne dla planu odzyskiwania. Jeśli plan odzyskiwania, który zostanie utworzony w następnym kroku, ma nazwę plan testu, wówczas zmienne powinny być plan testu-StorSimRegKey, plan testu-AzureSubscriptionName i tak dalej.
 
-   - **Baseurl**: adres URL Menedżer zasobów dla chmury platformy Azure. Pobierz przy użyciu polecenia **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** polecenia cmdlet.
+   - **Baseurl**: adres URL Menedżer zasobów dla chmury platformy Azure. Pobierz przy użyciu polecenia cmdlet **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** .
    - _RecoveryPlanName_**-ResourceGroupName**: Grupa Menedżer zasobów, która ma zasób StorSimple.
    - _RecoveryPlanName_**-ManagerName**: zasób StorSimple z urządzeniem StorSimple.
    - _RecoveryPlanName_**-DeviceName**: Urządzenie StorSimple, które musi zostać przełączone w tryb failover.

@@ -4,10 +4,10 @@ description: Dowiedz się, jak zintegrować Azure Relay z usługą Azure Private
 ms.date: 09/24/2020
 ms.topic: article
 ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263883"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integracja Azure Relay z prywatnym łączem platformy Azure (wersja zapoznawcza)
@@ -236,7 +236,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ### <a name="limitations"></a>Ograniczenia 
 - Maksymalna liczba prywatnych punktów końcowych na Azure Relay przestrzeń nazw: 64.
 - Maksymalna liczba Azure Relay przestrzeni nazw z prywatnymi punktami końcowymi na subskrypcję: 64.
-- Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i trasy zdefiniowane przez użytkownika nie mają zastosowania do prywatnego punktu końcowego. Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../private-link/private-link-service-overview.md#limitations)
+- Reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i trasy User-Defined nie mają zastosowania do prywatnego punktu końcowego. Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../private-link/private-link-service-overview.md#limitations)
 
 ## <a name="next-steps"></a>Następne kroki
 

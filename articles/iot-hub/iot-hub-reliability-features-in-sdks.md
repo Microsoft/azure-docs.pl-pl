@@ -12,10 +12,10 @@ ms.custom:
 - mqtt
 - devx-track-csharp
 ms.openlocfilehash: 8f1b1131ab634cdc5418773b8a2e18c2195ffc18
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89014561"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Zarządzanie łącznością i niezawodną obsługą komunikatów przy użyciu zestawów SDK urządzeń IoT Hub platformy Azure
@@ -135,7 +135,7 @@ Aby zapoznać się z przykładami kodu w innych językach, zapoznaj się z nast�
 
 * [Zestaw SDK języka Python](https://github.com/Azure/azure-iot-sdk-python) (niezawodność nie została jeszcze zaimplementowana)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Korzystanie z zestawów SDK urządzenia i usługi](./iot-hub-devguide-sdks.md)
 

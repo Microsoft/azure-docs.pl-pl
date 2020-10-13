@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 08/16/2020
 ms.author: cshoe
 ms.openlocfilehash: 942ca3229808b57894598c3477e9dc97e40e8c80
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88689569"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Rejestrowanie rozszerzeń powiązań Azure Functions
@@ -20,7 +20,7 @@ Aplikacje funkcji biblioteki klas .NET używają powiązań, które są zainstal
 
 Poniższa tabela zawiera informacje o tym, kiedy i w jaki sposób rejestrujesz powiązania.
 
-| Środowisko projektowe |Rejestracja<br/> w funkcjach 1. x  |Rejestracja<br/> w funkcjach 3. x/2. x  |
+| Środowisko deweloperskie |Rejestracja<br/> w funkcjach 1. x  |Rejestracja<br/> w funkcjach 3. x/2. x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure Portal|Automatyczny|Automatyczne<sup>*</sup>|
 |Języki Non-.NET|Automatyczny|Użyj [pakietów rozszerzeń](#extension-bundles) (zalecane) lub [jawnie Zainstaluj rozszerzenia](#explicitly-install-extensions)|

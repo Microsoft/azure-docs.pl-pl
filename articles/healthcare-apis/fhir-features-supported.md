@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007574"
 ---
 # <a name="features"></a>Funkcje
@@ -49,7 +49,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukiwanie
+## <a name="search"></a>Wyszukaj
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -59,9 +59,9 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Data/godzina         | Tak       | Tak       | Tak       |         |
 | Ciąg                | Tak       | Tak       | Tak       |         |
 | Token                 | Tak       | Tak       | Tak       |         |
-| Dokumentacja             | Tak       | Tak       | Tak       |         |
+| Tematy pomocy             | Tak       | Tak       | Tak       |         |
 | Złożenie             | Tak       | Tak       | Tak       |         |
-| Ilość              | Tak       | Tak       | Tak       |         |
+| Liczba              | Tak       | Tak       | Tak       |         |
 | URI                   | Tak       | Tak       | Tak       |         |
 | Jako               | Nie        | Nie        | Nie        |         |
 
@@ -127,7 +127,7 @@ Cosmos DB to baza danych oparta na globalnie rozproszonym modelu (SQL API, Mongo
 
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
 
-Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) na potrzeby kontroli dostępu. W konkretnym przypadku Access Control oparte na rolach (RBAC) są wymuszane, jeśli `FhirServer:Security:Enabled` parametr konfiguracji jest ustawiony na `true` , a wszystkie żądania (z wyjątkiem `/metadata` ) do serwera FHIR muszą mieć `Authorization` nagłówek żądania ustawiony na `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zdefiniowaną w ramach tego `roles` żądania. Żądanie będzie dozwolone, jeśli token zawiera rolę, która zezwala na określoną akcję dla określonego zasobu.
+Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) na potrzeby kontroli dostępu. W konkretnym przypadku jest wymuszane Role-Based Access Control (RBAC), jeśli `FhirServer:Security:Enabled` parametr konfiguracji jest ustawiony na `true` , a wszystkie żądania (z wyjątkiem `/metadata` ) do serwera FHIR muszą mieć `Authorization` nagłówek żądania ustawiony na `Bearer <TOKEN>` . Token musi zawierać co najmniej jedną rolę zdefiniowaną w ramach tego `roles` żądania. Żądanie będzie dozwolone, jeśli token zawiera rolę, która zezwala na określoną akcję dla określonego zasobu.
 
 Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie API.
 

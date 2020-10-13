@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744155"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Otwórz bilet pomocy technicznej dla Azure Data Box
@@ -38,7 +38,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
     4. Określ swój **Plan pomocy technicznej**.
     5. Kliknij przycisk **Dalej**.
 
-        ![Informacje podstawowe](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Podstawy](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. W obszarze **nowe żądanie obsługi**wybierz pozycję **krok 2**. W obszarze **problem**wykonaj następujące czynności:
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
    1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
    2. W **informacjach kontaktowych**Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Wybierz pozycję **Zapisz zmiany kontaktów w przyszłych żądaniach pomocy technicznej**.
-   3. Kliknij pozycję **Utwórz**.
+   3. Kliknij przycisk **Utwórz**.
 
        ![Informacje kontaktowe](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 

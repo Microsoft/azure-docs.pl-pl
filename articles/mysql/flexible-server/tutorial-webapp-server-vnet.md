@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90946656"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Samouczek: Tworzenie serwera Azure Database for MySQL-elastyczny (wersja zapoznawcza) przy użyciu aplikacji internetowej App Services w sieci wirtualnej
@@ -100,7 +100,7 @@ az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.da
 - Nazwa grupy zasobów i aplikacji jest rysowana z wartości pamięci podręcznej w pliku. Azure/config.
 - Polecenie tworzy ustawienia o nazwie dbhost, dbname, dbuser i dbpass. Jeśli kod aplikacji używa innej nazwy dla informacji o bazie danych, Użyj tych nazw dla ustawień aplikacji, jak wspomniano w kodzie.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Oczyść wszystkie zasoby utworzone w samouczku za pomocą następującego polecenia. To polecenie usuwa wszystkie zasoby w tej grupie zasobów.
 

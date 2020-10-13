@@ -4,10 +4,10 @@ description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na I
 ms.topic: conceptual
 ms.date: 05/30/2020
 ms.openlocfilehash: e3a77b69adf2241a4af2652db4edb6673a63b4f0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88690616"
 ---
 # <a name="terminology"></a>Terminologia
@@ -38,7 +38,7 @@ W kontekście systemu zarządzania wideo dla kamer z zabezpieczeniami nagrywanie
 
 ## <a name="rtsp"></a>Protokół
 
-[RTSP](https://tools.ietf.org/html/rfc2326) odnosi się do protokołu przesyłania strumieniowego w czasie rzeczywistym. Jest to protokół poziomu aplikacji służący do kontroli nad dostarczaniem danych z właściwościami w czasie rzeczywistym. Protokół RTSP zapewnia rozszerzalną platformę umożliwiającą kontrolowane dostarczanie na żądanie danych w czasie rzeczywistym, takich jak audio i wideo. 
+[RTSP](https://tools.ietf.org/html/rfc2326) odnosi się do Real-Time protokołu przesyłania strumieniowego. Jest to protokół poziomu aplikacji służący do kontroli nad dostarczaniem danych z właściwościami w czasie rzeczywistym. Protokół RTSP zapewnia rozszerzalną platformę umożliwiającą kontrolowane dostarczanie na żądanie danych w czasie rzeczywistym, takich jak audio i wideo. 
 
 ## <a name="streaming"></a>Przesyłanie strumieniowe
 

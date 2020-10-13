@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717884"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
@@ -172,13 +172,13 @@ Aby skonfigurować serwer RADIUS, można użyć standardowej (opartej na kreator
 7. W oknie **Konfigurowanie metod uwierzytelniania** Zaakceptuj wybór domyślny (**uwierzytelnianie szyfrowane firmy Microsoft w wersji 2 [MS-CHAPv2])** lub wybierz inną opcję, a następnie wybierz przycisk **dalej**.
 
     > [!NOTE]
-    > W przypadku skonfigurowania protokołu uwierzytelniania rozszerzonego (EAP) należy użyć protokołu uwierzytelniania Microsoft Challenge Handshake Authentication Protocol (CHAPv2) lub protokołu PEAP (Protected Extensible Authentication Protocol). Żaden inny protokół EAP nie jest obsługiwany.
+    > W przypadku konfigurowania protokołu uwierzytelniania rozszerzonego (EAP) należy użyć protokołu uwierzytelniania Microsoft Challenge-Handshake (CHAPv2) lub protokołu PEAP (Protected Extensible Authentication Protocol). Żaden inny protokół EAP nie jest obsługiwany.
 
 8. W oknie **Określanie grup użytkowników** wybierz pozycję **Dodaj**, a następnie wybierz odpowiednią grupę. Jeśli grupa nie istnieje, pozostaw zaznaczenie puste, aby przyznać dostęp wszystkim użytkownikom.
 
     ![Określ okno grup użytkowników, aby zezwalać na dostęp lub go odmawiać](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Wybierz pozycję **Dalej**.
+9. Wybierz opcję **Dalej**.
 
 10. W oknie **Określanie filtrów IP** wybierz pozycję **dalej**.
 
@@ -249,7 +249,7 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
     ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
-8. Kliknij **OK**.
+8. Kliknij przycisk **OK**.
 
 ### <a name="test-vpn-connectivity"></a>Testowanie łączności z siecią VPN
 

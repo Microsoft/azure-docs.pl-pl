@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185912"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Ograniczenie zakresu wdrożenia Change Tracking i spisu
@@ -30,7 +30,7 @@ Aby ograniczyć zakres Change Tracking i wdrożenia spisu:
 
 3. Wybierz pozycję **konfiguracje zakresu (wersja zapoznawcza)** w obszarze **źródła danych obszaru roboczego**.
 
-4. Wybierz wielokropek z prawej strony `MicrosoftDefaultScopeConfig-ChangeTracking` konfiguracji zakresu, a następnie kliknij pozycję **Edytuj**. 
+4. Wybierz wielokropek z prawej strony  `MicrosoftDefaultScopeConfig-ChangeTracking` konfiguracji zakresu, a następnie kliknij pozycję **Edytuj**. 
 
 5. W okienku Edycja wybierz pozycję **Wybierz grupy komputerów**. W okienku grupy komputerów zostaną wyświetlone zapisane wyszukiwania, które są używane do tworzenia konfiguracji zakresu. Zapisane wyszukiwanie używane przez Change Tracking i spis jest następujące:
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86496999"
 ---
 # <a name="weather-partner-integration"></a>Integracja z partnerami obsługującymi dane o pogodzie
@@ -18,7 +18,7 @@ Ten artykuł zawiera informacje na temat składnika Docker **łącznika** usług
 
  > [!NOTE]
  > Na potrzeby tej dokumentacji będziemy używać implementacji referencyjnej skompilowanej przy użyciu NOAA z platformy Azure Otwórz zestawy danych i jest dostępna pod adresem [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > Odpowiedni obraz platformy Docker jest dostępny pod adresem[https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > Odpowiedni obraz platformy Docker jest dostępny pod adresem [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
 Partner pogody musi dostarczyć obraz/program platformy Docker (ze specyfikacjami wymienionymi poniżej) i hostować obraz platformy Docker w rejestrze kontenerów, który jest dostępny dla klientów. Partner pogody będzie musiał udostępnić klientom następujące informacje:
 
@@ -36,10 +36,10 @@ Korzystając z podanych powyżej informacji platformy Docker, klient będzie rej
 
 Interfejsy API FarmBeats zawierają dokumentację techniczną struktury Swagger. Aby uzyskać informacje na temat wszystkich interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Jeśli zainstalowano FarmBeats, możesz uzyskać dostęp do programu FarmBeats Swagger w`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+Jeśli zainstalowano FarmBeats, możesz uzyskać dostęp do programu FarmBeats Swagger w `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Należy zauważyć, że parametr "-API" jest dołączany do nazwy witryny sieci Web FarmBeats.
-Punkt końcowy interfejsu API będzie:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
+Punkt końcowy interfejsu API będzie: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Biblioteka Datahub
 
@@ -55,7 +55,7 @@ FarmBeats używa uwierzytelniania okaziciela i dostęp do interfejsów API możn
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-Token dostępu można zażądać od funkcji platformy Azure uruchomionej w wystąpieniu FarmBeats klienta. Adres URL funkcji platformy Azure zostanie dostarczony do programu Docker jako argument, a token dostępu można uzyskać, wysyłając żądanie GET w adresie URL. Odpowiedź z adresu URL będzie zawierać token dostępu. Biblioteka Datahub zawiera funkcje pomocnika umożliwiające partnerom uzyskanie tokenu dostępu. Więcej szczegółów można znaleźć [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
+Token dostępu można zażądać od funkcji platformy Azure uruchomionej w wystąpieniu FarmBeats klienta. Adres URL funkcji platformy Azure zostanie dostarczony do programu Docker jako argument, a token dostępu można uzyskać, wysyłając żądanie GET w adresie URL. Odpowiedź z adresu URL będzie zawierać token dostępu. Biblioteka Datahub zawiera funkcje pomocnika umożliwiające partnerom uzyskanie tokenu dostępu. Więcej informacji znajdziesz [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
 
 Token dostępu jest prawidłowy tylko przez kilka godzin i wymaga ponownego zażądania po jego wygaśnięciu.
 
@@ -85,7 +85,7 @@ Usługa API serializować ten DICT i zapisuje je w [magazynie](https://docs.micr
 ```
 Należy zauważyć, że "partnerCredentials" będzie dostępny w sposób dokładny, który został dostarczony przez klienta podczas rejestracji partnera
 
-Biblioteka FarmBeats zawiera funkcje pomocnika umożliwiające partnerom odczytywanie poświadczeń z właściwości działania. Więcej szczegółów można znaleźć [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
+Biblioteka FarmBeats zawiera funkcje pomocnika umożliwiające partnerom odczytywanie poświadczeń z właściwości działania. Więcej informacji znajdziesz [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
 
 Okres istnienia pliku jest tylko podczas wykonywania kodu platformy Docker i zostanie usunięty po zakończeniu przebiegu platformy Docker.
 
@@ -95,10 +95,10 @@ Aby uzyskać więcej informacji na temat działania potoków i działań usługi
 
 Poniżej znajdują się najczęstsze nagłówki żądań, które należy określić podczas wywołania interfejsu API do FarmBeats.
 
-**Nagłówek** | **Opis i przykład**
+**Nagłówki** | **Opis i przykład**
 --- | ---
 Content-Type | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
-Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
+Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <okaziciela Access-Token>
 Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API FarmBeats Datahub format jest JSON. Akceptuj: Application/JSON
 
 ## <a name="data-format"></a>Format danych
@@ -249,7 +249,7 @@ Na przykład Oto komunikat telemetrii:
 
 Ponieważ zadanie partnerskie zostanie uruchomione w istniejącej platformie zadań — błędy są rejestrowane w taki sam sposób jak błędy innych wstępnie istniejących zadań w FarmBeats (na przykład GetFarmData, SensorPlacement itp.). Działanie usługi ADF uruchomione w ramach potoku APD rejestruje zarówno STDERR, jak i STDOUT. Oba pliki są dostępne na koncie magazynu "datahublogs-XXX" w grupie zasobów FarmBeats.
 
-Biblioteka Datahub zawiera funkcje pomocnika, które umożliwiają rejestrowanie w ramach ogólnych dzienników Datahub. Więcej szczegółów można znaleźć [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
+Biblioteka Datahub zawiera funkcje pomocnika, które umożliwiają rejestrowanie w ramach ogólnych dzienników Datahub. Więcej informacji znajdziesz [tutaj](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
 
 **Opcja rozwiązywania problemów lub pomoc techniczna**
 

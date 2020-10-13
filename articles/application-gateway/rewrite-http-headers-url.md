@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281195"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP i adres URL przy użyciu Application Gateway
 
- Application Gateway pozwala ponownie napisać wybraną zawartość żądań i odpowiedzi. Ta funkcja umożliwia translację adresów URL, parametrów ciągu zapytania oraz modyfikowanie nagłówków żądań i odpowiedzi. Pozwala również dodać warunki, aby upewnić się, że adres URL lub określone nagłówki są zapisywane tylko wtedy, gdy zostaną spełnione określone warunki. Warunki te są oparte na informacjach o żądaniu i odpowiedzi.
+ Application Gateway pozwala ponownie napisać wybraną zawartość żądań i odpowiedzi. Ta funkcja umożliwia translację adresów URL, parametrów ciągu zapytania oraz modyfikowanie nagłówków żądań i odpowiedzi. Pozwala również dodać warunki, aby upewnić się, że adres URL lub określone nagłówki są zapisywane tylko wtedy, gdy zostaną spełnione określone warunki. Te warunki są oparte na informacjach dotyczących żądania i odpowiedzi.
 
 >[!NOTE]
 >Funkcje ponownego zapisywania nagłówków i adresów HTTP są dostępne tylko dla [jednostki SKU Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)
@@ -113,21 +113,21 @@ Brama aplikacji obsługuje następujące zmienne serwera:
 | client_port               | Port klienta.                                             |
 | client_tcp_rtt            | Informacje o połączeniu TCP klienta. Dostępne w systemach obsługujących opcję TCP_INFO gniazda. |
 | client_user               | Gdy używane jest uwierzytelnianie przy użyciu protokołu HTTP, nazwa użytkownika podana na potrzeby uwierzytelniania. |
-| host                      | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` wartość hosta będzie równa`contoso.com` |
+| host                      | W tej kolejności pierwszeństwa: Nazwa hosta w wierszu żądania, nazwa hosta z pola nagłówka żądania hosta lub nazwa serwera zgodna z żądaniem. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` wartość hosta będzie równa `contoso.com` |
 | *nazwa* cookie_             | *Nazwa* pliku cookie.                                           |
 | http_method               | Metoda używana do żądania adresu URL. Na przykład Pobierz lub Opublikuj. |
 | http_status               | Stan sesji. Na przykład 200, 400 lub 403.           |
 | http_version              | Protokół żądania. Zazwyczaj HTTP/1.0, HTTP/1.1 lub HTTP/2.0. |
-| query_string              | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING wartość zostanie`id=123&title=fabrikam` |
+| query_string              | Lista par zmienna/wartość, które następuje po "?" w żądanym adresie URL. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING wartość zostanie `id=123&title=fabrikam` |
 | received_bytes            | Długość żądania (w tym wiersza żądania, nagłówka i treści żądania). |
 | request_query             | Argumenty w wierszu żądania.                           |
 | request_scheme            | Schemat żądania: http lub https.                           |
-| request_uri               | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` REQUEST_URI wartość zostanie`/article.aspx?id=123&title=fabrikam` |
+| request_uri               | Pełny identyfikator URI żądania (z argumentami). Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` REQUEST_URI wartość zostanie `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | Liczba bajtów wysłanych do klienta.                        |
 | server_port               | Port serwera, który zaakceptował żądanie.              |
 | ssl_connection_protocol   | Protokół ustanowionego połączenia TLS.               |
 | ssl_enabled               | "Włączone", jeśli połączenie działa w trybie TLS. W przeciwnym razie pusty ciąg. |
-| uri_path                  | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path wartość zostanie`/article.aspx` |
+| uri_path                  | Identyfikuje określony zasób na hoście, do którego klient sieci Web chce uzyskać dostęp. Jest to część identyfikatora URI żądania bez argumentów. Przykład: w żądaniu `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path wartość zostanie `/article.aspx` |
 
  
 
@@ -211,17 +211,17 @@ Aby wykonać scenariusze, w których chcesz wybrać pulę zaplecza na podstawie 
 
 * Trzecia reguła ma warunek, który sprawdza zmienną *QUERY_STRING* dla *kategorii = Akcesoria* i ma akcję, która ponownie zapisuje ścieżkę URL do/*listing3* i ma włączoną **ponowną ocenę mapy ścieżki**
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
 
  
 
 **Krok 2 (b):** Skojarz ten zestaw ponownie z domyślną ścieżką powyższej reguły opartej na ścieżce
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
 
 Teraz, jeśli użytkownik zażąda *contoso.com/Listing?Category=any*, zostanie dopasowany do ścieżki domyślnej, ponieważ żaden z wzorców ścieżki w mapie ścieżki (/listing1,/listing2,/listing3) nie będzie zgodny. Ze względu na to, że powyższy Zestaw wielokrotnego zapisu zostanie skojarzony z tą ścieżką, ten zestaw do ponownego zapisu zostanie obliczony. Ponieważ ciąg zapytania nie będzie pasował do warunku w żadnej z trzech reguł ponownego zapisywania w tym zestawie wielokrotnego zapisu, nie zostanie wykonana żadna akcja ponownego zapisywania, w związku z czym żądanie zostanie przesłane bez zmian do zaplecza skojarzonego z ścieżką domyślną (czyli *GenericList*).
 
- Jeśli użytkownik zażąda *contoso.com/Listing?Category=Shoes,* wówczas zostanie dopasowana ścieżka domyślna. Jednak w tym przypadku warunek w pierwszej regule będzie pasować i w związku z tym Akcja skojarzona z warunkiem zostanie wykonana, co spowoduje ponowne zapisanie ścieżki adresu URL do/*listing1* i ponowną ocenę mapy ścieżki. Gdy mapa ścieżki zostanie ponownie oceniona, żądanie będzie teraz zgodne ze ścieżką skojarzoną ze wzorcem */listing1* , a żądanie zostanie przekazane do zaplecza skojarzonego z tym wzorcem, który jest ShoesListBackendPool
+ Jeśli użytkownik zażąda *contoso.com/Listing?Category=Shoes,* wówczas zostanie dopasowana ścieżka domyślna. Jednak w tym przypadku warunek w pierwszej regule będzie pasować i w związku z tym Akcja skojarzona z warunkiem zostanie wykonana, co spowoduje ponowne zapisanie ścieżki adresu URL do/*listing1*  i ponowną ocenę mapy ścieżki. Gdy mapa ścieżki zostanie ponownie oceniona, żądanie będzie teraz zgodne ze ścieżką skojarzoną ze wzorcem */listing1* , a żądanie zostanie przekazane do zaplecza skojarzonego z tym wzorcem, który jest ShoesListBackendPool
 
 >[!NOTE]
 >Ten scenariusz można rozszerzyć do dowolnej wartości nagłówka lub pliku cookie, ścieżki URL, ciągu zapytania lub zmiennych serwerowych na podstawie warunku zdefiniowanego, a w praktyce pozwala na kierowanie żądań na podstawie tych warunków.
@@ -232,13 +232,13 @@ Rozważmy scenariusz witryny internetowej do kupowania, gdzie link widoczny dla 
 
 W takim przypadku Application Gateway może przechwytywać parametry z adresu URL i dodawać pary klucz-wartość ciągu zapytania z adresów URL. Załóżmy na przykład, że użytkownik chce ponownie napisać, `https://www.contoso.com/fashion/shirts` Aby `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` można go było osiągnąć za pomocą następującej konfiguracji ponownego zapisywania adresu URL.
 
-**Warunek** — Jeśli zmienna serwera `uri_path` jest równa wzorzec`/(.+)/(.+)`
+**Warunek** — Jeśli zmienna serwera `uri_path` jest równa wzorzec `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenariusz ponownego zapisywania adresów URL 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
 
-**Akcja** — Ustaw ścieżkę adresu URL `buy.aspx` i ciąg zapytania do`category={var_uri_path_1}&product={var_uri_path_2}`
+**Akcja** — Ustaw ścieżkę adresu URL `buy.aspx` i ciąg zapytania do `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
 
 Aby zapoznać się ze scenariuszem krok po kroku w celu osiągnięcia opisanego powyżej scenariusza, zobacz [Zapisywanie adresu URL za pomocą Application Gateway przy użyciu Azure Portal](rewrite-url-portal.md)
 
@@ -248,11 +248,11 @@ W przypadku ponownego zapisywania adresu URL Application Gateway ponownie zapisu
 
 W przypadku przekierowania adresu URL Application Gateway wysyła odpowiedź przekierowania do klienta z nowym adresem URL. Z kolei program wymaga od klienta ponownego wysłania żądania do nowego adresu URL podanego w przekierowaniu. Adres URL widziany przez użytkownika w przeglądarce zostanie zaktualizowany do nowego adresu URL
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Zapisz ponownie a przekierowanie a.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Scenariusz ponownego zapisywania adresów URL 1-1.":::
 
 ## <a name="limitations"></a>Ograniczenia
 
-- Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Może to być spowodowane zwykle z nagłówkiem Set-cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Ponowne zapisanie jednego z nagłówków zestawu plików cookie w tym scenariuszu może spowodować usunięcie innego nagłówka deplika cookie z odpowiedzi.
+- Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Zwykle może się to zdarzyć z nagłówkiem Set-Cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-Cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Ponowne napisanie jednego z nagłówków Set-Cookie w tym scenariuszu może spowodować usunięcie innego nagłówka Set-Cookie z odpowiedzi.
 - Ponowne zapisywanie nie jest obsługiwane, gdy Brama aplikacji jest skonfigurowana do przekierowywania żądań lub wyświetlania niestandardowej strony błędu.
 - Nazwy nagłówków mogą zawierać dowolne znaki alfanumeryczne i określone symbole, zgodnie z definicją w [dokumencie RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Obecnie nie obsługujemy znaku podkreślenia (_) w nazwach nagłówków.
 - Nie można ponownie zapisać nagłówków połączeń i uaktualnień

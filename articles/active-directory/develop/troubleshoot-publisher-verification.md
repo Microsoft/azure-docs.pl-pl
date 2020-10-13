@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256895"
+ms.locfileid: "91873153"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -58,7 +58,7 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
     Rejestracje aplikacji mogły zostać utworzone przy użyciu innego konta użytkownika w tej dzierżawie, konta osobistego/konsumenta lub w innej dzierżawie. Upewnij się, że zalogowano się przy użyciu odpowiedniego konta w dzierżawie, w którym zostały utworzone rejestracje aplikacji.
 
 - **Otrzymuję błąd związany z uwierzytelnianiem wieloskładnikowym. Co mam zrobić?** 
-    Upewnij się, że [uwierzytelnianie wieloskładnikowe](../fundamentals/concept-fundamentals-mfa-get-started.md) jest włączone i wymagane dla użytkownika, za pomocą którego logujesz się w tym scenariuszu. Na przykład uwierzytelnianie wieloskładnikowe może być następujące:
+    Upewnij się, że [uwierzytelnianie wieloskładnikowe](../fundamentals/concept-fundamentals-mfa-get-started.md) jest włączone i **wymagane** dla użytkownika, za pomocą którego logujesz się w tym scenariuszu. Na przykład uwierzytelnianie wieloskładnikowe może być następujące:
     - Zawsze wymagane dla użytkownika, za pomocą którego się logujesz
     - [Wymagane do zarządzania platformą Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Wymagane dla typu administratora](../conditional-access/howto-conditional-access-policy-admin-mfa.md) , za pomocą którego się logujesz.
@@ -226,7 +226,9 @@ Ta funkcja nie jest obsługiwana w przypadku kont użytkowników Microsoft. Obs�
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Występuje, gdy nie wykonano uwierzytelniania wieloskładnikowego przed podjęciem próby dodania zweryfikowanego wydawcy do aplikacji. Aby uzyskać więcej informacji, zobacz [typowe problemy](#common-issues) .
+Występuje, gdy nie wykonano uwierzytelniania wieloskładnikowego przed podjęciem próby dodania zweryfikowanego wydawcy do aplikacji. Aby uzyskać więcej informacji, zobacz [typowe problemy](#common-issues) . Uwaga: usługi MFA należy wykonać w tej samej sesji podczas próby dodania zweryfikowanego wydawcy. Jeśli funkcja MFA jest włączona, ale nie jest wymagana do wykonania w sesji, żądanie zakończy się niepowodzeniem.   
+
+Wyświetlany jest komunikat o błędzie: "z powodu zmiany konfiguracji wprowadzonej przez administratora lub przeniesiono ją do nowej lokalizacji, należy użyć uwierzytelniania wieloskładnikowego, aby przejść do".
 
 ## <a name="next-steps"></a>Następne kroki
 

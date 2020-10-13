@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600801"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cztery kroki do silnej wersji programu Identity Foundation z Azure Active Directory
@@ -131,7 +131,7 @@ W dzisiejszym, cyfrowym miejscu pracy należy zrównoważyć bezpieczeństwo i z
 
 W tej sekcji przedstawiono zalecenia dotyczące usuwania problemów z organizacji przez umożliwienie użytkownikom pozostałej czujność.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>Włącz Samoobsługowe resetowanie haseł dla wszystkich użytkowników
+### <a name="enable-self-service-password-reset-for-all-users"></a>Włącz Resetowanie hasła Self-Service dla wszystkich użytkowników
 
 Funkcja samoobsługowego [resetowania haseł](../authentication/tutorial-enable-sspr.md) (SSPR) na platformie Azure zapewnia administratorom IT prosty sposób, aby użytkownicy mogli resetować i odblokowywać hasła lub konta bez interwencji administratora. System obejmuje szczegółowe raporty pozwalające śledzić, kiedy użytkownicy korzystają z systemu, oraz powiadomienia ostrzegające o jego nieprawidłowym użyciu lub nadużyciach związanych z zabezpieczeniami.
 
@@ -147,7 +147,7 @@ Podobnie można użyć raportu samoobsługowego [zarządzania hasłami](../authe
 
 ### <a name="self-service-app-management"></a>Samoobsługowe zarządzanie aplikacjami
 
-Zanim użytkownicy będą mogli automatycznie wykrywać aplikacje z poziomu ich panelu dostępu, musisz włączyć [dostęp do aplikacji samoobsługowej](../manage-apps/access-panel-manage-self-service-access.md) do wszystkich aplikacji, które mają pozwolić użytkownikom na samodzielne odnajdowanie i żądać dostępu do programu. Samoobsługowy dostęp do aplikacji to doskonały sposób na umożliwienie użytkownikom samodzielnego odnajdywania aplikacji i opcjonalnie Zezwalanie grupie biznesowej na zatwierdzanie dostępu do tych aplikacji. Można zezwolić grupie biznesowej na zarządzanie poświadczeniami przypisanymi do tych użytkowników w celu logowania jednokrotnego [w aplikacjach](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) bezpośrednio z poziomu panelu dostępu.
+Zanim użytkownicy będą mogli automatycznie wykrywać aplikacje z poziomu ich panelu dostępu, musisz włączyć [dostęp do aplikacji samoobsługowej](../manage-apps/access-panel-manage-self-service-access.md) do wszystkich aplikacji, które mają pozwolić użytkownikom na samodzielne odnajdowanie i żądać dostępu do programu. Samoobsługowy dostęp do aplikacji to doskonały sposób na umożliwienie użytkownikom samodzielnego odnajdywania aplikacji i opcjonalnie Zezwalanie grupie biznesowej na zatwierdzanie dostępu do tych aplikacji. Możesz zezwolić grupie biznesowej na zarządzanie poświadczeniami przypisanymi do tych użytkowników, aby [hasła Single-Sign w aplikacjach](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) bezpośrednio z poziomu panelu dostępu.
 
 ### <a name="self-service-group-management"></a>Samoobsługowe zarządzanie grupami
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027447"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacjonalizować platformy Spark — skompilowane modele uczenia maszynowego
@@ -86,7 +86,7 @@ datetime.datetime.now()
 
 DateTime. DateTime (2016, 4, 25, 23, 56, 19, 229403)
 
-### <a name="import-libraries"></a>Importuj biblioteki
+### <a name="import-libraries"></a>Importowanie bibliotek
 Ustaw kontekst platformy Spark i zaimportuj niezbędne biblioteki o następujący kod
 
 ```python
@@ -115,7 +115,7 @@ Jądra PySpark, które są dostarczane z notesami Jupyter, mają kontekst predef
 Jądro PySpark zawiera wstępnie zdefiniowane "MAGICS", które są poleceniami specjalnymi, które można wywołać za pomocą%%. Istnieją dwa takie polecenia, które są używane w tych przykładach kodu.
 
 * **%% lokalne** Określono, że kod w kolejnych wierszach jest wykonywany lokalnie. Kod musi być prawidłowym kodem w języku Python.
-* **%% SQL-o\<variable name>** 
+* **%% SQL-o \<variable name>** 
 * Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
 
 Aby uzyskać więcej informacji na temat jądra dla notesów Jupyter oraz wstępnie zdefiniowanych "magicznych", zobacz [jądra dostępne dla notesów Jupyter z klastrami usługi HDInsight Spark Linux w usłudze HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).

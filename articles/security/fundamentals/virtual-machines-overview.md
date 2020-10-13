@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86229367"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Omówienie zabezpieczeń usługi Azure Virtual Machines
@@ -116,7 +116,7 @@ Site Recovery:
 
 Więcej informacji:
 
-* [Co to jest Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
+* [Co to jest usługa Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
 * [W jaki sposób działa usługa Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
 * [Jakie obciążenia są chronione przez Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
@@ -160,7 +160,7 @@ Więcej informacji:
 
 Chociaż dane poufne nie są technicznie częścią zabezpieczeń maszyn wirtualnych, temat zabezpieczeń maszyn wirtualnych należy do podmiotu zabezpieczeń "COMPUTE" wyższego poziomu. Przetwarzanie poufne należy do kategorii zabezpieczeń "obliczeniowe".
 
-Ochrona danych poufnych gwarantuje, że gdy dane są "jasne", co jest wymagane do wydajnego przetwarzania, dane są chronione wewnątrz zaufanego środowiska wykonawczego https://en.wikipedia.org/wiki/Trusted_execution_environment (tee-znanego również jako enklawy), przykładem, który pokazano na poniższym rysunku.  
+Ochrona danych poufnych gwarantuje, że gdy dane są "jasne", co jest wymagane do wydajnego przetwarzania, dane są chronione wewnątrz zaufanego środowiska wykonawczego  https://en.wikipedia.org/wiki/Trusted_execution_environment (tee-znanego również jako enklawy), przykładem, który pokazano na poniższym rysunku.  
 
 TEEs upewnij się, że nie ma sposobu wyświetlania danych lub wykonywania operacji wewnątrz poza programem, nawet z debugerem. Nawet zapewniają, że dostęp do danych jest dozwolony tylko w autoryzowanym kodzie. Jeśli kod zostanie zmieniony lub naruszony, operacje są odrzucane i środowisko wyłączone. TEE wymusza te zabezpieczenia w czasie wykonywania kodu.
 

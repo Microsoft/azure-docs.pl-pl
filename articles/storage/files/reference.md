@@ -8,10 +8,10 @@ ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
 ms.openlocfilehash: cbbd4960a498516182323748e6609b834b1d4884
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90014688"
 ---
 # <a name="azure-files-reference"></a>Dokumentacja usługi Azure Files
@@ -100,7 +100,7 @@ Poniższa lista zawiera linki do bibliotek dla innych języków programowania i 
 - [iOS](https://azure.github.io/azure-storage-ios/)
 - [Android](https://azure.github.io/azure-storage-android)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>Program PowerShell
 
 Poniższa tabela zawiera linki do najnowszej wersji zawartości referencyjnej.
 

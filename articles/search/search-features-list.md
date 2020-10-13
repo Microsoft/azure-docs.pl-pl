@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604193"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Funkcje usługi Azure Wyszukiwanie poznawcze
@@ -70,8 +70,8 @@ Usługa Azure Wyszukiwanie poznawcze udostępnia aparat wyszukiwania pełnotekst
 | Zestaw Azure SDK dla środowiska Python | [**Azure-Search — dokumenty**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme) są przeznaczone dla operacji płaszczyzny danych, w tym wszystkich operacji związanych z indeksowaniem, kwerendami i wzbogacaniem AI. Za pomocą tej biblioteki klienckiej można także pobrać informacje o systemie i statystyki. <br/><br/>[**Azure-zarządzanie — wyszukiwanie**](https://docs.microsoft.com/python/api/overview/azure/search/management) służy do tworzenia i czyszczenia usług za pomocą Azure Resource Manager. Ten interfejs API umożliwia również zarządzanie kluczami i Inicjowanie obsługi administracyjnej usługi. |
 | Zestaw Azure SDK dla języka JavaScript/TypeScript | [**Azure/Search — dokumenty**](https://docs.microsoft.com/javascript/api/@azure/search-documents/) obejmują operacje płaszczyzny danych, w tym wszystkie operacje dotyczące indeksowania, zapytań i wzbogacania AI. Za pomocą tej biblioteki klienckiej można także pobrać informacje o systemie i statystyki. <br/><br/>[**Azure/ARM — wyszukiwanie**](https://docs.microsoft.com/javascript/api/@azure/arm-search/) służy do tworzenia i czyszczenia usług za pomocą Azure Resource Manager. Ten interfejs API umożliwia również zarządzanie kluczami i Inicjowanie obsługi administracyjnej usługi. |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-+ [Co nowego w Wyszukiwanie poznawcze](whats-new.md)
++ [Co nowego w usłudze Cognitive Search](whats-new.md)
 
 + [Funkcje w wersji zapoznawczej w Wyszukiwanie poznawcze](search-api-preview.md)

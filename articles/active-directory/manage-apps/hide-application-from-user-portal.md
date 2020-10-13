@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601143"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Ukryj aplikacje dla przedsiębiorstw od użytkowników końcowych w Azure Active Directory
@@ -40,7 +40,7 @@ Wykonaj następujące kroki, aby ukryć aplikację z poziomu panelu Moje aplikac
 5.  Wyszukaj aplikację, którą chcesz ukryć, a następnie kliknij aplikację.  Zostanie otwarta przegląd aplikacji.
 6.  Kliknij pozycję **Właściwości**. 
 7.  W przypadku pytania **widoczny dla użytkowników** kliknij przycisk **nie**.
-8.  Kliknij pozycję **Zapisz**.
+8.  Kliknij przycisk **Zapisz**.
 
 > [!NOTE]
 > Te instrukcje dotyczą tylko aplikacji dla przedsiębiorstw.
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby ukryć wszystkie Microsoft 365 aplikacje z pozi
 4.  Wybierz pozycję **Ustawienia użytkownika**.
 5.  W obszarze **aplikacje dla przedsiębiorstw**kliknij pozycję **Zarządzaj sposobem uruchamiania i wyświetlania aplikacji przez użytkowników końcowych.**
 6.  Aby **użytkownicy mogli zobaczyć tylko aplikacje pakietu office 365 w portalu pakietu office 365**, kliknij przycisk **tak**.
-7.  Kliknij pozycję **Zapisz**.
+7.  Kliknij przycisk **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zobacz wszystkie moje grupy](../fundamentals/active-directory-groups-view-azure-portal.md)

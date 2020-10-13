@@ -4,13 +4,13 @@ description: Opisuje sposób dostosowywania opcji dostarczania zdarzeń dla Even
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261808"
 ---
-# <a name="set-dead-letter-location-and-retry-policy"></a>Ustaw lokalizację utraconych wiadomości i zasady ponawiania
+# <a name="set-dead-letter-location-and-retry-policy"></a>Ustawianie lokalizacji utraconych komunikatów i zasad ponawiania
 
 Podczas tworzenia subskrypcji zdarzeń można dostosować ustawienia dostarczania zdarzeń. W tym artykule opisano sposób konfigurowania martwej lokalizacji i dostosowywania ustawień ponownych prób. Aby uzyskać informacje o tych funkcjach, zobacz [Event Grid dostarczania komunikatów i ponów próbę](delivery-and-retry.md).
 
@@ -48,7 +48,7 @@ Aby wyłączyć obsługę utraconych wiadomości, należy ponownie uruchomić po
 > [!NOTE]
 > Jeśli używasz interfejsu wiersza polecenia platformy Azure na komputerze lokalnym, powinien on być w wersji co najmniej 2.0.56. Aby uzyskać instrukcje na temat instalowania najnowszej wersji interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 ```azurepowershell-interactive
 $containername = "testcontainer"
@@ -101,7 +101,7 @@ az eventgrid event-subscription create \
 > [!NOTE]
 > Po ustawieniu obu tych opcji `event-ttl` i `max-deliver-attempts` , Event Grid używa pierwszej do wygaśnięcia, aby określić, kiedy należy zatrzymać dostarczanie zdarzeń. Na przykład jeśli ustawisz 30 minut jako czas wygaśnięcia (TTL) i 10 maksymalnej liczby prób dostarczenia. Gdy zdarzenie nie zostanie dostarczone po 30 minutach (lub) nie zostanie dostarczone po 10 próbach, w zależności od tego, gdy wystąpi pierwsze, zdarzenie zostanie utracone.  
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 Aby ustawić czas wygaśnięcia zdarzenia na żywo na wartość inną niż 1440 minut, użyj:
 

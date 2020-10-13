@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836109"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
@@ -195,14 +195,6 @@ _**Narzędzie**_
 Nie jest konieczne ponowne uruchomienie maszyny wirtualnej w celu skonfigurowania podsieci dla zasobu bramy translatora adresów sieciowych.  Jeśli jednak maszyna wirtualna jest ponownie uruchamiana, stan połączenia jest opróżniany.  Gdy stan połączenia został opróżniony, wszystkie połączenia rozpoczną korzystanie z adresów IP (y) zasobów bramy translatora adresów sieciowych.  Jest to jednak efekt uboczny maszyny wirtualnej, która jest uruchamiana ponownie, a nie wskaźnik, że wymagane jest ponowne uruchomienie.
 
 Jeśli nadal występują problemy, otwórz sprawę pomocy technicznej, aby uzyskać dalsze Rozwiązywanie problemów.
-
-### <a name="connection-setup-time"></a>Czas konfiguracji połączenia
-
-Ponieważ Load Balancer reguły ruchu wychodzącego statycznie przypisuje pule portów protokołu przesyłania strumieniowego do określonych maszyn wirtualnych, tworzenie nowych przepływów wychodzących jest szybsze niż przy użyciu Virtual Network NAT. W związku z tym po przełączeniu się z Load Balancer regułami wychodzącymi może wystąpić zwiększone opóźnienie podczas tworzenia nowego połączenia wychodzącego. Jak wyjaśniono wcześniej, aby zmaksymalizować wydajność aplikacji, należy użyć przepływów długotrwałych (na przykład ponownego użycia połączeń TCP).
-
-_**Narzędzie**_
-
-Jeśli jesteś głównie zainteresowani minimalnym opóźnieniem instalacji połączenia, użyj Load Balancer reguł ruchu wychodzącego.
 
 ## <a name="next-steps"></a>Następne kroki
 

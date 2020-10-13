@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271845"
 ---
 # <a name="retrieve-a-specific-offer"></a>Pobierz konkretną ofertę
@@ -39,14 +39,14 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 
 | **Nazwa**    | **Opis**                                                                          | **Typ danych** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Na przykład contoso                                                        | String        |
-| offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | String        |
-| version     | Wersja pobranej oferty. Domyślnie pobierana jest Najnowsza wersja oferty. | Integer       |
-| slotId      | Gniazdo, z którego ma zostać pobrana oferta, może być jedną z:      <br/>  - `Draft`(domyślnie) Pobiera wersję oferty aktualnie w wersji roboczej.  <br/>  -  `Preview`Pobiera wersję oferty aktualnie w wersji zapoznawczej.     <br/>  -  `Production`Pobiera wersję oferty aktualnie w środowisku produkcyjnym.          |      enum |
-| api-version | Najnowsza wersja interfejsu API                                                                    | Data          |
+| publisherId | publisherId. Na przykład contoso                                                        | Ciąg        |
+| offerId     | Identyfikator GUID, który jednoznacznie identyfikuje ofertę.                                                 | Ciąg        |
+| Wersja     | Wersja pobranej oferty. Domyślnie pobierana jest Najnowsza wersja oferty. | Liczba całkowita       |
+| slotId      | Gniazdo, z którego ma zostać pobrana oferta, może być jedną z:      <br/>  - `Draft` (domyślnie) Pobiera wersję oferty aktualnie w wersji roboczej.  <br/>  -  `Preview` Pobiera wersję oferty aktualnie w wersji zapoznawczej.     <br/>  -  `Production` Pobiera wersję oferty aktualnie w środowisku produkcyjnym.          |      enum |
+| api-version | Najnowsza wersja interfejsu API                                                                    | Date          |
 |  |  |  |
 
-## <a name="header"></a>Nagłówek
+## <a name="header"></a>Header
 
 |  **Nazwa**          |   **Wartość**            |
 |  ---------------   |  --------------        |
@@ -56,7 +56,7 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 
 ## <a name="body-example"></a>Przykład treści
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 ``` json
 {
@@ -177,7 +177,7 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  publisherId    | Unikatowy identyfikator wydawcy                                                                                              |
 |  status         | Stan oferty. Aby uzyskać listę możliwych wartości, zobacz temat [status oferty](#offer-status) poniżej.                                  |
 |  Id             | Identyfikator GUID, który jednoznacznie identyfikuje ofertę                                                                                         |
-|  version        | Bieżąca wersja oferty. Nie można zmodyfikować właściwości Version przez klienta. Zwiększa się po każdej publikacji.    |
+|  Wersja        | Bieżąca wersja oferty. Nie można zmodyfikować właściwości Version przez klienta. Zwiększa się po każdej publikacji.    |
 |  definicja     | Rzeczywista definicja obciążenia                                                                                               |
 |  changedTime    | Data i godzina UTC ostatniej modyfikacji oferty                                                                                   |
 |  |  |
@@ -186,10 +186,10 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 
 | **Kod**  | **Opis**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`-Żądanie zostało pomyślnie przetworzone i wszystkie oferty w ramach wydawcy zostały zwrócone do klienta.               |
-|  400      | `Bad/Malformed request`-Treść odpowiedzi błędu może zawierać więcej informacji.                                                 |
-|  403      | `Forbidden`-Klient nie ma dostępu do określonego obszaru nazw.                                                        |
-|  404      | `Not found`-Określona jednostka nie istnieje. Klient powinien sprawdzić publisherId, offerId i wersję (jeśli jest określona).      |
+|  200      | `OK` -Żądanie zostało pomyślnie przetworzone i wszystkie oferty w ramach wydawcy zostały zwrócone do klienta.               |
+|  400      | `Bad/Malformed request` -Treść odpowiedzi błędu może zawierać więcej informacji.                                                 |
+|  403      | `Forbidden` -Klient nie ma dostępu do określonego obszaru nazw.                                                        |
+|  404      | `Not found` -Określona jednostka nie istnieje. Klient powinien sprawdzić publisherId, offerId i wersję (jeśli jest określona).      |
 |  |  |
 
 ### <a name="offer-status"></a>Stan oferty
@@ -199,8 +199,8 @@ Możesz również pobrać określoną wersję oferty lub pobrać ofertę w gniaz
 |  NeverPublished             | Oferta nie została nigdy opublikowana.               |
 |  NotStarted                 | Oferta jest nowa, ale nie została uruchomiona.              |
 |  WaitingForPublisherReview  | Oferta oczekuje na zatwierdzenie przez wydawcę.      |
-|  Uruchomiono                    | Przesyłanie oferty jest przetwarzane.          |
-|  Powodzenie                  | Przesyłanie oferty zostało zakończone.    |
+|  Uruchomienie                    | Przesyłanie oferty jest przetwarzane.          |
+|  Sukces                  | Przesyłanie oferty zostało zakończone.    |
 |  Anulowane                   | Przesyłanie oferty zostało anulowane.                |
 |  Niepowodzenie                     | Nie można przesłać oferty.                      |
 |  |  |

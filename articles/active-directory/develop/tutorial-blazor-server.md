@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611475"
+ms.locfileid: "91873187"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Samouczek: Tworzenie aplikacji serwera Blazor, która używa platformy tożsamości firmy Microsoft do uwierzytelniania
 
 Serwer Blazor zapewnia obsługę hostingu składników Razor na serwerze w aplikacji ASP.NET Core. W tym samouczku dowiesz się, jak zaimplementować uwierzytelnianie i pobrać dane z Microsoft Graph w aplikacji Blazor Server przy użyciu platformy tożsamości firmy Microsoft.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Utwórz nową aplikację serwera Blazor skonfigurowaną do korzystania z Azure Active Directory (Azure AD) na potrzeby uwierzytelniania
@@ -84,7 +84,7 @@ W przeglądarce przejdź do `https://localhost:5001` i zaloguj się przy użyciu
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Pobieranie danych z Microsoft Graph
 
-[Microsoft Graph](/graph/overview) oferuje szereg interfejsów API, które zapewniają dostęp do danych Microsoft 365 użytkownika. Korzystając z platformy tożsamości firmy Microsoft jako dostawcy tożsamości dla aplikacji, możesz łatwiej uzyskać dostęp do tych informacji, ponieważ Microsoft Graph bezpośrednio obsługiwać tokeny wystawione przez platformę tożsamości firmy Microsoft. W tej sekcji dodasz kod, który umożliwia wyświetlenie wiadomości e-mail zalogowanego użytkownika na stronie "pobieranie danych" aplikacji.
+[Microsoft Graph](/graph/overview) oferuje szereg interfejsów API, które zapewniają dostęp do danych Microsoft 365 użytkownika. Korzystając z platformy tożsamości firmy Microsoft jako dostawcy tożsamości dla aplikacji, możesz łatwiej uzyskać dostęp do tych informacji, ponieważ Microsoft Graph bezpośrednio obsługiwać tokeny wystawione przez platformę tożsamości firmy Microsoft. W tej sekcji dodasz kod umożliwiający wyświetlenie wiadomości e-mail zalogowanego użytkownika na stronie "pobieranie danych" aplikacji.
 
 Przed rozpoczęciem Wyloguj się z aplikacji, ponieważ będziesz wprowadzać zmiany w wymaganych uprawnieniach, a bieżący token nie będzie działać. Jeśli jeszcze tego nie zrobiono, uruchom ponownie aplikację i wybierz opcję **Wyloguj** się przed aktualizacją poniższego kodu.
 

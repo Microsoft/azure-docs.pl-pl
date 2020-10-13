@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514573"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Zdalne nawiązywanie połączenia z urządzeniem z serii StorSimple 8000
@@ -66,9 +66,9 @@ Aby włączyć zdalne zarządzanie, wykonaj następujące czynności w konsoli s
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Aby włączyć zdalne zarządzanie za pomocą konsoli szeregowej urządzenia
 1. W menu konsoli szeregowej wybierz opcję 1. Aby uzyskać więcej informacji o korzystaniu z konsoli szeregowej na urządzeniu, przejdź do pozycji [Połącz z program Windows PowerShell dla usługi StorSimple za pomocą konsoli szeregowej urządzenia](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. W wierszu polecenia wpisz:`Enable-HcsRemoteManagement –AllowHttp`
+2. W wierszu polecenia wpisz: `Enable-HcsRemoteManagement –AllowHttp`
 3. Zostanie wyświetlony monit o luki w zabezpieczeniach dotyczące korzystania z protokołu HTTP w celu nawiązania połączenia z urządzeniem. Po wyświetleniu monitu potwierdź, wpisując **Y**.
-4. Sprawdź, czy protokół HTTP jest włączony, wpisując:`Get-HcsSystem`
+4. Sprawdź, czy protokół HTTP jest włączony, wpisując: `Get-HcsSystem`
 5. Sprawdź, czy pole **RemoteManagementMode** zawiera **HttpsAndHttpEnabled**. Na poniższej ilustracji przedstawiono te ustawienia w temacie.
    
      ![Porty HTTPS i HTTP włączone](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
@@ -189,7 +189,7 @@ Poniżej opisano każdą z tych procedur.
 3. Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie kliknij przycisk **Przeglądaj**. Przejdź do głównego magazynu hosta zdalnego, a następnie kliknij przycisk **Dalej**.
    
     ![Kreator importu certyfikatów 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Kliknij przycisk **Zakończ**. Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
+4. Kliknij przycisk **Finish** (Zakończ). Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
    
     ![Kreator importu certyfikatów 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 

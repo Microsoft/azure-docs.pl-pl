@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833557"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Jak tworzyć środowisko ASE wewnętrznego modułu równoważenia przy użyciu szablonów usługi Azure Resource Manager
@@ -88,7 +88,7 @@ Parametry w *azuredeploy.parameters.jsw* pliku są wymienione poniżej:
 * *pfxBlobString*: based64 zakodowany ciąg reprezentacji pliku PFX.  Korzystając z podanego wcześniej fragmentu kodu, skopiuj ciąg zawarty w pliku "exportedcert. pfx. B64" i wklej go jako wartość atrybutu *pfxBlobString* .
 * *hasło*: hasło użyte do zabezpieczenia pliku PFX.
 * *certificateThumbprint*: odcisk palca certyfikatu.  Jeśli ta wartość zostanie pobrana z programu PowerShell (np. *$Certificate. Odcisk palca* ze starszego fragmentu kodu), można użyć wartości jako-is.  Jednakże w przypadku skopiowania wartości z okna dialogowego certyfikat systemu Windows należy pamiętać, aby rozdzielić spacje.  *CertificateThumbprint* powinien wyglądać następująco: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*: przyjazny identyfikator ciągu używany do wybrania tożsamości certyfikatu.  Nazwa jest używana jako część unikatowego identyfikatora Azure Resource Manager jednostki *Microsoft. Web/Certificates* reprezentującej certyfikat TLS/SSL.  Nazwa **musi** kończyć się następującym sufiksem: \_ yourASENameHere_InternalLoadBalancingASE.  Ten sufiks jest używany przez portal jako wskaźnik, którego certyfikat jest używany do zabezpieczania środowiska ASE z włączoną obsługą ILB.
+* *certificateName*: przyjazny identyfikator ciągu używany do wybrania tożsamości certyfikatu.  Nazwa jest używana jako część unikatowego identyfikatora Azure Resource Manager jednostki *Microsoft. Web/Certificates* reprezentującej certyfikat TLS/SSL.  Nazwa **musi** kończyć się następującym sufiksem:  \_ yourASENameHere_InternalLoadBalancingASE.  Ten sufiks jest używany przez portal jako wskaźnik, którego certyfikat jest używany do zabezpieczania środowiska ASE z włączoną obsługą ILB.
 
 Poniżej przedstawiono skrócony *azuredeploy.parameters.jsna* poniższym przykładzie:
 
