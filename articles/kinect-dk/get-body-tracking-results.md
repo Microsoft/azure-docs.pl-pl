@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: urządzenia Kinect, Azure, czujnik, zestaw SDK, treść, śledzenie, wspólne
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277558"
 ---
 # <a name="get-body-tracking-results"></a>Pobieranie wyników śledzenia ciała
@@ -50,7 +50,7 @@ if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, tracker_co
 Przechwytywanie obrazów przy użyciu usługi Azure urządzenia Kinect DK jest omówione na stronie [pobieranie obrazów](retrieve-images.md) .
 
 >[!NOTE]
-> `K4A_DEPTH_MODE_NFOV_UNBINNED`lub `K4A_DEPTH_MODE_WFOV_2X2BINNED` tryby są zalecane w celu uzyskania najlepszej wydajności i dokładności. Nie używaj `K4A_DEPTH_MODE_OFF` `K4A_DEPTH_MODE_PASSIVE_IR` trybów ani.
+> `K4A_DEPTH_MODE_NFOV_UNBINNED` lub `K4A_DEPTH_MODE_WFOV_2X2BINNED` tryby są zalecane w celu uzyskania najlepszej wydajności i dokładności. Nie używaj `K4A_DEPTH_MODE_OFF` `K4A_DEPTH_MODE_PASSIVE_IR` trybów ani.
 
 Obsługiwane tryby usługi Azure urządzenia Kinect DK są opisane w [specyfikacji sprzętowej](hardware-specification.md) [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) i wyliczeń platformy Azure urządzenia Kinect DK.
 

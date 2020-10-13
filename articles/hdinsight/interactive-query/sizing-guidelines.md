@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83664935"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Przewodnik dotyczący ustalania wielkości klastra interakcyjnego zapytania w usłudze Azure HDInsight
@@ -75,13 +75,13 @@ Domyślny klaster usługi HDInsight ma cztery demoy LLAP uruchomione w czterech 
 
 ### <a name="tezamresourcememorymb-hivetezcontainersize"></a>tez. am. Resource. Memory. MB, Hive. tez. Container. size
 
-`tez.am.resource.memory.mb`definiuje rozmiar główny aplikacji tez.  
+`tez.am.resource.memory.mb` definiuje rozmiar główny aplikacji tez.  
 Zalecana wartość to **4096 MB**.
 
-`hive.tez.container.size`definiuje ilość pamięci podaną dla kontenera tez. Ta wartość musi być ustawiona między minimalnym rozmiarem kontenera PRZĘDZy ( `yarn.scheduler.minimum-allocation-mb` ) i maksymalnym rozmiarem kontenera przędzy ( `yarn.scheduler.maximum-allocation-mb` ).  
+`hive.tez.container.size` definiuje ilość pamięci podaną dla kontenera tez. Ta wartość musi być ustawiona między minimalnym rozmiarem kontenera PRZĘDZy ( `yarn.scheduler.minimum-allocation-mb` ) i maksymalnym rozmiarem kontenera przędzy ( `yarn.scheduler.maximum-allocation-mb` ).  
 Zalecane jest ustawienie wartości **4096 MB**.  
 
-Ogólna zasada polega na tym, że jest ona mniejsza niż ilość pamięci na procesor, biorąc pod uwagę jeden procesor na kontener. `Rreserve`pamięć dla liczby tez AMs w węźle przed pokazaniem pamięci do demona LLAP. Na przykład jeśli używasz dwóch tez AMs (4 GB każdego) na węzeł, Zapewnij 82 GB z 90 GB dla demona LLAP z zachowaniem 8 GB dla dwóch tez AMs.
+Ogólna zasada polega na tym, że jest ona mniejsza niż ilość pamięci na procesor, biorąc pod uwagę jeden procesor na kontener. `Rreserve` pamięć dla liczby tez AMs w węźle przed pokazaniem pamięci do demona LLAP. Na przykład jeśli używasz dwóch tez AMs (4 GB każdego) na węzeł, Zapewnij 82 GB z 90 GB dla demona LLAP z zachowaniem 8 GB dla dwóch tez AMs.
 
 ### <a name="yarnschedulercapacityrootllapcapacity"></a>przędzy. Scheduler. pojemność. root. llap. Pojemność
 

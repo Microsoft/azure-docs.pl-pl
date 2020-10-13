@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628421"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Rozmieszczenie grupy serwerów PostgreSQL na platformie Azure z włączonym łukiem
@@ -121,7 +121,7 @@ Containers:
 
 Każdy element, który jest częścią usługi Azure ARC z włączoną obsługą PostgreSQL w ramach grupy serwerów, obsługuje następujące trzy kontenery:
 
-|Kontenery|Opis
+|Containers|Opis
 |----|----|
 |`Fluentbit` |Dane * moduł zbierający dzienniki: https://fluentbit.io/
 |`Postgres`|Część PostgreSQL wystąpienia usługi Azure ARC z włączoną grupą serwerów PosgreSQL do skalowania

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628217"
 ---
 # <a name="spatial-analysis-operations"></a>Operacje analizy przestrzennej
 
-Analiza przestrzenna umożliwia analizę wideo przesyłania strumieniowego w czasie rzeczywistym z urządzeń kamer. Dla każdego skonfigurowanego urządzenia z kamerą operacje związane z analizą przestrzenną spowodują wygenerowanie strumienia wyjściowego komunikatów JSON wysyłanych do wystąpienia usługi Azure IoT Hub. 
+Analiza przestrzenna analizowanie wideo przesyłanego strumieniowo w czasie rzeczywistym z urządzeń typu kamery. Dla każdego skonfigurowanego urządzenia kamery operacje analizy przestrzennej spowodują wygenerowanie strumienia wyjściowego komunikatów JSON wysyłanych do wystąpienia usługi Azure IoT Hub. 
 
 Kontener analizy przestrzennej implementuje następujące operacje:
 
@@ -304,7 +304,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 }
 ```
 
-| Nazwa pola zdarzenia | Typ| Opis|
+| Nazwa pola zdarzenia | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -316,7 +316,7 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 | `trigger` | ciąg| Typ wyzwalacza to "Event" lub "Interval" w zależności od wartości `trigger` w SPACEANALYTICS_CONFIG|
 
-| Nazwa pola wykrywania | Typ| Opis|
+| Nazwa pola wykrywania | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -325,10 +325,10 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
 
-| Nazwa pola SourceInfo | Typ| Opis|
+| Nazwa pola SourceInfo | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -338,10 +338,10 @@ Przykładowy kod JSON dla zdarzenia danych wyjściowych przez tę operację.
 | `focalLength` | float | Długość Ogniskowa aparatu (w pikselach). Ta funkcja jest wywnioskowana z autokalibracji. |
 | `tiltUpAngle` | float | Kąt pochylenia aparatu w pionie. Ta funkcja jest wywnioskowana z autokalibracji.|
 
-| Nazwa pola SourceInfo | Typ| Opis|
+| Nazwa pola SourceInfo | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -399,7 +399,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
     "schemaVersion": "1.0"
 }
 ```
-| Nazwa pola zdarzenia | Typ| Opis|
+| Nazwa pola zdarzenia | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -409,7 +409,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `status` | ciąg| Kierunek skrzyżowań linii, "CrossLeft" lub "CrossRight"|
 | `zone` | ciąg | Pole "name" w wierszu, który został przekreślony|
 
-| Nazwa pola wykrywania | Typ| Opis|
+| Nazwa pola wykrywania | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -418,10 +418,10 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `points` |  — kolekcja| Górny lewy i prawy dolny punkt, gdy typ regionu to prostokąt |
 | `confidence` | float| Zaufanie algorytmu|
 
-| Nazwa pola SourceInfo | Typ| Opis|
+| Nazwa pola SourceInfo | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|
@@ -484,7 +484,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 }
 ```
 
-| Nazwa pola zdarzenia | Typ| Opis|
+| Nazwa pola zdarzenia | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -494,7 +494,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `status` | ciąg| Kierunek skrzyżowania wielokąta, "Enter" lub "Exit"|
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące przekreśloną strefę|
 
-| Nazwa pola wykrywania | Typ| Opis|
+| Nazwa pola wykrywania | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -595,7 +595,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 }
 ```
 
-| Nazwa pola zdarzenia | Typ| Opis|
+| Nazwa pola zdarzenia | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator zdarzenia|
 | `type` | ciąg| Typ zdarzenia|
@@ -610,7 +610,7 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `zone` | ciąg | Pole "name" wielokąta reprezentujące strefę monitorowaną dla distancing między osobami|
 | `trigger` | ciąg| Typ wyzwalacza to "Event" lub "Interval" w zależności od wartości `trigger` w SPACEANALYTICS_CONFIG|
 
-| Nazwa pola wykrywania | Typ| Opis|
+| Nazwa pola wykrywania | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator wykrywania|
 | `type` | ciąg| Typ wykrywania|
@@ -620,10 +620,10 @@ Przykładowy kod JSON dla wykrywania danych wyjściowych przez tę operację.
 | `confidence` | float| Zaufanie algorytmu|
 | `centerGroundPoint` | 2 wartości zmiennoprzecinkowe| `x`, `y` wartości ze współrzędnymi odwołującej się osoby na ziemi w stawce. `x` jest to odległość od aparatu prostopadle do płaszczyzny obrazu aparatu, która jest rzutowana na ziemię w stawce. `y` jest to odległość od aparatu do warstwy obrazu, która jest rzutowana na ziemię w stawce.|
 
-| Nazwa pola SourceInfo | Typ| Opis|
+| Nazwa pola SourceInfo | Type| Opis|
 |---------|---------|---------|
 | `id` | ciąg| Identyfikator aparatu|
-| `timestamp` | data| Data UTC, kiedy ładunek JSON został emitowany|
+| `timestamp` | date| Data UTC, kiedy ładunek JSON został emitowany|
 | `width` | int | Szerokość ramki wideo|
 | `height` | int | Wysokość ramki wideo|
 | `frameId` | int | Identyfikator ramki|

@@ -10,10 +10,10 @@ ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81732597"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Zestaw SDK urządzeń Azure IoT dla języka C — więcej informacji na temat usługi iothubclient
@@ -256,7 +256,7 @@ Może wydawać się oczywiste, że chcesz użyć **usługi iothubclient \_ Creat
 
 ## <a name="configuration-options"></a>Opcje konfiguracji
 
-Dotychczas wszystkie informacje o sposobie działania biblioteki **usługi iothubclient** odzwierciedlają zachowanie domyślne. Istnieje jednak kilka opcji, które można ustawić, aby zmienić sposób działania biblioteki. Jest to realizowane za pomocą interfejsu API **usługi iothubclient \_ szystkie \_ SetOption** . Rozważmy następujący przykład:
+Dotychczas wszystkie informacje o sposobie działania biblioteki **usługi iothubclient** odzwierciedlają zachowanie domyślne. Istnieje jednak kilka opcji, które można ustawić, aby zmienić sposób działania biblioteki. Jest to realizowane za pomocą interfejsu API **usługi iothubclient \_ szystkie \_ SetOption** . Rozważ taki przykład:
 
 ```C
 unsigned int timeout = 30000;

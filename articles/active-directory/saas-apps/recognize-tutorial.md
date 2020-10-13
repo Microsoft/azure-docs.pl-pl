@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Samouczek: integracja Azure Active Directory z rozpoznawaniem
@@ -73,7 +73,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu rozpoznawania, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Konfigurowanie rozpoznawania logowania](#configure-recognize-single-sign-on)** jednokrotnego — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie rozpoznawania logowania](#configure-recognize-single-sign-on)** jednokrotnego — w celu skonfigurowania pojedynczych ustawień Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Tworzenie rozpoznawania użytkownika testowego](#create-recognize-test-user)** — Aby uzyskać odpowiednik Britta Simon w rozpoznawaniu, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -133,7 +133,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu rozpoznaw
 
     c. Adres URL wylogowywania
 
-### <a name="configure-recognize-single-sign-on"></a>Konfigurowanie rozpoznawania logowania jednokrotnego
+### <a name="configure-recognize-single-sign-on"></a>Konfigurowanie rozpoznawania pojedynczej Sign-On
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej dzierżawy jako administrator.
 
@@ -253,7 +253,7 @@ Po kliknięciu kafelka Rozpoznaj w panelu dostępu należy automatycznie zalogow
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

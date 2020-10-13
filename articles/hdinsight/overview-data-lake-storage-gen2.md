@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82195132"
 ---
 # <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Przegląd Azure Data Lake Storage Gen2 w usłudze HDInsight
@@ -57,11 +57,11 @@ Azure Data Lake Storage Gen2 używa nowego schematu identyfikatora URI do uzyski
 
 Schemat URI zapewnia dostęp szyfrowany przy użyciu protokołu SSL.
 
-`<FILE_SYSTEM_NAME>`Identyfikuje ścieżkę do systemu plików Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>` Identyfikuje ścieżkę do systemu plików Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>`Określa nazwę konta usługi Azure Storage. Wymagana jest w pełni kwalifikowana nazwa domeny (FQDN).
+`<ACCOUNT_NAME>` Określa nazwę konta usługi Azure Storage. Wymagana jest w pełni kwalifikowana nazwa domeny (FQDN).
 
-`<PATH>`jest nazwą ścieżki systemu plików HDFS pliku lub katalogu.
+`<PATH>` jest nazwą ścieżki systemu plików HDFS pliku lub katalogu.
 
 Jeśli wartości dla `<FILE_SYSTEM_NAME>` i `<ACCOUNT_NAME>` nie są określone, używany jest domyślny system plików. Dla plików w domyślnym systemie plików użyj ścieżki względnej lub ścieżki bezwzględnej. Na przykład `hadoop-mapreduce-examples.jar` plik, który jest dostarczany z klastrami usługi HDInsight, może być określony przy użyciu jednej z następujących ścieżek:
 
@@ -77,6 +77,6 @@ Aby uzyskać więcej informacji, zobacz [Korzystanie z identyfikatora URI Azure 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
+* [Wprowadzenie do usługi Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md)
 * [Omówienie usługi Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
