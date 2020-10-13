@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f45e8435ea26e575398801471904b5038a518a44
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78250179"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948837"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Przetestuj interfejs portalu dla Azure Managed Applications
 
@@ -104,4 +104,4 @@ Po zweryfikowaniu, że interfejs portalu działa zgodnie z oczekiwaniami, należ
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zweryfikowaniu interfejsu portalu Dowiedz się więcej o udostępnianiu [aplikacji zarządzanej przez platformę Azure w portalu Marketplace](publish-marketplace-app.md).
+Po zweryfikowaniu interfejsu portalu Dowiedz się więcej o udostępnianiu [aplikacji zarządzanej przez platformę Azure w portalu Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).

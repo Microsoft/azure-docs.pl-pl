@@ -9,10 +9,10 @@ ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716143"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrowanie Azure Data Lake Storage z Gen1 do Gen2
@@ -93,11 +93,11 @@ Po upewnieniu się, że Twoje aplikacje i obciążenia są stabilne w Gen2, moż
 
 W tej tabeli porównano możliwości Gen1 z Gen2.
 
-|Obszar |Gen1   |Gen2 |
+|Warstwowy |Gen1   |Gen2 |
 |---|---|---|
 |Organizacja danych|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa plików i folderów|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa kontenera, plików i folderów |
 |Nadmiarowość geograficzna| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Authentication|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Współużytkowany klucz dostępu](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Uwierzytelnianie|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Współużytkowany klucz dostępu](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autoryzacja|Zarządzanie — kontrola [RBAC na platformie Azure](../../role-based-access-control/overview.md)<br>Dane — [listy ACL](data-lake-storage-access-control.md)|Zarządzanie — kontrola [RBAC platformy Azure](../../role-based-access-control/overview.md)<br>Dane —  [listy kontroli dostępu](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Szyfrowanie — dane przechowywane w spoczynku|Po stronie serwera — z kluczami [zarządzanymi](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) przez [firmę Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub zarządzanymi przez klienta|Po stronie serwera — z kluczami [zarządzanymi](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) przez [firmę Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub zarządzanymi przez klienta|
 |Obsługa sieci wirtualnej|[Integracja z siecią wirtualną](../../data-lake-store/data-lake-store-network-security.md)|[Punkty końcowe usługi](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [prywatne punkty końcowe](../common/storage-private-endpoints.md)|

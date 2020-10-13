@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75649988"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948956"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Konfigurowanie Azure Functions dla dostawców niestandardowych platformy Azure
 
@@ -51,7 +51,7 @@ Aby skonfigurować funkcję platformy Azure w celu uwzględnienia metod żądani
 > [!NOTE]
 > Jeśli w katalogu projektu brakuje pliku projektu C#, można go dodać ręcznie. Lub zostanie on wyświetlony po zainstalowaniu rozszerzenia Microsoft. Azure. WebJobs. Extensions. Storage w aplikacji funkcji.
 
-Następnie zaktualizuj plik projektu C# w celu uwzględnienia przydatnych bibliotek NuGet. Te biblioteki ułatwiają analizowanie przychodzących żądań od dostawców niestandardowych. Postępuj zgodnie z instrukcjami, aby [dodać rozszerzenia z portalu](../../azure-functions/install-update-binding-extensions-manual.md) i zaktualizować plik projektu C# w celu uwzględnienia następujących odwołań do pakietów:
+Następnie zaktualizuj plik projektu C# w celu uwzględnienia przydatnych bibliotek NuGet. Te biblioteki ułatwiają analizowanie przychodzących żądań od dostawców niestandardowych. Postępuj zgodnie z instrukcjami, aby [dodać rozszerzenia z portalu](../../azure-functions/functions-bindings-register.md) i zaktualizować plik projektu C# w celu uwzględnienia następujących odwołań do pakietów:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ Następujący element XML jest przykładowym plikiem projektu C#:
 W tym samouczku skonfigurujesz aplikację funkcji platformy Azure do pracy jako punkt końcowy niestandardowego dostawcy platformy Azure.
 
 Aby dowiedzieć się, jak utworzyć punkt końcowy niestandardowego dostawcy RESTful, zobacz [Samouczek: Tworzenie punktu końcowego niestandardowego dostawcy RESTful](./tutorial-custom-providers-function-authoring.md).
-

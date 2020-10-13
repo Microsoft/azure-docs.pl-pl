@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575303"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Zrzut ekranu przedstawiający nową sekcję z Azure Data Box w polu wyszukiwania.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Zrzut ekranu przedstawiający sekcję Azure Data Box z opcją tworzenia wywołana.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 

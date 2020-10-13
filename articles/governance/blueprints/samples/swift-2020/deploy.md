@@ -3,12 +3,12 @@ title: Wdrażanie SWIFT dostawcy CSP — przykład strategii CSCF V2020
 description: Wdróż kroki dla przykładowej strategii SWIFT CSP-CSCF V2020, w tym szczegóły parametru artefaktu.
 ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: b65dc9cdd601f9fd2d7972b74435702a00244e8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 973cd0076ae03fd32db5fc9be262b2c5300fdf16
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612728"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949415"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Wdróż przykład SWIFT programu CSP — CSCF V2020 plan
 
@@ -93,7 +93,7 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć w [kategorii dzienników zasobów Azure monitor](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type).|
 |\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Identyfikatory połączonych obszarów roboczych|Rozdzielana średnikami lista identyfikatorów obszaru roboczego, z którymi ma być połączony Agent Log Analytics|
 |\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
 |\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisanie zasad|Nazwa domeny (FQDN)|W pełni kwalifikowana nazwa domeny (FQDN), do której należy dołączyć maszyny wirtualne z systemem Windows|

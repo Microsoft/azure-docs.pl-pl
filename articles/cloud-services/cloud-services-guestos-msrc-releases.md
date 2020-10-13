@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/29/2020
+ms.date: 10/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fae523245189ca73caf38f643ded79dd0dd2f94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531160"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949092"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
 ## <a name="september-2020-guest-os"></a>System operacyjny gościa z września 2020
->[!NOTE]
->System operacyjny gościa jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z września uwzględniono następujące poprawki. Ta lista może ulec zmianie.
 
-
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2,102, 3,89, 4,82 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4561600]  |  Aktualizacja Flash | 3,89, 4,82, 5,47, 6,23 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4577015]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,47 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4570333]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,23 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4570673]  |  Obsługa aktualizacji stosu | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4577051]  |  Zestawienie miesięczne | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4569767]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4566426]  |  Obsługa aktualizacji stosu | 3,89 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4577038]  |  Zestawienie miesięczne | 3,89 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4569765]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,89 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,89 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4566425]  |  Obsługa aktualizacji stosu | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4577066]  |  Zestawienie miesięczne | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4569768]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4569778]  |  Zestawienie zabezpieczeń i jakości platformy .NET Framework 4.5.2 | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4578013]  |  Aktualizacja zabezpieczeń | 2,102 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4576750]  |  Obsługa aktualizacji stosu | 5,47 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4494175]  |  Włączenia mikrokodu | 5,47 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4570332]  |  Obsługa aktualizacji stosu | 6,23 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4570720]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,23 | 8 SEP, 2020 |
-|  Rel 20-09 |  [4494174]  |  Włączenia mikrokodu | 6,23 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2,102], [3,89], [4,82] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4561600]  |  Aktualizacja Flash | [3,89], [4,82], [5,47], [6,23] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577015]  |  Najnowsza aktualizacja zbiorcza (LCU) | [5,47] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570333]  |  Najnowsza aktualizacja zbiorcza (LCU) | [6,23] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570673]  |  Obsługa aktualizacji stosu | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577051]  |  Zestawienie miesięczne | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4566426]  |  Obsługa aktualizacji stosu | [3,89] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577038]  |  Zestawienie miesięczne | [3,89] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [3,89] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | [3,89] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4566425]  |  Obsługa aktualizacji stosu | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577066]  |  Zestawienie miesięczne | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569778]  |  Zestawienie zabezpieczeń i jakości platformy .NET Framework 4.5.2 | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4578013]  |  Aktualizacja zabezpieczeń | [2,102] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4576750]  |  Obsługa aktualizacji stosu | [5,47] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4494175]  |  Włączenia mikrokodu | [5,47] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570332]  |  Obsługa aktualizacji stosu | [6,23] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | [6,23] | 8 SEP, 2020 |
+|  Rel 20-09 |  [4494174]  |  Włączenia mikrokodu | [6,23] | 8 SEP, 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -74,11 +71,16 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,102]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,47]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,23]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>System operacyjny gościa z sierpnia 2020
 
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-08 |  [4571687]  |  Aktualizacja zbiorcza programu IE | [2,101], [3,88], [4,81] | 11 sierpnia 2020 |
 |  Rel 20-08 |  [4561600]  |  Aktualizacja Flash | [3,88], [4,81], [5,46], [6,22] | Jun 9, 2020 |
@@ -131,7 +133,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="july-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-07 |  [4565479]  |  Internet Explorer | [2,100], [3,87], [4,80] | 14 lipca 2020 |
 |  Rel 20-07 |  [4565511]  |  Najnowsza aktualizacja zbiorcza (LCU) | [5,45] | 14 lipca 2020 |
@@ -187,7 +189,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 ## <a name="june-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
 
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2,99], [3,86], [4,79]  |  Jun 9, 2020  |
 |  Rel 20-06  |  [4561616]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  [5,44]  |  Jun 9, 2020  |
@@ -226,7 +228,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 ## <a name="may-2020-guest-os"></a>System operacyjny gościa 2020
 
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 maj 2020 r.  |
 |  Rel 20-05  |  [4556813]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [5,43]  |  12 maj 2020 r.  |
@@ -272,7 +274,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 ## <a name="april-2020-guest-os"></a>System operacyjny gościa z kwietnia 2020
 
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-04   |  [4550965]  |  Zabezpieczenia systemu Windows   |  [2,97]  |  14 kwietnia 2020  |
 |  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2,97], [3,84], [4,77]  |  14 kwietnia 2020  |
@@ -313,7 +315,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="march-2020-guest-os"></a>System operacyjny gościa 2020 marca
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-03  |  [4541500]  |  Zabezpieczenia systemu Windows  | [2,96] | Mar 10, 2020 |
 |  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2,96], [3,83], [4,76] | Mar 10, 2020 |
@@ -344,7 +346,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="february-2020-guest-os"></a>System operacyjny gościa z lutego 2020
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-02  |  [4537767]  |  Internet Explorer  |  [2,95], [3,82], [4,75]  |  11 lutego 2020  |
 |  Rel 20-02  |  [4537813]  |  Zabezpieczenia systemu Windows  |  [2,95]  |  11 lutego 2020  |
@@ -387,7 +389,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="january-2020-guest-os"></a>System operacyjny gościa w styczniu 2020
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 20-01  |  [4532960]  |  Zabezpieczenia systemu Windows  | [2,94] | 14 stycznia 2020 |
 |  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2,94] | 14 stycznia 2020 |
@@ -437,7 +439,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="december-2019-guest-os"></a>System operacyjny gościa z grudnia 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-12  |  [4530692]  |  Zabezpieczenia systemu Windows  | [2,93] | 10 grudnia 2019 |
 |  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2,93] | 10 grudnia 2019 |
@@ -482,7 +484,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="november-2019-guest-os"></a>System operacyjny gościa w listopadzie 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2,92]  |  12 listopada 2019  |
 |  Rel 19-11   |  [4525233]  |  Zabezpieczenia systemu Windows   |  [2,92]  |  12 listopada 2019  |
@@ -524,7 +526,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="october-2019-guest-os"></a>System operacyjny gościa 2019 października
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-10   |  [4520003]  |  Zabezpieczenia systemu Windows   |  [2,91]  |  8 października 2019  |
 |  Rel 19-10   |  [4519985]  |  Zabezpieczenia systemu Windows   |  [3,78]  |  8 października 2019  |
@@ -573,7 +575,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="september-2019-guest-os"></a>System operacyjny gościa z września 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2,90], [3,77], [4,70]  |  Września 10, 2019  |
 |  Rel 19-09   |  [4516115]  |  Flash   |  [2,90], [3,77], [4,70], [5,35], [6,11]  |  Września 10, 2019  |
@@ -615,7 +617,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="august-2019-guest-os"></a>System operacyjny gościa z sierpnia 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-08   |  [4512482]  |  Zabezpieczenia systemu Windows   |  [3,76]  |  13 sierpnia 2019  |
 |  Rel 19-08   |  [4494175]  |  Włączenia mikrokodu Update   |  [5,34]  |  18 Jun 2019  |
@@ -672,7 +674,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="july-2019-guest-os"></a>OS systemu operacyjnego gościa 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  9 lipca 2019 r.  |
 |  Rel 19-07   |  [4506966]  |  Zabezpieczenia .NET 4.5.2   |  2,88  |  9 lipca 2019 r.  |
@@ -716,7 +718,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="june-2019-guest-os"></a>OS systemu operacyjnego gościa 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-06   |  [4503327]  |  Zabezpieczenia systemu Windows 10   |  6.8  |  11 czerwca 2019 r.  |
 |  Rel 19-06   |  [4503267]  |  Zabezpieczenia systemu Windows 10   |  5,32  |  11 czerwca 2019 r.  |
@@ -762,7 +764,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="may-2019-guest-os"></a>System operacyjny gościa 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 |  Rel 19-05   |  [4498206]  |  Pakiet zbiorczy programu IE   |  2,86, 3,73, 4,66  |  14 maja 2019 r.  |
 |  Rel 19-05   |  [4505050]  |  Pakiet zbiorczy programu IE   |  2,86, 3,73, 4,66  |  18 maja 2019  |
@@ -809,7 +811,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="april-2019-guest-os"></a>System operacyjny gościa z kwietnia 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 19-04 | [4493509] | Zabezpieczenia systemu Windows 10 | 6.6 | 9 kwietnia 2019 r. |
 | Rel 19-04 | [4493470] | Zabezpieczenia systemu Windows 10 | 5,30 | 9 kwietnia 2019 r. |
@@ -839,7 +841,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="march-2019-guest-os"></a>System operacyjny gościa 2019 marca
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 19-03 | [4489873] | Internet Explorer | 2,84, 3,71, 4,64 | 12 marca 2019 r. |
 | Rel 19-03 | [4489907] | Flash | 3,71, 4,64, 5,29, 6,5 | 12 marca 2019 r. |
@@ -881,7 +883,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="february-2019-guest-os"></a>System operacyjny gościa z lutego 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 19-02 | [4486474] | Internet Explorer | 2,83, 3,70, 4,63 | 12 lutego 2019 r. |
 | Rel 19-02 | [4487038] | Flash | 3,70, 4,63, 5,28, 6,4 | 12 lutego 2019 r. |
@@ -933,7 +935,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="january-2019-guest-os"></a>System operacyjny gościa w styczniu 2019
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 19-01 | [4480116] | Zabezpieczenia systemu Windows 10 | 6.3 | 8 stycznia 2019 |
 | Rel 19-01 | [4480961] | Zabezpieczenia systemu Windows 10 | 5,27 | 8 stycznia 2019 |
@@ -985,7 +987,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="december-2018-guest-os"></a>System operacyjny gościa z grudnia 2018
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-12 | [4471321] | Zabezpieczenia systemu Windows 10 | 5,26 | 11 grudnia 2018 |
 | Rel 18-12 | [4471328] | Zabezpieczenia systemu Windows   | 2,81 | 11 grudnia 2018 |
@@ -1023,7 +1025,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="november-2018-guest-os"></a>System operacyjny gościa w listopadzie 2018
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3,67, 4,60 | 13 listopada 2018 |
 | Rel 18-11 | [4467694] | Flash | 3,67, 4,60, 5,25 | 13 listopada 2018 |
@@ -1055,7 +1057,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 ## <a name="october-2018-guest-os"></a>System operacyjny gościa 2018 października
 
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Zabezpieczenia systemu Windows 10 | 5,24 | 9 października 2018 r. |
 | Rel 18-10 | [4462915] | Zabezpieczenia systemu Windows | 2,79 | 9 października 2018 r. |
@@ -1092,7 +1094,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4457036]: https://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>System operacyjny gościa z września 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Zabezpieczenia systemu Windows 10 | 5,23 | 11 września 2018 |
 | Rel 18-09 | [4457145] | Tylko zabezpieczenia systemu Windows | 2,78 | 11 września 2018 |
@@ -1114,7 +1116,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4344147] | Zbiorcze informacje o niebezpieczeństwie .NET 4x | 4,58 | 14 sierpnia 2018 |
 
 ## <a name="august-2018-guest-os"></a>System operacyjny gościa z sierpnia 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Zabezpieczenia systemu Windows 10 | 5,22 | 14 sierpnia 2018 |
 | Rel 18-08 | [4343899] | Tylko zabezpieczenia systemu Windows | 2,77 | 14 sierpnia 2018 |
@@ -1137,7 +1139,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4338415] |Zbiorcze informacje o niebezpieczeństwie .NET 4x |3,64 | 10 lipca 2018 |
 
 ## <a name="july-2018-guest-os"></a>OS systemu operacyjnego gościa 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Zabezpieczenia systemu Windows 10 |5.21 |10 lipca 2018 |
 | Rel 18-07 | [4338823] |Tylko zabezpieczenia systemu Windows |2,76 |10 lipca 2018 |
@@ -1157,7 +1159,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4284815] |Pakiet zbiorczy bez zabezpieczeń |4,56 |12 czerwca 2018 r. |
 
 ## <a name="june-2018-guest-os"></a>OS systemu operacyjnego gościa 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Zabezpieczenia systemu Windows 10 |5,20 |12 czerwca 2018 r. |
 | Rel 18-06 | [4284867] |Tylko zabezpieczenia systemu Windows |2,75 |12 czerwca 2018 r. |
@@ -1182,7 +1184,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4132216] |Może SSU |5,20 |8 maja 2018 r. |
 
 ## <a name="may-2018-guest-os"></a>System operacyjny gościa 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-05 | [4103721], [4103727], [4103723] |Zabezpieczenia systemu Windows 10 |5,19 |8 maja 2018 r. |
 | Rel 18-05 | [4103712] |Tylko zabezpieczenia systemu Windows |2,74 |8 maja 2018 r. |
@@ -1202,7 +1204,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 
 ## <a name="april-2018-guest-os"></a>System operacyjny gościa z kwietnia 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Zabezpieczenia systemu Windows 10 |5,18 |10 kwietnia 2018 r. |
 | Rel 18-04 | [4093108] |Tylko zabezpieczenia systemu Windows |2,73 |10 kwietnia 2018 r. |
@@ -1216,7 +1218,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4088876] |Pakiet zbiorczy niezwiązanych z zabezpieczeniami |4,53 |13 marca 2018 r. |
 
 ## <a name="march-2018-guest-os"></a>System operacyjny gościa 2018 marca
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Zabezpieczenia systemu Windows 10 |5,17 |13 marca 2018 r. |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Tylko zabezpieczenia systemu Windows |2,72, 3,59, 4,52 |13 marca 2018 r. |
@@ -1229,7 +1231,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 
 ## <a name="february-2018-guest-os"></a>System operacyjny gościa z lutego 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Zabezpieczenia systemu Windows 10 |5,16 |13 lutego 2018 r. |
 | Rel 18-02 | [4074587], [4074589], [4074597] |Tylko zabezpieczenia systemu Windows |2,71, 3,58, 4,51 |13 lutego 2018 r. |
@@ -1243,7 +1245,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4054177], [4054170] |Pakiet zbiorczy .NET dla stycznia |4,51 |4 stycznia 2018 |
 
 ## <a name="january-2018-guest-os"></a>System operacyjny gościa w styczniu 2018
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Tylko zabezpieczenia systemu Windows |2,70, 3,57, 4,50 |3 stycznia 2018 |
 | Rel 18-01 | [4056890], [4056892] |Tylko zabezpieczenia systemu Windows |5,15 |3 stycznia 2018 |
@@ -1255,7 +1257,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 
 
 ## <a name="december-2017-guest-os"></a>System operacyjny gościa z grudnia 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Aktualizacje zabezpieczeń systemu Windows 10 |4,49, 5,14 |12 grudnia 2017 |
 | Rel 17-12 | [4054521], [4054522], [4054523] |Tylko zabezpieczenia systemu Windows |2,69, 3,56, 4,49 |12 grudnia 2017 |
@@ -1267,7 +1269,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4049068] |Aktualizacja strefy czasowej w grudniu |2,69, 3,56, 4,49 |12 grudnia 2017 |
 
 ## <a name="november-2017-guest-os"></a>System operacyjny gościa w listopadzie 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Aktualizacje systemu Windows 10 |5,13 |14 listopada 2017 r. |
 | Rel 17-11 | [4048960], [4048962], [4048961] |Tylko zabezpieczenia systemu Windows |2,68, 3,55, 4,48 |14 listopada 2017 r. |
@@ -1281,7 +1283,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [3191564] |Aktualizacja dla programu Windows Management Framework 5,1  |4,48 |14 listopada 2017 r. |
 
 ## <a name="october-2017-guest-os"></a>System operacyjny gościa 2017 października
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Aktualizacje systemu Windows 10 |5,12 |10 października 2017 |
 | Rel 17-10 | [4041678], [4041679], [4041687] |Tylko zabezpieczenia systemu Windows |2,67, 3,54, 4,47 |10 października 2017 |
@@ -1295,7 +1297,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4040981] |Pakiet zbiorczy niezabezpieczający dla programu .NET |4,47 |12 września 2017 |
 
 ## <a name="september-2017-guest-os"></a>System operacyjny gościa z września 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Aktualizacje systemu Windows 10 |5,11 |12 września 2017 |
 | Rel 17-09 | [4038779], [4038786], [4038793] |Tylko zabezpieczenia systemu Windows |2,66, 3,53, 4,46 |12 września 2017 |
@@ -1307,7 +1309,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4034681] |Zestawienie niezwiązane z zabezpieczeniami sierpnia |4,46 |8 sierpnia 2017 |
 
 ## <a name="august-2017-guest-os"></a>System operacyjny gościa z sierpnia 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Aktualizacje systemu Windows 10 |5.10 |8 sierpnia 2017 |
 | Rel 17-07 | [4034679] |Tylko zabezpieczenia systemu Windows |2,65 |8 sierpnia 2017 |
@@ -1321,7 +1323,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Rel 17-07 | [4025336] |Pakiet zbiorczy bez zabezpieczeń |4,45 |11 lipca 2017 r. |
 
 ## <a name="july-2017-guest-os"></a>OS systemu operacyjnego gościa 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Aktualizacje systemu Windows 10 |5.9 |11 lipca 2017 r. |
 | Rel 17-07 | [4025337] |Tylko zabezpieczenia systemu Windows |2,64 |11 lipca 2017 r. |
@@ -1335,7 +1337,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4022726] |Pakiet zbiorczy bez zabezpieczeń |4,44 |13 czerwca 2017 |
 
 ## <a name="june-2017-guest-os"></a>OS systemu operacyjnego gościa 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |Ulepszenia jakości systemu operacyjnego WS 2016 |5.8 |9 maja 2017 |
 | Rel 17-06 | [4022722] |Tylko zabezpieczenia systemu Windows |2,63 |13 czerwca 2017 |
@@ -1363,7 +1365,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4014512] |Pakiet może być niezgodny z programem .NET |4,43 |9 maja 2017 |
 
 ## <a name="may-2017-guest-os"></a>System operacyjny gościa 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |Ulepszenia jakości systemu operacyjnego WS 2016 |5.7 | 9 maja 2017 |
 | Rel 17-05 | [4019263] |Tylko zabezpieczenia systemu Windows |2,62 | 9 maja 2017 |
@@ -1391,7 +1393,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Nie dotyczy | [4013418] |Obsługa aktualizacji stosu |5.7 | 14 marca 2017 |
 
 ## <a name="april-2017-guest-os"></a>System operacyjny gościa z kwietnia 2017
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |Ulepszenia jakości systemu operacyjnego WS 2016 | 5,6 | 11 kwietnia 2017 |
 | Rel 17-04 |  [4015546]  |Tylko zabezpieczenia systemu Windows |2,61 | 11 kwietnia 2017 |
@@ -1411,7 +1413,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | Rel 17-04 |  [4012216]  |Zbiorcze informacje o bezpieczeństwie 2017 dla Windows 8.1 i systemu Windows Server 2012 R2 |4,41 | 11 kwietnia 2017 |
 
 ## <a name="march-2017-guest-os"></a>System operacyjny gościa 2017 marca
-| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| Product Category | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Ulepszenia i poprawki | 5,5 | 14 marca 2017 |
 | Rel 17-03 |  [4012212] |Marzec 2017 aktualizacja dotycząca jakości tylko dla systemów Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2,60 |14 marca 2017 |

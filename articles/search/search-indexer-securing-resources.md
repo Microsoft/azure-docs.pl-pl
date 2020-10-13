@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 5075c4858f9584cb19442e19d9009d46d0e00ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85446847e8ad77bc83eea657ab17268839e0b231
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463715"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949823"
 ---
 # <a name="indexer-access-to-data-sources-using-azure-network-security-features"></a>Dostęp indeksatora do źródeł danych przy użyciu funkcji zabezpieczeń sieci platformy Azure
 
@@ -46,11 +46,11 @@ Klienci mogą zabezpieczyć te zasoby za pomocą kilku mechanizmów izolacji sie
 | Azure Functions | Obsługiwane | Obsługiwane tylko w przypadku niektórych jednostek SKU usługi Azure Functions |
 
 > [!NOTE]
-> Oprócz opcji wymienionych powyżej w przypadku kont usługi Azure Storage zabezpieczonych w sieci klienci mogą korzystać z faktu, że usługa Azure Wyszukiwanie poznawcze jest [zaufaną usługą firmy Microsoft](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Oznacza to, że określona usługa wyszukiwania może pominąć ograniczenia sieci wirtualnej lub protokołu IP na koncie magazynu i uzyskać dostęp do danych na koncie magazynu, jeśli na koncie magazynu jest włączona odpowiednia kontrola dostępu oparta na rolach. Szczegółowe informacje są dostępne w [przewodniku](search-indexer-howto-access-trusted-service-exception.md). Tej opcji można użyć zamiast trasy ograniczenia IP, na wypadek gdy konto magazynu lub usługa wyszukiwania nie może zostać przeniesione do innego regionu.
+> Oprócz opcji wymienionych powyżej w przypadku kont usługi Azure Storage zabezpieczonych w sieci klienci mogą korzystać z faktu, że usługa Azure Wyszukiwanie poznawcze jest [zaufaną usługą firmy Microsoft](../storage/common/storage-network-security.md#trusted-microsoft-services). Oznacza to, że określona usługa wyszukiwania może pominąć ograniczenia sieci wirtualnej lub protokołu IP na koncie magazynu i uzyskać dostęp do danych na koncie magazynu, jeśli na koncie magazynu jest włączona odpowiednia kontrola dostępu oparta na rolach. Szczegółowe informacje są dostępne w [przewodniku](search-indexer-howto-access-trusted-service-exception.md). Tej opcji można użyć zamiast trasy ograniczenia IP, na wypadek gdy konto magazynu lub usługa wyszukiwania nie może zostać przeniesione do innego regionu.
 
 Podczas wybierania mechanizmu bezpiecznego dostępu, którego indeksator powinien używać, należy wziąć pod uwagę następujące ograniczenia:
 
-- [Punkty końcowe usługi](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) nie będą obsługiwane dla żadnego zasobu platformy Azure.
+- [Punkty końcowe usługi](../virtual-network/virtual-network-service-endpoints-overview.md) nie będą obsługiwane dla żadnego zasobu platformy Azure.
 - Nie można zainicjować obsługi administracyjnej usługi wyszukiwania w określonej sieci wirtualnej — ta funkcja nie będzie oferowana przez usługę Azure Wyszukiwanie poznawcze.
 - Gdy indeksatory wykorzystują (wychodzące) prywatne punkty końcowe do uzyskiwania dostępu do zasobów, mogą zostać naliczone dodatkowe [opłaty za linki prywatne](https://azure.microsoft.com/pricing/details/search/) .
 
@@ -68,31 +68,31 @@ Dla każdego uruchomienia indeksatora usługa Azure Wyszukiwanie poznawcze okre�
 Jeśli zasób, do którego próbuje uzyskać dostęp, jest ograniczony tylko do pewnego zestawu zakresów adresów IP, należy rozwinąć zestaw, aby uwzględnić możliwe zakresy adresów IP, z których może pochodzić żądanie indeksatora. Jak wspomniano powyżej, istnieją dwa możliwe środowiska, w których są uruchamiane indeksatory i z których mogą pochodzić żądania dostępu. Aby można było korzystać z dostępu indeksatora, należy dodać adresy IP __obu__ środowisk.
 
 - Aby uzyskać adres IP określonego środowiska prywatnego usługi wyszukiwania `nslookup` (lub `ping` ) w pełni kwalifikowaną nazwę domeny (FQDN) usługi wyszukiwania. Na przykład nazwa FQDN usługi wyszukiwania w chmurze publicznej `<service-name>.search.windows.net` . Te informacje są dostępne na Azure Portal.
-- Adresy IP środowisk wielodostępnych są dostępne za pośrednictwem `AzureCognitiveSearch` znacznika usługi. [Znaczniki usługi platformy Azure](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) mają opublikowany zakres adresów IP dla każdej usługi — jest on dostępny za pośrednictwem [interfejsu API odnajdowania (wersja zapoznawcza)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) lub [pliku JSON do pobrania](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). W obu przypadkach zakresy adresów IP są podzielone według regionu — można wybrać tylko zakresy adresów IP przypisane do regionu, w którym Zainicjowano obsługę usługi wyszukiwania.
+- Adresy IP środowisk wielodostępnych są dostępne za pośrednictwem `AzureCognitiveSearch` znacznika usługi. [Znaczniki usługi platformy Azure](../virtual-network/service-tags-overview.md) mają opublikowany zakres adresów IP dla każdej usługi — jest on dostępny za pośrednictwem [interfejsu API odnajdowania (wersja zapoznawcza)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) lub [pliku JSON do pobrania](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). W obu przypadkach zakresy adresów IP są podzielone według regionu — można wybrać tylko zakresy adresów IP przypisane do regionu, w którym Zainicjowano obsługę usługi wyszukiwania.
 
-W przypadku niektórych źródeł danych można używać bezpośrednio samego tagu usługi zamiast wyliczania listy zakresów adresów IP (adres IP usługi wyszukiwania nadal musi być używany jawnie). Te źródła danych ograniczają dostęp za pomocą sposobu konfigurowania [reguły sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview), która natywnie obsługuje Dodawanie znacznika usługi, w przeciwieństwie do reguł IP, takich jak te oferowane przez usługę Azure Storage, CosmosDB, Azure SQL itp., źródła danych, które obsługują możliwość korzystania z `AzureCognitiveSearch` tagu usługi bezpośrednio oprócz adresu IP usługi wyszukiwania:
+W przypadku niektórych źródeł danych można używać bezpośrednio samego tagu usługi zamiast wyliczania listy zakresów adresów IP (adres IP usługi wyszukiwania nadal musi być używany jawnie). Te źródła danych ograniczają dostęp za pomocą sposobu konfigurowania [reguły sieciowej grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md), która natywnie obsługuje Dodawanie znacznika usługi, w przeciwieństwie do reguł IP, takich jak te oferowane przez usługę Azure Storage, CosmosDB, Azure SQL itp., źródła danych, które obsługują możliwość korzystania z `AzureCognitiveSearch` tagu usługi bezpośrednio oprócz adresu IP usługi wyszukiwania:
 
-- [Program SQL Server na maszynach wirtualnych IaaS](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
+- [Program SQL Server na maszynach wirtualnych IaaS](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
-- [Wystąpienia zarządzane SQL](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
+- [Wystąpienia zarządzane SQL](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
 Szczegóły znajdują się w [przewodniku](search-indexer-howto-access-ip-restricted.md).
 
 ## <a name="granting-access-via-private-endpoints"></a>Udzielanie dostępu za pośrednictwem prywatnych punktów końcowych
 
-Indeksatory mogą korzystać z [prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) w celu uzyskiwania dostępu do zasobów, do których jest blokowany dostęp do wybranych sieci wirtualnych lub nie mają włączonej opcji dostępu publicznego.
+Indeksatory mogą korzystać z [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) w celu uzyskiwania dostępu do zasobów, do których jest blokowany dostęp do wybranych sieci wirtualnych lub nie mają włączonej opcji dostępu publicznego.
 Ta funkcja jest dostępna tylko dla płatnych usług, z uwzględnieniem limitów liczby prywatnych punktów końcowych, które mają zostać utworzone. Szczegółowe informacje o limitach są udokumentowane na [stronie limity Azure Search](search-limits-quotas-capacity.md).
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Krok 1. Tworzenie prywatnego punktu końcowego dla bezpiecznego zasobu
 
-Klienci powinni wywołać operację zarządzania wyszukiwaniem, [utworzyć lub zaktualizować *udostępniony interfejs API zasobów link prywatny* ](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) , aby utworzyć połączenie prywatnego punktu końcowego z bezpiecznym zasobem (na przykład konto magazynu). Ruch przesyłany przez to (wychodzące) połączenie z prywatnym punktem końcowym będzie pochodzić tylko z sieci wirtualnej, która znajduje się w określonym środowisku wykonywania indeksatora "Private" usługi wyszukiwania.
+Klienci powinni wywołać operację zarządzania wyszukiwaniem, [utworzyć lub zaktualizować *udostępniony interfejs API zasobów link prywatny* ](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) , aby utworzyć połączenie prywatnego punktu końcowego z bezpiecznym zasobem (na przykład konto magazynu). Ruch przesyłany przez to (wychodzące) połączenie z prywatnym punktem końcowym będzie pochodzić tylko z sieci wirtualnej, która znajduje się w określonym środowisku wykonywania indeksatora "Private" usługi wyszukiwania.
 
 Usługa Azure Wyszukiwanie poznawcze sprawdzi, czy wywołujący ten interfejs API ma uprawnienia do zatwierdzania żądań połączeń prywatnych punktów końcowych do bezpiecznego zasobu. Jeśli na przykład zażądasz prywatnego połączenia punktu końcowego z kontem magazynu, do którego nie masz dostępu, to wywołanie zostanie odrzucone.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Krok 2. Zatwierdź połączenie prywatnego punktu końcowego
 
 Po zakończeniu operacji (asynchronicznej), która tworzy zasób udostępnionego linku prywatnego, połączenie z prywatnym punktem końcowym zostanie utworzone w stanie "oczekiwanie". Nie ma jeszcze żadnych przepływów ruchu nad połączeniem.
-Następnie klient powinien zlokalizować to żądanie w bezpiecznym zasobie i "zatwierdzić". Zazwyczaj można to zrobić za pośrednictwem portalu lub za pośrednictwem [interfejsu API REST](https://docs.microsoft.com/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+Następnie klient powinien zlokalizować to żądanie w bezpiecznym zasobie i "zatwierdzić". Zazwyczaj można to zrobić za pośrednictwem portalu lub za pośrednictwem [interfejsu API REST](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### <a name="step-3-force-indexers-to-run-in-the-private-environment"></a>Krok 3: Wymuś uruchamianie indeksatorów w środowisku "prywatnym"
 

@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716156"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
-Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Korzystając z funkcji [RBAC systemu Azure](../role-based-access-control/overview.md), można oddzielić cła w obrębie zespołu i przyznać tylko dostęp do użytkowników, grup i aplikacji, których potrzebują do wykonywania swoich zadań. Dostęp oparty na rolach można udzielić użytkownikom przy użyciu Azure Portal, narzędzi wiersza polecenia platformy Azure lub interfejsów API zarządzania platformy Azure.
+Kontrola dostępu oparta na rolach (Azure RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Korzystając z funkcji [RBAC systemu Azure](../role-based-access-control/overview.md), można oddzielić cła w obrębie zespołu i przyznać tylko dostęp do użytkowników, grup i aplikacji, których potrzebują do wykonywania swoich zadań. Dostęp oparty na rolach można udzielić użytkownikom przy użyciu Azure Portal, narzędzi Command-Line platformy Azure lub interfejsów API zarządzania platformy Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Role na kontach usługi Automation
 
