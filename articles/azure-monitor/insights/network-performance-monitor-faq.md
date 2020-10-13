@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326141"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
@@ -238,7 +238,7 @@ Taka sytuacja może wystąpić, Jeśli Zapora hosta lub Zapora pośrednia (Zapor
 * Teraz uruchom polecenie z węzła docelowego do adresu IP węzła źródłowego.
 
 
-### <a name="there-is-loss-from-node-a-to-b-but-not-from-node-b-to-a-why"></a>Istnieje utrata z węzła A do B, ale nie z węzła B do. Zalet?
+### <a name="there-is-loss-from-node-a-to-b-but-not-from-node-b-to-a-why"></a>Istnieje utrata z węzła A do B, ale nie z węzła B do. Dlaczego?
 Ponieważ ścieżki sieciowe między A A B mogą różnić się od ścieżek sieciowych między B a A, można zaobserwować różne wartości utraty i opóźnienia.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Dlaczego wszystkie obwody usługi ExpressRoute i połączenia komunikacji równorzędnej nie są wykrywane?

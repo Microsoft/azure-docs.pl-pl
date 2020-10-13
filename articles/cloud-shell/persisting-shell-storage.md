@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470140"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Utrwalanie plików w Azure Cloud Shell
@@ -66,7 +66,7 @@ Aby znaleźć bieżący region, możesz uruchomić program `env` w bash i zlokal
 
 Maszyny Cloud Shell istnieją w następujących regionach:
 
-|Obszar|Region|
+|Warstwowy|Region|
 |---|---|
 |Ameryka Północna i Południowa|Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA|
 |Europa|Europa Północna, Europa Zachodnia|

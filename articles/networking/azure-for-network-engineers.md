@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
 ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85516264"
 ---
 # <a name="azure-for-network-engineers"></a>Platforma Azure dla inżynierów sieci
@@ -35,7 +35,7 @@ Przypisanie adresu IP do hosta polega na tym, że adres IP jest przypisywany do 
 - Publiczne adresy IP — używane do komunikacji przychodzącej i wychodzącej (bez translatora adresów sieciowych (NAT)) z Internetem i innymi zasobami platformy Azure, które nie są połączone z siecią wirtualną. Przypisanie publicznego adresu IP do karty sieciowej jest opcjonalne. Publiczne adresy IP należą do przestrzeni adresów IP firmy Microsoft.
 - Prywatne adresy IP — używane do komunikacji w ramach sieci wirtualnej, sieci lokalnej i Internetu (przy użyciu translatora adresów sieciowych). Przestrzeń adresów IP, która została zdefiniowana w sieci wirtualnej, jest uznawana za prywatną nawet w przypadku skonfigurowania przestrzeni publicznych adresów IP. Firma Microsoft nie anonsuje tego miejsca w Internecie. Do maszyny wirtualnej należy przypisać co najmniej jeden prywatny adres IP.
 
-Podobnie jak w przypadku hostów fizycznych lub urządzeń, istnieją dwa sposoby przydzielenia adresu IP do zasobu — dynamiczny lub statyczny. Na platformie Azure domyślna metoda alokacji jest dynamiczna, gdzie adres IP jest przydzielany podczas tworzenia maszyny wirtualnej lub uruchamiania zatrzymanej maszyny wirtualnej. Adres IP jest zwalniany, gdy zatrzymasz lub usuniesz maszynę wirtualną. Aby mieć pewność, że adres IP maszyny wirtualnej pozostaje taki sam, ustaw metodę alokacji jawnie jako statyczną. W takim przypadku adres IP jest przypisywany natychmiast. Jest on zwalniany tylko wtedy, gdy usuniesz maszynę wirtualną lub zmienisz jej metodę alokacji na dynamiczną. 
+Podobnie jak w przypadku hostów fizycznych lub urządzeń, istnieją dwa sposoby przydzielenia adresu IP do zasobu — dynamiczny lub statyczny. Na platformie Azure domyślna metoda alokacji jest dynamiczna, gdzie adres IP jest przydzielany podczas tworzenia maszyny wirtualnej lub uruchamiania zatrzymanej maszyny wirtualnej. Adres IP jest zwalniany, gdy zatrzymujesz lub usuwasz maszynę wirtualną. Aby mieć pewność, że adres IP maszyny wirtualnej pozostaje taki sam, ustaw metodę alokacji jawnie jako statyczną. W takim przypadku adres IP jest przypisywany natychmiast. Jest on zwalniany tylko wtedy, gdy usuniesz maszynę wirtualną lub zmienisz jej metodę alokacji na dynamiczną. 
 
 Prywatne adresy IP są przydzieleni z podsieci zdefiniowanych w ramach sieci wirtualnej. Dla maszyny wirtualnej należy wybrać podsieć do alokacji adresów IP. Jeśli maszyna wirtualna zawiera wiele kart sieciowych, można wybrać inną podsieć dla każdej karty sieciowej.
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847286"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 Series Update 4 — Informacje o wersji
@@ -66,10 +66,10 @@ W aktualizacji Update 4 wprowadzono następujące ulepszenia i poprawki błędó
 
 Poniższa tabela zawiera podsumowanie problemów, które zostały rozwiązane w aktualizacji Update 4.    
 
-| Nie | Cecha | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
+| Nie | Promowanie | Problem | Dotyczy urządzenia fizycznego | Dotyczy urządzenia wirtualnego |
 | --- | --- | --- | --- | --- |
 | 1 |Tryb failover |W starszej wersji, po przejściu w tryb failover, wystąpił problem związany z oczyszczaniem zaobserwowany w lokacji klienta. Ten problem został rozwiązany w tej wersji. |Tak |Tak |
-| 2 |Lokalnie przypięte woluminy |W poprzedniej wersji wystąpił problem z utworzeniem powiązanego woluminu dla woluminów przypiętych lokalnie, które mogłyby spowodować błędy tworzenia woluminu. Ten problem był katalogiem głównym i został usunięty w tej wersji. |Yes |Nie |
+| 2 |Lokalnie przypięte woluminy |W poprzedniej wersji wystąpił problem z utworzeniem powiązanego woluminu dla woluminów przypiętych lokalnie, które mogłyby spowodować błędy tworzenia woluminu. Ten problem był katalogiem głównym i został usunięty w tej wersji. |Tak |Nie |
 | 3 |Pakiet pomocy technicznej |W poprzedniej wersji wystąpiły problemy związane z pakietem pomocy technicznej, które spowodują powstanie wyjątku System. OutOfMemory lub innych błędów spowodowanych błędem tworzenia pakietu dla pomocy technicznej. Te błędy zostały rozwiązane w tej wersji. |Tak |Tak |
 | 4 |Monitorowanie |W poprzedniej wersji wystąpił problem związany z wykresami monitorowania dla woluminów przypiętych lokalnie, w których użycie zostało pokazane w EB. Ten błąd jest rozwiązywany w tej wersji. |Tak |Tak |
 | 5 |Migracja |W poprzedniej wersji istniały pewne problemy związane z niezawodnością migracji z serii 5000-7000 do 8000. Te problemy zostały rozwiązane w tej wersji. |Tak |Tak |

@@ -9,10 +9,10 @@ ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
 ms.openlocfilehash: bea4a5d92309710645dd63e611cd0a5e3b742c34
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604351"
 ---
 # <a name="azure-key-vault-recovery-overview"></a>Omówienie odzyskiwania Azure Key Vault
@@ -34,7 +34,7 @@ Należy pamiętać, że **nazwy magazynów kluczy są globalnie unikatowe**, dla
 > [!NOTE]
 > Ochrona przed przeczyszczeniem została zaprojektowana tak, aby żadna rola administratora nie mogła przesłonić, wyłączyć ani obejść ochrony przed usunięciem. **Po włączeniu ochrony nie można jej wyłączyć ani przesłonić przez żadną osobę, która obejmuje firmę Microsoft.** Oznacza to, że należy odzyskać usunięty Magazyn kluczy lub poczekać na upłynąć okresu przechowywania przed ponownym użyciem nazwy magazynu kluczy.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Sprawdź, czy w magazynie kluczy jest włączona funkcja usuwania nietrwałego i Włącz opcję usuwania nietrwałego
 

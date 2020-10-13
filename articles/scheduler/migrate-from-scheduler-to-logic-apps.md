@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532157"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrowanie zadań usługi Azure Scheduler do usługi Azure Logic Apps
@@ -116,7 +116,7 @@ Na przykład przy użyciu aplikacji post można utworzyć żądanie POST z ustaw
 
 | Metoda żądania | Adres URL | Treść | Nagłówki |
 |----------------|-----|------|---------|
-| **POUBOJOWEGO** | <*punkt końcowy — adres URL*> | **surowców** <p>**JSON (Application/JSON)** <p>W polu **RAW** wprowadź ładunek, który ma zostać wysłany w żądaniu. <p>**Uwaga**: to ustawienie powoduje automatyczne skonfigurowanie wartości **nagłówków** . | **Klucz**: Content-Type <br>**Wartość**: Application/JSON |
+| **POST** | <*punkt końcowy — adres URL*> | **surowców** <p>**JSON (Application/JSON)** <p>W polu **RAW** wprowadź ładunek, który ma zostać wysłany w żądaniu. <p>**Uwaga**: to ustawienie powoduje automatyczne skonfigurowanie wartości **nagłówków** . | **Klucz**: Content-Type <br>**Wartość**: Application/JSON |
 |||||
 
 ![Wyślij żądanie ręcznego wyzwalania aplikacji logiki](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -201,7 +201,7 @@ Jeśli nie uda się uruchomić akcji domyślnej w usłudze Azure Scheduler, moż
 
 Aby dowiedzieć się więcej o obsłudze wyjątków, zobacz temat [Obsługa błędów i wyjątków — Właściwość RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 <a name="retire-date"></a>
 
@@ -220,7 +220,7 @@ Odp.: każde zadanie usługi Scheduler jest unikatowe, dlatego nie istnieje **Na
 **P**: gdzie mogę uzyskać pomoc techniczną dotyczącą migrowania moich zadań harmonogramu? <br>
 Odp.: Oto kilka **sposobów, aby**uzyskać pomoc techniczną:
 
-**Witryna Azure Portal**
+**Azure Portal**
 
 Jeśli Twoja subskrypcja platformy Azure ma płatny Plan pomocy technicznej, możesz utworzyć żądanie pomocy technicznej w Azure Portal. W przeciwnym razie możesz wybrać inną opcję pomocy technicznej.
 
@@ -237,7 +237,7 @@ Jeśli Twoja subskrypcja platformy Azure ma płatny Plan pomocy technicznej, mo�
 
 1. Wybierz żądaną opcję pomocy technicznej. Jeśli masz płatny Plan pomocy technicznej, wybierz pozycję **dalej**.
 
-**We**
+**Społeczność**
 
 * [Strona pytania&pytań Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)

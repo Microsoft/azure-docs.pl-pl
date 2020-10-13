@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439748"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publikowanie aplikacji w galerii aplikacji usługi Azure AD
@@ -72,7 +72,7 @@ Aby wyświetlić listę aplikacji w galerii aplikacji usługi Azure AD, należy 
 
 Poniższa tabela zawiera porównanie głównych standardów: Open Authentication 2,0 (OAuth 2,0) z OpenID Connect Connect (OIDC), SAML (SAML) i federacyjnych usług sieci Web (w usłudze WS-karmione).
 
-| Możliwość| OAuth/OIDC| Protokół SAML/WS-karmione |
+| Możliwość| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logowanie jednokrotne oparte na sieci Web| √| √ |
 | Logowanie jednokrotne oparte na sieci Web| √| √ |
@@ -96,7 +96,7 @@ Uwierzytelnianie OAuth 2,0 jest [standardowym](https://oauth.net/2/) protokołem
 **Niektóre kwestie, które należy wziąć pod uwagę**
 - Jeśli zaimplementowano już Logowanie jednokrotne oparte na protokole SAML dla aplikacji, możesz nie chcieć zaimplementować nowego standardu w celu pobrania aplikacji w galerii.
 
-### <a name="saml-20-or-ws-fed"></a>SAML 2,0 lub WS-karmione
+### <a name="saml-20-or-ws-fed"></a>SAML 2,0 lub WS-Fed
 
 Język SAML to wczesne i szeroko przyjęte, jednokrotne [Logowanie](https://www.oasis-open.org/standards#samlv2.0) do aplikacji sieci Web. Aby dowiedzieć się więcej na temat używania języka SAML przez platformę Azure, zobacz [jak platforma Azure używa protokołu SAML](active-directory-saml-protocol-reference.md). 
 
@@ -143,8 +143,8 @@ Jeśli aplikacja obsługuje protokół SAML 2,0, możesz zintegrować go bezpoś
 
 Firma Microsoft nie udostępnia lub nie zaleca bibliotek dla implementacji SAML. Dostępnych jest wiele bibliotek Open Source.
 
-### <a name="implement-ws-fed"></a>Implementowanie protokołu WS-karmionego
-Aby dowiedzieć się więcej na temat usługi WS-in ASP.NET Core, zobacz [uwierzytelnianie użytkowników przy użyciu usługi WS-Federation w ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
+### <a name="implement-ws-fed"></a>Implementowanie WS-Fed
+Aby dowiedzieć się więcej na temat WS-Fed w ASP.NET Core, zobacz temat [uwierzytelnianie użytkowników za pomocą WS-Federation w ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
 
 ### <a name="implement-password-vaulting"></a>Implementowanie magazynu haseł
 
@@ -238,7 +238,7 @@ Jeśli chcesz dodać aplikację do listy w galerii za pomocą OpenID Connect Con
 
 Jeśli chcesz dodać aplikację do listy w galerii za pomocą **saml 2,0** lub **WS-karmione**, wybierz pozycję **SAML 2.0/WS-karmione** , jak pokazano.
 
-![Wyświetlanie listy aplikacji SAML 2,0 lub WS-karmione w galerii](./media/howto-app-gallery-listing/saml.png)
+![Wyświetlanie listy aplikacji SAML 2,0 lub WS-Fed w galerii](./media/howto-app-gallery-listing/saml.png)
 
 Jeśli chcesz dodać aplikację do listy w galerii przy użyciu hasła SSO logowania jednokrotnego, wybierz pozycję **Logowanie jednokrotne hasła** , jak pokazano.
 
@@ -260,7 +260,7 @@ Możesz zaktualizować lub usunąć istniejącą aplikację galerii w [portalu s
 
 ### <a name="timelines"></a>Osie czasu
 
-Oś czasu procesu tworzenia listy aplikacji SAML 2,0 lub WS-karmione w galerii wynosi od 7 do 10 dni roboczych.
+Oś czasu procesu tworzenia listy aplikacji SAML 2,0 lub WS-Fed w galerii wynosi od 7 do 10 dni roboczych.
 
 ![Oś czasu do wyświetlania aplikacji SAML w galerii](./media/howto-app-gallery-listing/timeline.png)
 

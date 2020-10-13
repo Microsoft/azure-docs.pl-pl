@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jafreebe
 ms.openlocfilehash: 2465b2f260ed6c174b762fcf64a71100a148254d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86106715"
 ---
 # <a name="azure-app-service-as-an-event-grid-source"></a>Azure App Service jako źródło Event Grid
@@ -45,11 +45,11 @@ Azure App Service emituje następujące typy zdarzeń
 Po wyzwoleniu zdarzenia usługa Event Grid wysyła dane dotyczące tego zdarzenia w celu subskrybowania punktu końcowego.
 Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego zdarzenia. Każde zdarzenie ma następujące dane najwyższego poziomu:
 
-|     Właściwość          |     Typ     |     Opis                                                                                                                                |
+|     Właściwość          |     Type     |     Opis                                                                                                                                |
 |-----------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 |    temat              |    ciąg    |    Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid.                                      |
-|    Temat            |    ciąg    |    Ścieżka zdefiniowana przez program Publisher do tematu zdarzenia.                                                                                              |
-|    Klasę          |    ciąg    |    Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń.                                                                                  |
+|    subject            |    ciąg    |    Ścieżka zdefiniowana przez program Publisher do tematu zdarzenia.                                                                                              |
+|    eventType          |    ciąg    |    Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń.                                                                                  |
 |    eventTime          |    ciąg    |    Czas generowania zdarzenia na podstawie czasu UTC dostawcy.                                                                         |
 |    identyfikator                 |    ciąg    |    Unikatowy identyfikator zdarzenia.                                                                                                            |
 |    dane               |    object    |    Dane zdarzenia magazynu obiektów BLOB.                                                                                                                    |
@@ -81,10 +81,10 @@ Ta sekcja zawiera przykład sposobu, w jaki będą wyglądały dane dla każdego
 
 Obiekt danych zawiera następujące właściwości:
 
-|    Właściwość                |    Typ      |    Opis                                                                                                       |
+|    Właściwość                |    Type      |    Opis                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    object    |    Szczegóły akcji w aplikacji                                                                                       |
-|    action                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
+|    akcja                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
 |    name                    |    ciąg    |    Nazwa witryny sieci Web, która wymagała tego zdarzenia                                                                          |
 |    Identyfikatorem żądania klienta         |    ciąg    |    Identyfikator żądania klienta wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie         |
 |    correlationRequestId    |    ciąg    |    Identyfikator żądania korelacji wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie    |
@@ -119,10 +119,10 @@ Obiekt danych zawiera następujące właściwości:
 
 Obiekt danych zawiera następujące właściwości:
 
-|    Właściwość                |    Typ      |    Opis                                                                                                       |
+|    Właściwość                |    Type      |    Opis                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    object    |    Szczegóły akcji w aplikacji                                                                                       |
-|    action                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
+|    akcja                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
 |    name                    |    ciąg    |    Nazwa witryny sieci Web, która wymagała tego zdarzenia                                                                          |
 |    Identyfikatorem żądania klienta         |    ciąg    |    Identyfikator żądania klienta wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie         |
 |    correlationRequestId    |    ciąg    |    Identyfikator żądania korelacji wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie    |
@@ -157,10 +157,10 @@ Obiekt danych zawiera następujące właściwości:
 
 Obiekt danych zawiera następujące właściwości:
 
-|    Właściwość                |    Typ      |    Opis                                                                                                       |
+|    Właściwość                |    Type      |    Opis                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    object    |    Szczegóły akcji w aplikacji                                                                                       |
-|    action                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
+|    akcja                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
 |    name                    |    ciąg    |    Nazwa witryny sieci Web, która wymagała tego zdarzenia                                                                          |
 |    Identyfikatorem żądania klienta         |    ciąg    |    Identyfikator żądania klienta wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie         |
 |    correlationRequestId    |    ciąg    |    Identyfikator żądania korelacji wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie    |
@@ -196,10 +196,10 @@ Obiekt danych zawiera następujące właściwości:
 
 Obiekt danych zawiera następujące właściwości:
 
-|    Właściwość                |    Typ      |    Opis                                                                                                       |
+|    Właściwość                |    Type      |    Opis                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    object    |    Szczegóły akcji w aplikacji                                                                                       |
-|    action                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
+|    akcja                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
 |    name                    |    ciąg    |    Nazwa witryny sieci Web, która wymagała tego zdarzenia                                                                          |
 |    Identyfikatorem żądania klienta         |    ciąg    |    Identyfikator żądania klienta wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie         |
 |    correlationRequestId    |    ciąg    |    Identyfikator żądania korelacji wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie    |
@@ -234,10 +234,10 @@ Obiekt danych zawiera następujące właściwości:
 
 Obiekt danych ma następujące właściwości:
 
-|    Właściwość                |    Typ      |    Opis                                                                                                       |
+|    Właściwość                |    Type      |    Opis                                                                                                       |
 |----------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appEventTypeDetail      |    object    |    Szczegóły akcji w aplikacji                                                                                       |
-|    action                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
+|    akcja                  |    ciąg    |    Typ akcji dla operacji                                                                                   |
 |    name                    |    ciąg    |    Nazwa witryny sieci Web, która wymagała tego zdarzenia                                                                          |
 |    Identyfikatorem żądania klienta         |    ciąg    |    Identyfikator żądania klienta wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie         |
 |    correlationRequestId    |    ciąg    |    Identyfikator żądania korelacji wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie    |
@@ -281,11 +281,11 @@ Obiekt danych ma następujące właściwości:
 
 Obiekt danych ma następujące właściwości:
 
-|    Właściwość                         |    Typ      |    Opis                                                                                                       |
+|    Właściwość                         |    Type      |    Opis                                                                                                       |
 |-------------------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 |    appServicePlanEventTypeDetail    |    object    |    Szczegóły akcji w planie usługi App Service                                                                          |
 |    stampKind                        |    ciąg    |    Rodzaj środowiska, w którym jest plan usługi App Service                                                                     |
-|    action                           |    ciąg    |    Typ akcji w planie usługi App Service                                                                            |
+|    akcja                           |    ciąg    |    Typ akcji w planie usługi App Service                                                                            |
 |    status                           |    ciąg    |    Stan operacji w planie usługi App Service                                                                   |
 |    sku                              |    object    |    jednostka SKU planu usługi App Service                                                                                       |
 |    name                             |    ciąg    |    Nazwa planu usługi App Service                                                                                      |
@@ -293,7 +293,7 @@ Obiekt danych ma następujące właściwości:
 |    Rozmiar                             |    ciąg    |    rozmiar planu usługi App Service                                                                                      |
 |    Family                           |    ciąg    |    Rodzina planu usługi App Service                                                                                        |
 |    Pojemność                         |    ciąg    |    Pojemność planu usługi App Service                                                                                      |
-|    action                           |    ciąg    |    Typ akcji dla operacji                                                                                   |
+|    akcja                           |    ciąg    |    Typ akcji dla operacji                                                                                   |
 |    name                             |    ciąg    |    Nazwa witryny sieci Web, która wymagała tego zdarzenia                                                                          |
 |    Identyfikatorem żądania klienta                  |    ciąg    |    Identyfikator żądania klienta wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie         |
 |    correlationRequestId             |    ciąg    |    Identyfikator żądania korelacji wygenerowany przez usługę App Service dla operacji interfejsu API lokacji, która wyzwoliła to zdarzenie    |

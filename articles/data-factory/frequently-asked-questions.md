@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440511"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
@@ -109,7 +109,7 @@ Brak sztywnego limitu liczby wystąpień środowiska Integration Runtime, które
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Jakie są koncepcje najwyższego poziomu Azure Data Factory?
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Azure Data Factory zawiera cztery kluczowe składniki, które współpracują ze sobą jako platforma, na której można tworzyć przepływy pracy oparte na danych z etapami przenoszenia i przekształcania danych.
 
-### <a name="pipelines"></a>Pipelines
+### <a name="pipelines"></a>Potoki
 Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupą działań do wykonania jednostką pracy. Razem działania w potoku wykonują zadanie. Na przykład potok może zawierać grupę działań, które pobierają dane z obiektu blob platformy Azure, a następnie uruchamiają zapytanie programu Hive w klastrze usługi HDInsight w celu partycjonowania danych. Korzyść polega na tym, że można użyć potoku do zarządzania działaniami jako zestawem, zamiast konieczności oddzielnego zarządzania poszczególnymi działaniami. Można połączyć działania w potoku w celu ich sekwencyjnego działania lub można obsługiwać je niezależnie, równolegle.
 
 ### <a name="data-flows"></a>Przepływy danych

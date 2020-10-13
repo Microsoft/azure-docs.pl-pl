@@ -4,10 +4,10 @@ description: Twórz spójne z aplikacjami kopie zapasowe maszyn wirtualnych z sy
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88999244"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji
@@ -70,7 +70,7 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
 Pamiętaj o dodaniu odpowiedniego rejestrowania podczas pisania skryptu wstępnego i po skrypcie oraz Przejrzyj dzienniki skryptów, aby rozwiązać wszelkie problemy ze skryptami. Jeśli nadal występują problemy z uruchamianiem skryptów, zapoznaj się z poniższą tabelą, aby uzyskać więcej informacji.
 
-| Error | Komunikat o błędzie | Zalecana akcja |
+| Błąd | Komunikat o błędzie | Zalecana akcja |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Skrypt przed wystąpieniem zwrócił błąd, dlatego kopia zapasowa może nie być spójna z aplikacją.| Zapoznaj się z dziennikami błędów dla skryptu, aby rozwiązać ten problem.|  
 |Po ScriptExecutionFailed |Skrypt po stronie zwrócił błąd, który może mieć wpływ na stan aplikacji. |Zapoznaj się z dziennikami błędów dla skryptu, aby rozwiązać problem, i sprawdź stan aplikacji. |
@@ -78,11 +78,11 @@ Pamiętaj o dodaniu odpowiedniego rejestrowania podczas pisania skryptu wstępne
 | Po ScriptNotFound |Nie znaleziono skryptu wykonywanego w lokalizacji określonej w **VMSnapshotScriptPluginConfig.js** pliku konfiguracyjnym. |Upewnij się, że skrypt jest obecny w ścieżce określonej w pliku konfiguracji, aby zapewnić kopię zapasową spójną na poziomie aplikacji.|
 | IncorrectPluginhostFile |Plik **hosta wtyczki** , który jest dostarczany z rozszerzeniem VmSnapshotLinux, jest uszkodzony, więc nie można uruchomić skryptu wstępnego i skryptu, a kopia zapasowa nie będzie spójna z aplikacją.| Odinstaluj rozszerzenie **VmSnapshotLinux** i zostanie ono automatycznie zainstalowane ponownie przy użyciu następnej kopii zapasowej w celu rozwiązania problemu. |
 | IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig.jsw** pliku jest niepoprawny, więc nie można uruchomić skryptu wstępnego i skryptu, a kopia zapasowa nie będzie spójna z aplikacją. | Pobierz kopię z usługi [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) i skonfiguruj ją ponownie. |
-| InsufficientPermissionforPre — skrypt | W przypadku uruchamiania skryptów użytkownik "root" powinien być właścicielem pliku, a plik powinien mieć uprawnienia "700" (oznacza to, że tylko "właściciel" powinien mieć uprawnienia "Odczyt", "zapis" i "wykonywanie"). | Upewnij się, że użytkownik "root" jest użytkownikiem "Owner" pliku skryptu i że tylko "Owner" ma uprawnienia "read", "Write" i "Execute". |
-| InsufficientPermissionforPost — skrypt | W przypadku uruchamiania skryptów użytkownik główny powinien być właścicielem pliku, a plik powinien mieć uprawnienia "700" (oznacza to, że tylko "właściciel" powinien mieć uprawnienia "Odczyt", "zapis" i "Execute"). | Upewnij się, że użytkownik "root" jest użytkownikiem "Owner" pliku skryptu i że tylko "Owner" ma uprawnienia "read", "Write" i "Execute". |
+| InsufficientPermissionforPre-Script | W przypadku uruchamiania skryptów użytkownik "root" powinien być właścicielem pliku, a plik powinien mieć uprawnienia "700" (oznacza to, że tylko "właściciel" powinien mieć uprawnienia "Odczyt", "zapis" i "wykonywanie"). | Upewnij się, że użytkownik "root" jest użytkownikiem "Owner" pliku skryptu i że tylko "Owner" ma uprawnienia "read", "Write" i "Execute". |
+| InsufficientPermissionforPost-Script | W przypadku uruchamiania skryptów użytkownik główny powinien być właścicielem pliku, a plik powinien mieć uprawnienia "700" (oznacza to, że tylko "właściciel" powinien mieć uprawnienia "Odczyt", "zapis" i "Execute"). | Upewnij się, że użytkownik "root" jest użytkownikiem "Owner" pliku skryptu i że tylko "Owner" ma uprawnienia "read", "Write" i "Execute". |
 | Przed-ScriptTimeout | Upłynął limit czasu wykonywania skryptu wstępnego tworzenia kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w **VMSnapshotScriptPluginConfig.js** pliku, który znajduje się w **/etc/Azure**. |
 | Post-ScriptTimeout | Przekroczono limit czasu wykonywania skryptu po wykonaniu kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w **VMSnapshotScriptPluginConfig.js** pliku, który znajduje się w **/etc/Azure**. |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Konfigurowanie kopii zapasowej maszyny wirtualnej w magazynie Recovery Services](./backup-azure-vms-first-look-arm.md)

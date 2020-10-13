@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
 ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564366"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
@@ -152,7 +152,7 @@ Aby wyświetlić temperaturę aktualizacji na żywo, wykonaj następujące czynn
 
 Oba próbki wysyłają temperaturę w zgodnym zakresie, dlatego należy zobaczyć kolor pokoju 121 aktualizacji na mapie co 30 sekund.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Mapa biura pokazująca Pokój 121 kolor pomarańczowy":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu, wyróżnianie części integracji z mapami pomieszczeń":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Przechowywanie informacji o mapach w usłudze Azure Digital bliźniaczych reprezentacji
 

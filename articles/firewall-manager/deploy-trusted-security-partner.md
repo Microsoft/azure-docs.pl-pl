@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85611581"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Wdrażanie dostawcy partnera w zakresie zabezpieczeń
@@ -39,10 +39,10 @@ Pomiń tę sekcję, Jeśli wdrażasz dostawcę innej firmy w istniejącym centru
    > Dostawcy usługi Security partner nawiązują połączenie z centrum przy użyciu tuneli VPN Gateway. Po usunięciu VPN Gateway połączenia z dostawcami partnerów zabezpieczeń zostaną utracone.
 9. Jeśli chcesz wdrożyć zaporę platformy Azure, aby odfiltrować ruch prywatny razem z dostawcą usług innych firm w celu filtrowania ruchu internetowego, wybierz zasady zapory platformy Azure. Zapoznaj się z [obsługiwanymi scenariuszami](trusted-security-partners.md#key-scenarios).
 10. Jeśli chcesz wdrożyć dostawcę zabezpieczeń innych firm w centrum, wybierz opcję **Zapora systemu Azure: włączone/wyłączone** , aby ustawić ustawienie na **wyłączone**. 
-11. Wybierz pozycję **Dalej: dostawca partnera zabezpieczeń**.
+11. Wybierz pozycję  **Dalej: dostawca partnera zabezpieczeń**.
 12. Ustaw **dostawcę partnera zabezpieczeń** na **włączony**. 
 13. Wybierz partnera. 
-14. Wybierz pozycję **Dalej: przegląd + Utwórz**. 
+14. Wybierz pozycję **Dalej: Przeglądanie i tworzenie**. 
 15. Przejrzyj zawartość, a następnie wybierz pozycję **Utwórz**.
 
 Wdrożenie bramy sieci VPN może potrwać ponad 30 minut.
@@ -101,7 +101,7 @@ Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy inn
 5. Musisz wybrać opcję **bezpieczne połączenia** i wybrać połączenia, dla których mają zostać ustawione te trasy. Wskazuje, które sieci wirtualnych/gałęzie mogą rozpocząć wysyłanie ruchu internetowego do dostawcy innej firmy.
 6. W obszarze **Ustawienia trasy**wybierz pozycję **bezpieczne połączenia** w obszarze ruch internetowy, a następnie wybierz sieć wirtualną lub gałęzie (*Lokacje* w wirtualnej sieci WAN), które mają być zabezpieczone. Wybierz pozycję **bezpieczny ruch internetowy**.
    ![Bezpieczny ruch internetowy](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Przejdź z powrotem do strony centrów. Stan **dostawcy partnera zabezpieczeń** centrum powinien być teraz **zabezpieczony**.
+7. Przejdź z powrotem do strony centrów. Stan **dostawcy partnera zabezpieczeń** centrum powinien być teraz  **zabezpieczony**.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Gałąź lub ruch internetowy w sieci wirtualnej za pośrednictwem usługi innej firmy
 

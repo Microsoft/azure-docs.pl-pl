@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: e5a69525c4bd0717c0561bc61ee3c52aa68e1c9d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533965"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indeksowanie obiektów BLOB w celu utworzenia wielu dokumentów wyszukiwania
@@ -66,7 +66,7 @@ Gdy tworzysz indeksator i ustawisz **dla opcji** `jsonLines` -bez określania ws
 
 Ta konfiguracja spowoduje, że indeks usługi Azure Wyszukiwanie poznawcze zawierający następujące informacje (skrócony identyfikator kodowany algorytmem Base64 dla zwięzłości)
 
-| ID | temperature | ciśnienie | sygnatura czasowa |
+| ID (Identyfikator) | temperature | ciśnienie | sygnatura czasowa |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

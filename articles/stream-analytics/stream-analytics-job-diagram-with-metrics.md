@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
 ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044485"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Data-driven debugging by using the job diagram (Debugowanie oparte na danych za pomocą diagramu zadań)
@@ -75,7 +75,7 @@ Jeśli poprzedni krok zapytania jest procesorem wejściowym, użyj metryk wejśc
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Czy w trakcie odczytywania danych?
 
-*   **Zarejestrowane zdarzenia (łącznie)** wskazują, ile więcej komunikatów należy odczytać dla Event Hubs i danych wejściowych platformy Azure IoT Hub. Gdy ta liczba jest większa niż 0, oznacza to, że zadanie nie może przetworzyć danych tak szybko, jak to się dzieje. W takim przypadku może być konieczne zwiększenie liczby jednostek przesyłania strumieniowego i/lub upewnienie się, że zadanie może być równoległe. Więcej informacji na ten temat można znaleźć na [stronie zapytania przetwarzanie równoległe](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Zarejestrowane zdarzenia (łącznie)** wskazują, ile więcej komunikatów należy odczytać dla Event Hubs i danych wejściowych platformy Azure IoT Hub. Gdy ta liczba jest większa niż 0, oznacza to, że zadanie nie może przetworzyć danych tak szybko, jak to się dzieje. W takim przypadku może być konieczne zwiększenie liczby jednostek przesyłania strumieniowego i/lub upewnienie się, że zadanie może być równoległe. Więcej informacji na ten temat można znaleźć na  [stronie zapytania przetwarzanie równoległe](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Uzyskaj pomoc

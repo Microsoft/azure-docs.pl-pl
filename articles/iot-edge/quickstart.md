@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e9ce523efd12ce372d7bfef6c653e95f6689415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eae7a44d77d63641ba9ad062c504aaf624582668
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856963"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969215"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
 
@@ -78,7 +78,7 @@ Urządzenie usługi IoT Edge:
 >
 > W tym przewodniku szybki start do uproszczenia jest stosowana maszyna wirtualna z systemem Windows. Informacje o tym, które systemy operacyjne Windows są ogólnie dostępne w scenariuszach produkcyjnych, można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
 >
-> Aby skonfigurować własne urządzenie z systemem Windows w celu IoT Edge, w tym urządzeń z systemem IoT Core, wykonaj kroki opisane w temacie [Instalowanie środowiska wykonawczego Azure IoT Edge w systemie Windows](how-to-install-iot-edge-windows.md).
+> Aby skonfigurować własne urządzenie z systemem Windows na potrzeby IoT Edge, wykonaj kroki opisane w temacie [Install the Azure IoT Edge Runtime](how-to-install-iot-edge.md).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT
 
@@ -142,9 +142,7 @@ Kroki opisane w tej sekcji odbywają się na urządzeniu IoT Edge, dlatego chces
 
 Pobierz i zainstaluj środowisko uruchomieniowe usługi IoT Edge za pomocą programu PowerShell. Do skonfigurowania urządzenia użyj parametrów połączenia urządzenia pobranych z usługi IoT Hub.
 
-1. Jeśli jeszcze tego nie zrobiono, wykonaj kroki opisane w temacie [Rejestrowanie nowego urządzenia Azure IoT Edge](how-to-register-device.md) , aby zarejestrować urządzenie i pobrać parametry połączenia urządzenia.
-
-2. Na maszynie wirtualnej Uruchom program PowerShell jako administrator.
+1. Na maszynie wirtualnej Uruchom program PowerShell jako administrator.
 
    >[!NOTE]
    >Użyj sesji AMD64 programu PowerShell, aby zainstalować IoT Edge, a nie PowerShell (x86). Jeśli nie masz pewności, który typ sesji jest używany, uruchom następujące polecenie:
@@ -153,25 +151,25 @@ Pobierz i zainstaluj środowisko uruchomieniowe usługi IoT Edge za pomocą prog
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję Containers, pobiera środowisko uruchomieniowe Moby, a następnie pobiera środowisko uruchomieniowe IoT Edge.
+2. Polecenie **Deploy-IoTEdge** sprawdza, czy komputer z systemem Windows jest w obsługiwanej wersji, włącza funkcję Containers, pobiera środowisko uruchomieniowe Moby, a następnie pobiera środowisko uruchomieniowe IoT Edge.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Komputer może zostać automatycznie uruchomiony ponownie. Jeśli zostanie wyświetlony monit Deploy-IoTEdge polecenie w celu ponownego uruchomienia systemu, zrób to teraz.
+3. Komputer może zostać automatycznie uruchomiony ponownie. Jeśli zostanie wyświetlony monit Deploy-IoTEdge polecenie w celu ponownego uruchomienia systemu, zrób to teraz.
 
-5. Uruchom ponownie program PowerShell jako administrator.
+4. Uruchom ponownie program PowerShell jako administrator.
 
-6. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi przy użyciu kontenerów systemu Windows.
+5. Polecenie **Initialize-IoTEdge** konfiguruje środowisko uruchomieniowe IoT Edge na komputerze. Polecenie domyślnie umożliwia ręczne Inicjowanie obsługi przy użyciu kontenerów systemu Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. Po wyświetleniu prośby o podanie wartości **DeviceConnectionString**, wpisz parametry skopiowane w poprzedniej sekcji. Nie dołączaj znaków cudzysłowów otaczających parametry połączenia.
+6. Po wyświetleniu prośby o podanie wartości **DeviceConnectionString**, wpisz parametry skopiowane w poprzedniej sekcji. Nie dołączaj znaków cudzysłowów otaczających parametry połączenia.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Wyświetlanie stanu środowiska uruchomieniowego usługi IoT Edge
 

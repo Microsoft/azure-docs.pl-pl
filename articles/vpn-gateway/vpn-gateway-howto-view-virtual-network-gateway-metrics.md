@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: 4b33af3e64726e124373f57920836bce145cd891
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443181"
 ---
 # <a name="view-vpn-gateway-metrics"></a>Wyświetl metryki usługi VPN Gateway
@@ -41,7 +41,7 @@ Bramy sieci VPN platformy Azure można monitorować przy użyciu Azure Monitor. 
 
 3. Aby wyświetlić wszystkie inne metryki wymienione powyżej. Kliknij sekcję **metryki** w obszarze zasób bramy sieci wirtualnej i wybierz metrykę z listy rozwijanej.
 
-   ![Przycisk Wybierz i Brama sieci VPN na liście zasobów](./media/vpn-gateway-howto-view-virtual-network-gateway-metrics/metrics.png "Wybierz pozycję")
+   ![Przycisk Wybierz i Brama sieci VPN na liście zasobów](./media/vpn-gateway-howto-view-virtual-network-gateway-metrics/metrics.png "Wybierz")
 
 ## <a name="next-steps"></a>Następne kroki
 

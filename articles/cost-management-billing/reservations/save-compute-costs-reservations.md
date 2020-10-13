@@ -1,19 +1,19 @@
 ---
 title: Co to jest Azure Reservations?
-description: Dowiedz się więcej o rezerwacjach platformy Azure i cenach, które umożliwiają oszczędzanie za kosztach maszyn wirtualnych, baz danych SQL, usługi Azure Cosmos DB i innych zasobów.
+description: Dowiedz się więcej o usłudze Azure Reservations i cenach, aby zredukować koszty wystąpień zarezerwowanych maszyn wirtualnych, baz danych SQL, usługi Azure Cosmos DB i innych zasobów.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682590"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652367"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -50,9 +50,9 @@ Aby uzyskać więcej informacji, zobacz  [Określanie rezerwacji do zakupu](de
 
 Rezerwacje można kupić w witrynie Azure Portal, za pomocą interfejsów API, programu PowerShell i interfejsu wiersza polecenia. 
 
-Przejdź do witryny Azure Portal, aby dokonać zakupu (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Przejdź do witryny [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs), aby dokonać zakupu.
 
-Aby uzyskać więcej informacji, zobacz  [Kupowanie rezerwacji](prepare-buy-reservation.md) 
+Aby uzyskać więcej informacji, zobacz  [Kupowanie rezerwacji](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Jak jest rozliczana rezerwacja? 
 
@@ -106,7 +106,7 @@ Plany oprogramowania:
 
 - **SUSE Linux** — rezerwacja obejmuje koszty planu oprogramowania. Rabaty mają zastosowanie tylko do mierników SUSE, a nie do użycia maszyn wirtualnych.
 - **Plany oprogramowania Red Hat** — rezerwacja obejmuje koszty planu oprogramowania. Rabaty mają zastosowanie tylko do mierników RedHat, a nie do użycia maszyn wirtualnych.
-- **Azure VMware Solution by CloudSimple** — rezerwacja obejmuje węzły rozwiązania VMWare CloudSimple. Nadal obowiązują dodatkowe opłaty za oprogramowanie.
+- **Azure VMware Solution by CloudSimple** — rezerwacja obejmuje węzły rozwiązania VMware CloudSimple. Nadal obowiązują dodatkowe opłaty za oprogramowanie.
 - **Azure Red Hat OpenShift** — rezerwacja ma zastosowanie do kosztów oprogramowania OpenShift, a nie do kosztów infrastruktury platformy Azure.
 
 W przypadku maszyn wirtualnych z systemem Windows i usługi SQL Database rabat na rezerwacje nie dotyczy kosztów oprogramowania. Koszty licencjonowania można pokryć w ramach [Korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).

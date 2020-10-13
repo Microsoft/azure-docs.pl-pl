@@ -1,16 +1,16 @@
 ---
 title: Klucz zarządzany przez klienta usługi Azure Monitor
-description: Informacje i kroki służące do konfigurowania klucza zarządzanego przez klienta (CMK) w celu szyfrowania danych w obszarach roboczych Log Analytics przy użyciu klucza Azure Key Vault.
+description: Informacje i kroki umożliwiające skonfigurowanie klucza Customer-Managed (CMK) w celu szyfrowania danych w obszarach roboczych Log Analytics przy użyciu klucza Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
 ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657302"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Klucz zarządzany przez klienta usługi Azure Monitor 
@@ -240,7 +240,7 @@ Tożsamość jest przypisywana do zasobu *klastra* podczas tworzenia.
 
 Mimo że trwa inicjowanie obsługi klastra Log Analytics przez pewien czas, można sprawdzić stan aprowizacji na dwa sposoby:
 
-1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+1. Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z [testem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
 2. Wyślij żądanie GET do zasobu *klastra* i sprawdź wartość *provisioningState* . Jest on *ProvisioningAccount* podczas inicjowania obsługi administracyjnej i zakończył *się pomyślnie* .
 
 ```rst
@@ -337,7 +337,7 @@ Content-type: application/json
 
 200 OK i nagłówek.
 Wykonanie propagacji identyfikatora klucza trwa kilka minut. Stan aktualizacji można sprawdzić na dwa sposoby:
-1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+1. Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z [testem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
 2. Wyślij żądanie GET do zasobu *klastra* i sprawdź właściwości *KeyVaultProperties* . Ostatnio zaktualizowane szczegóły identyfikatora klucza powinny zwrócić odpowiedź.
 
 Odpowiedź na uzyskanie żądania dotyczącego zasobu *klastra* powinna wyglądać następująco po zakończeniu aktualizacji identyfikatora klucza:
@@ -406,7 +406,7 @@ Content-type: application/json
 
 Pozyskiwane dane są przechowywane w postaci zaszyfrowanej przy użyciu klucza zarządzanego po operacji skojarzenia, co może potrwać do 90 minut. Stan skojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
-1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+1. Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z [testem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
 2. Wyślij [obszary robocze — Pobierz](/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, skojarzony obszar roboczy będzie miał clusterResourceId w obszarze "funkcje".
 
 ```rest
@@ -664,7 +664,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](https://docs.mic
 
   Dane pozyskane po operacji usunięcia skojarzenia są przechowywane w magazynie Log Analytics, co może potrwać 90 minut. Stan nieskojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
-  1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+  1. Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z [testem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   2. Wyślij [obszary robocze — Pobierz](/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
 
 - **Sprawdź stan powiązania obszaru roboczego**
@@ -744,7 +744,7 @@ Dowiedz się więcej [na temat Skrytka klienta Microsoft Azure](https://docs.mic
 - Jeśli zaktualizujesz wersję klucza w Key Vault i nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , klaster log Analytics będzie nadal korzystać z poprzedniego klucza i Twoje dane staną się niedostępne. Zaktualizuj szczegóły nowego identyfikatora klucza w zasobie *klastra* w celu wznowienia pozyskiwania danych i umożliwienia wykonywania zapytań dotyczących danych.
 
 - Niektóre operacje są długie i mogą chwilę potrwać — są to między innymi tworzenie *klastra* , Aktualizacja klucza *klastra* i usuwanie *klastra* . Stan operacji można sprawdzić na dwa sposoby:
-  1. w przypadku używania opcji REST skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie z [testem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
+  1. w przypadku korzystania z usługi REST skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   2. Wyślij żądanie GET do *klastra* lub obszaru roboczego i obserwuj odpowiedź. Na przykład, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
 
 - Aby uzyskać pomoc techniczną i powiązana z kluczem zarządzanym przez klienta, Użyj kontaktów do firmy Microsoft.

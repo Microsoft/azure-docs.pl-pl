@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080594"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatyczne skalowanie zestawu skalowania maszyn wirtualnych w Azure Portal
@@ -41,7 +41,7 @@ Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpie
 
     Określ następujące ustawienia reguły:
     
-    | Parametr              | Wyjaśnienie                                                                                                         | Wartość          |
+    | Parametr              | Objaśnienie                                                                                                         | Wartość          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregacja czasu*     | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
     | *Nazwa metryki*          | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
@@ -68,7 +68,7 @@ Wieczorami lub w weekendy zapotrzebowanie aplikacji może być mniejsze. Jeśli 
 
     Użyj tego samego podejścia jak w przypadku poprzedniej reguły. Dostosuj następujące ustawienia reguły:
     
-    | Parametr              | Wyjaśnienie                                                                                                          | Wartość          |
+    | Parametr              | Objaśnienie                                                                                                          | Wartość          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                      | Mniejsze niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 30             |

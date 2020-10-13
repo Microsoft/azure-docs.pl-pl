@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86042082"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Dokładniejsze umieszczenie w usłudze Cloud-init
@@ -21,7 +21,7 @@ Aby dowiedzieć się więcej o programie [Cloud-init](https://cloudinit.readthed
 Gdy usługa Cloud-init jest zawarta w uogólnionym obrazie, a maszyna wirtualna jest tworzona na podstawie tego obrazu, będzie ona przetwarzać konfiguracje i działać przez 5 etapów podczas początkowego rozruchu. Te etapy przedstawiają, jak pokazuje, w jaki sposób program Cloud-init będzie stosował konfiguracje. 
 
 
-## <a name="understand-cloud-init-configuration"></a>Omówienie konfiguracji usługi Cloud-init
+## <a name="understand-cloud-init-configuration"></a>Informacje o konfiguracji Cloud-Init
 Konfigurowanie maszyny wirtualnej do uruchamiania na platformie, oznacza, że usługa Cloud-init musi zastosować wiele konfiguracji, jako odbiorca obrazu, podstawowe konfiguracje, z którymi będziesz korzystać, to `User data` (CustomData), które obsługują wiele formatów, zostały opisane [tutaj](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). Istnieje również możliwość dodawania i uruchamiania skryptów (/var/lib/Cloud/scripts) w celu uzyskania dodatkowej konfiguracji, poniżej omawia się to bardziej szczegółowo.
 
 Niektóre konfiguracje są już rozszerzania do obrazów w portalu Azure Marketplace, które są dostarczane z usługą Cloud-init, na przykład:
@@ -71,9 +71,9 @@ W przypadku inicjowania obsługi administracyjnej przy użyciu usługi Cloud-ini
 5. [Cloud-init Final etap](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): na tym ostatnim etapie zostaną uruchomione moduły w `cloud_final_modules` , wymienione w/etc/Cloud/Cloud.cfg. W tym miejscu moduły, które muszą być uruchamiane w trybie opóźnionym w przebiegu procesu rozruchu, takie jak instalacje pakietów i uruchamianie skryptów itp. 
 
    -   Na tym etapie można uruchamiać skrypty, umieszczając je w katalogach w obszarze `/var/lib/cloud/scripts` :
-   - `per-boot`-skrypty w tym katalogu, uruchamiane przy każdym ponownym uruchomieniu
-   - `per-instance`-skrypty w tym katalogu są uruchamiane podczas pierwszego uruchomienia nowego wystąpienia
-   - `per-once`-skrypty w tym katalogu są uruchamiane tylko raz
+   - `per-boot` -skrypty w tym katalogu, uruchamiane przy każdym ponownym uruchomieniu
+   - `per-instance` -skrypty w tym katalogu są uruchamiane podczas pierwszego uruchomienia nowego wystąpienia
+   - `per-once` -skrypty w tym katalogu są uruchamiane tylko raz
 
 ## <a name="next-steps"></a>Następne kroki
 

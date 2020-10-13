@@ -15,10 +15,10 @@ ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598147"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Omówienie szablonu licencji Media Services v3 with Widevine
@@ -70,7 +70,7 @@ Azure Media Services umożliwia zaszyfrowanie zawartości za pomocą usługi **G
 | Nazwa | Wartość | Opis |
 | --- | --- | --- |
 | payload |Ciąg zakodowany algorytmem Base64 |Żądanie licencji wysyłane przez klienta. |
-| content_id |Ciąg zakodowany algorytmem Base64 |Identyfikator używany do wygenerowania identyfikatora klucza i klucza zawartości dla każdej content_key_specs. track_type. |
+| content_id |Ciąg zakodowany algorytmem Base64 |Identyfikator używany do wygenerowania identyfikatora klucza i klucza zawartości dla każdego content_key_specs. track_type. |
 | dostawcy |ciąg |Służy do wyszukiwania kluczy zawartości i zasad. Jeśli do dostawy licencji Widevine jest używany program Microsoft Key Delivery, ten parametr jest ignorowany. |
 | policy_name |ciąg |Nazwa wcześniej zarejestrowanych zasad. Opcjonalny. |
 | allowed_track_types |enum |SD_ONLY lub SD_HD. Kontroluje, które klucze zawartości znajdują się w licencji. |
@@ -91,7 +91,7 @@ Każda wartość content_key_specs musi być określona dla wszystkich ścieżek
 | content_key_specs  <br/> security_level |równ |Definiuje wymagania dotyczące niezawodności klientów na potrzeby odtwarzania. <br/> — Wymagana jest Kryptografia białych pól oparta na oprogramowaniu. <br/> — Wymagane są Kryptografia programowa i niesłonięty dekoder. <br/> — Materiał klucza i operacje kryptografii muszą być wykonywane w ramach sprzętowego środowiska wykonawczego, które jest w użyciu. <br/> — Kryptografia i dekodowanie zawartości należy wykonać w ramach sprzętowego środowiska wykonawczego, które jest wykonywane w ramach sprzętu.  <br/> — Kryptografia, dekodowanie i wszystkie czynności związane z multimediami (skompresowane i nieskompresowane) muszą być obsługiwane w ramach sprzętowego środowiska wykonawczego. |
 | content_key_specs <br/> required_output_protection. używający HDC |ciąg, jeden z HDCP_NONE, HDCP_V1, HDCP_V2 |Wskazuje, czy jest wymagana HDCP. |
 | content_key_specs <br/>key |Zakodowan<br/>zakodowany ciąg |Klucz zawartości, który ma być używany dla tej ścieżki. Jeśli ta wartość jest określona, wymagane jest track_type lub key_id. Dostawca zawartości może użyć tej opcji, aby wstrzyknąć klucz zawartości dla tej ścieżki zamiast zezwalać serwerowi licencji Widevine na generowanie lub Wyszukiwanie klucza. |
-| content_key_specs. key_id |Binarne ciągi zakodowane algorytmem Base64, 16 bajtów |Unikatowy identyfikator klucza. |
+| content_key_specs content_key_specs.Key_ID |Binarne ciągi zakodowane algorytmem Base64, 16 bajtów |Unikatowy identyfikator klucza. |
 
 ## <a name="policy-overrides"></a>Zastąpienia zasad
 | Nazwa | Wartość | Opis |

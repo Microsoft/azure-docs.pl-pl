@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441582"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN (klasyczne)
@@ -20,7 +20,7 @@ ms.locfileid: "89441582"
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 >
 >
@@ -49,7 +49,7 @@ Jeśli masz już bramę statyczną połączoną z siecią wirtualną, możesz zm
 
 Należy wygodnie korzystać z pliku konfiguracji sieci przez czas ukończenia procedury wielolokacjowej. Jeśli jednak w konfiguracji sieci istnieje wiele osób, należy się upewnić, że każdy wie o tym ograniczeniu. Nie oznacza to, że w ogóle nie można używać portalu. Można jej używać dla wszystkiego innego, z wyjątkiem wprowadzania zmian w konfiguracji tej konkretnej sieci wirtualnej.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem konfiguracji Sprawdź, czy masz następujące elementy:
 

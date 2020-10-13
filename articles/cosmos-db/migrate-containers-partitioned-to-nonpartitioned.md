@@ -8,10 +8,10 @@ ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f2defeb2c417e94109721d32d8d4b611e2e46569
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003222"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów bez partycjonowania do kontenerów partycjonowanych
@@ -127,7 +127,7 @@ W przypadku wykonywania zapytań z zestawu v3 SDK dla elementów, które są wst
 
 Jeśli nowe elementy są wstawiane z różnymi wartościami klucza partycji, wykonywanie zapytania o takie liczby elementów przez przekazanie odpowiedniego klucza w `FeedOptions` nie spowoduje problemów. Po wstawieniu nowych dokumentów z kluczem partycji, jeśli trzeba wykonać zapytanie tylko o liczbę dokumentów bez wartości klucza partycji, zapytanie może ponownie ponieść wyższy poziom RU/s podobne do regularnych kolekcji partycjonowanych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 * [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)

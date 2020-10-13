@@ -8,10 +8,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ae9404d366b24c0cc1bcf01ecffc71a427f949d4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034349"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrowanie danych zbiorczych do usługi Azure File Sync za pomocą usługi Azure DataBox
@@ -98,4 +98,4 @@ Jeśli pliki są umieszczane w udziale plików platformy Azure w inny sposób ni
 
 ## <a name="next-steps"></a>Następne kroki
 - [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md)
-- [Wdrażanie funkcji Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)

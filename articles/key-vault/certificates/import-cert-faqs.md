@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
 ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651847"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Importowanie Azure Key Vault certyfikatów — często zadawane pytania

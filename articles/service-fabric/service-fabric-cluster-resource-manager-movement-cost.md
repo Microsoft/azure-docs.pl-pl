@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0fdcfb02851d56ed996ae4bf32671ab545782733
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005347"
 ---
 # <a name="service-movement-cost"></a>Koszt przeniesienia usługi
@@ -119,7 +119,7 @@ za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsn
 ]
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 - Service Fabric Menedżer zasobów klastra używa metryk do zarządzania zużyciem i pojemnością w klastrze. Aby dowiedzieć się więcej o metrykach i sposobach ich konfigurowania, zapoznaj się z tematem [Zarządzanie użyciem zasobów i obciążeniem Service Fabric za pomocą metryk](service-fabric-cluster-resource-manager-metrics.md).
 - Aby dowiedzieć się, jak klaster Menedżer zasobów zarządza i zrównoważy obciążenie w klastrze, sprawdź [równoważenie Service Fabric klastra](service-fabric-cluster-resource-manager-balancing.md).
 

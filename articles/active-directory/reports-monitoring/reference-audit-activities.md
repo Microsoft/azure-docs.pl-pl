@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231150"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informacje o działaniach inspekcji usługi Azure AD
@@ -474,7 +474,7 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie użytkownikami|Dodawanie roli z szablonu|
 |Zarządzanie użytkownikami|Dodawanie członka w zakresie do roli|
 |Zarządzanie użytkownikami|Dodane|
-|Zarządzanie użytkownikami|Przypisz|
+|Zarządzanie użytkownikami|Przypisanie|
 |Zarządzanie użytkownikami|Tworzenie zbiorcze użytkowników — rozpoczęto|
 |Zarządzanie użytkownikami|Tworzenie zbiorczo użytkowników — zakończono|
 |Zarządzanie użytkownikami|Usuwanie zbiorcze użytkowników — rozpoczęto|
@@ -558,7 +558,7 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |PIM|ActivationRequested|
 |PIM|Dodane|
 |PIM|AddedOutsidePIM|
-|PIM|Przypisz|
+|PIM|Przypisanie|
 |PIM|DismissAlert|
 |PIM|Podnoszenie poziomu uprawnień|
 |PIM|ReactivateAlert|

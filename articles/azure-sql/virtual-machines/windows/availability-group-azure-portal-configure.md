@@ -14,10 +14,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89482803"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Konfigurowanie grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure (Azure Portal — wersja zapoznawcza)
@@ -67,18 +67,11 @@ Jeśli nie masz jeszcze istniejącego klastra, utwórz go przy użyciu Azure Por
 
 1. Nazwij klaster i podaj konto magazynu, które będzie używane jako monitor w chmurze. Użyj istniejącego konta magazynu lub wybierz pozycję **Utwórz nowe** , aby utworzyć nowe konto magazynu. Nazwa konta magazynu musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Podaj nazwę, konto magazynu i poświadczenia dla klastra":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Rozwiń pozycję **poświadczenia klastra trybu failover systemu Windows Server** , aby podać [poświadczenia](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) dla konta usługi SQL Server, a także operator klastra i konta Bootstrap, jeśli są inne niż konto używane dla usługi SQL Server. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Podaj poświadczenia dla konta usługi SQL, konta operatora klastra i konta Bootstrap klastra":::
-
-1. Wybierz Maszyny wirtualne SQL Server, które chcesz dodać do klastra. Zwróć uwagę, czy jest wymagane ponowne uruchomienie komputera, i postępuj zgodnie z przestrogą. Widoczne są tylko maszyny wirtualne zarejestrowane przy użyciu dostawcy zasobów maszyny wirtualnej SQL w trybie pełnego zarządzania i znajdują się w tej samej lokalizacji, domenie i w tej samej sieci wirtualnej co podstawowa SQL Server maszyny wirtualnej. 
-1. Wybierz pozycję **Zastosuj** , aby utworzyć klaster. Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dostępny z ikony dzwonka na górnym pasku nawigacyjnym. 
-1. Aby klaster trybu failover był obsługiwany przez firmę Microsoft, musi on przejść w celu sprawdzenia poprawności klastra. Połącz się z maszyną wirtualną przy użyciu preferowanej metody (takiej jak Remote Desktop Protocol (RDP)) i sprawdź, czy klaster przeszedł sprawdzanie poprawności przed dalszym kontynuowaniem. Niewykonanie tej czynności spowoduje pozostawienie klastra w nieobsługiwanym stanie. Można sprawdzić poprawność klastra przy użyciu Menedżer klastra trybu failover (FCM) lub następującego polecenia programu PowerShell:
-
-    ```powershell
-    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu"
     ```
     
 
@@ -94,7 +87,7 @@ Aby to zrobić, wykonaj następujące kroki:
 1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję Dołącz **istniejący klaster trybu failover systemu Windows Server** , aby otworzyć stronę **klastra trybu failover systemu Windows Server** . 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Dołączanie istniejącego klastra ze strony wysokiej dostępności w zasobie usługi SQL Virtual Machines":::
+   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Sprawdź ustawienia klastra. 
 1. Wybierz pozycję **Zastosuj** , aby dołączyć klaster, a następnie wybierz pozycję **tak** w wierszu polecenia, aby wykonać operację.
@@ -111,21 +104,21 @@ Po utworzeniu lub dołączeniu klastra utwórz grupę dostępności przy użyciu
 1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję **+ Nowa zawsze włączona Grupa dostępności** , aby otworzyć stronę **Tworzenie grupy dostępności** .
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Wybierz pozycję Nowa zawsze włączona Grupa dostępności, aby otworzyć stronę Tworzenie grupy dostępności.":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Wprowadź nazwę grupy dostępności. 
 1. Wybierz pozycję **Konfiguruj odbiornik** , aby otworzyć stronę **Konfigurowanie odbiornika grupy dostępności** . 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Podaj nazwę grupy dostępności i skonfiguruj odbiornik":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Wypełnij wartości, a następnie użyj istniejącego modułu równoważenia obciążenia lub wybierz pozycję **Utwórz nowy** , aby utworzyć nowy moduł równoważenia obciążenia.  Wybierz pozycję **Zastosuj** , aby zapisać ustawienia i utworzyć odbiornik i moduł równoważenia obciążenia. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Wypełnij wartości w formularzu, aby utworzyć nowy odbiornik i moduł równoważenia obciążenia":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Wybierz pozycję **+ Wybierz replikę** , aby otworzyć stronę **Konfigurowanie replik grupy dostępności** .
 1. Wybierz Maszyny wirtualne, które chcesz dodać do grupy dostępności, a następnie wybierz ustawienia grupy dostępności, które najlepiej odpowiadają potrzebom biznesowym. Wybierz pozycję **Zastosuj** , aby zapisać ustawienia. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Wybierz Maszyny wirtualne, które chcesz dodać do grupy dostępności, a następnie skonfiguruj ustawienia odpowiednie dla Twojej firmy":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Sprawdź ustawienia grupy dostępności, a następnie wybierz pozycję **Zastosuj** , aby utworzyć grupę dostępności. 
 
@@ -147,7 +140,7 @@ Aby dodać bazy danych do grupy dostępności przy użyciu SQL Server Management
 1. Rozwiń pozycję **zawsze w przypadku wysokiej dostępności** w **Eksplorator obiektów**.
 1. Rozwiń węzeł **grupy dostępności**, kliknij prawym przyciskiem myszy grupę dostępności, a następnie wybierz polecenie **Dodaj bazę danych.**...
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Kliknij prawym przyciskiem myszy grupę dostępności w Eksploratorze obiektów i wybierz polecenie Dodaj bazę danych":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Postępuj zgodnie z monitami, aby wybrać bazy danych, które chcesz dodać do grupy dostępności. 
 1. Wybierz **przycisk OK** , aby zapisać ustawienia i dodać bazę danych do grupy dostępności. 
@@ -155,7 +148,7 @@ Aby dodać bazy danych do grupy dostępności przy użyciu SQL Server Management
 
 Po dodaniu baz danych można sprawdzić stan grupy dostępności w Azure Portal: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Sprawdź stan grupy dostępności na stronie wysokiej dostępności z Azure Portal po zsynchronizowaniu baz danych":::
+:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 ## <a name="add-more-vms"></a>Dodaj więcej maszyn wirtualnych
 
@@ -166,7 +159,7 @@ Aby dodać więcej SQL Server maszyn wirtualnych do klastra, wykonaj następują
 1. W obszarze **Ustawienia**wybierz pozycję **wysoka dostępność** . 
 1. Wybierz pozycję **Konfiguruj klaster trybu failover systemu Windows Server** , aby otworzyć stronę **Konfigurowanie klastra trybu failover systemu Windows Server** . 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Wybierz pozycję Konfiguruj klaster trybu failover systemu Windows Server, aby dodać maszyny wirtualne do klastra.":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 1. Rozwiń pozycję **poświadczenia klastra trybu failover systemu Windows Server** i wprowadź konta używane dla usług SQL Server, operatora klastra i kont Bootstrap klastra. 
 1. Wybierz Maszyny wirtualne SQL Server, które chcesz dodać do klastra. 
@@ -180,7 +173,7 @@ Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dost
 
 Możesz **dodać więcej replik** do grupy dostępności, **skonfigurować odbiornik**lub **usunąć odbiornik** ze strony **wysokiej dostępności** w Azure Portal, wybierając wielokropek (...) obok grupy dostępności: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Wybierz wielokropek obok grupy dostępności, a następnie wybierz pozycję Dodaj replikę, aby dodać więcej replik do grupy dostępności.":::
+:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu":::
 
 ## <a name="remove-cluster"></a>Usuń klaster
 
@@ -255,7 +248,7 @@ Aby wyświetlić dzienniki wdrożenia i sprawdzić historię wdrożenia, wykonaj
 1. Wybierz wdrożenie zainteresowania, aby dowiedzieć się więcej o wdrożeniu. 
 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Wybierz wdrożenie, które chcesz poznać." :::
+   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Utwórz nowy klaster, wybierając pozycję + nowy klaster w portalu" :::
 
 ### <a name="common-errors"></a>Typowe błędy
 

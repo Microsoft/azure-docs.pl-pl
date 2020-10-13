@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003630"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie
@@ -294,4 +294,4 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
 [Service Bus programowanie/procedura podrzędna]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Zadanie WebJob platformy Azure]: ../app-service/webjobs-create.md
 [Notification Hubs — uniwersalny Samouczek systemu Windows]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Witryna Azure Portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

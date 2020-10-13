@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2020
 ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009294"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
@@ -71,7 +71,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Jeśli chcesz przypisać uprawnienia do grupy usługi Azure AD, zaktualizuj `--assignee` parametr wyświetlany w poprzednim przykładzie przy użyciu identyfikatora obiektu dla *grupy* , a nie *użytkownika*. Aby uzyskać identyfikator obiektu dla grupy, użyj polecenia [AZ AD Group Show][az-ad-group-show] . Poniższy przykład pobiera identyfikator obiektu dla grupy usługi Azure AD o nazwie *appdev*:`az ad group show --group appdev --query objectId -o tsv`
+> Jeśli chcesz przypisać uprawnienia do grupy usługi Azure AD, zaktualizuj `--assignee` parametr wyświetlany w poprzednim przykładzie przy użyciu identyfikatora obiektu dla *grupy* , a nie *użytkownika*. Aby uzyskać identyfikator obiektu dla grupy, użyj polecenia [AZ AD Group Show][az-ad-group-show] . Poniższy przykład pobiera identyfikator obiektu dla grupy usługi Azure AD o nazwie *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 W razie potrzeby można zmienić poprzednie przypisanie do *roli użytkownika klastra* .
 

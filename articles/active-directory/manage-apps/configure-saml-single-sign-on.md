@@ -12,10 +12,10 @@ ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597908"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Omówienie logowania jednokrotnego opartego na protokole SAML
@@ -23,7 +23,7 @@ ms.locfileid: "91597908"
 W [serii szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami wiesz, jak używać usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) dla aplikacji. W tym artykule opisano opcję opartą na protokole SAML do logowania jednokrotnego. 
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Korzystanie z usługi Azure AD jako dostawcy tożsamości (dostawcy tożsamości) i Konfigurowanie logowania jednokrotnego (SSO) może być proste lub złożone w zależności od używanej aplikacji. Niektóre aplikacje można skonfigurować za pomocą zaledwie kilku akcji. Inne wymagają konfiguracji szczegółowej. Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Jeśli dodawana aplikacja jest prosta, prawdopodobnie nie musisz czytać tego artykułu. Jeśli dodawana aplikacja wymaga konfiguracji niestandardowej dla logowania jednokrotnego opartego na protokole SAML, ten artykuł jest dla Ciebie.
 
@@ -81,7 +81,7 @@ Usługa Azure AD używa certyfikatu do podpisywania tokenów SAML wysyłanych do
 > [!IMPORTANT]
 > Wiele aplikacji jest już wstępnie skonfigurowanych i znajduje się w galerii aplikacji i nie ma potrzeby szczegółowe do certyfikatów. [Seria szybkiego startu](add-application-portal.md) przeprowadzi Cię przez proces dodawania i konfigurowania aplikacji.
 
-W usłudze Azure AD można pobrać aktywny certyfikat w formacie base64 lub RAW bezpośrednio z głównego konfigurowania logowania jednokrotnego **za pomocą strony SAML** . Ponadto można uzyskać aktywny certyfikat przez pobranie pliku XML metadanych aplikacji lub użycie adresu URL metadanych federacji aplikacji. Aby wyświetlić, utworzyć lub pobrać certyfikaty (aktywne lub nieaktywne), wykonaj następujące kroki.
+W usłudze Azure AD można pobrać aktywny certyfikat w formacie base64 lub RAW bezpośrednio z poziomu głównego **Ustawienia Single Sign-On ze stroną SAML** . Ponadto można uzyskać aktywny certyfikat przez pobranie pliku XML metadanych aplikacji lub użycie adresu URL metadanych federacji aplikacji. Aby wyświetlić, utworzyć lub pobrać certyfikaty (aktywne lub nieaktywne), wykonaj następujące kroki.
 
 Niektóre typowe elementy do sprawdzenia, czy certyfikat obejmują: 
    - *Poprawna data wygaśnięcia.* Można skonfigurować datę wygaśnięcia na maksymalnie trzy lata w przyszłości.
@@ -133,4 +133,4 @@ Aby uzyskać więcej informacji, zobacz Debugowanie logowania jednokrotnego [opa
 - [Seria szybkiego startu w zarządzaniu aplikacjami](view-applications-portal.md)
 - [Przypisywanie użytkowników lub grup do aplikacji](methods-for-assigning-users-and-groups.md)
 - [Konfigurowanie automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-- [Protokół SAML logowania jednokrotnego](../develop/single-sign-on-saml-protocol.md)
+- [Pojedynczy Sign-On protokół SAML](../develop/single-sign-on-saml-protocol.md)

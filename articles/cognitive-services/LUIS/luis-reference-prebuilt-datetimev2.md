@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534186"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 prekompilowaną jednostkę dla aplikacji LUIS
@@ -146,7 +146,7 @@ Każdy element `values` tablicy może mieć następujące pola:
 |Timex|godzina, Data lub zakres dat wyrażony w formacie TIMEX, który jest zgodny ze [standardem ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) i atrybutami TIMEX3 dla adnotacji przy użyciu języka TimeML.|
 |Funkcja|termin używany do opisywania sposobu używania wartości takich jak `before` , `after` .|
 |typ|Podtyp, który może być jednym z następujących elementów:,,,,,, `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` , `set` .|
-|wartość|**Obowiązkowe.** Obiekt DateTime w formacie RRRR-MM-DD (Date), gg: mm: SS (Time) RRRR-MM-DD GG: mm: SS (DateTime). Jeśli `type` jest `duration` , wartość jest liczbą sekund (czas trwania) <br/> Używane tylko wtedy `type` , gdy jest `datetime` lub `date` , `time` lub "Duration".|
+|value|**Obowiązkowe.** Obiekt DateTime w formacie RRRR-MM-DD (Date), gg: mm: SS (Time) RRRR-MM-DD GG: mm: SS (DateTime). Jeśli `type` jest `duration` , wartość jest liczbą sekund (czas trwania) <br/> Używane tylko wtedy `type` , gdy jest `datetime` lub `date` , `time` lub "Duration".|
 
 ## <a name="valid-date-values"></a>Prawidłowe wartości daty
 

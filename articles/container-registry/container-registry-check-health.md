@@ -4,10 +4,10 @@ description: Dowiedz się, jak uruchomić szybkie polecenie diagnostyczne, aby z
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245387"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Sprawdzanie kondycji usługi Azure Container Registry
@@ -38,7 +38,7 @@ az acr check-health
 
 ### <a name="check-the-environment-and-a-target-registry"></a>Sprawdź środowisko i rejestr docelowy
 
-Aby sprawdzić dostęp do rejestru, a także przeprowadzić testy środowiska lokalnego, należy przekazać nazwę docelowego rejestru. Przykład:
+Aby sprawdzić dostęp do rejestru, a także przeprowadzić testy środowiska lokalnego, należy przekazać nazwę docelowego rejestru. Na przykład:
 
 ```azurecli
 az acr check-health --name myregistry

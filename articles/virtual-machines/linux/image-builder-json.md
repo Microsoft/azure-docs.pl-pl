@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
 ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307283"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
@@ -120,7 +120,7 @@ Aby uzyskać więcej informacji, zobacz [Definiowanie zależności zasobów](../
 
 ## <a name="identity"></a>Tożsamość
 
-Wymagane — aby program Image Builder miał uprawnienia do odczytu/zapisu obrazów, przeczytaj skrypty z usługi Azure Storage, musisz utworzyć tożsamość przypisaną przez użytkownika platformy Azure, która ma uprawnienia do poszczególnych zasobów. Aby uzyskać szczegółowe informacje na temat sposobu działania uprawnień konstruktora obrazów i odpowiednich czynności, zapoznaj się z [dokumentacją](image-builder-user-assigned-identity.md).
+Wymagane — aby program Image Builder miał uprawnienia do odczytu/zapisu obrazów, przeczytaj skrypty z usługi Azure Storage, musisz utworzyć tożsamość usługi Azure User-Assigned, która ma uprawnienia do poszczególnych zasobów. Aby uzyskać szczegółowe informacje na temat sposobu działania uprawnień konstruktora obrazów i odpowiednich czynności, zapoznaj się z [dokumentacją](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -133,7 +133,7 @@ Wymagane — aby program Image Builder miał uprawnienia do odczytu/zapisu obraz
 ```
 
 
-Obsługa konstruktora obrazów dla tożsamości przypisanej do użytkownika:
+Obsługa programu Image Builder dla tożsamości User-Assigned:
 * Obsługuje tylko jedną tożsamość
 * Nie obsługuje niestandardowych nazw domen
 

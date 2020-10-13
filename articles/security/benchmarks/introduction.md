@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328262"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Wprowadzenie do usługi Azure Security test
@@ -46,7 +46,7 @@ Usługa Azure Security test jest często używana do rozwiązywania tych typowyc
 Warunki "kontrola", "wzorzec" i "linia bazowa" są często używane w dokumentacji usługi Azure Security test i ważne jest, aby zrozumieć, w jaki sposób platforma Azure korzysta z tych warunków.
 
 
-| Termin | Opis | Przykład |
+| Okres | Opis | Przykład |
 |--|--|--|
 | Kontrola | Kontrolka to ogólny opis funkcji lub działania, które muszą zostać rozkierowane i nie jest specyficzny dla technologii lub implementacji. | Ochrona danych jest jedną z formantów zabezpieczeń. Ta kontrolka zawiera określone akcje, które należy rozwiązać, aby zapewnić ochronę danych. |
 | Punkt odniesienia | Wzorzec porównawczy zawiera zalecenia dotyczące zabezpieczeń dla określonej technologii, takich jak Azure. Zalecenia są podzielone według kontrolki, do której należą. | Test porównawczy zabezpieczeń platformy Azure obejmuje zalecenia dotyczące zabezpieczeń specyficzne dla platformy Azure |

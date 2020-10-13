@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719278"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optymalizowanie przetwarzania danych za pomocą Azure Machine Learning
@@ -79,7 +79,7 @@ Jeśli poprzednie zalecenia są niewystarczające i nie możesz uzyskać maszyny
 
 W poniższej tabeli zaleca się dystrybuowanie struktur zintegrowanych z Azure Machine Learning w oparciu o preferencję kodu lub rozmiar danych.
 
-Środowisko lub rozmiar danych | Rekomendacja
+Środowisko lub rozmiar danych | Zalecenie
 ------|------
 Jeśli znasz już program `Pandas`| `Modin` lub `Dask` ramka danych
 Jeśli wolisz `Spark` | `PySpark`
