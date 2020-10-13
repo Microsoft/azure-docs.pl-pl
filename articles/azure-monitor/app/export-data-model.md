@@ -4,10 +4,10 @@ description: Opisuje właściwości eksportowane z eksportu ciągłego w formaci
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324390"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights eksportowanie modelu danych
@@ -17,9 +17,9 @@ Są one również wyświetlane w filtrach właściwości w [Eksploratorze metryk
 
 Punkty do uwagi:
 
-* `[0]`w tych tabelach wskazuje punkt w ścieżce, w którym trzeba wstawić indeks; ale nie zawsze jest równa 0.
+* `[0]` w tych tabelach wskazuje punkt w ścieżce, w którym trzeba wstawić indeks; ale nie zawsze jest równa 0.
 * Czas trwania jest częścią mikrosekundowych, więc 10000000 = = 1 sekunda.
-* Daty i godziny są UTC i są podawane w formacie ISO`yyyy-MM-DDThh:mm:ss.sssZ`
+* Daty i godziny są UTC i są podawane w formacie ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
 ## <a name="example"></a>Przykład
 
@@ -107,7 +107,7 @@ Punkty do uwagi:
 ## <a name="context"></a>Kontekst
 Wszystkie typy danych telemetrycznych są dołączone do sekcji kontekstowej. Nie wszystkie z tych pól są przesyłane do każdego punktu danych.
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | Context. Custom. Dimensions [0] |Obiekt [] |Pary ciągów klucz-wartość ustawione przez parametr właściwości niestandardowych. Maksymalna długość klucza 100, Maksymalna długość wartości 1024. Więcej niż 100 wartości unikatowych, właściwość można wyszukać, ale nie można jej użyć do segmentacji. Maksymalna 200 kluczy na iKey. |
 | Context. Custom. Metrics [0] |Obiekt [] |Pary klucz-wartość są ustawiane za pomocą parametru pomiarów niestandardowych i TrackMetrics. Maksymalna długość klucza 100, wartość może być wartością numeryczną. |
@@ -138,7 +138,7 @@ Wszystkie typy danych telemetrycznych są dołączone do sekcji kontekstowej. Ni
 | context.operation.id |ciąg |Elementy, które mają takie same `operation id` są wyświetlane jako elementy pokrewne w portalu. Zwykle `request id` . |
 | context.operation.name |ciąg |adres URL lub nazwa żądania |
 | Context. Operation. parentId |ciąg |Zezwala na zagnieżdżone elementy pokrewne. |
-| context.session.id |ciąg |`Id`grupy operacji z tego samego źródła. Okres 30 minut bez operacji sygnalizuje zakończenie sesji. |
+| context.session.id |ciąg |`Id` grupy operacji z tego samego źródła. Okres 30 minut bez operacji sygnalizuje zakończenie sesji. |
 | Context. Session. isfirst |boolean | |
 | Context. User. accountAcquisitionDate |ciąg | |
 | Context. User. accountId |ciąg | |
@@ -149,12 +149,12 @@ Wszystkie typy danych telemetrycznych są dołączone do sekcji kontekstowej. Ni
 | Context. User. IsAuthenticated |boolean | |
 | Context. User. storeRegion |ciąg | |
 | internal.data.documentVersion |ciąg | |
-| internal.data.id |ciąg | `Unique id`jest przypisywany, gdy element zostanie pozyskany do Application Insights |
+| internal.data.id |ciąg | `Unique id` jest przypisywany, gdy element zostanie pozyskany do Application Insights |
 
 ## <a name="events"></a>Zdarzenia
 Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custom-events-metrics.md#trackevent).
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | liczba zdarzeń [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
 | Nazwa zdarzenia [0] |ciąg |Nazwa zdarzenia.  Maksymalna długość 250. |
@@ -165,7 +165,7 @@ Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](./api-custo
 ## <a name="exceptions"></a>Wyjątki
 Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | zestaw basicexception [0] |ciąg | |
 | Licznik basicexception [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
@@ -175,7 +175,7 @@ Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 | podstawowaexception [0] failedUserCodeAssembly |ciąg | |
 | podstawowaexception [0] handledAt |ciąg | |
 | podstawowaexception [0] hasFullStack |boolean | |
-| podstawowaexception [0]`id` |ciąg | |
+| podstawowaexception [0] `id` |ciąg | |
 | Metoda basicexception [0] |ciąg | |
 | komunikat podstawowyexception [0] |ciąg |Komunikat o wyjątku. Maksymalna długość 10 znaków. |
 | podstawowaexception [0] outerExceptionMessage |ciąg | |
@@ -194,7 +194,7 @@ Zgłasza [wyjątki](./asp-net-exceptions.md) na serwerze i w przeglądarce.
 ## <a name="trace-messages"></a>Komunikaty śledzenia
 Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](./asp-net-trace-logs.md).
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | komunikat [0] rejestratorname |ciąg | |
 | komunikat [0] parametry |ciąg | |
@@ -204,7 +204,7 @@ Wysyłane przez [TrackTrace](./api-custom-events-metrics.md#tracktrace)i [karty 
 ## <a name="remote-dependency"></a>Zależność zdalna
 Wysłane przez TrackDependency. Służy do zgłaszania wydajności i użycia [wywołań do zależności](./asp-net-dependencies.md) na serwerze i wywołań AJAX w przeglądarce.
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | remoteDependency [0] Async |boolean | |
 | remoteDependency [0] basename |ciąg | |
@@ -212,7 +212,7 @@ Wysłane przez TrackDependency. Służy do zgłaszania wydajności i użycia [wy
 | remoteDependency [0] liczba |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
 | remoteDependency [0] dependencyTypeName |ciąg |HTTP, SQL,... |
 | remoteDependency [0] durationMetric. Value |liczba |Czas od wywołania do ukończenia odpowiedzi według zależności |
-| remoteDependency [0]`id` |ciąg | |
+| remoteDependency [0] `id` |ciąg | |
 | remoteDependency [0] nazwa |ciąg |Adres URL. Maksymalna długość 250. |
 | remoteDependency [0] resultCode |ciąg |z zależności HTTP |
 | remoteDependency [0] sukces |boolean | |
@@ -225,11 +225,11 @@ Wysłane przez TrackDependency. Służy do zgłaszania wydajności i użycia [wy
 ## <a name="requests"></a>Żądania
 Wysłane przez [TrackRequest](./api-custom-events-metrics.md#trackrequest). Moduły standardowe używają tego do raportowania czasu odpowiedzi serwera, mierzoną na serwerze.
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | Liczba żądań [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład: 4 = &gt; 25%. |
 | żądanie [0] durationMetric. Value |liczba |Czas od żądania do odpowiedzi. 1e7 = = 1S |
-| żądanie [0]`id` |ciąg |`Operation id` |
+| żądanie [0] `id` |ciąg |`Operation id` |
 | Nazwa żądania [0] |ciąg |GET/POST + URL Base.  Maksymalna długość 250 |
 | żądanie [0] responseCode |liczba całkowita |Odpowiedź HTTP wysłana do klienta |
 | żądanie [0] zakończyło się pomyślnie |boolean |Wartość domyślna = = (responseCode &lt; 400) |
@@ -243,7 +243,7 @@ Wysyłane przez przeglądarkę. Mierzy czas przetwarzania strony od użytkownika
 
 Wartości kontekstu pokazują system operacyjny klienta i wersję przeglądarki.
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess. Value |liczba całkowita |Czas od końca odebrania kodu HTML w celu wyświetlenia strony. |
 | clientPerformance [0] nazwa |ciąg | |
@@ -260,7 +260,7 @@ Wartości kontekstu pokazują system operacyjny klienta i wersję przeglądarki.
 ## <a name="page-views"></a>Wyświetlenia strony
 Wysłane przez trackPageView () lub [stopTrackPage](./api-custom-events-metrics.md#page-views)
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | Widok [0] |liczba całkowita |100/(częstotliwość[próbkowania](./sampling.md) ). Na przykład 4 = &gt; 25%. |
 | Widok [0] durationMetric. Value |liczba całkowita |Wartość Opcjonalnie ustawiona w trackPageView () lub przez startTrackPage ()-stopTrackPage (). Nie są takie same jak wartości clientPerformance. |
@@ -273,7 +273,7 @@ Wysłane przez trackPageView () lub [stopTrackPage](./api-custom-events-metrics.
 ## <a name="availability"></a>Dostępność
 Raportuje [testy sieci Web dostępności](./monitor-web-app-availability.md).
 
-| Ścieżka | Typ | Uwagi |
+| Ścieżka | Type | Uwagi |
 | --- | --- | --- |
 | Dostępność [0] availabilityMetric.name |ciąg |availability |
 | Dostępność [0] availabilityMetric. Value |liczba |1,0 lub 0,0 |
@@ -350,7 +350,7 @@ Zamiast wstępnie agregowanych metryk można użyć [próbkowania](./sampling.md
 ### <a name="durations"></a>Czasów trwania
 O ile nie zaznaczono inaczej, czasy trwania są reprezentowane w dziesiątce mikrosekundowych, więc 10000000,0 oznacza 1 sekundę.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Application Insights](./app-insights-overview.md)
 * [Eksport ciągły](export-telemetry.md)
 * [Przykłady kodu](export-telemetry.md#code-samples)

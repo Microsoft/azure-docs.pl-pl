@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 42efc2bee88f073f2a628b1d2041afcc310cb871
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822970"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń
 
 Reguły zabezpieczeń w sieciowych grupach zabezpieczeń umożliwiają filtrowanie typu ruchu sieciowego, który może przepływać do i z podsieci sieci wirtualnej i interfejsów sieciowych. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zobacz [Omówienie grup zabezpieczeń sieci](security-overview.md). Następnie Ukończ samouczek [Filtruj ruch sieciowy](tutorial-filter-network-traffic.md) , aby uzyskać pewne doświadczenie z sieciowymi grupami zabezpieczeń.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +68,7 @@ Istnieje ograniczenie dotyczące liczby grup zabezpieczeń sieci, które można 
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) |
-| PowerShell | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) |
+| Program PowerShell | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) |
 
 ### <a name="view-all-network-security-groups"></a>Wyświetl wszystkie sieciowe grupy zabezpieczeń
 
@@ -79,7 +79,7 @@ Przejdź do [Azure Portal](https://portal.azure.com) , aby wyświetlić sieciowe
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [Lista AZ Network sieciowej grupy zabezpieczeń list](/cli/azure/network/nsg#az-network-nsg-list) |
-| PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
+| Program PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="view-details-of-a-network-security-group"></a>Wyświetlanie szczegółów sieciowej grupy zabezpieczeń
 
@@ -104,7 +104,7 @@ Aby dowiedzieć się więcej na temat typowych ustawień platformy Azure, zobacz
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network sieciowej grupy zabezpieczeń show](/cli/azure/network/nsg#az-network-nsg-show) |
-| PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
+| Program PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="change-a-network-security-group"></a>Zmiana sieciowej grupy zabezpieczeń
 
@@ -119,7 +119,7 @@ Najczęstszymi zmianami jest [dodanie reguły zabezpieczeń](#create-a-security-
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network sieciowej grupy zabezpieczeń Update](/cli/azure/network/nsg#az-network-nsg-update) |
-| PowerShell | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) |
+| Program PowerShell | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) |
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>Kojarzenie lub usuwanie skojarzenia sieciowej grupy zabezpieczeń z lub z podsiecią lub interfejsem sieciowym
 
@@ -140,7 +140,7 @@ Jeśli grupa zabezpieczeń sieci jest skojarzona z dowolnymi podsieciami lub int
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network sieciowej grupy zabezpieczeń Delete](/cli/azure/network/nsg#az-network-nsg-delete) |
-| PowerShell | [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup) |
+| Program PowerShell | [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup) |
 
 ## <a name="work-with-security-rules"></a>Korzystanie z reguł zabezpieczeń
 
@@ -162,7 +162,7 @@ Istnieje ograniczenie liczby reguł na grupę zabezpieczeń sieci, które można
 
     | Ustawienie | Wartość | Szczegóły |
     | ------- | ----- | ------- |
-    | **Źródło** | Jeden z:<ul><li>**Dowolne**</li><li>**Adresy IP**</li><li>**Tag usługi** (reguła zabezpieczeń ruchu przychodzącego) lub **VirtualNetwork** (reguła zabezpieczeń wychodzących)</li><li>**&nbsp;Grupa zabezpieczeń &nbsp; aplikacji**</li></ul> | <p>W przypadku wybrania **adresów IP**należy również określić **źródłowe adresy IP/zakresy CIDR**.</p><p>Jeśli wybierzesz pozycję **tag usługi**, możesz również wybrać **tag usługi źródłowej**.</p><p>W przypadku wybrania **grupy zabezpieczeń aplikacji**należy również wybrać istniejącą grupę zabezpieczeń aplikacji. W przypadku wybrania **grupy zabezpieczeń aplikacji** zarówno **źródłowej** , jak i **docelowej**interfejsy sieciowe w obu grupach zabezpieczeń aplikacji muszą znajdować się w tej samej sieci wirtualnej.</p> |
+    | **Element źródłowy** | Jeden z:<ul><li>**Dowolne**</li><li>**Adresy IP**</li><li>**Tag usługi** (reguła zabezpieczeń ruchu przychodzącego) lub **VirtualNetwork** (reguła zabezpieczeń wychodzących)</li><li>**&nbsp;Grupa zabezpieczeń &nbsp; aplikacji**</li></ul> | <p>W przypadku wybrania **adresów IP**należy również określić **źródłowe adresy IP/zakresy CIDR**.</p><p>Jeśli wybierzesz pozycję **tag usługi**, możesz również wybrać **tag usługi źródłowej**.</p><p>W przypadku wybrania **grupy zabezpieczeń aplikacji**należy również wybrać istniejącą grupę zabezpieczeń aplikacji. W przypadku wybrania **grupy zabezpieczeń aplikacji** zarówno **źródłowej** , jak i **docelowej**interfejsy sieciowe w obu grupach zabezpieczeń aplikacji muszą znajdować się w tej samej sieci wirtualnej.</p> |
     | **Źródłowe adresy IP/zakresy CIDR** | Rozdzielana przecinkami lista adresów IP i zakresów routingu między domenami (CIDR) | <p>To ustawienie pojawia się, jeśli zmienisz **Źródło** na **adresy IP**. Należy określić pojedynczą wartość lub rozdzieloną przecinkami listę wielu wartości. Przykładem wielu wartości jest `10.0.0.0/16, 192.188.1.1` . Istnieją limity liczby wartości, które można określić. Aby uzyskać więcej informacji, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).</p><p>Jeśli określony adres IP jest przypisany do maszyny wirtualnej platformy Azure, określ jego prywatny adres IP, a nie publiczny adres IP. Platforma Azure przetwarza reguły zabezpieczeń po przetłumaczeniu publicznego adresu IP na prywatny adres IP dla reguł zabezpieczeń dla ruchu przychodzącego, ale przed przekazaniem prywatnego adresu IP na publiczny adres IP dla reguł ruchu wychodzącego. Aby dowiedzieć się więcej na temat publicznych i prywatnych adresów IP na platformie Azure, zobacz [typy adresów IP](virtual-network-ip-addresses-overview-arm.md).</p> |
     | **Tag usługi źródłowej** | Tag usługi z listy rozwijanej | To ustawienie opcjonalne pojawia się, jeśli ustawisz **tag** **Source** to Service dla reguły zabezpieczeń dla ruchu przychodzącego. Tag usługi jest wstępnie zdefiniowanym identyfikatorem dla kategorii adresów IP. Aby dowiedzieć się więcej na temat dostępnych tagów usługi i informacje o tym, co reprezentuje każdy tag, zobacz [Tagi usług](security-overview.md#service-tags). |
     | **Grupa zabezpieczeń aplikacji źródłowej** | Istniejąca Grupa zabezpieczeń aplikacji | To ustawienie pojawia się, jeśli ustawisz **Źródło** na **grupę zabezpieczeń aplikacji**. Wybierz grupę zabezpieczeń aplikacji, która istnieje w tym samym regionie co interfejs sieciowy. Dowiedz się, jak [utworzyć grupę zabezpieczeń aplikacji](#create-an-application-security-group). |
@@ -183,7 +183,7 @@ Istnieje ograniczenie liczby reguł na grupę zabezpieczeń sieci, które można
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) |
-| PowerShell | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) |
+| Program PowerShell | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) |
 
 ### <a name="view-all-security-rules"></a>Wyświetl wszystkie reguły zabezpieczeń
 
@@ -202,7 +202,7 @@ Lista zawiera wszystkie utworzone reguły oraz [domyślne reguły zabezpieczeń]
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list) |
-| PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
+| Program PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="view-details-of-a-security-rule"></a>Wyświetlanie szczegółów reguły zabezpieczeń
 
@@ -222,7 +222,7 @@ Lista zawiera wszystkie utworzone reguły oraz [domyślne reguły zabezpieczeń]
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network sieciowej grupy zabezpieczeń Rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show) |
-| PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
+| Program PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="change-a-security-rule"></a>Zmiana reguły zabezpieczeń
 
@@ -238,7 +238,7 @@ Lista zawiera wszystkie utworzone reguły oraz [domyślne reguły zabezpieczeń]
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update) |
-| PowerShell | [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) |
+| Program PowerShell | [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) |
 
 ### <a name="delete-a-security-rule"></a>Usuwanie reguły zabezpieczeń
 
@@ -254,7 +254,7 @@ Lista zawiera wszystkie utworzone reguły oraz [domyślne reguły zabezpieczeń]
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network sieciowej grupy zabezpieczeń Rule Delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete) |
-| PowerShell | [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig) |
+| Program PowerShell | [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig) |
 
 ## <a name="work-with-application-security-groups"></a>Praca z grupami zabezpieczeń aplikacji
 
@@ -286,7 +286,7 @@ Grupa zabezpieczeń aplikacji zawiera co najmniej jeden interfejs sieciowy. Aby 
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network ASG Create](/cli/azure/network/asg#az-network-asg-create) |
-| PowerShell | [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup) |
+| Program PowerShell | [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup) |
 
 ### <a name="view-all-application-security-groups"></a>Wyświetl wszystkie grupy zabezpieczeń aplikacji
 
@@ -297,7 +297,7 @@ Przejdź do [Azure Portal](https://portal.azure.com) , aby wyświetlić grupy za
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [Lista AZ Network ASG list](/cli/azure/network/asg#az-network-asg-list) |
-| PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
+| Program PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>Wyświetl szczegóły określonej grupy zabezpieczeń aplikacji
 
@@ -310,7 +310,7 @@ Przejdź do [Azure Portal](https://portal.azure.com) , aby wyświetlić grupy za
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network ASG show](/cli/azure/network/asg#az-network-asg-show) |
-| PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
+| Program PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="change-an-application-security-group"></a>Zmień grupę zabezpieczeń aplikacji
 
@@ -330,7 +330,7 @@ Przejdź do [Azure Portal](https://portal.azure.com) , aby wyświetlić grupy za
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network ASG Update](/cli/azure/network/asg#az-network-asg-update) |
-| PowerShell | Brak polecenia cmdlet programu PowerShell |
+| Program PowerShell | Brak polecenia cmdlet programu PowerShell |
 
 ### <a name="delete-an-application-security-group"></a>Usuwanie grupy zabezpieczeń aplikacji
 
@@ -347,7 +347,7 @@ Nie można usunąć grupy zabezpieczeń aplikacji, jeśli zawiera ona interfejsy
 | Narzędzie | Polecenie |
 | ---- | ------- |
 | Interfejs wiersza polecenia platformy Azure | [AZ Network ASG Delete](/cli/azure/network/asg#az-network-asg-delete) |
-| PowerShell | [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup) |
+| Program PowerShell | [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup) |
 
 ## <a name="permissions"></a>Uprawnienia
 

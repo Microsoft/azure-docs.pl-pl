@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940850"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Usuń wystąpienie zarządzane SQL z obsługą usługi Azure Arc
@@ -52,7 +52,7 @@ Deleted demo-mi from namespace arc
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Odzyskaj Kubernetes trwałe oświadczenia woluminu (PVC)
 
-Usunięcie wystąpienia zarządzanego SQL nie powoduje usunięcia skojarzonych z nim [obwodów PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Jest to celowe. Zamierzenie ma pomóc użytkownikowi w uzyskaniu dostępu do plików bazy danych w przypadku przypadkowego usunięcia wystąpienia. Usuwanie obwodów PVC nie jest obowiązkowe. Jest to jednak zalecane. Jeśli nie odzyskasz tych obwodów PVC, ostatecznie zakończy się z błędami, ponieważ w klastrze Kubernetes nie ma miejsca na dysku. Aby odzyskiwać obwody PVC, wykonaj następujące czynności:
+Usunięcie wystąpienia zarządzanego SQL nie powoduje usunięcia skojarzonych z nim [obwodów PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). Jest to celowe. Ma to na celu ułatwienie użytkownikowi uzyskania dostępu do plików bazy danych w razie przypadkowego usunięcia wystąpienia. Usuwanie roszczeń do woluminów trwałych nie jest obowiązkowe. Jest to jednak zalecane. Jeśli nie odzyskasz tych obwodów PVC, ostatecznie zakończy się z błędami, ponieważ w klastrze Kubernetes nie ma miejsca na dysku. Aby odzyskać roszczenia do woluminów trwałych, wykonaj następujące czynności:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. Utwórz listę obwodów PVC dla usuniętej grupy serwerów
 Aby wyświetlić listę obwodów PVC, uruchom następujące polecenie:
@@ -76,13 +76,13 @@ Ogólny format tego polecenia to:
 kubectl delete pvc <name of pvc>
 ```
 
-Przykład:
+Na przykład:
 ```console
 kubectl delete pvc data-demo-mi-0 -n arc
 kubectl delete pvc logs-demo-mi-0 -n arc
 ```
 
-Każde z tych poleceń polecenia kubectl potwierdzi pomyślne usunięcie obwodu PVC. Przykład:
+Każde z tych poleceń polecenia kubectl potwierdzi pomyślne usunięcie obwodu PVC. Na przykład:
 ```console
 persistentvolumeclaim "data-demo-mi-0" deleted
 persistentvolumeclaim "logs-demo-mi-0" deleted

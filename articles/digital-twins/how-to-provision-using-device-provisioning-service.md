@@ -8,10 +8,10 @@ ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90561435"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
@@ -40,7 +40,7 @@ Symulator urządzeń jest oparty na **Node.js**, w wersji 10.0. x lub nowszej. [
 
 Na poniższym obrazie przedstawiono architekturę tego rozwiązania przy użyciu narzędzia Azure Digital bliźniaczych reprezentacji z usługą Device Provisioning. Pokazuje zarówno proces aprowizacji, jak i wycofywania urządzenia.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie Allocation. Dane z ręcznej akcji Usuń urządzenie są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 Ten artykuł jest podzielony na dwie sekcje:
 * [*Inicjowanie obsługi administracyjnej urządzenia przy użyciu usługi Device Provisioning*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ Aby uzyskać dokładniejsze wyjaśnienia poszczególnych kroków architektury, z
 
 W tej sekcji zostanie dołączana usługa Device Provisioning do usługi Azure Digital bliźniaczych reprezentacji w celu samodzielnego udostępnienia urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Zainicjuj obsługę przepływu — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Dane są przepływane między urządzeniem termostatu a działem DPS (1 w przypadku urządzenia > DPS i 5 dla usługi DPS > urządzeniu). Dane są również przepływane z usługi DPS do IoT Hub (4) oraz do programu Azure Digital bliźniaczych reprezentacji (3) za pośrednictwem funkcji platformy Azure o nazwie Allocation (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 Oto opis przepływu procesu:
 1. Urządzenie kontaktuje się z punktem końcowym DPS, przekazując informacje identyfikacyjne w celu potwierdzenia tożsamości.
@@ -287,7 +287,7 @@ node .\adt_custom_register.js
 ```
 
 Powinno zostać wyświetlone urządzenie zarejestrowane i połączone z IoT Hub, a następnie od momentu wysłania wiadomości.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="okno Polecenie przedstawiające rejestrowanie urządzeń i wysyłanie komunikatów":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 ### <a name="validate"></a>Walidacja
 
@@ -298,13 +298,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Powinny być widoczne sznurki urządzenia znajdujące się w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="okno Polecenie pokazujący nowo utworzone sznury":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Autowycofywanie urządzenia przy użyciu IoT Hub zdarzeń cyklu życia
 
 W tej sekcji nastąpi dołączenie IoT Hub zdarzeń cyklu życia do usługi Azure Digital bliźniaczych reprezentacji w celu wycofania urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Wycofywanie przepływu urządzenia — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Urządzenie termostatu jest wyświetlane bez połączeń z usługami platformy Azure na diagramie. Dane z ręcznej akcji Usuń urządzenie są przesyłane za pośrednictwem IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital bliźniaczych reprezentacji (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 Oto opis przepływu procesu:
 1. Proces zewnętrzny lub ręczny wyzwala Usuwanie urządzenia w IoT Hub.
@@ -470,7 +470,7 @@ Instrukcje dotyczące tworzenia trasy IoT Hub są opisane w tym artykule: [*uży
 Kroki, które należy wykonać w ramach tej konfiguracji, to:
 1. Utwórz niestandardowy punkt końcowy centrum zdarzeń IoT Hub. Ten punkt końcowy powinien wskazywać centrum zdarzeń utworzone w sekcji [*Tworzenie centrum zdarzeń*](#create-an-event-hub) .
 2. Dodaj trasę *zdarzeń cyklu życia urządzenia* . Użyj punktu końcowego utworzonego w poprzednim kroku. Można ograniczyć zdarzenia cyklu życia urządzenia, aby wysyłać tylko zdarzenia Delete przez dodanie zapytania routingu `opType='deleteDeviceIdentity'` .
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Dodawanie trasy":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 Po przeprowadzeniu tego przepływu wszystko jest ustawione na wycofanie urządzeń.
 
@@ -491,7 +491,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Należy się dowiedzieć, że nie można już znaleźć sznurka urządzenia w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Nie znaleziono okno Polecenie":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie &quot;Allocation&quot;. Dane z ręcznej akcji &quot;Usuń urządzenie&quot; są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

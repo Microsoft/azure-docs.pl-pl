@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397270"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
@@ -239,11 +239,11 @@ Analizatory składają się z trzech składników:
 
 Na poniższym diagramie można zobaczyć, jak te trzy składniki współpracują ze sobą, aby tokenize zdanie:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram procesu analizatora służący do tokenize zdania":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Adres URL i nagłówek żądania post":::
 
 Tokeny te są następnie przechowywane w odwróconym indeksie, co umożliwia szybkie wyszukiwanie pełnotekstowe.  Odwrócony indeks umożliwia wyszukiwanie pełnotekstowe przez mapowanie wszystkich unikatowych terminów wyodrębnionych podczas analizy leksykalnej do dokumentów, w których występują. Na poniższym diagramie można zobaczyć przykład:
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Przykładowy indeks odwrócony":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Adres URL i nagłówek żądania post":::
 
 Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w odwróconym indeksie. Gdy użytkownik wystawia zapytanie:
 
@@ -251,7 +251,7 @@ Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w o
 1. Odwrócony indeks jest następnie skanowany pod kątem dokumentów z pasującymi terminami.
 1. Na koniec pobrane dokumenty są klasyfikowane według [algorytmu podobieństwa](index-ranking-similarity.md).
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram podobieństwa klasyfikacji procesów analizatora":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Adres URL i nagłówek żądania post":::
 
 Jeśli terminy zapytania nie pasują do warunków w indeksie odwróconym, wyniki nie zostaną zwrócone. Aby dowiedzieć się więcej o działaniu zapytań, zapoznaj się z artykułem dotyczącym [wyszukiwania pełnotekstowego](search-lucene-query-architecture.md).
 

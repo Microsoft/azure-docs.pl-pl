@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823005"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI dane wyjściowe z Azure Stream Analytics
@@ -56,7 +56,7 @@ W tej tabeli opisano konwersje typów danych z [Stream Analytics typów danych](
 Z Stream Analytics | Aby Power BI
 -----|-----
 bigint | Int64
-nvarchar (max) | String
+nvarchar (max) | Ciąg
 datetime | Datetime (data/godzina)
 float | Double
 Rejestruj tablicę | Typ ciągu, stała wartość "IRecord" lub "IArray"
@@ -67,12 +67,12 @@ Stream Analytics wnioskuje schemat modelu danych na podstawie pierwszego zestawu
 
 Należy unikać `SELECT *` zapytania, aby zapobiec dynamicznej aktualizacji schematu w wierszach. Oprócz potencjalnego wpływu na wydajność może to spowodować niepewność czasu trwania dla wyników. Wybierz dokładne pola, które mają być wyświetlane na pulpicie nawigacyjnym Power BI. Ponadto wartości danych powinny być zgodne z wybranym typem danych.
 
-Poprzedni/bieżący | Int64 | String | Datetime (data/godzina) | Double
+Poprzedni/bieżący | Int64 | Ciąg | Datetime (data/godzina) | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String (ciąg) | String (ciąg) | Double
 Double | Double | String (ciąg) | String (ciąg) | Double
 String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) 
-Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | String
+Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | Ciąg
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 

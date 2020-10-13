@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
 ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90533175"
 ---
 Poniżej znajduje się lista obsługiwanych kont magazynu i typów magazynów dla urządzenia urządzenie Data Box. Aby zapoznać się z pełną listą różnych typów kont magazynu i ich pełnych możliwości, zobacz [typy kont magazynu](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
@@ -20,10 +20,10 @@ W przypadku zamówień importu Poniższa tabela zawiera listę obsługiwanych ko
 | --- | --- | -- | -- | -- |
 | Standard klasyczny | T | T | T |
 | Standard do ogólnego przeznaczenia w wersji 1  | T | T | T | Obsługiwane są zarówno gorąca, jak i chłodna.|
-| Ogólnego przeznaczenia w wersji 1 Premium  |  | Y| | |
+| Ogólnego przeznaczenia w wersji 1 Premium  |  | T| | |
 | Standard ogólnego przeznaczenia w wersji 2  | T | T | T | Obsługiwane są zarówno gorąca, jak i chłodna.|
-| Ogólnego przeznaczenia w wersji 2 Premium  |  |Y | | |
-| BLOB Storage Standard |Y | | |Obsługiwane są zarówno gorąca, jak i chłodna. |
+| Ogólnego przeznaczenia w wersji 2 Premium  |  |T | | |
+| BLOB Storage Standard |T | | |Obsługiwane są zarówno gorąca, jak i chłodna. |
 
 \**— Dane przekazane do stronicowych obiektów BLOB muszą być 512 bajtami wyrównanymi, takimi jak wirtualne dyski twarde.*
 
@@ -33,12 +33,12 @@ W przypadku zamówień eksportu Poniższa tabela zawiera listę obsługiwanych k
 | --- | --- | -- | -- | -- |
 | Standard klasyczny | T | T | T | |
 | Standard do ogólnego przeznaczenia w wersji 1  | T | T | T | Gorąca, chłodna|
-| Ogólnego przeznaczenia w wersji 1 Premium  |  | Y| | |
+| Ogólnego przeznaczenia w wersji 1 Premium  |  | T| | |
 | Standard ogólnego przeznaczenia w wersji 2  | T | T | T | Gorąca, chłodna|
-| Ogólnego przeznaczenia w wersji 2 Premium  |  |Y | | |
-| BLOB Storage Standard |Y | | |Gorąca, chłodna |
-| Blokowe obiekty blob Storage Premium |Y | | |Gorąca, chłodna |
-| Usługa Page BLOB Storage Premium | |Y | | |
+| Ogólnego przeznaczenia w wersji 2 Premium  |  |T | | |
+| BLOB Storage Standard |T | | |Gorąca, chłodna |
+| Blokowe obiekty blob Storage Premium |T | | |Gorąca, chłodna |
+| Usługa Page BLOB Storage Premium | |T | | |
 
 > [!IMPORTANT]
 > - W przypadku kont ogólnego przeznaczenia urządzenie Data Box nie obsługuje typów magazynu kolejek, tabel i dysków dla zamówień importu. W przypadku zamówień eksportu urządzenie Data Box nie obsługuje typów magazynu kolejek, tabel, dysków i Azure Data Lake generacji 2 dla kont ogólnego przeznaczenia.

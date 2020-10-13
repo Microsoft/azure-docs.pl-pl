@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88167406"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurowanie urządzenia usługi IoT Edge, aby działało jako przezroczysta brama
@@ -73,14 +73,14 @@ W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu w
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
 
    2. [Utwórz certyfikat urzędu certyfikacji urządzenia IoT Edge](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). Na końcu tych instrukcji będziesz mieć dwa pliki, certyfikat urzędu certyfikacji urządzenia i jego klucz prywatny:
-      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem`lub
+      * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` lub
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
 2. Jeśli te pliki zostały utworzone na innym komputerze, skopiuj je na urządzenie IoT Edge.
 
 3. Na urządzeniu IoT Edge Otwórz plik konfiguracji demona zabezpieczeń.
-   * Systemy`C:\ProgramData\iotedge\config.yaml`
-   * System`/etc/iotedge/config.yaml`
+   * Systemy `C:\ProgramData\iotedge\config.yaml`
+   * System `/etc/iotedge/config.yaml`
 
 4. Znajdź sekcję **Certyfikaty** pliku i podaj identyfikatory URI plików dla trzech plików jako wartości dla następujących właściwości:
    * **device_ca_cert**: certyfikat urzędu certyfikacji urządzenia
@@ -90,8 +90,8 @@ W przypadku scenariuszy produkcyjnych należy generować te pliki przy użyciu w
 5. Zapisz i zamknij plik.
 
 6. Uruchom ponownie IoT Edge.
-   * Systemy`Restart-Service iotedge`
-   * System`sudo systemctl restart iotedge`
+   * Systemy `Restart-Service iotedge`
+   * System `sudo systemctl restart iotedge`
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Wdrażanie edgeHub i komunikatów routingu
 
@@ -120,12 +120,12 @@ Aby wdrożyć moduł IoT Edge Hub i skonfigurować go przy użyciu tras do obsł
 6. Na stronie **trasy** upewnij się, że istnieje trasa do obsługi komunikatów pochodzących z urządzeń podrzędnych. Na przykład:
 
    * Trasa, która wysyła wszystkie wiadomości, niezależnie od modułu lub z urządzenia podrzędnego, do IoT Hub:
-       * **Nazwa**:`allMessagesToHub`
-       * **Wartość**:`FROM /messages/* INTO $upstream`
+       * **Nazwa**: `allMessagesToHub`
+       * **Wartość**: `FROM /messages/* INTO $upstream`
 
    * Trasa, która wysyła wszystkie komunikaty ze wszystkich urządzeń podrzędnych do IoT Hub:
-      * **Nazwa**:`allDownstreamToHub`
-      * **Wartość**:`FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+      * **Nazwa**: `allDownstreamToHub`
+      * **Wartość**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
       Ta trasa działa, ponieważ, w przeciwieństwie do komunikatów z modułów IoT Edge, komunikaty z urządzeń podrzędnych nie mają skojarzonego z nimi identyfikatora modułu. Użycie klauzuli **WHERE** trasy pozwala nam odfiltrować wszystkie komunikaty z tą właściwością systemu.
 

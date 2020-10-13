@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580469"
 ---
-# <a name="iot-plug-and-play-bridge"></a>Mostek Plug and Play IoT
+# <a name="iot-plug-and-play-bridge"></a>Mostek IoT Plug and Play
 
 Mostek Plug and Play IoT to aplikacja Open Source służąca do łączenia istniejących urządzeń podłączonych do bramy systemu Windows lub Linux jako urządzeń Plug and Play IoT. Po zainstalowaniu i skonfigurowaniu aplikacji na komputerze z systemem Windows lub Linux można użyć jej do nawiązania połączenia z urządzeniami podłączonymi do centrum IoT Hub. Za pomocą mostka można mapować interfejsy Plug and Play IoT na telemetrię, które dołączone urządzenia wysyłają, pracują z właściwościami urządzenia i wywoływać polecenia.
 

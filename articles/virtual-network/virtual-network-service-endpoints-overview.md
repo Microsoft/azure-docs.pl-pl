@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434473"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
@@ -62,7 +62,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 
 - Funkcja jest dostępna tylko dla sieci wirtualnych wdrożonych za pomocą modelu wdrażania przy użyciu usługi Azure Resource Manager.
 - Punkty końcowe są włączone w podsieciach skonfigurowanych w sieciach wirtualnych platformy Azure. Punktów końcowych nie można używać dla ruchu pochodzącego z lokalizacji lokalnych do usług platformy Azure. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp do usługi platformy Azure z lokalnego](#secure-azure-services-to-virtual-networks)
-- W przypadku usługi Azure SQL punkt końcowy usługi dotyczy tylko ruchu usługi platformy Azure w regionie sieci wirtualnej. W przypadku usługi Azure Storage punkty końcowe również przechodzą w celu uwzględnienia par regionów, w których wdrażana jest sieć wirtualna obsługująca magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS) i magazyn Geograficznie nadmiarowy (GRS). Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- W przypadku usługi Azure SQL punkt końcowy usługi dotyczy tylko ruchu usługi platformy Azure w regionie sieci wirtualnej. W przypadku usługi Azure Storage punkty końcowe również przechodzą w celu uwzględnienia par regionów, w których wdrożono sieć wirtualną w celu obsługi ruchu Read-Access Geo-Redundant Storage (RA-GRS) i Geo-Redundant Storage (GRS). Aby uzyskać więcej informacji, zobacz [regiony sparowane na platformie Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 - W przypadku Azure Data Lake Storage (ADLS) gen 1 Funkcja integracji sieci wirtualnej jest dostępna tylko w sieciach wirtualnych w tym samym regionie. Należy również zauważyć, że integracja sieci wirtualnej dla ADLS Gen1 korzysta z zabezpieczeń punktu końcowego usługi sieci wirtualnej między siecią wirtualną a Azure Active Directory (Azure AD) w celu wygenerowania dodatkowych oświadczeń zabezpieczeń w tokenie dostępu. Te oświadczenia są następnie używane do uwierzytelniania sieci wirtualnej na koncie usługi Data Lake Storage Gen1 i uzyskania dostępu. Tag *Microsoft. usługi azureactivedirectory* wymieniony w obszarze usługi obsługujące punkty końcowe usługi jest używany tylko dla punktów końcowych usługi pomocniczej ADLS generacji 1. Usługa Azure AD nie obsługuje natywnych punktów końcowych usługi. Aby uzyskać więcej informacji na temat integracji z siecią wirtualną Azure Data Lake Store generacji 1, zobacz [zabezpieczenia sieci w programie Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>Zabezpieczanie usług platformy Azure w sieciach wirtualnych
@@ -81,7 +81,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 
 ![Zabezpieczanie usług platformy Azure w sieciach wirtualnych](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Konfigurowanie
+### <a name="configuration"></a>Konfiguracja
 
 - Skonfiguruj punkty końcowe usługi w podsieci w sieci wirtualnej. Punkty końcowe współpracują z wystąpieniami obliczeniowymi dowolnego typu uruchomionymi w danej podsieci.
 - W podsieci można skonfigurować wiele punktów końcowych usługi dla wszystkich obsługiwanych usług platformy Azure (na przykład Azure Storage lub Azure SQL Database).
@@ -152,4 +152,4 @@ Często zadawane pytania można znaleźć w temacie [Virtual Network często zad
 - [Zabezpieczanie usługi Azure Synapse Analytics w sieci wirtualnej](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integracja usług platformy Azure w sieciach wirtualnych](virtual-network-for-azure-services.md)
 - [Zasady punktu końcowego usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Szablon Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Szablon usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 6c07ab4b18c017bd29723d2640129b8e67374e3c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837384"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migruj swoje aplikacje i rozwiązania z BizTalk Services do Azure Logic Apps
@@ -59,7 +59,7 @@ Domyślnie każdy mostek ma punkt końcowy HTTP, który jest skonfigurowany przy
 
 ## <a name="xml-processing-and-bridges"></a>Przetwarzanie i mostki XML
 
-W BizTalk Services, most jest analogiczny do potoku przetwarzania. Mostek może pobrać dane z łącznika, wykonywać pewne prace z danymi i wysyłać wyniki do innego systemu. Logic Apps jest taka sama poprzez obsługę tych samych wzorców interakcji opartych na potoku jako BizTalk Services, a także udostępnia inne wzorce integracji. [Bridge żądanie-odpowiedź XML](/previous-versions/azure/hh689781(v=azure.100)) w BizTalk Services jest znany jako potok VETER, który składa się z etapów, które wykonują następujące zadania:
+W BizTalk Services, most jest analogiczny do potoku przetwarzania. Mostek może pobrać dane z łącznika, wykonywać pewne prace z danymi i wysyłać wyniki do innego systemu. Logic Apps jest taka sama poprzez obsługę tych samych wzorców interakcji opartych na potoku jako BizTalk Services, a także udostępnia inne wzorce integracji. [Mostek XML Request-Reply](/previous-versions/azure/hh689781(v=azure.100)) w BizTalk Services jest znany jako potok VETER, który składa się z etapów, które wykonują następujące zadania:
 
 * (V) Weryfikuj
 * (E) wzbogacanie
@@ -71,7 +71,7 @@ Ten obraz pokazuje, jak przetwarzanie jest podzielone między żądaniem a odpow
 
 ![Zrzut ekranu pokazujący sposób dzielenia przetwarzania między żądaniem a odpowiedzią.](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
-Ponadto jednokierunkowy mostek XML dodaje etapy dekodowania i kodowania na początku i na końcu przetwarzania. Mostek Pass-through zawiera jeden etap wzbogacania.
+Ponadto mostek XML One-Way dodaje etapy dekodowania i kodowania na początku i na końcu przetwarzania. Pass-Through Bridge zawiera jeden etap wzbogacania.
 
 ### <a name="message-processing-decoding-and-encoding"></a>Przetwarzanie komunikatów, dekodowanie i kodowanie
 
@@ -79,7 +79,7 @@ W BizTalk Services można odbierać różne typy komunikatów XML i określać p
 
 Logic Apps oferuje podobne funkcje. Użytkownik otrzymuje plik prosty za pośrednictwem różnych protokołów przy użyciu różnych wyzwalaczy łączników (systemu plików, FTP, HTTP i tak dalej), a następnie używa akcji [dekodowania pliku prostego](../logic-apps/logic-apps-enterprise-integration-flatfile.md) do konwersji danych przychodzących do formatu XML. Istniejące płaskie schematy plików można przenieść bezpośrednio do Logic Apps bez wprowadzania żadnych zmian, a następnie przekazać schematy do konta integracji.
 
-### <a name="validation"></a>Weryfikacja
+### <a name="validation"></a>Walidacja
 
 Po przekonwertowaniu danych przychodzących na kod XML (lub jeśli w kodzie XML był otrzymany format wiadomości), sprawdzanie poprawności przebiega w celu ustalenia, czy komunikat jest zgodny ze schematem XSD. Aby wykonać to zadanie w Logic Apps, użyj akcji [walidacji kodu XML](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) . Możesz użyć tych samych schematów z BizTalk Services bez wprowadzania żadnych zmian.
 

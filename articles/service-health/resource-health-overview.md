@@ -4,10 +4,10 @@ description: Dowiedz się, jak Azure Resource Health pomaga zdiagnozować i uzys
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967880"
 ---
 # <a name="resource-health-overview"></a>Przegląd Resource Health
@@ -80,7 +80,7 @@ Możesz uzyskać dostęp do 30-dniowej historii w sekcji **historia kondycji** R
 
 ![Lista zdarzeń Resource Health w ciągu ostatnich dwóch tygodni](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby otworzyć Resource Health dla jednego zasobu:
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359617"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
@@ -506,7 +506,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
    * **Nazwa użytkownika administratora** i **hasło administratora**: Nazwa użytkownika i hasło.
      Nowy użytkownik zostanie utworzony w celu zalogowania się do maszyny wirtualnej.
    * **Nowa lub istniejąca podsieć**: określa, czy zostanie utworzona nowa sieć wirtualna i podsieć, czy używana jest istniejąca podsieć. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
-   * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco: &lt; Identyfikator subskrypcji/subscriptions/>/ResourceGroups/nazwa &lt; grupy zasobów>/Providers/Microsoft.Network/virtualnetworks/ &lt; nazwa sieci wirtualnej>/subnets/ &lt; Nazwa podsieci>
+   * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco: &lt; Identyfikator subskrypcji/subscriptions/>/resourceGroups/nazwa &lt; grupy zasobów>/Providers/Microsoft.Network/virtualNetworks/ &lt; nazwa sieci wirtualnej>/subnets/ &lt; Nazwa podsieci>
 
 1. Warunki **i postanowienia**:  
     Przejrzyj i zaakceptuj postanowienia prawne.
@@ -646,7 +646,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
 
      Nowy użytkownik zostanie utworzony w celu zalogowania się do maszyny wirtualnej.
    * **Nowa lub istniejąca podsieć**: określa, czy zostanie utworzona nowa sieć wirtualna i podsieć, czy używana jest istniejąca podsieć. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
-   * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco: &lt; Identyfikator subskrypcji/subscriptions/>/ResourceGroups/nazwa &lt; grupy zasobów>/Providers/Microsoft.Network/virtualnetworks/ &lt; nazwa sieci wirtualnej>/subnets/ &lt; Nazwa podsieci>
+   * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco: &lt; Identyfikator subskrypcji/subscriptions/>/resourceGroups/nazwa &lt; grupy zasobów>/Providers/Microsoft.Network/virtualNetworks/ &lt; nazwa sieci wirtualnej>/subnets/ &lt; Nazwa podsieci>
 
 1. Warunki **i postanowienia**:  
     Przejrzyj i zaakceptuj postanowienia prawne.
@@ -734,7 +734,7 @@ W Azure Portal wprowadź następujące parametry szablonu:
    * **Identyfikator URI dysku VHD dysków systemu operacyjnego** (tylko szablon dysku niezarządzanego): identyfikator URI prywatnego dysku systemu operacyjnego, na przykład https:// &lt; AccountName>. blob.Core.Windows.NET/VHDs/OSDisk.VHD.
    * **Identyfikator dysku zarządzanego dysku systemu operacyjnego** (tylko szablon dysku zarządzanego): identyfikator dysku systemu operacyjnego dysku zarządzanego,/subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/Group/Providers/Microsoft.COMPUTE/disks/win
    * **Nowa lub istniejąca podsieć**: określa, czy zostanie utworzona nowa sieć wirtualna i podsieć, czy też używana jest istniejąca podsieć. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
-   * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco: &lt; Identyfikator subskrypcji/subscriptions/>/ResourceGroups/nazwa &lt; grupy zasobów>/Providers/Microsoft.Network/virtualnetworks/ &lt; nazwa sieci wirtualnej>/subnets/ &lt; Nazwa podsieci>
+   * **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco: &lt; Identyfikator subskrypcji/subscriptions/>/resourceGroups/nazwa &lt; grupy zasobów>/Providers/Microsoft.Network/virtualNetworks/ &lt; nazwa sieci wirtualnej>/subnets/ &lt; Nazwa podsieci>
 
 1. Warunki **i postanowienia**:  
     Przejrzyj i zaakceptuj postanowienia prawne.
@@ -828,7 +828,7 @@ W przypadku wdrażania maszyny wirtualnej z poziomu portalu Azure Marketplace te
 
 Do zaktualizowania agenta maszyny wirtualnej platformy Azure nie jest wymagana żadna interakcja ze strony użytkownika. Agent maszyny wirtualnej jest automatycznie aktualizowany i nie wymaga ponownego uruchomienia maszyny wirtualnej.
 
-#### <a name="linux"></a><a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
+#### <a name="linux"></a><a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>System
 
 Użyj następujących poleceń, aby zainstalować agenta maszyny wirtualnej dla systemu Linux:
 
@@ -946,7 +946,7 @@ Aby zainstalować rozszerzenie platformy Azure dla oprogramowania SAP przy użyc
 Po wprowadzeniu danych konta skrypt wdraża wymagane rozszerzenia i włącza wymagane funkcje. Może to potrwać kilka minut.
 Aby uzyskać więcej informacji na temat `Set-AzVMAEMExtension` , zobacz [Set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
-![Pomyślne wykonanie polecenia cmdlet platformy Azure określonego dla oprogramowania SAP — AzVMAEMExtension][deployment-guide-figure-900]
+![Pomyślne wykonanie polecenia cmdlet platformy Azure określonego dla oprogramowania SAP Set-AzVMAEMExtension][deployment-guide-figure-900]
 
 `Set-AzVMAEMExtension`Konfiguracja wykonuje wszystkie kroki konfigurowania zbierania danych hosta dla oprogramowania SAP.
 
@@ -1057,7 +1057,7 @@ Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej 
    az login
    ```
 
-1. Postępuj zgodnie z instrukcjami w artykule [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure][qs-configure-cli-windows-vm] , aby umożliwić zarządzanej tożsamości przypisanej do maszyny wirtualnej. Tożsamości zarządzane przypisane przez użytkownika nie są obsługiwane przez rozszerzenie maszyny wirtualnej dla oprogramowania SAP. Można jednak włączyć zarówno tożsamość przypisaną przez system, jak i przypisanej do użytkownika.
+1. Wykonaj kroki opisane w artykule [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure][qs-configure-cli-windows-vm] , aby włączyć System-Assigned tożsamość zarządzaną dla maszyny wirtualnej. User-Assigned tożsamości zarządzane nie są obsługiwane przez rozszerzenie maszyny wirtualnej dla oprogramowania SAP. Można jednak włączyć zarówno tożsamość przypisaną przez system, jak i przypisanej do użytkownika.
 
    Przykład:
    ```azurecli
@@ -1370,11 +1370,11 @@ Metryki wydajności na platformie Azure są zbierane przez demona. Jeśli Demon 
 
 Rozszerzenie nie jest zainstalowane. Ustal, czy jest to problem z serwerem proxy (zgodnie z wcześniejszym opisem). Może być konieczne ponowne uruchomienie komputera i/lub uruchomienie `Set-AzVMAEMExtension` skryptu konfiguracyjnego.
 
-##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Wykonanie polecenia Set-AzVMAEMExtension i test-AzVMAEMExtension Pokaż komunikaty ostrzegawcze informujące o tym, że standardowe Managed Disks nie są obsługiwane
+##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Wykonanie Set-AzVMAEMExtension i Test-AzVMAEMExtension wyświetlanie komunikatów ostrzegawczych informujących, że standardowe Managed Disks nie są obsługiwane
 
 ###### <a name="issue"></a>Problem
 
-W przypadku wykonywania komunikatów Set-AzVMAEMExtension lub test-AzVMAEMExtension, takich jak te, są wyświetlane:
+Podczas wykonywania Set-AzVMAEMExtension lub Test-AzVMAEMExtension komunikaty, takie jak te są wyświetlane:
 
 <pre><code>
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
@@ -1495,7 +1495,7 @@ Wykonaj kroki opisane w rozdziale [Konfigurowanie rozszerzenia platformy Azure d
 
 Jeśli błędy nie znikną, [skontaktuj się z pomocą techniczną][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Skontaktuj się z pomocą techniczną
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Kontakt z pomocą techniczną
 
 Nieoczekiwany błąd lub nie ma znanego rozwiązania. Zbierz plik AzureEnhancedMonitoring_service. log znajdujący się w folderze C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) lub/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) i skontaktuj się z pomocą TECHNICZNą SAP w celu uzyskania dalszej pomocy.
 

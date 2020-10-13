@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397967"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z błędami z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
@@ -281,14 +281,14 @@ Aby ponownie zmienić stan replikacji maszyny wirtualnej, możesz wybrać opcję
 1. Przejdź do **pozycji zreplikowane elementy**  >  _Nazwa maszyny wirtualnej_  >  **dyski**.
 1. Wybierz dysk niechroniony, a następnie wybierz pozycję **Włącz replikację**:
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Włącz replikację na dyskach maszyny wirtualnej.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com — błąd.":::
 
 #### <a name="to-dismiss-the-warning"></a>Aby odrzucić ostrzeżenie
 
 1. Przejdź do **pozycji zreplikowane elementy**  >  _Nazwa maszyny wirtualnej_.
 1. Wybierz ostrzeżenie w sekcji **Przegląd** , a następnie wybierz przycisk **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Odrzuć ostrzeżenie nowego dysku.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com — błąd.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>Pomyślnie usunięto maszynę wirtualną z magazynu z informacjami (kod błędu 150225)
 
@@ -309,7 +309,7 @@ To ostrzeżenie można zignorować, jeśli nie chcesz ponownie chronić tej masz
 
 1. Usuń blokadę z maszyny wirtualnej lub grupy zasobów maszyny wirtualnej. Na przykład na poniższej ilustracji należy usunąć blokadę zasobu o nazwie maszyna wirtualna `MoveDemo` :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Usuń blokadę z maszyny wirtualnej.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com — błąd.":::
 
 1. Pobierz skrypt, aby [usunąć nieaktualną konfigurację Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Uruchom skrypt, _Cleanup-stale-asr-config-Azure-VM.ps1_. Podaj **Identyfikator subskrypcji**, **grupę zasobów maszyny wirtualnej**i **nazwę maszyny wirtualnej** jako parametry.
@@ -334,7 +334,7 @@ Nieodświeżona konfiguracja może wystąpić na maszynie wirtualnej platformy A
 
 1. Usuń blokadę z maszyny wirtualnej lub grupy zasobów maszyny wirtualnej. Na przykład na poniższej ilustracji należy usunąć blokadę zasobu o nazwie maszyna wirtualna `MoveDemo` :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Usuń blokadę z maszyny wirtualnej.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com — błąd.":::
 
 1. Pobierz skrypt, aby [usunąć nieaktualną konfigurację Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Uruchom skrypt, _Cleanup-stale-asr-config-Azure-VM.ps1_. Podaj **Identyfikator subskrypcji**, **grupę zasobów maszyny wirtualnej**i **nazwę maszyny wirtualnej** jako parametry.
@@ -367,7 +367,7 @@ Na maszynie wirtualnej platformy Azure może nie być widoczna maszyna wirtualna
 
 1. Usuń blokadę, jeśli istnieje, z maszyny wirtualnej lub grupy zasobów maszyny wirtualnej. Na przykład na poniższej ilustracji należy usunąć blokadę zasobu o nazwie maszyna wirtualna `MoveDemo` :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Usuń blokadę z maszyny wirtualnej.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com — błąd.":::
 
 1. Pobierz skrypt, aby [usunąć nieaktualną konfigurację Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Uruchom skrypt, _Cleanup-stale-asr-config-Azure-VM.ps1_. Podaj **Identyfikator subskrypcji**, **grupę zasobów maszyny wirtualnej**i **nazwę maszyny wirtualnej** jako parametry.
@@ -404,17 +404,17 @@ Aby włączyć replikację na maszynie wirtualnej, jej stan aprowizacji musi si�
 
 Podczas konfigurowania odzyskiwania po awarii, jeśli źródłowa maszyna wirtualna jest częścią sieci wirtualnej, a inna maszyna wirtualna z tej samej sieci wirtualnej jest już zamapowana przy użyciu sieci w docelowej grupie zasobów, pole listy rozwijanej Wybór sieci jest niedostępne (domyślnie wygaszone).
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Lista wyboru sieci jest niedostępna.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com — błąd.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problem 2: wcześniej była chroniona maszyna wirtualna, a następnie wyłączona replikacja
 
 Wyłączenie replikacji maszyny wirtualnej nie powoduje usunięcia mapowania sieci. Należy usunąć mapowanie z magazynu Recovery Services, w którym maszyna wirtualna była chroniona. Wybierz **Magazyn Recovery Services** i przejdź do pozycji **Zarządzaj**  >  **infrastrukturą Site Recovery**  >  **dla mapowania sieci usługi Azure Virtual Machines**  >  **Network Mapping**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Usuń mapowanie sieci.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com — błąd.":::
 
 Sieć docelowa, która została skonfigurowana podczas konfigurowania odzyskiwania po awarii, może zostać zmieniona po początkowej konfiguracji i po włączeniu ochrony maszyny wirtualnej. Aby **zmodyfikować mapowanie sieci** , wybierz nazwę sieci:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modyfikowanie mapowania sieci.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com — błąd.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>Model COM+ lub VSS (kod błędu 151025)
@@ -437,7 +437,7 @@ Ustaw dla aplikacji systemowej COM+ Usługa kopiowania woluminów w tle tryb aut
 1. Otwórz konsolę usługi w systemie Windows.
 1. Upewnij się, że aplikacja systemowa modelu COM+ i Usługa kopiowania woluminów w tle nie są **wyłączone** jako ich **Typ uruchamiania**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Sprawdź typ uruchomienia modelu COM oraz aplikację systemową i Usługa kopiowania woluminów w tle.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com — błąd.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Nieobsługiwany rozmiar dysku zarządzanego (kod błędu 150172)
 

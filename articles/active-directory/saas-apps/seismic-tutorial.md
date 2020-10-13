@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: c42180990f81e179a8fa8cdfe9e5d762323213b0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Samouczek: integracja Azure Active Directory z sejsmiczną
@@ -68,7 +68,7 @@ Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD w apli
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     * **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
     * **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-2. **[Konfigurowanie logowania JEDNOkrotnego](#configure-seismic-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+2. **[Konfigurowanie logowania jednokrotnego](#configure-seismic-sso)** w celu skonfigurowania pojedynczych ustawień Sign-On po stronie aplikacji.
     * **[Tworzenie użytkownika testowego aplikacji Seismic](#create-seismic-test-user)** — aby mieć w aplikacji Seismic odpowiednik użytkownika Britta Simon połączony z reprezentacją użytkownika w usłudze Azure AD.
 3. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
     > [!NOTE]
-    > To nie są rzeczywiste wartości. Zaktualizuj wartość z rzeczywistym adresem URL logowania, identyfikatorem i adresem URL odpowiedzi. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Seismic](mailto:support@seismic.com). Możesz również przekazać **metadane dostawcy usługi**, aby automatycznie wypełnić wartość identyfikatora. Aby uzyskać więcej informacji o **metadanych dostawcy usługi**, skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Seismic](mailto:support@seismic.com).
+    > To nie są rzeczywiste wartości. Zaktualizuj wartość z rzeczywistym adresem URL Sign-On, identyfikatorem i adresem URL odpowiedzi. W celu uzyskania tych wartości skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Seismic](mailto:support@seismic.com). Możesz również przekazać **metadane dostawcy usługi**, aby automatycznie wypełnić wartość identyfikatora. Aby uzyskać więcej informacji o **metadanych dostawcy usługi**, skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Seismic](mailto:support@seismic.com).
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -151,6 +151,6 @@ Po kliknięciu kafelka Seismic na panelu dostępu powinno nastąpić automatyczn
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

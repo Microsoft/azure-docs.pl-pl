@@ -4,10 +4,10 @@ description: W tym artykule opisano sposób włączania i konfigurowania Azure M
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320310"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Włącz Azure Monitor dla kontenerów
@@ -45,7 +45,7 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
    Jeśli zdecydujesz się utworzyć obszar roboczy samodzielnie, możesz go utworzyć za pomocą: 
    - [Azure Resource Manager](../platform/template-workspace-configuration.md)
    - [Program PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [Azure Portal](../learn/quick-create-workspace.md) 
+   - [Witryna Azure Portal](../learn/quick-create-workspace.md) 
    
    Aby zapoznać się z listą obsługiwanych par mapowania do użycia w domyślnym obszarze roboczym, zobacz [Mapowanie regionów dla Azure monitor kontenerów](container-insights-region-mapping.md).
 

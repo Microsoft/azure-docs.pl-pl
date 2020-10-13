@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844244"
 ---
 # <a name="api-management-policy-expressions"></a>Wyrażenia zasad API Management
@@ -33,12 +33,12 @@ Więcej informacji:
 - Aby pobrać instrukcje zasad, zobacz repozytorium usługi [API Management — przykłady/zasady](https://github.com/Azure/api-management-samples/tree/master/policies) usługi GitHub.
 
 
-## <a name="syntax"></a><a name="Syntax"></a>Obowiązuje
+## <a name="syntax"></a><a name="Syntax"></a> Obowiązuje
 Wyrażenia pojedynczej instrukcji są ujęte w `@(expression)` , gdzie `expression` jest poprawnie sformułowaną instrukcją języka C#.
 
 Wyrażenia wieloinstrukcji są ujęte w `@{expression}` . Wszystkie ścieżki kodu w wyrażeniach wieloinstrukcji muszą kończyć się `return` instrukcją.
 
-## <a name="examples"></a><a name="PolicyExpressionsExamples"></a>Pokazują
+## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Pokazują
 
 ```
 @(true)
@@ -71,141 +71,141 @@ Wyrażenia mogą być używane jako wartości atrybutów lub wartości tekstowe 
 > [!IMPORTANT]
 > W przypadku używania wyrażeń zasad istnieje tylko ograniczona weryfikacja wyrażeń zasad, gdy zasady są zdefiniowane. Wyrażenia są wykonywane przez bramę w czasie wykonywania, wszystkie wyjątki generowane przez wyrażenia zasad powodują błąd czasu wykonania.
 
-## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>Typy .NET Framework dozwolone w wyrażeniach zasad
+## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Typy .NET Framework dozwolone w wyrażeniach zasad
 Poniższa tabela zawiera listę typów .NET Framework i ich elementów członkowskich, które są dozwolone w wyrażeniach zasad.
 
-|Typ|Obsługiwane elementy członkowskie|
+|Type|Obsługiwane elementy członkowskie|
 |--------------|-----------------------|
-|Newtonsoft.Js. Grubi|Wszystko|
+|Newtonsoft.Js. Grubi|Wszystkie|
 |Newtonsoft.Json.Jsonconvert|Serializacjaobject, deserializacjaobject|
-|Newtonsoft.Js. LINQ. Extensions|Wszystko|
-|Newtonsoft.Js. LINQ. JArray|Wszystko|
-|Newtonsoft.Js. LINQ. JConstructor|Wszystko|
-|Newtonsoft.Js. LINQ. JContainer|Wszystko|
-|Newtonsoft.Js. LINQ. JObject|Wszystko|
-|Newtonsoft.Js. LINQ. JProperty|Wszystko|
-|Newtonsoft.Js. LINQ. JRaw|Wszystko|
-|Newtonsoft.Js. LINQ. JToken|Wszystko|
-|Newtonsoft.Js. LINQ. JTokenType|Wszystko|
-|Newtonsoft.Js. LINQ. JValue|Wszystko|
-|System. Array|Wszystko|
-|System. BitConverter|Wszystko|
-|System. Boolean|Wszystko|
-|System. Byte|Wszystko|
-|System. Char|Wszystko|
-|System. Collections. Generic. dictionary<TKey, TValue>|Wszystko|
-|System. Collections. Generic. HashSet —\<T>|Wszystko|
-|System. Collections. Generic. ICollection\<T>|Wszystko|
-|System. Collections. Generic. IDictionary<TKey, TValue>|Wszystko|
-|System. Collections. Generic. IEnumerable\<T>|Wszystko|
-|System. Collections. Generic. IEnumerator\<T>|Wszystko|
-|System. Collections. Generic. IList\<T>|Wszystko|
-|System. Collections. Generic. IReadOnlyCollection\<T>|Wszystko|
-|System. Collections. Generic. IReadOnlyDictionary<TKey, TValue>|Wszystko|
-|System. Collections. Generic. ISet\<T>|Wszystko|
-|System. Collections. Generic. KeyValuePair<TKey, TValue>|Wszystko|
-|System. Collections. Generic. list\<T>|Wszystko|
-|System. Collections. Generic. Queue\<T>|Wszystko|
-|System. Collections. Generic. Stack\<T>|Wszystko|
-|System. Convert|Wszystko|
+|Newtonsoft.Js. LINQ. Extensions|Wszystkie|
+|Newtonsoft.Js. LINQ. JArray|Wszystkie|
+|Newtonsoft.Js. LINQ. JConstructor|Wszystkie|
+|Newtonsoft.Js. LINQ. JContainer|Wszystkie|
+|Newtonsoft.Js. LINQ. JObject|Wszystkie|
+|Newtonsoft.Js. LINQ. JProperty|Wszystkie|
+|Newtonsoft.Js. LINQ. JRaw|Wszystkie|
+|Newtonsoft.Js. LINQ. JToken|Wszystkie|
+|Newtonsoft.Js. LINQ. JTokenType|Wszystkie|
+|Newtonsoft.Js. LINQ. JValue|Wszystkie|
+|System. Array|Wszystkie|
+|System. BitConverter|Wszystkie|
+|System. Boolean|Wszystkie|
+|System. Byte|Wszystkie|
+|System. Char|Wszystkie|
+|System. Collections. Generic. dictionary<TKey, TValue>|Wszystkie|
+|System. Collections. Generic. HashSet —\<T>|Wszystkie|
+|System. Collections. Generic. ICollection\<T>|Wszystkie|
+|System. Collections. Generic. IDictionary<TKey, TValue>|Wszystkie|
+|System. Collections. Generic. IEnumerable\<T>|Wszystkie|
+|System. Collections. Generic. IEnumerator\<T>|Wszystkie|
+|System. Collections. Generic. IList\<T>|Wszystkie|
+|System. Collections. Generic. IReadOnlyCollection\<T>|Wszystkie|
+|System. Collections. Generic. IReadOnlyDictionary<TKey, TValue>|Wszystkie|
+|System. Collections. Generic. ISet\<T>|Wszystkie|
+|System. Collections. Generic. KeyValuePair<TKey, TValue>|Wszystkie|
+|System. Collections. Generic. list\<T>|Wszystkie|
+|System. Collections. Generic. Queue\<T>|Wszystkie|
+|System. Collections. Generic. Stack\<T>|Wszystkie|
+|System. Convert|Wszystkie|
 |System. DateTime|(Konstruktor), Dodaj, addDays, addgodz., addms, addminut, addmiesiącach, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, dzieńroku, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, milisekundy, czas, MinValue, month, Now, Parse,|
 |System. DateTimeKind|UTC|
-|System. DateTimeOffset|Wszystko|
-|System. Decimal|Wszystko|
-|System. Double|Wszystko|
-|System. Exception|Wszystko|
-|System. GUID|Wszystko|
-|System. Int16|Wszystko|
-|System. Int32|Wszystko|
-|System. Int64|Wszystko|
-|System. IO. StringReader|Wszystko|
-|System. IO. StringWriter|Wszystko|
-|System. LINQ. wyliczalne|Wszystko|
-|System. Math|Wszystko|
-|System. MidpointRounding|Wszystko|
-|System .NET. WebUtility|Wszystko|
-|System. Nullable|Wszystko|
-|System. Random|Wszystko|
-|System. nadana|Wszystko|
-|System. Security. Cryptography. AsymmetricAlgorithm|Wszystko|
-|System. Security. Cryptography. CipherMode|Wszystko|
-|System. Security. Cryptography. algorytm|Wszystko|
-|System. Security. Cryptography. HashAlgorithmName|Wszystko|
-|System. Security. Cryptography. HMAC|Wszystko|
-|System. Security. Cryptography. HMACMD5|Wszystko|
-|System. Security. Cryptography. HMACSHA1|Wszystko|
-|System. Security. Cryptography. HMACSHA256|Wszystko|
-|System. Security. Cryptography. HMACSHA384|Wszystko|
-|System. Security. Cryptography. HMACSHA512|Wszystko|
-|System. Security. Cryptography. KeyedHashAlgorithm|Wszystko|
-|System. Security. Cryptography. MD5|Wszystko|
-|System. Security. Cryptography. OID|Wszystko|
-|System. Security. Cryptography. Uzupełnieniemode|Wszystko|
-|System. Security. Cryptography. RNGCryptoServiceProvider|Wszystko|
-|System. Security. Cryptography. RSA|Wszystko|
-|System. Security. Cryptography. RSAEncryptionPadding|Wszystko|
-|System. Security. Cryptography. RSASignaturePadding|Wszystko|
-|System. Security. Cryptography. SHA1|Wszystko|
-|System. Security. Cryptography. SHA1Managed|Wszystko|
-|System. Security. Cryptography. SHA256|Wszystko|
-|System. Security. Cryptography. SHA256Managed|Wszystko|
-|System. Security. Cryptography. SHA384|Wszystko|
-|System. Security. Cryptography. SHA384Managed|Wszystko|
-|System. Security. Cryptography. SHA512|Wszystko|
-|System. Security. Cryptography. SHA512Managed|Wszystko|
-|System. Security. Cryptography. SymmetricAlgorithm|Wszystko|
-|System. Security. Cryptography. x509. PublicKey|Wszystko|
-|System. Security. Cryptography. x509. RSACertificateExtensions|Wszystko|
+|System. DateTimeOffset|Wszystkie|
+|System. Decimal|Wszystkie|
+|System. Double|Wszystkie|
+|System. Exception|Wszystkie|
+|System. GUID|Wszystkie|
+|System. Int16|Wszystkie|
+|System. Int32|Wszystkie|
+|System. Int64|Wszystkie|
+|System. IO. StringReader|Wszystkie|
+|System. IO. StringWriter|Wszystkie|
+|System. LINQ. wyliczalne|Wszystkie|
+|System. Math|Wszystkie|
+|System. MidpointRounding|Wszystkie|
+|System .NET. WebUtility|Wszystkie|
+|System. Nullable|Wszystkie|
+|System. Random|Wszystkie|
+|System. nadana|Wszystkie|
+|System. Security. Cryptography. AsymmetricAlgorithm|Wszystkie|
+|System. Security. Cryptography. CipherMode|Wszystkie|
+|System. Security. Cryptography. algorytm|Wszystkie|
+|System. Security. Cryptography. HashAlgorithmName|Wszystkie|
+|System. Security. Cryptography. HMAC|Wszystkie|
+|System. Security. Cryptography. HMACMD5|Wszystkie|
+|System. Security. Cryptography. HMACSHA1|Wszystkie|
+|System. Security. Cryptography. HMACSHA256|Wszystkie|
+|System. Security. Cryptography. HMACSHA384|Wszystkie|
+|System. Security. Cryptography. HMACSHA512|Wszystkie|
+|System. Security. Cryptography. KeyedHashAlgorithm|Wszystkie|
+|System. Security. Cryptography. MD5|Wszystkie|
+|System. Security. Cryptography. OID|Wszystkie|
+|System. Security. Cryptography. Uzupełnieniemode|Wszystkie|
+|System. Security. Cryptography. RNGCryptoServiceProvider|Wszystkie|
+|System. Security. Cryptography. RSA|Wszystkie|
+|System. Security. Cryptography. RSAEncryptionPadding|Wszystkie|
+|System. Security. Cryptography. RSASignaturePadding|Wszystkie|
+|System. Security. Cryptography. SHA1|Wszystkie|
+|System. Security. Cryptography. SHA1Managed|Wszystkie|
+|System. Security. Cryptography. SHA256|Wszystkie|
+|System. Security. Cryptography. SHA256Managed|Wszystkie|
+|System. Security. Cryptography. SHA384|Wszystkie|
+|System. Security. Cryptography. SHA384Managed|Wszystkie|
+|System. Security. Cryptography. SHA512|Wszystkie|
+|System. Security. Cryptography. SHA512Managed|Wszystkie|
+|System. Security. Cryptography. SymmetricAlgorithm|Wszystkie|
+|System. Security. Cryptography. x509. PublicKey|Wszystkie|
+|System. Security. Cryptography. x509. RSACertificateExtensions|Wszystkie|
 |System. Security. Cryptography. x509. X500DistinguishedName|Nazwa|
-|System. Security. Cryptography. x509. x509|Wszystko|
-|System. Security. Cryptography. x509. X509Certificate2|Wszystko|
-|System. Security. Cryptography. x509. X509ContentType|Wszystko|
-|System. Security. Cryptography. x509. X509NameType|Wszystko|
-|System. Single|Wszystko|
-|System. String|Wszystko|
-|System. StringComparer|Wszystko|
-|System. StringComparison|Wszystko|
-|System. StringSplitOptions|Wszystko|
-|System. Text. Encoding|Wszystko|
+|System. Security. Cryptography. x509. x509|Wszystkie|
+|System. Security. Cryptography. x509. X509Certificate2|Wszystkie|
+|System. Security. Cryptography. x509. X509ContentType|Wszystkie|
+|System. Security. Cryptography. x509. X509NameType|Wszystkie|
+|System. Single|Wszystkie|
+|System. String|Wszystkie|
+|System. StringComparer|Wszystkie|
+|System. StringComparison|Wszystkie|
+|System. StringSplitOptions|Wszystkie|
+|System. Text. Encoding|Wszystkie|
 |System. Text. RegularExpressions. Capture|Indeks, długość, wartość|
 |System. Text. RegularExpressions. CaptureCollection|Liczba, element|
 |System. Text. RegularExpressions. Group|Przechwytywanie, sukces|
 |System. Text. RegularExpressions. GroupCollection|Liczba, element|
 |System. Text. RegularExpressions. Match|Puste, grupy, wynik|
 |System. Text. RegularExpressions. wyrażenie regularne|(Konstruktor), IsMatch, Match, dopasowań, Replace, Unescape, Split|
-|System. Text. RegularExpressions. RegexOptions|Wszystko|
-|System. Text. StringBuilder|Wszystko|
-|System. TimeSpan|Wszystko|
-|System. TimeZone|Wszystko|
-|System. TimeZoneInfo. AdjustmentRule|Wszystko|
-|System. TimeZoneInfo. TransitionTime|Wszystko|
-|System. TimeZoneInfo|Wszystko|
-|System. krotka|Wszystko|
-|System. UInt16|Wszystko|
-|System. UInt32|Wszystko|
-|System. UInt64|Wszystko|
-|System. URI|Wszystko|
-|System. UriPartial|Wszystko|
-|System.Xml. LINQ. Extensions|Wszystko|
-|System.Xml. LINQ. XAttribute|Wszystko|
-|System.Xml. LINQ. XCData|Wszystko|
-|System.Xml. LINQ. XComment|Wszystko|
-|System.Xml. LINQ. XContainer|Wszystko|
-|System.Xml. LINQ. XDeclaration|Wszystko|
+|System. Text. RegularExpressions. RegexOptions|Wszystkie|
+|System. Text. StringBuilder|Wszystkie|
+|System. TimeSpan|Wszystkie|
+|System. TimeZone|Wszystkie|
+|System. TimeZoneInfo. AdjustmentRule|Wszystkie|
+|System. TimeZoneInfo. TransitionTime|Wszystkie|
+|System. TimeZoneInfo|Wszystkie|
+|System. krotka|Wszystkie|
+|System. UInt16|Wszystkie|
+|System. UInt32|Wszystkie|
+|System. UInt64|Wszystkie|
+|System. URI|Wszystkie|
+|System. UriPartial|Wszystkie|
+|System.Xml. LINQ. Extensions|Wszystkie|
+|System.Xml. LINQ. XAttribute|Wszystkie|
+|System.Xml. LINQ. XCData|Wszystkie|
+|System.Xml. LINQ. XComment|Wszystkie|
+|System.Xml. LINQ. XContainer|Wszystkie|
+|System.Xml. LINQ. XDeclaration|Wszystkie|
 |System.Xml. LINQ. XDocument|Wszystkie, z wyjątkiem: Load|
-|System.Xml. LINQ. XDocumenttype|Wszystko|
-|System.Xml. LINQ. XElement|Wszystko|
-|System.Xml. LINQ. XName|Wszystko|
-|System.Xml. LINQ. XNamespace|Wszystko|
-|System.Xml. LINQ. XNode|Wszystko|
-|System.Xml. LINQ. XNodeDocumentOrderComparer|Wszystko|
-|System.Xml. LINQ. XNodeEqualityComparer|Wszystko|
-|System.Xml. LINQ. XObject|Wszystko|
-|System.Xml. LINQ. XProcessingInstruction|Wszystko|
-|System.Xml. LINQ. XText|Wszystko|
-|System.Xml.XmlNodeType|Wszystko|
+|System.Xml. LINQ. XDocumenttype|Wszystkie|
+|System.Xml. LINQ. XElement|Wszystkie|
+|System.Xml. LINQ. XName|Wszystkie|
+|System.Xml. LINQ. XNamespace|Wszystkie|
+|System.Xml. LINQ. XNode|Wszystkie|
+|System.Xml. LINQ. XNodeDocumentOrderComparer|Wszystkie|
+|System.Xml. LINQ. XNodeEqualityComparer|Wszystkie|
+|System.Xml. LINQ. XObject|Wszystkie|
+|System.Xml. LINQ. XProcessingInstruction|Wszystkie|
+|System.Xml. LINQ. XText|Wszystkie|
+|System.Xml.XmlNodeType|Wszystkie|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Zmienna kontekstowa
+## <a name="context-variable"></a><a name="ContextVariables"></a> Zmienna kontekstowa
 Zmienna o nazwie `context` jest niejawnie dostępna w każdym [wyrażeniu](api-management-policy-expressions.md#Syntax)zasad. Jego członkowie zawierają informacje dotyczące programu `\request` . Wszystkie `context` elementy członkowskie są tylko do odczytu.
 
 |Zmienna kontekstowa|Dozwolone metody, właściwości i wartości parametrów|

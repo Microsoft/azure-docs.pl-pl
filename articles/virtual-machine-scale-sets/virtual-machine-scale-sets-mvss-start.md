@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831502"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informacje o szablonach zestawu skalowania maszyn wirtualnych
@@ -165,7 +165,7 @@ W poniższym fragmencie kodu Użyj parametrów z przed, aby ustawić nazwę uży
 ### <a name="specify-vm-network-configuration"></a>Określ konfigurację sieci VMNETWORK
 Na koniec Określ konfigurację sieci dla maszyn wirtualnych w zestawie skalowania. W takim przypadku wystarczy określić identyfikator utworzonej wcześniej podsieci. Oznacza to, że zestaw skalowania umieszcza interfejsy sieciowe w tej podsieci.
 
-Identyfikator sieci wirtualnej zawierającej podsieć można uzyskać przy użyciu `resourceId` funkcji szablonu. Ta funkcja przyjmuje typ i nazwę zasobu i zwraca w pełni kwalifikowany identyfikator tego zasobu. Ten identyfikator ma postać:`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
+Identyfikator sieci wirtualnej zawierającej podsieć można uzyskać przy użyciu `resourceId` funkcji szablonu. Ta funkcja przyjmuje typ i nazwę zasobu i zwraca w pełni kwalifikowany identyfikator tego zasobu. Ten identyfikator ma postać: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
 Jednak identyfikator sieci wirtualnej jest zbyt mały. Podaj określoną podsieć, w której powinny znajdować się maszyny wirtualne zestawu skalowania. Aby to zrobić, Połącz `/subnets/mySubnet` się z identyfikatorem sieci wirtualnej. Wynikiem jest w pełni kwalifikowany identyfikator podsieci. Wykonaj to połączenie za pomocą `concat` funkcji, która wykonuje serię ciągów i zwraca ich połączenie.
 

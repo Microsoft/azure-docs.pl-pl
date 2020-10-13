@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
 ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261604"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Co to jest Akcelerator rozwiązania do podłączenia fabryki IoT?
@@ -58,7 +58,7 @@ Połączona fabryka obejmuje następujące funkcje:
 
 ## <a name="end-to-end-security"></a>Kompleksowe zabezpieczenia
 
-- Skonfiguruj uprawnienia zabezpieczeń dla użytkowników korzystających z Access Control opartej na rolach (RBAC).
+- Skonfiguruj uprawnienia zabezpieczeń dla użytkowników korzystających z Role-Based Access Control (RBAC).
 - Kompleksowe szyfrowanie jest implementowane przy użyciu uwierzytelniania OPC UA (przy użyciu certyfikatów X. 509) oraz tokenów zabezpieczających.
 
 ## <a name="customizability"></a>Szerszym

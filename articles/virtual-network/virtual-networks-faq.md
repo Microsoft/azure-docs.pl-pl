@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
 ms.openlocfilehash: 171fc11c8de9cd53a7abd9602768a117341826ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306604"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
@@ -191,7 +191,7 @@ Tak. Wszystkie maszyny wirtualne i wystąpienia roli Cloud Services wdrożone w 
 ## <a name="azure-services-that-connect-to-vnets"></a>Usługi platformy Azure, które łączą się z usługą sieci wirtualnych
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Czy można używać Azure App Service Web Apps z siecią wirtualną?
-Tak. Web Apps można wdrożyć wewnątrz sieci wirtualnej przy użyciu środowiska ASE (App Service Environment), połączyć zaplecze aplikacji z usługą sieci wirtualnych z integracją sieci wirtualnej i zablokować ruch przychodzący do aplikacji za pomocą punktów końcowych usługi. Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Tak. Web Apps można wdrożyć wewnątrz sieci wirtualnej przy użyciu środowiska ASE (App Service Environment), połączyć zaplecze aplikacji z usługą sieci wirtualnych z integracją sieci wirtualnej i zablokować ruch przychodzący do aplikacji za pomocą punktów końcowych usługi. Aby uzyskać więcej informacji zobacz następujące artykuły:
 
 * [App Service funkcje sieciowe](../app-service/networking-features.md)
 * [Tworzenie Web Apps w App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

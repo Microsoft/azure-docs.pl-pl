@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371757"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
@@ -47,10 +47,10 @@ W poniższej tabeli przedstawiono limity, które mogą być różne dla warstw P
 ### <a name="dedicated-tier"></a>Warstwa dedykowana
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-| Cechy | Limity |
+| Cecha | Limity |
 | --- | ---|
 | Przepustowość |  20 jednostek |
-| Przestrzenie nazw | 50 na CU |
+| Namespaces | 50 na CU |
 | Usługa Event Hubs |  1000 na przestrzeń nazw |
 | Rozmiar komunikatu | 1 MB |
 | Partycje | 2000 na CU |
@@ -64,7 +64,7 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 ### <a name="schema-registry-limitations"></a>Ograniczenia rejestru schematu
 
 #### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Limity, które są takie same dla warstw **standardowa** i **dedykowana** 
-| Cechy | Limit | 
+| Cecha | Limit | 
 | --- |  --- | -- |
 | Maksymalna długość nazwy grupy schematu | 50 |  
 | Maksymalna długość nazwy schematu | 100 |    

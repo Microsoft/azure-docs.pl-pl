@@ -9,10 +9,10 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441786"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
@@ -66,7 +66,7 @@ Możliwość stosowania zmian listy ACL rekursywnie z katalogu nadrzędnego do e
 
 <a id="known-issues-tools"></a>
 
-## <a name="azcopy"></a>AzCopy
+## <a name="azcopy"></a>Narzędzie AzCopy
 
 Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 

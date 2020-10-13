@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425878"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Dodawanie skryptu programu VMM do planu odzyskiwania
@@ -43,7 +43,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
   Jeśli ścieżka udziału biblioteki jest zdalna (lub jeśli jest lokalna, ale nie została udostępniona przez MSCVMMLibrary), skonfiguruj udział w następujący sposób, używając \\ libserver2. contoso. com\share\ jako przykładu:
   
-  1. Otwórz Edytor rejestru, a następnie przejdź do **HKEY_LOCAL_MACHINE \Software\microsoft\azure site Recovery\Registration**.
+  1. Otwórz Edytor rejestru, a następnie przejdź do **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
   1. Zmień wartość parametru **ScriptLibraryPath** na ** \\ \libserver2.contoso.com\share \\ **. Określ pełną nazwę FQDN. Podaj uprawnienia do lokalizacji udziału. Jest to węzeł główny udziału. Aby sprawdzić węzeł główny, w programie VMM przejdź do węzła głównego w bibliotece. Otwierana ścieżka jest katalogiem głównym ścieżki. Jest to ścieżka, której należy użyć w zmiennej.
 
@@ -51,7 +51,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
      a. Otwórz **64-bitową konsolę programu Windows PowerShell** jako administrator.
      
-     b. Wprowadź **obejście Set-executionpolicy**. Aby uzyskać więcej informacji, zobacz [Korzystanie z polecenia cmdlet Set-executionpolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
+     b. Wprowadź **obejście Set-executionpolicy**. Aby uzyskać więcej informacji, zobacz [przy użyciu polecenia cmdlet Set-ExecutionPolicy](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176961(v=technet.10)).
 
      > [!IMPORTANT]
      > Ustaw **obejście Set-executionpolicy** tylko w konsoli programu PowerShell 64-bitowej. Jeśli ustawisz ją na 32-bitową konsolę programu PowerShell, skrypty nie są uruchamiane.
