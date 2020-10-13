@@ -4,10 +4,10 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z instalacj
 ms.topic: troubleshooting
 ms.date: 07/15/2019
 ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019627"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Rozwiązywanie problemów z agentem Microsoft Azure Recovery Services (MARS)
@@ -65,19 +65,19 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 
 ## <a name="unable-to-download-vault-credential-file"></a>Nie można pobrać pliku poświadczeń magazynu
 
-| Error   | Zalecane akcje |
+| Błąd   | Zalecane akcje |
 | ---     | ---    |
-|Nie można pobrać pliku poświadczeń magazynu. (IDENTYFIKATOR: 403) | <ul><li> Spróbuj pobrać poświadczenia magazynu za pomocą innej przeglądarki lub wykonaj następujące czynności: <ul><li> Uruchom program Internet Explorer. Wybierz klawisz F12. </li><li> Przejdź do karty **Sieć** i wyczyść pamięć podręczną i pliki cookie. </li> <li> Odśwież stronę.<br></li></ul> <li> Sprawdź, czy subskrypcja jest wyłączona/wygasła.<br></li> <li> Sprawdź, czy żadna Reguła zapory blokuje pobieranie. <br></li> <li> Upewnij się, że limit magazynu (50 maszyn na magazyn) nie został wyczerpany.<br></li>  <li> Upewnij się, że użytkownik ma uprawnienia Azure Backup wymagane do pobrania poświadczeń magazynu i zarejestrowania serwera w magazynie. [Aby zarządzać Azure Backup punktów odzyskiwania, zobacz temat używanie Access Control opartych na rolach](backup-rbac-rs-vault.md).</li></ul> |
+|Nie można pobrać pliku poświadczeń magazynu. (IDENTYFIKATOR: 403) | <ul><li> Spróbuj pobrać poświadczenia magazynu za pomocą innej przeglądarki lub wykonaj następujące czynności: <ul><li> Uruchom program Internet Explorer. Wybierz klawisz F12. </li><li> Przejdź do karty **Sieć** i wyczyść pamięć podręczną i pliki cookie. </li> <li> Odśwież stronę.<br></li></ul> <li> Sprawdź, czy subskrypcja jest wyłączona/wygasła.<br></li> <li> Sprawdź, czy żadna Reguła zapory blokuje pobieranie. <br></li> <li> Upewnij się, że limit magazynu (50 maszyn na magazyn) nie został wyczerpany.<br></li>  <li> Upewnij się, że użytkownik ma uprawnienia Azure Backup wymagane do pobrania poświadczeń magazynu i zarejestrowania serwera w magazynie. Zobacz [używanie Role-Based Access Control do zarządzania punktami odzyskiwania Azure Backup](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Agent usługi Microsoft Azure Recovery Service nie mógł połączyć się z usługą Microsoft Azure Backup
 
-| Error  | Możliwa przyczyna | Zalecane akcje |
+| Błąd  | Możliwa przyczyna | Zalecane akcje |
 | ---     | ---     | ---    |
 | <br /><ul><li>Agent usługi odzyskiwania Microsoft Azure nie mógł nawiązać połączenia z Microsoft Azure Backup. (IDENTYFIKATOR: 100050) Sprawdź ustawienia sieci i upewnij się, że możesz nawiązać połączenie z Internetem.<li>(407) wymagane jest uwierzytelnianie serwera proxy. |Serwer proxy blokuje połączenie. |  <ul><li>W programie Internet Explorer przejdź do pozycji **Narzędzia**  >  **Opcje internetowe**  >  **zabezpieczenia**  >  **internetowe Internet**. Wybierz pozycję **Poziom niestandardowy** i przewiń w dół do sekcji **Pobieranie pliku** . Wybierz pozycję **Włącz**.<p>Może być również konieczne dodanie adresów [URL i adresów IP](install-mars-agent.md#verify-internet-access) do zaufanych witryn w programie Internet Explorer.<li>Zmień ustawienia tak, aby korzystały z serwera proxy. Następnie podaj szczegóły serwera proxy.<li> Jeśli maszyna ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze lub serwerze proxy zezwalają na te [adresy URL i adresy IP](install-mars-agent.md#verify-internet-access). <li>Jeśli na serwerze jest zainstalowane oprogramowanie antywirusowe, Wyklucz te pliki ze skanowania antywirusowego: <ul><li>CBEngine.exe (zamiast dpmra.exe).<li>CSC.exe (powiązane z .NET Framework). Istnieje CSC.exe dla każdej wersji .NET Framework zainstalowanej na serwerze. Wyklucz CSC.exe pliki dla wszystkich wersji .NET Framework na serwerze, którego to dotyczy. <li>Folder tymczasowy lub lokalizacja pamięci podręcznej. <br>Domyślna lokalizacja folderu tymczasowego lub ścieżki pamięci podręcznej to C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Folder bin w katalogu C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>Nie można użyć określonego pliku poświadczeń magazynu, ponieważ nie jest on pobrany z magazynu skojarzonego z tym serwerem.
 
-| Error  | Możliwa przyczyna | Zalecane akcje |
+| Błąd  | Możliwa przyczyna | Zalecane akcje |
 | ---     | ---     | ---    |
 | Nie można użyć określonego pliku poświadczeń magazynu, ponieważ nie jest on pobrany z magazynu skojarzonego z tym serwerem. (IDENTYFIKATOR: 100110) Podaj odpowiednie poświadczenia magazynu. | Plik poświadczeń magazynu pochodzi z innego magazynu niż ten, na którym jest już zarejestrowany ten serwer. | Upewnij się, że maszyna docelowa i maszyna źródłowa są zarejestrowani do tego samego magazynu Recovery Services. Jeśli serwer docelowy został już zarejestrowany w innym magazynie, użyj opcji **zarejestruj serwer** , aby zarejestrować się w prawidłowym magazynie.  
 
@@ -109,19 +109,19 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Nie można ustawić klucza szyfrowania na potrzeby bezpiecznych kopii zapasowych
 
-| Error | Możliwe przyczyny | Zalecane akcje |
+| Błąd | Możliwe przyczyny | Zalecane akcje |
 | ---     | ---     | ---    |
 | <br />Nie można ustawić klucza szyfrowania dla bezpiecznych kopii zapasowych. Aktywacja nie powiodła się w całości, ale hasło szyfrowania zostało zapisane w następującym pliku. |<li>Serwer jest już zarejestrowany w innym magazynie.<li>Podczas konfiguracji hasło zostało uszkodzone.| Wyrejestruj serwer z magazynu i zarejestruj go ponownie, podając nowe hasło.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>Aktywacja nie została pomyślnie ukończona
 
-| Error  | Możliwe przyczyny | Zalecane akcje |
+| Błąd  | Możliwe przyczyny | Zalecane akcje |
 |---------|---------|---------|
 |<br />Aktywacja nie została pomyślnie ukończona. Bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi [0x1FC07]. Spróbuj ponownie wykonać operację po pewnym czasie. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft.     | <li> Folder tymczasowy znajduje się na woluminie, na którym nie ma wystarczającej ilości miejsca. <li> Folder tymczasowy został niepoprawnie przeniesiony. <li> Brak pliku OnlineBackup. KEK.         | <li>Uaktualnij do [najnowszej wersji](https://aka.ms/azurebackup_agent) agenta Mars.<li>Przenieś folder tymczasowy lub lokalizację pamięci podręcznej na wolumin z ilością wolnego miejsca wynoszącą od 5% do 10% całkowitego rozmiaru danych kopii zapasowej. Aby prawidłowo przenieść lokalizację pamięci podręcznej, zapoznaj się z instrukcjami w [temacie typowe pytania dotyczące tworzenia kopii zapasowych plików i folderów](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Upewnij się, że plik OnlineBackup. KEK jest obecny. <br>*Domyślną lokalizacją folderu tymczasowego lub ścieżką pamięci podręcznej jest C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Hasło szyfrowania nie zostało prawidłowo skonfigurowane
 
-| Error  | Możliwe przyczyny | Zalecane akcje |
+| Błąd  | Możliwe przyczyny | Zalecane akcje |
 |---------|---------|---------|
 | <br />Błąd 34506. Hasło szyfrowania zapisane na tym komputerze nie jest prawidłowo skonfigurowane.    | <li> Folder tymczasowy znajduje się na woluminie, na którym nie ma wystarczającej ilości miejsca. <li> Folder tymczasowy został niepoprawnie przeniesiony. <li> Brak pliku OnlineBackup. KEK.        | <li>Uaktualnij do [najnowszej wersji](https://aka.ms/azurebackup_agent) agenta Mars.<li>Przenieś folder tymczasowy lub lokalizację pamięci podręcznej na wolumin z ilością wolnego miejsca wynoszącą od 5% do 10% całkowitego rozmiaru danych kopii zapasowej. Aby prawidłowo przenieść lokalizację pamięci podręcznej, zapoznaj się z instrukcjami w [temacie typowe pytania dotyczące tworzenia kopii zapasowych plików i folderów](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Upewnij się, że plik OnlineBackup. KEK jest obecny. <br>*Domyślną lokalizacją folderu tymczasowego lub ścieżką pamięci podręcznej jest C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
@@ -167,7 +167,7 @@ Set-ExecutionPolicy Unrestricted
 
 ## <a name="resource-not-provisioned-in-service-stamp"></a>Zasób nie został zainicjowany w sygnaturze usługi
 
-Error | Możliwe przyczyny | Zalecane akcje
+Błąd | Możliwe przyczyny | Zalecane akcje
 --- | --- | ---
 Bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi "zasób nie został zainicjowany w sygnaturze usługi". Spróbuj ponownie wykonać operację po pewnym czasie. (IDENTYFIKATOR: 230006) | Zmieniono nazwę chronionego serwera. | <li> Zmień nazwę serwera z powrotem na oryginalną nazwę zarejestrowanego w magazynie. <br> <li> Zarejestruj ponownie serwer w magazynie przy użyciu nowej nazwy.
 
@@ -278,7 +278,7 @@ Komunikat o błędzie | Zalecana akcja
 --|--
 Nie można odnaleźć zmian w pliku. Taka sytuacja może mieć różne przyczyny. Ponów próbę wykonania operacji | Aby rozwiązać ten problem, sprawdź następujące kroki i spróbuj ponownie wykonać operację:<br/> - [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Uzyskaj więcej informacji na temat [tworzenia kopii zapasowej systemu Windows Server z agentem Azure Backup](tutorial-backup-windows-server-to-azure.md).
 - Jeśli chcesz przywrócić kopię zapasową, zobacz [Przywracanie plików do maszyny z systemem Windows](backup-azure-restore-windows-server.md).

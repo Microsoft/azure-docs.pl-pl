@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
 ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627231"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
@@ -33,7 +33,7 @@ Ponadto grupy autotrybu failover udostępniają punkty końcowe odbiornika do od
 
 W przypadku korzystania z grup automatycznych trybu failover z automatycznymi zasadami trybu failover wszelkie awarie, które mają wpływ na bazy danych na serwerze lub wystąpieniu zarządzanym, są wykonywane automatycznie w trybie failover. Grupa autotrybu failover można zarządzać przy użyciu:
 
-- [Witryna Azure Portal](geo-distributed-application-configure-tutorial.md)
+- [Azure Portal](geo-distributed-application-configure-tutorial.md)
 - [Interfejs wiersza polecenia platformy Azure: Grupa trybu failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: Grupa trybu failover](scripts/add-database-to-failover-group-powershell.md)
 - [Interfejs API REST: Grupa trybu failover](/rest/api/sql/failovergroups).
@@ -184,7 +184,7 @@ Typowa aplikacja platformy Azure używa wielu usług platformy Azure i składa s
 Jeśli zostanie wykryta awaria, platforma Azure czeka przez określony czas `GracePeriodWithDataLossHours` . Wartość domyślna to 1 godzina. Jeśli nie możesz zapewnić utraty danych, upewnij się, że ustawiono `GracePeriodWithDataLossHours` wystarczająco dużą liczbę, na przykład 24-godzinny. Użyj ręcznej pracy awaryjnej grupy, aby wrócić z poziomu pomocniczego do podstawowego.
 
 > [!IMPORTANT]
-> Pule elastyczne z 800 lub mniej DTU i więcej niż 250 baz danych korzystających z replikacji geograficznej mogą napotkać problemy, w tym dłuższe planowane przełączanie w tryb failover i wydajność o obniżonej wydajności.  Te problemy mogą wystąpić w przypadku obciążeń intensywnie korzystających z zapisu, gdy punkty końcowe replikacji geograficznej są szeroko oddzielane przez geografię lub gdy dla każdej bazy danych są używane wiele pomocniczych punktów końcowych.  Objawy tych problemów są wskazywane, gdy opóźnienie replikacji geograficznej rośnie wraz z upływem czasu.  Te opóźnienia można monitorować przy użyciu wykazu [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Jeśli te problemy wystąpią, środki zaradcze obejmują zwiększenie liczby DTU puli lub zmniejszenie liczby replikowanych geograficznie baz danych w tej samej puli.
+> Pule elastyczne z 800 lub mniej DTU i więcej niż 250 baz danych korzystających z replikacji geograficznej mogą napotkać problemy, w tym dłuższe planowane przełączanie w tryb failover i wydajność o obniżonej wydajności.  Te problemy mogą wystąpić w przypadku obciążeń intensywnie korzystających z zapisu, gdy punkty końcowe replikacji geograficznej są szeroko oddzielane przez geografię lub gdy dla każdej bazy danych są używane wiele pomocniczych punktów końcowych.  Objawy tych problemów są wskazywane, gdy opóźnienie replikacji geograficznej rośnie wraz z upływem czasu.  Te opóźnienia można monitorować przy użyciu [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Jeśli te problemy wystąpią, środki zaradcze obejmują zwiększenie liczby DTU puli lub zmniejszenie liczby replikowanych geograficznie baz danych w tej samej puli.
 
 ### <a name="changing-secondary-region-of-the-failover-group"></a>Zmienianie regionu pomocniczego grupy trybu failover
 

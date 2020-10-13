@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fd71edd12e478bcd5f14815c105c14482cf7e2bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020035"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferowanie, blokady i uzgadnianie komunikatów
@@ -125,7 +125,7 @@ Typowym mechanizmem służącym do identyfikowania powielonych dostaw komunikat�
 >
 > Gdy blokada zostanie utracona, Azure Service Bus wygeneruje element LockLostException, który zostanie nadany w kodzie aplikacji klienta. W tym przypadku domyślna logika ponowienia klienta powinna być automatycznie uruchamiana i spróbuj ponownie wykonać operację.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następujące tematy:
 

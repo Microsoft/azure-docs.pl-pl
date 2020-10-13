@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
 ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358291"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Poprawianie wydajności poprzez kompresowanie plików w usłudze Azure CDN
@@ -139,7 +139,7 @@ Te profile obsługują tylko kodowanie kompresji gzip. Gdy punkt końcowy profil
 W poniższych tabelach opisano zachowanie kompresji Azure CDN w każdym scenariuszu:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Kompresja jest wyłączona lub plik nie kwalifikuje się do kompresji
-| Wymagany format klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | &nbsp; &nbsp; &nbsp; &nbsp; Uwagi &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Format żądany przez klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | &nbsp; &nbsp; &nbsp; &nbsp; Uwagi &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Skompresowane |Skompresowane |Skompresowane | |
 | Skompresowane |Nieskompresowanych |Nieskompresowanych | |
@@ -149,7 +149,7 @@ W poniższych tabelach opisano zachowanie kompresji Azure CDN w każdym scenariu
 | Nieskompresowanych |Niebuforowane |Nieskompresowanych | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Kompresja jest włączona i plik kwalifikuje się do kompresji
-| Wymagany format klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | Uwagi |
+| Format żądany przez klienta (za pośrednictwem nagłówka Accept-Encoding) | Format pliku w pamięci podręcznej | Odpowiedź usługi CDN na klienta | Uwagi |
 | --- | --- | --- | --- |
 | Skompresowane |Skompresowane |Skompresowane |Transkodowanie między obsługiwanymi formatami przez sieć CDN. |
 | Skompresowane |Nieskompresowanych |Skompresowane |Usługa CDN wykonuje kompresję. |

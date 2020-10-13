@@ -10,10 +10,10 @@ ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 8980505ac34e32a29403060a7cf3cfaec077d8af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336704"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną w języku Python
@@ -64,7 +64,7 @@ Utwórz maszynę wirtualną o nazwie **myVM** przy użyciu jednej z następując
 |--|--|
 | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/linux/quick-create-cli.md) | [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/windows/quick-create-cli.md) |
 | [Program PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [Program PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
-| [Witryna Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) |
+| [Azure Portal](../../virtual-machines/linux/quick-create-portal.md) | [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md) |
 
 Aby utworzyć maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ VM Create](/cli/azure/vm) .  Poniższy przykład dodaje konto użytkownika o nazwie *azureuser*. Parametr `--generate-ssh-keys` jest używany, aby automatycznie wygenerować klucz SSH i umieścić go w domyślnej lokalizacji klucza (*~/.ssh*). 
 

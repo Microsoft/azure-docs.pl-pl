@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447315"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977035"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Błąd zatrzymania systemu Windows — 0x00000074 nieprawidłowe informacje o konfiguracji systemu
 
@@ -27,7 +27,7 @@ W tym artykule przedstawiono kroki rozwiązywania problemów, w których system 
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla kod zatrzymania systemu Windows **#0x00000074** lub **BAD_SYSTEM_CONFIG_INFO**.
+W przypadku korzystania z [diagnostyki rozruchu](./boot-diagnostics.md) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zobaczysz, że zrzut ekranu wyświetla kod zatrzymania systemu Windows **#0x00000074** lub **BAD_SYSTEM_CONFIG_INFO**.
 
 *Komputer napotkał problem i wymaga ponownego uruchomienia. Można uruchomić ponownie.* 
  *Aby uzyskać więcej informacji na temat tego problemu i możliwych poprawek http://windows.com/stopcode , odwiedź stronę* 
@@ -58,7 +58,7 @@ Kod zatrzymania **BAD_SYSTEM_CONFIG_INFO** występuje, jeśli gałąź rejestru 
 
 ### <a name="create-and-access-a-repair-vm"></a>Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu
 
-1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) , aby przygotować maszynę wirtualną naprawy.
+1. Wykonaj kroki 1-3 [poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) , aby przygotować maszynę wirtualną naprawy.
 1. Sprawdź uszkodzenie Hive.
 1. Użyj Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną naprawy.
 1. Skopiuj `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` folder i Zapisz go w odpowiedniej partycji dysku lub w innej bezpiecznej lokalizacji. Utwórz kopię zapasową tego folderu jako środek zapobiegawczy, ponieważ będziesz edytować krytyczne pliki rejestru. 
@@ -133,4 +133,4 @@ Poniższe instrukcje ułatwią ustalenie, czy przyczyną jest uszkodzenie Hive l
    
 ### <a name="rebuild-the-vm"></a>Kompiluj ponownie maszynę wirtualną
 
-Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
+Aby skompilować ponownie maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) .

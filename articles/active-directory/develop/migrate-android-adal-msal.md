@@ -13,12 +13,12 @@ ms.date: 09/6/2019
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77084057"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966002"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Przewodnik migracji biblioteki ADAL do MSAL dla systemu Android
 
@@ -238,19 +238,16 @@ public interface SilentAuthenticationCallback {
 W bibliotece ADAL istnieje jeden typ wyjątku, `AuthenticationException` który obejmuje metodę pobierania `ADALError` wartości enum.
 W programie MSAL istnieje hierarchia wyjątków, a każda z nich ma swój własny zestaw skojarzonych określonych kodów błędów.
 
-Lista wyjątków MSAL
-
-|Wyjątek  | Opis  |
-|---------|---------|
-| `MsalException`     | Domyślny sprawdzony wyjątek zgłoszony przez MSAL.  |
-| `MsalClientException`     | Zgłaszany, jeśli błąd jest po stronie klienta. |
-| `MsalArgumentException`     | Zgłaszany, jeśli co najmniej jeden argument wejściowy jest nieprawidłowy. |
-| `MsalClientException`     | Zgłaszany, jeśli błąd jest po stronie klienta. |
-| `MsalServiceException`     | Zgłaszany, jeśli błąd jest po stronie serwera. |
-| `MsalUserCancelException`     | Zgłaszany, jeśli użytkownik anulował przepływ uwierzytelniania.  |
-| `MsalUiRequiredException`     | Zgłaszany, jeśli nie można odświeżyć tokenu w trybie dyskretnym.  |
-| `MsalDeclinedScopeException`     | Zgłaszany, jeśli co najmniej jeden żądany zakres został odrzucony przez serwer.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Zgłaszany, jeśli dla zasobu włączono zasady ochrony MAMCA. |
+| Wyjątek                                        | Opis                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | Domyślny sprawdzony wyjątek zgłoszony przez MSAL.                           |
+| `MsalClientException`                            | Zgłaszany, jeśli błąd jest po stronie klienta.                                 |
+| `MsalArgumentException`                          | Zgłaszany, jeśli co najmniej jeden argument wejściowy jest nieprawidłowy.                 |
+| `MsalServiceException`                           | Zgłaszany, jeśli błąd jest po stronie serwera.                                 |
+| `MsalUserCancelException`                        | Zgłaszany, jeśli użytkownik anulował przepływ uwierzytelniania.                |
+| `MsalUiRequiredException`                        | Zgłaszany, jeśli nie można odświeżyć tokenu w trybie dyskretnym.                    |
+| `MsalDeclinedScopeException`                     | Zgłaszany, jeśli co najmniej jeden żądany zakres został odrzucony przez serwer. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Zgłaszany, jeśli dla zasobu włączono zasady ochrony MAMCA.         |
 
 ### <a name="adalerror-to-msalexception-errorcode"></a>ADALError do MsalException ErrorCode
 

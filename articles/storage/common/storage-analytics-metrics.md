@@ -10,10 +10,10 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
 ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021157"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metryki analityka magazynu platformy Azure (klasyczne)
@@ -231,7 +231,7 @@ Opłaty za użycie w tabelach metryk są również naliczane. Poniższe informac
 -   Jeśli w każdej godzinie usługa korzysta z każdego interfejsu API w usłudze, około 12 KB danych jest przechowywany co godzinę w tabelach transakcji metryk w przypadku włączenia tylko podsumowania poziomu usługi.  
 -   Tabela pojemności dla obiektów BLOB zawiera dwa wiersze, które zostały dodane każdego dnia, pod warunkiem w przypadku dzienników. W tym scenariuszu zakłada się, że każdy dzień tej tabeli zwiększa się o maksymalnie 300 bajtów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 * [Monitorowanie konta magazynu](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
 * [Schemat tabeli metryk analityka magazynu](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
 * [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   

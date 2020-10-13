@@ -10,10 +10,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319171"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Wdróż lokalnie Akcelerator rozwiązania do monitorowania zdalnego — IntelliJ
@@ -34,8 +34,8 @@ Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka
 
 Aby ukończyć lokalne wdrożenie, potrzebne są następujące narzędzia zainstalowane na lokalnym komputerze deweloperskim:
 
-* [Narzędzia](https://git-scm.com/)
-* [Platforma Docker](https://www.docker.com)
+* [Git](https://git-scm.com/)
+* [Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 * [Wtyczka IntelliJ Scala](https://plugins.jetbrains.com/plugin/1347-scala)
@@ -191,10 +191,10 @@ Każda usługa sieci Web otwiera okno wiersza polecenia i okno przeglądarki sie
 
 Aby uzyskać dostęp do stanu usług, przejdź do następujących adresów URL:
 
-* Menedżer Centrum IoT:`http://localhost:9002/v1/status`
-* Dane telemetryczne urządzenia:`http://localhost:9004/v1/status`
-* sygnatur`http://localhost:9005/v1/status`
-* Magazyn-karta:`http://localhost:9022/v1/status`
+* IoT-Hub Manager: `http://localhost:9002/v1/status`
+* Dane telemetryczne urządzenia: `http://localhost:9004/v1/status`
+* sygnatur `http://localhost:9005/v1/status`
+* Magazyn-karta: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Uruchamianie zadania Stream Analytics
 

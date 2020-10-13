@@ -4,10 +4,10 @@ description: Użyj Azure Resource Manager, aby przenieść maszyny wirtualne do 
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 219a8b438d2715f6e97085a527b386e51759ec2c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317110"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Wskazówki dotyczące przenoszenia maszyn wirtualnych
@@ -57,7 +57,7 @@ Jeśli [usuwanie nietrwałe](../../../backup/backup-azure-security-feature-cloud
 3. Przenieś maszynę wirtualną do docelowej grupy zasobów.
 4. Wznów tworzenie kopii zapasowej.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>Program PowerShell
 
 1. Znajdź lokalizację maszyny wirtualnej.
 
