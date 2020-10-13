@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
 ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600657"
 ---
 # <a name="common-questions"></a>Często zadawane pytania
@@ -71,12 +71,12 @@ Tak, zarówno podczas przesyłania, jak i w spoczynku.
 
 ### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Jakie uprawnienia tożsamości zarządzanej są potrzebne do przenoszenia zasobów?
 
-Tożsamość zarządzana usługi Azure Resource Recovery musi mieć co najmniej następujące uprawnienia: 
+Tożsamość zarządzana usługi Azure Resource Mover wymaga co najmniej następujących uprawnień: 
 
 - Uprawnienie do zapisywania/tworzenia zasobów w ramach subskrypcji użytkownika, dostępne z rolą *współautor* . 
 - Uprawnienie do tworzenia przypisań ról. Zazwyczaj dostępne dla ról *administratora dostępu* *właściciela* lub użytkownika lub z rolą niestandardową z przypisanym *uprawnieniem Microsoft. Autoryzacja/przypisań ról/zapisem* . To uprawnienie nie jest konieczne, jeśli zarządzana tożsamość zasobu udziału danych ma już dostęp do magazynu danych platformy Azure. 
  
-Po dodaniu zasobów w centrum przenoszenia zasobów w portalu, uprawnienia są obsługiwane automatycznie, o ile użytkownik ma uprawnienia opisane powyżej. W przypadku dodawania zasobów przy użyciu programu PowerShell można przypisywać uprawnienia ręcznie.
+Po dodaniu zasobów w centrum usługi Resource Mover w portalu, uprawnienia są obsługiwane automatycznie, o ile użytkownik ma uprawnienia opisane powyżej. W przypadku dodawania zasobów przy użyciu programu PowerShell można przypisywać uprawnienia ręcznie.
 
 > [!IMPORTANT]
 > Zdecydowanie zalecamy, aby nie modyfikować ani usuwać przypisań ról tożsamości. 

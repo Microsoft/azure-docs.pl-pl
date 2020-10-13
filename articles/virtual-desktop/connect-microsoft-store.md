@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9bab2a11ff9e7907621087e5027929e3e42eaf29
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744867"
 ---
-# <a name="connect-with-the-microsoft-store-client"></a>Nawiązywanie połączenia z klientem Microsoft Store
+# <a name="connect-with-the-microsoft-store-client"></a>Nawiązywanie połączenia z klientem sklepu Microsoft Store
 
 >Dotyczy: system Windows 10.
 

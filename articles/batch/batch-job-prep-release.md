@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/17/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 5b1084cfdd5995b7983badcdce71460f7bdec3d5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919458"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Uruchamianie zadań przygotowania i zwolnienia zadań w węzłach obliczeniowych wsadowych
@@ -38,7 +38,7 @@ Zadania usługi Batch często wymagają wspólnego zestawu danych jako danych we
 
 W środowisku "Pula współdzielona", w którym węzły obliczeniowe puli nie są likwidowane między zadaniami, może być konieczne usunięcie danych zadania między przebiegami. Może być konieczne zagwarantowanie miejsca na dysku w węzłach lub spełnienie zasad zabezpieczeń w organizacji. **Zadanie zwolnienia zadania** służy do usuwania danych pobranych przez zadanie przygotowania zadania lub wygenerowanych podczas wykonywania zadania.
 
-**Przechowywanie dziennika**
+**Przechowywanie dzienników**
 
 Warto zachować kopię plików dziennika generowanych przez zadania lub ewentualnie pliki zrzutu awaryjnego, które mogą być generowane przez aplikacje zakończone niepowodzeniem. W takich przypadkach można użyć **zadania zwolnienia zadania** w celu skompresowania i przekazania tych danych do konta [usługi Azure Storage][azure_storage] .
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
 ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91745710"
 ---
 | Zasób | Bezpłatna | Shared | Podstawowa | Standardowa (Standard) | Premium (V3) | Izolowana </th> |
@@ -30,7 +30,7 @@ ms.locfileid: "91745710"
 | Domeny niestandardowe na aplikację</a> |0 (tylko poddomena azurewebsites.net)|500 |500 |500 |500 |500 |
 | [Obsługa protokołu SSL](../articles/app-service/configure-ssl-certificate.md) domeny niestandardowej |Nieobsługiwane, certyfikat wieloznaczny dla \* . azurewebsites.NET jest domyślnie dostępny|Nieobsługiwane, certyfikat wieloznaczny dla \* . azurewebsites.NET jest domyślnie dostępny|Nieograniczone połączenia SNI SSL |Uwzględniono nieograniczone SNI SSL i 1 Połączenie SSL z adresu IP połączeń |Uwzględniono nieograniczone SNI SSL i 1 Połączenie SSL z adresu IP połączeń | Uwzględniono nieograniczone SNI SSL i 1 Połączenie SSL z adresu IP połączeń|
 | Połączenia hybrydowe | | | 5 na plan | 25 na plan | 200 na aplikację | 200 na aplikację |
-| [Integracja sieci wirtualnej](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Integracja Virtual Network](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Zintegrowana usługa równoważenia obciążenia | |X |X |X |X |X<sup>10</sup> |
 | [Zawsze włączone](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Zaplanowane kopie zapasowe](../articles/app-service/manage-backup.md) | | | | Zaplanowane kopie zapasowe co 2 godziny, maksymalnie 12 kopii zapasowych dziennie (ręczna + zaplanowana) | Zaplanowane kopie zapasowe co godzinę, maksymalnie 50 kopii zapasowych dziennie (ręczna + zaplanowana) | Zaplanowane kopie zapasowe co godzinę, maksymalnie 50 kopii zapasowych dziennie (ręczna + zaplanowana) |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
 ms.openlocfilehash: 747d780b8f679adf66810bdcdf6e9b263e8d241c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923759"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Zestawy danych w usłudze Azure Data Factory
@@ -32,7 +32,7 @@ W tym artykule opisano zestawy danych, sposób ich definiowania w formacie JSON 
 Jeśli dopiero zaczynasz Data Factory, zobacz [wprowadzenie do Azure Data Factory](introduction.md) przegląd.
 
 ## <a name="overview"></a>Omówienie
-Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Teraz **zestaw** danych to nazwany widok zawierający dane, które po prostu wskazuje lub odwołuje się do danych, które mają być używane w **działaniach** jako dane wejściowe i wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Blob Storage, z których działanie ma odczytywać dane.
+Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku określają akcje do wykonania na danych. Teraz **zestaw** danych to nazwany widok zawierający dane, które po prostu wskazuje lub odwołuje się do danych, które mają być używane w **działaniach** jako dane wejściowe i wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Blob Storage, z których działanie ma odczytywać dane.
 
 Przed utworzeniem zestawu danych należy utworzyć [**połączoną usługę**](concepts-linked-services.md) , aby połączyć magazyn danych z fabryką danych. Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji wymaganych przez usługę Data Factory do nawiązywania połączeń z zasobami zewnętrznymi. Zastanów się to w ten sposób; DataSet reprezentuje strukturę danych w połączonych magazynach danych, a połączona usługa definiuje połączenie ze źródłem danych. Na przykład połączona usługa Azure Storage łączy konto magazynu z fabryką danych. Zestaw danych obiektów blob platformy Azure reprezentuje kontener obiektów blob i folder w ramach tego konta usługi Azure Storage, które zawiera wejściowe obiekty blob do przetworzenia.
 
@@ -69,10 +69,10 @@ W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
 Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
-name | Nazwa zestawu danych. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Yes |
-typ | Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: DelimitedText, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [typy zestawów danych](#dataset-type). | Yes |
+name | Nazwa zestawu danych. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Tak |
+typ | Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: DelimitedText, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [typy zestawów danych](#dataset-type). | Tak |
 schema | Schemat zestawu danych, reprezentujący fizyczny typ danych i kształt. | Nie |
-typeProperties | Właściwości typu są różne dla każdego typu. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów i ich właściwości, zobacz [Typ zestawu danych](#dataset-type). | Yes |
+typeProperties | Właściwości typu są różne dla każdego typu. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów i ich właściwości, zobacz [Typ zestawu danych](#dataset-type). | Tak |
 
 Podczas importowania schematu zestawu danych wybierz przycisk **Importuj schemat** , a następnie wybierz pozycję Importuj ze źródła lub z pliku lokalnego. W większości przypadków schemat zostanie zaimportowany bezpośrednio ze źródła. Jeśli jednak masz już lokalny plik schematu (plik Parquet lub CSV z nagłówkami), możesz skierować Data Factory, aby oprzeć schemat na tym pliku.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601456"
 ---
 # <a name="azure-ad-joined-devices"></a>Urządzenia dołączone do usługi Azure AD
@@ -35,7 +35,7 @@ Usługa Azure AD Join jest przeznaczona dla organizacji, które chcą być w chm
 |   | Windows Autopilot |
 | **Opcje logowania urządzenia** | Konta organizacyjne przy użyciu: |
 |   | Hasło |
-|   | Windows Hello dla firm |
+|   | Windows Hello for Business |
 |   | Klucze zabezpieczeń FIDO 2.0 (wersja zapoznawcza) |
 | **Zarządzanie urządzeniami** | Zarządzanie urządzeniami przenośnymi (przykład: Microsoft Intune) |
 |   | Współzarządzanie z Microsoft Intune i Microsoft Endpoint Configuration Manager |

@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817659"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Użyj Azure Portal, aby włączyć szyfrowanie kompleksowe przy użyciu szyfrowania na hoście
@@ -63,7 +63,7 @@ Aby włączyć szyfrowanie na hoście, należy wdrożyć nową maszynę wirtualn
 1. W bloku **dyski** wybierz opcję **tak** , aby włączyć **szyfrowanie na hoście**.
 1. Wprowadź pozostałe wybrane opcje.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Zrzut ekranu przedstawiający blok dysków tworzenia maszyn wirtualnych, szyfrowanie na hoście jest wyróżnione.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Zrzut ekranu przedstawiający blok podstawy tworzenia maszyn wirtualnych, rozmiar regionu i rozmiaru V M są wyróżnione.":::
 
 1. Zakończ proces wdrażania maszyny wirtualnej, wybierz odpowiednie opcje, które pasują do Twojego środowiska.
 

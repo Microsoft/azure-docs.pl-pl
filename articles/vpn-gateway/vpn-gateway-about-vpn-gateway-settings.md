@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976216"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informacje o ustawieniach konfiguracji VPN Gateway
@@ -57,7 +57,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Jeśli używasz Azure Portal do utworzenia bramy sieci wirtualnej Menedżer zasobów, możesz wybrać jednostkę SKU bramy przy użyciu listy rozwijanej. Wyświetlane opcje odpowiadają wybranemu typowi bramy i typowi sieci VPN.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Program PowerShell
 
 Poniższy przykład programu PowerShell określa `-GatewaySku` jako VpnGw1. W przypadku tworzenia bramy przy użyciu programu PowerShell należy najpierw utworzyć konfigurację adresu IP, a następnie użyć zmiennej, aby odwołać się do niej. W tym przykładzie zmienna konfiguracyjna jest $gwipconfig.
 

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922824"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funkcja OData na platformie Azure wyszukiwanie poznawcze
@@ -48,7 +48,7 @@ Istnieje jednak krótszy sposób zapisania tego elementu przy użyciu `search.in
 
 ## <a name="syntax"></a>Składnia
 
-Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę `search.in` funkcji:
+Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę `search.in` funkcji:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -74,7 +74,7 @@ Istnieją dwa przeciążenia `search.in` funkcji:
 
 Parametry są zdefiniowane w poniższej tabeli:
 
-| Nazwa parametru | Typ | Opis |
+| Nazwa parametru | Type | Opis |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Odwołanie do pola ciągu (lub zmienna zakresu w polu kolekcji ciągów w przypadku, gdzie `search.in` jest używana wewnątrz `any` `all` wyrażenia OR). |
 | `valueList` | `Edm.String` | Ciąg zawierający rozdzielaną listę wartości, które mają być zgodne z `variable` parametrem. Jeśli `delimiters` parametr nie jest określony, domyślne ograniczniki są spacjami i przecinkami. |

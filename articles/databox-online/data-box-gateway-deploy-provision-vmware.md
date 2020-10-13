@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743951"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w oprogramowaniu VMware
@@ -23,7 +23,7 @@ W tym samouczku opisano sposób aprowizacji usługi Data Box Gateway w systemie 
 
 Do aprowizowania urządzenia wirtualnego i nawiązania z nim połączenia wymagane są uprawnienia administratora. Aprowizacja i wstępna konfiguracja może zająć około 10 minut. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdzanie, czy host spełnia minimalne wymagania dotyczące urządzenia
@@ -155,7 +155,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie wirtualne w funkc
 
     ![Dostosuj stronę ustawień w przypadku uruchamiania VMware ESXi Server 6,7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
-18. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. Sprawdź, czy ustawienie procesora CPU ma wartość 4, pamięci — 8192 MB, a interfejsu sieciowego — 1 oraz czy dysk twardy 2 ma wybrany kontroler IDE 0. Kliknij przycisk **Zakończ**.
+18. Na stronie **Ready to Complete** (Gotowe do ukończenia) przejrzyj wszystkie ustawienia skojarzone z nową maszyną wirtualną. Sprawdź, czy ustawienie procesora CPU ma wartość 4, pamięci — 8192 MB, a interfejsu sieciowego — 1 oraz czy dysk twardy 2 ma wybrany kontroler IDE 0. Kliknij przycisk **Finish** (Zakończ).
    
     ![Gotowe do ukończenia strony ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
      ![ gotowej do ukończenia strony 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)

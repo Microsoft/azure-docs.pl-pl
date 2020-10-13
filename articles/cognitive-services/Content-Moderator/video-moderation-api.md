@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919356"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizowanie zawartości wideo dla nieistotnego materiału w języku C #
@@ -121,7 +121,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Jeśli chcesz użyć lokalnego pliku wideo (najprostszy przypadek), Dodaj go do projektu i wprowadź ścieżkę jako `INPUT_FILE` wartość (ścieżki względne są względne dla katalogu wykonywania).
 
-Należy również utworzyć _preset.jsw_ pliku w bieżącym katalogu i użyć go do określenia numeru wersji. Przykład:
+Należy również utworzyć _preset.jsw_ pliku w bieżącym katalogu i użyć go do określenia numeru wersji. Na przykład:
 
 ```JSON
 {

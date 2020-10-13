@@ -14,10 +14,10 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601473"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
@@ -322,7 +322,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | othermail | Inna poczta |
 | Użytkownik | country | Kraj/region |
 | Użytkownik | city | City (Miasto) |
-| Użytkownik | stan | Stan |
+| Użytkownik | stan | State |
 | Użytkownik | stanowiska | Stanowisko |
 | Użytkownik | employeeid | Identyfikator pracownika |
 | Użytkownik | facsimiletelephonenumber | Numer telefonu faksu |
@@ -531,7 +531,7 @@ W tym przykładzie utworzysz zasady, które emitują niestandardową wartość "
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - Aby dowiedzieć się, jak dostosować oświadczenia wystawione w tokenie SAML za pomocą Azure Portal, zobacz [How to: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw](active-directory-saml-claims-customization.md)
 - Aby dowiedzieć się więcej na temat atrybutów rozszerzenia, zobacz [Używanie atrybutów rozszerzenia schematu katalogu w oświadczeniach](active-directory-schema-extensions.md).

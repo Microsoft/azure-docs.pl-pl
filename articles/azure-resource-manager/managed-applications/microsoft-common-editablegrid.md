@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893770"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>Microsoft. Common. EditableGrid — element interfejsu użytkownika
@@ -128,7 +128,7 @@ Kontrolka służąca do zbierania danych wejściowych tabelarycznych. Wszystkie 
 - `$rowIndex`Zmienna jest prawidłowa tylko w wyrażeniach zawartych w elemencie podrzędnym kolumn siatki. Jest to liczba całkowita, która reprezentuje indeks wierszy względem elementu, a liczba rozpoczyna się o jeden i zwiększa się o jeden. Jak pokazano w `"columns":` sekcji schematu, `$rowIndex` jest używany do walidacji.
 - Gdy walidacji są wykonywane przy użyciu `$rowIndex` zmiennej, możliwe jest uzyskanie wartości bieżącego wiersza przez połączenie `last()` `take()` poleceń i.
 
-  Przykład:
+  Na przykład:
 
   `last(take(<reference_to_grid>, $rowIndex))`
 

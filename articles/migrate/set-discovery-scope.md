@@ -4,10 +4,10 @@ description: Opisuje sposób ustawiania zakresu odnajdywania na potrzeby oceny i
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919730"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Ustaw zakres odnajdowania dla maszyn wirtualnych VMware

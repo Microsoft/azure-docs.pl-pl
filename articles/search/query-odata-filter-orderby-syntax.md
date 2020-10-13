@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923402"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Omówienie języka OData dla `$filter` , `$orderby` i `$select` na platformie Azure wyszukiwanie poznawcze
@@ -46,7 +46,7 @@ Wyrażenia OData mają zakres od prostego do wysoce złożonej, ale wszystkie ws
 
 ## <a name="field-paths"></a>Ścieżki pól
 
-Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę ścieżek pól.
+Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę ścieżek pól.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -93,7 +93,7 @@ W tym przykładzie zmienna zakresu `room` pojawia się w `room/Type` ścieżce p
 
 Ścieżki pól są używane w wielu parametrach [interfejsów API REST platformy Azure wyszukiwanie poznawcze](/rest/api/searchservice/). W poniższej tabeli wymieniono wszystkie miejsca, w których można ich używać oraz ograniczenia dotyczące ich użycia:
 
-| interfejs API | Nazwa parametru | Ograniczenia |
+| Interfejs API | Nazwa parametru | Ograniczenia |
 | --- | --- | --- |
 | [Utwórz](/rest/api/searchservice/create-index) lub [zaktualizuj](/rest/api/searchservice/update-index) indeks | `suggesters/sourceFields` | Brak |
 | [Utwórz](/rest/api/searchservice/create-index) lub [zaktualizuj](/rest/api/searchservice/update-index) indeks | `scoringProfiles/text/weights` | Może odwoływać się tylko do pól z **możliwością wyszukiwania** |
@@ -135,7 +135,7 @@ Na przykład fraza z niesformatowanym apostrofem, taka jak "samochód Alicja", b
 
 ### <a name="constants-syntax"></a>Stałe — składnia
 
-Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla większości stałych przedstawionych w powyższej tabeli. Gramatykę dla typów geoprzestrzennych można znaleźć w [funkcjach geograficznych OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-geo-spatial-functions.md).
+Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla większości stałych przedstawionych w powyższej tabeli. Gramatykę dla typów geoprzestrzennych można znaleźć w [funkcjach geograficznych OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -211,7 +211,7 @@ Dostępny jest również interaktywny diagram składni:
 
 Jednak większość czasu potrzebuje bardziej złożonych wyrażeń, które odwołują się do więcej niż jednego pola i stałej. Wyrażenia te są tworzone na różne sposoby w zależności od parametru.
 
-Następujący EBNF ([Extended back-Naura form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla parametrów **$Filter**, **$OrderBy**i **$SELECT** . Są one tworzone na podstawie prostszych wyrażeń odwołujących się do ścieżek pól i stałych:
+Następujący EBNF ([formularz rozszerzony Backus-Naur](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definiuje gramatykę dla parametrów **$Filter**, **$OrderBy**i **$SELECT** . Są one tworzone na podstawie prostszych wyrażeń odwołujących się do ścieżek pól i stałych:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

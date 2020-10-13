@@ -10,10 +10,10 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89254804"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Śledź eksperymenty i wdrażaj modele w Azure Machine Learning
@@ -165,7 +165,7 @@ Aby wdrożyć model cukrzycą, przejdź do menu po lewej stronie w [Azure Machin
 
 Następnie kliknij przycisk __Wdróż__ w okienku szczegółów modelu:
 
-![Wdróż](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Wdrażanie](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Zostanie wdrożony model do klastra wnioskowania (usługa Azure Kubernetes), który został utworzony w kroku 1. Wypełnij poniższe informacje, podając nazwę usługi i nazwę klastra AKS COMPUTE (utworzonego w kroku 1). Zalecamy również zwiększenie __pojemności rezerwy procesora CPU__ do 1 (od 0,1) i __pojemności rezerwowej pamięci__ do 1 (od 0,5) — można zwiększyć ten wzrost, klikając pozycję __Zaawansowane__ i wypełniając szczegóły. Następnie kliknij przycisk __Wdróż__.
 
