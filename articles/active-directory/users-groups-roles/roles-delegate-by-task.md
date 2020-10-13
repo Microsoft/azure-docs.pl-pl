@@ -15,10 +15,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 692b20bf301bbd7bf03ea1af5527e08d947b50da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798367"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratorów według zadania administratora w Azure Active Directory
@@ -72,7 +72,7 @@ Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Konfigurowanie właściwości firmy | Administrator globalny | 
 
-## <a name="connect"></a>Połącz
+## <a name="connect"></a>Connect
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
@@ -120,7 +120,7 @@ Utwórz wystąpienie Azure AD Domain Services | Administrator globalny |
 Wykonaj wszystkie zadania Azure AD Domain Services | Grupa administratorów kontrolera domeny usługi Azure AD ([Zobacz dokumentację](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Odczytaj całą konfigurację | Czytelnik w ramach subskrypcji platformy Azure zawierającej usługę AD DS | 
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------

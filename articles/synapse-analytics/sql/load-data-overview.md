@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483732"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych podstawowych dla puli SQL Synapse platformy Azure

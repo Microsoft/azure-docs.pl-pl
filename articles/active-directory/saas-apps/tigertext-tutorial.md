@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 995cd8470d4fbbf3dc340139a86275593a3d5d28
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigerconnect-secure-messenger"></a>Samouczek: integracja Azure Active Directory z usługą TigerConnect Secure Messenger
@@ -93,7 +93,7 @@ Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi 
     > [!NOTE]
     > Wartość **identyfikatora (identyfikatora jednostki)** nie jest rzeczywista. Zaktualizuj tę wartość przy użyciu rzeczywistego identyfikatora. Aby uzyskać wartość, skontaktuj się z [zespołem pomocy technicznej TigerConnect Secure Messenger](mailto:prosupport@tigertext.com). Można również odwołać się do wzorców przedstawionych w okienku podstawowe informacje o **konfiguracji SAML** w Azure Portal.
 
-1. W okienku **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji i zapisać go na komputerze.
+1. W okienku **Skonfiguruj pojedyncze Sign-On przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz pozycję **Pobierz** , aby pobrać **plik XML metadanych Federacji** z określonych opcji i zapisać go na komputerze.
 
     ![Opcja pobierania XML metadanych Federacji](common/metadataxml.png)
 
@@ -150,7 +150,7 @@ Po wybraniu opcji **TigerConnect Secure Messenger** w portalu My Apps należy au
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

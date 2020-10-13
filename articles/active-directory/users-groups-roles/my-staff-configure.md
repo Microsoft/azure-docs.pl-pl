@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798962"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
@@ -32,7 +32,7 @@ Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funk
 
 Mój personel jest oparty na jednostkach administracyjnych (Australia), które są kontenerami zasobów, których można użyć do ograniczenia zakresu kontroli administracyjnej przypisania roli. W obszarze mój personel należy określić podzbiór użytkowników organizacji, takich jak sklep lub dział. Następnie na przykład menedżer zespołu może zostać przypisany do roli, której zakres jest jeden lub więcej. W poniższym przykładzie użytkownikowi została udzielona rola administracyjna uwierzytelniania, a trzecia jest zakresem roli. Aby uzyskać więcej informacji o jednostkach administracyjnych, zobacz [Zarządzanie jednostkami administracyjnymi w Azure Active Directory](directory-administrative-units.md).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 

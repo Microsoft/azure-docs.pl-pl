@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743730"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939021"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Warstwy wydajności dla dysków zarządzanych (wersja zapoznawcza)
 
@@ -58,7 +58,7 @@ Aby uzyskać informacje dotyczące rozliczeń, zobacz [Cennik dysku zarządzaneg
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
-Możliwość dostosowania warstwy wydajności dysku zarządzanego jest obecnie dostępna tylko w dysków SSD Premium w regionie zachodnie stany USA. 
+Możliwość dostosowania warstwy wydajności dysku zarządzanego jest obecnie dostępna tylko w dysków SSD Premium w regionach Wschodnie stany USA 2, Południowo-środkowe stany USA, zachodnio-środkowe stany USA, Australia Południowo-Wschodnia.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Utwórz pusty dysk danych o warstwie wyższej niż warstwa bazowa
 

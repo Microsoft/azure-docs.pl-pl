@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ceab9af7e6556b2d957fafce8cd89d4a0daf9508
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940771"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Pokaż konfigurację PostgreSQL grupy serwerów z włączonym łukiem
@@ -36,7 +36,7 @@ Utwórz listę zasobów Kubernetes typu Postgres. Uruchom polecenie:
 kubectl get postgresqls [-n <namespace name>]
 ```
 
-Dane wyjściowe tego polecenia przedstawiają listę utworzonych grup serwerów. Dla każdego z nich wskazuje liczbę numerów. Przykład:
+Dane wyjściowe tego polecenia przedstawiają listę utworzonych grup serwerów. Dla każdego z nich wskazuje liczbę numerów. Na przykład:
 
 ```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
@@ -54,7 +54,7 @@ Uruchom:
 kubectl get pods [-n <namespace name>]
 ```
 
-Spowoduje to zwrócenie listy wartości. Zostaną wyświetlone zasobniki używane przez grupy serwerów na podstawie nazw nadanych tym grupom serwerów. Przykład:
+Spowoduje to zwrócenie listy wartości. Zostaną wyświetlone zasobniki używane przez grupy serwerów na podstawie nazw nadanych tym grupom serwerów. Na przykład:
 
 ```console 
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -108,7 +108,7 @@ Domyślnie prefiks nazwy obwodu PVC wskazuje jego użycie:
 - `data-`...: jest używany obwód PVC dla plików danych
 - `logs-`...: to obwód PVC używany dla plików dzienników transakcji/pliku WAL
 
-Przykład:
+Na przykład:
 
 ```output
 NAME                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
@@ -183,7 +183,7 @@ Ogólny format tego polecenia to:
 kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 kubectl describe postgresql-12/postgres02
@@ -271,7 +271,7 @@ Ogólny format polecenia to:
 azdata arc postgres server show -n <server group name>
 ```
 
-Przykład:
+Na przykład:
 
 ```console
 azdata arc postgres server show -n postgres02
@@ -369,4 +369,4 @@ Zwraca poniższe dane wyjściowe w formacie i treści bardzo podobne do zwrócon
 - [Przeczytaj informacje o konfiguracji magazynu](storage-configuration.md)
 - [Przeczytaj, jak monitorować wystąpienie bazy danych](monitor-grafana-kibana.md)
 - [Korzystanie z rozszerzeń PostgreSQL w grupie serwerów PostgreSQL w usłudze Azure Arc](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Skonfiguruj zabezpieczenia dla grupy serwerów PostgreSQL na potrzeby usługi Azure Arc](configure-security-postgres-hyperscale.md)
+- [Konfigurowanie zabezpieczeń grupy serwerów PostgreSQL w warstwie Hiperskala z obsługą usługi Azure Arc](configure-security-postgres-hyperscale.md)

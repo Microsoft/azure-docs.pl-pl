@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 85e198def03ab4f6d3e18047ccea0152f96694fd
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815082"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą systemu Zendesk
@@ -151,11 +151,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W **centrum administracyjnym systemu Zendesk**kliknij pozycję **Ustawienia zabezpieczeń** na karcie **zabezpieczenia** .
 
-    ![Bezpieczeństwo](./media/zendesk-tutorial/settings.png "Zabezpieczenia")
+    ![Zabezpieczenia](./media/zendesk-tutorial/settings.png "Zabezpieczenia")
 
 1. Przejdź do strony **logowania jednokrotnego** i kliknij pozycję **Edytuj** w elemencie **SAML**.
 
-    ![Bezpieczeństwo](./media/zendesk-tutorial/saml-sso.png "Zabezpieczenia")
+    ![Zabezpieczenia](./media/zendesk-tutorial/saml-sso.png "Zabezpieczenia")
 
 1. Wykonaj następujące kroki na stronie **logowania jednokrotnego** .
 
@@ -167,7 +167,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     c. W polu tekstowym **Adres URL zdalnego wylogowywania** wklej wartość **adresu URL wylogowywania** skopiowaną z witryny Azure Portal.
 
-    d. Kliknij pozycję **Zapisz**.
+    d. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-zendesk-test-user"></a>Tworzenie użytkownika testowego aplikacji Zendesk
 
@@ -183,7 +183,7 @@ Po kliknięciu kafelka Zendesk w panelu dostępu powinno nastąpić automatyczne
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

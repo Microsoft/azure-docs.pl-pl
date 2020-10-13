@@ -10,10 +10,10 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939607"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Uwierzytelnianie w usłudze Azure Communications Services
@@ -192,5 +192,5 @@ CommunicationUserCredential credential = new CommunicationUserCredential(tokenRe
 > [!div class="nextstepaction"]
 > [Tworzenie tokenów dostępu użytkowników](../quickstarts/access-tokens.md)
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Informacje o architekturze klienta i serwera](../concepts/client-and-server-architecture.md)

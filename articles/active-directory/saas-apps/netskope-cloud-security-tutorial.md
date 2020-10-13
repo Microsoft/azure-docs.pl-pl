@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
-ms.openlocfilehash: daef8a91c2f31379ebf50d1e8ec66d0b33ebb2cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 081c61610c4134917ffa90cf45fb096f3df4bcbe
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534836"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939294"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z usługą Netskope konsola administratora
 
@@ -148,19 +148,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij kartę **Ustawienia** w okienku nawigacji po lewej stronie.
 
-    ![Konfiguracja konsola administratora Netskope](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Zrzut ekranu przedstawia ustawienie wybrane w okienku nawigacji.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Kliknij pozycję Karta **Administracja** .
 
-    ![Konfiguracja konsola administratora Netskope](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Zrzut ekranu przedstawia administrację wybraną z ustawień.](./media/netskope-cloud-security-tutorial/config-administration.png)
 
 1. Kliknij kartę **Logowanie jednokrotne** .
 
-    ![Konfiguracja konsola administratora Netskope](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Zrzut ekranu przedstawia S S O wybranym w obszarze Administracja.](./media/netskope-cloud-security-tutorial/config-sso.png)
 
 1. W sekcji **Ustawienia sieciowe** wykonaj następujące czynności:
     
-    ![Konfiguracja konsola administratora Netskope](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Zrzut ekranu przedstawia ustawienia sieci, w których można wprowadzić podane wartości.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
 
     a. Skopiuj wartość **adresu URL usługi konsumenckej potwierdzenia** i wklej ją do pola tekstowego **adres URL odpowiedzi** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
@@ -168,11 +168,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Edytuj ustawienia** w sekcji **Ustawienia rejestracji jednokrotnej/SLO** .
 
-    ![Konfiguracja konsola administratora Netskope](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Zrzut ekranu przedstawia ustawienia S s O/S, w których można wybrać pozycję Edytuj ustawienia.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
 
 1. W oknie podręcznym **Ustawienia** wykonaj następujące kroki:
 
-    ![Konfiguracja konsola administratora Netskope](./media/netskope-cloud-security-tutorial/configuration.png)
+    ![Zrzut ekranu przedstawia okno dialogowe Ustawienia, w którym można wprowadzić podane wartości.](./media/netskope-cloud-security-tutorial/configuration.png)
 
     a. Wybierz pozycję **Włącz logowanie jednokrotne**.
 
@@ -194,23 +194,23 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij kartę **Ustawienia** w okienku nawigacji po lewej stronie.
 
-    ![Tworzenie Netskope konsola administratora użytkownika](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Zrzut ekranu przedstawia wybrane ustawienia.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Kliknij pozycję **aktywna karta platformy** .
 
-    ![Tworzenie Netskope konsola administratora użytkownika](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Zrzut ekranu przedstawia aktywną platformę wybraną z ustawień.](./media/netskope-cloud-security-tutorial/user1.png)
 
 1. Kliknij kartę **Użytkownicy** .
 
-    ![Tworzenie Netskope konsola administratora użytkownika](./media/netskope-cloud-security-tutorial/add-user.png)
+    ![Zrzut ekranu przedstawia użytkowników wybranych z aktywnej platformy.](./media/netskope-cloud-security-tutorial/add-user.png)
 
 1. Kliknij pozycję **Dodaj użytkowników**.
 
-    ![Tworzenie Netskope konsola administratora użytkownika](./media/netskope-cloud-security-tutorial/user-add.png)
+    ![Zrzut ekranu przedstawia okno dialogowe użytkownicy, w którym można wybrać opcję Dodaj użytkowników.](./media/netskope-cloud-security-tutorial/user-add.png)
 
 1. Wprowadź adres e-mail użytkownika, który chcesz dodać, a następnie kliknij przycisk **Dodaj**.
 
-    ![Tworzenie Netskope konsola administratora użytkownika](./media/netskope-cloud-security-tutorial/add-user-popup.png)
+    ![Zrzut ekranu przedstawia Dodawanie użytkowników, w których można wprowadzić listę użytkowników.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 

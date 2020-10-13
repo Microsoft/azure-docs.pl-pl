@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140891"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Często zadawane pytania dotyczące rozwiązania VMware według CloudSimple
@@ -100,7 +100,7 @@ Usługa CloudSimple zapewnia następujące funkcje zabezpieczeń w celu zabezpie
 * **Zabezpieczenia sieciowe**. Sterowanie przepływem ruchu sieciowego za pomocą reguł zapory, które są stosowane między chmurą prywatną i Internetem, chmurą prywatną i środowiskiem lokalnym lub w podsieciach chmury prywatnej.
 * **Bezpieczne połączenie prywatne**. Bezpieczne połączenie prywatne jest nawiązywane między siecią lokalną i subskrypcją platformy Azure.
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 **Jakiego rodzaju hosty są dostępne?**
 
@@ -131,7 +131,7 @@ CloudSimple stale monitoruje wszystkie składniki sprzętowe chmury prywatnej.  
 
 **Jak mogę wykonywać na dużą skalę przekazywanie lub migrację aplikacji i danych z lokalnego systemu?**
 
-CloudSimple zapewnia natywne rozwiązanie VMware vSphere.  Wszystkie narzędzia VMware do migracji danych zbiorczych mogą być używane z chmurą prywatną.  Dostępne są następujące opcje:
+CloudSimple zapewnia natywne rozwiązanie VMware vSphere.  Wszystkie narzędzia VMware do migracji danych zbiorczych mogą być używane z chmurą prywatną.  Dostępne opcje:
 
 * Oprogramowanie VMware HCX na potrzeby migracji zbiorczej danych.
 * Zimna migracja danych przy użyciu usługi Storage vMotion z lokalnego do CloudSimple.
@@ -150,7 +150,7 @@ Program CloudSimple nie wykonuje uaktualnień ani aktualizacji aplikacji zainsta
 
 **Jakie usługi platformy Azure są obsługiwane?**
 
-Usługa CloudSimple udostępnia połączenie usługi Azure ExpressRoute z subskrypcją na platformie Azure.  Wszystkie usługi działające w ramach subskrypcji mogą łączyć się z chmurą prywatną.  Przykłady obejmują:
+Usługa CloudSimple udostępnia połączenie usługi Azure ExpressRoute z subskrypcją na platformie Azure.  Wszystkie usługi działające w ramach subskrypcji mogą łączyć się z chmurą prywatną.  Przykłady:
 
 * **Azure Active Directory** jako źródło tożsamości dla programu CloudSimple vCenter.
 * **Usługa Azure Storage** do przechowywania kopii zapasowych, obrazów i innych danych z chmury prywatnej.

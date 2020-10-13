@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037460"
 ---
 # <a name="extended-geojson-geometries"></a>Rozszerzony geometrie GEOJSON
@@ -47,7 +47,7 @@ Ten artykuł zawiera szczegółowy opis sposobu, w jaki Azure Maps rozszerza [sp
 
     Okrąg `radius` jest przedstawiany przy użyciu `GeoJSON Feature` właściwości. Wartość promienia jest w _metrach_ i musi być typu `double` .
 
-- SubType
+- Podtyp
 
     Geometria okręgu musi również zawierać `subType` Właściwość. Ta właściwość musi być częścią `GeoJSON Feature` właściwości, a jej wartością powinna być _koło_
 
@@ -79,7 +79,7 @@ Poniżej przedstawiono sposób reprezentowania okręgu przy użyciu `GeoJSON Fea
 
     Rogi prostokąta są reprezentowane za pomocą współrzędnych `GeoJSON Polygon` obiektu. Należy mieć pięć współrzędnych, po jednym dla każdego rogu. I, piąta Współrzędna, która jest taka sama jak pierwsza Współrzędna, w celu zamknięcia pierścienia wielokąta. Zakłada się, że te współrzędne są wyrównane, a deweloper może je obrócić.
 
-- SubType
+- Podtyp
 
     Geometria prostokąta musi również zawierać `subType` Właściwość. Ta właściwość musi być częścią `GeoJSON Feature` właściwości, a jej wartością powinna być _prostokąt_
 

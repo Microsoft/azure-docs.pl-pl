@@ -14,17 +14,17 @@ ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116975"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Obsługa zmian plików cookie SameSite w przeglądarce Chrome
 
 ## <a name="what-is-samesite"></a>Co to jest SameSite?
 
-`SameSite`jest właściwością, którą można ustawić w plikach cookie protokołu HTTP, aby zapobiec atakom CSRF (cross-site) w aplikacjach sieci Web:
+`SameSite` jest właściwością, którą można ustawić w plikach cookie protokołu HTTP, aby zapobiec atakom CSRF (cross-site) w aplikacjach sieci Web:
 
 - Gdy `SameSite` jest ustawiona na **swobodny**, plik cookie jest wysyłany w żądaniach w ramach tej samej lokacji i w żądaniach Get z innych lokacji. Nie jest on wysyłany w żądaniach GET należących do wielu domen.
 - Wartość **Strict** gwarantuje, że plik cookie jest wysyłany w żądaniach tylko w ramach tej samej lokacji.
