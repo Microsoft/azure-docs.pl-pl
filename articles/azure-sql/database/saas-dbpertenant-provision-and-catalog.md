@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619699"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Dowiedz się, jak zainicjować obsługę nowych dzierżawców i zarejestrować je w wykazie
@@ -23,7 +23,7 @@ ms.locfileid: "91619699"
 
 W tym samouczku dowiesz się, jak udostępniać i wykazać wzorce SaaS. Dowiesz się również, jak są one zaimplementowane w Wingtip bilety SaaS bazy danych dla dzierżawców. Utwórz i zainicjuj nowe bazy danych dzierżawy i zarejestruj je w katalogu dzierżawy aplikacji. Katalog jest bazą danych, która zachowuje mapowanie między wieloma dzierżawcami i danymi aplikacji SaaS. Katalog odgrywa ważną rolę w kierowaniu żądań aplikacji i zarządzania do prawidłowej bazy danych.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -86,7 +86,7 @@ Aby zrozumieć, w jaki sposób aplikacja biletów Wingtip implementuje nową obs
 
 2. Aby dodać punkt przerwania, umieść kursor w dowolnym miejscu w wierszu informującym o *nowym dzierżawie*. Następnie naciśnij klawisz F9.
 
-   ![Zrzut ekranu przedstawia skrypt z wyróżnioną nową dzierżawą w celu dodania punktu przerwania.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Zrzut ekranu przedstawia skrypt z New-Tenant wyróżniony do dodawania punktu przerwania.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Aby uruchomić skrypt, naciśnij klawisz F5.
 
@@ -103,7 +103,7 @@ Nie musisz jawnie obserwować tego przepływu pracy. Wyjaśniono, jak debugować
 
 * **Zaimportuj moduł CatalogAndDatabaseManagement. PSM1.** Zapewnia wykaz i abstrakcję poziomu dzierżawy za pośrednictwem funkcji [zarządzania fragmentu](elastic-scale-shard-map-management.md) . Ten moduł hermetyzuje wiele wzorców wykazu i jest cenny.
 * **Zaimportuj moduł SubscriptionManagement. PSM1.** Zawiera funkcje logowania do platformy Azure i wybierania subskrypcji platformy Azure, z którą chcesz korzystać.
-* **Pobierz szczegóły konfiguracji.** Wkrocz do Get-Configuration przy użyciu klawisza F11 i zobacz, jak określono konfigurację aplikacji. Nazwy zasobów i inne wartości specyficzne dla aplikacji są definiowane w tym miejscu. Nie zmieniaj tych wartości, dopóki nie znasz skryptów.
+* **Pobierz szczegóły konfiguracji.** Wkrocz do Get-Configuration za pomocą klawisza F11 i zobacz, jak określono konfigurację aplikacji. Nazwy zasobów i inne wartości specyficzne dla aplikacji są definiowane w tym miejscu. Nie zmieniaj tych wartości, dopóki nie znasz skryptów.
 * **Pobierz obiekt katalogu.** Wkrocz do Get-Catalog, który składa się z obiektu katalogu, który jest używany w skrypcie wyższego poziomu. Ta funkcja korzysta z funkcji zarządzania fragmentu, które są importowane z **AzureShardManagement. PSM1**. Obiekt wykazu składa się z następujących elementów:
 
    * $catalogServerFullyQualifiedName jest konstruowany przy użyciu standardowego trzonu i nazwy użytkownika: _Catalog- \<user\> . Database. Windows .NET_.
@@ -174,7 +174,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 Wypróbuj [Samouczek dotyczący monitorowania wydajności](../../sql-database/saas-dbpertenant-performance-monitoring.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * Dodatkowe [samouczki, które kompilują w Wingtip bilety SaaS bazy danych dla dzierżawców](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteka kliencka Elastic Database](elastic-database-client-library.md)

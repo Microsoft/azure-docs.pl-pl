@@ -11,10 +11,10 @@ author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
 ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893419"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Używanie narzędzia Azure Machine Learning Designer przy użyciu klawiatury
@@ -70,7 +70,7 @@ Użyj następujących skrótów z kluczem dostępu. Aby uzyskać więcej informa
 | Klucz dostępu + R | Uruchom |
 | Klucz dostępu + P | Opublikuj |
 | Klucz dostępu + C | Klonowanie |
-| Klucz dostępu + D | Wdróż |
+| Klucz dostępu + D | Wdrażanie |
 | Klucz dostępu + I | Utwórz/zaktualizuj potok wnioskowania |
 | Klucz dostępu + B | Utwórz/zaktualizuj potok wnioskowania dotyczącego partii |
 | Klucz dostępu + K | Otwórz listę rozwijaną "Utwórz potok wnioskowania" |

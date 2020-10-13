@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321751"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Samouczek: Znajdowanie i wyświetlanie tras dla różnych trybów podróży przy użyciu Azure Maps
@@ -121,7 +121,7 @@ Poniższe kroki pokazują, jak utworzyć i wyświetlić formant mapy na stronie 
 
 2. Zapisz plik **MapTruckRoute.html** i odśwież stronę w przeglądarce. Jeśli powiększesz dowolne miasto, np. Los Angeles, zobaczysz, że ulice są wyświetlane z bieżącymi danymi przepływu ruchu.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Wyświetlanie ruchu na mapie":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ W tym samouczku na mapie zostaną obliczone i wyrenderowane dwie trasy. Pierwsza
 
 3. Zapisz **TruckRoute.html** i Odśwież przeglądarkę. Mapa jest teraz wyśrodkowana w Seattle. Niebieski numer PIN Teardrop oznacza punkt początkowy. Okrągły niebieski numer PIN oznacza punkt końcowy.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Wyświetlanie mapy z punktem początkowym i punktem końcowym":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
 
 <a id="multipleroutes"></a>
 
@@ -277,7 +277,7 @@ W tej sekcji pokazano, jak za pomocą usługi Azure Maps Route uzyskać wskazów
 
 4. Zapisz plik **TruckRoute.html** i Odśwież przeglądarkę sieci Web. Mapa powinna teraz wyświetlać trasy ciężarówki i samochodu.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Prywatne i komercyjne trasy pojazdów na mapie za pomocą usługi Azure Route Service":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Renderowanie mapy podstawowej kontrolki mapy":::
 
     Trasa ciężarówki jest wyświetlana przy użyciu grubego niebieskiego wiersza. Trasa samochodowa jest wyświetlana przy użyciu cienkiej linii purpurowej. Trasa samochodowa odbywa się w jeziorach Waszyngton za pośrednictwem I-90, przekazując tunele do obszarów mieszkalnych. Ze względu na to, że tunele znajdują się blisko obszarów mieszkalnych, odpadi z odpadów niebezpiecznych są ograniczone. Trasa ciężarówki, która określa `USHazmatClass2` Typ ładunku, jest skierowana do korzystania z innego autostrady.
 

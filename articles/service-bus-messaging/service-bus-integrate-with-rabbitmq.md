@@ -8,10 +8,10 @@ ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
 ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91301109"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Jak zintegrować RabbitMQ z Azure Service Bus
@@ -38,27 +38,27 @@ W Azure Portal kliknij przycisk dużego znaku plus, aby dodać nowy zasób
 
 Następnie wybierz pozycję integracja i kliknij pozycję Azure Service Bus, aby utworzyć przestrzeń nazw obsługi komunikatów:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Wybieranie usługi Azure Service Bus":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Tworzenie zasobu":::
 
 Zostanie wyświetlony monit o wprowadzenie informacji o przestrzeni nazw. Wybierz subskrypcję platformy Azure, której chcesz użyć. Jeśli nie masz [grupy zasobów](../azure-resource-manager/management/manage-resource-groups-portal.md), możesz utworzyć nową.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Create namespace":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Tworzenie zasobu":::
 
 Używać `rabbitmq` dla `Namespace name` , ale może to być dowolne. Następnie ustaw `East US` dla lokalizacji. Wybierz `Basic` jako warstwę cenową.
 
 Jeśli wszystko poszło dobrze, powinien zostać wyświetlony następujący ekran potwierdzenia:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Potwierdzenie tworzenia przestrzeni nazw":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Tworzenie zasobu":::
 
 Po powrocie do Azure Portal zobaczysz `rabbitmq` tam nową przestrzeń nazw. Kliknij go, aby uzyskać dostęp do zasobu, aby można było dodać do niego kolejkę.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Lista zasobów z nową przestrzenią nazw":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Tworzenie zasobu":::
 
 ## <a name="creating-our-azure-service-bus-queue"></a>Tworzenie naszej kolejki Azure Service Bus
 
 Teraz, gdy masz Azure Service Bus przestrzeń nazw, kliknij `Queues` przycisk po lewej stronie, `Entities` Aby można było dodać nową kolejkę:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Utwórz kolejkę":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Tworzenie zasobu":::
 
 Nazwa kolejki będzie `from-rabbitmq` zaraz przypominać o miejscu, z którego pochodzą komunikaty. Wszystkie inne opcje można pozostawić jako domyślne, ale można je zmienić, aby odpowiadały potrzebom aplikacji.
 
@@ -78,21 +78,21 @@ Teraz możesz uzyskać poświadczenia wymagane do łączenia RabbitMQ z platform
 
 Należy utworzyć [zasady dostępu współdzielonego](../storage/common/storage-sas-overview.md) (SAS) dla kolejki, aby RabbitMQ mogły publikować w niej komunikaty. Zasady sygnatury dostępu współdzielonego umożliwiają określenie, które strony zewnętrznej mogą robić z Twoim zasobem. Pomysłem jest to, że RabbitMQ może wysyłać komunikaty, ale nie nasłuchują kolejki ani nie zarządzają nią.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Dodawanie zasad SAS":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Tworzenie zasobu":::
 
 Zaznacz `Send` pole, a następnie kliknij, `Create` Aby zachować nasze zasady SAS.
 
 Po utworzeniu zasad kliknij je, aby wyświetlić **podstawowe parametry połączenia**. Będziemy korzystać z tej RabbitMQ, aby porozmawiać Azure Service Bus:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Pobieranie zasad SAS":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Tworzenie zasobu":::
 
 Aby można było używać tych parametrów połączenia, należy przekonwertować go na format połączenia AMQP RabbitMQ. W tym celu przejdź do [Narzędzia konwerter parametrów połączenia](https://red-mushroom-0f7446a0f.azurestaticapps.net/) i wklej parametry połączenia w formularzu, a następnie kliknij przycisk Konwertuj. Otrzymasz parametry połączenia, które RabbitMQ gotowe. (Ta witryna sieci Web uruchamia wszystkie elementy lokalne w przeglądarce, dzięki czemu dane nie są wysyłane przez sieć). Możesz uzyskać dostęp do jego kodu źródłowego w serwisie [GitHub](https://github.com/videlalvaro/connstring_to_amqp).
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Konwertuj parametry połączenia":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Tworzenie zasobu":::
 
 Teraz otwórz wtyczkę zarządzania RabbitMQ w naszych przeglądarkach `http://localhost:15672/#/dynamic-shovels` i przejdź do `Admin -> Shovel Management` lokalizacji, w której możesz dodać nowe Shovel, które będą wymagać wysłania komunikatów z kolejki RabbitMQ do kolejki Azure Service Bus.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Dodaj RabbitMQ Shovel":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Tworzenie zasobu":::
 
 W tym miejscu Zadzwoń do Shovel `azure` i wybierz `AMQP 0.9.1` jako protokół źródłowy. Na zrzucie ekranu `amqp://` jest to domyślny identyfikator URI, który łączy nas z lokalnym serwerem RabbitMQ. Upewnij się, że to dostosowanie zostało wprowadzone do bieżącego wdrożenia.
 
@@ -110,15 +110,15 @@ W `Address` tym polu wprowadzimy nazwę **kolejki Azure Service Bus**, w tym prz
 
 W interfejsie RabbitMQ Management można przejść do obszaru `Queues` , wybrać `azure` kolejkę i wyszukać `Publish message` panel. Zostanie wyświetlony formularz, który umożliwi Publikowanie wiadomości bezpośrednio w kolejce. W naszym przykładzie dopiero zaczynamy dodać `fist message` jako `Payload` i `Publish Message` :
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Opublikuj pierwszy komunikat":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Tworzenie zasobu":::
 
 Wróć do platformy Azure i sprawdź kolejkę. Kliknij `Service Bus Explorer` w lewym panelu, a następnie kliknij przycisk _wgląd_ . Jeśli wszystko poszło dobrze, zobaczysz, że kolejka zawiera jeden komunikat. Yay, gratulacje!
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Kolejka Azure Service Bus":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Tworzenie zasobu":::
 
 Upewnij się, że wiadomość jest taka, którą wysłałeś z RabbitMQ. Wybierz `Peek` kartę i kliknij przycisk, `Peek` Aby pobrać ostatnie wiadomości w kolejce. Kliknij komunikat, aby sprawdzić jego zawartość. Powinieneś wyglądać podobnie jak na poniższej ilustracji `first message` .
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Wgląd w kolejki":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Tworzenie zasobu":::
 
 ## <a name="lets-recap"></a>Podsumowaniemy
 

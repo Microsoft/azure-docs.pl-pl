@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361588"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podniesienia uprawnień w serwisie LinkedIn na potrzeby automatycznego aprowizacji użytkowników
@@ -50,7 +50,7 @@ Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, k
 
 Ta sekcja przeprowadzi Cię przez proces nawiązywania połączenia z usługą Azure AD do serwisu LinkedIn podniesienia poziomu interfejsu użytkownika Standard scim użytkowników i konfigurowania usługi aprowizacji w celu tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w serwisie LinkedIn podniesienia uprawnień na podstawie przypisania użytkowników i grup w usłudze Azure AD.
 
-**Porada:** Możesz również włączyć funkcję jednokrotnego logowania opartego na protokole SAML na potrzeby podniesienia uprawnień w serwisie LinkedIn, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje uzupełniają się wzajemnie.
+**Porada:** Możesz również włączyć obsługę protokołu SAML Sign-On single dla podniesienia uprawnień w serwisie LinkedIn, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje uzupełniają się wzajemnie.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Aby skonfigurować funkcję automatycznego inicjowania obsługi konta użytkownika w usłudze Azure AD:
 
@@ -101,7 +101,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 12. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji w polu **E-mail powiadomienia** , a następnie zaznacz pole wyboru poniżej.
 
-13. Kliknij pozycję **Zapisz**.
+13. Kliknij przycisk **Zapisz**.
 
 14. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkowników i grup, które zostaną zsynchronizowane z usługi Azure AD w celu podniesienia uprawnień do serwisu LinkedIn. Należy zauważyć, że atrybuty wybrane jako **pasujące** właściwości będą używane w celu dopasowania do kont użytkowników i grup w serwisie LinkedIn podwyższanie poziomu dla operacji aktualizacji. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
@@ -109,7 +109,7 @@ Pierwszym krokiem jest pobranie tokenu dostępu do serwisu LinkedIn. Jeśli jest
 
 15. Aby włączyć podwyższenie poziomu usługi Azure AD Provisioning w usłudze LinkedIn, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
 
-16. Kliknij pozycję **Zapisz**.
+16. Kliknij przycisk **Zapisz**.
 
 Spowoduje to rozpoczęcie synchronizacji początkowej dla wszystkich użytkowników i/lub grup przypisanych do serwisu LinkedIn podniesienia uprawnień w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacja początkowa zajmie więcej czasu niż kolejne synchronizacje, co będzie odbywać się około co 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji w aplikacji podniesienia uprawnień w serwisie LinkedIn.
 

@@ -4,10 +4,10 @@ description: Dowiedz się, jak utworzyć segmenty sieci NSX-T, które są używa
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 780cac15efc043b9ae44b77af1234adca3fec5a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254537"
 ---
 # <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Samouczek: Tworzenie segmentu sieci NSX-T w rozwiązaniu Azure VMware
@@ -29,45 +29,45 @@ Do ukończenia tego samouczka wymagane jest chmurę prywatną rozwiązania VMwar
 
 1. W programie vCenter dla chmury prywatnej wybierz pozycję **SDDC-Datacenter > Networks** i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.
 
-   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > Networks i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
+   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. W Menedżerze NSX-T dla chmury prywatnej wybierz pozycję **Sieć**.
 
-   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="W Menedżerze NSX-T dla chmury prywatnej wybierz pozycję Sieć.":::
+   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Wybierz **segmenty**.
 
-   :::image type="content" source="media/nsxt/nsxt-select-segments.png" alt-text="Wybierz segmenty na stronie Przegląd sieci.":::
+   :::image type="content" source="media/nsxt/nsxt-select-segments.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Na stronie Przegląd segmentów NSX-T wybierz pozycję **Dodaj segment**. Trzy segmenty są tworzone w ramach aprowizacji chmury prywatnej i nie mogą być używane w przypadku maszyn wirtualnych.  W tym celu musisz dodać nowy segment sieci.
 
-   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="Na stronie Przegląd segmentów NSX-T wybierz pozycję Dodaj SEGMENT.":::
+   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Nazwij segment, wybierz wstępnie skonfigurowaną bramę pomoc (TNTxx-T1) jako **połączoną bramę**, pozostaw **Typ** jako elastyczny, wybierz wstępnie skonfigurowaną **strefę transportu** nakładki (TNTxx-nakładki-lt), a następnie wybierz pozycję Ustaw podsieci. Wszystkie inne ustawienia w tej sekcji oraz profile **portów** i **segmentów** mogą pozostać w domyślnym formacie, zgodnie z konfiguracją.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Ustaw nazwę segmentu, połączoną bramę i typ, a następnie wybierz pozycję Ustaw podsieć.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Ustaw adres IP bramy dla nowego segmentu, a następnie wybierz pozycję **Dodaj**. Używany adres IP musi znajdować się w nienakładających się blokach adresów RFC1918, co zapewnia możliwość nawiązywania połączenia z maszynami wirtualnymi w nowym segmencie.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Ustaw adres IP bramy dla nowego segmentu, a następnie wybierz pozycję Dodaj.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Zastosuj nowy segment sieci, wybierając pozycję **Zastosuj** , a następnie Zapisz konfigurację przy użyciu polecenia **Zapisz**.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="Zastosuj nowy segment sieci do konfiguracji NSX-T z ZASTOSOWANIEm.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-apply.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="Zapisz nowy segment sieci w konfiguracji NSX-T z opcją Zapisz.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-save.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Nowy segment sieci został utworzony i odrzucisz opcję, aby kontynuować konfigurowanie segmentu, wybierając pozycję **nie**.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="Odrzuć, aby skonfigurować nowo utworzony segment sieci, wybierając pozycję nie.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-continue-no.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Upewnij się, że nowy segment sieci jest obecny w NSX-T, wybierając pozycję **sieć > segmenty** i zobaczysz nowy segment na liście (w tym przypadku "ls01").
 
-   :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Upewnij się, że nowy segment sieci jest obecny w NSX-T.":::
+   :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 1. Potwierdź, że nowy segment sieci jest obecny w programie vCenter, wybierając pozycję **sieć > SDDC-Datacenter** i obserwowanie nowego segmentu znajduje się na liście (w tym przypadku "ls01").
 
-   :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="Upewnij się, że nowy segment sieci jest obecny w programie vCenter.":::
+   :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="W programie vCenter dla chmury prywatnej wybierz pozycję SDDC-Datacenter > sieci i zwróć uwagę na to, że nie ma jeszcze żadnych sieci.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

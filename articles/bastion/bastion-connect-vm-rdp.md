@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/24/2020
+ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 79eb09a005f62846fc2f7e3e7b493d5e366edabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b9653daf945b6a189bc528cd00de832ae97c03b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744327"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978141"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Windows przy użyciu usługi Azure bastionu
 
@@ -21,6 +21,8 @@ Korzystając z usługi Azure bastionu, możesz bezpiecznie i bezproblemowo łąc
 Usługa Azure bastionu zapewnia bezpieczną łączność ze wszystkimi maszynami wirtualnymi w sieci wirtualnej, w której została zainicjowana obsługa administracyjna. Korzystanie z usługi Azure bastionu chroni maszyny wirtualne przed udostępnieniem portów protokołu RDP/SSH na świecie zewnętrznym, zapewniając bezpieczny dostęp przy użyciu protokołu RDP/SSH. Aby uzyskać więcej informacji, zapoznaj się z [omówieniem](bastion-overview.md).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+### <a name="install-the-bastion-host"></a>Instalowanie hosta bastionu
 
 Upewnij się, że skonfigurowano hosta usługi Azure bastionu dla sieci wirtualnej, w której znajduje się maszyna wirtualna. Gdy usługa bastionu zostanie zainicjowana i wdrożona w sieci wirtualnej, można jej używać do łączenia się z dowolną MASZYNą wirtualną w sieci wirtualnej. Aby skonfigurować hosta usługi Azure bastionu, zobacz [Tworzenie hosta usługi Azure bastionu](bastion-create-host-portal.md).
 
@@ -38,18 +40,10 @@ Aby nawiązać połączenie z maszyną wirtualną z systemem Windows, musisz otw
 
 * Porty przychodzące: RDP (3389)
 
-## <a name="connect"></a><a name="rdp"></a>Łączone
+## <a name="connect"></a><a name="rdp"></a>Połącz
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com). Przejdź do maszyny wirtualnej, z którą chcesz nawiązać połączenie, a następnie kliknij pozycję **Połącz** , a następnie wybierz pozycję **bastionu** z listy rozwijanej.
-
-   ![Połączenie maszyny wirtualnej](./media/bastion-connect-vm-rdp/connect.png)
-1. Po kliknięciu przycisku bastionu pojawi się pasek boczny z trzema kartami — RDP, SSH i bastionu. Jeśli Zainicjowano obsługę bastionu dla sieci wirtualnej, karta bastionu jest domyślnie aktywna. Jeśli nie zainicjowano obsługi administracyjnej usługi bastionu dla sieci wirtualnej, możesz kliknąć link, aby skonfigurować bastionu. Instrukcje dotyczące konfiguracji znajdują się w temacie [Configure bastionu](bastion-create-host-portal.md).
-
-   ![Karta bastionu](./media/bastion-connect-vm-rdp/bastion.png)
-1. Na karcie bastionu wprowadź nazwę użytkownika i hasło dla maszyny wirtualnej, a następnie kliknij przycisk **Połącz**. Połączenie RDP z tą maszyną wirtualną za pośrednictwem bastionu zostanie otwarte bezpośrednio w Azure Portal (za pośrednictwem HTML5) przy użyciu portu 443 i usługi bastionu.
-
-   ![Połączenie RDP](./media/bastion-connect-vm-rdp/443rdp.png)
+[!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
  
 ## <a name="next-steps"></a>Następne kroki
 
-Przeczytaj [często zadawane pytania dotyczące bastionu](bastion-faq.md)
+Zapoznaj się z [bastionu często zadawanych pytań](bastion-faq.md).

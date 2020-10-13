@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea10ee5b6fb14558e6bb93b83da0d5c46cff330
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654654"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977650"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One na maszynach wirtualnych platformy Azure
 Ten dokument zawiera wskazówki dotyczące wdrażania oprogramowania SAP Business One na platformie Azure Virtual Machines. Dokumentacja programu nie zastępuje dokumentacji dotyczącej instalacji dla oprogramowania SAP. Dokumentacja powinna obejmować podstawowe wytyczne dotyczące planowania i wdrażania infrastruktury platformy Azure w celu uruchamiania aplikacji firmowych.
@@ -95,7 +95,7 @@ Infrastruktura sieci, którą należy wdrożyć na platformie Azure, zależy od 
 W uproszczonej konfiguracji przedstawiono kilka wystąpień zabezpieczeń, które umożliwiają kontrolowanie i ograniczanie routingu. Zaczyna się od 
 
 - Router/zapora po stronie klienta.
-- Następnym wystąpieniem jest [Grupa zabezpieczeń sieci platformy Azure](../../../virtual-network/security-overview.md) , której można użyć w celu wprowadzenia reguł routingu i zabezpieczeń dla usługi Azure VNET, w której jest uruchamiana konfiguracja oprogramowania SAP Business w systemie.
+- Następnym wystąpieniem jest [Grupa zabezpieczeń sieci platformy Azure](../../../virtual-network/network-security-groups-overview.md) , której można użyć w celu wprowadzenia reguł routingu i zabezpieczeń dla usługi Azure VNET, w której jest uruchamiana konfiguracja oprogramowania SAP Business w systemie.
 - Aby uniknąć, że użytkownicy biznesowi jednego klienta mogą również zobaczyć serwer, na którym działa serwer biznesowy, na którym działa baza danych programu, należy oddzielić maszynę wirtualną, która jest hostem biznesowym i firmą jeden serwer w dwóch różnych podsieciach w ramach połączenia z siecią wirtualną.
 - Należy ponownie użyć usługi Azure sieciowej grupy zabezpieczeń przypisanej do dwóch różnych podsieci w celu ograniczenia dostępu do jednego serwera biznesowego.
 
@@ -111,7 +111,7 @@ Dla typu bazy danych dostępne są SQL Server i SAP HANA. Niezależnie od system
 
 Chociaż są już wyróżnione w określonych i ogólnych dokumentach baz danych, należy zaznajomić się z:
 
-- [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../windows/manage-availability.md) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux na platformie Azure](../../linux/manage-availability.md)
+- [Zarządzanie dostępnością maszyn wirtualnych z systemem Windows na platformie Azure](../../manage-availability.md) i [Zarządzanie dostępnością maszyn wirtualnych z systemem Linux na platformie Azure](../../manage-availability.md)
 - [Umowa SLA dla maszyn wirtualnych](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Te dokumenty powinny ułatwić podjęcie decyzji dotyczącej wyboru typów magazynu i konfiguracji wysokiej dostępności.

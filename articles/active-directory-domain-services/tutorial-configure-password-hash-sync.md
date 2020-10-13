@@ -1,20 +1,20 @@
 ---
 title: Włącz synchronizację skrótów haseł dla Azure AD Domain Services | Microsoft Docs
 description: W tym samouczku dowiesz się, jak włączyć synchronizację skrótów haseł przy użyciu Azure AD Connect do Azure Active Directory Domain Services domenie zarządzanej.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 4daad0d0739bb3407be13f717572c8aa99947d1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87491786"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967294"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Samouczek: Włączanie synchronizacji haseł w Azure Active Directory Domain Services dla środowisk hybrydowych
 

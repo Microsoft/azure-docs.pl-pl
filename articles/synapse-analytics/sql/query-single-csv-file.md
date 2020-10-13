@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288294"
 ---
 # <a name="query-csv-files"></a>Wykonywanie zapytań o pliki CSV
@@ -131,7 +131,7 @@ Następujące zapytanie pokazuje, jak odczytać plik bez wiersza nagłówka, z n
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV bez wiersza nagłówka i w stylu systemu UNIX nowy wiersz.](./media/query-single-csv-file/population-unix.png)
+![Pierwsze 10 wierszy pliku CSV bez wiersza nagłówka i z Unix-Style nowym wierszem.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
@@ -159,7 +159,7 @@ Następujące zapytanie pokazuje, jak wczytać plik z wierszem nagłówka, z now
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z nowym wierszem w stylu systemu UNIX.](./media/query-single-csv-file/population-unix-hdr.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z Unix-Style nowym wierszem.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
@@ -187,7 +187,7 @@ Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z n
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i w stylu systemu UNIX nowy wiersz i ujęte w cudzysłów wartości.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z Unix-Style nowym wierszem i wartościami w cudzysłowie.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
@@ -220,7 +220,7 @@ Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z n
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka oraz z nowym wierszem w stylu systemu UNIX i znakiem ucieczki używanym do ogranicznika pola.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka oraz z Unix-Style nowym wierszem i znakiem ucieczki używanym do ogranicznika pola.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
@@ -283,7 +283,7 @@ Następujące zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka, z 
 
 Podgląd pliku:
 
-![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z separatorem nowej linii i tabulatora w stylu systemu UNIX.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![Pierwsze 10 wierszy pliku CSV z wierszem nagłówka i z Unix-Style nowym ogranicznikiem wiersza i tabulatorem.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *

@@ -4,10 +4,10 @@ description: W tym samouczku nastąpi połączenie z klastrem zarządzanym Servi
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.openlocfilehash: 36a91d2852bcda5f958441b48ef4721d6ccc83c4
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410459"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster-preview"></a>Samouczek: wdrażanie aplikacji w klastrze zarządzanym Service Fabric (wersja zapoznawcza)
@@ -75,7 +75,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore Debug
 
 ### <a name="create-an-application"></a>Tworzenie aplikacji
 
-Można utworzyć wystąpienie aplikacji z dowolnej wersji typu aplikacji, która została pomyślnie zarejestrowana, za pomocą polecenia cmdlet New-ServiceFabricApplication. Nazwa każdej aplikacji musi zaczynać się od schematu "Fabric:" i musi być unikatowa dla każdego wystąpienia aplikacji. Tworzone są również wszystkie domyślne usługi zdefiniowane w manifeście aplikacji typu aplikacji docelowej.
+Można utworzyć wystąpienie aplikacji z dowolnej wersji typu aplikacji, która została pomyślnie zarejestrowana przy użyciu polecenia cmdlet New-ServiceFabricApplication. Nazwa każdej aplikacji musi zaczynać się od schematu "Fabric:" i musi być unikatowa dla każdego wystąpienia aplikacji. Tworzone są również wszystkie domyślne usługi zdefiniowane w manifeście aplikacji typu aplikacji docelowej.
 
 ```powershell
 New-ServiceFabricApplication fabric:/Voting VotingType 1.0.0

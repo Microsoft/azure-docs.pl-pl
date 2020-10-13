@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448677"
 ---
 # <a name="split-image-directory"></a>Dzielenie katalogu obrazów
@@ -41,9 +41,9 @@ Ten moduł jest szczególnie przydatny, gdy trzeba podzielić dane obrazu na zes
 
 ### <a name="module-parameters"></a>Parametry modułu
 
-| Nazwa                                   | Typ  | Zakres | Opcjonalne | Opis                            | Domyślny |
+| Nazwa                                   | Typ  | Zakres | Opcjonalne | Opis                            | Domyślne |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| Ułamek obrazów w pierwszym elemencie wyjściowym | Float | 0-1   | Wymagane | Ułamek obrazów w pierwszym elemencie wyjściowym | 0,9     |
+| Ułamek obrazów w pierwszym elemencie wyjściowym | Liczba zmiennoprzecinkowa | 0-1   | Wymagane | Ułamek obrazów w pierwszym elemencie wyjściowym | 0,9     |
 
 ### <a name="outputs"></a>Dane wyjściowe
 

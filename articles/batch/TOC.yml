@@ -257,12 +257,16 @@
           href: batch-pool-resize-start-event.md
         - name: Zdarzenie zakończenia zmiany rozmiaru puli
           href: batch-pool-resize-complete-event.md
+        - name: Zdarzenie automatycznego skalowania puli
+          href: batch-pool-autoscale-event.md
         - name: Zdarzenie rozpoczęcia zadania
           href: batch-task-start-event.md
         - name: Zdarzenie ukończenia zadania
           href: batch-task-complete-event.md
         - name: Zdarzenie niepowodzenia zadania
           href: batch-task-fail-event.md
+        - name: Zdarzenie niepowodzenia harmonogramu zadań
+          href: batch-task-schedule-fail-event.md
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

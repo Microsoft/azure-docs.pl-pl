@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 295c6376d555585d58f7c0b57c3ac4ba682e9bd5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203150"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948276"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,8 +84,8 @@ Element **profilu technicznym** zawiera następujący atrybut:
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
 | Obszar | 0:1 | Nazwa domeny profilu technicznego. Na przykład jeśli Twój profil techniczny określa dostawcę tożsamości w serwisie Facebook, nazwa domeny to Facebook.com. |
-| Nazwa wyświetlana | 1:1 | Nazwa profilu technicznego, który może być wyświetlany użytkownikom. |
-| Opis | 0:1 | Opis profilu technicznego, który może być wyświetlany użytkownikom. |
+| Nazwa wyświetlana | 1:1 | Nazwa wyświetlana profilu technicznego. |
+| Opis | 0:1 | Opis profilu technicznego. |
 | Protokół | 0:1 | Protokół używany do komunikacji z drugą stroną. |
 | Metadane | 0:1 | Kolekcja par klucz/wartość, które są wykorzystywane przez protokół do komunikacji z punktem końcowym w trakcie transakcji. |
 | InputTokenFormat | 0:1 | Format tokenu wejściowego. Możliwe wartości: `JSON` , `JWT` , `SAML11` lub `SAML2` . `JWT`Wartość reprezentuje token sieci Web JSON zgodnie ze specyfikacją IETF. `SAML11`Wartość reprezentuje token zabezpieczający protokołu SAML 1,1 zgodnie ze specyfikacją języka Oasis.  `SAML2`Wartość reprezentuje token zabezpieczający protokołu SAML 2,0 zgodnie ze specyfikacją języka Oasis. |

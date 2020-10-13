@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
 ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619648"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Wdrażanie i eksplorowanie aplikacji podzielonej na fragmenty z wieloma dzierżawcami
@@ -96,7 +96,7 @@ Podczas wdrażania aplikacji Pobierz kod źródłowy aplikacji i skrypty zarząd
 > [!NOTE]
 > Zawartość wykonywalna (skrypty, biblioteki dll) może być blokowana przez system Windows, gdy pliki zip są pobierane ze źródła zewnętrznego i wyodrębniane. Podczas wyodrębniania skryptów z pliku zip wykonaj następujące kroki, aby odblokować plik. zip przed wyodrębnieniem. Odblokowanie pliku zip pozwala upewnić się, że skrypty mogą być uruchamiane.
 
-1. Przejdź do [repozytorium GitHub WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Przejdź do [WingtipTicketsSaaS-MultiTenantDb repozytorium GitHub](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Kliknij pozycję **Klonuj lub Pobierz**.
 3. Kliknij pozycję **Pobierz kod pocztowy** i Zapisz plik.
 4. Kliknij prawym przyciskiem myszy plik **WingtipTicketsSaaS-MultiTenantDb-master.zip** i wybierz polecenie **Właściwości**.
@@ -244,7 +244,7 @@ Czasami baza danych z wieloma dzierżawcami wymaga większej ilości zasobów, n
 
 Obciążenia generowane przez skrypt generatora obciążenia są przeznaczone tylko do celów ilustracyjnych.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - Aby dowiedzieć się więcej o wielodostępnych aplikacjach SaaS, zobacz [wzorce projektowe dla wielodostępnych aplikacji SaaS](saas-tenancy-app-design-patterns.md).
 

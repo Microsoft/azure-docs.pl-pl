@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905904"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania
@@ -21,7 +21,7 @@ W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywraca
 - Zrzuć i Przywróć z wiersza polecenia (przy użyciu mysqldump)
 - Zrzuć i Przywróć przy użyciu PHPMyAdmin
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 Aby krokowo korzystać z tego przewodnika, musisz mieć:
 - [tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Narzędzie wiersza polecenia [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) zainstalowane na komputerze.
@@ -67,7 +67,7 @@ Aby nawiązać połączenie, Znajdź informacje o połączeniu w **przeglądzie*
 
 Dodaj informacje o połączeniu do usługi MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Parametry połączenia MySQL Workbench":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Znajdź informacje o połączeniu w Azure Portal":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Przygotowywanie docelowego serwera Azure Database for MySQL na potrzeby szybkiego ładowania danych
 Aby przygotować docelowy serwer Azure Database for MySQL do szybszego ładowania danych, należy zmienić następujące parametry serwera i konfigurację.

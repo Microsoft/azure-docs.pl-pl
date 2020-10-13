@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710927"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą NetBackup
@@ -102,7 +102,7 @@ W poniższych tabelach przedstawiono wskazówki wstępne dotyczące modelu urzą
 | Scenariusz tworzenia kopii zapasowej  | Pojemność magazynu lokalnego  | Pojemność magazynu w chmurze  |
 |---|---|---|
 | Podstawowa kopia zapasowa  | Ostatnie kopie zapasowe przechowywane w magazynie lokalnym na potrzeby szybkiego odzyskiwania w celu spełnienia celu punktu odzyskiwania (RPO) | Historia kopii zapasowych (RPO) pasuje do pojemności chmury |
-| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Brak  |
+| Pomocnicza kopia zapasowa | Dodatkowa kopia kopii zapasowej danych może być przechowywana w pojemności chmury  | Nie dotyczy  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple jako podstawowy element docelowy kopii zapasowej
 
@@ -292,7 +292,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 > [!NOTE]
 > Dane są przywracane z kopii zapasowej, która została przeprowadzona w warstwach w chmurze.
 
-Poniższy rysunek przedstawia mapowanie typowego woluminu do zadania tworzenia kopii zapasowej. W takim przypadku wszystkie cotygodniowe kopie zapasowe są mapowane na pełny dysk w sobotę, a przyrostowe kopie zapasowe są mapowane na dyski przyrostowe z poniedziałek do piątku. Wszystkie kopie zapasowe i przywracane są z woluminu warstwowego StorSimple.
+Poniższy rysunek przedstawia mapowanie typowego woluminu do zadania tworzenia kopii zapasowej. W takim przypadku wszystkie cotygodniowe kopie zapasowe są mapowane na pełny dysk w sobotę, a przyrostowe kopie zapasowe są mapowane na Monday-Friday dysków przyrostowych. Wszystkie kopie zapasowe i przywracane są z woluminu warstwowego StorSimple.
 
 ![Diagram logiczny konfiguracji podstawowej lokalizacji docelowej kopii zapasowej](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
@@ -302,7 +302,7 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
-| Co tydzień (tygodnie 1-4) | Sobota | Poniedziałek — piątek |
+| Co tydzień (tygodnie 1-4) | Sobota | Monday-Friday |
 | Co miesiąc  | Sobota  |   |
 | Rocznie | Sobota  |   |
 
@@ -328,7 +328,7 @@ W poniższej kolejności przyjęto założenie, że NetBackup i host docelowy s�
 
    ![Konsola administracyjna NetBackup, wybierz typ zasad](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz pozycję **Dalej**.
+5. Wybierz hosta, zaznacz pole wyboru **Wykryj system operacyjny klienta** , a następnie wybierz pozycję **Dodaj**. Wybierz opcję **Dalej**.
 
    ![Konsola administracyjna NetBackup, lista klientów w nowych zasadach](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -535,7 +535,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria serwera NetBackup | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Skompiluj ponownie serwer kopii zapasowej i wykonaj przywracanie bazy danych. | Należy ponownie skompilować lub przywrócić serwer NetBackup w lokacji odzyskiwania po awarii. Przywróć bazę danych do najnowszego punktu. Jeśli przywrócona baza danych NetBackup nie jest zsynchronizowana z najnowszymi zadaniami tworzenia kopii zapasowych, wymagane jest indeksowanie i wykazanie. Ten proces ponownego skanowania indeksu i wykazu może spowodować, że wszystkie zestawy kopii zapasowych będą skanowane i pobrane z warstwy chmury do warstwy urządzenia lokalnego. Zwiększa to intensywnie czasochłonne. |
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. | Najpierw Przywróć StorSimple, a następnie Przywróć NetBackup. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Następujące dokumenty odwołują się do tego artykułu:
 
