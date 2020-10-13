@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715130"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Używanie interfejsu wiersza polecenia platformy Azure do przypisywania roli platformy Azure na potrzeby dostępu do danych obiektów blob i kolejek
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) autoryzuje prawa dostępu do zabezpieczonych z
 
 Gdy rola platformy Azure zostanie przypisana do podmiotu zabezpieczeń usługi Azure AD, platforma Azure przyznaje dostęp do tych zasobów dla tego podmiotu zabezpieczeń. Dostęp można ograniczyć do poziomu subskrypcji, grupy zasobów, konta magazynu lub pojedynczego kontenera lub kolejki. Podmiot zabezpieczeń usługi Azure AD może być użytkownikiem, grupą, główną usługą aplikacji lub [zarządzaną tożsamością dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-W tym artykule opisano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć listę wbudowanych ról platformy Azure i przypisać je do użytkowników. Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia platformy Azure, zobacz [Azure Command Line Interface (CLI)](/cli/azure).
+W tym artykule opisano, jak za pomocą interfejsu wiersza polecenia platformy Azure utworzyć listę wbudowanych ról platformy Azure i przypisać je do użytkowników. Aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia platformy Azure, zobacz [azure Command-Line Interface (CLI)](/cli/azure).
 
 ## <a name="azure-roles-for-blobs-and-queues"></a>Role platformy Azure dla obiektów blob i kolejek
 

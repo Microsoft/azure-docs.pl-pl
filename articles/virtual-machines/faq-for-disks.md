@@ -8,10 +8,10 @@ ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575864"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Często zadawane pytania dotyczące dysków maszyn wirtualnych IaaS platformy Azure oraz dysków zarządzanych i niezarządzanych w warstwie Premium
@@ -76,7 +76,7 @@ W zależności od regionu, w którym znajduje się zestaw dostępności, który 
 
 Należy skonfigurować prywatne konto magazynu na potrzeby diagnostyki maszyn wirtualnych.
 
-**Jakiego rodzaju obsługa Access Control oparta na rolach jest dostępna dla Managed Disks?**
+**Jakiego rodzaju Role-Based wsparcia Access Control jest dostępny dla Managed Disks?**
 
 Managed Disks obsługuje trzy role domyślne klucza:
 
@@ -423,7 +423,7 @@ Nie musisz uaktualniać istniejących narzędzi platformy Azure, aby tworzyć, d
 |Azure PowerShell | Numer wersji 4.1.0: wydanie 2017 czerwca lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 1     | Numer wersji 0.10.13:2017 maja lub nowszej|
 |Interfejs wiersza polecenia platformy Azure w wersji 2     | Numer wersji 2.0.12: wydanie 2017 lipca lub nowszej|
-|AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
+|Narzędzie AzCopy              | Numer wersji 6.1.0: wydanie 2017 czerwca lub nowszej|
 
 **Czy rozmiary dysków P4 i P6 są obsługiwane w przypadku dysków niezarządzanych lub stronicowych obiektów BLOB?**
 

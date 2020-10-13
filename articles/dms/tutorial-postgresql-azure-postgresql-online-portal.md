@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 1f8f7c4ea051ff583b3e8f88e0331642cdf9f19a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291544"
+ms.locfileid: "91893785"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Samouczek: Migrowanie PostgreSQL do usługi Azure DB dla PostgreSQL online przy użyciu systemu DMS za pośrednictwem Azure Portal
 
 Za pomocą Azure Database Migration Service można migrować bazy danych z lokalnego wystąpienia PostgreSQL, aby [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) z minimalnym czasem przestoju aplikacji. W tym samouczku przeprowadzisz migrację przykładowej bazy danych **najmu dysku DVD** z lokalnego wystąpienia PostgreSQL 9,6 do Azure Database for PostgreSQL przy użyciu działania migracji w trybie online w programie Azure Database Migration Service.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > * Migruj Przykładowy schemat przy użyciu narzędzia pg_dump.
@@ -281,7 +281,7 @@ Po zakończeniu początkowego pełnego ładowania bazy danych są oznaczone jako
 
     ![Pełny ekran uruchomienie produkcyjne](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. Gdy stan migracji bazy danych zostanie **zakończony**, Połącz swoje aplikacje z nowym docelowym wystąpieniem Azure Database for PostgreSQL.
+3. Gdy stan migracji bazy danych jest **zakończony**, [Utwórz ponownie sekwencje](https://wiki.postgresql.org/wiki/Fixing_Sequences) (jeśli dotyczy) i Połącz swoje aplikacje z nowym docelowym wystąpieniem Azure Database for PostgreSQL.
 
 ## <a name="next-steps"></a>Następne kroki
 

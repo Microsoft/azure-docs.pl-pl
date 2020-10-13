@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91532231"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948905"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -26,11 +26,11 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |------------------------------|----------|-------------|---------------|
-| [Tożsamość usługi zarządzanej](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia | Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby udzielić dostępu do źródeł danych platformy Azure. Takie podejście eliminuje konieczność poświadczeń w parametrach połączenia. <br><br>Dodatkowy sposób używania tożsamości usługi zarządzanej odbywa się za pomocą [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli reguły adresów IP nie są opcją. | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06-30. |
-| [Żądania wychodzące przy użyciu linku prywatnego](search-indexer-howto-access-private.md) | Indeksatory, zabezpieczenia | Utwórz zasób udostępnionego linku, którego indeksatory mogą używać podczas uzyskiwania dostępu do zasobów platformy Azure zabezpieczonych za pomocą prywatnego linku platformy Azure. Aby uzyskać więcej informacji na temat wszystkich sposobów zabezpieczania połączeń indeksatora, zobacz [Zabezpieczanie zasobów indeksatora przy użyciu funkcji zabezpieczeń sieci platformy Azure](search-indexer-securing-resources.md). | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji, gdy korzystasz z portalu lub [udostępnionego zasobu linku prywatnego](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) z interfejsem API-Version = 2020-08-01. |
-| [Interfejs API REST zarządzania (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST dodaje obsługę tworzenia udostępnionych zasobów linków prywatnych. | Ogólnie dostępna. |
-| [Interfejs API REST zarządzania (2020-08-01 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Dodaje udostępnione zasoby linku prywatnego dla baz danych Azure Functions i Azure SQL dla programu MySQL. | Publiczna wersja zapoznawcza. |
-| [Zestaw .NET SDK 4,0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | Zestaw SDK .NET | Aktualizacja zestawu Azure SDK dla zestawu SDK zarządzania, interfejs API REST w wersji 2020-08-01. | Ogólnie dostępna. |
+| [Tożsamość usługi zarządzanej](search-howto-managed-identities-data-sources.md) | Indeksatory, zabezpieczenia | Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie użyj uprawnień RBAC, aby udzielić dostępu do źródeł danych platformy Azure. Takie podejście eliminuje konieczność poświadczeń w parametrach połączenia. <br><br>Dodatkowy sposób używania tożsamości usługi zarządzanej odbywa się za pomocą [zaufanego wyjątku usługi](search-indexer-howto-access-trusted-service-exception.md) , jeśli reguły adresów IP nie są opcją. | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji w przypadku korzystania z portalu lub [tworzenia źródła danych (REST)](/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06-30. |
+| [Żądania wychodzące przy użyciu linku prywatnego](search-indexer-howto-access-private.md) | Indeksatory, zabezpieczenia | Utwórz zasób udostępnionego linku, którego indeksatory mogą używać podczas uzyskiwania dostępu do zasobów platformy Azure zabezpieczonych za pomocą prywatnego linku platformy Azure. Aby uzyskać więcej informacji na temat wszystkich sposobów zabezpieczania połączeń indeksatora, zobacz [Zabezpieczanie zasobów indeksatora przy użyciu funkcji zabezpieczeń sieci platformy Azure](search-indexer-securing-resources.md). | Ogólnie dostępna. Uzyskaj dostęp do tej funkcji, gdy korzystasz z portalu lub [udostępnionego zasobu linku prywatnego](/rest/api/searchmanagement/sharedprivatelinkresources) z interfejsem API-Version = 2020-08-01. |
+| [Interfejs API REST zarządzania (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST dodaje obsługę tworzenia udostępnionych zasobów linków prywatnych. | Ogólnie dostępna. |
+| [Interfejs API REST zarządzania (2020-08-01 — wersja zapoznawcza)](/rest/api/searchmanagement/management-api-versions) | REST | Dodaje udostępnione zasoby linku prywatnego dla baz danych Azure Functions i Azure SQL dla programu MySQL. | Publiczna wersja zapoznawcza. |
+| [Zestaw .NET SDK 4,0](/dotnet/api/overview/azure/search/management) | Zestaw SDK .NET | Aktualizacja zestawu Azure SDK dla zestawu SDK zarządzania, interfejs API REST w wersji 2020-08-01. | Ogólnie dostępna. |
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
@@ -70,7 +70,7 @@ Utwórz tożsamość usługi wyszukiwania w Azure Active Directory, a następnie
 
 |Ona&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategoria | Opis | Dostępność  |
 |---------|------------------|-------------|---------------|
-| [**Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)**](search-howto-index-changed-deleted-blobs.md) | Indeksatory | Indeksator usługi Azure Blob Storage na platformie Azure Wyszukiwanie poznawcze będzie rozpoznawał obiekty blob w stanie nietrwałego usunięcia, a następnie usuwa odpowiedni dokument wyszukiwania podczas indeksowania. | Publiczna wersja zapoznawcza. </br> Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) i interfejs api REST 2019-05-06 — wersja zapoznawcza, za pomocą indeksatora uruchamiania dla źródła danych obiektów blob platformy Azure, które ma włączone natywnie "usuwanie nietrwałe". |
+| [**Natywne usuwanie nietrwałego obiektu BLOB (wersja zapoznawcza)**](search-howto-index-changed-deleted-blobs.md) | Indexers (Indeksatory) | Indeksator usługi Azure Blob Storage na platformie Azure Wyszukiwanie poznawcze będzie rozpoznawał obiekty blob w stanie nietrwałego usunięcia, a następnie usuwa odpowiedni dokument wyszukiwania podczas indeksowania. | Publiczna wersja zapoznawcza. </br> Użyj [interfejsu API REST usługi Search 2020-06-30 — wersja zapoznawcza](/rest/api/searchservice/index-preview) i interfejs api REST 2019-05-06 — wersja zapoznawcza, za pomocą indeksatora uruchamiania dla źródła danych obiektów blob platformy Azure, które ma włączone natywnie "usuwanie nietrwałe". |
 | [**Interfejs API REST zarządzania (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Nowy stabilny interfejs API REST do tworzenia usługi wyszukiwania i zarządzania nią. Dodaje zaporę IP i obsługę linków prywatnych | Ogólnie dostępna. |
 
 ## <a name="february-2020"></a>Luty 2020 r.

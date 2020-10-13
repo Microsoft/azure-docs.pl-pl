@@ -4,10 +4,10 @@ description: Dowiedz się więcej na temat kluczowych aspektów i przypadków u�
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575762"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware rozwiązanie dotyczące sieci i międzyłączności

@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji inicjatywy
 description: Opisuje, w jaki sposób definicje inicjatyw zasad są używane do definiowania zasad grupy w celu wdrożenia do zasobów platformy Azure w organizacji.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048503"
+ms.locfileid: "91876179"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Struktura definicji Azure Policy inicjatywy
 
@@ -248,19 +248,18 @@ Oto przykład `policyDefinitions` , który ma dwie dołączone definicje zasad, 
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>Grupy definicji zasad (wersja zapoznawcza)
+## <a name="policy-definition-groups"></a>Grupy definicji zasad
 
-W ramach funkcji zgodności z [przepisami](./regulatory-compliance.md) Azure Policy (wersja zapoznawcza) definicje zasad w definicji inicjatywy mogą być grupowane. Te informacje są zdefiniowane we właściwości `policyDefinitionGroups` _Array_ . Te grupowania zawierają dodatkowe szczegóły, takie jak **kontrolka** i **domena zgodności** , do których odniesie się definicja zasad.
-Dodatkowe szczegóły grupowania można znaleźć w obiekcie **policyMetadata** utworzonym przez firmę Microsoft. Aby uzyskać więcej informacji, zobacz [obiekty metadanych](#metadata-objects).
+Definicje zasad w definicji inicjatywy można grupować i klasyfikować. Funkcja [zgodności z przepisami](./regulatory-compliance.md) Azure Policy (wersja zapoznawcza) używa tej właściwości do grupowania definicji w **kontrolkach** i **domenach zgodności**. Te informacje są zdefiniowane we właściwości `policyDefinitionGroups` _Array_ . Dodatkowe szczegóły grupowania można znaleźć w obiekcie **policyMetadata** utworzonym przez firmę Microsoft. Aby uzyskać więcej informacji, zobacz [obiekty metadanych](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Parametry grup definicji zasad
 
 Każdy element _tablicy_ w `policyDefinitionGroups` musi mieć obie następujące właściwości:
 
-- `name` (ciąg) \[ wymagane \] : krótka nazwa **formantu**. Wartość tej właściwości jest używana przez program `groupNames` w elemencie `policyDefinitions` .
-- `category` (ciąg): **domena zgodności** formantu.
-- `displayName` (ciąg): przyjazna nazwa **formantu**. Używany przez portal.
-- `description` (ciąg): Opis działania **formantu** .
+- `name` (ciąg) \[ wymagane \] : krótka nazwa **grupy**. W obszarze zgodność z przepisami **Kontrola**. Wartość tej właściwości jest używana przez program `groupNames` w elemencie `policyDefinitions` .
+- `category` (ciąg): hierarchia, do której należy Grupa. W obszarze zgodność z przepisami, **domena zgodności** formantu.
+- `displayName` (ciąg): przyjazna nazwa **grupy** lub **formantu**. Używany przez portal.
+- `description` (ciąg): Opis elementów, które obejmuje **Grupa** lub **Kontrola** .
 - `additionalMetadataId` (ciąg): Lokalizacja obiektu [policyMetadata](#metadata-objects) , który zawiera dodatkowe szczegóły dotyczące **kontroli** i **domeny zgodności**.
 
   > [!NOTE]

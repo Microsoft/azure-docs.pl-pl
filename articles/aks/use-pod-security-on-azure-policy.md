@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 09/22/2020
 author: jluk
 ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91368859"
 ---
-# <a name="secure-pods-with-azure-policy"></a>Zabezpieczanie zasobników z Azure Policy
+# <a name="secure-pods-with-azure-policy"></a>Zabezpieczanie zasobników przy użyciu usługi Azure Policy
 
 Aby zwiększyć bezpieczeństwo klastra AKS, można kontrolować, jakie funkcje są przyznawane i czy wszystkie są uruchomione względem zasad firmy. Ten dostęp jest definiowany za pomocą wbudowanych zasad udostępnianych przez [dodatek Azure Policy dla AKS][kubernetes-policy-reference]. Dzięki zapewnieniu dodatkowej kontroli nad aspektami zabezpieczeń w zakresie specyfikacji, takich jak uprawnienia główne, zapewnia ściślejszy poziom bezpieczeństwa i wgląd w to, co jest wdrażane w klastrze. Jeśli pod warunkiem nie spełniają warunków określonych w zasadach, Azure Policy może nie zezwalać na uruchamianie lub Flagowanie naruszenia. W tym artykule opisano sposób użycia Azure Policy w celu ograniczenia wdrożenia w programie AKS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 

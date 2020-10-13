@@ -1,22 +1,22 @@
 ---
-title: Migrowanie z usługi Google Maps do Azure Maps | Mapy Microsoft Azure
-description: Jak przeprowadzić migrację z usługi Google Maps do Microsoft Azure Maps. Wskazówki przeprowadzą Cię przez proces przełączania do Azure Maps interfejsów API i zestawów SDK.
+title: Samouczek — Migrowanie z usługi Google Maps do Azure Maps | Mapy Microsoft Azure
+description: Samouczek dotyczący migracji z usługi Google Maps do Microsoft Azure Maps. Wskazówki przeprowadzą Cię przez proces przełączania do Azure Maps interfejsów API i zestawów SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/23/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c60890b301ba650c95584e33b5326217086c08c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264171"
+ms.locfileid: "91876315"
 ---
-# <a name="migrate-from-google-maps-to-azure-maps"></a>Migrowanie z usługi Google Maps do Azure Maps
+# <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Samouczek — Migrowanie z usługi Google Maps do Azure Maps
 
 Ten artykuł zawiera szczegółowe informacje na temat migracji aplikacji sieci Web, mobilnych i opartych na serwerze z usługi Google Maps do platformy Maps Microsoft Azure. Ten samouczek zawiera porównawcze przykłady kodu, sugestie dotyczące migracji oraz najlepsze rozwiązania dotyczące migracji do Azure Maps.
 
@@ -38,19 +38,19 @@ Tabela zawiera listę funkcji Azure Maps, które odpowiadają funkcjom usługi G
 | Macierz odległości             | ✓                                      |
 | Noszeniu                   | Planowany                                |
 | Geokodowanie (do przodu/wstecz) | ✓                                      |
-| Geolokalizacja                 | Brak                                    |
+| Geolokalizacja                 | Nie dotyczy                                    |
 | Najbliższe drogi               | ✓                                      |
 | Wyszukiwanie miejsc               | ✓                                      |
 | Szczegóły miejsc              | Nie dotyczy — witryna sieci Web & jest dostępny numer telefonu |
-| Umieszcza Zdjęcia               | Brak                                    |
+| Umieszcza Zdjęcia               | Nie dotyczy                                    |
 | Umieść Autouzupełnianie          | ✓                                      |
 | Przyciągaj do drogi                | ✓                                      |
 | Limity szybkości                | ✓                                      |
 | Mapy statyczne                 | ✓                                      |
-| Widok statyczny          | Brak                                    |
+| Widok statyczny          | Nie dotyczy                                    |
 | Strefa czasowa                   | ✓                                      |
-| Maps — osadzony interfejs API           | Brak                                    |
-| Adresy URL map                    | Brak                                    |
+| Maps — osadzony interfejs API           | Nie dotyczy                                    |
+| Adresy URL map                    | Nie dotyczy                                    |
 
 Usługi Mapy Google zapewniają podstawowe uwierzytelnianie oparte na kluczach. Azure Maps zapewnia podstawowe uwierzytelnianie oparte na kluczach i uwierzytelnianie Azure Active Directory. Uwierzytelnianie Azure Active Directory zapewnia więcej funkcji zabezpieczeń w porównaniu do podstawowego uwierzytelniania opartego na kluczach.
 

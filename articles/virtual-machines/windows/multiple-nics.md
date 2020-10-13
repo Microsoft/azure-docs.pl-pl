@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835548"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974009"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie maszyny wirtualnej z systemem Windows i zarządzanie nią z wieloma kartami sieciowymi
 Maszyny wirtualne na platformie Azure mogą mieć dołączone do nich wiele kart interfejsów sieci wirtualnej (nic). Typowym scenariuszem jest posiadanie różnych podsieci na potrzeby łączności frontonu i zaplecza. Można skojarzyć wiele kart sieciowych na maszynie wirtualnej z wieloma podsieciami, ale te podsieci muszą znajdować się w tej samej sieci wirtualnej (vNet). W tym artykule szczegółowo opisano sposób tworzenia maszyny wirtualnej, do której dołączono wiele kart sieciowych. Dowiesz się również, jak dodawać i usuwać karty sieciowe z istniejącej maszyny wirtualnej. Różne [rozmiary maszyn wirtualnych](../sizes.md) obsługują różną liczbę kart sieciowych, dlatego należy odpowiednio zmienić rozmiar maszyny wirtualnej.
@@ -70,7 +70,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Zwykle należy również utworzyć [sieciową grupę zabezpieczeń](../../virtual-network/security-overview.md) w celu przefiltrowania ruchu sieciowego do maszyny wirtualnej i [modułu równoważenia obciążenia](../../load-balancer/load-balancer-overview.md) w celu dystrybucji ruchu między wieloma maszynami wirtualnymi.
+Zwykle należy również utworzyć [sieciową grupę zabezpieczeń](../../virtual-network/network-security-groups-overview.md) w celu przefiltrowania ruchu sieciowego do maszyny wirtualnej i [modułu równoważenia obciążenia](../../load-balancer/load-balancer-overview.md) w celu dystrybucji ruchu między wieloma maszynami wirtualnymi.
 
 ### <a name="create-the-virtual-machine"></a>Tworzenie maszyny wirtualnej
 Teraz zacznij tworzyć konfigurację maszyny wirtualnej. Każdy rozmiar maszyny wirtualnej ma limit łącznej liczby kart sieciowych, które można dodać do maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md).
@@ -288,4 +288,4 @@ Platforma Azure przypisuje bramę domyślną do pierwszego (podstawowego) interf
     Trasa wymieniona przy użyciu *192.168.1.1* w obszarze **brama**jest trasą domyślną dla podstawowego interfejsu sieciowego. Trasa z *192.168.2.1* w obszarze **brama**jest dodaną trasą.
 
 ## <a name="next-steps"></a>Następne kroki
-Sprawdź [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md) , gdy próbujesz utworzyć maszynę wirtualną z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych. 
+Sprawdź [rozmiary maszyn wirtualnych z systemem Windows](../sizes.md) , gdy próbujesz utworzyć maszynę wirtualną z wieloma kartami sieciowymi. Zwróć uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez poszczególne rozmiary maszyn wirtualnych.

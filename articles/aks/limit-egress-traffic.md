@@ -8,10 +8,10 @@ ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
 ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570368"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
@@ -779,7 +779,7 @@ Ten artykuł zawiera informacje o portach i adresach, które mają być dozwolon
 
 W razie potrzeby można uogólnić powyższe kroki, aby przesłać dalej ruch do preferowanego rozwiązania [wychodzącego `userDefinedRoute` ](egress-outboundtype.md).
 
-Jeśli chcesz ograniczyć sposób komunikacji między sobą i ograniczeniami ruchu Wschodnie-zachodnich w klastrze, zobacz [bezpieczny ruch między wymiarami, korzystając z zasad sieciowych w AKS][network-policy].
+Jeśli chcesz ograniczyć sposób komunikacji między sobą i ograniczeniami ruchu East-West w klastrze, zobacz [bezpieczny ruch między narzędziami sieciowymi w programie AKS][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md

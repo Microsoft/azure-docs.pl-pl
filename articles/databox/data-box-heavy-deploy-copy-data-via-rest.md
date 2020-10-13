@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9134b57d8a3e76417283e5d863724651b4f6a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2fc174147b99b7b952c6d10084cfc969dacf5a6
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921167"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949143"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Samouczek: kopiowanie danych do Azure Data Box magazynu obiektów BLOB za pośrednictwem interfejsów API REST  
 
@@ -122,11 +122,11 @@ Wykonaj następujące kroki, aby zaimportować `.cer` plik do magazynu główneg
 
 3.  Wybierz pozycję **Umieść wszystkie certyfikaty w następującym magazynie**, a następnie kliknij przycisk **Przeglądaj**. Przejdź do głównego magazynu hosta zdalnego, a następnie kliknij przycisk **Dalej**.
 
-    ![Importowanie certyfikatu przy użyciu programu PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Importowanie certyfikatu przy użyciu programu PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4.  Kliknij przycisk **Finish** (Zakończ). Pojawi się komunikat informujący, że importowanie zakończyło się pomyślnie.
 
-    ![Importowanie certyfikatu przy użyciu programu PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Importowanie certyfikatu przy użyciu programu PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Korzystanie z systemu Linux
 

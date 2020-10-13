@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a2a386264be0ec13e29b7a7546926819c5d931a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87827456"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972887"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie usługi Azure Resource Manager
 
@@ -282,7 +282,7 @@ Podczas definiowania zasobu maszyny wirtualnej są używane różne elementy pro
 
 ## <a name="disks-and-images"></a>Dyski i obrazy
    
-Na platformie Azure pliki VHD mogą reprezentować [dyski lub obrazy](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Gdy system operacyjny w pliku VHD jest wyspecjalizowany dla konkretnej maszyny wirtualnej, jest określany jako dysk. Gdy system operacyjny w pliku VHD zostanie uogólniony do użycia w celu utworzenia wielu maszyn wirtualnych, jest on nazywany obrazem.   
+Na platformie Azure pliki VHD mogą reprezentować [dyski lub obrazy](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Gdy system operacyjny w pliku VHD jest wyspecjalizowany dla konkretnej maszyny wirtualnej, jest określany jako dysk. Gdy system operacyjny w pliku VHD zostanie uogólniony do użycia w celu utworzenia wielu maszyn wirtualnych, jest on nazywany obrazem.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Tworzenie nowych maszyn wirtualnych i nowych dysków na podstawie obrazu platformy
 

@@ -3,18 +3,18 @@ title: Konfigurowanie serwera usługi GitHub Enterprise w chmurze prywatnej rozw
 description: Dowiedz się, jak skonfigurować serwer usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 53e5264eed761909217c2e3a902c9fee9faaffaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afce212416c7c12631a7f8d388dc991ed957736f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345185"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949313"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Konfigurowanie serwera usługi GitHub Enterprise w chmurze prywatnej rozwiązania Azure VMware
 
 W tym artykule omówiono procedurę konfigurowania programu GitHub Enterprise Server, czyli "lokalnego" w wersji [GitHub.com](https://github.com/), w chmurze prywatnej rozwiązania platformy Azure VMware. Scenariusz opisany w tym przewodniku dotyczy wystąpienia serwera z systemem GitHub Enterprise, które może obsłużyć do 3 000 deweloperów z maksymalnie 25 zadaniami na minutę w ramach akcji usługi GitHub. Obejmuje on konfigurację (w czasie pisania) funkcji w *wersji zapoznawczej* , na przykład akcji usługi GitHub. Aby dostosować konfigurację do konkretnych potrzeb, należy zapoznać się z wymaganiami wymienionymi w temacie [Instalowanie serwera GitHub Enterprise Server w oprogramowaniu VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Serwer usługi GitHub Enterprise wymaga ważnego klucza licencji. Możesz zarejestrować się w celu uzyskania [licencji na wersję próbną](https://enterprise.github.com/trial). Jeśli chcesz zwiększyć możliwości programu GitHub Enterprise Server za pośrednictwem integracji, możesz zakwalifikować się do korzystania z bezpłatnej licencji na pięć miejsc. Zastosuj tę licencję w [programie partnerskim usługi GitHub](https://partner.github.com/).
 
@@ -74,7 +74,7 @@ Aby zabezpieczyć wystąpienie do użycia w środowisku produkcyjnym, zalecane s
 > [!NOTE]
 > Akcje usługi GitHub są [obecnie dostępne w ramach ograniczonej wersji beta w witrynie GitHub Enterprise Server w wersji 2,22](https://docs.github.com/en/enterprise/admin/github-actions).
 
-Zewnętrzny magazyn obiektów BLOB jest wymagany do włączenia akcji GitHub na serwerze z systemem GitHub Enterprise (obecnie dostępnym jako funkcja "beta"). Zewnętrzny magazyn obiektów BLOB jest używany przez akcje do przechowywania artefaktów i dzienników. Akcje w witrynie GitHub Enterprise Server [obsługują platformę Azure Blob Storage jako dostawcę magazynu](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (i inne). Dlatego będziemy udostępniać nowe konto usługi Azure Storage z [typem konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) BlobStorage:
+Zewnętrzny magazyn obiektów BLOB jest wymagany do włączenia akcji GitHub na serwerze z systemem GitHub Enterprise (obecnie dostępnym jako funkcja "beta"). Zewnętrzny magazyn obiektów BLOB jest używany przez akcje do przechowywania artefaktów i dzienników. Akcje w witrynie GitHub Enterprise Server [obsługują platformę Azure Blob Storage jako dostawcę magazynu](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (i inne). Dlatego będziemy udostępniać nowe konto usługi Azure Storage z [typem konta magazynu](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) BlobStorage:
 
 :::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Wybierz, aby uruchomić usługi GitHub lokalnie lub w chmurze.":::
 

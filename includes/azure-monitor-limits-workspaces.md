@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91644708"
 ---
 **Wolumin zbierania danych i ich przechowywanie** 
@@ -33,7 +33,7 @@ ms.locfileid: "91644708"
 | Warstwa Bezpłatna  | 10 | Nie można zwiększyć tego limitu. |
 | Wszystkie inne warstwy | Bez ograniczeń | Użytkownik ma ograniczoną liczbę zasobów w grupie zasobów oraz liczbę grup zasobów na subskrypcję. |
 
-**Witryna Azure Portal**
+**Azure Portal**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|
@@ -47,7 +47,7 @@ ms.locfileid: "91644708"
 | Maksymalny rozmiar pojedynczego wpisu | 30 MB | Podziel większe woluminy na wiele wpisów. |
 | Maksymalny rozmiar wartości pól  | 32 KB | Pola dłuższe niż 32 KB są obcinane. |
 
-**Interfejs API wyszukiwania**
+**Wyszukaj interfejs API**
 
 | Kategoria | Limit | Komentarze |
 |:---|:---|:---|

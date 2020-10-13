@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575524"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor rejestruje dedykowane klastry
@@ -116,12 +116,12 @@ Powinna być 200 OK i nagłówek.
 
 Inicjowanie obsługi klastra Log Analytics trwa dłużej. Stan aprowizacji można sprawdzić na kilka sposobów:
 
-- Uruchom polecenie programu PowerShell Get-AzOperationalInsightsCluster z nazwą grupy zasobów i sprawdź Właściwość ProvisioningState. Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
+- Uruchom Get-AzOperationalInsightsCluster polecenie programu PowerShell z nazwą grupy zasobów i sprawdź Właściwość ProvisioningState. Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
 
-- Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze sprawdzaniem stanu operacji asynchronicznych.
+- Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z testem stanu operacji asynchronicznych.
 
 - Wyślij żądanie GET do zasobu *klastra* i sprawdź wartość *provisioningState* . Wartość jest *ProvisioningAccount* podczas aprowizacji i zakończyła *się pomyślnie* .
 
@@ -218,7 +218,7 @@ Content-type: application/json
 
 Propagacja identyfikatora klucza może potrwać kilka minut. Stan aktualizacji można sprawdzić na dwa sposoby:
 
-- Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze sprawdzaniem stanu operacji asynchronicznych. 
+- Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z testem stanu operacji asynchronicznych. 
 
    LUB
 
@@ -319,7 +319,7 @@ W przypadku korzystania z kluczy zarządzanych przez klienta dane pozyskiwane s�
 
 Stan skojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
-- Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze sprawdzaniem stanu operacji asynchronicznych.
+- Skopiuj wartość Azure-AsyncOperation adresu URL z odpowiedzi i postępuj zgodnie z testem stanu operacji asynchronicznych.
 
 - Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź. Skojarzony obszar roboczy ma clusterResourceId w obszarze "funkcje".
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945167"
+ms.locfileid: "91948531"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -1134,11 +1134,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | instancepools | Nie | 
-> | managedinstances | Tak <br/><br/> [Dowiedz się więcej](/azure/azure-sql/database/move-resources-across-regions) o przenoszeniu wystąpień zarządzanych między regionami. | 
+> | managedinstances | Tak <br/><br/> [Dowiedz się więcej](../../azure-sql/database/move-resources-across-regions.md) o przenoszeniu wystąpień zarządzanych między regionami. | 
 > | ManagedInstances/bazy danych | Tak | 
 > | serwerem | Tak | 
-> | Serwery/bazy danych | Tak <br/><br/> [Dowiedz się więcej](/azure/azure-sql/database/move-resources-across-regions) o przenoszeniu baz danych między regionami.<br/><br/> [Dowiedz się więcej](../../resource-mover/tutorial-move-region-sql.md) o używaniu funkcji przenoszenia zasobów platformy Azure do przenoszenia baz danych SQL Azure.  | 
-> | serwery/elasticpools | Tak <br/><br/> [Dowiedz się więcej](/azure/azure-sql/database/move-resources-across-regions) o przenoszeniu pul elastycznych między regionami.<br/><br/> [Dowiedz się więcej](../../resource-mover/tutorial-move-region-sql.md) o korzystaniu z funkcji przenoszenia zasobów platformy Azure do przenoszenia pul elastycznych usługi Azure SQL.  | 
+> | Serwery/bazy danych | Tak <br/><br/> [Dowiedz się więcej](../../azure-sql/database/move-resources-across-regions.md) o przenoszeniu baz danych między regionami.<br/><br/> [Dowiedz się więcej](../../resource-mover/tutorial-move-region-sql.md) o używaniu funkcji przenoszenia zasobów platformy Azure do przenoszenia baz danych SQL Azure.  | 
+> | serwery/elasticpools | Tak <br/><br/> [Dowiedz się więcej](../../azure-sql/database/move-resources-across-regions.md) o przenoszeniu pul elastycznych między regionami.<br/><br/> [Dowiedz się więcej](../../resource-mover/tutorial-move-region-sql.md) o korzystaniu z funkcji przenoszenia zasobów platformy Azure do przenoszenia pul elastycznych usługi Azure SQL.  | 
 > | virtualclusters | Tak | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine

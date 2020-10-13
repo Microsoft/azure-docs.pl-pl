@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569887"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Przekształcanie danych przy użyciu mapowania przepływów danych
@@ -62,7 +62,7 @@ W tym kroku utworzysz fabrykę danych i otworzysz środowisko Data Factory, aby 
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) i obliczenia (na przykład usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -95,10 +95,10 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Nadaj nazwę źródłową **MoviesDB**. Kliknij pozycję **Nowy** , aby utworzyć nowy źródłowy zestaw danych.
 
     ![Zrzut ekranu pokazujący, gdzie wybierać nowe po nazwie źródła.](media/tutorial-data-flow/dataflow3.png)
-1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij pozycję Kontynuuj.
+1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij przycisk Kontynuuj.
 
     ![Zrzut ekranu przedstawiający kafelek Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
-1. Wybierz **DelimitedText**. Kliknij pozycję Kontynuuj.
+1. Wybierz **DelimitedText**. Kliknij przycisk Kontynuuj.
 
     ![Zrzut ekranu przedstawiający kafelek DelimitedText.](media/tutorial-data-flow/dataset2.png)
 1. Nazwij zestaw danych **MoviesDB**. Z listy rozwijanej połączona usługa wybierz pozycję **Nowy**.
@@ -131,7 +131,7 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 
     Jeśli klaster debugowania jest aktywny, można sprawdzić logikę, klikając przycisk **Odśwież** , aby wyświetlić dane wyjściowe wyrażenia w porównaniu z używanymi danymi wejściowymi. Istnieje więcej niż jedna odpowiedź, na którą można wykonać tę logikę przy użyciu języka wyrażeń przepływu danych.
 
-    ![Filtr](media/tutorial-data-flow/filter2.png)
+    ![Filtrowanie](media/tutorial-data-flow/filter2.png)
 
     Kliknij przycisk **Zapisz i Zakończ,** gdy skończysz pracę z wyrażeniem.
 
@@ -163,10 +163,10 @@ Po utworzeniu przepływu danych zostanie on automatycznie wysłany do kanwy prze
 1. Nazwij **ujścia**ujścia. Kliknij pozycję **Nowy** , aby utworzyć zestaw danych ujścia.
 
     ![Zrzut ekranu pokazujący, gdzie można nazwać ujścia i utworzyć nowy zestaw danych ujścia.](media/tutorial-data-flow/sink2.png)
-1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij pozycję Kontynuuj.
+1. Wybierz **Azure Data Lake Storage Gen2**. Kliknij przycisk Kontynuuj.
 
     ![Zrzut ekranu przedstawiający kafelek Azure Data Lake Storage Gen2, który można wybrać.](media/tutorial-data-flow/dataset1.png)
-1. Wybierz **DelimitedText**. Kliknij pozycję Kontynuuj.
+1. Wybierz **DelimitedText**. Kliknij przycisk Kontynuuj.
 
     ![Zestaw danych](media/tutorial-data-flow/dataset2.png)
 1. Nazwij swój zestaw danych ujścia **MoviesSink**. W polu połączona usługa wybierz połączoną usługę ADLS Gen2 utworzoną w kroku 6. Wprowadź folder wyjściowy, w którym mają zostać zapisane dane. W tym samouczku zapisujemy do folderu "output" w kontenerze "przykładowe dane". Folder nie musi istnieć wcześniej i może być tworzony dynamicznie. Ustaw **pierwszy wiersz jako nagłówek** jako wartość true, a następnie wybierz pozycję **Brak** dla **schematu importowania**. Kliknij przycisk Zakończ.

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575014"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Uruchamianie akcji na podstawie stanu grupy przy użyciu zakresów w Azure Logic Apps
@@ -82,7 +82,7 @@ Aplikację logiki można zapisać w dowolnym momencie, dlatego Zapisz swoją sł
       | **Jednostka odległości** | <*Twoje preferencje*> | Wprowadź jednostkę odległości do obliczenia trasy. Ten przykład używa tej wartości: "mila" | 
       | **Tryb podróży** | Jazda samochodem | Wprowadź tryb podróży dla trasy. W tym przykładzie jest stosowana ta wartość "kierowanie" | 
       | **Transport publiczny — data i godzina** | Brak | Dotyczy tylko trybu tranzytowego. | 
-      | **Typ daty tranzytu** | Brak | Dotyczy tylko trybu tranzytowego. | 
+      | **Typ Date-Type tranzytu** | Brak | Dotyczy tylko trybu tranzytowego. | 
       ||||  
 
 1. [Dodaj warunek](../logic-apps/logic-apps-control-flow-conditional-statement.md) , który sprawdza, czy bieżący czas podróży z ruchem przekracza określony czas. 

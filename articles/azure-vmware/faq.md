@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530480"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948718"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -101,6 +101,10 @@ O ile wiemy, każde rozwiązanie do tworzenia kopii zapasowych, które korzysta 
 
 Ponieważ te rozwiązania do tworzenia kopii zapasowych są instalowane i zarządzane przez klientów, mogą skontaktować się z odpowiednim dostawcą oprogramowania, aby uzyskać pomoc techniczną. 
 
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Jakie są poprawne zasady magazynu dla konfiguracji deduplikacji?
+
+Użyj zasad magazynu *thin_provision* dla szablonu maszyny wirtualnej.  Wartość domyślna to *thick_provision*.
+
 ## <a name="hosts-clusters-and-private-clouds"></a>Hosty, klastry i chmury prywatne
 
 #### <a name="is-the-underlying-infrastructure-shared"></a>Czy podstawowa infrastruktura jest udostępniona?
@@ -174,6 +178,8 @@ Nie. Ruch sieciowy przychodzący z Internetu bezpośrednio do chmur prywatnych n
 
 Tak. Aby utworzyć zaporę ograniczającą dostęp do sieci wirtualnej, należy użyć Menedżera NSX-T.
 
+
+
 ## <a name="accounts-and-privileges"></a>Konta i uprawnienia
 
 #### <a name="what-accounts-and-privileges-will-i-get-with-my-new-azure-vmware-solution-private-cloud"></a>Jakie konta i uprawnienia uzyskasz przy użyciu nowej chmury prywatnej rozwiązania Azure VMware?
@@ -211,7 +217,7 @@ Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Jak mogę zażądać zwiększenia limitu przydziału hosta dla rozwiązania Azure VMware?
 
-* Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) z firmą Microsoft.
+* Będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md) z firmą Microsoft.
 * Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
 
 Przed utworzeniem zasobu rozwiązania Azure VMware należy przesłać bilet pomocy technicznej w celu przydzielenia węzłów. Gdy zespół pomocy technicznej otrzyma Twoje żądanie, zajmie do pięciu dni roboczych, aby potwierdzić żądanie i przydzielić węzły. Jeśli masz istniejącą chmurę prywatną rozwiązania VMware platformy Azure i chcesz uzyskać więcej węzłów, przejdziesz do tego samego procesu.

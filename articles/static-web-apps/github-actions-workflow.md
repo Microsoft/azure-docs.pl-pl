@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 92d445991aa8b90a343ad7d015787cff35ddf183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d4a455458812bef1d79aba583a6317c08b65863
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85340941"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948378"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -152,7 +152,7 @@ Wdrożenie zawsze wywołuje `npm install` przed dowolnym poleceniem niestandardo
 
 | Polecenie            | Opis |
 |---------------------|-------------|
-| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowych Enter `ng build --prod` . Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:Azure` polecenia lub.  |
+| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowej, należy utworzyć skrypt npm o nazwie `build-prod` do uruchomienia `ng build --prod` i wprowadzić `npm run build-prod` jako polecenie niestandardowe. Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:Azure` polecenia lub.  |
 | `api_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji interfejsu API Azure Functions. |
 
 ## <a name="route-file-location"></a>Lokalizacja pliku tras

@@ -8,10 +8,10 @@ ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
 ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450216"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Dodawanie użytkownika w witrynie Azure Portal

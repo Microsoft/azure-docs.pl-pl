@@ -10,13 +10,13 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574329"
 ---
-# <a name="iot-plug-and-play-architecture"></a>Architektura Plug and Play IoT
+# <a name="iot-plug-and-play-architecture"></a>Architektura technologii IoT Plug and Play
 
 Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń inteligentnych z ich rozwiązaniami bez konieczności ręcznej konfiguracji. Podstawą Plug and Play IoT jest _model_ urządzeń, który opisuje możliwości urządzenia w aplikacji z obsługą Plug and Play IoT. Ten model jest strukturalny jako zestaw interfejsów, które definiują:
 
@@ -28,7 +28,7 @@ Każdy model i interfejs ma unikatowy identyfikator.
 
 Na poniższym diagramie przedstawiono kluczowe elementy rozwiązania IoT Plug and Play:
 
-:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Architektura Plug and Play IoT":::
+:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Architektura technologii IoT Plug and Play":::
 
 ## <a name="model-repository"></a>Repozytorium modeli
 
@@ -38,7 +38,7 @@ Interfejs użytkownika sieci Web umożliwia zarządzanie modelami i interfejsami
 
 Repozytorium modelu używa RBAC, aby umożliwić ograniczenie dostępu do definicji interfejsu.
 
-## <a name="devices"></a>Urządzenia
+## <a name="devices"></a>Devices
 
 Konstruktor urządzeń implementuje kod do uruchomienia na urządzeniu inteligentnym IoT przy użyciu jednego z [zestawów SDK urządzeń usługi Azure IoT](./libraries-sdks.md). Zestawy SDK urządzeń pomagają konstruktorowi urządzeń:
 
@@ -66,7 +66,7 @@ Zestawy SDK urządzeń ułatwiają konstruktorowi modułu:
 - Dodaj programy obsługi poleceń dla poleceń zdefiniowanych w interfejsach DTDL.
 - Wyślij dane telemetryczne do centrum IoT Hub.
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-hub"></a>Usługa IoT Hub
 
 [IoT Hub](../iot-hub/about-iot-hub.md) to usługa hostowana w chmurze, która działa jako centralny centrum komunikatów do komunikacji dwukierunkowej między rozwiązaniem IoT i zarządzanymi urządzeniami.
 

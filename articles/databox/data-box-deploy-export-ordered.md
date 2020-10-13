@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575575"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
@@ -60,7 +60,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 
    ![Utwórz Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
@@ -168,7 +168,7 @@ W przypadku wybrania opcji **Użyj pliku XML**można określić określone konte
 
    ![Zrzut ekranu przedstawiający kartę nowy kontener z wybraną opcją prywatny (brak dostępu anonimowego).](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
    ![Zrzut ekranu przedstawiający kartę nowy kontener z opcją tworzenia wywołana.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
@@ -263,8 +263,8 @@ W poniższej tabeli przedstawiono przykłady prawidłowych ścieżek obiektów b
    | Rozpoczyna się od |/containers |Eksportuje wszystkie obiekty blob w kontenerze rozpoczynającym się od **kontenerów** prefiksów |
    | Rozpoczyna się od |/container-name/ |Eksportuje wszystkie obiekty blob w **kontenerze kontenera — nazwa** |
    | Rozpoczyna się od |/container-name/prefix |Eksportuje wszystkie obiekty blob w **kontenerze kontenera — nazwa** rozpoczynająca się **od prefiksu prefiksu** |
-   | Jest równe |$root/logo.bmp |Eksportuje **logo.bmp** obiektów BLOB w kontenerze głównym |
-   | Jest równe |8tbpageblob/mydata.txt |Eksportuje **mydata.txt** obiektów BLOB w kontenerze **8tbpageblob** |
+   | Równe |$root/logo.bmp |Eksportuje **logo.bmp** obiektów BLOB w kontenerze głównym |
+   | Równe |8tbpageblob/mydata.txt |Eksportuje **mydata.txt** obiektów BLOB w kontenerze **8tbpageblob** |
 
 ## <a name="sample-log-files"></a>Przykładowe pliki dziennika
 

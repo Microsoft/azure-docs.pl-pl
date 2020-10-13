@@ -8,10 +8,10 @@ ms.author: sahubbar
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91573976"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Tworzenie i uruchamianie zadania w aplikacji IoT Central platformy Azure
@@ -85,7 +85,7 @@ Po utworzeniu zadania kolumna **stan** będzie aktualizowana przy użyciu komuni
 
 | Komunikat o stanie       | Stan znaczenie                                          |
 | -------------------- | ------------------------------------------------------- |
-| Ukończone            | To zadanie zostało uruchomione na wszystkich urządzeniach.              |
+| Zakończone            | To zadanie zostało uruchomione na wszystkich urządzeniach.              |
 | Niepowodzenie               | To zadanie nie powiodło się i nie zostało w pełni uruchomione na urządzeniach.  |
 | Oczekiwanie              | To zadanie nie zostało jeszcze uruchomione na urządzeniach.         |
 | Uruchomienie              | To zadanie jest obecnie uruchomione na urządzeniach.             |
@@ -103,7 +103,7 @@ Aby wyświetlić stan zadania i wszystkie urządzenia, których to dotyczy, Otw�
 
 | Komunikat o stanie       | Stan znaczenie                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Ukończone            | Zadanie zostało uruchomione na tym urządzeniu.                                     |
+| Zakończone            | Zadanie zostało uruchomione na tym urządzeniu.                                     |
 | Niepowodzenie               | Nie można uruchomić zadania na tym urządzeniu. Komunikat o błędzie zawiera więcej informacji.  |
 | Oczekiwanie              | Zadanie nie zostało jeszcze uruchomione na tym urządzeniu.                                   |
 

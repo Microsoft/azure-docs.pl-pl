@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653693"
+ms.locfileid: "91929460"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Często zadawane pytania dotyczące wydajności protokołu SMB dla Azure NetApp Files
 
@@ -39,7 +39,7 @@ W przypadku włączenia obsługi wielokanałowego protokołu SMB klient protoko�
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>Które wersje systemu Windows obsługują Wielokanałowość SMB?
 
-System Windows obsługuje Wielokanałowość protokołu SMB od systemu Windows 2012 w celu zapewnienia najlepszej wydajności.  Aby uzyskać szczegółowe informacje, zobacz temat [wdrażanie wielokanałowości SMB](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) i [podstawy protokołu SMB](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) . 
+System Windows obsługuje Wielokanałowość protokołu SMB od systemu Windows 2012 w celu zapewnienia najlepszej wydajności.  Aby uzyskać szczegółowe informacje, zobacz temat [wdrażanie wielokanałowości SMB](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) i [podstawy protokołu SMB](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0) . 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>Czy moja maszyna wirtualna platformy Azure obsługuje funkcję RSS?
@@ -132,7 +132,7 @@ Po uruchomieniu ruchu danych w woluminach można monitorować karty w Monitorze 
 
 ## <a name="is-accelerated-networking-recommended"></a>Czy zalecane jest przyspieszenie sieci?
 
-W celu uzyskania maksymalnej wydajności zaleca się skonfigurowanie [przyspieszonej sieci](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) , jeśli jest to możliwe. Należy pamiętać o następujących kwestiach:  
+W celu uzyskania maksymalnej wydajności zaleca się skonfigurowanie [przyspieszonej sieci](../virtual-network/create-vm-accelerated-networking-powershell.md) , jeśli jest to możliwe. Należy pamiętać o następujących kwestiach:  
 
 * Azure Portal domyślnie włącza przyspieszone sieci dla maszyn wirtualnych obsługujących tę funkcję.  Jednak inne metody wdrażania, takie jak rozwiązania ansible i podobne narzędzia do konfiguracji, mogą nie być obsługiwane.  Niepowodzenie włączenia przyspieszonej sieci może hobble wydajność maszyny.  
 * Jeśli przyspieszona sieć nie jest włączona w interfejsie sieciowym maszyny wirtualnej z powodu braku obsługi dla typu lub rozmiaru wystąpienia, pozostanie wyłączone z większymi typami wystąpień. W tych przypadkach będzie potrzebna ręczna interwencja.

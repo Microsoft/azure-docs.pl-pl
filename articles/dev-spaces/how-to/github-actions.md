@@ -7,14 +7,16 @@ description: Przejrzyj i przetestuj zmiany z żądania ściągnięcia bezpośred
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery, akcje GitHub, Helm, Siatka usług, routing w sieci usług, polecenia kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js
-ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316107"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973108"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Akcje GitHub & usługi Azure Kubernetes (wersja zapoznawcza)
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces udostępnia przepływ pracy korzystający z akcji usługi GitHub, które umożliwiają przetestowanie zmian z żądania ściągnięcia bezpośrednio w AKS przed scaleniem żądania ściągnięcia z gałęzią główną repozytorium. Mając działającą aplikację, aby przeglądać zmiany żądania ściągnięcia, można zwiększyć zaufanie zarówno dla deweloperów, jak i członków zespołu. Ta działająca aplikacja może również pomóc członkom zespołu, takim jak Menedżerowie produktów i projektanci, stać się częścią procesu przeglądu podczas wczesnych etapów programowania.
 

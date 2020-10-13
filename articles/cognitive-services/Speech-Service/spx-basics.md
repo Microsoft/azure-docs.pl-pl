@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88854899"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893819"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
@@ -69,6 +69,51 @@ W tym poleceniu należy określić zarówno źródło (język do **przetłumacze
 
 > [!NOTE]
 > Zapoznaj się z listą wszystkich obsługiwanych języków z odpowiednimi kodami ustawień regionalnych w [artykule język i ustawienia regionalne](language-support.md) .
+
+### <a name="configuration-files-in-the-datastore"></a>Pliki konfiguracji w magazynie danych
+
+Interfejs wiersza polecenia mowy może odczytywać i zapisywać wiele ustawień w plikach konfiguracji, które są przechowywane w lokalnym magazynie danych interfejsu wiersza polecenia mowy, i są nazwane w ramach wywołań interfejsu wiersza polecenia mowy przy użyciu znaku @. Interfejs wiersza polecenia mowy próbuje zapisać nowe ustawienie w nowym `./spx/data` podkatalogu, który tworzy w bieżącym katalogu roboczym.
+Podczas wyszukiwania wartości konfiguracji interfejs wiersza polecenia mowy wyszukuje w bieżącym katalogu roboczym, a następnie w `./spx/data` ścieżce.
+Poprzednio magazyn danych został użyty do zapisania `@key` `@region` wartości i, więc nie trzeba ich określić przy użyciu każdego wywołania wiersza polecenia.
+Przy użyciu plików konfiguracji można także przechowywać własne ustawienia konfiguracji, a nawet używać ich do przekazywania adresów URL lub innej zawartości dynamicznej wygenerowanej w czasie wykonywania.
+
+W tej sekcji pokazano użycie pliku konfiguracji w lokalnym magazynie danych do przechowywania i pobierania ustawień poleceń przy użyciu `spx config` i przechowywania danych wyjściowych z interfejsu wiersza polecenia mowy przy użyciu `--output` opcji.
+
+Poniższy przykład czyści `@my.defaults` plik konfiguracji, dodaje pary klucz-wartość dla **klucza** i **regionu** w pliku, a następnie używa konfiguracji w wywołaniu `spx recognize` .
+
+```shell
+spx config @my.defaults --clear
+spx config @my.defaults --add key 000072626F6E20697320636F6F6C0000
+spx config @my.defaults --add region westus
+
+spx config @my.defaults
+
+spx recognize --nodefaults @my.defaults --file hello.wav
+```
+
+Zawartość dynamiczną można także zapisać w pliku konfiguracji. Na przykład następujące polecenie tworzy niestandardowy model mowy i zapisuje adres URL nowego modelu w pliku konfiguracji. Następne polecenie czeka, aż model w tym adresie URL będzie gotowy do użycia przed zwróceniem.
+
+```shell
+spx csr model create --name "Example 4" --datasets @my.datasets.txt --output url @my.model.txt
+spx csr model status --model @my.model.txt --wait
+```
+
+Poniższy przykład zapisuje dwa adresy URL do `@my.datasets.txt` pliku konfiguracji.
+W tym scenariuszu `--output` może zawierać opcjonalne słowo kluczowe **Add** , aby utworzyć plik konfiguracji lub dołączyć do istniejącego pliku.
+
+
+```shell
+spx csr dataset create --name "LM" --kind Language --content https://crbn.us/data.txt --output url @my.datasets.txt
+spx csr dataset create --name "AM" --kind Acoustic --content https://crbn.us/audio.zip --output add url @my.datasets.txt
+
+spx config @my.datasets.txt
+```
+
+Aby uzyskać więcej informacji na temat plików magazynu danych, w tym używania domyślnych plików konfiguracji ( `@spx.default` , `@default.config` i `@*.default.config` dla ustawień domyślnych specyficznych dla poleceń), wprowadź następujące polecenie:
+
+```shell
+spx help advanced setup
+```
 
 ## <a name="batch-operations"></a>Operacje wsadowe
 

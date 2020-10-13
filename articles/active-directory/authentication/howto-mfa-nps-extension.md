@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: f7214668fc63ec8bb2e0c23d264c1aa01c9148ba
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91368416"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury serwera zasad sieciowych (NPS) z usługą Azure Multi-Factor Authentication
@@ -91,7 +91,7 @@ Następujące biblioteki są instalowane automatycznie z rozszerzeniem.
 
 Moduł Microsoft Azure Active Directory dla Windows PowerShell jest również instalowany za pomocą skryptu konfiguracji, który jest uruchamiany w ramach procesu instalacji, jeśli jeszcze nie istnieje. Nie ma potrzeby instalowania tego modułu przed czasem, gdy nie został jeszcze zainstalowany.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Każdy użytkownik korzystający z rozszerzenia serwera NPS musi być synchronizowany z usługą Azure AD przy użyciu Azure AD Connect i musi być zarejestrowany dla usługi MFA.
 
@@ -303,7 +303,7 @@ Skonfiguruj klientów usługi RADIUS, którzy mają wymagać uwierzytelniania wi
 
 Jeśli masz użytkowników, którzy nie zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, możesz określić, co się dzieje podczas próby uwierzytelnienia. Aby kontrolować to zachowanie, użyj ustawienia *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA*. To ustawienie ma jedną opcję konfiguracji:
 
-| Klucz | Wartość | Domyślny |
+| Klucz | Wartość | Domyślne |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 
