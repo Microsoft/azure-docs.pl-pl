@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
 ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552054"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Rozszerzenia i funkcje maszyn wirtualnych platformy Azure

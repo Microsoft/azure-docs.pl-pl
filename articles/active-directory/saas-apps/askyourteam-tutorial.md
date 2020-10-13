@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713803"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą AskYourTeam
@@ -85,7 +85,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<COMPANY>.app.askyourteam.com/login`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości za pomocą wartości rzeczywiste adresy URL odpowiedzi i adres URL logowania, które zostały wyjaśnione w dalszej części tego samouczka.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu adresu URL rzeczywistego odpowiedzi i wartości adresu URL Sign-On, które zostały wyjaśnione w dalszej części tego samouczka.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -105,7 +105,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -139,13 +139,13 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij pozycję **Edytuj ustawienia**.
 
-    ![Zrzut ekranu przedstawia komunikat logowania jednokrotnego za pomocą przycisku Edytuj ustawienia.](./media/askyourteam-tutorial/configure2.png)
+    ![Zrzut ekranu przedstawia komunikat o pojedynczej Sign-On z przyciskiem Edytuj ustawienia.](./media/askyourteam-tutorial/configure2.png)
 
-1. Na stronie **Edytuj integrację logowania** jednokrotnego wykonaj następujące czynności: 
+1. Na stronie **Edytuj integrację pojedynczego Sign-On** wykonaj następujące czynności: 
 
-    ![Zrzut ekranu przedstawia funkcję Edytuj integrację logowania jednokrotnego, w której można wprowadzić wartości dla tego kroku.](./media/askyourteam-tutorial/configure3.png)
+    ![Zrzut ekranu przedstawia edytowanie integracji z jednym Sign-On, w której można wprowadzić wartości tego kroku.](./media/askyourteam-tutorial/configure3.png)
 
-    a. W polu tekstowym **adres URL usługi logowania** jednokrotnego protokołu SAML wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
+    a. W polu tekstowym **adres URL usługi SAML Single Sign-On** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
     b. W polu tekstowym **Identyfikator jednostki SAML** wklej wartość **identyfikatora usługi Azure AD** skopiowaną z Azure Portal.
 
@@ -160,7 +160,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     f. Skopiuj wartość **adresu URL logowania** , wklej tę wartość do pola tekstowego **adres URL logowania** w sekcji **Podstawowa konfiguracja SAML** w Azure Portal.
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 ### <a name="create-askyourteam-test-user"></a>Utwórz użytkownika testowego AskYourTeam
 
@@ -186,7 +186,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     1. Wybierz **rolę** dla użytkownika zgodnie z wymaganiami organizacji.
 
-    1. Kliknij pozycję **Zapisz**.
+    1. Kliknij przycisk **Zapisz**.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -194,7 +194,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka AskYourTeam w panelu dostępu należy automatycznie zalogować się do AskYourTeam, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

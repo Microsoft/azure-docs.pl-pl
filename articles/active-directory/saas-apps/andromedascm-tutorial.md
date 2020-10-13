@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: d1e2b91b46bee761c7feb1000920d5ae1e65ba4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Samouczek: integracja Azure Active Directory z usługą Andromeda
@@ -74,7 +74,7 @@ Aby logowanie jednokrotne działało, należy ustanowić relację linku między 
 Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Andromeda, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie](#configure-andromeda-single-sign-on)** jednokrotne w usłudze Andromeda, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-andromeda-single-sign-on)** jednokrotne w usłudze Andromeda, aby skonfigurować pojedyncze ustawienia Sign-On po stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
 5. **[Utwórz użytkownika testowego Andromeda](#create-andromeda-test-user)** , aby uzyskać odpowiednik Britta Simon w Andromeda, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
@@ -113,7 +113,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Wartość zostanie zaktualizowana o rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, który zostanie przedstawiony w dalszej części tego samouczka.
+    > Te wartości nie są prawdziwe. Wartość zostanie zaktualizowana o rzeczywisty identyfikator, adres URL odpowiedzi i adres URL Sign-On, który zostanie przedstawiony w dalszej części tego samouczka.
 
 6. Aplikacja Andromeda oczekuje potwierdzeń SAML w określonym formacie. Skonfiguruj następujące oświadczenia dla tej aplikacji. Wartościami tych atrybutów możesz zarządzać w sekcji **Atrybuty użytkownika** na stronie integracji aplikacji. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Atrybuty użytkownika**.
 
@@ -149,7 +149,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     f. Kliknij przycisk **OK** .
 
-    przykład Kliknij pozycję **Zapisz**.
+    przykład Kliknij przycisk **Zapisz**.
 
 8. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -165,7 +165,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     c. Adres URL wylogowywania
 
-### <a name="configure-andromeda-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Andromeda
+### <a name="configure-andromeda-single-sign-on"></a>Konfigurowanie pojedynczego Sign-On Andromeda
 
 1. Zaloguj się do witryny firmowej Andromeda jako administrator.
 
@@ -199,7 +199,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Andromeda, 
 
     ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
-    i. Kliknij pozycję **Zapisz**.
+    i. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -223,7 +223,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij pozycję **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

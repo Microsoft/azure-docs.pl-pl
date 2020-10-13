@@ -1,6 +1,6 @@
 ---
-title: plik dołączania
-description: plik dołączania
+title: plik dołączany
+description: plik dołączany
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 07/15/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 535ee447ff63aabb9af1f32252fb4e4dd2c392de
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779424"
 ---
 W poniższej tabeli wymieniono informacje o limicie przydziału dotyczące Azure Service Bus komunikatów. Aby uzyskać informacje na temat cen i innych przydziałów Service Bus, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).

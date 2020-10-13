@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Sieć
+            - name: Networking
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md

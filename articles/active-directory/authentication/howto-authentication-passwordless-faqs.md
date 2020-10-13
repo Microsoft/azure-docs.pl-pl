@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236719"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Wdrożenie często zadawanych pytań (FAQ) dla kluczy zabezpieczeń hybrydowych FIDO2 w usłudze Azure AD (wersja zapoznawcza)
@@ -185,7 +185,7 @@ Serwer Kerberos usługi Azure AD jest reprezentowany w lokalnym środowisku AD D
 
 * *CN = AzureADKerberos, OU = kontrolery domeny,\<domain-DN>*
     
-    Obiekt *komputera* , który reprezentuje kontroler domeny tylko do odczytu (RODC) w AD DS. Brak komputera skojarzonego z tym obiektem. Zamiast tego jest logiczną reprezentacją kontrolera domeny.
+    Obiekt *komputera* , który reprezentuje Read-Only kontroler domeny (RODC) w AD DS. Brak komputera skojarzonego z tym obiektem. Zamiast tego jest logiczną reprezentacją kontrolera domeny.
 
 * *CN = krbtgt_AzureAD, CN = users,\<domain-DN>*
 

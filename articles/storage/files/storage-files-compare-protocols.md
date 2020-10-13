@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568475"
 ---
 # <a name="azure-file-share-protocols"></a>Protokoły udziałów plików platformy Azure
@@ -21,13 +21,13 @@ Azure Files oferuje dwa protokoły do łączenia i instalowania udziałów plik�
 
 ## <a name="differences-at-a-glance"></a>Różnice w skrócie
 
-|Cechy  |NFS (wersja zapoznawcza)  |SMB  |
+|Cecha  |NFS (wersja zapoznawcza)  |SMB  |
 |---------|---------|---------|
 |Protokoły dostępu     |SYSTEM PLIKÓW NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Obsługiwane systemy operacyjne     |Jądro systemu Linux w wersji 4.3 +         |Windows 2008 R2 +, jądro systemu Linux w wersji 4.11 +         |
 |[Dostępne warstwy](storage-files-planning.md#storage-tiers)     |Premium Storage         |Usługa Premium Storage, zoptymalizowana pod kątem transakcji, gorąca, chłodna         |
 |[Nadmiarowość](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
-|Authentication     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
+|Uwierzytelnianie     |Tylko uwierzytelnianie oparte na hoście        |Uwierzytelnianie oparte na tożsamościach, uwierzytelnianie na podstawie użytkownika         |
 |Uprawnienia     |Uprawnienia w stylu systemu UNIX         |Uprawnienia w stylu systemu plików NTFS         |
 |Semantyka systemu plików     |Zgodne ze standardem POSIX         |Nie jest zgodny ze standardem POSIX         |
 |Rozróżnianie wielkości liter     |Uwzględnianie wielkości liter         |Bez uwzględniania wielkości liter         |

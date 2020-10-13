@@ -170,9 +170,11 @@
             - name: Przełączanie czatu na żywo
               href: howto-show-hide-chat.md
     - name: Rozwiązywanie problemów
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: Połączenia urządzenia
+          href: troubleshoot-connection.md
+    - name: Często zadawane pytania
+      href: howto-faq.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

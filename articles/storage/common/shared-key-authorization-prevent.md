@@ -10,10 +10,10 @@ ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715125"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
@@ -125,7 +125,7 @@ Właściwość **AllowSharedKeyAccess** nie jest domyślnie ustawiona i nie zwra
 > [!WARNING]
 > Jeśli dowolni klienci uzyskują dostęp do danych na koncie magazynu za pomocą klucza współużytkowanego, firma Microsoft zaleca, aby przeprowadzić migrację tych klientów do usługi Azure AD przed zezwoleniem na dostęp do klucza dostępu do konta magazynu.
 
-# <a name="azure-portal"></a>[Witryna Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Aby nie zezwalać na autoryzację klucza współużytkowanego dla konta magazynu w Azure Portal, wykonaj następujące czynności:
 
@@ -214,7 +214,7 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 | Narzędzie platformy Azure | Autoryzacja usługi Azure AD do usługi Azure Storage |
 |-|-|
 | Azure Portal | Obsługiwane. Aby uzyskać informacje na temat autoryzacji konta usługi Azure AD z poziomu Azure Portal, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-blob-access-portal.md). |
-| AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
+| Narzędzie AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
 | Eksplorator usługi Azure Storage | Obsługiwane tylko w przypadku usługi BLOB Storage i tylko Azure Data Lake Storage Gen2. Dostęp do usługi queue storage w usłudze Azure AD nie jest obsługiwany. Upewnij się, że wybrano prawidłową dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z Eksplorator usługi Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń programu PowerShell dla operacji obiektu BLOB lub kolejki w usłudze Azure AD, zobacz [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB](../blobs/authorize-active-directory-powershell.md) lub [uruchamiania poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki](../queues/authorize-active-directory-powershell.md). |
 | Interfejs wiersza polecenia platformy Azure | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń interfejsu wiersza polecenia platformy Azure z usługą Azure AD w celu uzyskania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub](authorize-data-operations-cli.md) |

@@ -8,10 +8,10 @@ ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334433"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
@@ -87,8 +87,8 @@ W poniższej tabeli przedstawiono mapowanie między różnymi typami interfejsó
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
 |Gremlin     |  Sql       |  privatelink.documents.azure.com    |
-|tabela    |    tabela     |   privatelink.table.cosmos.azure.com    |
-|tabela     |   Sql      |  privatelink.documents.azure.com    |
+|Tabela    |    Tabela     |   privatelink.table.cosmos.azure.com    |
+|Tabela     |   Sql      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>Pobierz prywatne adresy IP
 
@@ -98,7 +98,7 @@ Po aprowizacji prywatnego punktu końcowego możesz wysyłać zapytania dotyczą
 1. Wyszukaj utworzony wcześniej prywatny punkt końcowy. W tym przypadku jest to **cdbPrivateEndpoint3**.
 1. Wybierz kartę **Przegląd** , aby wyświetlić ustawienia DNS i adresy IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Prywatne adresy IP w Azure Portal":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Wybory dla tworzenia prywatnego punktu końcowego w Azure Portal":::
 
 Utworzono wiele adresów IP dla prywatnego punktu końcowego:
 
@@ -411,7 +411,7 @@ Dla tych kont należy utworzyć jeden prywatny punkt końcowy dla każdego typu 
 
 Po pomyślnym wdrożeniu szablonu można zobaczyć dane wyjściowe podobne do poniższej ilustracji. `provisioningState`Wartość to `Succeeded` czy prywatne punkty końcowe są poprawnie skonfigurowane.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Dane wyjściowe wdrożenia dla szablonu Menedżer zasobów":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Wybory dla tworzenia prywatnego punktu końcowego w Azure Portal":::
 
 Po wdrożeniu szablonu prywatne adresy IP są zastrzeżone w podsieci. Reguła zapory dla konta usługi Azure Cosmos jest skonfigurowana do akceptowania połączeń tylko z prywatnego punktu końcowego.
 

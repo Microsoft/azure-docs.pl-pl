@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a330fc18f39ffd7007e2a41a28016df69a2b739
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314661"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Virtual Machines platformy Azure o wysokiej dostępności dla oprogramowania SAP NetWeaver
@@ -522,7 +522,7 @@ Aby skonfigurować szablon wieloidentyfikatorowy ASCS/SCS, w szablonie [ASCS/SCS
   -  **Dostępność systemu**. Wybierz pozycję **ha**.
   -  **Nazwa użytkownika administratora i hasło administratora**. Utwórz nowego użytkownika, którego można użyć do zalogowania się na komputerze.
   -  **Nowa lub istniejąca podsieć**. Określ, czy należy utworzyć nową sieć wirtualną i podsieć, czy powinna być używana istniejąca podsieć. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
-  -  **Identyfikator podsieci**. Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco:/subscriptions/<*Identyfikator subskrypcji*>/ResourceGroups/<*nazwa grupy zasobów*>/Providers/Microsoft.Network/virtualnetworks/<*nazwa sieci wirtualnej*>/Subnets/<*Nazwa podsieci*>
+  -  **Identyfikator podsieci**. Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Ten identyfikator zwykle wygląda następująco:/subscriptions/<*Identyfikator subskrypcji*>/resourceGroups/<*nazwa grupy zasobów*>/Providers/Microsoft.Network/virtualNetworks/<*nazwa sieci wirtualnej*>/Subnets/<*Nazwa podsieci*>
 
 Szablon wdraża jedno Azure Load Balancer wystąpienie, które obsługuje wiele systemów SAP.
 

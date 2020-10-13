@@ -9,10 +9,10 @@ ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334399"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Interfejs API zapytań JavaScript w Azure Cosmos DB
@@ -59,7 +59,7 @@ W poniższej tabeli przedstawiono różne zapytania SQL i odpowiednie zapytania 
 |ZAZNACZENIA<br>Z witryny docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs. ID = "X998_Y998"|__. Filter (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;Return doc.id = = = "X998_Y998";<br>});|Zapytania o dokumenty z predykatem: ID = "X998_Y998".|
 |ZAZNACZENIA<br>Z witryny docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (docs. Tagi, 123)|__. Filter (funkcja (x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;zwraca x. Tags && x. Tags. indexOf (123) >-1;<br>});|Zapytania o dokumenty, które mają właściwość tagów i Tagi, są tablicą zawierającą wartość 123.|
 |SELECT<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs. Message jako komunikat<br>Z witryny docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs. ID = "X998_Y998"|__. łańcuch ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Filter (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return doc.id = = = "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. map (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;przesłać<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc. Message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>. Value ();|Wykonuje zapytania o dokumenty z predykatem, identyfikatorem "X998_Y998", a następnie projektuje identyfikator i komunikat (alias do MSG).|
-|Wybierz tag wartości<br>Z witryny docs<br>Tag JOIN w witrynie docs. Tabliczk<br>ORDER BY docs. _ts|__. łańcuch ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Filter (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wróć do dokumentu. Tagi && Array. IsArray (doc. Tagi);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. SortBy — (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zwróć dokument doc. _ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. oskubane ("Tagi")<br>&nbsp;&nbsp;&nbsp;&nbsp;. Spłaszcz ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Value ()|Filtruje dokumenty, które mają właściwość Array, Tagi i sortuje dokumenty uzyskane według właściwości systemowej sygnatury czasowej _ts, a następnie projekty i spłaszczają tablicę tagów.|
+|Wybierz tag wartości<br>Z witryny docs<br>Tag JOIN w witrynie docs. Tabliczk<br>PORZĄDKUj według docs._ts|__. łańcuch ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Filter (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wróć do dokumentu. Tagi && Array. IsArray (doc. Tagi);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. SortBy — (funkcja (doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zwróć doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;. oskubane ("Tagi")<br>&nbsp;&nbsp;&nbsp;&nbsp;. Spłaszcz ()<br>&nbsp;&nbsp;&nbsp;&nbsp;. Value ()|Filtruje dokumenty, które mają właściwość Array, Tagi i sortuje dokumenty uzyskane według właściwości systemowej sygnatury czasowej _ts, a następnie projekty i spłaszczają tablicę tagów.|
 
 ## <a name="next-steps"></a>Następne kroki
 

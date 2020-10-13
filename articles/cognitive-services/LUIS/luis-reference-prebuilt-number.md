@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
 ms.openlocfilehash: 13594886b83d4474ee2531185db5868a5198ca64
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541966"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Liczba wstępnie utworzonych jednostek dla aplikacji LUIS

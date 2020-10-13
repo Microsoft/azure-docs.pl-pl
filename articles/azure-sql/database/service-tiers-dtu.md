@@ -12,10 +12,10 @@ ms.author: sstein
 ms.date: 10/07/2020
 ms.reviewer: ''
 ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91848861"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
@@ -42,7 +42,7 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 |**Procesor CPU**|Niski|Niski, średni, wysoki|Średni, wysoki|
 |**Operacje we/wy (przybliżone)**\* |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
 |**Opóźnienie we/wy (przybliżone)**|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
-|**Indeksowanie magazynu kolumn** |Brak|S3 i nowsze|Obsługiwane|
+|**Indeksowanie magazynu kolumn** |Nie dotyczy|S3 i nowsze|Obsługiwane|
 |**Przetwarzanie OLTP w pamięci**|NIE DOTYCZY|NIE DOTYCZY|Obsługiwane|
 
 \* Wszystkie operacje we/wy odczytu i zapisu dla plików danych, w tym w przypadku tworzenia w tle (Checkpoint i składnika zapisywania z opóźnieniem)

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączany
+description: plik dołączany
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75371784"
 ---
 Sygnatura dostępu współdzielonego umożliwia przyznanie ograniczonego dostępu do kontenerów i obiektów BLOB na koncie magazynu. Podczas tworzenia sygnatury dostępu współdzielonego należy określić jego ograniczenia, w tym zasoby usługi Azure Storage, do których klient może uzyskać dostęp, jakie mają uprawnienia do tych zasobów oraz czas ważności sygnatury dostępu współdzielonego.

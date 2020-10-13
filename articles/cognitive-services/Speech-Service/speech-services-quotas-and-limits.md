@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: alexeyo
 ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567166"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Przydziały i limity usługi Mowa
@@ -86,7 +86,7 @@ Zwiększenie limitu współbieżnych **żądań nie wpływa bezpośrednio na** k
 
 Współbieżne limity żądań dla modeli **podstawowych** i **niestandardowych** muszą zostać dostosowane **osobno**.
 
-Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, narzędzi wiersza polecenia lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
+Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, Command-Line narzędzi lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
 
 >[!NOTE]
 >[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.
@@ -94,9 +94,9 @@ Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest wi
 #### <a name="have-the-required-information-ready"></a>Przygotuj wymagane informacje:
 - Dla **modelu podstawowego**:
   - Identyfikator zasobu mowy
-  - Region (Region)
+  - Region
 - Dla **modelu niestandardowego**: 
-  - Region (Region)
+  - Region
   - Identyfikator niestandardowego punktu końcowego
 
 - **Jak uzyskać informacje (model podstawowy)**:  
@@ -152,7 +152,7 @@ Domyślnie liczba współbieżnych żądań dla niestandardowego punktu końcowe
 
 Zwiększenie limitu współbieżnych **żądań nie wpływa bezpośrednio na** koszty. Usługi mowy korzystają z modelu "płatność tylko za rzeczywiste użycie". Limit definiuje, jak wysoka wydajność może być skalowana przed rozpoczęciem ograniczania żądań.
 
-Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, narzędzi wiersza polecenia lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
+Istniejąca wartość parametru limitu współbieżnych żądań **nie** jest widoczna za pośrednictwem Azure Portal, Command-Line narzędzi lub żądań interfejsu API. Aby zweryfikować istniejącą wartość, Utwórz żądanie pomocy technicznej platformy Azure.
 
 >[!NOTE]
 >[Kontenery mowy](speech-container-howto.md) nie wymagają zwiększenia liczby równoczesnych żądań, ponieważ kontenery są ograniczone tylko przez procesory, w których są hostowane sprzęt.

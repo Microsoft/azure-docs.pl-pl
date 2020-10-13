@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: aece7278d134145e00b027c184f3817d5566e1e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408357"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Kontrola zabezpieczeń: Zarządzanie zapasami i zasobami
@@ -38,7 +38,7 @@ Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośredni
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 6.2 | 1.5 | Klient |
+| 6,2 | 1.5 | Klient |
 
 Zastosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
@@ -94,7 +94,7 @@ Użyj spisu maszyn wirtualnych platformy Azure, aby zautomatyzować zbieranie in
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 6.7 | 2.5 | Klient |
+| 6.7 | 2,5 | Klient |
 
 Użyj Azure Security Center monitorowania integralności plików (Change Tracking) i spisu maszyn wirtualnych, aby zidentyfikować całe oprogramowanie zainstalowane w Virtual Machines. Możesz zaimplementować własny proces usuwania nieautoryzowanego oprogramowania. Do zidentyfikowania niezatwierdzonego oprogramowania można również użyć rozwiązania innej firmy.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80546189"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Właściwości agenta IoT Edge i modułu IoT Edge Hub bliźniaczych reprezentacji
@@ -55,7 +55,7 @@ Sznurek modułu dla agenta IoT Edge jest wywoływany `$edgeAgent` i koordynuje k
 | Moduły. {moduleId}. status | {"działa" \| "zatrzymane"} | Tak |
 | Moduły. {moduleId}. restartPolicy | {"nigdy" \| "on-Failure" \| "w złej kondycji" \| "always"} | Tak |
 | Moduły. {moduleId}. imagePullPolicy | {"on-Create" \| "nigdy"} | Nie |
-| Moduły. {moduleId}. env | Lista zmiennych środowiskowych do przekazania do modułu. Formatuje`"<name>": {"value": "<value>"}` | Nie |
+| Moduły. {moduleId}. env | Lista zmiennych środowiskowych do przekazania do modułu. Formatuje `"<name>": {"value": "<value>"}` | Nie |
 | Moduły. {moduleId}. Settings. Image | Identyfikator URI obrazu modułu. | Tak |
 | Moduły. {moduleId}. Settings. SetOptions | Skonwertowanej JSON zawierający opcje tworzenia kontenera modułów. [Opcje tworzenia platformy Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nie |
 | Moduły. {moduleId}. Configuration. ID | Identyfikator wdrożenia, który został wdrożony w tym module. | IoT Hub ustawia tę właściwość, gdy manifest zostanie zastosowany przy użyciu wdrożenia. Nie jest częścią manifestu wdrożenia. |
@@ -80,8 +80,8 @@ Poniższa tabela nie zawiera informacji skopiowanych z odpowiednich właściwoś
 | lastDesiredVersion | Ta liczba całkowita odnosi się do ostatniej wersji żądanych właściwości przetworzonych przez agenta IoT Edge. |
 | lastDesiredStatus. Code | Ten kod stanu odnosi się do ostatnich wymaganych właściwości widzianych przez agenta IoT Edge. Dozwolone wartości: `200` sukces, `400` nieprawidłowa konfiguracja, `412` nieprawidłowa wersja schematu, `417` żądane właściwości są puste, `500` Niepowodzenie |
 | lastDesiredStatus. Description | Opis tekstowy stanu |
-| deviceHealth | `healthy`Jeśli stan środowiska uruchomieniowego wszystkich modułów to `running` lub `stopped` , `unhealthy` w przeciwnym razie |
-| configurationHealth. {deploymentId}. Health | `healthy`Jeśli stan środowiska uruchomieniowego wszystkich modułów ustawionych przez wdrożenie {deploymentId} to albo `running` `stopped` , `unhealthy` w przeciwnym razie |
+| deviceHealth | `healthy` Jeśli stan środowiska uruchomieniowego wszystkich modułów to `running` lub `stopped` , `unhealthy` w przeciwnym razie |
+| configurationHealth. {deploymentId}. Health | `healthy` Jeśli stan środowiska uruchomieniowego wszystkich modułów ustawionych przez wdrożenie {deploymentId} to albo `running` `stopped` , `unhealthy` w przeciwnym razie |
 | środowisko uruchomieniowe. platform. OS | Raportowanie systemu operacyjnego działającego na urządzeniu |
 | środowisko uruchomieniowe. platform. Architecture | Raportowanie architektury procesora CPU na urządzeniu |
 | systemModules.edgeAgent.runtimeStatus | Zgłoszony stan IoT Edge agenta: {"uruchomiona" "w \| złej kondycji"} |

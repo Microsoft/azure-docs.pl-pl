@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 2b99d5ea33693431fb3811af50385891684a366e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546461"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą ThousandEyes
@@ -141,7 +141,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 5. W sekcji **Konfigurowanie logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Skonfiguruj Logowanie jednokrotne](./media/thousandeyes-tutorial/ic790069.png "Skonfiguruj Logowanie jednokrotne")
+    ![Skonfiguruj Logowanie jednokrotne](./media/thousandeyes-tutorial/ic790069.png "Skonfiguruj pojedynczy Sign-On")
 
     a. Wybierz pozycję **Włącz logowanie jednokrotne**.
 
@@ -153,7 +153,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. W obszarze **certyfikat weryfikacji**kliknij pozycję **Wybierz plik**, a następnie przekaż certyfikat pobrany z Azure Portal.
 
-    f. Kliknij pozycję **Zapisz**.
+    f. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-thousandeyes-test-user"></a>Utwórz użytkownika testowego ThousandEyes
 
@@ -202,7 +202,7 @@ Po kliknięciu kafelka ThousandEyes w panelu dostępu należy automatycznie zalo
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

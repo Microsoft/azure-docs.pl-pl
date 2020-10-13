@@ -5,10 +5,10 @@ ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567268"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Omówienie automatycznego skalowania w Microsoft Azure
@@ -89,7 +89,7 @@ Natomiast skalowanie w pionie jest inne. Zachowuje tę samą liczbę maszyn wirt
 ## <a name="methods-of-access"></a>Metody dostępu
 Można skonfigurować Skalowanie automatyczne za pomocą
 
-* [Witryna Azure Portal](autoscale-get-started.md)
+* [Azure Portal](autoscale-get-started.md)
 * [Program PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 * [Międzyplatformowy interfejs wiersza polecenia (CLI)](../samples/cli-samples.md#autoscale)
 * [Interfejs API REST usługi Azure Monitor](/rest/api/monitor/autoscalesettings)

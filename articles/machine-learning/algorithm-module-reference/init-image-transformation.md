@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907882"
 ---
 # <a name="init-image-transformation"></a>Inicjowanie transformacji obrazów
@@ -67,29 +67,29 @@ Aby [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorc
 
 ###  <a name="module-parameters"></a>Parametry modułu  
 
-| Nazwa                    | Zakres   | Typ    | Domyślny | Opis                              |
+| Nazwa                    | Zakres   | Type    | Domyślne | Opis                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Zmiana rozmiaru                  | Dowolne     | Boolean | Prawda    | Zmień rozmiar obrazu wejściowego PIL na dany rozmiar |
-| Rozmiar                    | >= 1     | Integer | 256     | Określ żądany rozmiar wyjściowy          |
+| Rozmiar                    | >= 1     | Liczba całkowita | 256     | Określ żądany rozmiar wyjściowy          |
 | Przytnij do środka             | Dowolne     | Boolean | Prawda    | Przycina dany obraz PIL w środku  |
-| Rozmiar przycinania               | >= 1     | Integer | 224     | Określ żądany rozmiar wyjściowy kadrowania |
-| Pad                     | Dowolne     | Boolean | Fałsz   | Zablokuj dany obraz PIL na wszystkich stronach z daną wartością "pad" |
-| Dopełnienie                 | >= 0     | Integer | 0       | Uzupełnienie dla każdego obramowania                   |
-| Wahanie kolorów            | Dowolne     | Boolean | Fałsz   | Losowa zmiana jasności, kontrastu i nasycenia obrazu |
-| Czarn               | Dowolne     | Boolean | Fałsz   | Konwertuj obraz na skalę odcieni szarooci               |
-| Przycinanie losowe o zmienionym rozmiarze     | Dowolne     | Boolean | Fałsz   | Przytnij dany obraz PIL do wielkości losowej i współczynnika proporcji |
-| Rozmiar losowy             | >= 1     | Integer | 256     | Oczekiwany rozmiar danych wyjściowych każdej krawędzi        |
-| Uprawa Losowa             | Dowolne     | Boolean | Fałsz   | Przycinanie danego obrazu PIL w losowej lokalizacji |
-| Rozmiar losowego przycinania        | >= 1     | Integer | 224     | Żądany rozmiar wyjściowy kadrowania          |
+| Rozmiar przycinania               | >= 1     | Liczba całkowita | 224     | Określ żądany rozmiar wyjściowy kadrowania |
+| Pad                     | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Zablokuj dany obraz PIL na wszystkich stronach z daną wartością "pad" |
+| Dopełnienie                 | >= 0     | Liczba całkowita | 0       | Uzupełnienie dla każdego obramowania                   |
+| Wahanie kolorów            | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowa zmiana jasności, kontrastu i nasycenia obrazu |
+| Czarn               | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Konwertuj obraz na skalę odcieni szarooci               |
+| Przycinanie losowe o zmienionym rozmiarze     | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Przytnij dany obraz PIL do wielkości losowej i współczynnika proporcji |
+| Rozmiar losowy             | >= 1     | Liczba całkowita | 256     | Oczekiwany rozmiar danych wyjściowych każdej krawędzi        |
+| Uprawa Losowa             | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Przycinanie danego obrazu PIL w losowej lokalizacji |
+| Rozmiar losowego przycinania        | >= 1     | Liczba całkowita | 224     | Żądany rozmiar wyjściowy kadrowania          |
 | Losowe Przerzucanie w poziomie  | Dowolne     | Boolean | Prawda    | W poziomie przerzucaj dany obraz PIL losowo z danym prawdopodobieństwem |
-| Losowe Przerzucanie pionowe    | Dowolne     | Boolean | Fałsz   | Przerzucanie w pionie danego obrazu PIL losowo z danym prawdopodobieństwem |
-| Obrót losowy         | Dowolne     | Boolean | Fałsz   | Obróć obraz o kąt                |
-| Losowe stopnie rotacji | [0180] | Integer | 0       | Zakres stopni do wyboru          |
-| Losowo afinicznym           | Dowolne     | Boolean | Fałsz   | Losowe przekształcenie afinicznym w centrum obrazu niezmiennej |
-| Losowe afinicznym stopni   | [0180] | Integer | 0       | Zakres stopni do wyboru          |
-| Losowa Skala odcieni szarooci        | Dowolne     | Boolean | Fałsz   | Losowa konwersja obrazu do skali odcieni szarości z prawdopodobieństwem 0,1 |
-| Perspektywa Losowa      | Dowolne     | Boolean | Fałsz   | Wykonuje transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5 |
-| Losowe wymazywanie          | Dowolne     | Boolean | Fałsz   | Losowo wybiera region prostokąta w obrazie i wymazuje jego piksele z prawdopodobieństwem 0,5 |
+| Losowe Przerzucanie pionowe    | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Przerzucanie w pionie danego obrazu PIL losowo z danym prawdopodobieństwem |
+| Obrót losowy         | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Obróć obraz o kąt                |
+| Losowe stopnie rotacji | [0180] | Liczba całkowita | 0       | Zakres stopni do wyboru          |
+| Losowo afinicznym           | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowe przekształcenie afinicznym w centrum obrazu niezmiennej |
+| Losowe afinicznym stopni   | [0180] | Liczba całkowita | 0       | Zakres stopni do wyboru          |
+| Losowa Skala odcieni szarooci        | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowa konwersja obrazu do skali odcieni szarości z prawdopodobieństwem 0,1 |
+| Perspektywa Losowa      | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Wykonuje transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5 |
+| Losowe wymazywanie          | Dowolne     | Boolean (wartość logiczna) | Fałsz   | Losowo wybiera region prostokąta w obrazie i wymazuje jego piksele z prawdopodobieństwem 0,5 |
 
 ###  <a name="output"></a>Dane wyjściowe  
 

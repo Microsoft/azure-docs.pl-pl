@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714979"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Wprowadzenie do podstawowych usług Azure Storage
@@ -91,7 +91,7 @@ Przykładowo załóżmy, że chcesz, aby klienci mogli przekazywać obrazy, i ch
 
 Aby uzyskać więcej informacji na temat usługi Azure Queues, zobacz [Wprowadzenie do usługi Azure Queues](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Magazyn tabel
+## <a name="table-storage"></a>Table Storage
 
 Usługa Azure Table Storage jest teraz częścią usługi Azure Cosmos DB. Aby zapoznać się z dokumentacją usługi Azure Table Storage, przejdź do artykułu [Omówienie usługi Azure Table Storage](../tables/table-storage-overview.md). Oprócz istniejącej usługi Azure Table Storage dostępna jest nowa oferta interfejsu API tabel usługi Azure Cosmos DB, który zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko Premium, zobacz [Azure Cosmos DB interfejs API tabel](https://aka.ms/premiumtables).
 
@@ -171,7 +171,7 @@ Możesz uzyskać dostęp do zasobów na koncie magazynu za pomocą dowolnego ję
 
 - [Polecenia cmdlet programu Azure PowerShell dla usługi Storage](https://docs.microsoft.com/powershell/module/az.storage)
 - [Polecenia cmdlet interfejsu wiersza polecenia platformy Azure dla usługi Storage](https://docs.microsoft.com/cli/azure/storage)
-- [Narzędzie wiersza polecenia AzCopy](https://aka.ms/downloadazcopy)
+- [Narzędzie AzCopy Command-Line](https://aka.ms/downloadazcopy)
 - [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) jest bezpłatną, autonomiczną aplikacją oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 - [Narzędzia klienta usługi Azure Storage](../storage-explorers.md)
 - [Narzędzia deweloperskie platformy Azure](https://azure.microsoft.com/tools/)

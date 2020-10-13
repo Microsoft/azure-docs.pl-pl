@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91844281"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Samouczek: Nawiązywanie połączenia z kontem usługi Azure Cosmos przy użyciu prywatnego punktu końcowego platformy Azure
@@ -78,7 +78,7 @@ Host bastionu zostanie użyty do nawiązania bezpiecznego połączenia z maszyn�
     |--------------------|----------------------------|
     | Nazwa bastionu | Wprowadź **myBastionHost** |
     | Przestrzeń adresowa AzureBastionSubnet | Wprowadź **10.1.1.0/24** |
-    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Wybierz przycisk **OK**. |
+    | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. </br> W obszarze **Nazwa**wprowadź **myBastionIP**. </br> Kliknij przycisk **OK**. |
 
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
@@ -179,7 +179,7 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Integruj z prywatną strefą DNS | Pozostaw wartość domyślną **tak** |
     | Prywatna strefa DNS | Pozostaw domyślne (nowe) privatelink.documents.azure.com |
 
-7. Wybierz przycisk **OK**.
+7. Kliknij przycisk **OK**.
 
 8. Wybierz pozycję **Przeglądanie + tworzenie**.
 
@@ -202,7 +202,7 @@ W tej sekcji utworzysz konto Cosmos DB i skonfigurujesz prywatny punkt końcowy.
     | Identyfikator kontenera | Wprowadź **mycontainerid** |
     | Klucz partycji | Wprowadź **/MyKey** |
 
-5. Wybierz przycisk **OK**.
+5. Kliknij przycisk **OK**.
 
 10. W sekcji **Ustawienia** konta CosmosDB wybierz pozycję **klucze**.
 

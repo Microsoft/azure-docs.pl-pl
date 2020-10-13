@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75468723"
 ---
 ### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
@@ -42,7 +42,7 @@ Sygnatura dostępu współdzielonego (SAS, shared access signature) zapewnia del
 > Azure Data Factory teraz obsługuje tylko **sygnatury dostępu współdzielonego usługi** , ale nie konta SAS. Zwróć uwagę na adres URL sygnatury dostępu współdzielonego generable z Azure Portal lub Eksplorator usługi Storage jest to konto SAS, które nie jest obsługiwane.
 
 > [!TIP]
-> Możesz wykonać poniższe polecenia programu PowerShell, aby wygenerować sygnaturę dostępu współdzielonego usługi dla konta magazynu (Zastąp symbol zastępczy i Udziel wymaganych uprawnień):`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> Możesz wykonać poniższe polecenia programu PowerShell, aby wygenerować sygnaturę dostępu współdzielonego usługi dla konta magazynu (Zastąp symbol zastępczy i Udziel wymaganych uprawnień): `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Połączona usługa Azure Storage SAS umożliwia łączenie konta usługi Azure Storage z fabryką danych platformy Azure przy użyciu sygnatury dostępu współdzielonego (SAS). Zapewnia ona fabrykę danych z ograniczonym dostępnym przez czas dostępem do wszystkich/konkretnych zasobów (BLOB/Container) w magazynie. Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi Azure Storage SAS. 

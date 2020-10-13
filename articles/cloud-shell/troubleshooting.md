@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543456"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Rozwiązywanie problemów & ograniczenia Azure Cloud Shell
@@ -46,7 +46,7 @@ Znane rozwiązania dotyczące rozwiązywania problemów w Azure Cloud Shell obej
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Okno dialogowe magazynu — błąd: 403 RequestDisallowedByPolicy
 
-- **Szczegóły**: podczas tworzenia konta magazynu za pomocą Cloud Shell, nie powiedzie się z powodu przypisania Azure Policy przez administratora. Zostanie wyświetlony komunikat o błędzie:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Szczegóły**: podczas tworzenia konta magazynu za pomocą Cloud Shell, nie powiedzie się z powodu przypisania Azure Policy przez administratora. Zostanie wyświetlony komunikat o błędzie: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Rozwiązanie**: skontaktuj się z administratorem platformy Azure, aby usunąć lub zaktualizować przypisanie Azure Policy odrzuceniem tworzenia magazynu.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Okno dialogowe magazynu — błąd: 400 DisallowedOperation
@@ -80,10 +80,10 @@ Znane rozwiązania dotyczące rozwiązywania problemów w Azure Cloud Shell obej
 > [!NOTE]
 > Maszyny wirtualne platformy Azure muszą mieć publiczny adres IP.
 
-- **Szczegóły**: ze względu na domyślne ustawienia zapory systemu Windows dla usługi WinRM użytkownik może zobaczyć następujący błąd:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Szczegóły**: ze względu na domyślne ustawienia zapory systemu Windows dla usługi WinRM użytkownik może zobaczyć następujący błąd: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Rozwiązanie**: Uruchom `Enable-AzVMPSRemoting` , aby włączyć wszystkie aspekty komunikacji zdalnej programu PowerShell na maszynie docelowej.
 
-### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`nie aktualizuje wyniku na dysku platformy Azure
+### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` nie aktualizuje wyniku na dysku platformy Azure
 
 - **Szczegóły**: domyślnie, aby zoptymalizować środowisko użytkownika, wyniki `dir` są przechowywane w pamięci podręcznej na dysku platformy Azure.
 - **Rozwiązanie**: po utworzeniu, aktualizacji lub usunięciu zasobu platformy Azure Uruchom polecenie, `dir -force` Aby zaktualizować wyniki na dysku platformy Azure.
@@ -169,7 +169,7 @@ Program PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Usuń
+### <a name="delete"></a>Usuwanie
 Aby **usunąć** ustawienia użytkownika Cloud Shell zapisywanych danych, takich jak preferowana powłoka, rozmiar czcionki i typ czcionki, uruchom następujące polecenia. Przy następnym uruchomieniu Cloud Shell zostanie wyświetlony monit o ponowne dołączenie udziału plików. 
 
 >[!Note]
@@ -196,4 +196,4 @@ Program PowerShell:
 Azure Cloud Shell w Azure Government jest dostępny tylko w Azure Portal.
 
 >[!Note]
-> Nawiązywanie połączenia z usługą w ramach programu w zatoce nie jest obecnie obsługiwane.
+> Nawiązywanie połączenia z chmurami GCC-High lub rządowymi DoD for Exchange Online nie jest obecnie obsługiwane.

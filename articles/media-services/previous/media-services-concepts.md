@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333787"
 ---
 # <a name="azure-media-services-concepts"></a>Koncepcje Azure Media Services
@@ -155,7 +155,7 @@ Zasady autoryzacji klucza zawartości mogą mieć jedno lub więcej ograniczeń 
 
 Podczas konfigurowania zasad z ograniczeniami tokenu należy określić podstawowy klucz weryfikacyjny, wystawcę i parametry odbiorców. Podstawowy klucz weryfikacyjny zawiera klucz, z którym token został podpisany, wystawca to usługa Secure Tokens, która wystawia token. Odbiorcy (czasami nazywane zakresem) opisują zamiar tokenu lub zasobu, do którego token autoryzuje dostęp. Usługa dostarczania kluczy Media Services sprawdza, czy te wartości w tokenie pasują do wartości w szablonie.
 
-Aby uzyskać więcej informacji, zobacz następujące artykuły:
+Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Omówienie ochrony zawartości](media-services-content-protection-overview.md)
 - [Ochrona za pomocą algorytmu AES-128](media-services-protect-with-aes128.md)
 - [Ochrona za pomocą oprogramowania PlayReady/Widevine](media-services-protect-with-playready-widevine.md)

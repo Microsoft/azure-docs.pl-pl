@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: f96a0fa264124f9d050e667b003d98579da63b77
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092341"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Pobieranie danych z pamięci podręcznej platformy Azure HPC — metoda kopiowania ręcznego
@@ -153,7 +153,7 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 ./atj5b55c53be6-02/support/trace/rolling
 ```
 
-Przekieruj ten wynik do pliku:`find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
+Przekieruj ten wynik do pliku: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
 Następnie można wykonać iterację w manifeście przy użyciu poleceń BASH do zliczania plików i określania rozmiarów podkatalogów:
 

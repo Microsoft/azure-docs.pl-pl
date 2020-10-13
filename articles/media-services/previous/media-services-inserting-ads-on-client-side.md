@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89263579"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Wstawianie reklam po stronie klienta
@@ -353,7 +353,7 @@ Element **wyzwalacza** zawiera element **startConditions** , który określa, ki
     </trigger>
 ```
 
-### <a name="using-video-player-ad-interface-definition-vpaid"></a>Używanie odtwarzacza wideo — definicja interfejsu usługi AD (VPAID)
+### <a name="using-video-player-ad-interface-definition-vpaid"></a>Korzystanie z definicji interfejsu Player-Ad wideo (VPAID)
 VPAID to interfejs API służący do włączania funkcji wykonywalnych jednostek usługi AD do komunikowania się z odtwarzaczem wideo. Pozwala to na wysoce interaktywne środowiska usługi AD. Użytkownik może korzystać z usługi AD, a usługi AD mogą reagować na akcje wykonywane przez przeglądarkę. Na przykład w usłudze AD mogą być wyświetlane przyciski umożliwiające użytkownikowi wyświetlanie większej ilości informacji lub dłuższej wersji usługi AD. Odtwarzacz wideo musi obsługiwać interfejs API VPAID, a plik wykonywalny musi implementować interfejs API. Gdy odtwarzacz żąda usługi AD z serwera usługi AD, serwer może odpowiedzieć z dużą odpowiedzią, która zawiera VPAID usługi AD.
 
 Plik wykonywalny usługi AD jest tworzony w kodzie, który musi być wykonywany w środowisku uruchomieniowym, takim jak Adobe Flash™ lub JavaScript, które można wykonać w przeglądarce internetowej. Gdy serwer usługi AD zwraca OGROMNą odpowiedź zawierającą VPAID AD, wartość atrybutu apiFramework w `<MediaFile>` elemencie musi być równa "VPAID". Ten atrybut określa, że zawarta AD jest VPAID pliku wykonywalnego. Atrybut type musi być ustawiony na typ MIME pliku wykonywalnego, na przykład "application/x-Shockwave-Flash" lub "application/x-JavaScript". Poniższy fragment kodu XML przedstawia `<MediaFile>` element z rozległej odpowiedzi zawierającej VPAID plik wykonywalny usługi AD.
@@ -850,5 +850,5 @@ Poniższy przykład pokazuje, jak zaplanować nakładanie się usługi AD.
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

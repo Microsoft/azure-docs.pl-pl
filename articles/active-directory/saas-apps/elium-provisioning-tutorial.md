@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544234"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Elium na potrzeby automatycznego aprowizacji użytkowników
@@ -100,11 +100,11 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w 
 
     ![Lista aplikacji w bloku aplikacje dla przedsiębiorstw](common/all-applications.png)
 
-1. Wybierz kartę **aprowizacji** .
+1. Wybierz kartę **Aprowizacja**.
 
     ![Karta aprowizacji w bloku aplikacje dla przedsiębiorstw](common/provisioning.png)
 
-1. Ustaw **tryb aprowizacji** na **automatyczny**.
+1. Ustaw **Tryb aprowizacji** na **Automatyczny**.
 
     ![Ustawienie automatyczne dla trybu aprowizacji](common/provisioning-automatic.png)
 
@@ -114,9 +114,9 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Elium w 
 
 1. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, która będzie otrzymywać powiadomienia o błędach aprowizacji. Następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail po wystąpieniu błędu** .
 
-    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
+    ![Adres e-mail do powiadomień](common/provisioning-notification-email.png)
 
-1. Kliknij pozycję **Zapisz**.
+1. Kliknij przycisk **Zapisz**.
 
 1. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Elium**.
 
@@ -147,8 +147,8 @@ Użyj **bieżącej sekcji stanu** , aby monitorować postęp i postępować zgod
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Czym jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące działań aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)

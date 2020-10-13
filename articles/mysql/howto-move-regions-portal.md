@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542516"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Przenoszenie serwera Azure Database for MySQL do innego regionu przy użyciu Azure Portal
@@ -33,7 +33,7 @@ Do przechodzenia do innego regionu można użyć Azure Database for MySQL [repli
 
 Aby utworzyć serwer repliki odczytu między regionami w regionie docelowym przy użyciu Azure Portal, wykonaj następujące czynności:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wybierz istniejący serwer Azure Database for MySQL, który ma być używany jako serwer źródłowy. Ta akcja powoduje otwarcie strony **Przegląd** .
 1. Wybierz opcję **replikacja** z menu, w obszarze **Ustawienia**.
 1. Wybierz pozycję **Dodaj replikę**.

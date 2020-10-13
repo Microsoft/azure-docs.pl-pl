@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
 ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86121915"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Blob Storage do zarządzania komercyjnymi klientami portalu Marketplace
@@ -84,7 +84,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 4. Podaj **nazwę kontenera** i **Parametry połączenia konta magazynu** , które zostały uzyskane z poniższych instrukcji.
 
-    * Przykład nazwy kontenera:`marketplaceleadcontainer`
+    * Przykład nazwy kontenera: `marketplaceleadcontainer`
     * Przykład parametrów połączenia konta magazynu: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Wybierz pozycję **Zapisz**.

@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715993"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Rozwiązywanie problemów z Azure Files w systemie Windows (SMB)
@@ -154,7 +154,7 @@ Aby wyświetlić otwarte uchwyty dla udziału plików, katalogu lub pliku, nale�
 Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy użyć polecenia cmdlet programu PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w programie AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Błąd "Brak dostępu" podczas próby uzyskania dostępu do udziału plików platformy Azure lub usunięcie go  
@@ -193,7 +193,7 @@ Jeśli klienci SMB zamknęli wszystkie otwarte dojścia, a problem nadal wystąp
 - Użyj polecenia cmdlet [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) programu PowerShell, aby zamknąć otwarte dojścia. 
 
 > [!Note]  
-> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w programie AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> Polecenia cmdlet Get-AzStorageFileHandle i Close-AzStorageFileHandle są zawarte w AZ PowerShell module w wersji 2,4 lub nowszej. Aby zainstalować najnowszy moduł AZ PowerShell module, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Slow file copying to and from Azure Files in Windows (Wolne kopiowanie plików do i z usługi Azure Files w systemie Windows)
@@ -332,7 +332,7 @@ Najpierw upewnij się, że wykonano wszystkie cztery kroki, aby [włączyć Azur
 
 Następnie spróbuj zainstalować [udział plików platformy Azure z kluczem konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Jeśli instalacja nie powiodła się, Pobierz [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) , aby pomóc w sprawdzeniu, czy środowisko klienta działa, Wykryj niezgodną konfigurację klienta, która spowoduje niepowodzenie dostępu do Azure Files, zawiera wskazówki dotyczące samoobsługowego rozwiązywania problemów, a następnie zbiera ślady diagnostyki.
 
-Po trzecie można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth w celu przeprowadzenia zestawu podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w [wersji AzFilesHybrid 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Należy uruchomić to polecenie cmdlet z użytkownikiem usługi AD, który ma uprawnienia właściciela do docelowego konta magazynu.  
+Po trzecie można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth, aby przeprowadzić zestaw podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w [wersji AzFilesHybrid 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Należy uruchomić to polecenie cmdlet z użytkownikiem usługi AD, który ma uprawnienia właściciela do docelowego konta magazynu.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -360,7 +360,7 @@ Podczas próby skonfigurowania list ACL systemu Windows za pomocą Eksploratora 
 
 Zalecamy użycie [Narzędzia icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) w celu skonfigurowania uprawnień na poziomie katalogu/pliku jako obejścia. 
 
-## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Błędy podczas uruchamiania polecenia cmdlet Join-AzStorageAccountForAuth
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Błędy podczas uruchamiania Join-AzStorageAccountForAuth polecenia cmdlet
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Błąd: "usługa katalogowa nie może przydzielić identyfikatora względnego"
 

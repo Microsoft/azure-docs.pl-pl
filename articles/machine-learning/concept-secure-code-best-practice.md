@@ -10,10 +10,10 @@ ms.author: cgronlun
 author: cjgronlund
 ms.date: 11/12/2019
 ms.openlocfilehash: 4bc9a982f6ce77b803a3ba91e050bcda9ec74fed
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91728526"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Najlepsze rozwiązania w zakresie kodu z Azure Machine Learning

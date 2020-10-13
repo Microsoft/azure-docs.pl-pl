@@ -8,10 +8,10 @@ ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
 ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569737"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Uwierzytelnianie oparte na certyfikatach dla tożsamości usługi Azure AD w celu uzyskiwania dostępu do kluczy z konta Azure Cosmos DB
@@ -28,7 +28,7 @@ Uwierzytelnianie oparte na certyfikatach umożliwia uwierzytelnienie aplikacji k
 
 W tym kroku zostanie zarejestrowana Przykładowa aplikacja sieci Web na koncie usługi Azure AD. Ta aplikacja jest później używana do odczytywania kluczy z konta Azure Cosmos DB. Aby zarejestrować aplikację, wykonaj następujące kroki: 
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Otwórz okienko **Active Directory** platformy Azure, przejdź do okienka **rejestracje aplikacji** i wybierz pozycję **Nowa rejestracja**. 
 
@@ -72,7 +72,7 @@ W tym kroku zostanie zainstalowany moduł Azure AD PowerShell. Ten moduł jest w
 
 ## <a name="sign-into-your-azure-ad"></a>Zaloguj się do usługi Azure AD
 
-Zaloguj się do usługi Azure AD, w której zarejestrowano aplikację. Za pomocą polecenia Connect-AzureAD Zaloguj się do swojego konta, a następnie wprowadź swoje poświadczenia konta platformy Azure w oknie podręcznym. 
+Zaloguj się do usługi Azure AD, w której zarejestrowano aplikację. Użyj polecenia Connect-AzureAD, aby zalogować się do konta, w oknie podręcznym wprowadź poświadczenia konta platformy Azure. 
 
 ```powershell
 Connect-AzureAD 
@@ -103,7 +103,7 @@ Powyższe polecenie spowoduje wyniki podobne do poniższego zrzutu ekranu:
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Skonfiguruj konto usługi Azure Cosmos, aby używało nowej tożsamości
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Przejdź do swojego konta usługi Azure Cosmos, Otwórz blok **Kontrola dostępu (IAM)** .
 
@@ -119,7 +119,7 @@ Poświadczenie oparte na certyfikacie można skojarzyć z aplikacją kliencką w
 
 W usłudze Azure App Registration dla aplikacji klienckiej:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 1. Otwórz okienko **Active Directory** platformy Azure, przejdź do okienka **rejestracje aplikacji** i Otwórz przykładową aplikację utworzoną w poprzednim kroku. 
 

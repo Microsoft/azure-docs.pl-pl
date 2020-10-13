@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627027"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importowanie aplikacji funkcji platformy Azure jako interfejsu API w usłudze Azure API Management
@@ -72,7 +72,7 @@ Aby utworzyć nowy interfejs API z poziomu aplikacji funkcji platformy Azure, wy
     > Możesz zaimportować tylko te funkcje, które są oparte na wyzwalaczu HTTP i mają ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja*.
 
 7. Przełącz się do widoku **Pełny** i przypisz **Produkt** do nowego interfejsu API. Jeśli to konieczne, określ inne pola podczas tworzenia lub skonfiguruj je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#import-and-publish-a-backend-api) .
-8. Kliknij pozycję **Utwórz**.
+8. Kliknij przycisk **Utwórz**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Dołączanie aplikacji funkcji platformy Azure do istniejącego interfejsu API
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543337"
 ---
 # <a name="azure-operational-security"></a>Zabezpieczenia operacyjne platformy Azure
@@ -69,7 +69,7 @@ Podstawowe funkcje dzienników Azure Monitor są udostępniane przez zestaw usł
 | Usługa  | Opis|
 | :------------- | :-------------|
 | Dzienniki usługi Azure Monitor | Monitorowanie i analizowanie dostępności oraz wydajności różnych zasobów, łącznie z maszynami fizycznymi i wirtualnymi. |
-|Automation | Automatyzowanie procesów ręcznych oraz wymuszanie konfiguracji maszyn fizycznych i wirtualnych. |
+|Automatyzacja | Automatyzowanie procesów ręcznych oraz wymuszanie konfiguracji maszyn fizycznych i wirtualnych. |
 | Backup | Tworzenie kopii zapasowych i przywracanie kluczowych danych. |
 | Site Recovery | Zapewnianie wysokiej dostępności kluczowych aplikacji. |
 
@@ -228,7 +228,7 @@ Network Watcher obecnie ma następujące możliwości:
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Dzienniki inspekcji</a>**— operacje wykonywane w ramach konfiguracji sieci są rejestrowane. Te dzienniki można wyświetlać w Azure Portal lub pobrać przy użyciu narzędzi firmy Microsoft, takich jak Power BI lub narzędzi innych firm. Dzienniki inspekcji są dostępne za pomocą portalu, programu PowerShell, interfejsu wiersza polecenia i API REST. Aby uzyskać więcej informacji na temat dzienników inspekcji, zobacz operacje inspekcji z Menedżer zasobów. Dzienniki inspekcji są dostępne dla operacji wykonywanych na wszystkich zasobach sieciowych.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Sprawdzanie przepływów IP</a>** — sprawdza, czy pakiet jest dozwolony, czy odrzucany na podstawie informacji o przepływie 5-parametry pakietu (docelowy adres IP, źródłowy adres IP, port docelowy, port źródłowy i protokół). Jeśli pakiet zostanie odrzucony przez grupę zabezpieczeń sieci, zwracana jest reguła i sieciowa Grupa zabezpieczeń, która odrzuciła pakiet.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Sprawdzanie przepływów IP </a>** — sprawdza, czy pakiet jest dozwolony, czy odrzucany na podstawie informacji o przepływie 5-parametry pakietu (docelowy adres IP, źródłowy adres IP, port docelowy, port źródłowy i protokół). Jeśli pakiet zostanie odrzucony przez grupę zabezpieczeń sieci, zwracana jest reguła i sieciowa Grupa zabezpieczeń, która odrzuciła pakiet.
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Następny przeskok</a>** — określa następny przeskok dla pakietów przesyłanych w sieci szkieletowej platformy Azure, dzięki czemu można zdiagnozować wszelkie nieprawidłowo skonfigurowane trasy zdefiniowane przez użytkownika.
 

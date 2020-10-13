@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: 41ea41b4d7c181dad9246653a68c329387ac5381
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80884685"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protokoły uwierzytelniania platformy tożsamości firmy Microsoft
@@ -31,9 +31,9 @@ Platforma tożsamości firmy Microsoft obsługuje kilka najczęściej używanych
 * [OpenID Connect Connect 1,0](v2-protocols-oidc.md) — Dowiedz się, jak za pomocą uwierzytelniania OAuth 2,0, protokołu autoryzacji.
 * [Wywołania usługi do obsługi przy użyciu poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md) — informacje o sposobie przydzielenia przez usługę do wywołań usług przy użyciu poświadczeń klienta OAuth 2,0.
 * [Wywołania usługi do obsługi w imieniu przepływu](v2-oauth2-on-behalf-of-flow.md) — informacje na temat używania protokołu OAuth 2,0 w imieniu usługi Flow do wywołań usługi do obsługi.
-* [Odwołanie do protokołu SAML](active-directory-saml-protocol-reference.md) — informacje o profilach SAML logowania jednokrotnego i rejestracji jednokrotnej platformy tożsamości firmy Microsoft.
+* [Odwołanie do protokołu SAML](active-directory-saml-protocol-reference.md) — informacje o pojedynczym Sign-On i profilach SAML logowania jednokrotnego platformy tożsamości firmy Microsoft.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Microsoft Identity platform — Omówienie](v2-overview.md)
 * [Przykłady kodu Active Directory](sample-v2-code.md)

@@ -1,6 +1,6 @@
 ---
-title: Przetwarzanie OLTP w pamięci zwiększa wydajność programu SQL transakcja
-description: Wdrażaj OLTP w pamięci, aby zwiększyć wydajność transakcyjną w istniejącej bazie danych w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
+title: In-Memory OLTP ulepsza wydajność programu SQL transakcja
+description: Należy wdrożyć In-Memory OLTP, aby poprawić wydajność transakcyjną w istniejącej bazie danych w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
@@ -11,13 +11,13 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619750"
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Użycie OLTP w pamięci w celu poprawy wydajności aplikacji w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Użyj In-Memory OLTP, aby zwiększyć wydajność aplikacji w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 [OLTP w pamięci](in-memory-oltp-overview.md) może służyć do ulepszania wydajności przetwarzania transakcji, pozyskiwania danych i przejściowych scenariuszy danych w [warstwach Premium i krytyczne dla działania firmy](database/service-tiers-vcore.md) baz danych bez zwiększania warstwy cenowej.
@@ -25,11 +25,11 @@ ms.locfileid: "91619750"
 > [!NOTE]
 > Dowiedz się [, jak kworum podwaja obciążenie bazy danych przy jednoczesnym obniżeniu liczby jednostek DTU o 70% z Azure SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
-Wykonaj następujące kroki, aby wdrożyć OLTP w pamięci w istniejącej bazie danych.
+Wykonaj następujące kroki, aby przyjąć In-Memory OLTP w istniejącej bazie danych.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Krok 1. upewnienie się, że korzystasz z bazy danych w warstwie Premium i Krytyczne dla działania firmy
 
-Przetwarzanie OLTP w pamięci jest obsługiwane tylko w bazach danych w warstwach Premium i Krytyczne dla działania firmy. W pamięci jest obsługiwana, jeśli zwrócony wynik wynosi 1 (nie 0):
+In-Memory OLTP jest obsługiwana tylko w bazach danych warstwy Premium i Krytyczne dla działania firmy. In-Memory jest obsługiwana, jeśli zwrócony wynik wynosi 1 (nie 0):
 
 ```sql
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -37,16 +37,16 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 *XTP* oznacza *Przetwarzanie transakcji Extreme*
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Krok 2. identyfikowanie obiektów do migracji do przetwarzania OLTP w pamięci
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Krok 2. identyfikowanie obiektów do migracji do In-Memory OLTP
 
-Program SSMS zawiera raport z **omówieniem analizy wydajności transakcji** , który można uruchomić względem bazy danych z aktywnym obciążeniem. Raport identyfikuje tabele i procedury składowane, które są kandydatami do migracji do przetwarzania OLTP w pamięci.
+Program SSMS zawiera raport z **omówieniem analizy wydajności transakcji** , który można uruchomić względem bazy danych z aktywnym obciążeniem. Raport identyfikuje tabele i procedury składowane, które są kandydatami do migracji do In-Memory OLTP.
 
 W programie SSMS w celu wygenerowania raportu:
 
 * W **Eksplorator obiektów**kliknij prawym przyciskiem myszy węzeł bazy danych.
 * Kliknij kolejno pozycje **raporty**  >  **standardowe raporty**  >  **Analiza wydajności — Omówienie**.
 
-Aby uzyskać więcej informacji, zobacz [Określanie, czy tabela lub procedura składowana powinna być przypisana do OLTP w pamięci](/sql/relational-databases/in-memory-oltp/determining-if-a-table-or-stored-procedure-should-be-ported-to-in-memory-oltp).
+Aby uzyskać więcej informacji, zobacz [ustalanie, czy tabela lub procedura składowana powinna być przypisana do In-Memory OLTP](/sql/relational-databases/in-memory-oltp/determining-if-a-table-or-stored-procedure-should-be-ported-to-in-memory-oltp).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Krok 3. Tworzenie porównywalnej bazy danych testowych
 
@@ -83,8 +83,8 @@ Aby użyć tej opcji migracji:
 3. W Kreatorze kliknij pozycję **Walidacja migracji** (lub przycisk **dalej** ), aby sprawdzić, czy tabela zawiera jakiekolwiek Nieobsługiwane funkcje, które nie są obsługiwane w tabelach zoptymalizowanych pod kątem pamięci. Aby uzyskać więcej informacji, zobacz:
 
    * *Lista kontrolna optymalizacji pamięci* w [klasyfikatorze optymalizacji pamięci](/sql/relational-databases/in-memory-oltp/memory-optimization-advisor).
-   * [Konstrukcje języka Transact-SQL nie są obsługiwane przez OLTP w pamięci](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp).
-   * [Migrowanie do przetwarzania OLTP w pamięci](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
+   * [Konstrukcje Transact-SQL nie są obsługiwane przez In-Memory OLTP](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp).
+   * [Migrowanie do In-Memory OLTP](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server).
 4. Jeśli tabela nie zawiera żadnych nieobsługiwanych funkcji, Klasyfikator może wykonać rzeczywiste migracje schematu i danych.
 
 ### <a name="manual-t-sql"></a>Ręczna instrukcja T-SQL
@@ -109,7 +109,7 @@ INSERT INTO <new_memory_optimized_table>
 
 ## <a name="step-5-optional-migrate-stored-procedures"></a>Krok 5 (opcjonalny): Migruj procedury składowane
 
-Funkcja w pamięci może również zmodyfikować procedurę przechowywaną w celu zwiększenia wydajności.
+Funkcja In-Memory może także zmodyfikować procedurę przechowywaną, aby zwiększyć wydajność.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Zagadnienia dotyczące procedur składowanych skompilowanych w sposób macierzysty
 
@@ -157,7 +157,7 @@ Kroki migracji są następujące:
 
 ## <a name="step-6-run-your-workload-in-test"></a>Krok 6. Uruchamianie obciążenia w teście
 
-Uruchom obciążenie w testowej bazie danych, która jest podobna do obciążenia działającego w produkcyjnej bazie danych. Powinno to ujawnić wzrost wydajności osiągnięty przez użycie funkcji w pamięci dla tabel i procedur składowanych.
+Uruchom obciążenie w testowej bazie danych, która jest podobna do obciążenia działającego w produkcyjnej bazie danych. Powinno to ujawnić wzrost wydajności osiągnięty przez użycie funkcji In-Memory w przypadku tabel i procedur składowanych.
 
 Główne atrybuty obciążenia są następujące:
 
@@ -170,9 +170,9 @@ Aby zminimalizować opóźnienie sieci, należy uruchomić test w tym samym regi
 
 ## <a name="step-7-post-implementation-monitoring"></a>Krok 7. monitorowanie po implementacji
 
-Rozważ monitorowanie efektów wydajności implementacji w pamięci w środowisku produkcyjnym:
+Rozważ monitorowanie efektów wydajności implementacji In-Memory w środowisku produkcyjnym:
 
-* [Monitoruj magazyn w pamięci](in-memory-oltp-monitor-space.md).
+* [Monitoruj magazyn In-Memory](in-memory-oltp-monitor-space.md).
 * [Monitorowanie przy użyciu dynamicznych widoków zarządzania](database/monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Linki pokrewne
