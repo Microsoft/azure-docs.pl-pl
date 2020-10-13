@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022184"
+ms.locfileid: "91893207"
 ---
 # <a name="late-stage-reprojection"></a>Reprojekcja na późnym etapie
 
@@ -34,7 +34,9 @@ Jeśli tak, aplikacja będzie używać głębokości LSR, w przeciwnym razie bę
 
 Aby głębokość LSR działała, aplikacja kliencka musi dostarczyć prawidłowy bufor głębokości, który zawiera wszystkie istotne dane geometryczne, które należy wziąć pod uwagę podczas LSR.
 
-Głębokość LSR próbuje stabilizację ramki wideo na podstawie zawartości dostarczonego buforu głębokości. W rezultacie zawartość, która nie została renderowana, taka jak obiekty przezroczyste, nie może być dostosowywana przez LSR i może zawierać artefakty niestabilności i reprojektowania.
+Głębokość LSR próbuje stabilizację ramki wideo na podstawie zawartości dostarczonego buforu głębokości. W rezultacie zawartość, która nie została renderowana, taka jak obiekty przezroczyste, nie może być dostosowywana przez LSR i może zawierać artefakty niestabilności i reprojektowania. 
+
+Aby zmniejszyć niestabilność w przypadku obiektów przezroczystych, można wymusić zapis buforu głębokości. Zapoznaj się z flagą materiału *TransparencyWritesDepth* dla materiałów [Color](color-materials.md) i [PBR](pbr-materials.md) . Należy jednak pamiętać, że podczas włączania tej flagi może wystąpić nieprzezroczystość wizualna/nieprzezroczysty obiekt.
 
 ## <a name="planar-lsr"></a>LSR planarny
 

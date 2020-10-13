@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Używaj prywatnego repozytorium Helm w obszarze dev platformy Azure.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kontenery, Helm
 manager: gwallace
-ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5f28595df2e552fd48033b44e4e1f0ea4ec306
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80240468"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960341"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Korzystanie z prywatnego repozytorium Helm w Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 [Helm][helm] to Menedżer pakietów dla Kubernetes. Helm używa formatu [wykresu][helm-chart] do zależności pakietów. Wykresy Helm są przechowywane w repozytorium, które może być publiczne lub prywatne. Azure Dev Spaces pobiera tylko wykresy Helm z repozytoriów publicznych podczas uruchamiania aplikacji. W przypadkach, gdy repozytorium Helm jest prywatne lub Azure Dev Spaces nie może uzyskać do niego dostępu, można dodać wykres z tego repozytorium bezpośrednio do aplikacji. Bezpośrednie dodanie wykresu umożliwia Azure Dev Spaces uruchomienie aplikacji bez konieczności uzyskiwania dostępu do prywatnego repozytorium Helm.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279777"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962398"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Wersja zapoznawcza: Korzyść użycia hybrydowego platformy Azure — jak ma to zastosowanie do Linux Virtual Machines
 
@@ -126,7 +126,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-Z poziomu samej maszyny wirtualnej możesz wysyłać zapytania do IMDS zaświadczania metadanych, aby określić wartość LicenseType maszyny wirtualnej. Wartość LicenseType elementu "RHEL_BYOS" lub "SLES_BYOS" wskazuje, że na maszynie wirtualnej jest włączona korzyść. Dowiedz się więcej o zaświadczeniu metadanych [tutaj](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data)
+Z poziomu samej maszyny wirtualnej możesz wysyłać zapytania do IMDS zaświadczania metadanych, aby określić wartość LicenseType maszyny wirtualnej. Wartość LicenseType elementu "RHEL_BYOS" lub "SLES_BYOS" wskazuje, że na maszynie wirtualnej jest włączona korzyść. Dowiedz się więcej o zaświadczeniu metadanych [tutaj](./instance-metadata-service.md#attested-data)
 
 ## <a name="compliance"></a>Zgodność
 
@@ -150,7 +150,7 @@ Odp.: może upłynąć trochę czasu na rejestrację subskrypcji usługi Red Hat
 ## <a name="common-errors"></a>Typowe błędy
 Ta sekcja zawiera listę typowych błędów i kroków związanych z ograniczeniami.
 
-| Błąd | Ograniczanie ryzyka |
+| Error | Ograniczanie ryzyka |
 | ----- | ---------- |
 | "Subskrypcja nie jest zarejestrowana w wersji zapoznawczej systemu Linux dla Korzyść użycia hybrydowego platformy Azure. Aby uzyskać instrukcje krok po kroku, zobacz https://aka.ms/ahb-linux " | Wypełnij formularz, https://aka.ms/ahb-linux-form Aby zarejestrować się w wersji zapoznawczej systemu Linux dla korzyść użycia hybrydowego platformy Azure.
 | "Akcja nie może zostać ukończona, ponieważ nasze rekordy pokazują, że nie udało Ci się pomyślnie włączyć usługi Red Hat Cloud Access w ramach subskrypcji platformy Azure..." | Aby można było korzystać z zalet z maszynami wirtualnymi RHEL, należy najpierw zarejestrować subskrypcje platformy Azure przy użyciu usługi Red Hat Cloud Access. Odwiedź ten link, aby dowiedzieć się więcej o rejestrowaniu subskrypcji platformy Azure na potrzeby usługi Red Hat Cloud Access

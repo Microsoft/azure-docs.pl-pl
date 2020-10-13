@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88752065"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968689"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Obniżenie kosztów dzięki rezerwacji dysków platformy Azure
 
@@ -89,7 +89,7 @@ Po zakupieniu rezerwacji zostanie ona automatycznie zastosowana do wszystkich is
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-W ramach pewnych ograniczeń można anulować, wymienić lub refundować rezerwacje. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
+W ramach pewnych ograniczeń można anulować, wymienić lub refundować rezerwacje. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="expiration-of-a-reservation"></a>Wygaśnięcie rezerwacji
 

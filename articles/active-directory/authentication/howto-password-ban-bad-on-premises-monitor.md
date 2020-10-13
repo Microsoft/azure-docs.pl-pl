@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 02937c22cbc16defb0b7672ac7ebc56c2ae2beb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068783"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968365"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorowanie i przeglądanie dzienników lokalnych środowisk ochrony haseł usługi Azure AD
 
@@ -64,7 +64,7 @@ Zdarzenia dyskretne umożliwiające przechwycenie tych sytuacji są rejestrowane
 
 Zdarzenia związane z walidacją hasła klucza są następujące:
 
-| Wydarzenie |Zmiana hasła |Ustawiono hasło|
+| Zdarzenie |Zmiana hasła |Ustawiono hasło|
 | --- | :---: | :---: |
 |Chodzenia |10014 |10015|
 |Niepowodzenie (z powodu zasad haseł klienta)| 10016, 30002| 10017, 30003|

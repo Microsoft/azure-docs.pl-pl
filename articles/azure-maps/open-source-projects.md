@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090520"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938343"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps projekty "open source" dla społeczności
 
@@ -39,8 +39,10 @@ Poniżej znajduje się lista projektów typu "open source", które zwiększają 
 |-|-|
 | [Azure Maps module animacji](https://github.com/Azure-Samples/azure-maps-animations) | Zaawansowana biblioteka animacji do użycia z zestawem SDK sieci Web Azure Maps. |
 | [Azure Maps module kontroli geolokalizacji](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Moduł Azure Maps Web SDK, który udostępnia formant, który używa interfejsu API geolokalizacji przeglądarki do lokalizowania użytkownika na mapie. |
+| [Moduł źródła danych Azure Maps gridded](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | Moduł dla Azure Maps Web SDK, który udostępnia źródło danych, które tworzy klastry punktów danych w komórkach obszaru siatki. Ta operacja jest również znana przez wiele nazw, takich jak tessellations, data pakowania lub szesnastkowe.  |
 | [Azure Maps moduł kontroli pełnoekranowego](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Moduł Azure Maps Web SDK, który udostępnia formant do wyświetlania mapy w trybie pełnoekranowym. |
 | [Moduł kontrolki wyboru Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Moduł Azure Maps Web SDK, który udostępnia kontrolki do wybierania danych w źródle danych przy użyciu narzędzi do rysowania lub wielokąta zakresu tras. |
+| [Azure Maps przesunięcia modułu mapy](https://github.com/Azure-Samples/azure-maps-swipe-map) | Moduł dla Azure Maps Web SDK, który umożliwia szybkie przesuwanie między dwoma nakładającymi się mapami, idealnym rozwiązaniem do porównywania dwóch nakładających się zestawów danych. |
 | [Moduł mapy synchronizacji Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Azure Maps moduł SDK sieci Web, który synchronizuje kamery co najmniej dwóch map. |
 | [Moduł interfejsu użytkownika usług Azure Maps Services](https://github.com/Azure-Samples/azure-maps-services-ui) | Zestaw formantów interfejsu użytkownika sieci Web, które zawijają Azure Maps usługi REST. |
 

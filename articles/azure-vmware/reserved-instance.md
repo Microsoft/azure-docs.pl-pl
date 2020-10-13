@@ -3,12 +3,12 @@ title: Oszczędność kosztów dzięki zarezerwowanemu wystąpieniu rozwiązania
 description: Dowiedz się, jak kupić wystąpienie zarezerwowane dla rozwiązań VMware platformy Azure.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91492490"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951421"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Oszczędność kosztów dzięki rozwiązaniu VMware platformy Azure
 
@@ -22,7 +22,7 @@ Wystąpienia zarezerwowane są dostępne z pewnymi wyjątkami.
 
 -   **Niewystarczające limity przydziału**   -Rezerwacja, która jest objęta zakresem pojedynczej lub udostępnionej subskrypcji, musi mieć przydziały hostów dostępne w subskrypcji dla nowego wystąpienia zarezerwowanego. Aby rozwiązać ten problem, można [utworzyć żądanie zwiększenia limitu przydziału](enable-azure-vmware-solution.md) .
 
--   **Oferta do oferty**— będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)   z firmą Microsoft.
+-   **Oferta do oferty**— będziesz potrzebować [platformy Azure Umowa Enterprise (EA)](../cost-management-billing/manage/ea-portal-agreements.md)   z firmą Microsoft.
 
 -   **Ograniczenia pojemności**   W rzadkich przypadkach platforma Azure ogranicza zakup nowych rezerwacji dla jednostek SKU hosta rozwiązań VMware platformy Azure z powodu niskiej wydajności w regionie.
 

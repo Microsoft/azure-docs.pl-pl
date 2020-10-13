@@ -7,29 +7,29 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757796"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973448"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje [dwa podstawowe podejścia](search-what-is-data-import.md) do importowania danych do indeksu wyszukiwania: *wypchnięcie* danych do indeksu programowo lub wskazanie [indeksatora wyszukiwanie poznawcze platformy Azure](search-indexer-overview.md) w obsługiwanym źródle danych w celu *ściągnięcia* danych.
 
-W tym samouczku opisano sposób wydajnego indeksowania danych przy użyciu [modelu wypychania](search-what-is-data-import.md#pushing-data-to-an-index) przez przetwarzanie wsadowe żądań i użycie wykładniczej strategii ponawiania wycofywania. Możesz [pobrać i uruchomić aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). W tym artykule wyjaśniono kluczowe aspekty aplikacji i czynników, które należy wziąć pod uwagę podczas indeksowania danych.
+W tym samouczku opisano sposób wydajnego indeksowania danych przy użyciu [modelu wypychania](search-what-is-data-import.md#pushing-data-to-an-index) przez przetwarzanie wsadowe żądań i użycie wykładniczej strategii ponawiania wycofywania. Możesz [pobrać i uruchomić przykładową aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). W tym artykule wyjaśniono kluczowe aspekty aplikacji i czynników, które należy wziąć pod uwagę podczas indeksowania danych.
 
 Ten samouczek używa języka C# i [zestawu SDK platformy .NET](/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Tworzenie indeksu
 > * Przetestuj różne rozmiary partii, aby określić najbardziej wydajny rozmiar
-> * Indeksuj dane asynchronicznie
+> * Indeksuj partie asynchronicznie
 > * Użyj wielu wątków, aby zwiększyć szybkość indeksowania
-> * Aby ponowić próbę wykonania niepomyślnych elementów, Użyj strategii wycofywaniaego ponowienia
+> * Użyj strategii wycofywaniaego ponawiania prób w celu ponowienia nieudanych dokumentów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -45,7 +45,7 @@ W tym samouczku są wymagane następujące usługi i narzędzia.
 
 ## <a name="download-files"></a>Pobieranie plików
 
-Kod źródłowy tego samouczka znajduje się w folderze [optimzize-Data-Indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) w repozytorium GitHub [Azure-Samples/Azure-Search-dotnet-Samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) .
+Kod źródłowy tego samouczka znajduje się w folderze [optimzize-Data-Indexes/v11](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing/v11) w repozytorium GitHub [Azure-Samples/Azure-Search-dotnet-Samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) .
 
 ## <a name="key-considerations"></a>Najważniejsze zagadnienia
 
@@ -79,12 +79,11 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 1. Uruchom program Visual Studio i Otwórz **OptimizeDataIndexing. sln**.
 1. W Eksplorator rozwiązań Otwórz **appsettings.jsw** celu udostępnienia informacji o połączeniu.
-1. W przypadku `searchServiceName` , jeśli pełny adres URL to " https://my-demo-service.search.windows.net ", nazwa usługi do udostępnienia to "My-Demonstracja-usługa".
 
 ```json
 {
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+  "SearchServiceUri": "https://{service-name}.search.windows.net",
+  "SearchServiceAdminApiKey": "",
   "SearchIndexName": "optimize-indexing"
 }
 ```
@@ -112,7 +111,7 @@ Ta prosta aplikacja konsolowa języka C#/.NET wykonuje następujące zadania:
 
 ### <a name="creating-the-index"></a>Tworzenie indeksu
 
-Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia indeksu Wyszukiwanie poznawcze platformy Azure. Wykorzystuje klasę [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) , aby wygenerować strukturę indeksu z klasy modelu danych języka C#.
+Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia indeksu Wyszukiwanie poznawcze platformy Azure. Wykorzystuje `FieldBuilder` klasę, aby wygenerować strukturę indeksu z klasy modelu danych języka C#.
 
 Model danych jest definiowany przez klasę hotelu, która również zawiera odwołania do klasy Address. FieldBuilder przechodzi przez wiele definicji klas w celu wygenerowania złożonej struktury danych dla indeksu. Tagi metadanych są używane do definiowania atrybutów poszczególnych pól, na przykład czy można je przeszukiwać czy sortować.
 
@@ -120,27 +119,25 @@ Poniższe fragmenty kodu z pliku **Hotel.cs** pokazują, jak można określić j
 
 ```csharp
 . . .
-[IsSearchable, IsSortable]
+[SearchableField(IsSortable = true)]
 public string HotelName { get; set; }
 . . .
 public Address Address { get; set; }
 . . .
 ```
 
-W pliku **program.cs** indeks jest zdefiniowany przy użyciu nazwy i kolekcji pól wygenerowanej przez `FieldBuilder.BuildForType<Hotel>()` metodę, a następnie utworzony w następujący sposób:
+W pliku **program.cs** indeks jest zdefiniowany przy użyciu nazwy i kolekcji pól wygenerowanej przez `FieldBuilder.Build(typeof(Hotel))` metodę, a następnie utworzony w następujący sposób:
 
 ```csharp
-private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
     // Create a new search index structure that matches the properties of the Hotel class.
     // The Address class is referenced from the Hotel class. The FieldBuilder
     // will enumerate these to create a complex data structure for the index.
-    var definition = new Index()
-    {
-        Name = indexName,
-        Fields = FieldBuilder.BuildForType<Hotel>()
-    };
-    await searchService.Indexes.CreateAsync(definition);
+    FieldBuilder builder = new FieldBuilder();
+    var definition = new SearchIndex(indexName, builder.Build(typeof(Hotel)));
+
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 
@@ -148,11 +145,12 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 
 Prosta Klasa jest zaimplementowana w pliku **DataGenerator.cs** , aby generować dane do testowania. Jedynym celem tej klasy jest ułatwienie generowania dużej liczby dokumentów z unikatowym IDENTYFIKATORem indeksowania.
 
-Aby uzyskać listę 100 000 hoteli z unikatowymi identyfikatorami, należy uruchomić następujące dwa wiersze kodu:
+Aby uzyskać listę 100 000 hoteli z unikatowymi identyfikatorami, należy uruchomić następujące wiersze kodu:
 
 ```csharp
+long numDocuments = 100000;
 DataGenerator dg = new DataGenerator();
-List<Hotel> hotels = dg.GetHotels(100000, "large");
+List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 ```
 
 Istnieją dwa rozmiary hoteli dostępnych do testowania w tym przykładzie: **małe** i  **duże**.
@@ -164,7 +162,7 @@ Schemat indeksu może mieć znaczny wpływ na szybkość indeksowania. Ze wzglę
 Usługa Azure Wyszukiwanie poznawcze obsługuje następujące interfejsy API w celu załadowania jednego lub wielu dokumentów do indeksu:
 
 + [Dodawanie, aktualizowanie lub usuwanie dokumentów (interfejs API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Klasa indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) lub [klasa indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [Klasa IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) lub [Klasa IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
 
 Indeksowanie dokumentów w partiach znacznie poprawi wydajność indeksowania. Te partie mogą należeć do 1000 dokumentów lub maksymalnie 16 MB na partię.
 
@@ -178,7 +176,7 @@ Ponieważ optymalny rozmiar wsadu zależy od indeksu i danych, najlepszym rozwi�
 Poniższa funkcja przedstawia proste podejście do testowania rozmiarów partii.
 
 ```csharp
-public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
+public static async Task TestBatchSizesAsync(SearchClient searchClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
 {
     DataGenerator dg = new DataGenerator();
 
@@ -192,7 +190,7 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
             List<Hotel> hotels = dg.GetHotels(numDocs, "large");
 
             DateTime startTime = DateTime.Now;
-            await UploadDocuments(indexClient, hotels);
+            await UploadDocumentsAsync(searchClient, hotels).ConfigureAwait(false);
             DateTime endTime = DateTime.Now;
             durations.Add(endTime - startTime);
 
@@ -208,22 +206,24 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
         // Pausing 2 seconds to let the search service catch its breath
         Thread.Sleep(2000);
     }
+
+    Console.WriteLine();
 }
 ```
 
 Ponieważ nie wszystkie dokumenty mają taki sam rozmiar (choć są one w tym przykładzie), oceniamy rozmiar danych wysyłanych do usługi wyszukiwania. Wykonujemy to przy użyciu poniższej funkcji, która najpierw Konwertuje obiekt na kod JSON, a następnie określa jego rozmiar w bajtach. Ta technika pozwala określić, które rozmiary partii są najbardziej wydajne w zakresie szybkości indeksowania MB/s.
 
 ```csharp
+// Returns size of object in MB
 public static double EstimateObjectSize(object data)
 {
-    // converting data to json for more accurate sizing
-    var json = JsonConvert.SerializeObject(data);
-
     // converting object to byte[] to determine the size of the data
     BinaryFormatter bf = new BinaryFormatter();
     MemoryStream ms = new MemoryStream();
     byte[] Array;
 
+    // converting data to json for more accurate sizing
+    var json = JsonSerializer.Serialize(data);
     bf.Serialize(ms, json);
     Array = ms.ToArray();
 
@@ -234,10 +234,10 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-Funkcja wymaga `ISearchIndexClient` również liczby prób, które chcesz przetestować dla każdego rozmiaru partii. W miarę jak mogą wystąpić pewne zróżnicowanie czasów indeksowania dla każdej partii, każda partia jest domyślnie podejmowana trzy razy, aby wyniki były bardziej znaczące statystycznie.
+Funkcja wymaga `SearchClient` również liczby prób, które chcesz przetestować dla każdego rozmiaru partii. W miarę jak mogą wystąpić pewne zróżnicowanie czasów indeksowania dla każdej partii, każda partia jest domyślnie podejmowana trzy razy, aby wyniki były bardziej znaczące statystycznie.
 
 ```csharp
-await TestBatchSizes(indexClient, numTries: 3);
+await TestBatchSizesAsync(searchClient, numTries: 3);
 ```
 
 Po uruchomieniu funkcji powinny zostać wyświetlone dane wyjściowe podobne do poniższego w konsoli programu:
@@ -250,8 +250,8 @@ Określ, który rozmiar wsadu jest najbardziej wydajny, a następnie użyj tego 
 
 Teraz, gdy został zidentyfikowany rozmiar wsadu, którego zamierzamy użyć, następnym krokiem jest rozpoczęcie indeksowania danych. Aby efektywnie indeksować dane, ten przykład:
 
-* Używa wielu wątków/procesów roboczych.
-* Implementuje strategię ponowień wycofywania wykładniczych.
++ Używa wielu wątków/procesów roboczych.
++ Implementuje strategię ponowień wycofywania wykładniczych.
 
 ### <a name="use-multiple-threadsworkers"></a>Korzystanie z wielu wątków/procesów roboczych
 
@@ -268,13 +268,16 @@ Podczas narastania żądań, które powodują przeszukanie usługi wyszukiwania,
 
 Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii wycofywaniaego ponawiania prób](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia próbę 503s i inne Nieudane żądania, ale musisz zaimplementować własną logikę, aby ponowić próbę 207s. Narzędzia typu open source, takie jak [Polly](https://github.com/App-vNext/Polly) , mogą również służyć do implementowania strategii ponawiania prób. 
+Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia próbę 503s i inne Nieudane żądania, ale musisz zaimplementować własną logikę, aby ponowić próbę 207s. Narzędzia typu open source, takie jak [Polly](https://github.com/App-vNext/Polly) , mogą również służyć do implementowania strategii ponawiania prób.
 
 W tym przykładzie implementujemy własną strategię ponowień wykładniczych wycofywania. Aby zaimplementować tę strategię, Zacznijmy od definiowania niektórych zmiennych, w tym `maxRetryAttempts` i jako inicjału `delay` dla żądania zakończonego niepowodzeniem:
 
 ```csharp
 // Create batch of documents for indexing
-IndexBatch<Hotel> batch = IndexBatch.Upload(hotels);
+var batch = IndexDocumentsBatch.Upload(hotels);
+
+// Create an object to hold the result
+IndexDocumentsResult result = null;
 
 // Define parameters for exponential backoff
 int attempts = 0;
@@ -282,9 +285,9 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Ważne jest, aby przechwytywać [IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) , ponieważ te wyjątki wskazują, że Operacja indeksowania tylko częściowo powiodła się (207s). W przypadku elementów zakończonych niepowodzeniem należy wykonać ponowną próbę przy użyciu `FindFailedActionsToRetry` metody, która ułatwia tworzenie nowej partii zawierającej tylko elementy zakończone niepowodzeniem.
+Wyniki operacji indeksowania są przechowywane w zmiennej `IndexDocumentResult result` . Ta zmienna jest ważna, ponieważ pozwala sprawdzić, czy nie podano dokumentów w partii, jak pokazano poniżej. W przypadku awarii częściowej zostanie utworzona nowa partia oparta na IDENTYFIKATORze dokumentów zakończonych niepowodzeniem.
 
-Wyjątki inne niż `IndexBatchException` należy również przechwycić i wskazać, że żądanie nie powiodło się. Te wyjątki są mniej popularne, szczególnie w przypadku zestawu .NET SDK w miarę automatycznego ponawiania prób 503s.
+`RequestFailedException` wyjątki należy również przechwycić, ponieważ wskazują, że żądanie nie zostało całkowicie zakończone i należy również ponowić próbę.
 
 ```csharp
 // Implement exponential backoff
@@ -293,29 +296,46 @@ do
     try
     {
         attempts++;
-        var response = await indexClient.Documents.IndexAsync(batch);
-        break;
+        result = await searchClient.IndexDocumentsAsync(batch).ConfigureAwait(false);
+
+        var failedDocuments = result.Results.Where(r => r.Succeeded != true).ToList();
+
+        // handle partial failure
+        if (failedDocuments.Count > 0)
+        {
+            if (attempts == maxRetryAttempts)
+            {
+                Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("[Batch starting at doc {0} had partial failure]", id);
+                Console.WriteLine("[Retrying {0} failed documents] \n", failedDocuments.Count);
+
+                // creating a batch of failed documents to retry
+                var failedDocumentKeys = failedDocuments.Select(doc => doc.Key).ToList();
+                hotels = hotels.Where(h => failedDocumentKeys.Contains(h.HotelId)).ToList();
+                batch = IndexDocumentsBatch.Upload(hotels);
+
+                Task.Delay(delay).Wait();
+                delay = delay * 2;
+                continue;
+            }
+        }
+
+        return result;
     }
-    catch (IndexBatchException ex)
+    catch (RequestFailedException ex)
     {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2}", attempts, maxRetryAttempts, ex.Message);
+        Console.WriteLine("[Batch starting at doc {0} failed]", id);
+        Console.WriteLine("[Retrying entire batch] \n");
 
         if (attempts == maxRetryAttempts)
+        {
+            Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
             break;
-
-        // Find the failed items and create a new batch to retry
-        batch = ex.FindFailedActionsToRetry(batch, x => x.HotelId);
-        Console.WriteLine("Retrying failed documents using exponential backoff...\n");
-
-        Task.Delay(delay).Wait();
-        delay = delay * 2;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2} \n", attempts, maxRetryAttempts, ex.Message);
-
-        if (attempts == maxRetryAttempts)
-            break;
+        }
 
         Task.Delay(delay).Wait();
         delay = delay * 2;
@@ -325,10 +345,10 @@ do
 
 W tym miejscu zawijamy kod wykładniczy wycofywania do funkcji, aby można było ją łatwo wywołać.
 
-Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
+Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
 
 ```csharp
-ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
+await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
 ```
 
 Po uruchomieniu funkcji powinny zostać wyświetlone dane wyjściowe podobne do poniższych:
@@ -337,7 +357,10 @@ Po uruchomieniu funkcji powinny zostać wyświetlone dane wyjściowe podobne do 
 
 Gdy partia dokumentów nie powiedzie się, zostanie wydrukowany błąd wskazujący awarię i że trwa ponawianie próby wykonania partii:
 
-![Błąd funkcji danych indeksu](media/tutorial-optimize-data-indexing/index-data-error.png "Dane wyjściowe funkcji rozmiaru partii testów")
+```
+[Batch starting at doc 6000 had partial failure]
+[Retrying 560 failed documents]
+```
 
 Po zakończeniu działania funkcji można sprawdzić, czy wszystkie dokumenty zostały dodane do indeksu.
 
@@ -354,7 +377,7 @@ Dostępne są dwie główne opcje sprawdzania liczby dokumentów w indeksie: [in
 Operacja Count Documents Pobiera liczbę dokumentów w indeksie wyszukiwania:
 
 ```csharp
-long indexDocCount = indexClient.Documents.Count();
+long indexDocCount = await searchClient.GetDocumentCountAsync();
 ```
 
 #### <a name="get-index-statistics"></a>Pobierz statystyki indeksu
@@ -362,7 +385,7 @@ long indexDocCount = indexClient.Documents.Count();
 Operacja Pobierz statystyki indeksu zwraca liczbę dokumentów dla bieżącego indeksu oraz użycie magazynu. Aktualizacja statystyk indeksu będzie trwać dłużej niż liczba dokumentów do zaktualizowania.
 
 ```csharp
-IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(configuration["SearchIndexName"]);
+var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
 ### <a name="azure-portal"></a>Azure Portal

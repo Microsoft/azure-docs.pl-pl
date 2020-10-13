@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450764"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973635"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Woluminy NFS 4.1 w usłudze Azure NetApp Files dla platformy SAP HANA
 
@@ -131,7 +131,7 @@ To samo dotyczy woluminu, który jest używany do zapisu pełnych kopii zapasowy
  
 
 ## <a name="backup"></a>Backup
-Oprócz przesyłania strumieniowego kopii zapasowych i usługi Azure back Service tworzenie kopii zapasowych baz danych SAP HANA, zgodnie z opisem w artykule [Przewodnik tworzenia kopii zapasowych dla SAP HANA na platformie Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide), Azure NetApp Files otwiera możliwość wykonywania kopii zapasowych migawek opartych na magazynie. 
+Oprócz przesyłania strumieniowego kopii zapasowych i usługi Azure back Service tworzenie kopii zapasowych baz danych SAP HANA, zgodnie z opisem w artykule [Przewodnik tworzenia kopii zapasowych dla SAP HANA na platformie Azure Virtual Machines](./sap-hana-backup-guide.md), Azure NetApp Files otwiera możliwość wykonywania kopii zapasowych migawek opartych na magazynie. 
 
 SAP HANA obsługuje:
 
@@ -195,4 +195,4 @@ root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytes
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z artykułem:
 
-- [SAP HANA wysokiej dostępności dla maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [SAP HANA wysokiej dostępności dla maszyn wirtualnych platformy Azure](./sap-hana-availability-overview.md)

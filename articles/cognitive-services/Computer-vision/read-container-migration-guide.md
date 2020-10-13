@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91530463"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973126"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrowanie do kontenerów OCR odczytu v3. x
 
@@ -65,10 +65,10 @@ Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są uż
 >[!NOTE]
 > MongoDB nie jest już obsługiwana w wersjach 3. x kontenera. Zamiast tego kontenery obsługują usługę Azure Storage i systemy plików trybu offline.
 
-| Implementacja |  Wymagane argumenty środowiska uruchomieniowego |
+| Implementacja |    Wymagane argumenty środowiska uruchomieniowego |
 |---------|---------|
-|Poziom pliku (wartość domyślna)   | Nie są wymagane argumenty środowiska uruchomieniowego. `/share` zostanie użyty katalog. |
-|Obiekt bob Azure | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Poziom pliku (wartość domyślna)    | Nie są wymagane argumenty środowiska uruchomieniowego. `/share` zostanie użyty katalog. |
+|Obiekt bob Azure    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Implementacje kolejki
 
@@ -78,7 +78,7 @@ W wersji 3. x kontenera RabbitMQ nie jest obecnie obsługiwane. Obsługiwane są
 |---------|---------|-------|
 | W pamięci (domyślnie) | Nie są wymagane argumenty środowiska uruchomieniowego. | Tworzenie i testowanie |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Produkcja |
-| RabbitMQ  | Niedostępny | Produkcja |
+| RabbitMQ    | Niedostępny | Produkcja |
 
 W przypadku dodanej nadmiarowości kontener Read v3. x używa czasomierza widoczności, aby zapewnić pomyślne przetworzenie żądań w przypadku awarii, podczas uruchamiania w konfiguracji wielokontenerowej. 
 
@@ -86,7 +86,7 @@ Ustaw czasomierz przy użyciu `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`
 
 | Wartość domyślna | Zalecana wartość |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>Następne kroki

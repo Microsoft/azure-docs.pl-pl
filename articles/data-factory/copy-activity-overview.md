@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946177"
+ms.locfileid: "91951689"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -186,10 +186,11 @@ Zobacz [Mapowanie schematu i typu danych,](copy-activity-schema-and-type-mapping
 Oprócz kopiowania danych ze źródłowego magazynu danych do ujścia, można również skonfigurować program, aby dodać do niego dodatkowe kolumny danych. Na przykład:
 
 - Podczas kopiowania z lokalizacji źródłowej plików należy przechowywać względną ścieżkę pliku jako dodatkową kolumnę do śledzenia, z którego pliku pochodzą dane.
+- Duplikuj określoną kolumnę źródłową jako inną kolumnę. 
 - Dodaj kolumnę z wyrażeniem ADF, aby dołączyć zmienne systemowe ADF, takie jak nazwa potoku/identyfikator potoku, lub przechowywać inną wartość dynamiczną z danych wyjściowych działania nadrzędnego.
 - Dodaj kolumnę z wartością statyczną, aby spełnić wymagania dotyczące użycia.
 
-Na karcie Źródło działania kopiowania można znaleźć następującą konfigurację: 
+Poniższą konfigurację można znaleźć na karcie Źródło działania kopiowania. Możesz również zmapować te dodatkowe kolumny w [mapowaniu schematu](copy-activity-schema-and-type-mapping.md#schema-mapping) działania kopiowania w zwykły sposób, używając zdefiniowanych nazw kolumn. 
 
 ![Dodawanie dodatkowych kolumn w działaniu kopiowania](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źr
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`** -Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
+| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`** -Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **$ $Column: <source_column_name>** — wzorzec zmiennej zastrzeżonej wskazuje na duplikowanie określonej kolumny źródłowej jako innej kolumny<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
 
 **Przykład:**
 
@@ -218,6 +219,10 @@ Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źr
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

@@ -2,7 +2,7 @@
 title: Typowe scenariusze wdrażania dla Azure AD Domain Services | Microsoft Docs
 description: Zapoznaj się z typowymi scenariuszami i przypadkami użycia Azure Active Directory Domain Services, aby zapewnić wartość i spełnić wymagania biznesowe.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.author: iainfou
-ms.openlocfilehash: a27d97e7e030da216b2296f11b6876ccf28c8ad0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 6c63609642b8dd8d1269222b06b57033d84ad8a0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722759"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967906"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Typowe przypadki użycia i scenariusze dla Azure Active Directory Domain Services
 

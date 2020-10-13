@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669032"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971799"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
@@ -33,10 +33,13 @@ Aby dowiedzieć się więcej o różnych typach certyfikatów i ich rolach, zoba
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-* Urządzenie IoT Edge uruchomione w [systemie Windows](how-to-install-iot-edge-windows.md) lub [Linux](how-to-install-iot-edge-linux.md).
+* Urządzenie IoT Edge.
+
+  Jeśli nie masz skonfigurowanego urządzenia IoT Edge, możesz je utworzyć na maszynie wirtualnej platformy Azure. Wykonaj kroki opisane w jednym z artykułów z przewodnikiem Szybki Start, aby [utworzyć wirtualne urządzenie](quickstart-linux.md) z systemem Linux lub [utworzyć wirtualne urządzenie systemu Windows](quickstart.md).
+
 * Posiadanie certyfikatu głównego urzędu certyfikacji (CA) z podpisem własnym lub zakupionego od zaufanego komercyjnego urzędu certyfikacji, takiego jak Baltimore, VeriSign, DigiCert lub GlobalSign.
 
-Jeśli nie masz jeszcze głównego urzędu certyfikacji, ale chcesz wypróbować IoT Edge funkcje wymagające certyfikatów produkcyjnych (na przykład scenariusze bramy), możesz [utworzyć certyfikaty demonstracyjne do testowania funkcji IoT Edge urządzeń](how-to-create-test-certificates.md).
+  Jeśli nie masz jeszcze głównego urzędu certyfikacji, ale chcesz wypróbować IoT Edge funkcje wymagające certyfikatów produkcyjnych (na przykład scenariusze bramy), możesz [utworzyć certyfikaty demonstracyjne do testowania funkcji IoT Edge urządzeń](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Tworzenie certyfikatów produkcyjnych
 
