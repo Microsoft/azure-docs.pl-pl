@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie interfejsu API REST'
 description: W tym przewodniku szybki start wykonaj kroki w celu wywołania punktu końcowego grafu zasobów dla interfejsu API REST i uruchomienia pierwszego zapytania.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85802719"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057233"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu interfejsu API REST
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Zastąp parametr `{subscriptionId}` w zmiennej **$restUri** powyżej, aby uzyskać informacje na temat Twojej subskrypcji. Zmienna $response zawiera wynik działania polecenia cmdlet `Invoke-RestMethod`, który można przeanalizować za pomocą poleceń cmdlet, takich jak [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Jeśli punkt końcowy usługi interfejsu API REST oczekuje **treści żądania**, podaj zmienną w formacie JSON dla parametru `-Body` polecenia `Invoke-RestMethod`.
+Zamień `{subscriptionId}` na `$restUri` zmienną, aby uzyskać informacje o subskrypcji.
+`$response`Zmienna przechowuje wynik `Invoke-RestMethod` polecenia cmdlet, które można analizować za pomocą poleceń cmdlet, takich jak [ConvertFrom-JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json). Jeśli punkt końcowy usługi interfejsu API REST oczekuje **treści żądania**, podaj zmienną w formacie JSON dla parametru `-Body` polecenia `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Uruchamianie pierwszego zapytania usługi Resource Graph
 

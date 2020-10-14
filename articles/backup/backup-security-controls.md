@@ -3,12 +3,12 @@ title: Mechanizmy zabezpieczeń
 description: Dowiedz się więcej o kontrolkach zabezpieczeń używanych w usłudze Azure Backup. Te kontrolki ułatwiają zapobieganie wykrywaniu luk w zabezpieczeniach, wykrywanie ich i reagowanie na nie.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bd35bdf83d336aebd37cdda0a0b59164ac9f7a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418759"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055889"
 ---
 # <a name="security-controls-for-azure-backup"></a>Kontrolki zabezpieczeń dla Azure Backup
 
@@ -30,7 +30,7 @@ W tym artykule opisano kontrolki zabezpieczeń wbudowane w Azure Backup.
 
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi| Dokumentacja
 |---|---|--|--|
-| Pomoc techniczna dotycząca monitorowania platformy Azure (np. log Analytics, App Insights)| Tak | Log Analytics jest obsługiwana za pośrednictwem dzienników zasobów. Aby uzyskać więcej informacji, zobacz [monitorowanie Azure Backup chronionych obciążeń przy użyciu log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Pomoc techniczna dotycząca monitorowania platformy Azure (np. log Analytics, App Insights)| Tak | Log Analytics jest obsługiwana za pośrednictwem dzienników zasobów. Aby uzyskać więcej informacji, zobacz [monitorowanie Azure Backup chronionych obciążeń przy użyciu log Analytics](backup-azure-diagnostics-mode-data-model.md). |  |
 | Rejestrowanie i inspekcja płaszczyzny kontroli i zarządzania| Tak | Wszystkie akcje wyzwalane przez klienta z Azure Portal są rejestrowane w dziennikach aktywności. |  |
 | Rejestrowanie i inspekcja płaszczyzny danych| Nie | Nie można bezpośrednio połączyć Azure Backup płaszczyzny danych.  |  |
 

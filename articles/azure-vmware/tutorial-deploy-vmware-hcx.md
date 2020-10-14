@@ -3,29 +3,29 @@ title: Samouczek — wdrażanie i Konfigurowanie programu VMware HCX
 description: Dowiedz się, jak wdrażać i konfigurować rozwiązanie VMware HCX w chmurze prywatnej rozwiązania Azure VMware.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 341de74c8034eb60c5738720f730ab6b0f0f127f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 58fd8b4518f60f1f736d8c19ddcf62729353f251
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948599"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057999"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Wdrażanie i konfigurowanie usługi VMware HCX
 
-W tym artykule omówiono procedury wdrażania i konfigurowania programu VMware HCX dla chmury prywatnej rozwiązania Azure VMWare. Program VMware HCX umożliwia migrację obciążeń oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji przy użyciu różnych typów migracji.
+W tym artykule omówiono procedury wdrażania i konfigurowania łącznika lokalnego usługi VMware HCX dla chmury prywatnej rozwiązania VMware. Program VMware HCX umożliwia migrację obciążeń oprogramowania VMware do rozwiązania VMware platformy Azure i innych połączonych lokacji przy użyciu różnych typów migracji. Rozwiązanie VMware platformy Azure zostało już wdrożone i skonfigurowane jako "Cloud Manager", więc pobranie, aktywowanie i skonfigurowanie "łącznika" jest wymagane przez klienta w lokalnych centrach danych VMware.
 
-Program VMware HCX Advanced (wstępnie wdrożony w ramach rozwiązania Azure VMware) obsługuje maksymalnie trzy połączenia z lokacją (lokalnie do chmury lub w chmurze). Jeśli wymagane są więcej niż trzy połączenia z witryną VMware HCX Enterprise, można włączyć dodatek [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (który jest obecnie w *wersji zapoznawczej*), przesyłając [żądanie pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support). Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w *wersji zapoznawczej*, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
+Łącznik programu VMware HCX Advanced (wstępnie wdrożony w usłudze Azure VMware Solution) obsługuje maksymalnie trzy połączenia z lokacją (lokalnie lub w chmurze). Jeśli wymagane są więcej niż trzy połączenia z lokacją, klienci mają możliwość włączenia dodatku [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) (który jest obecnie w *wersji zapoznawczej*) przez przesłanie [żądania pomocy technicznej](https://rc.portal.azure.com/#create/Microsoft.Support). Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w *wersji zapoznawczej*, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
 
 Przed rozpoczęciem należy dokładnie zapoznać się [przed rozpoczęciem](#before-you-begin), [wymagania dotyczące wersji oprogramowania](#software-version-requirements)i [wymagania wstępne](#prerequisites). 
 
 Następnie przeprowadzimy przez wszystkie niezbędne procedury, aby:
 
 > [!div class="checklist"]
-> * Wdrażanie lokalnych komórek jajowych programu VMware HCX (łącznik)
-> * Aktywuj oprogramowanie VMware HCX
-> * Parowanie środowiska lokalnego z Twoim środowiskiem rozwiązań VMware platformy Azure.
-> * Konfigurowanie połączenia (profil obliczeniowy, Profile sieciowe i sieć usługi)
-> * Ukończ instalację, sprawdzając stan urządzenia.
+> * Wdrażanie lokalnych komórek jajowych programu VMware HCX (łącznik HCX)
+> * Aktywuj łącznik programu VMware HCX
+> * Parowanie lokalnego łącznika HCX z rozwiązaniem platformy Azure VMware HCX Cloud Manager
+> * Konfigurowanie połączenia (profil sieciowy, profil obliczeniowy i siatka usługi)
+> * Ukończ konfigurację, sprawdzając stan urządzenia i sprawdzając poprawność migracji
 
 Po zakończeniu możesz wykonać czynności opisane w sekcji zalecane na końcu tego artykułu.  
 
@@ -38,7 +38,7 @@ Po zakończeniu możesz wykonać czynności opisane w sekcji zalecane na końcu 
 * Zapoznaj VMware vSphere się z tematem "HCX", na przykład z [serii blogów](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) w witrynie HCX. 
 * Opcjonalnie możesz zażądać aktywacji rozwiązania Azure VMware HCX Enterprise za pomocą kanałów obsługi rozwiązań VMware platformy Azure.
 * Opcjonalne [Sprawdzanie portów sieciowych wymaganych przez HCX](https://ports.vmware.com/home/VMware-HCX).
-* Aby można było wdrożyć urządzenie WAN Interconnect, określone zakresy CIDR są już przydzieleni z klienta dostarczonego `\22` do tworzenia chmury prywatnej.
+* Chociaż rozwiązanie Azure VMware HCX CLoud Manager jest wstępnie skonfigurowane z/22, które jest dostępne dla chmury prywatnej rozwiązania Azure VMware, łącznik On-Premises Connector wymaga przydzielenia zakresów sieci przez klienta z sieci lokalnej. Te sieci i zakresy są szczegółowo opisane w dokumencie.
 
 Ustalanie rozmiarów obciążeń związanych z zasobami obliczeniowymi i magazynem jest ważnym etapem planowania. Zaadresuj krok zmiany wielkości w ramach wstępnego planowania środowiska chmury prywatnej. 
 
@@ -63,32 +63,31 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
 * Wszystkie wymagane porty powinny być otwarte do komunikacji między składnikami lokalnymi i lokalnymi z rozwiązaniem VMware platformy Azure SDDC (zobacz [dokumentację programu VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 
-* Lokalne HCX IX i NE urządzenia powinny być w stanie dotrzeć do infrastruktury vCenter i ESXi.
 
 ### <a name="ip-addresses"></a>Adresy IP
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
    
-## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Wdrażanie programu VMware HCX komórki jajowe w środowisku lokalnym
+## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Wdrażanie lokalnych komórek jajowych łącznika VMware HCX
 
 >[!NOTE]
->Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy pobrać komórki jajowe programu VMware HCX. 
+>Przed wdrożeniem urządzenia wirtualnego w lokalnym programie vCenter należy pobrać komórki jajowe łącznika VMware HCX. 
 
-1. Zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 przy użyciu poświadczeń użytkownika **cloudadmin** , a następnie przejdź do **pomocy technicznej**.
+1. Otwórz okno przeglądarki, zaloguj się do usługi Azure VMware Solution HCX Manager na `https://x.x.x.9` porcie 443 przy użyciu poświadczeń użytkownika **cloudadmin** , a następnie przejdź do **pomocy technicznej**.
 
    >[!TIP]
-   >Aby zidentyfikować adres IP programu HCX Manager, w bloku rozwiązania Azure VMware przejdź do obszaru **Zarządzanie**  >  **łącznością** , a następnie wybierz kartę **HCX** . 
+   >Zanotuj adres IP programu HCX Cloud Manager w rozwiązaniu VMware platformy Azure. Aby zidentyfikować adres IP HCX Cloud Manager, w bloku rozwiązanie Azure VMware przejdź do pozycji **Zarządzanie**  >  **łącznością** , a następnie wybierz kartę **HCX** . 
    >
    >Hasło vCenter zostało zdefiniowane podczas konfigurowania chmury prywatnej.
 
-1. Wybierz link **pobierania** , aby pobrać plik komórek jajowych programu VMware HCX.
+1. Wybierz link **pobierania** , aby pobrać plik komórek jajowych łącznika programu VMware HCX.
 
-1. Przejdź do lokalnego programu vCenter i wybierz szablon OVF, który jest pobranym plikiem komórki jajowe do wdrożenia w lokalnym programie vCenter.  
+1. Przejdź do lokalnego programu vCenter i wybierz szablon OVF, który jest pobranym plikiem komórki jajowe, aby wdrożyć łącznik HCX w lokalnym programie vCenter.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Wybierz nazwę i lokalizację, zasób/klaster, w którym są wdrażane HCX, a następnie przejrzyj szczegóły i wymagane zasoby.  
+1. Wybierz nazwę i lokalizację, zasób/klaster, do którego zostanie wdrożony łącznik HCX, a następnie przejrzyj szczegóły i wymagane zasoby.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -98,10 +97,10 @@ Składniki infrastruktury muszą mieć uruchomioną wymaganą wersję minimalną
 
    :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
-1. Wybierz pozycję **dalej**, sprawdź konfigurację, a następnie wybierz pozycję **Zakończ** , aby wdrożyć HCX komórki jajowe.
+1. Wybierz pozycję **dalej**, sprawdź konfigurację, a następnie wybierz pozycję **Zakończ** , aby wdrożyć komórki jajowe łącznika HCX.
      
    >[!NOTE]
-   >Ogólnie wdrażanie programu VMware HCX Manager jest wdrażane w sieci zarządzania klastrami.  
+   >Ogólnie rzecz biorąc, wdrażany łącznik programu VMware HCX jest wdrażany w sieci zarządzania klastrami.  
    
    > [!IMPORTANT]
    > Po zakończeniu wdrożenia może być konieczne ręczne wyłączenie urządzenia wirtualnego.
@@ -112,9 +111,9 @@ Aby zapoznać się z kompleksowym omówieniem tego kroku, zapoznaj się z temate
 
 ## <a name="activate-vmware-hcx"></a>Aktywuj oprogramowanie VMware HCX
 
-Po wdrożeniu komórek jajowych programu VMware HCX w środowisku lokalnym można aktywować program VMware HCX. Aby można było aktywować program VMware HCX, konieczne będzie pobranie licencji.
+Po wdrożeniu komórek jajowych łącznika programu VMware HCX lokalnie i uruchomieniu urządzenia można rozpocząć aktywację, a najpierw pobrać klucz licencji z portalu rozwiązań VMware platformy Azure na platformie Azure.
 
-1. W rozwiązaniu VMware platformy Azure przejdź do pozycji **Zarządzanie**  >  **łącznością**, wybierz kartę **HCX** , a następnie wybierz pozycję **Dodaj**.
+1. W portalu rozwiązań VMware platformy Azure przejdź do pozycji **Zarządzanie**  >  **łącznością**, wybierz kartę **HCX** , a następnie wybierz pozycję **Dodaj**.
 
 1. Zaloguj się do lokalnego programu VMware HCX Manager pod adresem i zaloguj się przy użyciu `https://HCXManagerIP:9443` poświadczeń użytkownika **administratora** . 
 
@@ -151,13 +150,13 @@ Po wdrożeniu komórek jajowych programu VMware HCX w środowisku lokalnym możn
 Aby zapoznać się z kompleksowym omówieniem tego kroku, zobacz [rozwiązanie Azure VMware — wideo z aktywacją VMware HCX](https://www.youtube.com/embed/BkAV_TNYxdE) .
 
 
-## <a name="configure-vmware-hcx"></a>Konfigurowanie programu VMware HCX
+## <a name="configure-vmware-hcx-connector"></a>Konfigurowanie łącznika VMware HCX
 
 Teraz możesz dodać parowanie lokacji, utworzyć sieć i profil obliczeniowy oraz włączyć usługi, takie jak migracja, rozszerzenie sieci lub odzyskiwanie po awarii. 
 
 ### <a name="add-a-site-pairing"></a>Dodawanie parowania lokacji
 
-Za pomocą programu VMware HCX Manager w centrum danych możesz połączyć się z usługą VMware HCX Manager w rozwiązaniu VMware. 
+Korzystając z łącznika VMware HCX w centrum danych, możesz połączyć się z programem VMware HCX Cloud Manager w rozwiązaniu VMware Azure. 
 
 1. Zaloguj się do lokalnego programu vCenter i w obszarze **Strona główna**wybierz pozycję **HCX**.
 
@@ -167,14 +166,14 @@ Za pomocą programu VMware HCX Manager w centrum danych możesz połączyć się
 
    :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
-1. Wprowadź **adres URL lub adres IP zdalnego HCX**, cloudadmin@vsphere.local nazwę użytkownika i **hasło**rozwiązania VMware platformy Azure, a następnie wybierz pozycję **Połącz**.
+1. Wprowadź **adres URL zdalnego HCX lub adres IP** zanotowany wcześniej w polu cloudadmin@vsphere.local Nazwa użytkownika i **hasło**rozwiązania Azure VMware, a następnie wybierz pozycję **Połącz**.
 
    > [!NOTE]
-   > **Zdalny adres URL HCX** to rozwiązanie Azure VMware Private Cloud HCX Manager, zazwyczaj adres ". 9" sieci zarządzania.  Na przykład jeśli serwer vCenter to 192.168.4.2, adres URL HCX będzie 192.168.4.9.
+   > **Zdalny adres URL HCX** to rozwiązanie Azure VMware Private Cloud HCX Cloud Manager IP, zazwyczaj adres ". 9" sieci zarządzania.  Na przykład jeśli serwer vCenter to 192.168.4.2, adres URL HCX będzie 192.168.4.9.
    >
    > **Hasło** będzie używane do logowania się do programu vCenter. To hasło zostało zdefiniowane na ekranie wdrożenia początkowego.
 
-   Zobaczysz ekran z HCX Manager w rozwiązaniu VMware platformy Azure, a Menedżer HCX jest połączony lokalnie (sparowany).
+   Zobaczysz ekran z HCX CLoud Manager w rozwiązaniu Azure VMware i łącznikiem HCX podłączonym lokalnie (sparowany).
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Przejdź do lokalnego programu vCenter i wybierz szablon OVF do wdrożenia w lokalnym programie vCenter.":::
 
@@ -184,7 +183,7 @@ Aby zapoznać się z kompleksowym omówieniem tego kroku, zapoznaj się z temate
 
 ### <a name="create-network-profiles"></a>Tworzenie profilów sieciowych
 
-Oprogramowanie VMware HCX wdraża kilka urządzeń wirtualnych (zautomatyzowany), ale wymaga wielu segmentów IP.  Podczas tworzenia profilów sieci należy zdefiniować segmenty adresów IP, które zostały zidentyfikowane podczas [przygotowywania segmentów sieci VMware HCX przed wdrożeniem i planowania](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+VMware HCX wdraża podzestaw urządzeń wirtualnych (zautomatyzowany), które wymagają wielu segmentów IP.  Podczas tworzenia profilów sieci należy zdefiniować segmenty adresów IP, które zostały zidentyfikowane podczas [przygotowywania segmentów sieci VMware HCX przed wdrożeniem i planowania](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 Utworzysz cztery Profile sieciowe:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Wirtualna sieć WAN platformy Azure: tworzenie połączeń lokacja-lokacja'
+title: 'Samouczek: tworzenie połączeń lokacja-lokacja za pomocą usługi Azure Virtual WAN'
 description: Z tego samouczka dowiesz się, jak utworzyć połączenie lokacja-lokacja VPN z platformą Azure w usłudze Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 191c1d88654cd13ce88e522e6c617d2b39ce9f5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856732"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057913"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -37,7 +37,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -242,6 +242,17 @@ Na stronie **edytowanie VPN Gateway** można wyświetlić następujące ustawien
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Zrzut ekranu przedstawiający stronę &quot;sieć VPN (lokacja-lokacja)&quot; ze strzałką wskazującą akcję &quot;Wyświetl/Konfiguruj&quot;." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Virtual WAN, zobacz stronę [Omówienie usługi Virtual WAN](virtual-wan-about.md).
+Aby dowiedzieć się więcej o wirtualnej sieci WAN, zobacz:
+
+> [!div class="nextstepaction"]
+> * [Często zadawane pytania dotyczące usługi Virtual WAN](virtual-wan-faq.md)

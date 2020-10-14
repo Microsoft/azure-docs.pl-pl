@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 65cd35dd60ed05da51b6da56882af4522b1b7573
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 369f79a436d76e6a1bf1a1ce64f7754f25a5abc5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043436"
+ms.locfileid: "92058050"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transakcje rozproszone w bazach danych w chmurze (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -145,14 +145,14 @@ Następujący przykładowy kod w języku Transact-SQL używa [Rozpocznij transak
     -- Configure the Linked Server
     -- Add one Azure SQL Managed Instance as Linked Server
     EXEC sp_addlinkedserver
-        @server='managedinstance02', -- Linked server name
+        @server='RemoteServer', -- Linked server name
         @srvproduct='',
         @provider='sqlncli', -- SQL Server Native Client
-        @datasrc='sql-managed-instance-02.48ea8fd5ac90.database.windows.net' -- Managed Instance endpoint
+        @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
 
     -- Add credentials and options to this Linked Server
     EXEC sp_addlinkedsrvlogin
-        @rmtsrvname = 'managedinstance02', -- Linked server name
+        @rmtsrvname = 'RemoteServer', -- Linked server name
         @useself = 'false',
         @rmtuser = '<login_name>',         -- login
         @rmtpassword = '<secure_password>' -- password
@@ -244,7 +244,7 @@ Użyj następujących poleceń cmdlet programu PowerShell do zarządzania relacj
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transakcje na wielu serwerach dla wystąpienia zarządzanego usługi Azure SQL
 
-Transakcje rozproszone są obsługiwane na różnych serwerach w wystąpieniu zarządzanym usługi Azure SQL. Gdy transakcje krzyżowe wystąpienia są zarządzane, najpierw muszą zostać wprowadzone wystąpienia uczestniczące w relacji zabezpieczeń i komunikacji. Jest to realizowane przez skonfigurowanie [grupy zaufania serwera](https://aka.ms/mitrusted-groups), którą można wykonać na Azure Portal.
+Transakcje rozproszone są obsługiwane na różnych serwerach w wystąpieniu zarządzanym usługi Azure SQL. Gdy transakcje krzyżowe wystąpienia są zarządzane, najpierw muszą zostać wprowadzone wystąpienia uczestniczące w relacji zabezpieczeń i komunikacji. W tym celu należy utworzyć [grupę zaufania serwera](https://aka.ms/mitrusted-groups), którą można wykonać na Azure Portal. Jeśli wystąpienia zarządzane nie znajdują się w tej samej sieci wirtualnej, należy skonfigurować [komunikację równorzędną sieci wirtualnych](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) , a reguły ruchu przychodzącego i wychodzącego grupy zabezpieczeń muszą zezwalać na porty 5024 i 11000-12000 we wszystkich uczestniczących sieciach wirtualnych.
 
   ![Grupy zaufania serwera w witrynie Azure Portal][3]
 

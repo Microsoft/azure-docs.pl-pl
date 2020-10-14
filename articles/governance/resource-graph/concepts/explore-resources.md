@@ -1,18 +1,18 @@
 ---
 title: Eksplorowanie zasobów platformy Azure
 description: Dowiedz się, jak używać języka zapytań grafu zasobów do eksplorowania zasobów i dowiedzieć się, jak są one połączone.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0ef3935d865618a9d4dda2825f7d4383baf772
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056588"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056246"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Badanie zasobów platformy Azure przy użyciu usługi Resources Graph
 
-Usługa Azure Resource Graph umożliwia szybkie eksplorowanie i odnajdywanie zasobów platformy Azure na dużą skalę. Zaprojektowana w celu uzyskania szybkich odpowiedzi to świetny sposób poznania środowiska oraz właściwości, które tworzą zasoby platformy Azure.
+Usługa Azure Resource Graph umożliwia szybkie eksplorowanie i odnajdywanie zasobów platformy Azure na dużą skalę. Zaprojektowana w celu uzyskania szybkich odpowiedzi to świetny sposób poznania środowiska oraz właściwości, które istnieją w Twoich zasobach platformy Azure.
 
 ## <a name="explore-virtual-machines"></a>Eksplorowanie maszyn wirtualnych
 
@@ -104,7 +104,7 @@ Wyniki JSON są strukturalne podobne do poniższego przykładu:
 ]
 ```
 
-Właściwości te zawierają dodatkowe informacje dotyczące samego zasobu maszyny wirtualnej, wszystkich elementów SKU, systemów operacyjnych, dysków, tagów i grup zasobów oraz subskrypcji, do których należy.
+Właściwości informują nas o dodatkowych informacjach dotyczących zasobu maszyny wirtualnej. Te właściwości obejmują: system operacyjny, dyski, Tagi i grupę zasobów i subskrypcję, do której należy.
 
 ### <a name="virtual-machines-by-location"></a>Maszyny wirtualne według lokalizacji
 
@@ -165,7 +165,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Maszyny wirtualne połączone z dyskami zarządzanymi w warstwie Premium
 
-Jeśli chcemy uzyskać szczegóły dotyczące dysków zarządzanych w warstwie Premium, które są dołączone do tych **Standard_B2s** maszyn wirtualnych, możemy rozszerzyć zapytanie w celu udostępnienia nam identyfikatora zasobu dla tych dysków zarządzanych.
+Aby uzyskać szczegółowe informacje na temat dysków zarządzanych w warstwie Premium, które są dołączone do tych **Standard_B2s** maszyn wirtualnych, należy rozszerzyć zapytanie w celu zwrócenia identyfikatora zasobu dla tych dysków zarządzanych.
 
 ```kusto
 Resources

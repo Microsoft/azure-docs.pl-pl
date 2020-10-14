@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2020
-ms.openlocfilehash: 59febbac1a83e45c8b2bf9c233c3772f561eb111
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/14/2020
+ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050050"
+ms.locfileid: "92055940"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics eksportu danych obszaru roboczego w Azure Monitor (wersja zapoznawcza)
 Log Analytics eksport danych obszaru roboczego w programie Azure Monitor umożliwia ciągłe eksportowanie danych z wybranych tabel w obszarze roboczym Log Analytics do konta usługi Azure Storage lub usługi Azure Event Hubs w miarę ich zbierania. Ten artykuł zawiera szczegółowe informacje dotyczące tej funkcji oraz czynności konfigurowania eksportu danych w obszarach roboczych.
@@ -254,6 +254,10 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | AADDomainServicesLogonLogoff | |
 | AADDomainServicesPolicyChange | |
 | AADDomainServicesPrivilegeUse | |
+| AADManagedIdentitySignInLogs | |
+| AADNonInteractiveUserSignInLogs | |
+| AADProvisioningLogs | |
+| AADServicePrincipalSignInLogs | |
 | ADAssessmentRecommendation | |
 | ADFActivityRun | |
 | ADFPipelineRun | |
@@ -268,7 +272,8 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | ADXQuery | |
 | AegDeliveryFailureLogs | |
 | AegPublishFailureLogs | |
-| Alerty | Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Ta część nie jest obecnie dostępna w eksporcie. |
+| Alerty |Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
+| Anomalie | |
 | ApiManagementGatewayLogs | |
 | AppCenterError | |
 | AppPlatformSystemLogs | |
@@ -277,6 +282,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | AppServiceConsoleLogs | |
 | AppServiceFileAuditLogs | |
 | AppServiceHTTPLogs | |
+| AppServiceIPSecAuditLogs | |
 | AppServicePlatformLogs | |
 | AuditLogs | |
 | AutoscaleEvaluationsLog | |
@@ -291,7 +297,7 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | CommonSecurityLog | |
 | CommonSecurityLog | |
 | ComputerGroup | |
-| ConfigurationData | Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Ta część nie jest obecnie dostępna w eksporcie. |
+| ConfigurationData | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
@@ -312,15 +318,43 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Zdarzenie | Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Ta część nie jest obecnie dostępna w eksporcie. |
+| Zdarzenie | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
-| Puls | Obsługiwane | |
+| HDInsightAmbariClusterAlerts | |
+| HDInsightAmbariSystemMetrics | |
+| HDInsightGatewayAuditLogs | |
+| HDInsightHadoopAndYarnLogs | |
+| HDInsightHadoopAndYarnMetrics | |
+| HDInsightHBaseLogs | |
+| HDInsightHBaseMetrics | |
+| HDInsightHiveAndLLAPLogsSample | |
+| HDInsightKafkaLogs | |
+| HDInsightKafkaMetrics | |
+| HDInsightOozieLogs | |
+| HDInsightSecurityLogs | |
+| HDInsightSparkApplicationEvents | |
+| HDInsightSparkBlockManagerEvents | |
+| HDInsightSparkEnvironmentEvents | |
+| HDInsightSparkEventsLog | |
+| HDInsightSparkExecutorEvents | |
+| HDInsightSparkExtraEvents | |
+| HDInsightSparkJobEvents | |
+| HDInsightSparkLogs | |
+| HDInsightSparkSQLExecutionEvents | |
+| HDInsightSparkStageEvents | |
+| HDInsightSparkStageTaskAccumulables | |
+| HDInsightSparkTaskEvents | |
+| HDInsightStormLogs | |
+| HDInsightStormMetrics | |
+| HDInsightStormTopologyMetrics | |
+| Puls | |
 | HuntingBookmark | |
-| InsightsMetrics | Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Ta część nie jest obecnie dostępna w eksporcie. |
+| InsightsMetrics | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Ta część nie jest obecnie dostępna w eksporcie. |
 | IntuneAuditLogs | |
+| IntuneDeviceComplianceOrg | |
 | IntuneOperationalLogs | |
 | KubeEvents | |
 | KubeHealth | |
@@ -329,24 +363,30 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | KubePodInventory | |
 | KubeServices | |
 | KubeServices | |
+| LAQueryLogs | |
 | McasShadowItReporting | |
 | MicrosoftAzureBastionAuditLogs | |
 | MicrosoftDataShareReceivedSnapshotLog | |
 | MicrosoftDataShareSentSnapshotLog | |
 | MicrosoftDataShareShareLog | |
 | MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorDestinationListenerResult | |
+| NWConnectionMonitorDNSResult | |
+| NWConnectionMonitorPathResult | |
 | NWConnectionMonitorPathResult | |
 | NWConnectionMonitorTestResult | |
-| Pakiet Office | Niektóre dane do pozyskiwania za pośrednictwem elementów webhook z usługi O365 do LA. Ta część nie jest obecnie dostępna w eksporcie. |
-| Operacja | Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Ta część nie jest obecnie dostępna w eksporcie. |
-| Wyd. | Obsługiwane | |
-| SCCMAssessmentRecommendation | | 
+| NWConnectionMonitorTestResult | |
+| Pakiet Office | Pomoc techniczna częściowa. Niektóre dane do pozyskiwania za pośrednictwem elementów webhook z pakietu Office 365 do Log Analytics. Te dane nie są obecnie eksportowane. |
+| Operacja | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
+| Wyd. | Pomoc techniczna częściowa. Obecnie obsługiwane są tylko dane wydajności systemu Windows. Dane wydajności systemu Linux nie są obecnie eksportowane. |
+| ProtectionStatus | |
+| SCCMAssessmentRecommendation | |
 | SCOMAssessmentRecommendation | |
 | SecurityAlert | |
 | SecurityBaseline | |
 | SecurityBaselineSummary | |
 | SecurityDetection | |
-| SecurityEvent | Obsługiwane | |
+| SecurityEvent | |
 | SecurityIncident | |
 | SecurityIoTRawEvent | |
 | SecurityNestedRecommendation | |
@@ -359,24 +399,29 @@ Obsługiwane tabele są obecnie ograniczone do określonych poniżej. Wszystkie 
 | SPAssessmentRecommendation | |
 | SQLAssessmentRecommendation | |
 | SucceededIngestion | |
-| Dziennik systemu |Częściowe | Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Ta część nie jest obecnie dostępna w eksporcie. |
+| SynapseGatewayEvents | |
+| SynapseRBACEvents | |
+| Dziennik systemu | Pomoc techniczna częściowa. Niektóre dane do tej tabeli są pozyskiwane za pomocą konta magazynu. Te dane nie są obecnie eksportowane. |
 | ThreatIntelligenceIndicator | |
-| Aktualizacja |Częściowe | Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Ta część nie jest obecnie dostępna w eksporcie. |
+| Aktualizacja | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Użycie | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
+| Listy do obejrzenia | |
 | WindowsEvent | |
 | WindowsFirewall | |
-| Typowe |Częściowe | Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Ta część nie jest obecnie dostępna w eksporcie. |
+| Typowe | Pomoc techniczna częściowa. Niektóre dane są pozyskiwane za pomocą usług wewnętrznych, które nie są obsługiwane w przypadku eksportowania. Te dane nie są obecnie eksportowane. |
 | WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
+| WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
 | WVDErrors | |
 | WVDFeeds | |
 | WVDManagement | |
+
 
 ## <a name="next-steps"></a>Następne kroki
 

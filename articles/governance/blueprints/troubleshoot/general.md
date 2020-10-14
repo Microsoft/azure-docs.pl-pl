@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem, przypisywaniem i usuwaniem planów, takich jak naruszenia zasad i funkcje parametrów planu.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651325"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058288"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Rozwiązywanie problemów z błędami przy użyciu planów platformy Azure
 
@@ -59,7 +59,7 @@ Przekazywanie parametru planu, który używa funkcji, `[resourceGroup().tags.myT
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby przekazać funkcję przez parametr, należy wypróbować cały ciąg w taki sposób, `[` Aby parametr strategii wyglądał następująco `[[resourceGroup().tags.myTag]` . Znak ucieczki powoduje, że plany traktują wartość jako ciąg podczas przetwarzania planu. Plany następnie umieszczają funkcję na artefaktie, umożliwiając jej dynamiczne działanie zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zobacz [składnia i wyrażenia w szablonach Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Aby przekazać funkcję przez parametr, należy wypróbować cały ciąg w taki sposób, `[` Aby parametr strategii wyglądał następująco `[[resourceGroup().tags.myTag]` . Znak ucieczki powoduje, że plany traktują wartość jako ciąg podczas przetwarzania planu. Następnie usługa plany umieszcza funkcję na artefaktie, umożliwiając jej dynamiczne działanie zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zobacz [składnia i wyrażenia w szablonach Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Usuń błędy
 
@@ -75,7 +75,7 @@ Przypisanie planu może zostać zablokowane w stanie innym niż terminal po usun
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Przypisania strategii w stanie innym niż Terminal są automatycznie oznaczane jako **Niepowodzenie** po upływie _6 godzin_ . Po przekroczeniu limitu czasu podczas przypisywania stanu przypisania planu można ponowić próbę usunięcia.
+Przypisania strategii w stanie innym niż Terminal są automatycznie oznaczane jako **Niepowodzenie** po upływie _sześciu godzin_ . Po przekroczeniu limitu czasu podczas przypisywania stanu przypisania planu można ponowić próbę usunięcia.
 
 ## <a name="next-steps"></a>Następne kroki
 

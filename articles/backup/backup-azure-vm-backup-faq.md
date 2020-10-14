@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370831"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056722"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia
 
 Podczas tworzenia maszyny wirtualnej można włączyć tworzenie kopii zapasowych dla maszyn wirtualnych z [obsługiwanymi systemami operacyjnymi](backup-support-matrix-iaas.md#supported-backup-actions).
 
-### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Dlaczego początkowa kopia zapasowa trwa dużo czasu?
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Dlaczego tworzenie początkowej kopii zapasowej trwa długo?
 
 Początkowa kopia zapasowa to zawsze pełna kopia zapasowa, która będzie zależała od rozmiaru danych i czasu przetwarzania kopii zapasowej. <br>
 Aby zwiększyć wydajność tworzenia kopii zapasowych, zobacz [najlepsze rozwiązania w zakresie tworzenia kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices). [Uwagi dotyczące tworzenia kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) i [wydajności kopii zapasowych](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
@@ -79,7 +79,7 @@ Usuń blokadę i wyczyść kolekcję punktów przywracania z tej grupy zasobów,
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Czy Azure Backup obsługuje standardowe dyski zarządzane przez dysk SSD?
 
-Tak, Azure Backup obsługuje [dyski zarządzane w warstwie Standardowa SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Tak, Azure Backup obsługuje [dyski zarządzane w warstwie Standardowa SSD](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Czy można utworzyć kopię zapasową maszyny wirtualnej z dyskiem z obsługą akcelerator zapisu (WA)?
 

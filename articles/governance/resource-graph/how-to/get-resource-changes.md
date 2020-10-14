@@ -1,14 +1,14 @@
 ---
 title: Uzyskiwanie zmian zasobów
 description: Dowiedz się, jak znaleźć, kiedy zasób został zmieniony, uzyskać listę właściwości, które uległy zmianie, i Oceń różnice.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056571"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057573"
 ---
 # <a name="get-resource-changes"></a>Uzyskiwanie zmian zasobów
 
@@ -279,7 +279,7 @@ Odpowiedź wygląda podobnie do tego przykładu:
 }
 ```
 
-**beforeSnapshot** i **afterSnapshot** każdy podaje czas trwania migawki i właściwości w tym czasie. Zmiana miała miejsce w pewnym momencie między tymi migawkami. W powyższym przykładzie widać, że właściwość, która została zmieniona, została **supportsHttpsTrafficOnly**.
+**beforeSnapshot** i **afterSnapshot** każdy podaje czas trwania migawki i właściwości w tym czasie. Zmiana miała miejsce w pewnym momencie między tymi migawkami. Patrząc na poprzedni przykład, możemy zobaczyć, że właściwość, która została zmieniona, została **supportsHttpsTrafficOnly**.
 
 Aby porównać wyniki, należy użyć właściwości **zmiany** w **resourceChanges** lub oszacować część **zawartości** każdej migawki w **resourceChangeDetails** , aby określić różnicę. W przypadku porównania migawek **sygnatura czasowa** zawsze będzie widoczna jako różnica, mimo że jest to oczekiwane.
 

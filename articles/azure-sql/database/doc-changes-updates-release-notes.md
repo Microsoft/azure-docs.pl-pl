@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043395"
+ms.locfileid: "92058135"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,6 +98,8 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
+|[Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Wrz 2020|Ma obejście||
+|[Nie można wykonać transakcji rozproszonych po operacji skalowania wystąpienia zarządzanego](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Wrz 2020|Ma obejście||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) w usłudze Azure SQL i `BACKUP` / `RESTORE` instrukcji w wystąpieniu zarządzanym nie można używać tożsamości zarządzania usługą Azure AD do uwierzytelniania w usłudze Azure Storage|Wrz 2020|Ma obejście||
 |[Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 sie|Ma obejście||
 |[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
@@ -127,6 +129,14 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 |Funkcja poczty bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia||Resolved|2019 października|
 |Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym SQL||Resolved|2019 sie|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera
+
+[Grupy zaufania serwera](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) są używane do ustanawiania relacji zaufania między wystąpieniami zarządzanymi, które są warunkiem wstępnym wykonywania [transakcji rozproszonych](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Po usunięciu wystąpienia zarządzanego z grupy zaufania serwera lub usunięciu grupy nadal może być możliwe wykonywanie transakcji rozproszonych. Istnieje obejście, które można zastosować, aby upewnić się, że transakcje rozproszone są wyłączone i że [inicjowane przez użytkownika ręczne](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) przełączenie w tryb failover w wystąpieniu zarządzanym.
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Nie można wykonać transakcji rozproszonych po operacji skalowania wystąpienia zarządzanego
+
+Operacje skalowania wystąpienia zarządzanego, które obejmują zmianę warstwy usług lub liczby rdzeni wirtualnych, spowodują zresetowanie ustawień grupy zaufania serwera w zapleczu i wyłączenie uruchamiania [transakcji rozproszonych](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Aby obejść ten sposób, Usuń i Utwórz nową [grupę zaufania serwera](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) na Azure Portal.
+
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Instrukcje BULK INSERT i tworzenia kopii zapasowej/przywracania nie mogą używać tożsamości zarządzanej do uzyskiwania dostępu do usługi Azure Storage
 
 Instrukcja BULK INSERT nie może być używana `DATABASE SCOPED CREDENTIAL` z tożsamością zarządzaną do uwierzytelniania w usłudze Azure Storage. Aby obejść ten sposób, przełącz się na uwierzytelnianie SYGNATURy dostępu współdzielonego. Poniższy przykład nie będzie działał w przypadku usługi Azure SQL (bazy danych i wystąpienia zarządzanego):
@@ -146,7 +156,7 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 W pewnych okolicznościach może wystąpić problem z jednostką usługi służącą do uzyskiwania dostępu do usług Azure AD i Azure Key Vault (AKV). W związku z tym ten problem ma wpływ na użycie uwierzytelniania usługi Azure AD i przezroczyste szyfrowanie bazy danych (TDE) z wystąpieniem zarządzanym SQL. Może się to zdarzyć w przypadku sporadycznego problemu z łącznością lub nie można uruchomić takich instrukcji, jak tworzenie logowania/użytkownika z zewnętrznego dostawcy lub wykonywanie jako nazwa logowania/użytkownika. Skonfigurowanie TDE z kluczem zarządzanym przez klienta w nowym wystąpieniu zarządzanym Azure SQL może również nie funkcjonować w pewnych okolicznościach.
 
-**Obejście**: aby zapobiec występowaniu tego problemu w wystąpieniu zarządzanym SQL przed wykonaniem jakichkolwiek poleceń aktualizacji lub jeśli ten problem wystąpił już po aktualizacji poleceń, przejdź do witryny Azure Portal i uzyskaj dostęp do wystąpienia zarządzanego SQL [Active Directory bloku administratora](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Sprawdź, czy widzisz komunikat o błędzie "wystąpienie zarządzane potrzebuje nazwy głównej usługi, aby uzyskać dostęp do Azure Active Directory. Kliknij tutaj, aby utworzyć nazwę główną usługi ". Jeśli ten komunikat o błędzie został napotkany, kliknij go i postępuj zgodnie z instrukcjami krok po kroku, które są dostępne do momentu rozwiązania tego błędu.
+**Obejście**: aby zapobiec występowaniu tego problemu w wystąpieniu zarządzanym SQL przed wykonaniem jakichkolwiek poleceń aktualizacji lub w przypadku, gdy ten problem wystąpił już po poleceniach aktualizacji, przejdź do Azure Portal, dostęp do wystąpienia zarządzanego SQL [Active Directory bloku administratora](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Sprawdź, czy widzisz komunikat o błędzie "wystąpienie zarządzane potrzebuje nazwy głównej usługi, aby uzyskać dostęp do Azure Active Directory. Kliknij tutaj, aby utworzyć nazwę główną usługi ". Jeśli ten komunikat o błędzie został napotkany, kliknij go i postępuj zgodnie z instrukcjami krok po kroku, które są dostępne do momentu rozwiązania tego błędu.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem
 

@@ -1,14 +1,14 @@
 ---
 title: Przykład strategii testu porównawczego zabezpieczeń platformy Azure — omówienie
 description: Omówienie przykładu strategii testu porównawczego zabezpieczeń platformy Azure. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651906"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057590"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Przykładowy plan usługi Azure Security test
 
@@ -18,7 +18,7 @@ Przykład strategii testu porównawczego zabezpieczeń platformy Azure zapewnia 
 
 [Mapowanie formantów Azure Policy](../../policy/samples/azure-security-benchmark.md) zawiera szczegółowe informacje o definicjach zasad uwzględnionych w ramach tego planu oraz o tym, jak te definicje zasad są mapowane do **domen zgodności** i **kontroli** w ramach testu porównawczego zabezpieczeń platformy Azure. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wdrożyć plan platformy Azure dotyczący planu wydajności Azure Security test, należy wykonać następujące czynności:
 
@@ -46,7 +46,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
 
-1. Zapoznaj się z listą artefaktów, które składają się na przykład strategii. Wiele artefaktów ma parametry, które zdefiniujemy później. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą**.
+1. Zapoznaj się z listą artefaktów uwzględnionych w przykładowej strategii. Wiele artefaktów ma parametry, które zdefiniujemy później. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą**.
 
 ### <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładu
 

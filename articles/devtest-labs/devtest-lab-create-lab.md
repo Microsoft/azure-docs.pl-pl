@@ -3,12 +3,12 @@ title: Tworzenie laboratorium w usłudze Azure DevTest Labs | Microsoft Docs
 description: W tym artykule omówiono proces tworzenia laboratorium przy użyciu Azure Portal i Azure DevTest Labs.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 962997bcc66188c66fd9db856fe44e4926f8e70c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fa33a59dd35bfe3469f30f2349f8a08c45bd5e3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019651"
+ms.locfileid: "92058347"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Tworzenie laboratorium w usłudze Azure DevTest Labs
 
@@ -35,7 +35,11 @@ Na stronie **Tworzenie DevTest Labs** Wypełnij poniższe ustawienia.
 
 ### <a name="basic-settings"></a>Ustawienia podstawowe
 
-Domyślnie zostanie wyświetlona karta **Ustawienia podstawowe** . Wypełnij te wartości:
+Domyślnie zostanie wyświetlona karta **Ustawienia podstawowe** . 
+
+![Ustawienia podstawowe](./media/devtest-lab-create-lab/basic-settings.png)
+
+Wypełnij te wartości:
 
 |Nazwa|Opis|
 |---|---|
@@ -49,29 +53,41 @@ Domyślnie zostanie wyświetlona karta **Ustawienia podstawowe** . Wypełnij te 
 
 Przejdź do strony **automatycznego zamykania** , aby wyświetlić jej ustawienia. Automatyczne zamknięcie umożliwia automatyczne zamknięcie wszystkich maszyn w laboratorium w zaplanowanym terminie każdego dnia.
 
+![Karta automatycznego zamykania](./media/devtest-lab-create-lab/auto-shutdown.png)
+
 Na stronie można włączyć **automatyczne zamykanie** i zdefiniować parametry automatycznego zamykania wszystkich maszyn wirtualnych laboratorium... Funkcja automatycznego zamykania służy głównie do osiągnięcia oszczędności. Pozwala określić, kiedy ma dojść do automatycznego zamknięcia maszyny wirtualnej. Ustawienia automatycznego zamykania można zmienić po utworzeniu laboratorium, wykonując czynności opisane w artykule [Zarządzanie wszystkimi zasadami dla laboratorium w Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
-Podczas tworzenia laboratorium zostanie utworzona domyślna sieć.
+Podczas tworzenia laboratorium zostanie utworzona domyślna sieć. Przejdź do karty **Sieć** , aby zmienić lub skonfigurować odpowiednie ustawienie. Na przykład wybierz istniejącą sieć wirtualną.
 
-Przejdź do karty **Sieć** , aby zmienić lub skonfigurować odpowiednie ustawienie. Na przykład wybierz istniejącą sieć wirtualną.
+![Karta Sieć ](./media/devtest-lab-create-lab/networking.png)
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>Tagi
 
 Wprowadź informacje w polach **NAZWA** i **WARTOŚĆ** w obszarze **Tagi**, jeśli chcesz utworzyć niestandardowe tagowanie, które będzie dodawane do każdego zasobu utworzonego w laboratorium. Tagi są przydatne do porządkowania zasobów laboratorium według kategorii i zarządzania nimi. Aby uzyskać więcej informacji na temat tagów, w tym na temat sposobu dodawania tagów po utworzeniu laboratorium, zobacz [Dodawanie tagów do laboratorium](devtest-lab-add-tag.md).
+
+![Karta Tagi ](./media/devtest-lab-create-lab/tags.png)
 
 ### <a name="review-and-create"></a>Przegląd i tworzenie
 
 Po zakończeniu wybierz pozycję **Utwórz**. Stan procesu tworzenia laboratorium można monitorować, obserwując obszar **powiadomienia** w prawym górnym rogu strony portalu. 
 
+![Utwórz kartę](./media/devtest-lab-create-lab/create-1.png)
+
 ## <a name="completed-the-creation"></a>Ukończono tworzenie
 
 Po ukończeniu przycisk **Przejdź do zasobu** pojawia się u dołu strony i w oknie powiadomień. Alternatywnie możesz odświeżyć stronę **DevTest Labs** , aby zobaczyć nowo utworzone laboratorium na liście laboratoriów.  
 
+![Tworzenie usługi](./media/devtest-lab-create-lab/create-2.png)
+
 Naciśnij przycisk **Przejdź do zasobu** i nastąpi przejście do strony głównej nowego konta w usłudze DevTest Labs.
 
+![Zasób](./media/devtest-lab-create-lab/go-to-resource.png)
+
 Możesz również wyszukać **DevTest Labs** w Azure Portal. Wybierz nowe konto z listy i uzyskaj dostęp do strony głównej. 
+
+![Tworzenie usługi](./media/devtest-lab-create-lab/created.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

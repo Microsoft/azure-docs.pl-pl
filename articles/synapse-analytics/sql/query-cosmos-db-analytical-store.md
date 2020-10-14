@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757599"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057811"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
 
 Synapse SQL Server (wcześniej SQL na żądanie) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączane za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
 
 > [!NOTE]
-> Obsługa zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu programu SQL Server jest obecnie dostępna w wersji zapoznawczej. 
+> Obsługa zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu programu SQL Server jest obecnie dostępna w wersji zapoznawczej. Otwórz publiczną wersję zapoznawczą zostanie ogłoszona na stronie [aktualizacji usługi platformy Azure](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) .
 
 Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania bezserwerowego SQL do Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
@@ -36,10 +36,15 @@ OPENROWSET(
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-Parametry połączenia Azure Cosmos DB określają nazwę konta Azure Cosmos DB, nazwę bazy danych, klucz główny konta bazy danych i opcjonalną nazwę regionu do `OPENROWSET` działania. Parametry połączenia mają następujący format:
+Parametry połączenia Azure Cosmos DB określają nazwę konta Azure Cosmos DB, nazwę bazy danych, klucz główny konta bazy danych i opcjonalną nazwę regionu do `OPENROWSET` działania. 
+
+> [!IMPORTANT]
+> Upewnij się, że używasz aliasu po `OPENROWSET` . Istnieje [znany problem](#known-issues) powodujący problem z połączeniem, który Synapse bezserwerowy punkt końcowy SQL, jeśli nie określisz aliasu po `OPENROWSET` funkcji.
+
+Parametry połączenia mają następujący format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
@@ -151,7 +156,7 @@ FROM
 
 Wynik tego zapytania może wyglądać następująco:
 
-| title | autorów | first_autor_name |
+| tytuł | autorów | first_autor_name |
 | --- | --- | --- |
 | Dodatkowe informacje o epidemiach ekonomicznych... |   `[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien |  
 
@@ -223,7 +228,7 @@ FROM
 
 Wynik tego zapytania może wyglądać następująco:
 
-| title | autorów | pierwszego | ostatni | przynależności |
+| tytuł | autorów | pierwszego | ostatni | przynależności |
 | --- | --- | --- | --- | --- |
 | Dodatkowe informacje o epidemiach ekonomicznych... |   `[{"first":"Julien","last":"Mélade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien | Mélade | `   {"laboratory":"Centre de Recher…` |
 Dodatkowe informacje o epidemiach ekonomicznych... | `[{"first":"Nicolas","last":"4#","suffix":"","affiliation":{"laboratory":"","institution":"U…` | Nicolas | czwart # |`{"laboratory":"","institution":"U…` | 
@@ -242,7 +247,7 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 
 | Typ właściwości Azure Cosmos DB | Typ kolumny SQL |
 | --- | --- |
-| Boolean (wartość logiczna) | bit |
+| Wartość logiczna | bit |
 | Liczba całkowita | bigint |
 | Liczba dziesiętna | float |
 | Ciąg | varchar (sortowanie bazy danych UTF8) |
@@ -252,6 +257,13 @@ Konta Azure Cosmos DB interfejsu API języka SQL (rdzeń) obsługują typy wła�
 | Zagnieżdżony obiekt lub tablica | varchar (max) (sortowanie bazy danych UTF8), serializacja jako tekst JSON |
 
 Aby uzyskać informacje na temat wykonywania zapytań dotyczących kont Azure Cosmos DB w interfejsie API usługi Mongo DB, możesz dowiedzieć się więcej o pełnej reprezentacji schematu w magazynie analitycznym i nazwach właściwości rozszerzonych, które mają być używane w [tym miejscu](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+## <a name="known-issues"></a>Znane problemy
+
+- Alias **należy** określić po `OPENROWSET` funkcji (na przykład `OPENROWSET (...) AS function_alias` ). Pominięcie aliasu może spowodować problem z połączeniem i Synapse punkt końcowy SQL bez serwera może być tymczasowo niedostępny. Ten problem zostanie rozwiązany w lis 2020.
+- Synapse bezserwerowy SQL obecnie nie obsługuje [Azure Cosmos DB schematu pełnej wierności](../../cosmos-db/analytical-store-introduction.md#schema-representation). Używaj bezserwerowego SQL Synapse wyłącznie do dostępu do zdefiniowanego schematu Cosmos DB.
+
+Sugestie i problemy można zgłaszać na [stronie opinii o usłudze Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
 ## <a name="next-steps"></a>Następne kroki
 

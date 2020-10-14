@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908c7e4bc0ca15d952ef1d4d969c5bf686e0bdc3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316736"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058118"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -31,8 +31,7 @@ W tej sekcji omówiono niepowodzenie operacji tworzenia kopii zapasowej maszyny 
 * **Dziennik zdarzeń** może zawierać błędy kopii zapasowych, które pochodzą z innych produktów kopii zapasowej, na przykład kopia zapasowa systemu Windows Server, a nie z powodu Azure Backup. Wykonaj następujące kroki, aby określić, czy problem dotyczy Azure Backup:
   * Jeśli wystąpił błąd podczas **tworzenia kopii zapasowej** wpisu w źródle lub komunikacie zdarzenia, sprawdź, czy kopie zapasowe usługi Azure IaaS VM zostały wykonane pomyślnie, a także czy punkt przywracania został utworzony z żądanym typem migawki.
   * Jeśli Azure Backup działa, problem jest prawdopodobnie z innym rozwiązaniem tworzenia kopii zapasowej.
-  * Oto przykład Podgląd zdarzeń błędu 517, gdzie Azure Backup działał prawidłowo, ale "Kopia zapasowa systemu Windows Server" zakończył się niepowodzeniem:<br>
-    ![Niepowodzenie Kopia zapasowa systemu Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+  * Oto przykład Podgląd zdarzeń błędu 517, gdzie Azure Backup działał prawidłowo, ale "Kopia zapasowa systemu Windows Server" kończy się niepowodzeniem: ![ kopia zapasowa systemu Windows Server niepowodzenie](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Jeśli Azure Backup zakończy się niepowodzeniem, wyszukaj odpowiedni kod błędu w sekcji typowe błędy kopii zapasowej maszyny wirtualnej w tym artykule.
 
 ## <a name="common-issues"></a>Typowe problemy
@@ -106,31 +105,33 @@ Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidło
 Ten błąd występuje z powodu nieprawidłowego stanu składników zapisywania usługi VSS. Rozszerzenia Azure Backup współpracują z składnikami zapisywania usługi VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
 Krok 1. ponowne uruchomienie składników zapisywania usługi VSS w nieprawidłowym stanie.
-- W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie ```vssadmin list writers``` .
-- Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. W przypadku każdego składnika zapisywania usługi VSS o stanie nieprzekraczającym **[1]** należy ponownie uruchomić usługę składnika zapisywania usługi VSS. 
-- Aby ponownie uruchomić usługę, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+
+* W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie ```vssadmin list writers``` .
+* Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. W przypadku każdego składnika zapisywania usługi VSS o stanie nieprzekraczającym **[1]** należy ponownie uruchomić usługę składnika zapisywania usługi VSS.
+* Aby ponownie uruchomić usługę, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
 
 > [!NOTE]
 > Ponowne uruchomienie niektórych usług może mieć wpływ na środowisko produkcyjne. Upewnij się, że proces zatwierdzania jest przestrzegany, a usługa zostanie uruchomiona ponownie po zaplanowanym przestoju.
- 
-   
+
 Krok 2. Jeśli ponowne uruchomienie składnika zapisywania usługi VSS nie rozwiązało problemu, uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień (jako administrator), aby zapobiec tworzeniu wątków dla migawek obiektów BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+
 Krok 3. Jeśli kroki 1 i 2 nie rozwiążą problemu, przyczyną błędu może być niepowodzenie zapisywania usługi VSS z powodu ograniczonych operacji we/wy na sekundę.<br>
 
 Aby sprawdzić, przejdź do opcji ***system i Podgląd zdarzeń Dzienniki aplikacji*** i Sprawdź następujący komunikat o błędzie:<br>
 *Przekroczono limit czasu dostawcy kopiowania w tle podczas przechowywania zapisu do woluminu skopiowanego w tle. Jest to prawdopodobnie spowodowane nadmiernym działaniem woluminu przez aplikację lub usługę systemową. Spróbuj ponownie później, gdy aktywność woluminu zostanie zmniejszona.*<br>
 
 Rozwiązanie:
-- Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
-- Zmień zasady tworzenia kopii zapasowych, aby wykonywać kopie zapasowe w godzinach szczytu, gdy obciążenie maszyny wirtualnej jest najniższe.
-- Uaktualnij dyski platformy Azure, aby obsługiwać wyższe liczby operacji we/wy. [Dowiedz się więcej tutaj](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+
+* Sprawdź, czy są możliwe rozproszenie obciążenia między dyskami maszyn wirtualnych. Spowoduje to zmniejszenie obciążenia pojedynczych dysków. Ograniczenie liczby operacji we [/wy można sprawdzić przez włączenie metryk diagnostycznych na poziomie magazynu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Zmień zasady tworzenia kopii zapasowych, aby wykonywać kopie zapasowe w godzinach szczytu, gdy obciążenie maszyny wirtualnej jest najniższe.
+* Uaktualnij dyski platformy Azure, aby obsługiwać wyższe liczby operacji we/wy. [Dowiedz się więcej tutaj](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState — operacja migawki nie powiodła się z powodu złego stanu usługi VSS (kopiowania woluminów w tle)
 
@@ -140,31 +141,32 @@ Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidło
 Ten błąd występuje, ponieważ usługa VSS była w nieprawidłowym stanie. Rozszerzenia Azure Backup współpracują z usługą VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
 Uruchom ponownie usługę VSS (kopiowania woluminów w tle).
-- Przejdź do programu Services. msc i uruchom ponownie "Usługa kopiowania woluminów w tle".<br>
-oraz<br>
-- Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+
+* Przejdź do programu Services. msc i uruchom ponownie "Usługa kopiowania woluminów w tle".<br>
+(lub)<br>
+* Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
- 
 Jeśli problem nadal występuje, uruchom ponownie maszynę wirtualną przy zaplanowanym przestoju.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable — Tworzenie maszyny wirtualnej nie powiodło się, ponieważ wybrany rozmiar maszyny wirtualnej jest niedostępny
 
-Kod błędu: UserErrorSkuNotAvailable komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się, ponieważ wybrany rozmiar maszyny wirtualnej jest niedostępny. 
- 
+Kod błędu: UserErrorSkuNotAvailable komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się, ponieważ wybrany rozmiar maszyny wirtualnej jest niedostępny.
+
 Ten błąd występuje, ponieważ rozmiar maszyny wirtualnej wybrany podczas operacji przywracania jest nieobsługiwany. <br>
 
 Aby rozwiązać ten problem, użyj opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania. Użyj tych dysków do utworzenia maszyny wirtualnej z listy [dostępnych rozmiarów maszyn wirtualnych](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported — Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku
 
-Kod błędu: UserErrorMarketPlaceVMNotSupported komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku. 
- 
+Kod błędu: UserErrorMarketPlaceVMNotSupported komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku.
+
 Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych, które są dostępne w witrynie Azure Marketplace. Ten błąd występuje, gdy próbujesz przywrócić maszynę wirtualną (z określonym ustawieniem planu/wydawcy), które nie jest już dostępne w witrynie Azure Marketplace, [Dowiedz się więcej tutaj](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
-- Aby rozwiązać ten problem, należy użyć opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania, a następnie użyć poleceń cmdlet [programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) , aby utworzyć maszynę wirtualną przy użyciu najnowszych informacji z witryny Marketplace odpowiadających maszynie wirtualnej.
-- Jeśli Wydawca nie zawiera żadnych informacji o witrynie Marketplace, możesz użyć dysków danych do pobrania danych i dołączyć je do istniejącej maszyny wirtualnej.
+
+* Aby rozwiązać ten problem, należy użyć opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania, a następnie użyć poleceń cmdlet [programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) , aby utworzyć maszynę wirtualną przy użyciu najnowszych informacji z witryny Marketplace odpowiadających maszynie wirtualnej.
+* Jeśli Wydawca nie zawiera żadnych informacji o witrynie Marketplace, możesz użyć dysków danych do pobrania danych i dołączyć je do istniejącej maszyny wirtualnej.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure — błąd podczas analizowania konfiguracji dla rozszerzenia kopii zapasowej
 
@@ -244,7 +246,7 @@ Dzięki temu migawki będą wykonywane za pośrednictwem hosta, a nie konta goś
 
 **Krok 2**. Spróbuj zmienić harmonogram tworzenia kopii zapasowych na czas, gdy maszyna wirtualna jest mniej załadowana (na przykład mniej procesorów lub IOps)
 
-**Krok 3**. próba [zwiększenia rozmiaru maszyny wirtualnej](https://azure.microsoft.com/blog/resize-virtual-machines/) i ponowna próba wykonania operacji
+**Krok 3**. próba [zwiększenia rozmiaru maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) i ponowna próba wykonania operacji
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound — nie można wykonać operacji, ponieważ maszyna wirtualna już nie istnieje/400094, BCMV2VMNotFound — maszyna wirtualna nie istnieje/nie znaleziono maszyny wirtualnej platformy Azure
 
@@ -309,18 +311,18 @@ Jeśli masz Azure Policy, które [regulują Tagi w środowisku](../governance/po
 | Szczegóły błędu | Obejście |
 | --- | --- |
 | Anulowanie nie jest obsługiwane dla tego typu zadania: <br>Poczekaj na zakończenie zadania. |Brak |
-| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**oraz**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
+| Zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. <br>**lub**<br> Wybrane zadanie nie jest w stanie do anulowania: <br>Poczekaj na zakończenie zadania. |Prawdopodobnie zadanie jest niemal ukończone. Poczekaj na zakończenie zadania.|
 | Kopia zapasowa nie może anulować zadania, ponieważ nie jest w toku: <br>Anulowanie jest obsługiwane tylko dla zadań w toku. Spróbuj anulować zadanie w toku. |Ten błąd występuje ze względu na stan przejściowy. Poczekaj chwilę i spróbuj ponownie wykonać operację anulowania. |
 | Wykonanie kopii zapasowej nie powiodło się: <br>Poczekaj na zakończenie zadania. |Brak |
 
 ## <a name="restore"></a>Przywracanie
 
-#### <a name="disks-appear-offline-after-file-restore"></a>Dyski są wyświetlane w trybie offline po przywróceniu plików
+### <a name="disks-appear-offline-after-file-restore"></a>Dyski są wyświetlane w trybie offline po przywróceniu plików
 
-Jeśli po przywróceniu, Zauważ, że dyski są w trybie offline, a następnie: 
+Jeśli po przywróceniu, Zauważ, że dyski są w trybie offline, a następnie:
+
 * Sprawdź, czy komputer, na którym skrypt jest wykonywany, spełnia wymagania systemu operacyjnego. [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * Upewnij się, że nie są przywracane do tego samego źródła, [Dowiedz się więcej](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
-
 
 | Szczegóły błędu | Obejście |
 | --- | --- |
@@ -393,7 +395,7 @@ Kopia zapasowa maszyny wirtualnej polega na wystawianiu poleceń migawek do maga
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkują tę samą usługę w chmurze, należy rozłożyć maszyny wirtualne na wiele zasad tworzenia kopii zapasowych**. Rozłożenie czasu wykonywania kopii zapasowych, więc nie można uruchomić więcej niż czterech kopii zapasowych maszyn wirtualnych. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinie.
 * **Maszyna wirtualna jest uruchamiana z dużym procesorem CPU lub pamięcią**. Jeśli maszyna wirtualna działa z dużą ilością pamięci lub użyciem procesora CPU, więcej niż 90 procent, zadanie migawki jest umieszczane w kolejce i opóźnione. Ostatecznie przeprowadzi limit czasu. Jeśli ten problem wystąpi, wypróbuj kopię zapasową na żądanie.
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Aby tworzenie kopii zapasowej maszyny wirtualnej IaaS było możliwe, należy włączyć protokół DHCP wewnątrz gościa. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pomocą Azure Portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pomocą programu PowerShell:

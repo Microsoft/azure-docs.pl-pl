@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968654"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057760"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Dostęp do usługi Azure Storage jako udziału sieciowego z poziomu kontenera w usłudze App Service
 
@@ -90,7 +90,7 @@ Należy to zrobić dla wszystkich innych katalogów, które mają być połączo
 
 Po utworzeniu [konta usługi Azure Storage, udziału plików i katalogu](#prerequisites)można teraz skonfigurować swoją aplikację w usłudze Azure Storage.
 
-Aby zainstalować konto magazynu w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) polecenia. Typem magazynu może być AzureBlob lub migracji pamięci. W tym przykładzie jest używana migracji pamięci. Ustawienie ścieżka instalacji odnosi się do folderu, który ma zostać zainstalowany z usługi Azure Storage. Ustawienie opcji "/" powoduje zainstalowanie całego magazynu platformy Azure.
+Aby zainstalować konto magazynu w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) polecenia. Typem magazynu może być AzureBlob lub migracji pamięci. W tym przykładzie jest używana migracji pamięci. Ustawienie ścieżka instalacji odnosi się do folderu znajdującego się w kontenerze, który ma zostać zainstalowany w usłudze Azure Storage. Ustawienie opcji "/" powoduje zainstalowanie całego kontenera w usłudze Azure Storage.
 
 
 > [!CAUTION]
