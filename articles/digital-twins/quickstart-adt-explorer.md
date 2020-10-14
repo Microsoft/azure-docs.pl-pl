@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9531a812d60c6e5a60ff0a0936fafde4a77e5a67
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017050"
+ms.locfileid: "92048512"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
 Za pomocą usługi Azure Digital bliźniaczych reprezentacji można tworzyć i korzystać z modeli na żywo w rzeczywistych środowiskach. W tym celu należy modelować poszczególne elementy jako **bliźniaczych reprezentacji cyfrowe**, a następnie połączyć je z **grafem** wiedzy, który może reagować na zdarzenia na żywo i uzyskać zapytanie o informacje.
 
-W tym przewodniku szybki start zobaczysz wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji z pomocą przykładowej aplikacji o nazwie [**Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Eksplorator ADT umożliwia przekazywanie cyfrowych reprezentacji środowiska, wyświetlanie obrazów wizualnych bliźniaczych reprezentacji i grafów, które są tworzone w celu reprezentowania środowiska w usłudze Azure Digital bliźniaczych reprezentacji i wykonywanie innych działań związanych z zarządzaniem za pośrednictwem przeglądarki i środowiska wizualnego.
+W tym przewodniku szybki start zobaczysz wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji z pomocą przykładowej aplikacji o nazwie [**Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Eksplorator ADT umożliwia przekazywanie cyfrowych reprezentacji środowiska, wyświetlanie obrazów wizualnych bliźniaczych reprezentacji i grafów, które są tworzone w celu reprezentowania środowiska w usłudze Azure Digital bliźniaczych reprezentacji i wykonywanie innych działań związanych z zarządzaniem za pośrednictwem przeglądarki i środowiska wizualnego.
 
 Przewodnik Szybki Start zawiera następujące główne kroki:
 
@@ -38,8 +38,8 @@ Aby ukończyć ten przewodnik Szybki Start, musisz mieć subskrypcję platformy 
 Na maszynie będzie również potrzebne **Node.js** . Najnowszą wersję można uzyskać, korzystając z tego linku: [Node.js](https://nodejs.org/).
 
 Na koniec należy również pobrać dwa przykłady do użycia podczas przewodnika Szybki Start:
-* Przykładowa aplikacja **Eksploratora ADT** . Ten przykład zawiera główną aplikację używaną w szybkim samouczku do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure. Aby uzyskać dostęp do aplikacji, przejdź tutaj: [Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj folder i Wyodrębnij pliki.
-* **Przykładowy scenariusz usługi Azure Digital bliźniaczych reprezentacji**. Obejmuje to wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji, który zostanie załadowany do Eksploratora ADT w celu pracy z programem. Aby uzyskać ten scenariusz, przejdź tutaj: [bliźniaczych reprezentacji cyfrowych platformy Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins_samples.zip**_. Rozpakuj folder i Wyodrębnij pliki.
+* Przykładowa aplikacja **Eksploratora ADT** . Ten przykład zawiera główną aplikację używaną w szybkim samouczku do ładowania i eksplorowania scenariusza bliźniaczych reprezentacji Digital na platformie Azure. Aby uzyskać dostęp do aplikacji, przejdź tutaj: [Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins__ADT__explorer.zip**_. Rozpakuj folder i Wyodrębnij pliki.
+* **Przykładowy scenariusz usługi Azure Digital bliźniaczych reprezentacji**. Obejmuje to wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji, który zostanie załadowany do Eksploratora ADT w celu pracy z programem. Aby uzyskać ten scenariusz, przejdź tutaj: [bliźniaczych reprezentacji cyfrowych platformy Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na swój komputer. Spowoduje to pobranie. Folder ZIP na maszynę jako _**Azure_Digital_Twins_samples.zip**_. Rozpakuj folder i Wyodrębnij pliki.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurowanie usługi Azure Digital bliźniaczych reprezentacji i Eksploratora ADT
 

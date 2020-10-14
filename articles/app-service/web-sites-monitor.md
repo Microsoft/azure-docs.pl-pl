@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959795"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044534"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorowanie aplikacji w Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) zapewnia wbudowaną funkcję monitorowania dla aplikacji sieci Web, urządzeń przenośnych i aplikacji interfejsu API w [Azure Portal](https://portal.azure.com).
@@ -58,7 +58,7 @@ Można zwiększyć lub usunąć przydziały z aplikacji, uaktualniając plan App
 ## <a name="understand-metrics"></a>Opis metryk
 
 > [!NOTE]
-> **Użycie systemu plików** to nowa Metryka, która jest rzutowana globalnie, nie jest oczekiwane, o ile nie udzielono dostępu do prywatnej wersji zapoznawczej.
+> **Użycie systemu plików** to nowa Metryka, która jest rzutowana globalnie, nie jest oczekiwane, jeśli aplikacja nie jest hostowana w App Service Environment.
 > 
 
 > [!IMPORTANT]

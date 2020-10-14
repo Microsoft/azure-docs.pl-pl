@@ -9,18 +9,18 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 99e00ebc8034e77b95986d3062578548bbe32df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59656db2bbb8a6898ae08a168dbbc7e0a6a82aec
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857507"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044721"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: opracowywanie modułu IoT Edge C dla urządzeń z systemem Windows
 
 Użyj programu Visual Studio, aby opracować kod C i wdrożyć go na urządzeniu z systemem Windows, na którym działa Azure IoT Edge.
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -49,8 +49,8 @@ Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim 
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
 * [Urządzenie z systemem Windows, na którym działa Azure IoT Edge](quickstart.md).
-* Rejestr kontenerów, taki jak [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Program Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) został skonfigurowany z rozszerzeniem [narzędzi Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
+* Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
+* [Program Visual Studio 2019](/visualstudio/install/install-visual-studio) został skonfigurowany z rozszerzeniem [narzędzi Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
 * [Pulpit platformy Docker](https://docs.docker.com/docker-for-windows/install/) skonfigurowany do uruchamiania kontenerów systemu Windows.
 * Zainstaluj zestaw SDK usługi Azure IoT C dla systemu Windows x64 za pomocą vcpkg:
 

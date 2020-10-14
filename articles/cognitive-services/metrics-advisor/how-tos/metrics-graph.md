@@ -3,19 +3,19 @@ title: Wykres metryk klasyfikatora metryk
 titleSuffix: Azure Cognitive Services
 description: Jak skonfigurować wykres metryk i wizualizować powiązane anomalie w danych.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: aahi
-ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940646"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043157"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Instrukcje: budowanie grafu metryk do analizowania powiązanych metryk
 

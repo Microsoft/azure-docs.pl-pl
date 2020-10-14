@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577717"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042919"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Używanie modeli Plug and Play IoT w rozwiązaniu IoT
 
@@ -40,10 +40,10 @@ Rozwiązanie może uzyskać identyfikator modelu urządzenia Plug and Play IoT, 
 
 ### <a name="get-device-twin-api"></a>Pobierz interfejs API z urządzeniami bliźniaczymi
 
-Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
+Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?preserve-view=true&view=azure-java-stable) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
 
 > [!TIP]
-> W przypadku modułów i modułów IoT Edge Użyj [ModuleClient. getsplot](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
+> W przypadku modułów i modułów IoT Edge Użyj [ModuleClient. getsplot](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?preserve-view=true&view=azure-java-stable).
 
 W poniższym fragmencie kodu odpowiedzi z urządzeń z sznurem `modelId` zawiera identyfikator modelu urządzenia Plug and Play IoT:
 
@@ -71,7 +71,7 @@ W poniższym fragmencie kodu odpowiedzi z urządzeń z sznurem `modelId` zawiera
 
 ### <a name="get-digital-twin-api"></a>Pobierz interfejs API Digital bliźniaczy
 
-Rozwiązanie może korzystać z interfejsu API [uzyskiwania cyfrowej postaci wieloosiowej](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) w celu pobrania identyfikatora modelu zaimplementowanego przez urządzenie Plug and Play IoT.
+Rozwiązanie może korzystać z interfejsu API [uzyskiwania cyfrowej postaci wieloosiowej](/rest/api/iothub/service/digitaltwin/getdigitaltwin) w celu pobrania identyfikatora modelu zaimplementowanego przez urządzenie Plug and Play IoT.
 
 W poniższym fragmencie kodu odpowiedzi Digital bliźniaczym `$metadata.$model` zawiera identyfikator modelu urządzenia Plug and Play IoT:
 
@@ -121,7 +121,7 @@ Rozwiązania mogą używać [repozytorium modelu](concepts-model-repository.md) 
 
 Po zidentyfikowaniu identyfikatora modelu dla nowego połączenia z urządzeniem wykonaj następujące czynności:
 
-1. Pobierz definicję modelu przy użyciu identyfikatora modelu z repozytorium modeli. Aby uzyskać więcej informacji, zobacz [Pobierz modele](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Pobierz definicję modelu przy użyciu identyfikatora modelu z repozytorium modeli. Aby uzyskać więcej informacji, zobacz [Pobierz modele](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
 
 1. Korzystając z definicji modelu połączonego urządzenia, można wyliczyć możliwości urządzenia.
 
@@ -144,5 +144,5 @@ Po zidentyfikowaniu identyfikatora modelu dla nowego połączenia z urządzeniem
 Teraz, gdy wiesz już, jak zintegrować modele IoT Plug and Play w rozwiązaniu IoT, Oto kilka sugerowanych następnych kroków:
 
 - [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
-- [Interfejs API REST cyfrowego przędzy IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Interfejs API REST cyfrowego przędzy IoT](/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

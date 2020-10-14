@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756916"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044772"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Szybki Start: uzyskiwanie numeru telefonu przy użyciu Azure Portal
 
@@ -103,7 +103,7 @@ Wybierz blok numery telefonów w menu, aby zarządzać numerami telefonów.
 > [!NOTE]
 > Wyświetlanie numerów aprowizacji na tej stronie może potrwać kilka minut.
 
-### <a name="customizing-phone-number-plans"></a>Dostosowywanie planów numerów telefonów
+### <a name="customizing-phone-number-features"></a>Dostosowywanie funkcji numeru telefonu
 Na `Numbers` stronie możesz wybrać numer telefonu, klikając numer, dla którego chcesz dostosować plan.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322635"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044639"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -70,7 +70,7 @@ Metryki mające na celu rozliczanie:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operacje interfejsu API rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczeń dla wszystkich żądań interfejsu API w usłudze Azure Digital bliźniaczych reprezentacji. | Identyfikator miernika |
 | BillingMessagesProcessed | Przetworzone komunikaty rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Metryka rozliczania dla liczby komunikatów wysyłanych z usługi Azure Digital bliźniaczych reprezentacji do zewnętrznych punktów końcowych.<br><br>Aby można było traktować pojedynczy komunikat do celów rozliczania, ładunek nie może być większy niż 1 KB. Ładunki większe niż ten będą zliczane jako dodatkowe komunikaty w przyrostach 1 KB (więc komunikat z przedziału od 1 do 2 KB będzie liczony jako 2 komunikaty, między 2 a 3 KB będzie 3 komunikaty itd.).<br>To ograniczenie ma zastosowanie również do odpowiedzi, więc wywołanie zwracające wartość 1,5 KB w treści odpowiedzi, na przykład, będzie rozliczane jako dwie operacje. | Identyfikator miernika |
-| BillingQueryUnits | Jednostki zapytań rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Liczba jednostek zapytania, wewnętrznie obliczona miara użycia zasobów usługi używana do wykonywania zapytań. Dostępny jest również pomocnik interfejsu API do mierzenia jednostek zapytania: [Klasa QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Identyfikator miernika |
+| BillingQueryUnits | Jednostki zapytań rozliczeń (wersja zapoznawcza) | Liczba | Łącznie | Liczba jednostek zapytania, wewnętrznie obliczona miara użycia zasobów usługi używana do wykonywania zapytań. Dostępny jest również pomocnik interfejsu API do mierzenia jednostek zapytania: [Klasa QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Identyfikator miernika |
 
 #### <a name="ingress-metrics"></a>Metryki transferu danych przychodzących
 
@@ -98,7 +98,7 @@ Wymiary ułatwiają znalezienie dodatkowych informacji o metrykach. Niektóre me
 
 | Wymiar | Wartości |
 | --- | --- |
-| Uwierzytelnianie | OAuth |
+| Authentication | OAuth |
 | Operacja (dla żądań interfejsu API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/odczyt, <br>Microsoft. DigitalTwins/eventroutes/odczyt, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/modele/odczyt, <br>Microsoft. DigitalTwins/modele/zapis, <br>Microsoft. DigitalTwins/modele/usuwanie, <br>Microsoft. DigitalTwins/kwerenda/akcja |
 | Typ punktu końcowego | Event Grid <br>Centrum zdarzeń, <br>Service Bus |
 | Protokół | HTTPS |

@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548700"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043004"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge Security Manager
 
@@ -75,7 +75,7 @@ Demon zabezpieczeń IoT Edge korzysta z dowolnego dostępnego głównego sprzęt
 
 #### <a name="cloud-interface"></a>Interfejs chmury
 
-Interfejs chmury umożliwia demona IoT Edge Security, aby uzyskać dostęp do usług w chmurze, takich jak chmura odniesień do zabezpieczeń urządzeń, takich jak odnowienie zabezpieczeń.  Na przykład demon zabezpieczeń IoT Edge obecnie używa tego interfejsu do uzyskiwania dostępu do usługi Azure IoT Hub [Device Provisioning](https://docs.microsoft.com/azure/iot-dps/) w celu zarządzania cyklem życia tożsamości urządzeń.  
+Interfejs chmury umożliwia demona IoT Edge Security, aby uzyskać dostęp do usług w chmurze, takich jak chmura odniesień do zabezpieczeń urządzeń, takich jak odnowienie zabezpieczeń.  Na przykład demon zabezpieczeń IoT Edge obecnie używa tego interfejsu do uzyskiwania dostępu do usługi Azure IoT Hub [Device Provisioning](../iot-dps/index.yml) w celu zarządzania cyklem życia tożsamości urządzeń.  
 
 #### <a name="management-api"></a>Interfejs API zarządzania
 
@@ -103,7 +103,7 @@ Firma Microsoft utrzymuje główną bazę kodu dla [demona IoT Edge Security w s
 
 Instalacja i aktualizacje demona IoT Edge Security DAEMON są zarządzane za pomocą system zarządzania pakietami systemu operacyjnego. Urządzenia IoT Edge z certyfikatem głównym sprzętu zaufania powinny zapewniać dodatkową ochronę przed integralnością demona przez Zarządzanie cyklem życia za pomocą systemów bezpiecznego rozruchu i zarządzania aktualizacjami. Twórcy urządzeń powinni poznać te drogi na podstawie ich możliwości urządzeń.
 
-#### <a name="versioning"></a>Obsługa wersji
+#### <a name="versioning"></a>Przechowywanie wersji
 
 Środowisko uruchomieniowe IoT Edge śledzi i raportuje wersję demona IoT Edge Security. Wersja jest raportowana jako atrybut *Runtime. platform. Version* dla właściwości "module agenta IoT Edge.
 

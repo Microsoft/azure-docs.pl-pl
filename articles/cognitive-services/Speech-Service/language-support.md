@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629832"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048461"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -154,7 +154,7 @@ Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regi
 | `en-CA` | Angielski (Kanada) | Kobiety | `en-CA-ClaraNeural` | Ogólne |
 | `en-GB` | Angielski (Zjednoczone Królestwo) | Kobiety | `en-GB-LibbyNeural` | Ogólne |
 | `en-GB` | Angielski (Zjednoczone Królestwo) | Kobiety | `en-GB-MiaNeural` | Ogólne |
-| `en-GB` <sup>Nowe</sup> | Angielski (Zjednoczone Królestwo) | Mężczyźni | `En-GB-RyanNeural` | Ogólne |
+| `en-GB` <sup>Nowe</sup> | Angielski (Zjednoczone Królestwo) | Mężczyźni | `en-GB-RyanNeural` | Ogólne |
 | `en-IE` <sup>Nowe</sup> | Irlandzki (Irlandia) | Kobiety | `en-IE-EmilyNeural` | Ogólne |
 | `en-IN` | Angielski (Indie) | Kobiety | `en-IN-NeerjaNeural` | Ogólne |
 | `en-US` | Angielski (Stany Zjednoczone) | Kobiety | `en-US-AriaNeural` | Ogólne, dostępne są wiele stylów głosowych |
@@ -399,7 +399,7 @@ Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych ro
 
 | Regionalne | Język | Weryfikacja zależna od tekstu | Weryfikacja niezależna od tekstu | Identyfikacja niezależna od tekstu |
 |----|----|----|----|----|
-| pl-PL | Angielski (Stany Zjednoczone) | tak | tak | tak |
+| en-US | Angielski (Stany Zjednoczone) | tak | tak | tak |
 |zh-CN    |Chiński (mandarynki, uproszczony)|    nie dotyczy|    tak|    tak|
 |de-DE    |Niemiecki (Niemcy)    |nie dotyczy    |tak    |tak|
 |en-GB    |Angielski (Zjednoczone Królestwo)    |nie dotyczy    |tak    |tak|

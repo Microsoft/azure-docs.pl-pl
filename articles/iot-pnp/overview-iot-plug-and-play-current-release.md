@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5b682e371a341c8dbd707652acc60773663326dc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019124"
+ms.locfileid: "92043718"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>Co znajduje się w bieżącej wersji Plug and Play IoT
 
@@ -61,11 +61,11 @@ Aby dowiedzieć się więcej na temat bibliotek i zestawów SDK, zobacz [Microso
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
-Interfejs API REST [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
+Interfejs API REST [2020-09-30](/rest/api/iothub).
 
 Aby dowiedzieć się więcej, zobacz [Przewodnik dla deweloperów Plug and Play IoT](concepts-developer-guide-service.md).
 
-## <a name="iot-hub"></a>Usługa IoT Hub
+## <a name="iot-hub"></a>IoT Hub
 
 Plug and Play IoT jest obsługiwana przez IoT Hub we wszystkich regionach. Plug and Play IoT jest obsługiwana tylko przez centra IoT dla warstwy Standardowa lub bezpłatna.
 

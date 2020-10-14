@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332036"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043514"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Kopiowanie danych z magazynu Google Cloud Storage przy użyciu Azure Data Factory
 
@@ -47,7 +47,11 @@ Na Twoim koncie usługi Google Cloud Storage wymagana jest następująca konfigu
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby skopiować dane z magazynu Google Cloud Storage, upewnij się, że udzielono wymaganych uprawnień. Uprawnienia zdefiniowane w ramach konta usługi mogą zawierać `storage.buckets.get` `storage.buckets.list` `storage.objects.get` operacje na obiektach,, lub.
+Aby skopiować dane z magazynu Google Cloud Storage, upewnij się, że masz przyznane następujące uprawnienia do operacji obiektów: ` storage.objects.get` i ` storage.objects.list` .
+
+Jeśli używasz interfejsu użytkownika Data Factory do tworzenia, ` storage.buckets.list` wymagane jest dodatkowe uprawnienie do wykonywania operacji, takich jak testowanie połączenia z połączoną usługą i przeglądanie z poziomu katalogu głównego. Jeśli nie chcesz udzielić tego uprawnienia, możesz wybrać opcje "Test connection do ścieżki pliku" lub "Przeglądaj z określonej ścieżki" w interfejsie użytkownika.
+
+Aby uzyskać pełną listę ról usługi Google Cloud Storage i skojarzonych z nimi uprawnień, zobacz [role usługi IAM dla magazynu](https://cloud.google.com/storage/docs/access-control/iam-roles) w chmurze w witrynie Google Cloud.
 
 ## <a name="getting-started"></a>Wprowadzenie
 

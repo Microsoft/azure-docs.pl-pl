@@ -1,88 +1,171 @@
 ---
 title: Integrowanie usługi Azure Key Vault z usługą Azure Policy
 description: Dowiedz się, jak zintegrować Azure Key Vault z Azure Policy
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 01/28/2020
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7ef41516d516ce6498fc8c502a229084acdebfa1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875527"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043769"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrowanie usługi Azure Key Vault z usługą Azure Policy
 
-[Azure Policy](../../governance/policy/index.yml) to narzędzie ładu, które zapewnia użytkownikom możliwość inspekcji środowiska platformy Azure i zarządzania nim w odpowiedniej skali. Azure Policy zapewnia możliwość umieszczenia guardrails w zasobach platformy Azure, aby upewnić się, że są one zgodne z przypisanymi regułami zasad. Dzięki temu użytkownicy mogą wykonywać inspekcje, wymuszać w czasie rzeczywistym oraz korygowanie środowiska platformy Azure. Wyniki inspekcji wykonywane przez zasady będą dostępne dla użytkowników na pulpicie nawigacyjnym zgodności, gdzie będą mogli zobaczyć, które zasoby i składniki są zgodne, a które nie.  Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Policy](../../governance/policy/overview.md).
+[Azure Policy](../../governance/policy/index.yml) to narzędzie ładu, które zapewnia użytkownikom możliwość inspekcji środowiska platformy Azure i zarządzania nim w odpowiedniej skali. Azure Policy zapewnia możliwość umieszczenia guardrails w zasobach platformy Azure, aby upewnić się, że są one zgodne z przypisanymi regułami zasad. Dzięki temu użytkownicy mogą wykonywać inspekcje, wymuszać w czasie rzeczywistym oraz korygowanie środowiska platformy Azure. Wyniki inspekcji wykonywane przez zasady będą dostępne dla użytkowników na pulpicie nawigacyjnym zgodności, gdzie będą mogli zobaczyć przechodzenie do szczegółów zasobów i składników, które nie są zgodne.  Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Policy](../../governance/policy/overview.md).
 
 Przykładowe scenariusze użycia:
 
-- Chcesz zwiększyć bezpieczeństwo stan firmy, implementując wymagania dotyczące minimalnych rozmiarów kluczy i maksymalnych okresów ważności certyfikatów w magazynach kluczy firmy, ale nie wiesz, które zespoły będą zgodne, a które nie. 
+- Chcesz zwiększyć bezpieczeństwo stan firmy, implementując wymagania dotyczące minimalnych rozmiarów kluczy i maksymalnych okresów ważności certyfikatów w magazynach kluczy firmy, ale nie wiesz, które zespoły będą zgodne, a które nie.
 - Obecnie nie masz rozwiązania do przeprowadzania inspekcji w całej organizacji lub przeprowadzasz ręczne inspekcje środowiska przez zaproszenie poszczególnych zespołów w organizacji, aby zgłaszać ich zgodność. Szukasz sposobu automatyzowania tego zadania, wykonywania inspekcji w czasie rzeczywistym i zagwarantowania dokładności inspekcji.
 - Chcesz wymusić firmowe zasady zabezpieczeń i uniemożliwić użytkownikom tworzenie certyfikatów z podpisem własnym, ale nie masz zautomatyzowanego sposobu blokowania ich tworzenia. 
-- Chcesz osłabić niektóre wymagania dla zespołów testowych, ale chcesz zachować ścisłe kontrole w środowisku produkcyjnym. Potrzebny jest prosty zautomatyzowany sposób oddzielenia wymuszania zasobów. 
+- Chcesz osłabić niektóre wymagania dla zespołów testowych, ale chcesz zachować ścisłe kontrole w środowisku produkcyjnym. Potrzebny jest prosty zautomatyzowany sposób oddzielenia wymuszania zasobów.
 - Chcesz mieć pewność, że w przypadku problemu z witryną sieciową można wymuszać wycofanie nowych zasad. Aby wyłączyć wymuszanie zasad, potrzebujesz jednego kliknięcia. 
-- Korzystasz z rozwiązania innej firmy w celu przeprowadzania inspekcji środowiska i chcesz użyć wewnętrznej oferty Microsoft. 
+- Korzystasz z rozwiązania innej firmy w celu przeprowadzania inspekcji środowiska i chcesz użyć wewnętrznej oferty Microsoft.
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Typy efektów i wskazówek dotyczących zasad
 
-**Inspekcja**: Jeśli efekt zasad jest ustawiony na inspekcje, zasady nie spowodują żadnych istotnych zmian w środowisku. Spowoduje to wyświetlenie alertu tylko dla składników, takich jak certyfikaty, które nie są zgodne z definicjami zasad w określonym zakresie, poprzez oznaczenie tych składników jako niezgodnych na pulpicie nawigacyjnym zgodności zasad. Inspekcja jest domyślna, jeśli nie wybrano żadnego efektu zasad. 
+**Inspekcja**: Jeśli efekt zasad jest ustawiony na inspekcje, zasady nie spowodują żadnych istotnych zmian w środowisku. Spowoduje to wyświetlenie alertu tylko dla składników, takich jak certyfikaty, które nie są zgodne z definicjami zasad w określonym zakresie, poprzez oznaczenie tych składników jako niezgodnych na pulpicie nawigacyjnym zgodności zasad. Inspekcja jest domyślna, jeśli nie wybrano żadnego efektu zasad.
 
 **Odmów**: Jeśli efekt zasad jest ustawiony na Odmów, zasady będą blokować tworzenie nowych składników, takich jak certyfikaty, a także zablokować nowe wersje istniejących składników, które nie są zgodne z definicją zasad. Nie dotyczy istniejących niezgodnych zasobów w magazynie kluczy. Funkcje "Audit" będą nadal działać.
 
 ## <a name="available-built-in-policy-definitions"></a>Dostępne "wbudowane" definicje zasad
 
-Key Vault utworzył zestaw zasad, które można przypisać do typowych scenariuszy zarządzania certyfikatami. Te zasady są wbudowane, co oznacza, że nie wymagają pisania niestandardowego kodu JSON, aby je włączyć, i są dostępne w Azure Portal do przypisania. Można nadal dostosować niektóre parametry, aby odpowiadały potrzebom organizacji. 
+Key Vault utworzył zestaw zasad, które mogą służyć do zarządzania kluczami, certyfikatami i obiektami tajnymi. Te zasady są wbudowane, co oznacza, że nie wymagają pisania niestandardowego kodu JSON, aby je włączyć, i są dostępne w Azure Portal do przypisania. Można nadal dostosować niektóre parametry, aby odpowiadały potrzebom organizacji.
 
-Poniżej znajdują się osiem zasad wersji zapoznawczej.
+# <a name="certificate-policies"></a>[Zasady certyfikatów](#tab/certificates)
 
-### <a name="manage-certificate-validity-period-preview"></a>Zarządzanie okresem ważności certyfikatu (wersja zapoznawcza)
+### <a name="certificates-should-have-the-specified-maximum-validity-period-preview"></a>Certyfikaty powinny mieć określony maksymalny okres ważności (wersja zapoznawcza)
 
-Te zasady umożliwiają zarządzanie maksymalnym okresem ważności certyfikatów przechowywanych w magazynie kluczy. Jest to dobre rozwiązanie w zakresie zabezpieczeń, które umożliwia ograniczenie maksymalnego okresu ważności certyfikatów. Jeśli klucz prywatny certyfikatu miał zostać naruszony bez wykrycia, użycie certyfikatów krótkoterminowych minimalizuje czas ciągłego uszkodzenia i zmniejsza wartość certyfikatu do osoby atakującej. 
+Te zasady umożliwiają zarządzanie maksymalnym okresem ważności certyfikatów przechowywanych w magazynie kluczy. Jest to dobre rozwiązanie w zakresie zabezpieczeń, które umożliwia ograniczenie maksymalnego okresu ważności certyfikatów. Jeśli klucz prywatny certyfikatu miał zostać naruszony bez wykrycia, użycie certyfikatów krótkoterminowych minimalizuje czas ciągłego uszkodzenia i zmniejsza wartość certyfikatu do osoby atakującej.
 
-### <a name="manage-allowed-certificate-key-types-preview"></a>Zarządzaj dozwolonymi typami kluczy certyfikatów (wersja zapoznawcza)
+### <a name="certificates-should-use-allowed-key-types-preview"></a>Certyfikaty powinny używać dozwolonych typów kluczy (wersja zapoznawcza)
+
 Te zasady umożliwiają ograniczenie typu certyfikatów, które mogą znajdować się w magazynie kluczy. Za pomocą tych zasad można upewnić się, że klucze prywatne certyfikatu to RSA, ECC lub są chronione przez moduł HSM. Można wybrać spośród poniższych list, które typy certyfikatów są dozwolone.
+
 - RSA
 - RSA — HSM
-- ECC 
-- ECC — HSM 
+- ECC
+- ECC — HSM
 
-### <a name="manage-certificate-lifetime-action-triggers-preview"></a>Zarządzanie wyzwalaczami akcji okresu istnienia certyfikatu (wersja zapoznawcza)
+### <a name="certificates-should-have-the-specified-lifetime-action-triggers-preview"></a>Certyfikaty powinny mieć określone wyzwalacze akcji okresu istnienia (wersja zapoznawcza)
 
-Te zasady umożliwiają zarządzanie akcją okresu istnienia określoną dla certyfikatów, które znajdują się w ciągu określonej liczby dni ich wygaśnięcia lub osiągnęły określony odsetek ich użytkowania. 
+Te zasady umożliwiają zarządzanie akcją okresu istnienia określoną dla certyfikatów, które znajdują się w ciągu określonej liczby dni ich wygaśnięcia lub osiągnęły określony odsetek ich użytkowania.
 
-### <a name="manage-certificates-issued-by-an-integrated-ca-preview"></a>Zarządzanie certyfikatami wystawionymi przez zintegrowany urząd certyfikacji (wersja zapoznawcza)
+### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority-preview"></a>Certyfikaty powinny być wystawiane przez określony zintegrowany urząd certyfikacji (wersja zapoznawcza)
 
-Jeśli używasz Key Vault zintegrowanego urzędu certyfikacji (DigiCert lub GlobalSign) i chcesz, aby użytkownicy używali jednego lub jednego z tych dostawców, możesz użyć tych zasad do inspekcji lub wymuszenia wyboru. Tych zasad można również użyć do inspekcji lub odrzucania tworzenia certyfikatów z podpisem własnym w magazynie kluczy. 
+Jeśli używasz Key Vault zintegrowanego urzędu certyfikacji (DigiCert lub GlobalSign) i chcesz, aby użytkownicy używali jednego lub jednego z tych dostawców, możesz użyć tych zasad do inspekcji lub wymuszenia wyboru. Tych zasad można również użyć do inspekcji lub odrzucania tworzenia certyfikatów z podpisem własnym w magazynie kluczy.
 
-### <a name="manage-certificates-issued-by-an-integrated-ca-preview"></a>Zarządzanie certyfikatami wystawionymi przez zintegrowany urząd certyfikacji (wersja zapoznawcza)
+### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority-preview"></a>Certyfikaty powinny być wystawiane przez określony niezintegrowany urząd certyfikacji (wersja zapoznawcza)
 
-Jeśli używasz wewnętrznego urzędu certyfikacji lub urzędu certyfikacji, który nie jest zintegrowany z magazynem kluczy i chcesz, aby użytkownicy korzystali z urzędu certyfikacji z udostępnionej listy, możesz użyć tych zasad, aby utworzyć listę dozwolonych urzędów certyfikacji według nazwy wystawcy. Tych zasad można również użyć do inspekcji lub odrzucania tworzenia certyfikatów z podpisem własnym w magazynie kluczy. 
+Jeśli używasz wewnętrznego urzędu certyfikacji lub urzędu certyfikacji, który nie jest zintegrowany z magazynem kluczy i chcesz, aby użytkownicy korzystali z urzędu certyfikacji z udostępnionej listy, możesz użyć tych zasad, aby utworzyć listę dozwolonych urzędów certyfikacji według nazwy wystawcy. Tych zasad można również użyć do inspekcji lub odrzucania tworzenia certyfikatów z podpisem własnym w magazynie kluczy.
 
-### <a name="manage-allowed-curve-names-for-elliptic-curve-cryptography-certificates-preview"></a>Zarządzaj dozwolonymi nazwami krzywych dla certyfikatów kryptograficznych krzywej eliptycznej (wersja zapoznawcza)
-Jeśli używasz kryptografii krzywej eliptyczna lub certyfikatów ECC, możesz dostosować listę dozwolonych nazw krzywych z poniższej listy. Opcja domyślna zezwala na wszystkie następujące nazwy krzywych. 
+### <a name="certificates-using-elliptic-curve-cryptography-should-have-allowed-curve-names-preview"></a>Certyfikaty używające kryptografii krzywej eliptycznej powinny mieć dozwolone nazwy krzywych (wersja zapoznawcza)
+
+Jeśli używasz kryptografii krzywej eliptyczna lub certyfikatów ECC, możesz dostosować listę dozwolonych nazw krzywych z poniższej listy. Opcja domyślna zezwala na wszystkie następujące nazwy krzywych.
+
 - P-256
 - P-256 K
 - P-384
 - P-521
 
-### <a name="manage-minimum-key-size-for-rsa-certificates-preview"></a>Zarządzaj minimalnym rozmiarem klucza dla certyfikatów RSA (wersja zapoznawcza)
-W przypadku korzystania z certyfikatów RSA można wybrać minimalny rozmiar klucza, który musi zawierać certyfikaty. Można wybrać jedną opcję z poniższej listy. 
+## <a name="certificates-using-rsa-cryptography-manage-minimum-key-size-for-rsa-certificates-preview"></a>Certyfikaty używające kryptografii RSA Zarządzaj minimalnym rozmiarem klucza dla certyfikatów RSA (wersja zapoznawcza)
+
+W przypadku korzystania z certyfikatów RSA można wybrać minimalny rozmiar klucza, który musi zawierać certyfikaty. Można wybrać jedną opcję z poniższej listy.
+
 - 2048 bit
 - 3072 bit
 - 4096 bit
 
-### <a name="manage-certificates-that-are-within-a-specified-number-of-days-of-expiration-preview"></a>Zarządzanie certyfikatami w ciągu określonej liczby dni wygaśnięcia (wersja zapoznawcza)
-Jeśli certyfikat, który nie jest odpowiednio monitorowany, nie zostanie obrócony przed jego wygaśnięciem, może wystąpić awaria usługi. Zasady te mają na celu zapewnienie, że certyfikaty przechowywane w magazynie kluczy są monitorowane. Zalecane jest stosowanie tych zasad wielokrotnie z różnymi progami wygaśnięcia, na przykład 180, 90, 60 i 30-dniowych progów. Te zasady mogą służyć do monitorowania i Klasyfikacja wygaśnięcia certyfikatów w organizacji. 
+## <a name="manage-certificates-that-are-within-a-specified-number-of-days-of-expiration-preview"></a>Zarządzanie certyfikatami w ciągu określonej liczby dni wygaśnięcia (wersja zapoznawcza)
+
+Jeśli certyfikat, który nie jest odpowiednio monitorowany, nie zostanie obrócony przed jego wygaśnięciem, może wystąpić awaria usługi. Zasady te mają na celu zapewnienie, że certyfikaty przechowywane w magazynie kluczy są monitorowane. Zalecane jest stosowanie tych zasad wielokrotnie z różnymi progami wygaśnięcia, na przykład 180, 90, 60 i 30-dniowych progów. Te zasady mogą służyć do monitorowania i Klasyfikacja wygaśnięcia certyfikatów w organizacji.
+
+# <a name="key-policies"></a>[Najważniejsze zasady](#tab/keys)
+
+### <a name="keys-should-not-be-active-for-longer-than-the-specified-number-of-days-preview"></a>Klucze nie powinny być aktywne dłużej niż określona liczba dni (wersja zapoznawcza)
+
+Jeśli chcesz mieć pewność, że Twoje klucze nie były aktywne dłużej niż określona liczba dni, możesz użyć tych zasad, aby prześledzić czas aktywności klucza.
+
+**Jeśli klucz ma ustawioną datę aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty aktywacji** klucza do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, klucz zostanie oznaczony jako niezgodny z zasadami.
+
+**Jeśli klucz nie ma ustawionej daty aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty utworzenia** klucza do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, klucz zostanie oznaczony jako niezgodny z zasadami.
+
+### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Klucze powinny być określonym typem kryptograficznym RSA lub EC (wersja zapoznawcza)
+
+Te zasady umożliwiają ograniczenie typu kluczy, które mogą znajdować się w magazynie kluczy. Możesz użyć tych zasad, aby upewnić się, że klucze są oparte na kluczach RSA, ECC lub są obsługiwane przez moduł HSM. Można wybrać spośród poniższych list, które typy certyfikatów są dozwolone.
+
+- RSA
+- RSA — HSM
+- ECC
+- ECC — HSM
+
+### <a name="keys-using-elliptic-curve-cryptography-should-have-the-specified-curve-names-preview"></a>Klucze używające kryptografii krzywej eliptycznej powinny mieć określone nazwy krzywych (wersja zapoznawcza)
+
+Jeśli używasz kryptografii krzywej eliptyczna lub kluczy ECC, możesz dostosować listę dozwolonych nazw krzywych z poniższej listy. Opcja domyślna zezwala na wszystkie następujące nazwy krzywych.
+
+- P-256
+- P-256 K
+- P-384
+- P-521
+
+### <a name="keys-should-have-expirations-dates-set-preview"></a>W kluczach powinny być ustawione daty wygasania (wersja zapoznawcza)
+
+Ta zasada przeprowadza inspekcję wszystkich kluczy w magazynach kluczy i kluczy flag, które nie mają ustawionej daty wygaśnięcia jako niezgodnej. Można również użyć tych zasad, aby zablokować tworzenie kluczy, które nie mają ustawionej daty wygaśnięcia.
+
+### <a name="keys-should-have-more-than-the-specified-number-of-days-before-expiration-preview"></a>Klucze powinny mieć więcej niż określoną liczbę dni przed wygaśnięciem (wersja zapoznawcza)
+
+Jeśli klucz jest zbyt bliski wygaśnięcia, opóźnienie organizacyjne do obrócenia klucza może spowodować awarię. Klucze należy obrócić o określoną liczbę dni przed wygaśnięciem, aby zapewnić wystarczającą ilość czasu na reagowanie na awarię. Te zasady będą przeprowadzać inspekcję kluczy, które są zbyt bliskie daty wygaśnięcia, i umożliwiają ustawienie tego progu w ciągu dni. Można również użyć tych zasad, aby zapobiec tworzeniu nowych kluczy, które są zbyt bliskie daty wygaśnięcia.
+
+### <a name="keys-should-be-backed-by-a-hardware-security-module-preview"></a>Klucze powinny być obsługiwane przez sprzętowy moduł zabezpieczeń (wersja zapoznawcza)
+
+HSM jest sprzętowym modułem zabezpieczeń, który przechowuje klucze. Moduł HSM zapewnia fizyczną warstwę ochrony kluczy kryptograficznych. Klucz kryptograficzny nie może opuścić fizycznego modułu HSM, który zapewnia wyższy poziom zabezpieczeń niż klucz oprogramowania. Niektóre organizacje mają wymagania dotyczące zgodności, które umożliwiają korzystanie z kluczy HSM. Te zasady służą do inspekcji wszystkich kluczy przechowywanych w magazynie kluczy, które nie są objęte usługą HSM. Można również użyć tych zasad, aby zablokować tworzenie nowych kluczy, które nie są chronione przez moduł HSM. Te zasady będą stosowane do wszystkich typów kluczy, RSA i ECC.
+
+### <a name="keys-using-rsa-cryptography-should-have-a-specified-minimum-key-size-preview"></a>Klucze używające kryptografii RSA powinny mieć określony minimalny rozmiar klucza (wersja zapoznawcza)
+
+Korzystanie z kluczy RSA o mniejszych rozmiarach nie jest bezpiecznym sposobem projektowania. Użytkownik może być objęty normami audytu i certyfikacji, które umożliwiają użycie minimalnego rozmiaru klucza. Poniższe zasady umożliwiają ustawienie minimalnego wymaganego rozmiaru klucza w magazynie kluczy. Można przeprowadzać inspekcję kluczy, które nie spełniają tego wymagania minimalnego. Tych zasad można również użyć do blokowania tworzenia nowych kluczy, które nie spełniają wymagań dotyczących minimalnego rozmiaru klucza.
+
+### <a name="keys-should-have-the-specified-maximum-validity-period-preview"></a>Klucze powinny mieć określony maksymalny okres ważności (wersja zapoznawcza)
+
+Zarządzaj wymaganiami dotyczącymi zgodności organizacji, określając maksymalną ilość czasu w dniach, przez jaką klucz może być ważny w magazynie kluczy. Klucze, które są poprawne dłużej niż ustawiony próg, zostaną oznaczone jako niezgodne. Za pomocą tych zasad można także zablokować tworzenie nowych kluczy, które mają datę wygaśnięcia ustawioną dłużej niż maksymalny okres ważności określony przez użytkownika.
+
+# <a name="secret-policies"></a>[Zasady tajności](#tab/secrets)
+
+### <a name="secrets-should-not-be-active-for-longer-than-the-specified-number-of-days-preview"></a>Wpisy tajne nie powinny być aktywne dłużej niż określona liczba dni (wersja zapoznawcza)
+
+Jeśli chcesz mieć pewność, że Twoje wpisy tajne nie były aktywne dłużej niż określona liczba dni, możesz użyć tych zasad, aby przeprowadzić inspekcję okresu aktywności klucza tajnego.
+
+**Jeśli klucz tajny ma ustawioną datę aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty aktywacji** wpisu tajnego do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, wpis tajny zostanie oznaczony jako niezgodny z zasadami.
+
+**Jeśli klucz tajny nie ma ustawionej daty aktywacji**, ta zasada będzie obliczać liczbę dni, które upłynęły od **daty utworzenia** klucza tajnego do bieżącej daty. Jeśli liczba dni przekracza ustawiony próg, wpis tajny zostanie oznaczony jako niezgodny z zasadami.
+
+### <a name="secrets-should-have-content-type-set-preview"></a>Wpisy tajne powinny mieć ustawiony typ zawartości (wersja zapoznawcza)
+
+Każdy zwykły tekst lub zaszyfrowany plik można przechowywać jako klucz tajny magazynu kluczy. Jednak organizacja może chcieć ustawić różne zasady rotacji i ograniczenia dotyczące haseł, parametrów połączenia lub certyfikatów przechowywanych jako klucze. Tag typu zawartości może pomóc użytkownikowi zobaczyć, co jest przechowywane w obiekcie tajnym bez odczytywania wartości klucza tajnego. Te zasady służą do inspekcji wpisów tajnych, które nie mają zestawu tagów typu zawartości. Można również użyć tych zasad, aby zapobiec tworzeniu nowych wpisów tajnych, jeśli nie mają ustawionego znacznika typu zawartości.
+
+### <a name="secrets-should-have-expiration-date-set-preview"></a>Wpisy tajne powinny mieć ustawioną datę wygaśnięcia (wersja zapoznawcza)
+
+Te zasady przeprowadzają inspekcję wszystkich wpisów tajnych w magazynie kluczy i flag tajnych, które nie mają daty wygaśnięcia ustawionej jako niezgodne. Za pomocą tych zasad można także zablokować tworzenie wpisów tajnych, które nie mają ustawionej daty wygaśnięcia.
+
+### <a name="secrets-should-have-more-than-the-specified-number-of-days-before-expiration-preview"></a>Wpisy tajne powinny mieć więcej niż określoną liczbę dni przed wygaśnięciem (wersja zapoznawcza)
+
+Jeśli klucz tajny jest zbyt bliski wygaśnięcia, opóźnienie organizacyjne do obrócenia klucza tajnego może spowodować awarię. Wpisy tajne powinny zostać obrócone o określoną liczbę dni przed wygaśnięciem, aby zapewnić wystarczającą ilość czasu na reagowanie na awarię. Te zasady będą przeprowadzać inspekcję wpisów tajnych, które są zbyt bliskie daty wygaśnięcia, i umożliwiają ustawienie tego progu w ciągu dni. Możesz również użyć tych zasad, aby zapobiec tworzeniu nowych wpisów tajnych, które są zbyt bliskie daty wygaśnięcia.
+
+### <a name="secrets-should-have-the-specified-maximum-validity-period-preview"></a>Wpisy tajne powinny mieć określony maksymalny okres ważności (wersja zapoznawcza)
+
+Zarządzaj wymaganiami dotyczącymi zgodności organizacji, określając maksymalną ilość czasu w dniach, w ciągu którego wpis tajny może być prawidłowy w magazynie kluczy. Wpisy tajne, które są poprawne dłużej niż ustawiony próg, zostaną oznaczone jako niezgodne. Za pomocą tych zasad można także zablokować tworzenie nowych wpisów tajnych, które mają datę wygaśnięcia ustawioną dłużej niż maksymalny okres ważności określony przez użytkownika.
+
+---
 
 ## <a name="example-scenario"></a>Przykładowy scenariusz
 
 Zarządzasz magazynem kluczy używanym przez wiele zespołów, które zawierają certyfikaty 100 i chcesz upewnić się, że żaden z certyfikatów w magazynie kluczy nie jest ważny przez dłużej niż 2 lata.
 
-1. Należy przypisać zasady [zarządzania okresem ważności certyfikatu](#manage-certificate-validity-period-preview) , określić, że maksymalny okres ważności certyfikatu wynosi 24 miesiące, i ustawić wpływ zasad na "inspekcję". 
+1. **Certyfikaty należy przypisać do określonych zasad maksymalnego okresu ważności** , określić, że maksymalny okres ważności certyfikatu wynosi 24 miesiące, i ustawić wpływ zasad na "inspekcję". 
 1. [Raport zgodności można wyświetlić na Azure Portal](#view-compliance-results)i sprawdzić, czy 20 certyfikatów jest niezgodnych i prawidłowych dla > 2 lat, a pozostałe certyfikaty są zgodne. 
 1. Skontaktuj się z właścicielami tych certyfikatów i przekaż nowe wymagania dotyczące zabezpieczeń, których certyfikaty nie mogą być ważne przez dłużej niż 2 lata. Niektóre zespoły odpowiadają i 15 certyfikatów zostały odnowione z maksymalnym okresem ważności wynoszącym 2 lata lub mniej. Inne zespoły nie odpowiadają, a nadal masz 5 niezgodnych certyfikatów w magazynie kluczy.
 1. Zmienisz efekt przypisanych zasad do "Odmów". 5 niezgodnych certyfikatów nie jest odwołanych i nadal działają. Nie można jednak przedłużyć okresu ważności, który jest dłuższy niż 2 lata. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 95fd10ab7de4885d3630b5defe4080fe0203b62f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14ef742c19556a9df2bd193a54bfaa1672d5964
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296981"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044228"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Uruchom Azure IoT Edge na Ubuntu Virtual Machines
 
@@ -50,7 +50,7 @@ Podczas pierwszego rozruchu maszyna wirtualna z systemem Ubuntu 18,04 LTS [insta
 
     **Nazwa użytkownika administratora**: Nazwa użytkownika, która będzie mieć uprawnienia root dotyczące wdrożenia.
 
-    **Parametry połączenia urządzenia**: [Parametry połączenia urządzenia](how-to-register-device.md) , które zostały utworzone w ramach zamierzonego [IoT Hub](../iot-hub/about-iot-hub.md).
+    **Parametry połączenia urządzenia**: [Parametry połączenia urządzenia](./how-to-manual-provision-symmetric-key.md) , które zostały utworzone w ramach zamierzonego [IoT Hub](../iot-hub/about-iot-hub.md).
 
     **Rozmiar maszyny**wirtualnej: [rozmiar](../cloud-services/cloud-services-sizes-specs.md) maszyn wirtualnych do wdrożenia
 

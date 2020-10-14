@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905309"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042596"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,6 +51,8 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CD
 | Folder korpus | główna lokalizacja korpus | tak, jeśli używasz manifestu | Ciąg | corpusPath |
 | Jednostka korpus | Ścieżka do odwołania do jednostki | tak | Ciąg | jednostka |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
+
+Jeśli definicja jednostki, która ma być używana w transformacji źródłowej, znajduje się w tym samym katalogu, co folder danych, można usunąć zaznaczenie opcji "Użyj jednostki z korpus" i po prostu wpisać w jednostce jednostki, która ma być używana jako odwołanie do jednostki.
 
 ### <a name="sink-settings"></a>Ustawienia ujścia
 

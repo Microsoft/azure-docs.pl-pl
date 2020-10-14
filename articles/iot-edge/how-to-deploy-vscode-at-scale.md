@@ -9,16 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dc059cae927c1aaa057080172313f5720f483bdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972581"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043820"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Visual Studio Code
 
-Można utworzyć **IoT Edge Automatyczne wdrażanie** przy użyciu Visual Studio Code do zarządzania trwającymi wdrożeniami dla wielu urządzeń jednocześnie. Automatyczne wdrożenia dla IoT Edge są częścią funkcji [automatycznej zarządzania urządzeniami](/azure/iot-hub/iot-hub-automatic-device-management) w programie IoT Hub. Wdrożenia to procesy dynamiczne, które umożliwiają wdrożenie wielu modułów na wielu urządzeniach. Możliwe jest również śledzenie stanu i kondycji modułów oraz wprowadzanie zmian w razie potrzeby.
+Można utworzyć **IoT Edge Automatyczne wdrażanie** przy użyciu Visual Studio Code do zarządzania trwającymi wdrożeniami dla wielu urządzeń jednocześnie. Automatyczne wdrożenia dla IoT Edge są częścią funkcji [automatycznej zarządzania urządzeniami](../iot-hub/iot-hub-automatic-device-management.md) w programie IoT Hub. Wdrożenia to procesy dynamiczne, które umożliwiają wdrożenie wielu modułów na wielu urządzeniach. Możliwe jest również śledzenie stanu i kondycji modułów oraz wprowadzanie zmian w razie potrzeby.
 
 Aby uzyskać więcej informacji, zobacz [opis IoT Edge wdrożenia automatyczne dla pojedynczych urządzeń lub w odpowiedniej skali](module-deployment-monitoring.md).
 
@@ -60,13 +60,16 @@ Aby wdrożyć moduły przy użyciu Visual Studio Code, Zapisz manifest wdrożeni
 
 Oto podstawowy manifest wdrożenia z jednym modułem:
 
+>[!NOTE]
+>Ten przykładowy manifest wdrażania używa wersji schematu 1,1 dla agenta IoT Edge i centrum. Wersja schematu 1,1 została wydana wraz z IoT Edge wersja 1.0.10 i włącza funkcje takie jak kolejność uruchamiania modułu i priorytetyzacja tras.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -95,7 +98,7 @@ Oto podstawowy manifest wdrożenia z jednym modułem:
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",

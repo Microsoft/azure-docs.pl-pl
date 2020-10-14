@@ -7,19 +7,63 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087400"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042477"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
-Ten artykuł zawiera instrukcje krok po kroku dotyczące konfigurowania zapór Azure Key Vault i sieci wirtualnych w celu ograniczenia dostępu do magazynu kluczy. [Punkty końcowe usługi sieci wirtualnej dla Key Vault](overview-vnet-service-endpoints.md) umożliwiają ograniczenie dostępu do określonej sieci wirtualnej i zestawu adresów IPv4 (protokołu internetowego w wersji 4).
+W tym artykule przedstawiono wskazówki dotyczące konfigurowania zapory Azure Key Vault. W tym dokumencie przedstawiono szczegółowe informacje o różnych konfiguracjach zapory Key Vault i przedstawiono instrukcje krok po kroku dotyczące konfigurowania Azure Key Vault do pracy z innymi aplikacjami i usługami platformy Azure.
+
+## <a name="firewall-settings"></a>Ustawienia zapory
+
+Ta sekcja obejmuje różne sposoby konfigurowania zapory Azure Key Vault.
+
+### <a name="key-vault-firewall-disabled-default"></a>Zapora Key Vault wyłączona (wartość domyślna)
+
+Domyślnie podczas tworzenia nowego magazynu kluczy Zapora Azure Key Vault jest wyłączona. Wszystkie aplikacje i usługi platformy Azure mogą uzyskiwać dostęp do magazynu kluczy i wysyłać żądania do magazynu kluczy. Należy pamiętać, że ta konfiguracja nie oznacza, że każdy użytkownik będzie mógł wykonywać operacje w magazynie kluczy. Magazyn kluczy nadal ogranicza do wpisów tajnych, kluczy i certyfikatów przechowywanych w magazynie kluczy, wymagając Azure Active Directory uprawnień do uwierzytelniania i dostępu. Aby bardziej szczegółowo zrozumieć uwierzytelnianie magazynu kluczy, [zobacz dokument podstawowe](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals)uwierzytelnianie magazynu kluczy.
+
+### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Key Vault włączona Zapora (tylko zaufane usługi)
+
+Po włączeniu Zapory Key Vault zostanie nadana opcja "Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory". Lista zaufanych usług nie obejmuje każdej pojedynczej usługi platformy Azure. Na przykład usługa Azure DevOps nie znajduje się na liście zaufanych usług. **Nie oznacza to, że usługi, które nie znajdują się na liście zaufanych usług, nie są zaufane ani niezabezpieczone.** Lista zaufanych usług obejmuje usługi, w których firma Microsoft kontroluje cały kod, który jest uruchamiany w usłudze. Ponieważ użytkownicy mogą pisać kod niestandardowy w usługach platformy Azure, takich jak Azure DevOps, firma Microsoft nie udostępnia opcji tworzenia zbiorczego zatwierdzenia dla usługi. Ponadto, tylko ponieważ usługa pojawia się na liście zaufanych usług, nie oznacza to, że jest ona dozwolona dla wszystkich scenariuszy.
+
+Aby ustalić, czy usługa, której próbujesz użyć, znajduje się na liście zaufanych usług, zapoznaj się z [poniższym dokumentem poniżej.](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
+
+### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault włączona Zapora (adresy IPv4 i zakresy — statyczne adresy IP)
+
+Jeśli chcesz autoryzować określoną usługę do uzyskiwania dostępu do magazynu kluczy za pomocą zapory Key Vault, możesz dodać adres IP do listy dozwolonych zapór magazynu kluczy. Ta konfiguracja jest Najlepsza w przypadku usług korzystających ze statycznych adresów IP lub dobrze znanych zakresów.
+
+Aby zezwolić na adres IP lub zakres zasobów platformy Azure, takich jak aplikacja sieci Web lub aplikacja logiki, wykonaj następujące czynności.
+
+1. Logowanie do witryny Azure Portal
+1. Wybierz zasób (określone wystąpienie usługi)
+1. Kliknij blok "właściwości" w obszarze "Ustawienia"
+1. Wyszukaj pole "adres IP".
+1. Skopiuj tę wartość lub zakres i wprowadź ją na liście dozwolonych zapór magazynu kluczy.
+
+Aby zezwolić na całą usługę platformy Azure, za pomocą zapory Key Vault, użyj publicznie udokumentowanych adresów IP centrów danych [dla platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653). Znajdź adresy IP skojarzone z usługą, które chcesz umieścić w wybranym regionie, i Dodaj te adresy IP do zapory magazynu kluczy za pomocą powyższych kroków.
+
+### <a name="key-vault-firewall-enabled-virtual-networks---dynamic-ips"></a>Key Vault włączona Zapora (sieci wirtualne — dynamiczne adresy IP)
+
+Jeśli próbujesz zezwolić na zasoby platformy Azure, takie jak maszyna wirtualna, za pomocą magazynu kluczy, możesz nie być w stanie używać statycznych adresów IP i możesz nie zezwalać na dostęp do magazynu kluczy wszystkim adresom IP dla usługi Azure Virtual Machines.
+
+W takim przypadku należy utworzyć zasób w sieci wirtualnej, a następnie zezwolić na ruch z określonej sieci wirtualnej i podsieci w celu uzyskania dostępu do magazynu kluczy. Aby to zrobić, wykonaj następujące czynności.
+
+1. Logowanie do witryny Azure Portal
+1. Wybierz magazyn kluczy, który chcesz skonfigurować
+1. Wybieranie bloku "Sieć"
+1. Wybierz pozycję "+ Dodaj istniejącą sieć wirtualną"
+1. Wybierz sieć wirtualną i podsieć, dla której chcesz zezwolić za pomocą zapory magazynu kluczy.
+
+### <a name="key-vault-firewall-enabled-private-link"></a>Key Vault włączona Zapora (link prywatny)
+
+Aby dowiedzieć się, jak skonfigurować połączenie z linkiem prywatnym w magazynie kluczy, zobacz dokument w [tym miejscu](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
 
 > [!IMPORTANT]
 > Po zastosowaniu reguł zapory użytkownicy mogą wykonywać Key Vault operacje [płaszczyzny danych](secure-your-key-vault.md#data-plane-access-control) tylko wtedy, gdy ich żądania pochodzą z dozwolonych sieci wirtualnych lub zakresów adresów IPv4. Dotyczy to również uzyskiwania dostępu do Key Vault z Azure Portal. Mimo że użytkownicy mogą przechodzić do magazynu kluczy z Azure Portal, mogą nie być w stanie wyświetlać kluczy, wpisów tajnych ani certyfikatów, jeśli ich maszyny klienckie nie znajdują się na liście dozwolonych. Ma to również wpływ na wybór Key Vault przez inne usługi platformy Azure. Użytkownicy mogą widzieć listę magazynów kluczy, ale nie listy kluczy, jeśli reguły zapory uniemożliwiają ich komputerom klienckim.

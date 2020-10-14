@@ -7,16 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87439413"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048376"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Samouczek: wdrażanie Azure Stream Analytics jako modułu IoT Edge
 
-Wiele rozwiązań IoT korzysta z usług analitycznych w celu uzyskania wglądu w informacje o danych, które docierają do chmury z urządzeń IoT. Dzięki usłudze Azure IoT Edge możesz zastosować logikę usługi [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/), wdrażając ją bezpośrednio na urządzeniu. Dzięki przetwarzaniu potoków danych telemetrycznych na urządzeniu brzegowym możesz zmniejszyć ilość przekazywanych danych i skrócić czas reakcji na szczegółowe informacje umożliwiające podejmowanie działań.
+Wiele rozwiązań IoT korzysta z usług analitycznych w celu uzyskania wglądu w informacje o danych, które docierają do chmury z urządzeń IoT. Dzięki usłudze Azure IoT Edge możesz zastosować logikę usługi [Azure Stream Analytics](../stream-analytics/index.yml), wdrażając ją bezpośrednio na urządzeniu. Dzięki przetwarzaniu potoków danych telemetrycznych na urządzeniu brzegowym możesz zmniejszyć ilość przekazywanych danych i skrócić czas reakcji na szczegółowe informacje umożliwiające podejmowanie działań.
 
 Azure IoT Edge i Azure Stream Analytics są zintegrowane, aby uprościć programowanie obciążeń. W Azure Portal można utworzyć zadanie Azure Stream Analytics, a następnie wdrożyć je jako moduł IoT Edge bez dodatkowych kodów.  
 
@@ -24,7 +24,7 @@ Azure Stream Analytics zawiera rozbudowaną składnię zapytań na potrzeby anal
 
 Moduł usługi Stream Analytics w tym samouczku oblicza średnią temperaturę w ruchomym przedziale 30 sekund. Jeśli średnia wyniesie 70 stopni, moduł wyśle dla urządzenia alert o konieczności podjęcia działania. W tym przypadku tym działaniem jest zresetowanie symulowanego czujnika temperatury. W środowisku produkcyjnym możesz użyć tej funkcji na przykład do wyłączenia maszyny lub podjęcia działań zapobiegawczych, gdy temperatura osiągnie niebezpieczną wartość.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > * Tworzenie zadania usługi Azure Stream Analytics w celu przetwarzania danych na urządzeniu brzegowym.
@@ -89,7 +89,7 @@ W przypadku tworzenia zadania usługi Azure Stream Analytics do uruchamiania na 
    | Lokalizacja | Wybierz bliską lokalizację. |
    | Środowisko hostingu | Wybierz pozycję **Edge**. |
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="configure-your-job"></a>Konfigurowanie zadania
 

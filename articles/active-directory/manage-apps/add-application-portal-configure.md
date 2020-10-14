@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448235"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044466"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -41,10 +41,7 @@ Aby edytować właściwości aplikacji:
 
 1. W portalu usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw**. Następnie Znajdź i wybierz aplikację, którą chcesz skonfigurować.
 2. W sekcji **Zarządzanie** wybierz pozycję **Właściwości** , aby otworzyć okienko **Właściwości** do edycji.
-
-    ![Zrzut ekranu przedstawiający ekran właściwości, który pokazuje edytowalne właściwości aplikacji.](media/add-application-portal/edit-properties.png)
-
-3. Poświęć chwilę na zapoznanie się z opcjami dostępnymi do konfiguracji:
+3. Poświęć chwilę na zapoznanie się z dostępnymi opcjami. Dostępne opcje zależą od tego, w jaki sposób aplikacja jest zintegrowana z usługą Azure AD. Na przykład aplikacja, która korzysta z logowania jednokrotnego opartego na protokole SAML, będzie zawierała pola, takie jak *adres URL dostępu użytkownika* , a aplikacja korzystająca z logowania jednokrotnego opartego na OIDC będzie niedostępna. Należy również zauważyć, że aplikacje dodane za pośrednictwem **Azure Active Directory > rejestracje aplikacji** są domyślnie aplikacjami opartymi na OIDC. Aplikacje dodane za pomocą **Azure Active Directory > aplikacji dla przedsiębiorstw** mogą korzystać z dowolnej liczby standardów logowania jednokrotnego. Wszystkie aplikacje będą mieć pola do skonfigurowania, gdy aplikacja zostanie wyświetlona i może być użyta. Wysyłane mogą być następujące pola:
     - **Włączono, aby użytkownicy mogli się zalogować?** Określa, czy użytkownicy przypisani do aplikacji mogą się zalogować.
     - **Czy przypisanie użytkownika jest wymagane?** Określa, czy użytkownicy, którzy nie są przypisani do aplikacji, mogą się zalogować.
     - **Widoczne dla użytkowników?** Określa, czy użytkownicy przypisani do aplikacji mogą ją zobaczyć w obszarze [Moje aplikacje](https://myapps.microsoft.com) i Microsoft 365 uruchamiania aplikacji. (Zobacz menu Gofr w lewym górnym rogu witryny sieci Web Microsoft 365).

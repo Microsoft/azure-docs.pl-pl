@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a1d1ab0d3b1f4315c09f1c403126139b34612
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76511148"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043905"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Łączenie urządzeń Modbus TCP za pośrednictwem bramy urządzenia IoT Edge
 
@@ -35,7 +35,7 @@ W tym artykule założono, że użytkownik korzysta z protokołu Modbus TCP. Wi�
 
 Jeśli chcesz przetestować funkcje bramy Modbus, firma Microsoft przygotowała przykładowy moduł, którego możesz użyć. Możesz uzyskać dostęp do modułu z witryny Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)lub z identyfikatorem URI obrazu `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
-Jeśli chcesz utworzyć własny moduł i dostosować go do swojego środowiska, istnieje [Azure IoT Edge projektu modułu](https://github.com/Azure/iot-edge-modbus) "open source" w witrynie GitHub. Wykonaj instrukcje zawarte w tym projekcie, aby utworzyć własny obraz kontenera. Aby utworzyć obraz kontenera, zapoznaj się z tematem [Tworzenie modułów C# w programie Visual Studio](how-to-visual-studio-develop-csharp-module.md) lub [opracowywanie modułów w Visual Studio Code](how-to-vs-code-develop-module.md). Te artykuły zawierają instrukcje dotyczące tworzenia nowych modułów i publikowania obrazów kontenerów w rejestrze.
+Jeśli chcesz utworzyć własny moduł i dostosować go do swojego środowiska, istnieje [Azure IoT Edge projektu modułu](https://github.com/Azure/iot-edge-modbus) "open source" w witrynie GitHub. Wykonaj instrukcje zawarte w tym projekcie, aby utworzyć własny obraz kontenera. Aby utworzyć obraz kontenera, zapoznaj się z tematem [Tworzenie modułów C# w programie Visual Studio](./how-to-visual-studio-develop-module.md) lub [opracowywanie modułów w Visual Studio Code](how-to-vs-code-develop-module.md). Te artykuły zawierają instrukcje dotyczące tworzenia nowych modułów i publikowania obrazów kontenerów w rejestrze.
 
 ## <a name="try-the-solution"></a>Wypróbuj rozwiązanie
 
@@ -51,7 +51,7 @@ Ta sekcja zawiera instrukcje wdrażania przykładowego modułu Modbus firmy Micr
 
    1. Kliknij przycisk **Dodaj** listę rozwijaną i wybierz **moduł Marketplace**.
    2. Wyszukaj `Modbus` i wybierz **moduł Modbus TCP** firmy Microsoft.
-   3. Moduł jest automatycznie konfigurowany dla IoT Hub i pojawia się na liście modułów IoT Edge. Trasy są również automatycznie konfigurowane. Wybierz pozycję **Przeglądanie + tworzenie**.
+   3. Moduł jest automatycznie konfigurowany dla IoT Hub i pojawia się na liście modułów IoT Edge. Trasy są również automatycznie konfigurowane. Wybierz pozycję **Przejrzyj i utwórz**.
    4. Przejrzyj manifest wdrożenia i wybierz pozycję **Utwórz**.
 
 5. Wybierz moduł Modbus, `ModbusTCPModule` na liście i wybierz kartę **Ustawienia sznurka modułu** . Wymagany kod JSON dla potrzebnych właściwości sznurka modułu jest wypełniany automatycznie.

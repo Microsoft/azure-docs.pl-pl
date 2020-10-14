@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 082e05bddd4fe12b279368e44b2d986bd4fa91a7
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945332"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044670"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -38,13 +38,13 @@ Modele są zdefiniowane w języku podobnym do notacji JSON o nazwie [Digital bli
 * Modele definiują **relacje** semantyczne między swoimi obiektami, aby można było połączyć bliźniaczych reprezentacji z grafem wiedzy, który odzwierciedla ich interakcje. Modele można traktować jako rzeczowniki w opisie świata i relacje jako czasowniki.
 * Możesz również specjalizacji bliźniaczych reprezentacji przy użyciu dziedziczenia modelu. Jeden model może dziedziczyć z innego.
 
-DTDL jest używany dla modeli danych w innych usługach Azure IoT, w tym [Plug and Play IoT (PNP)](../iot-pnp/overview-iot-plug-and-play.md) i [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md). Dzięki temu można zapewnić łączność i zgodność rozwiązania Azure Digital bliźniaczych reprezentacji z innymi częściami ekosystemu platformy Azure.
+DTDL jest używany dla modeli danych w innych usługach Azure IoT, w tym [Plug and Play IoT (PNP)](../iot-pnp/overview-iot-plug-and-play.md) i [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). Dzięki temu można zapewnić łączność i zgodność rozwiązania Azure Digital bliźniaczych reprezentacji z innymi częściami ekosystemu platformy Azure.
 
 ### <a name="live-execution-environment"></a>Środowisko wykonywania na żywo
 
 Modele cyfrowe w usłudze Azure Digital bliźniaczych reprezentacji są na bieżąco z aktualnymi reprezentacjami świata rzeczywistego. Korzystając z relacji w niestandardowych modelach DTDL, nastąpi połączenie bliźniaczych reprezentacji do **grafu na żywo** reprezentującego Twoje środowisko.
 
-Możesz wyświetlić wizualizację grafu Digital bliźniaczych reprezentacji na platformie Azure za pomocą przykładowej aplikacji, programu [**Azure Digital bliźniaczych reprezentacji Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Możesz wyświetlić wizualizację grafu Digital bliźniaczych reprezentacji na platformie Azure za pomocą przykładowej aplikacji, programu [**Azure Digital bliźniaczych reprezentacji Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Oto widok wizualizacji przykładowej:
 

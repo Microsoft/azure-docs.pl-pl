@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e1df230a49ca5483d0ab091da11530786c829ca8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767285"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042647"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Szybki Start: uzyskiwanie tokenu i wywoływanie Microsoft Graph interfejsu API przy użyciu tożsamości aplikacji konsoli
 
@@ -73,15 +73,13 @@ Ten przewodnik Szybki Start wymaga [programu .NET Core 3,1](https://www.microsof
 
 > [!div renderon="docs"]
 > [Pobierz projekt programu Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
-
-> [!div renderon="docs"]
-> > [!NOTE]
-> > Udostępniony projekt można uruchomić w Visual Studio lub Visual Studio dla komputerów Mac
+>
+> Udostępniony projekt można uruchomić w Visual Studio lub Visual Studio dla komputerów Mac.
 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Uruchom projekt przy użyciu programu Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Pobierz przykład kodu](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

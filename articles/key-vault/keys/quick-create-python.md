@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: ae3f29e6c3b07a837e772466f84d227e35507d32
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2eeb68ca5b0b6be0970a1adb071a7662399bc879
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018937"
+ms.locfileid: "92042562"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Szybki Start: Biblioteka klienta kluczy Azure Key Vault dla języka Python
 
@@ -31,7 +31,7 @@ W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza po
 
 ## <a name="set-up-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -49,7 +49,7 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 ### <a name="install-the-packages"></a>Zainstaluj pakiety
 
-1. W terminalu lub wierszu polecenia Utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w temacie [Korzystanie z środowisk wirtualnych języka Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+1. W oknie terminalu lub wierszu polecenia Utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w temacie [Korzystanie z środowisk wirtualnych języka Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
 1. Zainstaluj bibliotekę tożsamości Azure Active Directory:
 
@@ -70,7 +70,7 @@ Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z inter
 
 ### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje poufne uprawnienia do konta użytkownika
+Utwórz zasady dostępu dla magazynu kluczy, które przyznaje poufne uprawnienia do Twojego konta użytkownika.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set

@@ -7,16 +7,16 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61ca10612a0935f8483745d164835d7498280c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610079"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042817"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementowanie Plug and Play IoT na urządzeniach z ograniczeniami
 
-Jeśli tworzysz aplikacje dla *urządzeń z ograniczeniami*, możesz użyć Plug and Play IoT z [zestawem Azure SDK dla bibliotek klienta IoT](https://aka.ms/embeddedcsdk) w języku C lub z [usługą Azure RTO](https://docs.microsoft.com/azure/rtos/overview-rtos). Ten artykuł zawiera linki i zasoby dla tych scenariuszy z ograniczeniami.
+Jeśli tworzysz aplikacje dla *urządzeń z ograniczeniami*, możesz użyć Plug and Play IoT z [zestawem Azure SDK dla bibliotek klienta IoT](https://aka.ms/embeddedcsdk) w języku C lub z [usługą Azure RTO](/azure/rtos/overview-rtos). Ten artykuł zawiera linki i zasoby dla tych scenariuszy z ograniczeniami.
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Korzystanie z zestawu SDK dla osadzonego języka C
 
@@ -39,7 +39,7 @@ Zestaw SDK dla repozytorium osadzonych C zawiera [kilka przykładów](https://gi
 
 ## <a name="using-azure-rtos"></a>Korzystanie z usługi Azure RTO
 
-Usługa Azure RTO obejmuje warstwę uproszczoną, która dodaje natywną łączność z usługami Azure IoT Cloud Services. Ta warstwa zapewnia prosty mechanizm łączenia ograniczonych urządzeń z usługą Azure IoT przy użyciu zaawansowanych funkcji usługi Azure RTO. Aby dowiedzieć się więcej, zobacz [co to jest Microsoft Azure RTO](https://docs.microsoft.com/azure/rtos/overview-rtos).
+Usługa Azure RTO obejmuje warstwę uproszczoną, która dodaje natywną łączność z usługami Azure IoT Cloud Services. Ta warstwa zapewnia prosty mechanizm łączenia ograniczonych urządzeń z usługą Azure IoT przy użyciu zaawansowanych funkcji usługi Azure RTO. Aby dowiedzieć się więcej, zobacz [co to jest Microsoft Azure RTO](/azure/rtos/overview-rtos).
 
 ### <a name="toolchains"></a>Łańcuchy narzędzi
 

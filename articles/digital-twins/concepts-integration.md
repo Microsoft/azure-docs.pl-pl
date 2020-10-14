@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015025"
+ms.locfileid: "92043072"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami
 
@@ -20,7 +20,7 @@ Usługa Azure Digital bliźniaczych reprezentacji jest zwykle używana wraz z in
 
 Korzystając z [**tras zdarzeń**](concepts-route-events.md), usługa Azure Digital bliźniaczych reprezentacji może odbierać dane z usług nadrzędnych, takich jak [IoT Hub](../iot-hub/about-iot-hub.md) lub [Logic Apps](../logic-apps/logic-apps-overview.md), które są używane do dostarczania telemetrii i powiadomień. 
 
-Usługa Azure Digital bliźniaczych reprezentacji umożliwia również kierowanie danych do usług podrzędnych, takich jak [Azure Maps](../azure-maps/about-azure-maps.md) i [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), do magazynu, integracji przepływów pracy, analiz i innych. 
+Usługa Azure Digital bliźniaczych reprezentacji umożliwia również kierowanie danych do usług podrzędnych, takich jak [Azure Maps](../azure-maps/about-azure-maps.md) i [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), do magazynu, integracji przepływów pracy, analiz i innych. 
 
 ## <a name="data-ingress"></a>Dane wejściowe
 
@@ -41,7 +41,7 @@ Usługa Azure Digital bliźniaczych reprezentacji może wysyłać dane do podł�
 
 Punkty końcowe są dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API zarządzania lub Azure Portal. Dowiedz się więcej na temat sposobu dołączania punktu końcowego do usługi Azure Digital bliźniaczych reprezentacji w temacie [*How to: Manage Endpoints and Routes*](how-to-manage-routes-apis-cli.md).
 
-Istnieje wiele innych usług, w których możesz chcieć ostatecznie skierować dane, takie jak [usługa Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)lub [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Aby wysłać dane do usług takich jak te, Dołącz usługę docelową do punktu końcowego.
+Istnieje wiele innych usług, w których możesz chcieć ostatecznie skierować dane, takie jak [usługa Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)lub [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Aby wysłać dane do usług takich jak te, Dołącz usługę docelową do punktu końcowego.
 
 Na przykład, jeśli używasz również Azure Maps i chcesz skorelować lokalizację z [grafem wieloosiowym](concepts-twins-graph.md)usługi Azure Digital bliźniaczych reprezentacji, możesz użyć Azure Functions z Event Grid, aby nawiązać komunikację między wszystkimi usługami w danym wdrożeniu. Dowiedz się więcej na ten temat na ten temat [ *: korzystanie z usługi Azure Digital bliźniaczych reprezentacji do aktualizowania Azure Mapsj mapy pomieszczeń*](how-to-integrate-maps.md)
 

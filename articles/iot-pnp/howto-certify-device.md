@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577649"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042970"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak przeprowadzić certyfikację urządzenia IoT Plug and Play
 
@@ -47,13 +47,13 @@ Aby spełnić wymagania dotyczące certyfikacji, urządzenie musi:
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testowanie przy użyciu rozszerzenia interfejsu wiersza polecenia usługi Azure IoT
 
-[Rozszerzenie interfejsu wiersza polecenia usługi Azure IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) pozwala sprawdzić, czy implementacja urządzenia jest zgodna z modelem przed przesłaniem urządzenia do certyfikacji za pomocą portalu certyfikowanego urządzenia platformy Azure.
+[Rozszerzenie interfejsu wiersza polecenia usługi Azure IoT](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) pozwala sprawdzić, czy implementacja urządzenia jest zgodna z modelem przed przesłaniem urządzenia do certyfikacji za pomocą portalu certyfikowanego urządzenia platformy Azure.
 
 Poniższe kroki pokazują, jak przygotować się do testów certyfikacji i uruchomić je za pomocą interfejsu wiersza polecenia:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Instalowanie rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure
 
-Zobacz instrukcje instalacji, aby skonfigurować [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) w Twoim środowisku.
+Zobacz instrukcje instalacji, aby skonfigurować [interfejs wiersza polecenia platformy Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest) w Twoim środowisku.
 
 Aby zainstalować rozszerzenie Azure IoT, uruchom następujące polecenie:
 
@@ -61,7 +61,7 @@ Aby zainstalować rozszerzenie Azure IoT, uruchom następujące polecenie:
 az extension add --name azure-iot
 ```
 
-Aby dowiedzieć się więcej, zobacz [interfejs wiersza polecenia platformy Azure dla usługi Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
+Aby dowiedzieć się więcej, zobacz [interfejs wiersza polecenia platformy Azure dla usługi Azure IoT](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="create-a-new-product-test"></a>Utwórz nowy test produktu
 
@@ -75,7 +75,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Jeśli używasz interfejsu wiersza polecenia, musisz [zalogować](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) się do swojej subskrypcji.
+> Jeśli używasz interfejsu wiersza polecenia, musisz [zalogować](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) się do swojej subskrypcji.
 
 Dane wyjściowe JSON z polecenia zawierają `primaryKey` , `registrationId` i `scopeID` do użycia podczas łączenia urządzenia.
 
@@ -199,7 +199,7 @@ Należy wykonać trzy czynności:
 
 1. Łączenie i odnajdowanie interfejsów. Urządzenie musi nawiązać połączenie z usługą certyfikacji Azure IoT za pomocą usługi DPS. Wybierz metodę uwierzytelniania (certyfikat X. 509, klucze symetryczne lub moduł zaufanej platformy), aby użyć i zaktualizować aplikację urządzenia za pomocą informacji DPS.
 1. Przejrzyj interfejsy. Sprawdź interfejs i upewnij się, że każdy z nich ma dane wejściowe ładunku, które mają sens dla testowania.
-1. Test. System sprawdza każdy model urządzenia, aby sprawdzić, czy dane telemetryczne, właściwości i polecenia opisane w modelu są zgodne z konwencjami Plug and Play IoT. Po zakończeniu testu wybierz łącze **Wyświetl dzienniki** , aby wyświetlić dane telemetryczne z urządzenia, a następnie nieprzetworzonych danych wysyłanych do IoT Hub właściwości bliźniaczych urządzeń.
+1. Badan. System sprawdza każdy model urządzenia, aby sprawdzić, czy dane telemetryczne, właściwości i polecenia opisane w modelu są zgodne z konwencjami Plug and Play IoT. Po zakończeniu testu wybierz łącze **Wyświetl dzienniki** , aby wyświetlić dane telemetryczne z urządzenia, a następnie nieprzetworzonych danych wysyłanych do IoT Hub właściwości bliźniaczych urządzeń.
 
 ### <a name="submit-and-publish"></a>Prześlij i Opublikuj
 

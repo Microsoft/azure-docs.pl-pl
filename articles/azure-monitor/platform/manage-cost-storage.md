@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c78cfd2a453a082ce3f352504719a7fb8cc2b8ec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875958"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044109"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników usługi Azure Monitor    
 
@@ -102,7 +102,7 @@ Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Applicatio
 
 Użycie w ramach autonomicznej warstwy cenowej jest rozliczane przez pozyskiwany wolumin danych. Jest on raportowany w usłudze **log Analytics** i miernik ma nazwę "dane analizowane". 
 
-Opłaty za warstwę cenową na węzeł na monitorowaną maszynę wirtualną (węzeł) mają stopień szczegółowości godzin. Dla każdego monitorowanego węzła obszar roboczy ma przydzieloną 500 MB danych dziennie, które nie są rozliczane. Ta alokacja jest agregowana na poziomie obszaru roboczego. Dane pozyskane powyżej zagregowanego dziennego przydziału danych są rozliczane za GB jako nadwyżkowe dane. Należy pamiętać, że na rachunku usługa zostanie **Insight and Analytics** do log Analytics użycie, jeśli obszar roboczy znajduje się w warstwie cenowej węzła na węzeł. Użycie jest raportowane dla trzech liczników:
+Opłaty za warstwę cenową na węzeł na monitorowaną maszynę wirtualną (węzeł) mają stopień szczegółowości godzin. Dla każdego monitorowanego węzła obszar roboczy ma przydzieloną 500 MB danych dziennie, które nie są rozliczane. Ta alokacja jest obliczana z dokładnością co godzinę i jest agregowana na poziomie obszaru roboczego każdego dnia. Dane pozyskane powyżej zagregowanego dziennego przydziału danych są rozliczane za GB jako nadwyżkowe dane. Należy pamiętać, że na rachunku usługa zostanie **Insight and Analytics** do log Analytics użycie, jeśli obszar roboczy znajduje się w warstwie cenowej węzła na węzeł. Użycie jest raportowane dla trzech liczników:
 
 1. Węzeł: jest to użycie dla liczby monitorowanych węzłów (maszyn wirtualnych) w jednostkach węzła * miesiące.
 2. Nadwyżka danych na węzeł: jest to liczba GB danych pobieranych z przekroczeniem zagregowanej alokacji danych.
@@ -125,6 +125,10 @@ Dodatkowe szczegóły ograniczeń warstwy cenowej są dostępne w [ramach subskr
 
 > [!NOTE]
 > Aby użyć uprawnień pochodzących z zakupu pakietu OMS E1, pakietu OMS E2 lub Add-On OMS dla programu System Center, wybierz warstwę cenową Log Analytics *na węzeł* .
+
+## <a name="log-analytics-and-security-center"></a>Log Analytics i Security Center
+
+Rozliczanie [Azure Security Center](https://docs.microsoft.com/azure/security-center/) jest ściśle powiązane z log Analytics rozliczeniami. Security Center zapewnia alokację 500 MB/węzeł/dzień względem zestawu [typów danych zabezpieczeń](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) i typów danych Update i UpdateSummary, gdy rozwiązanie Update Management nie jest uruchomione w obszarze roboczym lub jest włączone Określanie elementu docelowego rozwiązania. Jeśli obszar roboczy znajduje się w starszej warstwie cenowej węzła, alokacje Security Center i Log Analytics są łączone i stosowane wspólnie do wszystkich danych pozyskanych z rozliczeniami.  
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
@@ -284,6 +288,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Węzły rozliczane według warstwy cenowej starszej dla węzła
+
+[Warstwa cenowa starszej wersji na węzeł](#legacy-pricing-tiers) jest rozliczana dla węzłów z dokładnością co godzinę, a także nie zlicza węzłów wysyłających zestaw danych zabezpieczeń. Dzienna liczba węzłów będzie bliska następującej kwerendzie:
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+Liczba jednostek na rachunku znajduje się w jednostkach węzła * miesiące, które są reprezentowane przez `billableNodeMonthsPerDay` zapytanie. Jeśli w obszarze roboczym jest zainstalowane rozwiązanie Update Management, Dodaj typy danych Update i UpdateSummary do listy w klauzuli WHERE w powyższej kwerendzie. Na koniec istnieje pewna dodatkowa złożoność w rzeczywistym algorytmie rozliczania, gdy jest używane rozwiązanie określania wartości docelowej, które nie jest reprezentowane w powyższym zapytaniu. 
+
+
 > [!TIP]
 > Te `find` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest [czasochłonne](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) . Jeśli wyniki **dla komputera** nie są potrzebne, należy wykonać zapytanie dotyczące typu danych użycia (patrz poniżej).
 
@@ -338,7 +360,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

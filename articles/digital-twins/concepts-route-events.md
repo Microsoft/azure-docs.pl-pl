@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541360"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044296"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -21,7 +21,7 @@ Usługa Azure Digital bliźniaczych reprezentacji korzysta z **tras zdarzeń** d
 W trakcie okresu zapoznawczego istnieją dwa główne przypadki wysyłania danych usługi Azure Digital bliźniaczych reprezentacji:
 * Wysyłanie danych z jednej sznurka na cyfrowym wykresie bliźniaczych reprezentacji Azure do innego. Na przykład, gdy zmieniana jest właściwość jednocyfrowego przędzy, możesz chcieć odpowiednio powiadomić i zaktualizować inne cyfrowe sznurki.
 * Wysyłanie danych do usług danych podrzędnych w celu dodatkowego przechowywania lub przetwarzania (nazywanego również ruchem wychodzącym *danych*). Na przykład
-  - Szpital może chcieć wysłać dane zdarzenia usługi Azure Digital bliźniaczych reprezentacji do [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), aby zarejestrować dane szeregów czasowych zdarzeń związanych z handwashing dla analizy zbiorczej.
+  - Szpital może chcieć wysłać dane zdarzenia usługi Azure Digital bliźniaczych reprezentacji do [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), aby zarejestrować dane szeregów czasowych zdarzeń związanych z handwashing dla analizy zbiorczej.
   - Firma, która już korzysta z [Azure Maps](../azure-maps/about-azure-maps.md) może chcieć używać usługi Azure Digital bliźniaczych reprezentacji do ulepszania swoich rozwiązań. Mogą szybko włączyć mapę platformy Azure po skonfigurowaniu usługi Azure Digital bliźniaczych reprezentacji, przełączyć jednostki mapy platformy Azure do usługi Azure Digital bliźniaczych reprezentacji jako [Digital bliźniaczych reprezentacji](concepts-twins-graph.md) na grafie bliźniaczym lub uruchamiać zaawansowane zapytania wykorzystujące swoje Azure Maps i dane cyfrowego bliźniaczych reprezentacji platformy Azure.
 
 Trasy zdarzeń są używane dla obu tych scenariuszy.

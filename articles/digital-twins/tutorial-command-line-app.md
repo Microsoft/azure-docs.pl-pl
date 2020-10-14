@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 960f76b06644a86ebaaaed40b57db95bdb350833
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945519"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048495"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -79,7 +79,7 @@ Pamiętaj, aby zapisać plik przed przechodzeniem.
 > Jeśli chcesz spróbować utworzyć własny model, możesz wkleić kod modelu *pokoju* do nowego pliku zapisanego przy użyciu rozszerzenia *JSON* w folderze *AdtSampleApp\SampleClientApp\Models* . Następnie zapoznaj się z dodawaniem właściwości i relacji, aby reprezentować wszystko, co chcesz. W przypadku pomysłów można także zapoznać się z innymi przykładowymi modelami w tym folderze.
 
 > [!TIP] 
-> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-parse-models.md).
+> Istnieje [przykład modułu sprawdzania poprawności](/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [*: analizowanie i weryfikowanie modeli*](how-to-parse-models.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Wprowadzenie do aplikacji wiersza polecenia
 

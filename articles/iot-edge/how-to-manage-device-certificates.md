@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971799"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044143"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
@@ -68,7 +68,7 @@ Na przykład jeśli użyto przykładowych skryptów do [tworzenia certyfikatów 
 
 1. Skopiuj trzy pliki certyfikatów i kluczy na urządzenie IoT Edge.
 
-   Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .  Jeśli certyfikaty zostały wygenerowane na urządzeniu IoT Edge, możesz pominąć ten krok i użyć ścieżki do katalogu roboczego.
+   Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](../key-vault/index.yml) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .  Jeśli certyfikaty zostały wygenerowane na urządzeniu IoT Edge, możesz pominąć ten krok i użyć ścieżki do katalogu roboczego.
 
 1. Otwórz plik konfiguracji demona Security IoT Edge.
 

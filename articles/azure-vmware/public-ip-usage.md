@@ -3,12 +3,12 @@ title: Jak korzystać z funkcji publicznego adresu IP w wirtualnej sieci WAN
 description: W tym artykule wyjaśniono, jak używać funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744925"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048308"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Jak korzystać z funkcji publicznego adresu IP w wirtualnej sieci WAN platformy Azure
 
@@ -29,9 +29,9 @@ W tym artykule szczegółowo opisano, jak używać funkcji publicznego adresu IP
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
--   Środowisko rozwiązań VMware platformy Azure
-
--   Serwer sieci webdziałający w środowisku rozwiązań VMware platformy Azure.
+- Środowisko rozwiązań VMware platformy Azure
+- Serwer sieci webdziałający w środowisku rozwiązań VMware platformy Azure.
+- Nowy, nienakładający się zakres adresów IP dla wdrożenia wirtualnego koncentratora sieci WAN, zazwyczaj a `/24` .
 
 ## <a name="reference-architecture"></a>Architektura referencyjna
 
@@ -62,15 +62,15 @@ W tym scenariuszu należy opublikować serwer sieci webiis w Internecie. Aby opu
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagram architektury publicznego adresu IP" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz**.
+1. Zaakceptuj wartości domyślne lub zmień je, a następnie wybierz pozycję **Utwórz**.
 
-   -  Grupa zasobów wirtualnej sieci rozległej
+   - Grupa zasobów wirtualnej sieci rozległej
 
-   -  Nazwa wirtualnej sieci rozległej
+   - Nazwa wirtualnej sieci rozległej
 
-   -  Blok adresów koncentratora wirtualnego
+   - Blok adresów koncentratora wirtualnego (przy użyciu nowego nienakładających się zakresów adresów IP)
 
-   -  Liczba publicznych adresów IP (1-100)
+   - Liczba publicznych adresów IP (1-100)
 
 Wdrożenie wszystkich składników trwa około godzinę. To wdrożenie musi wystąpić tylko raz, aby obsługiwać wszystkie przyszłe publiczne adresy IP dla tego środowiska rozwiązania VMware platformy Azure.  
 

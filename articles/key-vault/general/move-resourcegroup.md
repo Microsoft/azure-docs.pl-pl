@@ -11,18 +11,22 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585737"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042386"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Przechodzenie Azure Key Vault między grupami zasobów
 
 ## <a name="overview"></a>Omówienie
 
 Przeniesienie magazynu kluczy między grupami zasobów jest obsługiwaną funkcją magazynu kluczy. Przeniesienie magazynu kluczy między grupami zasobów nie wpłynie na zaporę magazynu kluczy ani konfiguracje zasad dostępu. Połączone aplikacje i jednostki usługi powinny nadal działały zgodnie z oczekiwaniami.
+
+> [!IMPORTANT]
+> **Magazyny kluczy używane do szyfrowania dysków nie mogą zostać przeniesione.**
+> Jeśli używasz magazynu kluczy z szyfrowaniem dysków dla maszyny wirtualnej, nie można przenieść magazynu kluczy do innej grupy zasobów lub subskrypcji, gdy jest włączone szyfrowanie dysku. Przed przeniesieniem magazynu kluczy do nowej grupy zasobów lub subskrypcji należy wyłączyć szyfrowanie dysku. 
 
 ## <a name="design-considerations"></a>Zagadnienia projektowe
 

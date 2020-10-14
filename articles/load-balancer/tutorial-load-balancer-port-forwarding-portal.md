@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82207891"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043657"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Samouczek: Konfigurowanie przekazywania portów w Azure Load Balancer przy użyciu portalu
 
@@ -39,6 +39,10 @@ Ten samouczek umożliwia skonfigurowanie przekierowania portów w usłudze Azure
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 W przypadku wszystkich czynności opisanych w tym samouczku Zaloguj się do Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com) .
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure.
 
 ## <a name="create-a-standard-load-balancer"></a>Tworzenie modułu równoważenia obciążenia w warstwie Standardowa
 
@@ -121,7 +125,7 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
    
 1. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej** > **Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
    
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
    
 1. Przejrzyj ustawienia. Jeśli weryfikacja zakończy się powodzeniem, wybierz pozycję **Utwórz**. 
 

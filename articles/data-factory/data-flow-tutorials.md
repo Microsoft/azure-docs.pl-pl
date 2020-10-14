@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: d16285d6ba21c04e35f4bd5e334ac62ea83b8c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252879"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044058"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -84,6 +84,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 [Spłaszcz transformację](https://youtu.be/VY2tFQJoAXE)
 
 [Przekształcanie danych hierarchicznych](https://youtu.be/oAEh21NFgWQ)
+
+[Przekształcenie rangi](https://youtu.be/6XvgkbMtws0)
 
 ## <a name="source-and-sink"></a>Źródło i ujścia
 

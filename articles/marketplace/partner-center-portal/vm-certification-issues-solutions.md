@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
-ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803470"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044500"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Typowe problemy występujące podczas certyfikowania obrazów maszyn wirtualnych w portalu Azure Marketplace
 
@@ -29,7 +29,7 @@ Gdy wyślesz żądanie ponownego opublikowania obrazu przy użyciu aktualizacji,
 
 Ten błąd występuje, gdy używany jest podstawowy obraz, który należy do innego wydawcy i został zaktualizowany. W tej sytuacji nie będzie można opublikować Twojego obrazu.
 
-Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowadź w nim zmiany. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby rozwiązać ten problem, pobierz obraz z witryny Azure Marketplace i wprowadź w nim zmiany. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Obrazy systemu Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Obrazy systemu Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
@@ -372,6 +372,61 @@ Wydawcy muszą skontaktować się z działem pomocy technicznej w [portalu Marke
    7. Oś czasu — Data, do której zażądano tego wyjątku 
    8.   Załącznik — Dołącz wszelkie dokumenty z dowodem ważności. W przypadku zablokowanych maszyn wirtualnych Dołącz raport testowy i dla szablonów niestandardowych Podaj niestandardowy szablon ARM jako załącznik. Niepowodzenie dołączenia raportu do zablokowanych maszyn wirtualnych i niestandardowego szablonu ARM dla szablonów niestandardowych spowoduje odmowę żądania
 
+## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Jak rozwiązać lukę w zabezpieczeniach lub wykorzystać ją w ramach oferty maszyny wirtualnej
+
+Ten często zadawane pytania ułatwiają dostarczenie obrazu maszyny wirtualnej (VM) w przypadku odnalezienia luki w zabezpieczeniach i wykorzystania jednego z obrazów maszyn wirtualnych. Często zadawane pytania dotyczą tylko ofert maszyn wirtualnych platformy Azure opublikowanych w portalu Azure Marketplace.
+
+> [!NOTE]
+> Nie można usunąć ostatniego obrazu maszyny wirtualnej z planu i nie można zaprzestać sprzedaży ostatniego planu oferty.
+
+Wykonaj jedną z następujących czynności:
+
+1. Jeśli masz nowy obraz maszyny wirtualnej w celu zastąpienia zagrożonego obrazu maszyny wirtualnej, przejdź do pozycji [jak zapewnić stały obraz maszyny wirtualnej](#how-to-provide-a-fixed-vm-image).
+1. Jeśli nie masz nowego obrazu maszyny wirtualnej w celu zamienienia samego obrazu maszyny wirtualnej w ramach planu i jeśli skończysz korzystać z planu, możesz [zrezygnować z sprzedaży planu](update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. Jeśli nie planujesz zastąpić tylko obrazu maszyny wirtualnej w ofercie, zalecamy [zaniechanie sprzedaży oferty](update-existing-offer.md#stop-selling-an-offer-or-plan).
+
+### <a name="how-to-provide-a-fixed-vm-image"></a>Jak zapewnić stały obraz maszyny wirtualnej
+
+Aby zapewnić stały obraz maszyny wirtualnej w celu zastąpienia obrazu maszyny wirtualnej, który ma luki w zabezpieczeniach lub wykorzystania, należy wykonać następujące czynności:
+
+1. Podaj nowy obraz maszyny wirtualnej w celu rozwiązania luk w zabezpieczeniach lub wykorzystania.
+1. Usuń obraz maszyny wirtualnej z luką w zabezpieczeniach lub wykorzystującą lukę.
+1. Opublikuj ponownie ofertę.
+
+#### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Podaj nowy obraz maszyny wirtualnej w celu rozwiązania luk w zabezpieczeniach lub wykorzystania
+
+Aby wykonać te kroki, należy przygotować zasób techniczny dla obrazu maszyny wirtualnej, który ma zostać dodany. Aby uzyskać więcej informacji, zobacz [Tworzenie zasobów technicznych dla maszyny wirtualnej portalu Azure Marketplace](create-azure-vm-technical-asset.md) i [Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](get-sas-uri.md).
+
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+1. W kolumnie **alias oferty** wybierz ofertę.
+1. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan, do którego chcesz dodać maszynę wirtualną.
+1. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych**wybierz pozycję **+ Dodaj obraz maszyny wirtualnej**.
+   > [!NOTE]
+   > Do planu można dodać tylko jeden obraz maszyny wirtualnej. Aby dodać wiele obrazów maszyn wirtualnych, Opublikuj pierwszy z nich i zaczekaj, aż osiągnie etap _przygotowania wydawcy_ przed dodaniem kolejnego obrazu maszyny wirtualnej.
+1. W wyświetlonych polach Podaj nową wersję dysku i obraz maszyny wirtualnej.
+1. Wybierz pozycję **Zapisz wersję roboczą**.
+1. Przejdź do następnej sekcji, aby usunąć obraz maszyny wirtualnej z luką w zabezpieczeniach.
+
+#### <a name="remove-the-vm-image-that-has-the-security-vulnerability-or-exploit"></a>Usuwanie obrazu maszyny wirtualnej z luką w zabezpieczeniach lub wykorzystaniem jej
+
+Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+1. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+1. W kolumnie **alias oferty** wybierz ofertę.
+1. Na karcie **Przegląd planu** w kolumnie **Nazwa** wybierz plan z maszyną wirtualną, którą chcesz usunąć.
+1. Na karcie **konfiguracja techniczna** w obszarze **obrazy maszyn wirtualnych**obok obrazu maszyny wirtualnej, który chcesz usunąć, wybierz pozycję **Usuń obraz maszyny wirtualnej**.
+1. W wyświetlonym oknie dialogowym wybierz pozycję **Kontynuuj**.
+1. Wybierz pozycję **Zapisz wersję roboczą**.
+1. Przejdź do następnej sekcji, aby ponownie opublikować ofertę.
+
+#### <a name="republish-the-offer"></a>Ponowne opublikowanie oferty
+
+Po usunięciu lub zastąpieniu obrazu maszyny wirtualnej należy ponownie opublikować ofertę.
+1. Wybierz pozycję **Przejrzyj i Opublikuj**.
+1. Jeśli musisz podać informacje dotyczące zespołu certyfikacji, Dodaj go do pola **uwagi dotyczące certyfikacji** .
+1. Kliknij pozycję **Opublikuj**.
+
+Aby uzyskać więcej informacji na temat procesu publikowania, zobacz [Jak przejrzeć i opublikować ofertę w portalu komercyjnym](../review-publish-offer.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

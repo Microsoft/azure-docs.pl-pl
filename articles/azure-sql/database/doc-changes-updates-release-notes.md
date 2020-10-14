@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940709"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043395"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,14 +39,14 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 |**Nowy termin**  | **Poprzedni termin**  |**Objaśnienie** |
 |---------|---------|---------|
 |**Wystąpienie zarządzane Azure SQL** | Azure SQL Database *wystąpienie zarządzane*| Wystąpienie zarządzane Azure SQL to własny produkt należący do rodziny Azure SQL, a nie tylko opcja wdrażania w ramach Azure SQL Database. | 
-|**Azure SQL Database**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
-|**Azure SQL Database**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
-|**Azure SQL Database** |Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
+|**Baza danych SQL Azure**|Azure SQL Database *pojedynczą bazę danych*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej. |
+|**Baza danych SQL Azure**|Azure SQL Database *elastyczna Pula*| O ile nie określono jawnie inaczej, nazwa produktu Azure SQL Database obejmuje pojedyncze bazy danych i bazy danych wdrożone w puli elastycznej.  |
+|**Baza danych SQL Azure** |Azure SQL Database | Mimo że termin pozostaje taki sam, ma zastosowanie tylko do wdrożeń pojedynczej bazy danych i pul elastycznych i nie obejmuje wystąpienia zarządzanego. |
 | **Azure SQL**| Nie dotyczy | Odnosi się to do rodziny SQL Server produktów aparatu bazy danych, które są dostępne na platformie Azure: Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i SQL Server na maszynach wirtualnych platformy Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funkcje w publicznej wersji zapoznawczej
 
-### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
+### <a name="azure-sql-database"></a>[Baza danych SQL Azure](#tab/single-database)
 
 | Cecha | Szczegóły |
 | ---| --- |
@@ -64,6 +64,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 | Cecha | Szczegóły |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transakcje rozproszone</a> | Transakcje rozproszone między wystąpieniami zarządzanymi. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Nazwy główne serwera usługi Azure AD na poziomie wystąpienia (logowania)</a> | Utwórz identyfikatory logowania na poziomie wystąpienia przy użyciu instrukcji <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN from External Provider</a> . |
 | [Replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) | Replikuj zmiany z tabel do innych baz danych w wystąpieniu zarządzanym SQL, SQL Database lub SQL Server. Lub zaktualizuj tabele, gdy niektóre wiersze są zmieniane w innych wystąpieniach wystąpienia zarządzanego SQL lub SQL Server. Aby uzyskać więcej informacji, zobacz [Konfigurowanie replikacji w wystąpieniu zarządzanym usługi Azure SQL](../managed-instance/replication-between-two-instances-configure-tutorial.md). |

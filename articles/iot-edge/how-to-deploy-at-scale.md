@@ -5,20 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855393"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048427"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Wdrażanie modułów IoT Edge na dużą skalę przy użyciu Azure Portal
 
-Utwórz **IoT Edge Automatyczne wdrażanie** w Azure Portal, aby zarządzać trwającymi wdrożeniami dla wielu urządzeń jednocześnie. Automatyczne wdrożenia dla IoT Edge są częścią funkcji [automatycznej zarządzania urządzeniami](/azure/iot-hub/iot-hub-automatic-device-management) w programie IoT Hub. Wdrożenia to procesy dynamiczne, które umożliwiają wdrożenie wielu modułów na wielu urządzeniach, śledzenie stanu i kondycji modułów oraz wprowadzanie zmian w razie potrzeby.
+Utwórz **IoT Edge Automatyczne wdrażanie** w Azure Portal, aby zarządzać trwającymi wdrożeniami dla wielu urządzeń jednocześnie. Automatyczne wdrożenia dla IoT Edge są częścią funkcji [automatycznej zarządzania urządzeniami](../iot-hub/iot-hub-automatic-device-management.md) w programie IoT Hub. Wdrożenia to procesy dynamiczne, które umożliwiają wdrożenie wielu modułów na wielu urządzeniach, śledzenie stanu i kondycji modułów oraz wprowadzanie zmian w razie potrzeby.
 
 Aby uzyskać więcej informacji, zobacz [opis IoT Edge wdrożenia automatyczne dla pojedynczych urządzeń lub w odpowiedniej skali](module-deployment-monitoring.md).
 
@@ -53,6 +53,11 @@ Kroki związane z tworzeniem wdrożenia i wdrożeniem warstwowym są bardzo podo
 
 Istnieje pięć kroków, które należy wykonać, aby utworzyć wdrożenie. W poniższych sekcjach omówiono każdy z nich.
 
+>[!NOTE]
+>Kroki opisane w tym artykule odzwierciedlają najnowszą wersję schematu IoT Edge agenta i centrum. Wersja schematu 1,1 została wydana wraz z IoT Edge wersja 1.0.10 i włącza funkcje kolejności uruchamiania modułu i określania priorytetów trasy.
+>
+>W przypadku wdrażania na urządzeniu z uruchomioną wersją 1.0.9 lub wcześniejszą należy zmodyfikować **Ustawienia środowiska uruchomieniowego** **w kroku w kreatorze, aby** użyć wersji schematu 1,0.
+
 ### <a name="step-1-name-and-label"></a>Krok 1. nazwa i etykieta
 
 1. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` .
@@ -65,55 +70,19 @@ Do wdrożenia można dodać do 50 modułów. Jeśli utworzysz wdrożenie bez mod
 
 W obszarze wdrożenia można zarządzać ustawieniami agenta IoT Edge i IoT Edge modułów centrów. Wybierz pozycję **Ustawienia środowiska uruchomieniowego** , aby skonfigurować dwa moduły środowiska uruchomieniowego. W przypadku wdrażania warstwowego moduły środowiska uruchomieniowego nie są uwzględniane, więc nie można ich skonfigurować.
 
-Można dodać trzy typy modułów:
-
-* Moduł IoT Edge
-* Moduł portalu Marketplace
-* Moduł Azure Stream Analytics
-
-#### <a name="add-an-iot-edge-module"></a>Dodawanie modułu IoT Edge
-
 Aby dodać niestandardowy kod jako moduł lub ręcznie dodać moduł usługi platformy Azure, wykonaj następujące kroki:
 
-1. W sekcji **poświadczenia Container Registry** na stronie Podaj nazwy i poświadczenia dla prywatnych rejestrów kontenerów, które zawierają obrazy modułów dla tego wdrożenia. Agent IoT Edge zgłosi błąd 500, jeśli nie można znaleźć poświadczenia rejestru kontenera dla obrazu platformy Docker.
-1. W sekcji **IoT Edge modułów** na stronie kliknij pozycję **Dodaj**.
-1. Wybierz **moduł IoT Edge** z menu rozwijanego.
-1. Nadaj modułowi **IoT Edge nazwę modułu**.
-1. W polu **Identyfikator URI obrazu** wprowadź obraz kontenera dla modułu.
-1. Użyj menu rozwijanego, aby wybrać **zasady ponownego uruchamiania**. Wybierz jedną z następujących opcji:
-   * **zawsze** — moduł zawsze jest uruchamiany ponownie, jeśli z jakiegoś powodu zostanie zamknięty.
-   * **nigdy** — moduł nigdy nie jest ponownie uruchamiany, jeśli z jakiegoś powodu zostanie zamknięty.
-   * w przypadku niepowodzenia — moduł jest uruchamiany ponownie w przypadku awarii, ale nie w przypadku jego **nieprawidłowego** zamknięcia.
-   * **w złej kondycji** — moduł jest uruchamiany ponownie, jeśli ulegnie awarii lub zwróci stan złej kondycji. Do każdego modułu jest zaimplementowana funkcja stanu kondycji.
-1. Użyj menu rozwijanego, aby wybrać **żądany stan** modułu. Wybierz jedną z następujących opcji:
-   * **uruchomiona** jest opcja domyślna. Moduł zacznie działać natychmiast po wdrożeniu.
-   * **zatrzymano** — po wdrożeniu moduł pozostanie bezczynny do momentu wywołania przez użytkownika lub innego modułu.
-1. Określ wszelkie **Opcje tworzenia kontenera** , które powinny być przesyłane do kontenera. Aby uzyskać więcej informacji, zobacz [Docker Create](https://docs.docker.com/engine/reference/commandline/create/).
-1. Wybierz pozycję **Ustawienia sznurka modułu** , jeśli chcesz dodać Tagi lub inne właściwości do sznurka modułu.
-1. Wprowadź **zmienne środowiskowe** dla tego modułu. Zmienne środowiskowe udostępniają informacje o konfiguracji do modułu.
-1. Wybierz pozycję **Dodaj** , aby dodać moduł do wdrożenia.
+1. W sekcji **ustawienia Container Registry** na stronie podaj poświadczenia, aby uzyskać dostęp do wszelkich prywatnych rejestrów kontenerów zawierających obrazy modułu.
+1. W sekcji **IoT Edge modułów** na stronie wybierz pozycję **Dodaj**.
+1. Wybierz jeden z trzech typów modułów z menu rozwijanego:
 
-#### <a name="add-a-module-from-the-marketplace"></a>Dodawanie modułu z portalu Marketplace
+   * **Moduł IoT Edge** — Podaj nazwę modułu i identyfikator URI obrazu kontenera. Na przykład identyfikator URI obrazu dla przykładowego modułu SimulatedTemperatureSensor to `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Jeśli obraz modułu jest przechowywany w rejestrze kontenera prywatnego, Dodaj poświadczenia na tej stronie, aby uzyskać dostęp do tego obrazu.
+   * Moduły **portalu Marketplace** hostowane w witrynie Azure Marketplace. Niektóre moduły portalu Marketplace wymagają dodatkowej konfiguracji, dlatego Przejrzyj szczegóły modułu na liście [modułów IoT Edge portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
+   * Moduły modułów **Azure Stream Analytics** wygenerowane na podstawie obciążenia Azure Stream Analyticsowego.
 
-Aby dodać moduł z portalu Azure Marketplace, wykonaj następujące kroki:
+1. W razie potrzeby powtórz kroki 2 i 3, aby dodać kolejne moduły do wdrożenia.
 
-1. W sekcji **IoT Edge modułów** na stronie kliknij pozycję **Dodaj**.
-1. Wybierz **moduł Marketplace** z menu rozwijanego.
-1. Wybierz moduł na stronie **witryny Marketplace modułu IoT Edge** . Wybrany moduł jest automatycznie konfigurowany dla Twojej subskrypcji, grupy zasobów i urządzenia. Zostanie ona wyświetlona na liście modułów IoT Edge. Niektóre moduły mogą wymagać dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz [wdrażanie modułów z witryny Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
-
-#### <a name="add-a-stream-analytics-module"></a>Dodaj moduł Stream Analytics
-
-Aby dodać moduł z Azure Stream Analytics, wykonaj następujące kroki:
-
-1. W sekcji **IoT Edge modułów** na stronie kliknij pozycję **Dodaj**.
-1. Wybierz **moduł Azure Stream Analytics** z menu rozwijanego.
-1. W prawym okienku wybierz swoją **subskrypcję**.
-1. Wybierz zadanie IoT **Edge**.
-1. Wybierz pozycję **Zapisz** , aby dodać moduł do wdrożenia.
-
-#### <a name="configure-module-settings"></a>Konfigurowanie ustawień modułu
-
-Po dodaniu modułu do wdrożenia można wybrać jego nazwę, aby otworzyć stronę **modułu aktualizacji IoT Edge** . Na tej stronie można edytować ustawienia modułu, zmienne środowiskowe, opcje tworzenia i sznurki modułowe. Jeśli dodano moduł z portalu Marketplace, może on mieć już wypełnione niektóre parametry.
+Po dodaniu modułu do wdrożenia można wybrać jego nazwę, aby otworzyć stronę **modułu aktualizacji IoT Edge** . Na tej stronie można edytować ustawienia modułu, zmienne środowiskowe, opcje tworzenia, kolejność uruchamiania i sznurki modułowe. Jeśli dodano moduł z portalu Marketplace, może on mieć już wypełnione niektóre parametry. Aby uzyskać więcej informacji na temat dostępnych ustawień modułu, zobacz [Konfiguracja modułu i zarządzanie nimi](module-composition.md#module-configuration-and-management).
 
 W przypadku tworzenia wdrożenia warstwowego można skonfigurować moduł, który istnieje w innych wdrożeniach przeznaczonych dla tych samych urządzeń. Aby zaktualizować splot modułu bez zastępowania innych wersji, Otwórz kartę **Ustawienia dla sznurka modułu** . Utwórz nową **Właściwość sznurka modułu** o unikatowej nazwie podsekcji w odpowiednich właściwościach sznurka modułu, na przykład `properties.desired.settings` . Jeśli zdefiniujesz właściwości w tylko `properties.desired` polu, spowoduje to zastąpienie żądanych właściwości modułu zdefiniowanego we wdrożeniach o niższym priorytecie.
 
@@ -125,9 +94,13 @@ Po skonfigurowaniu wszystkich modułów dla wdrożenia wybierz pozycję **Dalej:
 
 ### <a name="step-3-routes"></a>Krok 3. trasy
 
-Trasy definiują, jak moduły komunikują się ze sobą w ramach wdrożenia. Domyślnie Kreator udostępnia trasę o nazwie **nadrzędny** i zdefiniowany jako **od/messages/ \* do $upstream**, co oznacza, że wszystkie komunikaty wyjściowe przez wszystkie moduły są wysyłane do centrum IoT Hub.  
+Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość.
 
-Dodaj lub zaktualizuj trasy z informacjami z [deklaracji trasy](module-composition.md#declare-routes), a następnie wybierz pozycję **dalej** , aby przejść do sekcji Przegląd.
+Na przykład trasa o nazwie **trasa** i wartość **z/messages/ \* do $upstream** zajmie wszystkie komunikaty wyjściowe przez dowolne moduły i wyśle je do centrum IoT Hub.  
+
+**Priorytet** i **czas wygaśnięcia** parametrów są opcjonalnymi parametrami, które można uwzględnić w definicji trasy. Parametr Priority umożliwia wybranie tras, które powinny być przetwarzane jako pierwsze, lub które trasy powinny być przetwarzane jako ostatnie. Priorytet jest określany przez ustawienie liczby 0-9, gdzie 0 oznacza najwyższy priorytet. Parametr Time to Live umożliwia zadeklarować, jak długo komunikaty w tej trasie powinny być przechowywane, dopóki nie zostaną przetworzone lub usunięte z kolejki.
+
+Aby uzyskać więcej informacji o sposobach tworzenia tras, zobacz [deklarowanie tras](module-composition.md#declare-routes).
 
 Wybierz pozycję **Dalej: metryki**.
 

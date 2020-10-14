@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270444"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044075"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działanie Lookup w Azure Data Factory
 
@@ -31,7 +31,7 @@ Działanie Lookup odczytuje i zwraca zawartość pliku konfiguracji lub tabeli. 
 
 Dla działania Lookup są obsługiwane następujące źródła danych. 
 
-Działanie Lookup może zwrócić do 5000 wierszy; Jeśli zestaw wyników zawiera więcej rekordów, zwracane są pierwsze 5000 wierszy. Dane wyjściowe działania Lookup obsługują maksymalnie około 4 MB, działanie zakończy się niepowodzeniem, jeśli rozmiar przekracza limit. Obecnie najdłuższy czas trwania działania wyszukiwania przed upływem limitu czasu wynosi godzinę.
+Działanie Lookup może zwrócić do 5000 wierszy; Jeśli zestaw wyników zawiera więcej rekordów, zwracane są pierwsze 5000 wierszy. Dane wyjściowe działania Lookup obsługują maksymalnie około 4 MB, działanie zakończy się niepowodzeniem, jeśli rozmiar przekracza limit. Obecnie najdłuższy czas trwania działania wyszukiwania przed upływem limitu czasu wynosi 24 godziny.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -56,11 +56,11 @@ Działanie Lookup może zwrócić do 5000 wierszy; Jeśli zestaw wyników zawier
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Nazwa | Opis | Type | Wymagane?
+Nazwa | Opis | Typ | Wymagane?
 ---- | ----------- | ---- | --------
 zestawu | Zawiera odwołanie do zestawu danych dla wyszukiwania. Pobierz szczegóły z sekcji **Właściwości zestawu danych** w każdym odpowiednim artykule łącznika. | Pary klucz wartość | Tak
 source | Zawiera właściwości źródła specyficzne dla zestawu danych, takie same jak źródło działania kopiowania. Pobierz szczegóły z sekcji **właściwości działania kopiowania** w każdym odpowiednim artykule łącznika. | Pary klucz wartość | Tak
-firstRowOnly | Wskazuje, czy zwrócić tylko pierwszy wiersz, czy wszystkie wiersze. | Boolean (wartość logiczna) | Nie. Wartość domyślna to `true`.
+firstRowOnly | Wskazuje, czy zwrócić tylko pierwszy wiersz, czy wszystkie wiersze. | Wartość logiczna | Nie. Wartość domyślna to `true`.
 
 > [!NOTE]
 > 

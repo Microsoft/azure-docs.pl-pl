@@ -3,12 +3,12 @@ title: Dostęp do maszyny wirtualnej (widok student) w laboratorium platformy Az
 description: Dowiedz się, jak uzyskać dostęp do maszyny wirtualnej w laboratorium Azure Lab z zespołów.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: f121486c361b3b4cbf0b79da5dab7ddc5822a075
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946806"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043449"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Dostęp do maszyny wirtualnej (widok student) w laboratorium platformy Azure z zespołów
 
@@ -16,7 +16,7 @@ Gdy laboratorium jest tworzone w ramach zespołów, użytkownicy mogą wyświetl
 
 ## <a name="view-labs"></a>Wyświetl laboratoria
 
-Jeśli laboratorium zostało opublikowane, uczniowie zobaczą następujące i będą mogli nawiązywać połączenia z laboratorium:
+Jeśli laboratorium nie jest jeszcze opublikowane lub synchronizacja nie zostanie jeszcze wyzwolona po dodaniu ich do zespołu, podobne wiadomości będą widoczne dla studentów ". Na "Jeśli laboratorium nie zostanie jeszcze opublikowane lub synchronizacja nie zostanie jeszcze wyzwolona po dodaniu ich do zespołu, podobne komunikaty będą widoczne dla członków zespołu.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Azure Lab Services Lab":::
@@ -31,7 +31,7 @@ Jeśli laboratorium nie jest jeszcze opublikowane lub synchronizacja nie zostani
 Zobacz następujące artykuły:
 
 - [Korzystanie z Azure Lab Services w programie Teams — Omówienie](lab-services-within-teams-overview.md)
-- [Rozpocznij pracę i Utwórz laboratorium w zespole](how-to-get-started-create-lab-within-teams.md)
-- [Zarządzanie listami użytkowników](how-to-manage-user-lists-within-teams.md)
-- [Zarządzanie pulą maszyn wirtualnych](how-to-manage-vm-pool-within-teams.md)
-- [Tworzenie harmonogramów](how-to-create-schedules-within-teams.md)
+- [Rozpocznij pracę i Utwórz laboratorium w zespołach](how-to-get-started-create-lab-within-teams.md)
+- [Zarządzanie listami użytkowników laboratorium w zespołach](how-to-manage-user-lists-within-teams.md)
+- [Zarządzaj pulą maszyn wirtualnych laboratorium w zespołach](how-to-manage-vm-pool-within-teams.md)
+- [Tworzenie harmonogramów laboratorium w zespołach i zarządzanie nimi](how-to-create-schedules-within-teams.md)

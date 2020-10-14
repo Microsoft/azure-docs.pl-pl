@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b9451bcf6f67eb6afc6d06f4aa0cbec83ce75d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e34bacb905bf48fc5f7cd44e66cf4a4326de91
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855263"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044653"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Samouczek: opracowywanie modułu IoT Edge C# dla urządzeń z systemem Windows
 
 Użyj programu Visual Studio, aby opracować kod C# i wdrożyć go na urządzeniu z systemem Windows, na którym działa Azure IoT Edge.
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -50,8 +50,8 @@ Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim 
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
 * [Urządzenie z systemem Windows, na którym działa Azure IoT Edge](quickstart.md).
-* Rejestr kontenerów, taki jak [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Program Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) został skonfigurowany z rozszerzeniem [narzędzi Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
+* Rejestr kontenerów, taki jak [Azure Container Registry](../container-registry/index.yml).
+* [Program Visual Studio 2019](/visualstudio/install/install-visual-studio) został skonfigurowany z rozszerzeniem [narzędzi Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
 * [Pulpit platformy Docker](https://docs.docker.com/docker-for-windows/install/) skonfigurowany do uruchamiania kontenerów systemu Windows.
 
 > [!TIP]

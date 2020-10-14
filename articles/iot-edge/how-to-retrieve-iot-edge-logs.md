@@ -10,18 +10,18 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: b5d2156707d8a4c308ed577b7407d5eae30edc65
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979686"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044202"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Pobieranie dzienników z wdrożeń IoT Edge
 
 Pobierz dzienniki z wdrożeń IoT Edge bez konieczności dostępu fizycznego ani SSH do urządzenia za pomocą metod bezpośrednich zawartych w module agenta IoT Edge. Metody bezpośrednie są implementowane na urządzeniu, a następnie mogą być wywoływane z chmury. Agent IoT Edge obejmuje metody bezpośrednie, które ułatwiają zdalne monitorowanie urządzeń IoT Edge i zarządzanie nimi. Metody bezpośrednie omówione w tym artykule są ogólnie dostępne w wersji 1.0.10.
 
-Aby uzyskać więcej informacji na temat metod bezpośrednich, sposobu ich używania i sposobu ich implementacji w własnych modułach, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods).
+Aby uzyskać więcej informacji na temat metod bezpośrednich, sposobu ich używania i sposobu ich implementacji w własnych modułach, zobacz [Omówienie i wywoływanie metod bezpośrednich z IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
 
 Nazwy tych metod bezpośrednich są obsługiwane z uwzględnieniem wielkości liter.
 
@@ -67,13 +67,13 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 |-|-|-|
 | schemaVersion | ciąg | Ustaw wartość `1.0` |
 | produktów | Tablica JSON | Tablica z `id` `filter` kolekcjami i. |
-| ID (Identyfikator) | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) . |
+| ID (Identyfikator) | ciąg | Wyrażenie regularne, które dostarcza nazwę modułu. Może on być zgodny z wieloma modułami na urządzeniu brzegowym. Oczekiwano formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sekcja JSON | Filtry dzienników do zastosowania do modułów pasujących do `id` wyrażenia regularnego w spójnej kolekcji. |
 | drugorzędn | liczba całkowita | Liczba wierszy dziennika w przeszłości do pobrania od najnowszych. Obowiązkowe. |
 | Fire | liczba całkowita | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX.  Jeśli oba `tail` i `since` są określone, dzienniki są pobierane przy użyciu `since` wartości pierwszej. Następnie `tail` wartość zostanie zastosowana do wyniku, a końcowy wynik jest zwracany. Obowiązkowe. |
 | Zanim | liczba całkowita | Zwróć tylko dzienniki przed określonym czasem, jako sygnatura czasowa rfc3339, sygnatura czasowa systemu UNIX lub czas trwania (1 d, 90 m, 2 dni 3 godz.). Obowiązkowe. |
 | poziom dziennika | liczba całkowita | Filtruj wiersze dziennika mniejsze niż lub równe określonemu poziomowi dziennika. Wiersze dziennika powinny być zgodne z zalecanym formatem rejestrowania i korzystać ze standardowego [poziomu ważności dziennika](https://en.wikipedia.org/wiki/Syslog#Severity_level) systemowego. Obowiązkowe. |
-| wyrażeń | ciąg | Filtruj wiersze dziennika, które mają zawartość zgodną z określonym wyrażeniem regularnym przy użyciu formatu [wyrażeń regularnych programu .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) . Obowiązkowe. |
+| wyrażeń | ciąg | Filtruj wiersze dziennika, które mają zawartość zgodną z określonym wyrażeniem regularnym przy użyciu formatu [wyrażeń regularnych programu .NET](/dotnet/standard/base-types/regular-expressions) . Obowiązkowe. |
 | encoding | ciąg | Wartość `gzip` lub `none`. Wartość domyślna to `none`. |
 | contentType | ciąg | Wartość `json` lub `text`. Wartość domyślna to `text`. |
 
@@ -166,7 +166,7 @@ Ta metoda akceptuje ładunek JSON podobny do **GetModuleLogs**, z dodaniem klucz
 
 | Nazwa | Typ | Opis |
 |-|-|-|
-| Adresie sasurl | ciąg (URI) | [Adres URL sygnatury dostępu współdzielonego z dostępem do zapisu do kontenera usługi Azure Blob Storage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/). |
+| Adresie sasurl | ciąg (URI) | [Adres URL sygnatury dostępu współdzielonego z dostępem do zapisu do kontenera usługi Azure Blob Storage](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
 Pomyślne żądanie przekazania dzienników zwraca **"status": 200** , po którym następuje ładunek z następującym schematem:
 
@@ -259,7 +259,7 @@ W Azure Portal Wywołaj metodę z nazwą metody `UploadModuleLogs` i następują
 
 ## <a name="upload-support-bundle-diagnostics"></a>Diagnostyka pakietu obsługi przekazywania
 
-Użyj metody **UploadSupportBundle** Direct, aby powiązać i przekazać plik zip dzienników modułów IoT Edge do dostępnego kontenera BLOB Storage platformy Azure. Ta metoda bezpośrednia uruchamia [`iotedge support-bundle`](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) polecenie na urządzeniu IoT Edge, aby uzyskać dzienniki.
+Użyj metody **UploadSupportBundle** Direct, aby powiązać i przekazać plik zip dzienników modułów IoT Edge do dostępnego kontenera BLOB Storage platformy Azure. Ta metoda bezpośrednia uruchamia [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) polecenie na urządzeniu IoT Edge, aby uzyskać dzienniki.
 
 Ta metoda akceptuje ładunek JSON z następującym schematem:
 
@@ -276,7 +276,7 @@ Ta metoda akceptuje ładunek JSON z następującym schematem:
 | Nazwa | Typ | Opis |
 |-|-|-|
 | schemaVersion | ciąg | Ustaw wartość `1.0` |
-| Adresie sasurl | ciąg (URI) | [Adres URL sygnatury dostępu współdzielonego z dostępem do zapisu do kontenera usługi Azure Blob Storage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/) |
+| Adresie sasurl | ciąg (URI) | [Adres URL sygnatury dostępu współdzielonego z dostępem do zapisu do kontenera usługi Azure Blob Storage](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | Fire | liczba całkowita | Zwracaj dzienniki tylko od tego czasu, jako czas trwania (1 d, 90 m, 2 dni 3 godziny), sygnatury czasowej rfc3339 lub sygnatury czasowej systemu UNIX. Obowiązkowe. |
 | Zanim | liczba całkowita | Zwróć tylko dzienniki przed określonym czasem, jako sygnatura czasowa rfc3339, sygnatura czasowa systemu UNIX lub czas trwania (1 d, 90 m, 2 dni 3 godz.). Obowiązkowe. |
 | edgeRuntimeOnly | boolean | Jeśli wartość jest równa true, tylko te dzienniki są zwracane z agenta krawędzi, koncentratora brzegowego i demona zabezpieczeń brzegowych. Wartość domyślna: false.  Obowiązkowe. |

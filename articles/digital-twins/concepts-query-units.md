@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067709"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044381"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Jednostki zapytań w usłudze Azure Digital bliźniaczych reprezentacji 
 
-Usługa Azure Digital bliźniaczych reprezentacji **Query Unit (Qu)** jest jednostką obliczeń na żądanie, która służy do wykonywania [zapytań dotyczących cyfrowych bliźniaczych reprezentacji na platformie Azure](how-to-query-graph.md) przy użyciu [interfejsu API zapytań](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+Usługa Azure Digital bliźniaczych reprezentacji **Query Unit (Qu)** jest jednostką obliczeń na żądanie, która służy do wykonywania [zapytań dotyczących cyfrowych bliźniaczych reprezentacji na platformie Azure](how-to-query-graph.md) przy użyciu [interfejsu API zapytań](/rest/api/digital-twins/dataplane/query). 
 
 Umożliwia ona poddzielenie zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonywania operacji zapytania obsługiwane przez usługę Azure Digital bliźniaczych reprezentacji, co pozwala na śledzenie użycia w jednostkach zapytań.
 
@@ -28,7 +28,7 @@ W tym artykule wyjaśniono, jak zrozumieć jednostki zapytań i śledzić użyci
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Znajdowanie użycia jednostki zapytania w usłudze Azure Digital bliźniaczych reprezentacji 
 
-Po uruchomieniu zapytania przy użyciu [interfejsu API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query)Digital bliźniaczych reprezentacji zapytania platformy Azure można sprawdzić nagłówek odpowiedzi, aby śledzić liczbę QUs użytych przez zapytanie. Poszukaj "opłaty za zapytanie" w odpowiedzi wysyłanej z powrotem z usługi Azure Digital bliźniaczych reprezentacji. 
+Po uruchomieniu zapytania przy użyciu [interfejsu API](/rest/api/digital-twins/dataplane/query)Digital bliźniaczych reprezentacji zapytania platformy Azure można sprawdzić nagłówek odpowiedzi, aby śledzić liczbę QUs użytych przez zapytanie. Poszukaj "opłaty za zapytanie" w odpowiedzi wysyłanej z powrotem z usługi Azure Digital bliźniaczych reprezentacji. 
 
 Usługi Azure Digital bliźniaczych reprezentacji [SDK](how-to-use-apis-sdks.md) umożliwiają wyodrębnienie nagłówka opłaty zapytania z odpowiedzi stronicowanej. W tej sekcji pokazano, jak wykonywać zapytania dotyczące cyfrowego bliźniaczych reprezentacji oraz jak wykonać iterację odpowiedzi stronicowanej w celu wyodrębnienia nagłówka z opłatą za zapytanie. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Aby dowiedzieć się więcej o wysyłaniu zapytań do usługi Azure Digital bliźniaczych reprezentacji, odwiedź stronę:
 * [*Koncepcje: język zapytań*](concepts-query-language.md)
 * [*Instrukcje: zapytanie o wykres bliźniaczy*](how-to-query-graph.md)
-* [Dokumentacja interfejsu API zapytań](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Dokumentacja interfejsu API zapytań](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Limity dotyczące zapytań Digital bliźniaczych reprezentacji systemu Azure można znaleźć w temacie [*Reference: limit usług w publicznej wersji zapoznawczej*](reference-service-limits.md).

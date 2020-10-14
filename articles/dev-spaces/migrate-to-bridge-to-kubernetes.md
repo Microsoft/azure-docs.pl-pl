@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Opisuje proces migracji z Azure Dev Spaces do mostka do Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019940"
+ms.locfileid: "92044704"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
@@ -48,24 +48,24 @@ Azure Dev Spaces i mostek do Kubernetes mają podobne funkcje, ale również ró
 | Wymagany jest dostęp do zabezpieczeń w klastrze  | Współautor klastra AKS  | Kubernetes RBAC — aktualizacja wdrożenia   |
 | Wymagany na komputerze deweloperskim dostęp do zabezpieczeń  | Nie dotyczy  | Administrator lokalny/sudo   |
 | **Wykorzystania** |
-| Niezależna od Kubernetes i artefaktów platformy Docker  | Nie  | Yes   |
-| Automatyczne wycofywanie zmian, po debugowaniu  | Nie  | Yes   |
+| Niezależna od Kubernetes i artefaktów platformy Docker  | Nie  | Tak   |
+| Automatyczne wycofywanie zmian, po debugowaniu  | Nie  | Tak   |
 | **Środowiska** |
-| Współpracuje z programem Visual Studio 2019  | Yes  | Yes   |
-| Działa z Visual Studio Code  | Yes  | Yes   |
-| Współdziałanie z interfejsem wiersza polecenia  | Yes  | Nie   |
+| Współpracuje z programem Visual Studio 2019  | Tak  | Tak   |
+| Działa z Visual Studio Code  | Tak  | Tak   |
+| Współdziałanie z interfejsem wiersza polecenia  | Tak  | Nie   |
 | **Zgodność systemu operacyjnego** |
-| Działa w systemie Windows 10  | Yes  | Yes  |
-| Działa w systemie Linux  | Yes  | Yes  |
-| Działa na macOS  | Yes  | Yes  |
+| Działa w systemie Windows 10  | Tak  | Tak  |
+| Działa w systemie Linux  | Tak  | Tak  |
+| Działa na macOS  | Tak  | Tak  |
 | **Możliwości** |
-| Izolacja deweloperów lub programowanie zespołowe  | Yes  | Yes  |
-| Selektywne zastępowanie zmiennych środowiskowych  | Nie  | Yes  |
-| Tworzenie wykresu pliku dockerfile i Helm  | Yes  | Nie  |
-| Trwałe Wdrażanie kodu do Kubernetes  | Yes  | Nie  |
-| Zdalne debugowanie w Kubernetes pod  | Yes  | Nie  |
-| Debugowanie lokalne połączone z Kubernetes  | Nie  | Yes  |
-| Debugowanie wielu usług w tym samym czasie na tej samej stacji roboczej  | Yes  | Yes  |
+| Izolacja deweloperów lub programowanie zespołowe  | Tak  | Tak  |
+| Selektywne zastępowanie zmiennych środowiskowych  | Nie  | Tak  |
+| Tworzenie wykresu pliku dockerfile i Helm  | Tak  | Nie  |
+| Trwałe Wdrażanie kodu do Kubernetes  | Tak  | Nie  |
+| Zdalne debugowanie w Kubernetes pod  | Tak  | Nie  |
+| Debugowanie lokalne połączone z Kubernetes  | Nie  | Tak  |
+| Debugowanie wielu usług w tym samym czasie na tej samej stacji roboczej  | Tak  | Tak  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Kubernetes — programowanie w pętli wewnętrznej
 
@@ -108,7 +108,6 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 
 1. Ręcznie Przeprowadź migrację dowolnych dostosowań, takich jak ustawienia zmiennych środowiskowych, w *azds. YAML* do pliku *wartości. yml* projektu.
 1. obowiązkowe Usuń `azds.yaml` plik z projektu.
-1. Wdróż ponownie aplikację.
 1. Skonfiguruj mostek do Kubernetes dla wdrożonej aplikacji. Aby uzyskać więcej informacji o korzystaniu z usługi Bridge do Kubernetes w programie Visual Studio, zobacz [use Bridge to Kubernetes in Visual Studio][use-btk-vs]. Aby uzyskać VS Code, zobacz [używanie mostka do Kubernetes w vs Code][use-btk-vsc].
 1. Rozpocznij debugowanie przy użyciu nowo utworzonego mostka do Kubernetesego profilu debugowania/uruchamiania.
 1. Skrypt można uruchomić ponownie w razie potrzeby w celu ponownego wdrożenia w klastrze.
