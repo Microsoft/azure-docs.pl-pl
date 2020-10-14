@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994674"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014243"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -401,7 +401,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 
 Przeniesienie istniejących zasobów Application Insights z jednego regionu do innego **nie jest obecnie obsługiwane**. Zebranych danych historycznych **nie można migrować** do nowego regionu. Jedyne częściowe obejście to:
 
-1. Utwórz zupełnie nowy zasób Application Insights ([klasyczny](app/create-new-resource.md) lub [oparty na obszarze roboczym](/app/create-workspace-resource.md)) w nowym regionie.
+1. Utwórz zupełnie nowy zasób Application Insights ([klasyczny](app/create-new-resource.md) lub [oparty na obszarze roboczym](/azure/azure-monitor/app/create-workspace-resource)) w nowym regionie.
 2. Utwórz ponownie wszystkie unikatowe dostosowania specyficzne dla oryginalnego zasobu w nowym zasobie.
 3. Zmodyfikuj aplikację tak, aby korzystała z [klucza Instrumentacji](app/create-new-resource.md#copy-the-instrumentation-key) zasobu nowego regionu lub [parametrów połączenia](app/sdk-connection-string.md).  
 4. Przetestuj, aby upewnić się, że wszystko nadal działa zgodnie z oczekiwaniami przy użyciu nowego zasobu Application Insights. 
@@ -414,7 +414,7 @@ Unikatowe dostosowania, które często trzeba ręcznie odtworzyć lub zaktualizo
 - Utwórz ponownie alerty dostępności.
 - Utwórz ponownie wszystkie niestandardowe ustawienia Access Control Role-Based (RBAC), które są wymagane, aby użytkownicy mieli dostęp do nowego zasobu. 
 - Replikowanie ustawień obejmujących pobieranie próbek, przechowywanie danych, dzienny limit i włączenie metryk niestandardowych. Te ustawienia są kontrolowane za pośrednictwem okienka **użycie i szacowane koszty** .
-- Dowolna integracja, która opiera się na kluczach interfejsu API, takich jak [Adnotacje wersji](/app/annotations.md), [kanał bezpiecznego sterowania metrykami na żywo](app/live-stream.md#secure-the-control-channel) itp. Musisz wygenerować nowe klucze interfejsu API i zaktualizować skojarzoną integrację. 
+- Dowolna integracja, która opiera się na kluczach interfejsu API, takich jak [Adnotacje wersji](/azure/azure-monitor/app/annotations), [kanał bezpiecznego sterowania metrykami na żywo](app/live-stream.md#secure-the-control-channel) itp. Musisz wygenerować nowe klucze interfejsu API i zaktualizować skojarzoną integrację. 
 - Eksport ciągły w klasycznych zasobach musi zostać skonfigurowany ponownie.
 - Ustawienia diagnostyczne w zasobach opartych na obszarze roboczym byłyby konieczne do ponownego skonfigurowania.
 

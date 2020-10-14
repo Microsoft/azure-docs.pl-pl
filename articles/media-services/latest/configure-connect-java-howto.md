@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/31/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 0f099a1b807cb860aaeda95a442cfdd7fd3c2869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f5044a5fb43956e857bc7b93b92e15d40225326
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297386"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013240"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Java
 
@@ -126,7 +126,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
 
 - [Koncepcje Media Services](concepts-overview.md)
 - [Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)
-- [Dokumentacja języka Java](https://aka.ms/ams-v3-java-ref)
+- [Dokumentacja języka Java](/java/api/overview/azure/mediaservices/management)
 - [com.microsoft.azure.mediaservices.v2018_07_01: zarządzanie na platformie Azure](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>Następne kroki

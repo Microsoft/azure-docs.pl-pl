@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077375"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015322"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
 
@@ -33,8 +33,8 @@ Nazwy główne usługi można tworzyć w Azure Portal lub przy użyciu programu 
 
 Poświadczenia i certyfikaty jednostki usługi mogą być bezpiecznie przechowywane w Azure Automation na potrzeby operacji elementu Runbook. Aby dowiedzieć się więcej, zobacz:
 
-[Zasoby poświadczeń w Azure Automation](../automation/automation-credentials.md)   
-[Zasoby certyfikatów w usłudze Azure Automation](../automation/automation-certificates.md)
+[Zasoby poświadczeń w Azure Automation](../automation/shared-resources/credentials.md)   
+[Zasoby certyfikatów w usłudze Azure Automation](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Dodawanie jednostek usługi do roli administratora serwera
 
@@ -44,7 +44,7 @@ Aby można było użyć nazwy głównej usługi dla operacji zarządzania serwer
 
 Identyfikator appID i hasło i certyfikat jednostki usługi mogą być używane w parametrach połączenia w taki sam sposób, jak nazwa UPN.
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO i ADOMD 
 
-Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
+Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
 
 W poniższym przykładzie parametry `appID` i `password` są używane do wykonania operacji odświeżania bazy danych modelu:
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-[Zaloguj się przy użyciu Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Zaloguj się przy użyciu Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Odświeżanie za pomocą usługi Logic Apps](analysis-services-refresh-logic-app.md)  
 [Odświeżanie za pomocą usługi Azure Automation](analysis-services-refresh-azure-automation.md)  
 [Dodawanie jednostki usługi do roli administratora serwera](analysis-services-addservprinc-admins.md)  
-[Automatyzowanie Power BI Premium obszarów roboczych i zadań DataSet przy użyciu jednostek usługi](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatyzowanie Power BI Premium obszarów roboczych i zadań DataSet przy użyciu jednostek usługi](/power-bi/admin/service-premium-service-principal)

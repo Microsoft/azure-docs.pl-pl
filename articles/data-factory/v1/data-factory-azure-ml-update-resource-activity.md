@@ -1,6 +1,6 @@
 ---
 title: Aktualizowanie modeli Machine Learning przy użyciu Azure Data Factory
-description: Opisuje sposób tworzenia potoków predykcyjnych przy użyciu Azure Data Factory i Azure Machine Learning
+description: Opisuje sposób tworzenia potoków predykcyjnych przy użyciu Azure Data Factory V1 i Azure Machine Learning Studio (klasyczny)
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 0204a2873b288dcb2082dbd5c9c984d29fa6d456
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bed66ab8f3dc3db47b94070cbbeb64fb91163f8c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254926"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014464"
 ---
-# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aktualizowanie modeli Azure Machine Learning przy użyciu działania Update Resource
+# <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Aktualizowanie modeli Azure Machine Learning Studio (klasycznych) za pomocą działania aktualizacji zasobów
 
 > [!div class="op_single_selector" title1="Działania transformacji"]
 > * [Działanie Hive](data-factory-hive-activity.md) 
@@ -26,8 +26,8 @@ ms.locfileid: "85254926"
 > * [Działanie MapReduce](data-factory-map-reduce.md)
 > * [Działanie przesyłania strumieniowego Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Działanie platformy Spark](data-factory-spark.md)
-> * [Działanie wykonywania wsadowego w usłudze Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> * [Działanie aktualizowania zasobów w usłudze Machine Learning](data-factory-azure-ml-update-resource-activity.md)
+> * [Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Działanie aktualizacji zasobów Azure Machine Learning Studio (klasycznej)](data-factory-azure-ml-update-resource-activity.md)
 > * [Działania procedur składowanych](data-factory-stored-proc-activity.md)
 > * [Działania języka U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe działanie platformy .NET](data-factory-use-custom-activities.md)
@@ -36,10 +36,10 @@ ms.locfileid: "85254926"
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz temat [aktualizowanie modeli uczenia maszynowego w programie Data Factory](../update-machine-learning-models.md).
 
-Ten artykuł stanowi uzupełnienie głównego artykułu z integracją Azure Data Factory Azure Machine Learning: [Tworzenie potoków predykcyjnych za pomocą Azure Machine Learning i Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Jeśli jeszcze tego nie zrobiono, zapoznaj się z głównym artykułem przed przeczytaniem tego artykułu. 
+Ten artykuł stanowi uzupełnienie głównego artykułu z integracją Azure Data Factory Azure Machine Learning Studio (klasyczny): [Tworzenie potoków predykcyjnych przy użyciu Azure Machine Learning Studio (klasyczne) i Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Jeśli jeszcze tego nie zrobiono, zapoznaj się z głównym artykułem przed przeczytaniem tego artykułu. 
 
 ## <a name="overview"></a>Omówienie
-W miarę upływu czasu modele predykcyjne w eksperymentach oceniania w usłudze Azure ML muszą być ponownie przeszkoli przy użyciu nowych wejściowych zestawów danych. Po wykonaniu ponownych szkoleń, chcesz zaktualizować usługę oceniania w sieci Web przy użyciu ponownie przemieszczonego modelu ML. Typowe kroki umożliwiające przeszkolenie i zaktualizowanie modeli usługi Azure ML za pośrednictwem usług sieci Web:
+W miarę upływu czasu modele predykcyjne w Azure Machine Learning Studio (klasyczne) eksperymenty oceniania muszą być ponownie przenoszone przy użyciu nowych wejściowych zestawów danych. Po wykonaniu ponownych szkoleń, chcesz zaktualizować usługę oceniania w sieci Web przy użyciu ponownie przemieszczonego modelu ML. Typowymi krokami dotyczącymi włączania funkcji ponownego uczenia i aktualizowania modeli Studio (klasycznych) za pośrednictwem usług sieci Web są:
 
 1. Utwórz eksperyment w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net).
 2. Gdy korzystasz z modelu, użyj Azure Machine Learning Studio (klasyczny), aby opublikować usługi sieci Web zarówno dla **eksperymentu szkoleniowego** , jak i dla**eksperymentu predykcyjnego**.
@@ -49,13 +49,13 @@ W poniższej tabeli opisano usługi sieci Web używane w tym przykładzie.  Aby 
 - **Szkolenie usługi sieci Web** — odbiera dane szkoleniowe i produkuje przeszkolone modele. Dane wyjściowe ponownego szkolenia to plik. ilearner w usłudze Azure Blob Storage. **Domyślny punkt końcowy** jest tworzony automatycznie podczas publikowania eksperymentu szkoleniowego jako usługi sieci Web. Można utworzyć więcej punktów końcowych, ale przykład używa tylko domyślnego punktu końcowego.
 - **Ocenianie usługi sieci Web** — odbiera przykłady danych bez etykiet i tworzy przewidywania. Dane wyjściowe przewidywania mogą mieć różne formy, takie jak plik. csv lub wiersze w Azure SQL Database, w zależności od konfiguracji eksperymentu. Domyślny punkt końcowy jest tworzony automatycznie podczas publikowania eksperymentu predykcyjnego jako usługi sieci Web. 
 
-Na poniższej ilustracji przedstawiono relacje między szkoleniami a punktami końcowymi oceniania w usłudze Azure ML.
+Na poniższej ilustracji przedstawiono relacje między szkoleniami a punktami końcowymi oceniania w Azure Machine Learning Studio (klasyczny).
 
 ![usługi sieci Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Możesz wywołać **usługę sieci Web szkoleniowej** przy użyciu **działania wykonywania wsadowego usługi Azure ml**. Wywoływanie usługi sieci Web szkoleniowej jest takie samo jak wywoływanie usługi sieci Web Azure ML (ocenianie usługi sieci Web) dla danych oceniania. W poprzednich sekcjach opisano sposób wywołania usługi sieci Web Azure ML z potoku Azure Data Factory. 
+Możesz wywołać **usługę sieci Web szkoleniowej** przy użyciu **działania wykonywania wsadowego Azure Machine Learning Studio (klasycznego)**. Wywoływanie usługi sieci Web szkoleniowej jest takie samo jak wywołanie Azure Machine Learning Studio (klasycznej) usługi sieci Web (ocenianie usługi sieci Web) dla danych oceniania. W poprzednich sekcjach opisano sposób wywołania usługi sieci Web Azure Machine Learning Studio (klasycznej) z potoku Azure Data Factory. 
 
-Możesz wywołać **usługę sieci Web oceniania** za pomocą **działania Azure ml Update Resource** , aby zaktualizować usługę sieci Web przy użyciu nowo nauczonego modelu. W poniższych przykładach przedstawiono definicje połączonych usług: 
+Możesz wywołać **usługę sieci Web oceniania** za pomocą **działania Azure Machine Learning Studio (klasyczne) aktualizowanie zasobów** , aby zaktualizować usługę sieci Web przy użyciu nowo nauczonego modelu. W poniższych przykładach przedstawiono definicje połączonych usług: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Ocenianie usługi sieci Web to klasyczna usługa sieci Web
 Jeśli usługa sieci Web oceniania to **klasyczna usługa sieci Web**, utwórz drugi **inny niż domyślny i aktualizowalny punkt końcowy** przy użyciu Azure Portal. Kroki można znaleźć w artykule [Tworzenie punktów końcowych](../../machine-learning/studio/create-endpoint.md) . Po utworzeniu niedomyślnego, aktualizowalnego punktu końcowego wykonaj następujące czynności:
@@ -88,7 +88,7 @@ Jeśli usługa sieci Web jest nowym typem usługi sieci Web, która uwidacznia p
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-W przypadku wysyłania zapytań do usługi sieci Web w [portalu usług sieci web Azure Machine Learning](https://services.azureml.net/)można uzyskać wartości dla posiadaczy umieszczania w adresie URL. Nowy typ punktu końcowego zasobu aktualizacji wymaga tokenu usługi AAD (Azure Active Directory). Określ **servicePrincipalId** i **servicePrincipalKey** w połączonej usłudze Azure Machine Learning. Zobacz [jak utworzyć nazwę główną usługi i przypisać uprawnienia do zarządzania zasobem platformy Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Oto przykładowa Definicja usługi połączonej z usługą Azure: 
+Podczas wykonywania zapytania dotyczącego usługi sieci Web w [portalu usług sieci web Azure Machine Learning Studio (klasyczny)](https://services.azureml.net/)można uzyskać wartości dla posiadaczy umieszczania w adresie URL. Nowy typ punktu końcowego zasobu aktualizacji wymaga tokenu usługi AAD (Azure Active Directory). Określ **servicePrincipalId** i **servicePrincipalKey** w połączonej usłudze Studio (klasycznej). Zobacz [jak utworzyć nazwę główną usługi i przypisać uprawnienia do zarządzania zasobem platformy Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Oto przykładowa Definicja usługi połączonej z usługą Azure: 
 
 ```json
 {
@@ -108,20 +108,20 @@ W przypadku wysyłania zapytań do usługi sieci Web w [portalu usług sieci web
 }
 ```
 
-Poniższy scenariusz zawiera więcej szczegółów. Przykładem do ponownego szkolenia i aktualizowania modeli platformy Azure ML z potoku Azure Data Factory.
+Poniższy scenariusz zawiera więcej szczegółów. Przykładem dla modeli reszkoleniowych i aktualizujących Studio (klasycznych) z potoku Azure Data Factory.
 
-## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scenariusz: przeszkolenie i Aktualizacja modelu usługi Azure ML
-Ta sekcja zawiera przykładowy potok, który używa **działania wykonywania wsadowego usługi Azure ml** do ponownego uczenia modelu. Potok używa również **działania Azure ml Update Resource** do aktualizowania modelu w usłudze sieci Web oceniania. Sekcja zawiera również fragmenty kodu JSON dla wszystkich połączonych usług, zestawów danych i potoków w przykładzie.
+## <a name="scenario-retraining-and-updating-a-studio-classic-model"></a>Scenariusz: przeszkolenie i Aktualizacja modelu Studio (klasycznego)
+Ta sekcja zawiera przykładowy potok, który używa **działania wykonywania wsadowego Azure Machine Learning Studio (klasycznego)** do ponownego uczenia modelu. Potok używa również **działania aktualizacji zasobów Azure Machine Learning Studio (klasyczny)** do aktualizowania modelu w usłudze sieci Web oceniania. Sekcja zawiera również fragmenty kodu JSON dla wszystkich połączonych usług, zestawów danych i potoków w przykładzie.
 
-Oto widok diagramu potoku przykładowego. Jak widać, działanie wykonywania wsadowego w usłudze Azure ML pobiera dane wejściowe szkoleniowe i generuje dane wyjściowe szkolenia (plik iLearner). Działanie zasobów usługi Azure ML Update pobiera dane wyjściowe szkoleń i aktualizuje model w punkcie końcowym usługi sieci Web oceniania. Działanie Aktualizuj zasób nie produkuje żadnych danych wyjściowych. PlaceholderBlob to tylko fikcyjny wyjściowy zestaw danych, który jest wymagany przez usługę Azure Data Factory do uruchomienia potoku.
+Oto widok diagramu potoku przykładowego. Jak widać, działanie wykonywania wsadowego programu Studio (klasycznej) pobiera dane wejściowe szkoleniowe i generuje dane wyjściowe szkolenia (plik iLearner). Działanie "Aktualizuj zasób" programu Studio (klasycznej) przyjmuje dane wyjściowe szkolenia i aktualizuje model w punkcie końcowym usługi sieci Web oceniania. Działanie Aktualizuj zasób nie produkuje żadnych danych wyjściowych. PlaceholderBlob to tylko fikcyjny wyjściowy zestaw danych, który jest wymagany przez usługę Azure Data Factory do uruchomienia potoku.
 
 ![Diagram potoku](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### <a name="azure-blob-storage-linked-service"></a>Połączona usługa Azure Blob Storage:
 Usługa Azure Storage przechowuje następujące dane:
 
-* dane szkoleniowe. Dane wejściowe dla usługi sieci Web szkolenia Azure ML.  
-* plik iLearner. Dane wyjściowe usługi sieci Web szkolenia Azure ML. Ten plik jest również wejściem do działania Aktualizuj zasób.  
+* dane szkoleniowe. Dane wejściowe dla usługi sieci Web szkoleniowej dla programu Studio (klasycznej).  
+* plik iLearner. Dane wyjściowe z usługi sieci Web szkoleniowej Studio (klasycznej). Ten plik jest również wejściem do działania Aktualizuj zasób.  
 
 Oto przykładowa definicja JSON połączonej usługi:
 
@@ -138,7 +138,7 @@ Oto przykładowa definicja JSON połączonej usługi:
 ```
 
 ### <a name="training-input-dataset"></a>Szkoleniowy zestaw danych wejściowych:
-Następujący zestaw danych przedstawia dane szkolenia danych wejściowych dla usługi sieci Web szkolenia Azure Machine Learning. Działanie wykonywania wsadowego Azure Machine Learning pobiera ten zestaw danych jako dane wejściowe.
+Następujący zestaw danych przedstawia dane szkolenia danych wejściowych dla usługi sieci Web szkoleniowej dla programu Studio (klasycznej). Działanie wykonywania wsadowego programu Studio (klasycznej) pobiera ten zestaw danych jako dane wejściowe.
 
 ```JSON
 {
@@ -169,7 +169,7 @@ Następujący zestaw danych przedstawia dane szkolenia danych wejściowych dla u
 ```
 
 ### <a name="training-output-dataset"></a>Szkoleniowy zestaw danych wyjściowych:
-Następujący zestaw danych reprezentuje wyjściowy plik iLearner z usługi sieci Web szkoleń dotyczących usługi Azure ML. Działanie wykonywania wsadowego usługi Azure ML tworzy ten zestaw danych. Ten zestaw danych to również dane wejściowe działania dotyczącego zasobów usługi Azure ML Update.
+Następujący zestaw danych reprezentuje wyjściowy plik iLearner z usługi sieci Web szkolenia Azure Machine Learning Studio (klasycznego). Działanie wykonywania wsadowego Azure Machine Learning Studio (klasycznej) generuje ten zestaw danych. Ten zestaw danych jest również dane wejściowe dla działania aktualizowania zasobu Azure Machine Learning Studio (klasycznego).
 
 ```JSON
 {
@@ -192,8 +192,8 @@ Następujący zestaw danych reprezentuje wyjściowy plik iLearner z usługi siec
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Połączona usługa dla punktu końcowego szkolenia Azure Machine Learning
-Poniższy fragment kodu JSON definiuje Azure Machine Learning połączoną usługę, która wskazuje domyślny punkt końcowy usługi sieci Web szkoleniowej.
+### <a name="linked-service-for-studio-classic-training-endpoint"></a>Punkt końcowy szkolenia usługi połączonej dla programu Studio (klasyczny)
+Poniższy fragment kodu JSON definiuje połączoną usługę Studio (klasyczną), która wskazuje domyślny punkt końcowy usługi sieci Web szkoleniowej.
 
 ```JSON
 {    
@@ -216,8 +216,8 @@ W **Azure Machine Learning Studio (klasyczny)** wykonaj następujące czynności
 4. W **Azure Machine Learning Studio (klasyczny)** kliknij link **wykonywania wsadowego** .
 5. Skopiuj **Identyfikator URI żądania** z sekcji **żądania** i wklej go do edytora Data Factory JSON.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Połączona usługa dla systemu Azure ML aktualizowalny punkt końcowy oceniania:
-Poniższy fragment kodu JSON definiuje Azure Machine Learning połączonej usługi, która wskazuje na niedomyślny aktualizowalny punkt końcowy usługi sieci Web oceniania.  
+### <a name="linked-service-for-studio-classic-updatable-scoring-endpoint"></a>Dołączona usługa dla programu Studio (klasyczna) aktualizowalny punkt końcowy oceny:
+Poniższy fragment kodu JSON definiuje połączoną usługę Studio (klasyczną), która wskazuje na niedomyślny aktualizowalny punkt końcowy usługi sieci Web oceniania.  
 
 ```JSON
 {
@@ -237,7 +237,7 @@ Poniższy fragment kodu JSON definiuje Azure Machine Learning połączonej usłu
 ```
 
 ### <a name="placeholder-output-dataset"></a>Zastępczy wyjściowy zestaw danych:
-Działanie aktualizacji zasobów Azure ML nie generuje żadnych danych wyjściowych. Jednak Azure Data Factory wymaga wyjściowego zestawu danych do kierowania harmonogramu potoku. W związku z tym w tym przykładzie używamy zestawu danych fikcyjnego/zastępczego.  
+Działanie aktualizacji zasobów programu Studio (klasycznej) nie generuje żadnych danych wyjściowych. Jednak Azure Data Factory wymaga wyjściowego zestawu danych do kierowania harmonogramu potoku. W związku z tym w tym przykładzie używamy zestawu danych fikcyjnego/zastępczego.  
 
 ```JSON
 {
@@ -260,7 +260,7 @@ Działanie aktualizacji zasobów Azure ML nie generuje żadnych danych wyjściow
 ```
 
 ### <a name="pipeline"></a>Potok
-Potok ma dwie działania: **AzureMLBatchExecution** i **AzureMLUpdateResource**. Działanie wykonywania wsadowego usługi Azure ML wykonuje dane szkoleniowe jako dane wejściowe i tworzy plik iLearner jako dane wyjściowe. Działanie wywołuje szkoleniową usługę sieci Web (eksperyment szkoleniowy ujawniony jako usługa sieci Web) z danymi szkolenia danych wejściowych i odbiera plik ilearner z usługi WebService. PlaceholderBlob to tylko fikcyjny wyjściowy zestaw danych, który jest wymagany przez usługę Azure Data Factory do uruchomienia potoku.
+Potok ma dwie działania: **AzureMLBatchExecution** i **AzureMLUpdateResource**. Działanie wykonywania wsadowego w Azure Machine Learning Studio (klasycznej) pobiera dane szkoleniowe jako dane wejściowe i tworzy plik iLearner jako dane wyjściowe. Działanie wywołuje szkoleniową usługę sieci Web (eksperyment szkoleniowy ujawniony jako usługa sieci Web) z danymi szkolenia danych wejściowych i odbiera plik ilearner z usługi WebService. PlaceholderBlob to tylko fikcyjny wyjściowy zestaw danych, który jest wymagany przez usługę Azure Data Factory do uruchomienia potoku.
 
 ![Diagram potoku](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

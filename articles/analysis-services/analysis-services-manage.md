@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015506"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014855"
 ---
 # <a name="manage-analysis-services"></a>Zarządzanie usługami Analysis Services
 Po utworzeniu serwera Analysis Services na platformie Azure mogą istnieć pewne zadania administracyjne i administracyjne, które należy wykonać od razu lub w dół. Na przykład możesz uruchomić przetwarzanie do danych odświeżania, kontrolować, kto może uzyskać dostęp do modeli na serwerze, lub monitorować kondycję serwera. Niektóre zadania zarządzania można wykonywać tylko w Azure Portal, innych w programie SQL Server Management Studio (SSMS), a niektóre zadania można wykonać w dowolnym z nich.
@@ -30,7 +30,7 @@ Nawiązywanie połączenia z serwerem na platformie Azure odbywa się tak samo j
 ### <a name="download-and-install-ssms"></a>Pobieranie i instalowanie programu SSMS
 Aby uzyskać najnowsze funkcje i bezproblemowe środowisko podczas nawiązywania połączenia z serwerem Azure Analysis Services, upewnij się, że używasz najnowszej wersji programu SSMS. 
 
-[Pobierz SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Pobierz SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>Aby nawiązać połączenie za pomocą programu SSMS
@@ -66,4 +66,3 @@ W przypadku nawiązywania połączenia przy użyciu programu SSMS może być kon
 Jeśli model tabelaryczny nie został jeszcze wdrożony na nowym serwerze, teraz jest to dobry czas. Aby dowiedzieć się więcej, zobacz artykuł [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Wdrażanie w usługach Azure Analysis Services).
 
 Jeśli model został wdrożony na serwerze, możesz połączyć się z nim za pomocą klienta lub przeglądarki. Aby dowiedzieć się więcej, zobacz [pobieranie danych z serwera Azure Analysis Services](analysis-services-connect.md).
-

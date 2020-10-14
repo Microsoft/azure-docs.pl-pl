@@ -8,18 +8,18 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0a5a7ac7d830cb03b1370c31d7e854f3b2a5a2fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9fd20fd42e9fe1eb0e98766798e5c759c974c97
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507186"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013903"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Odświeżanie asynchroniczne za pomocą interfejsu API REST
 
 Używając dowolnego języka programowania, który obsługuje wywołania REST, można wykonywać asynchroniczne operacje odświeżania danych na Azure Analysis Services modeli tabelarycznych. Obejmuje to synchronizację replik tylko do odczytu dla skalowania zapytań w poziomie. 
 
-Operacje odświeżania danych mogą zająć trochę czasu w zależności od liczby czynników, w tym ilości danych, poziomu optymalizacji przy użyciu partycji itd. Te operacje są tradycyjnie wywoływane z istniejącymi metodami, takimi jak użycie metody " [Tomasz](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) " (model obiektów tabelarycznych), poleceń cmdlet [programu PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) lub [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (język skryptów modelu tabelarycznego). Jednak te metody mogą wymagać często niezawodnych, długotrwałych połączeń HTTP.
+Operacje odświeżania danych mogą zająć trochę czasu w zależności od liczby czynników, w tym ilości danych, poziomu optymalizacji przy użyciu partycji itd. Te operacje są tradycyjnie wywoływane z istniejącymi metodami, takimi jak użycie metody " [Tomasz](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) " (model obiektów tabelarycznych), poleceń cmdlet [programu PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) lub [TMSL](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (język skryptów modelu tabelarycznego). Jednak te metody mogą wymagać często niezawodnych, długotrwałych połączeń HTTP.
 
 Interfejs API REST dla Azure Analysis Services umożliwia wykonywanie operacji odświeżania danych asynchronicznie. Za pomocą interfejsu API REST, długotrwałe połączenia HTTP z aplikacji klienckich nie są konieczne. Istnieją również inne wbudowane funkcje zapewniające niezawodność, takie jak autoponawianie prób i zatwierdzanie wsadowe.
 
@@ -100,9 +100,9 @@ Określanie parametrów nie jest wymagane. Ustawienie domyślne jest stosowane.
 
 | Nazwa             | Typ  | Opis  |Domyślne  |
 |------------------|-------|--------------|---------|
-| `Type`           | Wyliczenie  | Typ przetwarzania do wykonania. Typy są wyrównane z typami [poleceń Refresh](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, Oblicz, dataonly, Automatic i defragmentowania. Dodawanie typu nie jest obsługiwane.      |   automatyczne      |
+| `Type`           | Wyliczenie  | Typ przetwarzania do wykonania. Typy są wyrównane z typami [poleceń Refresh](/analysis-services/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, Oblicz, dataonly, Automatic i defragmentowania. Dodawanie typu nie jest obsługiwane.      |   automatyczne      |
 | `CommitMode`     | Wyliczenie  | Określa, czy obiekty będą zatwierdzane w partiach, czy tylko po zakończeniu. Tryby to: default, transakcyjna, partialBatch.  |  transakcyjna       |
-| `MaxParallelism` | int   | Ta wartość określa maksymalną liczbę wątków, w których uruchamianie poleceń przetwarzania jest równoległe. Ta wartość jest wyrównana z właściwością MaxParallelism, którą można ustawić w TMSL [Sequence polecenia](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl) lub przy użyciu innych metod.       | 10        |
+| `MaxParallelism` | int   | Ta wartość określa maksymalną liczbę wątków, w których uruchamianie poleceń przetwarzania jest równoległe. Ta wartość jest wyrównana z właściwością MaxParallelism, którą można ustawić w TMSL [Sequence polecenia](/analysis-services/tmsl/sequence-command-tmsl) lub przy użyciu innych metod.       | 10        |
 | `RetryCount`     | int   | Wskazuje liczbę ponownych prób wykonania operacji przed zakończeniem się niepowodzeniem.      |     0    |
 | `Objects`        | Tablica | Tablica obiektów do przetworzenia. Każdy obiekt zawiera: "Tabela" podczas przetwarzania całej tabeli lub "tabeli" i "partycji" podczas przetwarzania partycji. Jeśli nie określono żadnych obiektów, cały model zostanie odświeżony. |   Przetwórz cały model      |
 
@@ -226,6 +226,4 @@ Aby uzyskać więcej informacji na temat konfigurowania nazwy głównej usługi 
 ## <a name="see-also"></a>Zobacz też
 
 [Badan](analysis-services-samples.md)   
-[Interfejs API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
-
-
+[Interfejs API REST](/rest/api/analysisservices/servers)

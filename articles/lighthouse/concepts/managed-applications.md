@@ -3,12 +3,12 @@ title: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 description: Dowiedz się, w jaki sposób usługa Azure Lighthouse i aplikacje zarządzane przez platformę Azure mogą pomóc w różnych scenariuszach i sposobach ich użycia.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970762"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014991"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
 
@@ -23,7 +23,7 @@ Zarówno aplikacje zarządzane przez platformę Azure, jak i Azure Lighthouse dz
 
 Za pomocą [usługi Azure Lighthouse](../overview.md)dostawca usług może wykonywać szeroką gamę zadań zarządzania bezpośrednio w ramach subskrypcji klienta (lub grupy zasobów). Ten dostęp uzyskuje się za pomocą logicznej projekcji, co umożliwia dostawcom usług logowanie się do własnych dzierżawców i dostęp do zasobów należących do dzierżawy klienta. Klient może określić, które subskrypcje lub grupy zasobów mają być delegowane do dostawcy usług, a klient utrzymuje pełny dostęp do tych zasobów. W każdej chwili można także usunąć dostęp dostawcy usług.
 
-Aby korzystać z usługi Azure Lighthouse, klienci są dołączeni do [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md) przez [wdrażanie szablonów usługi ARM](../how-to/onboard-customer.md) lub za pomocą [oferty usług zarządzanych w witrynie Azure Marketplace](managed-services-offers.md). Możesz śledzić wpływ na zaangażowanie klientów i otrzymać środki na korzystanie z partnerów, [ŁĄCZĄC identyfikator partnera](../how-to/partner-earned-credit.md).
+Aby korzystać z usługi Azure Lighthouse, klienci są dołączeni do [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md) przez [wdrażanie szablonów usługi ARM](../how-to/onboard-customer.md) lub za pomocą [oferty usług zarządzanych w witrynie Azure Marketplace](managed-services-offers.md). Możesz śledzić wpływ na zaangażowanie klientów, [ŁĄCZĄC identyfikator partnera](../how-to/partner-earned-credit.md).
 
 Usługa Azure Lighthouse jest zwykle używana, gdy dostawca usług będzie regularnie wykonywał zadania zarządzania dla klienta.
 

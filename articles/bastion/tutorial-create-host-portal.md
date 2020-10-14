@@ -5,20 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: e4f8bc38a79fdbb84624e126c84d679a906a701b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c5361a777b2fdab20fab70214ddcb3bbf5248acb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91980171"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015263"
 ---
-# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm"></a>Samouczek: Tworzenie hosta usługi Azure bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows
+# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Samouczek: Tworzenie hosta usługi Azure bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows za pomocą przeglądarki
 
-Możesz połączyć się z maszyną wirtualną z systemem Windows za pośrednictwem przeglądarki za pośrednictwem Azure Portal. Połącz się z maszyną wirtualną bezpośrednio za pośrednictwem przeglądarki za pośrednictwem protokołu TLS przy użyciu prywatnego adresu IP. Nie musisz instalować i konfigurować oprogramowania klienckiego lokalnie.
-
-Aby nawiązać połączenie z maszyną wirtualną za pomocą bastionu, musisz zainicjować obsługę administracyjną usługi Azure bastionu w sieci wirtualnej. Po aprowizacji usługi ten typ połączenia jest dostępny dla wszystkich maszyn wirtualnych znajdujących się w sieci wirtualnej, w zależności od konfiguracji zabezpieczeń maszyny wirtualnej. Wdrożenie usługi Azure bastionu odbywa się na sieć wirtualną, a nie na subskrypcję/konto lub maszynę wirtualną.
+W tym samouczku pokazano, jak nawiązać połączenie z maszyną wirtualną za pośrednictwem przeglądarki za pomocą usługi Azure bastionu i Azure Portal. W Azure Portal wdrażasz bastionu w sieci wirtualnej. Po wdrożeniu bastionu Nawiąż połączenie z maszyną wirtualną za pośrednictwem swojego prywatnego adresu IP przy użyciu Azure Portal. Maszyna wirtualna nie potrzebuje publicznego adresu IP ani specjalnego oprogramowania. Po aprowizacji usługi środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [co to jest Azure bastionu?](bastion-overview.md).
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 

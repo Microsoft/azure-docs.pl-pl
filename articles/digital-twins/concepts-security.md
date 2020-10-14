@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331883"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015008"
 ---
 # <a name="secure-azure-digital-twins"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji
 
@@ -80,6 +80,14 @@ Jeśli użytkownik próbuje wykonać akcję niedozwoloną przez ich rolę, może
 ## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
 
 Usługa Azure Digital bliźniaczych reprezentacji zapewnia szyfrowanie danych przechowywanych i przesyłanych w czasie, gdy jest ona zapisywana w centrach danych i odszyfrowuje ją, gdy uzyskujesz do niej dostęp. To szyfrowanie odbywa się przy użyciu zarządzanego klucza szyfrowania firmy Microsoft.
+
+## <a name="cross-origin-resource-sharing-cors"></a>Współużytkowanie zasobów między źródłami (CORS)
+
+Usługa Azure Digital bliźniaczych reprezentacji obecnie nie obsługuje **udostępniania zasobów między źródłami (CORS)**. W związku z tym, jeśli wywołujesz interfejs API REST z aplikacji przeglądarki, interfejsu [API Management (APIM)](../api-management/api-management-key-concepts.md) lub łącznika [aplikacji zaawansowanych](https://docs.microsoft.com/powerapps/powerapps-overview) , może zostać wyświetlony błąd zasad.
+
+Aby rozwiązać ten problem, można wykonać jedną z następujących czynności:
+* Przeplataj nagłówek CORS `Access-Control-Allow-Origin` z wiadomości. Ten nagłówek wskazuje, czy można udostępnić odpowiedź. 
+* Alternatywnie można utworzyć serwer proxy CORS i wprowadzić żądanie interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 

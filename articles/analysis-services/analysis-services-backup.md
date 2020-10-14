@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506999"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014056"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Analysis Services kopii zapasowej i przywracania bazy danych
 
-Tworzenie kopii zapasowych baz danych modeli tabelarycznych w Azure Analysis Services jest znacznie takie samo jak dla Analysis Services lokalnych. Podstawowa różnica polega na tym, że pliki kopii zapasowej są przechowywane. Pliki kopii zapasowej muszą być zapisane w kontenerze na [koncie usługi Azure Storage](../storage/common/storage-create-storage-account.md). Możesz użyć już istniejącego konta magazynu i kontenera lub można je utworzyć podczas konfigurowania ustawień magazynu dla serwera.
+Tworzenie kopii zapasowych baz danych modeli tabelarycznych w Azure Analysis Services jest znacznie takie samo jak dla Analysis Services lokalnych. Podstawowa różnica polega na tym, że pliki kopii zapasowej są przechowywane. Pliki kopii zapasowej muszą być zapisane w kontenerze na [koncie usługi Azure Storage](../storage/common/storage-account-create.md). Możesz użyć już istniejącego konta magazynu i kontenera lub można je utworzyć podczas konfigurowania ustawień magazynu dla serwera.
 
 > [!NOTE]
 > Utworzenie konta magazynu może spowodować powstanie nowej usługi do rozliczania. Aby dowiedzieć się więcej, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -74,11 +74,11 @@ Przed utworzeniem kopii zapasowej należy skonfigurować ustawienia magazynu dla
 5. Kliknij przycisk **OK** , aby utworzyć i zapisać plik kopii zapasowej.
 
 
-### <a name="powershell"></a>Program PowerShell
-Użyj polecenia cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) .
+### <a name="powershell"></a>PowerShell
+Użyj polecenia cmdlet [Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase) .
 
 ## <a name="restore"></a>Przywracanie
-Podczas przywracania plik kopii zapasowej musi znajdować się na koncie magazynu skonfigurowanym dla serwera. Jeśli musisz przenieść plik kopii zapasowej z lokalizacji lokalnej na konto magazynu, użyj [Eksplorator usługi Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) lub narzędzia wiersza polecenia [AzCopy](../storage/common/storage-use-azcopy.md) . 
+Podczas przywracania plik kopii zapasowej musi znajdować się na koncie magazynu skonfigurowanym dla serwera. Jeśli musisz przenieść plik kopii zapasowej z lokalizacji lokalnej na konto magazynu, użyj [Eksplorator usługi Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) lub narzędzia wiersza polecenia [AzCopy](../storage/common/storage-use-azcopy-v10.md) . 
 
 
 
@@ -100,13 +100,13 @@ Podczas przywracania plik kopii zapasowej musi znajdować się na koncie magazyn
 5. Określ opcje. Opcje zabezpieczeń muszą być zgodne z opcjami tworzenia kopii zapasowych użytymi podczas tworzenia kopii zapasowej.
 
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
-Użyj polecenia cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) .
+Użyj polecenia cmdlet [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase) .
 
 
 ## <a name="related-information"></a>Informacje pokrewne
 
-[Konta usługi Azure Storage](../storage/common/storage-create-storage-account.md)  
+[Konta usługi Azure Storage](../storage/common/storage-account-create.md)  
 [Wysoka dostępność](analysis-services-bcdr.md)      
 [Analysis Services często zadawane pytania dotyczące łączności sieciowej](analysis-services-network-faq.md)

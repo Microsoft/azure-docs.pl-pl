@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b4c48f25f1d4bd3822a93d2c780dd148d9e29827
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940535"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015159"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Poszczególne klucze, wpisy tajne i certyfikaty powinny być używane tylko w ok
 
 -   Aplikacje wielowarstwowe, które muszą oddzielić kontrolę dostępu między warstwami
 
--   Magazyn kluczy udostępnionych z typowymi wpisami tajnymi, gdy aplikacje potrzebują dostępu do podzestawów wpisów tajnych w tym magazynie kluczy
+-   Udostępnianie pojedynczego wpisu tajnego między wieloma aplikacjami
 
 Więcej informacji na temat wytycznych dotyczących zarządzania Azure Key Vault można znaleźć w temacie:
 
@@ -224,7 +224,7 @@ Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zob
 
 -   Opóźnienie przypisań ról: w bieżącej oczekiwanej wydajności zajmie to 10 minut (600 sekund) po zmianie przypisań ról dla roli do zastosowania
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 - [Przegląd RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Samouczek ról niestandardowych](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230903"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013614"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Samouczek: Dodawanie przykładowego modelu z portalu
 
@@ -30,7 +30,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 - Serwer usług Azure Analysis Services. Więcej informacji można znaleźć w temacie [Tworzenie serwera — portal](analysis-services-create-server.md).
 - Uprawnienia administratora serwera
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
@@ -62,7 +62,7 @@ W poniższych krokach opisano sposób usuwania modelu z serwera za pomocą progr
 
 2. W polu **Połącz z serwerem** wklej nazwę serwera, a następnie w polu **Uwierzytelnianie** wybierz pozycję **Active Directory — Uniwersalne z obsługą uwierzytelniania wieloskładnikowego**, wprowadź nazwę użytkownika, a następnie kliknij pozycję **Połącz**.
 
-    ![Zaloguj](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
+    ![Zaloguj się](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
 
 3. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy przykładową bazę danych `adventureworks`, a następnie kliknij pozycję **Usuń**.
 
@@ -74,5 +74,3 @@ W tym samouczku przedstawiono sposób dodawania podstawowego, przykładowego mod
 
 > [!div class="nextstepaction"]
 > [Samouczek: Konfigurowanie ról administratora i użytkowników serwera](tutorials/analysis-services-tutorial-roles.md)
-
-

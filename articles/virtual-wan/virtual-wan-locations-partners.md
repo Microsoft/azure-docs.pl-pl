@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801464"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014034"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Wirtualne partnerzy sieci WAN i wirtualne lokalizacje koncentratora
 
@@ -40,7 +40,7 @@ Niektórzy partnerzy łączności mogą zwiększyć automatyzację, aby uwzględ
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Następujący partnerzy są styczeń na naszym planie w najbliższej przyszłości: 128 technologie, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN i SharpLink.
+Następujący partnerzy są styczeń na naszym planie w oparciu o arkusz warunków podpisanych między firmami wskazujący zakres pracy do automatyzowania łączności protokołu IPsec między urządzeniem partnerskim i bramami sieci VPN platformy Azure Virtual Network: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) i SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Partnerzy ze zintegrowanymi ofertami koncentratora wirtualnego
 Oprócz zautomatyzowanej łączności z pakietem IPSec w biurze oddziału niektórzy Partnerzy oferują **wirtualne urządzenia sieciowe (urządzeń WUS)** , które można zintegrować bezpośrednio z wirtualnym KONCENTRATOREM sieci WAN platformy Azure.  Dzięki temu klienci mogą zakończyć połączenia gałęzi do zgodnego urządzenia innej firmy w koncentratorze wirtualnym.  

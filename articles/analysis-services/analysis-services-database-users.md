@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015276"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013597"
 ---
 # <a name="manage-database-roles-and-users"></a>Zarządzanie rolami i użytkownikami bazy danych
 
@@ -26,7 +26,7 @@ Uprawnienia roli obejmują:
 *  **Proces** — użytkownicy mogą łączyć się z bazą danych i wykonywać na niej operacje przetwarzania oraz analizować dane modelu bazy danych.
 *  Użytkownicy **odczytu** mogą używać aplikacji klienckiej do nawiązywania połączeń z modelem i analizowania danych z bazy danych.
 
-Podczas tworzenia projektu modelu tabelarycznego tworzysz role i Dodaj użytkowników lub grupy do tych ról przy użyciu menedżera ról w programie Visual Studio z projektami Analysis Services. W przypadku wdrożenia na serwerze użyj SQL Server Management Studio (SSMS), [Analysis Services poleceń cmdlet programu PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)lub [języka skryptów tabelarycznych](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL), aby dodać lub usunąć role i członków użytkowników.
+Podczas tworzenia projektu modelu tabelarycznego tworzysz role i Dodaj użytkowników lub grupy do tych ról przy użyciu menedżera ról w programie Visual Studio z projektami Analysis Services. W przypadku wdrożenia na serwerze użyj SQL Server Management Studio (SSMS), [Analysis Services poleceń cmdlet programu PowerShell](/analysis-services/powershell/analysis-services-powershell-reference)lub [języka skryptów tabelarycznych](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL), aby dodać lub usunąć role i członków użytkowników.
 
 Podczas dodawania **grupy zabezpieczeń**Użyj `obj:groupid@tenantid` .
 
@@ -85,7 +85,7 @@ Aby dodać role i użytkowników do wdrożonej bazy danych modelu, należy poł�
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Aby dodać role i użytkowników przy użyciu skryptu TMSL
 
-Skrypt TMSL można uruchomić w oknie XMLA w programie SSMS lub przy użyciu programu PowerShell. Użyj polecenia [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) i obiektu [Roles](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl) .
+Skrypt TMSL można uruchomić w oknie XMLA w programie SSMS lub przy użyciu programu PowerShell. Użyj polecenia [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) i obiektu [Roles](/analysis-services/tmsl/roles-object-tmsl) .
 
 **Przykładowy skrypt TMSL**
 
@@ -119,13 +119,13 @@ W tym przykładzie użytkownik zewnętrzny i Grupa są dodawani do roli analityk
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Aby dodać role i użytkowników przy użyciu programu PowerShell
 
-Moduł [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) udostępnia specyficzne dla zadania polecenia cmdlet zarządzania bazami danych i polecenie cmdlet Invoke-ASCmd ogólnego przeznaczenia, które akceptuje zapytanie lub skrypt języka skryptów tabelarycznych (TMSL). Następujące polecenia cmdlet służą do zarządzania rolami bazy danych i użytkownikami.
+Moduł [SqlServer](/analysis-services/powershell/analysis-services-powershell-reference) udostępnia specyficzne dla zadania polecenia cmdlet zarządzania bazami danych i polecenie cmdlet Invoke-ASCmd ogólnego przeznaczenia, które akceptuje zapytanie lub skrypt języka skryptów tabelarycznych (TMSL). Następujące polecenia cmdlet służą do zarządzania rolami bazy danych i użytkownikami.
   
 |Polecenie cmdlet|Opis|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Dodaj członka do roli bazy danych.| 
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Usuń członka z roli bazy danych.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Wykonaj skrypt TMSL.|
+|[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|Dodaj członka do roli bazy danych.| 
+|[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|Usuń członka z roli bazy danych.|   
+|[Invoke-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Wykonaj skrypt TMSL.|
 
 ## <a name="row-filters"></a>Filtry wierszy  
 
@@ -151,5 +151,4 @@ Filtry wierszy dotyczą określonych wierszy i powiązanych wierszy. Gdy tabela 
 
   [Zarządzanie administratorami serwera](analysis-services-server-admins.md)   
   [Zarządzanie usługami Azure Analysis Services przy użyciu programu PowerShell](analysis-services-powershell.md)  
-  [Dokumentacja języka skryptów tabelarycznych (TMSL)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
-
+  [Dokumentacja języka skryptów tabelarycznych (TMSL)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)

@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495742"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015570"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizowanie danych przy użyciu usługi Azure Machine Learning
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Gdy dane będą dostępne w Azure Data Lake Storage, magazyny danych w Azure Machine Learning są używane do [nawiązywania połączenia z usługami Azure Storage](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć magazyn danych i odpowiadający mu element dataset:
 
-1. Uruchom usługę Azure Machine Learning Studio w witrynie Azure Portal lub Zaloguj się w usłudze [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Uruchom program Azure Machine Learning Studio z Azure Portal lub Zaloguj się na [Azure Machine Learning Studio](https://ml.azure.com/).
 
 1. Kliknij pozycję **magazyny** danych w okienku po lewej stronie w sekcji **Zarządzanie** , a następnie kliknij pozycję **nowy magazyn**danych.
 

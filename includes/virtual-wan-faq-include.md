@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859581"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038484"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Czy usługa Azure Virtual WAN jest dostępna w wersji GA?
 
@@ -228,7 +228,7 @@ Koncentrator wirtualny może propagować rozpoznajenie trasy domyślnej do sieci
 Jeśli koncentrator wirtualny nauczy się tej samej trasy z wielu centrów zdalnych, kolejność, w której jest ona poddana decyzji, jest następująca:
 
 1. Najdłuższy odpowiednik prefiksu.
-2. Trasy lokalne przez Interhub.
+2. Trasy lokalne przez Interhub (koncentrator wirtualny przypisuje 65520-65520 dla Interhub jako)
 3. Trasy statyczne za pośrednictwem protokołu BGP: jest to w kontekście decyzji podejmowanej przez router koncentratora wirtualnego. Jeśli jednak producent sieci VPN jest bramą, w której lokacja anonsuje trasy za pośrednictwem protokołu BGP lub udostępnia prefiksy adresów statycznych, trasy statyczne mogą być preferowane za pośrednictwem tras protokołu BGP.
 4. ExpressRoute (ER) za pośrednictwem sieci VPN: element ER jest preferowany przez sieć VPN, gdy kontekst jest centrum lokalnym. Łączność tranzytowa między obwodami usługi ExpressRoute jest dostępna tylko za pośrednictwem Global Reach. W związku z tym w scenariuszach, w których obwód usługi ExpressRoute jest podłączony do jednego centrum i istnieje inny obwód usługi ExpressRoute połączony z innym koncentratorem z połączeniem sieci VPN, Sieć VPN może być preferowana dla scenariuszy między centrami.
 5. JAKO długość ścieżki.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999671"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015928"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -24,6 +24,7 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 ## <a name="october-2020"></a>Październik 2020 r.
 
 * Obsługa języka hindi dla analiza tonacji v3. x, rozpoczynając od wersji modelu `2020-04-01` . 
+* Model wersja `2020-09-01` dla punktu końcowego v3/Languages, który dodaje ulepszone wykrywanie i dokładność języka.
 
 ## <a name="september-2020"></a>Wrzesień 2020
 
@@ -191,9 +192,9 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 
 #### <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
 
-* [Nowy punkt końcowy](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) do rozpoznawania typów jednostek informacji osobistych (tylko w języku angielskim)
+* [Nowy punkt końcowy](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) do rozpoznawania typów jednostek informacji osobistych (tylko w języku angielskim)
 
-* Oddziel punkty końcowe do [rozpoznawania jednostek](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) i [łączenia jednostek](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Oddziel punkty końcowe do [rozpoznawania jednostek](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) i [łączenia jednostek](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Wersja modelu](concepts/model-versioning.md) `2019-10-01` , która obejmuje:
     * Rozwinięte wykrywanie i kategoryzacja jednostek znalezionych w tekście. 
@@ -205,7 +206,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Publiczna wersja zapoznawcza analiza tonacji v3
 
-* [Nowy punkt końcowy](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) do analizowania tonacji.
+* [Nowy punkt końcowy](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) do analizowania tonacji.
 * [Wersja modelu](concepts/model-versioning.md) `2019-10-01` , która obejmuje:
 
     * Znaczące ulepszenia dokładności i szczegółowości dotyczące kategoryzacji i oceny tekstu interfejsu API.

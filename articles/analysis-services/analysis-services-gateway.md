@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438829"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016097"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Łączenie z lokalnymi źródłami danych za pomocą lokalnej bramy danych
 
@@ -91,11 +91,11 @@ Można wymusić, aby brama mogła komunikować się z Azure Service Bus przy uż
 
 Następujące artykuły są zawarte w ogólnej zawartości lokalnej bramy danych, która dotyczy wszystkich usług obsługiwanych przez bramę:
 
-* [Lokalna brama danych — często zadawane pytania](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Korzystanie z aplikacji lokalnej bramy danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Administracja na poziomie dzierżawy](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Konfigurowanie ustawień serwera proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Dostosowywanie ustawień komunikacji](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Konfigurowanie plików dziennika](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Rozwiązywanie problemów](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorowanie i optymalizowanie wydajności bramy](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Lokalna brama danych — często zadawane pytania](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Korzystanie z aplikacji lokalnej bramy danych](/data-integration/gateway/service-gateway-app)   
+* [Administracja na poziomie dzierżawy](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Konfigurowanie ustawień serwera proxy](/data-integration/gateway/service-gateway-proxy)   
+* [Dostosowywanie ustawień komunikacji](/data-integration/gateway/service-gateway-communication)   
+* [Konfigurowanie plików dziennika](/data-integration/gateway/service-gateway-log-files)   
+* [Rozwiązywanie problemów](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorowanie i optymalizowanie wydajności bramy](/data-integration/gateway/service-gateway-performance)

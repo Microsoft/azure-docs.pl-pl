@@ -3,12 +3,12 @@ title: Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrze
 description: W tym samouczku pokazano, jak korzystać z analizy filmów wideo na żywo wraz z przetwarzanie obrazów funkcją AI do analizy przestrzennej z poziomu usługi Azure Cognitive Services w celu przeanalizowania na żywo kanału informacyjnego wideo z aparatu (symulowane).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824134"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015689"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizowanie wideo na żywo przy użyciu przetwarzanie obrazów na potrzeby analizy przestrzennej (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ Przeczytaj te artykuły przed rozpoczęciem:
 * [Analiza filmów wideo na żywo na IoT Edge terminologii](terminology.md)
 * [Koncepcje grafu multimediów](media-graph-concept.md)
 * [Nagrywanie wideo oparte na zdarzeniach](event-based-video-recording-concept.md)
-* [Samouczek: opracowywanie modułu IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Samouczek: opracowywanie modułu IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Wdrażanie usługi Live Video Analytics na Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -55,12 +55,12 @@ Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł g
 
 Węzeł MediaGraphCognitiveServicesVisionExtension odgrywa rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem **pamięci współdzielonej** do innego modułu brzegowego, który uruchamia operacje AI za punktem końcowym gRPC. W tym przykładzie modułem brzegowym jest moduł analizy przestrzennej. Węzeł procesora MediaGraphCognitiveServicesVisionExtension wykonuje dwie czynności:
 
-* Gromadzi wyniki i publikuje zdarzenia w węźle [ujścia IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub). 
+* Gromadzi wyniki i publikuje zdarzenia w węźle [ujścia IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
 * Przechwytuje również 30-sekundowe klipy wideo ze źródła RTSP przy użyciu [procesora bramy sygnałów](media-graph-concept.md#signal-gate-processor) i zapisuje je jako Media Services zasoby.
 
 ## <a name="create-the-computer-vision-resource"></a>Tworzenie zasobu przetwarzanie obrazów
 
-Należy utworzyć zasób platformy Azure typu przetwarzanie obrazów w [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) lub za pośrednictwem interfejsu wiersza polecenia platformy Azure. Można utworzyć zasób po zatwierdzeniu żądania dostępu do kontenera i zarejestrowaniu identyfikatora subskrypcji platformy Azure. Przejdź do, https://aka.ms/csgate Aby przesłać przypadek użycia i Identyfikator subskrypcji platformy Azure.  Musisz utworzyć zasób platformy Azure, korzystając z tej samej subskrypcji platformy Azure, która została podana w żądaniu dostępu do formularza.
+Należy utworzyć zasób platformy Azure typu przetwarzanie obrazów w [Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) lub za pośrednictwem interfejsu wiersza polecenia platformy Azure. Można utworzyć zasób po zatwierdzeniu żądania dostępu do kontenera i zarejestrowaniu identyfikatora subskrypcji platformy Azure. Przejdź do, https://aka.ms/csgate Aby przesłać przypadek użycia i Identyfikator subskrypcji platformy Azure.  Musisz utworzyć zasób platformy Azure, korzystając z tej samej subskrypcji platformy Azure, która została podana w żądaniu dostępu do formularza.
 
 ### <a name="gathering-required-parameters"></a>Zbieranie wymaganych parametrów
 
@@ -75,7 +75,7 @@ Klucz służy do uruchamiania kontenera analizy przestrzennej i jest dostępny n
 
 ## <a name="set-up-azure-stack-edge"></a>Konfigurowanie Azure Stack Edge
 
-Wykonaj następujące [kroki](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) , aby skonfigurować narzędzie Azure Stack Edge i kontynuować wykonywanie poniższych kroków w celu wdrożenia analiz wideo na żywo i modułów analizy przestrzennej.
+Wykonaj następujące [kroki](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) , aby skonfigurować narzędzie Azure Stack Edge i kontynuować wykonywanie poniższych kroków w celu wdrożenia analiz wideo na żywo i modułów analizy przestrzennej.
 
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
 
@@ -136,7 +136,7 @@ Istnieje kilka rzeczy, do których należy zwrócić uwagę w pliku szablonu wdr
 1. `IpcMode` w lvaEdge i module analizy przestrzennej elementu weboptions powinna być taka sama i ustawiona na wartość host.
 1. Aby symulator był działał, upewnij się, że skonfigurowano granice woluminu. Aby uzyskać więcej informacji, zobacz [Instalowanie instalacji woluminów platformy Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Połącz się z udziałem SMB](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) i skopiuj [przykładowy plik wideo Bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) do udziału lokalnego.
+    1. [Połącz się z udziałem SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) i skopiuj [przykładowy plik wideo Bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) do udziału lokalnego.
     1. Sprawdź, czy moduł rtspsim ma następującą konfigurację:
         
         ```json

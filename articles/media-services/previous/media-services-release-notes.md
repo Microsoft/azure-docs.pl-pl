@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014107"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -53,8 +53,8 @@ Informacje o historii wersji interfejsu API REST Media Services można znaleźć
 
 Następujące właściwości w wersji 2 nie będą już wypełniane historycznymi danymi postępu zadania:
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 Aby uzyskać historię zadań, należy używać powiadomień o zadaniach w wersji 2 za pośrednictwem elementów webhook lub kolejkowanie komunikatów za pomocą punktów końcowych powiadomień. Aby uzyskać więcej informacji, zobacz:
 
@@ -81,7 +81,7 @@ Zobacz również [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Az
 
 Ogłaszamy przestarzałe procesory multimediów w *systemie Windows Azure Media Encoder* (WAME) i *Azure Media Encoder* (azwa). Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) .
 
-Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) i [Migrowanie azwa do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder Standard](./migrate-windows-azure-media-encoder.md) i [Migrowanie azwa do Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## <a name="march-2019"></a>Marzec 2019 r.
 
@@ -198,7 +198,7 @@ Niektórzy klienci mogą przechodzić przez problem z tagiem REPEAT w manifeści
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>Wydanie z kwietnia 2016
 ### <a name="media-analytics"></a>Media Analytics
- Media Services wprowadzono Media Analytics do zaawansowanej analizy filmów wideo. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Media Services Analytics](media-services-analytics-overview.md).
+ Media Services wprowadzono Media Analytics do zaawansowanej analizy filmów wideo. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Media Services Analytics](./legacy-components.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (wersja zapoznawcza)
 Teraz możesz używać Media Services do dynamicznego szyfrowania zawartości HTTP Live Streaming (HLS) za pomocą Apple FairPlay. Możesz również użyć usługi dostarczania licencji Media Services, aby dostarczać licencje FairPlay klientom. Aby uzyskać więcej informacji, zobacz "Używanie Azure Media Services do przesyłania strumieniowego zawartości HLS chronionej przez Apple FairPlay".
@@ -275,7 +275,7 @@ Aby uzyskać więcej informacji, zobacz [ten blog](https://azure.microsoft.com/b
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Wydanie 2015 lipca
 * Ogólna dostępność Media Encoder Standard została ogłoszona. Aby uzyskać więcej informacji, zobacz [ten wpis w blogu](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard używa ustawień wstępnych, zgodnie z opisem w [tej sekcji](https://go.microsoft.com/fwlink/?LinkId=618336). W przypadku użycia ustawienia wstępnego dla kodowania 4K należy uzyskać typ jednostki zarezerwowanej Premium. Aby uzyskać więcej informacji, zobacz [skalowanie kodowania](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard używa ustawień wstępnych, zgodnie z opisem w [tej sekcji](./media-services-mes-presets-overview.md). W przypadku użycia ustawienia wstępnego dla kodowania 4K należy uzyskać typ jednostki zarezerwowanej Premium. Aby uzyskać więcej informacji, zobacz [skalowanie kodowania](media-services-scale-media-processing-overview.md).
 * Podpisy w czasie rzeczywistym są używane z Media Services i Media Player. Aby uzyskać więcej informacji, zobacz [ten wpis w blogu](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services aktualizacji zestawu SDK platformy .NET

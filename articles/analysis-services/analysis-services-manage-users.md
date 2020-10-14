@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400795"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014906"
 ---
 # <a name="authentication-and-user-permissions"></a>Uwierzytelnianie i uprawnienia użytkownika
 
-Azure Analysis Services używa Azure Active Directory (Azure AD) do zarządzania tożsamościami i uwierzytelniania użytkowników. Każdy użytkownik tworzący, zarządzający lub łączący się z serwerem Azure Analysis Services musi mieć prawidłową tożsamość użytkownika w [dzierżawie usługi Azure AD](../active-directory/fundamentals/active-directory-administer.md) w tej samej subskrypcji.
+Azure Analysis Services używa Azure Active Directory (Azure AD) do zarządzania tożsamościami i uwierzytelniania użytkowników. Każdy użytkownik tworzący, zarządzający lub łączący się z serwerem Azure Analysis Services musi mieć prawidłową tożsamość użytkownika w [dzierżawie usługi Azure AD](../active-directory/fundamentals/active-directory-whatis.md) w tej samej subskrypcji.
 
-Azure Analysis Services obsługuje funkcję [współpracy B2B usługi Azure AD](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). Dzięki B2B użytkownicy spoza organizacji mogą być zapraszani jako użytkownicy-Goście w katalogu usługi Azure AD. Goście mogą znajdować się w innym katalogu dzierżawy usługi Azure AD lub na dowolnym prawidłowym adresie e-mail. Po zaproszeniu i zaakceptowaniu przez użytkownika zaproszenia wysłanego pocztą e-mail z platformy Azure tożsamość użytkownika zostanie dodana do katalogu dzierżawy. Tożsamości te mogą być dodawane do grup zabezpieczeń lub jako członkowie roli administratora serwera lub bazy danych.
+Azure Analysis Services obsługuje funkcję [współpracy B2B usługi Azure AD](../active-directory/external-identities/what-is-b2b.md). Dzięki B2B użytkownicy spoza organizacji mogą być zapraszani jako użytkownicy-Goście w katalogu usługi Azure AD. Goście mogą znajdować się w innym katalogu dzierżawy usługi Azure AD lub na dowolnym prawidłowym adresie e-mail. Po zaproszeniu i zaakceptowaniu przez użytkownika zaproszenia wysłanego pocztą e-mail z platformy Azure tożsamość użytkownika zostanie dodana do katalogu dzierżawy. Tożsamości te mogą być dodawane do grup zabezpieczeń lub jako członkowie roli administratora serwera lub bazy danych.
 
 ![Architektura uwierzytelniania Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
-Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analysis Services [bibliotek klienckich](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) w celu nawiązania połączenia z serwerem. 
+Wszystkie aplikacje i narzędzia klienckie używają co najmniej jednej z Analysis Services [bibliotek klienckich](/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) w celu nawiązania połączenia z serwerem. 
 
 Wszystkie trzy biblioteki klienta obsługują zarówno przepływ interaktywny usługi Azure AD, jak i nieinteraktywne metody uwierzytelniania. W aplikacjach korzystających z AMOMD i MSOLAP można używać dwóch metod nieinteraktywnych, hasła Active Directory i Active Directory zintegrowanych metod uwierzytelniania. Te dwie metody nigdy nie powodują wyskakujących okien dialogowych.
 
@@ -34,11 +34,11 @@ W zależności od używanej aplikacji lub narzędzia klienckiego typ uwierzyteln
 
 Power BI Desktop, Visual Studio i SSMS obsługują Active Directory uwierzytelnianie uniwersalne, interaktywną metodę, która również obsługuje usługę Azure Multi-Factor Authentication (MFA). Usługa Azure MFA pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zapewnieniu prostego procesu logowania. Zapewnia silne uwierzytelnianie z kilkoma opcjami weryfikacji (połączenie telefoniczne, wiadomość tekstowa, karty inteligentne z numerem PIN lub powiadomieniem aplikacji mobilnej). Interaktywna usługa MFA z usługą Azure AD może spowodować wyskakujące okno dialogowe umożliwiające weryfikację. **Zalecane jest uwierzytelnianie uniwersalne**.
 
-Jeśli logujesz się do platformy Azure przy użyciu konta systemu Windows, a uwierzytelnianie uniwersalne nie jest wybrane lub jest niedostępne (Excel), jest wymagane [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) . W przypadku federacji usługi Azure AD i Microsoft 365 są uwierzytelniani przy użyciu poświadczeń lokalnych i mogą uzyskiwać dostęp do zasobów platformy Azure.
+Jeśli logujesz się do platformy Azure przy użyciu konta systemu Windows, a uwierzytelnianie uniwersalne nie jest wybrane lub jest niedostępne (Excel), jest wymagane [Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) . W przypadku federacji usługi Azure AD i Microsoft 365 są uwierzytelniani przy użyciu poświadczeń lokalnych i mogą uzyskiwać dostęp do zasobów platformy Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
-Serwery Azure Analysis Services obsługują połączenia z programu [SSMS v 17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) lub nowszego przy użyciu uwierzytelniania systemu Windows, Active Directory uwierzytelniania hasła i Active Directory uwierzytelniania uniwersalnego. Ogólnie rzecz biorąc, zaleca się używanie Active Directory uniwersalnego uwierzytelniania, ponieważ:
+Serwery Azure Analysis Services obsługują połączenia z programu [SSMS v 17.1](/sql/ssms/download-sql-server-management-studio-ssms) lub nowszego przy użyciu uwierzytelniania systemu Windows, Active Directory uwierzytelniania hasła i Active Directory uwierzytelniania uniwersalnego. Ogólnie rzecz biorąc, zaleca się używanie Active Directory uniwersalnego uwierzytelniania, ponieważ:
 
 *  Obsługuje interaktywne i nieinteraktywne metody uwierzytelniania.
 
@@ -50,7 +50,7 @@ Serwery Azure Analysis Services obsługują połączenia z programu [SSMS v 17.1
 
 Program Visual Studio nawiązuje połączenie z Azure Analysis Services przy użyciu uwierzytelniania uniwersalnego Active Directory z obsługą usługi MFA. Użytkownicy są monitowani o zalogowanie się do platformy Azure przy pierwszym wdrożeniu. Użytkownicy muszą zalogować się do platformy Azure przy użyciu konta z uprawnieniami administratora serwera na serwerze, na którym są wdrażane. Po pierwszym zalogowaniu się do platformy Azure jest przypisywany token. Token znajduje się w pamięci podręcznej w przypadku przyszłych ponownych połączeń.
 
-### <a name="power-bi-desktop"></a>Power BI Desktop
+### <a name="power-bi-desktop"></a>Program Power BI Desktop
 
 Power BI Desktop nawiązuje połączenie z Azure Analysis Services przy użyciu uwierzytelniania uniwersalnego Active Directory z obsługą usługi MFA. Użytkownicy są monitowani o zalogowanie się do platformy Azure przy pierwszym połączeniu. Użytkownicy muszą zalogować się do platformy Azure przy użyciu konta należącego do administratora serwera lub roli bazy danych.
 
@@ -81,4 +81,4 @@ Role na tym poziomie dotyczą użytkowników lub kont wymagających wykonywania 
 [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Zarządzanie rolami i użytkownikami bazy danych](analysis-services-database-users.md)  
 [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)  
-[Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../role-based-access-control/overview.md)  
+[Kontrola dostępu na podstawie ról na platformie Azure (Azure RBAC)](../role-based-access-control/overview.md)

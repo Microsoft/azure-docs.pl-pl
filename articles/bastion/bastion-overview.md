@@ -5,20 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4aa1ef29ffb27efb29d969e48af4cf5288e08ae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89291878"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014787"
 ---
 # <a name="what-is-azure-bastion"></a>Co to jest usługa Azure Bastion?
 
-Usługa Azure bastionu to nowa w pełni oparta na platformie usługa PaaS, która jest dostarczana w ramach sieci wirtualnej. Zapewnia bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bezpośrednio w Azure Portal za pośrednictwem protokołu TLS. Gdy łączysz się za pomocą usługi Azure Bastion, maszyny wirtualne nie muszą mieć publicznego adresu IP.
+Azure bastionu to wdrażana usługa, która umożliwia łączenie się z maszyną wirtualną przy użyciu przeglądarki i Azure Portal. Usługa Azure bastionu to w pełni zarządzana platformą usługa PaaS, która jest dostarczana w ramach sieci wirtualnej. Zapewnia bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bezpośrednio z Azure Portal za pośrednictwem protokołu TLS. Po nawiązaniu połączenia za pośrednictwem usługi Azure bastionu maszyny wirtualne nie potrzebują publicznego adresu IP, agenta ani specjalnego oprogramowania klienckiego.
 
-Bastionu zapewnia bezpieczną łączność RDP i SSH ze wszystkimi maszynami wirtualnymi w sieci wirtualnej, w której jest inicjowana obsługa administracyjna. Korzystanie z usługi Azure bastionu chroni maszyny wirtualne przed udostępnieniem portów protokołu RDP/SSH na świecie zewnętrznym, zapewniając bezpieczny dostęp przy użyciu protokołu RDP/SSH. Za pomocą usługi Azure bastionu można nawiązać połączenie z maszyną wirtualną bezpośrednio z Azure Portal. Nie jest potrzebny dodatkowy klient, agent ani oprogramowanie.
+Bastionu zapewnia bezpieczną łączność RDP i SSH ze wszystkimi maszynami wirtualnymi w sieci wirtualnej, w której jest inicjowana obsługa administracyjna. Korzystanie z usługi Azure bastionu chroni maszyny wirtualne przed udostępnieniem portów protokołu RDP/SSH na świecie zewnętrznym, zapewniając bezpieczny dostęp przy użyciu protokołu RDP/SSH.
 
 ## <a name="architecture"></a>Architektura
 
@@ -57,5 +57,5 @@ Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami f
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Utwórz zasób hosta usługi Azure bastionu](bastion-create-host-portal.md).
+* [Samouczek: Tworzenie hosta usługi Azure bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows](tutorial-create-host-portal.md).
 * Poznaj inne kluczowe [możliwości sieciowe](../networking/networking-overview.md) platformy Azure.

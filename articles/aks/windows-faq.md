@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Zapoznaj się z często zadawanymi pytaniami w przypadku uruchamiania pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927570"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013971"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Często zadawane pytania dotyczące pul węzłów systemu Windows Server w AKS
 
@@ -113,6 +113,49 @@ Tak, jednak Azure Monitor jest w publicznej wersji zapoznawczej na potrzeby zbie
 
 Klaster z węzłami systemu Windows może mieć około 500 usług, zanim napotka wyczerpanie portów.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>Czy mogę używać Korzyść użycia hybrydowego platformy Azure z węzłami systemu Windows?
+
+Tak. Korzyść użycia hybrydowego platformy Azure systemu Windows Server zmniejsza koszty operacyjne, umożliwiając przeprowadzenie lokalnej licencji systemu Windows Server do AKS węzłów systemu Windows.
+
+Korzyść użycia hybrydowego platformy Azure można używać w całym klastrze AKS lub w poszczególnych węzłach. W przypadku poszczególnych węzłów należy przejść do [grupy zasobów węzła][resource-groups] i bezpośrednio zastosować korzyść użycia hybrydowego platformy Azure do węzłów. Aby uzyskać więcej informacji na temat stosowania Korzyść użycia hybrydowego platformy Azure do poszczególnych węzłów, zobacz [korzyść użycia hybrydowego platformy Azure dla systemu Windows Server][hybrid-vms]. 
+
+Aby użyć Korzyść użycia hybrydowego platformy Azure w nowym klastrze AKS, użyj `--enable-ahub` argumentu.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Aby użyć Korzyść użycia hybrydowego platformy Azure w istniejącym klastrze AKS, zaktualizuj klaster przy użyciu `--enable-ahub` argumentu.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Aby sprawdzić, czy w klastrze ustawiono Korzyść użycia hybrydowego platformy Azure, użyj następującego polecenia:
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Jeśli klaster ma Korzyść użycia hybrydowego platformy Azure włączone, dane wyjściowe `az vmss show` będą podobne do następujących:
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Czy mogę używać pulpitu nawigacyjnego sieci Web Kubernetes z kontenerami systemu Windows?
 
 Tak, możesz użyć [pulpitu nawigacyjnego sieci Web Kubernetes][kubernetes-dashboard] , aby uzyskać dostęp do informacji o kontenerach systemu Windows, ale w tej chwili nie można uruchomić *polecenia kubectl exec* w działającym kontenerze systemu Windows bezpośrednio z poziomu pulpitu nawigacyjnego Kubernetes sieci Web. Aby uzyskać więcej informacji na temat nawiązywania połączenia z działającym kontenerem systemu Windows, zobacz [Connect with RDP to Azure Kubernetes Service (AKS) węzły systemu Windows Server w celu przeprowadzenia konserwacji lub rozwiązywania problemów][windows-rdp].
@@ -152,3 +195,5 @@ Aby rozpocząć pracę z kontenerami systemu Windows Server w programie AKS, nal
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

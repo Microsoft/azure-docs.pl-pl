@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5537079341823275ba521c9d44139a0e0305286
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83701494"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014940"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurowanie rejestrowania diagnostycznego
 
-Ważnym elementem dowolnego Analysis Services rozwiązania jest monitorowanie sposobu działania serwerów. Usługi Azure Analysis Services są zintegrowane z usługą Azure Monitor. Za pomocą [dzienników zasobów Azure monitor](../azure-monitor/platform/platform-logs-overview.md)można monitorować i wysyłać dzienniki do [usługi Azure Storage](https://azure.microsoft.com/services/storage/), przesyłać strumieniowo je do [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)i eksportować je do [dzienników Azure monitor](../azure-monitor/azure-monitor-log-hub.md).
+Ważnym elementem dowolnego Analysis Services rozwiązania jest monitorowanie sposobu działania serwerów. Usługi Azure Analysis Services są zintegrowane z usługą Azure Monitor. Za pomocą [dzienników zasobów Azure monitor](../azure-monitor/platform/platform-logs-overview.md)można monitorować i wysyłać dzienniki do [usługi Azure Storage](https://azure.microsoft.com/services/storage/), przesyłać strumieniowo je do [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)i eksportować je do [dzienników Azure monitor](../azure-monitor/overview.md).
 
 ![Rejestrowanie zasobów do magazynu, Event Hubs lub dzienników Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -28,7 +28,7 @@ Można wybrać kategorię **aparat**, **Usługa**i **metryki** .
 
 ### <a name="engine"></a>Aparat
 
-Wybieranie dzienników **aparatów** wszystkie [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Nie można wybrać pojedynczych zdarzeń. 
+Wybieranie dzienników **aparatów** wszystkie [xEvents](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Nie można wybrać pojedynczych zdarzeń. 
 
 |Kategorie systemu XEvent |Nazwa zdarzenia  |
 |---------|---------|
@@ -38,15 +38,15 @@ Wybieranie dzienników **aparatów** wszystkie [xEvents](https://docs.microsoft.
 |Raporty postępu     |   Początek raportu postępu      |
 |Raporty postępu     |   Koniec raportu postępu      |
 |Raporty postępu     |   Bieżący raport postępu      |
-|Zapytania     |  Początek zapytania       |
-|Zapytania     |   Koniec zapytania      |
+|Kwerendy     |  Początek zapytania       |
+|Kwerendy     |   Koniec zapytania      |
 |Polecenia     |  Początek polecenia       |
 |Polecenia     |  Koniec polecenia       |
-|Błędy & ostrzeżeń     |   Błąd      |
+|Błędy & ostrzeżeń     |   Error      |
 |Odnajdywanie     |   Odnajdź zakończenie      |
 |Powiadomienie     |    Powiadomienie     |
 |Sesja     |  Inicjowanie sesji       |
-|Blokady    |  Stanu       |
+|Blokady    |  Zakleszczenie       |
 |Przetwarzanie zapytania     |   Rozpoczęcie zapytania VertiPaq SE      |
 |Przetwarzanie zapytania     |   Koniec zapytania VertiPaq SE      |
 |Przetwarzanie zapytania     |   Dopasowanie pamięci podręcznej zapytań VertiPaq SE      |
@@ -80,7 +80,7 @@ Kategoria metryki rejestruje te same [metryki serwera](analysis-services-monitor
 
     * **Nazwa**. Wprowadź nazwę dzienników do utworzenia.
 
-    * **Archiwizuj na koncie magazynu**. Aby można było użyć tej opcji, należy połączyć się z istniejącym kontem magazynu. Zobacz [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md). Postępuj zgodnie z instrukcjami, aby utworzyć konto Menedżer zasobów, ogólnego przeznaczenia, a następnie wybierz konto magazynu, Wróć do tej strony w portalu. Może upłynąć kilka minut, zanim konta nowo utworzonego magazynu pojawią się w menu rozwijanym.
+    * **Archiwizuj na koncie magazynu**. Aby można było użyć tej opcji, należy połączyć się z istniejącym kontem magazynu. Zobacz [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Postępuj zgodnie z instrukcjami, aby utworzyć konto Menedżer zasobów, ogólnego przeznaczenia, a następnie wybierz konto magazynu, Wróć do tej strony w portalu. Może upłynąć kilka minut, zanim konta nowo utworzonego magazynu pojawią się w menu rozwijanym.
     * **Przesyłaj strumieniowo do centrum zdarzeń**. Aby można było użyć tej opcji, potrzebna jest istniejąca przestrzeń nazw centrum zdarzeń oraz centrum zdarzeń, z którymi można nawiązać połączenie. Aby dowiedzieć się więcej, zobacz temat [Tworzenie przestrzeni nazw usługi Event Hubs i centrum zdarzeń za pomocą witryny Azure Portal](../event-hubs/event-hubs-create.md). Następnie wróć do tej strony w portalu, aby wybrać przestrzeń nazw centrum zdarzeń i nazwę zasad.
     * **Wyślij do Azure monitor (log Analytics obszar roboczy)**. Aby użyć tej opcji, użyj istniejącego obszaru roboczego lub [Utwórz nowy zasób obszaru roboczego](../azure-monitor/learn/quick-create-workspace.md) w portalu. Aby uzyskać więcej informacji na temat wyświetlania dzienników, zobacz [Wyświetlanie dzienników w obszarze roboczym log Analytics](#view-logs-in-log-analytics-workspace) w tym artykule.
 
@@ -88,9 +88,9 @@ Kategoria metryki rejestruje te same [metryki serwera](analysis-services-monitor
     * **Usługa**. Wybierz tę opcję, aby rejestrować zdarzenia poziomu usługi. W przypadku archiwizowania na koncie magazynu można wybrać okres przechowywania dzienników zasobów. Dzienniki są usuwane autokasowanie po upływie okresu przechowywania.
     * **Metryki**. Wybierz tę opcję, aby przechowywać pełne dane w [metrykach](analysis-services-monitor.md#server-metrics). W przypadku archiwizowania na koncie magazynu można wybrać okres przechowywania dzienników zasobów. Dzienniki są usuwane autokasowanie po upływie okresu przechowywania.
 
-3. Kliknij przycisk **Zapisz**.
+3. Kliknij pozycję **Zapisz**.
 
-    Jeśli zostanie wyświetlony komunikat o błędzie "nie można zaktualizować diagnostyki dla programu \<workspace name> . Subskrypcja \<subscription id> nie jest zarejestrowana w celu korzystania z usługi Microsoft. Insights. Postępuj zgodnie z instrukcjami [Diagnostyka Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) , aby zarejestrować konto, a następnie spróbuj ponownie wykonać tę procedurę.
+    Jeśli zostanie wyświetlony komunikat o błędzie "nie można zaktualizować diagnostyki dla programu \<workspace name> . Subskrypcja \<subscription id> nie jest zarejestrowana w celu korzystania z usługi Microsoft. Insights. Postępuj zgodnie z instrukcjami [Diagnostyka Azure](../azure-monitor/platform/resource-logs.md) , aby zarejestrować konto, a następnie spróbuj ponownie wykonać tę procedurę.
 
     Jeśli chcesz zmienić sposób zapisywania dzienników zasobów w dowolnym momencie w przyszłości, możesz powrócić do tej strony, aby zmodyfikować ustawienia.
 
@@ -136,11 +136,11 @@ Można połączyć te parametry, aby uaktywnić wiele opcji danych wyjściowych.
 
 ### <a name="rest-api"></a>Interfejs API REST
 
-Dowiedz się, jak [zmienić ustawienia diagnostyczne przy użyciu interfejsu API REST usługi Azure Monitor](https://docs.microsoft.com/rest/api/monitor/). 
+Dowiedz się, jak [zmienić ustawienia diagnostyczne przy użyciu interfejsu API REST usługi Azure Monitor](/rest/api/monitor/). 
 
 ### <a name="resource-manager-template"></a>Szablon usługi Resource Manager
 
-Dowiedz się, jak [włączyć ustawienia diagnostyczne podczas tworzenia zasobu przy użyciu szablonu usługi Menedżer zasobów](../azure-monitor/platform/diagnostic-settings-template.md). 
+Dowiedz się, jak [włączyć ustawienia diagnostyczne podczas tworzenia zasobu przy użyciu szablonu usługi Menedżer zasobów](../azure-monitor/samples/resource-manager-diagnostic-settings.md). 
 
 ## <a name="manage-your-logs"></a>Zarządzanie dziennikami
 
@@ -328,4 +328,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Dowiedz się więcej o [rejestrowaniu zasobów Azure monitor](../azure-monitor/platform/platform-logs-overview.md).
 
-Zobacz [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) w pomocy programu PowerShell.
+Zobacz [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) w pomocy programu PowerShell.

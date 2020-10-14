@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 1ec0281145609f9ae06ad07e1ad2cfd2b7f9aba8
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 36d12b29054f736b65af5ac411adbc26d870b982
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940812"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014153"
 ---
 W tym przewodniku szybki start dowiesz się, jak skonwertować mowę na tekst przy użyciu usługi mowy i jego zwinięcia.
 
@@ -19,7 +19,7 @@ Aby zapoznać się z pojęciami dotyczącymi zamiany mowy na tekst, zobacz artyk
 
 W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypcję usługi mowy. Jeśli nie masz konta i subskrypcji, [Wypróbuj usługę mowy bezpłatnie](../../../overview.md#try-the-speech-service-for-free).
 
-## <a name="convert-text-to-speech"></a>Konwertuj tekst na mowę
+## <a name="convert-speech-to-text"></a>Konwersja mowy na tekst
 
 W wierszu polecenia Uruchom następujące polecenie. Należy umieścić następujące wartości w poleceniu.
 - Klucz subskrypcji usługi rozpoznawania mowy.

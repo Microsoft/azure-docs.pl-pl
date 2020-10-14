@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269730"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015825"
 ---
 # <a name="media-services-regulatory-compliance"></a>Media Services zgodności z przepisami
 
@@ -33,11 +33,11 @@ Media Services usługi rządowe są zgodne z DoD CC DW SRG IL 2, DoD CC SRG IL 4
 
 Przegląd Media Services 3PAO i JAB nie jest planowany dla 2020.
 
-Przeczytaj więcej na temat zgodności usług platformy Azure w artykule dotyczącym [zakresu inspekcji usług platformy Azure według FedRAMP i DoD CC](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) .
+Przeczytaj więcej na temat zgodności usług platformy Azure w artykule dotyczącym [zakresu inspekcji usług platformy Azure według FedRAMP i DoD CC](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) .
 
 ## <a name="azure-compliance-documentation"></a>Dokumentacja zgodności platformy Azure
 
-Jeśli Twoja organizacja wymaga zgodności ze standardami prawnymi lub prawnymi obowiązującymi w przypadku globalnych, rządowych Stanów Zjednoczonych, regionalnych, usług finansowych, kondycji, mediów i produkcji, należy zacząć od dokumentacji dotyczącej [zgodności platformy Azure](https://docs.microsoft.com/azure/compliance/).
+Jeśli Twoja organizacja wymaga zgodności ze standardami prawnymi lub prawnymi obowiązującymi w przypadku globalnych, rządowych Stanów Zjednoczonych, regionalnych, usług finansowych, kondycji, mediów i produkcji, należy zacząć od dokumentacji dotyczącej [zgodności platformy Azure](../../compliance/index.yml).
 
 Znajdują się w nim również dodatkowe zasoby dotyczące zgodności, takie jak raporty inspekcji, Lista kontrolna dotycząca prywatności i Ogólne rozporządzenie o ochronie danych (Rodo), plany zgodności, zasady dotyczące krajów i regionów, implementacja i mapowania oraz oficjalne dokumenty i raporty analityków.
 

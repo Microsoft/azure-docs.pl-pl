@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259187"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014413"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenariusze i dostępność funkcji usługi Media Services w centrach danych
 
@@ -89,10 +89,10 @@ Aby uzyskać informacje na temat dostępności w centrach danych, zobacz sekcję
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Korzystanie z Analizy multimediów w celu uzyskania przydatnych wyników analiz na podstawie danych wideo
 
-Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom uzyskiwanie przydatnych wyników analiz na podstawie posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](media-services-analytics-overview.md).
+Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom uzyskiwanie przydatnych wyników analiz na podstawie posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](./legacy-components.md).
 
 1. Przekaż plik multimedialny wysokiej jakości do elementu zawartości.
-2. Przetwarzaj pliki wideo za pomocą jednej z usług analizy multimediów opisanych w sekcji [Przegląd usług analizy multimediów](media-services-analytics-overview.md).
+2. Przetwarzaj pliki wideo za pomocą jednej z usług analizy multimediów opisanych w sekcji [Przegląd usług analizy multimediów](./legacy-components.md).
 3. Procesory multimediów usługi Analiza multimediów tworzą pliki MP4 lub JSON. Plik MP4 utworzony przez procesor multimediów można pobrać progresywnie. Plik JSON utworzony przez procesor multimediów można pobrać z magazynu Azure Blob Storage.
 
 Aby uzyskać informacje na temat dostępności w centrach danych, zobacz sekcję [Dostępność](#availability).
@@ -203,7 +203,7 @@ Usługa AMS oferuje dwa kodery na żądanie: **Media Encoder Standard** i **Medi
 
 ### <a name="analytics-media-processors"></a>Procesory multimediów usługi analizy
 
-Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom pozyskiwanie przydatnych informacji z posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](media-services-analytics-overview.md).
+Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają organizacjom i przedsiębiorstwom pozyskiwanie przydatnych informacji z posiadanych plików wideo. Aby uzyskać więcej informacji, zobacz temat [Przegląd analiz usługi Azure Media Services](./legacy-components.md).
 
 > [!NOTE]
 > Niektóre procesory multimediów analitycznych zostaną wycofane. Aby uzyskać daty wycofania, zobacz temat [starsze składniki](legacy-components.md) .
@@ -219,7 +219,7 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 |Azure Media Redactor|Ogólna dostępność|Wszystkie|
 |Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystkie|
 
-### <a name="protection"></a>Ochrona
+### <a name="protection"></a>Protection
 
 Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów od momentu wysłania danych z komputera w ramach procesów przechowywania, przetwarzania i dostarczania. Aby uzyskać więcej informacji, zobacz temat [Ochrona zawartości usługi AMS](media-services-content-protection-overview.md).
 
@@ -227,7 +227,7 @@ Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów
 
 |Szyfrowanie|Stan|Centra danych|
 |---|---|---| 
-|Magazyn|Ogólna dostępność|Wszystkie|
+|Storage|Ogólna dostępność|Wszystkie|
 |Klucze AES-128|Ogólna dostępność|Wszystkie|
 |FairPlay|Ogólna dostępność|Wszystkie|
 |PlayReady|Ogólna dostępność|Wszystkie|

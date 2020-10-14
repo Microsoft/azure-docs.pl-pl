@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9b36f4e292eb4bcae424d463f76e8a69eefd2968
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995530"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014549"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -116,13 +116,13 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Dzisiejsze łącze platformy Azure Synapse dla Azure Cosmos DB jest obsługiwane w przypadku interfejsu API SQL i interfejsu API Azure Cosmos DB dla MongoDB. Nie jest obsługiwana w przypadku interfejsu API Gremlin i interfejs API tabel. Pomoc techniczna dla interfejs API Cassandra jest w prywatnej wersji zapoznawczej. Aby uzyskać więcej informacji, skontaktuj się z zespołem usługi Azure Synapse cosmosdbsynapselink@microsoft.com .  
+* Dzisiejsze łącze platformy Azure Synapse dla Azure Cosmos DB jest obsługiwane w przypadku interfejsu API SQL i interfejsu API Azure Cosmos DB dla MongoDB. Nie jest obsługiwana w przypadku interfejsu API Gremlin i interfejs API tabel. Pomoc techniczna dla interfejs API Cassandra jest w prywatnej wersji zapoznawczej. Aby uzyskać więcej informacji, skontaktuj się z [zespołem usługi Azure Synapse](mailto:cosmosdbsynapselink@microsoft.com).  
 
 * Obecnie magazyn analityczny można włączyć tylko dla nowych kontenerów. Aby używać magazynu analitycznego dla istniejących kontenerów, Migruj dane z istniejących kontenerów do nowych kontenerów za pomocą [narzędzi do migracji Azure Cosmos DB](cosmosdb-migrationchoices.md). Link Synapse można włączyć na nowych i istniejących kontach Azure Cosmos DB.
 
-* Dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu programu Synapse SQL Server jest obecnie objęty testową wersją zapoznawczą. Aby zażądać dostępu, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu programu Synapse SQL Server jest obecnie objęty testową wersją zapoznawczą. Aby zażądać dostępu, Wyślij wiadomość e-mail do [zespołu linku usługi Azure Synapse](mailto:cosmosdbsynapselink@microsoft.com).
 
-* W wersji zapoznawczej dla kont bazy danych z włączonym linkiem Synapse nie jest obsługiwane wykonywanie kopii zapasowych i przywracanie kontenerów. W przypadku obciążeń wymagających funkcji tworzenia kopii zapasowych i przywracania zaleca się, aby nie włączać łącza Synapse na tych kontach baz danych. 
+* W przypadku kontenerów z włączonym magazynem analitycznym automatyczne tworzenie kopii zapasowych i przywracanie danych w magazynie analitycznym nie jest obecnie obsługiwane. Gdy łącze Synapse jest włączone na koncie bazy danych, Azure Cosmos DB będzie nadal automatycznie [tworzyć kopie zapasowe](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) danych w magazynie transakcyjnym (tylko) kontenerów z zaplanowanym interwałem tworzenia kopii zapasowych, tak jak zawsze. Należy pamiętać, że gdy kontener z włączonym magazynem analitycznym zostanie przywrócony do nowego konta, kontener zostanie przywrócony tylko z magazynem transakcyjnym i nie włączono magazynu analitycznego. 
 
 * Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
 

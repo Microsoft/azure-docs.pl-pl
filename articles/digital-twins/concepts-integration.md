@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729138"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015025"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami
 
-Usługa Azure Digital bliźniaczych reprezentacji jest zwykle używana razem z innymi usługami. Korzystając z [**tras zdarzeń**](concepts-route-events.md), usługa Azure Digital bliźniaczych reprezentacji odbiera dane z usług nadrzędnych, takich jak [IoT Hub](../iot-hub/about-iot-hub.md) lub [Logic Apps](../logic-apps/logic-apps-overview.md), które są używane do dostarczania telemetrii i powiadomień. 
+Usługa Azure Digital bliźniaczych reprezentacji jest zwykle używana wraz z innymi usługami do tworzenia elastycznych, połączonych rozwiązań, które wykorzystują dane na różne sposoby.
+
+Korzystając z [**tras zdarzeń**](concepts-route-events.md), usługa Azure Digital bliźniaczych reprezentacji może odbierać dane z usług nadrzędnych, takich jak [IoT Hub](../iot-hub/about-iot-hub.md) lub [Logic Apps](../logic-apps/logic-apps-overview.md), które są używane do dostarczania telemetrii i powiadomień. 
 
 Usługa Azure Digital bliźniaczych reprezentacji umożliwia również kierowanie danych do usług podrzędnych, takich jak [Azure Maps](../azure-maps/about-azure-maps.md) i [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), do magazynu, integracji przepływów pracy, analiz i innych. 
 
@@ -24,7 +26,7 @@ Usługa Azure Digital bliźniaczych reprezentacji umożliwia również kierowani
 
 Usługa Azure Digital bliźniaczych reprezentacji może być oparta na danych i zdarzeniach z dowolnej usługi —[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), własnej usługi niestandardowej i nie tylko. Dzięki temu można zbierać dane telemetryczne z urządzeń fizycznych w środowisku i przetwarzać je przy użyciu grafu Digital bliźniaczych reprezentacji na platformie Azure w chmurze.
 
-Usługa Azure Digital bliźniaczych reprezentacji nie ma wbudowanej IoT Hub. Możesz użyć istniejącego IoT Hub obecnie w środowisku produkcyjnym lub wdrożyć nowy. Zapewnia to pełen dostęp do wszystkich możliwości zarządzania urządzeniami IoT Hub.
+Zamiast korzystać z wbudowanej IoT Hub w tle, usługa Azure Digital bliźniaczych reprezentacji umożliwia "Napełnianie własnych" IoT Hub do korzystania z usługi. Możesz użyć istniejącego IoT Hub obecnie w środowisku produkcyjnym lub wdrożyć nowy, który będzie używany do tego celu. Zapewnia to pełen dostęp do wszystkich możliwości zarządzania urządzeniami IoT Hub.
 
 Aby pozyskać dane z dowolnego źródła w usłudze Azure Digital bliźniaczych reprezentacji, użyj [**funkcji platformy Azure**](../azure-functions/functions-overview.md). Dowiedz się więcej o tym wzorcu w instrukcje: pozyskiwanie danych [*telemetrycznych z IoT Hub*](how-to-ingest-iot-hub-data.md)lub wypróbuj je w samouczku Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). 
 

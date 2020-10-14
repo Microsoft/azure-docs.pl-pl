@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294533"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013750"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta Log Analytics na komputerach z systemem Linux
 Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:
@@ -215,7 +215,7 @@ Uaktualnianie z poprzedniej wersji, począwszy od wersji 1.0.0-47, jest obsługi
 ## <a name="cache-information"></a>Informacje o pamięci podręcznej
 Dane z agenta Log Analytics dla systemu Linux są przechowywane w pamięci podręcznej na komputerze lokalnym w lokalizacji *% STATE_DIR_WS%/out_oms_common*. Buffer * przed wysłaniem do Azure monitor. Niestandardowe dane dziennika są buforowane w *% STATE_DIR_WS%/out_oms_blob*. Buffer *. Ścieżka może być różna w przypadku niektórych [rozwiązań i typów danych](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-Agent próbuje przekazać co 20 sekund. Jeśli to się nie powiedzie, będzie oczekiwać wykładniczego wydłużenia czasu do momentu jego pomyślnego przeprowadzenia. Poczeka 30 sekund przed kolejną próbą, 60 sekund przed kolejnymi, 120 sekund i tak dalej, aż do upływu 9 minut między ponownymi próbami ponownego nawiązania połączenia. Po odrzuceniu i przeniesieniu do następnego Agent ponowi próbę po upływie 10 razy dla danego fragmentu danych. Ten proces jest kontynuowany do momentu pomyślnego przekazania agenta. Oznacza to, że dane mogą być buforowane do 8,5 godzin przed odrzuceniem.
+Agent próbuje przekazać co 20 sekund. Jeśli to się nie powiedzie, będzie oczekiwać wykładniczego wydłużenia czasu do momentu pomyślnego: 30 sekund przed kolejną próbą, 60 sekund przed trzecim, 120 sekund... i tak dalej, aż do maksymalnie 16 minut między ponownymi próbami ponownego nawiązania połączenia. Agent ponowi próbę do 6 razy dla danego fragmentu danych przed odrzuceniem i przejściem do kolejnego. Ten proces jest kontynuowany do momentu pomyślnego przekazania agenta. Oznacza to, że dane mogą być buforowane do około 30 minut, zanim zostaną odrzucone.
 
 Domyślny rozmiar pamięci podręcznej wynosi 10 MB, ale można go zmodyfikować w [pliku omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 
