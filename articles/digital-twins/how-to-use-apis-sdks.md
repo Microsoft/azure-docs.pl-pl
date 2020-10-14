@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 030b41e086d700c527107d2246bc7f7df07e860f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9804eb2af28108572688244d6d7b513454e375b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977718"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019005"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 
@@ -269,10 +269,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Ogólne informacje o użyciu interfejsu API/zestawu SDK
 
 > [!NOTE]
-> Należy pamiętać, że w trakcie okresu zapoznawczego usługa Azure Digital bliźniaczych reprezentacji nie obsługuje **udostępniania zasobów między źródłami (CORS)**. W związku z tym, jeśli wywołujesz interfejs API REST z aplikacji przeglądarki, interfejsu [API Management (APIM)](../api-management/api-management-key-concepts.md) lub łącznika [aplikacji zaawansowanych](https://docs.microsoft.com/powerapps/powerapps-overview) , może zostać wyświetlony błąd zasad.
-> Aby rozwiązać ten problem, można wykonać jedną z następujących czynności:
-> * Przeplataj nagłówek CORS `Access-Control-Allow-Origin` z wiadomości. Ten nagłówek wskazuje, czy można udostępnić odpowiedź. 
-> * Alternatywnie można utworzyć serwer proxy CORS i wprowadzić żądanie interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji. 
+> Należy pamiętać, że usługa Azure Digital bliźniaczych reprezentacji obecnie nie obsługuje **udostępniania zasobów między źródłami (CORS)**. Aby uzyskać więcej informacji na temat strategii wpływu i rozwiązywania problemów, zobacz sekcję dotyczącą [*współużytkowania zasobów między źródłami (CORS, cross-Origin Resource Sharing)*](concepts-security.md#cross-origin-resource-sharing-cors) *koncepcji: Security for Azure Digital bliźniaczych reprezentacji Solutions*.
 
 Poniższa lista zawiera dodatkowe szczegółowe informacje i ogólne wskazówki dotyczące korzystania z interfejsów API i zestawów SDK.
 

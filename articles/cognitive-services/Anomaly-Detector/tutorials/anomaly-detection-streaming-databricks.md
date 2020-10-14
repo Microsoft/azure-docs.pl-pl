@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak używać interfejsu API wykrywania anomalii i Azure Databricks, aby monitorować anomalie w danych.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: aahi
-ms.openlocfilehash: 642012a638100a3ad1cb8d9334f5af01adb6ad7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mbullwin
+ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979176"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017662"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Samouczek: wykrywanie anomalii na danych przesyłanych strumieniowo przy użyciu Azure Databricks
 

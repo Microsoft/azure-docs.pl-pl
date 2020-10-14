@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c7ebcdac3174f7eb497ae3e976386ab92212e1ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5b682e371a341c8dbd707652acc60773663326dc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715555"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019124"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>Co znajduje się w bieżącej wersji Plug and Play IoT
 
@@ -41,10 +41,7 @@ Aby dowiedzieć się więcej o tym, jak urządzenia Plug and Play IoT pracują z
 
 - 0.10.0 rozszerzenia IoT interfejsu wiersza polecenia platformy Azure.
 
-    Aby dowiedzieć się więcej, zobacz [Instalowanie i używanie rozszerzenia Azure IoT dla interfejsu wiersza polecenia platformy Azure](howto-use-iot-pnp-cli.md).
-
-    > [!TIP]
-    > Rozszerzenie Azure IoT zawiera polecenia, które ułatwiają certyfikowanie urządzeń. Zobacz: `az iot product -h`.
+    Rozszerzenie Azure IoT zawiera polecenia, które ułatwiają certyfikowanie urządzeń. Zobacz: `az iot product -h`.
 
 ## <a name="libraries-and-sdks"></a>Biblioteki i zestawy SDK
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5ac97812f973a20f6ee4c2dea34baaeb91203af
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91606054"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016467"
 ---
 ![Dokumentacja Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -129,4 +129,21 @@ Metryki pomagające zdiagnozować limitów operacji we/wy maszyny wirtualnej:
 - **Procent wykorzystania przepustowości w pamięci podręcznej maszyny** wirtualnej — wartość procentowa obliczona przez łączną przepływność dysku zakończyła się w maksymalnej przepływności pamięci podręcznej. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości pamięci podręcznej maszyny wirtualnej.
 - **Procent użycia operacji wejścia/wyjścia w pamięci podręcznej maszyny** wirtualnej — wartość procentowa obliczona przez łączną liczbę IOPS na maszynę wirtualną zakończyła się przez maksymalną wartość limitu liczby IOPS niebuforowanej maszyny wirtualnej. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonego limitu liczby IOPS niebuforowanej maszyny wirtualnej.
 - **Procent wykorzystania przepustowości niebuforowanej przez maszynę** wirtualną — wartość procentowa obliczona przez łączną przepływność dysku na maszynie wirtualnej została zakończona przez maksymalną przepływność maszyny wirtualnej, która została zainicjowana. Jeśli ta kwota wynosi 100%, aplikacja będzie działać w ramach operacji we/wy ograniczonej do limitu przepustowości dla maszyny wirtualnej.
+
+## <a name="storage-io-utilization-metrics-example"></a>Przykład metryk użycia operacji we/wy magazynu
+Uruchommy Przykładowo, jak korzystać z nowych metryk użycia operacji we/wy magazynu, aby pomóc nam w debugowaniu, gdzie wąskie gardło w naszym systemie. Konfiguracja systemu ma dokładne znaczenie w poprzednim przykładzie, z wyjątkiem tego, że ten dysk systemu operacyjnego, który został dołączony, **nie** jest buforowany.
+
+Konfiguracja:
+- Standardowa_D8s_v3 
+    - Buforowane operacje we/wy: 16 000
+    - Liczba IOPS niebuforowanych w pamięci podręcznej: 12 800
+- Dysk systemu operacyjnego P30 
+    - OPERACJE WE/WY: 5 000
+    - Buforowanie hosta: wyłączone
+- 2 P30 dyski danych X 2
+    - OPERACJE WE/WY: 5 000
+    - Buforowanie hosta: odczyt/zapis
+- 2 P30 dyski danych X 2
+    - OPERACJE WE/WY: 5 000
+    - Buforowanie hosta: wyłączone
 

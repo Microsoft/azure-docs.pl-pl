@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824683"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017526"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metryki dla usługi Azure NetApp Files
 
@@ -86,6 +86,9 @@ Azure NetApp Files udostępnia metryki przydziału magazynu, rzeczywistego użyc
 
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Metryki replikacji woluminów
+
+> [!NOTE] 
+> Rozmiar transferu sieciowego (na przykład metryki *łącznego transferu woluminu* ) mogą różnić się od woluminów źródłowych i docelowych replikacji między regionami. Takie zachowanie jest przyczyną wydajnego aparatu replikacji używanego do minimalizowania kosztu transferu sieciowego.
 
 - *Kondycja stanu replikacji woluminu*   
     Warunek relacji replikacji. Prawidłowy stan jest wskazywany przez `1` . Stan złej kondycji jest wskazywany przez `0` .

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77925932"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018648"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Zapora aplikacji sieci Web (WAF) z listami wykluczeń usługi front-drzwi 
 
@@ -45,6 +45,17 @@ Można określić dokładny nagłówek żądania, treść, plik cookie lub dopas
 Nazwy nagłówków i plików cookie nie uwzględniają wielkości liter.
 
 Listę wykluczeń można zastosować do wszystkich reguł w ramach zarządzanego zestawu reguł, do reguł dla określonej grupy reguł lub do jednej reguły, jak pokazano w poprzednim przykładzie. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definiowanie wykluczeń na podstawie dzienników zapory aplikacji sieci Web
+ [Monitorowanie i rejestrowanie zapory aplikacji sieci Web platformy Azure](waf-front-door-monitor.md) przedstawia dopasowane szczegóły zablokowanego żądania. Jeśli wartość nagłówka, wartość pliku cookie, wartość argumentu post lub wartość argumentu zapytania są wynikami fałszywie dodatnich dla niektórych reguł, można wykluczać tę część żądania z zasady. W poniższej tabeli przedstawiono przykładowe wartości z dzienników WAF i odpowiadające im warunki wykluczenia.
+
+|matchVariableName z dzienników WAF    |Wykluczanie reguły w portalu|
+|--------|------|
+|CookieValue: SOME_NAME  |Nazwa pliku cookie żądania jest równa SOME_NAME|
+|HeaderValue: SOME_NAME  |Nazwa nagłówka żądania jest równa SOME_NAME|
+|PostParamValue: SOME_NAME|  Nazwa argumentów post treści żądania jest równa SOME_NAME|
+|QueryParamValue: SOME_NAME| Nazwa argumentów ciągu zapytania jest równa SOME_NAME|
+
 
 ## <a name="next-steps"></a>Następne kroki
 

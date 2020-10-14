@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89267619"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019866"
 ---
 # <a name="azure-media-services-v3-overview"></a>Omówienie usługi Azure Media Services w wersji 3
 
@@ -33,7 +33,7 @@ Azure Media Services to oparta na chmurze platforma umożliwiająca tworzenie ro
 Zestawy SDK Media Services V3 są oparte na [specyfikacji Media Services v3 openapi (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Obecnie możesz użyć [Azure Portal](https://portal.azure.com/) do: Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services [v3, Wyświetl](assets-concept.md)(nie Zarządzaj) v3, [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Obecnie możesz użyć [Azure Portal](https://portal.azure.com/) do: Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services [v3, Wyświetl](assets-concept.md)(nie Zarządzaj) v3, [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

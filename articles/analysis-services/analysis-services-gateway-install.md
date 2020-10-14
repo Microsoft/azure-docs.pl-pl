@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438959"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016182"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalowanie i konfigurowanie bramy danych lokalnych
 
@@ -48,13 +48,13 @@ Aby dowiedzieć się więcej o tym, jak Azure Analysis Services współpracuje z
 
  [Pobierz bramę](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a>Instalowanie
+## <a name="install"></a>Zainstaluj
 
 1. Uruchom Instalatora.
 
 2. Wybierz pozycję **lokalna Brama danych**.
 
-   ![Wybierz](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![Wybierz pozycję](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. Wybierz lokalizację, zaakceptuj warunki, a następnie kliknij przycisk **Instaluj**.
 
@@ -132,7 +132,7 @@ Po zainstalowaniu i zarejestrowaniu bramy musisz utworzyć zasób bramy na platf
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Użyj [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) , aby pobrać identyfikator zasobu bramy. Następnie połącz zasób bramy z istniejącym lub nowym serwerem przez określenie opcji **-GatewayResourceID** w [poleceniem Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) lub [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Użyj [Get-AzResource](/powershell/module/az.resources/get-azresource) , aby pobrać identyfikator zasobu bramy. Następnie połącz zasób bramy z istniejącym lub nowym serwerem przez określenie opcji **-GatewayResourceID** w [poleceniem Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) lub [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 Aby uzyskać identyfikator zasobu bramy:
 

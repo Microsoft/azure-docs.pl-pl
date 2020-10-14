@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598285"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016829"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services może służyć do kodowania wielu formatów plik
 W Media Services [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) (Origin) reprezentuje dynamiczny (just-in-Time) pakiet i pierwotną usługę, która umożliwia dostarczanie zawartości na żywo i na żądanie bezpośrednio do aplikacji odtwarzacza klienckiego. Używa jednego z popularnych protokołów multimediów przesyłania strumieniowego, które wymieniono w poniższej sekcji. *Dynamiczne pakowanie* to funkcja, która jest standardem dla wszystkich punktów końcowych przesyłania strumieniowego.
 
 > [!NOTE]
-> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Aby przygotować pliki źródłowe do dostarczenia
 
@@ -88,7 +88,7 @@ W poniższych krokach przedstawiono typowy przepływ pracy przesyłania strumien
 1. [Przekaż plik wejściowy](job-input-from-http-how-to.md) , taki jak MP4, QUICKTIME/MOV lub inny obsługiwany format pliku. Ten plik jest również określany jako plik Mezzanine lub source. Aby zapoznać się z listą obsługiwanych formatów, zobacz [formaty obsługiwane przez koder standardowy](media-encoder-standard-formats.md).
 1. [Koduj](#encode-to-adaptive-bitrate-mp4s) plik Mezzanine do zestawu H. 264/AAC MP4 z adaptacyjną szybkością transmisji bitów.
 
-    Jeśli masz już zakodowane pliki i chcesz skopiować i przesłać strumieniowo pliki, użyj: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) i [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. W wyniku tego zostanie utworzony nowy plik MP4 z manifestem przesyłania strumieniowego (plik. ISM).
+    Jeśli masz już zakodowane pliki i chcesz skopiować i przesłać strumieniowo pliki, użyj: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) i [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) API. W wyniku tego zostanie utworzony nowy plik MP4 z manifestem przesyłania strumieniowego (plik. ISM).
 1. Opublikuj element wyjściowy z adaptacyjną szybkością transmisji bitów. Publikujesz, tworząc [lokalizator przesyłania strumieniowego](streaming-locators-concept.md).
 1. Tworzenie adresów URL przeznaczonych dla różnych formatów (HLS, MPEG-KRESKa i Smooth Streaming). *Punkt końcowy przesyłania strumieniowego* zajmie się zachowaniem prawidłowego manifestu i żądań dla wszystkich tych formatów.
     

@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: c34eb87cfc43bbdab051bf4c2527bfa75295cf6c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b171688fa4dbff8d05b3ba03e4e4bd29028983be
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825043"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016148"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki Start: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Gdzie: | Opis |
 > |---------|---------|
 > | `clientId` | Identyfikator aplikacji z aplikacji zarejestrowanej w witrynie *portal.azure.com* |
-> | `authority` | Punkt końcowy platformy tożsamości firmy Microsoft. W większości przypadków będzie to *https://login.microsoftonline.com/common* |
+> | `authority` | Punkt końcowy platformy tożsamości firmy Microsoft. W większości przypadków będzie to `https://login.microsoftonline.com/common` |
 > | `redirectUri` | Identyfikator URI przekierowania aplikacji. Można przekazać element "Nil", aby używał wartości domyślnej, lub niestandardowego identyfikatora URI przekierowania. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Tylko dla systemu iOS, dodatkowe wymagania dotyczące aplikacji

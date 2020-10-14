@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: df4b94702d14278a3279c504f52f46b922859db8
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822817"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018750"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -92,6 +92,19 @@ Aby uzyskać więcej informacji na temat sposobu uruchamiania App Service i twor
 > [!NOTE]
 > Zawsze używaj ścieżek względnych we wszystkich skryptach przed i po kompilacji, ponieważ kontener kompilacji, w którym działa Oryx, różni się od kontenera środowiska uruchomieniowego, w którym działa aplikacja. Nigdy nie należy polegać na dokładnym umieszczeniu folderu projektu aplikacji w kontenerze (na przykład, że znajduje się on w obszarze *site/wwwroot*).
 
+## <a name="production-settings-for-django-apps"></a>Ustawienia produkcyjne dla aplikacji Django
+
+Dla środowiska produkcyjnego, takiego jak Azure App Service, aplikacje Django powinny postępować zgodnie z [listą kontrolną wdrożenia](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) Django (djangoproject.com).
+
+W poniższej tabeli opisano ustawienia produkcyjne odpowiednie dla platformy Azure. Te ustawienia są zdefiniowane w pliku *Setting.py* aplikacji.
+
+| Ustawienie Django | Instrukcje dotyczące platformy Azure |
+| --- | --- |
+| `SECRET_KEY` | Zapisz wartość w ustawieniu App Service zgodnie z opisem w temacie [dostęp do ustawień aplikacji jako zmiennych środowiskowych](#access-app-settings-as-environment-variables). Możesz również [przechowywać wartości jako "tajne" w Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `DEBUG` | Utwórz `DEBUG` ustawienie na App Service z wartością 0 (false), a następnie załaduj wartość jako zmienną środowiskową. W środowisku deweloperskim Utwórz `DEBUG` zmienną środowiskową o wartości 1 (true). |
+| `ALLOWED_HOSTS` | W środowisku produkcyjnym Django wymaga dołączenia adresu URL aplikacji w `ALLOWED_HOSTS` tablicy *Settings.py*. Ten adres URL można pobrać w czasie wykonywania przy użyciu kodu, `os.environ['WEBSITE_HOSTNAME']` . App Service automatycznie ustawia `WEBSITE_HOSTNAME` zmienną środowiskową na adres URL aplikacji. |
+| `DATABASES` | Zdefiniuj ustawienia w App Service dla połączenia z bazą danych i załaduj je jako zmienne środowiskowe w celu wypełnienia [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) słownika. Można na przykład zapisywać wartości (zwłaszcza nazwę użytkownika i hasło) jako Azure Key Vault wpisy [tajne](/azure/key-vault/secrets/quick-create-python). |
+
 ## <a name="container-characteristics"></a>Właściwości kontenera
 
 Po wdrożeniu w celu App Service aplikacje języka Python działają w kontenerze platformy Docker systemu Linux, który jest zdefiniowany w [repozytorium usługi GitHub App Service Python](https://github.com/Azure-App-Service/python). Konfiguracje obrazów można znaleźć w katalogach specyficznych dla danej wersji.
@@ -109,6 +122,8 @@ Ten kontener ma następujące cechy:
 
     Aby można było zainstalować zależności, plik *requirements.txt* *musi* znajdować się w katalogu głównym projektu. W przeciwnym razie proces kompilacji zgłosi błąd: "nie można znaleźć setup.py lub requirements.txt; Nie uruchomiono instalacji PIP ". Jeśli wystąpi ten błąd, Sprawdź lokalizację pliku wymagań.
 
+- App Service automatycznie definiuje zmienną środowiskową o nazwie `WEBSITE_HOSTNAME` przy użyciu adresu URL aplikacji sieci Web, na przykład `msdocs-hello-world.azurewebsites.net` . Definiuje również `WEBSITE_SITE_NAME` nazwę aplikacji, na przykład `msdocs-hello-world` . 
+   
 ## <a name="container-startup-process"></a>Proces uruchamiania kontenera
 
 Podczas uruchamiania kontener usługi App Service w systemie Linux wykonuje następujące kroki:

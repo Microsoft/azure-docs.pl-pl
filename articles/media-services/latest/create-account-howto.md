@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49cac230363750e481e165712bf4f619e5cba7ae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267976"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017849"
 ---
 # <a name="create-a-media-services-account"></a>Tworzenie konta usługi Media Services
 
@@ -47,7 +47,7 @@ Obecnie można użyć [Azure Portal](https://portal.azure.com/) , aby:
 * Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj), 
 * [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). 
 
-W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/accountfilters), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 <!-- Move this section. This section should be moved to conceptual.  It doesn't belong in task based -->
 
 ### <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Użyj Azure Portal, aby utworzyć konto Media Services

@@ -3,19 +3,19 @@ title: Jak skonfigurować kontener dla interfejsu API wykrywania anomalii
 titleSuffix: Azure Cognitive Services
 description: Środowisko uruchomieniowe kontenera interfejsu API wykrywania anomalii jest konfigurowane przy użyciu `docker run` argumentów polecenia. Ten kontener ma kilka wymaganych ustawień oraz kilka opcjonalnych ustawień.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
-ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903533"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019753"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurowanie kontenerów narzędzia do wykrywania anomalii
 
@@ -27,10 +27,10 @@ Ten kontener ma następujące ustawienia konfiguracji:
 
 |Wymagane|Ustawienie|Przeznaczenie|
 |--|--|--|
-|Tak|[ApiKey](#apikey-configuration-setting)|Służy do śledzenia informacji dotyczących rozliczeń.|
+|Yes|[ApiKey](#apikey-configuration-setting)|Służy do śledzenia informacji dotyczących rozliczeń.|
 |Nie|[ApplicationInsights](#applicationinsights-setting)|Umożliwia dodanie obsługi telemetrii [usługi Azure Application Insights](https://docs.microsoft.com/azure/application-insights) do kontenera.|
-|Tak|[Rozliczenia](#billing-configuration-setting)|Określa identyfikator URI punktu końcowego zasobu usługi na platformie Azure.|
-|Tak|[Umowy](#eula-setting)| Wskazuje, że licencja dla kontenera została zaakceptowana.|
+|Yes|[Rozliczenia](#billing-configuration-setting)|Określa identyfikator URI punktu końcowego zasobu usługi na platformie Azure.|
+|Yes|[Umowy](#eula-setting)| Wskazuje, że licencja dla kontenera została zaakceptowana.|
 |Nie|[Pozostało](#fluentd-settings)|Zapisz dziennik i, opcjonalnie, dane metryki na serwerze z systemem.|
 |Nie|[Serwer proxy http](#http-proxy-credentials-settings)|Skonfiguruj serwer proxy HTTP do wykonywania żądań wychodzących.|
 |Nie|[Rejestrowanie](#logging-settings)|Zapewnia obsługę rejestrowania ASP.NET Core dla kontenera. |
@@ -90,8 +90,8 @@ Dokładna składnia lokalizacji instalacji hosta różni się w zależności od 
 
 |Opcjonalne| Nazwa | Typ danych | Opis |
 |-------|------|-----------|-------------|
-|Niedozwolone| `Input` | Ciąg | Kontenery wykrywania anomalii nie używają tego.|
-|Opcjonalne| `Output` | Ciąg | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Niedozwolone| `Input` | String | Kontenery wykrywania anomalii nie używają tego.|
+|Opcjonalne| `Output` | String | Obiekt docelowy instalacji wyjściowej. Wartość domyślna to `/output`. Jest to lokalizacja dzienników. Dotyczy to również dzienników kontenerów. <br><br>Przykład:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Przykładowe polecenia uruchamiania platformy Docker 
 

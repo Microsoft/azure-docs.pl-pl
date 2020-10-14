@@ -3,12 +3,12 @@ title: Analizuj wideo na żywo dzięki usłudze Live Video Analytics na IoT Edge
 description: Dowiedz się, w jaki sposób używać Custom Vision do kompilowania modelu kontenera, który może wykryć wózek i korzystać z rozszerzalności na żywo wideo w usłudze IoT Edge (LVA) w celu wdrożenia modelu na krawędzi na potrzeby wykrywania wózków zabawki z poziomu strumienia wideo na żywo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 7989b3636fe953b8110e356506a5867fefd2d8b6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e77521765156a13f0675602ffd0b39f78d8957bb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940178"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016795"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Samouczek: analizowanie wideo na żywo za pomocą analizy filmów wideo na żywo na IoT Edge i na platformie Azure Custom Vision
 
@@ -32,12 +32,12 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 Przed rozpoczęciem zaleca się zapoznanie się z następującymi artykułami: 
 
 * [Analiza filmów wideo na żywo na IoT Edge przegląd](overview.md)
-* [Omówienie usługi Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)
+* [Omówienie usługi Azure Custom Vision](../../cognitive-services/custom-vision-service/overview.md)
 * [Analiza filmów wideo na żywo na IoT Edge terminologii](terminology.md)
 * [Koncepcje grafu multimediów](media-graph-concept.md)
 * [Platforma Live Video Analytics bez nagrania wideo](analyze-live-video-concept.md)
 * [Uruchamianie analizy filmów wideo na żywo z własnym modelem](use-your-model-quickstart.md)
-* [Samouczek: opracowywanie modułu IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Samouczek: opracowywanie modułu IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Jak edytować wdrożenie. * .template.jsna](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -64,17 +64,17 @@ W tym samouczku do symulowania strumienia na żywo jest wykorzystywany plik wide
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Przegląd Custom Vision":::
 
 Ten diagram przedstawia sposób przepływu sygnałów w tym samouczku. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer Real-Time Streaming Protocol (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) . Ten procesor ogranicza szybkość klatek strumienia wideo, który dociera do węzła [procesora rozszerzenia http](media-graph-concept.md#http-extension-processor) .
-Węzeł rozszerzenia HTTP pełni rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem REST do innego modułu krawędzi, który uruchamia model AI za punktem końcowym HTTP. W tym przykładzie moduł Edge jest modelem wykrywacza samochodów, który został utworzony przy użyciu Custom Vision. Węzeł procesora rozszerzenia HTTP zbiera wyniki wykrywania i publikuje zdarzenia w węźle [ujścia IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub).
+Węzeł rozszerzenia HTTP pełni rolę serwera proxy. Konwertuje ramki wideo na określony typ obrazu. Następnie przekazuje obraz za pośrednictwem REST do innego modułu krawędzi, który uruchamia model AI za punktem końcowym HTTP. W tym przykładzie moduł Edge jest modelem wykrywacza samochodów, który został utworzony przy użyciu Custom Vision. Węzeł procesora rozszerzenia HTTP zbiera wyniki wykrywania i publikuje zdarzenia w węźle [ujścia IoT Hub](media-graph-concept.md#iot-hub-message-sink) . Następnie węzeł wysyła te zdarzenia do [centrum IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Kompilowanie i wdrażanie modelu wykrywania zabawki Custom Vision 
 
 Jak nazwa Custom Vision sugeruje, możesz użyć jej do utworzenia własnego niestandardowego detektora obiektów lub klasyfikatora w chmurze. Zapewnia prosty, łatwy w użyciu i intuicyjny interfejs do tworzenia niestandardowych modeli wzrokowych, które można wdrożyć w chmurze lub na brzegu za pośrednictwem kontenerów. 
 
-Aby można było utworzyć wykrywacz samochodów, zalecamy obserwowanie tego niestandardowego modułu wykrywania obiektów za pośrednictwem artykułu sieci Web [Szybki Start](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) .
+Aby można było utworzyć wykrywacz samochodów, zalecamy obserwowanie tego niestandardowego modułu wykrywania obiektów za pośrednictwem artykułu sieci Web [Szybki Start](../../cognitive-services/custom-vision-service/get-started-build-detector.md) .
 
 Dodatkowe uwagi:
  
-* W tym samouczku nie należy używać przykładowych obrazów podanych w [sekcji wymagań wstępnych](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites)artykułu Szybki Start. Zamiast tego korzystamy z pewnego zestawu obrazów do kompilowania niestandardowego modelu wzrokowego wykrywania zabawki, zalecamy korzystanie z [tych obrazów](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) , gdy zostanie wyświetlony monit o [wybranie obrazów szkoleniowych](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) w przewodniku Szybki Start.
+* W tym samouczku nie należy używać przykładowych obrazów podanych w [sekcji wymagań wstępnych](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites)artykułu Szybki Start. Zamiast tego korzystamy z pewnego zestawu obrazów do kompilowania niestandardowego modelu wzrokowego wykrywania zabawki, zalecamy korzystanie z [tych obrazów](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) , gdy zostanie wyświetlony monit o [wybranie obrazów szkoleniowych](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) w przewodniku Szybki Start.
 * W sekcji obraz Tagowany przewodnika Szybki Start upewnij się, że jest to znakowanie wózka zabawki widocznego na zdjęciu ze znacznikiem — "wózek dostawcze".
 
 Po zakończeniu, jeśli model jest gotowy zgodnie z oczekiwaniami, można go wyeksportować do kontenera Docker za pomocą przycisku Eksportuj na karcie wydajność. Upewnij się, że jako typ platformy kontenera wybrano system Linux. Jest to platforma, na której zostanie uruchomiony kontener. Komputer, na którym pobierany jest kontener, może być w systemie Windows lub Linux. Poniższe instrukcje zostały oparte na pliku kontenera pobranym na komputer z systemem Windows.
@@ -177,7 +177,7 @@ Kolejna seria wywołań czyści zasoby:
     
 ## <a name="interpret-the-results"></a>Interpretacja wyników
 
-Po uruchomieniu grafu multimediów wyniki z węzła procesora rozszerzenia HTTP przechodzą przez węzeł ujścia IoT Hub do centrum IoT Hub. Komunikaty widoczne w oknie danych wyjściowych zawierają sekcję treść i sekcję applicationProperties. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Po uruchomieniu grafu multimediów wyniki z węzła procesora rozszerzenia HTTP przechodzą przez węzeł ujścia IoT Hub do centrum IoT Hub. Komunikaty widoczne w oknie danych wyjściowych zawierają sekcję treść i sekcję applicationProperties. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 W poniższych komunikatach moduł analizy wideo na żywo definiuje właściwości aplikacji i zawartość treści.
 
@@ -313,7 +313,6 @@ Jeśli zamierzasz wypróbować inne samouczki lub Przewodniki Szybki Start, nale
 Zapoznaj się z dodatkowymi wyzwaniami dla zaawansowanych użytkowników:
 
 * Użyj [kamery IP](https://en.wikipedia.org/wiki/IP_camera) , która obsługuje protokół RTSP, zamiast korzystać z symulatora RTSP. Można wyszukać kamery IP obsługujące protokół RTSP na stronie [ONVIF zgodnych](https://www.onvif.org/conformant-products/) produktów. Wyszukaj urządzenia zgodne z profilami G, S lub T.
-* Użyj urządzenia z systemem AMD64 lub x64 zamiast z maszyną wirtualną z systemem Linux systemu Azure. To urządzenie musi znajdować się w tej samej sieci co kamera IP. Można postępować zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). 
+* Użyj urządzenia z systemem AMD64 lub x64 zamiast z maszyną wirtualną z systemem Linux systemu Azure. To urządzenie musi znajdować się w tej samej sieci co kamera IP. Można postępować zgodnie z instrukcjami w temacie [Install Azure IoT Edge Runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). 
 
-Następnie Zarejestruj urządzenie w usłudze Azure IoT Hub, postępując zgodnie z instrukcjami podanymi w temacie [Wdróż swój pierwszy IoT Edge module na wirtualnym urządzeniu z systemem Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+Następnie Zarejestruj urządzenie w usłudze Azure IoT Hub, postępując zgodnie z instrukcjami podanymi w temacie [Wdróż swój pierwszy IoT Edge module na wirtualnym urządzeniu z systemem Linux](../../iot-edge/quickstart-linux.md).

@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229365"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018699"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Samouczek: konfigurowanie ról administratora i użytkowników serwera
 
- W tym samouczku użyjesz programu SQL Server Management Studio (SSMS), aby połączyć się z serwerem na platformie Azure w celu skonfigurowania ról administratora serwera i modelowej bazy danych. Zostaną w nim również przedstawione informacje na temat [języka TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL to język skryptów oparty na notacji JSON, obsługujący modele tabelaryczne na poziomie zgodności 1200 lub wyższym. Może być używany do automatyzacji wielu zadań związanych z modelowaniem tabelarycznym. Język TMSL jest często używany w programie PowerShell, ale w tym samouczku jest używany w edytorze zapytań XMLA w programie SSMS. Podczas pracy z tym samouczkiem wykonasz następujące zadania: 
+ W tym samouczku użyjesz programu SQL Server Management Studio (SSMS), aby połączyć się z serwerem na platformie Azure w celu skonfigurowania ról administratora serwera i modelowej bazy danych. Zostaną w nim również przedstawione informacje na temat [języka TMSL (Tabular Model Scripting Language)](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL to język skryptów oparty na notacji JSON, obsługujący modele tabelaryczne na poziomie zgodności 1200 lub wyższym. Może być używany do automatyzacji wielu zadań związanych z modelowaniem tabelarycznym. Język TMSL jest często używany w programie PowerShell, ale w tym samouczku jest używany w edytorze zapytań XMLA w programie SSMS. Podczas pracy z tym samouczkiem wykonasz następujące zadania: 
   
 > [!div class="checklist"]
 > * Uzyskiwanie nazwy serwera z portalu
@@ -33,7 +33,7 @@ Aby dowiedzieć się więcej na temat bezpieczeństwa użytkownika w usłudze Az
 - [Serwer usług Azure Analysis Services](../analysis-services-create-server.md) utworzony w ramach subskrypcji.
 - Uprawnienia [administratora serwera](../analysis-services-server-admins.md).
 - [Przykładowy model adventureworks](../analysis-services-create-sample-model.md) dodany do serwera.
-- [Zainstalowana najnowsza wersja programu SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+- [Zainstalowana najnowsza wersja programu SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -52,7 +52,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 1. W programie SSMS wybierz pozycję **Eksplorator obiektów**, a następnie kliknij pozycję **Połącz** > **Analysis Services**.
 
-    ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Połącz](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. W oknie dialogowym **Połączenie z serwerem** w polu **Nazwa serwera** skopiuj i wklej nazwę serwera skopiowaną z portalu. W polu **Uwierzytelnianie** wybierz pozycję **Active Directory — Uniwersalne z obsługą uwierzytelniania wieloskładnikowego**, a następnie wprowadź nazwę konta użytkownika i naciśnij przycisk **Połącz**.
    
@@ -82,7 +82,7 @@ W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do 
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Dodawanie użytkownika do roli administratora modelowej bazy danych
 
-W tym zadaniu dodasz konto użytkownika lub konto grupowe do roli administratora sprzedaży internetowej, która już istnieje w modelu. Ta rola posiada uprawnienia pełnej kontroli (administratora) dla przykładowej bazy danych adventureworks. W tym zadaniu używane jest polecenie języka TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl), zawarte w gotowym skrypcie.
+W tym zadaniu dodasz konto użytkownika lub konto grupowe do roli administratora sprzedaży internetowej, która już istnieje w modelu. Ta rola posiada uprawnienia pełnej kontroli (administratora) dla przykładowej bazy danych adventureworks. W tym zadaniu używane jest polecenie języka TMSL [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl), zawarte w gotowym skrypcie.
 
 1. W **Eksploratorze obiektów** rozwiń pozycję **Bazy danych** > **adventureworks** > **Role**. 
 2. Kliknij prawym przyciskiem myszy pozycję **Administrator sprzedaży internetowej**, a następnie kliknij pozycję **Rola skryptu jako** > **UTWÓRZ LUB ZAMIEŃ na** > **Nowe okno edytora zapytań**.
@@ -98,7 +98,7 @@ W tym zadaniu dodasz konto użytkownika lub konto grupowe do roli administratora
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Dodawanie nowej roli modelowej bazy danych i dodawanie użytkownika lub grupy
 
-W tym zadaniu użyjesz polecenia [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) w skrypcie TMSL, aby utworzyć nową globalną rolę sprzedaży internetowej, wybierzesz uprawnienia do *odczytu* dla tej roli i dodasz do niej konto użytkownika lub grupy z usługi Azure AD.
+W tym zadaniu użyjesz polecenia [Create](/analysis-services/tmsl/create-command-tmsl) w skrypcie TMSL, aby utworzyć nową globalną rolę sprzedaży internetowej, wybierzesz uprawnienia do *odczytu* dla tej roli i dodasz do niej konto użytkownika lub grupy z usługi Azure AD.
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy pozycję **adventureworks**, a następnie kliknij polecenie **Nowe zapytanie** > **XMLA**. 
 2. Skopiuj i wklej poniższy skrypt języka TMSL w edytorze zapytań:
@@ -144,4 +144,3 @@ W tym samouczku przedstawiono sposób łączenia się z serwerem Azure AD i prac
 
 > [!div class="nextstepaction"]
 > [Samouczek: nawiązywanie połączenia za pomocą programu Power BI Desktop](analysis-services-tutorial-pbid.md)
-

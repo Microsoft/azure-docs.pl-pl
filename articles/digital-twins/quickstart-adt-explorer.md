@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 2022a7448767b7ffea7baa70606a7f59e6d93951
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9531a812d60c6e5a60ff0a0936fafde4a77e5a67
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952028"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017050"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Przewodnik Szybki Start — Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
 Za pomocą usługi Azure Digital bliźniaczych reprezentacji można tworzyć i korzystać z modeli na żywo w rzeczywistych środowiskach. W tym celu należy modelować poszczególne elementy jako **bliźniaczych reprezentacji cyfrowe**, a następnie połączyć je z **grafem** wiedzy, który może reagować na zdarzenia na żywo i uzyskać zapytanie o informacje.
 
-W tym przewodniku szybki start zobaczysz wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji z pomocą przykładowej aplikacji o nazwie [**Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Eksplorator ADT umożliwia przekazywanie scenariusza, wyświetlanie wizualnych reprezentacji bliźniaczych reprezentacji i grafów oraz wykonywanie innych działań związanych z zarządzaniem za pośrednictwem przeglądarki i środowiska wizualnego.
+W tym przewodniku szybki start zobaczysz wstępnie utworzony Graf usługi Azure Digital bliźniaczych reprezentacji z pomocą przykładowej aplikacji o nazwie [**Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Eksplorator ADT umożliwia przekazywanie cyfrowych reprezentacji środowiska, wyświetlanie obrazów wizualnych bliźniaczych reprezentacji i grafów, które są tworzone w celu reprezentowania środowiska w usłudze Azure Digital bliźniaczych reprezentacji i wykonywanie innych działań związanych z zarządzaniem za pośrednictwem przeglądarki i środowiska wizualnego.
 
 Przewodnik Szybki Start zawiera następujące główne kroki:
 
@@ -307,7 +307,7 @@ W tym przewodniku szybki start utworzono wystąpienie usługi Azure Digital bli�
 Następnie zbadasz wykres, przez...
 1. Korzystanie z zapytania, aby odpowiedzieć na pytanie dotyczące scenariusza.
 2. Edytowanie właściwości w dwucyfrowej formie dwuosiowej.
-    * Ponownie uruchomić zapytanie, aby zobaczyć, jak zmieniono odpowiedź w wyniku aktualizacji.
+3. Ponownie uruchomić zapytanie, aby zobaczyć, jak zmieniono odpowiedź w wyniku aktualizacji.
 
 Celem tego ćwiczenia jest zademonstrowanie, jak można użyć grafu Digital bliźniaczych reprezentacji na potrzeby odpowiedzi na pytania dotyczące środowiska, nawet w przypadku zmiany środowiska. 
 

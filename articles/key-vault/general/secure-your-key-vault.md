@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842839"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019889"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -79,7 +79,7 @@ Utwórz magazyn kluczy w grupie zasobów i Zarządzaj dostępem za pomocą usłu
 
 Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola nie spełnia Twoich potrzeb, możesz zdefiniować własną rolę. Aby uzyskać więcej informacji, zobacz [Role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md). 
 
-Musisz mieć `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` uprawnienia i uprawnień, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+Musisz mieć `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` uprawnienia i uprawnień, takie jak [administrator dostępu użytkowników](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub [właściciel](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 > [!IMPORTANT]
 > Jeśli użytkownik ma `Contributor` uprawnienia do płaszczyzny zarządzania magazynu kluczy, użytkownik może udzielić sobie dostępu do płaszczyzny danych przez ustawienie zasad dostępu Key Vault. Należy ściśle kontrolować, kto ma `Contributor` dostęp do roli do Twoich magazynów kluczy. Upewnij się, że tylko autoryzowani osoby mają dostęp do magazynów kluczy, kluczy, wpisów tajnych i certyfikatów oraz nimi zarządzać.

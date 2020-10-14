@@ -6,12 +6,12 @@ ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 42200fe61b0ac73a63b9f8a3317687fac60c5c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88078584"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018342"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki Start: Tworzenie i wypychanie obrazów kontenera Java do Azure Container Registry
 
@@ -20,7 +20,7 @@ Ten przewodnik Szybki Start przedstawia sposób tworzenia aplikacji w języku Ja
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial).
-* [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview).
+* [Interfejs Azure Command-Line Interface (CLI)](/cli/azure/overview).
 * Obsługiwany zestaw Java Development Kit (JDK). Aby uzyskać więcej informacji na temat zestawów JDK dostępnych do użycia podczas tworzenia aplikacji na platformie Azure, zobacz <https://aka.ms/azure-jdks>.
 * Narzędzie kompilacji [Maven](http://maven.apache.org) firmy Apache (wersja 3 lub nowsza).
 * Klient usługi [Git](https://git-scm.com).
@@ -177,5 +177,5 @@ Więcej informacji można znaleźć w następujących zasobach:
 * [Praca z narzędziami Azure DevOps i językiem Java](/azure/devops/java)
 * [Spring Boot na platformie Docker — Wprowadzenie](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin) (Wdrażanie aplikacji Spring Boot w usłudze Azure App Service)
+* [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux#configure-maven-to-build-image-to-your-azure-container-registry) (Wdrażanie aplikacji Spring Boot w usłudze Azure App Service)
 * [Używanie niestandardowego obrazu Docker dla usługi Azure Web App w systemie Linux](../app-service/tutorial-custom-container.md)

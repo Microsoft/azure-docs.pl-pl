@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540731"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019090"
 ---
 # <a name="refresh-with-logic-apps"></a>Odświeżanie za pomocą usługi Logic Apps
 
@@ -74,7 +74,7 @@ Skonfiguruj działanie HTTP w następujący sposób:
 |**Grupy odbiorców**     |https://*. asazure. Windows. NET         |
 |**Identyfikator klienta**     |Wprowadź nazwę główną usługi ClientID         |
 |**Typ poświadczeń**     |Wpis tajny         |
-|**Wpis tajny**     |Wprowadź klucz tajny nazwy głównej usługi         |
+|**Wpisu**     |Wprowadź klucz tajny nazwy głównej usługi         |
 
 Przykład:
 
@@ -117,4 +117,4 @@ Zapisz aplikację logiki.
 ## <a name="next-steps"></a>Następne kroki
 
 [Samples](analysis-services-samples.md)  
-[Interfejs API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[Interfejs API REST](/rest/api/analysisservices/servers)

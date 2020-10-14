@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: fe9b0e9d2e2e46c7c4d04549777a5c27df6bdf18
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940110"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019379"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 
@@ -72,7 +72,7 @@ Sklonuj https://github.com/Azure/azureml-sdk-for-r repozytorium GitHub, aby uzys
 
 1. W programie RStudio przejdź do karty "Terminal" i CD do katalogu, w którym chcesz sklonować repozytorium.
 
-1. Uruchom w terminalu "klonowanie git https://github.com/Azure/azureml-sdk-for-r ", aby sklonować repozytorium.
+1. Uruchom `git clone https://github.com/Azure/azureml-sdk-for-r` w terminalu, aby sklonować repozytorium.
 
 1. W RStudio przejdź do folderu *vignettes* w sklonowanym folderze *Azure-SDK-for-r* .  W obszarze *vignettes*wybierz *kolejno pozycje uczenie i wdrażanie-pierwszy-model. RMD* plik, aby znaleźć Vignette używany w tym samouczku. Dodatkowe pliki używane dla Vignette znajdują się w podfolderze *pociąg-and-Deploy-First-model* . Po otwarciu Vignette Ustaw katalog roboczy na lokalizację pliku za pośrednictwem **sesji > ustaw > katalog roboczy na lokalizację pliku źródłowego**. 
 

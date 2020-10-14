@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 950447aa146f05714b6ec5ea3d6e47c368a2140e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46805427e6d00e858cf869eef68bf68549f57fb9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229314"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018121"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Samouczek: nawiązywanie połączenia za pomocą programu Power BI Desktop
 
@@ -70,4 +70,4 @@ Skopiuj nazwę serwera z **portalu Azure** > serwer > **Omówienie** > **Nazwa s
 Jeśli raport nie będzie już potrzebny, nie zapisuj go lub usuń pliki, jeśli raport został już zapisany.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku przedstawiono sposób użycia programu Power BI Desktop do nawiązywania połączenia z modelem danych na serwerze i tworzenia podstawowego raportu. Jeśli nie znasz sposobu tworzenia modelu danych, zapoznaj się z [samouczkiem dotyczącym modelowania danych tabelarycznych sprzedaży internetowej firmy Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) w dokumentacji SQL Server Analysis Services.
+W tym samouczku przedstawiono sposób użycia programu Power BI Desktop do nawiązywania połączenia z modelem danych na serwerze i tworzenia podstawowego raportu. Jeśli nie znasz sposobu tworzenia modelu danych, zapoznaj się z [samouczkiem dotyczącym modelowania danych tabelarycznych sprzedaży internetowej firmy Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) w dokumentacji SQL Server Analysis Services.

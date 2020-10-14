@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651756"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019838"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 a v3
 
@@ -74,7 +74,7 @@ W tym artykule opisano zmiany wprowadzone w Azure Media Services v3 i przedstawi
 
 Interfejs API v3 ma następujące luki w odniesieniu do interfejsu API w wersji 2. Zamknięcie przerw jest w toku.
 
-* [Koder w warstwie Premium](../previous/media-services-premium-workflow-encoder-formats.md) i starsze [procesory analizy multimediów](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 — wersja zapoznawcza, Front redactor itp.) nie są dostępne za pośrednictwem wersji 3.<br/>Klienci, którzy chcą przeprowadzić migrację z Media Indexer 1 lub 2 wersji zapoznawczej, mogą natychmiast użyć ustawień wstępnych AudioAnalyzer w interfejsie API v3.  To nowe ustawienie wstępne zawiera więcej funkcji niż starszy Media Indexer 1 lub 2. 
+* [Koder w warstwie Premium](../previous/media-services-encode-asset.md) i starsze [procesory analizy multimediów](../previous/legacy-components.md) (Azure Media Services Indexer 2 — wersja zapoznawcza, Front redactor itp.) nie są dostępne za pośrednictwem wersji 3.<br/>Klienci, którzy chcą przeprowadzić migrację z Media Indexer 1 lub 2 wersji zapoznawczej, mogą natychmiast użyć ustawień wstępnych AudioAnalyzer w interfejsie API v3.  To nowe ustawienie wstępne zawiera więcej funkcji niż starszy Media Indexer 1 lub 2. 
 * Wiele [zaawansowanych funkcji Media Encoder standard w](../previous/media-services-advanced-encoding-with-mes.md) interfejsie API v2 nie są obecnie dostępne w wersji 3, na przykład:
   
     * Łączenie elementów zawartości

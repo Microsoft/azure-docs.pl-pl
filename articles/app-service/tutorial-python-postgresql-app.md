@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: cfc4341e4b3f0c894f9440b4910c3f8bec7326d1
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929782"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019413"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -114,7 +114,7 @@ Przykład jest również modyfikowany do uruchamiania w środowisku produkcyjnym
 - Ustawienia produkcyjne znajdują się w pliku *azuresite/Production. PR* . Szczegóły dotyczące programowania znajdują się w *azuresite/Settings. PR*.
 - Aplikacja używa ustawień produkcyjnych, gdy `DJANGO_ENV` zmienna środowiskowa jest ustawiona na "produkcja". Tę zmienną środowiskową utworzysz w dalszej części tego samouczka wraz z innymi osobami używanymi do konfiguracji bazy danych PostgreSQL.
 
-Te zmiany są specyficzne dla konfigurowania Django do uruchamiania w dowolnym środowisku produkcyjnym i nie są szczególnie App Service. Aby uzyskać więcej informacji, zobacz [Lista kontrolna wdrożenia Django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/).
+Te zmiany są specyficzne dla konfigurowania Django do uruchamiania w dowolnym środowisku produkcyjnym i nie są szczególnie App Service. Aby uzyskać więcej informacji, zobacz [Lista kontrolna wdrożenia Django](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Zobacz również [Ustawienia produkcyjne dla Django na platformie Azure](configure-language-python.md#production-settings-for-django-apps) , aby uzyskać szczegółowe informacje na temat niektórych zmian.
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 

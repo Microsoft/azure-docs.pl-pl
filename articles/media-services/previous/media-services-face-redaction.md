@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a562e31a26cc6cf7188dd635273bd9fa8c57213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5b5759f0a7fff0f76e8c65cbf879fcd06337712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269475"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017203"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy przy użyciu Azure Media Analytics
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Omówienie
-**Azure Media redactor** to procesor Media [Azure Media Analytics](media-services-analytics-overview.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media redactor** to procesor Media [Azure Media Analytics](./legacy-components.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Ten artykuł zawiera szczegółowe informacje dotyczące **Azure Media redactor** i pokazuje, jak używać go z zestawem SDK Media Services dla platformy .NET.
 
@@ -377,7 +377,6 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Linki pokrewne
-[Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
+[Omówienie Azure Media Services Analytics](./legacy-components.md)
 
 [Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-

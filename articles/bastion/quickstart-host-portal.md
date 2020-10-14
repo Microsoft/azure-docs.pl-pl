@@ -1,23 +1,23 @@
 ---
 title: 'Szybki Start: Tworzenie hosta bastionu na podstawie maszyny wirtualnej i nawiązywanie połączenia za pośrednictwem prywatnego adresu IP'
 titleSuffix: Azure Bastion
-description: W tym artykule dowiesz się, jak utworzyć hosta usługi Azure bastionu z poziomu maszyny wirtualnej i bezpiecznie połączyć się przy użyciu prywatnego adresu IP.
+description: W tym artykule dotyczącym szybkiego startu dowiesz się, jak utworzyć hosta usługi Azure bastionu z maszyny wirtualnej i bezpiecznie połączyć się przy użyciu prywatnego adresu IP.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0ff85e6ceb6867db417d8d8202ff3281478e5687
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6f451e7b115c00bc7b2cf350e00b9f704ab1d29f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996977"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019056"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Szybki Start: Nawiązywanie połączenia z maszyną wirtualną przy użyciu prywatnego adresu IP i usługi Azure bastionu
 
-Ten artykuł Szybki Start przedstawia sposób nawiązywania połączenia z maszyną wirtualną przy użyciu prywatnego adresu IP za pośrednictwem przeglądarki za pomocą usługi Azure bastionu i Azure Portal. Kroki opisane w tym artykule ułatwiają wdrożenie bastionu w sieci wirtualnej z poziomu maszyny wirtualnej, a następnie nawiązanie połączenia z MASZYNą wirtualną. Korzystanie z zalet tworzenia hosta bastionu dla sieci wirtualnej bezpośrednio z maszyny wirtualnej polega na tym, że wiele ustawień jest wstępnie wypełniona.
+Ten artykuł Szybki Start przedstawia sposób nawiązywania połączenia z maszyną wirtualną za pośrednictwem przeglądarki za pomocą usługi Azure bastionu i Azure Portal. W Azure Portal z maszyny wirtualnej platformy Azure możesz wdrożyć bastionu w sieci wirtualnej. Po wdrożeniu bastionu można nawiązać połączenie z maszyną wirtualną za pośrednictwem swojego prywatnego adresu IP przy użyciu Azure Portal. Maszyna wirtualna nie potrzebuje publicznego adresu IP ani specjalnego oprogramowania. Jedną z zalet tworzenia hosta bastionu dla sieci wirtualnej bezpośrednio z maszyny wirtualnej jest to, że wiele ustawień jest wstępnie wypełniona.
 
 Po aprowizacji usługi środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [co to jest Azure bastionu?](bastion-overview.md).
 
@@ -96,7 +96,7 @@ Gdy skończysz korzystać z sieci wirtualnej i maszyn wirtualnych, Usuń grupę 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Host bastionu dla sieci wirtualnej, a następnie jest on bezpiecznie połączony z maszyną wirtualną za pośrednictwem hosta bastionu.
+W tym przewodniku szybki start utworzono Host bastionu dla sieci wirtualnej, a następnie jest on bezpiecznie połączony z maszyną wirtualną za pośrednictwem hosta bastionu. Aby połączyć się z zestawem skalowania maszyn wirtualnych, możesz przejść do następnego kroku.
 
-* Aby dowiedzieć się więcej o usłudze Azure bastionu, zobacz artykuł [co to jest Azure bastionu?](bastion-overview.md) i [bastionu często zadawane pytania](bastion-faq.md).
-* Aby nawiązać połączenie z zestawem skalowania maszyn wirtualnych, zobacz [nawiązywanie połączenia z zestawem skalowania maszyn wirtualnych przy użyciu usługi Azure bastionu](bastion-connect-vm-scale-set.md).
+> [!div class="nextstepaction"]
+> [Nawiązywanie połączenia z zestawem skalowania maszyn wirtualnych przy użyciu usługi Azure bastionu](bastion-connect-vm-scale-set.md)

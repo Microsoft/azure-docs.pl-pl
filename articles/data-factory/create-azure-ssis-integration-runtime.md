@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: d193438a232cc6bc113efb31ce4276117a366add
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7c3553eee1623ef0e41e01c76f638b64ee46740
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276865"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018219"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska Azure-SSIS Integration Runtime w Azure Data Factory
 
@@ -79,7 +79,7 @@ Aby uzyskać listę regionów świadczenia usługi Azure, w których Data Factor
 
 Poniższa tabela zawiera porównanie niektórych funkcji serwera Azure SQL Database i wystąpienia zarządzanego SQL, które są powiązane z usługą Azure-SSIR IR:
 
-| Cecha | Baza danych SQL| Wystąpienie zarządzane SQL |
+| Cecha | SQL Database| Wystąpienie zarządzane SQL |
 |---------|--------------|------------------|
 | **Planowanie** | Agent SQL Server jest niedostępny.<br/><br/>Zobacz [Planowanie wykonywania pakietu w potoku Data Factory](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Agent wystąpienia zarządzanego jest dostępny. |
 | **Authentication** | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje dowolną grupę usługi Azure AD z zarządzaną tożsamością fabryki danych jako członkiem roli **db_owner** .<br/><br/>Zobacz [Włączanie uwierzytelniania usługi Azure AD, aby utworzyć SSISDB na serwerze Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Można utworzyć wystąpienie SSISDB z użytkownikiem zawartej bazy danych, który reprezentuje zarządzaną tożsamość fabryki danych. <br/><br/>Zobacz [Włączanie uwierzytelniania usługi Azure AD, aby utworzyć SSISDB w wystąpieniu zarządzanym usługi Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
@@ -128,7 +128,7 @@ Na stronie **Ustawienia ogólne** okienka **konfiguracji środowiska Integration
 
    7. W obszarze **oszczędność pieniędzy**wybierz opcję korzyść użycia hybrydowego platformy Azure dla środowiska Integration Runtime: **tak** lub **nie**. Wybierz pozycję **tak** , jeśli chcesz uzyskać własną licencję SQL Server z programem Software Assurance, aby korzystać z oszczędności związanych z użyciem hybrydowej.
 
-   8. Wybierz opcję **Dalej**.
+   8. Wybierz pozycję **Dalej**.
 
 #### <a name="deployment-settings-page"></a>Strona Ustawienia wdrożenia
 
@@ -180,7 +180,10 @@ W okienku **Dodaj magazyn pakietów** wykonaj następujące czynności.
    
    1. W polu **Nazwa magazynu pakietów**wprowadź nazwę swojego magazynu pakietów. 
 
-   1. W przypadku **połączonej usługi magazynu pakietów**wybierz istniejącą połączoną usługę, która przechowuje informacje o dostępie do systemu plików/Azure Files/wystąpienia zarządzanego Azure SQL, w którym są wdrażane pakiety, lub Utwórz nowe, wybierając pozycję **nowe**. W okienku **Nowa połączona usługa** wykonaj następujące czynności. 
+   1. W przypadku **połączonej usługi magazynu pakietów**wybierz istniejącą połączoną usługę, która przechowuje informacje o dostępie do systemu plików/Azure Files/wystąpienia zarządzanego Azure SQL, w którym są wdrażane pakiety, lub Utwórz nowe, wybierając pozycję **nowe**. W okienku **Nowa połączona usługa** wykonaj następujące czynności.
+   
+      > [!NOTE]
+      > Aby uzyskać dostęp do Azure Files, można użyć usług **Azure File Storage** lub połączonych z **systemem plików** . Jeśli używasz połączonej usługi **Azure File Storage** , magazyn pakietów Azure-SSIS IR obsługuje teraz tylko **podstawowy** (nie **klucz konta** ani **Identyfikator URI sygnatury dostępu współdzielonego**). Aby korzystać z uwierzytelniania **podstawowego** na **platformie Azure File Storage** połączonej usłudze, możesz dołączyć `?feature.upgradeAzureFileStorage=false` do adresu URL portalu ADF w przeglądarce. Alternatywnie możesz użyć połączonej usługi **plików** , aby uzyskać dostęp do Azure Files zamiast tego. 
 
       ![Ustawienia wdrażania dla połączonych usług](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -356,7 +359,7 @@ $AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, whereas 
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info: Standard/express custom setups
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 # Virtual network info: Classic or Azure Resource Manager
 $VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 $SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
@@ -577,6 +580,16 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
     }
+    if($ExpressCustomSetup -eq "CData.Standard")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "CData.Extended")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }    
     # Create an array of one or more express custom setups
     $setups = New-Object System.Collections.ArrayList
     $setups.Add($setup)
@@ -669,7 +682,7 @@ $AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, whereas 
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info: Standard/express custom setups
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 # Virtual network info: Classic or Azure Resource Manager
 $VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 $SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
@@ -843,6 +856,16 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
     }
     if($ExpressCustomSetup -eq "AecorSoft.IntegrationService")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "CData.Standard")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "CData.Extended")
     {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)

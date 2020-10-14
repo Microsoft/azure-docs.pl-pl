@@ -3,13 +3,13 @@ title: Wdróż wystąpienie kontenera przez akcję GitHub
 description: Skonfiguruj akcję GitHub, która automatyzuje kroki do kompilowania, wypychania i wdrażania obrazu kontenera do Azure Container Instances
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: ''
-ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: github-actions-azure
+ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755011"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019192"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 

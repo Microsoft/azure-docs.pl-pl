@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268489"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019617"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 — często zadawane pytania
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Med
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Jakie są ograniczenia Azure Portal dla Media Services v3?
 
-Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać zdarzeniami na żywo v3, wyświetlać zasoby v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. <br/>W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami lub analizowania zawartości v3) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać zdarzeniami na żywo v3, wyświetlać zasoby v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. <br/>W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami lub analizowania zawartości v3) należy użyć [interfejsu API REST](/rest/api/media/accountfilters), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 Jeśli Twoje wideo zostało wcześniej przekazane do konta Media Services przy użyciu interfejsu API Media Services v3 lub zawartość została wygenerowana na podstawie danych wyjściowych na żywo, nie będą wyświetlane przyciski **Koduj**, **Analizuj**ani **Szyfruj** w Azure Portal. Użyj interfejsów API Media Services v3, aby wykonać te zadania.  
 
@@ -163,7 +163,7 @@ Obecnie można użyć [Azure Portal](https://portal.azure.com/) , aby:
 * Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj). 
 * [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). 
 
-W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), interfejsu [wiersza polecenia platformy Azure](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Czy istnieje koncepcja AssetFile w wersji 3?
 

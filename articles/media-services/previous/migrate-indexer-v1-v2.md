@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3da6dd877a94da64f85f093ae98a0b8a109ab2e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6b7c8cbcf6685ca2e781789fc508d005bcb5f88
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255107"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018903"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrowanie z Media Indexer i Media Indexer 2 do Video Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-Procesor multimediów [Azure Media Indexer](media-services-index-content.md) i procesory [Azure Media Indexer 2 w wersji zapoznawczej](media-services-process-content-with-indexer2.md) są wycofywane. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
+Procesor multimediów [Azure Media Indexer](media-services-index-content.md) i procesory [Azure Media Indexer 2 w wersji zapoznawczej](./legacy-components.md) są wycofywane. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
 
 Azure Media Services Video Indexer jest oparta na Azure Media Analytics, Wyszukiwanie poznawcze platformy Azure, Cognitive Services (np. interfejs API rozpoznawania twarzy, Microsoft translator, interfejs API przetwarzania obrazów i Custom Speech Service). Umożliwia wyodrębnianie szczegółowych informacji z plików wideo przy użyciu modeli wideo i audio usługi Video Indexer. Aby dowiedzieć się, jakie scenariusze Video Indexer mogą być używane w programie, jakie funkcje oferują i jak zacząć, zobacz [Video Indexer modele wideo i audio](../video-indexer/video-indexer-overview.md). 
 

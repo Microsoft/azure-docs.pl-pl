@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448595"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019141"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
 Za pomocą Azure Automation i elementów Runbook programu PowerShell, można wykonywać automatyczne operacje odświeżania danych w modelach tabelarycznych usługi Azure Analysis.  
 
-W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
+W przykładzie w tym artykule jest wykorzystywany [moduł SqlServer programu PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
 
 ## <a name="authentication"></a>Uwierzytelnianie
 
@@ -104,7 +104,7 @@ Można to skonfigurować w następujący sposób:
 
     ![Konfigurowanie harmonogramu](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Kliknij przycisk **Utwórz**.
+3. Kliknij pozycję **Utwórz**.
 
 4. Wypełnij parametry harmonogramu. Zostaną one użyte przy każdym wyzwoleniu elementu Runbook. Parametr **WEBHOOKDATA** powinien pozostać pusty, gdy jest uruchamiany zgodnie z harmonogramem.
 
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>Następne kroki
 
 [Samples](analysis-services-samples.md)  
-[Interfejs API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[Interfejs API REST](/rest/api/analysisservices/servers)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: df35b48a4da05d068760f0b04394ea53d788000e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269696"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016675"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redagowanie twarzy przy użyciu przewodnika Azure Media Analytics
 
@@ -28,7 +28,7 @@ ms.locfileid: "89269696"
 
 ## <a name="overview"></a>Omówienie
 
-**Azure Media redactor** to procesor Media [Azure Media Analytics](media-services-analytics-overview.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media redactor** to procesor Media [Azure Media Analytics](./legacy-components.md) (MP), który oferuje skalowalne możliwości redakcyjne w chmurze. Redakcja twarzy umożliwia modyfikowanie wideo w celu rozmycia powierzchni wybranych osób. Możesz chcieć użyć usługi redakcyjnej ze stroną w scenariuszach bezpieczeństwa publicznego i mediów informacyjnych. Kilka minut filmu, które zawiera wiele twarzy, może zająć więcej czasu, ale w przypadku tej usługi proces redakcyjny twarzy będzie wymagał zaledwie kilku prostych kroków. Aby uzyskać więcej informacji, zobacz [ten](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 Aby uzyskać szczegółowe informacje na temat  **Azure Media redactor**, zobacz temat [Omówienie redakcji czołowej](media-services-face-redaction.md) .
 
@@ -131,7 +131,7 @@ Jeśli jesteś deweloperem próbującym analizować dane adnotacji JSON, zapozna
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Linki pokrewne
-[Omówienie Azure Media Services Analytics](media-services-analytics-overview.md)
+[Omówienie Azure Media Services Analytics](./legacy-components.md)
 
 [Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

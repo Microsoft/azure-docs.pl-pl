@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187816"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018216"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
 
@@ -151,7 +151,7 @@ Poniżej przedstawiono zalecane podejście:
 Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw używające własnego serwera DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Użyj w pełni kwalifikowanej nazwy domeny (FQDN) dla nazwy hosta prywatnego, np. Użyj zamiast tego `<your_private_server>.contoso.com` `<your_private_server>` , ponieważ Azure-SSIS IR nie będzie automatycznie dołączać własnego sufiksu DNS.
+> Użyj w pełni kwalifikowanej nazwy domeny (FQDN) dla nazwy hosta prywatnego (na przykład użyj `<your_private_server>.contoso.com` zamiast `<your_private_server>` ). Alternatywnie możesz użyć standardowej instalacji niestandardowej na Azure-SSIS IR, aby automatycznie dołączyć swój własny sufiks DNS (na przykład `contoso.com` ) do dowolnej niekwalifikowanej nazwy domeny o pojedynczej etykiecie i przekształcić ją w nazwę FQDN przed użyciem jej w zapytaniach DNS, zobacz [standardowe przykłady instalacji niestandardowej](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples). 
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a> Konfigurowanie sieciowej grupy zabezpieczeń
 Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używanej przez Azure-SSIS IR, Zezwól na ruch przychodzący i wychodzący przez następujące porty: 
@@ -172,7 +172,7 @@ Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używa
 | Outbound | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z sekcją **Korzystanie z usługi Azure ExpressRoute lub UDR** .|
 | Outbound | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. <br/><br/> Ta reguła zabezpieczeń dla ruchu wychodzącego nie ma zastosowania do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany za pomocą prywatnego punktu końcowego. |
 | Outbound | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany przy użyciu prywatnego punktu końcowego. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
-| Outbound | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
+| Outbound | TCP | VirtualNetwork | * | Storage | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Korzystanie z usługi Azure ExpressRoute lub UDR

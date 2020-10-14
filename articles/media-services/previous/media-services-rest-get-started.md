@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c21ddd0aacde277f4cf796f133a3169a69798dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddad462658465c07624f078e20c224750c5180c9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264474"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019481"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu usługi REST
 
@@ -489,7 +489,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>Tworzenie zadania
 Każde zadanie może mieć jedno lub więcej zadań w zależności od typu przetwarzania, które chcesz wykonać. Za pomocą interfejsu API REST można tworzyć zadania i powiązane z nimi zadania na jeden z dwóch sposobów: zadania mogą być definiowane w tekście przy użyciu właściwości Nawigacja zadania w jednostkach zadania lub przez przetwarzanie wsadowe OData. Zestaw SDK Media Services używa przetwarzania wsadowego. Jednak w celu odczytywania przykładów kodu w tym artykule zadania są zdefiniowane w tekście. Aby uzyskać informacje na temat przetwarzania wsadowego, zobacz artykuł [Przetwarzanie wsadowe protokołu Open Data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. Poniższa sekcja dokumentacji zawiera listę wszystkich [ustawień predefiniowanych zadań](/azure/media-services/previous/media-services-mes-presets-overview) obsługiwanych przez procesor Media Encoder Standard.  
+Poniższy przykład pokazuje, jak utworzyć i ogłosić zadanie przy użyciu jednego zestawu zadań do kodowania wideo z określoną rozdzielczością i jakością. Poniższa sekcja dokumentacji zawiera listę wszystkich [ustawień predefiniowanych zadań](./media-services-mes-presets-overview.md) obsługiwanych przez procesor Media Encoder Standard.  
 
 **Żądanie HTTP**
 

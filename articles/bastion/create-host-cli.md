@@ -2,29 +2,29 @@
 title: Tworzenie hosta bastionu przy użyciu interfejsu wiersza polecenia platformy Azure | Azure bastionu
 description: W tym artykule dowiesz się, jak utworzyć i usunąć hosta bastionu
 services: bastion
-author: mialdrid
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/26/2020
-ms.author: mialdrid
-ms.openlocfilehash: 8ee90d80230f9115946525ede325e874e98e358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.author: cherylmc
+ms.openlocfilehash: 851ec86feb5244ff43759a7aef2b80876dcfa734
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90024336"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018546"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Tworzenie hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym artykule opisano sposób tworzenia hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure. Po udostępnieniu usługi Azure bastionu w sieci wirtualnej, bezproblemowe środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej. Wdrożenie usługi Azure bastionu odbywa się na sieć wirtualną, a nie na subskrypcję/konto lub maszynę wirtualną.
+W tym artykule opisano sposób tworzenia hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure. Po wdrożeniu bastionu można nawiązać połączenie z maszyną wirtualną za pomocą swojego prywatnego adresu IP w przeglądarce przy użyciu Azure Portal. Maszyna wirtualna nie potrzebuje publicznego adresu IP, dodatkowego klienta lub specjalnego oprogramowania. Wdrożenie usługi Azure bastionu odbywa się na sieć wirtualną, a nie na subskrypcję/konto lub maszynę wirtualną. Bezproblemowe środowisko RDP/SSH jest dostępne dla wszystkich maszyn wirtualnych w tej samej sieci wirtualnej.
 
-Opcjonalnie można utworzyć hosta usługi Azure bastionu przy użyciu [Azure Portal](bastion-create-host-portal.md)lub [Azure PowerShell](bastion-create-host-powershell.md).
+Opcjonalnie można utworzyć hosta usługi Azure bastionu przy użyciu [Azure Portal](tutorial-create-host-portal.md)lub [Azure PowerShell](bastion-create-host-powershell.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial).
 
-[!INCLUDE [cloudshell cli](../../includes/vpn-gateway-cloud-shell-cli.md)]
+[!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Tworzenie hosta bastionu
 
@@ -53,6 +53,7 @@ Ta sekcja ułatwia tworzenie nowego zasobu usługi Azure bastionu przy użyciu i
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przeczytaj [często zadawane pytania](bastion-faq.md) dotyczące usługi bastionu, aby uzyskać dodatkowe informacje.
+* Nawiąż połączenie z maszyną wirtualną.
+   * [Maszyna wirtualna z systemem Linux](bastion-connect-vm-ssh.md)
+   * [Maszyna wirtualna z systemem Windows](bastion-connect-vm-rdp.md)
 
-* Aby użyć sieciowych grup zabezpieczeń z podsiecią usługi Azure bastionu, zobacz [Work with sieciowych grup zabezpieczeń](bastion-nsg.md).

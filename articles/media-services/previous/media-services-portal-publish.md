@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1f9f1b51ce09577bf17fa4d92273348665987848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f86f7a0a7eaef7c0dc244a2e089596de3779eae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266616"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018971"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publikowanie zawartości w Azure Portal
 
@@ -66,7 +66,7 @@ Aby uzyskać więcej informacji, zobacz [Omówienie dostarczania zawartości](me
 > 
 > 
 
-Aby zaktualizować datę wygaśnięcia lokalizatora, użyj [interfejsu API REST](/rest/api/media/operations/locator#update_a_locator) lub [interfejsu API platformy .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Aby zaktualizować datę wygaśnięcia lokalizatora, użyj [interfejsu API REST](/rest/api/media/operations/locator#update_a_locator) lub [interfejsu API platformy .NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > Po zaktualizowaniu daty wygaśnięcia lokalizatora sygnatury dostępu współdzielonego następuje zmiana adresu URL.

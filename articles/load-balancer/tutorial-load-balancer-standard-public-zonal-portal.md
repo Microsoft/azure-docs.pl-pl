@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df53e3a8d9330c9628e04a1c3ff50534d443ab2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78251905"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019668"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w strefie dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
 
@@ -38,6 +38,10 @@ W tym samouczku utworzysz [wystąpienie usługi Load Balancer w warstwie Standar
 Aby uzyskać więcej informacji o korzystaniu ze stref dostępności usługa Load Balancer w warstwie Standardowa, zobacz [Usługa Load Balancer w warstwie Standardowa i strefy dostępności](load-balancer-standard-availability-zones.md).
 
 Jeśli wolisz, możesz również wykonać czynności przedstawione w tym samouczku przy użyciu [interfejsu wiersza polecenia platformy Azure](load-balancer-standard-public-zonal-cli.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -228,5 +232,6 @@ Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zaso
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [usłudze Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
-- [Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Przejdź do następnego artykułu, aby dowiedzieć się, jak równoważyć obciążenie maszyn wirtualnych w różnych strefach dostępności.
+> [!div class="nextstepaction"]
+> [Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

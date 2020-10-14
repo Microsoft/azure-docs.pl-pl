@@ -8,58 +8,95 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 44942067756f82c224decc218de17bf7dbc69734
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae3f29e6c3b07a837e772466f84d227e35507d32
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89482139"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018937"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Szybki Start: Biblioteka klienta kluczy Azure Key Vault dla języka Python
 
 Rozpocznij pracę z biblioteką klienta Azure Key Vault dla języka Python. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Przy użyciu Key Vault do przechowywania kluczy kryptograficznych można uniknąć przechowywania takich kluczy w kodzie, co zwiększa bezpieczeństwo aplikacji.
 
-[Dokumentacja](/python/api/overview/azure/keyvault-keys-readme?view=azure-python)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys)  |  źródłowy biblioteki [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-keyvault-keys/)
+[Dokumentacja](/python/api/overview/azure/keyvault-keys-readme)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys)  |  źródłowy biblioteki [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-keyvault-keys/)
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Python 2.7 + lub 3.5.3 +](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
+
+W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
 
 ## <a name="set-up-your-local-environment"></a>Konfigurowanie środowiska lokalnego
 
-[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
+Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
-7. Zainstaluj bibliotekę kluczy Key Vault:
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+
+1. Uruchom polecenie `login`.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Jeśli interfejs wiersza polecenia może otworzyć domyślną przeglądarkę, spowoduje to załadowanie strony logowania platformy Azure.
+
+    W przeciwnym razie Otwórz stronę przeglądarki pod adresem [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadź kod autoryzacji wyświetlany w terminalu.
+
+2. Zaloguj się w przeglądarce przy użyciu poświadczeń swojego konta.
+
+### <a name="install-the-packages"></a>Zainstaluj pakiety
+
+1. W terminalu lub wierszu polecenia Utwórz odpowiedni folder projektu, a następnie utwórz i aktywuj środowisko wirtualne języka Python zgodnie z opisem w temacie [Korzystanie z środowisk wirtualnych języka Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+
+1. Zainstaluj bibliotekę tożsamości Azure Active Directory:
+
+    ```terminal
+    pip install azure.identity
+    ```
+
+
+1. Zainstaluj Key Vault kluczową bibliotekę klienta:
 
     ```terminal
     pip install azure-keyvault-keys
     ```
 
-## <a name="create-a-resource-group-and-key-vault"></a>Tworzenie grupy zasobów i magazynu kluczy
+### <a name="create-a-resource-group-and-key-vault"></a>Tworzenie grupy zasobów i magazynu kluczy
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-## <a name="give-the-service-principal-access-to-your-key-vault"></a>Przyznaj jednostce usługi dostęp do magazynu kluczy
+### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Uruchom następujące polecenie [AZ datamagazyn Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) , aby autoryzować nazwę główną usługi do operacji Delete, get, list i Create dla kluczy. 
+Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje poufne uprawnienia do konta użytkownika
 
-# <a name="cmd"></a>[cmd](#tab/cmd)
-
-```azurecli
-az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --key-permissions delete get list create
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-# <a name="bash"></a>[bash](#tab/bash)
+#### <a name="set-environment-variables"></a>Ustawianie zmiennych środowiskowych
 
-```azurecli
-az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --key-permissions delete get list create
+Ta aplikacja używa nazwy magazynu kluczy jako zmiennej środowiskowej o nazwie `KEY_VAULT_NAME` .
+
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
----
-
-To polecenie opiera się na `KEY_VAULT_NAME` `AZURE_CLIENT_ID` zmiennych środowiskowych i utworzonych w poprzednich krokach.
-
-Aby uzyskać więcej informacji, zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](../general/assign-access-policy-cli.md)
+macOS lub Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="create-the-sample-code"></a>Tworzenie przykładowego kodu
 
-Biblioteka klienta Azure Key Vault dla języka Python umożliwia zarządzanie kluczami kryptograficznymi i powiązanymi zasobami, takimi jak certyfikaty i wpisy tajne. Poniższy przykład kodu demonstruje sposób tworzenia klienta, ustawiania wpisu tajnego, pobierania klucza tajnego i usuwania klucza tajnego.
+Biblioteka klienta klucza Azure Key Vault dla języka Python umożliwia zarządzanie kluczami kryptograficznymi. Poniższy przykład kodu demonstruje, jak utworzyć klienta, ustawić klucz, pobrać klucz i usunąć klucz.
 
 Utwórz plik o nazwie *kv_keys. PR* , który zawiera ten kod.
 
@@ -103,14 +140,17 @@ Upewnij się, że kod w poprzedniej sekcji znajduje się w pliku o nazwie *kv_ke
 python kv_keys.py
 ```
 
-- W przypadku wystąpienia błędów uprawnień upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#give-the-service-principal-access-to-your-key-vault).
+- W przypadku wystąpienia błędów uprawnień upewnij się, że uruchomiono [ `az keyvault set-policy` polecenie](#grant-access-to-your-key-vault).
 - Ponowne uruchomienie kodu o tej samej nazwie klucza może spowodować wystąpienie błędu, "(konflikt) klucz <name> jest obecnie w stanie usunięty, ale". Użyj innej nazwy klucza.
 
 ## <a name="code-details"></a>Szczegóły kodu
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-W poprzednim kodzie [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) obiekt używa zmiennych środowiskowych utworzonych dla jednostki usługi. To poświadczenie należy podać za każdym razem, gdy utworzysz obiekt klienta z biblioteki platformy Azure, na przykład [`KeyClient`](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python) wraz z identyfikatorem URI zasobu, z którym chcesz korzystać, za pośrednictwem tego klienta:
+W tym przewodniku szybki start zalogowany użytkownik jest używany do uwierzytelniania w magazynie kluczy, który jest preferowaną metodą tworzenia lokalnego. W przypadku aplikacji wdrożonych na platformie Azure tożsamość zarządzana powinna być przypisana do App Service lub maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Omówienie tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+
+W poniższym przykładzie nazwa magazynu kluczy jest rozwinięta do identyfikatora URI magazynu kluczy w formacie "https:// \<your-key-vault-name\> . Vault.Azure.NET". W tym przykładzie użyto klasy  ["DefaultAzureCredential ()"](/python/api/azure-identity/azure.identity.defaultazurecredential) , która umożliwia użycie tego samego kodu w różnych środowiskach z różnymi opcjami w celu zapewnienia tożsamości. Aby uzyskać więcej informacji, zobacz [domyślne uwierzytelnianie poświadczeń platformy Azure](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+
 
 ```python
 credential = DefaultAzureCredential()
@@ -119,33 +159,31 @@ client = KeyClient(vault_url=KVUri, credential=credential)
 
 ## <a name="save-a-key"></a>Zapisz klucz
 
-Po uzyskaniu obiektu klienta dla magazynu kluczy można przechowywać klucz za pomocą metody [create_rsa_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-rsa-key-name----kwargs-) : 
+Po uzyskaniu obiektu klienta dla magazynu kluczy można przechowywać klucz za pomocą metody [create_rsa_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-rsa-key-name----kwargs-) : 
 
 ```python
 rsa_key = client.create_rsa_key(keyName, size=2048)
 ```
 
-Można również użyć [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-key-name--key-type----kwargs-) lub [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-ec-key-name----kwargs-).
+Można również użyć [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-key-name--key-type----kwargs-) lub [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-ec-key-name----kwargs-).
 
 Wywołanie `create` metody generuje wywołanie interfejsu API REST platformy Azure dla magazynu kluczy.
 
 Podczas obsługi żądania platforma Azure uwierzytelnia tożsamość wywołującego (nazwę główną usługi) przy użyciu obiektu Credential dostarczonego do klienta.
 
-Sprawdza również, czy obiekt wywołujący jest autoryzowany do wykonywania żądanych akcji. Przyznano tę autoryzację do jednostki usługi wcześniej przy użyciu [ `az keyvault set-policy` polecenia](#give-the-service-principal-access-to-your-key-vault).
-
 ## <a name="retrieve-a-key"></a>Pobierz klucz
 
-Aby odczytać klucz z Key Vault, użyj metody [get_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#get-key-name--version-none----kwargs-) :
+Aby odczytać klucz z Key Vault, użyj metody [get_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#get-key-name--version-none----kwargs-) :
 
 ```python
 retrieved_key = client.get_key(keyName)
  ```
 
-Możesz również sprawdzić, czy klucz został ustawiony za pomocą polecenia interfejsu wiersza poleceń platformy Azure [AZ Key magazynu show](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-show).
+Możesz również sprawdzić, czy klucz został ustawiony za pomocą polecenia interfejsu wiersza poleceń platformy Azure [AZ Key magazynu show](/cli/azure/keyvault/key?#az-keyvault-key-show).
 
 ### <a name="delete-a-key"></a>Usuń klucz
 
-Aby usunąć klucz, użyj metody [begin_delete_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#begin-delete-key-name----kwargs-) :
+Aby usunąć klucz, użyj metody [begin_delete_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#begin-delete-key-name----kwargs-) :
 
 ```python
 poller = client.begin_delete_key(keyName)
@@ -154,7 +192,7 @@ deleted_key = poller.result()
 
 `begin_delete_key`Metoda jest asynchroniczna i zwraca obiekt sondowaer. Wywołanie metody sondy `result` oczekuje na jego zakończenie.
 
-Można sprawdzić, czy klucz jest usuwany za pomocą polecenia interfejsu CLI platformy Azure [AZ Key magazynu show](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-show).
+Można sprawdzić, czy klucz jest usuwany za pomocą polecenia interfejsu CLI platformy Azure [AZ Key magazynu show](/cli/azure/keyvault/key?#az-keyvault-key-show).
 
 Po usunięciu klucz pozostaje w stanie usunięty, ale jest w nim odwracalny. Jeśli ponownie uruchomisz kod, użyj innej nazwy klucza.
 
@@ -171,6 +209,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie usługi Azure Key Vault](../general/overview.md)
+- [Bezpieczny dostęp do magazynu kluczy](../general/secure-your-key-vault.md)
 - [Przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
 - [Azure Key Vault najlepszych praktyk](../general/best-practices.md)
 - [Uwierzytelnianie za pomocą Key Vault](../general/authentication.md)

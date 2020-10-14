@@ -2,19 +2,19 @@
 title: Wykrywacz anomalii JavaScript — Biblioteka klienta — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: 0aecf99c248d745288716c8638066ddec92e1a39
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 376ad893bf6fee36543e691fe50f369d8a43142c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319269"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018514"
 ---
 Rozpocznij pracę z biblioteką klienta wykrywania anomalii dla języka JavaScript. Wykonaj następujące kroki, aby zainstalować pakiet startowy przy użyciu algorytmów udostępnianych przez usługę. Usługa wykrywania anomalii umożliwia znalezienie nieprawidłowych danych szeregów czasowych przez automatyczne użycie modeli najlepiej dopasowanej, niezależnie od wielkości branży, scenariusza lub ilości danych.
 

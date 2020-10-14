@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616554"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019022"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -57,7 +57,7 @@ Poniżej znajdują się dodatkowe wskazówki dotyczące rozróżniania pól **W�
 
 Różnica między właściwościami i telemetrią dla modeli usługi Azure Digital bliźniaczych reprezentacji jest następująca:
 * **Właściwości** powinny mieć magazyn zapasowy. Oznacza to, że można odczytać właściwość w dowolnym momencie i pobrać jej wartość. Jeśli właściwość jest zapisywalna, można również zapisać wartość we właściwości.  
-* Dane **telemetryczne** są bardziej podobne do strumienia zdarzeń; jest to zestaw komunikatów danych, które mają krótki lifespans. Jeśli nie skonfigurowano nasłuchiwania dla zdarzenia i akcji, które mają być podejmowane w momencie wystąpienia, nie ma śledzenia zdarzenia w późniejszym czasie. Nie możesz wrócić do niego i przeczytać go później. 
+* Dane **telemetryczne** są bardziej podobne do strumienia zdarzeń; jest to zestaw komunikatów danych, które mają krótki lifespans. Jeśli nie skonfigurowano nasłuchiwania dla zdarzenia i akcji, które mają być podejmowane w momencie wystąpienia, nie ma śledzenia zdarzenia w późniejszym czasie. Nie można wrócić do niego i przeczytać go później. 
   - W terminologii w języku C# dane telemetryczne przypominają zdarzenie w języku C#. 
   - W przypadku rzeczy IoT dane telemetryczne są zazwyczaj pojedynczej miary wysyłanej przez urządzenie.
 

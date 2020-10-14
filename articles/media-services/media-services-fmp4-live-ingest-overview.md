@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072038"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019515"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services pofragmentowana Specyfikacja pozyskiwania na żywo w formacie MP4 
 
@@ -39,7 +39,7 @@ Na poniższym diagramie przedstawiono architekturę wysokiego poziomu usługi pr
 ![przepływ pozyskiwania][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. format Bitstream — obraz ISO 14496-12 pofragmentowany
-Format sieci na potrzeby pozyskiwania strumieniowego na żywo omówiony w niniejszym dokumencie jest oparty na [ISO-14496-12]. Aby uzyskać szczegółowy opis pofragmentowanego formatu MP4 i rozszerzeń dla plików wideo na żądanie i pozyskiwania strumieniowego na żywo, zobacz [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
+Format sieci na potrzeby pozyskiwania strumieniowego na żywo omówiony w niniejszym dokumencie jest oparty na [ISO-14496-12]. Aby uzyskać szczegółowy opis pofragmentowanego formatu MP4 i rozszerzeń dla plików wideo na żądanie i pozyskiwania strumieniowego na żywo, zobacz [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).
 
 ### <a name="live-ingest-format-definitions"></a>Definicje formatu pozyskiwania na żywo
 Na poniższej liście opisano specjalne definicje formatu, które mają zastosowanie do pozyskiwania na żywo w Azure Media Services:
@@ -70,7 +70,7 @@ Poniżej przedstawiono szczegółowe wymagania:
 1. Jeśli żądanie POST protokołu HTTP kończy się lub zostanie przerwane z powodu błędu TCP przed końcem strumienia, koder musi wydać nowe żądanie POST przy użyciu nowego połączenia i postępować zgodnie z wcześniejszymi wymaganiami. Ponadto koder musi ponownie wysłać poprzednie dwa fragmenty MP4 dla każdej ścieżki w strumieniu i wznowić bez przedstawiania ciągłości na osi czasu multimediów. Ponowne wysłanie ostatnich dwóch fragmentów plików MP4 dla każdej ścieżki gwarantuje, że nie utracisz danych. Innymi słowy, jeśli strumień zawiera dźwięk i ścieżkę wideo, a bieżące żądanie POST nie powiedzie się, koder musi ponownie nawiązać połączenie i ponownie wysłać ostatnie dwa fragmenty dla ścieżki audio, które zostały wcześniej pomyślnie wysłane, oraz ostatnie dwa fragmenty dla ścieżki wideo, które zostały wcześniej pomyślnie wysłane, aby upewnić się, że nie ma utraty danych. Koder musi obsługiwać bufor "do przodu" fragmentów nośnika, który jest wysyłany ponownie po ponownym nawiązaniu połączenia.
 
 ## <a name="5-timescale"></a>5. Skala czasu
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) opisuje użycie skali czasu dla **SmoothStreamingMedia** (sekcja 2.2.2.1), **strumieńelement** (sekcja 2.2.2.3), **StreamFragmentElement** (sekcja 2.2.2.6) i **LiveSMIL** (sekcja 2.2.7.3.1). Jeśli wartość skali czasu nie jest obecna, użyta wartość domyślna to 10 000 000 (10 MHz). Chociaż specyfikacja formatu Smooth Streaming nie blokuje użycia innych wartości skali czasu, Większość implementacji koderów używa tej wartości domyślnej (10 MHz) do generowania Smooth Streaming danych pozyskiwania. Ze względu na funkcję [dynamicznego tworzenia pakietów usługi Azure Media](./previous/media-services-dynamic-packaging-overview.md) zalecamy użycie skali czasu 90-kHz dla strumieni wideo i 44,1 khz lub 48,1 kHz dla strumieni audio. Jeśli różne wartości skali czasu są używane dla różnych strumieni, należy wysłać skalę czasu na poziomie strumienia. Aby uzyskać więcej informacji, zobacz [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+[[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) opisuje użycie skali czasu dla **SmoothStreamingMedia** (sekcja 2.2.2.1), **strumieńelement** (sekcja 2.2.2.3), **StreamFragmentElement** (sekcja 2.2.2.6) i **LiveSMIL** (sekcja 2.2.7.3.1). Jeśli wartość skali czasu nie jest obecna, użyta wartość domyślna to 10 000 000 (10 MHz). Chociaż specyfikacja formatu Smooth Streaming nie blokuje użycia innych wartości skali czasu, Większość implementacji koderów używa tej wartości domyślnej (10 MHz) do generowania Smooth Streaming danych pozyskiwania. Ze względu na funkcję [dynamicznego tworzenia pakietów usługi Azure Media](./previous/media-services-dynamic-packaging-overview.md) zalecamy użycie skali czasu 90-kHz dla strumieni wideo i 44,1 khz lub 48,1 kHz dla strumieni audio. Jeśli różne wartości skali czasu są używane dla różnych strumieni, należy wysłać skalę czasu na poziomie strumienia. Aby uzyskać więcej informacji, zobacz [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).     
 
 ## <a name="6-definition-of-stream"></a>6. Definicja "Stream"
 Stream to podstawowa jednostka operacji pozyskiwania na żywo na potrzeby tworzenia prezentacji na żywo, obsługi trybu failover przesyłania strumieniowego i scenariuszy nadmiarowości. Strumień jest definiowany jako jeden unikatowy, pofragmentowany plik MP4 Bitstream, który może zawierać jedną ścieżkę lub wiele ścieżek. Pełna prezentacja na żywo może zawierać co najmniej jeden strumień, w zależności od konfiguracji koderów na żywo. Poniższe przykłady ilustrują różne opcje używania strumieni do redagowania pełnej prezentacji na żywo.

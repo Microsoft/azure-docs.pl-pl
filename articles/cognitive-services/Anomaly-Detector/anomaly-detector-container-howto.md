@@ -3,21 +3,21 @@ title: Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu A
 titleSuffix: Azure Cognitive Services
 description: Algorytmy API wykrywania anomalii umożliwiają Znajdowanie anomalii w danych, lokalnie przy użyciu kontenera Docker.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 09/28/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokalne, Docker, kontener, przesyłanie strumieniowe, algorytmy
-ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e20ff5022b9b4a5b601160516f255af991a540c6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460004"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018614"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalowanie i uruchamianie kontenerów platformy Docker dla interfejsu API wykrywania anomalii 
 

@@ -3,12 +3,12 @@ title: Schemat metadanych wnioskowania — Azure
 description: W tym artykule przedstawiono informacje o schemacie metadanych wnioskowania.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691860"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019498"
 ---
 # <a name="inference-metadata-schema"></a>Schemat metadanych wnioskowania 
 
@@ -26,7 +26,7 @@ Każdy obiekt wnioskowania bez względu na użycie umowy opartej na protokole HT
 |Prostokąt|Prostokątny region względem lewego górnego rogu obrazu. Wymagane właściwości będą mieć wartość "Length", "width", Height "i" górną odległość od początku ".|
 |Klasyfikacja|Etykieta klasyfikatora często stosowana do całego przykładu. Za pomocą "tagu" można sklasyfikować wynik.|
 |Jednostka|Obiekt został wykryty lub zidentyfikowany w próbce. Gdy obiekt jest wykrywany przez aparat inferencing, pobierany jest "tag", dodatkowe atrybuty, które zostały wywnioskowane, a współrzędnych prostokątnego pola wokół znalezionej znalezionej jednostki jest zwracana.|
-|Wydarzenie|Wykryto zdarzenie w próbce. W przypadku wykrycia zdarzenia w przykładzie zostanie zwrócona nazwa zdarzenia i właściwości specyficzne dla zdarzenia.|
+|Zdarzenie|Wykryto zdarzenie w próbce. W przypadku wykrycia zdarzenia w przykładzie zostanie zwrócona nazwa zdarzenia i właściwości specyficzne dla zdarzenia.|
 |Ruchu|Wykryto ruch w próbce. Gdy ruch zostanie wykryty w próbce, jest zwracana granica prostokątnego pola ograniczenia, w którym wykryto ruch.|
 |Tekst|Zwracany jest tekst skojarzony z próbką wraz z początkową i końcową sygnaturą czasową tekstu.|
 |Inne|Zwraca inne informacje o ładunku ogólnym.|
@@ -123,5 +123,5 @@ Poniższy przykład zawiera jedno zdarzenie z obsługiwanymi typami wnioskowania
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Kontrakt danych gRPC](grpc-data-contract.md)
-- [Kontrakt danych HTTP](http-data-contract.md)
+- [Kontrakt danych gRPC](./grpc-extension-protocol.md)
+- [Kontrakt danych HTTP](./http-extension-protocol.md)

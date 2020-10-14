@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88942377"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016999"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Samouczek: przechowywanie zdarzeń Azure Media Services na platformie Azure Log Analytics
 
@@ -43,11 +43,11 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 > * [Subskrypcja platformy Azure](how-to-set-azure-subscription.md)
 > * Konto [Media Services](create-account-howto.md) i Grupa zasobów.
 > * Instalacja programu [Narzędzia FFmpeg](https://ffmpeg.org/download.html) dla systemu operacyjnego.
-> * Obszar roboczy [log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+> * Obszar roboczy [log Analytics](../../azure-monitor/learn/quick-create-workspace.md)
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>Subskrybowanie zdarzenia Media Services za pomocą aplikacji logiki
 
-1. W Azure Portal, jeśli jeszcze tego nie zrobiono, Utwórz [log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) obszar roboczy. Będziesz potrzebować identyfikatora obszaru roboczego i jednego z kluczy, więc należy się zadbać o to, aby okno przeglądarki było otwarte. Następnie otwórz Portal na innej karcie lub w oknie.
+1. W Azure Portal, jeśli jeszcze tego nie zrobiono, Utwórz [log Analytics](../../azure-monitor/learn/quick-create-workspace.md) obszar roboczy. Będziesz potrzebować identyfikatora obszaru roboczego i jednego z kluczy, więc należy się zadbać o to, aby okno przeglądarki było otwarte. Następnie otwórz Portal na innej karcie lub w oknie.
 
 1. Przejdź do konta Azure Media Services i wybierz pozycję **zdarzenia**. Spowoduje to wyświetlenie wszystkich metod subskrybowania zdarzeń Azure Media Services.
     > [!div class="mx-imgBorder"]
@@ -114,7 +114,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
 
 1. W drugiej karcie lub oknie przeglądarki wklej *klucz obszaru roboczego* w polu **klucz obszaru roboczego** .
 
-1. Wybierz przycisk **Utwórz**. Teraz utworzysz treść żądania JSON i nazwę dziennika niestandardowego.
+1. Wybierz pozycję **Utwórz**. Teraz utworzysz treść żądania JSON i nazwę dziennika niestandardowego.
 
 1. Wybierz pole **treści żądania JSON** .  Zostanie wyświetlony link umożliwiający **dodanie zawartości dynamicznej** .
 
@@ -140,7 +140,7 @@ Teraz, gdy subskrybujesz zdarzenia, Utwórz akcję.
     > [!div class="mx-imgBorder"]
     > ![Weryfikuj etapy treści i funkcji](media/tutorial-events-log-analytics/verify-changes-to-json.png)
 
-1. Po sprawdzeniu wszystkich zasobów w grupie zasobów zostanie wyświetlona aplikacja logiki i dwa łączniki interfejsu API aplikacji logiki, jeden dla zdarzeń i jeden dla Log Analytics. Aby uzyskać więcej informacji na temat Event Grid tematów systemowych, Przeczytaj [temat Event Grid tematy systemowe](https://docs.microsoft.com/azure/event-grid/system-topics).
+1. Po sprawdzeniu wszystkich zasobów w grupie zasobów zostanie wyświetlona aplikacja logiki i dwa łączniki interfejsu API aplikacji logiki, jeden dla zdarzeń i jeden dla Log Analytics. Aby uzyskać więcej informacji na temat Event Grid tematów systemowych, Przeczytaj [temat Event Grid tematy systemowe](../../event-grid/system-topics.md).
     > [!div class="mx-imgBorder"]
     > ![Zobacz wszystkie nowe zasoby w grupie zasobów](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
@@ -174,7 +174,7 @@ Aby sprawdzić, jak faktycznie działa, Utwórz wydarzenie na żywo w Azure Medi
 
 1. Zaznacz pole wyboru **mam wszystkie prawa do używania zawartości/pliku...** .
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
 1. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.  Zostanie wyświetlona lista zdarzeń na żywo i zostanie wyświetlony adres URL pozyskiwania zdarzeń na żywo.
 
@@ -231,4 +231,4 @@ Jeśli nie chcesz nadal używać zasobów utworzonych w ramach tego samouczka, u
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz tworzyć różne zapytania i je zapisywać. Można je dodać do [pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+Możesz tworzyć różne zapytania i je zapisywać. Można je dodać do [pulpitu nawigacyjnego platformy Azure](../../azure-monitor/learn/tutorial-logs-dashboards.md).

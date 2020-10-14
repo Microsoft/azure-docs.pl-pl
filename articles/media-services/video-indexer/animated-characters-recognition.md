@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87047487"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018886"
 ---
 # <a name="animated-character-detection-preview"></a>Wykrywanie znaków animowanych (wersja zapoznawcza)
 
@@ -40,7 +40,7 @@ W zależności od typu konta Video Indexer dostępne są różne zestawy funkcji
 
 ### <a name="trial-vs-paid"></a>Wersja próbna a płatna
 
-|Funkcja|Wersja próbna|Święcona|
+|Funkcjonalność|Wersja próbna|Święcona|
 |---|---|---|
 |Konto Custom Vision|Zarządzane w tle przez Video Indexer. |Twoje konto Custom Vision jest połączone z Video Indexer.|
 |Liczba modeli animacji|Jeden|Do 100 modeli na konto (ograniczenie Custom Vision).|
@@ -55,7 +55,7 @@ Ze względu na to, że na kontach wersji próbnej integracja Custom Vision jest 
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Połącz konto Custom Vision (tylko płatne konta)
 
-Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custom Vision. Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custom Vision. Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Oba konta muszą znajdować się w tym samym regionie. Integracja Custom Vision nie jest obecnie obsługiwana w regionie Japonii.
@@ -160,7 +160,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z Custom Vision kontem 
 1. Połącz konto Custom Vision.
 
     Jeśli masz konto płatne Video Indexer, musisz najpierw połączyć konto Custom Vision. <br/>
-    Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+    Jeśli nie masz już konta Custom Vision, utwórz je. Aby uzyskać więcej informacji, zobacz [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
     [Połącz konto Custom Vision przy użyciu interfejsu API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Utwórz model animowanych znaków.

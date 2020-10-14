@@ -3,12 +3,12 @@ title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architektur
 description: Zapoznaj się z zaleceniami dotyczącymi integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej architekturze Hub i szprych na platformie Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: bfd0da4f03eedaf215ddb55facffc2296a9d0b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580282"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019273"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
@@ -28,7 +28,7 @@ Ruch między lokalnym centrum danych i chmurą prywatną rozwiązania VMware pla
 
 Na diagramie przedstawiono przykład wdrożenia centrum i szprych na platformie Azure połączonych z lokalnym i rozwiązaniem VMware platformy Azure za pomocą ExpressRoute Global Reach.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 Architektura ma następujące główne składniki:
 
@@ -65,12 +65,12 @@ Ponieważ Brama ExpressRoute nie zapewnia przechodniej routingu między podłąc
 
 * **Przepływ ruchu rozwiązań w środowisku lokalnym do platformy Azure VMware**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Rozwiązanie VMware platformy Azure do centralnego przepływu ruchu w sieci wirtualnej**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Więcej informacji na temat rozwiązań dotyczących sieci i łączności VMware firmy Azure można znaleźć w [dokumentacji produktu rozwiązania VMware platformy Azure](./concepts-networking.md).

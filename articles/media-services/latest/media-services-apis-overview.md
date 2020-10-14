@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569516"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019787"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsu API usługi Media Services w wersji 3
 
@@ -120,11 +120,11 @@ Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na ży
 > [!NOTE]
 > Zestawy SDK Azure Media Services V3 nie mają gwarancji, że są bezpieczne wątkowo. Podczas tworzenia aplikacji wielowątkowej należy dodać własną logikę synchronizacji wątków, aby chronić klienta lub użyć nowego obiektu AzureMediaServicesClient na wątek. Należy również zachować ostrożność w przypadku problemów z wielowątkowością wprowadzanych przez obiekty opcjonalne dostarczone przez kod klientowi (na przykład wystąpienie HttpClient w programie .NET).
 
-|SDK|Tematy pomocy|
+|SDK|Dokumentacja|
 |---|---|
-|[Zestaw SDK platformy .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Dokumentacja platformy .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)|[Dokumentacja języka Java](https://aka.ms/ams-v3-java-ref)|
-|[Zestaw SDK dla języka Python](https://aka.ms/ams-v3-python-sdk)|[Dokumentacja języka Python](https://aka.ms/ams-v3-python-ref)|
+|[Zestaw SDK platformy .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Dokumentacja platformy .NET](/dotnet/api/overview/azure/mediaservices/management)|
+|[Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)|[Dokumentacja języka Java](/java/api/overview/azure/mediaservices/management)|
+|[Zestaw SDK dla języka Python](https://aka.ms/ams-v3-python-sdk)|[Dokumentacja języka Python](/python/api/overview/azure/mediaservices/management)|
 |[Zestaw SDK dla platformy Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Dokumentacja środowiska Node.js](/javascript/api/overview/azure/mediaservices/management)| 
 |[Zestaw SDK dla języka Go](https://aka.ms/ams-v3-go-sdk) |[Dokumentacja języka Go](https://aka.ms/ams-v3-go-ref)|
 |[Zestaw SDK dla języka Ruby](https://aka.ms/ams-v3-ruby-sdk)||

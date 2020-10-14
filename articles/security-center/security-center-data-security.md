@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 8e92c893d97ce9fadfa2d40476631c2b9ba5d177
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999262"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018274"
 ---
 # <a name="azure-security-center-data-security"></a>Zabezpieczenia danych Azure Security Center
 
@@ -57,19 +57,19 @@ Jeśli nie korzystasz z usługi Azure Defender, możesz również wyłączyć zb
 
 Można określić obszar roboczy i region, w którym są przechowywane dane zbierane z maszyn. Domyślnie dane zbierane z maszyn są przechowywane w najbliższym obszarze roboczym, jak pokazano w poniższej tabeli:
 
-| Lokalizacja geograficzna maszyny wirtualnej                              | Lokalizacja geograficzna obszaru roboczego |
-|-------------------------------------|---------------|
-| Stany Zjednoczone, Brazylia, Afryka Południowa | Stany Zjednoczone |
-| Kanada                              | Canada        |
-| Europa (z wyjątkiem Zjednoczonego Królestwa)   | Europa        |
-| Zjednoczone Królestwo                      | Zjednoczone Królestwo |
-| Azja (z wyjątkiem Indii, Japonia, Korea, Chiny)   | Azja i Pacyfik  |
-| Korea                              | Azja i Pacyfik  |
-| Indie                               | Indie         |
-| Japonia                               | Japonia         |
-| Chiny                               | Chiny         |
-| Australia                           | Australia     |
-|||
+| Lokalizacja geograficzna maszyny wirtualnej                                      | Lokalizacja geograficzna obszaru roboczego  |
+|---------------------------------------------|----------------|
+| Stany Zjednoczone, Brazylia, Afryka Południowa         | Stany Zjednoczone  |
+| Kanada                                      | Canada         |
+| Europa (z wyjątkiem Zjednoczonego Królestwa)           | Europa         |
+| Zjednoczone Królestwo                              | Zjednoczone Królestwo |
+| Azja (z wyjątkiem Indii, Japonia, Korea, Chiny) | Azja i Pacyfik   |
+| Korea                                       | Azja i Pacyfik   |
+| Indie                                       | Indie          |
+| Japonia                                       | Japonia          |
+| Chiny                                       | Chiny          |
+| Australia                                   | Australia      |
+|                                             |                |
 
 > [!NOTE]
 > **Usługa Azure Defender dla magazynu** przechowuje artefakty w regionach zgodnie z lokalizacją powiązanego zasobu platformy Azure. Dowiedz się więcej w temacie [wprowadzenie do usługi Azure Defender dla magazynu](defender-for-storage-introduction.md).
@@ -80,18 +80,16 @@ Można określić obszar roboczy i region, w którym są przechowywane dane zbie
 Klienci mogą uzyskać dostęp do Security Center powiązanych danych z następujących strumieni danych:
 
 
-|Strumień  |Typy danych  |
-|---------|---------|
-|[Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md)| Wszystkie alerty zabezpieczeń, zatwierdzone Security Center żądania dostępu [just in Time](security-center-just-in-time.md) i wszystkie alerty wygenerowane przez [adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md) |
-|[Dzienniki Azure Monitor](../azure-monitor/platform/data-platform.md)|Wszystkie alerty zabezpieczeń.|
-|[Azure Resource Graph](../governance/resource-graph/overview.md)|Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń, wyniki oceny luk w zabezpieczeniach, bezpieczne informacje o punktacji, stan kontroli zgodności i inne.|
-|[Interfejs API REST usługi Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/)|Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń i inne elementy. .|
-|||
+| Strumień                                                                                | Typy danych                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Dziennik aktywności platformy Azure](../azure-monitor/platform/activity-log.md)                       | Wszystkie alerty zabezpieczeń, zatwierdzone Security Center żądania dostępu [just in Time](security-center-just-in-time.md) i wszystkie alerty wygenerowane przez [adaptacyjne kontrolki aplikacji](security-center-adaptive-application.md).|
+| [Dzienniki Azure Monitor](../azure-monitor/platform/data-platform.md)                      | Wszystkie alerty zabezpieczeń.                                                                                                                                                                                                |
+| [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń, wyniki oceny luk w zabezpieczeniach, bezpieczne informacje o punktacji, stan kontroli zgodności i inne.                                                                       |
+| [Interfejs API REST usługi Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/) | Alerty zabezpieczeń, zalecenia dotyczące zabezpieczeń i inne elementy.                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym dokumencie wyjaśniono, jak zarządzane i chronione są dane w usłudze Azure Security Center. 
 
-Aby dowiedzieć się więcej na temat usługi Azure Security Center, zobacz:
-
-- [Co to jest usługa Azure Security Center?](security-center-introduction.md)
+Aby dowiedzieć się więcej na temat Azure Security Center, zobacz [co to jest Azure Security Center?](security-center-introduction.md)

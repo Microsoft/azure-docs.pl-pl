@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050360"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018198"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
 
@@ -88,7 +88,7 @@ Aby wyeksportować szablon przy użyciu witryny Azure Portal:
 
 Aby wyeksportować szablon przy użyciu programu PowerShell:
 
-1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
+1. Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Aby zmodyfikować szablon:
 
 #### <a name="regions"></a>Regiony
 
-Aby uzyskać regiony platformy Azure, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Aby uzyskać regiony przy użyciu programu PowerShell, uruchom polecenie [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+Aby uzyskać regiony platformy Azure, zobacz [lokalizacje platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/). Aby uzyskać regiony przy użyciu programu PowerShell, uruchom polecenie [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -195,7 +195,7 @@ Aby wdrożyć nowy zasób serwera w innym regionie, użyjesz **template.jsna** w
 
 3. Wybierz **Template Deployment**.
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> Po zakończeniu przenoszenia regionu zaleca się, aby nowy serwer docelowy używał kontenera magazynu w tym samym regionie dla kopii zapasowych, a nie kontenera magazynu w regionie serwera źródłowego. 
+> Po zakończeniu przenoszenia regionu zaleca się, aby nowy serwer docelowy używał kontenera magazynu w tym samym regionie dla kopii zapasowych, a nie kontenera magazynu w regionie serwera źródłowego.

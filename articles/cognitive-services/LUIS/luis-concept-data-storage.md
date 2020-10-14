@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: b74621f357613bc60457ab4846b58f6f85009401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541887"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018036"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Magazynowanie i usuwanie danych w Language Understanding (LUIS) Cognitive Services
 LUIS przechowuje dane zaszyfrowane w magazynie danych platformy Azure odpowiadające regionowi określonemu przez klucz. Te dane są przechowywane przez 30 dni. 
@@ -50,9 +50,14 @@ Jeśli nie chcesz, aby usługa Active Learning wyrażenia długości, możesz [w
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>Usuwanie konta
-Po usunięciu konta zostaną usunięte wszystkie aplikacje wraz z przykładami wyrażenia długości i dzienników. Dane są przechowywane przez 60 dni, zanim konto i dane zostaną trwale usunięte.
+Jeśli nie przeprowadzono migracji, możesz usunąć konto i wszystkie Twoje aplikacje zostaną usunięte wraz z przykładami wyrażenia długości i dzienników. Dane są przechowywane przez 90 dni, zanim konto i dane zostaną trwale usunięte.
 
 Usuwanie konta jest dostępne na stronie **Ustawienia** . Wybierz nazwę swojego konta w prawym górnym pasku nawigacyjnym, aby przejść do strony **ustawień** .
+
+## <a name="delete-an-authoring-resource"></a>Usuwanie zasobu tworzenia
+Jeśli [przeprowadzono migrację do zasobu tworzenia](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), usunięcie samego zasobu z Azure Portal spowoduje usunięcie wszystkich aplikacji skojarzonych z tym zasobem wraz z przykładami wyrażenia długości i dzienników. Dane są przechowywane przez 90 dni przed ich trwałe usunięciem.    
+
+Aby usunąć zasób, przejdź do [Azure Portal](https://ms.portal.azure.com/#home) i wybierz zasób autorstwa Luis. Przejdź do karty **Przegląd** , a następnie kliknij przycisk **Usuń** w górnej części strony. Następnie potwierdź, że zasób został usunięty. 
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>Nieaktywność danych jako wygasła subskrypcja
 Na potrzeby przechowywania i usuwania danych nieaktywna aplikacja LUIS może być traktowana jako niezależna od _firmy Microsoft_ jako wygasła subskrypcja. Aplikacja jest traktowana jako nieaktywna, jeśli spełnia następujące kryteria dla ostatnich 90 dni: 

@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Opisuje proces migracji z Azure Dev Spaces do mostka do Kubernetes
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers to Kubernetes
-ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993939"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019940"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrowanie do rozszerzenia Bridge to Kubernetes
 
@@ -80,9 +80,9 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 > [!TIP]
 >  [Rozszerzenie Microsoft Kubernetes][kubernetes-extension] umożliwia szybkie tworzenie manifestów Kubernetes za pomocą technologii IntelliSense i pomaga w tworzeniu szkieletów Helm wykresów.  
 
-### <a name="use-visual-studio-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Użyj programu Visual Studio, aby przejść do programu Bridge do Kubernetes z Azure Dev Spaces
+### <a name="transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Przejście do mostka do Kubernetes z Azure Dev Spaces
 
-1. Zaktualizuj środowisko IDE programu Visual Studio do wersji 16,7 lub nowszej i zainstaluj mostek do rozszerzenia Kubernetes z [Visual Studio Marketplace][vs-marketplace].
+1. Jeśli używasz programu Visual Studio, zaktualizuj środowisko IDE programu Visual Studio do wersji 16,7 lub nowszej i zainstaluj mostek do rozszerzenia Kubernetes z [Visual Studio Marketplace][vs-marketplace]. Jeśli używasz Visual Studio Code, zainstaluj [mostek do rozszerzenia Kubernetes][vsc-marketplace].
 1. Wyłącz kontroler Azure Dev Spaces przy użyciu Azure Portal lub [interfejsu wiersza polecenia Azure dev Spaces][azds-delete].
 1. Użyj [Azure Cloud Shell](https://shell.azure.com). Lub na komputerach Mac, Linux lub Windows z zainstalowanym programem bash Otwórz wiersz polecenia powłoki bash. Upewnij się, że następujące narzędzia są dostępne w środowisku wiersza polecenia: Azure CLI, Docker, polecenia kubectl, zwinięcie, tar i gunzip.
 1. Utwórz rejestr kontenerów lub Użyj istniejącego. Rejestr kontenerów można utworzyć na platformie Azure przy użyciu [Azure Container Registry](../container-registry/index.yml) lub przy użyciu narzędzia [Docker Hub](https://hub.docker.com/).
@@ -109,18 +109,9 @@ Mostek do Kubernetes zapewnia elastyczność pracy z aplikacjami działającymi 
 1. Ręcznie Przeprowadź migrację dowolnych dostosowań, takich jak ustawienia zmiennych środowiskowych, w *azds. YAML* do pliku *wartości. yml* projektu.
 1. obowiązkowe Usuń `azds.yaml` plik z projektu.
 1. Wdróż ponownie aplikację.
-1. Skonfiguruj mostek do Kubernetes dla wdrożonej aplikacji. Aby uzyskać więcej informacji o korzystaniu z usługi Bridge do Kubernetes w programie Visual Studio, zobacz [use Bridge to Kubernetes][use-btk-vs].
-1. Rozpocznij debugowanie w programie Visual Studio przy użyciu nowo utworzonego mostka do Kubernetes debugowania profilu.
+1. Skonfiguruj mostek do Kubernetes dla wdrożonej aplikacji. Aby uzyskać więcej informacji o korzystaniu z usługi Bridge do Kubernetes w programie Visual Studio, zobacz [use Bridge to Kubernetes in Visual Studio][use-btk-vs]. Aby uzyskać VS Code, zobacz [używanie mostka do Kubernetes w vs Code][use-btk-vsc].
+1. Rozpocznij debugowanie przy użyciu nowo utworzonego mostka do Kubernetesego profilu debugowania/uruchamiania.
 1. Skrypt można uruchomić ponownie w razie potrzeby w celu ponownego wdrożenia w klastrze.
-
-### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Użyj Visual Studio Code, aby przejść do mostka do Kubernetes z Azure Dev Spaces
-
-1. Zainstaluj [mostek do rozszerzenia Kubernetes][vsc-marketplace].
-1. Wyłącz kontroler Azure Dev Spaces przy użyciu Azure Portal lub [interfejsu wiersza polecenia Azure dev Spaces][azds-delete].
-1. Usuń `azds.yaml` plik z projektu.
-1. Wdróż ponownie aplikację.
-1. Skonfiguruj mostek do Kubernetes dla wdrożonej aplikacji. Aby uzyskać więcej informacji na temat używania mostka do Kubernetes w Visual Studio Code, zobacz [use Bridge to Kubernetes][use-btk-vsc].
-1. Rozpocznij debugowanie w Visual Studio Code przy użyciu nowo utworzonego mostka do profilu uruchamiania Kubernetes.
 
 ## <a name="team-development-in-a-shared-cluster"></a>Programowanie zespołowe w klastrze udostępnionym
 

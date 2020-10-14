@@ -3,20 +3,20 @@ title: 'Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy uży
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się, jak używać interfejsu API wykrywania anomalii w celu wykrywania niezależności w seriach danych jako partii lub przesyłania strumieniowego danych.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.custom: devx-track-java
-ms.author: aahi
-ms.openlocfilehash: 6c37ac4a8e43f8e11e37186e2438c4803556339e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: e23e9016b53a1d9f99809d792d710f865918a098
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90905762"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019685"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i środowiska Java
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885568"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018291"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Porównanie funkcji Azure Stream Analytics
 
@@ -26,28 +26,28 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 |Cecha  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Wiele platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
-|Tworzenie skryptu     |Tak         |Tak         |Tak         |
+|Tworzenie skryptu     |Yes         |Yes         |Yes         |
 |Skrypt IntelliSense     |Podświetlanie składni         |Podświetlanie składni</br>Uzupełnianie kodu</br>Znacznik błędu         |Podświetlanie składni</br>Uzupełnianie kodu</br>Znacznik błędu         |
-|Zdefiniuj wszystkie typy danych wejściowych, wyjść i konfiguracji zadań     |Tak         |Tak         |Tak         |
-|Kontrola źródła     |Nie         |Tak         |Tak         |
-|Obsługa ciągłej integracji/ciągłego wdrażania     |Częściowe         |Tak         |Tak         |
-|Udostępnianie danych wejściowych i wyjściowych w wielu zapytaniach     |Nie         |Tak         |Tak         |
-|Testowanie zapytań przy użyciu pliku przykładowego     |Tak         |Tak        |Tak         |
-|Lokalne testowanie danych na żywo     |Nie         |Tak       |Tak      |
-|Wyświetlanie listy zadań i przeglądanie jednostek zadań     |Tak         |Tak        |Tak         |
-|Eksportowanie zadania do projektu lokalnego     |Nie         |Tak         |Tak         |
-|Przesyłanie, uruchamianie i zatrzymywanie zadań     |Tak         |Tak         |Tak         |
-|Wyświetlanie metryk i diagramów zadań     |Tak         |Tak         |Otwórz w portalu         |
-|Wyświetl błędy środowiska uruchomieniowego zadania     |Tak         |Tak         |Nie         |
-|Dzienniki zasobów     |Tak         |Nie         |Nie         |
-|Niestandardowe właściwości komunikatów     |Tak         |Tak         |Nie       |
-|Funkcja niestandardowego kodu w języku C# i deserializacja|Tryb tylko do odczytu|Tak|Nie|
-|Java UDF i UDA     |Tak         |Tak         |Tylko Windows         |
-|Usługa Machine Learning     |Tak        |Tak         |Nie         |
-|Machine Learning Studio     |Tak, ale nie można przetestować zapytania        |Tak |Nie         |
+|Zdefiniuj wszystkie typy danych wejściowych, wyjść i konfiguracji zadań     |Yes         |Yes         |Yes         |
+|Kontrola źródła     |Nie         |Yes         |Yes         |
+|Obsługa ciągłej integracji/ciągłego wdrażania     |Częściowe         |Yes         |Yes         |
+|Udostępnianie danych wejściowych i wyjściowych w wielu zapytaniach     |Nie         |Yes         |Yes         |
+|Testowanie zapytań przy użyciu pliku przykładowego     |Yes         |Yes        |Yes         |
+|Lokalne testowanie danych na żywo     |Nie         |Yes       |Yes      |
+|Wyświetlanie listy zadań i przeglądanie jednostek zadań     |Yes         |Yes        |Yes         |
+|Eksportowanie zadania do projektu lokalnego     |Nie         |Yes         |Yes         |
+|Przesyłanie, uruchamianie i zatrzymywanie zadań     |Yes         |Yes         |Yes         |
+|Wyświetlanie metryk i diagramów zadań     |Yes         |Yes         |Otwórz w portalu         |
+|Wyświetl błędy środowiska uruchomieniowego zadania     |Yes         |Yes         |Nie         |
+|Dzienniki zasobów     |Yes         |Nie         |Nie         |
+|Niestandardowe właściwości komunikatów     |Yes         |Yes         |Nie       |
+|Funkcja niestandardowego kodu w języku C# i deserializacja|Tryb tylko do odczytu|Yes|Nie|
+|Java UDF i UDA     |Yes         |Yes         |Tylko Windows         |
+|Usługa Machine Learning     |Yes        |Yes         |Nie         |
+|Azure Machine Learning Studio (klasyczny)|Tak, ale nie można przetestować zapytania        |Yes |Nie         |
 |Poziom zgodności     |1.0</br>1,1</br>1,2 (wartość domyślna)         |1.0</br>1,1</br>1,2 (wartość domyślna)           |1.0</br>1,1</br>1,2 (wartość domyślna)           |
-|Wbudowane funkcje wykrywania anomalii opartej na ML     |Tak         |Tak         |Tak         |
-|Wbudowane funkcje geograficzne     |Tak         |Tak         |Tak         |
+|Wbudowane funkcje wykrywania anomalii opartej na ML     |Yes         |Yes         |Yes         |
+|Wbudowane funkcje geograficzne     |Yes         |Yes         |Yes         |
 
 
 
@@ -55,16 +55,16 @@ Za pomocą Azure Stream Analytics można tworzyć rozwiązania przesyłania stru
 
 |Cecha  |Portal  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Tworzenie zadań     |Tak         |Tak         |Nie         |
-|Kontrola źródła     |Nie         |Tak         |Nie         |
-|Eksportowanie zadania do projektu lokalnego     |Nie         |Tak         |Nie         |
-|Testowanie zapytań przy użyciu pliku przykładowego     |Tak         |Tak         |Nie         |
-|Udostępnianie danych wejściowych i wyjściowych w wielu zapytaniach     |Nie         |Tak         |Nie         |
-|Funkcja zdefiniowana przez użytkownika w języku C#     |Nie         |Tak         |Nie         |
-|Prześlij zadania     |Tak         |Tak         |Nie         |
-|Wyświetlanie listy zadań i przeglądanie jednostek zadań     |Tak         |Tak         |Nie         |
-|Wyświetlanie metryk i diagramów zadań     |Tak         |Częściowe         |Nie         |
-|Wyświetl błędy środowiska uruchomieniowego zadania     |Tak         |Częściowe         |Nie         |
+|Tworzenie zadań     |Yes         |Yes         |Nie         |
+|Kontrola źródła     |Nie         |Yes         |Nie         |
+|Eksportowanie zadania do projektu lokalnego     |Nie         |Yes         |Nie         |
+|Testowanie zapytań przy użyciu pliku przykładowego     |Yes         |Yes         |Nie         |
+|Udostępnianie danych wejściowych i wyjściowych w wielu zapytaniach     |Nie         |Yes         |Nie         |
+|Funkcja zdefiniowana przez użytkownika w języku C#     |Nie         |Yes         |Nie         |
+|Prześlij zadania     |Yes         |Yes         |Nie         |
+|Wyświetlanie listy zadań i przeglądanie jednostek zadań     |Yes         |Yes         |Nie         |
+|Wyświetlanie metryk i diagramów zadań     |Yes         |Częściowe         |Nie         |
+|Wyświetl błędy środowiska uruchomieniowego zadania     |Yes         |Częściowe         |Nie         |
 |Obsługa ciągłej integracji/ciągłego wdrażania     |Nie         |Nie         |Nie         |
 
 

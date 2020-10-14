@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dec0503ec369ae473fb592db958c0e30a27a4268
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 897df7f07a349457c49929b69993c75345f52241
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297437"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017815"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services Terminologia i koncepcje
 
@@ -30,7 +30,7 @@ Podstawowe koncepcje opisane w tych tematach należy przejrzeć przed rozpoczęc
 
 > [!NOTE]
 > Obecnie możesz użyć [Azure Portal](https://portal.azure.com/) do: Zarządzaj [zdarzeniami na żywo](live-events-outputs-concept.md)Media Services v3, Wyświetl (nie Zarządzaj [) v3 i](assets-concept.md) [Uzyskaj informacje o uzyskiwaniu dostępu do interfejsów API](./access-api-howto.md).
-> W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/accountfilters), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

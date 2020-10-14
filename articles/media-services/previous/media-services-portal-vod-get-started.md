@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268387"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018988"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal
 
@@ -93,7 +93,7 @@ Aby zakodować zawartość przy użyciu procesora Media Encoder Standard w witry
    Aby ułatwić sobie zarządzanie zasobami, możesz poddać edycji nazwę wyjściowego elementu zawartości i nazwę zadania.
    
    ![Kodowanie elementów zawartości](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorowanie postępu zadania kodowania
 Aby monitorować postęp zadania kodowania, kliknij u góry strony pozycję **Ustawienia**, a następnie wybierz pozycję **Zadania**.
@@ -127,7 +127,7 @@ Adres URL sygnatury dostępu współdzielonego ma następujący format:
 > 
 > 
 
-Aby zaktualizować datę wygaśnięcia lokalizatora, możesz użyć [interfejsu API REST](/rest/api/media/operations/locator#update_a_locator) lub [interfejsu API platformy .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Aby zaktualizować datę wygaśnięcia lokalizatora, możesz użyć [interfejsu API REST](/rest/api/media/operations/locator#update_a_locator) lub [interfejsu API platformy .NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > Po zaktualizowaniu daty wygaśnięcia lokalizatora sygnatury dostępu współdzielonego następuje zmiana adresu URL.

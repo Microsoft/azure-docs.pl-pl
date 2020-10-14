@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 14358f60b700e80c17b1dd8259f1d0566a854c43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91543396"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019974"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Samouczek: Kreator oceniania modelu uczenia maszynowego dla pul Synapse SQL
 
@@ -50,7 +50,7 @@ Przed uruchomieniem wszystkich komórek w notesie Sprawdź, czy wystąpienie obl
 
 1. Pobierz [predykcyjne wskazówki dotyczące NYC taksówki. ipynb](https://go.microsoft.com/fwlink/?linkid=2144301).
 
-1. Uruchom obszar roboczy Azure Machine Learning w [Azure Machine Learning Studio](https://ml.azure.com).
+1. Uruchom obszar roboczy Azure Machine Learning w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Przejdź do **notesów** , a następnie kliknij pozycję **Przekaż pliki**, wybierz pozycję "przewidywanie NYCych wskazówek dotyczących ipynb", które zostały pobrane i przekazane.
    ![Przekazywanie pliku](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)

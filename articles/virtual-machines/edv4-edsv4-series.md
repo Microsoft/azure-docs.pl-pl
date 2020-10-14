@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: eb809b2dabe2d8b28f05b328877e1a20dbeacbc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e8ecb0dde2208b367362f26f654ec8eb83c7a777
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977616"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016199"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 

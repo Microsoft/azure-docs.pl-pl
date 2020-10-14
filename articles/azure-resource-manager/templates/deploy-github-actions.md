@@ -3,12 +3,13 @@ title: Wdrażanie szablonów Menedżer zasobów przy użyciu akcji GitHub
 description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy użyciu akcji usługi GitHub.
 ms.topic: conceptual
 ms.date: 07/02/2020
-ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: github-actions-azure
+ms.openlocfilehash: cea099088005fa91e1b3e9a793105df4796a66ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85854744"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018580"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 

@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 67309aafe5c1bc841399006285a9862f711e4296
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948718"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018563"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Często zadawane pytania dotyczące rozwiązań VMware platformy Azure
 
@@ -66,6 +66,13 @@ Firma Microsoft i Red Hat współdzielą zintegrowany, współpracujący zespó�
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Czy jest dostępny program VMware HCX Enterprise Edition, a jeśli tak, ile to kosztuje?
 
 Program VMware HCX Enterprise Edition (EE) jest dostępny w ramach rozwiązania Azure VMware jako funkcji/usługi w *wersji zapoznawczej* . Chociaż rozwiązanie VMware HCX EE for Azure VMware jest w wersji zapoznawczej, jest to bezpłatna funkcja/usługa i podlega podglądowi warunków i postanowień usługi. Gdy usługa VMware HCX EE stanie się dostępna, otrzymasz 30-dniowy komunikat, że rozliczenie zostanie przełączone. Dostępna jest również opcja przełączania/rezygnacji z usługi.
+
+#### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Czy maszyny wirtualne rozwiązań VMware platformy Azure mogą być zarządzane przez funkcję autosterowania?
+Tak, pod warunkiem, że system, w którym jest zainstalowany, może uzyskać dostęp do programu vCenter w chmurze prywatnej i że korzysta on z publicznej usługi DNS (aby można było rozpoznać nazwy hostów ESXi).
+
+#### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Czy istnieją specjalne instrukcje dotyczące instalowania i używania funkcji niedostępności z maszynami wirtualnymi rozwiązań VMware platformy Azure?
+Nie, należy użyć [instrukcji dostarczonych przez oprogramowanie VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) i spełnić wymagania wstępne dotyczące maszyn wirtualnych określone w tych instrukcjach. 
+
 
 ## <a name="compute-network-storage-and-backup"></a>Obliczenia, Sieć, magazyn i kopia zapasowa
 

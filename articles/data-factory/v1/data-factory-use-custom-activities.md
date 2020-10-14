@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8cd72d34535ac3a2aec60aa3d2369da34dd7194
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997459"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017407"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Korzystanie z działań niestandardowych w potoku Azure Data Factory w wersji 1
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -31,7 +31,7 @@ ms.locfileid: "88997459"
 Istnieją dwa typy działań, których można użyć w potoku Azure Data Factory.
 
 - [Działania przenoszenia danych](data-factory-data-movement-activities.md) w celu przenoszenia danych między [obsługiwanymi magazynami danych źródłowych i ujścia](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Działania przekształcania danych](data-factory-data-transformation-activities.md) w celu przekształcania danych przy użyciu usług obliczeniowych, takich jak Azure HDInsight, Azure Batch i Azure Machine Learning.
+- [Działania przekształcania danych](data-factory-data-transformation-activities.md) w celu przekształcania danych przy użyciu usług obliczeniowych, takich jak Azure HDInsight, Azure Batch i Azure Machine Learning Studio (klasyczne).
 
 Aby przenieść dane do/z magazynu danych, który nie obsługuje Data Factory, Utwórz **niestandardowe działanie** z własną logiką przenoszenia danych i Użyj działania w potoku. Podobnie, aby przekształcić/przetwarzać dane w sposób, który nie jest obsługiwany przez Data Factory, Utwórz niestandardowe działanie z własną logiką transformacji danych i Użyj działania w potoku.
 
@@ -1025,7 +1025,7 @@ Przykład [środowiska Azure Data Factory-Local](https://github.com/gbrueckl/Azu
 | Przykład | Jakie działanie niestandardowe wykonuje |
 | --- | --- |
 | Narzędzie do [pobierania danych http](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Pobiera dane z punktu końcowego HTTP do platformy Azure Blob Storage przy użyciu niestandardowej aktywności języka C# w programie Data Factory. |
-| [Przykład analiza tonacji Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Wywołuje model Azure Machine Learning Studio i tonacji analizę, ocenianie, prognozowanie itp. |
+| [Przykład analiza tonacji Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Wywołuje model Azure Machine Learning Studio (klasyczny) i tonacji analizę, ocenianie, prognozowanie itp. |
 | [Uruchom skrypt języka R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Wywołuje skrypt języka R, uruchamiając RScript.exe w klastrze usługi HDInsight, na którym jest już zainstalowany język R. |
 | [Aktywność platformy .NET obejmującej wiele domen](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Używa różnych wersji zestawu od tych, które są używane przez program uruchamiający Data Factory |
 | [Przetwórz ponownie model w Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Przetwarza ponownie model w Azure Analysis Services. |

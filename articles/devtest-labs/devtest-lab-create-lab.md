@@ -2,50 +2,79 @@
 title: Tworzenie laboratorium w usłudze Azure DevTest Labs | Microsoft Docs
 description: W tym artykule omówiono proces tworzenia laboratorium przy użyciu Azure Portal i Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 09999c5b0187f924f9cfbbc2afad8954adee0fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 962997bcc66188c66fd9db856fe44e4926f8e70c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85481259"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019651"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Tworzenie laboratorium w usłudze Azure DevTest Labs
+
 Azure DevTest Labs to infrastruktura, która obejmuje wiele różnych zasobów (np. maszyn wirtualnych) i umożliwia lepsze zarządzanie tymi zasobami przez określenie ograniczeń i przydziałów. W tym artykule szczegółowo omówiono proces tworzenia laboratorium przy użyciu witryny Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Aby utworzyć laboratorium, potrzebne są:
 
 * Subskrypcja platformy Azure. Aby zapoznać się z opcjami zakupu platformy Azure, zobacz [Jak kupić system Azure](https://azure.microsoft.com/pricing/purchase-options/) lub [Bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/). Aby utworzyć laboratorium, trzeba być właścicielem subskrypcji.
 
-## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Procedura tworzenia laboratorium w usłudze Azure DevTest Labs
-Następujące kroki ilustrują tworzenie laboratorium w usłudze Azure DevTest Labs przy użyciu witryny Azure Portal. 
+## <a name="get-started-with-azure-devtest-labs-in-minutes"></a>Rozpoczynanie pracy z usługą Azure DevTest Labs w zaledwie kilka minut
 
-1. Zaloguj się w witrynie [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Z menu głównego po lewej stronie wybierz pozycję **Wszystkie usługi** (w górnej części listy). Wybierz pozycję * (gwiazdka) obok pozycji **DevTest Labs** w sekcji **DEVOPS** . Ta akcja dodaje **DevTest Labs** do menu nawigacji po lewej stronie, aby można było łatwo uzyskać do niego dostęp. 
+Kliknięcie następującego linku spowoduje przeniesienie do strony Azure Portal, która umożliwia rozpoczęcie tworzenia nowego laboratorium w Azure DevTest Labs.
 
-    ![Wszystkie usługi — wybierz pozycję DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
-2. Teraz wybierz pozycję **DevTest Labs** w menu nawigacji po lewej stronie. Na pasku narzędzi wybierz pozycję **Dodaj** . 
-   
-    ![Dodawanie laboratorium](./media/devtest-lab-create-lab/add-lab-button.png)
-1. Na stronie **Tworzenie laboratorium DevTest** wykonaj następujące czynności: 
-    1. Wprowadź **nazwę** laboratorium.
-    2. W pozycji **Subskrypcja** wybierz subskrypcję do skojarzenia z laboratorium.
-    3. Wprowadź **nazwę grupy zasobów** dla laboratorium. 
-    4. Wybierz **lokalizację** , w której ma zostać zapisane laboratorium.
-    4. Wybierz pozycję **Automatyczne zamykanie**, aby włączyć opcję i określić parametry automatycznego zamykania wszystkich maszyn wirtualnych laboratorium. Funkcja automatycznego zamykania służy głównie do osiągnięcia oszczędności. Pozwala określić, kiedy ma dojść do automatycznego zamknięcia maszyny wirtualnej. Ustawienia automatycznego zamykania można zmienić po utworzeniu laboratorium, wykonując czynności opisane w artykule [Zarządzanie wszystkimi zasadami dla laboratorium w Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
-    1. Wprowadź informacje w polach **NAZWA** i **WARTOŚĆ** w obszarze **Tagi**, jeśli chcesz utworzyć niestandardowe tagowanie, które będzie dodawane do każdego zasobu utworzonego w laboratorium. Tagi są przydatne do porządkowania zasobów laboratorium według kategorii i zarządzania nimi. Aby uzyskać więcej informacji na temat tagów, w tym na temat sposobu dodawania tagów po utworzeniu laboratorium, zobacz [Dodawanie tagów do laboratorium](devtest-lab-add-tag.md).
-    6. Wybierz pozycję **Opcje automatyzacji**, aby uzyskać szablony usługi Azure Resource Manager dotyczące automatyzacji konfiguracji. 
-    7. Wybierz przycisk **Utwórz**. Stan procesu tworzenia laboratorium można monitorować, obserwując obszar **Powiadomienia**. 
-    
-        ![Tworzenie sekcji laboratorium usługi DevTest Labs](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
-    8. Po zakończeniu wybierz pozycję **Przejdź do zasobu** w powiadomieniu. Alternatywnie możesz odświeżyć stronę **DevTest Labs** , aby zobaczyć nowo utworzone laboratorium na liście laboratoriów.  Wybierz laboratorium z listy. Zostanie wyświetlona strona główna dla laboratorium. 
+[Rozpoczynanie pracy z usługą Azure DevTest Labs w zaledwie kilka minut](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-        ![Strona główna laboratorium](./media/devtest-lab-create-lab/lab-home-page.png)
+## <a name="fill-out-settings-for-your-new-account"></a>Wypełnij ustawienia dla nowego konta
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+Na stronie **Tworzenie DevTest Labs** Wypełnij poniższe ustawienia.
+
+> [!TIP]
+> W dolnej części każdej strony znajduje się link umożliwiający **pobranie szablonu do automatyzacji**.
+
+### <a name="basic-settings"></a>Ustawienia podstawowe
+
+Domyślnie zostanie wyświetlona karta **Ustawienia podstawowe** . Wypełnij te wartości:
+
+|Nazwa|Opis|
+|---|---|
+|**Subskrypcja** | Wymagane. W pozycji **Subskrypcja** wybierz subskrypcję do skojarzenia z laboratorium.|
+|**Grupa zasobów**| Wymagane. Wprowadź **nazwę grupy zasobów** dla laboratorium. Utwórz nowy, jeśli taki nie istnieje.|
+|**Nazwa laboratorium**| Wymagane. Wprowadź **nazwę** laboratorium.|
+|**Lokalizacja**|Wymagane. Wybierz lokalizację, w której ma zostać zapisane laboratorium.|
+|**Środowiska publiczne**| Zobacz [Konfigurowanie i używanie środowisk publicznych](devtest-lab-configure-use-public-environments.md).
+
+### <a name="auto-shutdown-settings"></a>Ustawienia automatycznego zamykania
+
+Przejdź do strony **automatycznego zamykania** , aby wyświetlić jej ustawienia. Automatyczne zamknięcie umożliwia automatyczne zamknięcie wszystkich maszyn w laboratorium w zaplanowanym terminie każdego dnia.
+
+Na stronie można włączyć **automatyczne zamykanie** i zdefiniować parametry automatycznego zamykania wszystkich maszyn wirtualnych laboratorium... Funkcja automatycznego zamykania służy głównie do osiągnięcia oszczędności. Pozwala określić, kiedy ma dojść do automatycznego zamknięcia maszyny wirtualnej. Ustawienia automatycznego zamykania można zmienić po utworzeniu laboratorium, wykonując czynności opisane w artykule [Zarządzanie wszystkimi zasadami dla laboratorium w Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+
+### <a name="networking"></a>Networking
+
+Podczas tworzenia laboratorium zostanie utworzona domyślna sieć.
+
+Przejdź do karty **Sieć** , aby zmienić lub skonfigurować odpowiednie ustawienie. Na przykład wybierz istniejącą sieć wirtualną.
+
+### <a name="tags"></a>Tags
+
+Wprowadź informacje w polach **NAZWA** i **WARTOŚĆ** w obszarze **Tagi**, jeśli chcesz utworzyć niestandardowe tagowanie, które będzie dodawane do każdego zasobu utworzonego w laboratorium. Tagi są przydatne do porządkowania zasobów laboratorium według kategorii i zarządzania nimi. Aby uzyskać więcej informacji na temat tagów, w tym na temat sposobu dodawania tagów po utworzeniu laboratorium, zobacz [Dodawanie tagów do laboratorium](devtest-lab-add-tag.md).
+
+### <a name="review-and-create"></a>Przegląd i tworzenie
+
+Po zakończeniu wybierz pozycję **Utwórz**. Stan procesu tworzenia laboratorium można monitorować, obserwując obszar **powiadomienia** w prawym górnym rogu strony portalu. 
+
+## <a name="completed-the-creation"></a>Ukończono tworzenie
+
+Po ukończeniu przycisk **Przejdź do zasobu** pojawia się u dołu strony i w oknie powiadomień. Alternatywnie możesz odświeżyć stronę **DevTest Labs** , aby zobaczyć nowo utworzone laboratorium na liście laboratoriów.  
+
+Naciśnij przycisk **Przejdź do zasobu** i nastąpi przejście do strony głównej nowego konta w usłudze DevTest Labs.
+
+Możesz również wyszukać **DevTest Labs** w Azure Portal. Wybierz nowe konto z listy i uzyskaj dostęp do strony głównej. 
 
 ## <a name="next-steps"></a>Następne kroki
+
 Po utworzeniu laboratorium warto rozważyć poniższe kroki:
 
 * [Zabezpieczanie dostępu do laboratoriów](devtest-lab-add-devtest-user.md)

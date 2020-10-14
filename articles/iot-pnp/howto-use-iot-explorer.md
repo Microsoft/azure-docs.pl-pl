@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e64586ced7a619de02ae3a9d6beda35660ca04a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577581"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019158"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalowanie i korzystanie z programu Azure IoT Explorer
 
@@ -36,7 +36,7 @@ Aby korzystać z narzędzia Azure IoT Explorer, potrzebne są:
 Przejdź do [wersji programu Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) i rozwiń listę zasobów dla najnowszej wersji. Pobierz i zainstaluj najnowszą wersję aplikacji.
 
 >[!Important]
->Z wersji 0.11.0 IoT Explorer obsługuje tylko Plug and Play IoT (od września 2020). Aby skorzystać z funkcji dostępnych w poprzedniej wersji zapoznawczej — wydanie z sierpnia sie 2019, Zainstaluj wersję 0.10. x.
+> Aktualizacja do wersji 0.13. x w celu rozpoznania modeli z dowolnego repozytorium na podstawie [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## <a name="use-azure-iot-explorer"></a>Korzystanie z programu Azure IoT Explorer
 
@@ -136,4 +136,4 @@ Aby wyświetlić dane telemetryczne dla wybranego interfejsu, przejdź do karty 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule poznasz sposób instalowania i używania programu Azure IoT Explorer do współpracy z urządzeniami Plug and Play IoT. Sugerowanym następnym krokiem jest nauczenie się, jak używać [poleceń Plug and Play interfejsu wiersza polecenia platformy Azure](./howto-use-iot-pnp-cli.md).
+W tym artykule poznasz sposób instalowania i używania programu Azure IoT Explorer do współpracy z urządzeniami Plug and Play IoT. Sugerowanym następnym krokiem jest zapoznanie się z tematem [Instalowanie i używanie narzędzi autorskich DTDL](howto-use-dtdl-authoring-tools.md).

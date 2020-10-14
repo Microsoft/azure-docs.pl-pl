@@ -2,18 +2,18 @@
 title: Zmienne środowiskowe wykrywania anomalii
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/30/2020
-ms.author: aahi
-ms.openlocfilehash: 4a44df3f2108421c73c161d8f2df37330b9c2d14
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 74e5373ebafbd39748f8b002069eaa6d732be069
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85980223"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018478"
 ---
 ### <a name="create-an-environment-variable"></a>Utwórz zmienną środowiskową
 

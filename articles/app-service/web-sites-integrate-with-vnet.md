@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739917"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018631"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z usługą Azure Virtual Network
 
@@ -150,9 +150,13 @@ Trzy opłaty są związane z korzystaniem z funkcji integracji sieci wirtualnej 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
+> [!NOTE]
+> Integracja sieci wirtualnej nie jest obsługiwana w przypadku scenariuszy Docker Compose w App Service.
+>
+
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Obsługa interfejsu wiersza polecenia jest dostępna dla integracji regionalnej sieci wirtualnej. Aby uzyskać dostęp do poniższych poleceń, [Zainstaluj interfejs wiersza polecenia platformy Azure][installCLI].
 

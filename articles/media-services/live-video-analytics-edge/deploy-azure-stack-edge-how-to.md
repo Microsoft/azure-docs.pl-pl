@@ -3,12 +3,12 @@ title: Wdrażanie usługi Live Video Analytics na Azure Stack Edge
 description: W tym artykule wymieniono kroki, które ułatwią wdrożenie analizy filmów wideo na żywo na Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937716"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019600"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Wdrażanie usługi Live Video Analytics na Azure Stack Edge
 
@@ -21,27 +21,27 @@ W przypadku usługi Live Video Analytics wdrożenie zostanie wdrożone za pośre
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* Zasób [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep)
+* Subskrypcja platformy Azure, do której masz [uprawnienia właściciela](../../role-based-access-control/built-in-roles.md#owner).
+* Zasób [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)
    
-* [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* Jednostka [usługi](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) dla modułu analizy wideo na żywo.
+* [IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* Jednostka [usługi](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) dla modułu analizy wideo na żywo.
 
    Użyj jednego z tych regionów, w których IoT Hub jest dostępna: Wschodnie stany USA 2, środkowe stany USA, Północno-środkowe stany USA, Japonia Wschodnia, zachodnie stany USA 2, zachodnie stany USA, Kanada Wschodnia, Południowe Zjednoczone Królestwo, Francja środkowa, Francja Południowa, Szwajcaria Północna, Szwajcaria Zachodnia i Japonia Zachodnia.
 * Konto magazynu
 
     Zalecane jest użycie kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2).  
-    Dowiedz się więcej na temat [konta magazynu ogólnego przeznaczenia w wersji 2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
+    Dowiedz się więcej na temat [konta magazynu ogólnego przeznaczenia w wersji 2](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) na komputerze deweloperskim. Upewnij się, że masz [rozszerzenie narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Upewnij się, że sieć, z którą jest połączony komputer deweloperski, zezwala na zaawansowaną kolejkowanie komunikatów przez port 5671. To ustawienie umożliwia usłudze Azure IoT Tools komunikowanie się z usługą Azure IoT Hub.
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>Konfigurowanie Azure Stack Edge do korzystania z analizy filmów wideo na żywo
 
-Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie komputerowe z systemem brzegowym z funkcją transferu danych w sieci. Przeczytaj więcej na temat [Azure Stack Edge i szczegółowe instrukcje dotyczące instalacji](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep). Aby rozpocząć, postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
+Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie komputerowe z systemem brzegowym z funkcją transferu danych w sieci. Przeczytaj więcej na temat [Azure Stack Edge i szczegółowe instrukcje dotyczące instalacji](../../databox-online/azure-stack-edge-deploy-prep.md). Aby rozpocząć, postępuj zgodnie z instrukcjami podanymi w poniższych linkach:
 
-* [Azure Stack tworzenie zasobów i Data Box Gateway](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [Instalacja i konfiguracja](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [Połączenie i aktywacja](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Azure Stack tworzenie zasobów i Data Box Gateway](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [Instalacja i konfiguracja](../../databox-online/azure-stack-edge-deploy-install.md)
+* [Połączenie i aktywacja](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Dołącz IoT Hub do Azure Stack Edge
 
@@ -59,7 +59,7 @@ Azure Stack Edge to rozwiązanie typu "sprzęt jako usługa" oraz urządzenie ko
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
-1. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
+1. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. Aby upewnić się, że skonfigurowano rolę obliczeniową brzegową, wybierz pozycję **Wyświetl obliczenia** na kafelku **Konfiguruj obliczenia** .
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
@@ -80,7 +80,7 @@ Przed kontynuowaniem upewnij się, że:
 
 * Uaktywniono zasób Azure Stack Edge.
 * Masz dostęp do systemu klienta systemu Windows z uruchomionym programem PowerShell 5,0 lub nowszym w celu uzyskania dostępu do zasobu brzegowego Azure Stack.
-* Aby wdrożyć klaster Kubernetes, należy skonfigurować zasób brzegowy Azure Stack przy użyciu [lokalnego interfejsu użytkownika sieci Web](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
+* Aby wdrożyć klaster Kubernetes, należy skonfigurować zasób brzegowy Azure Stack przy użyciu [lokalnego interfejsu użytkownika sieci Web](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
     
     * Aby włączyć obliczenia, w lokalnym interfejsie użytkownika sieci Web urządzenia przejdź na stronę obliczenia.
     

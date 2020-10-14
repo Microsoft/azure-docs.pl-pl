@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28f414c5eaaea7b987f2c3694cb8fc73b70838e9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050446"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018767"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Zarządzanie usługami Azure Analysis Services przy użyciu programu PowerShell
 
@@ -46,21 +46,21 @@ Dokumentacja — [odwołanie do SqlServer](/powershell/module/sqlserver)
 
 |Polecenie cmdlet|Opis|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Dodaj członka do roli bazy danych.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Utwórz kopię zapasową bazy danych Analysis Services.|  
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Usuń członka z roli bazy danych.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Wykonaj skrypt TMSL.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Przetwarzaj bazę danych.|  
-|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Przetwórz partycję.| 
-|[Invoke-Processing](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Przetwórz tabelę.|  
-|[Scalanie partycji](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Scal partycję.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Przywróć bazę danych Analysis Services.| 
+|[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|Dodaj członka do roli bazy danych.| 
+|[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase)|Utwórz kopię zapasową bazy danych Analysis Services.|  
+|[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|Usuń członka z roli bazy danych.|   
+|[Invoke-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|Wykonaj skrypt TMSL.|
+|[Invoke-ProcessASDatabase](/powershell/module/sqlserver/invoke-processasdatabase)|Przetwarzaj bazę danych.|  
+|[Invoke-ProcessPartition](/powershell/module/sqlserver/invoke-processpartition)|Przetwórz partycję.| 
+|[Invoke-Processing](/powershell/module/sqlserver/invoke-processtable)|Przetwórz tabelę.|  
+|[Scalanie partycji](/powershell/module/sqlserver/merge-partition)|Scal partycję.|  
+|[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase)|Przywróć bazę danych Analysis Services.| 
   
 
 ## <a name="related-information"></a>Informacje pokrewne
 
-* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [Pobierz moduł SQL Server PowerShell](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Pobierz narzędzie SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell](/sql/powershell/sql-server-powershell)      
+* [Pobierz moduł SQL Server PowerShell](/sql/ssms/download-sql-server-ps-module)   
+* [Pobierz narzędzie SSMS](/sql/ssms/download-sql-server-management-studio-ssms)   
 * [Moduł SqlServer w Galeria programu PowerShell](https://www.powershellgallery.com/packages/SqlServer)    
-* [Programowanie modeli tabelarycznych dla poziomu zgodności 1200 i wyższych](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [Programowanie modeli tabelarycznych dla poziomu zgodności 1200 i wyższych](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

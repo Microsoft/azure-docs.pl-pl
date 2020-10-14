@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297743"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017747"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3
 
@@ -44,8 +44,8 @@ Jeśli masz już zainstalowaną usługę wideo na [starszej wersji interfejsów 
 *  Wersja 3 opiera się na ujednoliconej powierzchni interfejsu API, która udostępnia zarówno funkcje zarządzania, jak i operacji oparte na usłudze Azure Resource Manager. Przy użyciu szablonów Azure Resource Manager można tworzyć i wdrażać transformacje, punkty końcowe przesyłania strumieniowego, zdarzenia na żywo i wiele innych.
 * Dokument [specyfikacji openapi (dawniej: Swagger)](https://aka.ms/ams-v3-rest-sdk) .
     Uwidacznia schemat dla wszystkich składników usługi, w tym kodowania opartego na plikach.
-* Zestawy SDK dostępne dla [platform .NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [go](https://aka.ms/ams-v3-go-ref)i Ruby.
-* Integracja [interfejsu wiersza polecenia platformy Azure](https://aka.ms/ams-v3-cli-ref) w celu obsługi prostych skryptów.
+* Zestawy SDK dostępne dla [platform .NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [go](https://aka.ms/ams-v3-go-ref)i Ruby.
+* Integracja [interfejsu wiersza polecenia platformy Azure](/cli/azure/ams) w celu obsługi prostych skryptów.
 
 ### <a name="new-features"></a>Nowe funkcje
 
@@ -69,7 +69,7 @@ Jeśli masz już zainstalowaną usługę wideo na [starszej wersji interfejsów 
     * Wyświetl [zasoby](assets-concept.md)v3 (nie Zarządzaj), 
     * [Uzyskaj informacje na temat uzyskiwania dostępu do interfejsów API](./access-api-howto.md). 
 
-    W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), [interfejsu wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+    W przypadku wszystkich innych zadań zarządzania (na przykład [transformacji i zadań](transforms-jobs-concept.md) oraz [ochrony zawartości](content-protection-overview.md)) należy użyć [interfejsu API REST](/rest/api/media/), [interfejsu wiersza polecenia](/cli/azure/ams)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
 * Musisz zainicjować obsługę jednostek zarezerwowanych multimediów (MRUs) na koncie, aby kontrolować współbieżność i wydajność zadań, w szczególności na potrzeby analizy wideo lub audio. Aby uzyskać więcej informacji, zobacz [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Skalowanie przetwarzania multimediów). MRUs można zarządzać za pomocą [interfejsu wiersza polecenia 2,0 dla Media Services v3](media-reserved-units-cli-how-to.md)przy użyciu [Azure Portal](../previous/media-services-portal-scale-media-processing.md)lub przy użyciu [interfejsów API v2](../previous/media-services-dotnet-encoding-units.md). Należy udostępnić MRUs, niezależnie od tego, czy są Media Services używane interfejsy API w wersji 2 i v3.
 * Media Services jednostek utworzonych za pomocą interfejsu API V3 nie można zarządzać za pomocą interfejsu API v2.  
 * Nie wszystkie jednostki w interfejsie API v2 są automatycznie wyświetlane w interfejsie API v3.  Poniżej przedstawiono przykłady jednostek w dwóch niezgodnych wersjach:  

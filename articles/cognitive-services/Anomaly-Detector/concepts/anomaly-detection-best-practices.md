@@ -3,19 +3,19 @@ title: Najlepsze rozwiązania dotyczące interfejsu API narzędzia do wykrywania
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się więcej o najlepszych rozwiązaniach dotyczących wykrywania anomalii przy użyciu interfejsu API wykrywania anomalii.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: aahi
-ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67721625"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018393"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Najlepsze rozwiązania dotyczące korzystania z interfejsu API wykrywania anomalii
 
