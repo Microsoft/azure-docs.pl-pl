@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231235"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056144"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizowanie dzienników aktywności usługi Azure AD za pomocą dzienników Azure Monitor
 
@@ -100,16 +100,13 @@ Możesz również skonfigurować alerty w zapytaniu. Na przykład, aby skonfigur
 
 5. Po skonfigurowaniu alertu wybierz pozycję **Utwórz alert** , aby go włączyć. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Instalowanie i używanie wstępnie utworzonych widoków dla dzienników aktywności usługi Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Używanie wstępnie skompilowanych skoroszytów dla dzienników aktywności usługi Azure AD
 
-Możesz również pobrać wstępnie skompilowane widoki usługi log Analytics dla dzienników aktywności w usłudze Azure AD. Widoki zawierają kilka raportów związanych z typowymi scenariuszami związanymi z inspekcją i zdarzeniami logowania. Możesz również otrzymywać alerty dotyczące dowolnych danych zawartych w raportach, korzystając z kroków opisanych w poprzedniej sekcji.
+Skoroszyty zawierają kilka raportów związanych z typowymi scenariuszami związanymi z inspekcją, logowaniem i inicjowaniem obsługi zdarzeń. Możesz również otrzymywać alerty dotyczące dowolnych danych zawartych w raportach, korzystając z kroków opisanych w poprzedniej sekcji.
 
-* **Zdarzenia aprowizacji konta usługi Azure AD**: ten widok przedstawia raporty dotyczące aktywności związanej z obsługą inspekcji, takie jak liczba nowych użytkowników i niepowodzenia aprowizacji, liczba zaktualizowanych użytkowników i aktualizacja niepowodzeń oraz liczba użytkowników, którym cofnięto Inicjowanie obsługi administracyjnej i odpowiadające im błędy.    
-* **Zdarzenia logowania**: ten widok przedstawia najbardziej odpowiednie raporty związane z monitorowaniem aktywności, takie jak logowania według aplikacji, użytkownika, urządzenia, a także widok podsumowania, który śledzi liczbę logowań w czasie.
-* **Użytkownicy**korzystający z zgody: ten widok przedstawia raporty dotyczące zgody użytkownika, takie jak zgoda użytkownika, logowania użytkowników, którzy udzieliły zgody, a także logowania przez aplikacje dla wszystkich aplikacji opartych na zgodzie. 
-
-Dowiedz się, jak [zainstalować widoki analizy dzienników dla dzienników aktywności usługi Azure AD i używać ich](howto-install-use-log-analytics-views.md). 
-
+* **Analiza aprowizacji**: w tym [skoroszycie](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) przedstawiono raporty dotyczące aktywności związanej z obsługą administracyjną, takie jak liczba nowych użytkowników, których zainicjowano i zainicjowanie obsługi administracyjnej, liczba zaktualizowanych użytkowników i niepowodzenia aktualizacji oraz liczba użytkowników, którym cofnięto Inicjowanie obsługi administracyjnej, i odpowiednich błędów.    
+* **Zdarzenia logowania**: ten skoroszyt pokazuje najbardziej odpowiednie raporty związane z monitorowaniem działania logowania, takie jak logowania według aplikacji, użytkownika, urządzenia, a także widok podsumowania, który śledzi liczbę logowań w czasie.
+* **Dostęp warunkowy szczegółowe informacje**: [skoroszyt](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) usługi Dostęp warunkowy usługi Insights i raportowania pozwala zrozumieć wpływ zasad dostępu warunkowego w organizacji w miarę upływu czasu. 
 
 ## <a name="next-steps"></a>Następne kroki
 

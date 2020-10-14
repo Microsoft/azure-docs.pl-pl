@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie JavaScript'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie biblioteki grafu zasobów dla języka JavaScript i uruchomienie pierwszego zapytania.
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91251970"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057420"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Szybki Start: uruchamianie pierwszego zapytania wykresu zasobów przy użyciu języka JavaScript
 
@@ -23,11 +23,11 @@ Po zakończeniu tego procesu dodaliśmy biblioteki do instalacji języka JavaScr
 
 - **Node.js**: wymagana jest [Node.js](https://nodejs.org/) wersja 12 lub nowsza.
 
-## <a name="application-setup"></a>Konfiguracja aplikacji
+## <a name="application-initialization"></a>Inicjowanie aplikacji
 
-Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów platformy Azure, należy skonfigurować środowisko. Ta konfiguracja działa wszędzie tam, gdzie można używać języka JavaScript, [w tym bash w systemie Windows 10](/windows/wsl/install-win10).
+Aby włączyć JavaScript do tworzenia zapytań dotyczących grafu zasobów platformy Azure, środowisko musi być skonfigurowane. Ta konfiguracja działa wszędzie tam, gdzie można używać języka JavaScript, [w tym bash w systemie Windows 10](/windows/wsl/install-win10).
 
-1. Skonfiguruj nowy projekt Node.js, uruchamiając następujące polecenie.
+1. Zainicjuj nowy projekt Node.js, uruchamiając następujące polecenie.
 
    ```bash
    npm init -y

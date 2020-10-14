@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706255"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055374"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Instrukcje: Migrowanie z usługi Azure Access Control Service
 
@@ -214,7 +214,7 @@ Na wysokim poziomie *Azure Active Directory jest prawdopodobnie najlepszym wybor
 
 Jeśli zdecydujesz, że usługa Azure AD jest najlepszą ścieżką migracji aplikacji i usług, należy pamiętać o dwóch sposobach integracji aplikacji z usługą Azure AD.
 
-Aby użyć WS-Federation lub WIF do integracji z usługą Azure AD, zalecamy wykonanie podejścia opisanego w temacie [Konfigurowanie federacyjnego logowania jednokrotnego dla aplikacji spoza galerii](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Artykuł dotyczy konfigurowania usługi Azure AD na potrzeby logowania jednokrotnego opartego na protokole SAML, ale również w przypadku konfigurowania usługi WS-Federation. Poniższe podejście wymaga licencji Azure AD — wersja Premiumej. Takie podejście ma dwie zalety:
+Aby użyć WS-Federation lub WIF do integracji z usługą Azure AD, zalecamy wykonanie podejścia opisanego w temacie [Konfigurowanie federacyjnego logowania jednokrotnego dla aplikacji spoza galerii](../manage-apps/configure-saml-single-sign-on.md). Artykuł dotyczy konfigurowania usługi Azure AD na potrzeby logowania jednokrotnego opartego na protokole SAML, ale również w przypadku konfigurowania usługi WS-Federation. Poniższe podejście wymaga licencji Azure AD — wersja Premiumej. Takie podejście ma dwie zalety:
 
 - Możesz uzyskać pełną elastyczność dostosowywania tokenów usługi Azure AD. Oświadczenia, które są wystawiane przez usługę Azure AD, można dostosować do oświadczeń wystawionych przez Access Control. Dotyczy to zwłaszcza identyfikatora użytkownika lub nazwy żądania. Aby nadal otrzymywać spójne identyfikatory użytkowników dla użytkowników po zmianie technologii, należy się upewnić, że identyfikatory użytkowników wystawione przez usługę Azure AD są zgodne z tymi wystawionymi przez Access Control.
 - Można skonfigurować certyfikat podpisywania tokenu, który jest specyficzny dla Twojej aplikacji, i z okresem istnienia, który kontrolujesz.
@@ -226,7 +226,7 @@ Alternatywnym podejściem jest wykonanie [tego przykładu kodu](https://github.c
 
 W przypadku wybrania tej metody należy zrozumieć [Przerzucanie klucza podpisywania w usłudze Azure AD](../develop/active-directory-signing-key-rollover.md). To podejście używa globalnego klucza podpisywania usługi Azure AD do wystawiania tokenów. Domyślnie program WIF nie odświeża automatycznie kluczy podpisywania. Gdy usługa Azure AD obraca swoje globalne klucze podpisywania, wdrożenie WIF musi zostać przygotowane w celu zaakceptowania zmian. Aby uzyskać więcej informacji, zobacz [Ważne informacje dotyczące przerzucania klucza podpisywania w usłudze Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
-Jeśli można przeprowadzić integrację z usługą Azure AD za pomocą protokołów OpenID Connect Connect lub OAuth, zalecamy wykonanie tej czynności. Mamy obszerną dokumentację i wskazówki dotyczące sposobu integrowania usługi Azure AD z aplikacją sieci Web dostępną w [przewodniku dewelopera usługi Azure AD](https://aka.ms/aaddev).
+Jeśli można przeprowadzić integrację z usługą Azure AD za pomocą protokołów OpenID Connect Connect lub OAuth, zalecamy wykonanie tej czynności. Mamy obszerną dokumentację i wskazówki dotyczące sposobu integrowania usługi Azure AD z aplikacją sieci Web dostępną w [przewodniku dewelopera usługi Azure AD](../develop/index.yml).
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migruj do Azure Active Directory B2C
 
@@ -332,7 +332,7 @@ Możesz również użyć usługi Azure AD do uwierzytelniania serwer-serwer przy
 
 Wskazówki dotyczące implementowania scenariuszy serwer-serwer można znaleźć w następujących zasobach:
 
-- Sekcja Service to Service [przewodnika dewelopera usługi Azure AD](https://aka.ms/aaddev)
+- Sekcja Service to Service [przewodnika dewelopera usługi Azure AD](../develop/index.yml)
 - [Przykład kodu demona przy użyciu prostych poświadczeń klienta hasła](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Przykład kodu demona przy użyciu poświadczeń klienta certyfikatu](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856113"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057896"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -136,7 +136,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 - Należy zachować ostrożność w przypadku używania następujących typów danych jako klucza podstawowego, ponieważ obsługiwana precyzja jest tylko sekundą: Time, DateTime, datetime2, DateTimeOffset.
 - Nazwy obiektów (baz danych, tabel i kolumn) nie mogą zawierać kropki do drukowalnego znaku (.), lewego nawiasu kwadratowego ([) lub prawego nawiasu kwadratowego (]).
 - Uwierzytelnianie Azure Active Directory nie jest obsługiwane.
-- Tabele o tej samej nazwie, ale innym schemacie (na przykład dbo. Customers i Sales. Customers) nie są obsługiwane.
+- Jeśli istnieją tabele o tej samej nazwie, ale różnych schematach (na przykład dbo. Customers i Sales. Customers), można dodać do synchronizacji tylko jedną z tabel.
 - Kolumny z User-Defined typami danych nie są obsługiwane
 - Przeniesienie serwerów między różnymi subskrypcjami nie jest obsługiwane. 
 

@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie w portalu'
 description: W tym przewodniku szybki start wykonaj kroki, aby uruchomić pierwsze zapytanie z Azure Portal przy użyciu Eksploratora Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88056384"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057386"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph
 
@@ -51,7 +51,7 @@ Przeglądarka schematów to doskonały sposób odnajdywania właściwości do u�
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Tworzenie wykresu na podstawie zapytania wykresu zasobów
 
-Po uruchomieniu ostatniego zapytania powyżej, jeśli wybierzesz kartę **wykresy** , zostanie wyświetlony komunikat "zestaw wyników nie jest zgodny z wizualizacją wykresu kołowego". Zapytania, które nie mogą zostać wprowadzone do wykresu, mogą zawierać kwerendy, które zapewniają liczbę zasobów. Korzystając z [przykładowych maszyn wirtualnych typu zapytanie-liczba](./samples/starter.md#count-os), Utwórz wizualizację z zapytania grafu zasobów.
+Po uruchomieniu poprzedniego zapytania, jeśli wybierzesz kartę **wykresy** , zostanie wyświetlony komunikat "zestaw wyników nie jest zgodny z wizualizacją wykresu kołowego". Zapytania, które nie mogą zostać wprowadzone do wykresu, mogą zawierać kwerendy, które zapewniają liczbę zasobów. Korzystając z [przykładowych maszyn wirtualnych typu zapytanie-liczba](./samples/starter.md#count-os), Utwórz wizualizację z zapytania grafu zasobów.
 
 1. W części **kwerenda 1** okna wprowadź następujące zapytanie i wybierz polecenie **Uruchom zapytanie**.
 
@@ -67,7 +67,7 @@ Po uruchomieniu ostatniego zapytania powyżej, jeśli wybierzesz kartę **wykres
 
 ## <a name="pin-the-query-visualization-to-a-dashboard"></a>Przypinanie wizualizacji zapytania do pulpitu nawigacyjnego
 
-Wyniki zapytania, które można wizualizować, można przypinać do jednego z pulpitów nawigacyjnych. Po uruchomieniu zapytania powyżej wykonaj następujące kroki:
+Wyniki zapytania, które można wizualizować, można przypinać do jednego z pulpitów nawigacyjnych. Po uruchomieniu poprzedniego zapytania wykonaj następujące kroki:
 
 1. Wybierz pozycję **Zapisz** i podaj nazwę "maszyny wirtualne według typu systemu operacyjnego". Następnie wybierz pozycję **Zapisz** w dolnej części okienka po prawej stronie.
 

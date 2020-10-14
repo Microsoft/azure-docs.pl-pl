@@ -1,14 +1,14 @@
 ---
 title: Przykłady zapytań zaawansowanych
 description: Za pomocą usługi Azure Resource Graph można uruchamiać pewne zaawansowane zapytania, w tym pracę z kolumnami, używane Tagi list i zgodne zasoby z wyrażeniami regularnymi.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425300"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057148"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Zaawansowane przykłady zapytania grafu zasobów
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>Szczegóły zapytania dotyczącego raportów przypisywania konfiguracji gościa
 
-Wyświetl Raport z szczegółów [przyczyny przypisania konfiguracji gościa](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) .
-W poniższym przykładzie zapytanie zwraca tylko wyniki, w których nazwa przypisania gościa jest `installed_application_linux` , a dane wyjściowe zawierają ciąg, `Python` Aby wyświetlić listę wszystkich maszyn z systemem Linux, w których zainstalowano pakiet, który zawiera nazwę języka **Python**.
-Aby zbadać zgodność wszystkich maszyn z określonym przypisaniem, Usuń `where` klauzulę drugiego.
+Wyświetl Raport z szczegółów [przyczyny przypisania konfiguracji gościa](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) . W poniższym przykładzie zapytanie zwraca tylko wyniki, w których nazwa przypisania gościa jest `installed_application_linux` , a dane wyjściowe zawierają ciąg, `Python` Aby wyświetlić listę wszystkich maszyn z systemem Linux, w których zainstalowano pakiet, który zawiera nazwę języka **Python**. Aby zbadać zgodność wszystkich maszyn z określonym przypisaniem, Usuń drugą `where` klauzulę.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>Znajdź wszystkie przyczyny braku zgodności komputera z przypisaniami konfiguracji gościa
 
-Wyświetl wszystkie [przyczyny przypisywania konfiguracji gościa](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) dla określonego komputera.
-Usuń pierwszą `where` klauzulę, aby dołączyć także inspekcje, w których maszyna jest zgodna.
+Wyświetl wszystkie [przyczyny przypisywania konfiguracji gościa](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) dla określonego komputera. Usuń pierwszą `where` klauzulę, aby dołączyć także inspekcje, w których maszyna jest zgodna.
 
 ```kusto
 GuestConfigurationResources

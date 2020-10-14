@@ -3,17 +3,17 @@ title: Pojęcia dotyczące debugowania sesji (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
 description: Sesje debugowania, do których dostęp odbywa się za pomocą Azure Portal, udostępnia środowisko IDE podobne do, w którym można identyfikować i naprawiać błędy, weryfikować zmiany i wypchnąć zmiany do umiejętności w potoku wzbogacania AI. Sesje debugowania są w wersji zapoznawczej.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743186"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057624"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Debugowanie sesji na platformie Azure Wyszukiwanie poznawcze
 

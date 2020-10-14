@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbac172952c9feea92341dbc028567235b9250bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075277"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055855"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
@@ -23,7 +23,7 @@ Zdalne renderowanie na platformie Azure udostępnia dwa następujące interfejsy
 [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przykładowe skrypty w folderze *skryptów* na potrzeby współpracy z interfejsami API REST usługi. W tym artykule opisano ich użycie.
 
 > [!CAUTION]
-Zbyt częste wywoływanie funkcji interfejsu API REST spowoduje, że serwer zostanie ograniczony i ostatecznie nie zwróci błędu. Identyfikator kodu błędu HTTP w tym przypadku to 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
+> Zbyt częste wywoływanie funkcji interfejsu API REST spowoduje, że serwer zostanie ograniczony i ostatecznie nie zwróci błędu. Identyfikator kodu błędu HTTP w tym przypadku to 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

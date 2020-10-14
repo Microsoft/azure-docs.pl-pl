@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd659ebd74b67a036c189cae763205e6b0371f7c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051302"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058169"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
 
@@ -214,19 +214,19 @@ Po wykonaniu tych kroków zamknij wszystkie dokumenty *cshtml* w programie Visua
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Zadeklaruj i zainicjuj usługi
 
-Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połączenia i użycie Azure Cosmos DB. W tym samouczku będziemy hermetyzować tę logikę do klasy o nazwie `CosmosDBService` i interfejsu o nazwie `ICosmosDBService` . Ta usługa wykonuje operacje CRUD. Wykonuje również operacje odczytu źródła danych, takie jak wyświetlanie niekompletnych elementów, tworzenie, edytowanie i usuwanie elementów.
+Najpierw dodamy klasę zawierającą logikę umożliwiającą nawiązanie połączenia i użycie Azure Cosmos DB. W tym samouczku będziemy hermetyzować tę logikę do klasy o nazwie `CosmosDbService` i interfejsu o nazwie `ICosmosDbService` . Ta usługa wykonuje operacje CRUD. Wykonuje również operacje odczytu źródła danych, takie jak wyświetlanie niekompletnych elementów, tworzenie, edytowanie i usuwanie elementów.
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **Nowy folder**. Nazwij *usługi*folderów.
 
-1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *CosmosDBService* i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *CosmosDbService* i wybierz pozycję **Dodaj**.
 
-1. Zastąp zawartość *CosmosDBService.cs* następującym kodem:
+1. Zastąp zawartość *CosmosDbService.cs* następującym kodem:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *ICosmosDBService* i wybierz pozycję **Dodaj**.
+1. Kliknij prawym przyciskiem myszy folder **usługi** , a następnie wybierz polecenie **Dodaj**  >  **klasę**. Nadaj nowej klasie nazwę *ICosmosDbService* i wybierz pozycję **Dodaj**.
 
-1. Dodaj następujący kod do klasy *ICosmosDBService* :
+1. Dodaj następujący kod do klasy *ICosmosDbService* :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
@@ -286,7 +286,7 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Wybierz opcję **Utwórz nowe** łącze i Dodaj wartości do pól **Nazwa** i **Opis** . Pozostaw zaznaczone pole wyboru **ukończone** . W przypadku wybrania tej opcji aplikacja dodaje nowy element w stanie ukończone. Element nie jest już wyświetlany na liście początkowej.
 
-1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
+1. Wybierz pozycję **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający aplikację sieci Web MVC z listą zadań do zrobienia utworzoną w tym samouczku — Samouczek platformy ASP NET Core MVC krok po kroku":::
   

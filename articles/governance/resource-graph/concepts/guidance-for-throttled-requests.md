@@ -1,15 +1,15 @@
 ---
 title: Wskazówki dotyczące ograniczonych żądań
 description: Zapoznaj się z równoległym grupowaniem, rozłożeniem, stronicowaniem i wykonywaniem zapytań, aby uniknąć ograniczania żądań przez usługę Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006010"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056178"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
 
@@ -132,7 +132,7 @@ Ze względu na sposób wymuszonego ograniczania przepustowości zalecamy użycie
   |---------------------|-----|------|-------|-------|
   | Przedział czasu (s) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Poniżej znajduje się przykład przestrzegania nagłówków ograniczania przy wysyłaniu zapytań do grafu zasobów platformy Azure:
+Oto przykład przestrzegania nagłówków ograniczania przy wysyłaniu zapytań do grafu zasobów platformy Azure:
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Równoległe zapytanie
 
-Mimo że grupowanie jest zalecane w porównaniu z przetwarzanie równoległe, istnieją przypadki, w których zapytania nie mogą być łatwo pogrupowane. W takich przypadkach możesz chcieć zbadać Wykres zasobów platformy Azure, wysyłając jednocześnie wiele zapytań. Poniżej przedstawiono przykład sposobu _wycofywania_ na podstawie nagłówków ograniczania w takich scenariuszach:
+Mimo że grupowanie jest zalecane w porównaniu z przetwarzanie równoległe, istnieją przypadki, w których zapytania nie mogą być łatwo pogrupowane. W takich przypadkach możesz chcieć zbadać Wykres zasobów platformy Azure, wysyłając jednocześnie wiele zapytań. Oto przykład sposobu _wycofywania_ na podstawie nagłówków ograniczania w takich scenariuszach:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -219,7 +219,7 @@ Ponieważ wykres zasobów platformy Azure zwraca co najwyżej 1000 wpisów w poj
 
 - Interfejs wiersza polecenia platformy Azure/Azure PowerShell
 
-  W przypadku korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell zapytania do usługi Azure Resource Graph są automatycznie podzielone na strony, aby pobrać maksymalnie 5000 wpisów. Wyniki zapytania zwracają łączną listę wpisów ze wszystkich wywołań z podziałem na strony. W tym przypadku, w zależności od liczby wpisów w wyniku zapytania, pojedyncze zapytanie z podziałem na strony może zużywać więcej niż jeden przydział zapytania. Na przykład w poniższym przykładzie pojedynczy przebieg zapytania może zużywać do pięciu zasobów zapytania:
+  W przypadku korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell zapytania do usługi Azure Resource Graph są automatycznie podzielone na strony, aby pobrać maksymalnie 5000 wpisów. Wyniki zapytania zwracają łączną listę wpisów ze wszystkich wywołań z podziałem na strony. W tym przypadku, w zależności od liczby wpisów w wyniku zapytania, pojedyncze zapytanie z podziałem na strony może zużywać więcej niż jeden przydział zapytania. Na przykład w poniższych przykładach pojedynczy przebieg zapytania może zużywać do pięciu zasobów zapytania:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

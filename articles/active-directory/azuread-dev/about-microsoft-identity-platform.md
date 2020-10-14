@@ -12,16 +12,16 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a631a80e7ac5eed3c3239cb79e35b87c70ab1b0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88117774"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055464"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Ewolucja platformy tożsamości firmy Microsoft
 
-Platforma tożsamości firmy Microsoft jest ewolucją platformy deweloperskiej Azure Active Directory (Azure AD). Dzięki temu deweloperzy mogą tworzyć aplikacje, które logują użytkowników, uzyskują tokeny do wywoływania interfejsów API, takich jak Microsoft Graph lub interfejsy API zaprojektowane przez deweloperów. Obejmuje ona usługę uwierzytelniania, biblioteki typu open source, rejestrację aplikacji i konfigurację (za pomocą portalu dla deweloperów i interfejsu API aplikacji), pełną dokumentację dla deweloperów, przykłady przewodnika Szybki Start, przykłady kodu, samouczki, przewodniki i inne elementy deweloperskie. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect.
+[Platforma tożsamości firmy Microsoft](../develop/index.yml) to ewolucja platformy deweloperów Azure Active Directory (Azure AD). Dzięki temu deweloperzy mogą tworzyć aplikacje, które logują użytkowników, uzyskują tokeny do wywoływania interfejsów API, takich jak Microsoft Graph lub interfejsy API zaprojektowane przez deweloperów. Obejmuje ona usługę uwierzytelniania, biblioteki typu open source, rejestrację aplikacji i konfigurację (za pomocą portalu dla deweloperów i interfejsu API aplikacji), pełną dokumentację dla deweloperów, przykłady przewodnika Szybki Start, przykłady kodu, samouczki, przewodniki i inne elementy deweloperskie. Platforma tożsamości firmy Microsoft obsługuje standardowe protokoły branżowe, takie jak OAuth 2.0 i OpenID Connect.
 
 Wielu programistów pracowało wcześniej z platformą Azure AD v 1.0 do uwierzytelniania kont służbowych (zainicjowanych przez usługę Azure AD) przez żądanie tokenów z punktu końcowego usługi Azure AD v 1.0, przy użyciu biblioteki Azure AD Authentication Library (ADAL), Azure Portal do rejestracji i konfiguracji aplikacji oraz interfejsu API Microsoft Graph do konfiguracji aplikacji programowych.
 
@@ -49,7 +49,7 @@ Na poniższym diagramie przedstawiono ogólnie środowisko obsługi tożsamości
 
 Aby przeprowadzić integrację z usługą Azure AD B2C (podczas uwierzytelniania tożsamości społecznościowych lub lokalnych), należy zarejestrować aplikację w dzierżawie Azure AD B2C. To środowisko jest również częścią Azure Portal.
 
-Użyj [interfejsu API aplikacji](/graph/api/resources/application?view=graph-rest-1.0) , aby programowo skonfigurować aplikacje zintegrowane z platformą tożsamości firmy Microsoft na potrzeby uwierzytelniania dowolnej tożsamości firmy Microsoft.
+Użyj [interfejsu API aplikacji](/graph/api/resources/application) , aby programowo skonfigurować aplikacje zintegrowane z platformą tożsamości firmy Microsoft na potrzeby uwierzytelniania dowolnej tożsamości firmy Microsoft.
 
 ### <a name="msal-libraries"></a>Biblioteki MSAL
 
@@ -57,15 +57,10 @@ Biblioteka MSAL może służyć do kompilowania aplikacji, które uwierzytelniaj
 
 Za pomocą bibliotek MSAL można także zintegrować swoją aplikację z Azure AD B2C.
 
-Biblioteki po stronie serwera do tworzenia aplikacji sieci Web i interfejsów API sieci Web są ogólnie dostępne: [ASP.NET](/aspnet/overview) i [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
-
 ### <a name="microsoft-identity-platform-endpoint"></a>Punkt końcowy platformy tożsamości firmy Microsoft
 
-Punkt końcowy Microsoft Identity platform (v 2.0) jest teraz certyfikowany OIDC. Współpracuje z bibliotekami uwierzytelniania firmy Microsoft (MSAL) lub dowolną inną biblioteką zgodną ze standardami. Służy do implementowania zakresów ludzkich, zgodnie ze standardami branżowymi.
+Punkt końcowy Microsoft Identity platform (v 2.0) jest certyfikowany OIDC. Współpracuje z bibliotekami uwierzytelniania firmy Microsoft (MSAL) lub dowolną inną biblioteką zgodną ze standardami. Służy do implementowania zakresów ludzkich, zgodnie ze standardami branżowymi.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat wersji 1.0 i 2.0.
-
-* [Microsoft Identity platform (v 2.0)](../develop/v2-overview.md) — Omówienie
-* [Azure Active Directory dla deweloperów (v 1.0)](v1-overview.md) — Omówienie
+Dowiedz się więcej z [dokumentacji platformy tożsamości firmy Microsoft](../develop/index.yml).
