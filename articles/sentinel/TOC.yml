@@ -35,6 +35,8 @@
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Importowanie analizy zagrożeń do usługi Azure Sentinel
       href: import-threat-intelligence.md
+    - name: Używanie danych zewnętrznych z listami obserwowanych
+      href: watchlists.md
     - name: Normalizowanie danych między tabelami
       href: normalization.md
     - name: Zabezpieczenia

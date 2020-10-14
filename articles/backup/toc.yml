@@ -284,6 +284,8 @@
           href: backup-azure-alternate-dpm-server.md
         - name: Przywracanie maszyn wirtualnych VMware przy użyciu usługi Azure Backup Server
           href: restore-azure-backup-server-vmware.md
+        - name: Tworzenie kopii zapasowej serwera MABS
+          href: backup-the-mabs-server.md
     - name: Usługa Azure Backup Server w usłudze Azure Stack
       items:
         - name: Instalowanie usługi Azure Backup Server

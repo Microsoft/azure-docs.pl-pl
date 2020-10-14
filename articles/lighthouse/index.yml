@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 07/20/2020
-  ms.openlocfilehash: 0748df5bdc961ff198d91d2584072cd07965995d
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: bdfb4f0a31f655cf71b6117e9c0ef73be18c8e45
+  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90971898"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92018733"
 landingContent:
 - title: Azure Lighthouse — informacje
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
     links:
     - text: Dołączanie klienta do usługi Azure Lighthouse
       url: ./how-to/onboard-customer.md
-    - text: Połącz identyfikator na potrzeby środków uzyskanych przez partnerów
+    - text: Łączenie identyfikatora partnera
       url: ./how-to/partner-earned-credit.md
   - linkListType: concept
     links:

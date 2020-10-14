@@ -90,6 +90,8 @@
                   href: database/transparent-data-encryption-tde-overview.md
                 - name: Używanie własnego klucza (BYOK)
                   href: database/transparent-data-encryption-byok-overview.md
+            - name: Transakcje rozproszone
+              href: database/elastic-transactions-overview.md
         - name: Ciągłość działalności biznesowej
           displayName: 'Backup, back up, restore, recovery'
           items:
@@ -862,6 +864,8 @@
               href: managed-instance/public-endpoint-overview.md
             - name: Inspekcja
               href: managed-instance/auditing-configure.md
+            - name: Grupy zaufania serwera
+              href: managed-instance/server-trust-group-overview.md
     - name: Instrukcje
       items:
         - name: Omówienie

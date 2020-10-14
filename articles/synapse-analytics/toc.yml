@@ -70,6 +70,8 @@
       href: quickstart-sql-on-demand.md
     - name: Nawiązywanie połączenia z usługą Synapse Link dla usługi Cosmos DB
       href: quickstart-connect-synapse-link-cosmos-db.md
+    - name: Połączenie z usługą Azure Data Explorer
+      href: quickstart-connect-azure-data-explorer.md
 - name: Samouczki
   items:
     - name: Uruchamianie aplikacji platformy Apache Spark
@@ -673,6 +675,8 @@
               items:
                 - name: MongoDB (starsze wersje)
                   href: ../data-factory/connector-mongodb-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: MongoDB Atlas
+              href: ../data-factory/connector-mongodb-atlas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: MySQL
               href: ../data-factory/connector-mysql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Netezza
