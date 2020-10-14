@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749086"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018818"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -22,14 +22,14 @@ ms.locfileid: "88749086"
 
 |Źródło danych  |W pamięci  |DirectQuery  |Uwagi |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   Tak      |    Tak      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Tak      |   Tak       |<sup>[dwóch](#azprovider)</sup>|
-|Azure Blob Storage      |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Tak       |    Nie      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Tak        |  Nie        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Tak       |    Nie      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Tak       |    Nie      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Usługa Azure HDInsight w systemie plików HDFS    |     Tak     |   Nie       |<sup>[1](#tab1400a)</sup> |
+|Azure SQL Database      |   Tak      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Yes      |   Yes       |<sup>[dwóch](#azprovider)</sup>|
+|Azure Blob Storage      |   Tak       |    Nie      | <sup>[jedno](#tab1400a)</sup> |
+|Azure Table Storage     |   Tak       |    Nie      | <sup>[jedno](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Tak        |  Nie        |<sup>[jedno](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Yes       |    Nie      |<sup>[jedno](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Yes       |    Nie      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Usługa Azure HDInsight w systemie plików HDFS    |     Yes     |   Nie       |<sup>[jedno](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Tak       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
@@ -47,39 +47,39 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |  --- | --- | --- | --- |
 |Baza danych programu Access     |  Tak | Nie |  |
 |Active Directory     |  Tak | Nie | <sup>[ust](#tab1400b)</sup>  |
-|Analysis Services     |  Tak | Nie |  |
-|System platformy analizy     |  Tak | Nie |  |
-|Plik CSV  |Tak | Nie |  |
-|Dynamics 365     |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
-|Skoroszyt programu Excel     |  Tak | Nie |  |
-|Exchange      |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Analysis Services     |  Yes | Nie |  |
+|System platformy analizy     |  Yes | Nie |  |
+|Plik CSV  |Yes | Nie |  |
+|Dynamics 365     |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|Skoroszyt programu Excel     |  Yes | Nie |  |
+|Exchange      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Folder      |Tak | Nie | <sup>[ust](#tab1400b)</sup> |
-|IBM Informix  |Tak | Nie |  |
-|Dokument JSON      |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
-|Wiersze z pliku binarnego      | Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|IBM Informix  |Yes | Nie |  |
+|Dokument JSON      |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
+|Wiersze z pliku binarnego      | Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Baza danych MySQL     | Tak | Nie |  |
 |Źródło danych OData      |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
-|Zapytanie ODBC     | Tak | Nie |  |
+|Zapytanie ODBC     | Yes | Nie |  |
 |OLE DB     |   Tak | Nie |  |
-|Oracle  | Tak  |Tak  | <sup>[9](#oracle)</sup> |
+|Oracle  | Tak  |Yes  | <sup>[9](#oracle)</sup> |
 |Baza danych PostgreSQL   | Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 |Obiekty Salesforce|  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 |Raporty usługi Salesforce |Tak | Nie | <sup>[ust](#tab1400b)</sup> |
 |SAP HANA     |  Tak | Nie |  |
-|SAP Business Warehouse    |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|SAP Business Warehouse    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Listy programu SharePoint      |   Tak | Nie | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Tak   | Tak  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Magazyn danych SQL Server |Tak   | Tak  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Magazyn danych SQL Server |Yes   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Baza danych Sybase     |  Tak | Nie |  |
-|Teradata | Tak  | Tak  | <sup>[dziesięć](#teradata)</sup> |
-|Plik TXT  |Tak | Nie |  |
-|Tabela XML    |  Tak | Nie | <sup>[ust](#tab1400b)</sup> |
+|Teradata | Tak  | Yes  | <sup>[dziesięć](#teradata)</sup> |
+|Plik TXT  |Yes | Nie |  |
+|Tabela XML    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 | | | |
 
 **Uwagi:**  
 <a name="tab1400b">6</a> -tabelaryczne 1400 i wyższe modele.  
 <a name="sqlim">7</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, określ Sterownik OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
-<a name="instgw">8</a> — Jeśli określono MSOLEDBSQL jako dostawcę danych, może być konieczne pobranie i zainstalowanie [sterownika OLE DB firmy Microsoft w celu SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) na tym samym komputerze, na którym znajduje się lokalna Brama danych.  
+<a name="instgw">8</a> — Jeśli określono MSOLEDBSQL jako dostawcę danych, może być konieczne pobranie i zainstalowanie [sterownika OLE DB firmy Microsoft w celu SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) na tym samym komputerze, na którym znajduje się lokalna Brama danych.  
 <a name="oracle">9</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych Oracle dla platformy .NET. Jeśli określono jako źródło danych ze strukturą, należy [włączyć dostawcę zarządzanego](#enable-oracle-managed-provider)przez program Oracle.   
 <a name="teradata">10</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych programu Teradata dla platformy .NET.  
 <a name="filesSP">11</a> — pliki w lokalnym programie SharePoint nie są obsługiwane.

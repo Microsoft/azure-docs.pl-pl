@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83697598"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018780"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Wdrażanie modelu z programu Visual Studio
 
@@ -23,7 +23,7 @@ Po utworzeniu serwera w ramach subskrypcji platformy Azure wszystko jest gotowe 
 Aby rozpocząć pracę, potrzebne będą następujące elementy:
 
 * **Serwer usług Analysis Services** na platformie Azure. Aby dowiedzieć się więcej, zobacz artykuł [Create an Azure Analysis Services server](analysis-services-create-server.md) (Tworzenie serwera usług Azure Analysis Services).
-* **Projekt modelu tabelarycznego** w programie Visual Studio lub istniejący model tabelaryczny na poziomie zgodności 1200 lub wyższym. Nie wiesz, jak go utworzyć? Spróbuj skorzystać z [samouczka sprzedaży modelowania tabelarycznego projektu Adventure Works Internet Sales](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
+* **Projekt modelu tabelarycznego** w programie Visual Studio lub istniejący model tabelaryczny na poziomie zgodności 1200 lub wyższym. Nie wiesz, jak go utworzyć? Spróbuj skorzystać z [samouczka sprzedaży modelowania tabelarycznego projektu Adventure Works Internet Sales](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
 * **Brama lokalna** — jeśli co najmniej jedno źródło danych znajduje się w sieci organizacji, należy zainstalować [bramę danych lokalnych](analysis-services-gateway.md). Brama jest niezbędna, aby umożliwić serwerowi w chmurze łączenie się z lokalnymi źródłami danych w celu przetwarzania i odświeżania danych w modelu.
 
 > [!TIP]
@@ -63,7 +63,4 @@ Jeśli wdrożenie zakończy się niepowodzeniem dla tabeli, prawdopodobnie serwe
 
 Po wdrożeniu modelu tabelarycznego na serwerze możesz się z nim połączyć. Możesz połączyć się z [nim za pomocą SQL Server Management Studio (SSMS)](analysis-services-manage.md) , aby zarządzać nim. Możesz również [nawiązać połączenie za pomocą narzędzia klienta](analysis-services-connect.md), takiego jak usługi Power BI, Power BI Desktop lub program Excel, i rozpocząć tworzenie raportów.   
 
-Aby dowiedzieć się więcej na temat zaawansowanych metod wdrażania, zobacz temat [wdrażanie rozwiązania modelu tabelarycznego](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
-
-
-
+Aby dowiedzieć się więcej na temat zaawansowanych metod wdrażania, zobacz temat [wdrażanie rozwiązania modelu tabelarycznego](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).

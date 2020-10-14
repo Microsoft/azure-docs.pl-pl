@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89645745"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019736"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
 
@@ -146,97 +146,97 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Produkt, funkcja lub usługa | Server-Side przy użyciu klucza Service-Managed   | Server-Side przy użyciu klucza Customer-Managed | Client-Side przy użyciu klucza Client-Managed  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **Sztuczna inteligencja i uczenie maszynowe**      |                    |                    |                    |
-| Azure Cognitive Search           | Tak                | Tak                | -                  |
-| Azure Cognitive Services         | Tak                | Tak                | -                  |
-| Azure Machine Learning           | Tak                | Tak                | -                  |
-| Azure Machine Learning Studio    | Tak                | Wersja zapoznawcza, RSA 2048-bit | -               |
-| Content Moderator                | Tak                | Tak                | -                  |
-| Rozpoznawanie twarzy                             | Tak                | Tak                | -                  |
-| Language Understanding           | Tak                | Tak                | -                  |
-| Personalizacja                     | Tak                | Tak                | -                  |
-| QnA Maker                        | Tak                | Tak                | -                  |
-| Usługi mowy                  | Tak                | Tak                | -                  |
-| Tłumaczenie tekstu w usłudze Translator                  | Tak                | Tak                | -                  |
-| Power BI                         | Tak                | Tak, RSA 4096-bit  | -                  |
+| Azure Cognitive Search           | Yes                | Yes                | -                  |
+| Azure Cognitive Services         | Yes                | Yes                | -                  |
+| Azure Machine Learning           | Yes                | Yes                | -                  |
+| Azure Machine Learning Studio (klasyczny) | Yes         | Wersja zapoznawcza, RSA 2048-bit | -               |
+| Content Moderator                | Yes                | Yes                | -                  |
+| Rozpoznawanie twarzy                             | Yes                | Yes                | -                  |
+| Language Understanding           | Yes                | Yes                | -                  |
+| Personalizacja                     | Yes                | Yes                | -                  |
+| QnA Maker                        | Yes                | Yes                | -                  |
+| Usługi mowy                  | Yes                | Yes                | -                  |
+| Tłumaczenie tekstu w usłudze Translator                  | Yes                | Yes                | -                  |
+| Power BI                         | Yes                | Tak, RSA 4096-bit  | -                  |
 | **Analiza**                    |                    |                    |                    |
-| Usługa Azure Stream Analytics           | Tak                | Nie dotyczy\*              | -                  |
-| Event Hubs                       | Tak                | Tak                | -                  |
-| Funkcje                        | Tak                | Tak                | -                  |
+| Usługa Azure Stream Analytics           | Yes                | Nie dotyczy\*              | -                  |
+| Event Hubs                       | Yes                | Yes                | -                  |
+| Funkcje                        | Yes                | Yes                | -                  |
 | Azure Analysis Services          | Tak                | -                  | -                  |
-| Azure Data Catalog               | Tak                | -                  | -                  |
-| Azure HDInsight                  | Tak                | Wszystkie                | -                  |
-| Azure Monitor Application Insights | Tak                | Tak                | -                  |
-| Azure Monitor Log Analytics      | Tak                | Tak                | -                  |
-| Azure Data Explorer              | Tak                | Tak                | -                  |
-| Azure Data Factory               | Tak                | Tak                | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| Azure HDInsight                  | Yes                | Wszystkie                | -                  |
+| Azure Monitor Application Insights | Yes                | Yes                | -                  |
+| Azure Monitor Log Analytics      | Yes                | Yes                | -                  |
+| Azure Data Explorer              | Yes                | Yes                | -                  |
+| Azure Data Factory               | Yes                | Yes                | -                  |
 | Azure Data Lake Store            | Tak                | Tak, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | Tak                | Tak                | -                  |
-| Container Instances              | Tak                | Tak                | -                  |
-| Container Registry               | Tak                | Tak                | -                  |
+| Azure Kubernetes Service         | Yes                | Yes                | -                  |
+| Container Instances              | Yes                | Yes                | -                  |
+| Container Registry               | Yes                | Yes                | -                  |
 | **Środowisko obliczeniowe**                      |                    |                    |                    |
-| Virtual Machines                 | Tak                | Tak                | -                  |
-| Zestaw skalowania maszyn wirtualnych        | Tak                | Tak                | -                  |
-| SAP HANA                         | Tak                | Tak                | -                  |
-| App Service                      | Tak                | Opcję\*\*            | -                  |
-| Automatyzacja                       | Tak                | Opcję\*\*            | -                  |
-| Azure Functions                  | Tak                | Opcję\*\*            | -                  |
-| Azure Portal                     | Tak                | Opcję\*\*            | -                  |
-| Logic Apps                       | Tak                | Tak                | -                  |
-| Aplikacje zarządzane przez platformę Azure       | Tak                | Opcję\*\*            | -                  |
-| Service Bus                      | Tak                | Tak                | -                  |
-| Site Recovery                    | Tak                | Tak                | -                  |
+| Virtual Machines                 | Yes                | Yes                | -                  |
+| Zestaw skalowania maszyn wirtualnych        | Yes                | Tak                | -                  |
+| SAP HANA                         | Tak                | Yes                | -                  |
+| App Service                      | Yes                | Opcję\*\*            | -                  |
+| Automation                       | Yes                | Opcję\*\*            | -                  |
+| Azure Functions                  | Yes                | Opcję\*\*            | -                  |
+| Azure Portal                     | Yes                | Opcję\*\*            | -                  |
+| Logic Apps                       | Yes                | Yes                | -                  |
+| Aplikacje zarządzane przez platformę Azure       | Yes                | Opcję\*\*            | -                  |
+| Service Bus                      | Yes                | Yes                | -                  |
+| Site Recovery                    | Yes                | Yes                | -                  |
 | **Bazy danych**                    |                    |                    |                    |
-| Program SQL Server w usłudze Virtual Machines   | Tak                | Tak                | Tak                |
-| Azure SQL Database               | Tak                | Tak, RSA 3072-bit  | Tak                |
-| Azure SQL Database MariaDB   | Tak                | -                  | -                  |
-| Azure SQL Database dla programu MySQL     | Tak                | Tak                | -                  |
-| Azure SQL Database PostgreSQL | Tak               | Tak                | -                  |
-| Azure Synapse Analytics          | Tak                | Tak, RSA 3072-bit  | -                  |
-| SQL Server Stretch Database      | Tak                | Tak, RSA 3072-bit  | Tak                |
-| Table Storage                    | Tak                | Tak                | Tak                |
-| Azure Cosmos DB                  | Tak                | Tak                | -                  |
-| Azure Databricks                 | Tak                | Tak                | -                  |
-| Azure Database Migration Service | Tak                | Nie dotyczy\*              | -                  |
+| Program SQL Server w usłudze Virtual Machines   | Yes                | Yes                | Tak                |
+| Azure SQL Database               | Tak                | Tak, RSA 3072-bit  | Yes                |
+| Azure SQL Database MariaDB   | Yes                | -                  | -                  |
+| Azure SQL Database dla programu MySQL     | Yes                | Yes                | -                  |
+| Azure SQL Database PostgreSQL | Yes               | Yes                | -                  |
+| Azure Synapse Analytics          | Yes                | Tak, RSA 3072-bit  | -                  |
+| SQL Server Stretch Database      | Yes                | Tak, RSA 3072-bit  | Yes                |
+| Table Storage                    | Yes                | Yes                | Yes                |
+| Azure Cosmos DB                  | Tak                | Yes                | -                  |
+| Azure Databricks                 | Yes                | Yes                | -                  |
+| Azure Database Migration Service | Yes                | Nie dotyczy\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Usługa Azure DevOps Services            | Tak                | -                  | Tak                |
-| Azure Repos                      | Tak                | -                  | Tak                |
+| Usługa Azure DevOps Services            | Yes                | -                  | Yes                |
+| Azure Repos                      | Yes                | -                  | Yes                |
 | **Tożsamość**                     |                    |                    |                    |
-| Usługa Azure Active Directory           | Tak                | -                  | -                  |
-| Azure Active Directory Domain Services | Tak          | Tak                | -                  |
+| Azure Active Directory           | Yes                | -                  | -                  |
+| Azure Active Directory Domain Services | Yes          | Yes                | -                  |
 | **Integracja**                  |                    |                    |                    |
-| Service Bus                      | Tak                | Tak                | Tak                |
-| Event Grid                       | Tak                | -                  | -                  |
-| API Management                   | Tak                | -                  | -                  |
+| Service Bus                      | Yes                | Yes                | Yes                |
+| Event Grid                       | Yes                | -                  | -                  |
+| API Management                   | Yes                | -                  | -                  |
 | **Usługi IoT**                 |                    |                    |                    |
-| Usługa IoT Hub                          | Tak                | Tak                | Tak                |
-| IoT Hub Device Provisioning      | Tak                | Tak                | -                  |
-| **Zarządzanie i ład**    |                    |                    |                    |
-| Azure Site Recovery              | Tak                | -                  | -                  |
-| Azure Migrate                    | Tak                | Tak                | -                  |
+| Usługa IoT Hub                          | Yes                | Yes                | Yes                |
+| IoT Hub Device Provisioning      | Yes                | Yes                | -                  |
+| **Zarządzanie + ład**    |                    |                    |                    |
+| Azure Site Recovery              | Yes                | -                  | -                  |
+| Azure Migrate                    | Yes                | Yes                | -                  |
 | **Media**                        |                    |                    |                    |
-| Media Services                   | Tak                | -                  | Tak                |
+| Media Services                   | Yes                | -                  | Yes                |
 | **Zabezpieczenia**                     |                    |                    |                    |
-| Azure Security Center dla IoT    | Tak                | Tak                | -                  |
-| Usługa Azure Sentinel                   | Tak                | Tak                | -                  |
+| Azure Security Center dla IoT    | Yes                | Yes                | -                  |
+| Usługa Azure Sentinel                   | Yes                | Yes                | -                  |
 | **Storage**                      |                    |                    |                    |
-| Blob Storage                     | Yes                | Tak                | Tak                |
-| Blob Storage Premium             | Tak                | Tak                | Tak                |
-| Disk Storage                     | Tak                | Tak                | -                  |
-| Ultra Disk Storage               | Tak                | Tak                | -                  |
-| Zarządzana Disk Storage             | Tak                | Tak                | -                  |
-| File Storage                     | Yes                | Tak                | -                  |
-| Premium Storage pliku             | Tak                | Tak                | -                  |
-| Usługa File Sync                        | Tak                | Tak                | -                  |
-| Queue Storage                    | Tak                | Tak                | Tak                |
-| Avere vFXT                       | Tak                | -                  | -                  |
-| Azure Cache for Redis            | Tak                | Nie dotyczy\*              | -                  |
-| Azure NetApp Files               | Tak                | Tak                | -                  |
-| Archive Storage                  | Tak                | Tak                | -                  |
-| StorSimple                       | Tak                | Tak                | Tak                |
-| Azure Backup                     | Tak                | Tak                | Tak                |
-| Data Box                         | Tak                | -                  | Tak                |
-| Data Box Edge                    | Tak                | Tak                | -                  |
+| Blob Storage                     | Yes                | Yes                | Yes                |
+| Blob Storage Premium             | Yes                | Yes                | Yes                |
+| Disk Storage                     | Yes                | Yes                | -                  |
+| Ultra Disk Storage               | Yes                | Yes                | -                  |
+| Zarządzana Disk Storage             | Yes                | Yes                | -                  |
+| File Storage                     | Yes                | Yes                | -                  |
+| Premium Storage pliku             | Yes                | Yes                | -                  |
+| Usługa File Sync                        | Yes                | Yes                | -                  |
+| Queue Storage                    | Yes                | Yes                | Yes                |
+| Avere vFXT                       | Yes                | -                  | -                  |
+| Azure Cache for Redis            | Yes                | Nie dotyczy\*              | -                  |
+| Azure NetApp Files               | Yes                | Yes                | -                  |
+| Archive Storage                  | Yes                | Yes                | -                  |
+| StorSimple                       | Yes                | Yes                | Yes                |
+| Azure Backup                     | Yes                | Yes                | Yes                |
+| Data Box                         | Yes                | -                  | Yes                |
+| Data Box Edge                    | Yes                | Yes                | -                  |
 
 \* Ta usługa nie utrwala danych. Przejściowe pamięci podręczne (jeśli istnieją) są szyfrowane za pomocą klucza firmy Microsoft.
 

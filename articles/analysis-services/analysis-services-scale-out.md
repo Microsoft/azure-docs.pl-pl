@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ee31b941d836d296c30927cfb9636f3023fa89
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007710"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019441"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowanie w poziomie usług Azure Analysis Services
 
@@ -46,9 +46,9 @@ Podczas kolejnej operacji skalowania w poziomie, na przykład zwiększając licz
 
 * Synchronizacja jest dozwolona nawet wtedy, gdy w puli zapytań nie ma żadnych replik. W przypadku skalowania z zera do co najmniej jednej repliki z nowymi danymi z operacji przetwarzania na serwerze podstawowym Wykonaj synchronizację najpierw bez replik w puli zapytań, a następnie Skaluj w poziomie. Synchronizacja przed skalowaniem nie pozwala na uniknięcie nadmiarowego uzupełniania nowo dodanych replik.
 
-* W przypadku usuwania bazy danych modelu z serwera podstawowego nie są automatycznie usuwane z replik w puli zapytań. Należy wykonać operację synchronizacji za pomocą polecenia programu PowerShell [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) , które usuwa pliki/s dla tej bazy danych z udostępnionej lokalizacji magazynu obiektów BLOB repliki, a następnie usuwa bazę danych modelu w replikach w puli zapytań. Aby określić, czy istnieje baza danych modelu w replikach w puli zapytań, ale nie na serwerze podstawowym, upewnij się, że ustawienie **oddziel serwer przetwarzania od tworzenia zapytań do puli** ma **wartość tak**. Następnie użyj programu SSMS, aby nawiązać połączenie z serwerem podstawowym przy użyciu `:rw` kwalifikatora, aby sprawdzić, czy baza danych istnieje. Następnie połącz się z replikami w puli zapytań, łącząc się bez `:rw` kwalifikatora, aby zobaczyć, czy również istnieje taka sama baza danych. Jeśli baza danych istnieje w replikach w puli zapytań, ale nie na serwerze podstawowym, uruchom operację synchronizacji.   
+* W przypadku usuwania bazy danych modelu z serwera podstawowego nie są automatycznie usuwane z replik w puli zapytań. Należy wykonać operację synchronizacji za pomocą polecenia programu PowerShell [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) , które usuwa pliki/s dla tej bazy danych z udostępnionej lokalizacji magazynu obiektów BLOB repliki, a następnie usuwa bazę danych modelu w replikach w puli zapytań. Aby określić, czy istnieje baza danych modelu w replikach w puli zapytań, ale nie na serwerze podstawowym, upewnij się, że ustawienie **oddziel serwer przetwarzania od tworzenia zapytań do puli** ma **wartość tak**. Następnie użyj programu SSMS, aby nawiązać połączenie z serwerem podstawowym przy użyciu `:rw` kwalifikatora, aby sprawdzić, czy baza danych istnieje. Następnie połącz się z replikami w puli zapytań, łącząc się bez `:rw` kwalifikatora, aby zobaczyć, czy również istnieje taka sama baza danych. Jeśli baza danych istnieje w replikach w puli zapytań, ale nie na serwerze podstawowym, uruchom operację synchronizacji.   
 
-* W przypadku zmiany nazwy bazy danych na serwerze podstawowym należy wykonać dodatkowy krok, aby upewnić się, że baza danych jest prawidłowo synchronizowana z dowolnymi replikami. Po zmianie nazwy Wykonaj synchronizację przy użyciu polecenia [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) określającego `-Database` parametr ze starą nazwą bazy danych. Ta Synchronizacja powoduje usunięcie bazy danych i plików ze starą nazwą z dowolnych replik. Następnie wykonaj kolejną synchronizację określającą `-Database` parametr o nowej nazwie bazy danych. Druga synchronizacja kopiuje nowo nazwaną bazę danych do drugiego zestawu plików i odwodnione wszystkie repliki. Tych synchronizacji nie można wykonać za pomocą polecenia Synchronizuj model w portalu.
+* W przypadku zmiany nazwy bazy danych na serwerze podstawowym należy wykonać dodatkowy krok, aby upewnić się, że baza danych jest prawidłowo synchronizowana z dowolnymi replikami. Po zmianie nazwy Wykonaj synchronizację przy użyciu polecenia [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) określającego `-Database` parametr ze starą nazwą bazy danych. Ta Synchronizacja powoduje usunięcie bazy danych i plików ze starą nazwą z dowolnych replik. Następnie wykonaj kolejną synchronizację określającą `-Database` parametr o nowej nazwie bazy danych. Druga synchronizacja kopiuje nowo nazwaną bazę danych do drugiego zestawu plików i odwodnione wszystkie repliki. Tych synchronizacji nie można wykonać za pomocą polecenia Synchronizuj model w portalu.
 
 ### <a name="synchronization-mode"></a>Tryb synchronizacji
 
@@ -138,23 +138,23 @@ Kody stanu powrotu:
 |-1     |  Nieprawidłowy       |
 |0     | Replikacji        |
 |1     |  Ponownego wypełniania       |
-|2     |   Zakończone       |
+|2     |   Ukończone       |
 |3     |   Niepowodzenie      |
 |4     |    Finalizowanie     |
 |||
 
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Przed rozpoczęciem korzystania z programu PowerShell należy [zainstalować lub zaktualizować najnowszy moduł Azure PowerShell](/powershell/azure/install-az-ps). 
 
-Aby uruchomić synchronizację, należy użyć [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
+Aby uruchomić synchronizację, należy użyć [Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
-Aby ustawić liczbę replik zapytań, użyj [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Określ opcjonalny `-ReadonlyReplicaCount` parametr.
+Aby ustawić liczbę replik zapytań, użyj [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Określ opcjonalny `-ReadonlyReplicaCount` parametr.
 
-Aby oddzielić serwer przetwarzania od puli zapytań, użyj polecenie [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Określ opcjonalny `-DefaultConnectionMode` parametr do użycia `Readonly` .
+Aby oddzielić serwer przetwarzania od puli zapytań, użyj polecenie [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver). Określ opcjonalny `-DefaultConnectionMode` parametr do użycia `Readonly` .
 
 Aby dowiedzieć się więcej, zobacz [Używanie jednostki usługi z modułem AZ. AnalysisServices](analysis-services-service-principal.md#azmodule).
 
@@ -183,4 +183,4 @@ Warstwę cenową można zmienić na serwerze z wieloma replikami. Ta sama warstw
 ## <a name="related-information"></a>Informacje pokrewne
 
 [Monitorowanie metryk serwera](analysis-services-monitor.md)   
-[Zarządzaj Azure Analysis Services](analysis-services-manage.md) 
+[Zarządzaj Azure Analysis Services](analysis-services-manage.md)
