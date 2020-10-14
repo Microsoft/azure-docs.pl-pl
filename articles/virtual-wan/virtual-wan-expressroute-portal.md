@@ -1,5 +1,5 @@
 ---
-title: Samouczek — Tworzenie połączeń ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure
+title: 'Samouczek: tworzenie połączeń ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure'
 description: W tym samouczku pokazano, jak używać usługi Azure Virtual WAN do tworzenia połączeń usługi ExpressRoute z platformą Azure i środowiskami lokalnymi.
 services: virtual-wan
 author: cherylmc
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 50b86c4c86391b6ffdee18cdadbdddbdff8642a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841139"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054818"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Samouczek: Tworzenie skojarzenia ExpressRoute przy użyciu wirtualnej sieci WAN platformy Azure
 
 W tym samouczku pokazano, jak używać wirtualnej sieci WAN do łączenia się z zasobami na platformie Azure za pośrednictwem obwodu usługi ExpressRoute. Aby uzyskać więcej informacji na temat wirtualnych sieci WAN i wirtualnych zasobów sieci WAN, zobacz [Omówienie wirtualnej sieci WAN](virtual-wan-about.md).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie wirtualnej sieci WAN
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Zmiana rozmiaru bramy
 > * Anonsowanie trasy domyślnej
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -153,6 +153,17 @@ Jeśli chcesz, aby usługa Azure Virtual Hub anonsuje domyślną trasę 0.0.0.0/
 
    ![Propaguj trasę domyślną](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propaguj trasę domyślną")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Virtual WAN, zobacz stronę [Omówienie usługi Virtual WAN](virtual-wan-about.md).
+Aby dowiedzieć się więcej o wirtualnej sieci WAN, zobacz:
+
+> [!div class="nextstepaction"]
+> * [Często zadawane pytania dotyczące usługi Virtual WAN](virtual-wan-faq.md)

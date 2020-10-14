@@ -1,14 +1,14 @@
 ---
 title: Przykład usługi CIS Microsoft Azure przykłady planów testów porównawczych
 description: Omówienie przykładu strategii CIS Microsoft Azure Foundations Benchmark. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84740307"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054614"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Przykład usługi CIS Microsoft Azure przykłady planów testów porównawczych
 
@@ -18,7 +18,7 @@ Przykład strategii CIS Microsoft Azure Foundations Benchmark ułatwia zapewnien
 
 [Azure Policy mapowanie rekomendacji](../../policy/samples/cis-azure-1-1-0.md) zawiera szczegółowe informacje dotyczące definicji zasad uwzględnionych w ramach tego planu oraz sposób mapowania tych definicji zasad na **domeny zgodności** i **kontrolki** w usłudze CIS Microsoft Azure wykryto testy testowe 1.1.0. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wdrożyć plan platformy Azure usługi CIS Microsoft Azure przykłady planów testów porównawczych, należy wykonać następujące czynności:
 
@@ -46,7 +46,7 @@ Najpierw zaimplementuj przykład strategii, tworząc nową strategię w środowi
 
 1. Wybierz kartę _Artefakty_ w górnej części strony lub pozycję **Dalej: Artefakty** w dolnej części strony.
 
-1. Zapoznaj się z listą artefaktów, które składają się na przykład strategii. Wiele artefaktów ma parametry, które zdefiniujemy później. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą**.
+1. Zapoznaj się z listą artefaktów uwzględnionych w przykładowej strategii. Wiele artefaktów ma parametry, które zdefiniujemy później. Po zakończeniu przeglądania przykładu strategii wybierz pozycję **Zapisz wersję roboczą**.
 
 ### <a name="publish-the-sample-copy"></a>Publikowanie kopii przykładu
 

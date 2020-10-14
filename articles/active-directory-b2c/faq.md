@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396437"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054767"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -149,7 +149,6 @@ Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacj
 1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
 1. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.
-1. Jeśli jest obecny, w obszarze **połączenia konta serwisu LinkedIn**wybierz pozycję **nie**, a następnie wybierz pozycję **Zapisz**.
 1. W obszarze **Zarządzaj**wybierz pozycję **Właściwości** .
 1. W obszarze **Zarządzanie dostępem do zasobów platformy Azure** wybierz pozycję **Tak**, a następnie wybierz przycisk **Zapisz**.
 1. Wyloguj się z Azure Portal a następnie zaloguj się ponownie, aby odświeżyć dostęp.

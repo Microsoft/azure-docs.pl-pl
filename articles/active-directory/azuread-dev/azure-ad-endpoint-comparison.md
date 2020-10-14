@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116397"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055294"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Dlaczego warto wykonać aktualizację do platformy tożsamości Microsoft (wersja 2.0)?
 
 Podczas tworzenia nowej aplikacji ważne jest, aby znać różnice między punktami końcowymi Microsoft Identity platform (v 2.0) i Azure Active Directory (v 1.0). W tym artykule opisano główne różnice między punktami końcowymi i niektóre istniejące ograniczenia dotyczące platformy tożsamości firmy Microsoft.
-
-> [!NOTE]
-> Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje wszystkich scenariuszy i funkcji usługi Azure AD. Aby określić, czy należy używać punktu końcowego platformy tożsamości firmy Microsoft, przeczytaj artykuł [ograniczenia dotyczące platformy tożsamości firmy Microsoft](#limitations).
 
 ## <a name="who-can-sign-in"></a>Kto może się zalogować
 
@@ -35,7 +32,7 @@ Podczas tworzenia nowej aplikacji ważne jest, aby znać różnice między punkt
 * Punkt końcowy platformy tożsamości firmy Microsoft umożliwia logowanie się przy użyciu kont służbowych z usługi Azure AD i osobistych kont Microsoft (MSA), takich jak hotmail.com, outlook.com i msn.com.
 * Oba punkty końcowe również akceptują logowania *[użytkowników-Gości](../external-identities/what-is-b2b.md)* w katalogu usługi Azure AD dla aplikacji skonfigurowanych jako *[pojedyncze dzierżawy](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* lub dla aplikacji *wielodostępnych* skonfigurowanych tak, aby wskazywały punkt końcowy specyficzny dla dzierżawy ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-Punkt końcowy platformy tożsamości firmy Microsoft umożliwia pisanie aplikacji akceptujących logowania z osobistych kont Microsoft oraz kont służbowych. Dzięki temu można napisać aplikację całkowicie Account-niezależny od. Na przykład jeśli aplikacja wywołuje [Microsoft Graph](https://graph.microsoft.io), niektóre dodatkowe funkcje i dane będą dostępne dla kont służbowych, takich jak witryny programu SharePoint lub dane katalogu. Jednak w przypadku wielu akcji, takich jak [odczytywanie wiadomości e-mail](/graph/api/user-list-messages?view=graph-rest-1.0), ten sam kod może uzyskać dostęp do poczty e-mail zarówno dla kont osobistych, jak i służbowych.
+Punkt końcowy platformy tożsamości firmy Microsoft umożliwia pisanie aplikacji akceptujących logowania z osobistych kont Microsoft oraz kont służbowych. Dzięki temu można napisać aplikację całkowicie Account-niezależny od. Na przykład jeśli aplikacja wywołuje [Microsoft Graph](https://graph.microsoft.io), niektóre dodatkowe funkcje i dane będą dostępne dla kont służbowych, takich jak witryny programu SharePoint lub dane katalogu. Jednak w przypadku wielu akcji, takich jak [odczytywanie wiadomości e-mail](/graph/api/user-list-messages), ten sam kod może uzyskać dostęp do poczty e-mail zarówno dla kont osobistych, jak i służbowych.
 
 W przypadku punktu końcowego platformy tożsamości firmy Microsoft można korzystać z biblioteki Microsoft Authentication Library (MSAL) w celu uzyskania dostępu do przedsiębiorstw, programów edukacyjnych i korporacyjnych. Punkt końcowy usługi Azure AD v 1.0 akceptuje logowania tylko z kont służbowych.
 
@@ -114,7 +111,7 @@ Te zakresy umożliwiają zakodowanie aplikacji w sposób minimalny, dzięki czem
 Punkt końcowy platformy tożsamości firmy Microsoft domyślnie wystawia mniejszą liczbę oświadczeń w tokenach, aby zachować małe ładunki. Jeśli masz aplikacje i usługi, które mają zależność od konkretnego oświadczenia w tokenie w wersji 1.0, która nie jest już świadczona domyślnie w tokenie platformy tożsamości firmy Microsoft, rozważ użycie funkcji [oświadczeń opcjonalnych](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) w celu uwzględnienia tego oświadczenia.
 
 > [!IMPORTANT]
-> tokeny v 1.0 i v 2.0 mogą być wystawiane przez punkty końcowe w wersji 1.0 i 2.0. id_tokens *zawsze* pasować do punktu końcowego, z którego żądają, a tokeny dostępu są *zawsze* zgodne z formatem OCZEKIWANYM przez internetowy interfejs API, którego klient będzie wywoływał przy użyciu tego tokenu.  Dlatego jeśli aplikacja używa punktu końcowego v 2.0 do uzyskania tokenu wywołującego Microsoft Graph, który oczekuje tokenów dostępu do formatu v 1.0, aplikacja otrzyma token w formacie v 1.0.  
+> tokeny v 1.0 i v 2.0 mogą być wystawiane przez punkty końcowe w wersji 1.0 i 2.0. id_tokens *zawsze* pasować do punktu końcowego, z którego żądają, a tokeny dostępu są *zawsze* zgodne z formatem OCZEKIWANYM przez internetowy interfejs API, którego klient będzie wywoływał przy użyciu tego tokenu.  Dlatego jeśli aplikacja używa punktu końcowego v 2.0 do uzyskania tokenu wywołującego Microsoft Graph, który oczekuje tokenów dostępu do formatu v 1.0, aplikacja otrzyma token w formacie v 1.0.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -153,18 +150,22 @@ Obecnie obsługa biblioteki dla punktu końcowego platformy tożsamości firmy M
 * W przypadku kompilowania aplikacji klasycznej lub przenośnej można użyć jednej z bibliotek uwierzytelniania firmy Microsoft (MSAL). Te biblioteki są ogólnie dostępne lub w wersji zapoznawczej obsługiwanej w środowisku produkcyjnym, dzięki czemu można bezpiecznie używać ich w aplikacjach produkcyjnych. Więcej informacji na temat warunków wersji zapoznawczej i dostępnych bibliotek można znaleźć w [dokumentacji dotyczącej bibliotek uwierzytelniania](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * W przypadku platform, które nie są objęte bibliotekami firmy Microsoft, można zintegrować z punktem końcowym platformy tożsamości firmy Microsoft przez bezpośrednie wysyłanie i otrzymywanie komunikatów protokołu w kodzie aplikacji. Protokoły OpenID Connect Connect i OAuth [zostały jawnie udokumentowane](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) w celu ułatwienia takiej integracji.
 * Na koniec możesz zintegrować z punktem końcowym platformy tożsamości firmy Microsoft, korzystając z bibliotek OpenID Connect Connect i OAuth programu Open Source. Punkt końcowy platformy tożsamości firmy Microsoft powinien być zgodny z wieloma bibliotekami protokołów open source bez zmian. Dostępność tych rodzajów bibliotek zależy od języka i platformy. Witryny sieci Web [OpenID Connect Connect](https://openid.net/connect/) i [OAuth 2,0](https://oauth.net/2/) obsługują listę popularnych implementacji. Aby uzyskać więcej informacji, zobacz [biblioteki Microsoft Identity platform i Authentication](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)librarys oraz listę bibliotek i przykładów klienta typu open source, które zostały przetestowane za pomocą punktu końcowego platformy tożsamości firmy Microsoft.
-* Aby uzyskać odwołanie, `.well-known` punkt końcowy dla wspólnego punktu końcowego platformy tożsamości firmy Microsoft to `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Zastąp ciąg `common` identyfikatorem dzierżawy, aby uzyskać dane specyficzne dla dzierżawy.  
+* Aby uzyskać odwołanie, `.well-known` punkt końcowy dla wspólnego punktu końcowego platformy tożsamości firmy Microsoft to `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Zastąp ciąg `common` identyfikatorem dzierżawy, aby uzyskać dane specyficzne dla dzierżawy.
 
 ### <a name="protocol-changes"></a>Zmiany protokołu
 
-Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje protokołu SAML ani usługi WS-Federation. obsługuje tylko OpenID Connect Connect i OAuth 2,0.  Istotne zmiany w protokołach OAuth 2,0 z punktu końcowego v 1.0 są następujące: 
+Punkt końcowy platformy tożsamości firmy Microsoft nie obsługuje protokołu SAML ani usługi WS-Federation. obsługuje tylko OpenID Connect Connect i OAuth 2,0.  Istotne zmiany w protokołach OAuth 2,0 z punktu końcowego v 1.0 są następujące:
 
-* To żądanie `email` jest zwracane w przypadku skonfigurowania opcjonalnego **lub** zakresu = adres e-mail w żądaniu. 
-* `scope`Parametr jest teraz obsługiwany zamiast `resource` parametru.  
-* Wiele odpowiedzi zostało zmodyfikowanych tak, aby były bardziej zgodne ze specyfikacją OAuth 2,0, na przykład prawidłowo zwracając `expires_in` jako int zamiast ciągu.  
+* To żądanie `email` jest zwracane w przypadku skonfigurowania opcjonalnego **lub** zakresu = adres e-mail w żądaniu.
+* `scope`Parametr jest teraz obsługiwany zamiast `resource` parametru.
+* Wiele odpowiedzi zostało zmodyfikowanych tak, aby były bardziej zgodne ze specyfikacją OAuth 2,0, na przykład prawidłowo zwracając `expires_in` jako int zamiast ciągu.
 
 Aby lepiej zrozumieć zakres funkcji protokołu obsługiwanych w punkcie końcowym platformy tożsamości firmy Microsoft, zobacz [informacje dotyczące protokołu OpenID Connect Connect i OAuth 2,0](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="saml-restrictions"></a>Ograniczenia SAML
+#### <a name="saml-usage"></a>Użycie SAML
 
-Jeśli użyto Active Directory Authentication Library (ADAL) w aplikacjach systemu Windows, być może korzystasz z uwierzytelniania zintegrowanego systemu Windows, które korzysta z metody udzielenia potwierdzenia SAML (SAML). Dzięki temu przydzieleniu użytkownicy federacyjnych dzierżawców usługi Azure AD mogą w trybie dyskretnym uwierzytelniać się przy użyciu lokalnego wystąpienia Active Directory bez wprowadzania poświadczeń. Przyznanie potwierdzenia SAML nie jest obsługiwane w punkcie końcowym platformy tożsamości firmy Microsoft.
+Jeśli użyto Active Directory Authentication Library (ADAL) w aplikacjach systemu Windows, być może korzystasz z uwierzytelniania zintegrowanego systemu Windows, które korzysta z metody udzielenia potwierdzenia SAML (SAML). Dzięki temu przydzieleniu użytkownicy federacyjnych dzierżawców usługi Azure AD mogą w trybie dyskretnym uwierzytelniać się przy użyciu lokalnego wystąpienia Active Directory bez wprowadzania poświadczeń. Mimo że [Protokół SAML jest nadal obsługiwanym protokołem](../develop/active-directory-saml-protocol-reference.md) do użytku z użytkownikami przedsiębiorstwa, punkt końcowy v 2.0 jest przeznaczony tylko do użycia z aplikacjami OAuth 2,0.
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej z [dokumentacji platformy tożsamości firmy Microsoft](../develop/index.yml).

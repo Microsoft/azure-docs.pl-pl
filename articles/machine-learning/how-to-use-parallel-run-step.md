@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 08/14/2020
+ms.date: 10/13/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e55a8e8dd78a6093c875cd20dd8b240816e7426
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905605"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055107"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Uruchamiaj wnioskowanie wsadowe dla dużych ilości danych za pomocą Azure Machine Learning
 
@@ -26,6 +26,9 @@ W tym artykule opisano, jak uruchamiać równolegle modele usługi Azure Machine
 Inferencing z dużymi zestawami danych lub skomplikowanymi modelami mogą być czasochłonne. `ParallelRunStep`Klasa umożliwia przeprowadzenie przetwarzania równolegle, co może spowodować szybsze uzyskanie wyników. Nawet w przypadku uruchamiania pojedynczej oceny jest dość duża szybkość, wiele scenariuszy (wykrywanie obiektów, przetwarzanie wideo, przetwarzanie języka naturalnego itp.) obejmuje uruchamianie wielu ocen. 
 
 Dzięki `ParallelRunStep` programowi można skalować wnioskowanie wsadowe do dużych klastrów maszyn. Takie klastry mogą obsługiwać terabajty danych ze strukturą lub bez struktury dzięki ulepszonej produktywności i zoptymalizowanym kosztom.
+
+> [!NOTE]
+> ParallelRunStep jest przeznaczony do obsługi obciążeń równoległych zaskakująco, może być również używany do uczenia wielu modeli jednocześnie lub przetwarzania dużych ilości danych.
 
 Ten artykuł zawiera informacje o następujących zadaniach:
 

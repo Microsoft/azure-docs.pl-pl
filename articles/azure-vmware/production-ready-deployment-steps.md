@@ -3,12 +3,12 @@ title: Planowanie wdrożenia rozwiązań VMware na platformie Azure
 description: W tym artykule opisano przepływ pracy wdrażania rozwiązań VMware platformy Azure.  Wynik końcowy to środowisko gotowe do tworzenia i migracji maszyn wirtualnych.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802212"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055090"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planowanie wdrożenia rozwiązań VMware na platformie Azure
 
@@ -104,7 +104,7 @@ Aby uzyskać dostęp do prywatnej chmury rozwiązania VMware, obwód usługi Exp
 Obwód usługi ExpressRoute z rozwiązania Azure VMware nawiązuje połączenie z bramą ExpressRoute w ramach usługi Azure Virtual Network zdefiniowanej w tym kroku.  
 
 >[!IMPORTANT]
->W przypadku wybrania istniejącej sieci wirtualnej należy wybrać taką, która nie ma wcześniej istniejącej podsieci bramy.  
+>Możesz użyć istniejącej bramy ExpressRoute, aby nawiązać połączenie z rozwiązaniem VMware platformy Azure, o ile nie przekracza limit czterech obwodów ExpressRoute na sieć wirtualną.  Jednak w celu uzyskania dostępu do rozwiązania VMware platformy Azure ze środowisk lokalnych za pośrednictwem usługi ExpressRoute należy mieć ExpressRoute Global Reach, ponieważ Brama ExpressRoute nie zapewnia routingu przechodniego między podłączonymi do niego obwodami.  
 
 Jeśli chcesz połączyć obwód usługi ExpressRoute z rozwiązania Azure VMware do istniejącej bramy ExpressRoute, możesz to zrobić po wdrożeniu.  
 

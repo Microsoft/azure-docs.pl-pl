@@ -3,12 +3,12 @@ title: 'Błąd rozwiązywania problemów: środowisko uruchomieniowe usługi Azu
 description: Dowiedz się, jak rozwiązywać problemy z nieprawidłowym kontem magazynu.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: c46ca214ab6c0798fdc39ead575fb2873b8c51c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385861"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054733"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Błąd rozwiązywania problemów: "środowisko uruchomieniowe usługi Azure Functions jest nieosiągalny"
 
@@ -36,7 +36,7 @@ W poprzednim kroku, jeśli nie możesz znaleźć parametrów połączenia konta 
 
 * Wymagane:
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Wymagane dla funkcji planu zużycia:
+* Wymagane do użycia i funkcji planu Premium:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
