@@ -3,18 +3,18 @@ title: Wdrażanie usługi przy użyciu szablonu Azure Resource Manager
 titleSuffix: Azure Cognitive Search
 description: Możesz szybko wdrożyć wystąpienie usługi Azure Wyszukiwanie poznawcze przy użyciu szablonu Azure Resource Manager.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 07/15/2020
-ms.openlocfilehash: c7d11b9e699ec4cba59d2af9e411692cbce35278
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abaf9abe9c52afba095fa52eee32a598ab6b3fcd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88640178"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058458"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>Szybki Start: wdrażanie Wyszukiwanie poznawcze przy użyciu szablonu ARM
 

@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: Tworzenie zapytania udostępnionego z szablonami'
 description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager (szablon ARM) do utworzenia zapytania udostępnionego grafu zasobów, które zlicza maszyny wirtualne według systemu operacyjnego.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685531"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057012"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Szybki Start: Tworzenie zapytania udostępnionego przy użyciu szablonu ARM
 
@@ -37,7 +37,7 @@ Zasób zdefiniowany w szablonie to:
 
 - [Microsoft. ResourceGraph/zapytania](/azure/templates/microsoft.resourcegraph/queries)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 > [!NOTE]
 > Usługa Azure Resource Graph jest bezpłatna. Aby uzyskać więcej informacji, zobacz [Omówienie grafu zasobów platformy Azure](./overview.md).
@@ -53,9 +53,9 @@ Zasób zdefiniowany w szablonie to:
    | Subskrypcja | Wybierz swoją subskrypcję platformy Azure. |
    | Grupa zasobów | Wybierz pozycję **Utwórz nowy**, określ nazwę, a następnie wybierz przycisk **OK**. |
    | Lokalizacja | Wybierz region. Na przykład **Środkowe stany USA**. |
-   | Nazwa zapytania | Pozostaw wartość domyślną **Liczba maszyn wirtualnych według systemu operacyjnego**. |
-   | Kod zapytania | Pozostaw wartość domyślną `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Opis zapytania | Pozostaw wartość domyślną **Ta kwerenda udostępniona zlicza wszystkie zasoby maszyn wirtualnych i podsumowuje je według typu systemu operacyjnego.** |
+   | Nazwa zapytania | Pozostaw wartość domyślną: **Liczba maszyn wirtualnych według systemu operacyjnego**. |
+   | Kod zapytania | Pozostaw wartość domyślną: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Opis zapytania | Pozostaw wartość domyślną: **to zapytanie udostępnione służy do liczenia wszystkich zasobów maszyn wirtualnych i podsumowywania danych według typu systemu operacyjnego.** |
    | Wyrażam zgodę na powyższe warunki i postanowienia | Zaznaczenia |
 
 1. Wybierz pozycję **Kup**.
@@ -75,7 +75,7 @@ Aby uruchomić nowe udostępnione zapytanie, wykonaj następujące kroki:
 
 1. Wybierz zapytanie udostępnione o nazwie **Liczba maszyn wirtualnych według systemu operacyjnego**, a następnie wybierz kartę **wyniki** na stronie **Przegląd** .
 
-Alternatywnie można otworzyć udostępnione zapytanie z Eksploratora grafu zasobów:
+Udostępnione zapytanie można także otworzyć z Eksploratora grafów zasobów:
 
 1. Na pasku wyszukiwania portalu Wyszukaj pozycję **Eksplorator wykresu zasobów** i wybierz go.
 
@@ -83,7 +83,7 @@ Alternatywnie można otworzyć udostępnione zapytanie z Eksploratora grafu zaso
 
 1. Zmień **Typ** na _zapytania udostępnione_. Jeśli na liście nie ma widocznej **liczby maszyn wirtualnych według systemu operacyjnego** , użyj pola filtru, aby ograniczyć wyniki. Gdy jest widoczne zapytanie udostępnione **Liczba maszyn wirtualnych według systemu operacyjnego** , wybierz jego nazwę.
 
-1. Po załadowaniu zapytania wybierz przycisk **Uruchom zapytanie** . Wyniki są wyświetlane na karcie **wyniki** poniżej.
+1. Po załadowaniu zapytania wybierz przycisk **Uruchom zapytanie** . Wyniki są wyświetlane na karcie **wyniki** .
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

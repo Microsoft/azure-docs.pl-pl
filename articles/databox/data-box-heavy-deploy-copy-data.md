@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6c88a1eaee50676cfe6bb9589779d7156b805e30
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77dc64d9660f9a0bf66559c4a5a976362cf1acd0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920980"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951642"
 ---
 ::: zone target = "docs"
 
@@ -97,11 +97,11 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 1. Pierwszym krokiem jest uwierzytelnienie i uruchomienie sesji. Przejdź do pozycji **Połącz i skopiuj**. Kliknij przycisk **Pobierz poświadczenia**, aby pobrać poświadczenia dostępu do udziałów skojarzonych z kontem magazynu.
 
-    ![Pobieranie poświadczeń udziału 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
+    ![Pobieranie poświadczeń udziału](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. W oknie dialogowym Uzyskiwanie dostępu do udziału i kopiowanie danych skopiuj wartości pól **Nazwa użytkownika** i **Hasło** odpowiedniego udziału. Kliknij przycisk **OK**.
     
-    ![Pobieranie poświadczeń udziału 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
+    ![Pobieranie poświadczeń udziału 2](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
 3. Aby uzyskać dostęp do udziałów skojarzonych z kontem magazynu (*databoxe2etest* w poniższym przykładzie) z komputera-hosta, otwórz okno polecenia. W wierszu polecenia wpisz polecenie:
 
@@ -122,7 +122,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>`. Kliknij przycisk **OK**, aby otworzyć Eksploratora plików.
     
-    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
+    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     Teraz udziały powinny być widoczne jako foldery.
     

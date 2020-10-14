@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269713"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056859"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Często zadawane pytania dotyczące interfejsu API platformy Azure dla usługi FHIR
 
@@ -43,6 +43,10 @@ Interfejs Azure API for FHIR to hostowana i zarządzana wersja programu Microsof
 Gdy korzystasz z programu FHIR Server for Azure, masz bezpośredni dostęp do podstawowych usług. Jednak użytkownik jest odpowiedzialny za utrzymywanie i aktualizowanie serwera oraz wszystkich wymaganych czynności związanych ze zgodnością, Jeśli przechowujesz dane Fi.
 
 Z punktu widzenia projektowania każda funkcja jest wdrażana na serwerze programu Microsoft FHIR na platformie Azure w pierwszej kolejności. Po sprawdzeniu poprawności w programie Open Source zostanie on opublikowany w PaaS Azure API for FHIR Solution. Czas między wydaniem w programie typu open source i PaaS zależy od złożoności funkcji i innych priorytetów związanych z planem. 
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Gdzie mogę zobaczyć, co jest uwalniane do interfejsu API platformy Azure dla usługi FHIR?
+
+Aby zobaczyć, co jest zwalniane w interfejsie API platformy Azure dla usługi FHIR, zapoznaj się z [wersją](https://github.com/microsoft/fhir-server/releases) serwera FHIR typu open source. Firma Microsoft pracowała w oznaczeniu elementów za pomocą platformy Azure-API-for-FHIR, jeśli zostaną one wydane do usługi zarządzanej i są zwykle dostępne dwa tygodnie po stronie wydania w programie Open Source. Uwzględniono również instrukcje dotyczące testowania kompilacji w [tym miejscu](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) , jeśli chcesz przetestować w środowisku własnym. Oceniamy, jak najlepiej udostępniać dodatkowe zarządzane Aktualizacje usług.
 
 ### <a name="what-is-smart-on-fhir"></a>Co to jest funkcja SMART on FHIR?
 

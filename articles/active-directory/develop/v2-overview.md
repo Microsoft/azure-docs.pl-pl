@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627129"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056416"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Co to jest platforma tożsamości firmy Microsoft?
 
@@ -74,8 +74,7 @@ Dowiedz się, jak uwierzytelnianie podstawowe i pojęcia dotyczące usługi Azur
 
 [Usługa Azure AD B2B](../external-identities/what-is-b2b.md) — Zapraszanie użytkowników zewnętrznych do dzierżawy usługi Azure AD jako użytkowników "Gość" oraz przypisywanie uprawnień do autoryzacji podczas korzystania z istniejących poświadczeń do uwierzytelniania.
 
-> [!TIP]
-> Szukasz dokumentacji *Azure Active Directory Developer platform (v 1.0)* ? Zapoznaj się z [omówieniem Azure Active Directory dla deweloperów (v 1.0)](../azuread-dev/v1-overview.md).
+[Azure Active Directory dla deweloperów (v 1.0)](../azuread-dev/v1-overview.md) — tutaj przedstawiono dla deweloperów z istniejącymi aplikacjami korzystającymi z starszego punktu końcowego v 1.0. **Nie** należy używać programu v 1.0 dla nowych projektów.
 
 ## <a name="next-steps"></a>Następne kroki
 

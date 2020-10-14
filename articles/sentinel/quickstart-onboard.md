@@ -8,13 +8,14 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/14/2020
+ms.custom: references_regions
+ms.openlocfilehash: da1f3154d492a36a196d87eec98af462fd659cd2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889028"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057522"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki start: wdrażanie usługi Azure Sentinel
 
@@ -26,7 +27,6 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 >[!IMPORTANT] 
 > Aby uzyskać informacje o opłatach naliczanych podczas korzystania z platformy Azure, zobacz [Cennik usługi Azure — wskaźnik](https://azure.microsoft.com/pricing/details/azure-sentinel/).
-  
 
 ## <a name="global-prerequisites"></a>Ogólne wymagania wstępne
 
@@ -38,7 +38,24 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 - Aby korzystać z platformy Azure, musisz mieć uprawnienia współautora lub czytelnika w grupie zasobów, do której należy obszar roboczy.
 - Do nawiązania połączenia z określonymi źródłami danych mogą być konieczne dodatkowe uprawnienia.
 - Azure Sentinel to usługa płatna. Aby uzyskać informacje o cenach, zobacz [Informacje o wskaźniku platformy Azure](https://go.microsoft.com/fwlink/?linkid=2104058).
- 
+
+### <a name="geographical-availability-and-data-residency"></a>Dostępność geograficzna i dane miejsca do zamieszkania
+
+- Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). 
+
+- Dane generowane przez wskaźnik na platformie Azure, takie jak zdarzenia, zakładki i reguły analityczne, mogą zawierać niektóre dane klienta pochodzące z Log Analytics obszarów roboczych klienta. Te dane generowane przez wskaźnik na platformie Azure są zapisywane w lokalizacji geograficznej wymienionej w poniższej tabeli, zgodnie z lokalizacją geograficzną, w której znajduje się obszar roboczy:
+
+    | Obszar roboczy obszaru roboczego | Azure wskaźnikowego — wygenerowana geograficzna danych |
+    | --- | --- |
+    | Stany Zjednoczone<br>Indie<br>Brazylia<br>Afryka<br>Korea | Stany Zjednoczone |
+    | Europa<br>Francja<br>Szwajcaria | Europa |
+    | Australia | Australia |
+    | Zjednoczone Królestwo | Zjednoczone Królestwo |
+    | Kanada | Kanada |
+    | Azja i Pacyfik | Azja i Pacyfik (Singapur) |
+    | Japonia | Japonia |
+    |
+
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik <a name="enable"></a>
 
 1. Zaloguj się do Portalu Azure. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
@@ -55,7 +72,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
    >[!NOTE] 
    > - Domyślne obszary robocze utworzone przez Azure Security Center nie będą wyświetlane na liście; nie można zainstalować na nich wskaźnikiem na platformie Azure.
-   > - Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Dane generowane przez wskaźnik na platformie Azure (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klienta pochodzące z tych obszarów roboczych) są zapisywane w Europie (dla obszarów roboczych znajdujących się w Europie), w Australii (dla obszarów roboczych znajdujących się w Australii) lub w regionie Wschodnie stany USA (dla obszarów roboczych znajdujących się w innym regionie).
+   >
 
    >[!IMPORTANT]
    >
@@ -67,19 +84,21 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 
 ## <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
-Usługa Azure wskaźnikowego tworzy połączenie z usługami i aplikacjami przez połączenie się z usługą i przekazanie zdarzeń i dzienników do funkcji wskaźnikowej platformy Azure. W przypadku maszyn i maszyn wirtualnych można zainstalować agenta wskaźnikowego platformy Azure, który zbiera dzienniki i przekazuje je do usługi Azure wskaźnikowej. W przypadku zapór i serwerów proxy usługa Azure użytks wykorzystuje serwer dziennika systemu Linux. Agent jest zainstalowany na nim i z którego Agent zbiera pliki dziennika i przekazuje je do usługi Azure wskaźnikowej. 
+Na platformie Azure wskaźnik pozyskiwania danych z usług i aplikacji jest pobierany przez połączenie z usługą i przekazywanie zdarzeń i dzienników do funkcji wskaźnikowej platformy Azure. W przypadku maszyn fizycznych i wirtualnych można zainstalować agenta Log Analytics, który zbiera dzienniki i przekazuje je do usługi Azure wskaźnikowej. W przypadku zapór i serwerów proxy usługa Azure wskaźnikowa instaluje agenta Log Analytics na serwerze dziennika systemu Linux, z którego Agent zbiera pliki dziennika i przekazuje je do usługi Azure wskaźnikowej. 
  
-1. Kliknij pozycję **Łączniki danych**.
-1. Istnieje kafelek dla każdego źródła danych, które można połączyć.<br>
-Na przykład kliknij pozycję **Azure Active Directory**. Jeśli połączysz to źródło danych, przesyłasz strumieniowo wszystkie dzienniki z usługi Azure AD do usługi Azure wskaźnikowej. Możesz wybrać typ dzienników sieci WAN do pobrania i/lub dzienników inspekcji. <br>
-Na dole wskaźnik na platformie Azure obejmuje zalecenia dotyczące tego, które skoroszyty należy zainstalować dla każdego łącznika, dzięki czemu można natychmiast uzyskać interesujące informacje w danych. <br> Postępuj zgodnie z instrukcjami instalacji lub [zapoznaj się z odpowiednim przewodnikiem połączenia](connect-data-sources.md) , aby uzyskać więcej informacji. Aby uzyskać informacje na temat łączników danych, zobacz [łączenie usług firmy Microsoft](connect-data-sources.md).
+1. Z menu głównego wybierz pozycję **Łączniki danych**. Spowoduje to otwarcie galerii łączników danych.
 
-Po nawiązaniu połączenia ze źródłami danych rozpocznie się przesyłanie strumieniowe danych do platformy Azure. Możesz wyświetlić dzienniki na [wbudowanych pulpitach nawigacyjnych](quickstart-get-visibility.md) i rozpocząć tworzenie zapytań w log Analytics, aby [zbadać dane](tutorial-investigate-cases.md).
+1. Galeria to lista wszystkich źródeł danych, z którymi można nawiązać połączenie. Wybierz źródło danych, a następnie przycisk **Otwórz stronę łącznika** .
 
+1. Na stronie łącznika są wyświetlane instrukcje dotyczące konfigurowania łącznika oraz dodatkowe instrukcje, które mogą być konieczne.<br>
+Na przykład w przypadku wybrania **Azure Active Directory** źródła danych, które umożliwia strumieniowe przesyłanie dzienników z usługi Azure AD do platformy Azure, możesz wybrać typ dzienników do pobrania i/lub dzienniki inspekcji w sieci WAN. <br> Postępuj zgodnie z instrukcjami instalacji lub [zapoznaj się z odpowiednim przewodnikiem połączenia](connect-data-sources.md) , aby uzyskać więcej informacji. Aby uzyskać informacje na temat łączników danych, zobacz [łączenie usług firmy Microsoft](connect-data-sources.md).
 
+1. Na karcie **następne kroki** na stronie łączniku są wyświetlane odpowiednie wbudowane skoroszyty, przykładowe zapytania i szablony reguł analizy, które towarzyszą łącznikowi danych. Można ich użyć jako-lub zmodyfikować — w dowolny sposób można natychmiast uzyskać interesujące informacje w danych. <br>
+
+Po nawiązaniu połączenia ze źródłami danych rozpocznie się przesyłanie strumieniowe danych do platformy Azure. Możesz wyświetlić dzienniki w [wbudowanych skoroszytach](quickstart-get-visibility.md) i rozpocząć tworzenie zapytań w log Analytics, aby [zbadać dane](tutorial-investigate-cases.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Ten dokument zawiera informacje o łączeniu źródeł danych z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+W tym dokumencie przedstawiono informacje na temat dołączania i łączenia źródeł danych z platformą Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 - Przesyłaj strumieniowo dane ze [wspólnych urządzeń w formacie zdarzenia](connect-common-event-format.md) do platformy Azure.

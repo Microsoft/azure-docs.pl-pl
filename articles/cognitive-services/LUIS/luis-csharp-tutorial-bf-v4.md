@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 57a9186033b8df71d1972289fe33b0fe654690f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8d6481bdf3476f8f91c437138f4b6f1ebd1f1de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316430"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058203"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
 
 Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](https://docs.microsoft.com/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.
@@ -27,14 +27,14 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Emulator bota](https://aka.ms/abs/build/emulatordownload)
+* [Emulator struktury bot Framework](https://aka.ms/abs/build/emulatordownload)
 * [Program Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-web-app-bot-resource"></a>Tworzenie zasobu bot aplikacji sieci Web
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz polecenie **Utwórz nowy zasób**.
 
-1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz przycisk **Utwórz**.
+1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz pozycję **Utwórz**.
 
 1. W polu **Bot Service** (Usługa bota) podaj wymagane informacje:
 
@@ -59,7 +59,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
     |Język zestawu SDK|Język programowania bota|**C#**|
     |Bot|Typ bota|**Bot podstawowy**|
 
-1. Wybierz przycisk **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
+1. Wybierz pozycję **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
 
     > [!div class="mx-imgBorder"]
     > [![Tworzenie bot aplikacji sieci Web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
@@ -314,18 +314,18 @@ W programie Visual Studio 2019 Uruchom bot. Zostanie otwarte okno przeglądarki 
 
 ![Zostanie wyświetlona strona główna z informacjami o Twoim bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Testowanie bot przy użyciu emulatora bot
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>Testowanie bot przy użyciu emulatora bot Framework
 
-1. Rozpocznij emulator bot i wybierz pozycję **Otwórz bot**.
+1. Rozpocznij emulator bot Framework i wybierz pozycję **Otwórz bot**.
 1. W wyskakującym okienku Otwórz okno dialogowe **bot** wprowadź adres URL bot, taki jak `http://localhost:3978/api/messages` . `/api/messages`Trasa jest adresem sieci Web dla bot.
 1. Wprowadź **Identyfikator aplikacji firmy Microsoft** i **hasło aplikacji firmy**Microsoft, które znajdują się w **appsettings.js** w pliku w katalogu głównym pobranego kodu bot, a następnie wybierz pozycję **Połącz**.
 
-1. W emulatorze bot wprowadź `Book a flight from Seattle to Berlin tomorrow` i uzyskaj taką samą odpowiedź dla podstawowego bot, jak w przypadku **testu w rozmowie w sieci Web** w poprzedniej sekcji.
+1. W emulatorze bot Framework wprowadź `Book a flight from Seattle to Berlin tomorrow` i uzyskaj tę samą odpowiedź dla podstawowego bot, jak zostało to odebrane w sekcji **test in webchat w sieci Web** .
 
     [![Zrzut ekranu przedstawia emulator bot Framework z podstawową odpowiedzią bot.](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Wybierz pozycję **Tak**. Bot reaguje z podsumowaniem jego akcji.
-1. Z dziennika emulatora bot wybierz wiersz, który zawiera `<- trace LuisV3 Trace` . Spowoduje to wyświetlenie odpowiedzi JSON z LUIS dla zamiar i jednostek wypowiedź.
+1. Z dziennika emulatora bot Framework wybierz wiersz, który zawiera `<- trace LuisV3 Trace` . Spowoduje to wyświetlenie odpowiedzi JSON z LUIS dla zamiar i jednostek wypowiedź.
 
     [![Zrzut ekranu przedstawia podstawową odpowiedź bot z wybranym śladem LuisV3 i wyróżnioną odpowiedzią JSON.](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

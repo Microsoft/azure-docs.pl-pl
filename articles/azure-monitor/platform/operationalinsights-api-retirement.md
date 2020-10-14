@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: cf48e26133326d43754b38df6f3b2caaf7a587ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9a7ba63246f747a132c315e22452ca9c7144448
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978092"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058186"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Wycofanie wersji interfejsu API OperationalInsights
 Firma Microsoft zapewnia powiadomienie co najmniej 12 miesięcy przed wycofaniem interfejsu API w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji. Firma Microsoft udostępniła nową wersję (2020-08-01) dla interfejsów API dostawcy zasobów **OperationalInsights** i wycofa wszystkie starsze wersje interfejsu API w dniu 31 października 2023. Ponieważ nowe funkcje i funkcje i optymalizacje są dodawane tylko do bieżącego interfejsu API, należy przeprowadzić uaktualnienie do najnowszej wersji interfejsu API tak szybko, jak to możliwe.
@@ -67,4 +67,4 @@ W zależności od używanej metody konfiguracji należy zaktualizować nową wer
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zobacz [odwołanie do interfejsu API OperationalInsights](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/allversions).
+- Zobacz [odwołanie do interfejsu API obszaru roboczego OperationalInsights](https://docs.microsoft.com/rest/api/loganalytics/workspaces).

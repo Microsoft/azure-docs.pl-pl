@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70897825dfebe03e920ff5948ad597b57bdd7d7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618965"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058254"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ Gdy użycie procesora CPU obliczeniowej bazy danych stanie się wysokie, wzrasta
 W przypadku wystąpienia dużej mocy obliczeniowej opcje ograniczenia obejmują:
 
 - Zwiększenie rozmiaru obliczeniowego bazy danych lub puli elastycznej w celu zapewnienia bazy danych większej ilości zasobów obliczeniowych. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
-- Optymalizowanie zapytań w celu zmniejszenia użycia zasobów procesora CPU przez poszczególne zapytania. Aby uzyskać więcej informacji, zobacz [dostrajanie/podpowiedzi zapytań](performance-guidance.md#query-tuning-and-hinting).
+- Optymalizowanie zapytań w celu zmniejszenia użycia zasobów procesora CPU przez poszczególne zapytania. Aby uzyskać więcej informacji, zobacz [Podpowiedzi i dostrajanie zapytań](performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Magazyn
 
@@ -78,7 +78,7 @@ Maksymalna liczba sesji i procesów roboczych zależy od warstwy usług i rozmia
 W przypadku wystąpienia wysokiego poziomu sesji lub procesu wyłączania, opcje ograniczenia obejmują:
 
 - Zwiększenie warstwy usług lub rozmiaru obliczeniowego bazy danych lub puli elastycznej. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
-- Optymalizowanie zapytań w celu ograniczenia wykorzystania zasobów dla każdego zapytania, jeśli przyczyną zwiększonego wykorzystania procesów roboczych jest rywalizacja o zasoby obliczeniowe. Aby uzyskać więcej informacji, zobacz [dostrajanie/podpowiedzi zapytań](performance-guidance.md#query-tuning-and-hinting).
+- Optymalizowanie zapytań w celu ograniczenia wykorzystania zasobów dla każdego zapytania, jeśli przyczyną zwiększonego wykorzystania procesów roboczych jest rywalizacja o zasoby obliczeniowe. Aby uzyskać więcej informacji, zobacz [Podpowiedzi i dostrajanie zapytań](performance-guidance.md#query-tuning-and-hinting).
 - Zmniejszenie ustawienia [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maksymalny stopień równoległości).
 - Optymalizacja obciążenia zapytania, aby zmniejszyć liczbę wystąpień i czas trwania blokowania zapytań.
 
@@ -137,11 +137,11 @@ Na przykład, jeśli zapytanie generuje 1000 IOPS bez żadnego ładu zasobów we
 
 Wartości liczby IOPS i minimum/maksimum przepływności zwrócone przez [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) widoku działają jako limity/wersaliki, a nie jako gwarancje. Ponadto zarządzanie zasobami nie gwarantuje żadnych opóźnień związanych z magazynem. Najlepsze osiągalne opóźnienia, operacje we/wy i przepływność dla danego obciążenia użytkownika zależą nie tylko od limitów nadzoru zasobów we/wy, ale również w przypadku różnych użytych rozmiarów we/wykorzystaniu i na możliwościach magazynu bazowego. SQL Database używa systemu IOs, który różni się od 512 KB i 4 MB. W celu wymuszenia limitów IOPS każda operacja we/wy jest uwzględniana niezależnie od jej rozmiaru, z wyjątkiem baz danych z plikami danych w usłudze Azure Storage. W takim przypadku system IOs o rozmiarze większym niż 256 KB jest rozliczany jako wiele urządzeń z systemem IOs o pojemności 256 KB, aby dostosować je do usługi Azure Storage we/wy.
 
-W przypadku baz danych w warstwach Podstawowa, standardowa i Ogólnego przeznaczenia, które korzystają z plików danych w usłudze Azure Storage, `primary_group_max_io` wartość może nie być osiągalna, jeśli baza danych nie ma wystarczającej ilości plików danych do rozłącznie, ale dane nie są dystrybuowane równomiernie między plikami, lub jeśli warstwa wydajności bazowych obiektów BLOB ogranicza liczbę operacji we/wy poniżej limitu zarządzania zasobami. Podobnie w przypadku małego systemu IOs wygenerowanego przez częste zatwierdzanie transakcji `primary_max_log_rate` wartość może nie być osiągalna przez obciążenie wynikające z limitu liczby IOPS dla bazowego obiektu BLOB usługi Azure Storage.
+W przypadku baz danych w warstwach Podstawowa, standardowa i Ogólnego przeznaczenia, które korzystają z plików danych w usłudze Azure Storage, `primary_group_max_io` wartość może nie być osiągalna, jeśli baza danych nie ma wystarczającej ilości plików danych do rozłącznie, ale dane nie są dystrybuowane równomiernie między plikami, lub jeśli warstwa wydajności bazowych obiektów BLOB ogranicza liczbę IOPS/przepływność poniżej limitów zarządzania zasobami. Podobnie w przypadku małego systemu IOs wygenerowanego przez częste zatwierdzanie transakcji `primary_max_log_rate` wartość może nie być osiągalna przez obciążenie wynikające z limitu liczby IOPS w źródłowym obiekcie blob usługi Azure Storage. W przypadku baz danych korzystających z usługi Azure Premium Storage Azure SQL Database wykorzystuje wystarczająco duże obiekty blob magazynu, aby uzyskać wymaganą liczbę operacji we/wy na sekundę, niezależnie od rozmiaru bazy danych. W przypadku większych baz danych tworzone są wiele plików danych w celu zwiększenia łącznej liczby operacji we/wy na sekundę/przepływności.
 
 Wartości wykorzystania zasobów, takie jak `avg_data_io_percent` i `avg_log_write_percent` , raportowane w widokach [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)i [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , są obliczane jako wartości procentowe maksymalnego limitu zarządzania zasobami. W związku z tym, gdy czynniki inne niż zarządzanie zasobami ograniczają liczbę operacji we/wy, można zobaczyć, że operacje we/wy na sekundę i opóźnienia zwiększają się wraz ze wzrostem obciążenia, nawet jeśli zgłoszone użycie zasobów pozostanie poniżej 100%.
 
-Aby zobaczyć liczbę operacji we/wy odczytu i zapisu, przepływność i czas oczekiwania na plik bazy danych, użyj funkcji [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Ta funkcja obejmuje wszystkie operacje we/wy względem bazy danych, w tym w przypadku operacji we/wy, która nie jest uwzględniana `avg_data_io_percent` , ale korzysta z IOPS i przepływności magazynu bazowego, a także może mieć wpływ na zaobserwowane opóźnienie magazynu. Funkcja także umieszcza dodatkowe opóźnienia, które mogą zostać wprowadzone przez zarządzanie zasobami we/wy dla operacji odczytu i zapisu `io_stall_queued_read_ms` w `io_stall_queued_write_ms` kolumnach i.
+Aby zobaczyć liczbę operacji we/wy odczytu i zapisu, przepływność i czas oczekiwania na plik bazy danych, użyj funkcji [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Ta funkcja obejmuje wszystkie operacje we/wy względem bazy danych, w tym w przypadku operacji we/wy, która nie jest uwzględniana `avg_data_io_percent` , ale korzysta z IOPS i przepływności magazynu bazowego, a także może mieć wpływ na zaobserwowane opóźnienie magazynu. Funkcja umieszcza dodatkowe opóźnienia, które mogą zostać wprowadzone przez zarządzanie zasobami we/wy dla operacji odczytu i zapisu `io_stall_queued_read_ms` w `io_stall_queued_write_ms` kolumnach i.
 
 ### <a name="transaction-log-rate-governance"></a>Ocena szybkości dziennika transakcji
 

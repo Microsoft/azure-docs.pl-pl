@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975517"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056705"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -78,9 +78,9 @@ Niezależnie od tego, czy dane kopii zapasowej są wysyłane do platformy Azure,
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="set-storage-replication"></a>Konfigurowanie replikacji magazynu
+### <a name="set-storage-replication"></a>Ustaw replikację magazynu
 
-Dla opcji replikacji magazynu można wybrać magazynowanie nadmiarowe geograficznie lub lokalnie. Domyślnie magazyny Recovery Services korzystają z magazynu geograficznie nadmiarowego. Jeśli magazyn jest magazynem podstawowym, pozostaw opcję magazynu ustawioną na magazyn Geograficznie nadmiarowy. Wybierz magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej, ale mniej trwałej opcji. Więcej informacji o opcjach [geograficznie](../storage/common/storage-redundancy.md#geo-redundant-storage)nadmiarowych, [lokalnie nadmiarowych](../storage/common/storage-redundancy.md#locally-redundant-storage) i [strefowo](../storage/common/storage-redundancy.md#zone-redundant-storage) nadmiarowych magazynów można znaleźć w artykule [Omówienie replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
+Dla opcji replikacji magazynu można wybrać magazynowanie nadmiarowe geograficznie lub lokalnie. Domyślnie magazyny Recovery Services korzystają z magazynu geograficznie nadmiarowego. Jeśli magazyn jest magazynem podstawowym, pozostaw opcję magazynu ustawioną na magazyn Geograficznie nadmiarowy. Wybierz magazyn lokalnie nadmiarowy, jeśli chcesz skorzystać z tańszej, ale mniej trwałej opcji. Więcej informacji na temat opcji magazynu [geograficznie](../storage/common/storage-redundancy.md#geo-redundant-storage)nadmiarowego, [lokalnie nadmiarowego](../storage/common/storage-redundancy.md#locally-redundant-storage)i [strefowo nadmiarowe](../storage/common/storage-redundancy.md#zone-redundant-storage) można znaleźć w artykule [Omówienie replikacji usługi Azure Storage](../storage/common/storage-redundancy.md).
 
 Aby edytować ustawienia replikacji magazynu:
 
@@ -200,6 +200,9 @@ Po zakończeniu procesu wyodrębniania zaznacz pole wyboru w celu uruchomienia �
     ![Podaj lokalizację instalacji plików](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     Lokalizacja tymczasowa jest wymagana do utworzenia kopii zapasowej na platformie Azure. Upewnij się, że lokalizacja tymczasowa to co najmniej 5% danych, których kopię zapasową zaplanowano do chmury. W przypadku ochrony dysków należy skonfigurować oddzielne dyski po zakończeniu instalacji. Aby uzyskać więcej informacji na temat pul magazynów, zobacz [Przygotowywanie magazynu danych](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    Wymagania dotyczące pojemności dla magazynu dyskowego są zależne przede wszystkim od rozmiaru chronionych danych, codziennego rozmiaru punktu odzyskiwania, oczekiwanego tempa wzrostu danych woluminu oraz docelowego zakresu przechowywania. Zalecamy, aby magazyn dyskowy był dwukrotnie większy od chronionych danych. Wynika to z zakładanego codziennego rozmiaru punktu odzyskiwania na poziomie 10% rozmiaru chronionych danych oraz zakresu przechowywania równego 10 dni. Aby uzyskać dobry szacunek rozmiaru, przejrzyj [planista wydajności programu DPM](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Podaj silne hasło dla kont użytkowników lokalnych z ograniczeniami i wybierz pozycję **dalej**.
 
     ![Podaj silne hasło](./media/backup-azure-microsoft-azure-backup/security-screen.png)

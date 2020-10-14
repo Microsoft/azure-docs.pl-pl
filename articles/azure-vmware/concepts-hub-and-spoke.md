@@ -2,17 +2,18 @@
 title: Koncepcja — Integruj wdrożenie rozwiązania Azure VMware z architekturą Hub i szprychy
 description: Zapoznaj się z zaleceniami dotyczącymi integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej architekturze Hub i szprych na platformie Azure.
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/14/2020
+ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019273"
+ms.locfileid: "92058475"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrowanie rozwiązań VMware platformy Azure z architekturą Hub i szprychy
 
 W tym artykule udostępniamy zalecenia dotyczące integrowania wdrożenia rozwiązania Azure VMware w istniejącej lub nowej [architekturze Hub i szprych](/azure/architecture/reference-architectures/hybrid-networking/shared-services) na platformie Azure. 
+
 
 Scenariusz Hub i szprych zakłada środowisko chmury hybrydowej z obciążeniami w:
 
@@ -25,6 +26,9 @@ Scenariusz Hub i szprych zakłada środowisko chmury hybrydowej z obciążeniami
 *Centrum* to Virtual Network platformy Azure, które działa jako centralne punkty łączności z chmurą prywatną i rozwiązaniem VMware platformy Azure. *Szprychy* są sieciami wirtualnymi równorzędnymi z koncentratorem, aby umożliwić komunikację między sieciami wirtualnymi.
 
 Ruch między lokalnym centrum danych i chmurą prywatną rozwiązania VMware platformy Azure oraz centrum odbywa się za pomocą połączeń usługi Azure ExpressRoute. Sieci wirtualne szprych zazwyczaj zawierają obciążenia oparte na IaaS, ale mogą mieć usługi PaaS, takie jak [App Service Environment](../app-service/environment/intro.md), które mają bezpośrednią integrację z usługą Virtual Network lub innymi usługami PaaS z włączonym [łączem prywatnym platformy Azure](../private-link/index.yml) .
+
+>[!IMPORTANT]
+>Możesz użyć istniejącej bramy ExpressRoute, aby nawiązać połączenie z rozwiązaniem VMware platformy Azure, o ile nie przekracza limit czterech obwodów ExpressRoute na sieć wirtualną.  Jednak w celu uzyskania dostępu do rozwiązania VMware platformy Azure ze środowisk lokalnych za pośrednictwem usługi ExpressRoute należy mieć ExpressRoute Global Reach, ponieważ Brama ExpressRoute nie zapewnia routingu przechodniego między podłączonymi do niego obwodami.
 
 Na diagramie przedstawiono przykład wdrożenia centrum i szprych na platformie Azure połączonych z lokalnym i rozwiązaniem VMware platformy Azure za pomocą ExpressRoute Global Reach.
 
@@ -105,14 +109,17 @@ Zapoznaj się z artykułem dotyczącym rozwiązań VMware platformy Azure w [App
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::
 
 
-### <a name="jumpbox-and-azure-bastion"></a>Serwera przesiadkowego i Azure bastionu
+### <a name="jump-box-and-azure-bastion"></a>Pole skoku i usługa Azure bastionu
 
-Dostęp do środowiska rozwiązań VMware platformy Azure z programem serwera przesiadkowego, który jest maszyną wirtualną z systemem Windows 10 lub Windows Server wdrożoną w podsieci usługi udostępnionej w sieci wirtualnej centrum.
+Dostęp do środowiska rozwiązań VMware platformy Azure za pomocą pola skoku, które jest maszyną wirtualną z systemem Windows 10 lub Windows Server wdrożoną w podsieci usługi udostępnionej w sieci wirtualnej centrum.
 
-Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azure bastionu](../bastion/index.yml) w ramach sieci wirtualnej centrum. Usługa Azure bastionu zapewnia bezproblemowe dostęp protokołu RDP i SSH do maszyn wirtualnych wdrożonych na platformie Azure bez konieczności aprowizacji publicznych adresów IP do tych zasobów. Po zainicjowaniu obsługi administracyjnej usługi Azure bastionu można uzyskać dostęp do wybranej maszyny wirtualnej z Azure Portal. Po nawiązaniu połączenia zostanie otwarta nowa karta, na której jest wyświetlany pulpit serwera przesiadkowego oraz z poziomu tego pulpitu, można uzyskać dostęp do płaszczyzny zarządzania chmurą prywatną rozwiązania VMware platformy Azure.
+>[!IMPORTANT]
+>Azure bastionu to usługa, która jest zalecana do łączenia się z polem skoku, aby uniemożliwić udostępnianie rozwiązania Azure VMware do Internetu. Nie można używać usługi Azure bastionu do nawiązywania połączeń z maszynami wirtualnymi rozwiązań VMware platformy Azure, ponieważ nie są one obiektami usługi Azure IaaS.  
+
+Najlepszym rozwiązaniem w zakresie zabezpieczeń jest wdrożenie [Microsoft Azure bastionu](../bastion/index.yml) w ramach sieci wirtualnej centrum. Usługa Azure bastionu zapewnia bezproblemowe dostęp protokołu RDP i SSH do maszyn wirtualnych wdrożonych na platformie Azure bez konieczności aprowizacji publicznych adresów IP do tych zasobów. Po zainicjowaniu obsługi administracyjnej usługi Azure bastionu można uzyskać dostęp do wybranej maszyny wirtualnej z Azure Portal. Po nawiązaniu połączenia zostanie otwarta nowa karta, w której jest wyświetlany pulpit pola skoku i z poziomu tego pulpitu, można uzyskać dostęp do płaszczyzny zarządzania chmurą prywatną rozwiązania Azure VMware.
 
 > [!IMPORTANT]
-> Nie należy przydzielić publicznego adresu IP do maszyny wirtualnej serwera przesiadkowego lub uwidocznić Port 3389/TCP w publicznym Internecie. 
+> Nie należy przydzielić publicznego adresu IP do maszyny wirtualnej z polem skoku ani udostępniać portu 3389/TCP do publicznego Internetu. 
 
 
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Wdrożenie integracji usługi Hub i gwiazdy platformy Azure VMware" border="false":::

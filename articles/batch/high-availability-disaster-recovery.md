@@ -3,12 +3,12 @@ title: Wysoka dostępność i odzyskiwanie po awarii
 description: Dowiedz się, jak zaprojektować aplikację usługi Batch pod kątem regionalnej awarii.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83725741"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058016"
 ---
 # <a name="design-your-application-for-high-availability"></a>Projektowanie aplikacji wysokiej dostępności
 
@@ -39,5 +39,5 @@ Podczas projektowania rozwiązania, które może przejść w tryb failover, nale
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej na temat tworzenia kont usługi Batch za pomocą [Azure Portal](batch-account-create-portal.md), interfejsu [wiersza polecenia platformy Azure](cli-samples.md), [programu PowerShell](batch-powershell-cmdlets-get-started.md)lub [API zarządzania usługą Batch](batch-management-dotnet.md).
+- Dowiedz się więcej na temat tworzenia kont usługi Batch za pomocą [Azure Portal](batch-account-create-portal.md), interfejsu [wiersza polecenia platformy Azure](./scripts/batch-cli-sample-create-account.md), [programu PowerShell](batch-powershell-cmdlets-get-started.md)lub [API zarządzania usługą Batch](batch-management-dotnet.md).
 - Domyślne przydziały są skojarzone z kontem wsadowym; [ten artykuł](batch-quota-limit.md) zawiera szczegółowe informacje o domyślnych wartościach przydziału i opisuje, jak można zwiększyć limity przydziałów.

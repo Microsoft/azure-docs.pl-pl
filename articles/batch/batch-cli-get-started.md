@@ -4,12 +4,12 @@ description: Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w int
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531681"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055515"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -107,7 +107,7 @@ Po zainstalowaniu rozszerzenia interfejsu wiersza polecenia usługi Azure Batch 
 
 ## <a name="script-examples"></a>Przykłady skryptów
 
-Zobacz [przykłady skryptów interfejsów wiersza polecenia](cli-samples.md) dla usługi Batch, aby wykonać typowe zadania. Te przykłady obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch do tworzenia kont, pul, zadań i zadań podrzędnych oraz zarządzania nimi. 
+Zobacz [przykłady skryptów interfejsów wiersza polecenia](./scripts/batch-cli-sample-create-account.md) dla usługi Batch, aby wykonać typowe zadania. Te przykłady obejmują wiele poleceń dostępnych w interfejsie wiersza polecenia platformy Azure dla usługi Batch do tworzenia kont, pul, zadań i zadań podrzędnych oraz zarządzania nimi.
 
 ## <a name="json-files-for-resource-creation"></a>Pliki JSON do tworzenia zasobów
 

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617064"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058220"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Samouczek: Konfigurowanie replikacji między dwoma wystąpieniami zarządzanymi
 
@@ -48,7 +48,7 @@ Ten samouczek jest przeznaczony dla doświadczonych odbiorców i zakłada, że u
 
 Skonfigurowanie wystąpienia zarządzanego SQL do działania jako Wydawca i/lub dystrybutor wymaga:
 
-- Że wystąpienie zarządzane wydawcy znajduje się w tej samej sieci wirtualnej co dystrybutor i subskrybenta, lub skonfigurowano [komunikację równorzędną sieci wirtualnej](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) między sieciami wirtualnymi wszystkich trzech jednostek. 
+- Że wystąpienie zarządzane wydawcy znajduje się w tej samej sieci wirtualnej co dystrybutor i subskrybenta, lub skonfigurowano [bramy sieci VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) między sieciami wirtualnymi wszystkich trzech jednostek. 
 - Połączenie korzysta z uwierzytelniania SQL między uczestnikami replikacji.
 - Udział konta usługi Azure Storage dla katalogu roboczego replikacji.
 - Port 445 (ruch wychodzący TCP) jest otwarty w regułach zabezpieczeń sieciowej grupy zabezpieczeń dla wystąpień zarządzanych, aby uzyskać dostęp do udziału plików platformy Azure.  Jeśli wystąpi błąd `failed to connect to azure storage \<storage account name> with os error 53` , konieczne będzie dodanie reguły wychodzącej do sieciowej grupy zabezpieczeń odpowiedniej podsieci wystąpienia zarządzanego SQL.

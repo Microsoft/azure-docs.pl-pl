@@ -11,20 +11,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 08/29/2019
-ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321598"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058271"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Oszczędność kosztów zasobów przy użyciu zarezerwowanej pojemności — Azure SQL Database & wystąpienia zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 Oszczędność pieniędzy dzięki Azure SQL Database i wystąpieniu zarządzanym SQL przez zatwierdzenie do rezerwacji zasobów obliczeniowych w porównaniu z cenami z płatność zgodnie z rzeczywistym użyciem. W przypadku zarezerwowanej pojemności użytkownik zobowiązuje się do użycia wystąpienia zarządzanego SQL Database i/lub SQL przez okres jednego lub trzech lat w celu uzyskania znacznego rabatu w kosztach obliczeniowych. Aby zakupić zastrzeżoną pojemność, należy określić region platformy Azure, typ wdrożenia, warstwę wydajności i termin.
 
-Nie trzeba przypisywać rezerwacji do konkretnej bazy danych lub wystąpienia zarządzanego. Takie korzyści są zgodne z istniejącymi wdrożeniami, które są już uruchomione lub które są nowo wdrożone. Zakup rezerwacji polega na przekazaniu użycia na koszty obliczeń przez okres jeden lub trzy lata. Po zakupieniu rezerwacji opłaty za obliczenia, które pasują do atrybutów rezerwacji, nie są już naliczane według stawek płatności zgodnie z rzeczywistym użyciem. Rezerwacja nie obejmuje opłat za oprogramowanie, Sieć ani opłaty za magazyn, które są skojarzone z usługą. Na koniec okresu rezerwacji korzyści z rozliczeń wygaśnie, a baza danych lub wystąpienie zarządzane są rozliczane według ceny płatności zgodnie z rzeczywistym użyciem. Rezerwacje nie są automatycznie odnawiane. Aby uzyskać informacje o cenach, zobacz [ofertę pojemności zarezerwowanej](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Nie trzeba przypisywać rezerwacji do konkretnej bazy danych lub wystąpienia zarządzanego. Takie korzyści są zgodne z istniejącymi wdrożeniami, które są już uruchomione lub które są nowo wdrożone. Zakup rezerwacji polega na przekazaniu użycia na koszty obliczeń przez okres jeden lub trzy lata. Po zakupieniu rezerwacji opłaty za obliczenia, które pasują do atrybutów rezerwacji, nie są już naliczane według stawek płatności zgodnie z rzeczywistym użyciem. 
+
+Rezerwacja dotyczy podstawowej i rozliczanej repliki obliczeniowej, ale nie obejmuje opłat za oprogramowanie, sieci lub magazyn związany z usługą. Na koniec okresu rezerwacji korzyści z rozliczeń wygaśnie, a baza danych lub wystąpienie zarządzane są rozliczane według ceny płatności zgodnie z rzeczywistym użyciem. Rezerwacje nie są automatycznie odnawiane. Aby uzyskać informacje o cenach, zobacz [ofertę pojemności zarezerwowanej](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Możesz kupić zastrzeżoną pojemność w [Azure Portal](https://portal.azure.com). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../../cost-management-billing/reservations/prepare-buy-reservation.md). Aby kupić pojemność zarezerwowaną:
 
@@ -32,6 +34,9 @@ Możesz kupić zastrzeżoną pojemność w [Azure Portal](https://portal.azure.c
 - W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji. Zarezerwowana pojemność.
 
 Aby uzyskać więcej informacji na temat sposobu, w jaki Klienci korporacyjni i klienci korzystający z płatnej zgodnie z rzeczywistym użyciem są obciążani opłatami za zakupy rezerwacji, zobacz [Opis użycia usługi Azure Reservation na potrzeby rejestracji w przedsiębiorstwie](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) i informacje [dotyczące użycia rezerwacji na platformie Azure dla subskrypcji z opcją płatność za](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)użycie.
+
+> [!NOTE]
+> Zakup zarezerwowanej pojemności nie powoduje wstępnego przydzielenia lub zarezerwowania określonych zasobów infrastruktury (maszyn wirtualnych lub węzłów) do użytku.
 
 ## <a name="determine-correct-size-before-purchase"></a>Określ prawidłowy rozmiar przed zakupem
 

@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812560"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056161"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Ten temat zawiera omówienie raportu aprowizacji.
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
-* Właściciele aplikacji
+* Właściciele aplikacji mogą wyświetlać dzienniki dla aplikacji, których są właścicielami
 * Użytkownicy w rolach administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik raportu, administrator aplikacji i administrator aplikacji w chmurze
 * Administratorzy globalni
 
@@ -56,7 +56,7 @@ Dzierżawca musi mieć skojarzoną licencję Azure AD — wersja Premium, aby wy
 Dzienniki aprowizacji zapewniają odpowiedzi na następujące pytania:
 
 * Które grupy zostały pomyślnie utworzone w usługi ServiceNow?
-* Jak role zostały zaimportowane z Amazon Web Services?
+* Jakie role zostały zaimportowane z Amazon Web Services?
 * Które użytkowników nie zostały pomyślnie utworzone w usłudze DropBox?
 
 Dostęp do dzienników aprowizacji można uzyskać, wybierając pozycję **dzienniki aprowizacji** w sekcji **monitorowanie** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). W przypadku niektórych rekordów aprowizacji w portalu może upłynąć do dwóch godzin.
@@ -86,7 +86,7 @@ Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są j
 
 Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje.
 
-![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Filtrowanie")
+![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Filtr")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrowanie działań aprowizacji
@@ -100,7 +100,7 @@ W widoku domyślnym można wybrać następujące filtry:
 - Akcja
 
 
-![Dodaj filtry](./media/concept-provisioning-logs/default-filter.png "Filtrowanie")
+![Dodaj filtry](./media/concept-provisioning-logs/default-filter.png "Filtr")
 
 Filtr **tożsamości** umożliwia określenie nazwy lub tożsamości, o której Cię interesują. Ta tożsamość może być użytkownikiem, grupą, rolą lub innym obiektem. Można wyszukiwać według nazwy lub identyfikatora obiektu. Identyfikator różni się w zależności od scenariusza. Na przykład podczas aprowizacji obiektu z usługi Azure AD do usług SalesForce identyfikator źródłowy jest IDENTYFIKATORem obiektu użytkownika w usłudze Azure AD, a TargetID jest IDENTYFIKATORem użytkownika w usłudze Salesforce. Po zainicjowaniu obsługi administracyjnej od dnia roboczego do Active Directory identyfikator źródła to identyfikator pracownika procesu roboczego programu Workday. Należy zauważyć, że nazwa użytkownika może nie zawsze występować w kolumnie tożsamość. Zawsze będzie istnieć jeden identyfikator. 
 
@@ -119,7 +119,7 @@ Po wybraniu niestandardowego przedziału czasu można skonfigurować datę pocz�
 
 Filtr **stanu** umożliwia wybranie:
 
-- Wszystkie
+- Wszystko
 - Powodzenie
 - Niepowodzenie
 - Pominięto
@@ -130,7 +130,7 @@ Filtr **akcji** umożliwia filtrowanie:
 
 - Utwórz 
 - Aktualizacja
-- Usuwanie
+- Usuń
 - Wyłącz
 - Inne
 
@@ -191,7 +191,7 @@ Na karcie **kroki** przedstawiono kroki, które należy wykonać w celu aprowiza
 
 
 
-![Zrzut ekranu przedstawia kartę kroki, która zawiera kroki inicjowania obsługi.](./media/concept-provisioning-logs/steps.png "Filtrowanie")
+![Zrzut ekranu przedstawia kartę kroki, która zawiera kroki inicjowania obsługi.](./media/concept-provisioning-logs/steps.png "Filtr")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Rozwiązywanie problemów i zalecenia
@@ -211,7 +211,7 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 
-- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję. Dzienniki aprowizacji można publikować w usłudze log Analytics w celu przechowywania danych przez okres dłuższy niż 30 dni. 
+- W Azure Portal są przechowywane zgłoszone dane aprowizacji przez 30 dni, jeśli masz wersję Premium i 7 dni, jeśli masz bezpłatną wersję. Dzienniki aprowizacji można publikować w usłudze [log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) w celu przechowywania danych przez okres dłuższy niż 30 dni. 
 
 - Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
 
