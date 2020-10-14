@@ -3,19 +3,19 @@ title: Jak dodać strumieniowe źródła danych z różnych źródeł do klasyfi
 titleSuffix: Azure Cognitive Services
 description: Dodawanie różnych strumieniowych źródeł danych do klasyfikatora metryk
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
-ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971952"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046914"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Dodawanie strumieniowych źródeł danych z różnych źródeł danych do klasyfikatora metryk
 
@@ -43,7 +43,7 @@ Skorzystaj z tego artykułu, aby znaleźć ustawienia i wymagania dotyczące ł�
 |[**Azure Data Explorer (Kusto)**](#kusto) | Podstawowy<br>ManagedIdentity|
 |[**Usługa Azure Data Lake Storage 2. generacji**](#adl) | Podstawowy<br>DataLakeGen2SharedKey<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br> |
 |[**Azure SQL Database/SQL Server**](#sql) | Podstawowy<br>ManagedIdentity<br>Jednostka usługi<br>Nazwa główna usługi z magazynu kluczy<br>AzureSQLConnectionString
-|[**Table Storage platformy Azure**](#table) | Podstawowy | 
+|[**Azure Table Storage**](#table) | Podstawowy | 
 |[**ElasticSearch**](#es) | Podstawowy |
 |[**Żądanie http**](#http) | Podstawowy | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Podstawowy |
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage platformy Azure</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
 
 * **Parametry połączenia**: należy zapoznać się z tematem [Wyświetlanie i kopiowanie parametrów połączenia](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) , aby uzyskać informacje na temat pobierania parametrów połączenia z usługi Azure Table Storage.
 

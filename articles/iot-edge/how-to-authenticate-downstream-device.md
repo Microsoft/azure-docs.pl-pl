@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932145"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046727"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Uwierzytelnianie urządzenia podrzędnego w usłudze Azure IoT Hub
 
@@ -47,7 +47,7 @@ Wybierz, w jaki sposób urządzenie podrzędne ma być uwierzytelniane przy uży
 
 Po zarejestrowaniu urządzenia przy użyciu jednej z tych trzech metod przejdź do następnej sekcji, aby [pobrać i zmodyfikować parametry połączenia](#retrieve-and-modify-connection-string) dla urządzenia podrzędnego.
 
-### <a name="symmetric-key-authentication"></a>Uwierzytelnianie klucza symetrycznego
+### <a name="symmetric-key-authentication"></a>Uwierzytelnianie za pomocą klucza zawartości
 
 Uwierzytelnianie przy użyciu klucza symetrycznego lub uwierzytelnianie klucza dostępu współdzielonego jest najprostszym sposobem na uwierzytelnianie za pomocą IoT Hub. W przypadku uwierzytelniania przy użyciu klucza symetrycznego klucz Base64 jest skojarzony z IDENTYFIKATORem urządzenia IoT w IoT Hub. Ten klucz jest dołączany do aplikacji IoT, aby urządzenie mógł je przedstawić podczas łączenia się z IoT Hub.
 
@@ -110,7 +110,7 @@ W przypadku uwierzytelniania z podpisem własnym X. 509, czasami określanego ja
 
 4. Skopiuj zarówno certyfikat podstawowy, jak i pomocniczy, a także ich klucze do dowolnej lokalizacji na urządzeniu podrzędnym. Należy również przenieść kopię certyfikatu udostępnionego głównego urzędu certyfikacji, który wygenerował zarówno certyfikat urządzenia bramy, jak i certyfikaty urządzeń podrzędnych.
 
-   Te pliki certyfikatów można odwoływać do wszystkich aplikacji na urządzeniu podrzędnym, które nawiązują połączenie z IoT Hub. Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .
+   Te pliki certyfikatów można odwoływać do wszystkich aplikacji na urządzeniu podrzędnym, które nawiązują połączenie z IoT Hub. Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](../key-vault/index.yml) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .
 
 5. W zależności od preferowanego języka zapoznaj się z przykładami, w jaki sposób można odwoływać się do certyfikatów X. 509 w aplikacjach IoT:
 
@@ -156,7 +156,7 @@ Ta sekcja jest oparta na instrukcji przedstawionych w IoT Hub artykule [Konfigur
 
 5. Skopiuj certyfikat i klucze urządzenia do dowolnej lokalizacji na urządzeniu podrzędnym. Należy również przenieść kopię certyfikatu udostępnionego głównego urzędu certyfikacji, który wygenerował zarówno certyfikat urządzenia bramy, jak i certyfikaty urządzeń podrzędnych.
 
-   Te pliki zostaną odwołane do wszystkich aplikacji na urządzeniu podrzędnym, które nawiązują połączenie z IoT Hub. Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .
+   Te pliki zostaną odwołane do wszystkich aplikacji na urządzeniu podrzędnym, które nawiązują połączenie z IoT Hub. Do przenoszenia plików certyfikatów można użyć usługi, takiej jak [Azure Key Vault](../key-vault/index.yml) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .
 
 6. W zależności od preferowanego języka zapoznaj się z przykładami, w jaki sposób można odwoływać się do certyfikatów X. 509 w aplikacjach IoT:
 

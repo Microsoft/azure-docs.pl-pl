@@ -3,19 +3,19 @@ title: Konfigurowanie alertów klasyfikatora metryk
 titleSuffix: Azure Cognitive Services
 description: Jak skonfigurować alerty klasyfikatora metryk przy użyciu punktów zaczepienia dla poczty e-mail, sieci Web i usługi Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977790"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046795"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Instrukcje: Konfigurowanie alertów i otrzymywanie powiadomień przy użyciu punktu zaczepienia
 
@@ -77,7 +77,7 @@ Aby utworzyć punkt zaczepienia usługi Azure DevOps, należy dodać następują
 |---------|---------|
 | Nazwa | Nazwa punktu zaczepienia |
 | Organizacja | Organizacja, do której należy DevOps |
-| Projekt | Konkretny projekt w DevOps. |
+| Project | Konkretny projekt w DevOps. |
 | Token dostępu |  Token do uwierzytelniania w usłudze DevOps. | 
 
 > [!Note]

@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: eb698cf3c4cf2bdc47e3df57c65847f499d8760c
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893666"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048223"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planowanie rozwiązania do obsługi telefonii i wiadomości SMS
 
@@ -74,7 +74,7 @@ W poniższej tabeli przedstawiono, gdzie można uzyskać różne typy numerów t
 
 ## <a name="azure-subscriptions-eligibility"></a>Uprawnienia do subskrypcji platformy Azure
 
-Aby uzyskać numer telefonu, musisz mieć płatną subskrypcję platformy Azure. Numerów telefonów nie można nabyć na kontach wersji próbnej. 
+Aby uzyskać numer telefonu, musisz mieć płatną subskrypcję platformy Azure. Numerów telefonów nie można nabyć na kontach próbnych ani za pomocą bezpłatnych kredytów na korzystanie z platformy Azure. 
 
 Obecnie dostępność numeru telefonu jest ograniczona do subskrypcji platformy Azure, które mają adres rozliczeniowy w Stany Zjednoczone.
 

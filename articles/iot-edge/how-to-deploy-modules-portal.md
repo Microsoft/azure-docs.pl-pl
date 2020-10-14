@@ -4,17 +4,16 @@ description: Użyj IoT Hub w Azure Portal, aby wypchnąć moduł IoT Edge z IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 67c7c71e1f1f3eb9e76aa4938cb4a0a15ca405c8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978802"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048036"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Wdróż moduły Azure IoT Edge z Azure Portal
 
@@ -35,6 +34,11 @@ Manifest wdrożenia to dokument JSON, który opisuje moduły do wdrożenia, spos
 
 Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia manifestu wdrożenia, zamiast ręcznego tworzenia dokumentu JSON. Składa się z trzech kroków: **Dodawanie modułów**, **Określanie tras**i **przeglądanie wdrożenia**.
 
+>[!NOTE]
+>Kroki opisane w tym artykule odzwierciedlają najnowszą wersję schematu IoT Edge agenta i centrum. Wersja schematu 1,1 została wydana wraz z IoT Edge wersja 1.0.10 i włącza funkcje kolejności uruchamiania modułu i określania priorytetów trasy.
+>
+>W przypadku wdrażania na urządzeniu z uruchomioną wersją 1.0.9 lub wcześniejszą należy zmodyfikować **Ustawienia środowiska uruchomieniowego** **w kroku w kreatorze, aby** użyć wersji schematu 1,0.
+
 ### <a name="select-device-and-add-modules"></a>Wybierz urządzenie i Dodaj moduły
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) i przejdź do centrum IoT Hub.
@@ -43,21 +47,30 @@ Azure Portal zawiera kreatora, który przeprowadzi Cię przez proces tworzenia m
 1. Na górnym pasku wybierz pozycję **Ustaw moduły**.
 1. W sekcji **ustawienia Container Registry** na stronie podaj poświadczenia, aby uzyskać dostęp do wszelkich prywatnych rejestrów kontenerów zawierających obrazy modułu.
 1. W sekcji **IoT Edge modułów** na stronie wybierz pozycję **Dodaj**.
-1. Przyjrzyj się typom modułów z menu rozwijanego:
+1. Wybierz jeden z trzech typów modułów z menu rozwijanego:
 
    * **Moduł IoT Edge** — Podaj nazwę modułu i identyfikator URI obrazu kontenera. Na przykład identyfikator URI obrazu dla przykładowego modułu SimulatedTemperatureSensor to `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Jeśli obraz modułu jest przechowywany w rejestrze kontenera prywatnego, Dodaj poświadczenia na tej stronie, aby uzyskać dostęp do tego obrazu.
    * Moduły **portalu Marketplace** hostowane w witrynie Azure Marketplace. Niektóre moduły portalu Marketplace wymagają dodatkowej konfiguracji, dlatego Przejrzyj szczegóły modułu na liście [modułów IoT Edge portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * Moduły modułów **Azure Stream Analytics** wygenerowane na podstawie obciążenia Azure Stream Analyticsowego.
 
-1. Po dodaniu modułu wybierz z listy nazwę modułu, aby otworzyć ustawienia modułu. Wypełnij pola opcjonalne w razie potrzeby. Aby uzyskać więcej informacji o opcjach tworzenia kontenera, zasadach ponownego uruchamiania i żądanym stanie, zobacz [EdgeAgent wymagane właściwości](module-edgeagent-edgehub.md#edgeagent-desired-properties). Aby uzyskać więcej informacji na temat sznurka modułu, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](module-composition.md#define-or-update-desired-properties).
-1. W razie potrzeby powtórz kroki od 5 do 8, aby dodać kolejne moduły do wdrożenia.
+1. Po dodaniu modułu wybierz z listy nazwę modułu, aby otworzyć ustawienia modułu. Wypełnij pola opcjonalne w razie potrzeby.
+
+   Aby uzyskać więcej informacji na temat dostępnych ustawień modułu, zobacz [Konfiguracja modułu i zarządzanie nimi](module-composition.md#module-configuration-and-management).
+
+   Aby uzyskać więcej informacji na temat sznurka modułu, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](module-composition.md#define-or-update-desired-properties).
+
+1. Powtórz kroki od 6 do 8, aby dodać kolejne moduły do wdrożenia.
 1. Wybierz pozycję **Dalej: trasy** , aby przejść do sekcji trasy.
 
 ### <a name="specify-routes"></a>Określ trasy
 
-Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Domyślnie trasa jest nazywana **trasą** i zdefiniowana jako **od/messages/ \* do $upstream**, co oznacza, że wszystkie komunikaty przesyłane przez moduły są wysyłane do centrum IoT Hub.  
+Na karcie **trasy** należy określić sposób przekazywania komunikatów między modułami i IoT Hub. Komunikaty są konstruowane przy użyciu par nazwa/wartość. Domyślnie pierwsze wdrożenie nowego urządzenia obejmuje trasę o nazwie **Route** i zdefiniowana jako **od/messages/ \* do $upstream**, co oznacza, że wszystkie komunikaty przesyłane przez wszystkie moduły są wysyłane do centrum IoT Hub.  
 
-Dodaj lub zaktualizuj trasy z informacjami z [deklaracji trasy](module-composition.md#declare-routes), a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku kreatora.
+**Priorytet** i **czas wygaśnięcia** parametrów są opcjonalnymi parametrami, które można uwzględnić w definicji trasy. Parametr Priority umożliwia wybranie tras, które powinny być przetwarzane jako pierwsze, lub które trasy powinny być przetwarzane jako ostatnie. Priorytet jest określany przez ustawienie liczby 0-9, gdzie 0 oznacza najwyższy priorytet. Parametr Time to Live umożliwia zadeklarować, jak długo komunikaty w tej trasie powinny być przechowywane, dopóki nie zostaną przetworzone lub usunięte z kolejki.
+
+Aby uzyskać więcej informacji o sposobach tworzenia tras, zobacz [deklarowanie tras](module-composition.md#declare-routes).
+
+Po ustawieniu tras wybierz kolejno pozycje **Dalej: przegląd + Utwórz** , aby przejść do następnego kroku kreatora.
 
 ### <a name="review-deployment"></a>Przegląd wdrożenia
 

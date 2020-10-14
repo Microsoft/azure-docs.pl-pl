@@ -1,6 +1,6 @@
 ---
-title: Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu szablonu Azure Resource Manager (szablon ARM)
-description: Dowiedz się, jak utworzyć wewnętrzny moduł równoważenia obciążenia platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: 'Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia przy użyciu szablonu'
+description: Ten przewodnik Szybki Start przedstawia sposób tworzenia wewnętrznego modułu równoważenia obciążenia platformy Azure przy użyciu szablonu Azure Resource Manager (szablon ARM).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 287afc51aa15ed4cadba7e2d6cd389e4869d7d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90532859"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047764"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu szablonu ARM
 
@@ -42,7 +42,7 @@ W szablonie zdefiniowano wiele zasobów platformy Azure:
 
 Aby znaleźć więcej szablonów związanych z Azure Load Balancer, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 **Interfejs wiersza polecenia platformy Azure**
 

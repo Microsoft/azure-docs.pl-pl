@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: e5dc5601be5bd6d8003b196b5e7768e66bc48478
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979785"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045690"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instalowanie lub Odinstalowywanie środowiska uruchomieniowego Azure IoT Edge
 
@@ -267,7 +267,7 @@ Jeśli urządzenie będzie w trybie offline w trakcie instalacji lub jeśli chce
 
 4. Opcjonalnie można pobrać Instalatora dla Visual C++ pakiet redystrybucyjny. Na przykład skrypt programu PowerShell używa tej wersji: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Zapisz Instalatora w tym samym folderze na urządzeniu IoT jako pliki IoT Edge.
 
-5. Aby zainstalować program za pomocą składników trybu [offline, należy](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. 
+5. Aby zainstalować program za pomocą składników trybu [offline, należy](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. 
 
 6. Uruchom polecenie [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) z `-OfflineInstallationPath` parametrem. Podaj ścieżkę bezwzględną do katalogu plików. Przykład:
 

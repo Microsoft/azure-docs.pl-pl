@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983350"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048053"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
@@ -129,7 +129,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Aktualizowanie kodu funkcji platformy Azure
 
-Teraz, gdy rozumiesz kod z wcześniejszych przykładów, Otwórz funkcję platformy Azure w sekcji [*wymagania wstępne*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) w programie Visual Studio. (Jeśli nie masz funkcji platformy Azure, odwiedź link w sekcji wymagania wstępne, aby utworzyć go teraz).
+Teraz, gdy rozumiesz kod z wcześniejszych przykładów, Otwórz funkcję platformy Azure w sekcji [*wymagania wstępne*](#prerequisites) w programie Visual Studio. (Jeśli nie masz funkcji platformy Azure, odwiedź link w sekcji wymagania wstępne, aby utworzyć go teraz).
 
 Zamień kod funkcji platformy Azure na ten przykładowy kod.
 
@@ -193,7 +193,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-Zapisz kod funkcji i Opublikuj aplikację funkcji na platformie Azure. Można to zrobić, odwołując się do sekcji [*publikowanie aplikacja funkcji,*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) jak to zrobić [*: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md).
+Zapisz kod funkcji i Opublikuj aplikację funkcji na platformie Azure. Można to zrobić, odwołując się do sekcji [*publikowanie aplikacja funkcji,*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) jak to zrobić [*: Konfigurowanie funkcji platformy Azure do przetwarzania danych*](how-to-create-azure-function.md).
 
 Po pomyślnym opublikowaniu dane wyjściowe będą widoczne w oknie poleceń programu Visual Studio, jak pokazano poniżej:
 
@@ -214,7 +214,7 @@ Możesz również sprawdzić stan procesu publikowania w [Azure Portal](https://
 ## <a name="connect-your-function-to-iot-hub"></a>Połącz funkcję z IoT Hub
 
 Skonfiguruj miejsce docelowe zdarzenia dla danych centrum.
-W [Azure Portal](https://portal.azure.com/)przejdź do wystąpienia IoT Hub utworzonego w sekcji [*wymagania wstępne*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . W obszarze **zdarzenia**Utwórz subskrypcję dla funkcji platformy Azure.
+W [Azure Portal](https://portal.azure.com/)przejdź do wystąpienia IoT Hub utworzonego w sekcji [*wymagania wstępne*](#prerequisites) . W obszarze **zdarzenia**Utwórz subskrypcję dla funkcji platformy Azure.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagram przedstawiający wykres przepływu. Na wykresie urządzenie IoT Hub wysyła dane telemetryczne dotyczące temperatury za pomocą IoT Hub do funkcji platformy Azure, która aktualizuje właściwość temperatury na sznurze w usłudze Azure Digital bliźniaczych reprezentacji.":::
 
@@ -242,7 +242,7 @@ Wybierz przycisk _Utwórz_ , aby utworzyć subskrypcję zdarzeń.
 
 ## <a name="send-simulated-iot-data"></a>Wysyłanie symulowanych danych IoT
 
-Aby przetestować nową funkcję transferu danych przychodzących, użyj symulatora urządzeń z [*samouczka: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md). Ten samouczek jest oparty na przykładowym projekcie pisanym w języku C#. Przykładowy kod znajduje się tutaj: [bliźniaczych reprezentacji Digital Azure — przykłady](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Będziesz używać projektu **DeviceSimulator** w tym repozytorium.
+Aby przetestować nową funkcję transferu danych przychodzących, użyj symulatora urządzeń z [*samouczka: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md). Ten samouczek jest oparty na przykładowym projekcie pisanym w języku C#. Przykładowy kod znajduje się tutaj: [bliźniaczych reprezentacji Digital Azure — przykłady](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Będziesz używać projektu **DeviceSimulator** w tym repozytorium.
 
 W kompleksowym samouczku wykonaj następujące czynności:
 1. [*Rejestrowanie symulowanego urządzenia za pomocą IoT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

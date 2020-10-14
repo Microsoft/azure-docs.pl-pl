@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdf7a46dec6f4ea766d5d5a039109022755bc3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761281"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046340"
 ---
 # <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Samouczek: konwertowanie urządzenia IoT Plug and Play na moduł (C#)
 
 W tym samouczku pokazano, jak przekonwertować kod urządzenia Plug and Play IoT, aby był uruchamiany jako moduł generyczny.
 
-Urządzenie jest urządzeniem Plug and Play IoT, jeśli publikuje jego identyfikator modelu podczas nawiązywania połączenia z usługą IoT Hub i implementuje właściwości i metody opisane w modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) identyfikowane przez identyfikator modelu. Aby dowiedzieć się więcej o tym, jak urządzenia używają DTDL i identyfikatora modelu, zobacz [przewodnik dewelopera IoT Plug and Play](concepts-developer-guide.md). Moduły używają identyfikatorów modelu i modeli DTDL w taki sam sposób.
+Urządzenie jest urządzeniem Plug and Play IoT, jeśli publikuje jego identyfikator modelu podczas nawiązywania połączenia z usługą IoT Hub i implementuje właściwości i metody opisane w modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) identyfikowane przez identyfikator modelu. Aby dowiedzieć się więcej o tym, jak urządzenia używają DTDL i identyfikatora modelu, zobacz [przewodnik dewelopera IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Moduły używają identyfikatorów modelu i modeli DTDL w taki sam sposób.
 
 Aby zademonstrować sposób implementacji modułu IoT Plug and Play, w tym samouczku pokazano, jak skonwertować próbkę urządzenia w języku C# z termostatu do modułu ogólnego.
 
@@ -224,7 +224,7 @@ Aby przekonwertować ten przykład w taki sposób, aby działał jako moduł IoT
 Aby dowiedzieć się, jak wdrożyć moduł kontenerów, zobacz:
 
 * [Uruchom Azure IoT Edge na Ubuntu Virtual Machines](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemach Linux opartych na Debian](../iot-edge/how-to-install-iot-edge-linux.md).
+* [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemach Linux opartych na Debian](../iot-edge/how-to-install-iot-edge.md).
 
 Za pomocą narzędzia Azure IoT Explorer można zobaczyć:
 
@@ -238,4 +238,4 @@ Za pomocą narzędzia Azure IoT Explorer można zobaczyć:
 W tym samouczku dowiesz się, jak połączyć urządzenie z usługą IoT Plug and Play z modułami do centrum IoT. Aby dowiedzieć się więcej na temat modeli urządzeń IoT Plug and Play, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przewodnik dewelopera modelowania Plug and Play IoT](concepts-developer-guide.md)
+> [Przewodnik dewelopera modelowania Plug and Play IoT](./concepts-developer-guide-device-csharp.md)

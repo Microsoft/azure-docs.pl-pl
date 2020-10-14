@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 15609435c7bc099d0ffe40759ea0f323b58a4545
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee7c1c57c271a6173f4ee978a10ff37526c04c33
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89088400"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047853"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure PowerShell
 
@@ -911,7 +911,7 @@ Utworzenie i skonfigurowanie trzech maszyn wirtualnych może potrwać kilka minu
 
 Zainstaluj rozszerzenie niestandardowego skryptu przy użyciu polecenia [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest). 
 
-Rozszerzenie uruchamia program PowerShell Add-WindowsFeature serwer sieci Web, aby zainstalować serwer webiis, a następnie aktualizuje stronę Default.htm, aby wyświetlić nazwę hosta maszyny wirtualnej:
+Rozszerzenie powoduje uruchomienie programu PowerShell Add-WindowsFeature Web-Server w celu zainstalowania serwera WebSerwer IIS, a następnie zaktualizowanie strony Default.htm w celu wyświetlenia nazwy hosta maszyny wirtualnej:
 
 ### <a name="vm1"></a>Maszyna wirtualna 1 
 
@@ -1024,7 +1024,7 @@ New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -Comp
 New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 ```
 
-### <a name="test"></a>Test
+### <a name="test"></a>Testowanie
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -1066,8 +1066,8 @@ W tym przewodniku Szybki Start
 * Skonfigurowano regułę ruchu modułu równoważenia obciążenia i sondę kondycji.
 * Przetestowano moduł równoważenia obciążenia.
 
-Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do [co Azure Load Balancer?](load-balancer-overview.md) i [Load Balancer często zadawanych pytań](load-balancer-faqs.md).
-
-* Dowiedz się więcej na temat [stref Load Balancer i dostępności](load-balancer-standard-availability-zones.md).
+Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do..
+> [!div class="nextstepaction"]
+> [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)
 
 

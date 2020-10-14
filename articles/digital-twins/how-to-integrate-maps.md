@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564366"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045129"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -64,7 +64,7 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, 
     >[!NOTE]
     >Obecnie występuje **znany problem** w Cloud Shell wpływu na te grupy poleceń: `az dt route` , `az dt model` , `az dt twin` .
     >
-    >Aby rozwiązać ten problem, należy uruchomić `az login` polecenie w Cloud Shell przed uruchomieniem polecenia lub użyć [lokalnego interfejsu wiersza](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) polecenia, a nie Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Aby rozwiązać ten problem, należy uruchomić `az login` polecenie w Cloud Shell przed uruchomieniem polecenia lub użyć [lokalnego interfejsu wiersza](/cli/azure/install-azure-cli?view=azure-cli-latest) polecenia, a nie Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -74,7 +74,7 @@ Ten wzorzec odczytuje ze źródła salonu bezpośrednio, a nie urządzenia IoT, 
 
 Zamierzasz utworzyć funkcję wyzwalającą Event Grid w aplikacji funkcji z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)). Ta funkcja spowoduje rozpakowanie tych powiadomień i wysłanie aktualizacji do Azure Maps funkcji stateset w celu zaktualizowania temperatury jednego pokoju. 
 
-Zapoznaj się z następującym dokumentem, aby uzyskać informacje referencyjne: [*wyzwalacz Azure Event Grid dla Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Zapoznaj się z następującym dokumentem, aby uzyskać informacje referencyjne: [*wyzwalacz Azure Event Grid dla Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Zastąp kod funkcji poniższym kodem. Spowoduje to odfiltrowanie tylko aktualizacji bliźniaczych reprezentacji miejsca, odczytanie zaktualizowanej temperatury i wysłanie tych informacji do Azure Maps.
 

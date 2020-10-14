@@ -8,18 +8,18 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975165"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045299"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) to usługa w chmurze, która ułatwia automatyzację przepływów pracy między aplikacjami i usługami. Łącząc Logic Apps z interfejsami API Digital bliźniaczych reprezentacji platformy Azure, możesz tworzyć takie zautomatyzowane przepływy na platformie Azure Digital bliźniaczych reprezentacji i ich danych.
 
-Usługa Azure Digital bliźniaczych reprezentacji nie ma obecnie certyfikowanego (wstępnie utworzonego) łącznika dla Logic Apps. Zamiast tego bieżący proces używania Logic Apps z usługą Azure Digital bliźniaczych reprezentacji polega na utworzeniu [**niestandardowego łącznika Logic Apps**](../logic-apps/custom-connector-overview.md)przy użyciu niestandardowego programu [Azure Digital bliźniaczych reprezentacji Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) , który został zmodyfikowany do pracy z Logic Apps.
+Usługa Azure Digital bliźniaczych reprezentacji nie ma obecnie certyfikowanego (wstępnie utworzonego) łącznika dla Logic Apps. Zamiast tego bieżący proces używania Logic Apps z usługą Azure Digital bliźniaczych reprezentacji polega na utworzeniu [**niestandardowego łącznika Logic Apps**](../logic-apps/custom-connector-overview.md)przy użyciu niestandardowego programu [Azure Digital bliźniaczych reprezentacji Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) , który został zmodyfikowany do pracy z Logic Apps.
 
 > [!NOTE]
 > Istnieje wiele wersji struktury Swagger zawartych w powyższym przykładzie niestandardowej struktury Swagger. Najnowsza wersja zostanie znaleziona w podfolderze z najnowszą datą, ale wcześniejsze wersje zawarte w próbce również są nadal obsługiwane.
@@ -93,7 +93,7 @@ Nastąpi przekierowanie do strony wdrożenia łącznika. Po zakończeniu wdraża
 
 Następnie skonfigurujesz utworzony łącznik, aby uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji.
 
-Najpierw pobierz niestandardową strukturę Swagger usługi Azure Digital bliźniaczych reprezentacji, która została zmodyfikowana w celu współpracy z Logic Apps. Pobierz przykład **niestandardowego struktury Swagger platformy Azure Digital bliźniaczych reprezentacji** z [**tego linku**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) , naciskając przycisk *Pobierz plik zip* . Przejdź do pobranego folderu *Azure_Digital_Twins_Custom_Swaggers.zip* i rozpakuj go. 
+Najpierw pobierz niestandardową strukturę Swagger usługi Azure Digital bliźniaczych reprezentacji, która została zmodyfikowana w celu współpracy z Logic Apps. Pobierz przykład **niestandardowego struktury Swagger platformy Azure Digital bliźniaczych reprezentacji** z [**tego linku**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) , naciskając przycisk *Pobierz plik zip* . Przejdź do pobranego folderu *Azure_Digital_Twins_Custom_Swaggers.zip* i rozpakuj go. 
 
 Niestandardowa struktura Swagger dla tego samouczka znajduje się w folderze _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Ten folder zawiera podfoldery o nazwie *stabilne* i *Preview*, w których obie wersje struktury Swagger są zorganizowane według daty. Folder o najnowszej dacie będzie zawierać najnowszą kopię struktury Swagger. Niezależnie od wybranej wersji plik struktury Swagger ma nazwę _**digitaltwins.jsna**_.
 
@@ -196,7 +196,7 @@ Możesz wybrać inne operacje, wybierając pozycję _+ nowy krok_ w tym samym ok
 
 Teraz, gdy aplikacja logiki została utworzona, zdarzenie aktualizacji z przędzą zdefiniowane w projektancie Logic Apps powinno odbywać się w cyklu co trzy sekundy. Oznacza to, że po upływie trzech sekund powinno być możliwe przetworzenie zapytania dotyczącego sznurka i wyświetlenie nowych poprawionych wartości.
 
-Możesz wysyłać zapytania do przędzy za pomocą wybranej metody (takiej jak [niestandardowa aplikacja kliencka](tutorial-command-line-app.md), [Przykładowa aplikacja programu Azure Digital bliźniaczych reprezentacji Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), [zestawy SDK i interfejsy API](how-to-use-apis-sdks.md)lub [interfejs wiersza polecenia](how-to-use-cli.md)). 
+Możesz wysyłać zapytania do przędzy za pomocą wybranej metody (takiej jak [niestandardowa aplikacja kliencka](tutorial-command-line-app.md), [Przykładowa aplikacja programu Azure Digital bliźniaczych reprezentacji Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), [zestawy SDK i interfejsy API](how-to-use-apis-sdks.md)lub [interfejs wiersza polecenia](how-to-use-cli.md)). 
 
 Aby uzyskać więcej informacji o wysyłaniu zapytań do wystąpienia usługi Azure Digital bliźniaczych reprezentacji, zobacz [*How to: Query The bliźniaczy Graf*](how-to-query-graph.md).
 

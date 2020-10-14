@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dd2d42bb83afa5a97bd5bd71d7b1a4bcc506d93e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976168"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048087"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
@@ -41,7 +41,7 @@ Istnieje kilka ograniczeń dotyczących używania kluczy zarządzanych przez kli
 
 - Zestawy kluczy szyfrowania są zasobami regionalnymi, dlatego każdy region wymaga innego zestawu kluczy szyfrowania.
 
-- Nie można udostępniać obrazów, które używają kluczy zarządzanych przez klienta. 
+- Nie można kopiować ani udostępniać obrazów, które używają kluczy zarządzanych przez klienta. 
 
 - Po zastosowaniu własnych kluczy do zaszyfrowania dysku lub obrazu nie można wrócić do korzystania z kluczy zarządzanych przez platformę do szyfrowania tych dysków lub obrazów.
 
@@ -51,7 +51,7 @@ Istnieje kilka ograniczeń dotyczących używania kluczy zarządzanych przez kli
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## <a name="powershell"></a>Program PowerShell
+## <a name="powershell"></a>PowerShell
 
 Aby uzyskać publiczną wersję zapoznawczą, należy najpierw zarejestrować tę funkcję.
 

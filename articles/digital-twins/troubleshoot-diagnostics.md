@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723932"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047679"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: rejestrowanie diagnostyczne
 
@@ -70,10 +70,10 @@ Każda kategoria dziennika składa się z operacji zapisu, odczytu, usuwania i a
 | --- | --- |
 | Zapisywanie | PUT i PATCH |
 | Odczyt | GET |
-| Usuwanie | DELETE |
+| Usuń | DELETE |
 | Akcja | POST |
 
-Poniżej znajduje się kompleksowa Lista operacji i odpowiednich [wywołań interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji](https://docs.microsoft.com/rest/api/azure-digitaltwins/) , które są rejestrowane w każdej kategorii. 
+Poniżej znajduje się kompleksowa Lista operacji i odpowiednich [wywołań interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji](/rest/api/azure-digitaltwins/) , które są rejestrowane w każdej kategorii. 
 
 >[!NOTE]
 > Każda kategoria dziennika zawiera kilka wywołań operacji/interfejsu API REST. W poniższej tabeli każda kategoria dziennika jest mapowana na wszystkie operacje/wywołania interfejsu API REST, dopóki nie zostanie wyświetlona Następna kategoria dziennika. 

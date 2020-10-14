@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420659"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048274"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Samouczek: Tworzenie bramy sieci VPN i zarządzanie nią przy użyciu programu PowerShell
 
@@ -28,7 +28,7 @@ Poniższy diagram przedstawia sieć wirtualną oraz bramę sieci VPN utworzoną 
 
 ![Sieć wirtualna i brama sieci VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Praca z Azure Cloud Shell i Azure PowerShell
+## <a name="prerequisites"></a>Wymagania wstępne
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ W niniejszym samouczku zawarto informacje dotyczące podstawowych zadań tworzen
 > * Zmiana rozmiaru bramy sieci VPN
 > * Resetowanie bramy VPN Gateway
 
-Przejdź do następujących samouczków, aby dowiedzieć się więcej na temat połączeń S2S, między sieciami wirtualnymi i P2S.
+Następnie przejdź do następującego samouczka:
 
 > [!div class="nextstepaction"]
-> * [Tworzenie połączeń S2S](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Tworzenie połączeń między sieciami wirtualnymi](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Tworzenie połączeń P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Tworzenie połączenia](vpn-gateway-tutorial-vpnconnection-powershell.md)

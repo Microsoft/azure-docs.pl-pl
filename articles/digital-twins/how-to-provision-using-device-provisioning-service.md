@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561435"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047238"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
 
@@ -32,7 +32,7 @@ Poniższe wartości będą potrzebne w dalszej części tego artykułu od moment
 * **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * **_Parametry połączenia_** parametrów połączenia z usługą Azure Event Hubs ([Znajdź w portalu](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
-Ten przykład używa również **symulatora urządzeń** , który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Pobierz przykładowy projekt na swoją maszynę, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
+Ten przykład używa również **symulatora urządzeń** , który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Pobierz przykładowy projekt na swoją maszynę, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
 
 Symulator urządzeń jest oparty na **Node.js**, w wersji 10.0. x lub nowszej. [*Przygotowanie środowiska programistycznego*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
 
@@ -69,7 +69,7 @@ Po zainicjowaniu nowego urządzenia przy użyciu usługi Device Provisioning mo�
 
 Utwórz wystąpienie usługi Device Provisioning, które będzie używane do udostępniania urządzeń IoT. Możesz użyć poniższych instrukcji interfejsu wiersza polecenia platformy Azure lub użyć Azure Portal: [*Szybki Start: skonfiguruj IoT Hub Device Provisioning Service przy użyciu Azure Portal*](../iot-dps/quick-setup-auto-provision.md).
 
-Następujące polecenie interfejsu wiersza polecenia platformy Azure utworzy usługę Device Provisioning. Należy określić nazwę, grupę zasobów i region. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
+Następujące polecenie interfejsu wiersza polecenia platformy Azure utworzy usługę Device Provisioning. Należy określić nazwę, grupę zasobów i region. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -258,7 +258,7 @@ Podczas przechodzenia przez ten przepływ nastąpi połączenie rejestracji z w�
 
 ### <a name="set-up-the-device-simulator"></a>Konfigurowanie symulatora urządzeń
 
-Ten przykład korzysta z symulatora urządzeń, który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Jeśli przykład nie został jeszcze pobrany, Pobierz go teraz, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
+Ten przykład korzysta z symulatora urządzeń, który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Jeśli przykład nie został jeszcze pobrany, Pobierz go teraz, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
 
 Otwórz okno polecenia i przejdź do pobranego folderu, a następnie do katalogu *Device-symulator* . Zainstaluj zależności dla projektu przy użyciu następującego polecenia:
 
@@ -447,7 +447,7 @@ Zapisz projekt, a następnie ponownie Opublikuj aplikację funkcji. Instrukcje d
 
 Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i centrum zdarzeń. Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)), pierwsze ustawienie zostanie już skonfigurowane.
 
-Dodaj ustawienie za pomocą tego polecenia platformy Azure. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
+Dodaj ustawienie za pomocą tego polecenia platformy Azure. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -480,7 +480,7 @@ Aby wyzwolić proces wycofania, należy ręcznie usunąć urządzenie z IoT Hub.
 
 W [pierwszej połowie tego artykułu](#auto-provision-device-using-device-provisioning-service)utworzono urządzenie w IoT Hub i odpowiadające im sznurki cyfrowe. 
 
-Teraz przejdź do IoT Hub i usuń to urządzenie (możesz to zrobić za pomocą [polecenia interfejsu CLI platformy Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) lub w [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Teraz przejdź do IoT Hub i usuń to urządzenie (możesz to zrobić za pomocą [polecenia interfejsu CLI platformy Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) lub w [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 Urządzenie zostanie automatycznie usunięte z usługi Azure Digital bliźniaczych reprezentacji. 
 
@@ -497,7 +497,7 @@ Należy się dowiedzieć, że nie można już znaleźć sznurka urządzenia w wy
 
 Jeśli zasoby utworzone w tym artykule nie są już potrzebne, wykonaj następujące kroki, aby je usunąć.
 
-Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; Przestrzeń nazw usługi Event Hub i obie Azure Functions aplikacje, w tym skojarzone zasoby, takie jak magazyn.
+Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; Przestrzeń nazw usługi Event Hub i obie Azure Functions aplikacje, w tym skojarzone zasoby, takie jak magazyn.
 
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 

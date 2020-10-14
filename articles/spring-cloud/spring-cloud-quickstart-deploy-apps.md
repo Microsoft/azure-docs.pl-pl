@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0e80f866aa7affb07b13847b44658e33c7044da6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d368c938e805164b70c7d3a22f9229b5efd89dde
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976899"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045405"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Szybki Start: kompilowanie i wdrażanie aplikacji w chmurze Azure wiosennej
 
@@ -261,7 +261,7 @@ Potrzebujemy sposobu na dostęp do aplikacji za pośrednictwem przeglądarki sie
 1. Sklonuj repozytorium git, uruchamiając następujące polecenie:
 
     ```
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. Zmień katalog i skompiluj projekt, uruchamiając następujące polecenie:

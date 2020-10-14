@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297049"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045724"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Użyj programu Visual Studio 2019 do tworzenia i debugowania modułów dla Azure IoT Edge
 
@@ -32,7 +32,7 @@ W tym artykule pokazano, jak za pomocą narzędzi Azure IoT Edge Tools for Visua
 
 W tym artykule przyjęto założenie, że używasz komputera lub maszyny wirtualnej z systemem Windows jako komputera deweloperskiego. Na komputerach z systemem Windows można opracowywać moduły systemu Windows lub Linux. Aby opracowywać moduły systemu Windows, należy użyć komputera z systemem Windows w wersji 1809/Build 17763 lub nowszej. Aby utworzyć moduły systemu Linux, należy użyć komputera z systemem Windows, który spełnia [wymagania programu Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Ponieważ ten artykuł używa programu Visual Studio 2019 jako głównego narzędzia deweloperskiego, zainstaluj program Visual Studio. Upewnij się, że w instalacji programu Visual Studio 2019 zawarto projektowanie i programowanie na **platformie Azure** **przy użyciu obciążeń języka C++** . Aby dodać wymagane obciążenia, można [zmodyfikować program Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) .
+Ponieważ ten artykuł używa programu Visual Studio 2019 jako głównego narzędzia deweloperskiego, zainstaluj program Visual Studio. Upewnij się, że w instalacji programu Visual Studio 2019 zawarto projektowanie i programowanie na **platformie Azure** **przy użyciu obciążeń języka C++** . Aby dodać wymagane obciążenia, można [zmodyfikować program Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) .
 
 Po przygotowaniu programu Visual Studio 2019 potrzebne są również następujące narzędzia i składniki:
 
@@ -62,7 +62,7 @@ Po przygotowaniu programu Visual Studio 2019 potrzebne są również następują
   vcpkg.exe --triplet x64-windows integrate install
   ```
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) lub [centrum Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
+- [Azure Container Registry](../container-registry/index.yml) lub [centrum Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
 
   > [!TIP]
   > Możesz użyć lokalnego rejestru platformy Docker dla celów prototypu i testowania zamiast rejestru w chmurze.

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540595"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047373"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji (interfejsy API i interfejs wiersza polecenia)
 
@@ -44,7 +44,7 @@ Aby można było połączyć punkt końcowy z usługą Azure Digital bliźniaczy
 
 ### <a name="create-an-event-grid-endpoint"></a>Tworzenie punktu końcowego Event Grid
 
-Poniższy przykład pokazuje, jak utworzyć punkt końcowy typu usługi Event Grid przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz użyć [Azure Cloud Shell](https://shell.azure.com)lub [zainstalować interfejs wiersza polecenia lokalnie](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+Poniższy przykład pokazuje, jak utworzyć punkt końcowy typu usługi Event Grid przy użyciu interfejsu wiersza polecenia platformy Azure. Możesz użyć [Azure Cloud Shell](https://shell.azure.com)lub [zainstalować interfejs wiersza polecenia lokalnie](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 Najpierw utwórz temat z siatką zdarzeń. Możesz użyć poniższego polecenia lub wyświetlić kroki bardziej szczegółowo, odwiedzając [sekcję *Tworzenie niestandardowego tematu w temacie* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) Event Grid *zdarzenia niestandardowe* — Szybki Start.
 

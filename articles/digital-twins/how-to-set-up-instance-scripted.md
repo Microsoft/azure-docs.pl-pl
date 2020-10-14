@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328647"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047424"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328647"
 
 W tym artykule opisano procedurę **konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji**, w tym tworzenia wystąpienia i konfigurowania uwierzytelniania. Po ukończeniu tego artykułu będzie dostępne wystąpienie usługi Azure Digital bliźniaczych reprezentacji gotowe do rozpoczęcia programowania.
 
-Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skrypt wdrażania automatycznego** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) , który usprawnia proces. 
+Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skrypt wdrażania automatycznego** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) , który usprawnia proces. 
 * Aby zapoznać się z ręcznymi krokami interfejsu wiersza polecenia, które są wykonywane przez skrypt w tle, zobacz wersja interfejsu wiersza polecenia w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (CLI)*](how-to-set-up-instance-cli.md).
 * Aby zapoznać się z ręcznymi krokami zgodnie z Azure Portal, zobacz wersja portalu w tym artykule: [*instrukcje: Konfigurowanie wystąpienia i uwierzytelniania (Portal)*](how-to-set-up-instance-portal.md).
 
@@ -28,7 +28,7 @@ Ta wersja tego artykułu wykonuje te kroki, uruchamiając przykładowy [ **skryp
 
 ## <a name="prerequisites-download-the-script"></a>Wymagania wstępne: pobieranie skryptu
 
-Przykładowy skrypt jest zapisywana w programie PowerShell. Jest częścią [**bliźniaczych reprezentacji cyfrowych platformy Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), którą można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
+Przykładowy skrypt jest zapisywana w programie PowerShell. Jest częścią [**bliźniaczych reprezentacji cyfrowych platformy Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), którą można pobrać na maszynę, przechodząc do tego linku, a następnie wybierając przycisk *Pobierz zip* poniżej tytułu.
 
 Spowoduje to pobranie przykładowego projektu do maszyny jako _**Azure_Digital_Twins_samples.zip**_. Przejdź do folderu na swoim komputerze i rozpakuj go, aby wyodrębnić pliki.
 
@@ -165,7 +165,7 @@ Jeśli co najmniej jeden z tych kroków weryfikacyjnych zakończy się niepowodz
 ## <a name="next-steps"></a>Następne kroki
 
 Przetestuj poszczególne wywołania interfejsu API REST w wystąpieniu przy użyciu poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji: 
-* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [odwołanie AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
 
 Lub zapoznaj się z tematem jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0435fe3946118d59d786dd3e6cec350a5ab4eee4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580469"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046455"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Mostek IoT Plug and Play
 
@@ -67,7 +67,7 @@ Aby kompilować, rozszerzać i opracowywać mostek Plug and Play IoT, potrzebne 
 
 ### <a name="azure-iot-products-and-tools"></a>Produkty i narzędzia usługi Azure IoT
 
-- **IoT Hub platformy Azure** — aby połączyć urządzenie z usługą, musisz mieć [usługę Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) w ramach subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/). Jeśli nie masz Centrum IoT Hub, [postępuj zgodnie z tymi instrukcjami, aby je utworzyć](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
+- **IoT Hub platformy Azure** — aby połączyć urządzenie z usługą, musisz mieć [usługę Azure IoT Hub](../iot-hub/index.yml) w ramach subskrypcji platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/). Jeśli nie masz Centrum IoT Hub, [postępuj zgodnie z tymi instrukcjami, aby je utworzyć](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!Note]
 > Plug and Play IoT jest obecnie dostępna dla centrów IoT utworzonych w regionach Środkowe stany USA, Europa Północna i Japonia Wschodnia. Obsługa Plug and Play IoT nie jest uwzględniona w centrach IoT warstwy Podstawowa. Aby móc korzystać z urządzenia Plug and Play IoT, możesz użyć narzędzia Azure IoT Explorer. [Pobierz i zainstaluj najnowszą wersję programu Azure IoT Explorer](./howto-use-iot-explorer.md) dla danego systemu operacyjnego.

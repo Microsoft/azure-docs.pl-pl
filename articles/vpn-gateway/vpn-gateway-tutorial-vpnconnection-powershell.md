@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e03f539f000b55ae00d90afa769ca9c1c30dc1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420561"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048291"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Samouczek: tworzenie połączeń sieci VPN S2S i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -33,7 +33,7 @@ Na poniższym diagramie przedstawiono topologię wykorzystywaną w tym samouczku
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## <a name="requirements"></a>Wymagania
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Wykonaj pierwszy samouczek: [Utwórz bramę sieci VPN z Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) , aby utworzyć następujące zasoby:
 
@@ -242,8 +242,7 @@ W tym samouczku przedstawiono sposób tworzenia połączeń S2S sieci VPN i zarz
 > * Dodawanie większej liczby połączeń sieci VPN
 > * Usuwanie połączenia sieci VPN
 
-Przejdź do następujących samouczków, aby dowiedzieć się więcej na temat połączeń S2S, między sieciami wirtualnymi i P2S.
+Następnie można dodać połączenie P2S:
 
 > [!div class="nextstepaction"]
-> * [Tworzenie połączeń między sieciami wirtualnymi](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Tworzenie połączeń P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

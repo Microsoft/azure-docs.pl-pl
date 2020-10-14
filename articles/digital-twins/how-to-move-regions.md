@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328500"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047390"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Przenoszenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji do innego regionu platformy Azure
 
@@ -49,18 +49,18 @@ Oto kilka pytań, które warto wziąć pod uwagę:
     - Usługa Device Provisioning (DPS)
 * Jakie inne **aplikacje osobiste lub firmowe** mają połączenie z moim wystąpieniem?
 
-Te informacje można zbierać przy użyciu [Azure Portal](https://portal.azure.com), [interfejsów API Digital bliźniaczych reprezentacji platformy Azure i zestawów SDK](how-to-use-apis-sdks.md), [poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md)lub przykładowego [Eksploratora bliźniaczych reprezentacji (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+Te informacje można zbierać przy użyciu [Azure Portal](https://portal.azure.com), [interfejsów API Digital bliźniaczych reprezentacji platformy Azure i zestawów SDK](how-to-use-apis-sdks.md), [poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md)lub przykładowego [Eksploratora bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 ## <a name="prepare"></a>Przygotowywanie
 
-Ta sekcja zostanie przygotowana do ponownego utworzenia wystąpienia, **pobierając oryginalne modele, bliźniaczych reprezentacji i Graf** z oryginalnego wystąpienia. W tym artykule jest używany przykład [Eksploratora Digital bliźniaczych reprezentacji (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+Ta sekcja zostanie przygotowana do ponownego utworzenia wystąpienia, **pobierając oryginalne modele, bliźniaczych reprezentacji i Graf** z oryginalnego wystąpienia. W tym artykule jest używany przykład [Eksploratora Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 >[!NOTE]
 >Być może masz już pliki zawierające modele i/lub Graf w wystąpieniu. Jeśli tak, nie musisz pobierać wszystkiego ponownie — tylko brakujące fragmenty lub elementy, które mogły ulec zmianie od pierwotnie przekazanego pliku (na przykład bliźniaczych reprezentacji, które mogły zostać zaktualizowane przy użyciu nowych danych).
 
 ### <a name="limitations-of-adt-explorer"></a>Ograniczenia dotyczące Eksploratora ADT
 
-[Przykładowy Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) jest przykładem aplikacji klienta, który obsługuje wizualną reprezentację grafu i zapewnia wizualną interakcję z Twoim wystąpieniem. W tym artykule pokazano, jak używać go do pobierania i późniejszego ponownego przekazywania, modeli, bliźniaczych reprezentacji i wykresów.
+[Przykładowy Eksplorator usługi Azure Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) jest przykładem aplikacji klienta, który obsługuje wizualną reprezentację grafu i zapewnia wizualną interakcję z Twoim wystąpieniem. W tym artykule pokazano, jak używać go do pobierania i późniejszego ponownego przekazywania, modeli, bliźniaczych reprezentacji i wykresów.
 
 Należy jednak pamiętać, że jest to **przykładowe** narzędzie, a nie kompletne. Nie został on przetestowany i nie został skompilowany do obsługi grafów o dużym rozmiarze. W związku z tym należy wziąć pod uwagę następujące wstępnie wbudowane ograniczenia dotyczące próbkowania:
 * Próbka została obecnie przetestowana tylko w rozmiarze grafu do 1000 węzłów i relacji 2000
@@ -76,7 +76,7 @@ Jeśli przykład nie jest w stanie obsłużyć rozmiaru grafu, możesz wyeksport
 
 Aby kontynuować pracę z Eksploratorem ADT, najpierw Pobierz przykładowy kod aplikacji i skonfiguruj go do uruchamiania na komputerze. 
 
-Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na maszynę jako _**ADT_Explorer.zip**_. Rozpakuj plik.
+Przejdź do przykładu: [Eksplorator Digital bliźniaczych reprezentacji (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Naciśnij przycisk *Pobierz zip* , aby pobrać plik *. Plik ZIP* tego przykładowego kodu na maszynę jako _**ADT_Explorer.zip**_. Rozpakuj plik.
 
 Następnie skonfiguruj uprawnienia dla Eksploratora ADT do uruchamiania na komputerze. Aby to zrobić, wykonaj kroki opisane w sekcji [*Ustawianie uprawnień programu ADT Explorer*](quickstart-adt-explorer.md#set-adt-explorer-permissions) w przewodniku szybki start usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -219,7 +219,7 @@ Po wykonaniu tego kroku nowe wystąpienie w regionie docelowym powinno być kopi
 Aby sprawdzić, czy nowe wystąpienie zostało prawidłowo skonfigurowane, możesz użyć następujących narzędzi:
 * [**Azure Portal**](https://portal.azure.com) (dobry do sprawdzenia, czy nowe wystąpienie istnieje i znajduje się w poprawnym regionie docelowym, jest również dobrym sposobem na sprawdzanie punktów końcowych i tras oraz połączeń z innymi usługami platformy Azure)
 * [ **Polecenie interfejsu wiersza polecenia** usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) (dobre do sprawdzenia, czy nowe wystąpienie istnieje i znajduje się w poprawnym regionie docelowym, również może służyć do weryfikowania danych wystąpienia)
-* [**Eksplorator ADT**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (dobry do weryfikowania danych wystąpienia, takich jak modele, bliźniaczych reprezentacji i Graph)
+* [**Eksplorator ADT**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (dobry do weryfikowania danych wystąpienia, takich jak modele, bliźniaczych reprezentacji i Graph)
 * [Interfejsy API i zestawy SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md) (przydatne do weryfikowania danych wystąpienia, takich jak modele, bliźniaczych reprezentacji i Graph; są również przydatne do sprawdzania punktów końcowych i tras)
 
 Możesz również spróbować uruchomić dowolne aplikacje niestandardowe lub przepływy end-to-end uruchomione z oryginalnym wystąpieniem, aby sprawdzić, czy działają poprawnie z nowym wystąpieniem.

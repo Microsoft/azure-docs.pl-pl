@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006418"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045350"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Przenoszenie maszyn wirtualnych do innego regionu platformy Azure
 
@@ -21,7 +21,7 @@ Istnieją scenariusze, w których należy przenieść istniejące maszyny wirtua
 
 Za pomocą usługi [Azure Site Recovery](site-recovery-overview.md) można przenieść maszyny wirtualne platformy Azure do regionu pomocniczego.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > 
@@ -100,8 +100,8 @@ Poniższe kroki pokazują, jak przygotować maszynę wirtualną do przenoszenia 
 1. W polu **Nazwa** podaj przyjazną nazwę **ContosoVMVault**. Jeśli masz więcej niż jedną subskrypcję, wybierz jedną z nich.
 1. Utwórz grupę zasobów **ContosoRG**.
 1. Określ region platformy Azure. Aby sprawdzić Obsługiwane regiony, zobacz temat dostępność geograficzna w [szczegółach cennika Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. W obszarze **magazyny Recovery Services**wybierz pozycję **Przegląd**  >  **ContosoVMVault**  >  **zreplikowane elementy**  >  **+ replikacja**.
-1. W obszarze **Źródło** wybierz pozycję **Azure**.
+1. W obszarze **magazyny Recovery Services**wybierz pozycję **ContosoVMVault**  >  **zreplikowane elementy**  >  **+ replikacja**.
+1. Z listy rozwijanej wybierz pozycję **Azure Virtual Machines**.
 1. W obszarze **Lokalizacja źródłowa** wybierz źródłowy region świadczenia usługi Azure, w którym są uruchomione maszyny wirtualne.
 1. Wybierz model wdrażania usługi Resource Manager. Następnie wybierz pozycje **Subskrypcja źródłowa** i **Źródłowa grupa zasobów**.
 1. Wybierz **przycisk OK** , aby zapisać ustawienia.

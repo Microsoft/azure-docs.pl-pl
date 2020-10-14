@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: dc6abc51fd0e5669126f1d2f1a977194479db5f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df1db5467dadcd127141708fa33147769f1f50a7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91269883"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047883"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki Start: Tworzenie wewnętrznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -826,7 +826,7 @@ Utwórz maszynę wirtualną za pomocą [AZ VM Create](https://docs.microsoft.com
 ```
 Wdrożenie maszyny wirtualnej może potrwać kilka minut.
 
-### <a name="test"></a>Test
+### <a name="test"></a>Testowanie
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -865,6 +865,6 @@ W tym przewodniku Szybki Start
 * Skonfigurowano regułę ruchu modułu równoważenia obciążenia i sondę kondycji.
 * Przetestowano moduł równoważenia obciążenia.
 
-Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do [co Azure Load Balancer?](load-balancer-overview.md) i [Load Balancer często zadawanych pytań](load-balancer-faqs.md).
-
-Dowiedz się więcej na temat [stref Load Balancer i dostępności](load-balancer-standard-availability-zones.md).
+Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do 
+> [!div class="nextstepaction"]
+> [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)

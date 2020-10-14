@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876536"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046999"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
@@ -19,18 +19,29 @@ Azure Database for MySQL automatycznie tworzy kopie zapasowe serwera i przechowu
 
 ## <a name="backups"></a>Tworzenie kopii zapasowych
 
-Azure Database for MySQL wykonuje kopie zapasowe plików danych i dziennika transakcji. W zależności od obsługiwanego maksymalnego rozmiaru magazynu należy wykonać pełne i różnicowe kopie zapasowe (maksymalnie 4 serwery magazynu) lub migawki kopii zapasowych (maksymalnie 16 TB serwerów magazynu). Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można [skonfigurować ją](howto-restore-server-portal.md#set-backup-configuration) do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
+Azure Database for MySQL wykonuje kopie zapasowe plików danych i dziennika transakcji. Te kopie zapasowe umożliwiają przywrócenie serwera do dowolnego punktu w czasie w ramach skonfigurowanego okresu przechowywania kopii zapasowych. Domyślny okres przechowywania kopii zapasowych wynosi siedem dni. Opcjonalnie można [skonfigurować ją](howto-restore-server-portal.md#set-backup-configuration) do 35 dni. Wszystkie kopie zapasowe są szyfrowane za pomocą 256-bitowego szyfrowania AES.
 
 Te pliki kopii zapasowej nie są uwidaczniane przez użytkownika i nie można ich eksportować. Te kopie zapasowe mogą być używane tylko w przypadku operacji przywracania w Azure Database for MySQL. Możesz użyć [mysqldump](concepts-migrate-dump-restore.md) , aby skopiować bazę danych.
 
-### <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
+Typ kopii zapasowej i częstotliwość są zależne od magazynu zaplecza serwerów.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Serwery z do 4 TB magazynu
+### <a name="backup-type-and-frequency"></a>Typ i częstotliwość tworzenia kopii zapasowych
 
-W przypadku serwerów, które obsługują maksymalnie 4 TB magazynu, pełne kopie zapasowe są wykonywane co tydzień. Różnicowe kopie zapasowe są wykonywane dwa razy dziennie. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut.
+#### <a name="basic-storage-servers"></a>Podstawowe serwery magazynu
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Serwery z maksymalnie 16 TBm pamięci masowej
-W podzestawie [regionów świadczenia usługi Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać do 16 TB pamięci masowej. Kopie zapasowe na tych dużych serwerach magazynu są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi. 
+Podstawowe serwery magazynu to magazyn zaplecza dla [podstawowych serwerów SKU](concepts-pricing-tiers.md). Kopie zapasowe na podstawowych serwerach magazynu są oparte na migawce. Pełna migawka bazy danych jest wykonywana codziennie. Nie ma różnicowych kopii zapasowych wykonywanych dla podstawowych serwerów magazynu, a wszystkie kopie zapasowe migawki to tylko pełne kopie zapasowe bazy danych. 
+
+Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z do 4 TB magazynu
+
+W przypadku serwerów, które obsługują maksymalnie 4 TB magazynu ogólnego przeznaczenia, pełne kopie zapasowe są wykonywane co tydzień. Różnicowe kopie zapasowe są wykonywane dwa razy dziennie. Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. Kopie zapasowe w magazynie ogólnego przeznaczenia o pojemności do 4 TB nie są oparte na migawce i zużywają przepustowość we/wy w momencie tworzenia kopii zapasowych. W przypadku dużych baz danych (> 1 TB) dla magazynu 4 TB Zalecamy rozważenie 
+
+- Inicjowanie obsługi większej liczby IOPs na potrzeby tworzenia kopii zapasowych systemu IOs  
+- Alternatywnie można przeprowadzić migrację do magazynu ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB magazynu, jeśli magazyn jest dostępny w preferowanych [regionach platformy Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Nie ma dodatkowych kosztów związanych z magazynem ogólnego przeznaczenia, który obsługuje maksymalnie 16 TB pamięci masowej. Aby uzyskać pomoc dotyczącą migracji do magazynu o pojemności 16 TB, należy otworzyć bilet pomocy technicznej z Azure Portal. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Serwery magazynu ogólnego przeznaczenia z magazynem do 16 TB
+W podzestawie [regionów świadczenia usługi Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)wszystkie nowo Obsługiwane serwery mogą obsługiwać magazyn ogólnego przeznaczenia o pojemności do 16 TB. Kopie zapasowe na tych serwerach magazynu 16 TB są oparte na migawce. Pierwsza pełna kopia zapasowa migawki jest planowana natychmiast po utworzeniu serwera. Kopia zapasowa pierwszej pełnej migawki jest zachowywana jako podstawowa kopia zapasowa serwera. Kolejne kopie zapasowe migawki są jedynie różnicowymi kopiami zapasowymi. 
 
 Różnicowe kopie zapasowe migawek są tworzone co najmniej raz dziennie. Różnicowe kopie zapasowe migawek nie są tworzone zgodnie z ustalonym harmonogramem. Kopie zapasowe migawek różnicowych są wykonywane co 24 godziny, chyba że dziennik transakcji (binlog w programie MySQL) przekracza 50 GB od ostatniej różnicowej kopii zapasowej. W ciągu dnia dozwolonych jest maksymalnie sześć migawek różnicowych. 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607216"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047747"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Szybki Start: Tworzenie publicznego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu Azure Portal
 
@@ -56,7 +56,7 @@ Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest 
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **standardowa** |
+    | SKU           | Wybierz pozycję **standardowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
     | Nazwa publicznego adresu IP | Wpisz **myPublicIP** w polu tekstowym.|
     | Strefa dostępności | Wybierz opcję **strefa nadmiarowa** , aby utworzyć odporny moduł równoważenia obciążenia. Aby utworzyć strefowy moduł równoważenia obciążenia, wybierz określoną strefę z 1, 2 lub 3 |
@@ -162,7 +162,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Grupa zasobów   | Wybierz **myResourceGroupLB** |
+    | Resource Group   | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Europa Zachodnia** |
@@ -199,7 +199,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-virtual-machines"></a>Tworzenie maszyn wirtualnych
 
@@ -215,7 +215,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Grupa zasobów | Wybierz **myResourceGroupLB** |
+    | Resource Group | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
     | Region | Wybierz **Europa Zachodnia** |
@@ -259,7 +259,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | **Monitorowanie** |  |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
    
-7. Wybierz pozycję **Przeglądanie + tworzenie**. 
+7. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 8. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -335,7 +335,7 @@ Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest 
     | Nazwa                   | Wprowadź **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | Wybierz pozycję **Publiczna**.                                        |
-    | Jednostka SKU           | Wybierz pozycję **podstawowa** |
+    | SKU           | Wybierz pozycję **podstawowa** |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**. |
     | Nazwa publicznego adresu IP | Wpisz **myPublicIP** w polu tekstowym.|
     | Przypisanie | Wybierz **dynamiczny** |
@@ -368,7 +368,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
     |------------------|-----------------------------------------------------------------|
     | **Szczegóły projektu**  |                                                                 |
     | Subskrypcja     | Wybierz subskrypcję platformy Azure                                  |
-    | Grupa zasobów   | Wybierz **myResourceGroupLB** |
+    | Resource Group   | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |                                                                 |
     | Nazwa             | Wprowadź **myVNet**                                    |
     | Region           | Wybierz **Europa Zachodnia** |
@@ -405,7 +405,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 8. Wybierz kartę **Recenzja + tworzenie** lub wybierz przycisk **Recenzja + tworzenie** .
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 ### <a name="create-a-backend-pool"></a>Tworzenie puli zaplecza
 
 Pula adresów zaplecza zawiera adresy IP wirtualnych (kart sieciowych) podłączonych do modułu równoważenia obciążenia. 
@@ -501,7 +501,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     |-----------------------|----------------------------------|
     | **Szczegóły projektu** |  |
     | Subskrypcja | Wybierz subskrypcję platformy Azure |
-    | Grupa zasobów | Wybierz **myResourceGroupLB** |
+    | Resource Group | Wybierz **myResourceGroupLB** |
     | **Szczegóły wystąpienia** |  |
     | Nazwa maszyny wirtualnej | Wprowadź **myVM1** |
     | Region | Wybierz **Europa Zachodnia** |
@@ -539,7 +539,7 @@ Te maszyny wirtualne są dodawane do puli zaplecza modułu równoważenia obcią
     | **Monitorowanie** | |
     | Diagnostyka rozruchu | Wybierz pozycję **wyłączone** |
 
-7. Wybierz pozycję **Przeglądanie + tworzenie**. 
+7. Wybierz pozycję **Przejrzyj i utwórz**. 
   
 8. Przejrzyj ustawienia, a następnie wybierz pozycję **Utwórz**.
 
@@ -626,6 +626,6 @@ W ramach tego przewodnika Szybki start wykonasz następujące czynności:
 * Dołączono 3 maszyny wirtualne do modułu równoważenia obciążenia.
 * Skonfigurowano regułę ruchu modułu równoważenia obciążenia, sondę kondycji, a następnie przetestowano moduł równoważenia obciążenia. 
 
-Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do [co Azure Load Balancer?](load-balancer-overview.md) i [Load Balancer często zadawanych pytań](load-balancer-faqs.md).
-
-Dowiedz się więcej na temat [stref Load Balancer i dostępności](load-balancer-standard-availability-zones.md).
+Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do..
+> [!div class="nextstepaction"]
+> [Co to jest usługa Azure Load Balancer?](load-balancer-overview.md)

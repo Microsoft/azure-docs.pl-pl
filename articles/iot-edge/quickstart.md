@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: eae7a44d77d63641ba9ad062c504aaf624582668
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969215"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047033"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Szybki Start: wdrażanie pierwszego modułu IoT Edge na urządzeniu wirtualnym z systemem Windows
 
@@ -74,7 +74,7 @@ Urządzenie usługi IoT Edge:
   Otwórz ten plik z Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną z systemem Windows przy użyciu nazwy użytkownika i hasła podanego za pomocą `az vm create` polecenia.
 
 > [!NOTE]
-> Maszyna wirtualna z systemem Windows zaczyna się od systemu Windows w wersji 1809 (kompilacja 17763), czyli najnowszej [kompilacji długoterminowej pomocy technicznej systemu Windows](https://docs.microsoft.com/windows/release-information/). System Windows automatycznie sprawdza aktualizacje co 22 godziny. Po sprawdzeniu maszyny wirtualnej system Windows wypycha aktualizację wersji, która jest niezgodna z IoT Edge dla systemu Windows, co uniemożliwi dalsze korzystanie z IoT Edge funkcji systemu Windows. Zalecamy ograniczenie używania maszyny wirtualnej do 22 godzin lub [czasowo wstrzymanie aktualizacji systemu Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+> Maszyna wirtualna z systemem Windows zaczyna się od systemu Windows w wersji 1809 (kompilacja 17763), czyli najnowszej [kompilacji długoterminowej pomocy technicznej systemu Windows](/windows/release-information/). System Windows automatycznie sprawdza aktualizacje co 22 godziny. Po sprawdzeniu maszyny wirtualnej system Windows wypycha aktualizację wersji, która jest niezgodna z IoT Edge dla systemu Windows, co uniemożliwi dalsze korzystanie z IoT Edge funkcji systemu Windows. Zalecamy ograniczenie używania maszyny wirtualnej do 22 godzin lub [czasowo wstrzymanie aktualizacji systemu Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
 >
 > W tym przewodniku szybki start do uproszczenia jest stosowana maszyna wirtualna z systemem Windows. Informacje o tym, które systemy operacyjne Windows są ogólnie dostępne w scenariuszach produkcyjnych, można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md).
 >

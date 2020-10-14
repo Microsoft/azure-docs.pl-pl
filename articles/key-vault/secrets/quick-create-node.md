@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 5149f58879581a67c7fc61e45b2e3025a0042e91
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 045589d3b1f0e376eaf854562d271a4483702997
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013220"
+ms.locfileid: "92047900"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla języka JavaScript (v4)
 
@@ -30,7 +30,7 @@ Rozpocznij pracę z biblioteką klienta Azure Key Vault Secret dla języka JavaS
 W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) w oknie terminalu systemu Linux.
 
 ## <a name="setting-up"></a>Konfigurowanie
-Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)
+Ten przewodnik Szybki Start korzysta z biblioteki Azure Identity Library z interfejsem wiersza polecenia platformy Azure w celu uwierzytelniania użytkowników w usługach platformy Azure. Deweloperzy mogą również używać programu Visual Studio lub Visual Studio Code do uwierzytelniania wywołań, aby uzyskać więcej informacji, zobacz [uwierzytelnianie klienta przy użyciu biblioteki klienta tożsamości platformy Azure](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -66,7 +66,7 @@ npm install @azure/identity
 
 #### <a name="grant-access-to-your-key-vault"></a>Udzielanie dostępu do magazynu kluczy
 
-Tworzenie zasad dostępu dla magazynu kluczy, który przyznaje poufne uprawnienia do konta użytkownika
+Utwórz zasady dostępu dla magazynu kluczy, które przyznaje poufne uprawnienia do Twojego konta użytkownika.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set

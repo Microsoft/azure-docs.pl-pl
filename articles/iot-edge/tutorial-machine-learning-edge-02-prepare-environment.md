@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 22628af5b3e62edfc96699ad051b6a00cf9c1429
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99a0805239ee2437ad6ec9ceb40cf45496a07850
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078939"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047662"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Samouczek: Konfigurowanie środowiska do uczenia maszynowego na IoT Edge
 
@@ -26,7 +26,7 @@ Ten artykuł ułatwia przygotowanie środowiska do projektowania i wdrażania. N
 
 Ten krok jest zwykle wykonywany przez dewelopera chmury. Niektóre oprogramowanie może być również przydatne w przypadku Analityka danych.
 
-Utworzyliśmy skrypt programu PowerShell, który tworzy maszynę wirtualną platformy Azure z wieloma wcześniej skonfigurowanymi wymaganiami wstępnymi. Utworzona przez nas maszyna wirtualna musi być w stanie obsłużyć [wirtualizację zagnieżdżoną](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), co oznacza, że wybrano rozmiar maszyny [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) .
+Utworzyliśmy skrypt programu PowerShell, który tworzy maszynę wirtualną platformy Azure z wieloma wcześniej skonfigurowanymi wymaganiami wstępnymi. Utworzona przez nas maszyna wirtualna musi być w stanie obsłużyć [wirtualizację zagnieżdżoną](../virtual-machines/windows/nested-virtualization.md), co oznacza, że wybrano rozmiar maszyny [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) .
 
 Maszyna wirtualna programu Development zostanie skonfigurowana przy użyciu:
 
@@ -35,10 +35,10 @@ Maszyna wirtualna programu Development zostanie skonfigurowana przy użyciu:
 * [Pulpit Docker dla systemu Windows](https://www.docker.com/products/docker-desktop)
 * [Git dla systemu Windows](https://gitforwindows.org/)
 * [Menedżer poświadczeń git dla systemu Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/)
+* [Zestaw .NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.1.0)
+* [Azure PowerShell](/powershell/azure/?view=azps-1.1.0)
 * [Rozszerzenia VS Code](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -82,7 +82,7 @@ Tworzenie i Konfigurowanie maszyny wirtualnej trwa około 30 minut.
 
    Skrypt jest uruchamiany przez kilka minut, ponieważ wykonuje następujące czynności:
 
-    1. Instaluje [Azure PowerShell AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Instaluje [Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
     1. Zostanie wyświetlony komunikat z prośbą o zalogowanie się do platformy Azure.
     1. Potwierdza informacje dotyczące tworzenia maszyny wirtualnej. Naciśnij klawisz **t** lub **Enter** , aby kontynuować.
     1. Tworzy grupę zasobów, jeśli nie istnieje.
@@ -215,7 +215,7 @@ W tym artykule utworzyliśmy IoT Hub i skonfigurowano trasę do konta usługi Az
 
 Aby uzyskać więcej informacji na temat kroków opisanych w tej części Machine Learning w samouczku IoT Edge, zobacz:
 
-* [Azure IoT Edge — podstawy](https://docs.microsoft.com/azure/iot-fundamentals/)
+* [Azure IoT Edge — podstawy](../iot-fundamentals/index.yml)
 * [Konfigurowanie routingu wiadomości przy użyciu usługi IoT Hub](../iot-hub/tutorial-routing.md)
 * [Tworzenie Centrum IoT Hub przy użyciu Azure Portal](../iot-hub/iot-hub-create-through-portal.md)
 

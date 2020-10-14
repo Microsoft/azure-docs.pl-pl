@@ -3,19 +3,19 @@ title: Rozpocznij Eksplorowanie pokazu doradcy metryk
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się więcej o interfejsie sieci Web klasyfikatora metryk przy użyciu podania pokazu
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 39748bacf784af0b3f162f960cd7d87cbd03a2eb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947622"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047594"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Szybki Start: Eksplorowanie pokazu doradcy metryk z przykładowymi danymi
 

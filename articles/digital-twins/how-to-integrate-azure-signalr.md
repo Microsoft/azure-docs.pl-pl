@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 38e3526627eb4191643f8bc86b9ce5f49e41a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564410"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048121"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Signal Service
 
@@ -39,9 +39,9 @@ Do usługi Azure Digital bliźniaczych reprezentacji zostanie dołączana usług
 ## <a name="download-the-sample-applications"></a>Pobierz przykładowe aplikacje
 
 Najpierw pobierz wymagane przykładowe aplikacje. Wymagane są obie następujące czynności:
-* [**Przykłady usługi Azure Digital bliźniaczych reprezentacji**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Ten przykład zawiera *AdtSampleAppą* dwie usługi Azure Functions do przenoszenia danych wokół wystąpienia usługi Azure Digital bliźniaczych reprezentacji (informacje o tym scenariuszu można uzyskać bardziej szczegółowo w [*samouczku: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)). Zawiera również przykładową aplikację *DeviceSimulator* , która symuluje urządzenie IoT, generując nową wartość temperatury co sekundę. 
+* [**Przykłady usługi Azure Digital bliźniaczych reprezentacji**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Ten przykład zawiera *AdtSampleAppą* dwie usługi Azure Functions do przenoszenia danych wokół wystąpienia usługi Azure Digital bliźniaczych reprezentacji (informacje o tym scenariuszu można uzyskać bardziej szczegółowo w [*samouczku: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)). Zawiera również przykładową aplikację *DeviceSimulator* , która symuluje urządzenie IoT, generując nową wartość temperatury co sekundę. 
     - Przejdź do linku przykładowego i naciśnij przycisk *Pobierz plik zip* , aby pobrać kopię przykładu do maszyny jako _**Azure_Digital_Twins_samples.zip**_. Rozpakuj folder.
-* [**Przykład aplikacji sieci Web do integracji sygnałów**](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): jest to przykładowa aplikacja sieci Web z reakcję, która będzie korzystać z danych telemetrycznych usługi Azure Digital bliźniaczych reprezentacji z usługi Azure Signal Service.
+* [**Przykład aplikacji sieci Web do integracji sygnałów**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): jest to przykładowa aplikacja sieci Web z reakcję, która będzie korzystać z danych telemetrycznych usługi Azure Digital bliźniaczych reprezentacji z usługi Azure Signal Service.
     -  Przejdź do linku przykładowego i naciśnij przycisk *Pobierz plik zip* , aby pobrać kopię przykładu do maszyny jako _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Rozpakuj folder.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
@@ -145,7 +145,7 @@ Następnie opublikuj funkcję na platformie Azure, korzystając z procedury opis
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Widok usług platformy Azure w kompleksowym scenariuszu. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C). Sekcja D zawiera dane przepływów z tego samego Event Grid w strzałce C do funkcji platformy Azure o nazwie &quot;broadcast&quot;. element &quot;broadcast&quot; komunikuje się z inną funkcją platformy Azure o nazwie &quot;Negotiate&quot;, a zarówno &quot;broadcast&quot;, jak i &quot;Negotiate&quot; komunikują się z urządzeniami komputerowymi.":::
 
-1. Na koniec Dodaj **Parametry połączenia** usługi Azure Signal from wcześniej do ustawień aplikacji funkcji, korzystając z następującego polecenia interfejsu CLI platformy Azure. Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure:
+1. Na koniec Dodaj **Parametry połączenia** usługi Azure Signal from wcześniej do ustawień aplikacji funkcji, korzystając z następującego polecenia interfejsu CLI platformy Azure. Polecenie można uruchomić w [Azure Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure:
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -232,7 +232,7 @@ Spowoduje to otwarcie okna przeglądarki z uruchomioną przykładową aplikacją
 
 Jeśli zasoby utworzone w tym artykule nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 
-Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Usunięcie grupy zasobów spowoduje również usunięcie...
+Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Usunięcie grupy zasobów spowoduje również usunięcie...
 * wystąpienie usługi Azure Digital bliźniaczych reprezentacji (z kompleksowego samouczka)
 * Rejestracja Centrum IoT Hub i urządzenia Hub (od końca do końca)
 * temat dotyczący siatki zdarzeń i skojarzonych subskrypcji
@@ -259,7 +259,7 @@ Na koniec Usuń foldery Przykładowe projektu pobrane do komputera lokalnego (*A
 W tym artykule opisano konfigurowanie usługi Azure Functions with Signaler do emisji zdarzeń telemetrii Digital bliźniaczych reprezentacji platformy Azure do przykładowej aplikacji klienckiej.
 
 Następnie Dowiedz się więcej o usłudze Azure Signal Service:
-* [*Co to jest usługa Azure Signal?*](../azure-signalr/signalr-overview.md)
+* [*Co to jest usługa Azure SignalR Service?*](../azure-signalr/signalr-overview.md)
 
 Lub Przeczytaj więcej na temat uwierzytelniania usługi Azure sygnalizacyjnej przy użyciu Azure Functions:
 * [*Uwierzytelnianie usługi Azure sygnalizujące*](../azure-signalr/signalr-tutorial-authenticate-azure-functions.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7fcd32335b5d9e04986355adeea473cf77b970e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974973"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048206"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -84,7 +84,7 @@ W poniższych sekcjach pokazano, jak wykonać różne operacje zarządzania mode
 Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 > [!TIP]
-> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć [biblioteki analizatora po stronie klienta DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) i [przykładowego modułu sprawdzania poprawności DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) opisanej w temacie [*How to: Parse and Validate models*](how-to-parse-models.md) , aby sprawdzić modele przed przekazaniem ich do usługi.
+> Zaleca się zweryfikowanie modeli w trybie offline przed przekazaniem ich do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Możesz użyć [biblioteki analizatora po stronie klienta DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) i [przykładowego modułu sprawdzania poprawności DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) opisanej w temacie [*How to: Parse and Validate models*](how-to-parse-models.md) , aby sprawdzić modele przed przekazaniem ich do usługi.
 
 Gdy wszystko jest gotowe do przekazania modelu, można użyć następującego fragmentu kodu:
 

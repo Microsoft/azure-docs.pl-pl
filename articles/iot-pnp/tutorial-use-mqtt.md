@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2e05165a78a54d6aaa49c28a649a97235891f927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577921"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046285"
 ---
 # <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tworzenie klienta urządzenia Plug and Play IoT przy użyciu programu MQTT
 
@@ -26,7 +26,7 @@ Przykład w tym samouczku używa biblioteki [Mosquitto](http://mosquitto.org/) M
 
 Aby ukończyć ten samouczek w systemie Windows, Zainstaluj następujące oprogramowanie w lokalnym środowisku systemu Windows:
 
-* [Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) — upewnij się, że podczas [instalowania](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) programu Visual Studio dołączysz **programowanie klasyczne przy użyciu języka C++**
+* [Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) — upewnij się, że podczas [instalowania](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) programu Visual Studio dołączysz **programowanie klasyczne przy użyciu języka C++**
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 

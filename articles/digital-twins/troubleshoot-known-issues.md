@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290782"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047645"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -30,7 +30,7 @@ W odniesieniu do usługi Azure Digital bliźniaczych reprezentacji w systemie ma
 
 Można rozwiązać ten problem, uruchamiając `az login` polecenie w Cloud Shell i wykonując kolejne kroki logowania. Następnie powinno być możliwe ponowne uruchomienie polecenia.
 
-Alternatywnym rozwiązaniem jest [zainstalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) na swoim komputerze, aby można było uruchomić polecenie interfejsu CLI platformy Azure lokalnie. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
+Alternatywnym rozwiązaniem jest [zainstalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na swoim komputerze, aby można było uruchomić polecenie interfejsu CLI platformy Azure lokalnie. Ten problem nie występuje w lokalnym interfejsie wiersza polecenia.
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 
@@ -60,7 +60,7 @@ W przypadku użytkowników zalogowanych przy użyciu osobistego [konto Microsoft
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem z uwierzytelnianiem interakcyjnej przeglądarki
 
-Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki ** [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
 
 To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2**.
 

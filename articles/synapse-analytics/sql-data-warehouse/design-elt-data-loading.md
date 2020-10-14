@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af3eb828e1fd2c4aa14467e5afc18f1b5a0b7fa1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201162"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047713"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych w puli Synapse SQL
 
@@ -28,10 +28,6 @@ Chociaż Pula SQL obsługuje wiele metod ładowania, w tym popularnych opcji SQL
 
 Korzystając z instrukcji Base i COPY, można uzyskać dostęp do zewnętrznych danych przechowywanych w usłudze Azure Blob Storage lub Azure Data Lake Store za pośrednictwem języka T-SQL. Aby zapewnić największą elastyczność podczas ładowania, zalecamy użycie instrukcji COPY.
 
-> [!NOTE]  
-> Instrukcja COPY jest obecnie w publicznej wersji zapoznawczej. Aby przekazać opinię, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com .
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>Co to jest ELT?
 
@@ -111,7 +107,7 @@ Podczas ładowania plików Parquet Użyj następującego mapowania typu danych S
 |                            ELEMENTEM                             |            INT (8, FAŁSZ)            |     tinyint      |
 |                            ELEMENTEM                             |            INT (16, FAŁSZ)             |       int        |
 |                            ELEMENTEM                             |           INT (32, false)            |      bigint      |
-|                            ELEMENTEM                             |                 DATE                  |       date       |
+|                            ELEMENTEM                             |                 DATE                  |       data       |
 |                            ELEMENTEM                             |                DOKŁADNOŚCI                |     decimal      |
 |                            ELEMENTEM                             |            CZAS (MŁYNER)             |       time       |
 |                            INT64                             |            INT (64, true)            |      bigint      |

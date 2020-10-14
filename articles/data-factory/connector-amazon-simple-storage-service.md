@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282701"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047730"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Simple Storage Service przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -47,10 +47,9 @@ W odniesieniu do tego łącznika Amazon S3 obsługuje kopiowanie plików jako pl
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby skopiować dane z usługi Amazon S3, upewnij się, że masz przyznane następujące uprawnienia:
+Aby skopiować dane z usługi Amazon S3, upewnij się, że masz przyznane następujące uprawnienia do operacji obiektów Amazon S3: `s3:GetObject` i `s3:GetObjectVersion` .
 
-- **W przypadku wykonywania działania kopiowania**: `s3:GetObject` i `s3:GetObjectVersion` dla operacji obiektów Amazon S3.
-- **Data Factory tworzenia graficznego interfejsu użytkownika**: `s3:ListAllMyBuckets` i `s3:ListBucket` / `s3:GetBucketLocation` dla operacji zasobnika usługi Amazon S3. Wymagane są również uprawnienia do operacji, takich jak testowanie połączeń i przeglądanie ścieżek plików. Jeśli nie chcesz udzielić tych uprawnień, Pomiń połączenie testowe na stronie tworzenia połączonej usługi i określ ścieżkę bezpośrednio w ustawieniach zestawu danych.
+Jeśli używasz interfejsu użytkownika Data Factory do tworzenia, dodatkowe `s3:ListAllMyBuckets` i `s3:ListBucket` / `s3:GetBucketLocation` uprawnienia są wymagane w przypadku operacji, takich jak testowanie połączenia z połączoną usługą i przeglądanie z poziomu katalogu głównego. Jeśli nie chcesz udzielić tych uprawnień, możesz wybrać opcje "Test connection do ścieżki pliku" lub "Przeglądaj z określonej ścieżki" w interfejsie użytkownika.
 
 Aby uzyskać pełną listę uprawnień usługi Amazon S3, zobacz [Określanie uprawnień w zasadach](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) w witrynie AWS.
 

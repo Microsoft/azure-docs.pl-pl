@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971753"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045707"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aktualizowanie demona zabezpieczeń i środowiska uruchomieniowego usługi IoT Edge
 
@@ -194,7 +194,7 @@ Do zaktualizowania urządzenia IoT Edge służą dwa składniki:
 
 3. Jeśli pobrany plik cab ma sufiks architektury, Zmień nazwę pliku na tylko **Microsoft-Azure-IoTEdge.cab**.
 
-4. Aby zaktualizować program za pomocą składników trybu [offline, należy](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. Następnie użyj `-OfflineInstallationPath` parametru jako części `Update-IoTEdge` polecenia i podaj ścieżkę bezwzględną do katalogu plików. Przykład:
+4. Aby zaktualizować program za pomocą składników trybu [offline, należy](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. Następnie użyj `-OfflineInstallationPath` parametru jako części `Update-IoTEdge` polecenia i podaj ścieżkę bezwzględną do katalogu plików. Przykład:
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

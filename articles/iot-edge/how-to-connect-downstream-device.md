@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281460"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045843"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Łączenie urządzenia podrzędnego z bramą usługi Azure IoT Edge
 
@@ -77,7 +77,7 @@ Aby dowiedzieć się więcej na temat IoT Edge certyfikatów i niektórych konse
 
 ## <a name="provide-the-root-ca-certificate"></a>Podaj certyfikat głównego urzędu certyfikacji
 
-Aby sprawdzić certyfikaty urządzenia bramy, urządzenie podrzędne musi mieć własną kopię certyfikatu głównego urzędu certyfikacji. Jeśli do tworzenia certyfikatów testowych użyto skryptów udostępnionych w repozytorium IoT Edge git, certyfikat głównego urzędu certyfikacji nosi nazwę **Azure-IoT-test-Only. root. ca. CERT. pem**. Jeśli nie zostało to jeszcze zrobione w ramach innych kroków przygotowywania urządzenia podrzędnego, Przenieś ten plik certyfikatu do dowolnego katalogu na urządzeniu podrzędnym. Do przenoszenia pliku certyfikatu można użyć usługi, takiej jak [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .
+Aby sprawdzić certyfikaty urządzenia bramy, urządzenie podrzędne musi mieć własną kopię certyfikatu głównego urzędu certyfikacji. Jeśli do tworzenia certyfikatów testowych użyto skryptów udostępnionych w repozytorium IoT Edge git, certyfikat głównego urzędu certyfikacji nosi nazwę **Azure-IoT-test-Only. root. ca. CERT. pem**. Jeśli nie zostało to jeszcze zrobione w ramach innych kroków przygotowywania urządzenia podrzędnego, Przenieś ten plik certyfikatu do dowolnego katalogu na urządzeniu podrzędnym. Do przenoszenia pliku certyfikatu można użyć usługi, takiej jak [Azure Key Vault](../key-vault/index.yml) lub funkcja, taka jak [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) .
 
 ## <a name="install-certificates-in-the-os"></a>Instalowanie certyfikatów w systemie operacyjnym
 
@@ -98,7 +98,7 @@ Powinien pojawić się komunikat "Aktualizowanie certyfikatów w programie/etc/S
 
 Poniższe kroki przedstawiają przykład sposobu instalowania certyfikatu urzędu certyfikacji na hoście z systemem Windows. W tym przykładzie przyjęto założenie, że używasz certyfikatu **Azure-IoT-test-Only. root. ca. CERT. pem** z artykułów z wymaganiami wstępnymi i że certyfikat został skopiowany do lokalizacji na urządzeniu podrzędnym.
 
-Certyfikaty można instalować przy użyciu programu PowerShell [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) jako administrator:
+Certyfikaty można instalować przy użyciu programu PowerShell [Import-Certificate](/powershell/module/pkiclient/import-certificate?view=win10-ps) jako administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ Certyfikaty można także zainstalować za pomocą narzędzia **certlm** :
 
 Możesz również programowo zainstalować certyfikaty przy użyciu interfejsów API platformy .NET, jak pokazano w przykładzie platformy .NET w dalszej części tego artykułu.
 
-Zwykle aplikacje używają stosu TLS dostarczonego przez system Windows o nazwie [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) do bezpiecznego łączenia się za pośrednictwem protokołu TLS. Dostawca Schannel *wymaga* , aby wszystkie certyfikaty zostały zainstalowane w magazynie certyfikatów systemu Windows przed podjęciem próby ustanowienia połączenia TLS.
+Zwykle aplikacje używają stosu TLS dostarczonego przez system Windows o nazwie [Schannel](/windows/desktop/com/schannel) do bezpiecznego łączenia się za pośrednictwem protokołu TLS. Dostawca Schannel *wymaga* , aby wszystkie certyfikaty zostały zainstalowane w magazynie certyfikatów systemu Windows przed podjęciem próby ustanowienia połączenia TLS.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Używanie certyfikatów z zestawami SDK usługi Azure IoT
 

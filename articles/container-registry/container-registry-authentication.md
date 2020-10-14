@@ -3,12 +3,12 @@ title: Opcje uwierzytelniania rejestru
 description: Opcje uwierzytelniania dla prywatnego rejestru kontenerów platformy Azure, w tym logowanie za pomocą tożsamości Azure Active Directory, korzystanie z jednostek usługi i używanie opcjonalnych poświadczeń administratora.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657082"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048019"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Uwierzytelnianie przy użyciu usługi Azure Container Registry
 
@@ -20,7 +20,7 @@ Zalecane sposoby: uwierzytelnianie do rejestru bezpośrednio za pośrednictwem [
 
 W poniższej tabeli wymieniono dostępne metody uwierzytelniania i typowe scenariusze. Aby uzyskać szczegółowe informacje, zobacz połączoną zawartość.
 
-| Metoda                               | Jak uwierzytelniać                                           | Scenariusze                                                            | Kontrola dostępu oparta na rolach                             | Ograniczenia                                |
+| Metoda                               | Jak uwierzytelniać                                           | Scenariusze                                                            | Kontrola dostępu oparta na rolach (RBAC)                             | Ograniczenia                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Indywidualna tożsamość usługi AD](#individual-login-with-azure-ad)                | `az acr login` w interfejsie wiersza polecenia platformy Azure                             | Interaktywny Wypychanie/Ściąganie przez deweloperów, testerów                                    | Tak                              | Token usługi AD musi być odnawiany co 3 godziny     |
 | [Nazwa główna usługi AD](#service-principal)                  | `docker login`<br/><br/>`az acr login` w interfejsie wiersza polecenia platformy Azure<br/><br/> Ustawienia logowania do rejestru w interfejsach API lub narzędziach<br/><br/> [Kubernetes klucza tajnego](container-registry-auth-kubernetes.md)                                           | Nienadzorowane wypychanie z potoku ciągłej integracji/ciągłego wdrażania<br/><br/> Nienadzorowane ściąganie do platformy Azure lub usług zewnętrznych  | Tak                              | Domyślne wygaśnięcie hasła SP to 1 rok       |                                                           
@@ -31,13 +31,14 @@ W poniższej tabeli wymieniono dostępne metody uwierzytelniania i typowe scenar
 
 ## <a name="individual-login-with-azure-ad"></a>Indywidualne logowanie za pomocą usługi Azure AD
 
-W przypadku bezpośredniej pracy z rejestrem, na przykład ściągania obrazów do i wypychania obrazów z stacji roboczej tworzenia do utworzonego rejestru, uwierzytelniania przy użyciu indywidualnej tożsamości platformy Azure. Uruchom polecenie [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) w [interfejsie wiersza polecenia platformy Azure](/cli/azure/install-azure-cli):
+W przypadku bezpośredniej pracy z rejestrem, na przykład ściągania obrazów do i wypychania obrazów z stacji roboczej tworzenia do utworzonego rejestru, uwierzytelniania przy użyciu indywidualnej tożsamości platformy Azure. Zaloguj się do [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login), a następnie uruchom polecenie [AZ ACR login](/cli/azure/acr#az-acr-login) :
 
 ```azurecli
+az login
 az acr login --name <acrName>
 ```
 
-Gdy logujesz się za pomocą `az acr login` programu, interfejs wiersza polecenia używa tokenu utworzonego, gdy wykonasz [AZ login](/cli/azure/reference-index#az-login) , aby bezproblemowo uwierzytelniać sesję z rejestrem. Aby ukończyć przepływ uwierzytelniania, należy zainstalować i uruchomić interfejs wiersza polecenia platformy Docker i demona platformy Docker w środowisku. `az acr login` używa klienta platformy Docker, aby ustawić token Azure Active Directory w `docker.config` pliku. Po zalogowaniu się w ten sposób poświadczenia są buforowane, a kolejne `docker` polecenia w sesji nie wymagają nazwy użytkownika ani hasła.
+Gdy logujesz się za pomocą `az acr login` programu, interfejs wiersza polecenia używa tokenu utworzonego podczas wykonywania `az login` w celu bezproblemowego uwierzytelnienia sesji z rejestrem. Aby ukończyć przepływ uwierzytelniania, należy zainstalować i uruchomić interfejs wiersza polecenia platformy Docker i demona platformy Docker w środowisku. `az acr login` używa klienta platformy Docker, aby ustawić token Azure Active Directory w `docker.config` pliku. Po zalogowaniu się w ten sposób poświadczenia są buforowane, a kolejne `docker` polecenia w sesji nie wymagają nazwy użytkownika ani hasła.
 
 > [!TIP]
 > Należy również użyć `az acr login` do uwierzytelniania pojedynczej tożsamości, gdy chcesz wypchnąć lub ściągnąć artefakty inne niż obrazy Docker do rejestru, takie jak [artefakty OCI](container-registry-oci-artifacts.md).  
@@ -105,7 +106,7 @@ docker login myregistry.azurecr.io
 
 Najlepsze rozwiązania dotyczące zarządzania poświadczeniami logowania można znaleźć w dokumentacji polecenia [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
-Aby umożliwić administratorowi istniejący rejestr, można użyć `--admin-enabled` parametru [AZ ACR Update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) w interfejsie wiersza polecenia platformy Azure:
+Aby umożliwić administratorowi istniejący rejestr, można użyć `--admin-enabled` parametru [AZ ACR Update](/cli/azure/acr#az-acr-update) w interfejsie wiersza polecenia platformy Azure:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

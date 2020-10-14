@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec89b897b4ea2e802188e3aefe9b830d7ff1cf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b0377d7b209da76b03a115dc82831eeb00e1ff95
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969181"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047084"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Aktualizowanie procesora GPU w Azure Stack Edge 
 
@@ -22,7 +22,7 @@ W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure St
 Procedura opisana w tym artykule została wykonana przy użyciu innej wersji oprogramowania, ale proces pozostaje taki sam dla bieżącej wersji oprogramowania.
 
 > [!IMPORTANT]
-> - Aktualizacja **2009** jest zgodna z wersją oprogramowania **2.1.1364.2110** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2009-release-notes.md).
+> - Aktualizacja **2010** jest zgodna z wersją oprogramowania **2.1.1377.2170** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ta aktualizacja wymaga sekwencyjnego zastosowania dwóch aktualizacji. Najpierw należy zastosować aktualizacje oprogramowania urządzenia, a następnie Kubernetes aktualizacje. Mając na względzie, że Azure Stack EDGE Pro jest urządzeniem jednego węzła, wszystkie we/wy w toku są zakłócane, a urządzenie będzie miało czas przestoju do 30 minut na aktualizację oprogramowania.
 
@@ -163,9 +163,9 @@ Wykonaj następujące kroki, aby pobrać aktualizację z katalogu Microsoft Upda
 
 2. W polu wyszukiwania w wykazie Microsoft Update wprowadź numer bazy wiedzy (KB) poprawki lub warunków dla aktualizacji, które chcesz pobrać. Na przykład wprowadź **Azure Stack EDGE Pro**, a następnie kliknij przycisk **Wyszukaj**.
    
-    Lista aktualizacji zostanie wyświetlona jako **Azure Stack EDGE Pro 2006**.
+    Lista aktualizacji zostanie wyświetlona jako **Azure Stack krawędź aktualizacji 2010**.
    
-    ![Wyszukaj katalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
 4. Kliknij pozycję **Pobierz**. Istnieją dwa pliki do pobrania przy użyciu *SoftwareUpdatePackage.exe* i *Kubernetes_Package.exe* sufiksów, które odpowiadają odpowiednio aktualizacji oprogramowania i aktualizacji Kubernetes. Pobierz pliki do folderu w systemie lokalnym. Możesz również skopiować folder do udziału sieciowego, który jest osiągalny z urządzenia.
 
@@ -198,9 +198,9 @@ Wykonanie tej procedury zajmuje około 20 minut. Wykonaj następujące kroki, ab
 
 5. Rozpocznie się aktualizacja. Po pomyślnym zaktualizowaniu urządzenia zostanie ono ponownie uruchomione. Lokalny interfejs użytkownika nie jest dostępny w tym czasie trwania.
    
-6. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania w tym przykładzie to **2.0.1257.1591**.
+6. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. W przypadku bieżącej wersji wyświetlana wersja oprogramowania powinna być **2.1.1377.2170**.
 
-   ![Aktualizacja urządzenia 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png) 
+   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 
 7. Teraz zaktualizujesz wersję oprogramowania Kubernetes. Powtórz powyższe kroki. Podaj ścieżkę do pliku aktualizacji Kubernetes z sufiksem *Kubernetes_Package.exe* .  
 

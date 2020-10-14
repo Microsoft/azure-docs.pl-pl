@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578057"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046472"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Interpretacja bliźniaczej reprezentacji urządzenia IoT Plug and Play
 
@@ -307,7 +307,7 @@ Poniższe fragmenty kodu pokazują reprezentację typu Side-by-Side `thermostat1
 
 ## <a name="digital-twin-apis"></a>Interfejsy API Digital bliźniaczy
 
-Usługa Azure Digital bliźniaczych reprezentacji jest wyposażona w program umożliwiający **Uzyskiwanie dwuosiowych**, **Aktualizowanie dwuosiowych**, **Wywoływanie polecenia składnika** i **Wywoływanie polecenia** służącego do zarządzania wieloosiowymi urządzeniami Możesz użyć [interfejsów API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) bezpośrednio lub za pomocą [zestawu SDK usługi](../iot-pnp/libraries-sdks.md).
+Usługa Azure Digital bliźniaczych reprezentacji jest wyposażona w program umożliwiający **Uzyskiwanie dwuosiowych**, **Aktualizowanie dwuosiowych**, **Wywoływanie polecenia składnika** i **Wywoływanie polecenia** służącego do zarządzania wieloosiowymi urządzeniami Możesz użyć [interfejsów API REST](/rest/api/iothub/service/digitaltwin) bezpośrednio lub za pomocą [zestawu SDK usługi](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Zdarzenia zmiany cyfrowej reprezentacji bliźniaczej
 
@@ -383,5 +383,5 @@ Teraz, kiedy już wiesz o programie Digital bliźniaczych reprezentacji, Oto kil
 
 - [Jak używać interfejsów API cyfrowych bliźniaczych Plug and Play IoT](howto-manage-digital-twin.md)
 - [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
-- [Interfejs API REST cyfrowego przędzy IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Interfejs API REST cyfrowego przędzy IoT](/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

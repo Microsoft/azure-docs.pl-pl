@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: dd4cbf0228bc68fa253f9e7a06b4eaba5157d2bd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952084"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045333"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -18,7 +18,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 
 ## <a name="deployment-method-support"></a>Obsługa metod wdrażania
 
-**wdrażania** |  **Pomoc techniczna**
+**Wdrożenie** |  **Pomoc techniczna**
 --- | ---
 **Witryna Azure Portal** | Obsługiwane.
 **Program PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
@@ -247,6 +247,7 @@ Generacja 2 (rozruch UEFI) | Obsługiwane
 Dyski interfejsu NVMe | Nieobsługiwane
 Dyski udostępnione platformy Azure | Nieobsługiwane
 Opcja bezpiecznego transferu | Obsługiwane
+Dyski z włączonym akceleratorem zapisu | Nieobsługiwane
 
 >[!IMPORTANT]
 > Aby uniknąć problemów z wydajnością, należy się upewnić, że są używane elementy docelowe skalowalności i wydajności dysków maszyny wirtualnej dla maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/disk-scalability-targets.md) lub [Windows](../virtual-machines/windows/disk-scalability-targets.md) . Jeśli używasz ustawień domyślnych, Site Recovery tworzy wymagane dyski i konta magazynu na podstawie konfiguracji źródłowej. Jeśli dostosowujesz i wybierasz własne ustawienia, postępuj zgodnie z celami skalowalności i wydajności dysków dla źródłowych maszyn wirtualnych.

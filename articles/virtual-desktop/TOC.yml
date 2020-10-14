@@ -36,6 +36,8 @@
           href: connect-ios.md
         - name: Nawiązywanie połączenia z klientem sklepu Microsoft Store
           href: connect-microsoft-store.md
+        - name: Łączenie z urządzeniami z systemem Linux
+          href: linux-overview.md
     - name: Konfigurowanie przekierowań urządzeń
       href: configure-device-redirections.md
     - name: Konfigurowanie modułu programu PowerShell

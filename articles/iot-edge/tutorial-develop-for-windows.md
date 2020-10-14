@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 409d4195a8c0a4b41996274f68ec74864bebe208
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873357"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045792"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Samouczek: opracowywanie modułów IoT Edge dla urządzeń z systemem Windows
 
@@ -87,13 +87,13 @@ W tym samouczku przedstawiono kroki deweloperskie dla programu Visual Studio 201
 
 1. Przygotuj program Visual Studio 2019 na komputerze deweloperskim.
 
-   * Jeśli nie masz jeszcze programu Visual Studio na komputerze deweloperskim, [Zainstaluj program Visual studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) z następującymi obciążeniami:
+   * Jeśli nie masz jeszcze programu Visual Studio na komputerze deweloperskim, [Zainstaluj program Visual studio 2019](/visualstudio/install/install-visual-studio) z następującymi obciążeniami:
 
       * Tworzenie aplikacji na platformie Azure
       * Programowanie aplikacji klasycznych w języku C++
       * Programowanie dla wielu platform w środowisku .NET Core
 
-   * Jeśli masz już program Visual Studio 2019 na komputerze deweloperskim, postępuj zgodnie z instrukcjami w sekcji [modyfikowanie programu Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) , aby dodać wymagane obciążenia.
+   * Jeśli masz już program Visual Studio 2019 na komputerze deweloperskim, postępuj zgodnie z instrukcjami w sekcji [modyfikowanie programu Visual Studio](/visualstudio/install/modify-visual-studio) , aby dodać wymagane obciążenia.
 
 2. Pobierz i zainstaluj rozszerzenie [narzędzi Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) dla programu Visual Studio 2019.
 
