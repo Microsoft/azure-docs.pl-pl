@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 526b3ad89e128d264b5d14d8cc87d9a81d431a9c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86210435"
 ---
 Przed rozpoczęciem kopiowania danych:
 
-1. Pobierz *Dziennik kopiowania*. Na stronie **łączenie i kopiowanie** wybierz pozycję **Kopiuj dziennik**. Po wyświetleniu monitu Zapisz dziennik w systemie. 
+1. Pobierz *dziennik kopiowania*. Na stronie **Łączenie i kopiowanie** wybierz pozycję **Dziennik kopiowania**. Po wyświetleniu monitu zapisz dziennik w systemie. 
 
-    ![Pobierz dziennik kopiowania 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
+    ![Pobieranie dziennika kopiowania 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 
   
-    Powtórz kroki, aby pobrać *pełny dziennik*. 
+    Powtórz te kroki, aby pobrać *pełny dziennik*. 
 
-2. Zapoznaj się z *pełnym dziennikiem*. *Pełny dziennik* zawiera listę wszystkich plików, które zostały pomyślnie wyeksportowane z konta usługi Azure Storage. Dziennik zawiera również rozmiar pliku i obliczenia sumy kontrolnej.
+2. Przejrzyj *pełny dziennik*. *Pełny dziennik* zawiera listę wszystkich plików pomyślnie wyeksportowanych z konta usługi Azure Storage. Dziennik zawiera również rozmiar pliku i obliczenia sumy kontrolnej.
 
     ```powershell
     <File CloudFormat="BlockBlob" Path="validblobdata/test1.2.3.4" Size="1024" crc64="7573843669953104266">
@@ -52,9 +52,9 @@ Przed rozpoczęciem kopiowania danych:
     </File>
     ``````
 
-3. Przejrzyj *Dziennik kopiowania* pod kątem błędów. Ten dziennik wskazuje pliki, których nie można skopiować z powodu błędów.
+3. Przejrzyj *dziennik kopiowania* pod kątem błędów. Ten dziennik wskazuje pliki, których nie można było skopiować z powodu błędów.
 
-    Oto przykładowe dane wyjściowe dziennika kopiowania, gdy nie wystąpiły żadne błędy i wszystkie pliki zostały skopiowane podczas kopiowania danych z platformy Azure do urządzenie Data Box urządzenia.
+    Oto przykładowe dane wyjściowe dziennika kopiowania, gdy nie wystąpiły żadne błędy i wszystkie pliki zostały skopiowane podczas kopiowania danych z platformy Azure na urządzenie Data Box.
 
     ```powershell
     <CopyLog Summary="Summary">
@@ -88,7 +88,7 @@ Przed rozpoczęciem kopiowania danych:
     </CopyLog>    
     ```
 
-    Do eksportowania tych plików są dostępne następujące opcje: 
+    Wyeksportować te pliki można na następujące sposoby: 
 
     - Pliki, których nie można skopiować za pośrednictwem sieci, można przenieść. 
-    - Jeśli rozmiar danych był większy niż możliwe do użycia pojemność urządzenia, zostanie wyświetlona częściowa kopia i wszystkie pliki, które nie zostały skopiowane, zostaną wyświetlone w tym dzienniku. Możesz użyć tego dziennika jako danych wejściowych XML, aby utworzyć nową kolejność urządzenie Data Box, a następnie skopiować te pliki.
+    - Jeśli rozmiar danych był większy niż możliwa do użycia pojemność urządzenia, miało miejsce kopiowanie częściowe i wszystkie pliki, które nie zostały skopiowane, są wskazane w tym dzienniku. Możesz użyć tego dziennika jako danych wejściowych XML do utworzenia nowego zamówienia na usługę Data Box, a następnie skopiować te pliki.

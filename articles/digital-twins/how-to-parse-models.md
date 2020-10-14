@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 496ca7edfbfb81d8d8838d704b128701a5960e5b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9e489d58b2c4bee0cd9551d15bfa59c3610d959
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974927"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047203"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analizowanie i weryfikowanie modeli przy użyciu biblioteki DTDL parser
 
@@ -20,11 +20,11 @@ ms.locfileid: "91974927"
 
 Aby to ułatwić, biblioteka DTDL po stronie klienta platformy .NET jest udostępniana na serwerze NuGet: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-Biblioteki parser można użyć bezpośrednio w kodzie C# lub użyć przykładowego projektu kodu niezależny od języka, który jest skompilowany w bibliotece analizatora składni: [**DTDL modułu sprawdzania poprawności**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+Biblioteki parser można użyć bezpośrednio w kodzie C# lub użyć przykładowego projektu kodu niezależny od języka, który jest skompilowany w bibliotece analizatora składni: [**DTDL modułu sprawdzania poprawności**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Użyj przykładowego modułu sprawdzania DTDL
 
-[**Moduł sprawdzania poprawności DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) jest przykładowym projektem, który może weryfikować dokumenty modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece analizatora .NET i jest niezależny od języka. Możesz uzyskać za pomocą przycisku *Pobierz kod pocztowy* na przykładowym linku.
+[**Moduł sprawdzania poprawności DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator) jest przykładowym projektem, który może weryfikować dokumenty modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece analizatora .NET i jest niezależny od języka. Możesz uzyskać za pomocą przycisku *Pobierz kod pocztowy* na przykładowym linku.
 
 Kod źródłowy pokazuje przykłady użycia biblioteki parsera. Aby sprawdzić poprawność drzewa katalogów plików DTDL, można użyć przykładowego modułu sprawdzania poprawności jako narzędzia wiersza polecenia. Udostępnia również tryb interaktywny.
 

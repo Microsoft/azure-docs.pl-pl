@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 95dc5b70174cd738104260aac2e175c0657d9c90
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c69e919c76c0aecb6cf8a3ee5e9b7e5d286c168a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966206"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046047"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Tworzenie i Inicjowanie obsługi administracyjnej urządzenia IoT Edge przy użyciu modułu TPM w systemie Linux
 
@@ -33,7 +33,7 @@ Zadania są następujące:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Maszyna deweloperskia systemu Windows z [włączoną funkcją Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). W tym artykule jest używany system Windows 10 z uruchomioną maszyną wirtualną serwera Ubuntu.
+* Maszyna deweloperskia systemu Windows z [włączoną funkcją Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). W tym artykule jest używany system Windows 10 z uruchomioną maszyną wirtualną serwera Ubuntu.
 * Aktywna IoT Hub.
 
 > [!NOTE]
@@ -174,7 +174,7 @@ Po utworzeniu rejestracji w usłudze DPS można zadeklarować **początkowy stan
 
 Teraz, gdy istnieje Rejestracja dla tego urządzenia, środowisko uruchomieniowe IoT Edge może automatycznie zainicjować obsługę administracyjną urządzenia podczas instalacji.
 
-## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska uruchomieniowego usługi IoT Edge
 
 Środowisko uruchomieniowe usługi IoT Edge jest wdrażane na wszystkich urządzeniach usługi IoT Edge. Jego składniki działają w kontenerach i umożliwiają wdrożenie dodatkowych kontenerów na urządzeniu, aby można było uruchomić kod na krawędzi. Zainstaluj środowisko uruchomieniowe IoT Edge na maszynie wirtualnej.
 

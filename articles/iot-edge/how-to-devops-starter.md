@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297134"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045860"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla IoT Edge przy użyciu usługi Azure DevOps Starter
 
@@ -28,7 +28,7 @@ DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania na platfo
 
 1. W lewym okienku wybierz pozycję **Utwórz zasób**, a następnie wyszukaj ciąg **DevOps Starter**.  
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="create-a-new-application-pipeline"></a>Tworzenie nowego potoku aplikacji
 
@@ -81,7 +81,7 @@ DevOps Starter utworzył repozytorium git dla projektu w Azure Repos. W tej sekc
 
    ![Otwórz module.jsw pliku w Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Zwróć uwagę, że ten plik używa [zmiennych kompilacji usługi Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) w parametrze **Version** . Ta konfiguracja zapewnia, że nowa wersja modułu zostanie utworzona za każdym razem, gdy zostanie uruchomiona nowa kompilacja.
+3. Zwróć uwagę, że ten plik używa [zmiennych kompilacji usługi Azure DevOps](/azure/devops/pipelines/build/variables?view=vsts#build-variables) w parametrze **Version** . Ta konfiguracja zapewnia, że nowa wersja modułu zostanie utworzona za każdym razem, gdy zostanie uruchomiona nowa kompilacja.
 
 ## <a name="examine-the-cicd-pipeline"></a>Badanie potoku ciągłej integracji/ciągłego wdrażania
 

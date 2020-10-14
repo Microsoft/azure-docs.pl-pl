@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 984977d7cef1a923bf7f17de0c503bddeeebcd82
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998379"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045044"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Co to jest usługa IoT Plug and Play?
 
@@ -26,7 +26,7 @@ Plug and Play IoT umożliwia konstruktorom rozwiązań integrację urządzeń in
 
 Można grupować te elementy w interfejsach do wielokrotnego użycia w ramach modeli, aby ułatwić współpracę i przyspieszyć programowanie.
 
-Aby usługa IoT Plug and Play działała z [usługą Azure Digital bliźniaczych reprezentacji](../digital-twins/about-digital-twins.md), należy zdefiniować modele i interfejsy przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). Plug and Play IoT i DTDL są otwarte dla społeczności, a firma Microsoft zachęca do współpracy z klientami, partnerami i branżą. Oba są oparte na otwartych standardach W3C, takich jak JSON-LD i RDF, co umożliwia łatwiejsze wdrażanie w ramach usług i narzędzi.
+Aby usługa IoT Plug and Play działała z [usługą Azure Digital bliźniaczych reprezentacji](../digital-twins/overview.md), należy zdefiniować modele i interfejsy przy użyciu [języka Digital bliźniaczych reprezentacji Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). Plug and Play IoT i DTDL są otwarte dla społeczności, a firma Microsoft zachęca do współpracy z klientami, partnerami i branżą. Oba są oparte na otwartych standardach W3C, takich jak JSON-LD i RDF, co umożliwia łatwiejsze wdrażanie w ramach usług i narzędzi.
 
 Nie ma dodatkowych kosztów związanych z korzystaniem z usługi IoT Plug and Play i DTDL. Standardowe stawki za [usługę azure IoT Hub](../iot-hub/about-iot-hub.md) i inne usługi platformy Azure pozostają bez zmian.
 
@@ -74,4 +74,3 @@ Teraz, gdy masz przegląd Plug and Play IoT, sugerowanym następnym krokiem jest
 
 - [Łączenie urządzenia z IoT Hub (C)](./quickstart-connect-device-c.md)
 - [Interakcja z urządzeniem z rozwiązania (Node.js)](./quickstart-service-node.md)
-

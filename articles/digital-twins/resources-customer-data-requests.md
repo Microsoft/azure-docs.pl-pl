@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522350"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047696"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Funkcje żądania danych klienta Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -35,7 +35,7 @@ Usługa Azure Digital bliźniaczych reprezentacji przechowuje [Azure Active Dire
 
 ## <a name="deleting-customer-data"></a>Usuwanie danych klienta
 
-Administratorzy usługi Azure Digital bliźniaczych reprezentacji mogą używać Azure Portal do usuwania danych związanych z użytkownikami. Możliwe jest również wykonywanie operacji usuwania na pojedynczych bliźniaczych reprezentacji cyfrowych przy użyciu interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji. Aby uzyskać więcej informacji na temat dostępnych interfejsów API, zobacz [dokumentację interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Administratorzy usługi Azure Digital bliźniaczych reprezentacji mogą używać Azure Portal do usuwania danych związanych z użytkownikami. Możliwe jest również wykonywanie operacji usuwania na pojedynczych bliźniaczych reprezentacji cyfrowych przy użyciu interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji. Aby uzyskać więcej informacji na temat dostępnych interfejsów API, zobacz [dokumentację interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji](/rest/api/azure-digitaltwins/).
 
 ## <a name="exporting-customer-data"></a>Eksportowanie danych klienta
 
@@ -45,4 +45,4 @@ Dane klienta, w tym role użytkowników i przypisania ról, można wybierać, ko
 
 ## <a name="links-to-additional-documentation"></a>Linki do dodatkowej dokumentacji
 
-Aby uzyskać pełną listę interfejsów API usługi Digital bliźniaczych reprezentacji na platformie Azure, zobacz [dokumentację interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Aby uzyskać pełną listę interfejsów API usługi Digital bliźniaczych reprezentacji na platformie Azure, zobacz [dokumentację interfejsów API REST usługi Azure Digital bliźniaczych reprezentacji](/rest/api/azure-digitaltwins/).

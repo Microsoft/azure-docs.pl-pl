@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0b5d3678c3d9c7e55eede13c630510df89d5128
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631254"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045571"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Tworzenie Azure Machine Learning obszarów roboczych i zarządzanie nimi w Azure Portal
 
@@ -46,9 +46,6 @@ Do utworzenia obszaru roboczego potrzebna jest subskrypcja platformy Azure. Jeś
    Subskrypcja |Wybierz subskrypcję platformy Azure, której chcesz użyć.
    Grupa zasobów | Użyj grupy zasobów istniejącej w Twojej subskrypcji lub wprowadź nazwę, aby utworzyć nową grupę zasobów. Grupa zasobów zawiera powiązane zasoby dla rozwiązania platformy Azure. W tym przykładzie używane są **dokumenty-AML**. Aby korzystać z istniejącej grupy zasobów, musisz mieć rolę *współautora* lub *właściciela* .  Aby uzyskać więcej informacji na temat dostępu, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
    Region | Wybierz region platformy Azure znajdujący się najbliżej Twoich użytkowników i zasoby danych, aby utworzyć obszar roboczy.
-   Wersja obszaru roboczego | Wybierz pozycję **podstawowa** lub **Enterprise**.  Ta wersja obszaru roboczego określa funkcje, do których będziesz mieć dostęp i Cennik. Dowiedz się więcej o [Azure Machine Learning](overview-what-is-azure-ml.md). 
-
-    ![Konfigurowanie obszaru roboczego](./media/how-to-manage-workspace/select-edition.png)
 
 1. Po zakończeniu konfigurowania obszaru roboczego wybierz pozycję **Przegląd + Utwórz**. Opcjonalnie możesz użyć sekcji [Sieć](#networking) i [Zaawansowane](#advanced) , aby skonfigurować więcej ustawień obszaru roboczego.
 
@@ -61,7 +58,7 @@ Do utworzenia obszaru roboczego potrzebna jest subskrypcja platformy Azure. Jeś
  
  1. Aby wyświetlić nowy obszar roboczy, wybierz pozycję **Przejdź do zasobu**.
 
-### <a name="networking"></a>Networking  
+### <a name="networking"></a>Sieć  
 
 > [!IMPORTANT]  
 > Aby uzyskać więcej informacji na temat korzystania z prywatnego punktu końcowego i sieci wirtualnej z obszarem roboczym, zobacz [izolacja sieci i ochrona prywatności](how-to-enable-virtual-network.md).
@@ -89,7 +86,7 @@ Do utworzenia obszaru roboczego potrzebna jest subskrypcja platformy Azure. Jeś
 
 Usługa Azure Security Center zapewnia ujednolicone zarządzanie zabezpieczeniami i zaawansowaną ochronę przed zagrożeniami na potrzeby różnych obciążeń chmury hybrydowej. Należy zezwolić Azure Security Center na skanowanie zasobów i postępować zgodnie z zaleceniami. Więcej informacji można znaleźć w temacie  [Azure Container Registry Scanning image Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) i [Azure Kubernetes Services integration with a Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
 
-### <a name="advanced"></a>Zaawansowane    
+### <a name="advanced"></a>Zaawansowany    
 
 Domyślnie metryki i metadane obszaru roboczego są przechowywane w Azure Cosmos DB wystąpieniu, które utrzymuje firma Microsoft. Te dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft.  
 

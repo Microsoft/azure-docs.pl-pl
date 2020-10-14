@@ -57,6 +57,8 @@
               href: azure-stack-edge-gpu-kubernetes-rbac.md
             - name: Obciążenia platformy Kubernetes
               href: azure-stack-edge-gpu-kubernetes-workload-management.md
+        - name: Wyświetlanie integracji usługi Key Vault
+          href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Instrukcje
       items:
         - name: Wdrażanie przykładów usługi IoT Edge
