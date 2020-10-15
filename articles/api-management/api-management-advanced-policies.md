@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851685"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071374"
 ---
 # <a name="api-management-advanced-policies"></a>Zaawansowane zasady usługi API Management
 
-Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Zasady zaawansowane
 
@@ -867,7 +867,7 @@ Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące.
 | Atrybut | Opis                                                              | Wymagane |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nazwa zmiennej.                                                | Tak      |
-| value     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
+| wartość     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
 
 ### <a name="usage"></a>Użycie
 
@@ -955,7 +955,7 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 | source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Nie dotyczy     |
 | ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose` , `information` , `error` (od najniższego do najwyższego). | Nie       | Pełny |
 | name      | Nazwa właściwości.                                                                                                     | Tak      | Nie dotyczy     |
-| value     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
+| wartość     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
 
 ### <a name="usage"></a>Użycie
 
@@ -1025,7 +1025,7 @@ W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasa
 
 | Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślne |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
+| dla       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all` -Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
 
 ### <a name="usage"></a>Użycie
 
@@ -1041,4 +1041,4 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 -   [Zasady w API Management](api-management-howto-policies.md)
 -   [Wyrażenia zasad](api-management-policy-expressions.md)
 -   [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
--   [Przykłady zasad](policy-samples.md)
+-   [Przykłady zasad](./policy-reference.md)

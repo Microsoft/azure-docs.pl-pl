@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243719"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071289"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
-Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Zasady uwierzytelniania
 
@@ -67,7 +67,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 -   **Zakresy zasad:** wszystkie zakresy
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Uwierzytelnianie przy użyciu certyfikatu klienta
- Zasady służą `authentication-certificate` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](https://go.microsoft.com/fwlink/?LinkID=511599) jako pierwszy i jest identyfikowany przez jego odcisk palca.
+ Zasady służą `authentication-certificate` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu certyfikatu klienta. Certyfikat musi zostać [zainstalowany do API Management](./api-management-howto-mutual-certificates.md) jako pierwszy i jest identyfikowany przez jego odcisk palca.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -200,4 +200,4 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 + [Zasady w API Management](api-management-howto-policies.md)
 + [Przekształć interfejsy API](transform-api.md)
 + [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
-+ [Przykłady zasad](policy-samples.md)
++ [Przykłady zasad](./policy-reference.md)
