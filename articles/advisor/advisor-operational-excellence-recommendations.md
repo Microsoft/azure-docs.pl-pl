@@ -3,12 +3,12 @@ title: Ulepszanie Excellency operacyjnego za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zoptymalizować i uzyskać doskonałą komfort działania w ramach subskrypcji platformy Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258484"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077392"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Uzyskiwanie doskonałości operacyjnej przy użyciu Azure Advisor
 
@@ -38,7 +38,7 @@ Jeśli pula używa przestarzałego składnika wewnętrznego, Usuń i ponownie Ut
 
 ## <a name="repair-invalid-log-alert-rules"></a>Napraw nieprawidłowe reguły alertów dziennika
 
-Azure Advisor wykrywa reguły alertów, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dzienników można tworzyć w Azure Monitor i używać ich do uruchamiania zapytań analitycznych w określonych odstępach czasu. Wyniki zapytania określają, czy trzeba wyzwolić alert. Zapytania analityczne mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawienie zapytania w regule alertu, aby zapobiec jego automatycznemu wyłączaniu i zapewnić monitorowanie zasobów na platformie Azure. [Dowiedz się więcej o rozwiązywaniu problemów z regułami alertów.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor wykrywa reguły alertów, które mają nieprawidłowe zapytania określone w sekcji warunku. Reguły alertów dzienników można tworzyć w Azure Monitor i używać ich do uruchamiania zapytań analitycznych w określonych odstępach czasu. Wyniki zapytania określają, czy trzeba wyzwolić alert. Zapytania analityczne mogą stać się nieprawidłowe w miarę upływu czasu ze względu na zmiany w przywoływanych zasobach, tabelach lub poleceniach. Usługa Advisor zaleca poprawienie zapytania w regule alertu, aby zapobiec jego automatycznemu wyłączaniu i zapewnić monitorowanie zasobów na platformie Azure. [Dowiedz się więcej o rozwiązywaniu problemów z regułami alertów.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Użyj zaleceń Azure Policy
 
@@ -55,7 +55,7 @@ Azure Policy to usługa platformy Azure, za pomocą której można tworzyć i pr
 **Włącz *dziedziczenie znacznika z grup zasobów*.** Te zasady dodają lub zastępują określony tag oraz wartość z nadrzędnej grupy zasobów podczas tworzenia lub aktualizowania dowolnego zasobu. Możesz skorygować istniejące zasoby, wyzwalając zadanie korygowania.
 
 ## <a name="no-validation-environment-enabled"></a>Nie włączono środowiska weryfikacji
-Azure Advisor określa, że nie masz włączonego środowiska sprawdzania poprawności w bieżącej subskrypcji. Podczas tworzenia pul hostów, na karcie właściwości, wybrano opcję \" nie \" \" sprawdzaj poprawności środowiska \" . Posiadanie co najmniej jednej puli hostów z włączonym środowiskiem walidacji zapewnia ciągłość działania usług pulpitu wirtualnego systemu Windows przy wczesnym wykrywaniu potencjalnych problemów. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor określa, że nie masz włączonego środowiska sprawdzania poprawności w bieżącej subskrypcji. Podczas tworzenia pul hostów, na karcie właściwości, wybrano opcję \" nie \" \" sprawdzaj poprawności środowiska \" . Posiadanie co najmniej jednej puli hostów z włączonym środowiskiem walidacji zapewnia ciągłość działania usług pulpitu wirtualnego systemu Windows przy wczesnym wykrywaniu potencjalnych problemów. [Dowiedz się więcej](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Zapewnij środowisko produkcyjne (bez walidacji), aby korzystać ze stabilnej funkcjonalności
 Azure Advisor wykryje, że zbyt wiele pul hostów ma włączone środowisko sprawdzania poprawności. Aby środowiska walidacji były najlepszym rozwiązaniem, należy mieć co najmniej jedną, ale nigdy więcej niż połowę pul hostów w środowisku walidacji. Dzięki wykorzystaniu dobrej równowagi między pulami hostów a włączonym środowiskiem walidacji, najlepszym rozwiązaniem jest korzystanie z zalet wdrożeń potokach wieloetapowych oferowanych przez pulpity wirtualne systemu Windows z niektórymi aktualizacjami. Aby rozwiązać ten problem, Otwórz właściwości puli hostów i wybierz pozycję \" nie \" obok \" Ustawienia środowisko walidacji \" .

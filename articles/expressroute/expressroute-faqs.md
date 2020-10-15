@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566424"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077358"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -86,7 +86,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Usługa Azure Active Directory
+* Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.
@@ -242,6 +242,9 @@ Tak. Jeśli trasy domyślne (0.0.0.0/0) lub trasy internetowe nie są anonsowane
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Czy mogę zablokować łączność internetową z sieciami wirtualnymi podłączonymi do obwodów usługi ExpressRoute?
 
 Tak. Można anonsować trasy domyślne (0.0.0.0/0), aby blokować wszystkie połączenia internetowe z maszynami wirtualnymi wdrożonymi w ramach sieci wirtualnej i rozsyłać cały ruch za pośrednictwem obwodu usługi ExpressRoute.
+
+> [!NOTE]
+> Jeśli anonsowana trasa o wartości 0.0.0.0/0 zostanie wycofana z anonsów anonsowanych (na przykład ze względu na awarię lub nieprawidłową konfigurację), platforma Azure udostępni [trasę systemową](../virtual-network/virtual-networks-udr-overview.md#system-routes) do zasobów na połączonej Virtual Network w celu zapewnienia łączności z Internetem.  Aby zapewnić, że ruch wychodzący do Internetu jest blokowany, zaleca się umieszczenie sieciowej grupy zabezpieczeń we wszystkich podsieciach z regułą odmowy ruchu przychodzącego dla Internetu.
 
 W przypadku anonsowania tras domyślnych Wymuś ruch do usług oferowanych za pośrednictwem komunikacji równorzędnej firmy Microsoft (np. usługi Azure Storage i bazy danych SQL) z powrotem do lokalizacji lokalnej. Należy skonfigurować routery, aby zwracały ruch do platformy Azure za pośrednictwem ścieżki komunikacji równorzędnej firmy Microsoft lub za pośrednictwem Internetu. Jeśli włączono punkt końcowy usługi dla usługi, ruch do usługi nie jest wymuszany w środowisku lokalnym. Ruch pozostaje w sieci szkieletowej platformy Azure. Aby dowiedzieć się więcej o punktach końcowych usługi, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 

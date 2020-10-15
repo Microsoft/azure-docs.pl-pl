@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbff4cc067ce831e9d9f69a457f348a94257e86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874343"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076916"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
 <a name="required-ports"> </a> Gdy wystąpienie usługi API Management jest hostowane w sieci wirtualnej, używane są porty w poniższej tabeli.
 
-| Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/security-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel ( \* )                                                 | Typ Virtual Network |
+| Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/network-security-groups-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel ( \* )                                                 | Typ Virtual Network |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | Inbound            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
 | */3443                     | Inbound            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
@@ -153,7 +153,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
 + **Azure Load Balancer**: Zezwalanie na żądanie przychodzące z tagu usługi `AZURE_LOAD_BALANCER` nie jest wymagane dla `Developer` jednostki SKU, ponieważ wdrażamy tylko jedną jednostkę obliczeniową w tle. Ale ruch przychodzący z [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) stanie się krytyczny podczas skalowania do wyższej jednostki SKU, na przykład w przypadku `Premium` niepowodzenia sondy kondycji z Load Balancer, wdrożenie nie powiedzie
 
-+ **Application Insights**: Jeśli [usługa Azure Application Insights](api-management-howto-app-insights.md) monitoring jest włączona na API Management, musimy zezwolić na połączenie wychodzące z [punktem końcowym telemetrii](/azure/azure-monitor/app/ip-addresses#outgoing-ports) z Virtual Network. 
++ **Application Insights**: Jeśli [usługa Azure Application Insights](api-management-howto-app-insights.md) monitoring jest włączona na API Management, musimy zezwolić na połączenie wychodzące z [punktem końcowym telemetrii](../azure-monitor/app/ip-addresses.md#outgoing-ports) z Virtual Network. 
 
 + **Wymuszanie tunelowania ruchu do zapory lokalnej przy użyciu trasy Express lub sieciowego urządzenia wirtualnego**: wspólna konfiguracja klienta polega na zdefiniowaniu własnej trasy domyślnej (0.0.0.0/0), która wymusza cały ruch z API Management delegowanej podsieci do przepływu za pośrednictwem lokalnej zapory lub sieciowego urządzenia wirtualnego. Ten przepływ ruchu niezmiennie zrywa łączność z platformą Azure API Management, ponieważ ruch wychodzący jest blokowany lokalnie lub NAT na nierozpoznawalny zbiór adresów, które nie działają już z różnymi punktami końcowymi platformy Azure. Rozwiązanie wymaga wykonania kilku czynności:
 
@@ -218,7 +218,7 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure — publiczna| Indie Zachodnie| 40.81.89.24|
 | Azure — publiczna| East US| 52.224.186.99|
 | Azure — publiczna| West Europe| 51.145.179.78|
-| Azure — publiczna| Japan East| 52.140.238.179|
+| Azure — publiczna| Japonia Wschodnia| 52.140.238.179|
 | Azure — publiczna| Francja Środkowa| 40.66.60.111|
 | Azure — publiczna| Kanada Wschodnia| 52.139.80.117|
 | Azure — publiczna| Północne Zjednoczone Emiraty Arabskie| 20.46.144.85|
@@ -272,7 +272,7 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 * [Łączenie Virtual Network z różnych modeli wdrażania](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Jak śledzić wywołania na platformie API Management Azure za pomocą Inspektora interfejsu API](api-management-howto-api-inspector.md)
 * [Virtual Network często zadawane pytania](../virtual-network/virtual-networks-faq.md)
-* [Tagi usługi](../virtual-network/security-overview.md#service-tags)
+* [Tagi usługi](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -285,6 +285,6 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
