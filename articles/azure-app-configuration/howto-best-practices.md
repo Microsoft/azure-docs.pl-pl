@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588062"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078055"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Najlepsze rozwiązania dotyczące konfiguracji aplikacji platformy Azure
 
@@ -42,7 +42,7 @@ Ważne jest, aby pamiętać, że klucze są do których odwołuje się kod aplik
 
 Konfiguracja aplikacji traktuje wszystkie klucze przechowywane z nią jako jednostki niezależne. W obszarze Konfiguracja aplikacji nie jest podejmowana próba wywnioskowania żadnej relacji między kluczami lub dziedziczenia wartości kluczy na podstawie ich hierarchii. Można jednak agregować wiele zestawów kluczy, używając etykiet sprzężonych z prawidłowym stosem konfiguracji w kodzie aplikacji.
 
-Przyjrzyjmy się przykładowi. Załóżmy, że masz ustawienie o nazwie **Asset1**, którego wartość może się różnić w zależności od środowiska deweloperskiego. Tworzysz klucz o nazwie "Asset1" z pustą etykietą i etykietą o nazwie "Development". W pierwszej etykiecie zostanie umieszczona wartość domyślna dla **Asset1**i zostanie umieszczona określona wartość "Programowanie" w tym drugim.
+Spójrzmy na przykład. Załóżmy, że masz ustawienie o nazwie **Asset1**, którego wartość może się różnić w zależności od środowiska deweloperskiego. Tworzysz klucz o nazwie "Asset1" z pustą etykietą i etykietą o nazwie "Development". W pierwszej etykiecie zostanie umieszczona wartość domyślna dla **Asset1**i zostanie umieszczona określona wartość "Programowanie" w tym drugim.
 
 W kodzie należy najpierw pobrać wartości klucza bez żadnych etykiet, a następnie pobrać ten sam zestaw wartości klucza po raz drugi z etykietą "Programowanie". Po pobraniu wartości po raz drugi poprzednie wartości kluczy są zastępowane. System konfiguracji .NET Core umożliwia "stos" wielu zestawów danych konfiguracji na siebie nawzajem. Jeśli klucz istnieje w więcej niż jednym zestawie, używany jest ostatni zestaw, który zawiera. Dzięki nowoczesnej strukturze programistycznej, takiej jak .NET Core, można bezpłatnie skorzystać z tej możliwości tworzenia stosu, jeśli używasz natywnego dostawcy konfiguracji do uzyskiwania dostępu do konfiguracji aplikacji. Poniższy fragment kodu przedstawia sposób implementacji stosu w aplikacji .NET Core:
 
@@ -69,7 +69,7 @@ Lepszym rozwiązaniem jest użycie funkcji tożsamości zarządzane w programie 
 Możesz zapewnić dostęp do konfiguracji aplikacji dla aplikacji lub funkcji sieci Web przy użyciu dowolnej z następujących metod:
 
 * Za pomocą Azure Portal wprowadź parametry połączenia do magazynu konfiguracji aplikacji w ustawieniach aplikacji App Service.
-* Zapisz parametry połączenia z magazynem konfiguracji aplikacji w Key Vault i [odwołując się do niego z App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Zapisz parametry połączenia z magazynem konfiguracji aplikacji w Key Vault i [odwołując się do niego z App Service](../app-service/app-service-key-vault-references.md).
 * Użyj tożsamości zarządzanych przez platformę Azure, aby uzyskać dostęp do magazynu konfiguracji aplikacji. Aby uzyskać więcej informacji, zobacz [Integrowanie z tożsamościami zarządzanymi przez platformę Azure](howto-integrate-azure-managed-service-identity.md).
 * Konfiguracja wypychana z konfiguracji aplikacji do App Service. Konfiguracja aplikacji udostępnia funkcję eksportu (w Azure Portal i interfejsu wiersza polecenia platformy Azure), która wysyła dane bezpośrednio do App Service. W przypadku tej metody nie trzeba zmieniać kodu aplikacji.
 
@@ -85,7 +85,7 @@ Nadmierne żądania konfiguracji aplikacji mogą powodować naliczanie opłat lu
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importowanie danych konfiguracji do konfiguracji aplikacji
 
-Konfiguracja aplikacji oferuje opcję zbiorczego [importowania](https://aka.ms/azconfig-importexport1) ustawień konfiguracji z bieżących plików konfiguracji przy użyciu Azure Portal lub interfejsu wiersza polecenia. Możesz również użyć tych samych opcji, aby wyeksportować wartości z konfiguracji aplikacji, na przykład między powiązanymi magazynami. Jeśli chcesz skonfigurować trwającą synchronizację z repozytorium GitHub, możesz użyć naszej [akcji GitHub](https://aka.ms/azconfig-gha2) , aby móc nadal korzystać z istniejących rozwiązań kontroli źródła podczas uzyskiwania korzyści z konfiguracji aplikacji.
+Konfiguracja aplikacji oferuje opcję zbiorczego [importowania](./howto-import-export-data.md) ustawień konfiguracji z bieżących plików konfiguracji przy użyciu Azure Portal lub interfejsu wiersza polecenia. Możesz również użyć tych samych opcji, aby wyeksportować wartości z konfiguracji aplikacji, na przykład między powiązanymi magazynami. Jeśli chcesz skonfigurować trwającą synchronizację z repozytorium GitHub, możesz użyć naszej [akcji GitHub](./concept-github-action.md) , aby móc nadal korzystać z istniejących rozwiązań kontroli źródła podczas uzyskiwania korzyści z konfiguracji aplikacji.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Wdrożenie w ramach wieloregionu w konfiguracji aplikacji
 

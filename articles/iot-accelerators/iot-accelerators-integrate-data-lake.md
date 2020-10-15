@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889233"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069849"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Zintegruj rozwiązanie do zdalnego monitorowania z usługą Azure Data Lake Store
 
@@ -67,7 +67,7 @@ Utwórz zadanie Azure Stream Analytics w celu przesyłania strumieniowego danych
 
 1. Upewnij się, że środowisko hostingu ma pozostać w **chmurze**domyślnej.
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
     ![Tworzenie zadania Stream Analytics](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
@@ -89,7 +89,7 @@ Utwórz zadanie Azure Stream Analytics w celu przesyłania strumieniowego danych
 
     ![Wybierz dane wejściowe](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 1. Na stronie Przegląd kliknij pozycję dane **wyjściowe**.
 
@@ -118,7 +118,7 @@ Utwórz zadanie Azure Stream Analytics w celu przesyłania strumieniowego danych
     > [!NOTE]
     > Jeśli w oknie podręcznym zostanie wyświetlony błąd, Otwórz nowe okno przeglądarki w trybie incognito i spróbuj ponownie.
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ## <a name="edit-the-stream-analytics-query"></a>Edytuj zapytanie Stream Analytics
 
@@ -141,7 +141,7 @@ Azure Stream Analytics używa języka zapytań przypominających SQL, aby okreś
 
     ![Zapytanie Stream Analytics](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 1. Kliknij przycisk **tak** , aby zatwierdzić zmiany.
 
 ## <a name="start-the-stream-analytics-job"></a>Uruchamianie zadania Stream Analytics
@@ -180,4 +180,4 @@ Azure Stream Analytics używa języka zapytań przypominających SQL, aby okreś
 
 ## <a name="next-steps"></a>Następne kroki
 
-Azure Data Lake Analytics można użyć do przeprowadzenia analizy danych Big Data na Data Lake Store zbiorach danych. Więcej informacji znajduje się w [dokumentacji Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).
+Azure Data Lake Analytics można użyć do przeprowadzenia analizy danych Big Data na Data Lake Store zbiorach danych. Więcej informacji znajduje się w [dokumentacji Data Lake Analytics](../data-lake-analytics/index.yml).
