@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905520"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070898"
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
 
@@ -70,7 +70,7 @@ Aby zapoznać się z pełną listą instrukcji zasad i ich ustawień, zobacz [In
 
 ## <a name="policy-samples"></a>Przykłady zasad
 
-Zobacz [przykłady zasad](policy-samples.md) , aby uzyskać więcej przykładów kodu.
+Zobacz [przykłady zasad](./policy-reference.md) , aby uzyskać więcej przykładów kodu.
 
 ## <a name="examples"></a>Przykłady
 
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 
 + [Przekształć interfejsy API](transform-api.md)
 + [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
-+ [Przykłady zasad](policy-samples.md)   
++ [Przykłady zasad](./policy-reference.md)   
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

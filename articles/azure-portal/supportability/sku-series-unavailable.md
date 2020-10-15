@@ -7,12 +7,12 @@ ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763826"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078514"
 ---
 # <a name="region-or-sku-unavailable"></a>Region lub jednostka SKU jest niedostępna
 
@@ -76,12 +76,12 @@ Jeśli nie możesz znaleźć odpowiedniego regionu lub jednostki SKU, Utwórz [�
 
 1. Wprowadź wszelkie dodatkowe informacje, które można podać wraz z informacjami kontaktowymi.
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Po zweryfikowaniu informacji wybierz pozycję **Utwórz** , aby utworzyć żądanie.
+1. Wybierz pozycję **Przejrzyj i utwórz**. Po zweryfikowaniu informacji wybierz pozycję **Utwórz** , aby utworzyć żądanie.
 
 ## <a name="send-us-your-suggestions"></a>Wyślij nam swoje sugestie
 
-Zawsze jesteśmy w trakcie korzystania z opinii i sugestii. Wyślij nam swoje [sugestie](https://feedback.azure.com/forums/266794-support-feedback). Ponadto możesz zaangażować się z nami w serwisie [Twitter](https://twitter.com/azuresupport) lub stronie pytań i odpowiedzi na [pytania firmy Microsoft&](https://docs.microsoft.com/answers/products/azure).
+Zawsze jesteśmy w trakcie korzystania z opinii i sugestii. Wyślij nam swoje [sugestie](https://feedback.azure.com/forums/266794-support-feedback). Ponadto możesz zaangażować się z nami w serwisie [Twitter](https://twitter.com/azuresupport) lub stronie pytań i odpowiedzi na [pytania firmy Microsoft&](/answers/products/azure).
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej informacji
 
 [Pomoc techniczna platformy Azure — często zadawane pytania](https://azure.microsoft.com/support/faq)

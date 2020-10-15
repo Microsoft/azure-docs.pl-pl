@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776293"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078837"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -71,7 +71,7 @@ Elementy Runbook muszą zawierać logikę do obsługi [zasobów](/rest/api/resou
 
 ## <a name="security"></a>Zabezpieczenia
 
-Azure Automation używa [Azure Security Center (ASC)](../security-center/security-center-intro.md) w celu zapewnienia bezpieczeństwa zasobów i wykrywania kompromisów w systemach Linux. Zabezpieczenia są udostępniane w ramach obciążeń, niezależnie od tego, czy zasoby znajdują się na platformie Azure, czy nie. Zapoznaj [się z artykułem wprowadzenie do uwierzytelniania w Azure Automation](automation-security-overview.md).
+Azure Automation używa [Azure Security Center (ASC)](../security-center/security-center-introduction.md) w celu zapewnienia bezpieczeństwa zasobów i wykrywania kompromisów w systemach Linux. Zabezpieczenia są udostępniane w ramach obciążeń, niezależnie od tego, czy zasoby znajdują się na platformie Azure, czy nie. Zapoznaj [się z artykułem wprowadzenie do uwierzytelniania w Azure Automation](automation-security-overview.md).
 
 Wartość ASC umieszcza ograniczenia dla użytkowników, którzy mogą uruchamiać dowolne skrypty, podpisane lub niepodpisane na maszynie wirtualnej. Jeśli jesteś użytkownikiem z dostępem głównym do maszyny wirtualnej, musisz jawnie skonfigurować maszynę z podpisem cyfrowym lub wyłączyć ją. W przeciwnym razie można uruchomić skrypt, aby zastosować aktualizacje systemu operacyjnego po utworzeniu konta usługi Automation i włączeniu odpowiedniej funkcji.
 
@@ -139,7 +139,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 
 | Stan | Opis |
 |:--- |:--- |
-| Zakończone |Zadanie zostało ukończone pomyślnie. |
+| Ukończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Nie można skompilować elementu Runbook graficznego lub przepływu pracy programu PowerShell. Nie można uruchomić elementu Runbook programu PowerShell lub zadanie miało wyjątek. Zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).|
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
 | W kolejce |Zadanie oczekuje na udostępnienie zasobów w procesie roboczym usługi Automation, aby można było je uruchomić. |

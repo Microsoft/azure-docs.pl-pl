@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86249607"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078497"
 ---
 # <a name="api-management-transformation-policies"></a>Zasady przekształcania w usłudze API Management
-Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
 
 ##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Zasady transformacji
 
@@ -513,7 +513,7 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |Set-header|Element główny.|Tak|
-|value|Określa wartość nagłówka, która ma zostać ustawiona. Dla wielu nagłówków o tej samej nazwie Dodaj dodatkowe `value` elementy.|Nie|
+|wartość|Określa wartość nagłówka, która ma zostać ustawiona. Dla wielu nagłówków o tej samej nazwie Dodaj dodatkowe `value` elementy.|Nie|
 
 ### <a name="properties"></a>Właściwości
 
@@ -568,7 +568,7 @@ OriginalUrl.
 |Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |Set-Query-Parameter|Element główny.|Tak|
-|value|Określa wartość parametru zapytania, która ma zostać ustawiona. Dla wielu parametrów zapytania o tej samej nazwie Dodaj dodatkowe `value` elementy.|Tak|
+|wartość|Określa wartość parametru zapytania, która ma zostać ustawiona. Dla wielu parametrów zapytania o tej samej nazwie Dodaj dodatkowe `value` elementy.|Tak|
 
 ### <a name="properties"></a>Właściwości
 
@@ -732,4 +732,4 @@ Aby uzyskać więcej informacji, zobacz następujące tematy:
 
 + [Zasady w API Management](api-management-howto-policies.md)
 + [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
-+ [Przykłady zasad](policy-samples.md)
++ [Przykłady zasad](./policy-reference.md)

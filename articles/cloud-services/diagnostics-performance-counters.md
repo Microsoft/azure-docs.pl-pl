@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77469531"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078599"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Zbieranie liczników wydajności dla usługi w chmurze platformy Azure
 
@@ -70,7 +70,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-Te pojedyncze ścieżki liczników można dodać do struktury diagnostyki używanej przez usługę w chmurze. Aby uzyskać więcej informacji o sposobie konstruowania ścieżki licznika wydajności, zobacz [Określanie ścieżki licznika](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+Te pojedyncze ścieżki liczników można dodać do struktury diagnostyki używanej przez usługę w chmurze. Aby uzyskać więcej informacji o sposobie konstruowania ścieżki licznika wydajności, zobacz [Określanie ścieżki licznika](/windows/win32/perfctrs/specifying-a-counter-path).
 
 ## <a name="collect-a-performance-counter"></a>Zbieranie danych licznika wydajności
 
@@ -290,8 +290,5 @@ Jak wspomniano wcześniej, liczniki wydajności, które mają być zbierane, są
 
 - [Usługa Application Insights dla usług Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Liczniki wydajności systemu w Application Insights](../azure-monitor/app/performance-counters.md)
-- [Określanie ścieżki licznika](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
+- [Określanie ścieżki licznika](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Diagnostyka Azure schematu — liczniki wydajności](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317314"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078905"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Samouczek: używanie flag funkcji w aplikacji ASP.NET Core
 
@@ -27,7 +27,7 @@ Biblioteki zarządzania funkcjami platformy .NET Core zapewniają obsługę idio
 
 Biblioteki zarządzania funkcjami również zarządzają cyklami życia flagi funkcji w tle. Na przykład biblioteki odświeżają i buforują Stany flag i gwarantują, że stan flagi będzie niezmienny podczas wywołania żądania. Ponadto biblioteka ASP.NET Core oferuje wbudowaną integrację, w tym akcje kontrolera MVC, widoki, trasy i oprogramowanie pośredniczące.
 
-[Dodawanie flag funkcji do aplikacji ASP.NET Core szybkiego startu](./quickstart-feature-flag-aspnet-core.md) pokazuje kilka sposobów dodawania flag funkcji w aplikacji ASP.NET Core. Ten samouczek wyjaśnia te metody bardziej szczegółowo. Aby uzyskać pełne informacje, zobacz [dokumentację dotyczącą zarządzania funkcjami ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410).
+[Dodawanie flag funkcji do aplikacji ASP.NET Core szybkiego startu](./quickstart-feature-flag-aspnet-core.md) pokazuje kilka sposobów dodawania flag funkcji w aplikacji ASP.NET Core. Ten samouczek wyjaśnia te metody bardziej szczegółowo. Aby uzyskać pełne informacje, zobacz [dokumentację dotyczącą zarządzania funkcjami ASP.NET Core](/dotnet/api/microsoft.featuremanagement).
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -301,6 +301,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 W tym samouczku przedstawiono sposób implementacji flag funkcji w aplikacji ASP.NET Core przy użyciu `Microsoft.FeatureManagement` bibliotek. Aby uzyskać więcej informacji na temat obsługi zarządzania funkcjami w ASP.NET Core i konfiguracji aplikacji, zobacz następujące zasoby:
 
-* [Przykładowy kod flagi funkcji ASP.NET Core](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Dokumentacja programu Microsoft. FeatureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [Przykładowy kod flagi funkcji ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Dokumentacja programu Microsoft. FeatureManagement](/dotnet/api/microsoft.featuremanagement)
 * [Zarządzanie flagami funkcji](./manage-feature-flags.md)
