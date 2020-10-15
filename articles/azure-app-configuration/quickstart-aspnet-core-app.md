@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440419"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075845"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Szybki Start: Tworzenie aplikacji ASP.NET Core przy użyciu konfiguracji aplikacji platformy Azure
 
@@ -23,7 +23,7 @@ W tym przewodniku szybki start będziesz używać konfiguracji aplikacji platfor
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
-* [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/download)
+* [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download)
 
 > [!TIP]
 > Azure Cloud Shell to bezpłatna, interaktywna powłoka, której można użyć do uruchomienia instrukcji wiersza polecenia w tym artykule. Ma ona popularne narzędzia platformy Azure preinstalowane, w tym zestaw .NET Core SDK. Jeśli logujesz się do subskrypcji platformy Azure, uruchom [Azure Cloud Shell](https://shell.azure.com) z Shell.Azure.com. Więcej informacji na temat Azure Cloud Shell można znaleźć w [dokumentacji](../cloud-shell/overview.md) .
@@ -41,7 +41,7 @@ W tym przewodniku szybki start będziesz używać konfiguracji aplikacji platfor
     | `TestApp:Settings:FontSize`        | *codzienne*                                |
     | `TestApp:Settings:Message`         | *Dane z usługi Azure App Configuration* |
 
-    Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** . Wybierz pozycję **Zastosuj**.
+    Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** . Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
@@ -117,7 +117,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     ---
 
-    Po powyższej zmianie [dostawca konfiguracji dla konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664) został zarejestrowany w interfejsie API konfiguracji platformy .NET Core.
+    Po powyższej zmianie [dostawca konfiguracji dla konfiguracji aplikacji](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) został zarejestrowany w interfejsie API konfiguracji platformy .NET Core.
 
 ## <a name="read-from-the-app-configuration-store"></a>Odczytaj z magazynu konfiguracji aplikacji
 

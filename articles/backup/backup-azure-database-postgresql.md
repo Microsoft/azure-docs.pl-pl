@@ -4,12 +4,12 @@ description: Dowiedz się więcej o Azure Database for PostgreSQL kopii zapasowe
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997314"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093892"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL kopii zapasowej z długoterminowym przechowywaniem (wersja zapoznawcza)
 
@@ -17,7 +17,7 @@ Azure Backup i usługi Azure Database zostały połączone w celu utworzenia roz
 
 Oprócz długoterminowego przechowywania rozwiązanie ma także wiele innych funkcji, jak pokazano poniżej:
 
-- Dostęp oparty na rolach RBAC do bazy danych przy użyciu uwierzytelniania Azure Active Directory i tożsamość usługi zarządzanej (MSI).
+- Kontrola dostępu oparta na rolach (Azure RBAC) do bazy danych przy użyciu uwierzytelniania Azure Active Directory i tożsamość usługi zarządzanej (MSI).
 - Planowanie kopii zapasowych według harmonogramu przez klienta i na żądanie na poziomie poszczególnych baz danych.
 - Przywracanie na poziomie bazy danych do dowolnego serwera Postgres lub bezpośrednio do magazynu obiektów BLOB.
 - Długoterminowe przechowywanie.

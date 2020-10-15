@@ -52,10 +52,12 @@
           items:
             - name: Opcje migracji maszyn wirtualnych VMware — informacje
               href: server-migrate-overview.md
-            - name: Migrowanie maszyn wirtualnych VMware za pomocą migracji bez agentów
+            - name: Migrowanie maszyn wirtualnych programu VMware za pomocą migracji bez agentów — witryna Azure Portal
               href: tutorial-migrate-vmware.md
             - name: Migrowanie maszyn wirtualnych VMware za pomocą migracji z użyciem agentów
               href: tutorial-migrate-vmware-agent.md
+            - name: Migrowanie maszyn wirtualnych programu VMware za pomocą migracji bez agentów — program PowerShell
+              href: tutorial-migrate-vmware-powershell.md
         - name: Migrowanie maszyn wirtualnych funkcji Hyper-V
           href: tutorial-migrate-hyper-v.md
         - name: Migrowanie serwerów fizycznych

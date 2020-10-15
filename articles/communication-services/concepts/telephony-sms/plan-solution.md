@@ -10,19 +10,19 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048223"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070354"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planowanie rozwiązania do obsługi telefonii i wiadomości SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Usługi Azure Communication Services umożliwiają korzystanie z numerów telefonów w celu wykonywania połączeń głosowych i wysyłania wiadomości SMS przy użyciu sieci telefonicznej (PSTN). W tym dokumencie będziemy przeglądać typy numerów telefonów, plany i dostępność regionów w celu planowania rozwiązania do obsługi połączeń telefonicznych i SMS przy użyciu usług komunikacyjnych.
+Usługi Azure Communication Services umożliwiają korzystanie z numerów telefonów w celu wykonywania połączeń głosowych i wysyłania wiadomości SMS przy użyciu sieci telefonicznej (PSTN). W tym dokumencie będziemy przeglądać typy numerów telefonów, opcje konfiguracji i dostępność regionów w celu planowania rozwiązania do obsługi połączeń telefonicznych i SMS przy użyciu usług komunikacyjnych.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -51,15 +51,15 @@ W poniższej tabeli zestawiono te typy numerów telefonów:
 | Toll-Free         | + 1 (bezpłatny *numer*kierunkowy) XXX XX XX | USA                      | Wywoływanie (wychodzące), SMS (przychodzące/wychodzące)| Przypisywanie numerów telefonów do interaktywnych systemów odpowiedzi głosowych (IVR)/botów, aplikacji SMS                                        |
 
 
-## <a name="phone-number-plans-in-azure-communication-services"></a>Plany numerów telefonów w usłudze Azure Communications Services 
+## <a name="phone-number-features-in-azure-communication-services"></a>Funkcje numeru telefonu w usłudze Azure Communications Services 
 
-W przypadku większości numerów telefonów umożliwiamy skonfigurowanie zestawu planów "a La koszyka". Niektórzy deweloperzy potrzebują tylko wychodzącego planu wywołującego; Niektóre z nich mogą wymagać wychodzącego i wychodzącego planu SMS. Te plany mogą być wybierane w ramach dzierżawy numerów telefonów w ramach usług Azure Communications Services.
+W przypadku większości numerów telefonów pozwalamy skonfigurować zestaw funkcji "a La koszyka". Te funkcje mogą być wybierane w ramach dzierżawy numerów telefonów w ramach usług Azure Communications Services.
 
-Plany, które są dostępne dla użytkownika, zależą od kraju, w którym pracujesz, w przypadku użycia i wybranego typu numeru telefonu. Plany te różnią się w zależności od kraju ze względu na wymagania prawne. Usługi Azure Communication Services oferują następujące plany:
+Funkcje, które są dostępne dla użytkownika, zależą od kraju, w którym pracujesz, w przypadku użycia i wybranego typu numeru telefonu. Te funkcje różnią się w zależności od kraju ze względu na wymagania prawne. Usługi Azure Communication Services oferują następujące funkcje numeru telefonu:
 
-- **Jednokierunkowe wychodzące wiadomości SMS** Ten plan pozwala wysyłać wiadomości SMS do użytkowników. Ten plan jest przydatny w przypadku scenariuszy, takich jak powiadomienia i alerty uwierzytelniania dwuskładnikowego. 
-- **Dwukierunkowe przychodzące i wychodzące wiadomości SMS** Ten plan umożliwia wysyłanie i odbieranie wiadomości od użytkowników przy użyciu numerów telefonów. Ten plan jest użyteczny w scenariuszach obsługi klienta.
-- **Jednokierunkowe połączenie wychodzące telefonu** Ten plan umożliwia nawiązanie połączeń z użytkownikami i skonfigurowanie identyfikatora rozmówcy dla wywołań wychodzących umieszczonych przez usługę. Ten plan jest użyteczny w scenariuszach obsługi klienta i powiadomień głosowych.
+- **Jednokierunkowe wychodzące wiadomości SMS** Ta opcja umożliwia wysyłanie wiadomości SMS do użytkowników. Może to być przydatne w scenariuszach powiadamiania i uwierzytelniania dwuskładnikowego. 
+- **Dwukierunkowe przychodzące i wychodzące wiadomości SMS** Ta opcja umożliwia wysyłanie i odbieranie wiadomości od użytkowników przy użyciu numerów telefonów. Może to być przydatne w scenariuszach obsługi klienta.
+- **Jednokierunkowe połączenie wychodzące telefonu** Ta opcja umożliwia nawiązywanie połączeń z użytkownikami i Konfigurowanie identyfikatora rozmówcy dla wywołań wychodzących umieszczonych przez usługę. Może to być przydatne w scenariuszach obsługi klienta i powiadomień głosowych.
 
 ## <a name="countryregion-availability"></a>Dostępność kraju/regionu
 

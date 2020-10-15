@@ -1,22 +1,22 @@
 ---
-title: Konwertowanie urządzenia IoT Plug and Play na moduł ogólny | Microsoft Docs
-description: Użyj kodu urządzenia PnP języka C# i przekonwertuj go na moduł.
+title: Łączenie ogólnego modułu IoT Plug and Play module ogólnym | Microsoft Docs
+description: Użyj przykładowego kodu urządzenia w języku C# Plug and Play w module ogólnym.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046340"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089166"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Samouczek: konwertowanie urządzenia IoT Plug and Play na moduł (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Samouczek: łączenie modułu IoT Plug and Play (C#)
 
-W tym samouczku pokazano, jak przekonwertować kod urządzenia Plug and Play IoT, aby był uruchamiany jako moduł generyczny.
+W tym samouczku przedstawiono sposób łączenia ogólnego [modułu](../iot-hub/iot-hub-devguide-module-twins.md)IoT Plug and Play.
 
 Urządzenie jest urządzeniem Plug and Play IoT, jeśli publikuje jego identyfikator modelu podczas nawiązywania połączenia z usługą IoT Hub i implementuje właściwości i metody opisane w modelu Digital bliźniaczych reprezentacji Definition Language (DTDL) identyfikowane przez identyfikator modelu. Aby dowiedzieć się więcej o tym, jak urządzenia używają DTDL i identyfikatora modelu, zobacz [przewodnik dewelopera IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Moduły używają identyfikatorów modelu i modeli DTDL w taki sam sposób.
 
