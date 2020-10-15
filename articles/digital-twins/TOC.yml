@@ -6,7 +6,7 @@
       href: overview.md
     - name: Różnice w stosunku do wcześniejszej wersji
       href: overview-differences.md
-- name: Przewodniki Szybki Start
+- name: Przewodniki Szybki start
   expanded: true
   items:
     - name: Zapoznawanie się z przykładowym scenariuszem
@@ -23,6 +23,8 @@
   items:
     - name: Modele niestandardowe
       href: concepts-models.md
+    - name: Konwertowanie modeli zgodnych ze standardami branżowymi
+      href: concepts-convert-models.md
     - name: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
       href: concepts-twins-graph.md
     - name: Język zapytań
@@ -122,7 +124,7 @@
     - name: Interfejsy API i zestawy SDK
       items:
         - name: Dokumentacja interfejsu API REST
-          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
+          href: /rest/api/azure-digitaltwins/
         - name: Płaszczyzna sterowania
           items:
             - name: Swagger
@@ -130,13 +132,13 @@
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
             - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Zestaw SDK Java
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
             - name: Zestaw Java SDK — dokumentacja
-              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
+              href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
             - name: Zestaw SDK dla języka Java — źródło
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: Zestaw SDK dla języka JavaScript
@@ -156,17 +158,17 @@
             - name: Zestaw SDK dla platformy .NET (C#) — NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: Dokumentacja zestawu SDK dla platformy .NET (C#)
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
+              href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
             - name: Zestaw SDK dla platformy .NET (C#) — źródło
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: JavaScript SDK — npm
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
             - name: JavaScript SDK — dokumentacja
-              href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
             - name: Java SDK — Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
             - name: Zestaw Java SDK — dokumentacja
-              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true'
+              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
     - name: Interfejs wiersza polecenia usługi Digital Twins
       items:
         - name: Dokumentacja interfejsu wiersza polecenia usługi Digital Twins
@@ -182,7 +184,7 @@
         - name: Biblioteka analizatora DTDL — NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
         - name: Moduł sprawdzania poprawności DTDL (przykład)
-          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Specyfikacja DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
     - name: Narzędzia i przykładowe projekty
@@ -190,17 +192,17 @@
         - name: Usługa symulatora urządzeń
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
         - name: Przykłady usługi Azure Digital Twins
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+          href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Eksplorator usługi Azure Digital Twins (przykład)
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
+          href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Moduł sprawdzania poprawności DTDL (przykład)
-          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Przykład integracji usług DPS i IoT Hub
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
+          href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Niestandardowe struktury Swagger usługi Azure Digital Twins
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Przykład integracji z usługą SignalR
-          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
+          href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
     - name: Narzędzia platformy Azure
       items:
         - name: Azure Cloud Shell
@@ -210,11 +212,11 @@
         - name: Azure Portal
           href: 'https://portal.azure.com'
     - name: Dokumentacja kontroli RBAC na platformie Azure
-      href: /azure/role-based-access-control/overview
+      href: ../role-based-access-control/overview.md
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Historie klientów
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Filmy w witrynie Channel 9

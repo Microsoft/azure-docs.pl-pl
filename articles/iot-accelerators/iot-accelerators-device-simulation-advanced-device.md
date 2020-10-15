@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261434"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076049"
 ---
 # <a name="create-an-advanced-device-model"></a>Utwórz zaawansowany model urządzenia
 
@@ -166,7 +166,7 @@ Pola wymienione w schemacie mogą być następujące:
 * Serializacja obiektu za pomocą kodu JSON
 * Serializacja binarna przy użyciu algorytmu Base64
 * Tekst
-* Boolean (wartość logiczna)
+* Wartość logiczna
 * Liczba całkowita
 * Double
 * DateTime
@@ -520,4 +520,4 @@ Jeśli pliki przechodzą walidację, kliknij przycisk **Zapisz** , a model urzą
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku poznasz informacje o plikach modelu urządzenia używane w symulacji urządzenia i sposobach tworzenia zaawansowanego modelu urządzeń. Następnie warto dowiedzieć się, jak [za pomocą Time Series Insights wizualizować dane telemetryczne wysyłane z akceleratora rozwiązania do symulacji urządzeń](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+W tym przewodniku poznasz informacje o plikach modelu urządzenia używane w symulacji urządzenia i sposobach tworzenia zaawansowanego modelu urządzeń. Następnie warto dowiedzieć się, jak [za pomocą Time Series Insights wizualizować dane telemetryczne wysyłane z akceleratora rozwiązania do symulacji urządzeń](./iot-accelerators-device-simulation-time-series-insights.md).

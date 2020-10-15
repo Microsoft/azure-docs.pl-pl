@@ -6,18 +6,11 @@
     - name: Co to jest aprowizowanie aplikacji?
       href: user-provisioning.md
 - name: Samouczki
+  expanded: true
   items:
-    - name: G Suite
-      href: ../saas-apps/google-apps-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: ServiceNow
-      href: ../saas-apps/servicenow-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Amazon Web Services (AWS) — aprowizowanie roli
-      href: ../saas-apps/amazon-web-service-tutorial.md?context=azure/active-directory/app-provisioning/context/app-provisioning-context#configure-azure-ad-sso
-    - name: Workday
-      href: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: SAP SuccessFactors
-      href: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Wszystkie zintegrowane aplikacje z galerii
+    - name: Tworzenie punktu końcowego SCIM i konfigurowanie aprowizacji
+      href: use-scim-to-provision-users-and-groups.md
+    - name: Samouczki aprowizacji dla konkretnych aplikacji
       href: /azure/active-directory/saas-apps
 - name: Pojęcia
   expanded: true
@@ -28,17 +21,15 @@
       href: plan-auto-user-provisioning.md
     - name: Planowanie wdrożenia aprowizacji w usłudze Cloud HR
       href: plan-cloud-hr-provision.md
+    - name: Informacje na temat rejestrowania za pomocą usługi Azure Monitor
+      href: application-provisioning-log-analytics.md
 - name: Przewodniki z instrukcjami
   expanded: true
   items:
     - name: Konfigurowanie aprowizacji dla aplikacji z galerii
       href: configure-automatic-user-provisioning-portal.md
-    - name: Edytowanie mapowań atrybutów
-      items:
-        - name: Dostosowywanie mapowań atrybutów
-          href: customize-application-attributes.md
-        - name: Pisanie wyrażeń do mapowania atrybutów
-          href: functions-for-customizing-application-data.md
+    - name: Dostosowywanie mapowań atrybutów
+      href: customize-application-attributes.md
     - name: Dołączanie użytkowników i grup do zakresu lub ich wykluczanie
       items:
         - name: Określanie zakresu użytkowników lub grup do aprowizacji
@@ -57,6 +48,8 @@
           href: export-import-provisioning-configuration.md
         - name: Aprowidowanie raportów
           href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: Automatyzowanie konfiguracji przy użyciu programu MS Graph
+      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
     - name: Rozwiązywanie problemów z aprowizacją aplikacji
       items:
         - name: Znane problemy
@@ -65,26 +58,20 @@
           href: application-provisioning-config-problem.md
         - name: Stan kwarantanny
           href: application-provisioning-quarantine-status.md
-        - name: Problem z autoryzacją (nie można zapisać poświadczeń administratora)
-          href: application-provisioning-config-problem-storage-limit.md
         - name: Użytkownicy nie są aprowizowani
           href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Aprowizowani są nieprawidłowi użytkownicy
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Brak atrybutu źródłowego
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Dzienniki aprowizowania
           href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Tworzenie punktu końcowego SCIM i konfigurowanie aprowizacji
-      href: use-scim-to-provision-users-and-groups.md
-    - name: Automatyzowanie konfiguracji przy użyciu programu MS Graph
-      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
 - name: Dokumentacja
   items:
     - name: Zgodność z protokołem SCIM 2.0
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: Scenariusze SCIM i Graph
       href: scim-graph-scenarios.md
+    - name: Dokumentacja funkcji dotycząca pisania wyrażeń do mapowania atrybutów
+      href: functions-for-customizing-application-data.md
     - name: Aprowizacja w usłudze Cloud HR
       items:
         - name: Integracja rozwiązania SuccessFactors
@@ -93,8 +80,6 @@
           href: sap-successfactors-attribute-reference.md
         - name: Dokumentacja atrybutów rozwiązania Workday
           href: workday-attribute-reference.md
-    - name: Agent aprowizacji programu Azure AD Connect
-      items:
         - name: Historia wersji agenta aprowizacji
           href: provisioning-agent-release-version-history.md
 - name: Zasoby
