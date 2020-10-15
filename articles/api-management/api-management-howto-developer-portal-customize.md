@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ceb8fd154e8ad533f4bf6bc9eb0ec3900749f8b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86206241"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075369"
 ---
 # <a name="access-and-customize-developer-portal"></a>Dostęp i dostosowywanie portalu dla deweloperów
 
 Portal dla deweloperów to automatycznie generowana, w pełni dostosowywalna witryna sieci Web z dokumentacją interfejsów API. W przypadku, gdy konsumenci interfejsu API mogą odnajdywać interfejsy API, dowiedzieć się, jak ich używać, i zażądać dostępu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Dostęp do zarządzanej wersji portalu dla deweloperów
@@ -131,7 +131,7 @@ Po opublikowaniu portalu możesz uzyskać do niego dostęp przy użyciu tego sam
 Musisz włączyć funkcję CORS (Udostępnianie zasobów między źródłami) w interfejsach API, aby umożliwić odwiedzającym portalu testowanie interfejsów API za pomocą wbudowanej konsoli interaktywnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem dotyczącym tej dokumentacji](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Następne kroki
-- [Optymalizowanie i oszczędzanie wydatków w chmurze](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optymalizowanie i oszczędzanie wydatków w chmurze](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Dowiedz się więcej o portalu dla deweloperów:
 

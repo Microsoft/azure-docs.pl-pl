@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnych
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974723"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075488"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
@@ -18,8 +18,7 @@ Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zar�
 - Konfiguracja lub obecność aplikacji
 - Ustawienia środowiska
 
-Obecnie większość zasad konfiguracji gościa usługi Azure Policy umożliwia tylko przeprowadzanie inspekcji ustawień wewnątrz maszyny.
-Nie stosują one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
+W tej chwili większość Azure Policy definicji zasad konfiguracji gościa tylko ustawienia inspekcji w obrębie maszyny. Nie stosują one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Włącz konfigurację gościa
 
@@ -59,8 +58,7 @@ Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu 
 
 ## <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-Zasady konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny.
-W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
+Definicje zasad konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w witrynie Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
 
 |Publisher|Nazwa|Wersje|
 |-|-|-|
@@ -72,7 +70,7 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w
 |Red Hat|Red Hat Enterprise Linux|7,4 – 7,8|
 |Szło|SLES|12 SP3 — SP5|
 
-Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez zasady konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
+Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez definicje zasad konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
 
 ## <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -86,7 +84,7 @@ Maszyny wirtualne korzystające z sieci wirtualnych do komunikacji będą wymaga
 
 ### <a name="communicate-over-private-link-in-azure"></a>Komunikacja za pośrednictwem prywatnego linku na platformie Azure
 
-Maszyny wirtualne mogą używać [prywatnego linku](../../../private-link/private-link-overview.md) do komunikacji z usługą konfiguracji gościa. Zastosuj tag o nazwie `EnablePrivateNeworkGC` i wartości, `TRUE` Aby włączyć tę funkcję. Tag można zastosować przed lub po zastosowaniu zasad konfiguracji gościa na komputerze.
+Maszyny wirtualne mogą używać [prywatnego linku](../../../private-link/private-link-overview.md) do komunikacji z usługą konfiguracji gościa. Zastosuj tag o nazwie `EnablePrivateNeworkGC` i wartości, `TRUE` Aby włączyć tę funkcję. Tag można zastosować przed lub po zastosowaniu definicji zasad konfiguracji gościa na komputerze.
 
 Ruch jest kierowany przy użyciu [wirtualnego adresu IP](../../../virtual-network/what-is-ip-address-168-63-129-16.md) platformy Azure w celu nawiązania bezpiecznego, uwierzytelnionego kanału z zasobami platformy Azure.
 
@@ -111,9 +109,9 @@ Jeśli komputer ma obecnie tożsamość systemową przypisaną przez użytkownik
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 
-Zasady konfiguracji gościa używają efektu **AuditIfNotExists** . Po przypisaniu definicji usługa zaplecza automatycznie obsługuje cykl życia wszystkich wymagań `Microsoft.GuestConfiguration` dostawcy zasobów platformy Azure.
+Definicje zasad konfiguracji gościa używają efektu **AuditIfNotExists** . Po przypisaniu definicji usługa zaplecza automatycznie obsługuje cykl życia wszystkich wymagań `Microsoft.GuestConfiguration` dostawcy zasobów platformy Azure.
 
-Zasady **AuditIfNotExists** nie będą zwracać wyników zgodności, dopóki nie zostaną spełnione wszystkie wymagania na komputerze. Wymagania są opisane w sekcji [wdrażanie wymagań dla usługi Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
+Definicje zasad **AuditIfNotExists** nie zwracają wyników zgodności, dopóki nie zostaną spełnione wszystkie wymagania na komputerze. Wymagania są opisane w sekcji [wdrażanie wymagań dla maszyn wirtualnych platformy Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
 > W poprzedniej wersji konfiguracji gościa, do łączenia definicji **DeployIfNoteExists** i **AuditIfNotExists** , wymagana była inicjatywa. Definicje **DeployIfNotExists** nie są już wymagane. Definicje i intiaitives są oznaczone etykietami, `[Deprecated]` ale istniejące przypisania będą nadal działać. Aby uzyskać więcej informacji, zobacz wpis w blogu: [ważna zmiana dotycząca zasad inspekcji konfiguracji gościa](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
@@ -138,15 +136,15 @@ Tylko definicja _Konfigurowanie strefy czasowej na maszynach z systemem Windows_
 Podczas przypisywania definicji zaczynających się od _konfiguracji_należy również przypisać _wymagania wstępne wdrażania definicji, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows_. Możesz połączyć te definicje w ramach inicjatywy, jeśli wybierzesz opcję.
 
 > [!NOTE]
-> Wbudowane zasady strefy czasowej są jedyną definicją, która obsługuje Konfigurowanie ustawień wewnątrz maszyn i zasad niestandardowych, które konfigurują ustawienia wewnątrz maszyn nie są obsługiwane.
+> Wbudowane zasady strefy czasowej są jedyną definicją, która obsługuje Konfigurowanie ustawień wewnątrz maszyn i niestandardowych definicji zasad, które konfigurują ustawienia wewnątrz maszyn nie są obsługiwane.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Przypisywanie zasad do maszyn poza platformą Azure
 
-Zasady inspekcji dostępne dla konfiguracji gościa obejmują typ zasobu **Microsoft. HybridCompute/Machines** . Wszystkie maszyny dołączone do [usługi Azure ARC dla serwerów](../../../azure-arc/servers/overview.md) , które znajdują się w zakresie przypisania zasad, są automatycznie dołączane.
+Definicje zasad inspekcji dostępne dla konfiguracji gościa obejmują typ zasobu **Microsoft. HybridCompute/Machines** . Wszystkie maszyny dołączone do [usługi Azure ARC dla serwerów](../../../azure-arc/servers/overview.md) , które znajdują się w zakresie przypisania zasad, są automatycznie dołączane.
 
 ### <a name="multiple-assignments"></a>Wiele przypisań
 
-Zasady konfiguracji gościa obsługują obecnie tylko jednokrotne przypisanie tego samego przypisania gościa na komputerze, nawet jeśli przypisanie zasad używa różnych parametrów.
+Definicje zasad konfiguracji gościa obecnie obsługują tylko jednokrotne przypisanie tego samego przypisania gościa na każdym komputerze, nawet jeśli przypisanie zasad używa różnych parametrów.
 
 ## <a name="client-log-files"></a>Pliki dziennika klienta
 
