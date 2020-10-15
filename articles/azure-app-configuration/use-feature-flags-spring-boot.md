@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326600"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077834"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Samouczek: używanie flag funkcji w aplikacji do rozruchu sprężynowego
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 W tym samouczku przedstawiono sposób implementacji flag funkcji w aplikacji rozruchu sprężynowego przy użyciu `spring-cloud-azure-feature-management-web` bibliotek. Aby uzyskać więcej informacji na temat obsługi zarządzania funkcjami w konfiguracji sprężynowego rozruchu i aplikacji, zobacz następujące zasoby:
 
-* [Przykładowy kod flagi funkcji rozruchu sprężynowego](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Przykładowy kod flagi funkcji rozruchu sprężynowego](./quickstart-feature-flag-spring-boot.md)
 * [Zarządzanie flagami funkcji](./manage-feature-flags.md)

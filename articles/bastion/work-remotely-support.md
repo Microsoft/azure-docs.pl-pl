@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 515a6f7175aee23c6f720258b7fdaefe76b3b5d6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80619397"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077953"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Praca zdalna przy użyciu usługi Azure bastionu
 
@@ -26,10 +26,10 @@ Usługa Azure bastionu odgrywa przestawianą rolę w obsłudze scenariuszy pracy
 
 Usługa Azure bastionu zapewnia bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi w sieci wirtualnej platformy Azure, bezpośrednio w Azure Portal bez użycia publicznego adresu IP. Aby uzyskać więcej informacji na temat architektury i kluczowych funkcji platformy Azure, zobacz [co to jest usługa Azure bastionu](bastion-overview.md).
 
-Platforma Azure bastionu jest wdrażana dla każdej sieci wirtualnej, co oznacza, że firmy mogą konfigurować jeden bastionu platformy Azure i zarządzać nim, aby szybko obsługiwać dostęp użytkowników zdalnych do maszyn wirtualnych w ramach sieci wirtualnej platformy Azure. Aby uzyskać wskazówki dotyczące tworzenia i zarządzania usługą Azure bastionu, zobacz [Tworzenie hosta bastionu](bastion-create-host-portal.md).
+Platforma Azure bastionu jest wdrażana dla każdej sieci wirtualnej, co oznacza, że firmy mogą konfigurować jeden bastionu platformy Azure i zarządzać nim, aby szybko obsługiwać dostęp użytkowników zdalnych do maszyn wirtualnych w ramach sieci wirtualnej platformy Azure. Aby uzyskać wskazówki dotyczące tworzenia i zarządzania usługą Azure bastionu, zobacz [Tworzenie hosta bastionu](./tutorial-create-host-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Skonfiguruj usługę Azure bastionu za pomocą [Azure Portal](bastion-create-host-portal.md), [programu PowerShell](bastion-create-host-powershell.md)lub interfejsu wiersza polecenia platformy Azure.
+* Skonfiguruj usługę Azure bastionu za pomocą [Azure Portal](./tutorial-create-host-portal.md), [programu PowerShell](bastion-create-host-powershell.md)lub interfejsu wiersza polecenia platformy Azure.
 
 * Przeczytaj [często zadawane pytania](bastion-faq.md) dotyczące usługi bastionu, aby uzyskać dodatkowe informacje.

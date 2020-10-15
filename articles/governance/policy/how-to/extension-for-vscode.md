@@ -1,14 +1,14 @@
 ---
 title: Azure Policy rozszerzenie dla Visual Studio Code
 description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Azure Resource Manager.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648334"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077936"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
@@ -82,7 +82,7 @@ Po pierwszym zalogowaniu tylko domyślne zasoby i zasady subskrypcji są ładowa
 
    - Paleta poleceń: 
 
-     Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**i wprowadź **Azure: wybierz subskrypcje**.
+     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **Azure: wybierz subskrypcje**.
 
    - Stopka okna
 
