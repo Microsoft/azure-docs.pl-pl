@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8837bf7a7196eb5ac86bd7634560c52d1da6c05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654439"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082267"
 ---
 Aby utworzyć projekt programu Visual Studio dla wieloplatformowego programowania aplikacji mobilnych platformy .NET przy użyciu platformy Xamarin, należy:
 - Skonfiguruj opcje deweloperskie programu Visual Studio.
@@ -50,7 +50,7 @@ Aby rozpocząć, upewnij się, że program Visual Studio jest poprawnie skonfigu
 
 1. Wybierz pozycję **Utwórz** , aby przejść do **nowego okna projektu aplikacji mobilnej platformy Xamarin** .
 
-   ![Zrzut ekranu przedstawiający okno dialogowe Nowy projekt platforma uniwersalna systemu Windows w programie Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Zrzut ekranu przedstawiający okno dialogowe Nowy projekt programu Xamarin aplikacji mobilnych w programie Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Wybierz **pusty** szablon.
 

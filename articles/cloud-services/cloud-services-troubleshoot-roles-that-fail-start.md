@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460120"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076576"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z rolami usługi w chmurze, których nie można uruchomić
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania dotyczące ról Cloud Services platformy Azure, których nie można uruchomić.
@@ -122,6 +122,6 @@ Aby rozwiązać brakujące błędy bibliotek DLL i zestawów, wykonaj następuj�
 Po sprawdzeniu, czy wszystkie błędy zostały poprawione, można wdrożyć usługę bez sprawdzania, czy pole wyboru **Włącz role IntelliTrace for .NET 4** .
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz więcej [artykułów do rozwiązywania problemów](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) dotyczących usług Cloud Services.
+Zobacz więcej [artykułów do rozwiązywania problemów](../index.yml?product=cloud-services&tag=top-support-issue) dotyczących usług Cloud Services.
 
-Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Piotr Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Piotr Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

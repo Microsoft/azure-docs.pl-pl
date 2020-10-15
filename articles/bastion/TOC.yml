@@ -5,9 +5,14 @@
     - name: Co to jest usługa Azure Bastion?
       href: bastion-overview.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
-    - name: Tworzenie hosta-bastionu na podstawie ustawień maszyny wirtualnej
+    - name: Tworzenie hosta przy użyciu ustawień maszyn wirtualnych
       href: quickstart-host-portal.md
+- name: Samouczki
+  items:
+    - name: Tworzenie hosta i łączenie z maszyną wirtualną z systemem Windows
+      href: tutorial-create-host-portal.md
 - name: Pojęcia
   items:
     - name: Obsługa pracy zdalnej
@@ -16,10 +21,10 @@
       href: work-remotely-support.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie hosta bastionu
+    - name: Tworzenie hosta
       items:
         - name: Azure Portal
-          href: bastion-create-host-portal.md
+          href: tutorial-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
         - name: Interfejs wiersza polecenia platformy Azure
@@ -65,7 +70,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Umowa SLA wersji zapoznawczej
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: Umowa SLA

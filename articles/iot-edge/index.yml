@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: d3a71cd919660686c77b866b9e7fab461678da96
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 63c36cf0f602c7c19e3ec1eb0b38b84a2e3a6e15
+  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89300361"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92048342"
 landingContent:
 - title: Opracowywanie zawartości dla urządzeń z systemem Linux
   linkLists:
@@ -46,18 +46,16 @@ landingContent:
     links:
     - text: Tworzenie i debugowanie modułów przy użyciu programu Visual Studio 2017
       url: how-to-visual-studio-develop-module.md
-- title: Aprowizowanie urządzeń usługi IoT Edge
+- title: Tworzenie urządzenia usługi IoT Edge
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Instalowanie usługi IoT Edge w systemie Linux
-      url: how-to-install-iot-edge-linux.md
-    - text: Instalowanie usługi IoT Edge w systemie Windows
-      url: how-to-install-iot-edge-windows.md
-    - text: Automatyczna aprowizacja urządzeń z systemem Linux
-      url: how-to-auto-provision-simulated-device-linux.md
-    - text: Automatyczna aprowizacja urządzeń z systemem Windows
-      url: how-to-auto-provision-simulated-device-windows.md
+    - text: Instalowanie środowiska uruchomieniowego usługi IoT Edge
+      url: how-to-install-iot-edge.md
+    - text: Rejestrowanie i aprowidowanie jednego urządzenia
+      url: how-to-manual-provision-symmetric-key.md
+    - text: Rejestrowanie i aprowidowanie urządzeń na dużą skalę
+      url: how-to-auto-provision-symmetric-keys.md
 - title: Kontakt ze społecznością rozwiązań typu open-source
   linkLists:
   - linkListType: get-started
@@ -105,7 +103,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Interfejs API REST dla usługi IoT Hub
-      url: https://docs.microsoft.com/rest/api/iothub/
+      url: /rest/api/iothub/
 - title: Wdrażanie sztucznej inteligencji w urządzeniach brzegowych
   linkLists:
   - linkListType: tutorial

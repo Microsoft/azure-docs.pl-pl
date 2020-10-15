@@ -3,19 +3,19 @@ title: Wyświetlanie dzienników kontrolera usługi Azure Kubernetes Service (AK
 description: Informacje na temat włączania i wyświetlania dzienników dla węzła głównego Kubernetes w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/03/2019
-ms.openlocfilehash: 4d4485848bb81f9b745081bd999b3cd3e8101b41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299075"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076389"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
 Dzięki usłudze Azure Kubernetes Service (AKS) główne składniki, takie jak *polecenia-apiserver* i *polecenia-Manager* , są udostępniane jako usługa zarządzana. Można tworzyć węzły, które uruchamiają *kubelet* i środowisko uruchomieniowe kontenera, oraz zarządzać nimi, a następnie wdrażać aplikacje za pomocą zarządzanego serwera interfejsu API Kubernetes. Aby pomóc w rozwiązywaniu problemów dotyczących aplikacji i usług, może być konieczne wyświetlenie dzienników generowanych przez te składniki główne. W tym artykule pokazano, jak używać dzienników Azure Monitor do włączania i wykonywania zapytań dotyczących dzienników ze składników głównych Kubernetes.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Ten artykuł wymaga istniejącego klastra AKS uruchomionego na Twoim koncie platformy Azure. Jeśli nie masz jeszcze klastra AKS, utwórz go przy użyciu [interfejsu wiersza polecenia platformy Azure][cli-quickstart] lub [Azure Portal][portal-quickstart]. Dzienniki Azure Monitor współdziałają z klastrami AKS z obsługą RBAC i bez kontroli RBAC.
 
@@ -30,8 +30,16 @@ Dzienniki Azure Monitor są włączone i zarządzane w Azure Portal. Aby włącz
 1. Wybierz klaster AKS, taki jak *myAKSCluster*, a następnie wybierz opcję **dodania ustawienia diagnostycznego**.
 1. Wprowadź nazwę, na przykład *myAKSClusterLogs*, a następnie wybierz opcję **wysyłania do log Analytics**.
 1. Wybierz istniejący obszar roboczy lub Utwórz nowy. W przypadku tworzenia obszaru roboczego Podaj nazwę obszaru roboczego, grupę zasobów i lokalizację.
-1. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie należy włączyć dzienniki *inspekcji polecenia* . Typowe dzienniki obejmują *polecenia-apiserver*, *polecenia-Controller-Manager*i *polecenia-Scheduler*. Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
+1. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie należy włączyć dzienniki *polecenia-Audit* i *polecenia-Audit-admin* . Typowe dzienniki obejmują *polecenia-apiserver*, *polecenia-Controller-Manager*i *polecenia-Scheduler*. Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz** , aby włączyć zbieranie wybranych dzienników.
+
+## <a name="log-categories"></a>Kategorie dzienników
+
+Oprócz wpisów utworzonych przez Kubernetes, dzienniki inspekcji projektu również mają wpisy z AKS.
+
+Dzienniki inspekcji są zapisywane w dwóch kategoriach, *polecenia-Audit-admin* i *polecenia-Audit*. Kategoria *polecenia-Audit* zawiera wszystkie dane dziennika inspekcji dla każdego zdarzenia inspekcji, w tym *Get*, *list*, *Create*, *Update*, *delete*, *patch*i *post*.
+
+Kategoria *polecenia-Audit-admin* jest podzbiorem kategorii dziennika *inspekcji polecenia* . *polecenia-Audit — administrator* znacznie zmniejsza liczbę dzienników, wykluczając zdarzenia *pobierania* *i inspekcji* z dziennika.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Zaplanuj test pod względem klastra AKS
 
@@ -67,7 +75,12 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Wyświetlanie zebranych dzienników
 
-Włączenie i wyświetlenie dzienników diagnostycznych może potrwać kilka minut. W Azure Portal przejdź do klastra AKS, a następnie wybierz pozycję **dzienniki** po lewej stronie. Zamknij okno *przykładowe zapytania* , jeśli pojawia się.
+Włączenie i wyświetlenie dzienników diagnostycznych może potrwać kilka minut.
+
+> [!NOTE]
+> Jeśli potrzebujesz wszystkich danych dziennika inspekcji pod kątem zgodności lub innych celów, Zbierz i Zapisz je w niedrogim magazynie, takim jak BLOB Storage. Kategoria dziennika *polecenia-Audit-admin* służy do zbierania i zapisywania zrozumiałego zestawu danych dziennika inspekcji na potrzeby monitorowania i wysyłania alertów.
+
+W Azure Portal przejdź do klastra AKS, a następnie wybierz pozycję **dzienniki** po lewej stronie. Zamknij okno *przykładowe zapytania* , jeśli pojawia się.
 
 Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
 
@@ -85,6 +98,24 @@ AzureDiagnostics
 | where log_s contains "nginx"
 | project log_s
 ```
+
+Aby wyświetlić dzienniki *polecenia-Audit-admin* , w polu tekstowym wprowadź następujące zapytanie:
+
+```
+AzureDiagnostics
+| where Category == "kube-audit-admin"
+| project log_s
+```
+
+W tym przykładzie zapytanie pokazuje wszystkie zadania tworzenia w *polecenia-Audit-admin*. Prawdopodobnie zwrócono wiele wyników, aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu.
+
+```
+AzureDiagnostics
+| where Category == "kube-audit-admin"
+| where log_s contains "nginx"
+| project log_s
+```
+
 
 Aby uzyskać więcej informacji na temat wykonywania zapytań i filtrowania danych dziennika, zobacz [Wyświetlanie lub analizowanie danych zbieranych za pomocą wyszukiwania dzienników usługi log Analytics][analyze-log-analytics].
 

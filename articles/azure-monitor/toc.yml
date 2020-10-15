@@ -214,6 +214,8 @@
           href: log-query/scope.md
         - name: Prosta obsługa dzienników
           href: log-query/simple-logs.md
+        - name: Tworzenie zapytań za pomocą usługi Azure Data Explorer
+          href: platform/azure-data-explorer-monitor-proxy.md
         - name: Rejestrowanie zapytań
           items:
             - name: Kolumny standardowe
@@ -303,6 +305,14 @@
               href: platform/service-providers.md
             - name: Dedykowane klastry
               href: log-query/logs-dedicated-clusters.md
+        - name: Eksport danych
+          items:
+            - name: Eksportowanie danych obszaru roboczego
+              href: platform/logs-data-export.md
+            - name: Eksportowanie za pomocą usługi Logic Apps
+              href: platform/logs-export-logic-app.md
+            - name: Wykonywanie zapytań dotyczących eksportowanych danych za pomocą usługi Data Explorer
+              href: platform/azure-data-explorer-query-storage.md
     - name: Eksplorator metryk
       items:
         - name: Wprowadzenie do Eksploratora metryk

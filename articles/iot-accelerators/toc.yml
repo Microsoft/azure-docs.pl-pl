@@ -23,7 +23,7 @@
       href: iot-accelerators-device-simulation-overview.md
     - name: Konserwacja zapobiegawcza
       href: iot-accelerators-predictive-walkthrough.md
-- name: Przewodniki Szybki Start
+- name: Przewodniki Szybki start
   expanded: true
   items:
     - name: Testowanie rozwiązania do monitorowania zdalnego
@@ -198,31 +198,31 @@
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Usługi Azure IoT
       items:
         - name: Usługa IoT Hub
-          href: /azure/iot-hub
+          href: ../iot-hub/index.yml
         - name: Usługa IoT Hub Device Provisioning
-          href: /azure/iot-dps
+          href: ../iot-dps/index.yml
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ../iot-edge/index.yml
         - name: Akceleratory rozwiązań IoT
-          href: /azure/iot-accelerators
+          href: ./index.yml
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: ../iot-pnp/index.yml
         - name: Azure Maps
-          href: /azure/azure-maps
+          href: ../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../time-series-insights/index.yml
     - name: Zestawy SDK usługi Azure IoT
       items:
         - name: Zestawy SDK usługi IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: Zestawy SDK urządzeń IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Zdalne monitorowanie
       items:
         - name: Przewodnik informacyjny dla deweloperów (.NET)
@@ -252,7 +252,7 @@
     - name: Repozytorium GitHub konserwacji predykcyjnej
       href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
     - name: Architektura referencyjna
-      href: iot-accelerators-architecture-overview.md
+      href: /azure/architecture/reference-architectures/iot
       items:
         - name: Pobierz
           href: 'https://aka.ms/iotrefarchitecture'
@@ -264,9 +264,9 @@
               href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
             - name: Rozwiązania oznakowania cyfrowego
               href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
-    - name: Najczęściej zadawane pytania
+    - name: Często zadawane pytania
       href: iot-accelerators-faq.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'
     - name: Zdalne monitorowanie w wersji 1
-      href: 'https://docs.microsoft.com/previous-versions/azure/iot-suite/'
+      href: /previous-versions/azure/iot-suite/

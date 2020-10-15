@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: Definicje zasad
           href: /rest/api/resources/policydefinitions
+        - name: Wykluczenia zasad
+          href: /rest/api/resources/policyexemptions
         - name: Definicje inicjatyw
           href: /rest/api/resources/policysetdefinitions
         - name: Zasoby śledzone przez zasady

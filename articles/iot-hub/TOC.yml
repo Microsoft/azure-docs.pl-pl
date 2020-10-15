@@ -220,6 +220,8 @@
               href: iot-hub-reliability-features-in-sdks.md
             - name: Programowanie dla platformy Android Things
               href: iot-hub-how-to-android-things.md
+        - name: Programowanie bez zestawu SDK usługi Azure IoT
+          href: iot-hub-devguide-no-sdk.md
         - name: Wykonywanie zapytań o dane Avro przy użyciu trasy centrum
           href: iot-hub-query-avro-data.md
         - name: Określanie kolejności zdarzeń stanów połączeń z urządzeniami z usługi Event Grid

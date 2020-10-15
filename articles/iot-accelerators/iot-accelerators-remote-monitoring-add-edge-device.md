@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72965370"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076457"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Dodawanie urządzenia IoT Edge do akceleratora rozwiązania do monitorowania zdalnego
 
@@ -40,15 +40,15 @@ Istnieje również możliwość zarejestrowania urządzenia IoT Edge bezpośredn
 
 Po zarejestrowaniu urządzenia bezpośrednio w usłudze IoT Hub w akceleratorze rozwiązania do monitorowania zdalnego jest on wyświetlany na stronie **Device Explorer** w interfejsie użytkownika sieci Web.
 
-## <a name="install-the-iot-edge-runtime"></a>Zainstaluj środowisko uruchomieniowe IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalowanie środowiska uruchomieniowego usługi IoT Edge
 
 Aby można było wdrażać moduły na urządzeniu brzegowym, należy zainstalować środowisko uruchomieniowe IoT Edge na rzeczywistym urządzeniu. Poniższe przewodniki przedstawiają sposób instalowania środowiska uruchomieniowego na popularnych platformach urządzeń:
 
 - [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)
-- [Instalowanie Azure IoT Edge środowiska uruchomieniowego w systemie Windows do użycia z kontenerami systemu Windows](../iot-edge/how-to-install-iot-edge-windows-with-windows.md)
+- [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
+- [Instalowanie Azure IoT Edge środowiska uruchomieniowego w systemie Windows do użycia z kontenerami systemu Windows](../iot-edge/how-to-install-iot-edge-windows.md)
 - [Zainstaluj środowisko uruchomieniowe Azure IoT Edge w systemie Windows do użycia z kontenerami systemu Linux](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core](../iot-edge/how-to-install-iot-core.md)
+- [Zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
