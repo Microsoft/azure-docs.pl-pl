@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683791"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075675"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Rozwiązywanie problemów z aplikacjami, które nie obsługują protokołu TLS 1,2
 W tym artykule opisano sposób włączania starszych protokołów TLS (TLS 1,0 i 1,1) oraz stosowania starszych mechanizmów szyfrowania w celu obsługi dodatkowych protokołów w systemie Windows Server 2019 w sieci Web i roli procesu roboczego usługi w chmurze. 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób włączania starszych protokołów TLS (TLS 1,0 i
 Firma Microsoft zdaje sobie sprawę, że podczas wykonywania kroków w celu wycofania protokołu TLS 1,0 i TLS 1,1 klienci mogą potrzebować obsługi starszych protokołów i mechanizmów szyfrowania do momentu, gdy będą mogli zaplanować ich wycofanie.  Mimo że nie zalecamy ponownego włączenia tych starszych wartości, udostępniamy wskazówki ułatwiające klientom. Zachęcamy klientów do ocenienia ryzyka związanego z regresją przed wdrożeniem zmian opisanych w tym artykule. 
 
 > [!NOTE]
-> Rodzina systemów operacyjnych gościa 6 wymusza protokół TLS 1,2 przez jawne wyłączenie protokołu TLS 1,0 i 1,1 i zdefiniowanie określonego zestawu mechanizmów szyfrowania. Aby uzyskać więcej informacji na temat rodzin systemów operacyjnych gościa, zobacz informacje o [wersji systemu operacyjnego gościa](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> Rodzina systemów operacyjnych gościa 6 wymusza protokół TLS 1,2 przez jawne wyłączenie protokołu TLS 1,0 i 1,1 i zdefiniowanie określonego zestawu mechanizmów szyfrowania. Aby uzyskać więcej informacji na temat rodzin systemów operacyjnych gościa, zobacz informacje o [wersji systemu operacyjnego gościa](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Porzucanie pomocy technicznej dla protokołów TLS 1,0, TLS 1,1 i starszych mechanizmów szyfrowania 
@@ -362,4 +362,3 @@ Teraz, po wykonaniu powyższych kroków, opublikuj aktualizację w istniejącej 
 
 Możesz użyć [SSLLabs](https://www.ssllabs.com/) , aby sprawdzić stan protokołu TLS punktów końcowych 
 
- 
