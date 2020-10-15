@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210352"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093280"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Korzystanie z usług zewnętrznych z usługi Azure API Management
 Zasady dostępne w usłudze Azure API Management mogą wykonywać szeroką gamę przydatnych działań na przykład na żądanie przychodzące, odpowiedź wychodzącą i podstawowe informacje o konfiguracji. Jednak możliwość współpracy z usługami zewnętrznymi z poziomu zasad API Management otwiera dużo więcej szans.
@@ -178,7 +178,7 @@ Pierwszym krokiem tworzenia zasobu pulpitu nawigacyjnego jest skonfigurowanie no
 ### <a name="making-the-requests"></a>Wykonywanie żądań
 Po utworzeniu operacji można skonfigurować zasady przeznaczone dla tej operacji. 
 
-![Operacja pulpitu nawigacyjnego](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Zrzut ekranu przedstawiający ekran zakresu zasad.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 Pierwszym krokiem jest wyodrębnienie wszystkich parametrów zapytania z przychodzącego żądania, dzięki czemu można je przesłać dalej do zaplecza. W tym przykładzie pulpit nawigacyjny wyświetla informacje w oparciu o pewien czas i dlatego ma `fromDate` `toDate` parametr i. Możesz użyć zasad, `set-variable` Aby wyodrębnić informacje z adresu URL żądania.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334841"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093365"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -486,7 +486,7 @@ Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządza
 
 - [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Zarządzanie punktami odzyskiwania Azure Backup za pomocą Access Control Role-Based](./backup-rbac-rs-vault.md)
+- [Używanie kontroli dostępu opartej na rolach na platformie Azure do zarządzania Azure Backup punktów odzyskiwania](./backup-rbac-rs-vault.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
