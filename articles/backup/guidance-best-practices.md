@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985523"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092311"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -42,13 +42,13 @@ Azure Backup umożliwia ochronę danych w różnych obciążeniach (lokalnie i w
 
 * **Złośliwa ochrona usuwania —** Chroń przed przypadkową i złośliwą próbą usuwania kopii zapasowych za pomocą nietrwałego usuwania kopii zapasowych. Usunięte dane kopii zapasowej są przechowywane przez 14 dni bezpłatnie i umożliwiają ich odzyskanie z tego stanu.
 
-* **Bezpieczne szyfrowane kopie zapasowe —** Azure Backup gwarantuje, że dane kopii zapasowej są przechowywane w bezpieczny sposób, wykorzystując wbudowane funkcje zabezpieczeń platformy Azure, takie jak RBAC i szyfrowanie.
+* **Bezpieczne szyfrowane kopie zapasowe —** Azure Backup gwarantuje, że dane kopii zapasowej są przechowywane w bezpieczny sposób, wykorzystując wbudowane funkcje zabezpieczeń platformy Azure, takie jak RBAC i szyfrowanie platformy Azure.
 
 * **Zarządzanie cyklem życia danych kopii zapasowych —** Azure Backup automatycznie czyści starsze dane kopii zapasowej, aby zachować zgodność z zasadami przechowywania. Możesz również warstwy danych z magazynu operacyjnego do magazynu magazynów.
 
 ### <a name="management-plane"></a>Płaszczyzna zarządzania
 
-* **Kontrola dostępu** — magazyny (Recovery Services i magazyny kopii zapasowych) zapewniają możliwości zarządzania i są dostępne za pośrednictwem Azure Portal, centrum kopii zapasowych, pulpitów nawigacyjnych magazynu, zestawu SDK, interfejsu wiersza polecenia, a nawet interfejsów API REST. Jest ona również granicą RBAC, zapewniając możliwość ograniczenia dostępu do kopii zapasowych tylko dla autoryzowanych administratorów kopii zapasowych.
+* **Kontrola dostępu** — magazyny (Recovery Services i magazyny kopii zapasowych) zapewniają możliwości zarządzania i są dostępne za pośrednictwem Azure Portal, centrum kopii zapasowych, pulpitów nawigacyjnych magazynu, zestawu SDK, interfejsu wiersza polecenia, a nawet interfejsów API REST. Jest to również granica RBAC na platformie Azure, zapewniając możliwość ograniczenia dostępu do kopii zapasowych tylko dla autoryzowanych administratorów kopii zapasowych.
 
 * **Zarządzanie zasadami** — zasady Azure Backup w ramach każdego magazynu definiują, kiedy kopie zapasowe mają być wyzwalane oraz jak długo muszą być przechowywane. Można także zarządzać tymi zasadami i stosować je w wielu elementach.
 

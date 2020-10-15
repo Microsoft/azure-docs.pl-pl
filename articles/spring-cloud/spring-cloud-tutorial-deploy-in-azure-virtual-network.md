@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892896"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088673"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
 
@@ -27,7 +27,7 @@ Wdrożenie umożliwia:
 * Umożliwienie klientom kontrolowania przychodzącej i wychodzącej komunikacji sieciowej dla chmury wiosennej platformy Azure
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Należy zarejestrować dostawcę zasobów w chmurze usługi Azure wiosny `Microsoft.AppPlatform` zgodnie z instrukcjami [rejestrowania dostawcy zasobów na Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) lub przez uruchomienie następującego polecenia AZ CLI:
+Należy zarejestrować dostawcę zasobów w chmurze usługi Azure wiosny `Microsoft.AppPlatform` zgodnie z instrukcjami [rejestrowania dostawcy zasobów na Azure Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) lub przez uruchomienie następującego polecenia AZ CLI:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -83,7 +83,7 @@ Wybierz wcześniej utworzoną sieć wirtualną *Azure-sprężynę i chmurę* .
     |Ustawienie  |Wartość                                             |
     |---------|--------------------------------------------------|
     |Rola     |Wybierz **właściciela**                                  |
-    |Wybierz   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
+    |Wybierz pozycję   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
 
     Następnie wybierz pozycję *dostawca zasobów w chmurze Azure wiosny*, a następnie kliknij przycisk **Zapisz**.
 
@@ -154,7 +154,7 @@ Te zasoby sieciowe są połączone z siecią wirtualną utworzoną powyżej.
 
 [Wdrażanie aplikacji w chmurze Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Rozwiązywanie problemów z chmurą wiosenną platformy Azure w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Obowiązki klientów do uruchamiania chmury Azure wiosny w sieci wirtualnej](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

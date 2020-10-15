@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1d7196f85f64ed466e99986996832952ffe1d59c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe6f72b60257a1101765dcb539cc3e0eb1d2346e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336262"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090050"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -21,7 +21,7 @@ ms.locfileid: "91336262"
 Ten przewodnik Szybki Start wyjaśnia, jak wdrożyć prostą aplikację mikrousług w chmurze Azure wiosną do uruchamiania na platformie Azure.
 
 >[!NOTE]
-> Obsługa steeltoe w chmurze z systemem Azure jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji o obsłudze wersji zapoznawczych, zapoznaj się z tematem [często zadawanych pytań](https://azure.microsoft.com/support/faq/) lub pliku [support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Obsługa steeltoe w chmurze z systemem Azure jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji o obsłudze wersji zapoznawczych, zapoznaj się z tematem [często zadawanych pytań](https://azure.microsoft.com/support/faq/) lub pliku [support Request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 Postępując zgodnie z tym przewodnikiem Szybki Start, dowiesz się, jak:
 
@@ -37,7 +37,7 @@ Kod aplikacji używany w tym przewodniku szybki start to prosta aplikacja skompi
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Zestaw SDK platformy .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1). Usługa w chmurze Azure wiosennej obsługuje program .NET Core 3,1 i jego nowsze wersje.
-* [Interfejs wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Interfejs wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * Usługi [git](https://git-scm.com/).
 
 ## <a name="install-azure-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia platformy Azure
@@ -338,10 +338,10 @@ Ten przewodnik Szybki Start wyjaśnia, jak:
 
 Aby ukończyć ten przewodnik Szybki start:
 
-* [Zainstaluj program JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Zainstaluj program JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Zarejestruj się w celu uzyskania subskrypcji platformy Azure](https://azure.microsoft.com/free/)
-* Obowiązkowe [Zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) oraz rozszerzenie chmury wiosennej platformy Azure z poleceniem: `az extension add --name spring-cloud`
-* Obowiązkowe [Zainstaluj Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) i [Zaloguj się](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* Obowiązkowe [Zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) oraz rozszerzenie chmury wiosennej platformy Azure z poleceniem: `az extension add --name spring-cloud`
+* Obowiązkowe [Zainstaluj Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) i [Zaloguj się](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="generate-a-spring-cloud-project"></a>Generowanie projektu wiosennej chmury
 
@@ -439,7 +439,7 @@ Poniższa procedura używa wtyczki IntelliJ dla chmury wiosennej platformy Azure
     ![Importuj projekt](media/spring-cloud-quickstart-java/intellij-new-project.png)
 
 ### <a name="deploy-the-app"></a>Wdrażanie aplikacji
-Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platformy Azure i wybrać subskrypcję.  Aby uzyskać szczegółowe informacje dotyczące logowania, zobacz [Instalowanie i logowanie](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platformy Azure i wybrać subskrypcję.  Aby uzyskać szczegółowe informacje dotyczące logowania, zobacz [Instalowanie i logowanie](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure**  ->  **Deploy w chmurze Azure wiosennej**.
 
@@ -448,7 +448,7 @@ Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platfo
 1. Zaakceptuj nazwę aplikacji w polu **Nazwa** . **Nazwa** odwołuje się do konfiguracji, a nie nazwy aplikacji. Użytkownicy zazwyczaj nie muszą go zmieniać.
 1. W polu tekstowym **artefaktu** wybierz pozycję *hellospring-0.0.1-Snapshot. jar*.
 1. W polu tekstowym **subskrypcja** Sprawdź swoją subskrypcję.
-1. W polu tekstowym **chmura Wiosenna** wybierz wystąpienie chmury Azure wiosennej, która została utworzona w ramach aprowizacji [wystąpienia chmury wiosennej platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. W polu tekstowym **chmura Wiosenna** wybierz wystąpienie chmury Azure wiosennej, która została utworzona w ramach aprowizacji [wystąpienia chmury wiosennej platformy Azure](./spring-cloud-quickstart-provision-service-instance.md).
 1. Ustaw **publiczny punkt końcowy** , aby *włączyć*.
 1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..**..
 1. Wprowadź *hellospring*, a następnie kliknij przycisk **OK**.

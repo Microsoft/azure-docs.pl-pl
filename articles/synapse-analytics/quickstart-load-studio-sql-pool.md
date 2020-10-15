@@ -4,17 +4,17 @@ description: Ładowanie danych za pomocą programu Synapse Studio w programie SQ
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: quickstart
 ms.subservice: sql
+ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 142309f75d3b7c93204bb9eaa8e5e0254f879c43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4dd0455c73395b3f3b883032d25160f0ea299cea
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91568913"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090628"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Szybki Start: ładowanie zbiorcze przy użyciu języka SQL Synapse
 

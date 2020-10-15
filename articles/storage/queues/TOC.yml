@@ -266,10 +266,10 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Ułatwienia dostępu Eksploratora usługi Storage
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Usługa Azure Storage w witrynie Microsoft Q&A
+    - name: Usługa Queue Storage w witrynie Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
-    - name: Usługa Azure Storage w witrynie Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Usługa Queue Storage w witrynie Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-queues'
     - name: Cennik usługi Queue Storage
       href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: Kalkulator cen platformy Azure

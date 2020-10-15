@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243549"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070949"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Obsługa błędów w zasadach usługi API Management
 
@@ -190,4 +190,4 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 -   [Zasady w API Management](api-management-howto-policies.md)
 -   [Przekształć interfejsy API](transform-api.md)
 -   [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
--   [Przykłady zasad](policy-samples.md)
+-   [Przykłady zasad](./policy-reference.md)

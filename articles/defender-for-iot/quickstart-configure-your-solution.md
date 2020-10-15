@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3ecb2e2022cab80abf6a8692ac8cc3ba54eff1e4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f949d52d4ba461da94153cbbd17ca5fb3eb214d7
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947802"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092090"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Szybki Start: Konfigurowanie rozwiązania Azure Defender for IoT
 
@@ -43,7 +43,7 @@ Po zdefiniowaniu wszystkich relacji zasobów usługa Defender for IoT korzysta z
 Aby dodać nowy zasób do rozwiązania IoT, wykonaj następujące czynności:
 
 1. Otwórz **IoT Hub** w Azure Portal.
-1. Wybierz i Otwórz **Ustawienia** z sekcji **zabezpieczenia** w menu po lewej stronie, a następnie wybierz pozycję **monitorowane zasoby**.
+1. W obszarze **zabezpieczenia** wybierz pozycję **Przegląd** , a następnie pozycję **Ustawienia**, a następnie wybierz opcję **monitorowane zasoby**.
 1. Wybierz pozycję **Edytuj** i wybierz monitorowane zasoby należące do rozwiązania IoT.
 1. Kliknij pozycję **Dodaj**.
 

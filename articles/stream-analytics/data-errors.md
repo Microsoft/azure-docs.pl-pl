@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053154"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072003"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Błędy danych Azure Stream Analytics
 
@@ -211,6 +211,10 @@ Zobacz [Rozwiązywanie problemów Azure Stream Analytics przy użyciu dziennikó
 ```
 
 ## <a name="output-data-errors"></a>Błędy danych wyjściowych
+
+Azure Stream Analytics może identyfikować błędy danych wyjściowych z lub bez żądania we/wy do ujścia danych wyjściowych w zależności od konfiguracji. Na przykład brakuje wymaganej kolumny, na przykład  `PartitionKey` podczas korzystania z danych wyjściowych w tabeli platformy Azure bez żądania we/wy. Jednak naruszenia ograniczeń w danych wyjściowych SQL wymagają żądania we/wy.
+
+Istnieje kilka błędów danych, które mogą być wykrywane tylko po wywołaniu ujścia danych wyjściowych, co może spowolnić przetwarzanie. Aby rozwiązać ten problem, Zmień konfigurację zadania lub zapytanie, które powoduje błąd danych.
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 

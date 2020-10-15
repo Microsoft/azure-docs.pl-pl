@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 657373bdc899cb53c8dd934d18d144fe37eb370b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874333"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071510"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Wdróż moduł OPC i zależności od podstaw
 
@@ -25,8 +25,8 @@ Moduł OPC bliźniaczy działa na IoT Edge i oferuje kilka usług brzegowych dla
 
 Istnieje kilka opcji wdrażania modułów do bramy [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) , między nimi
 
-- [Wdrażanie z bloku IoT Edge Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Wdrażanie przy użyciu polecenia AZ CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Wdrażanie z bloku IoT Edge Azure Portal](../iot-edge/how-to-deploy-modules-portal.md)
+- [Wdrażanie przy użyciu polecenia AZ CLI](../iot-edge/how-to-deploy-cli-at-scale.md)
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat szczegółów wdrożenia i instrukcje, zobacz [repozytorium](https://github.com/Azure/azure-iiot-components)GitHub.
@@ -117,7 +117,7 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge j
 
 1. Wdróż [zależności](howto-opc-twin-deploy-dependencies.md) OPC i uzyskać powstały `.env` plik. Zanotuj wdrożoną `hub name` `PCS_IOTHUBREACT_HUB_NAME` zmienną w `.env` pliku.
 
-2. Zarejestruj i uruchom bramę IoT Edge [systemu](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) lub Windows i zanotuj jej `device id` .
+2. Zarejestruj i uruchom bramę IoT Edge [systemu](../iot-edge/how-to-install-iot-edge-windows.md) [Linux](../iot-edge/how-to-install-iot-edge-linux.md) lub Windows i zanotuj jej `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Wdrażanie na urządzeniu brzegowym
 
@@ -143,7 +143,7 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge j
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Wypełnij pola opcjonalne w razie potrzeby. Aby uzyskać więcej informacji o opcjach tworzenia kontenera, zasadach ponownego uruchamiania i żądanym stanie, zobacz [EdgeAgent wymagane właściwości](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Aby uzyskać więcej informacji na temat sznurka modułu, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Wypełnij pola opcjonalne w razie potrzeby. Aby uzyskać więcej informacji o opcjach tworzenia kontenera, zasadach ponownego uruchamiania i żądanym stanie, zobacz [EdgeAgent wymagane właściwości](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties). Aby uzyskać więcej informacji na temat sznurka modułu, zobacz [Definiowanie lub aktualizowanie żądanych właściwości](../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 7. Wybierz pozycję **Zapisz** i powtórz krok **5**.  
 
@@ -182,7 +182,7 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge j
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure (az)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) w [tym miejscu](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Zainstaluj najnowszą wersję [interfejsu wiersza polecenia platformy Azure (az)](/cli/azure/?view=azure-cli-latest) w [tym miejscu](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Szybki start
 
@@ -195,7 +195,7 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge j
    ```
 
    W `device id` parametrze jest rozróżniana wielkość liter. Parametr Content wskazuje plik manifestu wdrożenia, który został zapisany. 
-    ![AZ IoT Edge Set-modules Output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![AZ IoT Edge Set-modules Output](/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Po wdrożeniu modułów na urządzeniu można wyświetlić wszystkie z nich za pomocą następującego polecenia:
 
@@ -203,7 +203,7 @@ Najprostszym sposobem wdrożenia modułów na urządzeniu bramy Azure IoT Edge j
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   W parametrze identyfikatora urządzenia jest rozróżniana wielkość liter. ![AZ IoT Hub module-Identity list Output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   W parametrze identyfikatora urządzenia jest rozróżniana wielkość liter. ![AZ IoT Hub module-Identity list Output](/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

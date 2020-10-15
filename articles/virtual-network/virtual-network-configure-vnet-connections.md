@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6532747c50311ada4df6a0038bd0e05f4d9ce31
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400710"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089694"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Konfigurowanie i weryfikowanie połączeń sieci wirtualnej lub sieci VPN
 
@@ -122,7 +122,7 @@ Można utworzyć połączenie między sieciami wirtualnymi znajdującymi się w 
 
 Aby skonfigurować połączenie między klasyczną siecią wirtualną a siecią wirtualną Menedżer zasobów, zobacz [łączenie sieci wirtualnych z różnych modeli wdrażania przy użyciu Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Klasyczne połączenie sieci wirtualnej z siecią wirtualną Azure Resource Manager](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagram przedstawiający klasyczne połączenie sieci wirtualnej z Azure Resource Manager sieci wirtualnej.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 Aby sprawdzić konfigurację podczas łączenia klasycznej sieci wirtualnej z siecią wirtualną Azure Resource Manager, wykonaj te instrukcje.
 
