@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38d92a13c9a66defc2d5090990b44a889cfd21c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442495"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076236"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Autoryzacja żądań za pomocą zewnętrznego obiektu autoryzującego
 
-W tym artykule przedstawiono przykład zasad zarządzania interfejsem API platformy Azure, który demonstruje sposób zabezpieczania dostępu do interfejsu API przy użyciu zewnętrznego, autoryzowanego do hermetyzacji logiki uwierzytelniania niestandardowego/autoryzacji. Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-samples.md).
+W tym artykule przedstawiono przykład zasad zarządzania interfejsem API platformy Azure, który demonstruje sposób zabezpieczania dostępu do interfejsu API przy użyciu zewnętrznego, autoryzowanego do hermetyzacji logiki uwierzytelniania niestandardowego/autoryzacji. Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-reference.md).
 
 ## <a name="policy"></a>Zasady
 
@@ -35,4 +35,4 @@ Wklej kod do bloku **przychodzącego** .
 Dowiedz się więcej na temat zasad APIMymi:
 
 + [Zasady ograniczeń dostępu](../api-management-access-restriction-policies.md)
-+ [Przykłady zasad](../policy-samples.md)
++ [Przykłady zasad](../policy-reference.md)

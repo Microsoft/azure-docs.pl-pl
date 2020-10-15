@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767715"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076168"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji Azure Functions
 
@@ -149,7 +149,7 @@ Biblioteki zarządzania funkcjami platformy .NET zwiększają platformę z obsł
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono flagę funkcji i użyto jej z aplikacją Azure Functionsową za pośrednictwem [dostawcy konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664).
+W tym przewodniku szybki start utworzono flagę funkcji i użyto jej z aplikacją Azure Functionsową za pośrednictwem [dostawcy konfiguracji aplikacji](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 - Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md).
 - [Zarządzaj flagami funkcji](./manage-feature-flags.md).
