@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: fd36006292de68e1433ccdfb721c1a4613d0658a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ffbed56b15b55b28bf150b90e489be9e4cfeaf
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580073"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090424"
 ---
 # <a name="iot-plug-and-play-device-developer-guide-c"></a>Przewodnik dla deweloperów urządzeń IoT Plug and Play (C#)
 
@@ -60,7 +60,7 @@ W przypadku używania składników zagnieżdżonych urządzenia muszą ustawiać
 public async Task SendComponentTelemetryValueAsync(string componentName, string serializedTelemetry)
 {
   var message = new Message(Encoding.UTF8.GetBytes(serializedTelemetry));
-  message.Properties.Add("$.sub", componentName);
+  message.ComponentName = componentName;
   message.ContentType = "application/json";
   message.ContentEncoding = "utf-8";
   await client.SendEventAsync(message);

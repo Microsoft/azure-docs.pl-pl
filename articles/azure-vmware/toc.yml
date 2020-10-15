@@ -64,6 +64,8 @@
       href: ./deploy-vm-content-library.md
     - name: Konfigurowanie serwera usługi GitHub Enterprise
       href: github-enterprise-server.md
+    - name: Używanie publicznego adresu IP
+      href: public-ip-usage.md
     - name: Tworzenie tunelu IPSec
       href: create-ipsec-tunnel.md
     - name: Integracja z funkcjami macierzystymi platformy Azure
@@ -84,8 +86,6 @@
           href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Traffic Manager
           href: deploy-traffic-manager-balance-workloads.md
-        - name: Używanie publicznego adresu IP
-          href: public-ip-usage.md
     - name: Rozwiązania VMware
       items:
         - name: Konfigurowanie operacji vRealize

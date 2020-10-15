@@ -1,15 +1,18 @@
 - name: Usługa Azure Active Directory dla deweloperów
   href: index.yml
 - name: Omówienie
-  href: v1-overview.md
-- name: Samples
-  href: sample-v1-code.md
-- name: Pojęcia
+  expanded: true
   items:
+    - name: Omówienie
+      href: v1-overview.md
     - name: Ewolucja platformy tożsamości firmy Microsoft
       href: about-microsoft-identity-platform.md
     - name: Dlaczego warto zaktualizować do wersji 2.0
       href: azure-ad-endpoint-comparison.md
+- name: Samples
+  href: sample-v1-code.md
+- name: Pojęcia
+  items:
     - name: Typy aplikacji
       items:
         - name: Typy aplikacji

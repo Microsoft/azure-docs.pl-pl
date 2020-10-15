@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2a205daeffb659ce0dd5756066d11691a89c166e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664957"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072122"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Obsługa zdarzeń w usłudze Azure Communications Services
 
@@ -36,9 +36,9 @@ Usługi komunikacyjne platformy Azure emitują następujące typy zdarzeń:
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft. Communications. SMSReceived                         | Opublikowano po odebraniu wiadomości SMS przez numer telefonu skojarzony z usługą komunikacji. |
 | Microsoft. Communications. SMSDeliveryReportReceived           | Opublikowany po odebraniu raportu o dostarczeniu dla wiadomości SMS wysłanej przez usługę komunikacyjną.     |
-| Microsoft. Communications. ChatMessageReceived *                | Opublikowano po odebraniu komunikatu dla użytkownika w wątku rozmowy, do którego należy.        |
-| Microsoft. Communications. ChatMessageEdited *                   | Opublikowano, gdy komunikat jest edytowany w wątku rozmowy, do którego należy użytkownik.                |
-| Microsoft. Communications. ChatMessageDeleted *                  | Opublikowano, gdy wiadomość zostanie usunięta w wątku czatu, do którego należy użytkownik.               |
+| Microsoft. Communications. ChatMessageReceived                | Opublikowano po odebraniu komunikatu dla użytkownika w wątku rozmowy, do którego należy.        |
+| Microsoft. Communications. ChatMessageEdited                   | Opublikowano, gdy komunikat jest edytowany w wątku rozmowy, do którego należy użytkownik.                |
+| Microsoft. Communications. ChatMessageDeleted                  | Opublikowano, gdy wiadomość zostanie usunięta w wątku czatu, do którego należy użytkownik.               |
 | Microsoft. Communications. ChatThreadCreatedWithUser           | Opublikowano, gdy użytkownik jest dodawany jako członek w momencie utworzenia wątku rozmowy.           |
 | Microsoft. Communications. ChatThreadWithUserDeleted           | Opublikowano, gdy wątek rozmowy został usunięty, którego członkiem jest użytkownik.                           |
 | Microsoft. Communications. ChatThreadPropertiesUpdatedPerUser  | Opublikowano, gdy właściwości wątku rozmowy są aktualizowane, których użytkownik jest członkiem.              |
@@ -47,7 +47,6 @@ Usługi komunikacyjne platformy Azure emitują następujące typy zdarzeń:
 
 Możesz użyć Azure Portal lub interfejsu wiersza polecenia platformy Azure, aby subskrybować zdarzenia emitowane przez zasób usług komunikacyjnych. Rozpocznij pracę z obsługą zdarzeń, analizując [sposób obsługi zdarzeń programu SMS w usługach komunikacyjnych](../quickstarts/telephony-sms/handle-sms-events.md)
 
-* Upewnij się, że w wywołaniu interfejsu API "Wyślij wiadomość" zostanie podane "nazwa nadawcy", aby te zdarzenia zostały wyzwolone.
 
 ## <a name="event-subjects"></a>Tematy zdarzeń
 

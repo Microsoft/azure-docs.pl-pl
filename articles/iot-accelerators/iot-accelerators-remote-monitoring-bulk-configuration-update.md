@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d2ac4f1e80c24a750e0e5f8eb22850718594a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363158"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071034"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Samouczek: zarządzanie połączonymi urządzeniami w trybie zbiorczym
 
@@ -59,7 +59,7 @@ Przed rozpoczęciem:
 * Upewnij się, że [program inicjujący na urządzeniu IoT DevKit jest w wersji 1.4.0 lub nowszej](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Upewnij się, że zestaw SDK urządzenia IoT DevKit jest w tej samej wersji co program inicjujący. Zestaw SDK urządzenia IoT DevKit możesz zaktualizować za pomocą rozszerzenia Azure IoT Workbench w programie VS Code. Otwórz paletę poleceń i wprowadź polecenie **Arduino: Board Manager**. Aby uzyskać więcej informacji, zobacz [Przygotowywanie środowiska deweloperskiego](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-Musisz również połączyć co najmniej jedno urządzenie IoT DevKit z akceleratorem rozwiązania do monitorowania zdalnego. Jeśli nie połączono jeszcze urządzenia IoT DevKit, zobacz [Łączenie urządzenia MXChip IoT DevKit AZ3166 z akceleratorem rozwiązania do monitorowania zdalnego IoT](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Musisz również połączyć co najmniej jedno urządzenie IoT DevKit z akceleratorem rozwiązania do monitorowania zdalnego. Jeśli nie połączono jeszcze urządzenia IoT DevKit, zobacz [Łączenie urządzenia MXChip IoT DevKit AZ3166 z akceleratorem rozwiązania do monitorowania zdalnego IoT](./iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Przechodzenie do pulpitu nawigacyjnego
 
@@ -274,4 +274,4 @@ Na stronie **Wdrożenia** kliknij wdrożenie, aby wyświetlić stan urządzeń p
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku pokazano, jak zaktualizować oprogramowanie układowe grupy urządzeń połączonych z rozwiązaniem. Do aktualizowania urządzeń rozwiązanie używa funkcji automatycznego zarządzania urządzeniami. Aby dowiedzieć się więcej na temat funkcji automatycznego zarządzania urządzeniami działającej w bazowym centrum IoT rozwiązania, zobacz [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę przy użyciu witryny Azure Portal](../iot-hub/iot-hub-auto-device-config.md).
+W tym samouczku pokazano, jak zaktualizować oprogramowanie układowe grupy urządzeń połączonych z rozwiązaniem. Do aktualizowania urządzeń rozwiązanie używa funkcji automatycznego zarządzania urządzeniami. Aby dowiedzieć się więcej na temat funkcji automatycznego zarządzania urządzeniami działającej w bazowym centrum IoT rozwiązania, zobacz [Konfigurowanie i monitorowanie urządzeń IoT na dużą skalę przy użyciu witryny Azure Portal](../iot-hub/iot-hub-automatic-device-management.md).
