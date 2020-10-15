@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264613"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072751"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ W tym artykule pokazano, jak za pomocą sieci *korzystającą wtyczki kubenet* u
 > [!WARNING]
 > Aby korzystać z pul węzłów systemu Windows Server, należy użyć usługi Azure CNI. Użycie korzystającą wtyczki kubenet jako modelu sieci nie jest dostępne w przypadku kontenerów systemu Windows Server.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.65 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -56,7 +56,7 @@ W przypadku *usługi Azure CNI*każdy z nich otrzymuje adres IP w podsieci IP i 
 * W przeciwieństwie do klastrów usługi Azure CNI, wiele klastrów korzystającą wtyczki kubenet nie może współdzielić podsieci.
 * Funkcje **nieobsługiwane w programie korzystającą wtyczki kubenet** obejmują:
    * [Zasady sieci platformy Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), ale zasady sieciowe Calico są obsługiwane w usłudze korzystającą wtyczki kubenet
-   * [Pule węzłów systemu Windows](windows-node-limitations.md)
+   * [Pule węzłów systemu Windows](./windows-faq.md)
    * [Dodatek węzłów wirtualnych](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Dostępność i wyczerpanie adresów IP

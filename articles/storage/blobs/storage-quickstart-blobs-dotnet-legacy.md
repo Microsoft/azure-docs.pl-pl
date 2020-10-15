@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001420"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091427"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v11 dla platformy .NET
 
-Rozpocznij pracę z biblioteką klienta Blob Storage platformy Azure v11 dla platformy .NET. Usługa Azure Blob Storage to rozwiązanie magazynu obiektów firmy Microsoft dla chmury. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury.
+Rozpocznij pracę z biblioteką klienta Blob Storage platformy Azure v11 dla platformy .NET. Usługa Azure Blob Storage to rozwiązanie magazynu obiektów firmy Microsoft dla chmury. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury.
 
 > [!NOTE]
 > Ten przewodnik Szybki Start używa starszej wersji biblioteki klienta usługi Azure Blob Storage. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Azure Blob Storage Client Library V12 for .NET](storage-quickstart-blobs-dotnet.md).
@@ -33,7 +33,7 @@ Użyj biblioteki klienta Blob Storage platformy Azure dla platformy .NET, aby:
 
 Dodatkowe zasoby:
 
-* [Dokumentacja referencyjna interfejsu API](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Dokumentacja referencyjna interfejsu API](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -205,7 +205,7 @@ Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności 
 
 ### <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Poniższy kod sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które można analizować, aby utworzyć obiekt [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) wskazujący na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, należy użyć metody [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Jeśli `TryParse` się powiedzie, inicjuje `storageAccount` zmienną i zwraca `true` .
+Poniższy kod sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które można analizować, aby utworzyć obiekt [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) wskazujący na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, należy użyć metody [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse). Jeśli `TryParse` się powiedzie, inicjuje `storageAccount` zmienną i zwraca `true` .
 
 Dodaj ten kod wewnątrz `ProcessAsync` metody:
 

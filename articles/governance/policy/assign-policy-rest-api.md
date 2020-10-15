@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: nowe przypisanie zasad przy użyciu interfejsu API REST'
 description: W tym przewodniku szybki start użyjesz interfejsu API REST do utworzenia przypisania Azure Policy, aby zidentyfikować niezgodne zasoby.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136522"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074009"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu interfejsu API REST
 
@@ -23,7 +23,7 @@ Interfejs API REST służy do tworzenia zasobów platformy Azure i zarządzania 
 
 - Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-- Jeśli jeszcze tego nie zrobiono, zainstaluj [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie, które wysyła żądania HTTP do interfejsów API REST opartych na Azure Resource Manager. Alternatywnie możesz użyć funkcji "Wypróbuj ją" w dokumentacji REST lub narzędzi, takich jak [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) lub [post](https://www.postman.com)programu PowerShell.
+- Jeśli jeszcze tego nie zrobiono, zainstaluj [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie, które wysyła żądania HTTP do interfejsów API REST opartych na Azure Resource Manager. Możesz również użyć funkcji "Wypróbuj ją" w dokumentacji REST lub narzędzi, takich jak [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) lub [post](https://www.postman.com)programu PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

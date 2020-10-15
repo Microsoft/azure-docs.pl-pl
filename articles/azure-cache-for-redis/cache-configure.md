@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000162"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089727"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Jak skonfigurować usługę Azure cache for Redis
 W tym temacie opisano konfiguracje dostępne dla usługi Azure cache dla wystąpień Redis. W tym temacie opisano również domyślną konfigurację serwera Redis dla usługi Azure cache dla wystąpień Redis.
@@ -33,7 +33,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
 * [Omówienie](#overview)
 * [Dziennik aktywności](#activity-log)
 * [Kontrola dostępu (IAM)](#access-control-iam)
-* [Tags](#tags)
+* [Tagi](#tags)
 * [Diagnozowanie i rozwiązywanie problemów](#diagnose-and-solve-problems)
 * [Ustawienia](#settings)
     * [Klawisze dostępu](#access-keys)
@@ -51,7 +51,7 @@ Poniższe ustawienia można wyświetlać i konfigurować za pomocą **menu zasó
     * [Skrypt usługi Automation](#automation-script)
 * Administracja
     * [Importowanie danych](#importexport)
-    * [Eksportuj dane](#importexport)
+    * [Eksportowanie danych](#importexport)
     * [Ponowne uruchamianie](#reboot)
 * [Monitorowanie](#monitoring)
     * [Metryki Redis](#redis-metrics)
@@ -72,9 +72,9 @@ Kliknij pozycję **Dziennik aktywności** , aby wyświetlić akcje wykonywane w 
 
 ### <a name="access-control-iam"></a>Kontrola dostępu (IAM)
 
-Sekcja **Kontrola dostępu (IAM)** zapewnia obsługę kontroli dostępu opartej na ROLACH (RBAC) w Azure Portal. Ta konfiguracja ułatwia organizacjom spełnienie wymagań związanych z zarządzaniem dostępem po prostu i precyzyjnie. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Sekcja **Kontrola dostępu (IAM)** zapewnia obsługę kontroli dostępu opartej na rolach (Azure RBAC) w Azure Portal. Ta konfiguracja ułatwia organizacjom spełnienie wymagań związanych z zarządzaniem dostępem po prostu i precyzyjnie. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach na platformie Azure w Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Tags
+### <a name="tags"></a>Tagi
 
 Sekcja **Tagi** pomaga organizować zasoby. Aby uzyskać więcej informacji, zobacz [Porządkowanie zasobów na platformie Azure za pomocą tagów](../azure-resource-manager/management/tag-resources.md).
 
@@ -291,7 +291,7 @@ Ustawienia w sekcji **Administracja** umożliwiają wykonywanie następujących 
 ![Administracja](./media/cache-configure/redis-cache-administration.png)
 
 * [Importowanie danych](#importexport)
-* [Eksportuj dane](#importexport)
+* [Eksportowanie danych](#importexport)
 * [Ponowne uruchamianie](#reboot)
 
 

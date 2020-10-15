@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905396"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091070"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Samouczek: Konfigurowanie automatycznego skalowania dla aplikacji mikrousług
 
@@ -25,7 +25,7 @@ Skalowanie automatyczne to wbudowana funkcja chmurowej platformy Azure, która u
 Aby wykonać te procedury, potrzebne są:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Wdrożone wystąpienie usługi w chmurze Azure wiosną. Aby rozpocząć pracę, postępuj zgodnie z [przewodnikiem Szybki Start dotyczącym wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) .
+* Wdrożone wystąpienie usługi w chmurze Azure wiosną. Aby rozpocząć pracę, postępuj zgodnie z [przewodnikiem Szybki Start dotyczącym wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](./spring-cloud-quickstart.md) .
 * Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Przejdź do strony automatycznego skalowania w Azure Portal
@@ -70,5 +70,5 @@ Jeśli korzystasz z warstwy Podstawowa i ograniczono jeden lub więcej z tych li
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie automatycznego skalowania w Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Skalowanie automatyczne monitorowania interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Omówienie automatycznego skalowania w Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Skalowanie automatyczne monitorowania interfejsu wiersza polecenia platformy Azure](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)
