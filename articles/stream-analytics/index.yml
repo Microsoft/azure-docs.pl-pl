@@ -10,12 +10,12 @@ metadata:
   author: mamccrea
   ms.author: mamccrea
   ms.date: 09/16/2019
-  ms.openlocfilehash: 2ef6663ce3ebf21227635fff763d45391281c955
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 0ed62ea8b209fd1bd959a714d457b447653c4f00
+  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "86119654"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92016233"
 landingContent:
 - title: Informacje o usłudze Azure Stream Analytics
   linkLists:
@@ -143,7 +143,7 @@ landingContent:
       url: stream-analytics-machine-learning-anomaly-detection.md
     - text: Przeprowadzanie analizy tonacji za pomocą usługi Azure Machine Learning Studio (klasycznej)
       url: stream-analytics-machine-learning-integration-tutorial.md
-    - text: Skalowanie zadań za pomocą funkcji usługi Machine Learning Studio
+    - text: Skalowanie zadań za pomocą funkcji usługi Azure Machine Learning Studio (wersja klasyczna)
       url: stream-analytics-scale-with-machine-learning-functions.md
 - title: Tworzenie zadań i zarządzanie nimi za pomocą narzędzi deweloperskich
   linkLists:
