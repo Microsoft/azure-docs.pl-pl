@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eace1ee1f97acaf04608d37c9edba482622bd59
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548292"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097375"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Jak utworzyć i zlokalizować kotwice przy użyciu grubej relokalizacji w języku C++/WinRT
 
@@ -31,7 +31,7 @@ Kotwice przestrzenne platformy Azure mogą kojarzyć dane z czujników na urząd
 
 Aby ukończyć ten przewodnik, upewnij się, że masz:
 
-- Podstawowa wiedza na temat języka C++ i <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">interfejsów api środowisko wykonawcze systemu Windows</a>.
+- Podstawowa wiedza na temat języka C++ i <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">interfejsów api środowisko wykonawcze systemu Windows</a>.
 - Zapoznaj się z [omówieniem zakotwiczenia przestrzennego platformy Azure](../overview.md).
 - Ukończono jedno z [5-minutowych przewodników szybki start](../index.yml).
 - Zapoznaj się z [tematem tworzenie i lokalizowanie kotwic](../create-locate-anchors-overview.md).

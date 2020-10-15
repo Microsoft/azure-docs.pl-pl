@@ -9,12 +9,12 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da941aa8b616fffeb2e283480c2a1e2f9cf7a093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45d345e8d8dbe45ecb4873904f31141111827647
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003120"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097358"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Rejestrowanie i Diagnostyka w kotwicach przestrzennych platformy Azure
 
@@ -43,9 +43,9 @@ Istnieją dwa wywołania zwrotne, które są istotne dla użytkownika. Poniższy
 
 Te wywołania zwrotne zdarzeń są udostępniane w celu przetworzenia dzienników i błędów z sesji:
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): określa poziom szczegółowości zdarzeń, które mają zostać odebrane ze środowiska uruchomieniowego.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): zawiera standardowe zdarzenia dziennika debugowania.
-- [Błąd](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): zawiera zdarzenia dziennika, których środowisko uruchomieniowe traktuje jako błędy.
+- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): określa poziom szczegółowości zdarzeń, które mają zostać odebrane ze środowiska uruchomieniowego.
+- [OnLogDebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): zawiera standardowe zdarzenia dziennika debugowania.
+- [Błąd](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error): zawiera zdarzenia dziennika, których środowisko uruchomieniowe traktuje jako błędy.
 
 ## <a name="diagnostics-logging"></a>Rejestrowanie diagnostyczne
 

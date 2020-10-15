@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045299"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097528"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integracja z usługą Logic Apps przy użyciu łącznika niestandardowego
 
@@ -93,9 +93,9 @@ Nastąpi przekierowanie do strony wdrożenia łącznika. Po zakończeniu wdraża
 
 Następnie skonfigurujesz utworzony łącznik, aby uzyskać dostęp do usługi Azure Digital bliźniaczych reprezentacji.
 
-Najpierw pobierz niestandardową strukturę Swagger usługi Azure Digital bliźniaczych reprezentacji, która została zmodyfikowana w celu współpracy z Logic Apps. Pobierz przykład **niestandardowego struktury Swagger platformy Azure Digital bliźniaczych reprezentacji** z [**tego linku**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) , naciskając przycisk *Pobierz plik zip* . Przejdź do pobranego folderu *Azure_Digital_Twins_Custom_Swaggers.zip* i rozpakuj go. 
+Najpierw pobierz niestandardową strukturę Swagger usługi Azure Digital bliźniaczych reprezentacji, która została zmodyfikowana w celu współpracy z Logic Apps. Pobierz przykład **niestandardowego struktury Swagger (Logic Apps Connector) usługi Azure Digital bliźniaczych reprezentacji** z [**tego linku**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) , naciskając przycisk *Pobierz plik zip* . Przejdź do pobranego folderu *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* i rozpakuj go. 
 
-Niestandardowa struktura Swagger dla tego samouczka znajduje się w folderze _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Ten folder zawiera podfoldery o nazwie *stabilne* i *Preview*, w których obie wersje struktury Swagger są zorganizowane według daty. Folder o najnowszej dacie będzie zawierać najnowszą kopię struktury Swagger. Niezależnie od wybranej wersji plik struktury Swagger ma nazwę _**digitaltwins.jsna**_.
+Niestandardowa struktura Swagger dla tego samouczka znajduje się w folderze _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_. Ten folder zawiera podfoldery o nazwie *stabilne* i *Preview*, w których obie wersje struktury Swagger są zorganizowane według daty. Folder o najnowszej dacie będzie zawierać najnowszą kopię struktury Swagger. Niezależnie od wybranej wersji plik struktury Swagger ma nazwę _** digitaltwins.jsna * * _.
 
 > [!NOTE]
 > Jeśli nie pracujesz z funkcją w wersji zapoznawczej, zwykle zalecamy użycie najnowszej *stabilnej* wersji struktury Swagger. Jednak wcześniejsze wersje i wersje zapoznawcze struktury Swagger również są nadal obsługiwane. 

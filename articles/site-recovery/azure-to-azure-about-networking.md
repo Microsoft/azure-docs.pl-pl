@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631345"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096338"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informacje o sieci w usłudze odzyskiwania po awarii maszyny wirtualnej platformy Azure
 
@@ -40,13 +40,13 @@ Zwykle sieci są chronione za pomocą zapór i sieciowych grup zabezpieczeń (si
 >[!IMPORTANT]
 > Używanie uwierzytelnionego serwera proxy do sterowania łącznością sieciową nie jest obsługiwane przez Site Recovery i nie można włączyć replikacji.
 
+>[!NOTE]
+> Filtrowanie na podstawie adresów IP nie powinno być przeprowadzane w celu kontrolowania łączności wychodzącej.
+> Azure Site Recovery adresów IP nie należy dodawać w tabeli routingu platformy Azure w celu kontrolowania łączności wychodzącej.
 
 ## <a name="outbound-connectivity-for-urls"></a>Połączenia ruchu wychodzącego dla adresów URL
 
 Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Zezwól na następujące adresy URL Site Recovery:
-
->[!NOTE]
-> Filtrowanie na podstawie adresów IP nie powinno być przeprowadzane w celu kontrolowania łączności wychodzącej.
 
 **Adres URL** | **Szczegóły**
 --- | ---
@@ -59,7 +59,7 @@ login.microsoftonline.com | Wymagany do autoryzacji i uwierzytelniania do adres�
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Łączność wychodząca przy użyciu tagów usługi
 
-Jeśli używasz sieciowej grupy zabezpieczeń do kontrolowania łączności wychodzącej, te Tagi usług muszą być dozwolone.
+Korzystając z sieciowej grupy zabezpieczeń do kontrolowania łączności wychodzącej, te Tagi usług muszą być dozwolone.
 
 - Dla kont magazynu w regionie źródłowym:
     - Utwórz opartą na [znaczniku usługi magazynu](../virtual-network/security-overview.md#service-tags) regułę sieciowej grupy zabezpieczeń dla regionu źródłowego.

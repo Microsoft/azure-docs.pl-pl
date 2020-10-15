@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611252"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096253"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -194,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Następnie podaj mapę chronionych zasobów `MsalModule.forRoot()` jako `protectedResourceMap` i Dołącz te zakresy w programie `consentScopes` :
+Następnie podaj mapę chronionych zasobów `MsalModule.forRoot()` jako `protectedResourceMap` i Dołącz te zakresy do programu `consentScopes` . Adresy URL, które podano w `protectedResourceMap` kolekcji, są rozróżniane wielkości liter.
 
 ```javascript
 @NgModule({

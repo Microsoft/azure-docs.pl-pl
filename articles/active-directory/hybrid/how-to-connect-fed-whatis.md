@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a97142e0c512f4f95235ad08c94c852906d3efd8
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89660860"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095860"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Program Azure AD Connect a federacja
 Program Azure Active Directory (Azure AD) Connect umożliwia skonfigurowanie Federacji przy użyciu lokalnych Active Directory Federation Services (AD FS) i usługi Azure AD. Za pomocą logowania federacyjnego można umożliwić użytkownikom logowanie się do usług opartych na usłudze Azure AD przy użyciu haseł lokalnych — i, w sieci firmowej, bez konieczności ponownego wprowadzania haseł. Za pomocą opcji federacyjnej z AD FS można wdrożyć nową instalację AD FS lub można określić istniejącą instalację w farmie systemu Windows Server 2012 R2.
@@ -34,7 +34,7 @@ Ten temat zawiera informacje dotyczące funkcji związanych z federacyjnym Azure
 | **Azure AD Connect opcje logowania użytkownika** | |
 | [Informacje o opcjach logowania użytkownika](plan-connect-user-signin.md) |Dowiedz się więcej o różnych opcjach logowania użytkowników i sposobach ich wpływu na środowisko użytkownika logowania do platformy Azure. |
 | **Instalowanie AD FS przy użyciu Azure AD Connect** | |
-| [Wymagania wstępne](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Zapoznaj się z wymaganiami wstępnymi dla pomyślnej instalacji AD FS za pośrednictwem Azure AD Connect. |
+| [Wymagania wstępne](how-to-connect-install-custom.md#ad-fs-configuration-prerequisites) |Zapoznaj się z wymaganiami wstępnymi dla pomyślnej instalacji AD FS za pośrednictwem Azure AD Connect. |
 | [Konfigurowanie farmy AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Zainstaluj nową farmę AD FS przy użyciu Azure AD Connect. |
 | [Sfederować z usługą Azure AD przy użyciu alternatywnego identyfikatora logowania](how-to-connect-fed-management.md#alternateid) | Konfigurowanie Federacji przy użyciu alternatywnego identyfikatora logowania  |
 | **Modyfikowanie konfiguracji AD FS** | |
@@ -51,7 +51,7 @@ Ten temat zawiera informacje dotyczące funkcji związanych z federacyjnym Azure
 | [Modyfikuj reguły AD FSch roszczeń](how-to-connect-fed-management.md#modclaims) |Modyfikuj lub Dodaj reguły dotyczące roszczeń w AD FS, które odpowiadają konfiguracji synchronizacji Azure AD Connect. |
 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Federowanie dwie usługi Azure AD z pojedynczym AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [Wdrożenie usług AD FS na platformie Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 * [Wielogeograficzne wdrożenie AD FS na platformie Azure z platformą Azure Traffic Manager](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)

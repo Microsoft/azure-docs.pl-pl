@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87d56f32877fbe5b817dab5d9ad98e1f1f71386c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054750"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096202"
 ---
 # <a name="localization-string-ids"></a>Identyfikatory ciągów lokalizacji
 
@@ -156,7 +156,7 @@ Poniżej przedstawiono identyfikatory dla definicji zawartości z IDENTYFIKATORe
 | **error_requiredFieldMissing** | Brak wymaganego pola. Wypełnij wszystkie wymagane pola i spróbuj ponownie. |
 | **initial_intro** | Podaj następujące informacje. |
 | **ver_but_resend** | Wyślij nowy kod |
-| **button_continue** | Utwórz |
+| **button_continue** | Przycisk Utwórz |
 | **error_passwordEntryMismatch** | Pola wprowadzania hasła nie są zgodne. Wprowadź to samo hasło w obu polach i spróbuj ponownie. |
 | **ver_incorrect_format** | Niepoprawny format. |
 | **ver_but_edit** | Zmień adres e-mail |
@@ -263,7 +263,7 @@ Poniżej znajdują się identyfikatory definicji zawartości z IDENTYFIKATORem `
 | **invalid_code** | Wprowadź otrzymany 6-cyfrowy kod |
 | **button_cancel** | Anuluj |
 | **local_number_input_placeholder_text** | Numer telefonu |
-| **button_retry** | Ponów próbę |
+| **button_retry** | Ponawianie próby |
 | **alternative_text** | Nie mam mojego telefonu |
 | **intro_phone_p** | W rekordach są dostępne następujące numery. Wybierz numer telefonu, z którym możemy się uwierzytelnić. |
 | **intro_phone** | Mamy dla Ciebie następujący numer rekordu. Będziemy telefonować. |
@@ -343,7 +343,42 @@ Poniższy przykład pokazuje użycie niektórych elementów interfejsu użytkown
 
 ## <a name="verification-display-control-user-interface-elements"></a>Elementy interfejsu użytkownika kontrolki wyświetlania weryfikacji
 
-Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacji](display-control-verification.md)
+Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacyjnej](display-control-verification.md) z [układem strony w wersji](page-layout.md) 2.1.0 lub nowszej.
+
+| ID (Identyfikator) | Wartość domyślna |
+| -- | ------------- |
+|intro_msg| Konieczna jest weryfikacja. Kliknij przycisk Wyślij.|
+|success_send_code_msg | Kod weryfikacyjny został wysłany do Twojej skrzynki odbiorczej. Skopiuj ją do poniższego pola wejściowego.|
+|failure_send_code_msg | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Wprowadź prawidłowy adres e-mail i spróbuj ponownie.|
+|success_verify_code_msg | Zweryfikowano adres E-mail. Teraz można kontynuować.|
+|failure_verify_code_msg | Wystąpił problem podczas weryfikowania Twojego adresu e-mail. Spróbuj ponownie.|
+|but_send_code | Wyślij kod weryfikacyjny|
+|but_verify_code | Zweryfikuj kod|
+|but_send_new_code | Wyślij nowy kod|
+|but_change_claims | Zmień adres e-mail|
+
+### <a name="verification-display-control-example"></a>Przykład kontrolki wyświetlania weryfikacji
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>Elementy interfejsu użytkownika kontrolki wyświetlania weryfikacji (przestarzałe)
+
+Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacyjnej](display-control-verification.md) z [wersją układu strony](page-layout.md) 2.0.0.
 
 | ID (Identyfikator) | Wartość domyślna |
 | -- | ------------- |
@@ -355,7 +390,7 @@ Poniżej przedstawiono identyfikatory [kontrolki wyświetlania weryfikacji](disp
 |verification_control_but_verify_code |Weryfikuj kod |
 |verification_control_code_sent| Kod weryfikacyjny został wysłany. Skopiuj ją do poniższego pola wejściowego. |
 
-### <a name="verification-display-control-example"></a>Przykład kontrolki wyświetlania weryfikacji
+### <a name="verification-display-control-example-deprecated"></a>Przykład kontrolki wyświetlania weryfikacji (przestarzałe)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -468,8 +503,8 @@ Poniżej przedstawiono identyfikatory komunikatów o błędach [profilu technicz
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>

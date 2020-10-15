@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058084"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096627"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -57,6 +57,10 @@ Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z
 
 - Przywracanie na poziomie elementu jest obsługiwane w przypadku maszyn wirtualnych platformy Azure, których kopia zapasowa jest wykonywana przez kopię zapasową maszyny wirtualnej platformy Azure. Więcej informacji znajduje się w tym [artykule](backup-azure-restore-files-from-vm.md)
 - ILR nie jest obsługiwana dla punktów odzyskiwania online lokalnych maszyn wirtualnych, których kopia zapasowa jest wykonywana przez Azure Backup Server (serwera usługi MAB) lub System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Jak przenieść dane z magazynu Recovery Services do lokalnego?
+
+Eksportowanie danych bezpośrednio z magazynu Recovery Services do lokalnego przy użyciu urządzenie Data Box nie jest obsługiwane. Dane muszą zostać przywrócone do konta magazynu, a następnie można je przenieść do lokalizacji lokalnej za pośrednictwem [urządzenie Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) lub [zaimportować/wyeksportować](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 

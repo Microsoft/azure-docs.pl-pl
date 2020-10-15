@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b7f9a83a3972ed0a5a635826b40e15c437da16b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab414b877bd2d098c6e340267ff579fb58aec9d9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540374"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097324"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji dla systemu Android z zakotwiczeniami przestrzennymi platformy Azure
 
@@ -37,10 +37,10 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
     - <a href="https://git-scm.com/download/win" target="_blank">Git dla systemu Windows</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Jeśli używasz macOS:
-    - Aktualna wersja <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio dla komputerów Mac 8.1 +</a>.
+    - Aktualna wersja <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio dla komputerów Mac 8.1 +</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
-- Najnowsza wersja platformy Xamarin. Android zainstalowana i uruchomiona na wybranej platformie. Przewodnik dotyczący instalowania platformy Xamarin. Android można znaleźć w podręcznikach [instalacji platformy Xamarin. Android](https://docs.microsoft.com/xamarin/android/get-started/installation/index) .
+- Najnowsza wersja platformy Xamarin. Android zainstalowana i uruchomiona na wybranej platformie. Przewodnik dotyczący instalowania platformy Xamarin. Android można znaleźć w podręcznikach [instalacji platformy Xamarin. Android](/xamarin/android/get-started/installation/index) .
 - Urządzenie z systemem Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">pracujące w trybie dewelopera</a> i <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">zgodne z platformą ARCore</a>.
   - Aby komputer mógł komunikować się z urządzeniem z systemem Android, mogą być wymagane dodatkowe sterowniki urządzeń. Aby uzyskać więcej informacji, zobacz [tutaj](https://developer.android.com/studio/run/device.html).
 - Twoja aplikacja musi być docelowa ARCore **1,8**.

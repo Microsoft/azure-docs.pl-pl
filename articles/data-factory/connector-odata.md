@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 10121243961d4c81ecc67d7453019c26743fe610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 146f9ea918f75e0521209d9db712bdcab76a8e7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845769"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096593"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiowanie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -45,7 +45,7 @@ W przypadku tego łącznika OData obsługuje:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,7 +59,8 @@ Dla połączonej usługi OData są obsługiwane następujące właściwości:
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **OData**. |Tak |
 | url | Główny adres URL usługi OData. |Tak |
-| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia ze źródłem danych OData. Dozwolone wartości to **Anonymous**, **Basic**, **Windows**i **AadServicePrincipal**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. | Tak |
+| authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia ze źródłem danych OData. Dozwolone wartości to **Anonymous**, **Basic**, **Windows**i **AadServicePrincipal**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. Dodatkowo można skonfigurować nagłówki uwierzytelniania we `authHeader` właściwości.| Tak |
+| authHeaders | Dodatkowe nagłówki żądań HTTP na potrzeby uwierzytelniania.<br/> Na przykład, aby użyć uwierzytelniania przy użyciu klucza interfejsu API, można wybrać typ uwierzytelniania jako anonimowy i określić klucz interfejsu API w nagłówku. | Nie |
 | userName | Określ **nazwę użytkownika** , jeśli używasz uwierzytelniania podstawowego lub systemu Windows. | Nie |
 | hasło | Określ **hasło** dla konta użytkownika określonego w polu **Nazwa użytkownika**. Oznacz to pole jako typ **SecureString** , aby bezpiecznie przechowywać go w Data Factory. Można również [odwołać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | servicePrincipalId | Określ identyfikator klienta aplikacji Azure Active Directory. | Nie |
@@ -193,6 +194,31 @@ Dla połączonej usługi OData są obsługiwane następujące właściwości:
     "connectVia": {
         "referenceName": "<name of Integration Runtime>",
         "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Przykład 6: używanie uwierzytelniania klucza interfejsu API**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of OData source>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "APIKey": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
 }
 ```

@@ -9,19 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057811"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097256"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
 
 Synapse SQL Server (wcześniej SQL na żądanie) umożliwia analizowanie danych w kontenerach Azure Cosmos DB, które są włączane za pomocą [usługi Azure Synapse link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) niemal w czasie rzeczywistym bez wpływu na wydajność obciążeń transakcyjnych. Oferuje znaną składnię T-SQL służącą do wykonywania zapytań dotyczących danych z [magazynu analitycznego](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i zintegrowanej łączności z szeroką gamę narzędzi do wykonywania zapytań w trybie analizy biznesowej i ad hoc za pośrednictwem interfejsu T-SQL.
-
-> [!NOTE]
-> Obsługa zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu programu SQL Server jest obecnie dostępna w wersji zapoznawczej. Otwórz publiczną wersję zapoznawczą zostanie ogłoszona na stronie [aktualizacji usługi platformy Azure](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) .
 
 Do wykonywania zapytań w Azure Cosmos DB [, pełny obszar](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) powierzchni jest obsługiwany przez funkcję [OPENROWSET](develop-openrowset.md) , łącznie z większością [funkcji i operatorów SQL](overview-features.md). Możesz również przechowywać wyniki zapytania, które odczytuje dane z Azure Cosmos DB wraz z danymi na platformie Azure Blob Storage lub Azure Data Lake Storage za pomocą polecenia [Utwórz tabelę zewnętrzną jako wybraną](develop-tables-cetas.md#cetas-in-sql-on-demand). Obecnie nie można przechowywać wyników zapytania bezserwerowego SQL do Azure Cosmos DB przy użyciu [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
@@ -262,6 +259,15 @@ Aby uzyskać informacje na temat wykonywania zapytań dotyczących kont Azure Co
 
 - Alias **należy** określić po `OPENROWSET` funkcji (na przykład `OPENROWSET (...) AS function_alias` ). Pominięcie aliasu może spowodować problem z połączeniem i Synapse punkt końcowy SQL bez serwera może być tymczasowo niedostępny. Ten problem zostanie rozwiązany w lis 2020.
 - Synapse bezserwerowy SQL obecnie nie obsługuje [Azure Cosmos DB schematu pełnej wierności](../../cosmos-db/analytical-store-introduction.md#schema-representation). Używaj bezserwerowego SQL Synapse wyłącznie do dostępu do zdefiniowanego schematu Cosmos DB.
+
+Lista możliwych błędów i akcji rozwiązywania problemów znajduje się w poniższej tabeli:
+
+| Błąd | Główna przyczyna |
+| --- | --- |
+| Błędy składniowe:<br/> -Nieprawidłowa składnia w sąsiedztwie "OPENROWSET"<br/> - `...` nie jest rozpoznawaną opcją dostawcy ZBIORCZego OPENROWSET.<br/> -Nieprawidłowa składnia w sąsiedztwie `...` | Możliwe przyczyny główne<br/> -Nie należy używać "CosmosDB" jako pierwszego parametru,<br/> — Przy użyciu literału ciągu zamiast identyfikatora w trzecim parametrze<br/> — Nie określono trzeciego parametru (nazwa kontenera) |
+| Wystąpił błąd w parametrach połączenia CosmosDB | — Nie określono konta, bazy danych, klucza <br/> -Istnieje kilka opcji parametrów połączenia, które nie zostały rozpoznane.<br/> -Średnik `;` jest umieszczany na końcu ciągu połączenia |
+| Rozpoznawanie ścieżki CosmosDB nie powiodło się z powodu błędu "Nieprawidłowa nazwa konta/bazy danych" | Nie można odnaleźć określonej nazwy konta lub nazwy bazy danych. |
+| Rozpoznanie ścieżki CosmosDB nie powiodło się z powodu błędu "Nieprawidłowa tajna wartość tajna" "ma wartość null lub jest pusta" | Brak klucza konta lub jest on nieprawidłowy. |
 
 Sugestie i problemy można zgłaszać na [stronie opinii o usłudze Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

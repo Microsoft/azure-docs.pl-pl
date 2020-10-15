@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978632"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096661"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa usługi Cloud-init dla maszyn wirtualnych w systemie Azure
 W tym artykule opisano obsługę funkcji [Cloud-init](https://cloudinit.readthedocs.io) w celu skonfigurowania maszyny wirtualnej lub zestawów skalowania maszyn wirtualnych w czasie aprowizacji na platformie Azure. Te konfiguracje usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure.  
@@ -37,10 +37,10 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 ### <a name="canonical"></a>Canonical
 | Wydawca/wersja| Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Kanoniczny 20,04 |UbuntuServer |18,04 – LTS |najnowsza |tak | tak |
-|Kanoniczny 18,04 |UbuntuServer |18,04 – LTS |najnowsza |tak | tak |
-|Kanoniczny 16,04|UbuntuServer |16.04-LTS |najnowsza |tak | tak |
-|Kanoniczny 14,04|UbuntuServer |14.04.5-LTS |najnowsza |tak | tak |
+|Kanoniczny 20,04 |UbuntuServer |18,04 – LTS |latest |tak | tak |
+|Kanoniczny 18,04 |UbuntuServer |18,04 – LTS |latest |tak | tak |
+|Kanoniczny 16,04|UbuntuServer |16.04-LTS |latest |tak | tak |
+|Kanoniczny 14,04|UbuntuServer |14.04.5-LTS |latest |tak | tak |
 
 ### <a name="rhel"></a>RHEL
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
@@ -97,10 +97,10 @@ Te obrazy SLES zostały zaktualizowane w celu inicjowania obsługi administracyj
 ### <a name="debian"></a>Debian
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| Debian (Gen1) |Debian-10 | 10 — cloudinit |Cloud-init — wersja zapoznawcza| tak (tylko wersja zapoznawcza) | Nie, w wersji zapoznawczej. |
-| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |Cloud-init — wersja zapoznawcza| tak (tylko wersja zapoznawcza) | Nie, w wersji zapoznawczej. |
-
-
+| Debian (Gen1) |Debian-10 | 10 — cloudinit |Cloud-init — wersja zapoznawcza| tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 stycznia 2021) | Nie, w wersji zapoznawczej. |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |Cloud-init — wersja zapoznawcza| tak (Uwaga: jest to obraz w wersji zapoznawczej i nie **może** być używany już. zostanie on usunięty 1 stycznia 2021) | Nie, w wersji zapoznawczej. |
+| Debian (Gen1) |Debian-10 | 10 — cloudinit |10:0.20201013.422| tak | tak — obsługa z wersji pakietu: `20.2-2~deb10u1` |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |0.20201013.422| tak | tak — obsługa z wersji pakietu: `20.2-2~deb10u1` |
 
 
 Obecnie Azure Stack obsługuje Inicjowanie obsługi obrazów z obsługą funkcji Cloud-init.

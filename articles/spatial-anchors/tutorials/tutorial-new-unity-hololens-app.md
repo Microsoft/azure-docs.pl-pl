@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee7a0ca1abedd2f80cd8f5fe66e603315a10966f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939532"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096542"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -25,7 +25,7 @@ Aby ukończyć kroki tego samouczka, upewnij się, że dysponujesz następujący
 
 1. Maszyna z systemem Windows z programem <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> zainstalowana z **platforma uniwersalna systemu Windows obciążenie programowaniem** oraz składnikiem **Windows 10 SDK (10.0.18362.0 lub nowszym)** i <a href="https://git-scm.com/download/win" target="_blank">git dla systemu Windows</a>.
 2. Powinno być zainstalowane rozszerzenie [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) dla programu Visual Studio z usługi [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. Urządzenie HoloLens z włączonym [trybem dewelopera](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio). Ten artykuł wymaga urządzenia HoloLens z [aktualizacją systemu Windows 10 z maja 2020](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 ). Aby wykonać aktualizację do najnowszej wersji na urządzeniu HoloLens, otwórz aplikację **Ustawienia**, przejdź do pozycji **Aktualizacja i zabezpieczenia**, a następnie wybierz przycisk **Sprawdź dostępność aktualizacji**.
+3. Urządzenie HoloLens z włączonym [trybem dewelopera](/windows/mixed-reality/using-visual-studio). Ten artykuł wymaga urządzenia HoloLens z [aktualizacją systemu Windows 10 z maja 2020](/windows/mixed-reality/whats-new/release-notes-may-2020). Aby wykonać aktualizację do najnowszej wersji na urządzeniu HoloLens, otwórz aplikację **Ustawienia**, przejdź do pozycji **Aktualizacja i zabezpieczenia**, a następnie wybierz przycisk **Sprawdź dostępność aktualizacji**.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -89,7 +89,7 @@ Musimy skonfigurować naszą aplikację aparatu Unity z widokiem immersyjny, a n
 W okienku **projektu** powinna być teraz dostępna sfera PREFAB.
 
 ## <a name="trying-it-out"></a>Trwa próba
-Aby sprawdzić, czy wszystko działa, skompiluj swoją aplikację w aparacie **Unity** i Wdróż ją z poziomu **programu Visual Studio**. Obserwuj rozdział 6 od firmy [ **MR podstawy 100: wprowadzenie** ](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) do środowiska Unity. Powinien zostać wyświetlony ekran startowy środowiska Unity, a następnie przycisk Wyczyść.
+Aby sprawdzić, czy wszystko działa, skompiluj swoją aplikację w aparacie **Unity** i Wdróż ją z poziomu **programu Visual Studio**. Obserwuj rozdział 6 od firmy [ **MR podstawy 100: wprowadzenie** ](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) do środowiska Unity. Powinien zostać wyświetlony ekran startowy środowiska Unity, a następnie przycisk Wyczyść.
 
 ## <a name="place-an-object-in-the-real-world"></a>Umieść obiekt w świecie rzeczywistym
 Utwórzmy & umieścić obiekt przy użyciu aplikacji. Otwórz rozwiązanie programu Visual Studio, które zostało utworzone podczas [wdrażania naszej aplikacji](#trying-it-out).
@@ -208,7 +208,7 @@ Na koniec przychodźmy wszystko razem. W `CreateAndSaveSphere()` metodzie Dodaj 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni kolor na żółty i rozpocznie się przekazywanie w chmurze. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć [okna dane wyjściowe](https://docs.microsoft.com/visualstudio/ide/reference/output-window) podczas debugowania w **programie Visual Studio** , aby monitorować komunikaty dziennika wysyłane przez aplikację. Upewnij się, że wdrażasz `Debug` konfigurację aplikacji z programu Visual Studio, aby wyświetlić komunikaty dziennika. Możesz obejrzeć `RecommendedForCreateProgress` , a po zakończeniu przekazywania będzie można zobaczyć identyfikator kotwicy zwrócony z chmury.
+Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni kolor na żółty i rozpocznie się przekazywanie w chmurze. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć [okna dane wyjściowe](/visualstudio/ide/reference/output-window) podczas debugowania w **programie Visual Studio** , aby monitorować komunikaty dziennika wysyłane przez aplikację. Upewnij się, że wdrażasz `Debug` konfigurację aplikacji z programu Visual Studio, aby wyświetlić komunikaty dziennika. Możesz obejrzeć `RecommendedForCreateProgress` , a po zakończeniu przekazywania będzie można zobaczyć identyfikator kotwicy zwrócony z chmury.
 
 > [!NOTE]
 > Jeśli zostanie wyświetlony element "DllNotFoundException —: nie można załadować biblioteki DLL" AzureSpatialAnchors ": nie można odnaleźć określonego modułu." należy **wyczyścić** i **skompilować** rozwiązanie ponownie.
@@ -236,6 +236,6 @@ Teraz pozwala dodać kod, który zostanie utworzony, & umieścić zieloną sfer�
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-To wszystko. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz do końca. Poruszaj się po urządzeniu i umieść swoją białą sferę. Następnie kontynuuj przesuwanie głowy, aby przechwycić dane środowiska do momentu, gdy sfera zmieni kolor na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij jeszcze raz swój ekran, aby usunąć zakotwiczenie lokalne i rozpocząć zapytanie dotyczące jego odpowiedniku w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można ponownie powtórzyć cały scenariusz.
+Gotowe. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz do końca. Poruszaj się po urządzeniu i umieść swoją białą sferę. Następnie kontynuuj przesuwanie głowy, aby przechwycić dane środowiska do momentu, gdy sfera zmieni kolor na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij jeszcze raz swój ekran, aby usunąć zakotwiczenie lokalne i rozpocząć zapytanie dotyczące jego odpowiedniku w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można ponownie powtórzyć cały scenariusz.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203456"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096219"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj własny profil techniczny w Azure Active Directory B2C zasad niestandardowych
 
@@ -202,11 +202,13 @@ Możesz również wywołać profil techniczny interfejsu API REST z logiką bizn
 | Ustawianie. showSignupLink <sup>2</sup>| Nie | Wyświetla przycisk rejestracji. Możliwe wartości: `true` (ustawienie domyślne) lub `false` |
 | Ustawianie. forgotPasswordLinkLocation <sup>2</sup>| Nie| Wyświetla łącze zapomniane hasło. Możliwe wartości: `AfterInput` (domyślnie) łącze jest wyświetlane w dolnej części strony lub `None` usuwa łącze zapomniane hasło.|
 | Ustawianie. enableRememberMe <sup>2</sup>| Nie| Wyświetla pole wyboru nie wylogowuj [mnie](custom-policy-keep-me-signed-in.md) . Możliwe wartości: `true` , lub `false` (wartość domyślna). |
+| Ustawianie. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Nie| Usprawnia środowisko użytkownika, czekając na zakończenie wpisywania przez użytkownika, a następnie sprawdza poprawność wartości. Wartość domyślna 2000 milisekund. |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 
 Uwagi:
 1. Dostępne dla definicji zawartości [DataUri](contentdefinitions.md#datauri) typu `unifiedssp` lub `unifiedssd` .
 1. Dostępne dla definicji zawartości [DataUri](contentdefinitions.md#datauri) typu `unifiedssp` lub `unifiedssd` . [Układ strony w wersji](page-layout.md) 1.1.0 lub nowszej.
+1. Dostępne dla [wersji układu strony](page-layout.md) 1.2.0 i nowszych.
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 

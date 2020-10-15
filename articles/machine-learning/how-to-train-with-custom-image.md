@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a88b327b5ba56b52cd4f08d9c7fae5d653ed38
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537620"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095946"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Uczenie modelu przy użyciu niestandardowego obrazu platformy Docker
 
@@ -29,7 +29,7 @@ Mimo że Azure Machine Learning udostępnia domyślny obraz podstawowy platformy
 Uruchom ten kod w dowolnym z następujących środowisk:
 * Wystąpienie obliczeniowe Azure Machine Learning — nie jest wymagane pobieranie ani instalacja
     * Ukończ [Samouczek: Zainstaluj środowisko i obszar roboczy](tutorial-1st-experiment-sdk-setup.md) , aby utworzyć dedykowany serwer notesu wstępnie załadowany z zestawem SDK i przykładowym repozytorium.
-    * W repozytorium Azure Machine Learning [przykładów](https://github.com/Azure/azureml-examples)Znajdź ukończony Notes, przechodząc do tego katalogu: How to- **use-Azure > ml-Frameworks > fastai > pociąg-with-Custom-Docker** 
+    * W repozytorium Azure Machine Learning [przykładów](https://github.com/Azure/azureml-examples)Znajdź ukończony Notes, przechodząc do tego katalogu: **notesy > fastai > pociąg-zwierzęta-resnet34. ipynb** 
 
 * Własny serwer Jupyter Notebook
     * Utwórz [plik konfiguracji obszaru roboczego](how-to-configure-environment.md#workspace).

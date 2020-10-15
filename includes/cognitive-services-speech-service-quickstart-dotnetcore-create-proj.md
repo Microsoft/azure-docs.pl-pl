@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: d5b95c8d71cf3d4830a2fe5eb6442ef479c9fab6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f1a24db459cabd65d9ce17b89105c3b9ab8abb7
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654392"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097188"
 ---
 1. Uruchom program Visual Studio 2019.
 

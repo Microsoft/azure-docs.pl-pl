@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 911f819343f675ebe0a2604d912e6e26aa646eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533063"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096763"
 ---
 # <a name="x509-certificate-attestation"></a>Zaświadczanie certyfikatu X.509
 
-Ten artykuł zawiera omówienie pojęć związanych z aprowizacji urządzeń przy użyciu zaświadczania o certyfikatach X. 509. Ten artykuł dotyczy wszystkich osób związanych z przygotowaniem urządzenia do wdrożenia.
+Ten artykuł zawiera omówienie koncepcji usługi Device Provisioning (DPS) związanych z zaświadczeniem urządzeń przy użyciu certyfikatu X. 509. Ten artykuł dotyczy wszystkich osób związanych z przygotowaniem urządzenia do wdrożenia.
 
 Certyfikaty X. 509 mogą być przechowywane w sprzętowym module zabezpieczeń modułu HSM.
 
@@ -44,6 +44,12 @@ Certyfikat główny to certyfikat X. 509 z podpisem własnym reprezentujący urz
 
 Certyfikat pośredni to certyfikat X. 509, który został podpisany przez certyfikat główny (lub inny certyfikat pośredni z certyfikatem głównym w łańcuchu). Ostatni certyfikat pośredni w łańcuchu jest używany do podpisywania certyfikatu liścia. Certyfikat pośredni może być również określany jako certyfikat pośredniego urzędu certyfikacji.
 
+##### <a name="why-are-intermediate-certs-useful"></a>Dlaczego certyfikaty pośrednie są przydatne?
+Certyfikaty pośrednie są używane na wiele sposobów. Na przykład certyfikaty pośrednie mogą służyć do grupowania urządzeń według linii produktów, klientów kupowania urządzeń, działów firmy lub fabryk. 
+
+Załóżmy, że firma Contoso jest wielką firmą z własną infrastrukturą kluczy publicznych (PKI) przy użyciu certyfikatu głównego o nazwie *ContosoRootCert*. Każdy oddział firmy Contoso ma swój własny certyfikat pośredni podpisany przez *ContosoRootCert*. Każdy z tych podmiotów zależnych będzie używał certyfikatu pośredniego w celu podpisania certyfikatów liści dla każdego urządzenia. W tym scenariuszu firma Contoso może używać jednego wystąpienia punktu dystrybucji, w którym zweryfikowano *ContosoRootCert* z [dowodem posiadania](./how-to-verify-certificates.md). Mogą mieć grupę rejestracji dla każdego podmiotu zależnego. W ten sposób poszczególne osoby zależne nie będą musieli martwić się o weryfikowanie certyfikatów.
+
+
 ### <a name="end-entity-leaf-certificate"></a>Certyfikat typu "liść" jednostki końcowej
 
 Certyfikat liścia lub certyfikat jednostki końcowej identyfikuje właściciela certyfikatu. Ma certyfikat główny w łańcuchu certyfikatów, a także zero lub więcej certyfikatów pośrednich. Certyfikat liścia nie jest używany do podpisywania innych certyfikatów. Jednoznacznie identyfikuje urządzenie w usłudze aprowizacji i jest czasami określane jako certyfikat urządzenia. Podczas uwierzytelniania urządzenie używa klucza prywatnego skojarzonego z tym certyfikatem, aby odpowiedzieć na potwierdzenie istnienia usługi.
@@ -54,12 +60,42 @@ Aby dowiedzieć się więcej, zobacz [uwierzytelnianie urządzeń podpisanych za
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrolowanie dostępu urządzenia do usługi aprowizacji za pomocą certyfikatów X. 509
 
-Usługa aprowizacji ujawnia dwa typy wpisów rejestracji, za pomocą których można kontrolować dostęp do urządzeń korzystających z mechanizmu zaświadczania X. 509:  
+Usługa aprowizacji udostępnia dwa typy rejestracji, których można użyć do sterowania dostępem urządzeń za pomocą mechanizmu zaświadczania X. 509:  
 
 - [Poszczególne wpisy rejestracji](./concepts-service.md#individual-enrollment) są konfigurowane przy użyciu certyfikatu urządzenia skojarzonego z określonym urządzeniem. Te wpisy kontrolują rejestracje dla konkretnych urządzeń.
 - Wpisy [grupy rejestracji](./concepts-service.md#enrollment-group) są skojarzone z określonym pośrednim lub głównym certyfikatem urzędu certyfikacji. Te wpisy kontrolują rejestracje dla wszystkich urządzeń, które mają ten certyfikat pośredni lub główny w łańcuchu certyfikatów. 
 
-Gdy urządzenie nawiązuje połączenie z usługą aprowizacji, usługa ustala priorytet bardziej szczegółowych wpisów rejestracji przy użyciu mniej szczegółowych wpisów rejestracji. Oznacza to, że jeśli istnieje indywidualna Rejestracja urządzenia, usługa aprowizacji stosuje ten wpis. Jeśli nie istnieje indywidualna Rejestracja dla danego urządzenia, a grupa rejestracji pierwszego certyfikatu pośredniego w łańcuchu certyfikatów urządzenia istnieje, usługa zastosuje ten wpis i tak dalej, łańcuch do katalogu głównego. Usługa stosuje pierwszy stosowny wpis, który znajdzie, tak że:
+#### <a name="dps-device-chain-requirements"></a>Dział DPS — wymagania dotyczące łańcucha urządzeń
+
+Gdy urządzenie próbuje przeprowadzić rejestrację za pośrednictwem usługi DPS przy użyciu grupy rejestracji, urządzenie musi wysłać łańcuch certyfikatów z certyfikatu liścia do certyfikatu zweryfikowanego za pomocą [dowodu posiadania](how-to-verify-certificates.md). W przeciwnym razie uwierzytelnianie nie powiedzie się.
+
+Jeśli na przykład tylko certyfikat główny zostanie zweryfikowany, a certyfikat pośredni zostanie przekazany do grupy rejestracji, urządzenie powinno przedstawić łańcuch certyfikatów od certyfikatu liścia do zweryfikowanego certyfikatu głównego. Ten łańcuch certyfikatów zawiera wszystkie certyfikaty pośrednie z przedziału między. Uwierzytelnianie nie powiedzie się, jeśli usługa DPS nie będzie mogła przepływać łańcucha certyfikatów do zweryfikowanego certyfikatu.
+
+Rozważmy na przykład firmę korzystającą z następującego łańcucha urządzeń dla urządzenia.
+
+![Przykładowy łańcuch certyfikatów urządzeń](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+Weryfikowany jest tylko certyfikat główny, a certyfikat *intermediate2* jest przekazywany do grupy rejestracji.
+
+![Przykład zweryfikowanej głównej](./media/concepts-x509-attestation/example-root-verified.png) 
+
+Jeśli urządzenie wysyła tylko następujący łańcuch urządzeń podczas aprowizacji, uwierzytelnianie zakończy się niepowodzeniem. Ponieważ usługa DPS nie może próbować uwierzytelniania przy założeniu, że ważność certyfikatu *intermediate1*
+
+![Przykład niepowodzenia łańcucha certyfikatów](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
+
+Jeśli urządzenie wyśle pełny łańcuch urządzeń w następujący sposób podczas aprowizacji, usługa DPS może próbować uwierzytelniać urządzenie.
+
+![Przykładowy łańcuch certyfikatów urządzeń](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+
+
+
+> [!NOTE]
+> Certyfikaty pośrednie można także zweryfikować przy użyciu [dowodu posiadania](how-to-verify-certificates.md).
+
+
+#### <a name="dps-order-of-operations-with-certificates"></a>Kolejność operacji w usłudze DPS przy użyciu certyfikatów
+Gdy urządzenie nawiązuje połączenie z usługą aprowizacji, usługa ustala priorytet bardziej szczegółowych wpisów rejestracji przy użyciu mniej szczegółowych wpisów rejestracji. Oznacza to, że jeśli istnieje indywidualna Rejestracja urządzenia, usługa aprowizacji stosuje ten wpis. Jeśli nie istnieje indywidualna Rejestracja dla danego urządzenia, a grupa rejestracji pierwszego certyfikatu pośredniego w łańcuchu certyfikatów urządzenia istnieje, usługa zastosuje ten wpis i tak dalej, w dół łańcucha do katalogu głównego. Usługa stosuje pierwszy stosowny wpis, który znajdzie, tak że:
 
 - W przypadku włączenia pierwszego wpisu rejestracji usługa Inicjuje obsługę administracyjną urządzenia.
 - Jeśli pierwszy znaleziony wpis rejestracji jest wyłączony, usługa nie udostępnia tego urządzenia.  

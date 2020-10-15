@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 07/22/2020
-ms.openlocfilehash: 30107c99f16b1b2f7c91ce8a662f44a041410d01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d11f350c82fa09abf0803e795a92fdb373c36c
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119372"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097613"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Porównanie funkcji: Azure SQL Database i wystąpienie zarządzane Azure SQL
 
@@ -36,7 +36,7 @@ Platforma Azure zarządza bazami danych i gwarantuje wysoką dostępność. Niek
 
 Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informacje na temat tego, czy funkcja jest częściowo czy w pełni obsługiwana w usłudze Azure SQL Database i wystąpieniu zarządzanym Azure SQL, z linkiem do dodatkowych informacji na temat tej funkcji.
 
-| **Funkcja** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Funkcja** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | [Zawsze szyfrowane](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Tak — Zobacz artykuł [Magazyn certyfikatów](always-encrypted-certificate-store-configure.md) i magazyn [kluczy](always-encrypted-azure-key-vault-configure.md) | Tak — Zobacz artykuł [Magazyn certyfikatów](always-encrypted-certificate-store-configure.md) i magazyn [kluczy](always-encrypted-azure-key-vault-configure.md) |
 | [Zawsze włączone grupy dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [dostępność 99,99-99.995%](high-availability-sla.md) jest gwarantowana dla każdej bazy danych. Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania w Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [99,99 .% dostępności](high-availability-sla.md) jest gwarantowana dla każdej bazy danych i [nie może być zarządzana przez użytkownika](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). Odzyskiwanie po awarii zostało omówione w [omówieniu ciągłości działania Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md). Użyj [grup z obsługą trybu failover](auto-failover-group-overview.md) w celu skonfigurowania pomocniczego wystąpienia zarządzanego SQL w innym regionie. SQL Server wystąpień i SQL Database nie mogą być używane jako serwery pomocnicze dla wystąpienia zarządzanego SQL. |
@@ -116,7 +116,7 @@ Poniższa tabela zawiera listę głównych funkcji SQL Server i zawiera informac
 
 Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako dodatkowa wartość do standardowych funkcji baz danych. Istnieje kilka usług zewnętrznych, których można używać z Azure SQL Database.
 
-| **Funkcja platformy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Funkcja platformy** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | [Aktywna replikacja geograficzna](active-geo-replication-overview.md) | Tak — wszystkie warstwy usług inne niż skalowanie | Nie, zobacz [grupy autotrybu failover](auto-failover-group-overview.md) jako alternatywę |
 | [Grupy automatycznego trybu failover](auto-failover-group-overview.md) | Tak — wszystkie warstwy usług inne niż skalowanie | Tak, zobacz [grupy autotrybu failover](auto-failover-group-overview.md)|
@@ -152,7 +152,7 @@ Platforma Azure udostępnia wiele możliwości PaaS, które są dodawane jako do
 
 Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują różne narzędzia danych, które mogą ułatwić zarządzanie danymi.
 
-| **Narzędzie** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Narzędzie** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | Azure Portal | Tak | Tak |
 | Interfejs wiersza polecenia platformy Azure | Tak | Tak|
@@ -173,7 +173,7 @@ Azure SQL Database i wystąpienie zarządzane usługi Azure SQL obsługują ró�
 
 Możesz użyć różnych metod migracji, aby przenieść dane między SQL Server, Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL. Niektóre metody są w **trybie online** i pobierają wszystkie zmiany wprowadzone w źródle podczas przeprowadzania migracji, natomiast w metodach **offline** należy zatrzymać obciążenie, które modyfikuje dane ze źródła, podczas gdy migracja jest w toku.
 
-| **Element źródłowy** | **Azure SQL Database** | **Wystąpienie zarządzane Azure SQL** |
+| **Element źródłowy** | **Baza danych SQL Azure** | **Wystąpienie zarządzane Azure SQL** |
 | --- | --- | --- |
 | SQL Server (Premium, AzureVM, Amazon RDS) | **Online:** [usługa migracji danych (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [usługa migracji danych (DMS)](https://docs.microsoft.com/sql/dma/dma-overview), [replikacja transakcyjna](../managed-instance/replication-transactional-overview.md) <br/> **W trybie offline:** Natywna kopia zapasowa/przywracanie, [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replikacja migawek](../managed-instance/replication-transactional-overview.md) |
 | Pojedyncza baza danych | **Offline:** [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [plik BACPAC (import)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
@@ -184,7 +184,7 @@ Możesz użyć różnych metod migracji, aby przenieść dane między SQL Server
 Firma Microsoft kontynuuje Dodawanie funkcji do Azure SQL Database. Odwiedź stronę sieci Web aktualizacji usługi dla platformy Azure, aby uzyskać najnowsze aktualizacje przy użyciu tych filtrów:
 
 - Przefiltrowane do [Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
-- Włączony filtr [ogłoszeń dotyczących ogólnej dostępności](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) funkcji usługi SQL Database.
+- Przefiltrowana na [Ogólne \( \) anonse dostępności](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) dla SQL Database funkcji.
 
 Aby uzyskać więcej informacji na temat Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL, zobacz:
 

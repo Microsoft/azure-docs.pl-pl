@@ -3,18 +3,20 @@ title: Omówienie zasad platformy Azure
 description: Azure Policy to usługa platformy Azure, która umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w środowisku platformy Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873918"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097392"
 ---
 # <a name="what-is-azure-policy"></a>Co to jest Azure Policy?
 
 Usługa Azure Policy pomaga wymuszać standardy organizacyjne i oceniać zgodność na dużą skalę. Pulpit nawigacyjny zgodności udostępnia Zagregowany widok do oceny ogólnego stanu środowiska, z możliwością przechodzenia do szczegółów dla poszczególnych zasobów i stopnia szczegółowości poszczególnych zasad. Pomaga również zapewnić zgodność zasobów dzięki korygowaniu zbiorczemu dla istniejących zasobów i automatycznym korygowaniu nowych zasobów.
 
 Typowe przypadki użycia Azure Policy obejmują wdrażanie ładu pod kątem spójności zasobów, zgodności z przepisami, bezpieczeństwa, kosztów i zarządzania. Definicje zasad dla tych typowych przypadków użycia są już dostępne w środowisku platformy Azure jako wbudowane, aby pomóc Ci rozpocząć pracę.
+
+Wszystkie dane i obiekty Azure Policy są szyfrowane w stanie spoczynku. Aby uzyskać więcej informacji, zobacz [Azure Data Encryption w spoczynku](../../security/fundamentals/encryption-atrest.md).
 
 ## <a name="overview"></a>Omówienie
 
@@ -63,7 +65,7 @@ Istnieje kilka najważniejszych różnic między Azure Policy i kontroli dostęp
 
 Usługi Azure RBAC koncentrują się na zarządzaniu [akcjami](../../role-based-access-control/resource-provider-operations.md) użytkownika w różnych zakresach. Jeśli wymagana jest kontrola nad akcją, funkcja RBAC platformy Azure jest poprawnym narzędziem do użycia. Nawet jeśli osoba ma dostęp do wykonywania akcji, jeśli wynik jest niezgodnym zasobem, Azure Policy nadal blokuje Tworzenie lub aktualizowanie.
 
-Kombinacja RBAC i Azure Policy na platformie Azure zapewnia pełną kontrolę zakresu na platformie Azure.
+Kombinacja RBAC i Azure Policy platformy Azure zapewnia pełną kontrolę zakresu na platformie Azure.
 
 ### <a name="azure-rbac-permissions-in-azure-policy"></a>Uprawnienia usługi Azure RBAC w Azure Policy
 

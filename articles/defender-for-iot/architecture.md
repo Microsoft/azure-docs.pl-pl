@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093467"
+ms.locfileid: "92096321"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architektura usługi Azure Defender for IoT
 
@@ -29,12 +29,19 @@ W tym artykule opisano architekturę systemu funkcjonalnego rozwiązania Defende
 Usługa Defender for IoT nawiązuje połączenie zarówno z chmurą platformy Azure, jak i ze składnikami lokalnymi. Rozwiązanie jest przeznaczone do skalowalności w dużych i geograficznie rozproszonych środowiskach z wieloma lokalizacjami zdalnymi. To rozwiązanie umożliwia rozproszoną architekturę wielowarstwową według kraju, regionu, jednostki biznesowej lub strefy. 
 
 Usługa Azure Defender for IoT obejmuje następujące składniki: 
-- Usługa Azure Defender dla czujników IoT
-- Konsole zarządzania:
-    - Konsola czujnika
-    - Lokalna Konsola zarządzania
-    - Azure Portal
-- Osadzony Agent zabezpieczeń (moduł zabezpieczeń i zestaw IoT SDK)
+
+**Wdrożenia połączone z chmurą**
+
+- Usługa Azure Defender dla maszyny wirtualnej lub urządzenia czujnika IoT
+- Azure Portal do zarządzania chmurą i integracji z platformą Azure — wskaźnikiem
+- Lokalna Konsola zarządzania dla lokalnego zarządzania lokacją
+- Osadzony Agent zabezpieczeń (opcjonalnie)
+
+**Wdrożenia Air-gapped (offline)**
+
+- Usługa Azure Defender dla maszyny wirtualnej lub urządzenia czujnika IoT
+- Lokalna Konsola zarządzania dla lokalnego zarządzania lokacją
+
 
 ![Architektura usługi Defender for IoT](./media/architecture/defender-iot-security-architecture.png)
 

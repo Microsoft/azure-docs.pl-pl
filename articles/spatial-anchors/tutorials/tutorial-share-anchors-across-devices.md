@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971414"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097290"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>Samouczek: udostępnianie kotwic przestrzenny między sesjami i urządzeniami
 
@@ -86,7 +86,7 @@ Wybierz przycisk **OK**.
 
 Otwórz Visual Studio Code, a następnie otwórz projekt w folderze *Sharing\SharingServiceSample* . 
 
-Aby wdrożyć usługę udostępniania za pomocą Visual Studio Code, postępuj zgodnie z instrukcjami zawartymi w temacie <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">publikowanie aplikacji ASP.NET Core na platformie Azure przy użyciu Visual Studio Code</a>. Zacznij od sekcji "Otwieranie za pomocą Visual Studio Code". Nie twórz innego projektu ASP.NET, jak wyjaśniono w poprzednim kroku, ponieważ masz już projekt do wdrożenia i opublikowania: SharingServiceSample.
+Aby wdrożyć usługę udostępniania za pomocą Visual Studio Code, postępuj zgodnie z instrukcjami zawartymi w temacie <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">publikowanie aplikacji ASP.NET Core na platformie Azure przy użyciu Visual Studio Code</a>. Zacznij od sekcji "Otwieranie za pomocą Visual Studio Code". Nie twórz innego projektu ASP.NET, jak wyjaśniono w poprzednim kroku, ponieważ masz już projekt do wdrożenia i opublikowania: SharingServiceSample.
 
 ---
 
@@ -104,4 +104,3 @@ Możesz ulepszyć ASP.NET Core aplikację sieci Web, tak aby używała Azure Cos
 
 > [!div class="nextstepaction"]
 > [Używanie Azure Cosmos DB do przechowywania kotwic](./tutorial-use-cosmos-db-to-store-anchors.md)
-

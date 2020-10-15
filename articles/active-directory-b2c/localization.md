@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005382"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095903"
 ---
 # <a name="localization-element"></a>Element lokalizacji
 
@@ -163,6 +163,7 @@ Odwołanie do typu elementu, przekształcenie lub element interfejsu użytkownik
 |Komunikat użytkownika predykatu|`Predicate`|Nazwa predykatu| Atrybut predykatu, który ma zostać zlokalizowany. Możliwe wartości: `HelpText` .|
 |Komunikat użytkownika grupy predykatu|`InputValidation`|Identyfikator elementu PredicateValidation.|Identyfikator elementu predykatu. Grupa predykatów musi być elementem podrzędnym elementu walidacji predykatu, jak zdefiniowano w ElementId.|
 |Elementy interfejsu użytkownika |`UxElement` | | Identyfikator elementu interfejsu użytkownika, który ma zostać zlokalizowany.|
+|[Kontrolka wyświetlania](display-controls.md) |`DisplayControl` |Identyfikator kontrolki wyświetlania. | Identyfikator elementu interfejsu użytkownika, który ma zostać zlokalizowany.|
 
 ## <a name="examples"></a>Przykłady
 
@@ -330,6 +331,23 @@ Wartość UxElement służy do lokalizowania jednego z elementów interfejsu uż
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>Wyowietl
+
+Wartość DisplayControl jest używana do lokalizowania jednego z elementów interfejsu użytkownika [kontrolki wyświetlania](display-controls.md) . Poniższy przykład pokazuje, jak zlokalizować przyciski Wyślij i Weryfikuj. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+W sekcji Metadata w profilu technicznym, do którego istnieje odwołanie, ContentDefinition musi mieć ustawiony [Układ strony](page-layout.md) o wartości 2.1.0 lub wyższej. Na przykład:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Następne kroki

@@ -3,12 +3,12 @@ title: Zrozumienie blokowania zasobów
 description: Dowiedz się więcej na temat opcji blokowania w planach platformy Azure w celu ochrony zasobów podczas przypisywania planu.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744019"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095998"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
 
@@ -39,7 +39,7 @@ Ten środek zabezpieczeń chroni spójność zdefiniowanego planu i środowiska,
 
 ### <a name="assign-at-management-group"></a>Przypisz w grupie zarządzania
 
-Dodatkowa opcja uniemożliwiająca właścicielom subskrypcji usuwanie przypisania strategii polega na przypisaniu planu do grupy zarządzania. W tym scenariuszu tylko **właściciele** grupy zarządzania mają uprawnienia, które są konieczne do usunięcia przypisania planu.
+Jedyną opcją zapobiegania usunięciu przypisania planu przez właścicieli subskrypcji jest przypisanie planu do grupy zarządzania. W tym scenariuszu tylko **właściciele** grupy zarządzania mają uprawnienia, które są konieczne do usunięcia przypisania planu.
 
 Aby przypisać plan do grupy zarządzania zamiast subskrypcji, wywołanie interfejsu API REST zmieni się, aby wyglądać następująco:
 
