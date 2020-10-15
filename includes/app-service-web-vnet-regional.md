@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255258"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082227"
 ---
 Użycie integracji regionalnej sieci wirtualnej umożliwia aplikacji dostęp do:
 
@@ -36,7 +36,8 @@ Domyślnie aplikacja kieruje tylko ruch RFC1918 do sieci wirtualnej. Jeśli chce
 1. Wybierz przycisk **OK**.
 1. Wybierz pozycję **Zapisz**.
 
-Jeśli cały ruch wychodzący jest kierowany do sieci wirtualnej, podlega sieciowych grup zabezpieczeń i UDR, które są stosowane do podsieci integracji. W przypadku kierowania całego ruchu wychodzącego do sieci wirtualnej adresy wychodzące nadal są adresami wychodzącymi wymienionymi we właściwościach aplikacji, chyba że zostaną podane trasy do wysyłania ruchu w innym miejscu.
+> [!NOTE]
+> Jeśli cały ruch wychodzący jest kierowany do sieci wirtualnej, podlega sieciowych grup zabezpieczeń i UDR, które są stosowane do podsieci integracji. W przypadku kierowania całego ruchu wychodzącego do sieci wirtualnej adresy wychodzące nadal są adresami wychodzącymi wymienionymi we właściwościach aplikacji, chyba że zostaną podane trasy do wysyłania ruchu w innym miejscu.
 
 Istnieją pewne ograniczenia dotyczące używania integracji sieci wirtualnej z usługą sieci wirtualnych w tym samym regionie:
 

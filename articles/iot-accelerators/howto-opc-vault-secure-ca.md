@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f54467c03a67797d52ac499ca9ba455c0f75e240
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399639"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071459"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Bezpieczne uruchamianie usługi zarządzania certyfikatami magazynu OPC
 
@@ -97,7 +97,7 @@ Wszystkie systemy muszą być stale monitorowane i aktualizowane przy użyciu na
 Zasubskrybuj lub Zaimplementuj odpowiednie monitorowanie zabezpieczeń. Na przykład Zasubskrybuj centralne rozwiązanie do monitorowania (takie jak rozwiązanie Azure Security Center lub Microsoft 365 monitorowanie) i skonfiguruj je odpowiednio w celu zapewnienia, że zdarzenia zabezpieczeń są przesyłane do rozwiązania do monitorowania.
 
 > [!IMPORTANT]
-> Domyślnie usługa magazynu OPC jest wdrażana za pomocą [platformy Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) jako rozwiązanie do monitorowania. Dodawanie rozwiązania zabezpieczeń, takiego jak [Azure Security Center](https://azure.microsoft.com/services/security-center/) , jest zdecydowanie zalecane.
+> Domyślnie usługa magazynu OPC jest wdrażana za pomocą [platformy Azure Application Insights](../azure-monitor/app/devops.md) jako rozwiązanie do monitorowania. Dodawanie rozwiązania zabezpieczeń, takiego jak [Azure Security Center](https://azure.microsoft.com/services/security-center/) , jest zdecydowanie zalecane.
 
 ### <a name="assess-the-security-of-open-source-software-components"></a>Ocena zabezpieczeń składników oprogramowania typu open source
 
@@ -145,7 +145,7 @@ Podaj wyczerpujący zestaw wszystkich certyfikatów wystawionych w ciągu ostatn
 
 ### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Udokumentowanie standardowej procedury operacyjnej w celu bezpiecznego usunięcia kluczy kryptograficznych
 
-W okresie istnienia urzędu certyfikacji usunięcie klucza może wystąpić tylko rzadko. Jest to dlatego, że żaden użytkownik nie Key Vault ma przypisanego prawa do usuwania certyfikatu i nie ma żadnych interfejsów API, aby usunąć certyfikat wystawcy urzędu certyfikacji. Ręczna standardowa procedura operacyjna służąca do bezpiecznego usuwania kluczy kryptograficznych urzędu certyfikacji jest dostępna tylko przez bezpośredni dostęp do Key Vault w Azure Portal. Możesz również usunąć grupę certyfikatów w Key Vault. Aby zapewnić natychmiastowe usunięcie, wyłącz funkcję [usuwania nietrwałego Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) .
+W okresie istnienia urzędu certyfikacji usunięcie klucza może wystąpić tylko rzadko. Jest to dlatego, że żaden użytkownik nie Key Vault ma przypisanego prawa do usuwania certyfikatu i nie ma żadnych interfejsów API, aby usunąć certyfikat wystawcy urzędu certyfikacji. Ręczna standardowa procedura operacyjna służąca do bezpiecznego usuwania kluczy kryptograficznych urzędu certyfikacji jest dostępna tylko przez bezpośredni dostęp do Key Vault w Azure Portal. Możesz również usunąć grupę certyfikatów w Key Vault. Aby zapewnić natychmiastowe usunięcie, wyłącz funkcję [usuwania nietrwałego Key Vault](../key-vault/general/soft-delete-overview.md) .
 
 ## <a name="certificates"></a>Certyfikaty
 

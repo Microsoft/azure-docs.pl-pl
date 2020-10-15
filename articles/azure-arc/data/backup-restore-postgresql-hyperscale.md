@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630427"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071442"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Tworzenie kopii zapasowych i przywracanie dla usługi Azure ARC z włączonymi grupami serwerów PostgreSQL
 
@@ -82,7 +82,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>Wykonaj ręczną pełną kopię zapasową
 
+
 Następnie wypełnij ręcznie pełną kopię zapasową.
+
+> [!CAUTION]
+> **Tylko dla użytkowników usługi Azure Kubernetes Service (AKS):** mamy świadomość problemu z tworzeniem kopii zapasowych grupy serwerów hostowanej w usłudze Azure Kubernetes Service (AKS). Już pracujemy nad rozwiązaniem tego problemu. Dopóki aktualizacja nie zostanie wdrożona w przyszłej wersji/aktualizacji, przed rozpoczęciem tworzenia kopii zapasowej należy usunąć wszystkie te grupy serwerów. Dla każdego z zasobników grupy serwerów (można wyświetlić listę zasobników, uruchamiając **polecenia kubectl Get-n \<namespace name> **) usuń je przez uruchomienie **polecenia kubectl Delete pod \<server group pod name> -n \<namespace name> **. Nie usuwaj z nich elementów, które nie są częścią grupy serwerów. Usuwanie z nich nie jest ryzykowne. Poczekaj, aż wszystkie zasobniki przestaną działać w trybie online i w stanie = uruchomiona przed utworzeniem kopii zapasowej. Stan elementu pod jest podany w danych wyjściowych powyższego polecenia Get polecenia kubectl.
+
 
 Aby wykonać pełną kopię zapasową wszystkich folderów danych i dzienników grupy serwerów, uruchom następujące polecenie:
 

@@ -86,7 +86,7 @@
               href: operator-best-practices-cluster-security.md
             - name: Zarządzanie obrazami kontenerów
               href: operator-best-practices-container-image-management.md
-            - name: Networking
+            - name: Sieć
               href: operator-best-practices-network.md
             - name: Magazyn
               href: operator-best-practices-storage.md
@@ -171,7 +171,7 @@
             - name: Korzystanie z pul węzłów systemu
               href: use-system-pools.md
         - name: Wdrażanie usługi AKS przy użyciu programu Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Korzystanie z podglądu zasobów w rozwiązaniu Kubernetes (wersja zapoznawcza)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Tworzenie klastrów usługi AKS przy użyciu rozwiązania Ansible
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Ciągłe wdrażanie przy użyciu usługi Jenkins
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Projekt DevOps platformy Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
