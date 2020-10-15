@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996785"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076984"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -54,7 +54,7 @@ Przez Definiowanie list znanych bezpiecznych aplikacji oraz generowanie alertów
 |Wpisaną|Wymaga [usługi Azure Defender dla serwerów](defender-for-servers-introduction.md)|
 |Obsługiwane maszyny:|![Tak na ](./media/icons/yes-icon.png) platformie Azure i na maszynach spoza platformy Azure z systemem Windows i Linux<br>![Tak — ](./media/icons/yes-icon.png) maszyny [usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
 |Wymagane role i uprawnienia:|Role czytnika i **czytnika** **zabezpieczeń** mogą wyświetlać grupy i listy znanych bezpiecznych aplikacji<br>Role administratora **współautora** i **zabezpieczeń** mogą edytować grupy i listy znanych bezpiecznych aplikacji|
-|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Yes](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 
@@ -159,7 +159,7 @@ Aby edytować reguły dla grupy komputerów:
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Otwieranie adaptacyjnych kontrolek aplikacji z poziomu pulpitu nawigacyjnego platformy Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > Opcja **Wymuś** w ustawieniach trybu ochrony typu pliku jest wyszarzona we wszystkich scenariuszach. W tej chwili nie są dostępne żadne opcje wymuszania. 
+    > Opcja **Wymuś** w ustawieniach trybu ochrony typu pliku jest wyszarzona we **wszystkich** scenariuszach. W tej chwili nie są dostępne żadne opcje wymuszania. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Otwieranie adaptacyjnych kontrolek aplikacji z poziomu pulpitu nawigacyjnego platformy Azure":::
 

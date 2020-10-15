@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002934"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076712"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Zarządzanie Cloud Services w Azure Portal
 W obszarze **Cloud Services** Azure Portal można wykonać następujące działania:
@@ -83,7 +83,7 @@ Należy pamiętać, że aktualizacje systemu operacyjnego gościa i operacje nap
 
 **Czy Zamiana wiąże się z czasem przestoju aplikacji? Jak należy ją obsłużyć?**
 
-Zgodnie z opisem w poprzedniej sekcji wymiana wdrożenia jest zwykle szybka, ponieważ jest to tylko zmiana konfiguracji w module równoważenia obciążenia platformy Azure. W niektórych przypadkach może upłynąć 10 lub więcej sekund i spowodować błędy połączeń przejściowych. Aby ograniczyć wpływ klientów, należy rozważyć implementację [logiki ponawiania klienta](../best-practices-retry-general.md).
+Zgodnie z opisem w poprzedniej sekcji wymiana wdrożenia jest zwykle szybka, ponieważ jest to tylko zmiana konfiguracji w module równoważenia obciążenia platformy Azure. W niektórych przypadkach może upłynąć 10 lub więcej sekund i spowodować błędy połączeń przejściowych. Aby ograniczyć wpływ klientów, należy rozważyć implementację [logiki ponawiania klienta](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Usuwanie wdrożeń i usługi w chmurze
 Aby można było usunąć usługę w chmurze, należy usunąć wszystkie istniejące wdrożenia.
@@ -124,6 +124,3 @@ Blok **przeglądu** zawiera pasek stanu u góry. Po wybraniu paska zostanie otwa
 * Dowiedz się, jak [wdrożyć usługę w chmurze](cloud-services-how-to-create-deploy-portal.md).
 * Skonfiguruj [niestandardową nazwę domeny](cloud-services-custom-domain-name-portal.md).
 * Skonfiguruj [Certyfikaty TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
