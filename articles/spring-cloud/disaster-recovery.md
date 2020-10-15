@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e18193b40bb7c59a21a279f451673dc7d11140e4
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892547"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092906"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Odzyskiwanie po awarii w chmurze z platformy Azure
 
@@ -50,13 +50,13 @@ W dwóch różnych regionach (Wschodnie stany USA i Europa Zachodnia) będą pot
 
 2. Skonfiguruj domenę niestandardową dla usługi, postępując zgodnie z [dokumentem domena niestandardowa](spring-cloud-tutorial-custom-domain.md) , aby skonfigurować domenę niestandardową dla tych dwóch istniejących wystąpień usługi. Po pomyślnym skonfigurowaniu oba wystąpienia usługi zostaną powiązane z domeną niestandardową: bcdr-test.contoso.com
 
-3. Utwórz Menedżera ruchu i dwa punkty końcowe: [Utwórz profil Traffic Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+3. Utwórz Menedżera ruchu i dwa punkty końcowe: [Utwórz profil Traffic Manager przy użyciu Azure Portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 Oto profil Menedżera ruchu:
 * Traffic Manager nazwę DNS: `http://asc-bcdr.trafficmanager.net`
 * Profile punktów końcowych: 
 
-| Profil | Type | Cel | Priorytet | Niestandardowe ustawienia nagłówka |
+| Profil | Typ | Cel | Priorytet | Niestandardowe ustawienia nagłówka |
 |--|--|--|--|--|
 | Punkt końcowy profilu | Zewnętrzny punkt końcowy | service-sample-a.asc-test.net | 1 | Host: bcdr-test.contoso.com |
 | Profil punktu końcowego B | Zewnętrzny punkt końcowy | service-sample-b.asc-test.net | 2 | Host: bcdr-test.contoso.com |
@@ -68,4 +68,3 @@ Oto profil Menedżera ruchu:
 ## <a name="next-steps"></a>Następne kroki
 
 * [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny](spring-cloud-quickstart.md)
- 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767721"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074451"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji ASP.NET Core
 
@@ -23,7 +23,7 @@ Biblioteki zarządzania funkcjami platformy .NET Core poszerzają platformę Dzi
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/dotnet)
-* [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/download)
+* [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Po powyższej zmianie [dostawca konfiguracji dla konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664) został zarejestrowany w interfejsie API konfiguracji platformy .NET Core.
+    Po powyższej zmianie [dostawca konfiguracji dla konfiguracji aplikacji](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) został zarejestrowany w interfejsie API konfiguracji platformy .NET Core.
 
 1. W *Startup.cs*, Dodaj odwołanie do programu .NET Core Feature Manager:
 
@@ -260,7 +260,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji, który będzie używany do zarządzania funkcjami w ASP.NET Core aplikacji sieci Web za pośrednictwem [bibliotek zarządzania](https://go.microsoft.com/fwlink/?linkid=2074664)funkcjami.
+W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji, który będzie używany do zarządzania funkcjami w ASP.NET Core aplikacji sieci Web za pośrednictwem [bibliotek zarządzania](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)funkcjami.
 
 * Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md).
 * [Zarządzaj flagami funkcji](./manage-feature-flags.md).

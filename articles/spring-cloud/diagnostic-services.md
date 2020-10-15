@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892566"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093042"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
 
@@ -27,7 +27,7 @@ Korzystając z funkcji diagnostyki chmury wiosennej platformy Azure, można anal
 Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 > [!TIP]
-> Chcesz tylko przesłać strumieniowo dzienniki? Sprawdź to [polecenie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Chcesz tylko przesłać strumieniowo dzienniki? Sprawdź to [polecenie interfejsu wiersza polecenia platformy Azure](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Dzienniki
 
@@ -38,7 +38,7 @@ Wybierz kategorię dziennika i kategorię metryki, którą chcesz monitorować.
 
 ## <a name="metrics"></a>Metryki
 
-Aby uzyskać pełną listę metryk, zobacz [sprężynowe metryki w chmurze](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+Aby uzyskać pełną listę metryk, zobacz [sprężynowe metryki w chmurze](./spring-cloud-concept-metrics.md#user-metrics-options).
 
 Aby rozpocząć, włącz jedną z tych usług, aby otrzymywać dane. Aby dowiedzieć się więcej o konfigurowaniu Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
 
@@ -110,7 +110,7 @@ Istnieją różne metody wyświetlania dzienników i metryk zgodnie z opisem w p
 > [!NOTE]
 > `==` uwzględnia wielkość liter, ale `=~` nie jest.
 
-Aby dowiedzieć się więcej o języku zapytań używanym w Log Analytics, zobacz [Azure monitor dziennika zapytań](../azure-monitor/log-query/query-language.md).
+Aby dowiedzieć się więcej o języku zapytań używanym w Log Analytics, zobacz [Azure monitor dziennika zapytań](/azure/data-explorer/kusto/query/).
 
 ### <a name="use-your-storage-account"></a>Korzystanie z konta magazynu
 
@@ -131,7 +131,7 @@ Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do konta ma
 1. Aby przejrzeć dzienniki aplikacji, Wyszukaj centrum zdarzeń o nazwie **Insights-Logs-applicationconsole**.
 1. Aby przejrzeć metryki aplikacji, Wyszukaj centrum zdarzeń o nazwie **Insights-Metrics-pt1m**.
 
-Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do centrum zdarzeń, zobacz [przesyłanie strumieniowe danych Diagnostyka Azure w ścieżce gorąca przy użyciu Event Hubs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+Aby dowiedzieć się więcej o wysyłaniu informacji diagnostycznych do centrum zdarzeń, zobacz [przesyłanie strumieniowe danych Diagnostyka Azure w ścieżce gorąca przy użyciu Event Hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 ## <a name="analyze-the-logs"></a>Analizowanie dzienników
 

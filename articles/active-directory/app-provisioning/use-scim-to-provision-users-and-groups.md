@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3a6f7bd282dbfc5087c5ddcb066c8e38a478c99f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018665"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070201"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Samouczek — Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -747,7 +747,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. Należy pamiętać, że należy uważnie przejrzeć listę zakresów adresów IP dla obliczanych adresów. Adres taki jak "40.126.25.32" może być przedstawiony na liście zakresów adresów IP jako "40.126.0.0/18". Możesz również programowo pobrać listę zakresów adresów IP za pomocą poniższego [interfejsu API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list).
+Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. Należy pamiętać, że należy uważnie przejrzeć listę zakresów adresów IP dla obliczanych adresów. Adres taki jak "40.126.25.32" może być przedstawiony na liście zakresów adresów IP jako "40.126.0.0/18". Możesz również programowo pobrać listę zakresów adresów IP za pomocą poniższego [interfejsu API](/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 

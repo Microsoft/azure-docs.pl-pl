@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012555"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093348"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -16,7 +16,7 @@ Jednym z najważniejszych kroków, które można wykonać w celu ochrony danych,
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Zarządzanie tożsamościami i dostępem użytkowników oraz ich kontrola
 
-Konta magazynu używane przez magazyny Recovery Services są izolowane i nie są dostępne dla użytkowników w żadnych złośliwych celach. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie. Azure Backup pozwala kontrolować zarządzane operacje za pośrednictwem szczegółowego dostępu przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](./backup-rbac-rs-vault.md). RBAC umożliwia rozdzielenie obowiązków w zespole i udzielanie dostępu użytkownikom niezbędnym do wykonywania swoich zadań.
+Konta magazynu używane przez magazyny Recovery Services są izolowane i nie są dostępne dla użytkowników w żadnych złośliwych celach. Dostęp jest dozwolony tylko za pomocą Azure Backup operacji zarządzania, takich jak przywracanie. Azure Backup pozwala kontrolować zarządzane operacje za pośrednictwem szczegółowego dostępu przy użyciu [kontroli dostępu opartej na rolach (Azure RBAC)](./backup-rbac-rs-vault.md). Kontrola RBAC platformy Azure umożliwia rozdzielenie obowiązków w zespole i przyznanie dostępu użytkownikom niezbędnym do wykonywania swoich zadań.
 
 Azure Backup udostępnia trzy [wbudowane role](../role-based-access-control/built-in-roles.md) do kontrolowania operacji zarządzania kopiami zapasowymi:
 
@@ -24,7 +24,7 @@ Azure Backup udostępnia trzy [wbudowane role](../role-based-access-control/buil
 * Operator kopii zapasowych — wszystko to współautor, z wyjątkiem usuwania kopii zapasowych i zarządzania zasadami tworzenia kopii zapasowych
 * Czytnik kopii zapasowych — uprawnienia do wyświetlania wszystkich operacji zarządzania kopiami zapasowymi
 
-Dowiedz się więcej na temat [kontroli dostępu opartej na rolach, aby zarządzać Azure Backup](./backup-rbac-rs-vault.md).
+Dowiedz się więcej [na temat kontroli dostępu opartej na rolach na platformie Azure, aby zarządzać Azure Backup](./backup-rbac-rs-vault.md).
 
 Azure Backup ma kilka kontrolek zabezpieczeń wbudowanych w usługę w celu zapobiegania i wykrywania luk w zabezpieczeniach oraz reagowania na nie. Dowiedz się więcej o [kontrolkach zabezpieczeń dla Azure Backup](./backup-security-controls.md).
 
@@ -64,7 +64,7 @@ Azure Backup udostępnia [wbudowane funkcje monitorowania i alertów](./backup-a
 
 ## <a name="security-features-to-help-protect-hybrid-backups"></a>Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe
 
-Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Do tych funkcji należą:
+Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do tworzenia kopii zapasowych i przywracania plików, folderów oraz stanu woluminu lub systemu z komputera lokalnego na platformę Azure. Usługa MARS zapewnia teraz funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe. Są one następujące:
 
 * Dodatkowa warstwa uwierzytelniania jest dodawana zawsze wtedy, gdy jest wykonywane krytyczne operacje, takie jak zmiana hasła. Ta weryfikacja polega na zapewnieniu, że operacje te mogą być wykonywane tylko przez użytkowników, którzy mają prawidłowe poświadczenia platformy Azure. [Dowiedz się więcej o funkcjach, które uniemożliwiają ataki](./backup-azure-security-feature.md#prevent-attacks).
 

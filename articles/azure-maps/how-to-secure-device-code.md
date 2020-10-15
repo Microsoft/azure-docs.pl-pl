@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319762"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090441"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Zabezpieczanie urządzenia wejściowego z ograniczeniami przy użyciu usługi Azure AD i interfejsów API REST Azure Maps
 
@@ -55,7 +55,7 @@ Utwórz aplikację opartą na urządzeniach w usłudze Azure AD, aby włączyć 
     > [!div class="mx-imgBorder"]
     > ![Wybieranie uprawnień interfejsu API aplikacji](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Konfigurowanie kontroli dostępu opartej na rolach na platformie Azure dla użytkowników lub grup. Zobacz [udzielanie użytkownikom dostępu do Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Skonfiguruj kontrolę dostępu opartą na rolach (Azure RBAC) dla użytkowników lub grup. Zobacz [udzielanie użytkownikom dostępu opartego na rolach, aby Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Dodaj kod w celu uzyskania przepływu tokenu w aplikacji, aby poznać szczegóły implementacji, zobacz [przepływ kodu urządzenia](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Podczas uzyskiwania tokenów odwołują się do zakresu: `user_impersonation` który został wybrany w poprzednich krokach.
 
@@ -110,7 +110,7 @@ Jednostce
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

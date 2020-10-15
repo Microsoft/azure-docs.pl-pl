@@ -4,16 +4,17 @@ description: Dowiedz się, jak używać Azure Active Directory do uwierzytelnian
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4f1d955999ce44e8ef3d511d67d6a64c98120b62
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289416"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093416"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Uwierzytelnianie za pomocą usługi Synapse SQL przy użyciu uwierzytelniania Azure Active Directory
 

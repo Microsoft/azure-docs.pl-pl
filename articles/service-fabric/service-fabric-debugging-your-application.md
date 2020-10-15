@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000111"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093399"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug your Service Fabric application by using Visual Studio (Debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio)
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Możesz zaoszczędzić czas i pieniądze, wdrażając i debugując aplikację Se
 1. Uruchom lokalny klaster programistyczny, wykonując czynności opisane w sekcji [Konfigurowanie środowiska deweloperskiego Service Fabric](service-fabric-get-started.md).
 2. Naciśnij klawisz **F5** lub kliknij pozycję **Debuguj**  >  **Rozpocznij debugowanie**.
    
-    ![Rozpocznij debugowanie aplikacji][startdebugging]
+    ![Zrzut ekranu pokazujący menu Debuguj.][startdebugging]
 3. Ustaw punkty przerwania w kodzie i przechodząc przez aplikację, klikając polecenie polecenia w menu **Debuguj** .
    
    > [!NOTE]

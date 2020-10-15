@@ -2,19 +2,19 @@
 title: Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage | Microsoft Docs
 description: Skonfiguruj zabezpieczenia warstwowe sieci dla konta magazynu za pomocą zapór usługi Azure Storage i platformy Azure Virtual Network.
 services: storage
-author: tamram
+author: santoshc
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 4d4afd87a16ecb28687d901614e3bbc5d9673fa9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7e7a61247c8f449291fb8ec0b91b7513ee75f6c9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874649"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072496"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -70,7 +70,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla kont magazynu za 
 
 1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
@@ -163,7 +163,7 @@ Zasadami sieci wirtualnej dla kont magazynu można zarządzać za pomocą Azure 
 
 1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
@@ -282,7 +282,7 @@ Regułami sieci IP dla kont magazynu można zarządzać za pomocą Azure Portal,
 
 1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 
@@ -422,7 +422,7 @@ Wyjątkami reguł sieci można zarządzać za pomocą Azure Portal, programu Pow
 
 1. Aby zastosować zmiany, kliknij pozycję **Zapisz**.
 
-#### <a name="powershell"></a>Program PowerShell
+#### <a name="powershell"></a>PowerShell
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-Az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps).
 

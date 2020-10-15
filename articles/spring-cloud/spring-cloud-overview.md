@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 159851f5b1ca38cc34da785b39229a6a91e1e4dd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758901"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090696"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Co to jest usługa Azure Spring Cloud?
 
 Chmura sprężynowa platformy Azure ułatwia wdrażanie aplikacji mikrousług opartych na rozruchu sprężyny na platformie Azure bez zmian w kodzie.  Chmura ze sprężyną systemu Azure zarządza infrastrukturą aplikacji w chmurze, dzięki czemu deweloperzy mogą skupić się na kodzie.  Chmura Wiosenna umożliwia zarządzanie cyklem życia przy użyciu kompleksowych funkcji monitorowania i diagnostyki, zarządzania konfiguracją, odnajdywania usług, integracji ciągłej i ciągłego wdrażania, a także innych elementów.
 
-Chmura sprężynowa platformy Azure obsługuje zarówno aplikacje z [rozruchem ze sprężyną](https://spring.io/projects/spring-boot) Java, jak i ASP.NET Core [steeltoe](https://steeltoe.io/) . Pomoc techniczna steeltoe jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej pozwalają na eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji, zobacz [często zadawane pytania](https://azure.microsoft.com/support/faq/) lub plik [support Request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Chmura sprężynowa platformy Azure obsługuje zarówno aplikacje z [rozruchem ze sprężyną](https://spring.io/projects/spring-boot) Java, jak i ASP.NET Core [steeltoe](https://steeltoe.io/) . Pomoc techniczna steeltoe jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej pozwalają na eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji, zobacz [często zadawane pytania](https://azure.microsoft.com/support/faq/) lub plik [support Request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 W ramach ekosystemu platformy Azure chmura sprężynowa platformy Azure umożliwia łatwe powiązanie z innymi usługami platformy Azure, w tym z magazynem, bazami danych, monitorowaniem i innymi.
 
