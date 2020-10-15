@@ -1,10 +1,11 @@
-- name: Dokumentacja wirtualnej sieci WAN
+- name: Dokumentacja usługi Virtual WAN
   href: index.yml
 - name: Omówienie
   items:
     - name: Co to jest usługa Virtual WAN?
       href: virtual-wan-about.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Tworzenie połączenia typu lokacja-lokacja
       href: virtual-wan-site-to-site-portal.md
