@@ -1,6 +1,6 @@
 ---
 title: 'Wirtualna sieć WAN platformy Azure: Tworzenie sieciowego urządzenia wirtualnego (urządzenie WUS) w centrum'
-description: W tym samouczku dowiesz się, jak wdrożyć sieciowe urządzenie wirtualne w wirtualnym koncentratorze sieci WAN.
+description: Dowiedz się, jak wdrożyć sieciowe urządzenie wirtualne w wirtualnym koncentratorze sieci WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773250"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077307"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Jak utworzyć sieciowe urządzenie wirtualne w centrum sieci wirtualnej platformy Azure (wersja zapoznawcza)
 
-W tym samouczku pokazano, jak używać wirtualnej sieci WAN do łączenia się z zasobami na platformie Azure za pomocą **sieciowego urządzenia wirtualnego** (urządzenie WUS) na platformie Azure. Ten typ połączenia wymaga lokalnego urządzenia sieci VPN z przypisanym publicznym adresem IP dostępnym z zewnątrz. Aby uzyskać więcej informacji na temat usługi Virtual WAN, zobacz [Omówienie usługi Virtual WAN](virtual-wan-about.md).
+W tym artykule pokazano, jak używać wirtualnej sieci WAN do łączenia się z zasobami na platformie Azure za pomocą **sieciowego urządzenia wirtualnego** (urządzenie WUS) na platformie Azure. Ten typ połączenia wymaga lokalnego urządzenia sieci VPN z przypisanym publicznym adresem IP dostępnym z zewnątrz. Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [co to jest wirtualna sieć WAN?](virtual-wan-about.md).
 
 Kroki opisane w tym artykule ułatwiają tworzenie wirtualnego urządzenia sieciowego **Barracuda CLOUDGEN WAN** w koncentratorze sieci WAN. Aby wykonać to ćwiczenie, musisz mieć urządzenie lokalne w chmurze Barracuda (CPE) i licencję na urządzenie sieci WAN CloudGen Barracuda, które zostało wdrożone w centrum przed rozpoczęciem.
 
 Aby zapoznać się z dokumentacją dotyczącą wdrażania **Cisco SD-WAN** w wirtualnej sieci WAN platformy Azure, Wyślij wiadomość E-mail do firmy Cisco pod następującym adresem e-mail: vwan_public_preview@external.cisco.com
 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -98,5 +98,5 @@ W tym kroku utworzysz sieciowe urządzenie wirtualne w centrum. Procedura dla ka
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat usługi Virtual WAN, zobacz stronę [Omówienie usługi Virtual WAN](virtual-wan-about.md).
+* Aby dowiedzieć się więcej o wirtualnej sieci WAN, zobacz stronę [co to jest wirtualna sieć WAN?](virtual-wan-about.md) .
 * Aby dowiedzieć się więcej na temat urządzeń WUS w wirtualnym koncentratorze sieci WAN, zobacz [Informacje o urządzeniu wirtualnym w sieci wirtualnej (wersja zapoznawcza)](about-nva-hub.md).

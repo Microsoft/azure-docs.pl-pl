@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905163"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076933"
 ---
 # <a name="edit-an-api"></a>Edytowanie interfejsu API
 
@@ -64,5 +64,5 @@ Możesz zaktualizować interfejs API zaplecza w witrynie Azure Portal, wykonują
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Przykłady](policy-samples.md) 
+> [Przykłady](./policy-reference.md) 
 >  zasad APIM [Przekształcanie i ochrona opublikowanego interfejsu API](transform-api.md)
