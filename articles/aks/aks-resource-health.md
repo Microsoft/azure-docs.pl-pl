@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358257"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070660"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Sprawdź, czy Resource Health zdarzenia mające wpływ na klaster AKS (wersja zapoznawcza)
 
 
-Podczas uruchamiania obciążeń kontenerów w usłudze AKS, należy się upewnić, że można rozwiązać problemy i naprawić je, gdy tylko zajdzie taka potrzeba, aby zminimalizować wpływ na dostępność obciążeń. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) zapewnia wgląd w różne zdarzenia dotyczące kondycji, które mogą spowodować, że klaster AKS będzie niedostępny.
+Podczas uruchamiania obciążeń kontenerów w usłudze AKS, należy się upewnić, że można rozwiązać problemy i naprawić je, gdy tylko zajdzie taka potrzeba, aby zminimalizować wpływ na dostępność obciążeń. [Azure Resource Health](../service-health/resource-health-overview.md) zapewnia wgląd w różne zdarzenia dotyczące kondycji, które mogą spowodować, że klaster AKS będzie niedostępny.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -49,7 +49,7 @@ Resource Health odbiera sygnały dla zarządzanego klastra w celu określenia st
 
 - **Obniżony**poziom: Jeśli wystąpi problem z kondycją wymagający działania, Resource Health zgłasza klaster jako *obniżony*.
 
-Aby uzyskać dodatkowe informacje na temat tego, co wskazuje każdy stan kondycji, odwiedź [Resource Health Omówienie](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+Aby uzyskać dodatkowe informacje na temat tego, co wskazuje każdy stan kondycji, odwiedź [Resource Health Omówienie](../service-health/resource-health-overview.md#health-status).
 
 ### <a name="view-historical-data"></a>Wyświetlanie danych historycznych
 
@@ -57,4 +57,4 @@ Możesz również wyświetlić informacje historyczne Resource Health z ostatnic
 
 ## <a name="next-steps"></a>Następne kroki
 
-Uruchom testy w klastrze, aby rozwiązać problemy z klastrem za pomocą [diagnostyki AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Uruchom testy w klastrze, aby rozwiązać problemy z klastrem za pomocą [diagnostyki AKS](./concepts-diagnostics.md).

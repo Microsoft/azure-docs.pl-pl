@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400521"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070694"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -84,7 +84,7 @@ Możesz użyć Azure Security Center dostęp do sieci w czasie, aby ograniczyć 
 
 * [Jak wdrożyć zaporę platformy Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/threat-protection.md)
+* [Opis Azure Security Center zintegrowanej analizy zagrożeń](../security-center/azure-defender.md)
 
 * [Informacje o Azure Security Center adaptacyjnej ograniczania przepustowości sieci](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Możesz również użyć planów platformy Azure, aby uprościć wdrożenia plat
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-* [Przykłady Azure Policy dla sieci](/azure/governance/policy/samples/#network)
+* [Przykłady Azure Policy dla sieci](../governance/policy/samples/built-in-policies.md#network)
 
 * [Jak utworzyć Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ Jednak w przypadku używania hybrydowych procesów roboczych elementów Runbook 
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 * [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -720,7 +720,7 @@ Jeśli używasz hybrydowych procesów roboczych elementów Runbook, które są o
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
+* [Jak utworzyć Grupy zarządzania](../governance/management-groups/create-management-group-portal.md)
 
 * [Tworzenie i używanie tagów](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Ponadto za pomocą grafu zasobów platformy Azure można wysyłać zapytania/odn
 
 * [Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-samples.md)
+* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -854,7 +854,7 @@ Adaptacyjna kontrola aplikacji to inteligentne, zautomatyzowane i kompleksowe ro
 
 * [Omówienie zapory aplikacji sieci Web platformy Azure](../web-application-firewall/overview.md)
 
-* [Sieciowe grupy zabezpieczeń](../virtual-network/security-overview.md)
+* [Sieciowe grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md)
 
 * [Omówienie usługi Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Możesz również użyć zaleceń z Azure Security Center jako bezpiecznej linii
 
 * [Samouczek: Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności](../governance/policy/tutorials/create-and-manage.md)
 
-* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-samples.md)
+* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-reference.md)
 
 * [Eksport jednego i kilku zasobów do szablonu w Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ W przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook
 
 * [Wdróż konto usługi Automation przy użyciu szablonu Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-samples.md)
+* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -984,7 +984,7 @@ W przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook
 
 * [Jak używać aliasów](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-samples.md)
+* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1014,7 +1014,7 @@ Korzystając z funkcji hybrydowego procesu roboczego elementu Runbook, Skorzysta
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
-* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-samples.md)
+* [Przykładowe Azure Policy wbudowane dla Azure Automation](./policy-reference.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
