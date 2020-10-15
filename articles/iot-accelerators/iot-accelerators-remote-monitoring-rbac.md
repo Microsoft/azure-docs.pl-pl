@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 364b88966aa5ae6e1455156c2928713cac3b5b86
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969595"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078072"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
 
@@ -94,7 +94,7 @@ Poniższe kroki zawierają opis sposobu dodawania roli do aplikacji w Azure Acti
 
     ![Rejestrowanie aplikacji](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
-1. Wybierz aplikację, a następnie kliknij pozycję **manifest**. Można wyświetlić dwie istniejące [role aplikacji](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
+1. Wybierz aplikację, a następnie kliknij pozycję **manifest**. Można wyświetlić dwie istniejące [role aplikacji](/azure/architecture/multitenant-identity/app-roles) zdefiniowane dla aplikacji:
 
     ![Wyświetl manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 

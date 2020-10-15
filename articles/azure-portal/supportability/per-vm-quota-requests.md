@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc916a2bacc0f6ae9791a53b642e93bb031466
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85117169"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077987"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Standardowy limit przydziału: Zwiększanie limitów według serii maszyn wirtualnych
 
@@ -30,7 +30,7 @@ Za każdym razem, gdy wdrażasz nową maszynę wirtualną, całkowite nowe i ist
 
 Można zażądać zwiększenia limitu przydziału vCPU dla serii maszyn wirtualnych przy użyciu Azure Portal. Zwiększenie limitu przydziału serii maszyn wirtualnych powoduje automatyczne zwiększenie łącznej granicy vCPU w regionie o tej samej wartości.
 
-Aby dowiedzieć się więcej na temat standardowych przydziałów usługi vCPU, zobacz limity [przydziału vCPU maszyny wirtualnej](../../virtual-machines/windows/quotas.md) i [usługi Azure Subscription and Service limit](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests).
+Aby dowiedzieć się więcej na temat standardowych przydziałów usługi vCPU, zobacz limity [przydziału vCPU maszyny wirtualnej](../../virtual-machines/windows/quotas.md) i [usługi Azure Subscription and Service limit](./classic-deployment-model-quota-increase-requests.md).
 
 Aby dowiedzieć się więcej na temat zwiększania limitu przydziału vCPU według regionu dla standardowego limitu, zobacz [przydział standardowy: Zwiększ limity według regionów](regional-quota-requests.md).
 

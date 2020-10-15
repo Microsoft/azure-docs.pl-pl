@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 5760d5e140919c9309b22f6f597e73c88f7a9069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: e0ac1ec93dba23eb6ab3380e342141618a1ab6e4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710281"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069663"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Warstwy cenowe w usłudze Azure Database for PostgreSQL— pojedynczy serwer
 
@@ -51,7 +51,7 @@ Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla ser
 | Liczba operacji we/wy na sekundę | Zmienna |3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
 
 > [!NOTE]
-> Magazynowanie do 16TB i 20 000 operacji we/wy jest obsługiwane w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Azja Wschodnia Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Europa Zachodnia, Japonia Południowo-Wschodnia, Korea Południowa, Australia Południowo-Wschodnia, zachodnie stany USA 2 i zachodnie stany USA.
+> Magazyn o pojemności do 16TB i 20 000 operacji we/wy jest obsługiwany w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa, Australia Wschodnia Azja Wschodnia, Australia Wschodnia, zachodnie stany USA 2, zachodnie stany USA, Kanada środkowa i Kanada środkowa.
 >
 > Wszystkie inne regiony obsługują do 4 TB magazynu i 6000 operacji we/wy na sekundę.
 >

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764047"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077868"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programowe tworzenie pulpitów nawigacyjnych platformy Azure
 
@@ -78,13 +78,13 @@ Aby opublikować ten pulpit nawigacyjny dla dowolnej maszyny wirtualnej w przysz
 Istnieją dwa podejścia do interfejsów API, które tworzą zasoby na platformie Azure:
 
 * Bezwzględne interfejsy API tworzą jeden zasób w danym momencie. Aby uzyskać więcej informacji, zobacz [zasoby](/rest/api/resources/resources).
-* System wdrażania oparty na szablonach, który tworzy wiele zależnych zasobów z pojedynczym wywołaniem interfejsu API. Aby uzyskać więcej informacji, zobacz  [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* System wdrażania oparty na szablonach, który tworzy wiele zależnych zasobów z pojedynczym wywołaniem interfejsu API. Aby uzyskać więcej informacji, zobacz  [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 Wdrożenie oparte na szablonach obsługuje parametryzacja i tworzenia szablonów. Używamy tej metody w tym artykule.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Programowe tworzenie pulpitu nawigacyjnego na podstawie szablonu przy użyciu wdrożenia szablonu
 
-Platforma Azure oferuje możliwość organizowania wdrożenia wielu zasobów. Tworzysz szablon wdrożenia, który wyraża zestaw zasobów do wdrożenia i relacje między nimi.  Format JSON każdego zasobu jest taki sam, jak w przypadku ich tworzenia przez jeden. Różnica polega na tym, że język szablonu dodaje kilka koncepcji, takich jak zmienne, parametry, podstawowe funkcje i wiele innych. Ta rozszerzona składnia jest obsługiwana tylko w kontekście wdrożenia szablonu. Nie działa, jeśli jest używany z bezwzględnymi interfejsami API opisanymi wcześniej. Aby uzyskać więcej informacji, zobacz [Opis struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Platforma Azure oferuje możliwość organizowania wdrożenia wielu zasobów. Tworzysz szablon wdrożenia, który wyraża zestaw zasobów do wdrożenia i relacje między nimi.  Format JSON każdego zasobu jest taki sam, jak w przypadku ich tworzenia przez jeden. Różnica polega na tym, że język szablonu dodaje kilka koncepcji, takich jak zmienne, parametry, podstawowe funkcje i wiele innych. Ta rozszerzona składnia jest obsługiwana tylko w kontekście wdrożenia szablonu. Nie działa, jeśli jest używany z bezwzględnymi interfejsami API opisanymi wcześniej. Aby uzyskać więcej informacji, zobacz [Opis struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Parametryzacja należy wykonać przy użyciu składni parametru szablonu.  Zastąp wszystkie wystąpienia identyfikatora zasobu znalezione wcześniej, jak pokazano poniżej.
 
@@ -125,7 +125,7 @@ Zadeklaruj wymagane metadane szablonu i parametry w górnej części szablonu JS
 Po skonfigurowaniu szablonu należy wdrożyć go przy użyciu dowolnej z następujących metod:
 
 * [Interfejsy API REST](/rest/api/resources/deployments)
-* [Program PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Program PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [Strona wdrożenia szablonu Azure Portal](https://portal.azure.com/#create/Microsoft.Template)
 
