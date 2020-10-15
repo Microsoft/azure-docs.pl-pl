@@ -3,11 +3,11 @@
     - name: Strona funkcji odporności platformy Azure
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Projektowanie aplikacji odpornych na błędy dla platformy Azure
-      href: 'https://docs.microsoft.com/azure/architecture/resiliency/'
+      href: /azure/architecture/resiliency/
 - name: Wysoka dostępność
   items:
     - name: Wysoka dostępność dla aplikacji platformy Azure
-      href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+      href: /azure/architecture/resiliency/high-availability-azure-applications
     - name: Regiony i strefy dostępności
       href: az-overview.md
     - name: Dokumentacja dotycząca stref dostępności
@@ -39,34 +39,34 @@
             - name: Usługa Load Balancer w warstwie Standardowa i strefy dostępności
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Standardowa
-              href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Standardowa (PowerShell)
-                  href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
                 - name: Tworzenie strefowo nadmiarowej publicznej usługi Load Balancer w warstwie Standardowa (interfejs wiersza polecenia)
-                  href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Tworzenie strefowej publicznej usługi Load Balancer w warstwie Standardowa
-              href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+              href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
               items:
                 - name: Tworzenie strefowej publicznej usługi Load Balancer w warstwie Standardowa (PowerShell)
-                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
                 - name: Tworzenie strefowej publicznej usługi Load Balancer w warstwie Standardowa (interfejs wiersza polecenia)
-                  href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
             - name: Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności
-              href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+              href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
               items:
                 - name: Równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności za pomocą platformy Azure (interfejs wiersza polecenia)
-                  href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+                  href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
         - name: Publiczny adres IP
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: Baza danych SQL
           items:
             - name: Strefy dostępności z usługą SQL Database
-              href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
         - name: Magazyn
           items:
             - name: Magazyn strefowo nadmiarowy
-              href: ../storage/common/storage-redundancy-zrs.md
+              href: ../storage/common/storage-redundancy.md
         - name: Event Hubs
           items:
             - name: Geograficzne odzyskiwanie po awarii w usłudze Event Hubs
@@ -102,11 +102,11 @@
 - name: Odzyskiwanie po awarii
   items:
     - name: Korzystanie z usługi Azure Site Recovery
-      href: 'https://docs.microsoft.com/azure/site-recovery/'
+      href: ../site-recovery/index.yml
 - name: Azure Backup
   items:
     - name: Korzystanie z usługi Azure Backup
-      href: 'https://docs.microsoft.com/azure/backup/'
+      href: ../backup/index.yml
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

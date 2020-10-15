@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779647"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082140"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -517,7 +517,7 @@ Obiekt renderujący — następujące interfejsy API
 // Create a view for a video stream
 renderer.createView()
 ```
-* Usuwanie modułu renderowania i wszystkich `RendererView` skojarzonych z nim modułu renderowania
+* Usuń moduł renderowania i wszystkie `RendererView` skojarzone z nim. Ma być wywoływana po usunięciu wszystkich skojarzonych widoków z interfejsu użytkownika.
 ```java
 renderer.dispose()
 ```

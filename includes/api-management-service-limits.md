@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: api-management
 author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570112"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082207"
 ---
 | Zasób | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -39,7 +39,7 @@ ms.locfileid: "89570112"
 <sup>2</sup> Rozmiar pamięci podręcznej na jednostkę zależy od warstwy cenowej. Aby sprawdzić warstwy cenowe i ich limity skalowania, zobacz [cennik API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup> Połączenia są w puli i ponownie używane, chyba że zostały jawnie zamknięte przez zaplecze.<br/>
 <sup>4</sup> Ten limit jest na jednostkę warstw Podstawowa, standardowa i Premium. Warstwa dewelopera jest ograniczona do 1 024. Ten limit nie dotyczy warstwy zużycia.<br/>
-<sup>5</sup> Ten limit dotyczy warstw Podstawowa, standardowa i Premium. W warstwie zużycia rozmiar dokumentu zasad jest ograniczony do 4 KiB.<br/>
+<sup>5</sup> Ten limit dotyczy warstw Podstawowa, standardowa i Premium. W warstwie zużycia rozmiar dokumentu zasad jest ograniczony do 16 KiB.<br/>
 <sup>6</sup> Wiele domen niestandardowych jest obsługiwanych tylko w warstwach deweloper i Premium.<br/>
 <sup>7</sup> Certyfikaty urzędu certyfikacji nie są obsługiwane w warstwie zużycia.<br/>
 <sup>8</sup> Ten limit dotyczy tylko warstwy zużycia. W tych kategoriach nie ma ograniczeń dotyczących innych warstw.<br/>

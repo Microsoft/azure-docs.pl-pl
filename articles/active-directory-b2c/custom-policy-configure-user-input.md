@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389364"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069861"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -95,12 +95,12 @@ W celu zebrania roszczeń miasto podczas tworzenia konta należy dodać je jako 
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 Aby zebrać wierzytelność po początkowym logowaniu przy użyciu konta federacyjnego, należy dodać je jako zgłoszenie wyjściowe do `SelfAsserted-Social` profilu technicznego. Aby użytkownicy konta lokalnego i federacyjnego mogli edytować swoje dane profilu później, należy dodać zgłoszenie danych wyjściowych do `SelfAsserted-ProfileUpdate` profilu technicznego. Zastąp te profile techniczne w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->

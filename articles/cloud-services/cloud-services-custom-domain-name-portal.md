@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092732"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069929"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze platformy Azure
 Podczas tworzenia usługi w chmurze platforma Azure przypisuje ją do poddomeny **cloudapp.NET**. Na przykład jeśli usługa w chmurze nosi nazwę "contoso", użytkownicy będą mogli uzyskiwać dostęp do aplikacji przy użyciu adresu URL, takiego jak `http://contoso.cloudapp.net` . Platforma Azure przypisuje również wirtualny adres IP.
@@ -119,7 +119,7 @@ Na przykład następujący rekord A przesyła dalej cały ruch z **contoso.com**
 Ten przykład ilustruje tworzenie rekordu A dla domeny katalogu głównego. Jeśli chcesz utworzyć wpis z symbolem wieloznacznym, aby uwzględnić wszystkie poddomeny, należy wprowadzić "* * * * *" jako poddomenę.
 
 > [!WARNING]
-> Adresy IP na platformie Azure są domyślnie dynamiczne. Prawdopodobnie chcesz użyć [zastrzeżonego adresu IP](../virtual-network/virtual-networks-reserved-public-ip.md) , aby upewnić się, że adres IP nie ulegnie zmianie.
+> Adresy IP na platformie Azure są domyślnie dynamiczne. Prawdopodobnie chcesz użyć [zastrzeżonego adresu IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) , aby upewnić się, że adres IP nie ulegnie zmianie.
 > 
 > 
 
@@ -135,9 +135,6 @@ Ten przykład ilustruje tworzenie rekordu A dla domeny katalogu głównego. Jeś
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-

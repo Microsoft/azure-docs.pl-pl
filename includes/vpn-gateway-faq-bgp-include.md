@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025013"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082194"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Czy protokół BGP jest obsługiwany na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
 Protokół BGP jest obsługiwany przez wszystkie jednostki SKU VPN Gateway platformy Azure z wyjątkiem podstawowej jednostki SKU.
@@ -108,3 +108,6 @@ Tak.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Co należy dodać do lokalnego urządzenia sieci VPN dla sesji połączenia równorzędnego protokołu BGP?
 Na urządzeniu sieci VPN należy dodać trasę hosta dla adresu IP elementu równorzędnego protokołu BGP platformy Azure wskazującego tunel sieci VPN S2S protokołu IPsec. Na przykład jeśli adresem IP elementu równorzędnego sieci VPN platformy Azure jest „10.12.255.30”, należy dodać trasę hosta dla adresu „10.12.255.30” z interfejsem następnego skoku pasującym do interfejsu tunelu protokołu IPsec urządzenia sieci VPN użytkownika.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>Czy brama Virtual Network obsługuje wykrywanie dwukierunkowego przekazywania (BFD) dla połączeń między lokacjami przy użyciu protokołu BGP?
+Nie. Wykrywanie dwukierunkowego przekazywania (BFD) to protokół, który może być używany razem z protokołem BGP do wykrywania krótszych przestojów niż przy użyciu standardowej aktywności protokołu BGP. BFD używa podsekundowych czasomierzy zaprojektowanych do pracy w środowiskach sieci LAN, ale nie między publicznymi internetowymi lub rozległymi połączeniami sieciowymi. W przypadku połączeń za pośrednictwem publicznej sieci Internet pewne pakiety opóźnione lub nawet porzucone nie są nietypowe, więc wprowadzenie tych agresywnych czasomierzy spowodowałoby dodanie niestabilności, które mogą spowodować, że trasy są tłumione przez protokół BGP. Alternatywnie można skonfigurować urządzenie lokalne przy użyciu czasomierzy mniejsze niż domyślny 60 sekund okresu utrzymywania aktywności oraz czasomierz 180 sekund, aby skrócić czas zbieżności.

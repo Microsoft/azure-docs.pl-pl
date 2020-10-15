@@ -2,21 +2,21 @@
 title: 'Azure bastionu: wyświetlanie sesji maszyny wirtualnej: pełny ekran'
 description: Dowiedz się, jak zmienić widok maszyny wirtualnej na pełny ekran i z powrotem w przeglądarce dla połączenia RDP lub SSH w usłudze Azure bastionu.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
-ms.openlocfilehash: fa795d7b066733aba54f8612bbabecf264a11c70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cherylmc
+ms.openlocfilehash: 7db85c5e1d5f67c30adf08969c51bb4c57838fb5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270295"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079143"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Przejdź do widoku pełnoekranowego sesji maszyny wirtualnej: Azure bastionu
 
-Ten artykuł pomaga zmienić widok maszyny wirtualnej na pełny ekran i z powrotem w przeglądarce. Przed rozpoczęciem pracy z maszyną wirtualną upewnij się, że wykonano kroki umożliwiające [utworzenie hosta bastionu](bastion-create-host-portal.md). Następnie nawiąż połączenie z maszyną wirtualną, z którą chcesz współpracować przy użyciu [protokołu RDP](bastion-connect-vm-rdp.md) lub [SSH](bastion-connect-vm-ssh.md).
+Ten artykuł pomaga zmienić widok maszyny wirtualnej na pełny ekran i z powrotem w przeglądarce. Przed rozpoczęciem pracy z maszyną wirtualną upewnij się, że wykonano kroki umożliwiające [utworzenie hosta bastionu](./tutorial-create-host-portal.md). Następnie nawiąż połączenie z maszyną wirtualną, z którą chcesz współpracować przy użyciu [protokołu RDP](bastion-connect-vm-rdp.md) lub [SSH](bastion-connect-vm-ssh.md).
 
 ## <a name="launch-the-clipboard-tool"></a>Uruchom narzędzie do schowka
 

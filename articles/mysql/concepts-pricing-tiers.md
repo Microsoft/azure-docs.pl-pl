@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171007"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079041"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL warstw cenowych
 
@@ -51,7 +51,7 @@ Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla ser
 | Liczba operacji we/wy na sekundę | Zmienna |3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
 
 > [!NOTE]
-> Magazynowanie do 16TB i 20 000 operacji we/wy jest obsługiwane w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Azja Wschodnia Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Europa Zachodnia, Japonia Południowo-Wschodnia, Korea Południowa, Australia Południowo-Wschodnia, zachodnie stany USA 2 i zachodnie stany USA.
+> Magazyn o pojemności do 16TB i 20 000 operacji we/wy jest obsługiwany w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa, Australia Wschodnia Azja Wschodnia, Australia Wschodnia, zachodnie stany USA 2, zachodnie stany USA, Kanada środkowa i Kanada środkowa.
 >
 > Wszystkie inne regiony obsługują do 4 TB magazynu i do 6000 operacji we/wy na sekundę.
 >

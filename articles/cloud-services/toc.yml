@@ -194,7 +194,7 @@
     - name: Ścieżka szkoleniowa
       href: /learn/paths/azure-fundamentals/
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+      href: /answers/topics/azure-cloud-services.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Kalkulator cen

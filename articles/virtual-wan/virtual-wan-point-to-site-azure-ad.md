@@ -2,17 +2,17 @@
 title: 'Konfigurowanie uwierzytelniania usługi Azure AD dla połączenia sieci VPN użytkownika: wirtualna sieć WAN'
 description: Dowiedz się, jak skonfigurować uwierzytelnianie Azure Active Directory dla sieci VPN użytkownika.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832522"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079177"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurowanie uwierzytelniania Azure Active Directory dla sieci VPN użytkownika
 
@@ -22,19 +22,18 @@ Ten typ połączenia wymaga skonfigurowania klienta na komputerze klienckim. Aby
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Tworzenie wirtualnej sieci WAN
-> * Tworzenie koncentratora wirtualnego
-> * Tworzenie konfiguracji sieci VPN użytkownika
-> * Pobieranie profilu sieci VPN użytkownika wirtualnego sieci WAN
-> * Stosowanie konfiguracji sieci VPN użytkownika do koncentratora wirtualnego
-> * Łączenie sieci wirtualnej z koncentratorem wirtualnym
-> * Pobieranie i stosowanie konfiguracji klienta sieci VPN użytkownika
-> * Wyświetlanie wirtualnej sieci WAN
+* Tworzenie wirtualnej sieci WAN
+* Tworzenie koncentratora wirtualnego
+* Tworzenie konfiguracji sieci VPN użytkownika
+* Pobieranie profilu sieci VPN użytkownika wirtualnego sieci WAN
+* Stosowanie konfiguracji sieci VPN użytkownika do koncentratora wirtualnego
+* Łączenie sieci wirtualnej z koncentratorem wirtualnym
+* Pobieranie i stosowanie konfiguracji klienta sieci VPN użytkownika
+* Wyświetlanie wirtualnej sieci WAN
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwanp2s.png)
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 

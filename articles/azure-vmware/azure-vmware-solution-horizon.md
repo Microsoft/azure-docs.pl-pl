@@ -3,12 +3,12 @@ title: Wdróż horyzont w rozwiązaniu VMware platformy Azure
 description: Dowiedz się, jak wdrożyć platformę VMware w rozwiązaniu VMware platformy Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729053"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078888"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Wdróż horyzont w rozwiązaniu VMware platformy Azure 
 
@@ -197,11 +197,14 @@ Skontaktuj się z zespołem sprzedaży VMware EUC, aby określić koszt licencjo
 
 Na podstawie standardowej architektury wdrażania maszyny wirtualne infrastruktury horyzontu składają się z serwerów połączeń, UAGs, menedżerów woluminów aplikacji i są wdrażane w Virtual Network na platformie Azure klienta. Dodatkowe wystąpienia natywne platformy Azure są wymagane do obsługi usług wysokiej dostępności (HA), Microsoft SQL lub Microsoft Active Directory (AD) na platformie Azure. Poniżej znajduje się lista wystąpień platformy Azure opartych na przykładowym wdrożeniu 2 000-Desktop. 
 
+>[!NOTE]
+>Aby można było obsłużyć błąd, wdróż jeszcze jeden serwer niż jest wymagany dla liczby połączeń (n + 1). Minimalna zalecana liczba wystąpień serwera połączeń, UAG i Menedżer woluminów aplikacji to 2, a liczba wymaganych będzie rośnie w zależności od liczby użytkowników, które będą obsługiwane w środowisku.  Serwer z pojedynczym połączeniem obsługuje maksymalnie 4 000 sesji, ale w przypadku najlepszych rozwiązań zaleca się, aby 2 000. Do siedmiu serwerów połączeń są obsługiwane na ogół z zaleceniem 12 000 aktywnych sesji. Aby uzyskać najbardziej aktualne numery, zapoznaj się z [artykułem z bazy wiedzy programu VMware i zaleceniami dotyczącymi określania zakresu](https://kb.vmware.com/s/article/2150348).
+
 | Składnik infrastruktury horyzontu | Wystąpienie platformy Azure | Wymagana liczba wystąpień (dla 2 000-komputerów stacjonarnych)    | Komentarz  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Serwer połączeń                | D4sv3          | 2       | *Zawiera 1 wystąpienie dla HA*             |    
-| UAG                              | F2sv2          | 2       | *Zawiera 1 wystąpienie dla HA*             |
-| Menedżer woluminów aplikacji              | D4sv3          | 2       | *Zawiera 1 wystąpienie dla HA*             |
+| Serwer połączeń                | D4sv3          | 2       | *Patrz Uwaga powyżej*                         |    
+| UAG                              | F2sv2          | 2       | *Patrz Uwaga powyżej*                         |
+| Menedżer woluminów aplikacji              | D4sv3          | 2       | *Patrz Uwaga powyżej*                         |
 | Łącznik Cloud                  | D4sv3          | 1       |                                          |
 | Kontroler usługi AD                    | D4sv3          | 2       | *Opcja używania usługi AD MSFT na platformie Azure* |
 | MS-SQL Database                  | D4sv3          | 2       | *Opcja korzystania z usługi SQL na platformie Azure*     |

@@ -2,21 +2,21 @@
 title: Praca z maszynami wirtualnymi i sieciowych grup zabezpieczeń na platformie Azure bastionu
 description: Za pomocą sieciowych grup zabezpieczeń można korzystać z usługi Azure bastionu. Dowiedz się więcej o podsieciach wymaganych do tej konfiguracji.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: charwen
-ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cherylmc
+ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987708"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079194"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
 
-Podczas pracy z usługą Azure bastionu można użyć sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Aby uzyskać więcej informacji, zobacz [grupy zabezpieczeń](../virtual-network/security-overview.md).
+Podczas pracy z usługą Azure bastionu można użyć sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Aby uzyskać więcej informacji, zobacz [grupy zabezpieczeń](../virtual-network/network-security-groups-overview.md).
 
 :::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="Sieciowa grupa zabezpieczeń":::
 

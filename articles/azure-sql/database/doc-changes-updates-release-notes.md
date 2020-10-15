@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058135"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079211"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,8 +98,8 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
-|[Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Wrz 2020|Ma obejście||
-|[Nie można wykonać transakcji rozproszonych po operacji skalowania wystąpienia zarządzanego](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Wrz 2020|Ma obejście||
+|[Transakcje rozproszone można wykonać po usunięciu wystąpienia zarządzanego z grupy zaufania serwera](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 października|Ma obejście||
+|[Nie można wykonać transakcji rozproszonych po operacji skalowania wystąpienia zarządzanego](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 października|Ma obejście||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) w usłudze Azure SQL i `BACKUP` / `RESTORE` instrukcji w wystąpieniu zarządzanym nie można używać tożsamości zarządzania usługą Azure AD do uwierzytelniania w usłudze Azure Storage|Wrz 2020|Ma obejście||
 |[Nazwa główna usługi nie może uzyskać dostępu do usługi Azure AD i AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 sie|Ma obejście||
 |[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Resolved|Czerwiec 2020 r.|
