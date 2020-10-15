@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263236"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075709"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na SQL Server na platformie Azure Virtual Machines
 
@@ -54,7 +54,7 @@ Musisz mieć konto platformy Azure. Możesz [otworzyć bezpłatne konto platform
    ![Grupa zasobów](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Wybierz pozycję **Grupa zasobów**.
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 6. W polu **Nazwa grupy zasobów**wpisz nazwę grupy zasobów. Na przykład wpisz **SQL-ha-RG**.
 7. Jeśli masz wiele subskrypcji platformy Azure, sprawdź, czy subskrypcja jest subskrypcją platformy Azure, w której chcesz utworzyć grupę dostępności.
 8. Wybierz lokalizację. Lokalizacja jest regionem świadczenia usługi Azure, w którym chcesz utworzyć grupę dostępności. Ten artykuł kompiluje wszystkie zasoby w jednej lokalizacji platformy Azure.
@@ -99,7 +99,7 @@ Aby utworzyć sieć wirtualną w Azure Portal:
 
    W przykładzie jest użyta nazwa podsieci **administrator**. Ta podsieć jest dla kontrolerów domeny.
 
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
    ![Konfigurowanie sieci wirtualnej](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
@@ -187,7 +187,7 @@ W poniższej tabeli przedstawiono ustawienia tych dwóch maszyn:
 | **Nazwa** |Pierwszy kontroler domeny: *AD-Primary-DC*.</br>Drugi kontroler domeny *AD-pomocniczy — DC*. |
 | **Typ dysku maszyny wirtualnej** |SSD |
 | **User name** (Nazwa użytkownika) |Administrator domeny |
-| **Hasło** |Contoso! 0000 |
+| **Password** (Hasło) |Contoso! 0000 |
 | **Subskrypcja** |*Twoja subskrypcja* |
 | **Grupa zasobów** |SQL-HA — RG |
 | **Lokalizacja** |*Twoja lokalizacja* |
@@ -420,6 +420,10 @@ Teraz można przyłączyć maszyny wirtualne do **Corp.contoso.com**. Wykonaj na
 7. Gdy zostanie wyświetlony komunikat "Witamy w domenie corp.contoso.com", wybierz **przycisk OK**.
 8. Wybierz pozycję **Zamknij**, a następnie w oknie podręcznym wybierz pozycję **Uruchom ponownie teraz** .
 
+## <a name="add-accounts"></a>Dodawanie kont
+
+Dodaj konto instalacji jako administrator na każdej maszynie wirtualnej, Udziel uprawnienia do konta instalacji i kont lokalnych w SQL Server i zaktualizuj konto usługi SQL Server. 
+
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>Dodaj użytkownika Corp\Install jako administratora na każdej maszynie wirtualnej klastra
 
 Po ponownym uruchomieniu każdej maszyny wirtualnej jako członka domeny Dodaj **CORP\Install** jako członka lokalnej grupy administratorów.
@@ -438,16 +442,6 @@ Po ponownym uruchomieniu każdej maszyny wirtualnej jako członka domeny Dodaj *
 7. Wybierz **przycisk OK** , aby zamknąć okno dialogowe **Właściwości administratora** .
 8. Powtórz poprzednie kroki w programie **SqlServer-1** i **cluster-FSW**.
 
-### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Ustawianie kont usługi SQL Server
-
-Na każdej maszynie SQL Server należy ustawić konto usługi SQL Server. Użyj kont utworzonych podczas konfigurowania kont domeny.
-
-1. Otwórz **Menedżera konfiguracji programu SQL Server**.
-2. Kliknij prawym przyciskiem myszy usługę SQL Server, a następnie wybierz pozycję **Właściwości**.
-3. Ustawianie konta i hasła.
-4. Powtórz te kroki na drugiej maszynie wirtualnej SQL Server.  
-
-W przypadku grup dostępności SQL Server każda SQL Server maszyna wirtualna musi być uruchomiona jako konto domeny.
 
 ### <a name="create-a-sign-in-on-each-sql-server-vm-for-the-installation-account"></a>Utwórz logowanie na każdej maszynie wirtualnej SQL Server dla konta instalacji
 
@@ -467,13 +461,54 @@ Aby skonfigurować grupę dostępności, użyj konta instalacji (CORP\install). 
 
 1. Wprowadź poświadczenia sieciowe administratora domeny.
 
-1. Użyj konta instalacji.
+1. Użyj konta instalacji (CORP\install).
 
 1. Ustaw Logowanie jako należące do stałej roli serwera **sysadmin** .
 
 1. Wybierz przycisk **OK**.
 
 Powtórz powyższe kroki na drugiej maszynie SQL Server VM.
+
+### <a name="configure-system-account-permissions"></a>Konfigurowanie uprawnień konta systemowego
+
+Aby utworzyć konto dla konta System i udzielić odpowiednich uprawnień, wykonaj następujące czynności na każdym wystąpieniu SQL Server:
+
+1. Utwórz konto dla `[NT AUTHORITY\SYSTEM]` każdego wystąpienia SQL Server. Następujący skrypt tworzy to konto:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. `[NT AUTHORITY\SYSTEM]`W każdym wystąpieniu SQL Server Udziel następujących uprawnień:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   Następujący skrypt przyznaje te uprawnienia:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Ustawianie kont usługi SQL Server
+
+Na każdej maszynie SQL Server należy ustawić konto usługi SQL Server. Użyj kont utworzonych podczas konfigurowania kont domeny.
+
+1. Otwórz **Menedżera konfiguracji programu SQL Server**.
+2. Kliknij prawym przyciskiem myszy usługę SQL Server, a następnie wybierz pozycję **Właściwości**.
+3. Ustawianie konta i hasła.
+4. Powtórz te kroki na drugiej maszynie wirtualnej SQL Server.  
+
+W przypadku grup dostępności SQL Server każda SQL Server maszyna wirtualna musi być uruchomiona jako konto domeny.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Dodawanie funkcji klastra trybu failover do obu maszyn wirtualnych SQL Server
 
@@ -517,42 +552,13 @@ Metoda otwierania portów zależy od używanego rozwiązania zapory. W następne
 
    ![Zapora SQL](./media/availability-group-manually-configure-prerequisites-tutorial-/35-tcpports.png)
 
-5. Wybierz opcję **Dalej**.
+5. Wybierz pozycję **Dalej**.
 6. Na stronie **Akcja** pozostaw zaznaczone pole wyboru **Zezwalaj na połączenie** , a następnie wybierz przycisk **dalej**.
 7. Na stronie **profil** zaakceptuj ustawienia domyślne, a następnie wybierz przycisk **dalej**.
 8. Na stronie **Nazwa** Określ nazwę reguły (na przykład **sondy Azure lb**) w polu tekstowym **Nazwa** , a następnie wybierz pozycję **Zakończ**.
 
 Powtórz te kroki na drugiej maszynie wirtualnej SQL Server.
 
-## <a name="configure-system-account-permissions"></a>Konfigurowanie uprawnień konta systemowego
-
-Aby utworzyć konto dla konta System i udzielić odpowiednich uprawnień, wykonaj następujące czynności na każdym wystąpieniu SQL Server:
-
-1. Utwórz konto dla `[NT AUTHORITY\SYSTEM]` każdego wystąpienia SQL Server. Następujący skrypt tworzy to konto:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. `[NT AUTHORITY\SYSTEM]`W każdym wystąpieniu SQL Server Udziel następujących uprawnień:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   Następujący skrypt przyznaje te uprawnienia:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## <a name="next-steps"></a>Następne kroki
 

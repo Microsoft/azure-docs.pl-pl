@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824194"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075539"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -23,7 +23,7 @@ Biblioteki zarządzania funkcją rozruchu sprężynowego umożliwiają rozbudowa
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
-* Obsługiwany zestaw [SDK języka Java Development Kit](https://docs.microsoft.com/java/azure/jdk) z wersją 8.
+* Obsługiwany zestaw [SDK języka Java Development Kit](/java/azure/jdk) z wersją 8.
 * System [Apache Maven](https://maven.apache.org/download.cgi) w wersji 3,0 lub nowszej.
 
 ## <a name="create-an-app-configuration-instance"></a>Tworzenie wystąpienia konfiguracji aplikacji
@@ -304,7 +304,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji, który będzie używany do zarządzania funkcjami w aplikacji sieci Web ze sprężyną rozruchu za pośrednictwem [bibliotek zarządzania](https://go.microsoft.com/fwlink/?linkid=2074664)funkcjami.
+W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji, który będzie używany do zarządzania funkcjami w aplikacji sieci Web ze sprężyną rozruchu za pośrednictwem [bibliotek zarządzania](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)funkcjami.
 
 * Dowiedz się więcej o [zarządzaniu funkcjami](./concept-feature-management.md).
 * [Zarządzaj flagami funkcji](./manage-feature-flags.md).
