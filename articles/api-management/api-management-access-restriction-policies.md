@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 05ca16ad828525f2b09e4adf8f75be4667254614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711a973f13c8e292578703518df4c4302c31eb57
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535189"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071391"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
 
-Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](./api-management-policies.md).
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Zasady ograniczeń dostępu
 
@@ -63,7 +63,7 @@ Użyj `check-header` zasad, aby wymusić, że żądanie ma określony nagłówek
 | Nazwa         | Opis                                                                                                                                   | Wymagane |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | znacznik wyboru | Element główny.                                                                                                                                 | Tak      |
-| value        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
+| wartość        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -558,4 +558,4 @@ Aby uzyskać więcej informacji na temat pracy z zasadami, zobacz:
 -   [Zasady w API Management](api-management-howto-policies.md)
 -   [Przekształć interfejsy API](transform-api.md)
 -   [Dokumentacja zasad](./api-management-policies.md) pełna lista instrukcji zasad i ich ustawień
--   [Przykłady zasad](policy-samples.md)
+-   [Przykłady zasad](./policy-reference.md)
