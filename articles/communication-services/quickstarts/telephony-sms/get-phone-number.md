@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 49a5fd51a62dd6c90d7b1bac8d99296ddc81287f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044772"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070099"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Szybki Start: uzyskiwanie numeru telefonu przy użyciu Azure Portal
 
@@ -45,16 +45,16 @@ Najpierw musisz wybrać lokalizację, w `Country/region` której chcesz zainicjo
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
-### <a name="select-a-phone-plan"></a>Wybierz plan telefonu
+### <a name="select-your-phone-number-features"></a>Wybierz funkcje numeru telefonu
 
-Wybór planu telefonu jest podzielony na dwa kroki: 
+Konfigurowanie numeru telefonu jest podzielone na dwa kroki: 
 
 1. Wybór [typu liczby](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. Wybór [planu](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
+2. Wybór [funkcji liczb](../../concepts/telephony-sms/plan-solution.md#phone-number-features-in-azure-communication-services)
 
-Oferujemy obecnie dwa typy liczb: `Geographic` , i `Toll-free` . Po wybraniu typu liczbowego będziesz oferować kilka planów, z których możesz wybrać.
+Można wybrać jedną z dwóch typów numerów telefonów: `Geographic` , i `Toll-free` . Po wybraniu typu liczbowego można wybrać funkcję.
 
-W naszym przykładzie wybieramy `Toll-free` typ liczbowy z `Outbound calling` `Inbound and Outbound SMS` planami i.
+W naszym przykładzie wybrano `Toll-free` typ liczbowy z `Outbound calling` `Inbound and Outbound SMS` funkcjami i.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
@@ -74,7 +74,7 @@ Wybierz `Area code` z listy dostępnych kodów obszaru i wprowadź liczbę, któ
 :::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
 > [!NOTE]
-> Dostępność zależy od typu liczby, lokalizacji i wybranego planu.
+> Dostępność zależy od typu liczby, lokalizacji i funkcji, które zostały wybrane.
 > Liczby są zarezerwowane przez krótki czas przed wygaśnięciem transakcji. Jeśli transakcja wygaśnie, należy ponownie wybrać liczby.
 
 Aby wyświetlić podsumowanie zakupu i złożyć zamówienie, kliknij `Next: Summary` przycisk w dolnej części strony.
@@ -103,12 +103,14 @@ Wybierz blok numery telefonów w menu, aby zarządzać numerami telefonów.
 > [!NOTE]
 > Wyświetlanie numerów aprowizacji na tej stronie może potrwać kilka minut.
 
-### <a name="customizing-phone-number-features"></a>Dostosowywanie funkcji numeru telefonu
-Na `Numbers` stronie możesz wybrać numer telefonu, klikając numer, dla którego chcesz dostosować plan.
+
+### <a name="customizing-phone-numbers"></a>Dostosowywanie numerów telefonów
+
+Na `Numbers` stronie możesz wybrać numer telefonu, aby go skonfigurować.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Zrzut ekranu przedstawiający stronę główną zasobu usług komunikacyjnych.":::
 
-Wybierz możliwości z listy dostępnych możliwości wywoływania i SMS, a następnie kliknij, `Confirm` Aby zastosować wybór.
+Wybierz funkcje z dostępnych opcji, a następnie kliknij, `Confirm` Aby zastosować wybór.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fad84c9ed145b4acec73ffad1fa470acf94532
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82086253"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076950"
 ---
 # <a name="sizes-for-cloud-services"></a>Rozmiary dla Cloud Services
 W tym temacie opisano dostępne rozmiary i opcje dla wystąpień ról usługi w chmurze (ról sieci Web i procesów roboczych). Zawiera również zagadnienia dotyczące wdrażania, które należy wziąć pod uwagę podczas planowania użycia tych zasobów. Każdy rozmiar ma identyfikator, który został umieszczony w [pliku definicji usługi](cloud-services-model-and-package.md#csdef). Ceny za każdy rozmiar są dostępne na stronie [cennika Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/) .
@@ -36,7 +36,7 @@ Rozmiar maszyny wirtualnej ma wpływ na ceny. Rozmiar wpływa również na wydaj
 
 W podjęciu decyzji o rozmiarze mogą pomóc następujące informacje:
 
-* Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie korzystającymi z mocy obliczeniowej*. Sprzęt, na którym działają te rozmiary maszyn wirtualnych, został zaprojektowany i zoptymalizowany pod kątem aplikacji intensywnie korzystających z mocy obliczeniowej i sieci, w tym aplikacji klastrów obliczeń o wysokiej wydajności, modelowania i symulacji. Maszyny wirtualne serii A8–A11 korzystają z procesorów Intel Xeon E5-2670 o częstotliwości 2,6 GHz, a seria H korzysta z procesorów Intel Xeon E5-2667 v3 o częstotliwości 3,2 GHz. Aby uzyskać szczegółowe informacje i zagadnienia dotyczące korzystania z tych rozmiarów, zobacz [rozmiary maszyn wirtualnych o wysokiej wydajności](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie korzystającymi z mocy obliczeniowej*. Sprzęt, na którym działają te rozmiary maszyn wirtualnych, został zaprojektowany i zoptymalizowany pod kątem aplikacji intensywnie korzystających z mocy obliczeniowej i sieci, w tym aplikacji klastrów obliczeń o wysokiej wydajności, modelowania i symulacji. Maszyny wirtualne serii A8–A11 korzystają z procesorów Intel Xeon E5-2670 o częstotliwości 2,6 GHz, a seria H korzysta z procesorów Intel Xeon E5-2667 v3 o częstotliwości 3,2 GHz. Aby uzyskać szczegółowe informacje i zagadnienia dotyczące korzystania z tych rozmiarów, zobacz [rozmiary maszyn wirtualnych o wysokiej wydajności](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 * Seria Dv3, Seria Dv2, Seria D serii G, są idealne dla aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych lub większych potrzeb związanych z pamięcią. Oferują one kombinację opcji o dużych możliwościach dla wielu aplikacji klasy korporacyjnej.
 * Niektóre hosty fizyczne w centrach danych platformy Azure mogą nie obsługiwać większych rozmiarów maszyn wirtualnych, takich jak A5–A11. W efekcie może zostać wyświetlony komunikat o błędzie **nie można skonfigurować maszyny wirtualnej {Name}** lub **nie można utworzyć maszyny wirtualnej {Machine Name}** podczas zmiany rozmiaru istniejącej maszyny wirtualnej na nowy rozmiar; Tworzenie nowej maszyny wirtualnej w sieci wirtualnej utworzonej przed 16 kwietnia 2013; lub dodanie nowej maszyny wirtualnej do istniejącej usługi w chmurze. Zobacz [błąd: "nie można skonfigurować maszyny wirtualnej"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) na forum pomocy technicznej w celu obejścia tego problemu w każdym scenariuszu wdrażania.
 * Subskrypcja może również ograniczać liczbę rdzeni, które można wdrożyć w rodzinach o określonym rozmiarze. Aby zwiększyć limit przydziału, skontaktuj się z pomocą techniczną platformy Azure.
@@ -79,16 +79,16 @@ W poniższych tabelach przedstawiono rozmiary maszyn wirtualnych i możliwości,
 | Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB  | Magazyn tymczasowy: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / niska |
-| Mała           | 1         | 1,75         | 225                  | 1 / średnia |
+| Mały           | 1         | 1,75         | 225                  | 1 / średnia |
 | Średniaa          | 2         | 3,5          | 490                  | 1 / średnia |
-| Duża           | 4         | 7            | 1000                 | 2 / wysoka |
+| Duży           | 4         | 7            | 1000                 | 2 / wysoka |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / wysoka |
 | A5              | 2         | 14           | 490                  | 1 / średnia |
 | A6              | 4         | 28           | 1000                 | 2 / wysoka |
 | A7              | 8         | 56           | 2040                 | 4 / wysoka |
 
 ## <a name="a-series---compute-intensive-instances"></a>Seria A — wystąpienia intensywnie korzystające z mocy obliczeniowej
-Aby uzyskać informacje i zagadnienia dotyczące korzystania z tych rozmiarów, zobacz [rozmiary maszyn wirtualnych o wysokiej wydajności](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aby uzyskać informacje i zagadnienia dotyczące korzystania z tych rozmiarów, zobacz [rozmiary maszyn wirtualnych o wysokiej wydajności](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 | Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB  | Magazyn tymczasowy: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -217,7 +217,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [limitów, przydziałów i ograniczeń usługi i subskrypcji platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
-* Dowiedz się więcej [o rozmiarach maszyn wirtualnych obliczeniowych o wysokiej wydajności](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) dla obciążeń HPC.
-
-
-
+* Dowiedz się więcej [o rozmiarach maszyn wirtualnych obliczeniowych o wysokiej wydajności](../virtual-machines/sizes-hpc.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) dla obciążeń HPC.
