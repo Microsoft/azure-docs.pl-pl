@@ -10,24 +10,24 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae1509d552de1d5473c7d995af2db68d7113e79
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015305"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077528"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Co zrobić w przypadku przerw w działaniu usługi platformy Azure mających wpływ na platformę Azure Cloud Services
 Firma Microsoft chce, aby upewnić się, że nasze usługi są zawsze dostępne dla Ciebie, gdy będą potrzebne. Siły wykraczające poza nasze kontrolki czasami wpływają na metody, które powodują nieplanowane zakłócenia usługi.
 
 Firma Microsoft oferuje Umowa dotycząca poziomu usług (SLA) dla usług jako zobowiązanie do pracy i łączności. Umowę SLA dla poszczególnych usług platformy Azure można znaleźć na stronie [umowy dotyczące poziomu usług platformy Azure](https://azure.microsoft.com/support/legal/sla/).
 
-Platforma Azure ma już wiele wbudowanych funkcji platformy, które obsługują aplikacje o wysokiej dostępności. Aby uzyskać więcej informacji na temat tych usług, Przeczytaj [odzyskiwanie po awarii i wysoką dostępność dla aplikacji platformy Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Platforma Azure ma już wiele wbudowanych funkcji platformy, które obsługują aplikacje o wysokiej dostępności. Aby uzyskać więcej informacji na temat tych usług, Przeczytaj [odzyskiwanie po awarii i wysoką dostępność dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 W tym artykule opisano prawdziwe scenariusze odzyskiwania po awarii, gdy cały region napotyka awarię z powodu poważnych awarii lub szerokiej przerwy w działaniu usługi. Są to rzadkie wystąpienia, ale należy przygotować się na możliwość wystąpienia awarii całego regionu. Jeśli w całym regionie wystąpi zakłócenia usługi, lokalnie nadmiarowe kopie danych byłyby tymczasowo niedostępne. Jeśli włączono replikację geograficzną, trzy dodatkowe kopie obiektów blob i tabel usługi Azure Storage są przechowywane w innym regionie. W przypadku kompletnej awarii regionalnej lub awarii, w której region podstawowy nie jest możliwy do odzyskania, platforma Azure ponownie mapuje wszystkie wpisy DNS do regionu replikowanego geograficznie.
 
 > [!NOTE]
-> Należy pamiętać, że nie masz żadnej kontroli nad tym procesem i wystąpi tylko w przypadku przerw w działaniu usługi w całym centrum danych. W związku z tym należy również korzystać z innych strategii tworzenia kopii zapasowych specyficznych dla aplikacji, aby osiągnąć najwyższy poziom dostępności. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i wysoka dostępność dla aplikacji utworzonych na Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Jeśli chcesz mieć możliwość wpływania na własne przejście w tryb failover, warto rozważyć użycie [magazynu geograficznie nadmiarowego do odczytu (RA-GRS)](../storage/common/storage-redundancy.md), który tworzy kopię danych tylko do odczytu w innym regionie.
+> Należy pamiętać, że nie masz żadnej kontroli nad tym procesem i wystąpi tylko w przypadku przerw w działaniu usługi w całym centrum danych. W związku z tym należy również korzystać z innych strategii tworzenia kopii zapasowych specyficznych dla aplikacji, aby osiągnąć najwyższy poziom dostępności. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i wysoka dostępność dla aplikacji utworzonych na Microsoft Azure](/azure/architecture/framework/resiliency/backup-and-recovery). Jeśli chcesz mieć możliwość wpływania na własne przejście w tryb failover, warto rozważyć użycie [magazynu geograficznie nadmiarowego do odczytu (RA-GRS)](../storage/common/storage-redundancy.md), który tworzy kopię danych tylko do odczytu w innym regionie.
 >
 >
 
@@ -54,6 +54,6 @@ W zależności od źródeł danych aplikacji może być konieczne sprawdzenie pr
 W takim przypadku żadna akcja nie jest wymagana, ale usługa będzie niedostępna, dopóki region nie zostanie przywrócony. Bieżący stan usługi można zobaczyć na [pulpicie nawigacyjnym Azure Service Health](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o implementowaniu strategii odzyskiwania po awarii i wysokiej dostępności, zobacz [odzyskiwanie po awarii i wysoka dostępność dla aplikacji platformy Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Aby dowiedzieć się więcej o implementowaniu strategii odzyskiwania po awarii i wysokiej dostępności, zobacz [odzyskiwanie po awarii i wysoka dostępność dla aplikacji platformy Azure](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 Aby opracować szczegółowe informacje techniczne na temat możliwości platformy w chmurze, zobacz [Wskazówki techniczne dotyczące odporności na platformie Azure](/azure/architecture/checklist/resiliency-per-service).

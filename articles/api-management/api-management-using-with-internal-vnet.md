@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: ac9554ae5ca151a377395d3b16598f7070c87d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386048"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077494"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Korzystanie z usługi Azure API Management z wewnętrzną siecią wirtualną
 Usługa API Management Azure Virtual Networks umożliwia Zarządzanie interfejsami API, które nie są dostępne w Internecie. Do nawiązania połączenia są dostępne różne technologie sieci VPN. API Management można wdrożyć w dwóch głównych trybach wewnątrz sieci wirtualnej:
@@ -51,7 +51,7 @@ Aby wykonać kroki opisane w tym artykule, musisz dysponować:
 + Po wdrożeniu usługi API Management w sieci wirtualnej jest używana [Lista portów](./api-management-using-with-vnet.md#required-ports) i należy ją otworzyć. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Tworzenie API Management w wewnętrznej sieci wirtualnej
-Usługa API Management w wewnętrznej sieci wirtualnej jest hostowana za [wewnętrznym modułem równoważenia obciążenia (klasycznym)](/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Jest to jedyna dostępna opcja i nie można jej zmienić.
+Usługa API Management w wewnętrznej sieci wirtualnej jest hostowana za [wewnętrznym modułem równoważenia obciążenia (klasycznym)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Jest to jedyna dostępna opcja i nie można jej zmienić.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Włączanie połączenia sieci wirtualnej przy użyciu Azure Portal
 
@@ -143,4 +143,4 @@ Więcej informacji można znaleźć w następujących artykułach:
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

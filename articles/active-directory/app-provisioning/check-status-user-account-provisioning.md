@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235081"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069810"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Samouczek: Raportowanie dotyczące automatycznego aprowizacji kont użytkowników
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób sprawdzania stanu zadań aprowizacji po ich skonf
 Łączniki aprowizacji są konfigurowane i konfigurowane przy użyciu [Azure Portal](https://portal.azure.com), zgodnie z [podaną dokumentacją](../saas-apps/tutorial-list.md) dla obsługiwanej aplikacji. Po skonfigurowaniu i uruchomieniu zadań aprowizacji można zgłaszać przy użyciu jednej z dwóch metod:
 
 * **Azure Portal** — w tym artykule opisano pobieranie informacji o raportach z [Azure Portal](https://portal.azure.com), które zawierają Raport z podsumowaniem udostępniania oraz szczegółowe dzienniki inspekcji dla danej aplikacji.
-* **Interfejs API inspekcji** — Azure Active Directory również udostępnia interfejs API inspekcji, który umożliwia programistyczne pobieranie szczegółowych dzienników inspekcji aprowizacji. Informacje dotyczące korzystania z tego interfejsu API można znaleźć w dokumentacji dotyczącej [interfejsu API inspekcji Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) . Chociaż w tym artykule nie opisano sposobu korzystania z interfejsu API, szczegółowe informacje o typach zdarzeń aprowizacji, które są rejestrowane w dzienniku inspekcji.
+* **Interfejs API inspekcji** — Azure Active Directory również udostępnia interfejs API inspekcji, który umożliwia programistyczne pobieranie szczegółowych dzienników inspekcji aprowizacji. Informacje dotyczące korzystania z tego interfejsu API można znaleźć w dokumentacji dotyczącej [interfejsu API inspekcji Azure Active Directory](/graph/api/resources/directoryaudit) . Chociaż w tym artykule nie opisano sposobu korzystania z interfejsu API, szczegółowe informacje o typach zdarzeń aprowizacji, które są rejestrowane w dzienniku inspekcji.
 
 ### <a name="definitions"></a>Definicje
 
