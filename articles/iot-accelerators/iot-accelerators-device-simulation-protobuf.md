@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012334"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075964"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializowanie telemetrii przy użyciu buforów protokołu
 
@@ -40,7 +40,7 @@ Aby wykonać kroki opisane w tym przewodniku:
 * .NET Core. Możesz pobrać [.NET Core dla systemów Mac, Linux i Windows](https://www.microsoft.com/net/download).
 * Postman. Możesz pobrać program [Poster dla komputerów Mac, Windows lub Linux](https://www.getpostman.com/apps).
 * [Centrum IoT zostało wdrożone w ramach subskrypcji platformy Azure](../iot-hub/iot-hub-create-through-portal.md). Do wykonania kroków opisanych w tym przewodniku potrzebne są parametry połączenia Centrum IoT Hub. Parametry połączenia można uzyskać z Azure Portal.
-* [Baza danych Cosmos DB wdrożona w ramach subskrypcji platformy Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) korzystającej z interfejsu API SQL i skonfigurowana pod kątem [silnej spójności](../cosmos-db/manage-account.md). Do wykonania kroków opisanych w tym przewodniku potrzebne są parametry połączenia bazy danych Cosmos DB. Parametry połączenia można uzyskać z Azure Portal.
+* [Baza danych Cosmos DB wdrożona w ramach subskrypcji platformy Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) korzystającej z interfejsu API SQL i skonfigurowana pod kątem [silnej spójności](../cosmos-db/how-to-manage-database-account.md). Do wykonania kroków opisanych w tym przewodniku potrzebne są parametry połączenia bazy danych Cosmos DB. Parametry połączenia można uzyskać z Azure Portal.
 * [Konto usługi Azure Storage wdrożone w ramach subskrypcji platformy Azure](../storage/common/storage-account-create.md). Do wykonania kroków opisanych w tym przewodniku potrzebne są parametry połączenia konta magazynu. Parametry połączenia można uzyskać z Azure Portal.
 
 ## <a name="prepare-your-development-environment"></a>Przygotowywanie środowiska projektowego

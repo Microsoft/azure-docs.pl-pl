@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719703"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075879"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Ustawienia wypychania do konfiguracji aplikacji z Azure Pipelines
 
@@ -56,7 +56,7 @@ Przypisz odpowiednie przypisania roli konfiguracji aplikacji do poświadczeń u�
 
 W tej sekcji zawarto informacje dotyczące korzystania z zadania wypychania konfiguracji aplikacji platformy Azure w potoku kompilacji usługi Azure DevOps.
 
-1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  **Pipelines**. Dokumentację potoków kompilacji można znaleźć [tutaj](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
+1. Przejdź do strony potoku kompilacji, klikając **pozycję potoki potoki**  >  **Pipelines**. Dokumentację potoków kompilacji można znaleźć [tutaj](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
       - Jeśli tworzysz nowy potok kompilacji, wybierz pozycję **Pokaż asystenta** po prawej stronie potoku, a następnie wyszukaj zadanie **wypychania konfiguracji aplikacji platformy Azure** .
       - Jeśli używasz istniejącego potoku kompilacji, przejdź do karty **zadania** podczas edytowania potoku, a następnie wyszukaj zadanie **wypychania konfiguracji aplikacji platformy Azure** .
 2. Skonfiguruj parametry niezbędne do wykonania zadania w celu wypchnięcia wartości klucza z pliku konfiguracji do magazynu konfiguracji aplikacji. Parametr **ścieżki pliku konfiguracji** rozpoczyna się w katalogu głównym repozytorium plików.
@@ -66,10 +66,10 @@ W tej sekcji zawarto informacje dotyczące korzystania z zadania wypychania konf
 
 W tej sekcji zawarto informacje dotyczące korzystania z zadania wypychania konfiguracji aplikacji platformy Azure w potokach wydań usługi Azure DevOps.
 
-1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  **Releases**. Dokumentację potoków wydań można znaleźć [tutaj](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops).
+1. Przejdź do strony potoku wydania, wybierając pozycję wersje **potoków**  >  **Releases**. Dokumentację potoków wydań można znaleźć [tutaj](/azure/devops/pipelines/release?view=azure-devops).
 1. Wybierz istniejący potok wersji. Jeśli go nie masz, wybierz pozycję **+ Nowy** , aby utworzyć nowy.
 1. Wybierz przycisk **Edytuj** w prawym górnym rogu, aby edytować potoku wydania.
-1. Wybierz **etap** , aby dodać zadanie. Więcej informacji na temat etapów można znaleźć [tutaj](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Wybierz **etap** , aby dodać zadanie. Więcej informacji na temat etapów można znaleźć [tutaj](/azure/devops/pipelines/release/environments?view=azure-devops).
 1. Wybierz **+** dla tego zadania, a następnie Dodaj zadanie **wypychania konfiguracji aplikacji platformy Azure** na karcie **wdrażanie** .
 1. Skonfiguruj niezbędne parametry w ramach zadania, aby wypchnąć kluczowe wartości z pliku konfiguracji do magazynu konfiguracji aplikacji. Wyjaśnienia parametrów są dostępne w poniższej sekcji **Parametry** i w etykietach narzędzi obok każdego parametru.
 1. Zapisz i wydawanie kolejki. W dzienniku zlecenia zostaną wyświetlone wszystkie błędy, które wystąpiły podczas wykonywania zadania.
@@ -97,7 +97,7 @@ Po wypełnieniu wymaganych parametrów Uruchom potok. Wszystkie wartości kluczy
 
 Jeśli wystąpi nieoczekiwany błąd, Dzienniki debugowania można włączyć, ustawiając zmienną potoku `system.debug` na `true` .
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **Jak można przekazać wiele plików konfiguracji?**
 

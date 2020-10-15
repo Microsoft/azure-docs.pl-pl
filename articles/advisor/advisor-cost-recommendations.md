@@ -3,12 +3,12 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448172"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075913"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
@@ -60,7 +60,7 @@ Klasyfikator analizuje wzorce użycia w ciągu ostatnich 30 dni dla następując
 Klasyfikator analizuje Azure Cosmos DB wzorców użycia w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych zdolności produkcyjnych w celu optymalizacji kosztów. Korzystając z zarezerwowanej pojemności, można wstępnie kupić Azure Cosmos DB godzinowe użycie i zaoszczędzić koszty związane z płatność zgodnie z rzeczywistym użyciem. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Zarezerwowana pojemność SQL Database i wystąpienia zarządzanego SQL
-Klasyfikator analizuje wzorce użycia wystąpienia zarządzanego SQL Database i SQL w ciągu ostatnich 30 dni. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić użycie w bazie danych SQL DB i zaoszczędzić na kosztach obliczeń SQL. Licencja SQL jest naliczana osobno i nie podlega rabatowi za rezerwację. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności. Aby uzyskać szczegółowe informacje, zobacz [Azure SQL Database & zarezerwowana pojemność wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview).
+Klasyfikator analizuje wzorce użycia wystąpienia zarządzanego SQL Database i SQL w ciągu ostatnich 30 dni. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić użycie w bazie danych SQL DB i zaoszczędzić na kosztach obliczeń SQL. Licencja SQL jest naliczana osobno i nie podlega rabatowi za rezerwację. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności. Aby uzyskać szczegółowe informacje, zobacz [Azure SQL Database & zarezerwowana pojemność wystąpienia zarządzanego SQL](../azure-sql/database/reserved-capacity-overview.md).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Zarezerwowana pojemność opłaty za sygnaturę App Service
 Klasyfikator analizuje wzorzec użycia opłaty za sygnaturę dla Azure App Service środowiska izolowanego w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie zakupić opłaty godzinowe za użycie sygnatury środowiska izolowanego i zaoszczędzić na kosztach płatnych zgodnie z rzeczywistym użyciem. Należy zauważyć, że zarezerwowana pojemność dotyczy tylko opłaty za sygnaturę, a nie do App Service wystąpień. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji, korzystając z cen rezerwacji 3-letnich w oparciu o wzorce użycia w ciągu ostatnich 30 dni.
