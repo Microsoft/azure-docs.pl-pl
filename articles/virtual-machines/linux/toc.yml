@@ -493,6 +493,8 @@
                   items:
                     - name: Uogólniony
                       href: ../vm-generalized-image-version-cli.md
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-cli.md
                 - name: Aktualizowanie zasobów obrazów
                   href: ../update-image-resources-cli.md
                 - name: Rejestracja aplikacji na potrzeby udostępniania
@@ -577,6 +579,8 @@
           href: build-image-with-packer.md
         - name: Pobieranie istniejącego dysku
           href: download-vhd.md
+        - name: Dysk zarządzany na podstawie wersji obrazu
+          href: ../managed-disk-from-image-version.md
     - name: Zabezpieczone maszyny wirtualne
       items:
         - name: Zalecenia

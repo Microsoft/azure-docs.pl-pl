@@ -115,3 +115,5 @@
       href: faq.md
     - name: Gotowość do produkcji i najlepsze rozwiązania
       href: production-readiness.md
+    - name: Przejrzystość i zasady odpowiedzialnego korzystania ze sztucznej inteligencji
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'

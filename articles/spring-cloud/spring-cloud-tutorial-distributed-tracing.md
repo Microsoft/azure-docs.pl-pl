@@ -8,16 +8,16 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908293"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088639"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej
 
-Dzięki narzędziom do śledzenia rozproszonym w chmurze Azure wiosennej można łatwo debugować i monitorować złożone problemy. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)Azure. Ta integracja zapewnia zaawansowane możliwości śledzenia rozproszonego na podstawie Azure Portal.
+Dzięki narzędziom do śledzenia rozproszonym w chmurze Azure wiosennej można łatwo debugować i monitorować złożone problemy. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](../azure-monitor/app/app-insights-overview.md)Azure. Ta integracja zapewnia zaawansowane możliwości śledzenia rozproszonego na podstawie Azure Portal.
 
 ::: zone pivot="programming-language-csharp"
 W tym artykule dowiesz się, jak włączyć śledzenie rozproszone przy użyciu aplikacji .NET Core steeltoe.
@@ -144,15 +144,15 @@ Jeśli aplikacja została już skompilowana i wdrożona, można zmodyfikować cz
 
 ## <a name="view-the-application-map"></a>Wyświetlanie mapy aplikacji
 
-Wróć do strony **śledzenie rozproszone** i wybierz pozycję **Wyświetl mapę aplikacji**. Przejrzyj wizualną reprezentację ustawień aplikacji i monitorowania. Aby dowiedzieć się, jak używać mapy aplikacji, zobacz Application [map: Klasyfikacja Distributed Applications](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Wróć do strony **śledzenie rozproszone** i wybierz pozycję **Wyświetl mapę aplikacji**. Przejrzyj wizualną reprezentację ustawień aplikacji i monitorowania. Aby dowiedzieć się, jak używać mapy aplikacji, zobacz Application [map: Klasyfikacja Distributed Applications](../azure-monitor/app/app-map.md).
 
 ## <a name="use-search"></a>Używanie wyszukiwania
 
-Funkcja Search umożliwia wykonywanie zapytań dotyczących innych określonych elementów telemetrii. Na stronie **śledzenie rozproszone** wybierz pozycję **Wyszukaj**. Aby uzyskać więcej informacji na temat korzystania z funkcji wyszukiwania, zobacz [Używanie wyszukiwania w Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Funkcja Search umożliwia wykonywanie zapytań dotyczących innych określonych elementów telemetrii. Na stronie **śledzenie rozproszone** wybierz pozycję **Wyszukaj**. Aby uzyskać więcej informacji na temat korzystania z funkcji wyszukiwania, zobacz [Używanie wyszukiwania w Application Insights](../azure-monitor/app/diagnostic-search.md).
 
 ## <a name="use-application-insights"></a>Użyj Application Insights
 
-Application Insights udostępnia funkcje monitorowania oprócz mapy aplikacji i funkcji wyszukiwania. Wyszukaj w Azure Portal nazwę aplikacji, a następnie otwórz stronę Application Insights, aby znaleźć informacje dotyczące monitorowania. Aby uzyskać więcej wskazówek na temat korzystania z tych narzędzi, zapoznaj się z tematem [Azure monitor zapytania dziennika](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Application Insights udostępnia funkcje monitorowania oprócz mapy aplikacji i funkcji wyszukiwania. Wyszukaj w Azure Portal nazwę aplikacji, a następnie otwórz stronę Application Insights, aby znaleźć informacje dotyczące monitorowania. Aby uzyskać więcej wskazówek na temat korzystania z tych narzędzi, zapoznaj się z tematem [Azure monitor zapytania dziennika](/azure/data-explorer/kusto/query/).
 
 ## <a name="disable-application-insights"></a>Wyłącz Application Insights
 

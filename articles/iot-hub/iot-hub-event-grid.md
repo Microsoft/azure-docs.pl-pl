@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056170"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072309"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagowanie na zdarzenia IoT Hub przy użyciu Event Grid do wyzwalania akcji
 
@@ -73,6 +73,8 @@ Poniższy przykład przedstawia schemat zdarzenia połączonego z urządzeniem:
   "metadataVersion": "1"
 }]
 ```
+
+
 
 ### <a name="device-telemetry-schema"></a>Schemat telemetrii urządzenia
 
@@ -163,6 +165,10 @@ Poniższy przykład przedstawia schemat zdarzenia utworzonego przez urządzenie:
   "metadataVersion": "1"
 }]
 ```
+
+
+> [!WARNING]
+> *Dane przędzy* skojarzone z zdarzeniem tworzenia urządzenia są konfiguracją domyślną i nie *powinny* być opierane na rzeczywistych `authenticationType` i innych właściwościach urządzenia w nowo utworzonym urządzeniu. W przypadku `authenticationType` i innych właściwościach urządzenia na nowo utworzonym urządzeniu należy użyć interfejsu API Menedżera rejestru dostępnego w zestawach SDK usługi Azure IoT.
 
 Aby uzyskać szczegółowy opis każdej właściwości, zobacz [Azure Event Grid schemacie zdarzeń dla IoT Hub](../event-grid/event-schema-iot-hub.md).
 

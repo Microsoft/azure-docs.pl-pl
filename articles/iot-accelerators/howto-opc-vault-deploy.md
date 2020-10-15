@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282027"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071493"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Kompilowanie i wdrażanie usługi zarządzania certyfikatami magazynu OPC
 
@@ -31,7 +31,7 @@ W tym artykule opisano sposób wdrażania usługi zarządzania certyfikatami mag
 
 Obecnie operacja kompilowania i wdrażania jest ograniczona do systemu Windows.
 Przykłady są przeznaczone dla .NET Standard w języku C#, co jest potrzebne do utworzenia usługi i przykładów do wdrożenia.
-Wszystkie narzędzia potrzebne do .NET Standard są dostarczane z narzędziami programu .NET Core. Zobacz Rozpoczynanie [pracy z platformą .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Wszystkie narzędzia potrzebne do .NET Standard są dostarczane z narzędziami programu .NET Core. Zobacz Rozpoczynanie [pracy z platformą .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Zainstaluj program .NET Core 2.1 +][dotnet-install].
 2. [Zainstaluj platformę Docker][docker-url] (opcjonalnie tylko wtedy, gdy wymagana jest lokalna kompilacja platformy Docker).
