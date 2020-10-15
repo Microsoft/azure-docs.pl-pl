@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/13/2020
-ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225720"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074808"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB warstw cenowych
 
@@ -71,7 +71,10 @@ Zwiększamy limity magazynowania w naszych Ogólnego przeznaczenia i warstw zopt
 | Liczba operacji we/wy na sekundę | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000| 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
 
 > [!IMPORTANT]
-> Duże magazyny są obecnie dostępne w publicznej wersji zapoznawczej w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, zachodnio stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia Azja Wschodnia, Japonia Południowo-Wschodnia i zachodnie stany USA.
+> Duży magazyn jest obecnie w publicznej wersji zapoznawczej w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa Azja Wschodnia, Australia Wschodnia i Kanada środkowa.
+>
+> Wszystkie inne regiony obsługują do 4 TB magazynu i do 6000 operacji we/wy na sekundę.
+>
 
 ### <a name="reaching-the-storage-limit"></a>Osiąganie limitu magazynu
 

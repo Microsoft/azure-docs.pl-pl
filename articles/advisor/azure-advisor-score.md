@@ -3,12 +3,12 @@ title: Optymalizowanie obciążeń platformy Azure przy użyciu oceny klasyfikat
 description: Użyj oceny doradcy, aby maksymalnie wykorzystać platformę Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335623"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074026"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Optymalizowanie obciążeń platformy Azure przy użyciu oceny klasyfikatora
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335623"
 Azure Advisor zapewnia zalecenia dotyczące najlepszych rozwiązań dla obciążeń. Te zalecenia są personalizowane i umożliwiają podejmowanie działań w celu ułatwienia:
 * Zwiększ stan obciążeń i zoptymalizuj wdrożenia platformy Azure
 * Zaaktywnie Zapobiegaj najważniejszym problemom, wykonując następujące najlepsze rozwiązania
-* Oceń obciążenia platformy Azure względem pięciu filarów [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
+* Oceń obciążenia platformy Azure względem pięciu filarów [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 
 Jako podstawowa funkcja usługi Advisor **Ocena usługi Advisor** jest opracowana w celu ułatwienia skutecznego i efektywnego osiągnięcia tych celów. 
 
@@ -56,7 +56,7 @@ Obliczenia oceny klasyfikatora można obliczyć w czterech krokach:
   * Zasoby z długoterminowymi zaleceniami będą bardziej odporne na wyniki.
   * Zasoby, które można odroczyć lub odrzucić w usłudze Advisor, zostaną całkowicie usunięte z obliczeń oceny. 
     
-Doradca stosuje ten model na poziomie kategorii usługi Advisor (zabezpieczenia korzystają z modelu [oceny](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) zabezpieczeń), co daje ocenę oceny dla każdej kategorii, a następnie prostą średnią.
+Doradca stosuje ten model na poziomie kategorii usługi Advisor (zabezpieczenia korzystają z modelu [oceny](../security-center/secure-score-security-controls.md#introduction-to-secure-score) zabezpieczeń), co daje ocenę oceny dla każdej kategorii, a następnie prostą średnią.
 
 
 ## <a name="advisor-score-faq"></a>Ocena usługi Advisor — często zadawane pytania

@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 60381d68dc2c1bae5afb2655558e8a35b65c965d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001331"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093960"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
 
-Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 za pomocą platformy Xamarin. Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury.
+Rozpocznij pracę z biblioteką klienta usługi Azure Blob Storage V12 za pomocą platformy Xamarin. Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Postępuj zgodnie z instrukcjami, aby zainstalować pakiet, i wypróbuj przykładowy kod dla podstawowych zadań. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury.
 
 Użyj biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin, aby:
 
@@ -157,7 +157,7 @@ protected async override void OnAppearing()
 Następujący fragment kodu:
 
 1. Tworzy `MemoryStream` tekst.
-1. Przekazuje tekst do obiektu BLOB, wywołując funkcję [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) klasy [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) , przekazując ją zarówno do nazwy pliku, jak i `MemoryStream` tekstu. Jeśli obiekt blob nie istnieje, zostanie utworzony przez metodę. W przeciwnym razie zostanie zastąpiony.
+1. Przekazuje tekst do obiektu BLOB, wywołując funkcję [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) klasy [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) , przekazując ją zarówno do nazwy pliku, jak i `MemoryStream` tekstu. Jeśli obiekt blob nie istnieje, zostanie utworzony przez metodę. W przeciwnym razie zostanie zastąpiony.
 
 Dodaj ten kod do pliku *MainPage.XAML.cs* :
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: f0d1e57c7e212fefc6e17a8170e3b4537b190f60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8756db881448edcaac1fda44b60229975350676
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211647"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074740"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integracja z potokiem ciągłej integracji/ciągłego wdrażania
 
@@ -35,9 +35,9 @@ Aby wykonać kroki opisane w tym samouczku, można użyć dowolnego edytora kodu
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli kompilujesz lokalnie, Pobierz i zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , jeśli jeszcze tego nie zrobiono.
+Jeśli kompilujesz lokalnie, Pobierz i zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) , jeśli jeszcze tego nie zrobiono.
 
-Aby przeprowadzić kompilację w chmurze, w usłudze Azure DevOps na przykład upewnij się, że [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) jest zainstalowany w systemie kompilacji.
+Aby przeprowadzić kompilację w chmurze, w usłudze Azure DevOps na przykład upewnij się, że [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) jest zainstalowany w systemie kompilacji.
 
 ### <a name="export-an-app-configuration-store"></a>Eksportowanie magazynu konfiguracji aplikacji
 
@@ -107,4 +107,4 @@ Aby przeprowadzić kompilację w chmurze, w usłudze Azure DevOps na przykład u
 W tym samouczku wyeksportowano dane konfiguracji aplikacji platformy Azure, które będą używane w potoku wdrożenia. Aby dowiedzieć się więcej na temat korzystania z konfiguracji aplikacji, przejdź do przykładów interfejsu wiersza polecenia platformy Azure.
 
 > [!div class="nextstepaction"]
-> [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Interfejs wiersza polecenia platformy Azure](/cli/azure/appconfig?view=azure-cli-latest)

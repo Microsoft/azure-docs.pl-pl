@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.author: mblythe
 ms.date: 07/24/2020
-ms.openlocfilehash: 6b7a4f6d4ad7f5e94d19b9d531992f54ff13fec0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: de0394f9b3254931537441d9f44606d16392a62d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87440775"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073890"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Szybki Start: tworzenie pulpitu nawigacyjnego Azure Portal przy użyciu programu PowerShell
 
@@ -23,7 +23,7 @@ Pulpit nawigacyjny pokazuje wydajność maszyny wirtualnej, a także pewne infor
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Gdy moduł programu PowerShell **AZ. Portal** jest w wersji zapoznawczej, należy go zainstalować oddzielnie z poziomu polecenia AZ PowerShell module przy użyciu narzędzia `Install-Module` . Po ogólnym udostępnieniu tego modułu programu PowerShell jest on częścią przyszłej wersji modułu AZ PowerShell releases i będzie dostępny natywnie z poziomu Azure Cloud Shell.
@@ -36,7 +36,7 @@ Install-Module -Name Az.Portal
 
 ## <a name="choose-a-specific-azure-subscription"></a>Wybierz określoną subskrypcję platformy Azure
 
-Jeśli masz wiele subskrypcji platformy Azure, wybierz odpowiednią subskrypcję, w której będą naliczane opłaty za zasoby. Wybierz określoną subskrypcję za pomocą polecenia cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) .
+Jeśli masz wiele subskrypcji platformy Azure, wybierz odpowiednią subskrypcję, w której będą naliczane opłaty za zasoby. Wybierz określoną subskrypcję za pomocą polecenia cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext) .
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -68,7 +68,7 @@ $vmName = 'SimpleWinVM'
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz [grupę zasobów platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) za pomocą polecenia cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
+Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) za pomocą polecenia cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy.
 
 Poniższy przykład tworzy grupę zasobów na podstawie nazwy w `$resourceGroupName` zmiennej w regionie określonym w `$location` zmiennej.
 
@@ -102,7 +102,7 @@ Wdrożenie maszyny wirtualnej rozpocznie się i zwykle trwa kilka minut. Po zako
 
 ## <a name="download-the-dashboard-template"></a>Pobierz szablon pulpitu nawigacyjnego
 
-Ponieważ pulpity nawigacyjne platformy Azure to zasoby, mogą być reprezentowane jako dane JSON. Poniższy kod Pobiera reprezentację w formacie JSON przykładowego pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [strukturę pulpitów nawigacyjnych platformy Azure](/azure/azure-portal/azure-portal-dashboards-structure).
+Ponieważ pulpity nawigacyjne platformy Azure to zasoby, mogą być reprezentowane jako dane JSON. Poniższy kod Pobiera reprezentację w formacie JSON przykładowego pulpitu nawigacyjnego. Aby uzyskać więcej informacji, zobacz [strukturę pulpitów nawigacyjnych platformy Azure](./azure-portal-dashboards-structure.md).
 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
@@ -180,4 +180,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Aby uzyskać więcej informacji o poleceniach cmdlet zawartych w module AZ. Portal PowerShell, zobacz:
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell: polecenia cmdlet pulpitu nawigacyjnego portalu](https://docs.microsoft.com/powershell/module/Az.Portal/)
+> [Microsoft Azure PowerShell: polecenia cmdlet pulpitu nawigacyjnego portalu](/powershell/module/Az.Portal/)

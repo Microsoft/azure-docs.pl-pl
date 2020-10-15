@@ -3,12 +3,12 @@ title: Centrum kopii zapasowych — często zadawane pytania
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące centrum kopii zapasowych
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e227eb6a14d06791e52ec33e090afdcb01bab61
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997686"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094045"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centrum kopii zapasowych — często zadawane pytania
 
@@ -26,7 +26,7 @@ Tak, centrum kopii zapasowych może zarządzać [magazynami Recovery Services](h
 
 Centrum kopii zapasowych ma na celu dostarczanie informacji w czasie rzeczywistym. Może istnieć kilka sekund zwłoki między czasem, gdy jednostka zostanie wyświetlona na pojedynczym ekranie magazynu, a czas tego samego podmiotu jest wyświetlany w centrum kopii zapasowych.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="do-i-need-to-configure-anything-to-see-data-in-backup-center"></a>Czy muszę skonfigurować wszystko, aby wyświetlić dane w centrum kopii zapasowych?
 
@@ -34,7 +34,7 @@ Nie. Centrum kopii zapasowych jest gotowe do użycia. Aby jednak wyświetlić [r
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Czy muszę mieć specjalne uprawnienia do korzystania z centrum kopii zapasowych?
 
-Centrum kopii zapasowych nie wymaga żadnych nowych uprawnień. O ile dysponujesz odpowiednim poziomem dostępu RBAC dla zasobów, którymi zarządzasz, możesz użyć centrum kopii zapasowych dla tych zasobów. Aby na przykład wyświetlić informacje o kopiach zapasowych, musisz mieć dostęp do swoich magazynów przez **czytelnika** . Aby skonfigurować kopię zapasową i wykonać inne akcje związane z kopiami zapasowymi, musisz mieć role **współautor kopii zapasowej** lub **Operatorzy kopii zapasowych** . Dowiedz się więcej o [rolach RBAC dla Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Centrum kopii zapasowych nie wymaga żadnych nowych uprawnień. O ile dysponujesz odpowiednim poziomem dostępu RBAC na platformie Azure dla zasobów, którymi zarządzasz, możesz użyć centrum kopii zapasowych dla tych zasobów. Aby na przykład wyświetlić informacje o kopiach zapasowych, musisz mieć dostęp do swoich magazynów przez **czytelnika** . Aby skonfigurować kopię zapasową i wykonać inne akcje związane z kopiami zapasowymi, musisz mieć role **współautor kopii zapasowej** lub **Operatorzy kopii zapasowych** . Dowiedz się więcej o [rolach platformy Azure dla Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="pricing"></a>Cennik
 

@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 15f8e424529513b2932dcb18de941a8fe1867c1d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045452"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074604"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Przykładowe potoki & zestawy danych dla projektanta Azure Machine Learning
 
@@ -67,8 +67,8 @@ Zapoznaj się z tymi wbudowanymi przykładami regresji.
 
 | Przykładowy tytuł | Opis | 
 | --- | --- |
-| [Regresja — Prognoza cen dla samochodów (podstawowa)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Przewidywanie cen samochodów przy użyciu regresji liniowej. |
-| [Regresja — Prognoza cen samochodów (zaawansowana)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Przewidywanie cen samochodów przy użyciu lasu decyzyjnego i podwyższanie drzewa decyzyjnego regresorów. Porównaj modele, aby znaleźć najlepszy algorytm.
+| [Regresja — Prognoza cen dla samochodów (podstawowa)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-basic.md) | Przewidywanie cen samochodów przy użyciu regresji liniowej. |
+| [Regresja — Prognoza cen samochodów (zaawansowana)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) | Przewidywanie cen samochodów przy użyciu lasu decyzyjnego i podwyższanie drzewa decyzyjnego regresorów. Porównaj modele, aby znaleźć najlepszy algorytm.
 
 ## <a name="classification"></a>Klasyfikacja
 
@@ -76,10 +76,10 @@ Zapoznaj się z tymi wbudowanymi przykładami klasyfikacji. Aby dowiedzieć się
 
 | Przykładowy tytuł | Opis | 
 | --- | --- |
-| [Klasyfikacja binarna z wyborem funkcji — prognozowanie dochodu](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Przewidywanie przychodów jako wysokie lub niskie przy użyciu dwuklasowego drzewa decyzyjnego. Użyj korelacji Pearsona, aby wybrać funkcje.
-| [Klasyfikacja binarna z niestandardowym skryptem języka Python — przewidywanie ryzyka kredytowego](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Klasyfikowanie aplikacji kredytowych jako wysokiego lub niskiego ryzyka. Użyj modułu skryptu języka Python do ważenia danych.
-| [Klasyfikacja binarna — Prognoza relacji klienta](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Przewidywanie zmian klientów przy użyciu dwuklasowych drzew decyzyjnych. Użyj SMOTE do próbkowania danych.
-| [Klasyfikacja tekstu — zestaw danych witryny Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Klasyfikowanie typów firmy z artykułów witryny Wikipedia przy użyciu wieloklasowej regresji logistycznej. |
+| [Klasyfikacja binarna z wyborem funkcji — prognozowanie dochodu](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Przewidywanie przychodów jako wysokie lub niskie przy użyciu dwuklasowego drzewa decyzyjnego. Użyj korelacji Pearsona, aby wybrać funkcje.
+| [Klasyfikacja binarna z niestandardowym skryptem języka Python — przewidywanie ryzyka kredytowego](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Klasyfikowanie aplikacji kredytowych jako wysokiego lub niskiego ryzyka. Użyj modułu skryptu języka Python do ważenia danych.
+| [Klasyfikacja binarna — Prognoza relacji klienta](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Przewidywanie zmian klientów przy użyciu dwuklasowych drzew decyzyjnych. Użyj SMOTE do próbkowania danych.
+| [Klasyfikacja tekstu — zestaw danych witryny Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Klasyfikowanie typów firmy z artykułów witryny Wikipedia przy użyciu wieloklasowej regresji logistycznej. |
 | Klasyfikacja wieloklasowego rozpoznawania liter | Utwórz kompletną liczbę klasyfikatorów binarnych do klasyfikowania pisanych liter. |
 
 ## <a name="computer-vision"></a>Przetwarzanie obrazów
@@ -104,7 +104,7 @@ Dowiedz się więcej o przykładach demonstrujących narzędzia i funkcje uczeni
 | Przykładowy tytuł | Opis | 
 | --- | --- |
 | Klasyfikacja binarna przy użyciu modelu Vowpal Wabbit — Prognoza dochodu dla dorosłych | Vowpal Wabbit to system uczenia maszynowego, który służy do wypychania granicy uczenia maszynowego przy użyciu technik takich jak online, Hashing, allreduce, redukcyjny, learning2search, Active i Interactive Learning. Ten przykład pokazuje, jak utworzyć binarny model klasyfikacji przy użyciu modelu Wabbit Vowpal. 
-| [Używanie niestandardowego skryptu języka R — prognozowanie opóźnień lotów](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Użyj niestandardowego skryptu języka R, aby przewidzieć, czy zaplanowany lot osobowy zostanie opóźniony o ponad 15 minut.
+| [Używanie niestandardowego skryptu języka R — prognozowanie opóźnień lotów](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/r-script-flight-delay-prediction.md) | Użyj niestandardowego skryptu języka R, aby przewidzieć, czy zaplanowany lot osobowy zostanie opóźniony o ponad 15 minut.
 | Krzyżowe sprawdzanie poprawności dla klasyfikacji binarnej — przewidywanie dochodu dla dorosłych | Użyj operacji krzyżowego sprawdzania poprawności, aby utworzyć klasyfikator binarny dla dorosłych dochodów.
 | Ważność funkcji permutacji | Użyj ważności funkcji permutacji, aby obliczyć wyniki ważności dla zestawu danych testowych. 
 | Dostrajanie parametrów dla klasyfikacji binarnej — przewidywanie dochodu dla dorosłych | Użyj dopasowywania parametrów modelu, aby znaleźć optymalne parametry do kompilowania klasyfikatora binarnego. |

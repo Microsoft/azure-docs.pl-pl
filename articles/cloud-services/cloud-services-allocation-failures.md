@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: cba3f47015072f16112ef981d2f59d0c73cb69c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d82b7223c2b392e6b9aebffdc545dc38b38ca2f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142489"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074230"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Rozwiązywanie problemów z błędami alokacji podczas wdrażania usługi Cloud Services na platformie Azure
 ## <a name="summary"></a>Podsumowanie
@@ -70,4 +70,4 @@ Poniżej przedstawiono typowe scenariusze alokacji, które powodują Przypinanie
      ```
    * Postępuj zgodnie z powyższymi #2, aby określić nowy adres IP w pliku CSCFG usługi.
 4. Usuń grupę koligacji dla nowych wdrożeń — grupy koligacji nie są już zalecane. Wykonaj czynności opisane w punkcie 1 powyżej, aby wdrożyć nową usługę w chmurze. Upewnij się, że usługa w chmurze nie znajduje się w grupie koligacji.
-5. Konwertuj na Virtual Network regionalną — Zobacz, [jak migrować z grup koligacji do Virtual Network regionalnej (VNET)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+5. Konwertuj na Virtual Network regionalną — Zobacz, [jak migrować z grup koligacji do Virtual Network regionalnej (VNET)](/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet).

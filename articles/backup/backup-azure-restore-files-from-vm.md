@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292969"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093722"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -376,7 +376,7 @@ Ta funkcja została skompilowana w celu uzyskania dostępu do danych maszyny wir
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Wybierz punkt odzyskiwania (który może generować skrypt)
 
-Skrypt zapewnia dostęp do danych maszyny wirtualnej, dlatego ważne jest, aby określić, kto może generować w pierwszej kolejności. Musisz zalogować się do Azure Portal i mieć [autoryzację RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) do wygenerowania skryptu.
+Skrypt zapewnia dostęp do danych maszyny wirtualnej, dlatego ważne jest, aby określić, kto może generować w pierwszej kolejności. Musisz zalogować się do Azure Portal i mieć [autoryzację Azure RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) do wygenerowania skryptu.
 
 Odzyskiwanie plików wymaga tego samego poziomu autoryzacji zgodnie z wymaganiami przywracania maszyn wirtualnych i przywracania dysków. Innymi słowy, tylko autoryzowani użytkownicy mogą wyświetlać dane maszyn wirtualnych mogą generować skrypt.
 
