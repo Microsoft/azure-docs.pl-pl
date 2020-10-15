@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706350"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070388"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -31,7 +31,7 @@ Usługa Azure AD używa tej integracji w celu włączenia następujących przep�
 - **Zapisuj z powrotem do aplikacji kadrowej w chmurze:** Napisz adresy e-mail i atrybuty nazwy użytkownika z usługi Azure AD z powrotem do aplikacji w chmurze.
 
 > [!NOTE]
-> Ten plan wdrożenia pokazuje, jak wdrożyć przepływy pracy aplikacji kadr w chmurze przy użyciu aprowizacji użytkowników usługi Azure AD. Aby uzyskać informacje na temat sposobu wdrażania automatycznego aprowizacji użytkowników w aplikacjach typu oprogramowanie jako usługa (SaaS), zobacz [Planowanie automatycznego wdrażania aprowizacji użytkowników](https://aka.ms/deploymentplans/provisioning).
+> Ten plan wdrożenia pokazuje, jak wdrożyć przepływy pracy aplikacji kadr w chmurze przy użyciu aprowizacji użytkowników usługi Azure AD. Aby uzyskać informacje na temat sposobu wdrażania automatycznego aprowizacji użytkowników w aplikacjach typu oprogramowanie jako usługa (SaaS), zobacz [Planowanie automatycznego wdrażania aprowizacji użytkowników](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Włączone scenariusze kadr
 
@@ -92,11 +92,11 @@ Potrzebna jest również ważna licencja subskrypcyjna na Azure AD — wersja Pr
 
 | **Zasoby** | **Link i opis** |
 |:-|:-|
-| Wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Filmy wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure](https://youtu.be/pKzyts6kfrw) |
 | Samouczki | [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](../saas-apps/tutorial-list.md) |
 | | [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| Najczęściej zadawane pytania | [Automatyczne Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| Często zadawane pytania | [Automatyczne Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Inicjowanie obsługi z poziomu produktu Workday do usługi Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Architektura rozwiązania
@@ -126,7 +126,7 @@ Podczas określania strategii tego wdrożenia w danym środowisku należy wzią�
 
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-W przypadku niepowodzenia projektów technologicznych zazwyczaj są one spowodowane niezgodnymi oczekiwaniami na wpływ, wyniki i obowiązki. Aby uniknąć tych pułapek, [upewnij się, że interesują](https://aka.ms/deploymentplans)Cię odpowiednie osoby zainteresowane. Upewnij się również, że role udziałowców w projekcie są dobrze zrozumiałe. Udokumentowanie uczestników projektu i ich danych wejściowych i accountabilities.
+W przypadku niepowodzenia projektów technologicznych zazwyczaj są one spowodowane niezgodnymi oczekiwaniami na wpływ, wyniki i obowiązki. Aby uniknąć tych pułapek, [upewnij się, że interesują](../fundamentals/active-directory-deployment-plans.md)Cię odpowiednie osoby zainteresowane. Upewnij się również, że role udziałowców w projekcie są dobrze zrozumiałe. Udokumentowanie uczestników projektu i ich danych wejściowych i accountabilities.
 
 Dołącz przedstawiciela z organizacji KADRy, który może zapewnić dane wejściowe dla istniejących procesów biznesowych usługi kadr i tożsamości procesu roboczego oraz wymagania dotyczące przetwarzania danych zadania.
 
@@ -378,7 +378,7 @@ Usługa Azure AD może zapewnić dodatkowe informacje dotyczące użycia i kondy
 
 Po pomyślnym [cyklu początkowym](../app-provisioning/how-provisioning-works.md#initial-cycle)usługa Azure AD Provisioning będzie nadal uruchamiać aktualizacje przyrostowe z powrotem do tyłu, w odstępach czasu zdefiniowanych w samouczkach dotyczących poszczególnych aplikacji, dopóki nie wystąpi jedno z następujących zdarzeń:
 
-- Usługa została zatrzymana ręcznie. Nowy cykl początkowy jest wyzwalany przy użyciu [Azure Portal](https://portal.azure.com/) lub odpowiedniego polecenia [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) .
+- Usługa została zatrzymana ręcznie. Nowy cykl początkowy jest wyzwalany przy użyciu [Azure Portal](https://portal.azure.com/) lub odpowiedniego polecenia [API Microsoft Graph](/graph/api/resources/synchronization-overview) .
 - Nowy cykl początkowy jest wyzwalany ze względu na zmianę mapowań atrybutów lub filtrów określania zakresu.
 - Proces aprowizacji jest kierowany do kwarantanny z powodu wysokiego współczynnika błędów. Pozostaje w kwarantannie przez ponad cztery tygodnie, w których czas jest automatycznie wyłączany.
 
@@ -416,6 +416,6 @@ Aby rozwiązać problemy, które mogą zostać przełączane podczas aprowizacji
 ### <a name="next-steps"></a>Następne kroki
 
 - [Pisanie wyrażeń do mapowania atrybutów](functions-for-customizing-application-data.md)
-- [Omówienie interfejsu API synchronizacji usługi Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Omówienie interfejsu API synchronizacji usługi Azure AD](/graph/api/resources/synchronization-overview)
 - [Pomiń usuwanie kont użytkowników, które wykraczają poza zakres](skip-out-of-scope-deletions.md)
 - [Azure AD Connect agenta aprowizacji: historia wersji](provisioning-agent-release-version-history.md)

@@ -2,15 +2,15 @@
 title: Rozwiązywanie problemów dotyczących Update Management Azure Automation
 description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Update Management.
 services: automation
-ms.date: 09/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858408"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070337"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -486,6 +486,8 @@ Sprawdź, czy konto systemowe ma dostęp do odczytu do folderu **C:\ProgramData\
 Domyślne okno obsługi aktualizacji to 120 minut. Można zwiększyć okno obsługi do maksymalnie 6 godzin lub 360 minut.
 
 ### <a name="resolution"></a>Rozwiązanie
+
+Aby zrozumieć, dlaczego ten błąd wystąpił podczas przebiegu aktualizacji po pomyślnym uruchomieniu, [Sprawdź dane wyjściowe zadania](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) z danego komputera w przebiegu. Możesz znaleźć określone komunikaty o błędach z maszyn, które można zbadać i podjąć odpowiednie działania.  
 
 Edytuj wszystkie błędy zaplanowanej aktualizacji, a następnie zwiększ okno obsługi.
 

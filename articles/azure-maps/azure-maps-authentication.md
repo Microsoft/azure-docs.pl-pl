@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036848"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091410"
 ---
 # <a name="authentication-with-azure-maps"></a>Uwierzytelnianie w usłudze Azure Maps
 
@@ -51,7 +51,7 @@ Aby uzyskać ogólne informacje o uwierzytelnianiu w usłudze Azure AD, zobacz [
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Zarządzane tożsamości dla zasobów platformy Azure i Azure Maps
 
-[Zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) zapewniają usługi platformy Azure z automatycznie zarządzanym podmiotem zabezpieczeń opartym na aplikacji, który może być uwierzytelniany w usłudze Azure AD. Za pomocą kontroli dostępu opartej na rolach (RBAC) zarządzanym podmiotem zabezpieczeń tożsamości można autoryzować do uzyskiwania dostępu do usług Azure Maps. Przykłady zarządzanych tożsamości obejmują: Azure App Service, Azure Functions i Virtual Machines platformy Azure. Aby uzyskać listę zarządzanych tożsamości, zobacz [zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+[Zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) zapewniają usługi platformy Azure z automatycznie zarządzanym podmiotem zabezpieczeń opartym na aplikacji, który może być uwierzytelniany w usłudze Azure AD. Za pomocą kontroli dostępu opartej na rolach (Azure RBAC), zarządzanym podmiotem zabezpieczeń tożsamości można autoryzować do uzyskiwania dostępu do usług Azure Maps. Przykłady zarządzanych tożsamości obejmują: Azure App Service, Azure Functions i Virtual Machines platformy Azure. Aby uzyskać listę zarządzanych tożsamości, zobacz [zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Konfigurowanie uwierzytelniania aplikacji Azure AD
 
@@ -82,7 +82,7 @@ Informacje o wyświetlaniu identyfikatora klienta znajdują się w temacie [Wyś
 
 Azure Maps obsługuje dostęp do wszystkich typów podmiotów dla [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) , w tym: indywidualnych użytkowników, grup, aplikacji platformy Azure AD i tożsamości zarządzanych przez platformę Azure. Typy główne mają przyznany zestaw uprawnień, nazywany także definicją roli. Definicja roli zapewnia uprawnienia do akcji interfejsu API REST. Stosowanie dostępu do co najmniej jednego konta Azure Maps jest znane jako zakres. W przypadku stosowania podmiotu zabezpieczeń, definicji roli i zakresu zostanie utworzone przypisanie roli. 
 
-W następnych sekcjach omówiono koncepcje i składniki Azure Maps integracji z kontrolą dostępu opartą na rolach usługi Azure AD. W ramach procesu konfigurowania konta Azure Maps katalog usługi Azure AD jest skojarzony z subskrypcją platformy Azure, w której znajduje się konto Azure Maps. 
+W następnych sekcjach omówiono koncepcje i składniki Azure Maps integrację z usługą Azure RBAC. W ramach procesu konfigurowania konta Azure Maps katalog usługi Azure AD jest skojarzony z subskrypcją platformy Azure, w której znajduje się konto Azure Maps. 
 
 Podczas konfigurowania usługi Azure RBAC należy wybrać podmiot zabezpieczeń i zastosować go do przypisania roli. Aby dowiedzieć się, jak dodać przypisania ról na Azure Portal, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
@@ -104,7 +104,7 @@ Niektóre usługi Azure Maps mogą wymagać podwyższonego poziomu uprawnień do
 | Kreator            | Współautor danych Azure Maps |
 | Przestrzenne            | Współautor danych Azure Maps |
 
-Aby uzyskać informacje na temat wyświetlania ustawień RBAC, zobacz [How to configure RBAC for Azure Maps](https://aka.ms/amrbac).
+Informacje o wyświetlaniu ustawień kontroli dostępu platformy Azure można znaleźć w temacie [How to configure Azure RBAC for Azure Maps](https://aka.ms/amrbac).
 
 #### <a name="custom-role-definitions"></a>Niestandardowe definicje ról
 
@@ -131,9 +131,9 @@ Przypisanie przypisania roli do grupy zasobów może umożliwić dostęp do wiel
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat RBAC, zobacz
+Aby dowiedzieć się więcej o usłudze Azure RBAC, zobacz
 > [!div class="nextstepaction"]
-> [Kontrola dostępu oparta na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Kontrola dostępu na podstawie ról na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 Aby dowiedzieć się więcej o uwierzytelnianiu aplikacji za pomocą usługi Azure AD i Azure Maps, zobacz
 > [!div class="nextstepaction"]

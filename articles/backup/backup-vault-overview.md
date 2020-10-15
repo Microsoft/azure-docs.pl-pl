@@ -3,12 +3,12 @@ title: Omówienie magazynów kopii zapasowych
 description: Omówienie magazynów kopii zapasowych.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 773152212ed831c0083cfdf912f45ece578d079f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997261"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091291"
 ---
 # <a name="backup-vaults-overview"></a>Magazyny kopii zapasowych — Omówienie
 
@@ -16,7 +16,7 @@ W tym artykule opisano funkcje magazynu kopii zapasowych. Magazyn kopii zapasowy
 
 - **Udoskonalone funkcje ułatwiające zabezpieczanie danych kopii zapasowych**: z magazynami kopii zapasowych, Azure Backup zapewnia funkcje zabezpieczeń, aby chronić kopie zapasowe w chmurze. Funkcje zabezpieczeń zapewniają możliwość zabezpieczenia kopii zapasowych i bezpiecznego odzyskiwania danych, nawet jeśli naruszone są serwery produkcyjne i zapasowe. [Dowiedz się więcej](backup-azure-security-feature.md)
 
-- **Access Control oparte na rolach (RBAC)**: RBAC zapewnia precyzyjną kontrolę zarządzania dostępem na platformie Azure. [Platforma Azure udostępnia różne wbudowane role](../role-based-access-control/built-in-roles.md), a Azure Backup ma trzy [wbudowane role do zarządzania punktami odzyskiwania](backup-rbac-rs-vault.md). Magazyny kopii zapasowych są zgodne z RBAC, co ogranicza możliwość tworzenia kopii zapasowych i przywracania do zdefiniowanego zestawu ról użytkownika. [Dowiedz się więcej](backup-rbac-rs-vault.md)
+- **Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)**: usługa Azure RBAC zapewnia precyzyjną kontrolę zarządzania dostępem na platformie Azure. [Platforma Azure udostępnia różne wbudowane role](../role-based-access-control/built-in-roles.md), a Azure Backup ma trzy [wbudowane role do zarządzania punktami odzyskiwania](backup-rbac-rs-vault.md). Magazyny kopii zapasowych są zgodne z funkcją RBAC platformy Azure, która ogranicza dostęp i przywracanie do zdefiniowanego zestawu ról użytkownika. [Dowiedz się więcej](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Ustawienia magazynu w magazynie kopii zapasowych
 

@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: b44b38e52b50dd7994326f09bebbb775c93c0e2e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073703"
+ms.locfileid: "92091444"
 ---
 # <a name="create-an-azure-support-request"></a>Tworzenie wniosku o pomoc techniczną platformy Azure
 
@@ -39,7 +39,7 @@ Platforma Azure zapewnia nieograniczoną obsługę zarządzania subskrypcjami, w
 
 Możesz uzyskać **Pomoc techniczną i wsparcie** w Azure Portal. Jest ona dostępna z menu Azure Portal, nagłówka globalnego lub menu zasobów dla usługi. Aby można było wysłać żądanie pomocy technicznej, musisz mieć odpowiednie uprawnienia.
 
-### <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
+### <a name="azure-role-based-access-control"></a>Kontrola dostępu na podstawie ról na platformie Azure
 
 Aby utworzyć żądanie pomocy technicznej, musisz być [właścicielem](../../role-based-access-control/built-in-roles.md#owner), [współautorem](../../role-based-access-control/built-in-roles.md#contributor) lub przypisać do roli [współautor żądania pomocy technicznej](../../role-based-access-control/built-in-roles.md#support-request-contributor) na poziomie subskrypcji. Aby utworzyć żądanie pomocy technicznej bez subskrypcji, na przykład w scenariuszu Azure Active Directory, musisz być [administratorem](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

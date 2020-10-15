@@ -5,16 +5,16 @@ services: synapse-analytics
 author: manojraheja
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53092f5c49073098f28d2fd06f38391e858b2b9d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 99ccc2f4d7e3adbba704f784025abfdfa8b96f52
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946400"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090662"
 ---
 # <a name="connect-to-azure-data-explorer-using-synapse-apache-spark"></a>Nawiązywanie połączenia z usługą Azure Eksplorator danych przy użyciu usługi Synapse Apache Spark
 

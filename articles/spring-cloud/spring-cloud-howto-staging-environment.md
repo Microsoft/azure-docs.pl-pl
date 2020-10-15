@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888480"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090713"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurowanie środowiska przejściowego w chmurze Azure wiosennej
 
@@ -22,7 +22,7 @@ W tym artykule omówiono sposób konfigurowania wdrożenia tymczasowego przy uż
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule przyjęto założenie, że aplikacja PiggyMetrics została już wdrożona z naszego [samouczka dotyczącego uruchamiania aplikacji w chmurze ze sprężyną na platformie Azure](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics składa się z trzech aplikacji: "brama", "konto-usługa" i "uwierzytelnianie-usługa".  
+W tym artykule przyjęto założenie, że aplikacja PiggyMetrics została już wdrożona z naszego [samouczka dotyczącego uruchamiania aplikacji w chmurze ze sprężyną na platformie Azure](./spring-cloud-quickstart.md). PiggyMetrics składa się z trzech aplikacji: "brama", "konto-usługa" i "uwierzytelnianie-usługa".  
 
 Jeśli chcesz użyć innej aplikacji do tego przykładu, musisz wprowadzić prostą zmianę w publicznej części aplikacji.  Ta zmiana odróżnia wdrożenie przejściowe od środowiska produkcyjnego.
 

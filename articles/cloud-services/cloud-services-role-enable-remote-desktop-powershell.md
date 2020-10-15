@@ -9,17 +9,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 13d5be5b1e0bcdf84001f21a45364296d67a5da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7742267f5ce199f3a5bffc52200374d2323f0622
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87013901"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072462"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Włączanie Podłączanie pulpitu zdalnego roli na platformie Azure Cloud Services przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Witryna Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Program Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -30,7 +30,7 @@ W tym artykule opisano sposób włączania pulpitu zdalnego w rolach usługi w c
 ## <a name="configure-remote-desktop-from-powershell"></a>Konfigurowanie Pulpit zdalny przy użyciu programu PowerShell
 Polecenie cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) umożliwia włączenie pulpit zdalny w określonych rolach lub wszystkich rolach wdrożenia usługi w chmurze. Polecenie cmdlet pozwala określić nazwę użytkownika i hasło dla użytkownika pulpitu zdalnego za pomocą parametru *Credential* , który akceptuje obiekt PSCredential.
 
-Jeśli używasz programu PowerShell interaktywnie, możesz łatwo ustawić obiekt PSCredential, wywołując polecenie cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
+Jeśli używasz programu PowerShell interaktywnie, możesz łatwo ustawić obiekt PSCredential, wywołując polecenie cmdlet [Get-Credentials](/powershell/module/microsoft.powershell.security/get-credential) .
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -38,7 +38,7 @@ $remoteusercredentials = Get-Credential
 
 To polecenie wyświetla okno dialogowe, w którym można bezpiecznie wprowadzić nazwę użytkownika i hasło dla użytkownika zdalnego.
 
-Ponieważ program PowerShell ułatwia scenariusze automatyzacji, można także skonfigurować obiekt **PSCredential** w sposób, który nie wymaga interakcji z użytkownikiem. Najpierw należy skonfigurować bezpieczne hasło. Zacznij od określenia hasła w postaci zwykłego tekstu, konwertując go na bezpieczny ciąg za pomocą [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Następnie należy przekonwertować ten bezpieczny ciąg na zaszyfrowany ciąg standardowy przy użyciu [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Teraz można zapisać ten szyfrowany ciąg standardowy do pliku przy użyciu polecenia [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Ponieważ program PowerShell ułatwia scenariusze automatyzacji, można także skonfigurować obiekt **PSCredential** w sposób, który nie wymaga interakcji z użytkownikiem. Najpierw należy skonfigurować bezpieczne hasło. Zacznij od określenia hasła w postaci zwykłego tekstu, konwertując go na bezpieczny ciąg za pomocą [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). Następnie należy przekonwertować ten bezpieczny ciąg na zaszyfrowany ciąg standardowy przy użyciu [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring). Teraz można zapisać ten szyfrowany ciąg standardowy do pliku przy użyciu polecenia [Set-Content](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10)).
 
 Możesz również utworzyć bezpieczny plik hasła, aby nie trzeba było wpisywać hasła za każdym razem. Ponadto bezpieczny plik hasła jest lepszy niż zwykły plik tekstowy. Użyj następującego programu PowerShell, aby utworzyć bezpieczny plik hasła:
 
@@ -47,9 +47,9 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> Podczas ustawiania hasła upewnij się, że spełniasz [wymagania dotyczące złożoności](https://technet.microsoft.com/library/cc786468.aspx).
+> Podczas ustawiania hasła upewnij się, że spełniasz [wymagania dotyczące złożoności](/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10)).
 
-Aby utworzyć obiekt Credential z bezpiecznego hasła, należy odczytać zawartość pliku i przekonwertować ją z powrotem na bezpieczny ciąg za pomocą [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Aby utworzyć obiekt Credential z bezpiecznego hasła, należy odczytać zawartość pliku i przekonwertować ją z powrotem na bezpieczny ciąg za pomocą [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
 Polecenie cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) akceptuje również parametr *wygaśnięcia* , który określa **datę i godzinę** wygaśnięcia konta użytkownika. Można na przykład ustawić, że konto wygaśnie kilka dni od bieżącej daty i godziny.
 
@@ -98,8 +98,6 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 >
 > Parametr **UninstallConfiguration** Odinstalowuje wszystkie konfiguracje rozszerzeń, które są stosowane do usługi. Każda konfiguracja rozszerzenia jest skojarzona z konfiguracją usługi. Wywołanie polecenia cmdlet *Remove* bez **UninstallConfiguration** powoduje skojarzenie <mark>wdrożenia</mark> z konfiguracją rozszerzenia, co skutecznie usuwa rozszerzenie. Jednak konfiguracja rozszerzenia pozostaje skojarzona z usługą.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 [Jak skonfigurować Cloud Services](cloud-services-how-to-configure-portal.md)
-
-

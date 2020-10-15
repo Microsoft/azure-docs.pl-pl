@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z agentem Azure Backup
 description: W tym artykule dowiesz się, jak rozwiązywać problemy z instalacją i rejestracją agenta Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019627"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091461"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Rozwiązywanie problemów z agentem Microsoft Azure Recovery Services (MARS)
 
@@ -67,7 +67,7 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 
 | Błąd   | Zalecane akcje |
 | ---     | ---    |
-|Nie można pobrać pliku poświadczeń magazynu. (IDENTYFIKATOR: 403) | <ul><li> Spróbuj pobrać poświadczenia magazynu za pomocą innej przeglądarki lub wykonaj następujące czynności: <ul><li> Uruchom program Internet Explorer. Wybierz klawisz F12. </li><li> Przejdź do karty **Sieć** i wyczyść pamięć podręczną i pliki cookie. </li> <li> Odśwież stronę.<br></li></ul> <li> Sprawdź, czy subskrypcja jest wyłączona/wygasła.<br></li> <li> Sprawdź, czy żadna Reguła zapory blokuje pobieranie. <br></li> <li> Upewnij się, że limit magazynu (50 maszyn na magazyn) nie został wyczerpany.<br></li>  <li> Upewnij się, że użytkownik ma uprawnienia Azure Backup wymagane do pobrania poświadczeń magazynu i zarejestrowania serwera w magazynie. Zobacz [używanie Role-Based Access Control do zarządzania punktami odzyskiwania Azure Backup](backup-rbac-rs-vault.md).</li></ul> |
+|Nie można pobrać pliku poświadczeń magazynu. (IDENTYFIKATOR: 403) | <ul><li> Spróbuj pobrać poświadczenia magazynu za pomocą innej przeglądarki lub wykonaj następujące czynności: <ul><li> Uruchom program Internet Explorer. Wybierz klawisz F12. </li><li> Przejdź do karty **Sieć** i wyczyść pamięć podręczną i pliki cookie. </li> <li> Odśwież stronę.<br></li></ul> <li> Sprawdź, czy subskrypcja jest wyłączona/wygasła.<br></li> <li> Sprawdź, czy żadna Reguła zapory blokuje pobieranie. <br></li> <li> Upewnij się, że limit magazynu (50 maszyn na magazyn) nie został wyczerpany.<br></li>  <li> Upewnij się, że użytkownik ma uprawnienia Azure Backup wymagane do pobrania poświadczeń magazynu i zarejestrowania serwera w magazynie. [Aby zarządzać Azure Backup punktami odzyskiwania, zobacz Używanie kontroli dostępu opartej na rolach na platformie Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Agent usługi Microsoft Azure Recovery Service nie mógł połączyć się z usługą Microsoft Azure Backup
 

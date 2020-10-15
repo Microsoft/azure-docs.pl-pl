@@ -1,19 +1,19 @@
 ---
-title: Zarządzanie kopiami zapasowymi przy użyciu Role-Based Access Control
-description: Access Control oparte na rolach umożliwiają zarządzanie dostępem do operacji zarządzania kopiami zapasowymi w magazynie Recovery Services.
+title: Zarządzanie kopiami zapasowymi przy użyciu kontroli dostępu opartej na rolach na platformie Azure
+description: Za pomocą kontroli dostępu opartej na rolach platformy Azure można zarządzać dostępem do operacji zarządzania kopiami zapasowymi w magazynie Recovery Services.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376132"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090883"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Zarządzanie punktami odzyskiwania Azure Backup za pomocą Access Control Role-Based
+# <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Używanie kontroli dostępu opartej na rolach na platformie Azure do zarządzania Azure Backup punktów odzyskiwania
 
-Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Przy użyciu kontroli dostępu opartej na rolach można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań.
+Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Przy użyciu kontroli RBAC na platformie Azure można przeprowadzać segregowanie zadań w ramach zespołu i nadawać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań.
 
 > [!IMPORTANT]
 > Role udostępniane przez Azure Backup są ograniczone do akcji, które mogą być wykonywane w Azure Portal lub za pośrednictwem interfejsu API REST lub poleceń cmdlet programu PowerShell dla magazynu Recovery Services lub interfejsu wiersza polecenia. Akcje wykonywane w interfejsie użytkownika klienta agenta Azure Backup lub interfejsie użytkownika programu System Center Data Protection Manager lub interfejsie użytkownika Azure Backup Server nie kontrolują tych ról.
@@ -77,9 +77,9 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli rbac w Azure Portal.
+* [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do usługi Azure rbac w Azure Portal.
 * Dowiedz się, jak zarządzać dostępem przy użyciu:
   * [Program PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfejs wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md)
   * [Interfejs API REST](../role-based-access-control/role-assignments-rest.md)
-* [Rozwiązywanie problemów Access Control opartych na rolach](../role-based-access-control/troubleshooting.md): Uzyskaj sugestie dotyczące rozwiązywania typowych problemów.
+* [Rozwiązywanie problemów z kontrolą dostępu opartą na rolach na platformie Azure](../role-based-access-control/troubleshooting.md): Uzyskaj sugestie dotyczące rozwiązywania typowych problemów.

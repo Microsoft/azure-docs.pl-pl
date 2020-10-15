@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/16/2020
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325491"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072785"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limity zasobów dla usługi Azure NetApp Files
 
@@ -65,7 +65,7 @@ Usługa dynamicznie dostosowuje limit maxfiles dla woluminu na podstawie jego ro
 |    > 3 TiB, ale <= 4 TiB    |    80 000 000     |
 |    > 4 TiB                 |    100 000 000    |
 
-Jeśli przydzielono już co najmniej 4 TiB przydziału dla woluminu, można zainicjować [żądanie obsługi](#limit_increase) , aby zwiększyć limit maxfiles przekraczający 100 000 000.
+Jeśli przydzielono już co najmniej 4 TiB przydziału dla woluminu, można zainicjować [żądanie obsługi](#limit_increase) , aby zwiększyć limit maxfiles przekraczający 100 000 000. W przypadku każdego 100 000 000 plików, które można zwiększyć (lub ich części), należy zwiększyć przydział odpowiedniego woluminu o 4 TiB.  Na przykład jeśli zwiększono limit maxfiles z plików 100 000 000 do 200 000 000 (lub dowolną liczbę z zakresu), należy zwiększyć przydział woluminu z 4 TiB do 8 TiB.
 
 ## <a name="request-limit-increase"></a>Zwiększenie limitu żądań <a name="limit_increase"></a> 
 

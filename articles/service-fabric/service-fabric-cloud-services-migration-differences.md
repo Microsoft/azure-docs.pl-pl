@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836738"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091172"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Dowiedz się więcej o różnicach między Cloud Services i Service Fabric przed migracją aplikacji.
 Microsoft Azure Service Fabric to platforma aplikacji w chmurze nowej generacji dla wysoce skalowalnych, wysoce niezawodnych aplikacji rozproszonych. Wprowadzono wiele nowych funkcji tworzenia pakietów aplikacji w chmurze i wdrażania ich oraz zarządzania nimi. 
@@ -69,7 +69,7 @@ Dzięki bezpośredniej komunikacji warstwy mogą komunikować się bezpośrednio
 
 Service Fabric zapewnia mechanizm odnajdowania usług nazywany Usługa nazewnictwa, który może służyć do rozpoznawania adresów punktów końcowych usług. 
 
-![Service Fabric komunikacji bezpośredniej][6]
+![Diagram przedstawiający sposób, w jaki Service Fabric zapewnia mechanizm odnajdowania usług nazywany Usługa nazewnictwa, który może służyć do rozpoznawania adresów punktów końcowych usług.][6]
 
 ### <a name="queues"></a>Kolejki
 Typowy mechanizm komunikacji między warstwami w środowiskach bezstanowych, takich jak Cloud Services, to użycie zewnętrznej kolejki magazynu do trwale przechowywania zadań roboczych z jednej warstwy do innej. Typowym scenariuszem jest warstwa sieci Web, która wysyła zadania do kolejki platformy Azure lub Service Bus gdzie wystąpienia roli procesu roboczego mogą dekolejkować i przetwarzać zadania.

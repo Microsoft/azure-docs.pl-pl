@@ -50,7 +50,7 @@
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Usługa Azure Defender dla platformy Kubernetes
-          displayName: 'clusters, k8s'
+          displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
         - name: Usługa Azure Defender dla rejestrów kontenerów
           displayName: 'ACR, registry, images'
@@ -58,7 +58,7 @@
         - name: Dodatkowa ochrona przed zagrożeniami
           href: other-threat-protections.md
     - name: Funkcje zabezpieczeń kontenerów usługi Security Center
-      displayName: 'kubernetes, aks, acr, registries'
+      displayName: 'kubernetes, aks, acr, registries, k8s'
       href: container-security.md
     - name: Cennik
       href: security-center-pricing.md
@@ -79,6 +79,8 @@
           href: quickstart-onboard-gcp.md
     - name: Automatyzowanie dołączania przy użyciu programu PowerShell
       href: security-center-powershell-onboarding.md
+    - name: Włączanie usługi Security Center dla grupy zarządzania
+      href: onboard-management-group.md
     - name: Konfigurowanie zbierania danych
       href: security-center-enable-data-collection.md
     - name: Konfigurowanie powiadomień e-mail
@@ -140,8 +142,6 @@
             - name: Automatyzowanie odpowiedzi na rekomendacje
               displayName: workflow
               href: workflow-automation.md
-            - name: Rekomendacje dotyczące eksportowania
-              href: continuous-export.md
             - name: Wykluczanie zasobu z rekomendacji
               href: exempt-resource.md
     - name: Alerty usługi Azure Defender
@@ -169,17 +169,20 @@
           href: update-regulatory-compliance-packages.md
     - name: Korzystanie z usługi Azure Defender dla serwerów
       items:
-        - name: Skanowanie pod kątem luk w zabezpieczeniach na maszynach wirtualnych
+        - name: Skanowanie pod kątem luk w zabezpieczeniach
           items:
-            - name: Skanowanie maszyn wirtualnych przy użyciu zintegrowanego rozwiązania do oceny luk w zabezpieczeniach
-              displayName: 'qualys, vulnerability'
+            - name: Zintegrowany skaner VA dla maszyn
+              displayName: 'qualys, vulnerability, arc'
               href: deploy-vulnerability-assessment-vm.md
             - name: Skanowanie maszyn wirtualnych przy użyciu rozwiązania do oceny luk w zabezpieczeniach typu BYOL
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
-            - name: Przeglądanie i korygowanie luk w zabezpieczeniach na maszynach wirtualnych
+            - name: Przeglądanie i korygowanie luk w zabezpieczeniach
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
+            - name: Wyłączanie określonych znalezionych luk w zabezpieczeniach
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Zabezpieczanie portów zarządzania przy użyciu dostępu just in time do maszyn wirtualnych
           items:
             - name: Omówienie dostępu just in time do maszyn wirtualnych
@@ -213,6 +216,15 @@
     - name: Korzystanie z usługi Azure Defender dla rejestrów kontenerów
       displayName: 'ACR, registry, images'
       href: defender-for-container-registries-usage.md
+    - name: Eksportowanie alertów i zaleceń
+      items:
+        - name: 'Eksportowanie do rozwiązania SIEM, SOAR lub ITSM'
+          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+          href: export-to-siem.md
+        - name: Eksportowanie do obszaru roboczego usługi Log Analytics lub centrum zdarzeń platformy Azure
+          href: continuous-export.md
+        - name: Pobierz raport CSV zawierający wszystkie alerty
+          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
     - name: Obsługa alertów usługi Azure Defender
       items:
         - name: Zarządzanie alertami zabezpieczeń
@@ -226,16 +238,14 @@
           href: security-center-incident.md
         - name: Generowanie raportów analizy zagrożeń
           href: security-center-threat-report.md
-        - name: Weryfikowanie konfiguracji alertów (plik testowy EICAR)
+        - name: Weryfikowanie konfiguracji alertów
+          displayname: 'eicar, Kubernetes, Linux'
           href: security-center-alert-validation.md
         - name: Automatyzowanie odpowiedzi na alerty
           displayName: workflow
           href: workflow-automation.md
-        - name: Eksportowanie alertów
-          displayName: continuous
-          href: continuous-export.md
     - name: Ochrona obciążeń Kubernetes
-      displayName: 'k8s, containers'
+      displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
     - name: Zarządzanie danymi użytkownika badań
       href: security-center-investigation-user-data.md

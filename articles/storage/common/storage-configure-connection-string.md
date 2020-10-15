@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087258"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091614"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfiguracja parametrów połączenia usługi Azure Storage
 
@@ -110,9 +110,10 @@ Wartości punktów końcowych w parametrach połączenia są używane do konstru
 
 Jeśli punkt końcowy magazynu został zamapowany na domenę niestandardową i pominięto ten punkt końcowy z parametrów połączenia, nie będzie można używać tych parametrów połączenia do uzyskiwania dostępu do danych w tej usłudze z kodu.
 
+Aby uzyskać więcej informacji na temat konfigurowania domeny niestandardowej dla usługi Azure Storage, zobacz [Mapowanie domeny niestandardowej na punkt końcowy usługi azure BLOB Storage](../blobs/storage-custom-domain-name.md).
+
 > [!IMPORTANT]
-> Wartości punktu końcowego usługi w parametrach połączenia muszą mieć poprawnie sformułowane identyfikatory URI, w tym `https://` (zalecane) lub `http://` . Ponieważ usługa Azure Storage nie obsługuje jeszcze protokołu HTTPS dla domen niestandardowych, *należy* określić `http://` dla dowolnego identyfikatora URI punktu końcowego, który wskazuje na domenę niestandardową.
->
+> Wartości punktu końcowego usługi w parametrach połączenia muszą mieć poprawnie sformułowane identyfikatory URI, w tym `https://` (zalecane) lub `http://` .
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Tworzenie parametrów połączenia przy użyciu sufiksu punktu końcowego
 

@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: Przewodniki z instrukcjami
       items:
-        - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
-          href: quickstarts/from-blob.md
-        - name: Wybór trybu rozpoznawania mowy
-          href: how-to-choose-recognition-mode.md
         - name: Zmiana języka źródłowego rozpoznawania mowy
           href: how-to-specify-source-language.md
         - name: Zwiększanie dokładności za pomocą mowy niestandardowej
@@ -37,8 +33,6 @@
         - name: Używanie skompresowanych formatów dźwiękowych danych wejściowych
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: Zwiększanie dokładności za pomocą list fraz
-          href: how-to-phrase-lists.md
         - name: Wybieranie określonego urządzenia wejściowego mikrofonu
           href: how-to-select-audio-input-devices.md
         - name: Używanie automatycznego wykrywania języka źródłowego
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: Samouczki
       items:
+        - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
+          href: quickstarts/from-blob.md
         - name: Zwiększanie dokładności za pomocą modeli dzierżaw
           href: tutorial-tenant-model.md
     - name: Dostosowywanie
