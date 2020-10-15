@@ -1,15 +1,15 @@
 ---
 title: 'Szybki Start: nowe przypisanie zasad przy użyciu języka Python'
 description: W tym przewodniku szybki start utworzysz przypisanie Azure Policy w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a160b9bc389bc0c902f9644887aa478f80822e60
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2bbe38ce979dd12694908240a6adab317332a35
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136518"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074094"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu języka Python
 

@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056062"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072717"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Obsługa Resource Health Check (systemie RHC występuje) dla platformy Azure Cloud Services (wersja klasyczna)
 W tym artykule omówiono obsługę Resource Health Check (systemie RHC występuje) dla [Microsoft Azure Cloud Services (klasyczny)](https://azure.microsoft.com/services/cloud-services)
 
-[Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) dla usług w chmurze pomaga zdiagnozować i uzyskać pomoc techniczną dotyczącą problemów z usługami, które mają wpływ na wdrożenie usługi w chmurze, role & wystąpienia roli. Raporty są raportowane w bieżącej i wcześniejszej kondycji usług w chmurze w ramach wdrożenia, roli & poziomie wystąpienia roli.
+[Azure Resource Health](../service-health/resource-health-overview.md) dla usług w chmurze pomaga zdiagnozować i uzyskać pomoc techniczną dotyczącą problemów z usługami, które mają wpływ na wdrożenie usługi w chmurze, role & wystąpienia roli. Raporty są raportowane w bieżącej i wcześniejszej kondycji usług w chmurze w ramach wdrożenia, roli & poziomie wystąpienia roli.
 
 Raporty o stanie platformy Azure dotyczące problemów, które mają wpływ na szeroki zestaw klientów platformy Azure. Resource Health zapewnia spersonalizowany pulpit nawigacyjny kondycji zasobów. Resource Health przedstawia wszystkie czasy braku dostępu do zasobów z powodu problemów z usługą platformy Azure. Te dane ułatwiają sprawdzenie, czy umowa SLA została naruszona.
 
@@ -30,7 +30,7 @@ Kondycja zasobów jest raportowana na poziomie wdrożenia lub roli. Sprawdzanie 
 Testy kondycji zasobów działają tylko dla wdrożenia miejsca produkcyjnego. Wdrożenie miejsca przejściowego nie jest jeszcze obsługiwane. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>Czy Resource Health sprawdzać również kondycję aplikacji?
-Nie, sprawdzanie kondycji odbywa się tylko dla wystąpień roli i nie monitoruje kondycji aplikacji. Na przykład Nawet jeśli 1 z 3 wystąpień roli jest w złej kondycji, aplikacja nadal może być dostępna. SYSTEMIE RHC występuje nie używa [sondy usługi równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) ani sondy agenta gościa. W związku z tym klienci powinni nadal używać sond modułu równoważenia obciążenia do monitorowania kondycji aplikacji. 
+Nie, sprawdzanie kondycji odbywa się tylko dla wystąpień roli i nie monitoruje kondycji aplikacji. Na przykład Nawet jeśli 1 z 3 wystąpień roli jest w złej kondycji, aplikacja nadal może być dostępna. SYSTEMIE RHC występuje nie używa [sondy usługi równoważenia obciążenia](../load-balancer/load-balancer-custom-probe-overview.md) ani sondy agenta gościa. W związku z tym klienci powinni nadal używać sond modułu równoważenia obciążenia do monitorowania kondycji aplikacji. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Co to są adnotacje dla Cloud Services?
 Adnotacje to stan kondycji wdrożenia lub ról. Istnieją różne adnotacje na podstawie stanu kondycji, przyczyny zmiany stanu itp. 

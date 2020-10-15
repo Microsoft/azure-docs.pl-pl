@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327735"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093756"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w witrynie Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -120,7 +120,7 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook.
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
-### <a name="email"></a>Poczta e-mail
+### <a name="email"></a>E-mail
 Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij się, że filtrowanie poczty e-mail jest skonfigurowane odpowiednio
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -287,7 +287,32 @@ Aby otrzymywać aktualizacje dotyczące zmian wprowadzonych w tych adresach IP, 
 
 W grupie akcji może istnieć ograniczona liczba akcji elementu webhook.
 
+### <a name="service-tag"></a>Tag usługi
+Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieci dla obiektu ActionType.
 
+1. W Azure Portal w obszarze usługi platformy Azure Wyszukaj *grupę zabezpieczeń sieci*.
+2. Kliknij pozycję **Dodaj** i Utwórz sieciową grupę zabezpieczeń.
+
+   1. Dodaj nazwę grupy zasobów, a następnie wprowadź *szczegóły wystąpienia*.
+   1. Kliknij przycisk **Przegląd + Utwórz** , a następnie kliknij przycisk *Utwórz*.
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Przykład tworzenia sieciowej grupy zabezpieczeń."border="true":::
+
+3. Przejdź do grupy zasobów, a następnie kliknij utworzoną *grupę zabezpieczeń sieci* .
+
+    1. Wybierz pozycję *reguły zabezpieczeń dla ruchu przychodzącego*.
+    1. Kliknij przycisk **Dodaj**.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Przykład dodawania znacznika usługi."border="true":::
+
+4. Nowe okno zostanie otwarte w okienku po prawej stronie.
+    1.  Wybierz źródło: **tag usługi**
+    1.  Tag usługi źródłowej: **ActionName**
+    1.  Kliknij pozycję **Dodaj**.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Przykład dotyczący dodawania tagu usługi."border="true":::
+
+Użycie **tagu usługi** dla obiektu Actions ułatwia zminimalizowanie złożoności częstych aktualizacji adresów IP.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [zachowania alertu programu SMS](./alerts-sms-behavior.md).  

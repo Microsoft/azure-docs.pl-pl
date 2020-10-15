@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2b5440ad2bec94d4ef14fa29e723cc91a4fcdf10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766855"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074842"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
 
@@ -23,17 +23,17 @@ W trakcie procesu zwalniania program Helm Scala wykres z odpowiednią konfigurac
 
 Wartości przechowywane w *wartościach. YAML* można zastąpić przez udostępnienie dodatkowych YAML plików konfiguracji w wierszu polecenia podczas uruchamiania Helm. Konfiguracja aplikacji platformy Azure obsługuje eksportowanie wartości konfiguracji do plików YAML. Integracja tej możliwości eksportu z wdrożeniem umożliwia aplikacjom Kubernetes korzystanie z wartości konfiguracyjnych przechowywanych w konfiguracji aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Użyj wartości z konfiguracji aplikacji podczas wdrażania aplikacji do Kubernetes przy użyciu Helm.
 > * Utwórz wpis tajny Kubernetes na podstawie odwołania Key Vault w konfiguracji aplikacji.
 
-W tym samouczku założono podstawowe informacje dotyczące zarządzania Kubernetes z Helm. Dowiedz się więcej o instalowaniu aplikacji z programem Helm w [usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-helm).
+W tym samouczku założono podstawowe informacje dotyczące zarządzania Kubernetes z Helm. Dowiedz się więcej o instalowaniu aplikacji z programem Helm w [usłudze Azure Kubernetes Service](../aks/kubernetes-helm.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (wersja 2.4.0 lub nowsza)
+- Instalowanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (wersja 2.4.0 lub nowsza)
 - Zainstaluj [Helm](https://helm.sh/docs/intro/install/) (wersja 2.14.0 lub nowsza)
 - Klaster Kubernetes.
 
@@ -51,7 +51,7 @@ W tym samouczku założono podstawowe informacje dotyczące zarządzania Kuberne
     Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Dodaj odwołanie Key Vault do konfiguracji aplikacji
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Dodaj klucz tajny do [Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) przy użyciu **hasła** nazwy i **wartości hasło**. 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) i Dodaj klucz tajny do [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) przy użyciu **hasła** nazwy i **wartości hasło**. 
 2. Wybierz wystąpienie magazynu konfiguracji aplikacji, które zostało utworzone w poprzedniej sekcji.
 
 3. Wybierz pozycję **Eksplorator konfiguracji**.
@@ -185,7 +185,7 @@ settings:
 Najpierw Pobierz konfigurację z konfiguracji aplikacji do pliku *YAML.* Użyj filtru kluczy, aby pobrać tylko te klucze, które zaczynają się od **ustawień.**. Jeśli w Twoim przypadku filtr klucza nie wystarcza do wykluczenia kluczy odwołań Key Vault, możesz użyć tego argumentu **--Skip-** Key, aby je wykluczyć. 
 
 > [!TIP]
-> Dowiedz się więcej o [poleceniu eksportu](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+> Dowiedz się więcej o [poleceniu eksportu](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -225,7 +225,7 @@ else{
 
 ```
 
-Sprawdź, czy konfiguracje i wpisy tajne zostały pomyślnie ustawione, uzyskując dostęp do [pulpitu nawigacyjnego Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard). Zobaczysz, że wartości **kolorów** i **komunikatów** z konfiguracji aplikacji zostały wypełnione zmiennymi środowiskowymi kontenera.
+Sprawdź, czy konfiguracje i wpisy tajne zostały pomyślnie ustawione, uzyskując dostęp do [pulpitu nawigacyjnego Kubernetes](../aks/kubernetes-dashboard.md). Zobaczysz, że wartości **kolorów** i **komunikatów** z konfiguracji aplikacji zostały wypełnione zmiennymi środowiskowymi kontenera.
 
 ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/kubernetes-dashboard-env-variables.png)
 
@@ -242,4 +242,4 @@ Jeden wpis tajny, **hasło**, sklepy jako odwołanie Key Vault w konfiguracji ap
 W tym samouczku wyeksportowano dane konfiguracji aplikacji platformy Azure, które będą używane we wdrożeniu Kubernetes z Helm. Aby dowiedzieć się więcej na temat korzystania z konfiguracji aplikacji, przejdź do przykładów interfejsu wiersza polecenia platformy Azure.
 
 > [!div class="nextstepaction"]
-> [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Interfejs wiersza polecenia platformy Azure](/cli/azure/appconfig?view=azure-cli-latest)

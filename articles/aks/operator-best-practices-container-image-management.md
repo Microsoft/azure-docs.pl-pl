@@ -4,12 +4,12 @@ description: Zapoznaj się z najlepszymi rozwiązaniami operatora klastra dotycz
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 018dc1802d4f0b4b498d3993b8753990598a16ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d90ac5b8ab44925b73be2f22cd7a79458da9f5a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251148"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073555"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zarządzania obrazami kontenerów i zabezpieczeń w usłudze Azure Kubernetes Service (AKS)
 
@@ -61,4 +61,4 @@ Ten artykuł koncentruje się na sposobie zabezpieczania kontenerów. Aby zaimpl
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
 [security-center-containers]: ../security-center/container-security.md
-[security-center-acr]: ../security-center/azure-container-registry-integration.md
+[security-center-acr]: ../security-center/defender-for-container-registries-introduction.md

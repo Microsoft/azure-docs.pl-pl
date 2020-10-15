@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326256"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093059"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia
 
 ::: zone pivot="programming-language-csharp"
-Korzystając z wbudowanej funkcji monitorowania w chmurze Azure wiosennej, można debugować i monitorować złożone problemy. Chmura sprężynowa platformy Azure integruje [śledzenie rozproszone](https://steeltoe.io/docs/3/tracing/distributed-tracing) Steeltoe z [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)platformy Azure. Ta integracja zapewnia zaawansowane dzienniki, metryki i funkcję śledzenia rozproszonego z Azure Portal.
+Korzystając z wbudowanej funkcji monitorowania w chmurze Azure wiosennej, można debugować i monitorować złożone problemy. Chmura sprężynowa platformy Azure integruje [śledzenie rozproszone](https://steeltoe.io/docs/3/tracing/distributed-tracing) Steeltoe z [Application Insights](../azure-monitor/app/app-insights-overview.md)platformy Azure. Ta integracja zapewnia zaawansowane dzienniki, metryki i funkcję śledzenia rozproszonego z Azure Portal.
 
 W poniższych procedurach opisano sposób używania przesyłania strumieniowego dzienników, Log Analytics, metryk i śledzenia rozproszonego z przykładową aplikacją wdrożoną w poprzednich przewodnikach Szybki Start.
 
@@ -69,7 +69,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. Edytuj zapytanie, aby usunąć klauzule WHERE, które ograniczają wyświetlanie do dzienników ostrzeżeń i błędów.
 
-1. Następnie wybierz pozycję, a zobaczysz pozycję `Run` dzienniki. Zobacz artykuł [Azure log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
+1. Następnie wybierz pozycję, a zobaczysz pozycję `Run` dzienniki. Zobacz artykuł [Azure log Analytics docs](../azure-monitor/log-query/get-started-queries.md) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
 
    [![Zapytanie usługi Logs Analytics — steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
@@ -107,7 +107,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Korzystając z wbudowanej funkcji monitorowania w chmurze Azure wiosennej, można debugować i monitorować złożone problemy. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)Azure. Ta integracja zapewnia zaawansowane dzienniki, metryki i funkcję śledzenia rozproszonego z Azure Portal. W poniższych procedurach opisano sposób używania przesyłania strumieniowego dzienników, Log Analytics, metryk i śledzenia rozproszonego ze wdrożonymi aplikacjami PiggyMetrics.
+Korzystając z wbudowanej funkcji monitorowania w chmurze Azure wiosennej, można debugować i monitorować złożone problemy. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](../azure-monitor/app/app-insights-overview.md)Azure. Ta integracja zapewnia zaawansowane dzienniki, metryki i funkcję śledzenia rozproszonego z Azure Portal. W poniższych procedurach opisano sposób używania przesyłania strumieniowego dzienników, Log Analytics, metryk i śledzenia rozproszonego ze wdrożonymi aplikacjami PiggyMetrics.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -165,7 +165,7 @@ Aby pobrać dzienniki przy użyciu Azure Toolkit for IntelliJ:
 
    [![Wpis ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Następnie zostaną wyświetlone odfiltrowane dzienniki. Zobacz artykuł [Azure log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
+1. Następnie zostaną wyświetlone odfiltrowane dzienniki. Zobacz artykuł [Azure log Analytics docs](../azure-monitor/log-query/get-started-queries.md) , aby uzyskać więcej wskazówek dotyczących pisania zapytań.
 
    [![Zapytanie ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) usługi Logs Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 

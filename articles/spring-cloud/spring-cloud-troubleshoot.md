@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336160"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089047"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -68,7 +68,7 @@ Gdy debugujesz awarie aplikacji, Zacznij od sprawdzenia stanu uruchomienia i sta
 
 
 
-Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md).
 ::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Moja aplikacja używa dużo mocy procesora lub pamięci
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji, zobacz [metryki dla chmury wiosennej platformy 
 
 Jeśli wszystkie wystąpienia są uruchomione, przejdź do usługi Azure Log Analytics, aby wykonać zapytanie dotyczące dzienników aplikacji i przejrzeć logikę kodu. Ułatwi to sprawdzenie, czy którykolwiek z nich może mieć wpływ na partycjonowanie skalowania. Aby uzyskać więcej informacji, zobacz [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](diagnostic-services.md).
 
-Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
 
 ::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista kontrolna wdrażania aplikacji wiosennej w chmurze Azure wiosennej
@@ -113,14 +113,14 @@ Przed dołączeniem aplikacji upewnij się, że spełnia ona następujące kryte
 
 Po skonfigurowaniu wystąpienia usługi w chmurze ze sprężyną na platformie Azure za pomocą Azure Portal, Chmura Wiosenna platformy Azure wykonuje weryfikację.
 
-Ale jeśli spróbujesz skonfigurować wystąpienie usługi chmurowej Azure sprężynowej przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) lub [szablonu Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), sprawdź, czy:
+Ale jeśli spróbujesz skonfigurować wystąpienie usługi chmurowej Azure sprężynowej przy użyciu [interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli) lub [szablonu Azure Resource Manager](../azure-resource-manager/index.yml), sprawdź, czy:
 
 * Subskrypcja jest aktywna.
 * Lokalizacja jest [obsługiwana](spring-cloud-faq.md) przez chmurę wiosenną platformy Azure.
 * Grupa zasobów dla wystąpienia została już utworzona.
 * Nazwa zasobu jest zgodna z regułą nazewnictwa. Musi zawierać tylko małe litery, cyfry i łączniki. Pierwszy znak musi być literą. Ostatni znak musi być literą lub cyfrą. Wartość musi zawierać od 2 do 32 znaków.
 
-Jeśli chcesz skonfigurować wystąpienie usługi w chmurze Azure wiosny przy użyciu szablonu Menedżer zasobów, najpierw zapoznaj się z tematem [Struktura i składnia Azure Resource Manager szablonów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Jeśli chcesz skonfigurować wystąpienie usługi w chmurze Azure wiosny przy użyciu szablonu Menedżer zasobów, najpierw zapoznaj się z tematem [Struktura i składnia Azure Resource Manager szablonów](../azure-resource-manager/templates/template-syntax.md).
 
 Nazwa wystąpienia usługi w chmurze wiosennej na platformie Azure zostanie użyta do żądania nazwy domeny podrzędnej w `azureapps.io` programie, więc instalacja nie powiedzie się, jeśli wystąpi konflikt nazw z istniejącą. Więcej szczegółów można znaleźć w dziennikach aktywności.
 
@@ -129,7 +129,7 @@ Nazwa wystąpienia usługi w chmurze wiosennej na platformie Azure zostanie uży
 
 Nie można przekazać pliku *. zip* dla aplikacji platformy .NET Core steeltoe przy użyciu szablonu Menedżer zasobów Azure Portal.
 
-Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
+Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
 
 Upewnij się, że Twoja aplikacja jest spakowana w prawidłowym formacie pliku *zip* . Jeśli plik nie zostanie poprawnie spakowany, proces przestanie odpowiadać lub zostanie wyświetlony komunikat o błędzie.
 ::: zone-end
@@ -139,7 +139,7 @@ Upewnij się, że Twoja aplikacja jest spakowana w prawidłowym formacie pliku *
 
 Nie można przekazać pakietu/Source w pliku archiwum Java (JAR) przy użyciu szablonu Menedżer zasobów Azure Portal lub.
 
-Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
+Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
 
 Jeśli sondowanie zostanie przerwane, możesz użyć następującego polecenia, aby pobrać dzienniki wdrażania:
 
@@ -153,7 +153,7 @@ Upewnij się, że aplikacja jest spakowana w prawidłowym [pliku wykonywalnym ja
 
 Nie można przekazać pakietu JAR/Source przy użyciu Azure Portal lub szablonu Menedżer zasobów.
 
-Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
+Podczas wdrażania pakietu aplikacji przy użyciu [interfejsu wiersza polecenia](/cli/azure/get-started-with-azure-cli)platformy Azure interfejs wiersza polecenia platformy Azure okresowo sonduje postęp wdrażania i na końcu wyświetla wynik wdrożenia.
 
 Jeśli sondowanie zostanie przerwane, możesz użyć następującego polecenia, aby pobrać dzienniki kompilowania i wdrażania:
 
@@ -171,7 +171,7 @@ Jeśli migrujesz istniejące, sprężynowe rozwiązanie oparte na chmurze na pla
 
 Możesz również sprawdzić dzienniki _usługi Rejestr_ klienta w usłudze Azure log Analytics. Aby uzyskać więcej informacji, zobacz [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](diagnostic-services.md)
 
-Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](https://docs.microsoft.com/azure/kusto/query/).
+Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](../azure-monitor/log-query/get-started-portal.md). Wykonaj zapytanie dotyczące dzienników przy użyciu [języka zapytań Kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Chcę sprawdzić zmienne środowiskowe aplikacji
 
@@ -231,7 +231,7 @@ Sprawdź, czy `spring-boot-actuator` zależność jest włączona w pakiecie apl
 </dependency>
 ```
 
-Jeśli dzienniki aplikacji można zarchiwizować na koncie magazynu, ale nie są wysyłane do usługi Azure Log Analytics, należy sprawdzić, czy [obszar roboczy został skonfigurowany prawidłowo](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). W przypadku korzystania z bezpłatnej warstwy usługi Azure Log Analytics należy pamiętać, że [w warstwie Bezpłatna nie jest oferowana umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Jeśli dzienniki aplikacji można zarchiwizować na koncie magazynu, ale nie są wysyłane do usługi Azure Log Analytics, należy sprawdzić, czy [obszar roboczy został skonfigurowany prawidłowo](../azure-monitor/learn/quick-create-workspace.md). W przypadku korzystania z bezpłatnej warstwy usługi Azure Log Analytics należy pamiętać, że [w warstwie Bezpłatna nie jest oferowana umowa dotycząca poziomu usług (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 ::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561605"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072479"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struktura pulpitów nawigacyjnych platformy Azure
 Ten dokument przedstawia strukturę pulpitu nawigacyjnego platformy Azure, korzystając z następującego pulpitu nawigacyjnego:
 
 ![przykładowy pulpit nawigacyjny](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Ponieważ udostępnione [pulpity nawigacyjne platformy Azure to zasoby](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), ten pulpit nawigacyjny może być reprezentowany w formacie JSON.  Poniższy kod JSON przedstawia wizualizację pulpitu nawigacyjnego powyżej.
+Ponieważ udostępnione [pulpity nawigacyjne platformy Azure to zasoby](../azure-resource-manager/management/overview.md), ten pulpit nawigacyjny może być reprezentowany w formacie JSON.  Poniższy kod JSON przedstawia wizualizację pulpitu nawigacyjnego powyżej.
 
 ```json
 
@@ -303,7 +303,7 @@ Nazwa jest segmentem identyfikatora zasobu, który nie zawiera informacji o subs
 Wszystkie pulpity nawigacyjne są typu __Microsoft. Portal/pulpity nawigacyjne__.
 
 ### <a name="the-location-property"></a>Właściwość Location
-W przeciwieństwie do innych zasobów, pulpity nawigacyjne nie mają składnika środowiska uruchomieniowego.  W przypadku pulpitów nawigacyjnych lokalizacja wskazuje podstawową lokalizację geograficzną, w której jest przechowywana reprezentacja JSON pulpitu nawigacyjnego. Wartość powinna być jednym z kodów lokalizacji, które można pobrać za pomocą [interfejsu API lokalizacji zasobu subskrypcje](https://docs.microsoft.com/rest/api/resources/subscriptions).
+W przeciwieństwie do innych zasobów, pulpity nawigacyjne nie mają składnika środowiska uruchomieniowego.  W przypadku pulpitów nawigacyjnych lokalizacja wskazuje podstawową lokalizację geograficzną, w której jest przechowywana reprezentacja JSON pulpitu nawigacyjnego. Wartość powinna być jednym z kodów lokalizacji, które można pobrać za pomocą [interfejsu API lokalizacji zasobu subskrypcje](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Właściwość Tags
 Tagi to typowa funkcja zasobów platformy Azure, która umożliwia organizowanie zasobów według arbitralnych par wartości nazw. W przypadku pulpitów nawigacyjnych istnieje jeden specjalny tag o nazwie __Hidden-title__. Jeśli pulpit nawigacyjny ma zapełnienie tej właściwości, zostanie użyta jako nazwa wyświetlana pulpitu nawigacyjnego w portalu. Nie można zmienić nazwy identyfikatorów zasobów platformy Azure, ale mogą to być Tagi. Ten tag pozwala na renamable wyświetlana nazwa pulpitu nawigacyjnego.

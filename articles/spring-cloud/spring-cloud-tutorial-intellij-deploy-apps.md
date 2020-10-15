@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e5b8dc325fa7eaceaa0274029049f546db5b6995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888545"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088775"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Wdrażanie aplikacji Azure Spring Cloud za pomocą środowiska IntelliJ
 
@@ -23,7 +23,7 @@ Wtyczka IntelliJ dla chmury wiosennej platformy Azure obsługuje wdrażanie apli
 Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable&preserve-view=true)
+* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0 +](https://maven.apache.org/download.cgi)
 * [IntelliJ pomysł, Community/Ultimate Edition, wersja 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
@@ -57,7 +57,7 @@ Poniższe procedury służą do wdrażania aplikacji Hello world przy użyciu PO
     ![Importuj projekt](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## <a name="deploy-to-azure-spring-cloud"></a>Wdrażanie w chmurze Azure wiosennej
-Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platformy Azure i wybrać subskrypcję.  Aby uzyskać szczegółowe informacje dotyczące logowania, zobacz [Instalowanie i logowanie](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platformy Azure i wybrać subskrypcję.  Aby uzyskać szczegółowe informacje dotyczące logowania, zobacz [Instalowanie i logowanie](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure**  ->  **Deploy w chmurze Azure wiosennej**.
 
@@ -104,5 +104,5 @@ Aby pobrać dzienniki:
     ![Dane wyjściowe dziennika przesyłania strumieniowego](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Przygotuj aplikację wiosenną dla chmury wiosennej platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [Dowiedz się więcej o Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+* [Przygotuj aplikację wiosenną dla chmury wiosennej platformy Azure](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [Dowiedz się więcej o Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/)
