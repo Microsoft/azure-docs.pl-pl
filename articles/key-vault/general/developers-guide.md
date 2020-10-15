@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df59d944a15e22e9884b0d177deedb9968ea1aef
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994983"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072768"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
 Key Vault pozwala bezpiecznie uzyskać dostęp do poufnych informacji z aplikacji:
 
 - Klucze, wpisy tajne i certyfikaty są chronione bez konieczności samodzielnego pisania kodu i można z nich łatwo korzystać z aplikacji.
-- Klienci mogą mieć własne klucze, wpisy tajne i certyfikaty i zarządzać nimi, aby skoncentrować się na dostarczaniu podstawowych funkcji oprogramowania. W ten sposób Twoje aplikacje nie będą własnością odpowiedzialności ani potencjalnej odpowiedzialności za klucze dzierżawy, wpisy tajne i certyfikaty klientów.
+- Pozwalamy klientom na posiadanie własnych kluczy, wpisów tajnych i certyfikatów oraz zarządzanie nimi, aby skoncentrować się na dostarczaniu podstawowych funkcji oprogramowania. W ten sposób Twoje aplikacje nie będą własnością odpowiedzialności ani potencjalnej odpowiedzialności za klucze dzierżawy, wpisy tajne i certyfikaty klientów.
 - Aplikacja może używać kluczy do podpisywania i szyfrowania, a tym samym zarządzać zarządzaniem kluczami zewnętrznymi z poziomu aplikacji. Aby uzyskać więcej informacji na temat kluczy, zobacz [Informacje o kluczach](../keys/about-keys.md)
 - Możesz zarządzać poświadczeniami, takimi jak hasła, klucze dostępu, tokeny SAS przechowujące je w Key Vault jako wpisy tajne, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md)
 - Zarządzanie certyfikatami. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md)

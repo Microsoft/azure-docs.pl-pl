@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: c930636f9af45edc66670c3f757333fef8e8756e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458828"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073397"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Powiadomienie o wycofaniu rodziny systemów operacyjnych gościa 1
 Wycofanie rodziny systemów operacyjnych 1 zostało po raz pierwszy ogłoszone 1 czerwca 2013.
@@ -23,7 +23,7 @@ Wycofanie rodziny systemów operacyjnych 1 zostało po raz pierwszy ogłoszone 1
 
 **3 listopada 2014** Zakończono rozszerzoną obsługę rodziny systemów operacyjnych gościa 1 i została ona całkowicie wycofana. Będzie to miało wpływ na wszystkie usługi. Firma Microsoft może zatrzymać te usługi w dowolnym momencie. Nie ma gwarancji, że usługi będą nadal działać, dopóki nie zostaną ręcznie uaktualnione.
 
-Jeśli masz dodatkowe pytania, odwiedź [stronę pytania&firmy Microsoft dotyczącą Cloud Services](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) lub [skontaktuj się z pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
+Jeśli masz dodatkowe pytania, odwiedź [stronę pytania&firmy Microsoft dotyczącą Cloud Services](/answers/topics/azure-cloud-services.html) lub [skontaktuj się z pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Czy chcesz to mieć na pewno?
 Na Cloud Services mają zastosowanie następujące czynności:
@@ -32,7 +32,7 @@ Na Cloud Services mają zastosowanie następujące czynności:
 2. Nie istnieje wartość Rodzina systemów operacyjnych jawnie określona w pliku ServiceConfiguration. cscfg dla usługi w chmurze. Obecnie w tym przypadku system używa wartości domyślnej "1".
 3. W Azure Portal przedstawiono wartość rodziny systemów operacyjnych gościa jako "Windows Server 2008".
 
-Aby dowiedzieć się, które usługi w chmurze działają z rodziną systemów operacyjnych, można uruchomić następujący skrypt w Azure PowerShell, chociaż należy najpierw [skonfigurować Azure PowerShell](/powershell/azure/) . Aby uzyskać więcej informacji na temat skryptu, zobacz [Rodzina systemów operacyjnych gościa platformy Azure 1 koniec cyklu życia: czerwiec 2014](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
+Aby dowiedzieć się, które usługi w chmurze działają z rodziną systemów operacyjnych, można uruchomić następujący skrypt w Azure PowerShell, chociaż należy najpierw [skonfigurować Azure PowerShell](/powershell/azure/) . Aby uzyskać więcej informacji na temat skryptu, zobacz [Rodzina systemów operacyjnych gościa platformy Azure 1 koniec cyklu życia: czerwiec 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

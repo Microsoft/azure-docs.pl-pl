@@ -1,16 +1,16 @@
 ---
-title: Rozpocznij pracę i Utwórz laboratorium Azure Lab Services z zespołów
-description: Dowiedz się, jak rozpocząć pracę i utworzyć laboratorium Azure Lab Services z zespołów.
+title: Rozpocznij pracę i Utwórz laboratorium Azure Lab Services w zespołach
+description: Dowiedz się, jak rozpocząć pracę i utworzyć laboratorium Azure Lab Services w ramach zespołów.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 0604e2934ff6b011acfa9dd4a4b25fa58193e69b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044449"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092141"
 ---
-# <a name="get-started-and-create-a-lab-services-lab-from-teams"></a>Rozpocznij pracę i Utwórz laboratorium usług Lab Services dla zespołów
+# <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Rozpocznij pracę i Utwórz laboratorium usług Lab Services w zespołach
 
 W tym artykule pokazano, jak dodać aplikację **Azure Lab Services** do zespołu, a następnie jak utworzyć laboratorium w środowisku MS Teams.
 
@@ -34,40 +34,38 @@ Właściciel zespołu może dodawać **Azure Lab Services** aplikację bezpośre
 
     > [!NOTE]
     > Tylko **właściciele** zespołu będą mogli tworzyć laboratoria dla zespołu.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Dodaj kartę":::
 1. Wybierz konto usługi laboratoryjnej, którego chcesz użyć do tworzenia laboratoriów zajęć w tym zespole. 
 
     Azure Lab Services korzysta z logowania jednokrotnego w [witrynie sieci web Azure Lab Services](https://labs.azure.com) i pobiera wszystkie konta laboratorium, do których masz dostęp. 
 
     Są wyświetlane konta znajdujące się w tej samej dzierżawie co zespoły i dla których masz uprawnienia **właściciela**, **współautora**lub **twórcy** . 
 
-   ![Czujnik ALS — Zapraszamy!](./media/integrate-with-teams/welcome.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Dodaj kartę":::
 1. Naciśnij przycisk **Zapisz** , a karta zostanie dodana do kanału.
 
-    Teraz możesz wybrać kartę **Azure Lab Services** z kanału i rozpocząć Zarządzanie laboratoriami zgodnie z opisem w poniższym kroku.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Dodaj kartę":::
+
+    Teraz możesz wybrać kartę **Azure Lab Services** z kanału i rozpocząć Zarządzanie laboratoriami zgodnie z opisem w poniższych artykułach.
 
 Po wybraniu konta laboratorium właściciele zespołu będą mogli tworzyć laboratoria dla zespołu. Cały proces tworzenia laboratorium i wszystkie zadania na poziomie laboratorium mogą być wykonywane w ramach zespołów. Użytkownicy będą mogli utworzyć wiele laboratoriów w ramach tego samego zespołu i właściciela zespołu, z odpowiednim dostępem na poziomie konta laboratorium, zobaczy tylko laboratoria skojarzone z konkretnym zespołem.
-
-## <a name="deleting-classroom-labs"></a>Usuwanie laboratoriów zajęć
-
-Laboratorium utworzone w zespołach można usunąć w [witrynie sieci Web usług Lab Services](https://labs.azure.com) , usuwając laboratorium bezpośrednio, zgodnie z opisem w temacie [Zarządzanie laboratoriami klas w Azure Lab Services](how-to-manage-classroom-labs.md). 
-
-Usuwanie laboratorium jest również wyzwalane, gdy zespół zostanie usunięty. W przypadku usunięcia zespołu, w którym laboratorium zostanie utworzone, laboratorium zostanie automatycznie usunięte po 24 godzinach od momentu wyzwolenia automatycznej synchronizacji listy użytkowników. 
-
-Usunięcie karty lub odinstalowanie aplikacji nie spowoduje usunięcia laboratorium. Jeśli karta zostanie usunięta, użytkownicy na liście członkostwa zespołu nadal będą mogli uzyskiwać dostęp do maszyn wirtualnych w [witrynie sieci Web usług laboratoryjnych](https://labs.azure.com) , chyba że usunięcie laboratorium zostanie jawnie wyzwolone przez usunięcie laboratorium w witrynie sieci Web lub usunięcie zespołu. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Gdy laboratorium jest tworzone w zespołach, lista użytkowników laboratorium jest automatycznie wypełniana i synchronizowana z członkostwem zespołu. Wszyscy użytkownicy zespołu, w tym właściciele, członkowie i Goście, zostaną automatycznie dodani do listy użytkowników laboratorium. Usługi Azure Lab Services będą obsługiwać synchronizację z członkostwem zespołu, a automatyczna synchronizacja jest wyzwalana co 24 godziny. Aby uzyskać szczegółowe informacje, zobacz:
 
-[Zarządzanie listami użytkowników usług Lab Services z zespołów](how-to-manage-user-lists-within-teams.md)
+[Zarządzanie listami użytkowników usług Lab Services w ramach zespołów](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 Zobacz również następujące artykuły:
 
 - [Korzystanie z Azure Lab Services w programie Teams — Omówienie](lab-services-within-teams-overview.md)
-- [Zarządzanie listami użytkowników laboratorium w zespołach](how-to-manage-user-lists-within-teams.md)
 - [Zarządzaj pulą maszyn wirtualnych laboratorium w zespołach](how-to-manage-vm-pool-within-teams.md)
 - [Tworzenie harmonogramów laboratorium w zespołach i zarządzanie nimi](how-to-create-schedules-within-teams.md)
 - [Dostęp do maszyny wirtualnej w programie Teams — widok ucznia](how-to-access-vm-for-students-within-teams.md)
-
+- [Usuwanie laboratoriów w zespołach](how-to-delete-lab-within-teams.md)

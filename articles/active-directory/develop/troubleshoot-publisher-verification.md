@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873153"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073737"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -33,7 +33,7 @@ Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie p
 ## <a name="common-issues"></a>Typowe problemy
 Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trakcie procesu. 
 
-- **Nie znam mojego identyfikatora Microsoft Partner Network (identyfikator MPN) lub nie jestem osobą kontaktową główną dla konta** 
+- **Nie znam mojego identyfikatora Microsoft Partner Network (identyfikator MPN) lub nie wiem, kim jest główny kontakt dla konta** 
     1. Przejdź do [strony rejestracji MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Zaloguj się przy użyciu konta użytkownika w podstawowej dzierżawie usługi Azure AD w organizacji 
     1. Jeśli konto MPN już istnieje, zostanie ono rozpoznane i zostanie dodane do konta 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i odzyskiwanie maszyn wirtualnych platformy Az
 description: Zawiera opis sposobu tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych platformy Azure przy użyciu Azure Backup programu PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975093"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094096"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Tworzenie kopii zapasowej i przywracanie maszyn wirtualnych platformy Azure przy użyciu programu PowerShell
 
@@ -529,7 +529,7 @@ Po przywróceniu dysków wykonaj następujące kroki, aby utworzyć i skonfiguro
 > [!NOTE]
 >
 > 1. Wymagany jest moduł AzureAz w wersji 3.0.0 lub nowszej. <br>
-> 2. Aby można było tworzyć zaszyfrowane maszyny wirtualne na przywróconych dyskach, rola platformy Azure musi mieć uprawnienia do wykonywania akcji, usługi **Microsoft./magazynów/magazynu/wdrażania/działania**. Jeśli rola nie ma tego uprawnienia, Utwórz rolę niestandardową przy użyciu tej akcji. Aby uzyskać więcej informacji, zobacz [role niestandardowe w usłudze Azure RBAC](../role-based-access-control/custom-roles.md). <br>
+> 2. Aby można było tworzyć zaszyfrowane maszyny wirtualne na przywróconych dyskach, rola platformy Azure musi mieć uprawnienia do wykonywania akcji, usługi **Microsoft./magazynów/magazynu/wdrażania/działania**. Jeśli rola nie ma tego uprawnienia, Utwórz rolę niestandardową przy użyciu tej akcji. Aby uzyskać więcej informacji, zobacz [role niestandardowe platformy Azure](../role-based-access-control/custom-roles.md). <br>
 > 3. Po przywróceniu dysków można teraz uzyskać szablon wdrożenia, za pomocą którego można bezpośrednio utworzyć nową maszynę wirtualną. Nie potrzebujesz innych poleceń cmdlet programu PowerShell do tworzenia zarządzanych/niezarządzanych maszyn wirtualnych, które są szyfrowane/nieszyfrowane.<br>
 > <br>
 

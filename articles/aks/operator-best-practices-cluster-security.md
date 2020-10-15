@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące zarządz
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776310"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073635"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń klastrów i uaktualnień w usłudze Azure Kubernetes Service (AKS)
 
@@ -237,4 +237,4 @@ Ten artykuł koncentruje się na sposobie zabezpieczania klastra AKS. Aby zaimpl
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
-[security-center-aks]: ../security-center/azure-kubernetes-service-integration.md
+[security-center-aks]: ../security-center/defender-for-kubernetes-introduction.md

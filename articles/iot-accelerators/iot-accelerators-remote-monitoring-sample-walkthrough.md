@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9477b11b52431211dc91a0ea6ff0767a9d495be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546311"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073601"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Omówienie akceleratora rozwiązania do monitorowania zdalnego
 
@@ -64,7 +64,7 @@ Mikrousługa udostępnia RESTful punkt końcowy, aby można było tworzyć, uruc
 
 Symulowane urządzenia można udostępnić z poziomu pulpitu nawigacyjnego w portalu rozwiązania.
 
-### <a name="iot-hub"></a>Usługa IoT Hub
+### <a name="iot-hub"></a>IoT Hub
 
 Usługa [IoT Hub](../iot-hub/index.yml) pozyskuje dane telemetryczne wysyłane z rzeczywistych i symulowanych urządzeń do chmury. Usługa IoT Hub udostępnia dane telemetryczne dla usług w zapleczu rozwiązania IoT do przetwarzania.
 
@@ -106,7 +106,7 @@ Usługa udostępnia punkt końcowy RESTful dla operacji CRUD w parach klucz-wart
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Wdrożenia akceleratora rozwiązań używają [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) do przechowywania zasad, alertów, ustawień konfiguracji i wszystkich innych magazynów w chłodnym magazynie.
+Wdrożenia akceleratora rozwiązań używają [Azure Cosmos DB](../cosmos-db/index.yml) do przechowywania zasad, alertów, ustawień konfiguracji i wszystkich innych magazynów w chłodnym magazynie.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Mikrousługa Azure Stream Analytics Manager
 
@@ -120,11 +120,11 @@ Zadania ASA zapewniają dane telemetryczne z połączonych urządzeń, aby Time 
 
 ### <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 
-[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) to aparat przetwarzania zdarzeń, który umożliwia badanie dużych ilości danych przesyłanych strumieniowo z urządzeń.
+[Azure Stream Analytics](../stream-analytics/index.yml) to aparat przetwarzania zdarzeń, który umożliwia badanie dużych ilości danych przesyłanych strumieniowo z urządzeń.
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) przechowuje dane telemetryczne z urządzeń podłączonych do akceleratora rozwiązania. Umożliwia także wizualizację i wykonywanie zapytań dotyczących telemetrii urządzenia w interfejsie użytkownika sieci Web rozwiązania.
+[Azure Time Series Insights](../time-series-insights/index.yml) przechowuje dane telemetryczne z urządzeń podłączonych do akceleratora rozwiązania. Umożliwia także wizualizację i wykonywanie zapytań dotyczących telemetrii urządzenia w interfejsie użytkownika sieci Web rozwiązania.
 
 ### <a name="configuration-microservice"></a>Mikrousługa konfiguracji
 
@@ -134,9 +134,9 @@ Zadania ASA zapewniają dane telemetryczne z połączonych urządzeń, aby Time 
 
 [Mikrousługa uwierzytelniania i autoryzacji](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) zarządza użytkownikami uprawnionymi do uzyskiwania dostępu do akceleratora rozwiązań. Zarządzanie użytkownikami można wykonać przy użyciu dowolnego dostawcy usługi tożsamości, który obsługuje [OpenID Connect Connect](https://openid.net/connect/).
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+### <a name="azure-active-directory"></a>Azure Active Directory
 
-Wdrożenia akceleratora rozwiązań używają [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) jako dostawcy połączenia OpenID Connect. Azure Active Directory przechowuje informacje o użytkowniku i udostępnia certyfikaty do weryfikowania podpisów tokenów JWT.
+Wdrożenia akceleratora rozwiązań używają [Azure Active Directory](../active-directory/index.yml) jako dostawcy połączenia OpenID Connect. Azure Active Directory przechowuje informacje o użytkowniku i udostępnia certyfikaty do weryfikowania podpisów tokenów JWT.
 
 ## <a name="presentation"></a>Prezentacja
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559414"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094079"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Zarządzane tożsamości dla usługi Azure Signal Service
 
@@ -65,7 +65,7 @@ Usługa Azure Signal Service to w pełni zarządzana usługa, dlatego nie można
     - [Identyfikator zasobu usługi platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > W przypadku sprawdzenia poprawności tokenu dostępu przez użytkownika w usłudze możesz wybrać dowolny z formatów zasobów. Upewnij się, że wartość **zasobu** w ustawieniach **uwierzytelniania** i weryfikacja jest spójna. W przypadku korzystania z kontroli dostępu opartej na rolach (RBAC) dla płaszczyzny danych należy użyć zasobu wymaganego przez dostawcę usług.
+    > W przypadku sprawdzenia poprawności tokenu dostępu przez użytkownika w usłudze możesz wybrać dowolny z formatów zasobów. Upewnij się, że wartość **zasobu** w ustawieniach **uwierzytelniania** i weryfikacja jest spójna. Jeśli używasz kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby płaszczyzny danych, musisz użyć zasobu, którego żąda dostawca usług.
 
 ### <a name="validate-access-tokens"></a>Weryfikowanie tokenów dostępu
 
