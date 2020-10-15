@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 09d51759c07e7dacc25d5b5ffce9698831c37a7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f5a10eb2ebc3b3a7c527dd718e37faf03c927bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442366"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076100"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Korzystanie z OAuth2 do autoryzacji między bramą a zapleczem
 
 W tym artykule przedstawiono przykład zasad usługi Azure API Management, który pokazuje, jak używać OAuth2 do autoryzacji między bramą a zapleczem. Pokazuje sposób uzyskiwania tokenu dostępu z usługi AAD i przekazywania go do zaplecza. 
 
-Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-samples.md).
+Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-reference.md).
 
 Poniższy skrypt używa właściwości, które pojawiają się w {{Property}}. Aby dowiedzieć się więcej o właściwościach i sposobach ich używania w zasadach API Management, zobacz [ten](../api-management-howto-properties.md) temat.
  
@@ -39,5 +39,4 @@ Wklej kod do bloku **przychodzącego** .
 Dowiedz się więcej na temat zasad APIMymi:
 
 + [Zasady transformacji](../api-management-transformation-policies.md)
-+ [Przykłady zasad](../policy-samples.md)
-
++ [Przykłady zasad](../policy-reference.md)
