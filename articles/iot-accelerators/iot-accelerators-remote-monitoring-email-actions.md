@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168365"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074468"
 ---
 # <a name="add-an-email-action"></a>Dodaj akcję poczty e-mail
 
@@ -132,7 +132,7 @@ Poniższe kroki ułatwiają logowanie się i Konfigurowanie akcji poczty e-mail:
 
 1. Kliknij przycisk **Autoryzuj**. Zostanie wyświetlony monit o zalogowanie się. Konto używane do logowania powinno być adresem e-mail używanym przez aplikację do wysyłania powiadomień e-mail:
 
-1. Kliknij przycisk **Zapisz**. Wróć do akceleratora rozwiązania i Odśwież stronę.
+1. Kliknij pozycję **Zapisz**. Wróć do akceleratora rozwiązania i Odśwież stronę.
 
 1. Po pomyślnym skonfigurowaniu powiadomienia e-mail zostanie wyświetlony następujący komunikat:
 
@@ -166,7 +166,7 @@ Poniższe kroki pokazują, jak edytować szablon wiadomości e-mail w formacie H
 
 ## <a name="throttling"></a>Ograniczanie przepływności
 
-Akcelerator rozwiązania do monitorowania zdalnego używa programu Outlook do wysyłania powiadomień e-mail. Program Outlook ogranicza liczbę wiadomości e-mail wysyłanych do [30 wiadomości e-mail na 1 minutę](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Klienci poczty e-mail, którzy odbierają wiadomości e-mail, mogą również ograniczyć liczbę otrzymywanych wiadomości e-mail na minutę. Skontaktuj się z konkretnym klientem poczty e-mail w sprawie ograniczeń. Podczas konfigurowania powiadomienia e-mail dla reguły, reguła powinna obliczać wartości średnie w okresie co najmniej jednej minuty, a nie używać wartości błyskawicznych:
+Akcelerator rozwiązania do monitorowania zdalnego używa programu Outlook do wysyłania powiadomień e-mail. Program Outlook ogranicza liczbę wiadomości e-mail wysyłanych do [30 wiadomości e-mail na 1 minutę](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Klienci poczty e-mail, którzy odbierają wiadomości e-mail, mogą również ograniczyć liczbę otrzymywanych wiadomości e-mail na minutę. Skontaktuj się z konkretnym klientem poczty e-mail w sprawie ograniczeń. Podczas konfigurowania powiadomienia e-mail dla reguły, reguła powinna obliczać wartości średnie w okresie co najmniej jednej minuty, a nie używać wartości błyskawicznych:
 
 ![Obliczanie średniej](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

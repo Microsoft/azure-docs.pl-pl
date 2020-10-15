@@ -63,9 +63,12 @@
       href: load-balancer-ha-ports-overview.md
     - name: Wiele frontonów
       href: load-balancer-multivip-overview.md
-    - name: Połączenia wychodzące
+    - name: Wychodzący serwer proxy
       href: load-balancer-outbound-connections.md
     - name: Limit czasu bezczynności protokołu TCP i resetowania protokołu TCP
+    - name: Reguły ruchu wychodzącego
+      href: outbound-rules.md
+    - name: Resetowanie protokołu TCP w wyniku upływu limitu czasu bezczynności
       href: load-balancer-tcp-reset.md
     - name: Usługa Load Balancer w warstwie Standardowa i strefy dostępności
       href: load-balancer-standard-availability-zones.md
@@ -79,7 +82,7 @@
       href: backend-pool-management.md
     - name: Usługa Load Balancer w warstwie Standardowa i usługa Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: Instrukcje
+- name: Porady
   items:
     - name: Ustawienia portalu
       href: manage.md

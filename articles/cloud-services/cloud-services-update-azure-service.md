@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75360348"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075046"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Jak zaktualizować usługę w chmurze
 
@@ -21,7 +21,7 @@ Proces aktualizowania usługi w chmurze, w tym jej ról i systemu operacyjnego g
 ## <a name="update-an-azure-service"></a>Aktualizowanie usługi platformy Azure
 Platforma Azure organizuje wystąpienia roli w logiczne grupy o nazwie domeny uaktualnienia (UD). Domeny uaktualnienia (UD) to logiczne zestawy wystąpień ról, które są aktualizowane jako Grupa.  Platforma Azure aktualizuje jedną UD usługi w chmurze, dzięki czemu wystąpienia w innym miejscu mogą nadal obsługiwać ruch.
 
-Domyślna liczba domen uaktualnienia to 5. Możesz określić inną liczbę domen uaktualnienia, dołączając atrybut upgradeDomainCount w pliku definicji usługi (. csdef). Aby uzyskać więcej informacji o atrybucie upgradeDomainCount, zobacz [schemat definicji usługi Azure Cloud Services (plik csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+Domyślna liczba domen uaktualnienia to 5. Możesz określić inną liczbę domen uaktualnienia, dołączając atrybut upgradeDomainCount w pliku definicji usługi (. csdef). Aby uzyskać więcej informacji o atrybucie upgradeDomainCount, zobacz [schemat definicji usługi Azure Cloud Services (plik csdef)](./schema-csdef-file.md).
 
 W przypadku wykonywania aktualizacji w miejscu co najmniej jednej roli w usłudze platforma Azure aktualizuje zestawy wystąpień ról zgodnie z domeną uaktualnienia, do której należą. Platforma Azure aktualizuje wszystkie wystąpienia w danej domenie uaktualnienia — je zatrzymują, aktualizując je, a następnie przełączając je do następnej domeny. Zatrzymując tylko wystąpienia uruchomione w bieżącej domenie uaktualnienia, platforma Azure sprawdza, czy aktualizacja ma najmniejszy możliwy wpływ na uruchomioną usługę. Aby uzyskać więcej informacji, zobacz [jak działa aktualizacja](#howanupgradeproceeds) w dalszej części tego artykułu.
 
@@ -182,7 +182,4 @@ Na poniższym diagramie przedstawiono sposób, w jaki usługa programu, która z
 ## <a name="next-steps"></a>Następne kroki
 [Jak zarządzać Cloud Services](cloud-services-how-to-manage-portal.md)  
 [Jak monitorować Cloud Services](cloud-services-how-to-monitor.md)  
-[Jak skonfigurować Cloud Services](cloud-services-how-to-configure-portal.md)  
-
-
-
+[Jak skonfigurować Cloud Services](cloud-services-how-to-configure-portal.md)

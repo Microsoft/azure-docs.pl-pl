@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf39fcbfbde8a81400cd93c7f99b066a99f643bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005382"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093331"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Łączenie się z usługami w Service Fabric i komunikowanie się z nimi
 W Service Fabric usługa działa w dowolnym miejscu w klastrze Service Fabric, zazwyczaj rozmieszczona na wielu maszynach wirtualnych. Może być przenoszony z jednego miejsca do innego przez właściciela usługi lub automatycznie przez Service Fabric. Usługi nie są statycznie powiązane z określonym komputerem lub adresem.
@@ -30,7 +30,7 @@ W systemie rozproszonym usługi mogą przechodzić między kolejnymi maszynami. 
 
 Service Fabric zapewnia usługę odnajdywania i rozpoznawania o nazwie Usługa nazewnictwa. Usługa nazewnictwa utrzymuje tabelę, która mapuje nazwane wystąpienia usługi na adresy punktów końcowych, na których nasłuchują. Wszystkie nazwane wystąpienia usługi w Service Fabric mają unikatowe nazwy reprezentowane jako identyfikatory URI, na przykład `"fabric:/MyApplication/MyService"` . Nazwa usługi nie zmienia się w okresie istnienia usługi, ale tylko adresy punktów końcowych, które mogą ulec zmianie podczas przenoszenia usług. Jest to analogiczne do witryn sieci Web, które mają stałe adresy URL, ale mogą zmieniać adres IP. Podobnie jak w przypadku systemu DNS w sieci Web, który rozpoznaje adresy IP witryny sieci Web, Service Fabric ma rejestrator, który mapuje nazwy usług na adres punktu końcowego.
 
-![punkty końcowe usługi][2]
+![Diagram pokazujący, że Service Fabric ma rejestrator, który mapuje nazwy usług na adres punktu końcowego.][2]
 
 Rozwiązywanie i łączenie z usługami obejmuje następujące kroki uruchamiane w pętli:
 
@@ -47,14 +47,14 @@ Ponieważ wiele usług, w szczególności usługi kontenerowe, może mieć istni
 
 Jak pokazano na poniższym diagramie, usługa DNS uruchomiona w klastrze Service Fabric mapuje nazwy DNS na nazwy usług, które następnie są rozwiązywane przez Usługa nazewnictwa w celu zwrócenia adresów punktów końcowych, z którymi ma zostać nawiązane połączenie. Nazwa DNS usługi jest udostępniana w momencie tworzenia. 
 
-![punkty końcowe usługi][9]
+![Diagram przedstawiający sposób, w jaki usługa DNS, gdy działa w klastrze Service Fabric, mapuje nazwy DNS na nazwy usług, które następnie są rozwiązywane przez Usługa nazewnictwa w celu zwrócenia adresów punktu końcowego w celu nawiązania połączenia.][9]
 
 Aby uzyskać więcej informacji na temat korzystania z usługi DNS, zobacz artykuł [Usługa DNS na platformie Azure Service Fabric](service-fabric-dnsservice.md) .
 
 ### <a name="reverse-proxy-service"></a>Usługa zwrotnego serwera proxy
 Zwrotny serwer proxy odnosi się do usług w klastrze, które ujawniają punkty końcowe HTTP, w tym HTTPS. Zwrotny serwer proxy znacznie upraszcza wywoływanie innych usług i ich metod przy użyciu określonego formatu identyfikatora URI i obsługuje Rozwiązywanie problemów, łączenie i ponawianie prób wymagane przez jedną usługę do komunikowania się z innym przy użyciu Usługa nazewnictwa. Innymi słowy, ukrywa Usługa nazewnictwa od użytkownika podczas wywoływania innych usług, dzięki czemu jest to proste jako wywołanie adresu URL.
 
-![punkty końcowe usługi][10]
+![Diagram pokazujący, w jaki sposób zwrotny serwer proxy odnosi się do usług w klastrze, które ujawnia punkty końcowe HTTP, w tym HTTPS.][10]
 
 Aby uzyskać więcej informacji na temat korzystania z usługi zwrotnego serwera proxy, zobacz artykuł [zwrotny serwer proxy w usłudze Azure Service Fabric](service-fabric-reverseproxy.md) .
 
@@ -153,7 +153,7 @@ Na przykład w celu akceptowania ruchu zewnętrznego na porcie **80**należy sko
     ![Otwieranie portu dla typu węzła][4]
 3. Po utworzeniu klastra Skonfiguruj Azure Load Balancer w grupie zasobów klastra, aby przekazywać ruch na porcie 80. Podczas tworzenia klastra za pomocą Azure Portal jest on automatycznie konfigurowany dla każdego skonfigurowanego niestandardowego portu punktu końcowego.
 
-    ![Przekazuj ruch w Azure Load Balancer][5]
+    ![Zrzut ekranu, który podświetla pole portu zaplecza w obszarze reguły równoważenia obciążenia.][5]
 4. Azure Load Balancer używa sondy, aby określić, czy ruch ma być wysyłany do określonego węzła. Sonda okresowo sprawdza punkt końcowy w każdym węźle, aby określić, czy węzeł odpowiada. Jeśli sonda nie otrzyma odpowiedzi po upływie skonfigurowanej liczby razy, moduł równoważenia obciążenia zatrzymuje wysyłanie ruchu do tego węzła. Podczas tworzenia klastra za pomocą Azure Portal sonda jest konfigurowana automatycznie dla każdego skonfigurowanego niestandardowego portu punktu końcowego.
 
     ![Przekazuj ruch w Azure Load Balancer][8]

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888575"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093994"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
 
@@ -23,7 +23,7 @@ Zarządzane tożsamości dla zasobów platformy Azure zapewniają automatycznie 
 W tym artykule pokazano, jak włączyć i wyłączyć zarządzane tożsamości przypisane do systemu dla aplikacji w chmurze platformy Azure przy użyciu Azure Portal i interfejsu wiersza polecenia (dostępne w wersji 0.2.4).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zobacz [sekcję Omówienie](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zobacz [sekcję Omówienie](../active-directory/managed-identities-azure-resources/overview.md).
 Będziesz potrzebować wdrożonego wystąpienia chmury Azure wiosennej. Postępuj zgodnie z [przewodnikiem Szybki Start, aby wdrożyć za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Dodawanie tożsamości przypisanej do systemu
@@ -35,7 +35,7 @@ Aby skonfigurować tożsamość zarządzaną w [Azure Portal](https://portal.azu
 1. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 2. Przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 3. Wybierz pozycję **tożsamość**.
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij przycisk **Zapisz**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij pozycję **Zapisz**.
 
  ![Tożsamość zarządzana w portalu](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -59,9 +59,9 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ## <a name="obtain-tokens-for-azure-resources"></a>Uzyskaj tokeny dla zasobów platformy Azure
 Aplikacja może używać swojej tożsamości zarządzanej, aby uzyskiwać tokeny umożliwiające dostęp do innych zasobów chronionych przez Azure Active Directory, takich jak Azure Key Vault. Te tokeny reprezentują aplikację próbującą uzyskać dostęp do zasobu, a nie określonego użytkownika aplikacji.
 
-Może być konieczne [skonfigurowanie zasobu docelowego, aby zezwalać na dostęp z poziomu aplikacji](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Jeśli na przykład zażądano tokenu dostępu do Key Vault, upewnij się, że dodano zasady dostępu zawierające tożsamość aplikacji. W przeciwnym razie wywołania Key Vault będą odrzucane, nawet jeśli zawierają token. Aby dowiedzieć się więcej o tym, które zasoby obsługują tokeny Azure Active Directory, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
+Może być konieczne [skonfigurowanie zasobu docelowego, aby zezwalać na dostęp z poziomu aplikacji](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Jeśli na przykład zażądano tokenu dostępu do Key Vault, upewnij się, że dodano zasady dostępu zawierające tożsamość aplikacji. W przeciwnym razie wywołania Key Vault będą odrzucane, nawet jeśli zawierają token. Aby dowiedzieć się więcej o tym, które zasoby obsługują tokeny Azure Active Directory, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Chmura sprężynowa platformy Azure ma ten sam punkt końcowy do pozyskiwania tokenów z maszyną wirtualną platformy Azure. Zalecamy użycie zestawu SDK języka Java lub sprężyny uruchomieniowych rozruchu w celu uzyskania tokenu.  Zapoznaj [się z tematem jak używać tokenu maszyny wirtualnej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) , aby poznać różne przykłady kodu i skryptów oraz wskazówki dotyczące ważnych tematów, takich jak obsługa wygaśnięcia tokenu i błędów HTTP.
+Chmura sprężynowa platformy Azure ma ten sam punkt końcowy do pozyskiwania tokenów z maszyną wirtualną platformy Azure. Zalecamy użycie zestawu SDK języka Java lub sprężyny uruchomieniowych rozruchu w celu uzyskania tokenu.  Zapoznaj [się z tematem jak używać tokenu maszyny wirtualnej](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) , aby poznać różne przykłady kodu i skryptów oraz wskazówki dotyczące ważnych tematów, takich jak obsługa wygaśnięcia tokenu i błędów HTTP.
 
 Zalecane: Aby uzyskać tokeny, należy użyć zestawu Java SDK lub sprężynowego uruchamiania.  Zapoznaj się z przykładami w [następnych krokach](#next-steps).
 
@@ -88,4 +88,3 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 * [Dostęp do Azure Key Vault z tożsamościami zarządzanymi w rozruchie sprężynowym Starter](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Dowiedz się więcej o tożsamościach zarządzanych dla zasobów platformy Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Jak używać tożsamości zarządzanych z zestawem SDK języka Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
-

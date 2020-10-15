@@ -3,12 +3,12 @@ title: Omówienie magazynów usługi Recovery Services
 description: Omówienie magazynów Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975144"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093671"
 ---
 # <a name="recovery-services-vaults-overview"></a>Przegląd magazynów usługi Recovery Services
 
@@ -18,7 +18,7 @@ W tym artykule opisano funkcje magazynu Recovery Services. Magazyn Recovery Serv
 
 - **Centralne monitorowanie hybrydowego środowiska informatycznego**: z magazynami Recovery Services można monitorować nie tylko [maszyny wirtualne IaaS platformy Azure](backup-azure-manage-vms.md) , ale również [Zasoby lokalne](backup-azure-manage-windows-server.md#manage-backup-items) z portalu centralnego. [Dowiedz się więcej](backup-azure-monitoring-built-in-monitor.md)
 
-- **Access Control oparte na rolach (RBAC)**: RBAC zapewnia precyzyjną kontrolę zarządzania dostępem na platformie Azure. [Platforma Azure udostępnia różne wbudowane role](../role-based-access-control/built-in-roles.md), a Azure Backup ma trzy [wbudowane role do zarządzania punktami odzyskiwania](backup-rbac-rs-vault.md). Magazyny Recovery Services są zgodne z RBAC, które ograniczają dostęp do kopii zapasowych i przywracania do zdefiniowanego zestawu ról użytkownika. [Dowiedz się więcej](backup-rbac-rs-vault.md)
+- **Kontrola dostępu oparta na rolach na platformie Azure (Azure RBAC)**: usługa Azure RBAC zapewnia precyzyjną kontrolę zarządzania dostępem na platformie Azure. [Platforma Azure udostępnia różne wbudowane role](../role-based-access-control/built-in-roles.md), a Azure Backup ma trzy [wbudowane role do zarządzania punktami odzyskiwania](backup-rbac-rs-vault.md). Magazyny Recovery Services są zgodne z funkcją RBAC platformy Azure, która ogranicza dostęp i przywracanie do zdefiniowanego zestawu ról użytkownika. [Dowiedz się więcej](backup-rbac-rs-vault.md)
 
 - **Usuwanie nietrwałe**: usuwanie nietrwałe, nawet jeśli złośliwy aktor usuwa kopię zapasową (lub dane kopii zapasowej są przypadkowo usuwane), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, co pozwala na odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z pozostałymi kosztami. [Dowiedz się więcej](backup-azure-security-feature-cloud.md).
 
@@ -54,7 +54,7 @@ Azure Advisor zawiera co godzinę [zalecenia](../advisor/advisor-high-availabili
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Obsługiwane i nieobsługiwane scenariusze dotyczące magazynu](backup-support-matrix.md#vault-support)
 - [Często zadawane pytania dotyczące magazynu](backup-azure-backup-faq.md)

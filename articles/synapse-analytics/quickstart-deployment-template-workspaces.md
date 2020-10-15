@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: dc6d36f2316e0ae19ce8b813fa9eb127b1a9cf1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ae5c4f20cc42ee3865726973a81e2ba90aeaf33
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569011"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093841"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse przy użyciu szablonu wdrożenia
 
@@ -40,7 +40,7 @@ Szablon definiuje dwa zasoby:
 - Konto magazynu
 - Workspace
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon służy do tworzenia obszaru roboczego Synapse.
    

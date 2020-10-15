@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430787"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092889"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Jak dostosować Portal deweloperów API Management platformy Azure przy użyciu szablonów
 
@@ -41,7 +41,7 @@ Edytowanie szablonów odbywa się z poziomu **portalu dla deweloperów** , podcz
 
 Aby uzyskać dostęp do szablonów portalu dla deweloperów, kliknij ikonę Dostosuj po lewej stronie, aby wyświetlić menu Dostosowywanie, a następnie kliknij pozycję **Szablony**.
 
-![Szablony portalu dla deweloperów][api-management-customize-menu]
+![Zrzut ekranu, który podświetla ikonę Dostosuj, aby wyświetlić menu dostosowania.][api-management-customize-menu]
 
 Lista szablonów zawiera kilka kategorii szablonów obejmujących różne strony w portalu dla deweloperów. Każdy szablon jest różny, ale czynności do edycji i publikowania zmian są takie same. Aby edytować szablon, kliknij nazwę szablonu.
 
@@ -145,7 +145,7 @@ Zapisane szablony mogą być publikowane pojedynczo lub wspólnie. Aby opublikow
 
 Kliknij przycisk **tak** , aby potwierdzić i utworzyć szablon na żywo w portalu dla deweloperów.
 
-![Potwierdź opublikowanie][api-management-publish-template-confirm]
+![Zrzut ekranu pokazujący, gdzie wybrać opcję tak, aby utworzyć szablon na żywo.][api-management-publish-template-confirm]
 
 Aby opublikować wszystkie aktualnie nieopublikowane wersje szablonów, kliknij przycisk **Publikuj** na liście szablonów. Nieopublikowane szablony są oznaczone gwiazdką poniżej nazwy szablonu. W tym przykładzie jest publikowana **Lista produktów** i szablony **produktów** .
 
@@ -160,11 +160,11 @@ Nowo opublikowane szablony zaczynają obowiązywać natychmiast w portalu dla de
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Aby przywrócić poprzednią wersję szablonu
 Aby przywrócić szablon do poprzedniej opublikowanej wersji, kliknij przycisk Przywróć w edytorze szablonów.
 
-![Przywróć szablon][api-management-revert-template]
+![Zrzut ekranu, który podświetla ikonę służącą do przywracania szablonu.][api-management-revert-template]
 
 Kliknij przycisk **Tak**, aby potwierdzić.
 
-![Confirm][api-management-revert-template-confirm]
+![Zrzut ekranu pokazujący, gdzie wybrać opcję tak, aby potwierdzić zmiany.][api-management-revert-template-confirm]
 
 Wcześniej opublikowana wersja szablonu znajduje się w portalu dla deweloperów po zakończeniu operacji przywracania.
 

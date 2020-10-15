@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 77c4f627668b91c4bc21ad73b3511c1775943229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d18e174eac30bbcf87010531821a4017efb088ba
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460205"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075114"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Domyślny rozmiar folderu tymczasowego jest za mały w roli sieć Web/proces roboczy usługi w chmurze
 Domyślny katalog tymczasowy procesu roboczego usługi w chmurze lub roli sieci Web ma maksymalny rozmiar 100 MB, który może być zapełniony w pewnym momencie. W tym artykule opisano, jak uniknąć braku miejsca na katalog tymczasowy.
@@ -70,8 +70,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z blogiem opisującym [sposób zwiększenia rozmiaru folderu tymczasowego ASP.NET roli sieci Web platformy Azure](https://docs.microsoft.com/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
+Zapoznaj się z blogiem opisującym [sposób zwiększenia rozmiaru folderu tymczasowego ASP.NET roli sieci Web platformy Azure](/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
 
-Zobacz więcej [artykułów do rozwiązywania problemów](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) dotyczących usług Cloud Services.
+Zobacz więcej [artykułów do rozwiązywania problemów](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) dotyczących usług Cloud Services.
 
-Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Jan Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Jan Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

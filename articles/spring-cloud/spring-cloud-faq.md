@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945400"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094011"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -54,7 +54,7 @@ Z którego z nich korzystać i jakie są limity w ramach każdej warstwy?
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Jak mogę przekazać Opinie i zgłosić problemy?
 
-Jeśli wystąpią problemy z chmurą Azure wiosną, Utwórz [żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Aby przesłać żądanie funkcji lub przekazać opinię, przejdź do obszaru [opinii na platformie Azure](https://feedback.azure.com/forums/34192--general-feedback).
+Jeśli wystąpią problemy z chmurą Azure wiosną, Utwórz [żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Aby przesłać żądanie funkcji lub przekazać opinię, przejdź do obszaru [opinii na platformie Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Opracowywanie zawartości
 
@@ -70,9 +70,9 @@ Chmura sprężynowa platformy Azure obsługuje środowisko Java 8 i 11. Zobacz [
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Gdzie mogę wyświetlić sprężynowe dzienniki i metryki aplikacji w chmurze?
 
-Znajdź metryki na karcie Przegląd aplikacji i karcie [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) .
+Znajdź metryki na karcie Przegląd aplikacji i karcie [Azure monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) .
 
-Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring*. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
+Chmura sprężynowa platformy Azure obsługuje eksportowanie dzienników aplikacji i metryk w chmurze z usługą Azure Storage, centrum EventHub i [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Nazwa tabeli w Log Analytics to *AppPlatformLogsforSpring*. Aby dowiedzieć się, jak włączyć tę funkcję, zobacz [usługi diagnostyczne](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Czy chmura Wiosenna platformy Azure obsługuje śledzenie rozproszone?
 
@@ -106,7 +106,7 @@ Ustawienia diagnostyczne chmury wiosennej można usunąć za pomocą interfejsu 
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Które wersje środowiska uruchomieniowego Java są obsługiwane w chmurze Azure wiosennej?
 
-Chmura sprężynowa platformy Azure obsługuje wersje języka Java LTS z najnowszymi kompilacjami, obecnie 2020 czerwca, Java 8 kompilacja 252 i Java 11 Build 7. Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Chmura sprężynowa platformy Azure obsługuje wersje języka Java LTS z najnowszymi kompilacjami, obecnie 2020 czerwca, Java 8 kompilacja 252 i Java 11 Build 7. Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Kto utworzył te środowiska uruchomieniowe Java?
 
@@ -118,14 +118,14 @@ Wersje LTS i MTS JDK zawierają kwartalne aktualizacje zabezpieczeń, poprawki b
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Jak długo będą obsługiwane wersje LTS języka Java 8 i Java 11?
 
-Zobacz [obsługę długoterminową języka Java dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Zobacz [obsługę długoterminową języka Java dla platformy Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Środowisko Java 8 LTS będzie obsługiwane do grudnia 2030.
 * Środowisko Java 11 LTS będzie obsługiwane do września 2027.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Jak mogę pobrać obsługiwane środowisko uruchomieniowe języka Java na potrzeby lokalnego tworzenia oprogramowania?
 
-Zobacz [Install the JDK for Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Zobacz [Install the JDK for Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Jakie są zasady wycofywania dla starszych środowisk uruchomieniowych języka Java?
 
@@ -136,7 +136,7 @@ Publiczne powiadomienie zostanie wysłane przez 12 miesięcy, zanim zostanie wyc
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Jak mogę uzyskać pomoc techniczną dotyczącą problemów na poziomie środowiska uruchomieniowego Java?
 
-Możesz otworzyć bilet pomocy technicznej w ramach pomocy technicznej platformy Azure.  Zobacz [, jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Możesz otworzyć bilet pomocy technicznej w ramach pomocy technicznej platformy Azure.  Zobacz [, jak utworzyć żądanie pomocy technicznej platformy Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>Co to jest system operacyjny, aby uruchomić moje aplikacje?
 
@@ -148,7 +148,7 @@ Poprawki zabezpieczeń stosowane w chmurze Azure wiosennej są przeprowadzone do
 Krytyczne poprawki zabezpieczeń (ocena w >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
 ::: zone-end
 
-## <a name="deployment"></a>wdrażania
+## <a name="deployment"></a>Wdrożenie
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Wiosenna Cloud obsługuje wdrożenie Blue-Green?
 Tak. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska przejściowego](spring-cloud-howto-staging-environment.md).

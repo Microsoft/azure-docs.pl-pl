@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243243"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093586"
 ---
 # <a name="monitor-published-apis"></a>Monitorowanie opublikowanych interfejsów API
 
 Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk lub dzienników pochodzących z zasobów platformy Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie dzienników aktywności
@@ -75,18 +75,18 @@ Aby skonfigurować alerty:
 
 1. Wybierz pozycję **alerty** na pasku menu w dolnej części strony.
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Zrzut ekranu pokazujący alerty w menu w dolnej części strony.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Kliknij **nową regułę alertu** dla tego alertu.
 3. Kliknij pozycję **Dodaj warunek**.
 4. Wybierz pozycję **metryki** na liście rozwijanej Typ sygnału.
 5. Wybierz pozycję **nieautoryzowane żądanie bramy** jako sygnał do monitorowania.
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    ![Zrzut ekranu, który podświetla pole Typ sygnału i nieautoryzowane żądania bramy nazwa sygnału.](./media/api-management-azure-monitor/signal-type.png)
 
 6. W widoku **Konfiguracja logiki sygnału** Określ próg, po którym alert powinien zostać wyzwolony, a następnie kliknij pozycję **gotowe**.
 
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
+    ![Zrzut ekranu przedstawiający widok konfiguracji logiki sygnałów.](./media/api-management-azure-monitor/threshold.png)
 
 7. Wybierz istniejącą grupę akcji lub Utwórz nową. W poniższym przykładzie wiadomość e-mail zostanie wysłana do administratorów. 
 

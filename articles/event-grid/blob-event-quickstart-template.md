@@ -3,12 +3,13 @@ title: Wysyłanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci We
 description: Użyj Azure Event Grid i szablonu Azure Resource Manager do tworzenia konta usługi BLOB Storage i subskrybowania jego zdarzeń. Wyślij zdarzenia do elementu webhook ".
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc6216142c6bec99cb12bf4e0bdae920f27f1bf2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: bfaee324f3e46f64fd4ad0d8b7e1240331b56c27
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598345"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093654"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Szybki Start: kierowanie zdarzeń usługi BLOB Storage do punktu końcowego w sieci Web przy użyciu szablonu ARM
 
@@ -86,7 +87,7 @@ Jeśli grupa zasobów nie będzie już konieczna, [Usuń ją](../azure-resource-
 
 Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zobacz następujące artykuły:
 
-* [Dokumentacja Azure Resource Manager](../azure-resource-manager/index.yml)
+* [Dokumentacja usługi Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Definiowanie zasobów w szablonie usługi Azure Resource Manager](/azure/templates/)
 * [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/)
 * [Szablony Azure Event Grid](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

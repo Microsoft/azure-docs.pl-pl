@@ -164,10 +164,10 @@
   items:
     - name: Aktualizacje platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Usługa Azure Storage w witrynie Microsoft Q&A
+    - name: Usługa Table Storage w witrynie Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-table-storage.html'
-    - name: Usługa Azure Storage w witrynie Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Usługa Table Storage w witrynie Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-table-storage'
     - name: Cennik usługi Table Storage
       href: 'https://azure.microsoft.com/en-us/pricing/details/storage/tables/'
     - name: Kalkulator cen platformy Azure

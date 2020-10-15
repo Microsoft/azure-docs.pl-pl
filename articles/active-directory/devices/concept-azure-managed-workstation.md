@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601388"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093314"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informacje na temat bezpiecznych stacji roboczych zarządzanych przez platformę Azure
 
@@ -64,7 +64,7 @@ Wszyscy użytkownicy i operatorzy korzystają z bezpiecznej stacji roboczej. Oso
 * Wysoce wrażliwa stacja robocza, na przykład w przypadku terminalu płatności SWIFT
 * Obsługa tajemnic handlowych dla stacji roboczej
 
-Aby zmniejszyć ryzyko, należy zaimplementować podwyższone poziomu zabezpieczeń dla uprzywilejowanych stacji roboczych, które korzystają z tych kont. Aby uzyskać więcej informacji, zobacz [Przewodnik wdrażania funkcji Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 plan](https://aka.ms/o365secroadmap)i [Zabezpieczanie planu dostępu uprzywilejowanego](https://aka.ms/sparoadmap)).
+Aby zmniejszyć ryzyko, należy zaimplementować podwyższone poziomu zabezpieczeń dla uprzywilejowanych stacji roboczych, które korzystają z tych kont. Aby uzyskać więcej informacji, zobacz [Przewodnik wdrażania funkcji Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 plan](/microsoft-365/security/office-365-security/security-roadmap)i [Zabezpieczanie planu dostępu uprzywilejowanego](/windows-server/identity/securing-privileged-access/securing-privileged-access)).
 
 ## <a name="why-use-dedicated-workstations"></a>Dlaczego warto korzystać z dedykowanych stacji roboczych?
 

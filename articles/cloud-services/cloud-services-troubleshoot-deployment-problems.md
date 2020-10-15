@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 3b86ff205981cfe7bb00ecb3ca58804fba3e80b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460103"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075080"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Rozwiązywanie problemów z wdrażaniem usługi w chmurze
 Podczas wdrażania pakietu aplikacji usługi w chmurze na platformie Azure można uzyskać informacje dotyczące wdrożenia z okienka **Właściwości** w Azure Portal. Możesz użyć szczegółów w tym okienku, aby pomóc w rozwiązywaniu problemów z usługą w chmurze, a także podać te informacje do pomocy technicznej platformy Azure podczas otwierania nowego żądania pomocy technicznej.
@@ -49,7 +49,7 @@ Naprawianie usługi odbywa się automatycznie, gdy platforma Azure wykrywa węz�
 2. W okienku **właściwości** Azure Portal zapoznaj się z informacjami i określ, czy nastąpiło Naprawianie usługi w czasie, w którym zaobserwowano odtwarzanie ról.
 
 Role również będą odtwarzane w trybie około raz miesięcznie w trakcie aktualizacji systemu operacyjnego hosta i systemu operacyjnego gościa.  
-Aby uzyskać więcej informacji, zobacz wpis w blogu [Ponowne uruchamianie wystąpienia roli z powodu uaktualnień systemu operacyjnego](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
+Aby uzyskać więcej informacji, zobacz wpis w blogu [Ponowne uruchamianie wystąpienia roli z powodu uaktualnień systemu operacyjnego](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problem: nie można dokonać zamiany adresu VIP i otrzymać błąd
 Zamiana adresu VIP nie jest dozwolona, jeśli aktualizacja wdrożenia jest w toku. Aktualizacje wdrożenia mogą odbywać się automatycznie, gdy:
@@ -67,14 +67,14 @@ Aby dowiedzieć się, czy aktualizacja automatyczna uniemożliwia przeprowadzeni
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problem: wystąpienie roli zawiera pętlę między uruchomioną, inicjowanie, zajętą i zatrzymaną
 Ten stan może wskazywać na problem z kodem, pakietem lub plikiem konfiguracyjnym aplikacji. W takim przypadku powinno być możliwe wyświetlenie stanu co kilka minut, a Azure Portal może powiedzieć, jak **odtwarzanie**, **zajętość**lub **Inicjowanie**. Oznacza to, że wystąpił problem z aplikacją, która uniemożliwia uruchomienie wystąpienia roli.
 
-Aby uzyskać więcej informacji na temat rozwiązywania tego problemu, zobacz wpis na blogu [dane diagnostyczne usługi Azure PaaS COMPUTE](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) i [typowe problemy, które powodują](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)odtworzenie ról.
+Aby uzyskać więcej informacji na temat rozwiązywania tego problemu, zobacz wpis na blogu [dane diagnostyczne usługi Azure PaaS COMPUTE](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) i [typowe problemy, które powodują](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)odtworzenie ról.
 
 ## <a name="problem-my-application-stopped-working"></a>Problem: moja aplikacja przestała działać
 1. W Azure Portal kliknij wystąpienie roli.
 2. W okienku **właściwości** Azure Portal należy wziąć pod uwagę następujące warunki, aby rozwiązać problem:
    * Jeśli wystąpienie roli zostało ostatnio zatrzymane (można sprawdzić wartość **licznika przerwań**), wdrożenie może zostać zaktualizowane. Poczekaj, aż wystąpienie roli wznowi działanie.
    * Jeśli wystąpienie roli jest **zajęte**, sprawdź kod aplikacji, aby sprawdzić, czy zdarzenie [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) jest obsługiwane. Być może trzeba będzie dodać lub naprawić jakiś kod, który obsługuje to zdarzenie.
-   * Zapoznaj się z scenariuszami dotyczącymi danych diagnostycznych i rozwiązywania problemów w blogu Publikuj [dane diagnostyki usługi Azure PaaS COMPUTE](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+   * Zapoznaj się z scenariuszami dotyczącymi danych diagnostycznych i rozwiązywania problemów w blogu Publikuj [dane diagnostyki usługi Azure PaaS COMPUTE](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 
 > [!WARNING]
 > W przypadku odtwarzania usługi w chmurze należy zresetować właściwości wdrożenia, co skutecznie wymazuje informacje dotyczące oryginalnego problemu.
@@ -82,6 +82,6 @@ Aby uzyskać więcej informacji na temat rozwiązywania tego problemu, zobacz wp
 >
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz więcej [artykułów do rozwiązywania problemów](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) dotyczących usług Cloud Services.
+Zobacz więcej [artykułów do rozwiązywania problemów](./cloud-services-allocation-failures.md) dotyczących usług Cloud Services.
 
-Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Piotr Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Piotr Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

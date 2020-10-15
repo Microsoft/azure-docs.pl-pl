@@ -9,14 +9,14 @@ author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, devx-track-python, deploy
-ms.openlocfilehash: 7ed025bc5b7e59a28fcb2f03eeea56628e2cde0d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.topic: troubleshooting
+ms.custom: contperfq4, devx-track-python, deploy
+ms.openlocfilehash: 259b5c789d2323dbc797116cf0d09045811a6873
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998614"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073346"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 

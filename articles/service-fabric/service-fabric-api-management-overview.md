@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259294"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091138"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Usługi Service Fabric i Azure API Management — omówienie
 
@@ -29,13 +29,13 @@ Wspólna architektura Service Fabric używa jednostronicowej aplikacji sieci Web
 
 W tym scenariuszu bezstanowa usługa sieci Web służy jako brama w aplikacji Service Fabric. Takie podejście wymaga napisania usługi sieci Web, która może żądania HTTP serwera proxy do usług zaplecza, jak pokazano na poniższym diagramie:
 
-![Service Fabric z usługą Azure API Management Topology — Omówienie][sf-web-app-stateless-gateway]
+![Diagram pokazujący, jak bezstanowa usługa sieci Web służy jako brama do aplikacji Service Fabric.][sf-web-app-stateless-gateway]
 
 Aplikacje zwiększają złożoność, dlatego bramy, które muszą przedstawić interfejs API przed usługami zaplecza wyposażono. Usługa Azure API Management jest przeznaczona do obsługi złożonych interfejsów API z regułami routingu, kontroli dostępu, ograniczania szybkości, monitorowania, rejestrowania zdarzeń i buforowania odpowiedzi z minimalną ilością pracy w Twojej części. Usługa Azure API Management obsługuje odnajdywanie usługi Service Fabric, rozpoznawanie partycji i wybór repliki, aby inteligentnie kierować żądania bezpośrednio do usług zaplecza w Service Fabric, dzięki czemu nie trzeba pisać własnej bezstanowej bramy interfejsu API. 
 
 W tym scenariuszu interfejs użytkownika sieci Web jest nadal obsługiwany przez usługę sieci Web, podczas gdy wywołania interfejsu API protokołu HTTP są zarządzane i przesyłane za pośrednictwem usługi Azure API Management, jak pokazano na poniższym diagramie:
 
-![Service Fabric z usługą Azure API Management Topology — Omówienie][sf-apim-web-app]
+![Diagram przedstawiający sposób, w jaki interfejs użytkownika sieci Web jest nadal obsługiwany przez usługę sieci Web, podczas gdy wywołania interfejsu API protokołu HTTP są zarządzane i przesyłane za pośrednictwem usługi Azure API Management.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Scenariusze aplikacji
 
@@ -51,7 +51,7 @@ W najprostszym przypadku ruch jest przekazywany do wystąpienia usługi bezstano
 
 W poniższym scenariuszu aplikacja Service Fabric zawiera usługę bezstanową o nazwie `fabric:/app/fooservice` , która udostępnia wewnętrzny interfejs API protokołu HTTP. Nazwa wystąpienia usługi jest dobrze znana i może być zakodowana bezpośrednio w API Management zasad przetwarzania przychodzącego. 
 
-![Service Fabric z usługą Azure API Management Topology — Omówienie][sf-apim-static-stateless]
+![Diagram przedstawiający aplikację Service Fabric zawiera usługę bezstanową, która ujawnia wewnętrzny interfejs API protokołu HTTP.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Wysyłanie ruchu do usługi stanowej
 
@@ -82,7 +82,7 @@ W tym przykładzie nowe wystąpienie usługi bezstanowej jest tworzone dla każd
   - Żądanie skierowane do `/api/users/foo` wystąpienia usługi `fabric:/app/users/foo`
   - Żądanie skierowane do `/api/users/bar` wystąpienia usługi `fabric:/app/users/bar`
 
-![Service Fabric z usługą Azure API Management Topology — Omówienie][sf-apim-dynamic-stateless]
+![Diagram przedstawiający przykład, w którym tworzone jest nowe wystąpienie usługi bezstanowej dla każdego użytkownika aplikacji z dynamicznie wygenerowaną nazwą.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Wysyłanie ruchu do wielu usług stanowych
 
@@ -103,7 +103,7 @@ W tym przykładzie tworzone jest nowe wystąpienie usługi stanowej dla każdego
 
 Każde wystąpienie usługi jest również podzielone na partycje przy użyciu schematu partycji Int64 z dwiema partycjami i zakresem kluczy, który obejmuje `Int64.MinValue` `Int64.MaxValue` . Zasady zaplecza obliczają klucz partycji w tym zakresie przez przekonwertowanie `id` wartości podanej w ścieżce żądania adresu URL na 64-bitową liczbę całkowitą, chociaż w tym miejscu można użyć dowolnego algorytmu w celu obliczenia klucza partycji. 
 
-![Service Fabric z usługą Azure API Management Topology — Omówienie][sf-apim-dynamic-stateful]
+![Diagram pokazujący, że każde wystąpienie usługi jest również partycjonowane przy użyciu schematu partycji Int64 z dwiema partycjami i zakresem kluczy, który obejmuje wartości Int64. MinValue do Int64. MaxValue.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Następne kroki
 

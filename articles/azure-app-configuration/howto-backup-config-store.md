@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207146"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074859"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Automatyczne tworzenie kopii zapasowych magazynów konfiguracji aplikacji
 
@@ -124,7 +124,7 @@ W tym artykule opisano, jak korzystać z funkcji języka C#, które mają nastę
 - Azure Functions środowiska uruchomieniowego w wersji 3. x
 - Funkcja wyzwalana przez czasomierz co 10 minut
 
-Aby ułatwić rozpoczęcie tworzenia kopii zapasowych danych, [Przetestowano i opublikowano funkcję](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) , której można użyć bez wprowadzania żadnych zmian w kodzie. Pobierz pliki projektu i [Opublikuj je w swojej aplikacji funkcji platformy Azure z programu Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+Aby ułatwić rozpoczęcie tworzenia kopii zapasowych danych, [Przetestowano i opublikowano funkcję](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) , której można użyć bez wprowadzania żadnych zmian w kodzie. Pobierz pliki projektu i [Opublikuj je w swojej aplikacji funkcji platformy Azure z programu Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Nie wprowadzaj żadnych zmian w zmiennych środowiskowych w pobranym kodzie. W następnej sekcji utworzysz wymagane ustawienia aplikacji.
@@ -133,13 +133,13 @@ Aby ułatwić rozpoczęcie tworzenia kopii zapasowych danych, [Przetestowano i o
 ### <a name="build-your-own-function"></a>Tworzenie własnej funkcji
 
 Jeśli przykładowy kod podany wcześniej nie spełnia wymagań użytkownika, można również utworzyć własną funkcję. Aby można było ukończyć tworzenie kopii zapasowej, funkcja musi mieć możliwość wykonania następujących zadań:
-- Okresowo Odczytuj zawartość kolejki, aby sprawdzić, czy zawiera ona powiadomienia z Event Grid. Szczegóły implementacji można znaleźć w [zestawie SDK kolejki magazynu](/azure/storage/queues/storage-quickstart-queues-dotnet) .
-- Jeśli kolejka zawiera [powiadomienia o zdarzeniach z Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), Wyodrębnij wszystkie unikatowe `<key, label>` informacje z komunikatów o zdarzeniach. Kombinacja klucza i etykiety jest unikatowym identyfikatorem dla zmian wartości kluczy w magazynie podstawowym.
+- Okresowo Odczytuj zawartość kolejki, aby sprawdzić, czy zawiera ona powiadomienia z Event Grid. Szczegóły implementacji można znaleźć w [zestawie SDK kolejki magazynu](../storage/queues/storage-quickstart-queues-dotnet.md) .
+- Jeśli kolejka zawiera [powiadomienia o zdarzeniach z Event Grid](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), Wyodrębnij wszystkie unikatowe `<key, label>` informacje z komunikatów o zdarzeniach. Kombinacja klucza i etykiety jest unikatowym identyfikatorem dla zmian wartości kluczy w magazynie podstawowym.
 - Odczytaj wszystkie ustawienia z magazynu głównego. Zaktualizuj tylko te ustawienia w magazynie pomocniczym, które mają odpowiednie zdarzenie w kolejce. Usuń wszystkie ustawienia z magazynu pomocniczego, które znajdowały się w kolejce, ale nie w magazynie podstawowym. [Zestawu SDK aplikacji](https://github.com/Azure/AppConfiguration#sdks) można użyć do programistycznego uzyskiwania dostępu do magazynów konfiguracji.
 - Usuwanie komunikatów z kolejki w przypadku braku wyjątków podczas przetwarzania.
 - Zaimplementuj obsługę błędów zgodnie z potrzebami. Zapoznaj się z poprzednim przykładem kodu, aby zobaczyć typowe wyjątki, które mogą być obsługiwane.
 
-Aby dowiedzieć się więcej o tworzeniu funkcji, zobacz: [Tworzenie funkcji na platformie Azure wyzwalanej przez czasomierz](/azure/azure-functions/functions-create-scheduled-function) i [opracowywanie Azure Functions przy użyciu programu Visual Studio](/azure/azure-functions/functions-develop-vs).
+Aby dowiedzieć się więcej o tworzeniu funkcji, zobacz: [Tworzenie funkcji na platformie Azure wyzwalanej przez czasomierz](../azure-functions/functions-create-scheduled-function.md) i [opracowywanie Azure Functions przy użyciu programu Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Udzielanie dostępu do zarządzanej tożsamości aplikacji funkcji
 
-Użyj poniższego polecenia lub [Azure Portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) , aby dodać tożsamość zarządzaną przypisaną przez system do aplikacji funkcji.
+Użyj poniższego polecenia lub [Azure Portal](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) , aby dodać tożsamość zarządzaną przypisaną przez system do aplikacji funkcji.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> Aby można było wykonać wymagane tworzenie zasobów i zarządzanie rolami, Twoje konto musi mieć `Owner` uprawnienia w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, Dowiedz się, [jak dodać lub usunąć przypisania roli platformy Azure przy użyciu Azure Portal](/azure/role-based-access-control/role-assignments-portal).
+> Aby można było wykonać wymagane tworzenie zasobów i zarządzanie rolami, Twoje konto musi mieć `Owner` uprawnienia w odpowiednim zakresie (subskrypcji lub grupy zasobów). Jeśli potrzebujesz pomocy z przypisaniem roli, Dowiedz się, [jak dodać lub usunąć przypisania roli platformy Azure przy użyciu Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-Użyj następujących poleceń lub [Azure Portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) , aby przyznać zarządzaną tożsamość aplikacji funkcji dostęp do Twoich magazynów konfiguracji aplikacji. Użyj tych ról:
+Użyj następujących poleceń lub [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) , aby przyznać zarządzaną tożsamość aplikacji funkcji dostęp do Twoich magazynów konfiguracji aplikacji. Użyj tych ról:
 - Przypisz `App Configuration Data Reader` rolę w podstawowym magazynie konfiguracji aplikacji.
 - Przypisz `App Configuration Data Owner` rolę w magazynie konfiguracji aplikacji pomocniczej.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Użyj poniższego polecenia lub [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) , aby przyznać zarządzaną tożsamość aplikacji funkcji dostęp do kolejki. Przypisz `Storage Queue Data Contributor` rolę do kolejki.
+Użyj poniższego polecenia lub [Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) , aby przyznać zarządzaną tożsamość aplikacji funkcji dostęp do kolejki. Przypisz `Storage Queue Data Contributor` rolę do kolejki.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 Zdarzenie zostało wyzwolone. W ciągu kilku chwil Event Grid wyśle powiadomienie o zdarzeniu do kolejki. *Po następnym zaplanowanym uruchomieniu funkcji*Wyświetl ustawienia konfiguracji w magazynie pomocniczym, aby sprawdzić, czy zawiera ona zaktualizowaną wartość klucza z magazynu podstawowego.
 
 > [!NOTE]
-> Funkcję można [wyzwolić ręcznie](/azure/azure-functions/functions-manually-run-non-http) podczas testowania i rozwiązywania problemów bez oczekiwania na zaplanowaną czasomierz-wyzwalacz.
+> Funkcję można [wyzwolić ręcznie](../azure-functions/functions-manually-run-non-http.md) podczas testowania i rozwiązywania problemów bez oczekiwania na zaplanowaną czasomierz-wyzwalacz.
 
 Po upewnieniu się, że funkcja tworzenia kopii zapasowej została uruchomiona pomyślnie, można zobaczyć, że klucz znajduje się w magazynie pomocniczym.
 
@@ -243,9 +243,9 @@ Jeśli nowe ustawienie nie jest widoczne w magazynie pomocniczym:
 
 - Upewnij się, że funkcja tworzenia kopii zapasowej została wyzwolona *po* utworzeniu ustawienia w magazynie podstawowym.
 - Istnieje możliwość, że Event Grid nie mogła wysłać powiadomienia o zdarzeniu do kolejki w czasie. Sprawdź, czy kolejka nadal zawiera powiadomienie o zdarzeniu z magazynu podstawowego. Jeśli tak, wyzwól ponownie funkcję tworzenia kopii zapasowej.
-- Sprawdź [dzienniki Azure Functions](/azure/azure-functions/functions-create-scheduled-function#test-the-function) pod kątem błędów lub ostrzeżeń.
-- Użyj [Azure Portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) , aby upewnić się, że aplikacja funkcji platformy Azure zawiera poprawne wartości ustawień aplikacji, które Azure Functions próbować odczytać.
-- Możesz również skonfigurować monitorowanie i alerty dla Azure Functions przy użyciu [usługi Azure Application Insights](/azure/azure-functions/functions-monitoring?tabs=cmd). 
+- Sprawdź [dzienniki Azure Functions](../azure-functions/functions-create-scheduled-function.md#test-the-function) pod kątem błędów lub ostrzeżeń.
+- Użyj [Azure Portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) , aby upewnić się, że aplikacja funkcji platformy Azure zawiera poprawne wartości ustawień aplikacji, które Azure Functions próbować odczytać.
+- Możesz również skonfigurować monitorowanie i alerty dla Azure Functions przy użyciu [usługi Azure Application Insights](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851226"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092787"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Jak tworzyć grupy do zarządzania kontami deweloperów w usłudze Azure API Management i jak z nich korzystać
 
@@ -66,10 +66,10 @@ Po utworzeniu grupy można ją skojarzyć z produktami i programistami.
 3. Naciśnij pozycję **Kontrola dostępu**.
 4. Kliknij pozycję **+ Dodaj grupę**.
 
-    ![Kojarzenie grupy z produktem](./media/api-management-howto-create-groups/groups002.png)
+    ![Zrzut ekranu, który podświetla przycisk Dodaj grupę.](./media/api-management-howto-create-groups/groups002.png)
 5. Wybierz grupę, którą chcesz dodać.
 
-    ![Kojarzenie grupy z produktem](./media/api-management-howto-create-groups/groups003.png)
+    ![Zrzut ekranu pokazujący wybraną grupę i wyróżniony przycisk Wybierz.](./media/api-management-howto-create-groups/groups003.png)
 
     Aby usunąć grupę z produktu, kliknij przycisk **Usuń**.
 
@@ -90,7 +90,7 @@ W tej sekcji pokazano, jak skojarzyć grupy z członkami.
     ![Dodawanie członków](./media/api-management-howto-create-groups/groups005.png)
 3. Naciśnij klawisze **+ Dodaj** i wybierz element członkowski.
 
-    ![Dodawanie członków](./media/api-management-howto-create-groups/groups006.png)
+    ![Zrzut ekranu, który podświetla przycisk Dodaj, wybrany użytkownik i przycisk Wybierz.](./media/api-management-howto-create-groups/groups006.png)
 4. Naciśnij **pozycję Wybierz**.
 
 Po dodaniu skojarzenia między deweloperem a grupą można wyświetlić ją na karcie **Użytkownicy** .

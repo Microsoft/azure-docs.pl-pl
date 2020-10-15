@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: eaf99f5e92cbb9277f2d4143e14070f1900cdbef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04b03e3857bc5b01c25112f2a0d60c6468ecd42a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888488"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093926"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Przesyłanie strumieniowe dzienników aplikacji Azure Spring Cloud w czasie rzeczywistym
 
@@ -22,7 +22,7 @@ Chmura sprężynowa Azure umożliwia przesyłanie strumieniowe dzienników w int
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Zainstaluj [rozszerzenie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) dla chmury wiosennej, minimalną wersję 0.2.0.
+* Zainstaluj [rozszerzenie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) dla chmury wiosennej, minimalną wersję 0.2.0.
 * Wystąpienie **chmurowej platformy Azure** z uruchomioną aplikacją, na przykład [aplikacja Wiosenna w chmurze](./spring-cloud-quickstart.md).
 
 > [!NOTE]
@@ -92,10 +92,4 @@ az spring-cloud app logs -h
 ## <a name="next-steps"></a>Następne kroki
 * [Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](./diagnostic-services.md)
-
- 
-
-
-
-
 
