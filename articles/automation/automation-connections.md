@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a3cff616f814b8e5209b15f9d3f7439533452ca
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186660"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071765"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w Azure Automation
 
@@ -54,7 +54,7 @@ Wewnętrzne polecenie cmdlet w poniższej tabeli służy do uzyskiwania dostępu
 
 |Wewnętrzne polecenie cmdlet|Opis|
 |---|---|
-|`Get-AutomationConnection` | Pobiera wartości różnych pól w połączeniu i zwraca je jako [tablicę skrótów](https://go.microsoft.com/fwlink/?LinkID=324844). Następnie można użyć tego obiektu Hashtable z odpowiednimi poleceniami w konfiguracji elementu Runbook lub DSC.|
+|`Get-AutomationConnection` | Pobiera wartości różnych pól w połączeniu i zwraca je jako [tablicę skrótów](/powershell/module/microsoft.powershell.core/about/about_hash_tables). Następnie można użyć tego obiektu Hashtable z odpowiednimi poleceniami w konfiguracji elementu Runbook lub DSC.|
 
 >[!NOTE]
 >Należy unikać używania zmiennych z `Name` parametrem `Get-AutomationConnection` . Użycie zmiennych w tym przypadku może spowodować skomplikowanie wykrywania zależności między elementami Runbook a konfiguracjami DSC i zasobami połączeń w czasie projektowania.

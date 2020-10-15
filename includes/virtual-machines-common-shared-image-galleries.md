@@ -1,18 +1,18 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: akjosh
+ms.date: 10/14/2020
+ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89494306"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071782"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -56,19 +56,36 @@ Istnieją trzy parametry dla każdej definicji obrazu, które są używane w po�
 
 Wszystkie trzy z nich mają unikatowe zestawy wartości. Ten format jest podobny do tego, jak obecnie można określić wydawcy, oferty i jednostki SKU dla [obrazów portalu Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) w Azure PowerShell, aby uzyskać najnowszą wersję obrazu portalu Marketplace. Każda definicja obrazu musi mieć unikatowy zestaw tych wartości.
 
+Definicje obrazu muszą definiować następujące parametry, które określają, które typy wersji obrazu mogą zawierać:
+-   Stan systemu operacyjnego — można ustawić [uogólniony lub wyspecjalizowany](#generalized-and-specialized-images)stan systemu operacyjnego.
+- System operacyjny — może to być system Windows lub Linux.
+
+
+
 Poniżej znajdują się inne parametry, które można ustawić w definicji obrazu, dzięki czemu można łatwiej śledzić zasoby:
 
-* Stan systemu operacyjnego — można ustawić [uogólniony lub wyspecjalizowany](#generalized-and-specialized-images)stan systemu operacyjnego.
-* System operacyjny — może to być system Windows lub Linux.
-* Opis — Użyj opisu, aby uzyskać bardziej szczegółowe informacje na temat tego, dlaczego istnieje definicja obrazu. Na przykład może istnieć definicja obrazu dla serwera frontonu, na którym jest wstępnie zainstalowana aplikacja.
-* EULA — może służyć do wskazywania umowy licencyjnej użytkownika końcowego dotyczącej definicji obrazu.
-* Zasady zachowania poufności informacji i informacje o wersji — przechowywanie informacji o wersji i zasad zachowania poufności informacji w usłudze Azure Storage oraz dostarczanie identyfikatora URI w celu uzyskania dostępu do nich w ramach definicji obrazu.
-* Data zakończenia okresu użytkowania — Dołącz datę zakończenia okresu istnienia do definicji obrazu, aby można było użyć automatyzacji do usunięcia starych definicji obrazu.
-* Tag — możesz dodać tagi podczas tworzenia definicji obrazu. Aby uzyskać więcej informacji na temat tagów, zobacz [Używanie tagów do organizowania zasobów](../articles/azure-resource-manager/management/tag-resources.md)
-* Minimalne i maksymalne zalecenia dotyczące vCPU i pamięci — Jeśli obraz ma zalecenia vCPU i pamięci, możesz dołączyć te informacje do definicji obrazu.
-* Niedozwolone typy dysków — można podać informacje o wymaganiach dotyczących magazynu dla maszyny wirtualnej. Na przykład jeśli obraz nie jest odpowiedni dla standardowych dysków DYSKowych, należy dodać je do listy nie Zezwalaj.
-* Generacja funkcji Hyper-V — możesz określić, czy obraz został utworzony z dysku VHD funkcji Hyper-V generacji 1 lub Gen 2.
-* Informacje o planach zakupu dla obrazów z witryny Marketplace — `-PurchasePlanPublisher ` , `-PurchasePlanName` i `-PurchasePlanProduct` . Aby uzyskać więcej informacji na temat informacji o planie zakupu, zobacz [Znajdowanie obrazów w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) i [dostarczanie informacji o planie zakupów w portalu Azure Marketplace podczas tworzenia obrazów](../articles/virtual-machines/marketplace-images.md).
+- Opis — Użyj opisu, aby uzyskać bardziej szczegółowe informacje na temat tego, dlaczego istnieje definicja obrazu. Na przykład może istnieć definicja obrazu dla serwera frontonu, na którym jest wstępnie zainstalowana aplikacja.
+- EULA — może służyć do wskazywania umowy licencyjnej użytkownika końcowego dotyczącej definicji obrazu.
+- Zasady zachowania poufności informacji i informacje o wersji — przechowywanie informacji o wersji i zasad zachowania poufności informacji w usłudze Azure Storage oraz dostarczanie identyfikatora URI w celu uzyskania dostępu do nich w ramach definicji obrazu.
+- Data zakończenia okresu użytkowania — Dołącz datę zakończenia okresu istnienia do definicji obrazu, aby można było użyć automatyzacji do usunięcia starych definicji obrazu.
+- Tag — możesz dodać tagi podczas tworzenia definicji obrazu. Aby uzyskać więcej informacji na temat tagów, zobacz [Używanie tagów do organizowania zasobów](../articles/azure-resource-manager/management/tag-resources.md)
+- Minimalne i maksymalne zalecenia dotyczące vCPU i pamięci — Jeśli obraz ma zalecenia vCPU i pamięci, możesz dołączyć te informacje do definicji obrazu.
+- Niedozwolone typy dysków — można podać informacje o wymaganiach dotyczących magazynu dla maszyny wirtualnej. Na przykład jeśli obraz nie jest odpowiedni dla standardowych dysków DYSKowych, należy dodać je do listy nie Zezwalaj.
+-   Generacja funkcji Hyper-V — Określ, czy obraz został utworzony z dysku VHD funkcji Hyper-V generacji 1 lub [2](../articles/virtual-machines/generation-2.md) . Wartość domyślna to generacja 1.
+- Informacje o planach zakupu dla obrazów z witryny Marketplace — `-PurchasePlanPublisher` , `-PurchasePlanName` i `-PurchasePlanProduct` . Aby uzyskać więcej informacji na temat informacji o planie zakupu, zobacz [Znajdowanie obrazów w portalu Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) i [dostarczanie informacji o planie zakupów w portalu Azure Marketplace podczas tworzenia obrazów](../articles/virtual-machines/marketplace-images.md).
+
+
+## <a name="image-versions"></a>Wersje obrazu
+
+**Wersja obrazu** jest używana do tworzenia maszyny wirtualnej. Dla danego środowiska można mieć wiele wersji obrazu. W przypadku tworzenia maszyny wirtualnej przy użyciu **wersji obrazu** , wersja obrazu służy do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać.
+
+Właściwości wersji obrazu są następujące:
+
+- Numer wersji. Ta wartość jest używana jako Nazwa wersji obrazu. Zawsze ma format: MajorVersion. MinorVersion. patch. Jeśli podczas tworzenia maszyny wirtualnej zostanie użyta **Najnowsza** z nich, najnowszy obraz jest wybierany na podstawie największej MajorVersion, a następnie MinorVersion, a następnie poprawki. 
+- Zewnętrz. Źródłem może być maszyna wirtualna, dysk zarządzany, migawka, obraz zarządzany lub inna wersja obrazu. 
+- Wyklucz z najnowszych. Możesz zachować wersję jako najnowszą wersję obrazu. 
+- Data zakończenia okresu istnienia. Data, po której maszyny wirtualne nie mogą zostać utworzone na podstawie tego obrazu.
+
 
 ## <a name="generalized-and-specialized-images"></a>Uogólnione i wyspecjalizowane obrazy
 
@@ -123,7 +140,7 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Dostęp
+## <a name="access"></a>Access
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 
