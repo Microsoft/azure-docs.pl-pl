@@ -1,18 +1,18 @@
 ---
 title: 'Konfigurowanie szyfrowania ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN platformy Azure'
-description: W tym samouczku dowiesz się, jak za pomocą usługi Azure Virtual WAN utworzyć połączenie sieci VPN typu lokacja-lokacja za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute.
+description: Informacje dotyczące tworzenia połączenia sieci VPN typu lokacja-lokacja za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute za pomocą usługi Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828013"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079058"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Szyfrowanie ExpressRoute: IPsec przez ExpressRoute dla wirtualnej sieci WAN
 
@@ -54,7 +54,7 @@ W obu tych przykładach usługa Azure wyśle ruch do 10.0.1.0/24 przez połącze
 > Jeśli anonsuje te *same* prefiksy dla połączeń EXPRESSROUTE i VPN, platforma Azure będzie używać ścieżki ExpressRoute bezpośrednio bez ochrony sieci VPN.
 >
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 

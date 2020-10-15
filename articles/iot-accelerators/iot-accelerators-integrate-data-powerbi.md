@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba669c86c406959a3f92949e5f806fa011527d47
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975997"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070915"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Wizualizowanie danych monitorowania zdalnego przy użyciu Power BI
 
@@ -38,7 +38,7 @@ W tym samouczku przedstawiono sposób podłączenia danych rozwiązania do monit
 
 4. Na tej stronie Przegląd kliknij element, który ma typ "Azure Cosmos DB konto", a następnie przejdziesz do strony Przegląd strumienia Cosmos DB dla tego rozwiązania IoT.
 
-    ![Grupa zasobów](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
+    ![Resource Group](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
 5. Na panelu po lewej stronie kliknij sekcję "klucze" i zanotuj następujące wartości, które mają być używane w Power BI:
 
@@ -94,9 +94,9 @@ Gdy strumień zostanie połączony, możesz utworzyć spersonalizowane pulpity n
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publikowanie pulpitu nawigacyjnego i odświeżanie danych
 
-Po pomyślnym utworzeniu pulpitów nawigacyjnych zalecamy [opublikowanie pulpitów nawigacyjnych Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) , aby udostępnić je innym osobom.
+Po pomyślnym utworzeniu pulpitów nawigacyjnych zalecamy [opublikowanie pulpitów nawigacyjnych Power BI](/power-bi/desktop-upload-desktop-files) , aby udostępnić je innym osobom.
 
-Należy również [odświeżyć dane](https://docs.microsoft.com/power-bi/refresh-data) na opublikowanym pulpicie nawigacyjnym, aby upewnić się, że masz najnowszy zestaw danych.
+Należy również [odświeżyć dane](/power-bi/refresh-data) na opublikowanym pulpicie nawigacyjnym, aby upewnić się, że masz najnowszy zestaw danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -107,4 +107,3 @@ Aby uzyskać więcej informacji na temat dostosowywania rozwiązania do monitoro
 * [Dostosowywanie interfejsu użytkownika rozwiązania do monitorowania zdalnego](iot-accelerators-remote-monitoring-customize.md)
 * [Przewodnik informacyjny dla deweloperów](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Przewodnik po rozwiązywaniu problemów dla deweloperów](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-

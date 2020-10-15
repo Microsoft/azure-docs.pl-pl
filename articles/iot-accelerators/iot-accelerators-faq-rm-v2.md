@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c410ac7f41adb623a7198320a1edced097778569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64391d7f5a7b1a295be7e404d27e5cbe8c691eb2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73826251"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079092"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Często zadawane pytania dotyczące akceleratora rozwiązań do zdalnego monitorowania
 
@@ -40,13 +40,13 @@ Aby uzyskać więcej informacji, zobacz [uaktualnianie klucza mapy, aby wyświet
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Gdzie można znaleźć informacje o poprzedniej wersji rozwiązania do zdalnego monitorowania?
 
-Poprzednia wersja akceleratora rozwiązania do zdalnego monitorowania była znana jako IoT Suite wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Zarchiwizowaną dokumentację można znaleźć pod adresem [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
+Poprzednia wersja akceleratora rozwiązania do zdalnego monitorowania była znana jako IoT Suite wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Zarchiwizowaną dokumentację można znaleźć pod adresem [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/) .
 
 ### <a name="next-steps"></a>Następne kroki
 
 Możesz także wypróbować niektóre inne funkcje i możliwości akceleratorów rozwiązań IoT:
 
 * [Poznaj możliwości akceleratora rozwiązania do monitorowania zdalnego](quickstart-remote-monitoring-deploy.md)
-* [Omówienie akceleratora rozwiązania do konserwacji predykcyjnej](iot-accelerators-predictive-overview.md)
+* [Omówienie akceleratora rozwiązania do konserwacji predykcyjnej](./iot-accelerators-predictive-walkthrough.md)
 * [Wdróż Akcelerator rozwiązania połączonej fabryki](quickstart-connected-factory-deploy.md)
-* [Zabezpieczenia IoT od podstaw](/azure/iot-fundamentals/iot-security-ground-up)
+* [Zabezpieczenia IoT od podstaw](../iot-fundamentals/iot-security-ground-up.md)

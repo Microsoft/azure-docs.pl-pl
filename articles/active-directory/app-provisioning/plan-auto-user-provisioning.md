@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235709"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070371"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -69,11 +69,11 @@ W tym artykule są stosowane następujące warunki:
 | Zasoby| Link i opis |
 | - | - |
 | Seminaria internetowe na żądanie| [Zarządzanie aplikacjami przedsiębiorstwa za pomocą usługi Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Dowiedz się, jak usługa Azure AD może pomóc Ci w osiągnięciu rejestracji jednokrotnej w aplikacjach SaaS w przedsiębiorstwie i najlepszych rozwiązaniach dotyczących kontroli dostępu. |
-| Wideo| [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrowanie usług Salesforce z usługą Azure AD: jak zautomatyzować Inicjowanie obsługi użytkowników](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Filmy wideo| [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrowanie usług Salesforce z usługą Azure AD: jak zautomatyzować Inicjowanie obsługi użytkowników](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Kursy online| SkillUp online:  [Zarządzanie tożsamościami](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Dowiedz się, jak zintegrować usługę Azure AD z wieloma aplikacjami SaaS i zabezpieczyć dostęp użytkowników do tych aplikacji. |
 | Książki| [Nowoczesne uwierzytelnianie za pomocą Azure Active Directory dla aplikacji sieci Web (Dokumentacja dla deweloperów) wersja 1](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Jest to autorytatywny, głęboki szczegółowe Przewodnik dotyczący tworzenia rozwiązań uwierzytelniania Active Directory dla tych nowych środowisk. |
 | Samouczki| Zapoznaj się z [listą samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](../saas-apps/tutorial-list.md). |
-| Najczęściej zadawane pytania| [Często zadawane pytania](../app-provisioning/user-provisioning.md) dotyczące automatycznej aprowizacji użytkowników |
+| Często zadawane pytania| [Często zadawane pytania](../app-provisioning/user-provisioning.md) dotyczące automatycznej aprowizacji użytkowników |
 
 ### <a name="solution-architectures"></a>Architektury rozwiązań
 
@@ -129,7 +129,7 @@ Należy wziąć pod uwagę potrzebę organizacji, aby określić strategię wdra
 
 ### <a name="engage-the-right-stakeholders"></a>Zaangażuj odpowiednich uczestników projektu
 
-W przypadku niepowodzenia projektów technologicznych zazwyczaj wynika to z niezgodności zaoczekiwań, wyników i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują Cię odpowiednie osoby zainteresowane](https://aka.ms/deploymentplans) i że role udziałowców w projekcie są zrozumiałe przez udokumentowanie uczestników projektu oraz ich wejścia i wyjścia.
+W przypadku niepowodzenia projektów technologicznych zazwyczaj wynika to z niezgodności zaoczekiwań, wyników i obowiązków. Aby uniknąć tych pułapek, [upewnij się, że interesują Cię odpowiednie osoby zainteresowane](../fundamentals/active-directory-deployment-plans.md) i że role udziałowców w projekcie są zrozumiałe przez udokumentowanie uczestników projektu oraz ich wejścia i wyjścia.
 
 ### <a name="plan-communications"></a>Planowanie komunikacji
 
@@ -264,7 +264,7 @@ Usługa aprowizacji przechowuje stan obu systemów po początkowym cyklu, popraw
 
 Użyj [Azure Portal](https://portal.azure.com/) , aby zarządzać automatyczną obsługą kont użytkowników i anulowaniem aprowizacji dla aplikacji, które go obsługują. Wykonaj kroki opisane w [Jak mogę skonfigurować automatyczne Inicjowanie obsługi aplikacji?](../app-provisioning/user-provisioning.md)
 
-Usługę aprowizacji użytkowników w usłudze Azure AD można także skonfigurować i zarządzać nią za pomocą [interfejsu API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+Usługę aprowizacji użytkowników w usłudze Azure AD można także skonfigurować i zarządzać nią za pomocą [interfejsu API Microsoft Graph](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Zarządzanie automatyczną obsługą użytkowników
 
@@ -274,7 +274,7 @@ Po wdrożeniu należy zarządzać rozwiązaniem.
 
 Po pomyślnym [cyklu początkowym](../app-provisioning/user-provisioning.md)usługa Azure AD Provisioning będzie uruchamiać aktualizacje przyrostowe w odstępach czasu dla każdej aplikacji, dopóki nie wystąpi jedno z następujących zdarzeń:
 
-* Usługa została zatrzymana ręcznie, a nowy cykl początkowy jest wyzwalany przy użyciu [Azure Portal](https://portal.azure.com/)lub przy użyciu odpowiedniego polecenia [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) .
+* Usługa została zatrzymana ręcznie, a nowy cykl początkowy jest wyzwalany przy użyciu [Azure Portal](https://portal.azure.com/)lub przy użyciu odpowiedniego polecenia [API Microsoft Graph](/graph/api/resources/synchronization-overview) .
 
 * Nowy cykl początkowy jest wyzwalany przez zmianę mapowań atrybutów lub filtrów określania zakresu.
 
@@ -310,7 +310,7 @@ Skorzystaj z poniższych linków, aby rozwiązać wszelkie problemy, które mog�
 
 * [Pisanie wyrażeń do mapowania atrybutów](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Omówienie interfejsu API synchronizacji usługi Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Omówienie interfejsu API synchronizacji usługi Azure AD](/graph/api/resources/synchronization-overview)
 
 * [Pomiń usuwanie kont użytkowników, które wykraczają poza zakres](skip-out-of-scope-deletions.md)
 

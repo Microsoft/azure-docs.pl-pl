@@ -6,12 +6,12 @@ author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335606"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070643"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Dostęp do zasobów Kubernetes z Azure Portal (wersja zapoznawcza)
 
@@ -20,7 +20,7 @@ Azure Portal obejmuje Podgląd zasobów Kubernetes (wersja zapoznawcza) w celu z
 Widok zasobów Kubernetes z Azure Portal zastępuje [dodatek pulpitu nawigacyjnego AKS][kubernetes-dashboard], który jest ustawiany jako przestarzały.
 
 >[!NOTE]
->Capabilty nie jest obecnie obsługiwana w [prywatnych klastrach usługi Azure Kubernetes](https://docs.microsoft.com/azure/aks/private-clusters).
+>Capabilty nie jest obecnie obsługiwana w [prywatnych klastrach usługi Azure Kubernetes](./private-clusters.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
