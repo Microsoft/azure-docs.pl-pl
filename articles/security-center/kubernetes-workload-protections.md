@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999311"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091155"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Ochrona obciążeń Kubernetes
 
@@ -39,7 +39,7 @@ Security Center oferuje więcej funkcji zabezpieczeń kontenerów po włączeniu
 |Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|**Właściciel** lub **administrator zabezpieczeń** , który edytuje przypisanie<br>**Czytnik** do wyświetlania zaleceń|
 |Obsługiwane klastry:|Wymagany jest Kubernetes w wersji 1.14 (lub nowszej)<br>Brak zasobu PodSecurityPolicy (stary model PSP) w klastrach<br>Węzły systemu Windows nie są obsługiwane|
-|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 
@@ -67,21 +67,21 @@ Azure Security Center obejmuje pakiet zaleceń, które są dostępne po zainstal
     > 
     > Jeśli nie wprowadzisz wymaganych parametrów dla zaleceń, które wymagają konfiguracji, Twoje obciążenia będą wyświetlane jako w złej kondycji.
 
-    | Nazwa zalecenia                                                                   | Kontrola zabezpieczeń                         | Wymagana konfiguracja |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Należy wymusić limity procesora CPU i pamięci kontenera (wersja zapoznawcza)                          | Ochrona aplikacji przed atakiem DDoS | Nie                     |
-    | Należy unikać używania kontenerów uprzywilejowanych (wersja zapoznawcza)                                     | Zarządzanie dostępem i uprawnieniami            | Nie                     |
-    | Niemodyfikowalny (tylko do odczytu) główny system plików powinien zostać wymuszony dla kontenerów (wersja zapoznawcza)     | Zarządzanie dostępem i uprawnieniami            | Nie                     |
-    | Należy unikać kontenera z eskalacją uprawnień (wersja zapoznawcza)                       | Zarządzanie dostępem i uprawnieniami            | Nie                     |
-    | Należy unikać uruchamiania kontenerów jako użytkownik główny (wersja zapoznawcza)                           | Zarządzanie dostępem i uprawnieniami            | Nie                     |
-    | Należy unikać obsługi kontenerów chronionych przestrzeni nazw hosta (wersja zapoznawcza)              | Zarządzanie dostępem i uprawnieniami            | Nie                     |
-    | W przypadku kontenerów (wersja zapoznawcza) powinny być wymuszane najniższe możliwości systemu Linux.       | Zarządzanie dostępem i uprawnieniami            | **Tak**                |
-    | Użycie instalacji woluminów HostPath na początku powinno być ograniczone do znanej listy (wersja zapoznawcza)    | Zarządzanie dostępem i uprawnieniami            | **Tak**                |
-    | Kontenery powinny nasłuchiwać tylko dozwolonych portów (wersja zapoznawcza)                              | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
-    | Usługi powinny nasłuchiwać tylko na dozwolonych portach (wersja zapoznawcza)                                | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
-    | Użycie sieci i portów hosta powinno być ograniczone (wersja zapoznawcza)                     | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
-    | Zastępowanie lub wyłączanie profilu AppArmornia kontenerów powinno być ograniczone (wersja zapoznawcza) | Korygowanie konfiguracji zabezpieczeń        | **Tak**                |
-    | Obrazy kontenerów powinny być wdrażane tylko z zaufanych rejestrów (wersja zapoznawcza)            | Koryguj luki w zabezpieczeniach                | **Tak**                |
+    | Nazwa zalecenia                                                         | Kontrola zabezpieczeń                         | Wymagana konfiguracja |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Należy wymusić limity procesora CPU i pamięci kontenera                          | Ochrona aplikacji przed atakiem DDoS | Nie                     |
+    | Należy unikać używania kontenerów uprzywilejowanych                                     | Zarządzanie dostępem i uprawnieniami            | Nie                     |
+    | Niezmienny (tylko do odczytu) główny system plików powinien zostać wymuszony dla kontenerów     | Zarządzanie dostępem i uprawnieniami            | Nie                     |
+    | Należy unikać kontenera z eskalacją uprawnień                       | Zarządzanie dostępem i uprawnieniami            | Nie                     |
+    | Należy unikać uruchamiania kontenerów jako użytkownik główny                           | Zarządzanie dostępem i uprawnieniami            | Nie                     |
+    | Należy unikać obsługi kontenerów chronionych przestrzeni nazw hosta              | Zarządzanie dostępem i uprawnieniami            | Nie                     |
+    | W przypadku kontenerów powinny być wymuszane najmniej uprzywilejowane funkcje systemu Linux.       | Zarządzanie dostępem i uprawnieniami            | **Tak**                |
+    | Użycie instalacji woluminów HostPath na początku powinno być ograniczone do znanej listy    | Zarządzanie dostępem i uprawnieniami            | **Tak**                |
+    | Kontenery powinny nasłuchiwać tylko na dozwolonych portach                              | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
+    | Usługi powinny nasłuchiwać tylko na dozwolonych portach                                | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
+    | Użycie sieci i portów hosta powinno być ograniczone                     | Ogranicz nieautoryzowany dostęp do sieci     | **Tak**                |
+    | Zastępowanie lub wyłączanie profilowania AppArmor profil powinien być ograniczony | Korygowanie konfiguracji zabezpieczeń        | **Tak**                |
+    | Obrazy kontenerów powinny być wdrażane tylko z zaufanych rejestrów            | Koryguj luki w zabezpieczeniach                | **Tak**                |
 
 
 1. Aby zalecenia z parametrami muszą być dostosowane, należy ustawić parametry:

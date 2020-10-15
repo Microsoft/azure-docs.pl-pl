@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90529391"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088928"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Szybki Start: Tworzenie drzwi z przodu przy użyciu szablonu ARM
 
@@ -47,7 +48,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 * [**Microsoft. Network/usługi frontdoor**](/azure/templates/microsoft.network/frontDoors)
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 1. Wybierz opcję **Wypróbuj** z następującego bloku kodu, aby otworzyć Azure Cloud Shell, a następnie postępuj zgodnie z instrukcjami, aby zalogować się do platformy Azure. 
 

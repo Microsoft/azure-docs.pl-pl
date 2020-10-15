@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82981225"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072802"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Jak używać tożsamości zarządzanych do konfiguracji aplikacji platformy Azure
 
@@ -33,7 +33,7 @@ Aby skonfigurować tożsamość zarządzaną za pomocą interfejsu wiersza polec
 
 - Użyj [Azure Cloud Shell](../cloud-shell/overview.md) z Azure Portal.
 - Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu poniżej.
-- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,1 lub nowszej), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia.
+- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (2,1 lub nowszej), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia.
 
 Poniższe kroki przeprowadzą Cię przez proces tworzenia magazynu konfiguracji aplikacji i przypisywania go tożsamości przy użyciu interfejsu wiersza polecenia:
 
@@ -66,7 +66,7 @@ Aby skonfigurować tożsamość zarządzaną za pomocą interfejsu wiersza polec
 
 - Użyj [Azure Cloud Shell](../cloud-shell/overview.md) z Azure Portal.
 - Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu poniżej.
-- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 lub nowsza), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia.
+- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (2.0.31 lub nowsza), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia.
 
 Poniższe kroki przeprowadzą Cię przez proces tworzenia tożsamości przypisanej do użytkownika i magazynu konfiguracji aplikacji, a następnie przypisania tożsamości do magazynu przy użyciu interfejsu wiersza polecenia:
 

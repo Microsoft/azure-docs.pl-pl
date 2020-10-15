@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c90062f1968cc7be5a742a67363f57b9632fdfa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906875"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090679"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java i podstawowy system operacyjny dla aplikacji mikrousług usługi Spring
 
@@ -46,7 +46,7 @@ Systemy Azul będą stale skanowane pod kątem zmian w podstawowych systemach op
     * Ubuntu 20,04 LTS (Fossay główne). Aplikacje będą nadal znajdować się w najnowszej wersji LTS Ubuntu.
     * Zobacz [Ubuntu 20,04 LTS (Fossay główne)](http://releases.ubuntu.com/focal/)
 * Jak można pobrać obsługiwane środowisko uruchomieniowe języka Java na potrzeby lokalnego tworzenia oprogramowania? 
-    * Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+    * Zobacz [Instalowanie JDK dla platformy Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 * Jak mogę uzyskać pomoc techniczną dotyczącą problemów na poziomie środowiska uruchomieniowego Java?
     * Otwórz bilet pomocy technicznej z pomocą techniczną platformy Azure.
  
@@ -57,4 +57,4 @@ Systemy Azul będą stale skanowane pod kątem zmian w podstawowych systemach op
 ## <a name="next-steps"></a>Następne kroki
 
 * [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny](spring-cloud-quickstart.md)
-* [Długoterminowa obsługa języka Java dla platformy Azure i Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Długoterminowa obsługa języka Java dla platformy Azure i Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support)

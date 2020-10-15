@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: efekty definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład zastosowania różnych efektów definicji zasad.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565740"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073040"
 ---
 # <a name="azure-policy-pattern-effects"></a>Wzorzec Azure Policy: efekty
 
@@ -24,7 +24,7 @@ Ta definicja zasad sprawdza, czy tag zdefiniowany w parametrze **TagName** istni
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-Efekt **modyfikacji** wymaga bloku **Klasa policyrule. then. Details** , który definiuje **roleDefinitionIds** i **operacje**. Te parametry informują Azure Policy, jakie role są potrzebne do dodania znacznika i skorygowania zasobu, a następnie wykonania operacji **modyfikowania** . W tym przykładzie **operacja** jest _dodawana_ , a parametry są używane do ustawiania znacznika i jego wartości.
+Efekt **modyfikacji** wymaga bloku **Klasa policyrule. then. Details** , który definiuje **roleDefinitionIds** i **operacje**. Te parametry informują Azure Policy, jakie role są potrzebne do dodania znacznika i skorygowania zasobu oraz operacji **modyfikacji** do użycia. W tym przykładzie **operacja** _dodawania_ i parametry są używane do ustawiania znacznika i jego wartości.
 
 ## <a name="sample-2-complex-effect"></a>Przykład 2: efekt złożony
 

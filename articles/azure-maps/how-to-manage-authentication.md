@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311108"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089455"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Zarządzanie uwierzytelnianiem w Azure Maps
 
@@ -41,9 +41,9 @@ W zależności od potrzeb aplikacji istnieją konkretne ścieżki zabezpieczania
 W poniższej tabeli przedstawiono typowe scenariusze uwierzytelniania i autoryzacji w programie Azure Maps. Tabela zawiera porównanie typów ochrony, które oferują każdy scenariusz.
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca wdrożenie Azure Active Directory (Azure AD) z kontrolą dostępu opartą na rolach (RBAC) dla aplikacji produkcyjnych.
+> Firma Microsoft zaleca wdrożenie Azure Active Directory (Azure AD) przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure dla aplikacji produkcyjnych.
 
-| Scenariusz                                                                                    | Uwierzytelnianie | Autoryzacja | Nakład pracy programistycznej | Nakład pracy operacyjnej |
+| Scenariusz                                                                                    | Authentication | Autoryzacja | Nakład pracy programistycznej | Nakład pracy operacyjnej |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
 | [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Klucz wspólny     | Nie dotyczy           | Średniaa             | Wysoki               |
 | [Zaufany demon/nieinteraktywna aplikacja kliencka](./how-to-secure-daemon-app.md)        | Azure AD       | Wys.          | Nis.                | Średniaa             |
@@ -63,10 +63,10 @@ Aby wyświetlić role platformy Azure, które są dostępne dla Azure Maps, prze
 
 ## <a name="view-role-assignments"></a>Wyświetlanie przypisań ról
 
-Aby wyświetlić użytkowników i aplikacje, którym udzielono dostępu RBAC dla Azure Maps, przejdź do **Access Control (IAM)**. W tym miejscu wybierz pozycję **przypisania ról**, a następnie Przefiltruj według **Azure Maps**.
+Aby wyświetlić użytkowników i aplikacje, którym udzielono dostępu do Azure Maps, przejdź do pozycji **Access Control (IAM)**. W tym miejscu wybierz pozycję **przypisania ról**, a następnie Przefiltruj według **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
-> ![Wyświetlanie użytkowników i aplikacji z przyznanymi RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![Wyświetlanie użytkowników i aplikacji, którym udzielono dostępu](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Tokeny żądania dla Azure Maps
 

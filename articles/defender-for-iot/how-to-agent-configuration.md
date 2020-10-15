@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939401"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090849"
 ---
 # <a name="tutorial-configure-security-agents"></a>Samouczek: Konfigurowanie agentów zabezpieczeń
 
@@ -105,7 +105,7 @@ Aby użyć domyślnej wartości właściwości, Usuń właściwość z obiektu k
     }
     ```
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="using-a-default-value"></a>Używanie wartości domyślnej
 
@@ -118,7 +118,7 @@ Poniższa tabela zawiera kontrolowane właściwości usługi Defender dla agent�
 Wartości domyślne są dostępne w odpowiednim schemacie w serwisie [GitHub](https\://aka.ms/iot-security-module-default).
 
 | Nazwa| Stan | Prawidłowe wartości| Wartości domyślne| Opis |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Wymagane: FAŁSZ |Prawidłowe wartości: czas trwania w formacie ISO 8601 |Wartość domyślna: PT7M |Maksymalny przedział czasu przed wysłaniem komunikatów o wysokim priorytecie.|
 |lowPriorityMessageFrequency |Wymagane: FAŁSZ|Prawidłowe wartości: czas trwania w formacie ISO 8601 |Wartość domyślna: PT5H |Maksymalny czas przed wysłaniem komunikatów o niskim priorytecie.|
 |snapshotFrequency |Wymagaj: false|Prawidłowe wartości: czas trwania w formacie ISO 8601 |Wartość domyślna PT13H |Interwał tworzenia migawek stanu urządzenia.|
@@ -129,7 +129,7 @@ Wartości domyślne są dostępne w odpowiednim schemacie w serwisie [GitHub](ht
 ### <a name="supported-security-events"></a>Obsługiwane zdarzenia zabezpieczeń
 
 |Nazwa zdarzenia| PropertyName | Wartość domyślna| Zdarzenie migawki| Szczegóły stanu  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Zdarzenie diagnostyczne|eventPriorityDiagnostic| Wyłączone| Fałsz| Zdarzenia diagnostyczne powiązane z agentem. To zdarzenie służy do pełnego rejestrowania.|
 |Błąd konfiguracji |eventPriorityConfigurationError |Niski |Fałsz |Agent nie może przeanalizować konfiguracji. Sprawdź konfigurację względem schematu.|
 |Dane statystyczne dotyczące porzuconego zdarzenia |eventPriorityDroppedEventsStatistics |Niski |Prawda|Statystyki zdarzeń związanych z agentem. |

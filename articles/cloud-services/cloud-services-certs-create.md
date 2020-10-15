@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142370"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072428"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Omówienie certyfikatów usług Azure Cloud Services)
 Certyfikaty są używane na platformie Azure na potrzeby usług Cloud Services ([certyfikaty usługi](#what-are-service-certificates)) oraz do uwierzytelniania za pomocą interfejsu API zarządzania ([certyfikaty zarządzania](#what-are-management-certificates)). Ten temat zawiera ogólne omówienie obu typów certyfikatów, jak [tworzyć](#create) i wdrażać je na platformie Azure.
@@ -65,7 +65,7 @@ Istnieją dwa proste metody tworzenia certyfikatu w systemie Windows przy użyci
 ### <a name="makecertexe"></a>Makecert.exe
 To narzędzie jest przestarzałe i nie jest już udokumentowane w tym miejscu. Aby uzyskać więcej informacji, zobacz [ten artykuł w witrynie MSDN](/windows/desktop/SecCrypto/makecert).
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 2048 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
@@ -76,7 +76,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > Jeśli chcesz użyć certyfikatu z adresem IP zamiast z domeny, użyj adresu IP w parametrze-DnsName.
 
 
-Jeśli chcesz użyć tego [certyfikatu w portalu zarządzania](../azure-api-management-certs.md), wyeksportuj go do pliku **. cer** :
+Jeśli chcesz użyć tego [certyfikatu w portalu zarządzania](/previous-versions/azure/azure-api-management-certs), wyeksportuj go do pliku **. cer** :
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -91,8 +91,4 @@ W [tym](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-
 ## <a name="next-steps"></a>Następne kroki
 [Przekaż certyfikat usługi do Azure Portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Przekaż [certyfikat interfejsu API zarządzania](../azure-api-management-certs.md) do Azure Portal.
-
-
-
-
+Przekaż [certyfikat interfejsu API zarządzania](/previous-versions/azure/azure-api-management-certs) do Azure Portal.

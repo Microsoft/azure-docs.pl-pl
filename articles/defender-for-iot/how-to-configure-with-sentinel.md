@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 71147352c5b75195ed0dff2b05acc5315f3183cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f65d0e7f9c380f77fe4189d26fdeafd426295b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940058"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090798"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Łączenie danych z usługi Defender for IoT z platformą Azure (wersja zapoznawcza)
 
-W publicznej wersji zapoznawczej Azure Security Center łącznika danych IoT na platformie Azure. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+Łącznik danych usługi Azure Defender for IoT na platformie Azure jest obecnie w publicznej wersji zapoznawczej. Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 W tym przewodniku dowiesz się, jak połączyć usługę Defender for IoT z danymi na platformie Azure.
 
@@ -32,6 +32,8 @@ W tym przewodniku dowiesz się, jak połączyć usługę Defender for IoT z dany
 
 Łączenie alertów z usługi Defender for IoT i przesyłanie strumieniowe ich bezpośrednio do platformy Azure — wskaźnik produkcji.
 
+Dzięki ściślejszej integracji usługi Azure Defender for IoT z platformą Azure, pierwszą SIEM natywną w chmurze i pierwszą SIEMą z natywnymi usługami IoT i z zabezpieczeniami, firma Microsoft zapewnia prostsze podejście do ujednoliconych zabezpieczeń w sieciach IT i branżowych. W połączeniu z uczeniem maszynowym platformy Azure ta Integracja pozwala organizacjom szybko wykrywać ataki potokach wieloetapowych, które często przekraczają te i niegranicę. Ponadto usługa Azure Defender dla integracji IoT z funkcjami aranżacji, automatyzacji i reagowania (o) na platformie Azure — umożliwia automatyczne reagowanie i zapobieganie przy użyciu wbudowanych niezoptymalizowanych elementy PlayBook. 
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Użytkownik musi mieć uprawnienia do **odczytu** i **zapisu** obszaru roboczego.
@@ -39,8 +41,6 @@ W tym przewodniku dowiesz się, jak połączyć usługę Defender for IoT z dany
 - Musisz mieć uprawnienia do **odczytu** i **zapisu** na **platformie Azure IoT Hub** , które chcesz połączyć.
 - Musisz mieć również uprawnienia do **odczytu** i **zapisu** w **grupie zasobów usługi Azure IoT Hub**.
 
-> [!NOTE]
-> Aby można było wysyłać ogólne alerty zasobów platformy Azure, w ramach subskrypcji musi być uruchomiona Azure Security Center licencjonowania warstwy standardowej. Dzięki licencjonowaniu w warstwie Bezpłatna wymaganej w usłudze Defender for IoT tylko usługi Defender dla alertów związanych z usługą IoT będą przekazywane do Komisji wskaźnikowej platformy Azure.
 
 ## <a name="connect-to-defender-for-iot"></a>Nawiązywanie połączenia z usługą Defender for IoT
 
@@ -53,7 +53,7 @@ W tym przewodniku dowiesz się, jak połączyć usługę Defender for IoT z dany
 > [!NOTE]
 >Odświeżenie listy centrów po wprowadzeniu zmian połączenia może zająć 10 sekund lub dłużej.
 
-## <a name="log-analytics-alert-display"></a>Wyświetlanie alertów Log Analytics
+## <a name="using-log-analytics-for-alert-display"></a>Używanie Log Analytics do wyświetlania alertów
 
 Aby użyć odpowiedniego schematu w Log Analytics, aby wyświetlić alerty usługi Defender for IoT:
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c2e0f7736aa5d6779e4ed7cb3824f6606c121565
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973363"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073142"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Szybki Start: Tworzenie i modyfikowanie obwodu ExpressRoute
 
@@ -172,7 +172,7 @@ Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Obwód ExpressRoute można usunąć, wybierając ikonę **Usuń** . 
+Obwód ExpressRoute można usunąć, wybierając ikonę **Usuń** . Przed kontynuowaniem upewnij się, że stan dostawcy *nie jest zainicjowany* .
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)":::
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709091"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091206"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 
@@ -343,7 +343,7 @@ Po upływie &nbsp; &nbsp; dłuższego &nbsp; &nbsp; czasu| Użyj `experiment_tim
 
 Możesz wyświetlić wyniki szkolenia w widżecie lub inline, jeśli jesteś w notesie. Aby uzyskać więcej informacji [, zobacz Śledzenie i szacowanie modeli](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) .
 
-Zobacz [Opis zautomatyzowanych wyników uczenia maszynowego](how-to-understand-automated-ml.md) na potrzeby definicji i przykładów wykresów wydajności i metryk podanych dla każdego przebiegu. 
+Zobacz [ocenę zautomatyzowanych wyników eksperymentu w usłudze Machine Learning](how-to-understand-automated-ml.md) na potrzeby definicji i przykładów wykresów wydajności i metryk podanych dla każdego przebiegu. 
 
 Aby uzyskać podsumowanie cechowania i zrozumieć, jakie funkcje zostały dodane do określonego modelu, zobacz [cechowania przezroczystość](how-to-configure-auto-features.md#featurization-transparency). 
 

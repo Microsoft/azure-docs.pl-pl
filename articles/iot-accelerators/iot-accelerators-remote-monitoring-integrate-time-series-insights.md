@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b6219c82dc23deb467e87a6866839b8eace8b5d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536610"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072649"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrowanie usługi Azure Time Series Insights za pomocą zdalnego monitorowania
 
@@ -68,7 +68,7 @@ Następnie wdróż Time Series Insights jako dodatkowy zasób w rozwiązaniu do 
 
     ![Tworzenie usługi Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Kliknij przycisk **Utwórz**. Utworzenie środowiska może chwilę potrwać.
+1. Kliknij pozycję **Utwórz**. Utworzenie środowiska może chwilę potrwać.
 
 ## <a name="create-event-source"></a>Tworzenie źródła zdarzeń
 
@@ -101,7 +101,7 @@ Utwórz nowe źródło zdarzenia w celu nawiązania połączenia z usługą IoT 
 
     ![Utwórz źródło zdarzenia](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="configure-the-data-access-policy"></a>Konfigurowanie zasad dostępu do danych
 
@@ -126,7 +126,7 @@ Aby mieć pewność, że wszyscy użytkownicy, którzy mają dostęp do rozwiąz
 1. Wybierz pozycję **Zapisz**, aby utworzyć przypisanie roli. Po kilku chwilach podmiot zabezpieczeń ma przypisaną rolę w zasadach dostępu do danych.
 
 > [!NOTE]
-> Jeśli musisz udzielić dodatkowych użytkownikom dostępu do Eksploratora Time Series Insights, możesz wykonać te kroki, aby [udzielić dostępu do danych](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> Jeśli musisz udzielić dodatkowych użytkownikom dostępu do Eksploratora Time Series Insights, możesz wykonać te kroki, aby [udzielić dostępu do danych](../time-series-insights/concepts-access-policies.md#grant-data-access).
 
 ## <a name="configure-azure-stream-analytics"></a>Konfigurowanie Azure Stream Analytics 
 
@@ -217,7 +217,7 @@ Skonfiguruj środowisko `basic` wdrożenia zaktualizowanych mikrousług.
 
 1. Pobierz [najnowszy plik YAML platformy Docker](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) z repozytorium GitHub przy użyciu najnowszego tagu. 
 
-1. Aby włączyć protokół SSH do maszyny wirtualnej, wykonaj kroki opisane w sekcji [jak utworzyć klucze SSH i korzystać](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)z nich.
+1. Aby włączyć protokół SSH do maszyny wirtualnej, wykonaj kroki opisane w sekcji [jak utworzyć klucze SSH i korzystać](../virtual-machines/linux/ssh-from-windows.md)z nich.
 
 1. Po nawiązaniu połączenia wpisz polecenie `cd /app` .
 
@@ -300,4 +300,4 @@ Skonfiguruj środowisko `standard` wdrożenia dla zaktualizowanych Micro usług 
 
 * Aby dowiedzieć się, jak eksplorować dane i zdiagnozować alert w Eksploratorze Time Series Insights, zobacz nasz samouczek dotyczący [przeprowadzania analizy głównej przyczyny](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* Aby dowiedzieć się, jak eksplorować i badać dane w Eksploratorze Time Series Insights, zapoznaj się z dokumentacją w [eksploratorze Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* Aby dowiedzieć się, jak eksplorować i badać dane w Eksploratorze Time Series Insights, zapoznaj się z dokumentacją w [eksploratorze Azure Time Series Insights](../time-series-insights/time-series-insights-explorer.md).

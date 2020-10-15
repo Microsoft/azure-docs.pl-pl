@@ -3,18 +3,18 @@ title: Jak utworzyć wdrożenia aktualizacji dla Azure Automation Update Managem
 description: W tym artykule opisano sposób planowania wdrożeń aktualizacji i przeglądania ich stanu.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5f7d86ff668a151bdf83908c3199d01a0a53246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294720"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073754"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Jak wdrażać aktualizacje i przeglądać wyniki
 
-W tym artykule opisano sposób planowania wdrożenia aktualizacji i przeglądania procesu po zakończeniu wdrażania. Wdrożenie aktualizacji można skonfigurować z wybranej maszyny wirtualnej platformy Azure, z wybranego serwera z obsługą łuku lub z konta usługi Automation we wszystkich skonfigurowanych maszynach i serwerach. 
+W tym artykule opisano sposób planowania wdrożenia aktualizacji i przeglądania procesu po zakończeniu wdrażania. Wdrożenie aktualizacji można skonfigurować z wybranej maszyny wirtualnej platformy Azure, z wybranego serwera z obsługą łuku lub z konta usługi Automation we wszystkich skonfigurowanych maszynach i serwerach.
 
 W każdym scenariuszu tworzone jest wdrożenie, które zostało wybrane dla wybranego komputera lub serwera, lub w przypadku tworzenia wdrożenia z konta usługi Automation można wybrać co najmniej jedną maszynę. Po zaplanowaniu wdrożenia aktualizacji z poziomu maszyny wirtualnej platformy Azure lub serwera z włączonym łukiem, kroki są takie same jak w przypadku wdrażania z konta usługi Automation z następującymi wyjątkami:
 
@@ -59,7 +59,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. Komputer jest automatycznie kierowany do zaplanowanego wdrożenia.
 
-6. W obszarze **maszyny do zaktualizowania** Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. Po wybraniu tej opcji można zobaczyć gotowość Log Analytics agenta dla każdej maszyny. Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../../azure-monitor/platform/computer-groups.md).
+6. W obszarze **maszyny do zaktualizowania** Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. Po wybraniu tej opcji można zobaczyć gotowość Log Analytics agenta dla każdej maszyny. Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../../azure-monitor/platform/computer-groups.md). W zaplanowanym wdrożeniu aktualizacji można uwzględnić maksymalnie 500 maszyn.
 
     > [!NOTE]
     > Ta opcja jest niedostępna w przypadku wybrania maszyny wirtualnej lub serwera z włączonym Łukem platformy Azure. Komputer jest automatycznie kierowany do zaplanowanego wdrożenia.
@@ -89,7 +89,7 @@ Aby zaplanować nowe wdrożenie aktualizacji, wykonaj następujące czynności. 
 
     * Okna obsługi kontrolują liczbę zainstalowanych aktualizacji.
     * Update Management nie zatrzymuje instalowania nowych aktualizacji, jeśli zbliża się koniec okna obsługi.
-    * W przypadku przekroczenia okna obsługi Update Management nie przerywa aktualizacji w toku.
+    * W przypadku przekroczenia okna obsługi Update Management nie przerywa aktualizacji w toku. Wszystkie pozostałe aktualizacje do zainstalowania nie są podejmowane. W takim przypadku należy przeprowadzić ponowną ocenę czasu trwania okna obsługi.
     * W przypadku przekroczenia okna obsługi w systemie Windows często trwa Instalowanie aktualizacji dodatku Service Pack.
 
     > [!NOTE]
