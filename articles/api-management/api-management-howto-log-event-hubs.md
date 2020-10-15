@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903396"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072411"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak rejestrować zdarzenia w usłudze Azure Event Hubs na platformie Azure API Management
 Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Event Hubs działa jako "drzwi tylne" dla potoku zdarzeń, a po zebraniu danych do centrum zdarzeń można je przekształcać i przechowywać za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub kart wsadowych/magazynowych. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
@@ -32,7 +32,7 @@ Aby uzyskać szczegółowe instrukcje dotyczące sposobu tworzenia centrum zdarz
 ## <a name="create-an-api-management-logger"></a>Tworzenie rejestratora API Management
 Teraz, gdy masz centrum zdarzeń, następnym krokiem jest skonfigurowanie [rejestratora](/rest/api/apimanagement/2019-12-01/logger) w usłudze API Management, dzięki czemu może on rejestrować zdarzenia w centrum zdarzeń.
 
-Rejestratory API Management są konfigurowane przy użyciu [interfejsu API REST API Management](https://aka.ms/apimapi). Szczegółowe przykłady żądań można znaleźć w temacie [How to Create rejestrators](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+Rejestratory API Management są konfigurowane przy użyciu [interfejsu API REST API Management](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Szczegółowe przykłady żądań można znaleźć w temacie [How to Create rejestrators](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhub-policies"></a>Konfigurowanie zasad rejestrowania w usłudze eventhub
 

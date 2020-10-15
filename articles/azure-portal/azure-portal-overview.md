@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763928"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072394"
 ---
 # <a name="azure-portal-overview"></a>Azure Portal — omówienie
 
@@ -54,7 +54,7 @@ Pulpity nawigacyjne zapewniają skoncentrowany widok zasobów w ramach subskrypc
 
 ## <a name="getting-around-the-portal"></a>Więcej informacji na temat portalu
 
-Pomocne jest zrozumienie podstawowego układu portalu i sposobu korzystania z niego. W tym miejscu wprowadzimy składniki interfejsu użytkownika i część terminologii, której używamy w celu uzyskania instrukcji. Aby zapoznać się z bardziej szczegółowym przewodnikiem dotyczącym portalu, zobacz Lekcja kursu [nawigowanie po portalu](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+Pomocne jest zrozumienie podstawowego układu portalu i sposobu korzystania z niego. W tym miejscu wprowadzimy składniki interfejsu użytkownika i część terminologii, której używamy w celu uzyskania instrukcji. Aby zapoznać się z bardziej szczegółowym przewodnikiem dotyczącym portalu, zobacz Lekcja kursu [nawigowanie po portalu](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
 Menu Azure Portal i nagłówek strony to globalne elementy, które zawsze są obecne. Te funkcje trwałe są "powłoką" dla interfejsu użytkownika skojarzonego z każdą pojedynczą usługą lub funkcją, a nagłówek zapewnia dostęp do kontrolek globalnych. Strona konfiguracji (czasami określana jako "blok") dla zasobu może również mieć menu zasobów ułatwiające przechodzenie między funkcjami.
 

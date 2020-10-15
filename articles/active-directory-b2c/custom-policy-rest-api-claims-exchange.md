@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e22a6028f5b7fa8cf81ddf0e3e2a550859aad0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259598"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089574"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Przewodnik: Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych w Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Konfigurowanie profilu technicznego interfejsu API RESTful 
+## <a name="add-the-restful-api-technical-profile"></a>Dodaj profil techniczny interfejsu API RESTful 
 
 [Profil techniczny RESTful](restful-technical-profile.md) zapewnia pomoc techniczną dla usługi RESTful. Azure AD B2C wysyła dane do usługi RESTful w `InputClaims` kolekcji i odbiera dane z powrotem w `OutputClaims` kolekcji. Znajdź element **ClaimsProviders** w <em>**`TrustFrameworkExtensions.xml`**</em> pliku i Dodaj nowego dostawcę oświadczeń w następujący sposób:
 
@@ -87,6 +87,7 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
       <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -107,9 +108,20 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-```
+``` 
 
 W tym przykładzie `userLanguage` zostanie on wysłany do usługi REST, jak `lang` w ramach ładunku JSON. Wartość tego `userLanguage` żądania zawiera identyfikator języka bieżącego użytkownika. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie konfliktów](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Konfigurowanie profilu technicznego interfejsu API RESTful 
+
+Po wdrożeniu interfejsu API REST Ustaw metadane `REST-ValidateProfile` profilu technicznego w celu odzwierciedlenia własnego interfejsu API REST, w tym:
+
+- **ServiceUrl**. Ustaw adres URL punktu końcowego interfejsu API REST.
+- **SendClaimsIn**. Określ, w jaki sposób oświadczenia wejściowe są wysyłane do dostawcy oświadczeń RESTful.
+- **AuthenticationType**. Ustaw typ uwierzytelniania wykonywanego przez dostawcę oświadczeń RESTful. 
+- **AllowInsecureAuthInProduction**. Upewnij się, że w środowisku produkcyjnym ustawiono następujące metadane `true`
+    
+Więcej konfiguracji można znaleźć w temacie [metadane profilu technicznego RESTful](restful-technical-profile.md#metadata) .
 
 Powyższe Komentarze `AuthenticationType` i `AllowInsecureAuthInProduction` określają zmiany, które należy wykonać po przejściu do środowiska produkcyjnego. Aby dowiedzieć się, jak zabezpieczyć interfejsy API usługi RESTful w środowisku produkcyjnym, zobacz [Secure RESTful API](secure-rest-api.md).
 

@@ -1,6 +1,10 @@
 ### YamlMime:Landing
 title: Usługa Azure Active Directory dla deweloperów
-summary: Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmurze, która umożliwia deweloperom tworzenie aplikacji zapewniających bezpieczne logowanie użytkowników mających konta służbowe Microsoft. Usługa Azure AD obsługuje zarówno deweloperów tworzących aplikacje biznesowe dla pojedynczej dzierżawy, jak i deweloperów chcących tworzyć aplikacje wielodostępne. Platforma tożsamości firmy Microsoft jest ewolucją platformy deweloperskiej Azure Active Directory (Azure AD). W przypadku nowych aplikacji zalecamy korzystanie z platformy tożsamości Microsoft (wersja 2.0) i biblioteki MSAL w celu uzyskiwania tokenów i dostępu do zabezpieczonych internetowych interfejsów API.
+summary: >
+  Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmurze, która umożliwia deweloperom tworzenie aplikacji z możliwością logowania użytkowników mających konta służbowe Microsoft. Usługa Azure AD obsługuje tworzenie aplikacji biznesowych zarówno z pojedynczą dzierżawą, jak i z wieloma dzierżawami.
+
+
+  WAŻNE: Ta zawartość dotyczy starszego punktu końcowego usługi Azure AD 1.0. W przypadku nowych projektów należy użyć platformy tożsamości firmy Microsoft.
 metadata:
   ms.topic: landing-page
   ms.date: 01/27/2020
@@ -9,12 +13,13 @@ metadata:
   ms.service: active-directory
   ms.subservice: azuread-dev
   ms.workload: identity
-  ms.openlocfilehash: 113a28ca5b4152ca8beedc7bdc3f1027c5acdf17
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ROBOTS: NOINDEX
+  ms.openlocfilehash: 9089b944402c31135b32b3304ecf7cf69d86ad93
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88116074"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92055124"
 landingContent:
 - title: Usługa Azure Active Directory dla deweloperów
   linkLists:
@@ -22,33 +27,19 @@ landingContent:
     links:
     - text: Usługa Azure Active Directory dla deweloperów (wersja 1.0)
       url: v1-overview.md
-    - text: Ewolucja platformy tożsamości firmy Microsoft
-      url: ./about-microsoft-identity-platform.md
-    - text: Platforma tożsamości firmy Microsoft (wersja 2.0)
-      url: ../develop/v2-overview.md
-  - linkListType: concept
-    links:
-    - text: Dlaczego warto wykonać aktualizację do platformy tożsamości Microsoft (wersja 2.0)?
-      url: azure-ad-endpoint-comparison.md
-    - text: Typy aplikacji i scenariusze
-      url: app-types.md
-- title: Protokoły uwierzytelniania
+- title: Porównanie platform
   linkLists:
   - linkListType: overview
     links:
-    - text: Podstawowe informacje o uwierzytelnianiu
-      url: v1-authentication-scenarios.md
-  - linkListType: concept
-    links:
-    - text: Przepływ kodu autoryzacji OAuth 2.0
-      url: v1-protocols-oauth-code.md
-    - text: Przepływ kodu dla protokołu OpenID Connect
-      url: v1-protocols-openid-connect-code.md
-    - text: Przepływ przyznawania poświadczeń klienta uwierzytelniania OAuth 2.0
-      url: v1-oauth2-client-creds-grant-flow.md
-- title: Samples
+    - text: Ewolucja platformy tożsamości firmy Microsoft
+      url: about-microsoft-identity-platform.md
+    - text: Dlaczego warto przeprowadzić aktualizację do wersji 2.0?
+      url: azure-ad-endpoint-comparison.md
+- title: Platforma tożsamości firmy Microsoft
   linkLists:
-  - linkListType: download
+  - linkListType: overview
     links:
-    - text: Przykładowe aplikacje
-      url: sample-v1-code.md
+    - text: Co to jest platforma tożsamości firmy Microsoft?
+      url: ../develop/v2-overview.md
+    - text: Migrowanie aplikacji z biblioteki ADAL do biblioteki MSAL
+      url: ../develop/msal-migration.md
