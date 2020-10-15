@@ -5,16 +5,16 @@ services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 04bbab477f20ec25ccb0e975dad2b30a511346d2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc7bcc3ee5de7ba72885462a410da718387825fa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667762"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088894"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
@@ -27,8 +27,8 @@ W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi
 
     |Tab|Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|---|
-    |Informacje podstawowe|**Nazwa obszaru roboczego**|Możesz nadać mu nazwę.| W tym dokumencie będziemy używać funkcji My **Workspace**.|
-    |Informacje podstawowe|**Region**|Dopasuj region konta magazynu.|
+    |Podstawy|**Nazwa obszaru roboczego**|Możesz nadać mu nazwę.| W tym dokumencie będziemy używać funkcji My **Workspace**.|
+    |Podstawy|**Region**|Dopasuj region konta magazynu.|
 
 1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2. Najprostszą opcją jest utworzenie nowej. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
 1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 

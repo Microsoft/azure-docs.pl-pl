@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945774"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088758"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
 
@@ -26,7 +26,7 @@ Certyfikaty szyfrują ruch internetowy. Te certyfikaty TLS/SSL mogą być przech
 * Aplikacja wdrożona w chmurze Azure wiosennej (zobacz [Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart.md)lub użycie istniejącej aplikacji).
 * Nazwa domeny z dostępem do rejestru DNS dla dostawcy domeny, na przykład GoDaddy.
 * Certyfikat prywatny (czyli certyfikat z podpisem własnym) od innego dostawcy. Certyfikat musi być zgodny z domeną.
-* Wdrożone wystąpienie [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* Wdrożone wystąpienie [Azure Key Vault](../key-vault/general/overview.md)
 
 ## <a name="import-certificate"></a>Importowanie certyfikatu
 ### <a name="prepare-your-certificate-file-in-pfx-optional"></a>Przygotowywanie pliku certyfikatu w PFX (opcjonalnie)
@@ -195,7 +195,7 @@ az spring-cloud app custom-domain list --app <app name> --resource-group <resour
 #### <a name="portal"></a>[Portal](#tab/Azure-portal)
 W tabeli domena niestandardowa wybierz pozycję **Dodaj powiązanie SSL** , jak pokazano na poprzedniej ilustracji.  
 1. Wybierz **certyfikat** lub zaimportuj go.
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
     ![Dodawanie powiązania SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
@@ -223,8 +223,7 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 ---
 Po zakończeniu operacji przejdź do dowolnego adresu URL HTTPS, który wskazuje aplikację. Należy zauważyć, że adresy URL protokołu HTTP nie działają.
 
-## <a name="see-also"></a>Zobacz też
-* [Co to jest usługa Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Importowanie certyfikatu](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Uruchamianie aplikacji w chmurze wiosny przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
-
+## <a name="see-also"></a>Zobacz także
+* [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
+* [Importowanie certyfikatu](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+* [Uruchamianie aplikacji w chmurze wiosny przy użyciu interfejsu wiersza polecenia platformy Azure](./spring-cloud-quickstart.md)

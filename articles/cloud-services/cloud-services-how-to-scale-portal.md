@@ -7,21 +7,21 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86223690"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076678"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować Skalowanie automatyczne dla usługi w chmurze w portalu
 
 Warunki można ustawić dla roli proces roboczy usługi w chmurze, która wyzwala operację skalowania w poziomie lub out. Warunki roli mogą opierać się na PROCESORAch, dyskach lub obciążeniach sieciowych roli. Możesz również ustawić warunek na podstawie kolejki komunikatów lub metryki innego zasobu platformy Azure skojarzonego z subskrypcją.
 
 > [!NOTE]
-> Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](../virtual-machines/windows/classic/configure-availability-classic.md) i ręcznie ją włączać lub wyłączać.
+> Ten artykuł koncentruje się na rolach sieci Web i procesu roboczego usługi w chmurze. Gdy tworzysz maszynę wirtualną (klasyczną) bezpośrednio, jest ona hostowana w usłudze w chmurze. Można skalować standardową maszynę wirtualną, kojarząc ją z [zestawem dostępności](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) i ręcznie ją włączać lub wyłączać.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 Przed skonfigurowaniem skalowania aplikacji należy wziąć pod uwagę następujące informacje:
 
 * Na skalowanie ma wpływ podstawowe użycie.
@@ -105,6 +105,3 @@ To ustawienie powoduje usunięcie automatycznego skalowania z roli, a następnie
 3. Wystąpienia roli do skalowania.
 
 Po skonfigurowaniu ustawień skalowania wybierz ikonę **Zapisz** u góry.
-
-
-

@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142387"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076695"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Jak utworzyć i wdrożyć usługę w chmurze
 Azure Portal zapewnia dwa sposoby tworzenia i wdrażania usługi w chmurze: *szybkie tworzenie* i *Tworzenie niestandardowe*.
@@ -48,7 +48,7 @@ Trzy funkcje usługi w chmurze wymagają specjalnych konfiguracji przed wyekspor
 
 Aby utworzyć usługę w chmurze z wdrożeniami ról sieci Web lub procesów roboczych, należy [utworzyć pakiet usługi](cloud-services-model-and-package.md#servicepackagecspkg).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 * Jeśli nie zainstalowano zestawu Azure SDK, kliknij pozycję **Zainstaluj zestaw Azure SDK** , aby otworzyć [stronę pliki do pobrania platformy Azure](https://azure.microsoft.com/downloads/), a następnie Pobierz zestaw SDK dla języka, w którym wolisz opracowywać swój kod. (Możesz to zrobić później).
 * Jeśli jakieś wystąpienia roli wymagają certyfikatu, należy utworzyć certyfikaty. Usługi w chmurze wymagają pliku PFX z kluczem prywatnym. Certyfikaty można przesłać na platformę Azure podczas tworzenia i wdrażania usługi w chmurze.
 
@@ -84,13 +84,10 @@ Jeśli pakiet wdrożeniowy został [skonfigurowany do korzystania z certyfikató
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## <a name="next-steps"></a>Następne kroki
 * [Ogólna konfiguracja usługi w chmurze](cloud-services-how-to-configure-portal.md).
 * Skonfiguruj [niestandardową nazwę domeny](cloud-services-custom-domain-name-portal.md).
 * [Zarządzanie usługą w chmurze](cloud-services-how-to-manage-portal.md).
 * Skonfiguruj [Certyfikaty TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

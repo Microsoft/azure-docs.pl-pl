@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715444"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074961"
 ---
 # <a name="azure-app-configuration-faq"></a>Konfiguracja aplikacji platformy Azure — często zadawane pytania
 
@@ -45,11 +45,11 @@ Tak. Konfiguracja aplikacji szyfruje wszystkie przechowywane wartości klucza i 
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Gdzie znajdują się dane przechowywane w konfiguracji aplikacji? 
 
-Dane klienta przechowywane w konfiguracji aplikacji znajdują się w regionie, w którym utworzono magazyn konfiguracji aplikacji klienta. Konfiguracja aplikacji może replikować dane do [sparowanych regionów](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) pod kątem odporności danych, ale nie replikuje ani nie przenosi danych klienta poza ich geograficzną, zgodnie z definicją [zamieszkania danych na platformie Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Klienci i użytkownicy końcowi mogą w całości przenosić, kopiować lub uzyskiwać dostęp do danych klienta z lokalizacji.
+Dane klienta przechowywane w konfiguracji aplikacji znajdują się w regionie, w którym utworzono magazyn konfiguracji aplikacji klienta. Konfiguracja aplikacji może replikować dane do [sparowanych regionów](../best-practices-availability-paired-regions.md) pod kątem odporności danych, ale nie replikuje ani nie przenosi danych klienta poza ich geograficzną, zgodnie z definicją [zamieszkania danych na platformie Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Klienci i użytkownicy końcowi mogą w całości przenosić, kopiować lub uzyskiwać dostęp do danych klienta z lokalizacji.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Czym różni się konfiguracja aplikacji od ustawień Azure App Service?
 
-Azure App Service umożliwia zdefiniowanie ustawień aplikacji dla każdego wystąpienia App Service. Te ustawienia są przesyłane jako zmienne środowiskowe do kodu aplikacji. Jeśli chcesz, możesz skojarzyć ustawienie z określonym miejscem wdrożenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień aplikacji](/azure/app-service/configure-common#configure-app-settings).
+Azure App Service umożliwia zdefiniowanie ustawień aplikacji dla każdego wystąpienia App Service. Te ustawienia są przesyłane jako zmienne środowiskowe do kodu aplikacji. Jeśli chcesz, możesz skojarzyć ustawienie z określonym miejscem wdrożenia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień aplikacji](../app-service/configure-common.md#configure-app-settings).
 
 W przeciwieństwie do konfiguracji aplikacji platformy Azure można definiować ustawienia, które mogą być współużytkowane przez wiele aplikacji. Obejmuje to aplikacje działające w App Service, a także inne platformy. Kod aplikacji uzyskuje dostęp do tych ustawień za pośrednictwem dostawców konfiguracji dla platform .NET i Java, za pomocą zestawu Azure SDK lub bezpośrednio za pośrednictwem interfejsów API REST.
 
