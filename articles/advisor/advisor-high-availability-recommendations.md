@@ -3,12 +3,12 @@ title: Zwiększ niezawodność aplikacji za pomocą usługi Advisor
 description: Użyj Azure Advisor, aby zapewnić i poprawić niezawodność wdrożeń na platformie Azure o kluczowym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405194"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078038"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Zwiększ niezawodność aplikacji przy użyciu Azure Advisor
 
@@ -44,7 +44,7 @@ Jeśli profil Traffic Manager jest skonfigurowany pod kątem routingu geograficz
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Użyj nietrwałego usunięcia na koncie usługi Azure Storage, aby zapisać i odzyskać dane po przypadkowym zastąpieniu lub usunięciu
 
-Włącz [usuwanie nietrwałe](../storage/blobs/soft-delete-overview.md) na koncie magazynu, aby usunięte obiekty blob przechodzą do stanu nietrwałego usunięcia. Gdy dane są zastępowane, generowana jest migawka usuwania nietrwałego w celu zapisania stanu zastąpionych danych. Użycie funkcji usuwania nietrwałego umożliwia odzyskiwanie po przypadkowym usunięciu lub zastępowaniem. Usługa Advisor identyfikuje konta usługi Azure Storage, dla których nie włączono usuwania nietrwałego i sugeruje włączenie go.
+Włącz [usuwanie nietrwałe](../storage/blobs/soft-delete-blob-overview.md) na koncie magazynu, aby usunięte obiekty blob przechodzą do stanu nietrwałego usunięcia. Gdy dane są zastępowane, generowana jest migawka usuwania nietrwałego w celu zapisania stanu zastąpionych danych. Użycie funkcji usuwania nietrwałego umożliwia odzyskiwanie po przypadkowym usunięciu lub zastępowaniem. Usługa Advisor identyfikuje konta usługi Azure Storage, dla których nie włączono usuwania nietrwałego i sugeruje włączenie go.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Skonfiguruj bramę sieci VPN do usługi Active-Active na potrzeby odporności połączeń
 
@@ -80,23 +80,23 @@ Azure Advisor wykrywa reguły alertów dziennika, które mają nieprawidłowe za
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Skonfiguruj spójny tryb indeksowania w kolekcji Azure Cosmos DB
 
-Konfigurowanie kontenerów Azure Cosmos DB z trybem indeksowania z opóźnieniem może mieć wpływ na świeżość wyników zapytania. Klasyfikator wykrywa w ten sposób kontenery skonfigurowane w ten sposób i zaleca się przełączanie na tryb spójny. [Dowiedz się więcej na temat zasad indeksowania w Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Konfigurowanie kontenerów Azure Cosmos DB z trybem indeksowania z opóźnieniem może mieć wpływ na świeżość wyników zapytania. Klasyfikator wykrywa w ten sposób kontenery skonfigurowane w ten sposób i zaleca się przełączanie na tryb spójny. [Dowiedz się więcej na temat zasad indeksowania w Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Konfigurowanie kontenerów usługi Azure Cosmos DB przy użyciu klucza partycji
 
-Azure Advisor identyfikuje Azure Cosmos DB kolekcje niepartycjonowane, które zbliżają się do przydzielonego limitu przydziału magazynu. Zaleca się przeprowadzenie migracji tych kolekcji do nowych kolekcji z definicją klucza partycji, dzięki czemu mogą one być automatycznie skalowane przez usługę. [Dowiedz się więcej na temat wybierania klucza partycji.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identyfikuje Azure Cosmos DB kolekcje niepartycjonowane, które zbliżają się do przydzielonego limitu przydziału magazynu. Zaleca się przeprowadzenie migracji tych kolekcji do nowych kolekcji z definicją klucza partycji, dzięki czemu mogą one być automatycznie skalowane przez usługę. [Dowiedz się więcej na temat wybierania klucza partycji.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Uaktualnij zestaw SDK Azure Cosmos DB .NET do najnowszej wersji z narzędzia NuGet
 
-Azure Advisor identyfikuje konta Azure Cosmos DB, które używają starych wersji zestawu .NET SDK. Zaleca się przeprowadzenie uaktualnienia do najnowszej wersji z narzędzia NuGet w celu uzyskania najnowszych poprawek, ulepszeń wydajności i możliwości funkcji. [Dowiedz się więcej na temat Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identyfikuje konta Azure Cosmos DB, które używają starych wersji zestawu .NET SDK. Zaleca się przeprowadzenie uaktualnienia do najnowszej wersji z narzędzia NuGet w celu uzyskania najnowszych poprawek, ulepszeń wydajności i możliwości funkcji. [Dowiedz się więcej na temat Azure Cosmos DB .NET SDK.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uaktualnianie zestawu Java SDK dla usługi Azure Cosmos DB do najnowszej wersji z programu Maven
 
-Azure Advisor identyfikuje konta Azure Cosmos DB, które używają starych wersji zestawu Java SDK. Zaleca się przeprowadzenie uaktualnienia do najnowszej wersji z Maven w celu uzyskania najnowszych poprawek, ulepszeń wydajności i możliwości funkcji. [Dowiedz się więcej na temat Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identyfikuje konta Azure Cosmos DB, które używają starych wersji zestawu Java SDK. Zaleca się przeprowadzenie uaktualnienia do najnowszej wersji z Maven w celu uzyskania najnowszych poprawek, ulepszeń wydajności i możliwości funkcji. [Dowiedz się więcej na temat Azure Cosmos DB Java SDK.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uaktualnij łącznik Azure Cosmos DB Spark do najnowszej wersji z Maven
 
-Azure Advisor identyfikuje konta Azure Cosmos DB, które używają starych wersji łącznika Azure Cosmos DB Spark. Zaleca się przeprowadzenie uaktualnienia do najnowszej wersji z Maven w celu uzyskania najnowszych poprawek, ulepszeń wydajności i możliwości funkcji. [Dowiedz się więcej na temat łącznika Spark Azure Cosmos DB.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identyfikuje konta Azure Cosmos DB, które używają starych wersji łącznika Azure Cosmos DB Spark. Zaleca się przeprowadzenie uaktualnienia do najnowszej wersji z Maven w celu uzyskania najnowszych poprawek, ulepszeń wydajności i możliwości funkcji. [Dowiedz się więcej na temat łącznika Spark Azure Cosmos DB.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Rozważ przejście do Kafka 2,1 w usłudze HDInsight 4,0
 
@@ -110,10 +110,10 @@ Od 1 lipca 2020 nie będzie można tworzyć nowych klastrów Spark przy użyciu 
 Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie są odporne na awarie regionalne. Replikowanie maszyn wirtualnych zmniejsza niekorzystny wpływ na działalność biznesową w trakcie awarii regionu platformy Azure. Program Advisor wykrywa maszyny wirtualne, na których replikacja nie jest włączona i zaleca włączenie tej funkcji. Po włączeniu replikacji, jeśli wystąpi awaria, można szybko przenieść maszyny wirtualne do zdalnego regionu platformy Azure. [Dowiedz się więcej o replikacji maszyny wirtualnej.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Uaktualnianie do najnowszej wersji agenta usługi Azure Connected Machine
-[Agent maszyny połączonej z platformą Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) jest regularnie aktualizowany z poprawkami błędów, ulepszeniami stabilności i nowymi funkcjami. Zidentyfikowano zasoby, które nie działają w najnowszej wersji agenta maszynowego. zalecenie doradcy zasugeruje, aby uaktualnić agenta do najnowszej wersji w celu uzyskania najlepszego środowiska usługi Azure Arc.
+[Agent maszyny połączonej z platformą Azure](../azure-arc/servers/manage-agent.md) jest regularnie aktualizowany z poprawkami błędów, ulepszeniami stabilności i nowymi funkcjami. Zidentyfikowano zasoby, które nie działają w najnowszej wersji agenta maszynowego. zalecenie doradcy zasugeruje, aby uaktualnić agenta do najnowszej wersji w celu uzyskania najlepszego środowiska usługi Azure Arc.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Nie należy zastępować nazwy hosta w celu zapewnienia integralności witryny internetowej
-Doradca zaleca się uniknięcie przesłaniania nazwy hosta podczas konfigurowania Application Gateway. Posiadanie innej domeny na frontonie usługi Application Gateway niż ta, która jest używana do uzyskiwania dostępu do zaplecza, może potencjalnie prowadzić do uszkodzenia plików cookie lub przekierowań adresów URL. Należy pamiętać, że może to nie mieć miejsca we wszystkich sytuacjach i że niektóre kategorie zapleczy (np. interfejsy API REST) są na to mniej wrażliwe. Upewnij się, że zaplecze może to obsłużyć lub zaktualizuj konfigurację usługi Application Gateway, tak aby nazwa hosta nie wymagała zastąpienia pod kątem zaplecza. W przypadku używania z App Service dołączać niestandardową nazwę domeny do aplikacji sieci Web i unikać używania *nazwy hosta. azurewebsites.NET do zaplecza.* [Dowiedz się więcej o domenie niestandardowej](https://aka.ms/appgw-advisor-usecustomdomain).
+Doradca zaleca się uniknięcie przesłaniania nazwy hosta podczas konfigurowania Application Gateway. Posiadanie innej domeny na frontonie usługi Application Gateway niż ta, która jest używana do uzyskiwania dostępu do zaplecza, może potencjalnie prowadzić do uszkodzenia plików cookie lub przekierowań adresów URL. Należy pamiętać, że może to nie mieć miejsca we wszystkich sytuacjach i że niektóre kategorie zapleczy (np. interfejsy API REST) są na to mniej wrażliwe. Upewnij się, że zaplecze może to obsłużyć lub zaktualizuj konfigurację usługi Application Gateway, tak aby nazwa hosta nie wymagała zastąpienia pod kątem zaplecza. W przypadku używania z App Service dołączać niestandardową nazwę domeny do aplikacji sieci Web i unikać używania *nazwy hosta. azurewebsites.NET do zaplecza.* [Dowiedz się więcej o domenie niestandardowej](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Jak uzyskać dostęp do rekomendacji o wysokiej dostępności w usłudze Advisor
 

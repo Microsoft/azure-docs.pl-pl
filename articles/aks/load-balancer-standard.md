@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182126"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070507"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Używany jest **wewnętrzny (lub prywatny)** moduł równoważenia obciążenia,
 
 Ten dokument obejmuje integrację z publicznym modułem równoważenia obciążenia. Aby zapoznać się z wewnętrzną integracją Load Balancer, zobacz [dokumentację wewnętrznego modułu równoważenia obciążenia AKS](internal-lb.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Azure Load Balancer jest dostępny w dwóch jednostkach SKU — *podstawowa* i *standardowa*. Domyślnie *standardowa* jednostka SKU jest używana podczas tworzenia klastra AKS. Użyj *standardowej* jednostki SKU, aby mieć dostęp do dodatkowych funkcji, takich jak większa Pula zaplecza, [**wiele pul węzłów**](use-multiple-node-pools.md)i [**strefy dostępności**](availability-zones.md). Jest to zalecana Load Balancer jednostka SKU dla AKS.
 
@@ -322,7 +322,7 @@ Poniżej znajduje się lista adnotacji obsługiwanych przez usługi Kubernetes S
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` lub `false`                     | Określ, czy moduł równoważenia obciążenia powinien być wewnętrzny. Jest ona domyślnie publiczna, jeśli nie została ustawiona.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nazwa podsieci                    | Określ podsieć, z którą ma zostać powiązany wewnętrzny moduł równoważenia obciążenia. W przypadku, gdy nie ustawiono tego ustawienia, przyjrzyj się domyślnie do podsieci skonfigurowanej w pliku konfiguracji chmury.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nazwa etykiety DNS dla publicznych adresów IP   | Określ nazwę etykiety DNS dla usługi **publicznej** . Jeśli jest ustawiona na pusty ciąg, wpis DNS w publicznym adresie IP nie będzie używany.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` lub `false`                     | Określ, że usługa powinna być udostępniona przy użyciu reguły zabezpieczeń platformy Azure, która może być współużytkowana z inną usługą i specyfiką handlową reguł w celu zwiększenia liczby usług, które mogą być ujawnione. Ta adnotacja opiera się na funkcji [rozszerzone reguły zabezpieczeń](../virtual-network/security-overview.md#augmented-security-rules) platformy Azure w grupach zabezpieczeń sieci. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` lub `false`                     | Określ, że usługa powinna być udostępniona przy użyciu reguły zabezpieczeń platformy Azure, która może być współużytkowana z inną usługą i specyfiką handlową reguł w celu zwiększenia liczby usług, które mogą być ujawnione. Ta adnotacja opiera się na funkcji [rozszerzone reguły zabezpieczeń](../virtual-network/network-security-groups-overview.md#augmented-security-rules) platformy Azure w grupach zabezpieczeń sieci. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nazwa grupy zasobów            | Określ grupę zasobów publicznych adresów IP usługi równoważenia obciążenia, które nie znajdują się w tej samej grupie zasobów co infrastruktura klastra (Grupa zasobów węzła).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista dozwolonych tagów usługi          | Określ listę dozwolonych [tagów usługi][service-tags] oddzielonych przecinkami.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Limity czasu bezczynności protokołu TCP w minutach          | Określ czas (w minutach) limitów czasu bezczynności połączenia TCP, które mają być wykonywane w ramach modułu równoważenia obciążenia. Wartość domyślna i minimalna to 4. Wartość maksymalna to 30. Musi być liczbą całkowitą.
@@ -426,4 +426,4 @@ Dowiedz się więcej o używaniu wewnętrznego Load Balancer dla ruchu przychodz
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

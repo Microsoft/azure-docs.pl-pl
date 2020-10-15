@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86205842"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071306"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Automatyczne skalowanie wystąpienia usługi Azure API Management  
 
@@ -127,9 +127,9 @@ Wykonaj poniższe kroki, aby skonfigurować automatyczne skalowanie dla usługi 
 
     ![Reguła skalowania Azure Monitor](media/api-management-howto-autoscale/07.png)
 
-13. Kliknij przycisk **Zapisz**. Twoje Skalowanie automatyczne zostało skonfigurowane.
+13. Kliknij pozycję **Zapisz**. Twoje Skalowanie automatyczne zostało skonfigurowane.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach świadczenia usługi Azure](api-management-howto-deploy-multi-region.md)
-- [Optymalizowanie i oszczędzanie wydatków w chmurze](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optymalizowanie i oszczędzanie wydatków w chmurze](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
