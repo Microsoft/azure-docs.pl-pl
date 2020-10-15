@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445863"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078106"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami
 
@@ -84,6 +84,31 @@ Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z je
     > Dodanie nowego standardu do pulpitu nawigacyjnego zgodności może potrwać kilka godzin.
 
     [![Pulpit nawigacyjny zgodności z przepisami zawierający stare i nowe usługi Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
+
+
+## <a name="removing-a-standard-from-your-dashboard"></a>Usuwanie standardu z pulpitu nawigacyjnego
+
+Jeśli którekolwiek z podanych norm prawnych nie jest istotne dla Twojej organizacji, jest to prosty proces po prostu usuń je z interfejsu użytkownika. Pozwala to na dalsze dostosowanie pulpitu nawigacyjnego zgodności z przepisami i skoncentrowanie się wyłącznie na standardach, które mają zastosowanie.
+
+Aby usunąć standard:
+
+1. Z menu Security Center wybierz pozycję **zasady zabezpieczeń**.
+
+1. Wybierz odpowiednią subskrypcję, z której chcesz usunąć Standard.
+
+    > [!NOTE]
+    > Możesz usunąć Standard z subskrypcji, ale nie z grupy zarządzania. 
+
+    Zostanie otwarta strona zasady zabezpieczeń. W ramach wybranej subskrypcji są wyświetlane zasady domyślne, branżowe i zgodne ze standardami, a także wszelkie utworzone niestandardowe inicjatywy.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Usuwanie normy regulacyjnej z pulpitu nawigacyjnego zgodności z przepisami w Azure Security Center":::
+
+1. Dla standardu, który chcesz usunąć, wybierz pozycję **Wyłącz**. Zostanie wyświetlone okno potwierdzenia.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Usuwanie normy regulacyjnej z pulpitu nawigacyjnego zgodności z przepisami w Azure Security Center":::
+
+1. Wybierz pozycję **Tak**. Standard zostanie usunięty. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 

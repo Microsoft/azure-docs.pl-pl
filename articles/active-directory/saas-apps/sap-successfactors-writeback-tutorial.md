@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91286654"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069992"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
 Celem tego samouczka jest przedstawienie kroków związanych z zapisywaniem atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors Employee Central. 
@@ -324,13 +324,23 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij przycisk **Zapisz**.
+1. Wybierz **zakres**. Można wybrać jedną z następujących opcji: 
+   * **Synchronizuj wszystkich użytkowników i grupy**: Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty wszystkich użytkowników z usługi Azure AD do SuccessFactors, z zastrzeżeniem reguł określania zakresu zdefiniowanego w obszarze **mapowania**  ->  **obiektów źródłowych**. 
+   * **Synchronizuj tylko przypisanych użytkowników i grupy**: Wybierz tę opcję, jeśli planujesz napisać zamapowane atrybuty tylko dla użytkowników przypisanych do tej aplikacji w **Application**  ->  **Manage**  ->  opcji menu Zarządzanie**użytkownikami i grupami** aplikacji. Ci użytkownicy podlegają także regułom określania zakresu zdefiniowanym **Mappings**w obszarze  ->  **zakres obiektów źródłowych**mapowania.
 
-3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
+   > [!div class="mx-imgBorder"]
+   > ![Wybierz zakres zapisywania zwrotnego](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak użytkownicy odczytywani z centrum danych centralnych, a następnie dodawane lub aktualizowane do Active Directory. 
+   > [!NOTE]
+   > Aplikacja inicjowania obsługi SuccessFactors zapisywania zwrotnego nie obsługuje "przypisania grupy". Obsługiwane jest tylko "przypisanie użytkownika". 
 
-5. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
+1. Kliknij pozycję **Zapisz**.
+
+1. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie usługi Azure AD i zakresu zdefiniowanego dla tej operacji. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
+
+1. W dowolnym momencie sprawdź kartę **dzienniki aprowizacji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. Dzienniki aprowizacji zawierają listę wszystkich poszczególnych zdarzeń synchronizacji wykonywanych przez usługę aprowizacji. 
+
+1. Po zakończeniu synchronizacji początkowej zostanie zapisany raport z podsumowaniem inspekcji na karcie **aprowizacji** , jak pokazano poniżej.
 
    > [!div class="mx-imgBorder"]
    > ![Pasek postępu aprowizacji](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

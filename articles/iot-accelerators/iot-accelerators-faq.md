@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c1fb314a2dea653740e7f87b5caa14c759fffb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462551"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078225"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Często zadawane pytania dotyczące akceleratorów rozwiązań IoT
 
@@ -65,7 +65,7 @@ Jeśli masz pewność, że masz subskrypcję platformy Azure, sprawdź poprawno�
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Gdzie można znaleźć informacje o poprzedniej wersji rozwiązania do zdalnego monitorowania?
 
-Poprzednia wersja akceleratora rozwiązania do zdalnego monitorowania była znana jako IoT Suite wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Zarchiwizowaną dokumentację można znaleźć pod adresem [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
+Poprzednia wersja akceleratora rozwiązania do zdalnego monitorowania była znana jako IoT Suite wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego. Zarchiwizowaną dokumentację można znaleźć pod adresem [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/) .
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Czy nowy akcelerator rozwiązania jest dostępny w tym samym regionie geograficznym co istniejące rozwiązanie?
 
@@ -101,13 +101,13 @@ Obecnie nie można utworzyć akceleratora rozwiązania za pomocą [Microsoft Azu
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Jak mogę usunąć dzierżawę usługi Azure AD?
 
-Zobacz przewodnik po wpisie w blogu Eric golpe [, aby usunąć dzierżawę usługi Azure AD](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
+Zobacz przewodnik po wpisie w blogu Eric golpe [, aby usunąć dzierżawę usługi Azure AD](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
 
 ### <a name="next-steps"></a>Następne kroki
 
 Możesz także wypróbować niektóre inne funkcje i możliwości akceleratorów rozwiązań IoT:
 
 * [Poznaj możliwości akceleratora rozwiązania do monitorowania zdalnego](quickstart-remote-monitoring-deploy.md)
-* [Omówienie akceleratora rozwiązania do konserwacji predykcyjnej](iot-accelerators-predictive-overview.md)
+* [Omówienie akceleratora rozwiązania do konserwacji predykcyjnej](./iot-accelerators-predictive-walkthrough.md)
 * [Wdróż Akcelerator rozwiązania połączonej fabryki](quickstart-connected-factory-deploy.md)
-* [Zabezpieczenia IoT od podstaw](/azure/iot-fundamentals/iot-security-ground-up)
+* [Zabezpieczenia IoT od podstaw](../iot-fundamentals/iot-security-ground-up.md)

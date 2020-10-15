@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405160"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077817"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -142,22 +142,22 @@ Wystąpienia pamięci podręcznej działają najlepiej, gdy nie są uruchamiane 
 
 ## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Dodawanie regionów z ruchem do konta Azure Cosmos DB
 
-Program Advisor wykrywa konta Azure Cosmos DB, które mają ruch z regionu, który nie jest aktualnie skonfigurowany. Zalecamy dodanie tego regionu. Poprawia to opóźnienia dla żądań pochodzących z tego regionu i zapewnia dostępność w przypadku awarii regionu. [Dowiedz się więcej o globalnej dystrybucji danych za pomocą Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Program Advisor wykrywa konta Azure Cosmos DB, które mają ruch z regionu, który nie jest aktualnie skonfigurowany. Zalecamy dodanie tego regionu. Poprawia to opóźnienia dla żądań pochodzących z tego regionu i zapewnia dostępność w przypadku awarii regionu. [Dowiedz się więcej o globalnej dystrybucji danych za pomocą Azure Cosmos DB.](../cosmos-db/distribute-data-globally.md)
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Konfigurowanie zasad indeksowania Azure Cosmos DB przy użyciu niestandardowych ścieżek uwzględnionych lub wykluczonych
 
-Doradca identyfikuje Azure Cosmos DB kontenery, które używają domyślnych zasad indeksowania, ale mogą korzystać z niestandardowych zasad indeksowania. To oznaczenie jest oparte na wzorcu obciążenia. Domyślne zasady indeksowania indeksów wszystkie właściwości. Niestandardowe zasady indeksowania z jawnymi dołączonymi lub wykluczonymi ścieżkami używanymi w filtrach zapytań mogą zmniejszyć liczbę jednostek ru i miejsce do magazynowania używane do indeksowania. [Dowiedz się więcej o modyfikowaniu zasad indeksu.](https://aka.ms/cosmosdb/modify-index-policy)
+Doradca identyfikuje Azure Cosmos DB kontenery, które używają domyślnych zasad indeksowania, ale mogą korzystać z niestandardowych zasad indeksowania. To oznaczenie jest oparte na wzorcu obciążenia. Domyślne zasady indeksowania indeksów wszystkie właściwości. Niestandardowe zasady indeksowania z jawnymi dołączonymi lub wykluczonymi ścieżkami używanymi w filtrach zapytań mogą zmniejszyć liczbę jednostek ru i miejsce do magazynowania używane do indeksowania. [Dowiedz się więcej o modyfikowaniu zasad indeksu.](/azure/cosmos-db/index-policy)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Ustaw rozmiar strony zapytania Azure Cosmos DB (MaxItemCount) na-1 
 
-Azure Advisor identyfikuje kontenery Azure Cosmos DB używające rozmiaru strony zapytania 100. Zalecane jest użycie rozmiaru strony-1 w celu przyspieszenia skanowania. [Dowiedz się więcej o MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identyfikuje kontenery Azure Cosmos DB używające rozmiaru strony zapytania 100. Zalecane jest użycie rozmiaru strony-1 w celu przyspieszenia skanowania. [Dowiedz się więcej o MaxItemCount.](../cosmos-db/sql-api-query-metrics.md)
 
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Rozważ użycie funkcji szybsze zapisy w klastrze HBase, aby zwiększyć wydajność klastra
 Azure Advisor analizuje Dzienniki systemu w ciągu ostatnich 7 dni i wskazuje, czy klaster napotkał następujące scenariusze:
 1. Duże opóźnienie synchronizacji pliku WAL 
 2. Duża liczba żądań zapisu (co najmniej trzy godzinne okresy, gdy średnio występowało ponad 1000 żądań zapisu na sekundę na węzeł)
 
-Te warunki wskazują, że w Twoim klastrze występują duże opóźnienia zapisu. Może to być spowodowane dużym obciążeniem w klastrze. Aby zwiększyć wydajność klastra, warto rozważyć wykorzystanie funkcji szybsze zapisy udostępnionej przez usługę Azure HDInsight HBase. Funkcja przyspieszonego zapisywania dla klastrów bazy danych Apache HBase usługi HDInsight dołącza dyski zarządzane SSD w warstwie Premium do każdego serwera regionu (węzła roboczego) zamiast użycia magazynu w chmurze. Dzięki temu możliwe jest obniżenie opóźnień zapisu i zapewnienie lepszej odporności aplikacji. Aby dowiedzieć się więcej na temat tej funkcji, [Dowiedz się więcej](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+Te warunki wskazują, że w Twoim klastrze występują duże opóźnienia zapisu. Może to być spowodowane dużym obciążeniem w klastrze. Aby zwiększyć wydajność klastra, warto rozważyć wykorzystanie funkcji szybsze zapisy udostępnionej przez usługę Azure HDInsight HBase. Funkcja przyspieszonego zapisywania dla klastrów bazy danych Apache HBase usługi HDInsight dołącza dyski zarządzane SSD w warstwie Premium do każdego serwera regionu (węzła roboczego) zamiast użycia magazynu w chmurze. Dzięki temu możliwe jest obniżenie opóźnień zapisu i zapewnienie lepszej odporności aplikacji. Aby dowiedzieć się więcej na temat tej funkcji, [Dowiedz się więcej](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Przegląd pamięci podręcznej tabeli Eksplorator danych Azure — okres (zasady) w celu uzyskania lepszej wydajności (wersja zapoznawcza)
 To zalecenie obejmuje tabele usługi Azure Data Explorer, których dotyczy duża liczba zapytań odnoszących się do okresu spoza skonfigurowanego okresu buforowania (w zasadach). (Zostanie wyświetlonych pierwszych 10 tabel według wartości procentowej udziału zapytań dotyczących danych spoza pamięci podręcznej). Zalecane działanie w celu poprawienia wydajności klastra: Ogranicz zapytania dotyczące tej tabeli do minimalnego wymaganego zakresu czasu (w ramach zdefiniowanych zasad). Ewentualnie jeśli wymagane są dane z całego zakresu czasu, zwiększ okres buforowania do zalecanej wartości.
@@ -169,11 +169,11 @@ Analiza klasyfikatora wskazuje, że serwer MySQL może uwzględniać niepotrzebn
 Usługa Advisor identyfikuje grupy serwerów, w których dane nie zostały dystrybuowane, ale pozostają na koordynatorze. Na podstawie tego klasyfikatora zaleca się, aby w przypadku wszystkich korzyści z pełnego skalowania (Citus) rozpowszechniać dane w węzłach procesu roboczego dla grup serwerów. Poprawi to wydajność zapytań, wykorzystując zasób każdego węzła w grupie serwerów. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Ulepsz środowisko użytkownika i łączność, wdrażając maszyny wirtualne bliżej lokalizacji wdrożenia pulpitu wirtualnego systemu Windows
-Ustalono, że maszyny wirtualne znajdują się w regionie innym lub odległym od miejsca, z którego użytkownicy nawiązują połączenie przy użyciu usługi Windows Virtual Desktop (WVD). Może to prowadzić do wydłużonych czasów odpowiedzi połączenia i będzie mieć wpływ na ogólne środowisko użytkownika w usłudze WVD. Podczas tworzenia maszyn wirtualnych dla pul hostów należy próbować używać regionu znajdującego się bliżej użytkownika. Duża bliskość zapewnia stałe zadowolenie z usługi WVD oraz lepszą ogólną jakość środowiska. [Dowiedz się więcej o opóźnieniu połączenia w tym miejscu](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+Ustalono, że maszyny wirtualne znajdują się w regionie innym lub odległym od miejsca, z którego użytkownicy nawiązują połączenie przy użyciu usługi Windows Virtual Desktop (WVD). Może to prowadzić do wydłużonych czasów odpowiedzi połączenia i będzie mieć wpływ na ogólne środowisko użytkownika w usłudze WVD. Podczas tworzenia maszyn wirtualnych dla pul hostów należy próbować używać regionu znajdującego się bliżej użytkownika. Duża bliskość zapewnia stałe zadowolenie z usługi WVD oraz lepszą ogólną jakość środowiska. [Dowiedz się więcej o opóźnieniu połączenia w tym miejscu](../virtual-desktop/connection-latency.md).
 
 ## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Uaktualnianie do najnowszej wersji zestawu SDK czytnika immersyjnego
 Zidentyfikowaliśmy zasoby w ramach tej subskrypcji, które używają nieaktualnych wersji zestawu SDK czytnika immersyjnego. Najnowsza wersja zestawu SDK czytnika immersyjnego zawiera zaktualizowane zabezpieczenia, usprawnioną wydajność oraz rozszerzony zestaw funkcji do dostosowywania i ulepszanie środowiska integracji.
-Dowiedz się więcej na temat [zestawu SDK czytnika immersyjny](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Dowiedz się więcej na temat [zestawu SDK czytnika immersyjny](../cognitive-services/immersive-reader/index.yml).
 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor

@@ -11,15 +11,15 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: 397239f92e3b07669a22481b07a67d9859176b7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015a8d56cf3991d04b212db73d5b752c13a793
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932342"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077545"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Włączanie Diagnostyka Azure na platformie Azure Cloud Services
-Zobacz [Diagnostyka Azure przegląd](../azure-diagnostics.md) dla tła na Diagnostyka Azure.
+Zobacz [Diagnostyka Azure przegląd](../azure-monitor/platform/diagnostics-extension-overview.md) dla tła na Diagnostyka Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Jak włączyć diagnostykę w roli procesu roboczego
 W tym przewodniku opisano sposób implementacji roli procesu roboczego platformy Azure, która emituje dane telemetryczne przy użyciu klasy EventSource programu .NET. Diagnostyka Azure służy do zbierania danych telemetrycznych i przechowywania ich na koncie usługi Azure Storage. Podczas tworzenia roli procesu roboczego program Visual Studio automatycznie włącza diagnostykę 1,0 w ramach rozwiązania w zestawach SDK platformy Azure dla platformy .NET 2,4 i starszych. Poniższe instrukcje opisują proces tworzenia roli procesu roboczego, wyłączania diagnostyki 1,0 z rozwiązania oraz wdrażania diagnostyki 1,2 lub 1,3 do roli procesu roboczego.
@@ -188,20 +188,17 @@ W programie Visual Studio **Eksplorator serwera**przejdź do konta magazynu wade
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Schemat pliku konfiguracji
-Plik konfiguracji diagnostyki definiuje wartości, które są używane do inicjowania ustawień konfiguracji diagnostyki podczas uruchamiania agenta diagnostyki. Zobacz [najnowsze informacje o schemacie](/azure/azure-monitor/platform/diagnostics-extension-schema) dotyczące prawidłowych wartości i przykładów.
+Plik konfiguracji diagnostyki definiuje wartości, które są używane do inicjowania ustawień konfiguracji diagnostyki podczas uruchamiania agenta diagnostyki. Zobacz [najnowsze informacje o schemacie](../azure-monitor/platform/diagnostics-extension-versions.md) dotyczące prawidłowych wartości i przykładów.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Jeśli masz problemy, zobacz [Rozwiązywanie problemów Diagnostyka Azure](../azure-diagnostics-troubleshooting.md) , aby uzyskać pomoc dotyczącą typowych problemów.
+Jeśli masz problemy, zobacz [Rozwiązywanie problemów Diagnostyka Azure](../azure-monitor/platform/diagnostics-extension-troubleshooting.md) , aby uzyskać pomoc dotyczącą typowych problemów.
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z [listą artykułów diagnostycznych dotyczących maszyn wirtualnych platformy Azure](../azure-monitor/platform/diagnostics-extension-overview.md) , aby zmienić zbierane dane, rozwiązywać problemy lub dowiedzieć się więcej na temat diagnostyki.
 
-[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Collect Logging Data by Using Azure Diagnostics]: /previous-versions/azure/gg433048(v=azure.100)
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
-
-
-

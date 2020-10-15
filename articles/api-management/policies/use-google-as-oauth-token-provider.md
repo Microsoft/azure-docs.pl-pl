@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: d606d29d84cd5917c74efe188ae02627ad55d4ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f6c9fe2146414f78e90d6ade1a00045cdf3a04f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442370"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078021"
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autoryzacja dostępu za pomocą tokenu OAuth usługi Google
 
-W tym artykule przedstawiono przykład zasad zarządzania interfejsem API platformy Azure, który pokazuje, jak autoryzować dostęp do punktów końcowych za pomocą usługi Google jako dostawcy tokenów OAuth. Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-samples.md).
+W tym artykule przedstawiono przykład zasad zarządzania interfejsem API platformy Azure, który pokazuje, jak autoryzować dostęp do punktów końcowych za pomocą usługi Google jako dostawcy tokenów OAuth. Aby ustawić lub edytować kod zasad, wykonaj kroki opisane w sekcji [Ustawianie lub edytowanie zasad](../set-edit-policies.md). Aby zapoznać się z innymi przykładami, zobacz [przykłady zasad](../policy-reference.md).
 
 ## <a name="policy"></a>Zasady
 
@@ -35,5 +35,4 @@ Wklej kod do bloku **przychodzącego** .
 Dowiedz się więcej na temat zasad APIMymi:
 
 + [Zasady transformacji](../api-management-transformation-policies.md)
-+ [Przykłady zasad](../policy-samples.md)
-
++ [Przykłady zasad](../policy-reference.md)

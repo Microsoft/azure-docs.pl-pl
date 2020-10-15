@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: e789810240b1a537e8cc3a18351f0b2a066cb4e1
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018869"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069878"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 
@@ -129,7 +129,7 @@ Podczas edytowania listy obsługiwanych atrybutów są dostępne następujące w
 - **Wiele wartości?** -Czy atrybut obsługuje wiele wartości.
 - **Dokładnie przypadek?** -Czy wartości atrybutów są oceniane w sposób uwzględniający wielkość liter.
 - **Wyrażenie interfejsu API** — nie używaj, o ile nie zostanie to zrobione przez dokumentację określonego łącznika aprowizacji (na przykład Workday).
-- **Atrybut obiektu przywoływany** — jeśli jest to atrybut typu referencyjnego, to menu umożliwia wybranie tabeli i atrybutu w aplikacji docelowej zawierającej wartość skojarzoną z atrybutem. Na przykład jeśli masz atrybut o nazwie "Department", którego przechowywana wartość odwołuje się do obiektu w oddzielnej tabeli "działS", wybierz pozycję "Departments.Name". Tabele odwołań i pola identyfikatora podstawowego obsługiwane przez daną aplikację są wstępnie skonfigurowane i obecnie nie można ich edytować za pomocą Azure Portal, ale można je edytować przy użyciu [interfejsu API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Atrybut obiektu przywoływany** — jeśli jest to atrybut typu referencyjnego, to menu umożliwia wybranie tabeli i atrybutu w aplikacji docelowej zawierającej wartość skojarzoną z atrybutem. Na przykład jeśli masz atrybut o nazwie "Department", którego przechowywana wartość odwołuje się do obiektu w oddzielnej tabeli "działS", wybierz pozycję "Departments.Name". Tabele odwołań i pola identyfikatora podstawowego obsługiwane przez daną aplikację są wstępnie skonfigurowane i obecnie nie można ich edytować za pomocą Azure Portal, ale można je edytować przy użyciu [interfejsu API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Inicjowanie obsługi niestandardowego atrybutu rozszerzenia w aplikacji zgodnej z standard scim
 Standard scim RFC definiuje podstawowy schemat użytkownika i grupy, a także umożliwia obsługę rozszerzeń schematu w celu spełnienia wymagań aplikacji. Aby dodać atrybut niestandardowy do aplikacji Standard scim:

@@ -1,5 +1,5 @@
 ---
-title: 'Tworzenie hosta usługi Azure bastionu: maszyna wirtualna z systemem Windows: Portal'
+title: 'Samouczek: Tworzenie hosta usługi Azure bastionu: maszyna wirtualna z systemem Windows: Portal'
 description: W tym artykule dowiesz się, jak utworzyć hosta usługi Azure bastionu i połączyć się z maszyną wirtualną z systemem Windows.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: c5361a777b2fdab20fab70214ddcb3bbf5248acb
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: daf3b6c36b191f52f0d7ac7638ef59695325f541
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015263"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078548"
 ---
 # <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Samouczek: Tworzenie hosta usługi Azure bastionu i nawiązywanie połączenia z maszyną wirtualną z systemem Windows za pomocą przeglądarki
 
@@ -87,4 +87,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby, wykonując nas
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono hosta bastionu i skojarzono go z siecią wirtualną oraz jest podłączony do maszyny wirtualnej z systemem Windows. Możesz zdecydować się na korzystanie z sieciowych grup zabezpieczeń z podsiecią usługi Azure bastionu. Aby to zrobić, zobacz [Work with sieciowych grup zabezpieczeń](bastion-nsg.md).
+W tym samouczku utworzono hosta bastionu i skojarzono go z siecią wirtualną, a następnie jest on podłączony do maszyny wirtualnej z systemem Windows. Możesz zdecydować się na korzystanie z sieciowych grup zabezpieczeń z podsiecią usługi Azure bastionu. Aby to zrobić, zobacz:
+
+> [!div class="nextstepaction"]
+> [Praca z sieciowymi grupami zabezpieczeń](bastion-nsg.md)

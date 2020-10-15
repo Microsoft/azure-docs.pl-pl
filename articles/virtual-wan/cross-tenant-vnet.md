@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91571487"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078973"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Łączenie wielu dzierżawców sieci wirtualnych z wirtualnym koncentratorem sieci WAN
 
@@ -54,7 +54,7 @@ Aby subskrypcja nadrzędna z koncentratorem wirtualnym była modyfikowana i uzys
 1. Następnie Dodaj zdalną subskrypcję dzierżawy i nadrzędną subskrypcję dzierżawy do bieżącej sesji programu PowerShell. Uruchom następujące polecenie. Jeśli logujesz się do elementu nadrzędnego, wystarczy uruchomić polecenie dla dzierżawy zdalnej.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Sprawdź, czy przypisanie roli zakończyło się pomyślnie, logując się do Azure PowerShell przy użyciu poświadczeń nadrzędnych i uruchamiając następujące polecenie:
@@ -72,25 +72,25 @@ W poniższych krokach nastąpi przełączenie między kontekstem dwóch subskryp
 1. Upewnij się, że jesteś w kontekście konta zdalnego, uruchamiając następujące polecenie:
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Utwórz zmienną lokalną do przechowywania metadanych sieci wirtualnej, które chcesz połączyć z centrum.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Przełącz się ponownie na konto nadrzędne.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Podłącz sieć wirtualną do centrum.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. Nowe połączenie można wyświetlić w programie PowerShell lub w Azure Portal.

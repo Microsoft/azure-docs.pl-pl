@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533421"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070031"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z łącznością i siecią dla platformy Azure Cloud Services: często zadawane pytania
 
@@ -40,7 +40,7 @@ Nie, nie przy użyciu normalnego protokołu/ICMP "ping". Protokół ICMP nie jes
 
 W celu przetestowania łączności zalecamy wykonanie polecenia ping do portu. Gdy Ping.exe korzysta z protokołu ICMP, można użyć innych narzędzi, takich jak PSPing, Nmap i Telnet, aby przetestować łączność z określonym portem TCP.
 
-Aby uzyskać więcej informacji, zobacz [Używanie ping portów zamiast protokołu ICMP do testowania łączności maszyn wirtualnych platformy Azure](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+Aby uzyskać więcej informacji, zobacz [Używanie ping portów zamiast protokołu ICMP do testowania łączności maszyn wirtualnych platformy Azure](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Jak mogę zapobiec otrzymywaniu tysięcy trafień z nieznanych adresów IP, które mogą wskazywać na złośliwe ataki do usługi w chmurze?
 Platforma Azure implementuje zabezpieczenia sieci Multilayer, aby chronić usługi platformy przed atakami typu "odmowa usługi" (DDoS). System obrony systemu Azure DDoS jest częścią procesu ciągłego monitorowania platformy Azure, który jest ciągle ulepszany przez testowanie penetracji. Ten system obrony DDoS został zaprojektowany tak, aby nie tylko ataki z zewnątrz, ale również od innych dzierżawców platformy Azure. Aby uzyskać więcej informacji, zobacz [zabezpieczenia sieci platformy Azure](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
@@ -67,7 +67,7 @@ Używany algorytm dystrybucji to skrót 5 (źródłowy adres IP, port źródłow
 
 Moduł ponownego zapisywania adresów URL usług IIS może służyć do przekierowywania ruchu, który jest dostarczany do domyślnego adresu URL dla usługi w chmurze (na przykład \* . cloudapp.NET) do niestandardowej nazwy/adresu URL. Ponieważ moduł ponownego zapisywania adresu URL jest domyślnie włączony w rolach sieci Web, a jego reguły są konfigurowane w web.config aplikacji, jest on zawsze dostępny na maszynie wirtualnej niezależnie od ponownych uruchomień/odniesień. Aby uzyskać więcej informacji, zobacz:
 
-- [Utwórz reguły ponownego zapisywania dla modułu ponownego zapisywania adresu URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Utwórz reguły ponownego zapisywania dla modułu ponownego zapisywania adresu URL](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Usuwanie linku domyślnego](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Jak zablokować lub wyłączyć ruch przychodzący do domyślnego adresu URL mojej usługi w chmurze?
