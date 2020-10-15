@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017476"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072037"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do produktu Workday
 Celem tego samouczka jest wyświetlenie czynności, które należy wykonać w celu przeprowadzenia zapisywania atrybutów zapisu z usługi Azure AD do produktu Workday. Aplikacja do obsługi funkcji zapisywania zwrotnego dla produktu Workday obsługuje Przypisywanie wartości do następujących atrybutów produktu Workday:
@@ -144,16 +144,31 @@ Po zakończeniu konfiguracji aplikacji inicjowania obsługi dla programu Workday
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij przycisk **Zapisz**.
+1. Z listy rozwijanej **zakres** wybierz pozycję **Synchronizuj wszystkich użytkowników i grupy**. Po wybraniu tej opcji aplikacja zapisywania zwrotnego zapisuje zmapowane atrybuty wszystkich użytkowników z usługi Azure AD do produktu Workday, z zastrzeżeniem reguł określania zakresu zdefiniowanego w obszarze **mapowania**  ->  **obiektu źródłowego**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Wybierz zakres zapisywania zwrotnego](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > Aplikacja do inicjowania obsługi zwrotnego produktu Workday nie obsługuje opcji **Synchronizuj tylko przypisanych użytkowników i grupy**.
+ 
+
+2. Kliknij pozycję **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w katalogu źródłowym. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 
-4. W dowolnym momencie sprawdź kartę **dzienniki inspekcji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak użytkownicy zaimportowani ze źródła i eksportowani do aplikacji docelowej.  
+4. W dowolnym momencie sprawdź kartę **dzienniki aprowizacji** w Azure Portal, aby zobaczyć, jakie akcje zostały wykonane przez usługę aprowizacji. W dziennikach inspekcji są wyświetlane wszystkie zdarzenia synchronizacji wykonywane przez usługę aprowizacji, takie jak użytkownicy zaimportowani ze źródła i eksportowani do aplikacji docelowej.  
 
 5. Po zakończeniu synchronizacji początkowej zostanie zapisany raport podsumowujący na karcie **aprowizacji** , jak pokazano poniżej.
 
      > [!div class="mx-imgBorder"]
      > ![Pasek postępu aprowizacji](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
+
+* Aplikacja do zapisywania zwrotnego używa wstępnie zdefiniowanej wartości parametrów **Communication_Usage_Type_ID** i **Phone_Device_Type_ID**. Jeśli dzierżawa w ramach platformy Workday używa innej wartości dla tych atrybutów, operacja zapisywania zwrotnego nie powiedzie się. Sugerowane obejście polega na aktualizacji Type_IDs w dniach roboczych. 
+* Gdy aplikacja zapisywania zwrotnego jest skonfigurowana do aktualizowania dodatkowych numerów telefonów, nie zastępuje istniejącego dodatkowego numeru telefonu w usłudze Workday. Dodaje jeden dodatkowy numer telefonu do rekordu procesu roboczego. Nie istnieje obejście tego problemu. 
+
 
 ## <a name="next-steps"></a>Następne kroki
 
