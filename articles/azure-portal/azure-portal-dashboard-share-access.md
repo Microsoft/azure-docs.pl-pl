@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie pulpitów nawigacyjnych Azure Portal przy użyciu Role-Based Access Control
-description: W tym artykule opisano sposób udostępniania pulpitu nawigacyjnego w Azure Portal przy użyciu Role-Based Access Control.
+title: Udostępnianie pulpitów nawigacyjnych Azure Portal przy użyciu kontroli dostępu opartej na rolach na platformie Azure
+description: W tym artykule opisano sposób udostępniania pulpitu nawigacyjnego w Azure Portal przy użyciu kontroli dostępu opartej na rolach platformy Azure.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077885"
+ms.locfileid: "92092209"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu kontroli dostępu opartej na rolach
+# <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Udostępnianie pulpitów nawigacyjnych platformy Azure przy użyciu kontroli dostępu opartej na rolach na platformie Azure
 
 Po skonfigurowaniu pulpitu nawigacyjnego można go opublikować i udostępnić innym użytkownikom w organizacji. Możesz zezwolić innym osobom na wyświetlanie pulpitu nawigacyjnego za pomocą [kontroli dostępu opartej na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Przypisz użytkownika lub grupę użytkowników do roli. Ta rola określa, czy użytkownicy mogą wyświetlać i modyfikować opublikowane pulpity nawigacyjne.
 
@@ -33,7 +33,7 @@ Wszystkie opublikowane pulpity nawigacyjne są implementowane jako zasoby platfo
 
 ## <a name="understanding-access-control-for-dashboards"></a>Informacje o kontroli dostępu dla pulpitów nawigacyjnych
 
-Za pomocą Role-Based Access Control (RBAC) można przypisywać użytkowników do ról na trzech różnych poziomach zakresu:
+Za pomocą kontroli dostępu opartej na rolach (Azure RBAC) można przypisywać użytkowników do ról na trzech różnych poziomach zakresu:
 
 * subskrypcja
 * grupa zasobów

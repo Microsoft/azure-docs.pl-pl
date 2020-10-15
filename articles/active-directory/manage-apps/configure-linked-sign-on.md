@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597849"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073975"
 ---
 # <a name="understand-linked-sign-on"></a>Opis połączonego logowania
 
@@ -31,11 +31,11 @@ Niektóre typowe scenariusze, w których opcja link jest cenna, to m.in.:
  
  **Połączona** opcja nie zapewnia funkcji logowania za pomocą poświadczeń usługi Azure AD. Można jednak nadal używać niektórych innych funkcji **aplikacji dla przedsiębiorstw**. Można na przykład użyć dzienników inspekcji i dodać niestandardowe logo i nazwę aplikacji.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Aby szybko uzyskać informacje, zapoznaj się z [serią szybkiego startu](view-applications-portal.md) w zarządzaniu aplikacjami. Na stronie Szybki Start, w przypadku konfigurowania logowania jednokrotnego, należy również znaleźć opcję **połączona** . 
 
-**Połączona** opcja nie zapewnia funkcji logowania za pomocą usługi Azure AD. Opcja po prostu ustawia lokalizację, do której użytkownicy będą wysyłane po wybraniu aplikacji w [aplikacjach](https://myapps.microsoft.com/) lub uruchamianiu aplikacji Microsoft 365.
+**Połączona** opcja nie zapewnia funkcji logowania za pomocą usługi Azure AD. Opcja po prostu ustawia lokalizację, do której użytkownicy będą wysyłane po wybraniu aplikacji w [aplikacjach](https://myapps.microsoft.com/) lub uruchamianiu aplikacji Microsoft 365.  Ponieważ logowanie nie zapewnia funkcji logowania za pomocą usługi Azure AD, dostęp warunkowy nie jest dostępny dla aplikacji skonfigurowanych przy użyciu połączonego logowania jednokrotnego.
 
 > [!IMPORTANT] 
 > Istnieją sytuacje, w których opcja **logowania** jednokrotnego nie będzie w nawigacji dla aplikacji w **aplikacjach dla przedsiębiorstw**. 

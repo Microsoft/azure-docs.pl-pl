@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906940"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090832"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
 
@@ -28,10 +28,10 @@ Platforma Azure udostępnia już różne rozwiązania do równoważenia obciąż
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Chmura Wiosenna platformy Azure: [jak utworzyć usługę w chmurze Azure wiosną](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
-* Azure Traffic Manager: [jak utworzyć usługę Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Azure App Gateway: [jak utworzyć bramę aplikacji](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Moje drzwi platformy Azure: [jak utworzyć drzwi tylne](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Chmura Wiosenna platformy Azure: [jak utworzyć usługę w chmurze Azure wiosną](./spring-cloud-quickstart.md)
+* Azure Traffic Manager: [jak utworzyć usługę Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure App Gateway: [jak utworzyć bramę aplikacji](../application-gateway/quick-create-portal.md)
+* Moje drzwi platformy Azure: [jak utworzyć drzwi tylne](../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Integruj chmurę z platformą Azure z usługą Azure Traffic Manager
 
@@ -92,6 +92,6 @@ Aby przeprowadzić integrację z usługą Azure wiosną w chmurze i skonfigurowa
     ![Drzwi tylne 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Jak utworzyć Menedżera ruchu](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [Jak utworzyć bramę aplikacji](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [Jak utworzyć drzwi tylne](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [Jak utworzyć Menedżera ruchu](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [Jak utworzyć bramę aplikacji](../application-gateway/quick-create-portal.md)
+* [Jak utworzyć drzwi tylne](../frontdoor/quickstart-create-front-door.md)

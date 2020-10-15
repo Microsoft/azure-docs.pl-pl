@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076933"
+ms.locfileid: "92092702"
 ---
 # <a name="edit-an-api"></a>Edytowanie interfejsu API
 
@@ -35,7 +35,7 @@ Kroki opisane w tym samouczku umożliwiają użycie usługi API Management (APIM
 
 ## <a name="edit-an-api-in-apim"></a>Edytowanie interfejsu API w usłudze APIM
 
-![Edytowanie interfejsu API](./media/edit-api/edit-api001.png)
+![Zrzut ekranu, który wyróżnia proces edytowania interfejsu API w programie APIM.](./media/edit-api/edit-api001.png)
 
 1. Kliknij kartę **Interfejsy API**.
 2. Wybierz jeden z wcześniej zaimportowanych interfejsów API.
@@ -50,7 +50,7 @@ Możesz zaktualizować interfejs API zaplecza w witrynie Azure Portal, wykonują
 1. Wybierz **wszystkie operacje**
 2. Kliknij ikonę ołówka w oknie **Fronton**.
 
-    ![Edytowanie interfejsu API](./media/edit-api/edit-api002.png)
+    ![Zrzut ekranu, który podświetla ikonę ołówka na ekranie frontonu.](./media/edit-api/edit-api002.png)
 
     Zostanie wyświetlony program Swagger interfejsu API.
 

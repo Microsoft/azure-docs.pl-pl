@@ -1,7 +1,7 @@
 ---
 title: Jak zabezpieczyć aplikację jednostronicową z logowaniem nieinterakcyjnym
 titleSuffix: Azure Maps
-description: Jak skonfigurować aplikację jednostronicową przy użyciu nieinteraktywnej kontroli dostępu opartej na rolach usługi Azure AD i Azure Maps Web SDK.
+description: Jak skonfigurować aplikację jednostronicową z nieinteraktywną kontrolą dostępu opartą na rolach (Azure RBAC) i Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: e49954065f8a4ec03eb54d7333a3fff34bafb143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319660"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090254"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Jak zabezpieczyć aplikację jednostronicową z logowaniem nieinterakcyjnym
 
@@ -36,7 +36,7 @@ Utwórz bezpieczną aplikację usługi sieci Web, która jest odpowiedzialna za 
 
 3. [Dodaj tożsamość przypisaną do systemu](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) w funkcji platformy Azure, aby umożliwić tworzenie jednostki usługi w celu uwierzytelniania w usłudze Azure AD.  
 
-4. Udziel dostępu opartego na rolach dla tożsamości przypisanej do systemu do konta Azure Maps. Aby uzyskać szczegółowe informacje, zobacz [udzielanie dostępu opartego na rolach](#grant-role-based-access) .
+4. Udziel dostępu opartego na rolach dla tożsamości przypisanej do systemu do konta Azure Maps. Zobacz [udzielanie dostępu opartego na rolach](#grant-role-based-access) , aby uzyskać szczegółowe informacje.
 
 5. Napisz kod dla funkcji platformy Azure, aby uzyskać Azure Maps tokeny dostępu przy użyciu tożsamości przypisanej do systemu z jednym z obsługiwanych mechanizmów lub protokołu REST. Zobacz [Uzyskiwanie tokenów dla zasobów platformy Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
@@ -109,7 +109,7 @@ Dostęp do *kontroli dostępu opartej na rolach (Azure RBAC)* jest udzielany prz
     > [!div class="mx-imgBorder"]
     > ![Udzielanie dostępu przy użyciu funkcji RBAC platformy Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na karcie **przypisania roli** w obszarze **rola**wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **aplikacja funkcji**. Wybierz nazwę główną według nazwy. Następnie wybierz przycisk **Zapisz**.
+2. Na karcie **przypisania roli** w obszarze **rola**wybierz wbudowaną definicję roli Azure Maps, na przykład **Azure Maps czytnika danych** lub **Azure Maps współautor danych**. W obszarze **Przypisz dostęp do**wybierz pozycję **aplikacja funkcji**. Wybierz nazwę główną według nazwy. Następnie wybierz pozycję **Zapisz**.
 
    * Zobacz szczegóły dotyczące [dodawania lub usuwania przypisań ról](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
