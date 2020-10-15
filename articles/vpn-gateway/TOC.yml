@@ -1,10 +1,11 @@
-- name: Dokumentacja usługi VPN Gateway
+- name: Dokumentacja bramy VPN
   href: index.yml
 - name: Omówienie
   items:
     - name: Co to jest usługa VPN Gateway?
       href: vpn-gateway-about-vpngateways.md
 - name: Samouczki
+  expanded: true
   items:
     - name: Tworzenie bramy VPN Gateway i zarządzanie nią
       href: vpn-gateway-tutorial-create-gateway-powershell.md
