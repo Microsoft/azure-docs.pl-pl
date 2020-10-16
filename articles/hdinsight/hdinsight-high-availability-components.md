@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842584"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102935"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Usługi wysokiej dostępności obsługiwane przez usługę Azure HDInsight
 
@@ -56,13 +56,13 @@ Firma Microsoft zapewnia pomoc techniczną dla czterech usług Apache w poniższ
 
 | Usługa | Węzły klastra | Typy klastrów | Przeznaczenie |
 |---|---|---|---|
-| Serwer Apache Ambari| Aktywne węzła głównego | Wszystkie | Monitoruje klaster i zarządza nim.|
+| Serwer Apache Ambari| Aktywne węzła głównego | Wszystko | Monitoruje klaster i zarządza nim.|
 | Serwer Oś czasu aplikacji dla PRZĘDZy Apache | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje informacje debugowania dotyczące zadań PRZĘDZy uruchomionych w klastrze.|
 | Serwer historii zadań dla usługi Hadoop MapReduce | Aktywne węzła głównego | Wszystkie z wyjątkiem Kafka | Utrzymuje dane debugowania dla zadań MapReduce.|
 | Apache Livy | Aktywne węzła głównego | platforma Spark | Umożliwia łatwą interakcję z klastrem Spark za pośrednictwem interfejsu REST |
 
 >[!Note]
-> Klastry usługi HDInsight pakiet Enterprise Security (ESP) obecnie zapewniają wysoką dostępność serwera Ambari.
+> Klastry usługi HDInsight pakiet Enterprise Security (ESP) obecnie zapewniają wysoką dostępność serwera Ambari. Serwer Oś czasu aplikacji, serwer historii zadań i usługi Livy są uruchomione tylko w headnode0 i nie przepracują w trybie failover do headnode1 podczas Ambari failsover. Baza danych osi czasu aplikacji jest również włączona w headnode0, a nie na Ambari SQL Server.
 
 ### <a name="architecture"></a>Architektura
 

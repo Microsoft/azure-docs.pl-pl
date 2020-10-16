@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85984855"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103751"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 korzystania z interfejsu API REST
 > [!div class="op_single_selector"]
@@ -82,11 +82,10 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
          -F refresh_token=<REFRESH-TOKEN>
     ```
 
-Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
+Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](/previous-versions/azure/dn645542(v=azure.100)) (Przepływ udzielania kodu autoryzacji).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule pokazano, jak za pomocą uwierzytelniania między usługami uwierzytelniać się za pomocą usługi Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST. Teraz możesz zapoznać się z następującymi artykułami dotyczącymi korzystania z interfejsu API REST w celu pracy z Azure Data Lake Storage Gen1.
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-get-started-rest-api.md)
 * [Operacje na danych na Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-data-operations-rest-api.md)
-

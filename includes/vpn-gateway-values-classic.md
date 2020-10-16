@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75aec9f3509881c35de9309fa1532b961fb2bc03
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 11d2172d085fe9b47587f4084908f99d7b54437e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875571"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103241"
 ---
-Po utworzeniu klasycznego sieci wirtualnych w Azure Portal nazwa wyświetlana nie jest pełną nazwą używaną dla programu PowerShell. Na przykład Sieć wirtualna o nazwie **sieci testvnet1** w portalu może mieć znacznie dłuższą nazwę w pliku konfiguracyjnym sieci. Nazwa może wyglądać następująco: **Group ClassicRG sieci testvnet1**. Podczas tworzenia połączeń ważne jest, aby użyć wartości widocznych w pliku konfiguracji sieci.
+Po utworzeniu klasycznego sieci wirtualnych w Azure Portal nazwa wyświetlana nie jest pełną nazwą używaną dla programu PowerShell. Na przykład Sieć wirtualna o nazwie **sieci testvnet1** w portalu może mieć znacznie dłuższą nazwę w pliku konfiguracyjnym sieci. Nazwa sieci wirtualnej w grupie zasobów "ClassicRG" może wyglądać następująco: **Group ClassicRG sieci testvnet1**. Podczas tworzenia połączeń ważne jest, aby użyć wartości widocznych w pliku konfiguracji sieci.
 
 W poniższych krokach nawiążesz połączenie z kontem platformy Azure i pobierzesz plik konfiguracji sieci i wyświetli go w celu uzyskania wartości wymaganych dla połączeń.
 
@@ -36,9 +36,10 @@ W poniższych krokach nawiążesz połączenie z kontem platformy Azure i pobier
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
-1. Eksportuj i wyświetlaj plik konfiguracji sieci. Utwórz katalog na komputerze, a następnie wyeksportuj plik konfiguracji sieci do tego katalogu. W tym przykładzie plik konfiguracji sieci jest eksportowany do **C:\AzureNet**.
+1. Utwórz katalog na komputerze. Na przykład C:\AzureVNet
+1. Wyeksportuj plik konfiguracji sieci do katalogu. W tym przykładzie plik konfiguracji sieci jest eksportowany do **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-1. Otwórz plik za pomocą edytora tekstów i Wyświetl nazwy sieci wirtualnych i witryn. Nazwy te będą nazwami używanymi podczas tworzenia połączeń.<br>Nazwy sieci wirtualnej są wyświetlane jako **VirtualNetworkSite nazwa =**<br>Nazwy lokacji są wyświetlane jako **Nazwa LocalNetworkSiteRef =**
+1. Otwórz plik za pomocą edytora tekstów i Wyświetl nazwy sieci wirtualnych i witryn. Nazwy te będą nazwami używanymi podczas tworzenia połączeń.<br>Nazwy sieci **wirtualnej** są wyświetlane jako **VirtualNetworkSite nazwa =**<br>Nazwy **lokacji** są wyświetlane jako **Nazwa LocalNetworkSiteRef =**

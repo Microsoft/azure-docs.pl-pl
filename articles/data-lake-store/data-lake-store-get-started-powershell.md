@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ba51c96e3195f75a0ccf49baded67737f4665615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 485b14f85d68290c5447c885b9bc4974318f7952
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077742"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103734"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure PowerShell
 
@@ -34,9 +34,9 @@ Dowiedz się, jak za pomocą Azure PowerShell utworzyć konto Azure Data Lake St
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Program Azure PowerShell 1.0 lub nowszy**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/).
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
-W tym artykule jest używana prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym jest wyświetlany monit o wprowadzenie poświadczeń konta platformy Azure. Poziom dostępu do Data Lake Storage Gen1 konta i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są uwierzytelnianiem użytkowników końcowych lub uwierzytelnianiem między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
+W tym artykule jest używana prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym jest wyświetlany monit o wprowadzenie poświadczeń konta platformy Azure. Poziom dostępu do Data Lake Storage Gen1 konta i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są uwierzytelnianiem użytkowników końcowych lub uwierzytelnianiem między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Tworzenie konta usługi Data Lake Storage Gen1
 

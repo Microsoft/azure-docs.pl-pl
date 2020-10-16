@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578550"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103785"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Azure Data Lake Storage Gen1 używa Azure Active Directory do uwierzytelniania. 
 
 Obie te opcje powodują, że aplikacja jest dostarczana z tokenem OAuth 2,0, który jest dołączany do każdego żądania wysyłanego do Data Lake Storage Gen1 lub Azure Data Lake Analytics.
 
-W tym artykule omówiono sposób tworzenia **aplikacji natywnej usługi Azure AD na potrzeby uwierzytelniania użytkowników końcowych**. Aby uzyskać instrukcje dotyczące konfiguracji aplikacji usługi Azure AD na potrzeby uwierzytelniania między usługami, zobacz Uwierzytelnianie między usługami i [Data Lake Storage Gen1 przy użyciu Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+W tym artykule omówiono sposób tworzenia **aplikacji natywnej usługi Azure AD na potrzeby uwierzytelniania użytkowników końcowych**. Aby uzyskać instrukcje dotyczące konfiguracji aplikacji usługi Azure AD na potrzeby uwierzytelniania między usługami, zobacz Uwierzytelnianie między usługami i [Data Lake Storage Gen1 przy użyciu Azure Active Directory](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).

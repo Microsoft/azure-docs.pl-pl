@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191393"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104040"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Dostęp do Azure Data Lake Storage Gen1 z maszyn wirtualnych w sieci wirtualnej platformy Azure
 Azure Data Lake Storage Gen1 to usługa PaaS, która jest uruchamiana na publicznych adresach IP. Wszystkie serwery, które mogą łączyć się z publiczną siecią Internet, zazwyczaj mogą łączyć się z Azure Data Lake Storage Gen1 punktami końcowymi. Domyślnie wszystkie maszyny wirtualne, które znajdują się w usłudze Azure sieci wirtualnych, mogą uzyskać dostęp do Internetu, dzięki czemu mogą uzyskać dostęp do Azure Data Lake Storage Gen1. Można jednak skonfigurować maszyny wirtualne w sieci wirtualnej tak, aby nie miały dostępu do Internetu. W przypadku takich maszyn wirtualnych dostęp do Azure Data Lake Storage Gen1 jest również ograniczony. Blokowanie publicznego dostępu do Internetu dla maszyn wirtualnych w usłudze Azure sieci wirtualnych można wykonać przy użyciu dowolnych z następujących metod:
@@ -46,7 +46,7 @@ Aliases:  mydatastore.azuredatalakestore.net
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Włączanie łączności z maszyn wirtualnych z ograniczeniami przy użyciu sieciowej grupy zabezpieczeń
-Gdy reguła sieciowej grupy zabezpieczeń jest używana do blokowania dostępu do Internetu, można utworzyć kolejną sieciowej grupy zabezpieczeń, która umożliwia dostęp do Data Lake Storage Gen1 adres IP. Więcej informacji o regułach sieciowej grupy zabezpieczeń można znaleźć w temacie [Network Security Groups Overview](../virtual-network/security-overview.md). Aby uzyskać instrukcje dotyczące sposobu tworzenia sieciowych grup zabezpieczeń, zobacz [How to Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md).
+Gdy reguła sieciowej grupy zabezpieczeń jest używana do blokowania dostępu do Internetu, można utworzyć kolejną sieciowej grupy zabezpieczeń, która umożliwia dostęp do Data Lake Storage Gen1 adres IP. Więcej informacji o regułach sieciowej grupy zabezpieczeń można znaleźć w temacie [Network Security Groups Overview](../virtual-network/network-security-groups-overview.md). Aby uzyskać instrukcje dotyczące sposobu tworzenia sieciowych grup zabezpieczeń, zobacz [How to Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Włączanie łączności z maszyn wirtualnych z ograniczeniami przy użyciu UDR lub ExpressRoute
 Gdy trasy UDR lub protokołu BGP są używane do blokowania dostępu do Internetu, należy skonfigurować specjalną trasę, tak aby maszyny wirtualne w tych podsieciach mogły uzyskiwać dostęp do Data Lake Storage Gen1 punktów końcowych. Aby uzyskać więcej informacji, zobacz [trasy zdefiniowane przez użytkownika — omówienie](../virtual-network/virtual-networks-udr-overview.md). Aby uzyskać instrukcje dotyczące tworzenia UDR, zobacz [Tworzenie UDR w Menedżer zasobów](../virtual-network/tutorial-create-route-table-powershell.md).
@@ -54,7 +54,6 @@ Gdy trasy UDR lub protokołu BGP są używane do blokowania dostępu do Internet
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Włączanie łączności z maszyn wirtualnych z ograniczeniami przy użyciu ExpressRoute
 W przypadku skonfigurowania obwodu ExpressRoute serwery lokalne mogą uzyskiwać dostęp do Data Lake Storage Gen1 za pomocą publicznej komunikacji równorzędnej. Więcej szczegółów na temat konfigurowania ExpressRoute na potrzeby publicznej komunikacji równorzędnej jest dostępnych na [ExpressRoute często zadawanych pytań](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Securing data stored in Azure Data Lake Storage Gen1 (Zabezpieczanie danych przechowywanych w usłudze Azure Data Lake Storage Gen1)](data-lake-store-security-overview.md)
-

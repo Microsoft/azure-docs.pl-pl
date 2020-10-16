@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/05/2020
-ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057726"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102816"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -102,9 +102,9 @@ Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów. Li
 
 Jeśli używasz wielu usług platformy Azure, wybierz region obsługujący dane lub usługę aplikacji. W ten sposób minimalizuje lub unieważnia opłaty za dane wychodzące (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
 
-## <a name="choose-a-pricing-tier-sku"></a>Wybierz warstwę cenową (SKU)
+## <a name="choose-a-pricing-tier"></a>Wybierz warstwę cenową
 
-[Usługa Azure wyszukiwanie poznawcze jest obecnie oferowana w wielu warstwach cenowych](https://azure.microsoft.com/pricing/details/search/): bezpłatna, podstawowa lub standardowa. Poszczególne warstwy różnią się między sobą [pojemnością i limitami](search-limits-quotas-capacity.md). Aby uzyskać wskazówki, zobacz [Choose a pricing tier or SKU](search-sku-tier.md) (Wybieranie warstwy cenowej lub jednostek SKU).
+Usługa Azure Wyszukiwanie poznawcze jest obecnie oferowana w [wielu warstwach cenowych](https://azure.microsoft.com/pricing/details/search/): bezpłatna, podstawowa, standardowa lub zoptymalizowana pod kątem magazynu. Poszczególne warstwy różnią się między sobą [pojemnością i limitami](search-limits-quotas-capacity.md). Zobacz [Wybierz warstwę cenową,](search-sku-tier.md) Aby uzyskać wskazówki.
 
 Podstawowa i Standardowa są najbardziej typowymi opcjami dotyczącymi obciążeń produkcyjnych, ale większość klientów zaczyna się od bezpłatnej usługi. Najważniejsze różnice między warstwami to rozmiar partycji i szybkość oraz limity dotyczące liczby obiektów, które można utworzyć.
 

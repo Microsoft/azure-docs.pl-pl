@@ -1,5 +1,5 @@
 ---
-title: Dodawanie łączników interfejsu API do przepływów użytkownika
+title: Dodawanie łączników interfejsu API do przepływów użytkowników (wersja zapoznawcza)
 description: Skonfiguruj łącznik interfejsu API, który ma być używany w przepływie użytkownika.
 services: active-directory-b2c
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854362"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102276"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika w celu rejestracji
+# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika rejestracji (wersja zapoznawcza)
 
 Aby użyć [łącznika interfejsu API](api-connectors-overview.md), należy najpierw utworzyć łącznik interfejsu API, a następnie włączyć go w przepływie użytkownika.
 
@@ -238,8 +238,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Wersja                                            | Ciąg            | Tak      | Wersja interfejsu API.                                                                                                                                                                                                                                                                |
 | akcja                                             | Ciąg            | Tak      | Wartość musi być `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Wartości mogą być przechowywane w katalogu, jeśli zostały wybrane jako takie, **które mają zostać odebrane** w ramach konfiguracji łącznika interfejsu API i **atrybutów użytkownika** dla przepływu użytkownika. Wartości mogą być zwracane w tokenie, jeśli są wybrane jako **wnioski aplikacji**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Zwróconego żądania nie musi zawierać `_<extensions-app-id>_` . Wartości są przechowywane w katalogu, jeśli zostały wybrane jako jako "jako" jako "jako" jako "jako" jako "jako" jako "jako" **jako jako rolę w** **atrybucie User** Connector dla przepływu użytkownika. Nie można ponownie wysłać atrybutów niestandardowych do tokenu. |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nie       | Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nie       | Nie musi zawierać tego żądania `_<extensions-app-id>_` . Zwracane wartości mogą zastąpić wartości zebrane przez użytkownika. Mogą być również zwracane w tokenie, jeśli wybrano jako rolę **wniosku**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Przykład odpowiedzi blokującej
 
@@ -267,6 +267,8 @@ Content-type: application/json
 
 ### <a name="example-of-a-validation-error-response"></a>Przykład weryfikacji — odpowiedź na błąd
 
+
+
 ```http
 HTTP/1.1 400 Bad Request
 Content-type: application/json
@@ -285,6 +287,8 @@ Content-type: application/json
 | akcja      | Ciąg  | Tak      | Wartość musi być `ValidationError` .                                           |
 | status      | Liczba całkowita | Tak      | Musi być wartością `400` dla odpowiedzi ValidationError.                        |
 | userMessage | Ciąg  | Tak      | Komunikat wyświetlany użytkownikowi.                                            |
+
+*Uwaga:* Kod stanu HTTP musi mieć wartość "400" Oprócz wartości "status" w treści odpowiedzi.
 
 **Środowisko użytkownika końcowego z odpowiedzią na błędy weryfikacji**
 

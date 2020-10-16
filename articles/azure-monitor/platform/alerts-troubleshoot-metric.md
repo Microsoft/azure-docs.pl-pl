@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715329"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102157"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -77,14 +77,14 @@ Aby uzyskać więcej informacji na temat zbierania danych z systemu operacyjnego
 > W przypadku skonfigurowania metryk gościa do wysłania do obszaru roboczego Log Analytics metryki są wyświetlane w obszarze zasób obszaru roboczego Log Analytics i rozpoczną wyświetlanie danych **dopiero** po utworzeniu reguły alertu, która je monitoruje. W tym celu postępuj zgodnie z instrukcjami, aby [skonfigurować alert metryki na potrzeby dzienników](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 > [!NOTE] 
-> Monitorowanie metryk gościa dla wielu maszyn wirtualnych z pojedynczą regułą alertu nie jest obecnie obsługiwane przez alerty metryki. Można to osiągnąć za pomocą [reguły alertu dziennika](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). W tym celu upewnij się, że metryki gościa są zbierane do obszaru roboczego Log Analytics i Utwórz regułę alertu dziennika w obszarze roboczym.
+> Monitorowanie metryk gościa dla wielu maszyn wirtualnych z pojedynczą regułą alertu nie jest obecnie obsługiwane przez alerty metryki. Można to osiągnąć za pomocą [reguły alertu dziennika](./alerts-unified-log.md). W tym celu upewnij się, że metryki gościa są zbierane do obszaru roboczego Log Analytics i Utwórz regułę alertu dziennika w obszarze roboczym.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Nie można znaleźć metryki do alertu
 
-Jeśli chcesz otrzymywać alerty dotyczące określonej metryki, ale nie zobaczysz jej podczas tworzenia reguły alertu, sprawdź następujące informacje:
-- Jeśli nie widzisz żadnych metryk dla zasobu, [Sprawdź, czy typ zasobu jest obsługiwany dla alertów metryk](./alerts-metric-near-real-time.md).
-- Jeśli można zobaczyć pewne metryki dla zasobu, ale nie można znaleźć określonej metryki, [Sprawdź, czy ta Metryka jest dostępna](./metrics-supported.md), a jeśli tak, zobacz Opis metryki, aby sprawdzić, czy jest dostępna tylko w określonych wersjach lub wersjach tego zasobu.
-- Jeśli Metryka nie jest dostępna dla zasobu, może być dostępna w dziennikach zasobów i może być monitorowana przy użyciu alertów dzienników. Zobacz tutaj, aby uzyskać więcej informacji na temat [zbierania i analizowania dzienników zasobów z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
+Jeśli szukasz alertu dotyczącego określonej metryki, ale nie widzisz go podczas tworzenia reguły alertu, sprawdź następujące kwestie:
+- Jeśli nie widzisz żadnych metryk dla zasobu, [sprawdź, czy typ zasobu jest obsługiwany na potrzeby alertów dotyczących metryk](./alerts-metric-near-real-time.md).
+- Jeśli widzisz pewne metryki dla zasobu, ale nie możesz znaleźć określonej metryki, [sprawdź, czy ta metryka jest dostępna](./metrics-supported.md), i jeśli tak, zobacz jej opis, aby sprawdzić, czy jest ona dostępna tylko w określonych wersjach lub wydaniach zasobu.
+- Jeśli metryka nie jest dostępna dla zasobu, może być dostępna w dziennikach zasobu i monitorowana przy użyciu alertów dzienników. Zobacz tutaj, aby uzyskać więcej informacji o [gromadzeniu i analizowaniu dzienników z zasobu platformy Azure](../learn/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Nie można znaleźć wymiaru metryki dla alertu
 
@@ -191,7 +191,7 @@ W przypadku problemów z tworzeniem, aktualizowaniem, pobieraniem lub usuwaniem 
 
 Zapoznaj się z [przewodnikiem interfejsu API REST](/rest/api/monitor/metricalerts/) , aby upewnić się, że wszystkie parametry są prawidłowo przekazywane
 
-### <a name="powershell"></a>Program PowerShell
+### <a name="powershell"></a>PowerShell
 
 Upewnij się, że używasz właściwych poleceń cmdlet programu PowerShell dla alertów metryk:
 

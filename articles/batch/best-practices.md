@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849493"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102782"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -63,7 +63,7 @@ Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej 
 
 ### <a name="third-party-images"></a>Obrazy innych firm
 
-Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu Azure Marketplace. Przy użyciu kont usługi Batch w trybie subskrypcji użytkownika może zostać wyświetlony komunikat o błędzie "Alokacja nie powiodła się z powodu sprawdzania uprawnień do zakupu w witrynie Marketplace" podczas tworzenia puli z niektórymi obrazami innych firm. Aby rozwiązać ten problem, zaakceptuj warunki określone przez wydawcę obrazu. Można to zrobić za pomocą [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/vm/image/terms).
+Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu Azure Marketplace. Przy użyciu kont usługi Batch w trybie subskrypcji użytkownika może zostać wyświetlony komunikat o błędzie "Alokacja nie powiodła się z powodu sprawdzania uprawnień do zakupu w witrynie Marketplace" podczas tworzenia puli z niektórymi obrazami innych firm. Aby rozwiązać ten problem, zaakceptuj warunki określone przez wydawcę obrazu. Można to zrobić za pomocą [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Zależność regionu platformy Azure
 

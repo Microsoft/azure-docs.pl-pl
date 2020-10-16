@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d11d3edc4eec0a006e71ef1787cbbd62a7f5957e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cb9d5c5c2ca850678d3f3194a9af8de526ada4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856980"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103394"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Użyj Azure PowerShell, aby utworzyć klaster usługi HDInsight z Azure Data Lake Storage Gen1 (jako dodatkowy magazyn)
 
@@ -250,7 +250,7 @@ Po skonfigurowaniu klastra usługi HDInsight można uruchomić zadania testowe w
 
 W tej sekcji przeprowadzisz protokół SSH do utworzonego klastra usługi HDInsight Linux i uruchomisz przykładowe zapytanie Hive.
 
-* Jeśli używasz klienta systemu Windows do używania protokołu SSH z klastrem, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Jeśli używasz klienta systemu Windows do używania protokołu SSH z klastrem, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 * Jeśli używasz klienta z systemem Linux do używania protokołu SSH z klastrem, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)
 
 1. Po nawiązaniu połączenia Uruchom interfejs wiersza polecenia Hive przy użyciu następującego polecenia:
@@ -287,7 +287,7 @@ Po skonfigurowaniu klastra usługi HDInsight do używania Data Lake Storage Gen1
 
 W tej sekcji przeprowadzisz protokół SSH do utworzonego klastra usługi HDInsight w systemie Linux i uruchomisz polecenia systemu plików HDFS.
 
-* Jeśli używasz klienta systemu Windows do używania protokołu SSH z klastrem, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+* Jeśli używasz klienta systemu Windows do używania protokołu SSH z klastrem, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 * Jeśli używasz klienta z systemem Linux do używania protokołu SSH z klastrem, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Po nawiązaniu połączenia użyj następującego polecenia systemu plików HDFS, aby wyświetlić listę plików na koncie magazynu za pomocą Data Lake Storage Gen1.
@@ -310,5 +310,5 @@ Możesz również użyć `hdfs dfs -put` polecenia, aby przekazać pliki do Data
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192806"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101651"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące burzy w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ Informacje o czynnikach, które należy wziąć pod uwagę podczas dostrajania w
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto Azure Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące sposobu tworzenia takiego elementu, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen1. Zobacz [Tworzenie klastra usługi HDInsight przy użyciu Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Upewnij się, że Pulpit zdalny dla klastra są włączone.
-* **Uruchamianie klastra burzy w Data Lake Storage Gen1**. Aby uzyskać więcej informacji, zobacz [burza w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Wskazówki dotyczące dostrajania wydajności na Data Lake Storage Gen1**.  Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen1 wskazówki dotyczące dostrajania wydajności](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Uruchamianie klastra burzy w Data Lake Storage Gen1**. Aby uzyskać więcej informacji, zobacz [burza w usłudze HDInsight](../hdinsight/storm/apache-storm-overview.md).
+* **Wskazówki dotyczące dostrajania wydajności na Data Lake Storage Gen1**.  Ogólne pojęcia dotyczące wydajności znajdują się w temacie [Data Lake Storage Gen1 wskazówki dotyczące dostrajania wydajności](./data-lake-store-performance-tuning-guidance.md).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Dostrajanie równoległości topologii
 
@@ -130,6 +130,6 @@ Aby sprawdzić, czy masz ograniczone ograniczenia, Włącz rejestrowanie debugow
 2. Monitoruj dzienniki topologii burzy w węzłach procesu roboczego (w obszarze/var/log/Storm/Worker-Artifacts/ &lt; topologyname &gt; / &lt; port &gt; /Worker.log), aby uzyskać Data Lake Storage Gen1 wyjątków ograniczania.
 
 ## <a name="next-steps"></a>Następne kroki
-W [tym blogu](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)można odwoływać się do dodatkowej dostrajania wydajności dla burzy.
+W [tym blogu](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)można odwoływać się do dodatkowej dostrajania wydajności dla burzy.
 
 Aby zapoznać się z dodatkowym przykładem, zobacz [ten temat w witrynie GitHub](https://github.com/hdinsight/storm-performance-automation).

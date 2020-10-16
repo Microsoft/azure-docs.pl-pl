@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256760"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103156"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
@@ -46,7 +46,7 @@ Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej oparty głów
 
 Poniższy diagram przepływu przedstawia przyznanie kodu autoryzacji OAuth 2,0 (wraz ze szczegółami dotyczącymi pominiętych PKCE), w którym aplikacja otrzymuje kod z punktu końcowego platformy tożsamości firmy Microsoft i realizuje `authorize` go w celu uzyskania tokenów i tokenów odświeżania przy użyciu żądań sieci Web między lokacjami. Token odświeżania wygasa co 24 godziny, a aplikacja musi zażądać innego kodu. Oprócz tokenu dostępu, `id_token` który reprezentuje zalogowanego użytkownika do aplikacji klienckiej, zazwyczaj żąda również za pomocą tego samego przepływu i/lub oddzielnego żądania połączenia OpenID Connect (nie pokazano tutaj).
 
-![Przepływ kodu dla aplikacji SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram przedstawiający przepływ kodu autoryzacji OAuth 2 między aplikacją jednostronicową a punktem końcowym usługi tokenu zabezpieczającego." border="false":::
 
 Aby zapoznać się z tym scenariuszem w działaniu, zapoznaj się z [samouczkiem: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z poziomu skryptu JavaScript Spa przy użyciu przepływu kodu uwierzytelniania](tutorial-v2-javascript-auth-code.md).
 

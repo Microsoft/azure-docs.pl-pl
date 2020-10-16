@@ -1,23 +1,23 @@
 ---
-title: Wybierz warstwę cenową lub jednostkę SKU
+title: Wybierz warstwę cenową
 titleSuffix: Azure Cognitive Search
-description: 'Usługa Azure Wyszukiwanie poznawcze może być obsługiwana w następujących jednostkach SKU: bezpłatna, podstawowa i standardowa, a warstwa standardowa jest dostępna w różnych konfiguracjach zasobów i poziomach pojemności.'
+description: 'Obsługę administracyjną Wyszukiwanie poznawcze platformy Azure można zainicjować w następujących warstwach: bezpłatna, podstawowa i standardowa, a warstwa standardowa jest dostępna w różnych konfiguracjach zasobów i poziomach pojemności.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948089"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101277"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
-Podczas tworzenia usługi Wyszukiwanie poznawcze platformy Azure [tworzony jest zasób](search-create-service-portal.md) w warstwie cenowej (lub jednostce SKU), który został rozwiązany przez okres istnienia usługi. Warstwy obejmują bezpłatne, podstawowe, standardowe i zoptymalizowane pod kątem magazynu. Zoptymalizowane pod kątem Standard i Storage są dostępne z kilkoma konfiguracjami i pojemnościami.
+Podczas tworzenia usługi Wyszukiwanie poznawcze platformy Azure [tworzony jest zasób](search-create-service-portal.md) w warstwie cenowej, który został rozwiązany przez okres istnienia usługi. Warstwy obejmują bezpłatne, podstawowe, standardowe i zoptymalizowane pod kątem magazynu. Zoptymalizowane pod kątem Standard i Storage są dostępne z kilkoma konfiguracjami i pojemnościami.
 
 Większość klientów zaczyna się od warstwy Bezpłatna, aby umożliwić jej ocenę usługi. Po zakończeniu oceny często można utworzyć drugą usługę w jednej z wyższych warstw na potrzeby wdrożeń deweloperskich i produkcyjnych.
 
@@ -27,15 +27,15 @@ W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
 | Cecha | Ograniczenia |
 |---------|-------------|
-| [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD. |
+| [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD.  |
 | [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
 | [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) | Niedostępne w warstwie Bezpłatna. |
 | [Dostęp do zapory IP](service-configure-firewall.md) | Niedostępne w warstwie Bezpłatna. |
-| [Integracja z prywatnym łączem platformy Azure](service-create-private-endpoint.md) | Niedostępne w warstwie Bezpłatna. |
+| [Prywatny punkt końcowy (Integracja z prywatnym łączem platformy Azure)](service-create-private-endpoint.md) | W przypadku połączeń przychodzących z usługą Search nie jest dostępna w warstwie Bezpłatna. W przypadku połączeń wychodzących przez indeksatory do innych zasobów platformy Azure, niedostępne w przypadku systemu HD lub S3. W przypadku indeksatorów korzystających z programu umiejętności, niedostępne w przypadku platformy Free, Basic, S1 lub S3 HD.|
 
 Większość funkcji jest dostępnych w każdej warstwie, w tym bezpłatna, ale funkcje intensywnie korzystające z zasobów mogą nie być dobrze, chyba że zapewnisz wystarczającą pojemność. Na przykład [wzbogacanie systemu AI](cognitive-search-concept-intro.md) ma długotrwałe umiejętności, które przekraczają limit czasu dla bezpłatnej usługi, chyba że zestaw danych jest mały.
 
-## <a name="tiers-skus"></a>Warstwy (SKU)
+## <a name="tiers"></a>Warstwy
 
 Warstwy są zróżnicowane według:
 
@@ -158,7 +158,7 @@ Aby określić rozmiar indeksu, należy go [skompilować](search-what-is-an-inde
 W przypadku wyszukiwania pełnotekstowego podstawowa struktura danych jest [odwrotną](https://en.wikipedia.org/wiki/Inverted_index) strukturą indeksu, która ma inne cechy niż dane źródłowe. W przypadku odwróconego indeksu rozmiar i złożoność są określane przez zawartość, a nie niekoniecznie ilość danych, które są do niego strumieniowo. Duże źródło danych o wysokiej nadmiarowości może spowodować zmniejszenie indeksu niż mniejszy zestaw danych, który zawiera wysoce zmienną zawartość. Jest to rzadko możliwe do wywnioskowania rozmiaru indeksu na podstawie rozmiaru oryginalnego zestawu danych.
 
 > [!NOTE] 
-> Chociaż oszacowanie przyszłych potrzeb dotyczących indeksów i magazynu może wyglądać podobnie jak wątpliwości, warto wykonać te czynności. Jeśli pojemność warstwy wyzostanie zbyt niska, należy udostępnić nową usługę w wyższej warstwie, a następnie [ponownie załadować indeksy](search-howto-reindex.md). Nie istnieje uaktualnienie w miejscu usługi z jednej jednostki SKU do innej.
+> Chociaż oszacowanie przyszłych potrzeb dotyczących indeksów i magazynu może wyglądać podobnie jak wątpliwości, warto wykonać te czynności. Jeśli pojemność warstwy wyzostanie zbyt niska, należy udostępnić nową usługę w wyższej warstwie, a następnie [ponownie załadować indeksy](search-howto-reindex.md). Nie istnieje uaktualnienie w miejscu usługi z jednej warstwy do innej.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Szacowanie przy użyciu warstwy Bezpłatna

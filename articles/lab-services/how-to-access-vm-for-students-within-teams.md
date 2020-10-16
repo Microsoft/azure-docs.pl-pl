@@ -3,12 +3,12 @@ title: Dostęp do maszyny wirtualnej (widok student) w laboratorium platformy Az
 description: Dowiedz się, jak uzyskać dostęp do maszyny wirtualnej w laboratorium Azure Lab z zespołów.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c786a8b3fcee57cefb551a61087d4b49ee5e93c0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043449"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102412"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Dostęp do maszyny wirtualnej (widok student) w laboratorium platformy Azure z zespołów
 
@@ -16,7 +16,7 @@ Gdy laboratorium jest tworzone w ramach zespołów, użytkownicy mogą wyświetl
 
 ## <a name="view-labs"></a>Wyświetl laboratoria
 
-Jeśli laboratorium nie jest jeszcze opublikowane lub synchronizacja nie zostanie jeszcze wyzwolona po dodaniu ich do zespołu, podobne wiadomości będą widoczne dla studentów ". Na "Jeśli laboratorium nie zostanie jeszcze opublikowane lub synchronizacja nie zostanie jeszcze wyzwolona po dodaniu ich do zespołu, podobne komunikaty będą widoczne dla członków zespołu.
+Jeśli laboratorium nie jest jeszcze opublikowane lub synchronizacja nie zostanie jeszcze wyzwolona po dodaniu ich do zespołu, podobne komunikaty będą widoczne dla członków zespołu.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Azure Lab Services Lab":::

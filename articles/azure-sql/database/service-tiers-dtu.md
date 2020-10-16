@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848861"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103003"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Warstwy usług w modelu zakupów opartym na jednostkach DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Wybór warstwy usług zależy głównie od ciągłości biznesowej, magazynu i w
 |**Umowa SLA dla czasu działania**|99,99%|99,99%|99,99%|
 |**Maksymalne przechowywanie kopii zapasowych**|7 dni|35 dni|35 dni|
 |**Procesor CPU**|Niski|Niski, średni, wysoki|Średni, wysoki|
-|**Operacje we/wy (przybliżone)**\* |1-5 operacji we/wy na jednostkę DTU| 1-5 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
+|**Operacje we/wy (przybliżone)**\* |1-4 operacji we/wy na jednostkę DTU| 1-4 operacji we/wy na jednostkę DTU | 25 operacji we/wy na jednostkę DTU|
 |**Opóźnienie we/wy (przybliżone)**|5 ms (odczyt), 10 ms (zapis)|5 ms (odczyt), 10 ms (zapis)|2 ms (odczyt i zapis)|
 |**Indeksowanie magazynu kolumn** |Nie dotyczy|S3 i nowsze|Obsługiwane|
 |**Przetwarzanie OLTP w pamięci**|NIE DOTYCZY|NIE DOTYCZY|Obsługiwane|
@@ -73,7 +73,7 @@ Rozmiary obliczeń są wyrażone w kategoriach jednostek transakcji bazy danych 
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Limity liczby jednostek eDTU puli elastycznej, magazynu i bazy danych w puli
 
-|| **Podstawowe** | **Standardowa** | **Premium** |
+|| **Podstawowe** | **Standardowy** | **Premium** |
 | :-- | --: | --: | --: |
 | **Maksymalny rozmiar magazynu na bazę danych**  | 2 GB | 1 TB | 1 TB |
 | **Maksymalny rozmiar magazynu na pulę** | 156 GB | 4 TB | 4 TB |
@@ -123,7 +123,7 @@ Obciążenie obejmuje dziewięć typów transakcji, jak pokazano w poniższej ta
 | Aktualizuj ciężki |AKTUALIZACJI przede wszystkim nie w pamięci; Odczyt i zapis |
 | Wstaw Lite |WSTAWIENIA w pamięci; Odczyt i zapis |
 | Wstaw ciężki |WSTAWIENIA przede wszystkim nie w pamięci; Odczyt i zapis |
-| Usuwanie |USUNIĘTY mieszanie w pamięci, a nie w pamięci; Odczyt i zapis |
+| Usuń |USUNIĘTY mieszanie w pamięci, a nie w pamięci; Odczyt i zapis |
 | Duże użycie procesora |ZAZNACZENIA w pamięci; relatywnie duże obciążenie procesora CPU; tylko do odczytu |
 
 ### <a name="workload-mix"></a>Mieszanie obciążeń
@@ -139,7 +139,7 @@ Transakcje są wybierane losowo z dystrybucji ważonej przy użyciu następując
 | Aktualizuj ciężki |3 |
 | Wstaw Lite |3 |
 | Wstaw ciężki |2 |
-| Usuwanie |2 |
+| Usuń |2 |
 | Duże użycie procesora |10 |
 
 ### <a name="users-and-pacing"></a>Użytkownicy i tempem

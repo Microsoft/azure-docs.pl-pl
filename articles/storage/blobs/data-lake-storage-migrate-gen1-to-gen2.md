@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716143"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102646"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrowanie Azure Data Lake Storage z Gen1 do Gen2
 
@@ -97,7 +97,7 @@ W tej tabeli porównano możliwości Gen1 z Gen2.
 |---|---|---|
 |Organizacja danych|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa plików i folderów|[Hierarchiczna przestrzeń nazw](data-lake-storage-namespace.md)<br>Obsługa kontenera, plików i folderów |
 |Nadmiarowość geograficzna| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Uwierzytelnianie|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Współużytkowany klucz dostępu](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
+|Authentication|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)|[Tożsamość zarządzana usługi AAD](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Jednostki usług](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Współużytkowany klucz dostępu](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Autoryzacja|Zarządzanie — kontrola [RBAC na platformie Azure](../../role-based-access-control/overview.md)<br>Dane — [listy ACL](data-lake-storage-access-control.md)|Zarządzanie — kontrola [RBAC platformy Azure](../../role-based-access-control/overview.md)<br>Dane —  [listy kontroli dostępu](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Szyfrowanie — dane przechowywane w spoczynku|Po stronie serwera — z kluczami [zarządzanymi](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) przez [firmę Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub zarządzanymi przez klienta|Po stronie serwera — z kluczami [zarządzanymi](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) przez [firmę Microsoft](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) lub zarządzanymi przez klienta|
 |Obsługa sieci wirtualnej|[Integracja z siecią wirtualną](../../data-lake-store/data-lake-store-network-security.md)|[Punkty końcowe usługi](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [prywatne punkty końcowe](../common/storage-private-endpoints.md)|
@@ -122,7 +122,7 @@ Przyjrzyjmy się bliżej każdej z wzorców.
  
 ### <a name="lift-and-shift-pattern"></a>Wzorzec podnoszenia i przesunięcia
 
-Jest to najprostszy wzorzec.
+Jest to najprostszy wzorzec. 
 
 1. Zatrzymaj wszystkie zapisy w Gen1.
 
@@ -131,6 +131,8 @@ Jest to najprostszy wzorzec.
 3. Wypróbowanie operacji pozyskiwania i obciążeń do Gen2.
 
 4. Likwidowanie Gen1.
+
+Zapoznaj się z naszym przykładowym kodem dotyczącym wzorca dźwigu i przesunięcia w ramach [przykładu migracji i przesunięcia](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![wzorzec podnoszenia i przesunięcia](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Jest to najprostszy wzorzec.
 
 4. Likwidowanie Gen1.
 
+Zapoznaj się z naszym przykładowym kodem wzorca kopiowania przyrostowego w ramach [przykładu migracji kopii przyrostowej](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Wzorzec kopiowania przyrostowego](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Jest to najprostszy wzorzec.
 
 4. Zatrzymaj wszystkie zapisy w Gen1, a następnie likwidowanie Gen1.
 
+Zapoznaj się z [naszym przykładowym](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md)kodem, aby uzyskać wzorzec podwójnego potoku.
+
 > [!div class="mx-imgBorder"]
 > ![Podwójny wzorzec potoku](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Jest to najprostszy wzorzec.
 3. Po zakończeniu wszystkich operacji przenoszenia Zatrzymaj wszystkie zapisy do Gen1 i Wyłącz replikację dwukierunkową.
 
 4. Likwidowanie Gen1.
+
+Zapoznaj się z naszym przykładowym kodem dla wzorca synchronizacji dwukierunkowej w naszym [przykładowej migracji z synchronizacją dwukierunkową](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Wzorzec dwukierunkowy](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

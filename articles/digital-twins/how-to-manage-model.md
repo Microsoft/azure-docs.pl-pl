@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057743"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102497"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -174,10 +174,7 @@ Zamiast tego, jeśli chcesz wprowadzić zmiany do modelu, na przykład aktualiza
 
 #### <a name="model-versioning"></a>Wersje modelu danych
 
-Aby utworzyć nową wersję istniejącego modelu, Zacznij od DTDL oryginalnego modelu. Zaktualizuj pola, które chcesz zmienić.
-
->[!NOTE]
->W trakcie okresu zapoznawczego przechodzenie wersji modelu umożliwi tylko Dodawanie nowych pól, a nie usuwanie istniejących. Aby usunąć pola, należy po prostu [utworzyć zupełnie nowy model](#create-models).
+Aby utworzyć nową wersję istniejącego modelu, Zacznij od DTDL oryginalnego modelu. Aktualizowanie, Dodawanie lub usuwanie pól, które chcesz zmienić.
 
 Następnie oznacz ją jako nowszą wersję modelu, aktualizując `id` pole modelu. Ostatnia sekcja identyfikatora modelu, po `;` , reprezentuje numer modelu. Aby wskazać, że jest to teraz bardziej zaktualizowana wersja tego modelu, Zwiększ liczbę na końcu `id` wartości do dowolnej liczby większej niż bieżący numer wersji.
 

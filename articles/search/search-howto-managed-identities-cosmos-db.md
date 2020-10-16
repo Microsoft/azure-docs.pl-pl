@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275289"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102697"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Konfigurowanie połączenia indeksatora z bazą danych Cosmos DB przy użyciu tożsamości zarządzanej
 
 Na tej stronie opisano sposób konfigurowania połączenia indeksatora z bazą danych Azure Cosmos DB przy użyciu tożsamości zarządzanej zamiast podawania poświadczeń w parametrach połączenia obiektu źródła danych.
 
 Aby dowiedzieć się więcej o tej funkcji, zalecamy zapoznanie się z tym, co to jest indeksator i jak skonfigurować indeksator dla źródła danych. Więcej informacji można znaleźć w następujących linkach:
+
 * [Omówienie indeksatora](search-indexer-overview.md)
 * [Indeksator usługi Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -143,9 +144,8 @@ Jeśli okaże się, że nie można indeksować danych z Cosmos DB należy wzią�
 
 1. Jeśli ostatnio zostały obrócone klucze konta Cosmos DB, musisz poczekać do 15 minut, aż parametry połączenia tożsamości zarządzanej będą działały.
 
-1. Sprawdź, czy konto Cosmos DB ma dostęp ograniczony do wybranych sieci. Jeśli tak jest, zapoznaj się z tematem [indeksatora dostępu do źródeł danych przy użyciu funkcji zabezpieczeń sieci platformy Azure](search-indexer-securing-resources.md).
+1. Sprawdź, czy konto Cosmos DB ma dostęp ograniczony do wybranych sieci. Jeśli tak jest, zapoznaj się z tematem [indeksatora dostępu do zawartości chronionej przez funkcje zabezpieczeń sieci platformy Azure](search-indexer-securing-resources.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o Cosmos DB indeksatorów:
 * [Indeksator usługi Azure Cosmos DB](search-howto-index-cosmosdb.md)

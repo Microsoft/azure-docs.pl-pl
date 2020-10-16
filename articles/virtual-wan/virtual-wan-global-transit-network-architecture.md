@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212708"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102327"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -43,7 +43,7 @@ Wirtualna sieć WAN platformy Azure umożliwia globalną architekturę sieci tra
 
 **Rysunek 2: globalne sieci tranzytowe i wirtualna sieć WAN**
 
-W architekturze sieci wirtualnej platformy Azure wirtualne centra sieci WAN są inicjowane w regionach platformy Azure, w których można wybrać połączenie z gałęziami, sieci wirtualnych i użytkownikami zdalnymi. Fizyczne Lokacje oddziałów są połączone z centrum za pomocą ExpressRoute Premium lub lokacji-VPN, sieci wirtualnych są połączone z koncentratorem przez połączenia sieci wirtualnej, a użytkownicy zdalni mogą łączyć się bezpośrednio z centrum przy użyciu sieci VPN użytkownika (VPN punkt-lokacja). Wirtualna sieć WAN obsługuje również międzyregionowe połączenie sieci wirtualnej, w którym sieć wirtualna w jednym regionie może być podłączona do koncentratora wirtualnego sieci WAN w innym regionie.
+W architekturze sieci wirtualnej platformy Azure wirtualne centra sieci WAN są inicjowane w regionach platformy Azure, w których można wybrać połączenie z gałęziami, sieci wirtualnych i użytkownikami zdalnymi. Fizyczne Lokacje oddziałów są połączone z centrum za pomocą warstwy Premium lub standardowa ExpressRoute lub lokacja-sieci VPN, sieci wirtualnych są połączone z koncentratorem za pośrednictwem połączeń sieci wirtualnej, a użytkownicy zdalni mogą łączyć się bezpośrednio z centrum przy użyciu VPN użytkownika (VPN punkt-lokacja). Wirtualna sieć WAN obsługuje również międzyregionowe połączenie sieci wirtualnej, w którym sieć wirtualna w jednym regionie może być podłączona do koncentratora wirtualnego sieci WAN w innym regionie.
 
 Można nawiązać wirtualną sieć WAN, tworząc pojedyncze wirtualne koncentratory sieci WAN w regionie, który ma największą liczbę szprych (gałęzie, sieci wirtualnych, użytkowników), a następnie łącząc szprychy, które znajdują się w innych regionach z koncentratorem. Jest to dobrym rozwiązaniem, gdy powierzchnia przedsiębiorstwa jest w większości w jednym regionie, z kilkoma zdalnymi szprychami.  
   
@@ -87,7 +87,7 @@ Gałąź do sieci wirtualnej jest ścieżką podstawową obsługiwaną przez wir
 
 ### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Global Reach i wirtualna sieć WAN
 
-ExpressRoute to prywatny i odporny na połączenie sieci lokalnych z Microsoft Cloud. Wirtualna sieć WAN obsługuje połączenia obwodów tras Express. Połączenie lokacji rozgałęzienia z wirtualną siecią WAN przy użyciu trasy Express wymaga 1) obwodu 2), który ma być w Global Reach lokalizacji.
+ExpressRoute to prywatny i odporny na połączenie sieci lokalnych z Microsoft Cloud. Wirtualna sieć WAN obsługuje połączenia obwodów tras Express. Połączenie z lokacją rozgałęzienia z wirtualną siecią WAN przy użyciu trasy Express wymaga 1) obwodu Global Reach w warstwie Premium lub Standard 2).
 
 ExpressRoute Global Reach to funkcja dodatku dla ExpressRoute. Za pomocą Global Reach można połączyć obwody usługi ExpressRoute w celu naprowadzenia prywatnej sieci między sieciami lokalnymi. Gałęzie, które są połączone z wirtualną siecią WAN platformy Azure za pomocą ExpressRoute, wymagają, aby Global Reach ExpressRoute się ze sobą.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097256"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102361"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Wykonywanie zapytań dotyczących danych Azure Cosmos DB przy użyciu programu SQL Server w usłudze Azure Synapse link (wersja zapoznawcza)
 
@@ -266,8 +266,10 @@ Lista możliwych błędów i akcji rozwiązywania problemów znajduje się w pon
 | --- | --- |
 | Błędy składniowe:<br/> -Nieprawidłowa składnia w sąsiedztwie "OPENROWSET"<br/> - `...` nie jest rozpoznawaną opcją dostawcy ZBIORCZego OPENROWSET.<br/> -Nieprawidłowa składnia w sąsiedztwie `...` | Możliwe przyczyny główne<br/> -Nie należy używać "CosmosDB" jako pierwszego parametru,<br/> — Przy użyciu literału ciągu zamiast identyfikatora w trzecim parametrze<br/> — Nie określono trzeciego parametru (nazwa kontenera) |
 | Wystąpił błąd w parametrach połączenia CosmosDB | — Nie określono konta, bazy danych, klucza <br/> -Istnieje kilka opcji parametrów połączenia, które nie zostały rozpoznane.<br/> -Średnik `;` jest umieszczany na końcu ciągu połączenia |
-| Rozpoznawanie ścieżki CosmosDB nie powiodło się z powodu błędu "Nieprawidłowa nazwa konta/bazy danych" | Nie można odnaleźć określonej nazwy konta lub nazwy bazy danych. |
-| Rozpoznanie ścieżki CosmosDB nie powiodło się z powodu błędu "Nieprawidłowa tajna wartość tajna" "ma wartość null lub jest pusta" | Brak klucza konta lub jest on nieprawidłowy. |
+| Rozpoznawanie ścieżki CosmosDB nie powiodło się z powodu błędu "Nieprawidłowa nazwa konta" lub "niepoprawna nazwa bazy danych" | Nie można odnaleźć określonej nazwy konta, nazwy bazy danych lub kontenera lub nie włączono magazynu analitycznego o określonej kolekcji.|
+| Rozpoznanie ścieżki CosmosDB nie powiodło się z powodu błędu "niepoprawna wartość tajna" lub "wpis tajny ma wartość null lub jest pusty" | Brak klucza konta lub jest on nieprawidłowy. |
+| Kolumna `column name` typu `type name` nie jest zgodna z typem danych zewnętrznych `type name` | Określony typ kolumny w `WITH` klauzuli nie jest zgodny z typem w kontenerze Cosmos DB. Spróbuj zmienić typ kolumny, zgodnie z opisem w sekcji [Azure Cosmos DB na mapowania typu SQL](#azure-cosmos-db-to-sql-type-mappings) lub Użyj `VARCHAR` typu. |
+| Kolumna zawiera `NULL` wartości we wszystkich komórkach. | Prawdopodobnie zła nazwa kolumny lub wyrażenie ścieżki w `WITH` klauzuli. Nazwa kolumny (lub wyrażenie ścieżki po typie kolumny) `WITH` musi być zgodna z nazwą właściwości w kolekcji Cosmos DB. W porównaniu z **rozróżnianiem wielkości**  liter (na przykład `productCode` i `ProductCode` są to różne właściwości). |
 
 Sugestie i problemy można zgłaszać na [stronie opinii o usłudze Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

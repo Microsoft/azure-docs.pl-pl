@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014566"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104108"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB
 
@@ -97,6 +97,10 @@ Dane w magazynie analitycznym są partycjonowane w oparciu o partycjonowanie poz
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>Czy mogę dostosować lub zastąpić sposób przekształcania danych transakcyjnych na format kolumnowy w magazynie analitycznym?
 
 Obecnie nie można przekształcić elementów danych, gdy są one automatycznie propagowane ze sklepu transakcyjnego do magazynu analitycznego. Jeśli masz scenariusze blokowane przez to ograniczenie, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+### <a name="is-analytical-store-supported-by-terraform"></a>Czy magazyn analityczny jest obsługiwany przez Terraform?
+
+Obecnie Terraform nie obsługuje kontenerów magazynu analitycznego. Aby uzyskać więcej informacji, zobacz problemy z usługą [GitHub Terraform](https://github.com/hashicorp/terraform/issues) .
 
 ## <a name="analytical-time-to-live-ttl"></a>Analityczny czas wygaśnięcia (TTL)
 

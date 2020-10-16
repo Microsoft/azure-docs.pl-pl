@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2018
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387732"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102055"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Zarządzanie dostępem użytkowników w Azure Active Directory B2C
 
@@ -114,7 +114,7 @@ Na poniższej ilustracji przedstawiono zalecany przepływ użytkownika:
 
 ![Diagram wykresu przepływu przedstawiający zalecany przepływ użytkowników akceptacji](./media/manage-user-access/user-flow.png)
 
-Poniżej znajduje się przykład wyrażania zgody na podstawie daty i godziny użytkowania w roszczeń:
+Poniżej znajduje się przykład wyrażenia warunków użytkowania w ramach daty. Jeśli to zgłoszenie `extension_termsOfUseConsentDateTime` jest starsze niż `2025-01-15T00:00:00` , Wymuś nowe zatwierdzenie, sprawdzając je `termsOfUseConsentRequired` i wyświetlając ekran z własnym potwierdzeń. 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ Poniżej znajduje się przykład wyrażania zgody na podstawie daty i godziny u�
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ Poniżej znajduje się przykład wyrażania zgody na podstawie daty i godziny u�
 </ClaimsTransformations>
 ```
 
-Poniżej znajduje się przykład zgody na wersje warunków użytkowania w ramach roszczeń:
+Poniżej znajduje się przykład zgody na użycie warunków użytkowania w ramach roszczeń. Jeśli wartość tego `extension_termsOfUseConsentVersion` żądania nie jest równa `V1` , Wymuś nowe zatwierdzenie, sprawdzając `termsOfUseConsentRequired` wartość logiczną i wyświetlając ekran z własnymi potwierdzeń.
 
 ```xml
 <ClaimsTransformations>

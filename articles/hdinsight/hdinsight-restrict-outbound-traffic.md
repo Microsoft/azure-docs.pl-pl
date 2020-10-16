@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006521"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103343"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -23,11 +23,11 @@ W tym artykule przedstawiono procedurę zabezpieczania ruchu wychodzącego z kla
 
 Klastry usługi HDInsight są zwykle wdrażane w sieci wirtualnej. Klaster ma zależności od usług spoza tej sieci wirtualnej.
 
-Istnieje kilka zależności, które wymagają ruchu przychodzącego. Ruch przychodzący zarządzania nie może być wysyłany przez urządzenie zapory. Adresy źródłowe dla tego ruchu są znane i są publikowane w [tym miejscu](hdinsight-management-ip-addresses.md). Można również utworzyć reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) z tymi informacjami, aby zabezpieczyć ruch przychodzący do klastrów.
+Ruch przychodzący zarządzania nie może być wysyłany przez zaporę. Możesz użyć tagów usługi sieciowej grupy zabezpieczeń dla ruchu przychodzącego, jak opisano [tutaj](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
 
-Zależności ruchu wychodzącego usługi HDInsight są prawie całkowicie zdefiniowane za pomocą nazw FQDN. Które nie mają za sobą statycznych adresów IP. Brak adresów statycznych oznacza, że sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie mogą blokować ruchu wychodzącego z klastra. Adresy zmieniają się często wystarczającą liczbą nie można skonfigurować reguł na podstawie bieżącego rozpoznawania nazw i używania.
+Zależności ruchu wychodzącego usługi HDInsight są prawie całkowicie zdefiniowane za pomocą nazw FQDN. Które nie mają za sobą statycznych adresów IP. Brak adresów statycznych oznacza, że sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie mogą blokować ruchu wychodzącego z klastra. Adresy IP, które często zmieniają się, nie mogą ustawiać reguł na podstawie bieżącego rozpoznawania nazw i używania.
 
-Zabezpiecz adresy wychodzące z zaporą, która może kontrolować ruch wychodzący na podstawie nazw domen. Zapora platformy Azure ogranicza ruch wychodzący na podstawie nazwy FQDN tagów lokalizacji docelowej lub [nazwy FQDN](../firewall/fqdn-tags.md).
+Zabezpiecz adresy wychodzące z zaporą, która może kontrolować ruch wychodzący na podstawie nazw FQDN. Zapora platformy Azure ogranicza ruch wychodzący na podstawie nazwy FQDN tagów lokalizacji docelowej lub [nazwy FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurowanie zapory platformy Azure z usługą HDInsight
 
@@ -79,7 +79,7 @@ Utwórz kolekcję reguł aplikacji, która umożliwia klastrowi wysyłanie i odb
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Zezwala na działanie logowania systemu Windows |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Zezwala na działanie logowania systemu Windows |
-    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. NET | Zamień `storage_account_name` na rzeczywistą nazwę konta magazynu. Jeśli klaster jest objęty WASB, Dodaj regułę do WASB. Aby korzystać tylko z połączeń HTTPS, upewnij się, że na koncie magazynu jest włączone polecenie ["wymagany bezpieczny transfer"](../storage/common/storage-require-secure-transfer.md) . |
+    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. NET | Zamień `storage_account_name` na rzeczywistą nazwę konta magazynu. Aby korzystać tylko z połączeń HTTPS, upewnij się, że na koncie magazynu jest włączone polecenie ["wymagany bezpieczny transfer"](../storage/common/storage-require-secure-transfer.md) . W przypadku korzystania z prywatnego punktu końcowego w celu uzyskania dostępu do kont magazynu ten krok nie jest wymagany, a ruch magazynu nie jest przekazywany do zapory.|
 
    ![Title: Wprowadź szczegóły kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -101,21 +101,12 @@ Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDIns
     |Priorytet|200|
     |Akcja|Zezwalaj|
 
-    **Sekcja adresów IP**
-
-    | Nazwa | Protokół | Adresy źródłowe | Adresy docelowe | Porty docelowe | Uwagi |
-    | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Czas usługi |
-    | Rule_2 | Dowolne | * | DC_IP_Address_1, DC_IP_Address_2 | * | Jeśli używasz pakiet Enterprise Security (ESP), a następnie Dodaj regułę sieciową w sekcji adresy IP, która umożliwia komunikację z usługą AAD-DS dla klastrów ESP. Adresy IP kontrolerów domeny można znaleźć w sekcji AAD-DS w portalu |
-    | Rule_3 | TCP | * | Adres IP konta Data Lake Storage | * | Jeśli używasz Azure Data Lake Storage, możesz dodać regułę sieciową w sekcji adresy IP, aby rozwiązać problem SNI z ADLS Gen1 i Gen2. Ta opcja spowoduje kierowanie ruchu do zapory. Co może skutkować wyższymi kosztami ładowania dużych ilości danych, ale ruch będzie rejestrowany i monitorowany w dziennikach zapory. Określ adres IP dla konta Data Lake Storage. Możesz użyć polecenia programu PowerShell, na przykład w `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` celu rozpoznania nazwy FQDN na adres IP.|
-    | Rule_4 | TCP | * | * | 12000 | Obowiązkowe Jeśli używasz Log Analytics, Utwórz regułę sieci w sekcji adresy IP, aby włączyć komunikację z obszarem roboczym Log Analytics. |
-
     **Sekcja tagów usługi**
 
     | Nazwa | Protokół | Adresy źródłowe | Tagi usługi | Porty docelowe | Uwagi |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Skonfiguruj regułę sieci w sekcji Tagi usług dla języka SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. |
-    | Rule_8 | TCP | * | Azure Monitor | * | obowiązkowe Klienci, którzy planują korzystanie z funkcji automatycznego skalowania, powinni dodać tę regułę. |
+    | Rule_5 | TCP | * | SQL | 1433 | Jeśli używasz domyślnych serwerów SQL udostępnianych przez usługę HDInsight, skonfiguruj regułę sieci w sekcji Tagi usług dla programu SQL, która umożliwi rejestrowanie i inspekcję ruchu SQL. O ile punkty końcowe usługi nie zostały skonfigurowane dla SQL Server w podsieci usługi HDInsight, co spowoduje ominięcie zapory. Jeśli używasz niestandardowego programu SQL Server dla Ambari, Oozie, Ranger i Hive metastroes, musisz zezwolić na ruch tylko do własnych niestandardowych serwerów SQL.|
+    | Rule_6 | TCP | * | Azure Monitor | * | obowiązkowe Klienci, którzy planują korzystanie z funkcji automatycznego skalowania, powinni dodać tę regułę. |
     
    ![Title: wprowadzanie kolekcji reguł aplikacji](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -125,9 +116,7 @@ Utwórz reguły sieciowe w celu poprawnego skonfigurowania klastra usługi HDIns
 
 Utwórz tabelę tras z następującymi wpisami:
 
-* Wszystkie adresy IP z [usług kondycji i zarządzania: wszystkie regiony](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) z typem następnego przeskoku **Internet**.
-
-* Dwa adresy IP dla regionu, w którym jest tworzony klaster z [usług kondycji i zarządzania: określone regiony](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) z typem następnego przeskoku **Internet**.
+* Wszystkie adresy IP z [usług kondycji i zarządzania](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) z typem następnego przeskoku **Internet**. Powinien zawierać 4 adresy IP regionów ogólnych, a także 2 adresy IP dla danego regionu. Ta reguła jest wymagana tylko wtedy, gdy ResourceProviderConnection jest ustawiona na wartość *przychodzące*. Jeśli ResourceProviderConnection jest ustawiony na *wychodzące* , te adresy IP nie są konieczne w UDR. 
 
 * Jedna trasa wirtualnego urządzenia dla adresu IP 0.0.0.0/0 z następnym przeskokiem jako prywatny adres IP zapory platformy Azure.
 
@@ -157,7 +146,7 @@ Ukończ konfigurację tabeli tras:
 
 1. Na ekranie **Skojarz podsieć** wybierz sieć wirtualną, w której został utworzony klaster. I **podsieć** użyta dla klastra usługi HDInsight.
 
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Ruch graniczny węzła lub aplikacji niestandardowej
 

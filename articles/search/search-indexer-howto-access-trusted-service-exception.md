@@ -1,34 +1,34 @@
 ---
-title: Zezwalaj na dostęp do magazynu za pomocą zaufanego wyjątku usługi
+title: Dostęp indeksatora do usługi Azure Storage przy użyciu wyjątku usługi zaufanej
 titleSuffix: Azure Cognitive Search
-description: Przewodnik, który opisuje sposób konfigurowania wyjątku usługi zaufanej w celu bezpiecznego dostępu do danych z kont magazynu.
+description: Włącz dostęp do danych za pomocą indeksatora w usłudze Azure Wyszukiwanie poznawcze do danych przechowywanych bezpiecznie w usłudze Azure Storage.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 4fbffaa7bc68bb32bd07b657f4b769e5af4302bf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: e139c15ef6de00376a4e1a88000d263c3486994b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950028"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101379"
 ---
-# <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Bezpieczne uzyskiwanie dostępu do danych z kont magazynu za pomocą wyjątku usługi zaufanej
+# <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Dostęp indeksatora do usługi Azure Storage przy użyciu wyjątku usługi zaufanej (Azure Wyszukiwanie poznawcze)
 
-Indeksatory, które uzyskują dostęp do danych na kontach magazynu, mogą korzystać z funkcji [zaufanego wyjątku usługi](../storage/common/storage-network-security.md#exceptions) , aby bezpiecznie uzyskiwać dostęp do danych. Ten mechanizm umożliwia klientom, którzy nie mogą udzielić [dostępu indeksatora za pośrednictwem reguł zapory adresów IP](search-indexer-howto-access-ip-restricted.md) , prostą, bezpieczną i bezpłatną alternatywą dla dostępu do danych na kontach magazynu.
+Indeksatory w usłudze Wyszukiwanie poznawcze platformy Azure, które uzyskują dostęp do danych na kontach usługi Azure Storage, mogą korzystać z funkcji [zaufanego wyjątku usług](../storage/common/storage-network-security.md#exceptions) , aby bezpiecznie uzyskiwać dostęp do danych. Ten mechanizm umożliwia klientom, którzy nie są w stanie udzielić [dostępu indeksatora przy użyciu reguł zapory IP](search-indexer-howto-access-ip-restricted.md) , proste, bezpieczne i bezpłatne rozwiązanie do uzyskiwania dostępu do danych na kontach magazynu.
 
 > [!NOTE]
-> Obsługa uzyskiwania dostępu do danych na kontach magazynu za pośrednictwem zaufanego wyjątku usługi jest ograniczona do magazynu obiektów blob platformy Azure i Azure Data Lake magazynu Gen2. Usługa Azure Table Storage nie jest obsługiwana.
+> Obsługa uzyskiwania dostępu do danych w kontach magazynu za pomocą zaufanego wyjątku usługi jest ograniczona do magazynu obiektów blob platformy Azure i Azure Data Lake magazynu Gen2. Usługa Azure Table Storage nie jest obsługiwana.
 
-## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Krok 1. Konfigurowanie połączenia z kontem magazynu za pośrednictwem tożsamości
+## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Krok 1. Konfigurowanie połączenia przy użyciu tożsamości zarządzanej
 
-Aby skonfigurować indeksatory do uzyskiwania dostępu do kont magazynu za pośrednictwem zarządzanej tożsamości usługi wyszukiwania, postępuj zgodnie ze szczegółowymi informacjami w [przewodniku](search-howto-managed-identities-storage.md) dotyczącym dostępu do tożsamości.
+Postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie połączenia z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej](search-howto-managed-identities-storage.md). Po zakończeniu usługa wyszukiwania zostanie zarejestrowana za pomocą Azure Active Directory jako usługi zaufanej, a użytkownik otrzyma uprawnienia do usługi Azure Storage, która daje prawo do wyszukiwania danych lub informacji.
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>Krok 2. umożliwienie zaufanym usługom firmy Microsoft uzyskiwania dostępu do konta magazynu
 
-W Azure Portal przejdź do karty "zapory i sieci wirtualne" na koncie magazynu. Upewnij się, że opcja "Zezwalaj na dostęp do tego konta magazynu zaufanych usług firmy Microsoft" jest zaznaczona. Ta opcja zezwala na dostęp do danych na koncie magazynu tylko określonemu wystąpieniu usługi wyszukiwania z odpowiednim dostępem opartym na rolach (silnego uwierzytelniania), nawet jeśli jest on zabezpieczony przez reguły zapory adresów IP.
+W Azure Portal przejdź do karty **zapory i sieci wirtualne** na koncie magazynu. Upewnij się, że opcja **Zezwalaj na dostęp do tego konta magazynu zaufanych usług firmy Microsoft** jest zaznaczona. Ta opcja zezwala na dostęp do danych na koncie magazynu tylko określonemu wystąpieniu usługi wyszukiwania z odpowiednim dostępem opartym na rolach (silnego uwierzytelniania), nawet jeśli jest on zabezpieczony przez reguły zapory adresów IP.
 
 ![Wyjątek usługi zaufanej](media\search-indexer-howto-secure-access\exception.png "Wyjątek usługi zaufanej")
 
