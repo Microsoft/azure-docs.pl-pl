@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 2d426952e92951185c43b68266196a6764f4f601
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825930"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125017"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -18,6 +18,10 @@ Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Analiza wideo na żywo oparta na wykrywaniu ruchu":::
+
+Możesz wyświetlić poniższy film wideo z szczegółowymi krokami dotyczącymi rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge:
+
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +41,7 @@ Ten samouczek wymaga następujących zasobów platformy Azure:
 * Konto Azure Media Services
 * Maszyna wirtualna z systemem Linux na platformie Azure, w której zainstalowano [środowisko uruchomieniowe IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md)
 
-W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. Aby to zrobić, wykonaj następujące kroki:
+W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. W tym celu wykonaj następujące czynności:
 
 1. Przejdź do [Azure Cloud Shell](https://shell.azure.com).
 1. Jeśli używasz Cloud Shell po raz pierwszy, zostanie wyświetlony monit o wybranie subskrypcji w celu utworzenia konta magazynu i udziału plików Microsoft Azure. Wybierz pozycję **Utwórz magazyn** , aby utworzyć konto magazynu dla informacji sesji Cloud Shell. To konto magazynu jest niezależne od konta, które zostanie utworzone przez skrypt do użycia z Twoim kontem Azure Media Services.
@@ -62,7 +66,7 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device 
 To polecenie wdraża następujące moduły na urządzeniu brzegowym, które jest w tym przypadku maszyną wirtualną z systemem Linux.
 
 * Analiza wideo na żywo na IoT Edge (Nazwa modułu `lvaEdge` )
-* Symulator protokołu przesyłania strumieniowego (RTSP) w czasie rzeczywistym (Nazwa modułu `rtspsim` )
+* Symulator protokołu przesyłania strumieniowego Real-Time (RTSP) (Nazwa modułu `rtspsim` )
 
 Moduł symulatora RTSP symuluje strumień wideo na żywo przy użyciu pliku wideo, który został skopiowany do urządzenia brzegowego po uruchomieniu [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 

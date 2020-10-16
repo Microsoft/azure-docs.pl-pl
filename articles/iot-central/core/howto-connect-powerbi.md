@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081002"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123341"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Wizualizowanie i analizowanie danych IoT Central platformy Azure na pulpicie nawigacyjnym Power BI
 
@@ -27,7 +27,7 @@ Użyj rozwiązania Power BI dla platformy Azure IoT Central v3, aby utworzyć za
 - Filtrowanie w dół do danych wysyłanych przez określone urządzenia
 - Wyświetlanie najnowszych danych telemetrycznych w tabeli
 
-To rozwiązanie służy do konfigurowania potoku, który odczytuje dane z konta [usługi Azure Blob](howto-export-data-blob-storage.md) Storage. Potok używa Azure Functions, Azure Data Factory i Azure SQL Database, aby przetwarzać i przekształcać dane. Możesz wizualizować i analizować dane w raporcie Power BI pobranym jako plik PBIX. Wszystkie zasoby są tworzone w ramach subskrypcji platformy Azure, dzięki czemu można dostosować każdy składnik do swoich potrzeb.
+To rozwiązanie służy do konfigurowania potoku, który odczytuje dane z konta [usługi Azure Blob](./howto-export-data.md) Storage. Potok używa Azure Functions, Azure Data Factory i Azure SQL Database, aby przetwarzać i przekształcać dane. Możesz wizualizować i analizować dane w raporcie Power BI pobranym jako plik PBIX. Wszystkie zasoby są tworzone w ramach subskrypcji platformy Azure, dzięki czemu można dostosować każdy składnik do swoich potrzeb.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ Skonfigurowanie rozwiązania wymaga następujących zasobów:
 - Power BI Pro (Jeśli chcesz udostępnić pulpit nawigacyjny innym osobom).
 
 > [!NOTE]
-> Jeśli używasz aplikacji IoT Central w wersji 2, zobacz [Wizualizacja i analizowanie danych platformy Azure IoT Central na pulpicie nawigacyjnym Power BI](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) w poprzedniej wersji witryny dokumentacji.
+> Jeśli używasz aplikacji IoT Central w wersji 2, zobacz [Wizualizacja i analizowanie danych platformy Azure IoT Central na pulpicie nawigacyjnym Power BI](/previous-versions/azure/iot-central/core/howto-connect-powerbi) w poprzedniej wersji witryny dokumentacji.
 
 ## <a name="install"></a>Instalowanie
 

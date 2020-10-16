@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531030"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125734"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL podwójne szyfrowanie infrastruktury
 
@@ -20,7 +20,7 @@ Azure Database for MySQL korzysta [z szyfrowania magazynu danych w usłudze REST
 Podwójne szyfrowanie infrastruktury dodaje drugą warstwę szyfrowania przy użyciu kluczy zarządzanych przez usługę. Używa on zatwierdzonego modułu kryptograficznego FIPS 140-2, ale z innym algorytmem szyfrowania. Zapewnia to dodatkową warstwę ochrony danych przechowywanych w usłudze. Klucz używany w przypadku szyfrowania podwójnego infrastruktury jest również zarządzany przez usługę Azure Database for MySQL. Podwójne szyfrowanie infrastruktury nie jest domyślnie włączone, ponieważ dodatkowa warstwa szyfrowania może mieć wpływ na wydajność.
 
 > [!NOTE]
-> Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MySQL obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "zoptymalizowane pod kątem pamięci".
+> Ta funkcja jest obsługiwana tylko dla warstw cenowych "Ogólnego przeznaczenia" i "zoptymalizowanych pod kątem pamięci" w Azure Database for PostgreSQL.
 
 Zaletą szyfrowania warstwy infrastruktury jest implementacja na warstwie najbliżej urządzenia magazynującego lub sieci. Azure Database for MySQL implementuje dwie warstwy szyfrowania przy użyciu kluczy zarządzanych przez usługę. Mimo że w warstwie usług nadal są technicznie, jest to bardzo bliski sprzęt przechowujący dane. Nadal można opcjonalnie włączyć szyfrowanie danych w spoczynku przy użyciu [klucza zarządzanego przez klienta](concepts-data-encryption-mysql.md) dla aprowizacji serwera MySQL. 
 

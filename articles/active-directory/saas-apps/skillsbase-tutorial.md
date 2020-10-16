@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e93827278fb501bc6d857d3cb39f9e0ba24d5d0a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552242"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Samouczek: integracja Azure Active Directory z podstawą umiejętności
 
@@ -134,18 +134,18 @@ Aby skonfigurować rejestrację jednokrotną usługi Azure AD przy użyciu podst
 
 3. Na stronie **uwierzytelnianie** wybierz pojedyncze Sign-On jako **SAML 2**.
 
-    ![Logowanie jednokrotne](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![Zrzut ekranu przedstawia stronę uwierzytelniania z opcją SAML 2 wybraną do logowania jednokrotnego.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. Na stronie **uwierzytelnianie** wykonaj następujące czynności:
 
-    ![Logowanie jednokrotne](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![Zrzut ekranu przedstawia stronę uwierzytelnianie, na której można wprowadzić podane wartości.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. Kliknij przycisk **Aktualizuj metadane dostawcy tożsamości** obok opcji **stan** i wklej zawartość XML metadanych pobranego z Azure Portal w określonym polu tekstowym.
 
     > [!Note]
     > Możesz również sprawdzić poprawność metadanych dostawcy tożsamości za pomocą narzędzia **sprawdzania poprawności metadanych** , jak zostało to wyróżnione na poniższym zrzucie ekranu.
 
-    b. Kliknij przycisk **Zapisz**.
+    b. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -170,7 +170,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
-    d. Kliknij przycisk **Utwórz**.
+    d. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 

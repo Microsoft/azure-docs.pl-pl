@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001846"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125615"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central — architektura aplikacji licznika inteligentnego
 
@@ -28,7 +28,7 @@ Niniejsza architektura zawiera następujące składniki. Niektóre rozwiązania 
 
 ## <a name="smart-meters-and-connectivity"></a>Inteligentne liczniki i łączność 
 
-Inteligentny licznik jest jednym z najważniejszych urządzeń we wszystkich zasobach energii. Rejestruje i przekazuje dane dotyczące zużycia energii do narzędzi do monitorowania i innych przypadków użycia, takich jak rozliczenia i reagowanie na żądania. Na podstawie typu licznika może połączyć się z IoT Central przy użyciu bram lub innych urządzeń lub systemów pośrednich, takich jak urządzenia brzegowe i systemy główne. Kompiluj IoT Central mostek urządzeń, aby połączyć urządzenia, które nie mogą być połączone bezpośrednio. IoT Central mostka urządzenia to rozwiązanie Open Source, w [tym miejscu](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)można znaleźć pełne szczegóły. 
+Inteligentny licznik jest jednym z najważniejszych urządzeń we wszystkich zasobach energii. Rejestruje i przekazuje dane dotyczące zużycia energii do narzędzi do monitorowania i innych przypadków użycia, takich jak rozliczenia i reagowanie na żądania. Na podstawie typu licznika może połączyć się z IoT Central przy użyciu bram lub innych urządzeń lub systemów pośrednich, takich jak urządzenia brzegowe i systemy główne. Kompiluj IoT Central mostek urządzeń, aby połączyć urządzenia, które nie mogą być połączone bezpośrednio. IoT Central mostka urządzenia to rozwiązanie Open Source, w [tym miejscu](../core/howto-build-iotc-device-bridge.md)można znaleźć pełne szczegóły. 
 
 
 ## <a name="iot-central-platform"></a>IoT Central platformę
@@ -42,4 +42,4 @@ Platforma IoT Central udostępnia dwie opcje rozszerzalności: ciągły eksport 
 ## <a name="next-steps"></a>Następne kroki
 
 * Teraz, gdy już znasz architekturę, [Utwórz za darmo aplikację z miernikiem inteligentnym](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](../index.yml)

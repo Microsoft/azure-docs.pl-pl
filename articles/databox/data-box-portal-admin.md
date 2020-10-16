@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611660"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123719"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Użyj Azure Portal, aby administrować Azure Data Box i Azure Data Box Heavy
 
@@ -55,7 +55,7 @@ Wykonaj następujące kroki, aby sklonować kolejność importu.
 
     ![Klonowanie zamówienia — 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij przycisk **Utwórz**.
+2.  Wszystkie szczegóły zamówienia pozostaną takie same. Nazwa zamówienia będzie taka jak nazwa oryginalnego zamówienia z dodaną końcówką *— klon*. Zaznacz pole wyboru, aby potwierdzić zapoznanie się z informacjami dotyczącymi prywatności. Kliknij pozycję **Utwórz**.
 
 W ciągu kilku minut sklonowanie zamówienie zostanie utworzone i wyświetlone w portalu.
 
@@ -221,9 +221,9 @@ Oto Stany zamówienia importu.
 |Pobrane     |Twoja wysyłka zwrotna została pobrana i zeskanowana przez operatora.         |
 |Odebrano     | Twoje urządzenie zostało odebrane i zeskanowane w centrum danych platformy Azure. <br> Po sprawdzeniu wysyłki rozpocznie się przekazywanie urządzenia.      |
 |Kopiowanie danych     | Kopiowanie danych jest w toku. Śledź postęp kopiowania w ramach Twojego zamówienia w witrynie Azure Portal. <br> Poczekaj na zakończenie kopiowania danych. |
-|Zakończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
-|Zakończone z błędami| Kopiowanie danych zostało ukończone, ale podczas kopiowania wystąpiły błędy. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy przekazywanie zostało zakończone z błędami](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Ukończono z ostrzeżeniami| Kopiowanie danych zostało ukończone, ale dane zostały zmodyfikowane. Dane mają Niekrytyczne błędy obiektów blob lub nazw plików, które zostały naprawione przez zmianę nazw plików lub obiektów BLOB. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zanotuj modyfikacje danych. Zobacz [przykłady kopiowania dzienników po zakończeniu przekazywania z ostrzeżeniami](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Ukończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
+|Zakończone z błędami| Kopiowanie danych zostało ukończone, ale podczas kopiowania wystąpiły błędy. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy przekazywanie zostało zakończone z błędami](./data-box-logs.md#upload-completed-with-errors).   |
+|Ukończono z ostrzeżeniami| Kopiowanie danych zostało ukończone, ale dane zostały zmodyfikowane. Dane mają Niekrytyczne błędy obiektów blob lub nazw plików, które zostały naprawione przez zmianę nazw plików lub obiektów BLOB. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zanotuj modyfikacje danych. Zobacz [przykłady kopiowania dzienników po zakończeniu przekazywania z ostrzeżeniami](./data-box-logs.md#upload-completed-with-warnings).   |
 |Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie mogło zostać anulowane przez Ciebie lub, w przypadku wystąpienia błędu, przez usługę. Jeśli zamówienia nie można zrealizować w ciągu 90 dni, także zostanie ono anulowane, a Ty otrzymasz powiadomienie.     |
 |Czyszczenie | Dane na dyskach urządzenia zostaną usunięte. Czyszczenie urządzenia uważa się za ukończone, gdy historia zamówienia jest dostępna do pobrania w witrynie Azure Portal.|
 
@@ -238,14 +238,14 @@ Oto Stany zamówienia eksportu.
 |Przetworzone     | Zakończono przetwarzanie zamówienia. Zgodnie z podaną kolejnością urządzenie jest przygotowywane do kopiowania danych w centrum dane. Tworzone są udziały urządzeń.         |
 |Kopiowanie danych w toku     | Kopiowanie danych z określonych kont usługi Azure Storage do urządzenia jest w toku. Śledź postęp kopiowania w ramach Twojego zamówienia w witrynie Azure Portal. <br> Poczekaj na zakończenie kopiowania danych. |
 |Ukończono kopiowanie     | Kopiowanie danych z określonych kont usługi Azure Storage do urządzenia zostało zakończone. Pełny plik dziennika (Jeśli opcja została włączona w kolejności), a w ramach konta magazynu jest tworzony dziennik kopii. Pełny dziennik zawiera informacje na temat wszystkich plików (nazwę, ścieżkę, sumę kontrolną obliczeń), które są kopiowane na urządzenie. Dziennik kopiowania zawiera podsumowanie procesu kopiowania, w tym listę plików, których nie można skopiować ze względu na błędy.<br> Dane konta magazynu pozostają bez zmian. |
-|Kopiowanie zakończone z błędami| Kopiowanie danych zostało ukończone, ale podczas kopiowania wystąpiły błędy. <br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników po zakończeniu pobierania z błędami](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Kopiowanie zostało ukończone z ostrzeżeniami| Kopiowanie danych z konta usługi Azure Storage zostało ukończone, ale dane miały Błędy niekrytyczne. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zanotuj Błędy niekrytyczne. Zobacz [przykłady kopiowania dzienników po zakończeniu pobierania z ostrzeżeniami](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Kopiowanie nie powiodło się z błędami| Kopiowanie danych z konta usługi Azure Storage nie powiodło się i zamówienie zostało przerwane. Urządzenie nie zostanie wysłane.<br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy pobieranie nie powiodło się z błędami](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Kopiowanie zakończone z błędami| Kopiowanie danych zostało ukończone, ale podczas kopiowania wystąpiły błędy. <br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników po zakończeniu pobierania z błędami](./data-box-logs.md#upload-completed-with-errors).   |
+|Kopiowanie zostało ukończone z ostrzeżeniami| Kopiowanie danych z konta usługi Azure Storage zostało ukończone, ale dane miały Błędy niekrytyczne. <br> Przejrzyj dzienniki kopiowania, używając ścieżki wskazanej w witrynie Azure Portal. Zanotuj Błędy niekrytyczne. Zobacz [przykłady kopiowania dzienników po zakończeniu pobierania z ostrzeżeniami](./data-box-logs.md#upload-completed-with-warnings).   |
+|Kopiowanie nie powiodło się z błędami| Kopiowanie danych z konta usługi Azure Storage nie powiodło się i zamówienie zostało przerwane. Urządzenie nie zostanie wysłane.<br> Zapoznaj się z dziennikami kopiowania na koncie usługi Azure Storage, używając ścieżki podanej w Azure Portal. Zobacz [przykłady kopiowania dzienników, gdy pobieranie nie powiodło się z błędami](./data-box-logs.md#upload-completed-with-errors).   |
 |Wysłane     |Zamówienie zostało wysłane. Skorzystaj z identyfikatora śledzenia wyświetlanego w zamówienia w portalu, aby śledzić wysyłkę.        |
 |Dostarczono     |Wysyłka została dostarczona na adres wskazany w zamówieniu.        |
 |Pobrane     |Twoja wysyłka zwrotna została pobrana i zeskanowana przez operatora.         |
 |Odebrano     | Twoje urządzenie zostało odebrane i zeskanowane w centrum danych platformy Azure. <br> Wysyłka jest sprawdzana.      |
-|Zakończone           |Zamówienie zostało zakończone.     |
+|Ukończone           |Zamówienie zostało zakończone.     |
 |Czyszczenie | Dane na dyskach urządzenia zostaną usunięte. Czyszczenie urządzenia uważa się za ukończone, gdy historia zamówienia jest dostępna do pobrania w witrynie Azure Portal.|
 
 > [!NOTE]

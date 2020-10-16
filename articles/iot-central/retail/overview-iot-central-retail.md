@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440255"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124966"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla handlu detalicznego za pomocą usługi Azure IoT Central
 
@@ -185,4 +185,4 @@ Aby rozpocząć tworzenie rozwiązania do sprzedaży detalicznej:
 * [Wdróż i przeprowadź procedurę przy użyciu szablonu aplikacji do zarządzania magazynem inteligentnym](./tutorial-iot-central-smart-inventory-management.md).
 * [Wdróż i zapoznaj się z szablonem aplikacji Centrum programu Micro-zrealizować](./tutorial-micro-fulfillment-center.md).
 * [Wdróż i zapoznaj się z szablonem aplikacji Analiza wideo](./tutorial-video-analytics-deploy.md).
-* Dowiedz się więcej o IoT Central w [IoT Central przegląd](../preview/overview-iot-central.md).
+* Dowiedz się więcej o IoT Central w [IoT Central przegląd](../core/overview-iot-central.md).

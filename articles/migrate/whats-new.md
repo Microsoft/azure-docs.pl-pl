@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat Nowości i ostatnich aktualizacji w u
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a36e73496b07df18c61b07df9d90992c0ab399ce
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667082"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124660"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
@@ -17,7 +17,7 @@ ms.locfileid: "91667082"
 
 ## <a name="update-september-2020"></a>Aktualizacja (2020 września)
 - Migracja serwerów do Strefy dostępności jest teraz obsługiwana.
-- Migracja maszyn wirtualnych opartych na interfejsie UEFI i serwerów fizycznych do maszyn wirtualnych generacji 2 platformy Azure jest teraz obsługiwana
+- Teraz jest obsługiwana migracja maszyn wirtualnych i serwerów fizycznych opartych na interfejsie UEFI do maszyn wirtualnych generacji 2 platformy Azure. W tej wersji Azure Migrate: Narzędzie do migracji serwera nie wykona konwersji z maszyny wirtualnej generacji 2 na maszynę wirtualną generacji 1 podczas migracji.
 - Dostępny jest nowy pulpit nawigacyjny oceny Power BI Azure Migrate, który ułatwia porównanie kosztów różnych ustawień oceny. Pulpit nawigacyjny zawiera narzędzie programu PowerShell, które automatycznie tworzy oceny, które są podłączone do pulpitu nawigacyjnego Power BI. [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - Analiza zależności (bez wykorzystania agentów) można teraz uruchamiać jednocześnie na maszynach wirtualnych 1000.
 - Analizę zależności (bez wykorzystania agentów) można teraz włączyć lub wyłączyć na dużą skalę przy użyciu skryptów programu PowerShell. [Dowiedz się więcej.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)

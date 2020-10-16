@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074808"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125786"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB warstw cenowych
 
@@ -39,7 +39,7 @@ Po utworzeniu serwera można zmienić liczbę rdzeni wirtualnych i warstwę ceno
 
 Zasoby obliczeniowe są udostępniane jako rdzeni wirtualnych, które reprezentują logicznego procesora bazowego sprzętu. Logiczne procesory CPU w generacji 5 są oparte na procesorach Intel E5-2673 v4 (Broadwell) 2,3 GHz.
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla serwera Azure Database for MariaDB. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera MariaDB. Całkowita ilość dostępnego miejsca w magazynie określa również wydajność we/wy dostępną dla serwera.
 
@@ -71,7 +71,7 @@ Zwiększamy limity magazynowania w naszych Ogólnego przeznaczenia i warstw zopt
 | Liczba operacji we/wy na sekundę | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000| 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
 
 > [!IMPORTANT]
-> Duży magazyn jest obecnie w publicznej wersji zapoznawczej w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa Azja Wschodnia, Australia Wschodnia i Kanada środkowa.
+> Duży magazyn jest obecnie w publicznej wersji zapoznawczej w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, Brazylia Południowa, środkowe stany USA, zachodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Europa Zachodnia, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Azja Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Południowe stany USA, Korea Azja Wschodnia środkowa i Kanada środkowa.
 >
 > Wszystkie inne regiony obsługują do 4 TB magazynu i do 6000 operacji we/wy na sekundę.
 >

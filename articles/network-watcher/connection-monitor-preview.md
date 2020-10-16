@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408870"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123736"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorowanie łączności sieciowej z monitorem połączeń (wersja zapoznawcza)
 
@@ -143,9 +143,7 @@ Monitory połączeń mają następujące limity skali:
 * Maksymalna liczba monitorów połączeń na subskrypcję na region: 100
 * Maksymalna liczba grup testów na monitor połączeń: 20
 * Maksymalna liczba źródeł i miejsc docelowych na monitor połączeń: 100
-* Maksymalna liczba konfiguracji testu na monitor połączenia: 
-    * 20 za pośrednictwem ARMClient
-    * 2 za pośrednictwem Azure Portal
+* Maksymalna liczba konfiguracji testu na monitor połączeń: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Analizowanie danych monitorowania i Ustawianie alertów
 

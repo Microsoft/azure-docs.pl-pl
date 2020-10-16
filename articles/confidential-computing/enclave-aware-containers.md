@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001030"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125290"
 ---
 # <a name="enclave-aware-containers"></a>Kontenery obsługujące enklawy
 
@@ -51,14 +51,19 @@ To rozwiązanie pozwala przenieść istniejący model UCZENIa maszynowego i uruc
 
 Wprowadzenie do podnoszenia modelu ML i przesunięcia do środowiska uruchomieniowego ONNX w [tym miejscu](https://aka.ms/confidentialinference)
 
-## <a name="container-samples-implementations"></a>Implementacje przykładów kontenera
+### <a name="edgeless-rt"></a>RT
 
-[Przykłady platformy Azure dla kontenerów z obsługą enklawy na AKS](https://github.com/Azure-Samples/enclave-aware-container-samples)
+RT bezgraniczny jest projektem "open source", który kompiluje się w otwartym zestawie SDK enklawy. Dodaje obsługę języka go i dodatkowych funkcji C++. Zacznij korzystać z prostej aplikacji poufnej przy użyciu znajomego środowiska VS Code w [tym miejscu](https://github.com/edgelesssys/edgelessrt). W przypadku aplikacji bezbrzegowych na AKS wykonaj instrukcje [tutaj](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
+
+
+## <a name="container-based-sample-implementations"></a>Przykładowe implementacje oparte na kontenerach
+
+[Przykłady platformy Azure dla kontenerów z obsługą enklawy na AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Zaświadczanie platformy Azure](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[Maszyna](/confidential-computing/virtual-machine-solutions) 
+ wirtualna DC [Kontenery poufne](/confidential-computing/containercompute/confidential-containers)

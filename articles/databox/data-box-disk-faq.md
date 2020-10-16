@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826144"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125119"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -66,7 +66,7 @@ Na przykład jeśli chcesz przenieść dane z lokalizacji w Kanadzie do konta ma
 
 ### <a name="option-1"></a>Opcja 1. 
 
-Wyślij [obsługiwany dysk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) zawierający dane za pomocą [usługi Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) z lokalizacji źródłowej w Kanadzie do centrum danych zachodniej platformy Azure.
+Wyślij [obsługiwany dysk](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) zawierający dane za pomocą [usługi Azure Import/Export](../storage/common/storage-import-export-service.md) z lokalizacji źródłowej w Kanadzie do centrum danych zachodniej platformy Azure.
 
 ### <a name="option-2"></a>Opcja 2.
 
@@ -77,7 +77,7 @@ Wyślij [obsługiwany dysk](https://docs.microsoft.com/azure/storage/common/stor
 3. Następnie można użyć narzędzia, takiego jak AzCopy, aby skopiować dane na konto magazynu w zachodniej. Ten krok wiąże się ze [standardowymi](https://azure.microsoft.com/pricing/details/storage/) [opłatami za](https://azure.microsoft.com/pricing/details/bandwidth/) magazyn i przepustowość, które nie są uwzględnione w rozliczeniach Data Box Disk.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>PYTANIE: Z kim należy się skontaktować, gdy pojawią się jakiekolwiek problemy z urządzeniami Data Box Disk?
-A. Jeśli napotkasz jakiekolwiek problemy z usługą Data Box Disk, [skontaktuj się z działem pomocy technicznej firmy Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
+A. Jeśli napotkasz jakiekolwiek problemy z usługą Data Box Disk, [skontaktuj się z działem pomocy technicznej firmy Microsoft](./data-box-disk-contact-microsoft-support.md).
 
 ## <a name="configure-and-connect"></a>Konfigurowanie i łączenie
  
@@ -147,7 +147,7 @@ A.  Aby przyspieszyć proces kopiowania:
 - Użyj wielu strumieni kopiowania danych. Na przykład w narzędziu Robocopy włącz opcję kopiowania wielowątkowego. Aby uzyskać więcej informacji na temat konkretnego polecenia, zobacz [Tutorial: Copy data to Azure Data Box Disk and verify (Samouczek: kopiowanie danych na urządzenie Data Box Disk i ich weryfikacja)](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Użyj wielu sesji.
 - Zamiast kopiować za pośrednictwem udziału sieciowego (gdzie szybkość sieci może powodować ograniczenia), upewnij się, że dane znajdują się lokalnie na komputerze, do którego podłączono dyski.
-- Przez cały proces kopiowania korzystaj z interfejsu USB 3.0 lub nowszego. Pobierz [narzędzie USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) i za jego pomocą zidentyfikuj kontrolery USB oraz urządzenia USB podłączone do komputera.
+- Przez cały proces kopiowania korzystaj z interfejsu USB 3.0 lub nowszego. Pobierz [narzędzie USBView](/windows-hardware/drivers/debugger/usbview) i za jego pomocą zidentyfikuj kontrolery USB oraz urządzenia USB podłączone do komputera.
 - Wykonaj test porównawczy wydajności komputera używanego do kopiowania danych. Pobierz [narzędzie Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) i za jego pomocą przeprowadź test porównawczy wydajności sprzętu serwera. Wybierz najnowszą kompilację x86 lub x64, wybierz kartę **artefakty** i Pobierz plik msi.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>PYTANIE: Jak przyspieszyć kopiowanie danych, jeśli dane źródłowe składają się z małych plików (o rozmiarze wyrażonym w kilobajtach lub równym kilka megabajtów)?

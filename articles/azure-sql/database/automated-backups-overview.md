@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728662"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124190"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -50,7 +50,7 @@ W przypadku SQL Database nadmiarowość magazynu kopii zapasowej można skonfigu
 > Magazyn strefowo nadmiarowy jest obecnie dostępny tylko w [określonych regionach](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Konfigurowalna nadmiarowość magazynu kopii zapasowych dla Azure SQL Database jest obecnie dostępna w publicznej wersji zapoznawczej tylko w regionie "Południowo-Wschodnia" platformy Azure. Ta funkcja nie jest jeszcze dostępna dla warstwy skalowania. 
+> Konfigurowalna nadmiarowość magazynu kopii zapasowych dla Azure SQL Database jest obecnie ogólnie dostępna w regionie tylko Azja Południowo-Wschodnia. Ta funkcja nie jest jeszcze dostępna dla warstwy skalowania. 
 
 ### <a name="backup-usage"></a>Użycie kopii zapasowej
 

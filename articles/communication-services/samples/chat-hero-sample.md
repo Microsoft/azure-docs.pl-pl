@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962993"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124589"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Wprowadzenie do przykładu Hero rozmowy z grupą
 
@@ -30,7 +30,7 @@ ms.locfileid: "91962993"
 W tym przykładowym samouczku szybki start dowiesz się, jak działa przykład przed uruchomieniem przykładu na komputerze lokalnym. Następnie zainstalujemy przykład na platformie Azure przy użyciu własnych zasobów usług Azure Communications Services.
 
 > [!IMPORTANT]
-> [Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+> [Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Omówienie
 
@@ -107,7 +107,7 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję usług komunikacyjnych, możes
 ## <a name="next-steps"></a>Następne kroki
 
 >[!div class="nextstepaction"] 
->[Pobierz przykład z witryny GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+>[Pobierz przykład z witryny GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653353"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123117"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Tworzenie aplikacji IoT Central platformy Azure i zarządzanie nią z poziomu portalu CSP
 
@@ -63,7 +63,7 @@ Ponieważ usługa Azure IoT Central ma kontekst do zarządzania klientem wybrany
 
 Dzierżawa Azure Active Directorya zawiera tożsamości użytkowników, poświadczenia i inne informacje o organizacji. Z jedną dzierżawą Azure Active Directory można skojarzyć wiele subskrypcji platformy Azure.
 
-Aby dowiedzieć się więcej, zobacz [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Aby dowiedzieć się więcej, zobacz [Azure Active Directory](../../active-directory/index.yml).
 
 ## <a name="azure-subscription"></a>Subskrypcja platformy Azure
 
@@ -71,7 +71,7 @@ Subskrypcja platformy Azure umożliwia tworzenie wystąpień usług platformy Az
 
 Jeśli nie masz subskrypcji platformy Azure, możesz ją utworzyć w centrum partnerskim firmy Microsoft. Po utworzeniu subskrypcji platformy Azure przejdź z powrotem do strony **Tworzenie aplikacji**. Nowa subskrypcja zostanie wyświetlona na liście rozwijanej **Subskrypcja platformy Azure**.
 
-Aby dowiedzieć się więcej, zobacz [subskrypcje platformy Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+Aby dowiedzieć się więcej, zobacz [subskrypcje platformy Azure](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="location"></a>Lokalizacja
 

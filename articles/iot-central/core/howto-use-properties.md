@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999753"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123787"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Korzystanie z właściwości w rozwiązaniu IoT Central platformy Azure
 
@@ -152,7 +152,7 @@ Poniższy kod przedstawia definicję typu właściwości obiektu. Ten obiekt ma 
 
 Domyślnie właściwości są tylko do odczytu. Właściwości tylko do odczytu oznaczają, że urządzenie zgłasza aktualizacje wartości właściwości do aplikacji IoT Central platformy Azure. Aplikacja platformy Azure IoT Central nie może ustawić wartości właściwości tylko do odczytu.
 
-Usługa Azure IoT Central używa bliźniaczych reprezentacji urządzeń do synchronizowania wartości właściwości między urządzeniem a aplikacją IoT Central platformy Azure. Wartości właściwości urządzenia używają właściwości zgłaszanych przez sznurek urządzeń. Aby uzyskać więcej informacji, zobacz [bliźniaczych reprezentacji urządzeń](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Usługa Azure IoT Central używa bliźniaczych reprezentacji urządzeń do synchronizowania wartości właściwości między urządzeniem a aplikacją IoT Central platformy Azure. Wartości właściwości urządzenia używają właściwości zgłaszanych przez sznurek urządzeń. Aby uzyskać więcej informacji, zobacz [bliźniaczych reprezentacji urządzeń](../../iot-hub/tutorial-device-twins.md).
 
 Poniższy fragment kodu z modelu możliwości urządzenia pokazuje definicję typu właściwości tylko do odczytu:
 
@@ -246,11 +246,11 @@ Komunikat odpowiedzi powinien zawierać `ac` `av` pola i. Pole `ad` jest opcjona
 | ----- | ----- | ----------- |
 | `'ac': 200` | Ukończone | Operacja zmiany właściwości została pomyślnie ukończona. |
 | `'ac': 202` lub `'ac': 201` | Oczekiwanie | Operacja zmiany właściwości jest w stanie oczekiwania lub w toku. |
-| `'ac': 4xx` | Error | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
-| `'ac': 5xx` | Error | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
+| `'ac': 4xx` | Błąd | Żądana zmiana właściwości nie jest prawidłowa lub wystąpił błąd. |
+| `'ac': 5xx` | Błąd | Urządzenie napotkało nieoczekiwany błąd podczas przetwarzania żądanej zmiany. |
 
 
-Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji urządzeń, zobacz [Konfigurowanie urządzeń z poziomu usługi zaplecza](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji urządzeń, zobacz [Konfigurowanie urządzeń z poziomu usługi zaplecza](../../iot-hub/tutorial-device-twins.md).
 
 Gdy operator ustawia właściwość zapisywalną w aplikacji IoT Central platformy Azure, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy usługa Azure IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zaakceptowane**.
 

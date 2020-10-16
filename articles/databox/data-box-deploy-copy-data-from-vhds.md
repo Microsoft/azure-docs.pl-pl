@@ -9,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739871"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124017"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Samouczek: Używanie urządzenie Data Box do importowania danych jako dysków zarządzanych na platformie Azure
 
 W tym samouczku opisano, jak używać Azure Data Box do migrowania lokalnych dysków VHD do dysków zarządzanych na platformie Azure. Wirtualne dyski twarde z lokalnych maszyn wirtualnych są kopiowane do urządzenie Data Box jako stronicowe obiekty blob i są przekazywane do platformy Azure jako dyski zarządzane. Te dyski zarządzane można następnie dołączyć do maszyn wirtualnych platformy Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Przed rozpoczęciem upewnij się, że:
 4. Sprawdzono:
 
     - Obsługiwane [rozmiary dysków zarządzanych w limitach rozmiaru obiektów platformy Azure](data-box-limits.md#azure-object-size-limits).
-    - [Wprowadzenie do usługi Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Wprowadzenie do usługi Azure Managed disks](../virtual-machines/managed-disks-overview.md). 
 
 5. Zachowasz kopię danych źródłowych do momentu potwierdzenia, że urządzenie Data Box przeniósł dane do usługi Azure Storage.
 
@@ -76,7 +76,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
     > [!NOTE]
     > Poświadczenia dla wszystkich udziałów dla dysków zarządzanych są identyczne.
 
-    ![Pobierz poświadczenia udziału](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Pobieranie poświadczeń udziału](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. W oknie dialogowym Udostępnianie i kopiowanie danych Skopiuj **nazwę użytkownika** i **hasło** dla udziału. Kliknij przycisk **OK**.
     
@@ -102,7 +102,7 @@ Jeśli używasz komputera-hosta z systemem Windows Server, wykonaj następujące
 
 4. Naciśnij klawisze Windows + R. W oknie **Uruchamianie** podaj `\\<device IP address>\<ShareName>`. Kliknij przycisk **OK**, aby otworzyć Eksploratora plików.
     
-    ![Nawiązywanie połączenia z udziałem za pośrednictwem Eksploratora plików](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Nawiązywanie połączenia z udziałem za pomocą Eksploratora plików](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     W poszczególnych udziałach powinny być teraz widoczne następujące utworzone foldery.
     
@@ -183,4 +183,3 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak odesłać urządzen
 
 > [!div class="nextstepaction"]
 > [Wysyłka urządzenia Azure Data Box do firmy Microsoft](./data-box-deploy-picked-up.md)
-

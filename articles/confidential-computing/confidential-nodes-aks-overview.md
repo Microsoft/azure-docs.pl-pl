@@ -7,21 +7,20 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940773"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125445"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Poufne węzły obliczeniowe w usłudze Azure Kubernetes Service (publiczna wersja zapoznawcza)
 
-Dane [poufne platformy Azure](overview.md) umożliwiają ochronę poufnych danych, gdy są używane. Podstawowa infrastruktura chroni te dane od innych aplikacji, administratorów i dostawców chmury. 
+Dane [poufne platformy Azure](overview.md) umożliwiają ochronę poufnych danych, gdy są używane. Podstawowe infrastruktury chronią te dane od innych aplikacji, administratorów i dostawców chmury przy użyciu sprzętowych środowisk kontenera zaufanych wykonań.
 
 ## <a name="overview"></a>Omówienie
 
-Usługa Azure Kubernetes Service (AKS) obsługuje dodawanie [DCsv2 poufne węzłów obliczeniowych](confidential-computing-enclaves.md) na platformie Intel SGX. Te węzły uruchamiają poufne obciążenia w ramach sprzętowego środowiska wykonawczego (TEE) opartego na sprzęcie, umożliwiając kod na poziomie użytkownika do przydzielenia prywatnych regionów pamięci. Te prywatne regiony pamięci są nazywane enclaves. Enclaves zaprojektowano ochronę kodu i danych z procesów uruchomionych na wyższym poziomie uprawnień. Model wykonywania SGX usuwa warstwy pośrednie systemu operacyjnego gościa i funkcji hypervisor. Dzięki temu można wykonywać aplikacje kontenerów bezpośrednio na poziomie procesora, pozostawiając jednocześnie specjalny blok pamięci zaszyfrowany. 
-
+Usługa Azure Kubernetes Service (AKS) obsługuje dodawanie [niejawnych węzłów obliczeniowych DCsv2](confidential-computing-enclaves.md) obsługiwanych przez SGX firmy Intel. Te węzły uruchamiają program mogą uruchamiać poufne obciążenia w ramach sprzętowego środowiska wykonawczego (TEE), umożliwiając kod na poziomie użytkownika do przydzielenia prywatnych regionów pamięci. Te prywatne regiony pamięci są nazywane enclaves. Enclaves zaprojektowano ochronę kodu i danych z procesów uruchomionych na wyższym poziomie uprawnień. Model wykonywania SGX usuwa warstwy pośrednie systemu operacyjnego gościa, system operacyjny hosta i funkcję hypervisor. Model *wykonywania izolowanego sprzętu na kontener* umożliwia aplikacjom bezpośrednie wykonywanie z użyciem procesora CPU przy zachowaniu specjalnego bloku pamięci zaszyfrowanej. Węzły do przetwarzania poufnego pomagają w ogólnym stan zabezpieczeń aplikacji kontenera na AKS, a także za pomocą doskonałej strategii dotyczącej kontenera. 
 
 ![SGX węzeł — Omówienie](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -36,7 +35,7 @@ Usługa Azure Kubernetes Service (AKS) obsługuje dodawanie [DCsv2 poufne węzł
 - Pomocnik zaświadczania o procesie za poorednictwem AKS elementu daemonset
 - Obsługa kontenerów systemu Linux w węzłach procesu roboczego maszyn wirtualnych Ubuntu 18,04 Gen 2
 
-## <a name="aks-provided-daemon-sets"></a>Zestawy demonów dostarczonych przez AKS
+## <a name="aks-provided-daemon-sets-addon"></a>Zestawy demonów AKS (dodatek)
 
 #### <a name="sgx-device-plugin"></a>Wtyczka urządzenia SGX <a id="sgx-plugin"></a>
 

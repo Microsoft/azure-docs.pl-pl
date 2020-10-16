@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224863"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124225"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Rozpoczynanie pracy z certyfikatami usługi Key Vault
 Poniższe scenariusze przedstawiają kilka podstawowych zastosowań usługi zarządzania certyfikatami Key Vault, w tym dodatkowe kroki wymagane do utworzenia pierwszego certyfikatu w magazynie kluczy.
@@ -37,7 +37,7 @@ Certyfikaty składają się z trzech powiązanych zasobów połączonych razem j
 
 **Krok 1** — dostawcy urzędu certyfikacji  
 -   Dołączanie do programu jako administrator IT, administrator infrastruktury PKI lub każda osoba zarządzająca kontami z urzędami certyfikacji dla danej firmy (np. Firma Contoso) jest warunkiem wstępnym korzystania z certyfikatów Key Vault.  
-    Następujące urzędy certyfikacji są bieżącymi dostawcami partnerskimi z Key Vault:  
+    Następujące urzędy certyfikacji są bieżącymi dostawcami partnerskimi z Key Vault. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)   
     -   DigiCert — Key Vault oferuje OV protokołu TLS/SSL z DigiCert.  
     -   GlobalSign — Key Vault oferuje OV protokołu TLS/SSL z GlobalSign.  
 

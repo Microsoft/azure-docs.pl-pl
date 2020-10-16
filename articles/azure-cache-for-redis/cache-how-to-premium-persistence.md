@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000009"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125683"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Jak skonfigurować trwałość danych dla pamięci podręcznej systemu Azure w warstwie Premium dla Redis
 W tym artykule dowiesz się, jak skonfigurować trwałość w pamięci podręcznej systemu Azure w warstwie Premium dla wystąpienia Redis za pomocą Azure Portal. Usługa Azure cache for Redis ma różne oferty pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiaru i funkcji pamięci podręcznej, w tym funkcji warstwy Premium, takich jak klastrowanie, trwałość i obsługa sieci wirtualnej. 
@@ -63,7 +63,7 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Częstotliwość tworzenia kopii zapasowych** | Lista rozwijana i wybór interwału kopii zapasowych, dostępne opcje to **15 minut**, **30 minut**, **60 minut**, **6 godzin**, **12**godzin i **24 godziny**. | Ten interwał rozpoczyna zliczanie w dół po pomyślnym zakończeniu poprzedniej operacji tworzenia kopii zapasowej i po zainicjowaniu nowej kopii zapasowej. | 
-   | **Konto magazynu** | I wybierz konto magazynu. | Musisz wybrać konto magazynu w tym samym regionie, w którym znajduje się pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność.  | 
+   | **Konto magazynu** | I wybierz konto magazynu. | Musisz wybrać konto magazynu w tym samym regionie i subskrypcji co pamięć podręczną, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność.  | 
    | **Klucz magazynu** | Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
 
     Pierwsza kopia zapasowa jest inicjowana po upłynięciu interwału częstotliwości tworzenia kopii zapasowych.
@@ -72,9 +72,9 @@ Trwałość zapisuje dane Redis do konta usługi Azure Storage, którego jesteś
    
    | Ustawienie      | Sugerowana wartość  | Opis |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Pierwsze konto magazynu** | I wybierz konto magazynu. | To konto magazynu musi znajdować się w tym samym regionie, w którym znajduje się pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność. | 
+   | **Pierwsze konto magazynu** | I wybierz konto magazynu. | To konto magazynu musi znajdować się w tym samym regionie i subskrypcji co pamięć podręczna, a konto **Premium Storage** jest zalecane, ponieważ usługa Premium Storage ma wyższą przepływność. | 
    | **Pierwszy klucz magazynu** | Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
-   | **Drugie konto magazynu** | Obowiązkowe Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | Opcjonalnie możesz skonfigurować dodatkowe konto magazynu. W przypadku skonfigurowania drugiego konta magazynu operacje zapisu w pamięci podręcznej repliki są zapisywane na tym drugim koncie magazynu. | 
+   | **Drugie konto magazynu** | Obowiązkowe Wybierz konto magazynu pomocniczego. | Opcjonalnie możesz skonfigurować dodatkowe konto magazynu. W przypadku skonfigurowania drugiego konta magazynu operacje zapisu w pamięci podręcznej repliki są zapisywane na tym drugim koncie magazynu. | 
    | **Drugi klucz magazynu** | Obowiązkowe Wybierz pozycję **klucz podstawowy** lub **klucz pomocniczy** do użycia. | W przypadku ponownego wygenerowania klucza magazynu dla konta trwałości należy ponownie skonfigurować żądany klucz z listy rozwijanej **klucza magazynu** . | 
 
     Po włączeniu funkcji trwałości kopia zapasowa AOF operacje zapisu w pamięci podręcznej są zapisywane na wyznaczynym koncie magazynu (lub na kontach, jeśli skonfigurowano drugie konto magazynu). W przypadku błędu krytycznego, który przeprowadzi zarówno podstawową, jak i pamięć podręczną repliki, zapisany dziennik kopia zapasowa AOF służy do odbudowywania pamięci podręcznej.

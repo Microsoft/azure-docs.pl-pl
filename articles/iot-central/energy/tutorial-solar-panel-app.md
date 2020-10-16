@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971309"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123929"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Samouczek: Tworzenie i przechodzenie przez szablon aplikacji monitorującej panel słoneczny 
 
@@ -76,7 +76,7 @@ Adatum to fikcyjna firma energetyczna, która monitoruje panele słoneczne i zar
 > [!div class="mx-imgBorder"]
 > ![Pulpit nawigacyjny monitorowania panelu słonecznego](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
-### <a name="devices"></a>Devices
+### <a name="devices"></a>Urządzenia
 Aplikacja jest dostępna z przykładowym urządzeniem panelu słonecznym. Aby wyświetlić szczegóły urządzenia, kliknij kartę **urządzenia** .
 
 > [!div class="mx-imgBorder"]
@@ -108,6 +108,6 @@ Jeśli zdecydujesz, aby nie używać tej aplikacji, Usuń aplikację, wykonując
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o architekturze aplikacji panelu słonecznym odnosi się do 
 > [!div class="nextstepaction"]
-> [Artykuł koncepcji](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+> [Artykuł koncepcji](./concept-iot-central-solar-panel-app.md)
 * Utwórz bezpłatnie szablony aplikacji panelu słonecznego: [aplikacja panelu słonecznych](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Dowiedz się więcej na temat IoT Central, zobacz [omówienie IoT Central](../index.yml)

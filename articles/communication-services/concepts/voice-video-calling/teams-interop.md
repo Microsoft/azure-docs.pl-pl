@@ -9,16 +9,16 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5035e511b0f3a105a047738fed1c5cc17e88d086
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a7e2240e3f74f82186827ec82bb1aa39a5b93f6c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114645"
+ms.locfileid: "92123838"
 ---
 # <a name="teams-interoperability"></a>Współdziałanie zespołów
 
-[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 Usługi Azure Communication Services mogą służyć do tworzenia niestandardowych środowisk spotkań, które współpracują z usługą Microsoft Teams. Użytkownicy rozwiązań usług komunikacyjnych mogą współdziałać z zespołami uczestników za pośrednictwem głosu, wideo i udostępniania ekranu.
 
@@ -37,7 +37,7 @@ Niektóre zespoły, takie jak podniesione, tryb razem i pokoje zagadnień, będ�
 
 Gdy użytkownik usług komunikacyjnych dołączają się do spotkania zespołów, nazwa wyświetlana podana przez wywołującą bibliotekę klienta będzie pokazywana użytkownikom zespołów. Użytkownik usług komunikacyjnych będzie w przeciwnym razie traktowany jak anonimowy użytkownik w zespołach. Aplikacja niestandardowa powinna rozważyć uwierzytelnianie użytkowników i inne środki bezpieczeństwa w celu ochrony spotkań zespołów. Należy zastanowić się, że implikacje dla użytkowników anonimowych mogą dołączać do spotkań i korzystać z [przewodnika po zabezpieczeniach zespołów](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) w celu skonfigurowania możliwości dostępnych dla użytkowników anonimowych.
 
-Należy pamiętać, że użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
+Użytkownicy usług komunikacyjnych mogą dołączać do spotkań zaplanowanych zespołów, o ile w [ustawieniach spotkania](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams)włączono sprzężenia anonimowe.
 
 
 

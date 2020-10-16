@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873476"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124898"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Samouczek: modyfikowanie i kompilowanie modułów bramy analizy wideo na żywo
 
@@ -28,8 +28,8 @@ Do wykonania kroków opisanych w tym samouczku potrzebne są:
 * [Node.js](https://nodejs.org/en/download/) v10 lub nowszy
 * [Visual Studio Code](https://code.visualstudio.com/Download) z zainstalowanym rozszerzeniem [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
 * Aparat [platformy Docker](https://www.docker.com/products/docker-desktop)
-* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) do hostowania Twoich wersji modułów.
-* Konto [Azure Media Services](https://docs.microsoft.com/azure/media-services/) . Jeśli zostały wykonane poprzednie samouczki, możesz ponownie użyć utworzonego wcześniej.
+* [Azure Container Registry](../../container-registry/index.yml) do hostowania Twoich wersji modułów.
+* Konto [Azure Media Services](../../media-services/index.yml) . Jeśli zostały wykonane poprzednie samouczki, możesz ponownie użyć utworzonego wcześniej.
 
 ## <a name="clone-the-repository"></a>Klonowanie repozytorium
 

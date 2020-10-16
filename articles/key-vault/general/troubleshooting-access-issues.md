@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3110e02c2c4cb8b254e80a55997577db95ba1be0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075658"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125256"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
@@ -51,7 +51,7 @@ Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami 
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Jak można ponownie wdrożyć Key Vault przy użyciu szablonu ARM bez usuwania istniejących zasad dostępu?
 
-Obecnie Key Vault ponowne wdrażanie spowoduje usunięcie wszystkich zasad dostępu w Key Vault i zamieninie ich przy użyciu zasad dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault, należy odczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
+Obecnie Key Vault ponowne wdrażanie spowoduje usunięcie wszystkich zasad dostępu w Key Vault i zamieninie ich przy użyciu zasad dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault, należy przeczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
 
 Kolejną opcją, która może pomóc w tym scenariuszu, jest użycie ról RBAC jako alternatywy dla zasad dostępu. Za pomocą RBAC można ponownie wdrożyć Magazyn kluczy bez konieczności ponownego określania zasad. Więcej informacji można znaleźć [tutaj](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 

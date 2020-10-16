@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443784"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124399"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiuj spójnie transakcyjną kopię bazy danych w Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database oferuje kilka metod tworzenia kopii istniejącej [bazy danych
 Kopia bazy danych jest spójną transakcyjnie migawką źródłowej bazy danych jako punkt w czasie po zainicjowaniu żądania kopiowania. Możesz wybrać ten sam serwer lub inny serwer dla kopii. Można również wybrać opcję zachowania nadmiarowości kopii zapasowej, warstwy usług i rozmiaru obliczeń źródłowej bazy danych albo użyć innej nadmiarowości magazynu kopii zapasowych i/lub rozmiaru obliczeń w ramach tej samej lub innej warstwy usług. Po zakończeniu kopiowania zostanie ona w pełni funkcjonalna, niezależna baza danych. Nazwy logowania, użytkownicy i uprawnienia w skopiowanej bazie danych są zarządzane niezależnie od źródłowej bazy danych. Kopia jest tworzona przy użyciu technologii replikacji geograficznej. Po zakończeniu rozmieszczania repliki połączenie replikacji geograficznej zostaje przerwane. Wszystkie wymagania dotyczące korzystania z replikacji geograficznej dotyczą również operacji kopiowania bazy danych. Szczegółowe informacje znajdują się w temacie [Omówienie aktywnej replikacji geograficznej](active-geo-replication-overview.md) .
 
 > [!NOTE]
-> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie dostępna w publicznej wersji zapoznawczej tylko w regionie "Południowo-Wschodnia". W wersji zapoznawczej, jeśli źródłowa baza danych jest tworzona z użyciem lokalnie nadmiarowej lub nadmiarowej nadmiarowości magazynu kopii zapasowych, kopia bazy danych na serwerze w innym regionie platformy Azure nie jest obsługiwana. 
+> Azure SQL Database konfigurowalnej nadmiarowości magazynu kopii zapasowych jest obecnie ogólnie dostępna w regionie tylko Azji Południowo-Wschodnia. W wersji zapoznawczej, jeśli źródłowa baza danych jest tworzona z użyciem lokalnie nadmiarowej lub nadmiarowej nadmiarowości magazynu kopii zapasowych, kopia bazy danych na serwerze w innym regionie platformy Azure nie jest obsługiwana. 
 
 ## <a name="logins-in-the-database-copy"></a>Nazwy logowania w kopii bazy danych
 

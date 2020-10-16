@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588807"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124155"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Odnawianie certyfikatów Azure Key Vault
 
@@ -25,12 +25,20 @@ Korzystając z certyfikatów krótkoterminowych lub przez zwiększenie częstotl
 
 W tym artykule omówiono sposób odnawiania certyfikatów Azure Key Vault.
 
-## <a name="get-notified-about-certificate-expirations"></a>Otrzymywanie powiadomień o wygasaniu certyfikatów
-Aby otrzymywać powiadomienia, gdy certyfikaty wkrótce wygasną, wykonaj następujące czynności:
+## <a name="get-notified-about-certificate-expiration"></a>Otrzymuj powiadomienia o wygaśnięciu certyfikatu
+Aby otrzymywać powiadomienia o zdarzeniach dotyczących okresu istnienia certyfikatu, należy dodać kontakt z certyfikatem. Kontakty certyfikatów zawierają informacje kontaktowe do wysyłania powiadomień wyzwalanych przez zdarzenia okresu istnienia certyfikatu. Informacje o kontaktach są współużytkowane przez wszystkie certyfikaty w magazynie kluczy. Powiadomienie zostanie wysłane do wszystkich określonych kontaktów dla zdarzenia dowolnego certyfikatu w magazynie kluczy.
 
-Najpierw Dodaj kontakt z certyfikatem do magazynu kluczy za pomocą polecenia cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)programu PowerShell.
+### <a name="steps-to-set-certificate-notifications"></a>Procedura ustawiania powiadomień dotyczących certyfikatów:
+Najpierw Dodaj kontakt z certyfikatem do magazynu kluczy. Możesz dodać za pomocą Azure Portal lub polecenia cmdlet programu PowerShell [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
 
 Następnie skonfiguruj, Kiedy chcesz otrzymywać powiadomienia o wygaśnięciu certyfikatu. Aby skonfigurować atrybuty cyklu życia certyfikatu, zobacz [Konfigurowanie autorotacji certyfikatów w Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+Jeśli zasada certyfikatu jest ustawiona na automatyczne odnawianie, zostanie wysłane powiadomienie dotyczące następujących zdarzeń.
+
+- Przed odnowieniem certyfikatu
+- Po odnowieniu certyfikatu, informując o tym, czy certyfikat został pomyślnie odnowiony, czy wystąpił błąd, wymagając ręcznego odnowienia certyfikatu.  
+
+  Gdy zasady certyfikatu ustawione do ręcznego odnawiania (tylko wiadomości e-mail), po chwili odnowienia certyfikatu zostanie wysłane powiadomienie.  
 
 W Key Vault istnieją trzy kategorie certyfikatów:
 -   Certyfikaty utworzone przy użyciu zintegrowanego urzędu certyfikacji (CA), takie jak DigiCert lub GlobalSign

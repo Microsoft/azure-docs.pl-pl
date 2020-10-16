@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206216"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123566"
 ---
 # <a name="what-is-azure-data-box"></a>Co to jest usługa Azure Data Box?
 
@@ -144,7 +144,7 @@ Urządzenie Data Box może transferować dane na podstawie regionu, w którym wd
 
 - **Dostępność usługi** — w przypadku używania urządzenie Data Box do importowania i eksportowania zamówień, aby uzyskać informacje na temat dostępności regionów, przejdź do pozycji [produkty platformy Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Funkcja eksportowania na urządzenie Data Box jest obecnie w wersji zapoznawczej. 
 
-    W przypadku zamówień importu urządzenie Data Box można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+    W przypadku zamówień importu urządzenie Data Box można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](../azure-government/documentation-government-welcome.md). 
 
 - **Docelowe konta magazynu** — konta magazynu przechowujące dane są dostępne we wszystkich regionach platformy Azure, w których usługa jest dostępna.
 
@@ -154,7 +154,3 @@ Urządzenie Data Box może transferować dane na podstawie regionu, w którym wd
 - Przejrzyj [wymagania systemowe usługi Data Box](data-box-system-requirements.md).
 - Poznaj [ograniczenia usługi Data Box](data-box-limits.md).
 - Szybko wdróż usługę [Azure Data Box](data-box-quickstart-portal.md) w witrynie Azure Portal.
-
-
-
-

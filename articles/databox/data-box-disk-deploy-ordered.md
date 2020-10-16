@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950945"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125273"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Samouczek: zamówienie Azure Data Box Disk
 
@@ -49,7 +49,7 @@ Przed rozpoczęciem upewnij się, że:
 Zaloguj się do:
 
 * Azure Portal pod tym adresem URL: https://portal.azure.com w celu uporządkowania Data Box Disk.
-* Lub Portal Azure Government pod tym adresem URL: https://portal.azure.us . Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* Lub Portal Azure Government pod tym adresem URL: https://portal.azure.us . Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
 Wykonaj następujące kroki, aby zamówić Data Box Disk.
 
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
     |Docelowy region platformy Azure| Wybierz region swojego konta magazynu.<br> Obecnie są obsługiwane konta magazynu we wszystkich regionach USA, regionach Europa Zachodnia i Europa Północna, Kanadzie i Australii. |
     |Szacowany rozmiar danych w terabajtach (TB)| Wprowadź szacowany rozmiar w TB. <br>W zależności od rozmiaru danych firma Microsoft wysyła odpowiednią liczbę dysków SSD o pojemności 8 TB (7 TB pojemności do wykorzystania). <br>Maksymalna pojemność do wykorzystania na 5 dyskach to maksymalnie 35 TB. |
     |Klucz dostępu dla dysków| Jeśli zaznaczono opcję **Użyj niestandardowego klucza dostępu zamiast tego wygenerowanego przez platformę Azure**, podaj klucz dostępu dla dysków. <br> Podaj 12 do 32-znak alfanumeryczny, który ma co najmniej jedną cyfrę i jeden znak specjalny. Dozwolone są następujące znaki specjalne: `@?_+`. <br> Tę opcję możesz pominąć i do odblokowywania dysków korzystać z klucza dostępu wygenerowanego przez platformę Azure.|
-    |Miejsce docelowe magazynu     | Wybierz konto magazynu, dyski zarządzane lub obie te opcje. <br> Na podstawie określonego regionu świadczenia usługi Azure wybierz konto magazynu z listy filtrowanej istniejącego konta magazynu. Data Box Disk można połączyć tylko z 1 kontem magazynu. <br> Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**. <br>Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz jak [dodać Azure Data Box jako zaufaną usługę](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
+    |Miejsce docelowe magazynu     | Wybierz konto magazynu, dyski zarządzane lub obie te opcje. <br> Na podstawie określonego regionu świadczenia usługi Azure wybierz konto magazynu z listy filtrowanej istniejącego konta magazynu. Data Box Disk można połączyć tylko z 1 kontem magazynu. <br> Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**. <br>Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz jak [dodać Azure Data Box jako zaufaną usługę](../storage/common/storage-network-security.md#exceptions).|
 
     Jeśli korzystasz z konta magazynu jako miejsca docelowego magazynu, zobaczysz następujący ekran:
 

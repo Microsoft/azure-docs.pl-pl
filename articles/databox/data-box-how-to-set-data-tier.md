@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84608727"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125068"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Używanie Azure Data Box lub Azure Data Box Heavy do wysyłania danych do odpowiedniej warstwy obiektów BLOB usługi Azure Storage
 
@@ -29,11 +29,11 @@ Usługa Azure Storage umożliwia korzystanie z trzech różnych warstw do przech
 
 Warstwa magazynowania chłodna jest dla rzadko używanych danych, które muszą być przechowywane przez co najmniej 30 dni. Koszt magazynu dla warstwy zimnej jest niższy niż warstwa magazynowania gorąca, ale opłaty za dostęp do danych są wysokie w porównaniu z warstwą gorącą.
 
-Warstwa usługi Azure Archive jest w trybie offline i oferuje najniższe koszty magazynowania, ale również najwyższe koszty dostępu. Ta warstwa jest przeznaczona dla danych, które pozostają w magazynie archiwalnym przez co najmniej 180 dni. Aby uzyskać szczegółowe informacje o każdej z tych warstw i modelu cen, przejdź do [porównania warstw magazynowania](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Warstwa usługi Azure Archive jest w trybie offline i oferuje najniższe koszty magazynowania, ale również najwyższe koszty dostępu. Ta warstwa jest przeznaczona dla danych, które pozostają w magazynie archiwalnym przez co najmniej 180 dni. Aby uzyskać szczegółowe informacje o każdej z tych warstw i modelu cen, przejdź do [porównania warstw magazynowania](../storage/blobs/storage-blob-storage-tiers.md).
 
 Dane z urządzenie Data Box lub Data Box Heavy są przekazywane do warstwy magazynowania skojarzonej z kontem magazynu. Podczas tworzenia konta magazynu można określić warstwę dostępu jako gorąca lub zimna. W zależności od wzorca dostępu do obciążenia i kosztu można przenieść te dane z warstwy domyślnej do innej warstwy magazynowania.
 
-Możesz tylko warstwy magazynu obiektów w usłudze BLOB Storage lub Ogólnego przeznaczenia v2 (GPv2). Konta ogólnego przeznaczenia w wersji 1 (GPv1) nie obsługują warstw. Aby wybrać poprawną warstwę magazynowania danych, zapoznaj się z zagadnieniami opisanymi w temacie [Azure Blob Storage: warstwy Premium, gorąca, chłodna i archiwalna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Możesz tylko warstwy magazynu obiektów w usłudze BLOB Storage lub Ogólnego przeznaczenia v2 (GPv2). Konta ogólnego przeznaczenia w wersji 1 (GPv1) nie obsługują warstw. Aby wybrać poprawną warstwę magazynowania danych, zapoznaj się z zagadnieniami opisanymi w temacie [Azure Blob Storage: warstwy Premium, gorąca, chłodna i archiwalna](../storage/blobs/storage-blob-storage-tiers.md).
 
 ## <a name="set-a-default-blob-tier"></a>Ustawianie domyślnej warstwy obiektów BLOB
 
@@ -41,13 +41,13 @@ Domyślna warstwa obiektów BLOB jest określana podczas tworzenia konta magazyn
 
 Nie można określić warstw, jeśli próbujesz utworzyć nowe konto podczas porządkowania urządzenie Data Box lub Data Box Heavy. Po utworzeniu konta można zmodyfikować konto w portalu, aby ustawić domyślną warstwę dostępu.
 
-Alternatywnie utworzysz konto magazynu z określonym atrybutem warstwy dostępu. Podczas tworzenia urządzenie Data Box lub zamówienia Data Box Heavy Wybierz istniejące konto magazynu. Aby uzyskać więcej informacji na temat sposobu ustawiania domyślnej warstwy obiektów BLOB podczas tworzenia konta magazynu, przejdź do obszaru [Tworzenie konta magazynu w Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Alternatywnie utworzysz konto magazynu z określonym atrybutem warstwy dostępu. Podczas tworzenia urządzenie Data Box lub zamówienia Data Box Heavy Wybierz istniejące konto magazynu. Aby uzyskać więcej informacji na temat sposobu ustawiania domyślnej warstwy obiektów BLOB podczas tworzenia konta magazynu, przejdź do obszaru [Tworzenie konta magazynu w Azure Portal](../storage/common/storage-account-create.md?tabs=portal).
 
 ## <a name="move-data-to-a-non-default-tier"></a>Przenoszenie danych do warstwy innej niż domyślna
 
 Po przekazaniu danych z urządzenia urządzenie Data Box do warstwy domyślnej można przenieść dane do warstwy innej niż domyślna. Istnieją dwa sposoby przenoszenia tych danych do warstwy innej niż domyślna.
 
-- **Zarządzanie cyklem życia usługi Azure Blob Storage** — możesz użyć podejścia opartego na zasadach, aby automatycznie warstwy lub wygasnąć po zakończeniu cyklu życia. Aby uzyskać więcej informacji, przejdź do [obszaru Zarządzanie cyklem życia usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Zarządzanie cyklem życia usługi Azure Blob Storage** — możesz użyć podejścia opartego na zasadach, aby automatycznie warstwy lub wygasnąć po zakończeniu cyklu życia. Aby uzyskać więcej informacji, przejdź do [obszaru Zarządzanie cyklem życia usługi Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md).
 - **Obsługa skryptów** — można użyć podejścia skryptowego za pośrednictwem Azure PowerShell, aby włączyć obsługę warstw na poziomie obiektów BLOB. Możesz wywołać operację, `SetBlobTier` Aby ustawić warstwę dla obiektu BLOB.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Użyj Azure PowerShell, aby ustawić warstwę obiektów BLOB
@@ -116,5 +116,4 @@ W poniższych krokach opisano, jak można ustawić warstwę obiektów BLOB do ar
 
 ## <a name="next-steps"></a>Następne kroki
 
--  Dowiedz się, jak rozwiązywać [typowe scenariusze dotyczące warstw danych przy użyciu reguł zasad cyklu życia](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
-
+-  Dowiedz się, jak rozwiązywać [typowe scenariusze dotyczące warstw danych przy użyciu reguł zasad cyklu życia](../storage/blobs/storage-lifecycle-management-concepts.md#examples)
