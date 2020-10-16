@@ -168,6 +168,7 @@
         - name: Przygotowywanie i wykonywanie zadań
           href: batch-job-prep-release.md
         - name: Równoczesne zadania węzła
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: Zależności zadań
           href: batch-task-dependencies.md

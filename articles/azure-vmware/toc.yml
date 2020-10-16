@@ -92,6 +92,10 @@
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Wdrażanie rozwiązania VMware Horizon
           href: azure-vmware-solution-horizon.md
+    - name: Ekosystem oprogramowania VMware
+      items:
+        - name: Rozwiązania do tworzenia kopii zapasowych maszyn wirtualnych
+          href: ecosystem-back-up-vms.md
 - name: Zasoby
   items:
     - name: Rozwiązywanie problemów

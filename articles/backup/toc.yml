@@ -386,7 +386,7 @@
       items:
         - name: Omówienie
           href: security-overview.md
-        - name: Kontrola dostępu oparta na rolach
+        - name: Kontrola dostępu na podstawie ról na platformie Azure
           href: backup-rbac-rs-vault.md
         - name: Usuwanie nietrwałe
           items:

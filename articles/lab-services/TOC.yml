@@ -65,7 +65,7 @@
             - name: Zarządzanie pulą maszyn wirtualnych
               href: how-to-manage-vm-pool-within-teams.md
             - name: Usuwanie laboratoriów
-              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+              href: how-to-delete-lab-within-teams.md
             - name: Harmonogramy i ustawienia
               href: how-to-create-schedules-within-teams.md
             - name: Uzyskiwanie dostępu do maszyny wirtualnej (widok ucznia)

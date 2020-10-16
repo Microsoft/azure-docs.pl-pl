@@ -40,7 +40,7 @@
     - name: Aprowizowanie wystąpienia usługi Azure Spring Cloud przy użyciu narzędzia Terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Ciągła integracja/ciągłe wdrażanie przy użyciu narzędzia Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Używanie tożsamości zarządzanej do łączenia usługi Key Vault z aplikacją Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Wdrażanie usługi Azure Spring Cloud w sieci wirtualnej
@@ -114,15 +114,15 @@
 - name: Dokumentacja
   items:
     - name: Wtyczka interfejsu wiersza polecenia platformy Azure
-      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+      href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
+      href: /powershell/module/az.springcloud
     - name: Zasoby
       href: spring-cloud-resources.md
     - name: Często zadawane pytania
       href: spring-cloud-faq.md
     - name: Dokumentacja interfejsu API REST
-      href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+      href: /rest/api/azurespringclould/
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
